@@ -44,6 +44,7 @@ __all__ = [
     'ServiceEndpointArtifactoryAuthenticationBasic',
     'ServiceEndpointArtifactoryAuthenticationToken',
     'ServiceEndpointAzureRMCredentials',
+    'ServiceEndpointAzureRMFeatures',
     'ServiceEndpointGitHubAuthOauth',
     'ServiceEndpointGitHubAuthPersonal',
     'ServiceEndpointGitHubEnterpriseAuthPersonal',
@@ -67,6 +68,8 @@ __all__ = [
     'ServiceendpointJfrogXrayV2AuthenticationToken',
     'ServiceendpointMavenAuthenticationBasic',
     'ServiceendpointMavenAuthenticationToken',
+    'ServicehookStorageQueuePipelinesRunStateChangedEvent',
+    'ServicehookStorageQueuePipelinesStageStateChangedEvent',
     'VariableGroupKeyVault',
     'VariableGroupVariable',
     'GetAreaChildrenResult',
@@ -89,6 +92,7 @@ __all__ = [
     'GetProjectsProjectResult',
     'GetRepositoriesRepositoryResult',
     'GetTeamsTeamResult',
+    'GetUsersFeaturesResult',
     'GetUsersUserResult',
     'GetVariableGroupKeyVaultResult',
     'GetVariableGroupVariableResult',
@@ -1389,7 +1393,7 @@ class BuildDefinitionFeature(dict):
         """
         :param bool skip_first_run: Trigger the pipeline to run after the creation. Defaults to `true`.
                
-               > **Note** The first run(`skip_first_run = false`) will only be triggered on create.
+               > **Note** The first run(`skip_first_run = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
         """
         if skip_first_run is not None:
             pulumi.set(__self__, "skip_first_run", skip_first_run)
@@ -1400,7 +1404,7 @@ class BuildDefinitionFeature(dict):
         """
         Trigger the pipeline to run after the creation. Defaults to `true`.
 
-        > **Note** The first run(`skip_first_run = false`) will only be triggered on create.
+        > **Note** The first run(`skip_first_run = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
         """
         return pulumi.get(self, "skip_first_run")
 
@@ -2522,6 +2526,25 @@ class ServiceEndpointAzureRMCredentials(dict):
 
 
 @pulumi.output_type
+class ServiceEndpointAzureRMFeatures(dict):
+    def __init__(__self__, *,
+                 validate: Optional[bool] = None):
+        """
+        :param bool validate: Whether or not to validate connection with Azure after create or update operations. Defaults to `false`
+        """
+        if validate is not None:
+            pulumi.set(__self__, "validate", validate)
+
+    @property
+    @pulumi.getter
+    def validate(self) -> Optional[bool]:
+        """
+        Whether or not to validate connection with Azure after create or update operations. Defaults to `false`
+        """
+        return pulumi.get(self, "validate")
+
+
+@pulumi.output_type
 class ServiceEndpointGitHubAuthOauth(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3429,6 +3452,148 @@ class ServiceendpointMavenAuthenticationToken(dict):
         Authentication Token generated through maven repository.
         """
         return pulumi.get(self, "token")
+
+
+@pulumi.output_type
+class ServicehookStorageQueuePipelinesRunStateChangedEvent(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pipelineId":
+            suggest = "pipeline_id"
+        elif key == "runResultFilter":
+            suggest = "run_result_filter"
+        elif key == "runStateFilter":
+            suggest = "run_state_filter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServicehookStorageQueuePipelinesRunStateChangedEvent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServicehookStorageQueuePipelinesRunStateChangedEvent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServicehookStorageQueuePipelinesRunStateChangedEvent.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pipeline_id: Optional[str] = None,
+                 run_result_filter: Optional[str] = None,
+                 run_state_filter: Optional[str] = None):
+        """
+        :param str pipeline_id: The pipeline ID that will generate an event. If not specified, all pipelines in the project will trigger the event.
+        :param str run_result_filter: Which run result should generate an event. Only valid if published_event is `RunStateChanged`. If not specified, all results will trigger the event.
+        :param str run_state_filter: Which run state should generate an event. Only valid if published_event is `RunStateChanged`. If not specified, all states will trigger the event.
+        """
+        if pipeline_id is not None:
+            pulumi.set(__self__, "pipeline_id", pipeline_id)
+        if run_result_filter is not None:
+            pulumi.set(__self__, "run_result_filter", run_result_filter)
+        if run_state_filter is not None:
+            pulumi.set(__self__, "run_state_filter", run_state_filter)
+
+    @property
+    @pulumi.getter(name="pipelineId")
+    def pipeline_id(self) -> Optional[str]:
+        """
+        The pipeline ID that will generate an event. If not specified, all pipelines in the project will trigger the event.
+        """
+        return pulumi.get(self, "pipeline_id")
+
+    @property
+    @pulumi.getter(name="runResultFilter")
+    def run_result_filter(self) -> Optional[str]:
+        """
+        Which run result should generate an event. Only valid if published_event is `RunStateChanged`. If not specified, all results will trigger the event.
+        """
+        return pulumi.get(self, "run_result_filter")
+
+    @property
+    @pulumi.getter(name="runStateFilter")
+    def run_state_filter(self) -> Optional[str]:
+        """
+        Which run state should generate an event. Only valid if published_event is `RunStateChanged`. If not specified, all states will trigger the event.
+        """
+        return pulumi.get(self, "run_state_filter")
+
+
+@pulumi.output_type
+class ServicehookStorageQueuePipelinesStageStateChangedEvent(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pipelineId":
+            suggest = "pipeline_id"
+        elif key == "stageName":
+            suggest = "stage_name"
+        elif key == "stageResultFilter":
+            suggest = "stage_result_filter"
+        elif key == "stageStateFilter":
+            suggest = "stage_state_filter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServicehookStorageQueuePipelinesStageStateChangedEvent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServicehookStorageQueuePipelinesStageStateChangedEvent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServicehookStorageQueuePipelinesStageStateChangedEvent.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pipeline_id: Optional[str] = None,
+                 stage_name: Optional[str] = None,
+                 stage_result_filter: Optional[str] = None,
+                 stage_state_filter: Optional[str] = None):
+        """
+        :param str pipeline_id: The pipeline ID that will generate an event.
+        :param str stage_name: Which stage should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all stages will trigger the event.
+        :param str stage_result_filter: Which stage result should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all results will trigger the event.
+        :param str stage_state_filter: Which stage state should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all states will trigger the event.
+        """
+        if pipeline_id is not None:
+            pulumi.set(__self__, "pipeline_id", pipeline_id)
+        if stage_name is not None:
+            pulumi.set(__self__, "stage_name", stage_name)
+        if stage_result_filter is not None:
+            pulumi.set(__self__, "stage_result_filter", stage_result_filter)
+        if stage_state_filter is not None:
+            pulumi.set(__self__, "stage_state_filter", stage_state_filter)
+
+    @property
+    @pulumi.getter(name="pipelineId")
+    def pipeline_id(self) -> Optional[str]:
+        """
+        The pipeline ID that will generate an event.
+        """
+        return pulumi.get(self, "pipeline_id")
+
+    @property
+    @pulumi.getter(name="stageName")
+    def stage_name(self) -> Optional[str]:
+        """
+        Which stage should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all stages will trigger the event.
+        """
+        return pulumi.get(self, "stage_name")
+
+    @property
+    @pulumi.getter(name="stageResultFilter")
+    def stage_result_filter(self) -> Optional[str]:
+        """
+        Which stage result should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all results will trigger the event.
+        """
+        return pulumi.get(self, "stage_result_filter")
+
+    @property
+    @pulumi.getter(name="stageStateFilter")
+    def stage_state_filter(self) -> Optional[str]:
+        """
+        Which stage state should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all states will trigger the event.
+        """
+        return pulumi.get(self, "stage_state_filter")
 
 
 @pulumi.output_type
@@ -4721,6 +4886,29 @@ class GetTeamsTeamResult(dict):
 
 
 @pulumi.output_type
+class GetUsersFeaturesResult(dict):
+    def __init__(__self__, *,
+                 concurrent_workers: Optional[int] = None):
+        """
+        :param int concurrent_workers: Number of workers to process user data concurrently.
+               
+               > **Note** Setting `concurrent_workers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
+        """
+        if concurrent_workers is not None:
+            pulumi.set(__self__, "concurrent_workers", concurrent_workers)
+
+    @property
+    @pulumi.getter(name="concurrentWorkers")
+    def concurrent_workers(self) -> Optional[int]:
+        """
+        Number of workers to process user data concurrently.
+
+        > **Note** Setting `concurrent_workers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
+        """
+        return pulumi.get(self, "concurrent_workers")
+
+
+@pulumi.output_type
 class GetUsersUserResult(dict):
     def __init__(__self__, *,
                  descriptor: str,
@@ -4738,20 +4926,6 @@ class GetUsersUserResult(dict):
         :param str origin: The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
         :param str principal_name: The PrincipalName of this graph member from the source provider.
         :param str origin_id: The unique identifier from the system of origin.
-               
-               DataSource without specifying any arguments will return all users inside an organization.
-               
-               List of possible subject types
-               
-               ```python
-               import pulumi
-               ```
-               
-               List of possible origins
-               
-               ```python
-               import pulumi
-               ```
         """
         pulumi.set(__self__, "descriptor", descriptor)
         pulumi.set(__self__, "display_name", display_name)
@@ -4815,20 +4989,6 @@ class GetUsersUserResult(dict):
     def origin_id(self) -> Optional[str]:
         """
         The unique identifier from the system of origin.
-
-        DataSource without specifying any arguments will return all users inside an organization.
-
-        List of possible subject types
-
-        ```python
-        import pulumi
-        ```
-
-        List of possible origins
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "origin_id")
 

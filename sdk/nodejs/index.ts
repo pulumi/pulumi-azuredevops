@@ -500,6 +500,11 @@ export type ServicehookPermissions = import("./servicehookPermissions").Serviceh
 export const ServicehookPermissions: typeof import("./servicehookPermissions").ServicehookPermissions = null as any;
 utilities.lazyLoad(exports, ["ServicehookPermissions"], () => require("./servicehookPermissions"));
 
+export { ServicehookStorageQueuePipelinesArgs, ServicehookStorageQueuePipelinesState } from "./servicehookStorageQueuePipelines";
+export type ServicehookStorageQueuePipelines = import("./servicehookStorageQueuePipelines").ServicehookStorageQueuePipelines;
+export const ServicehookStorageQueuePipelines: typeof import("./servicehookStorageQueuePipelines").ServicehookStorageQueuePipelines = null as any;
+utilities.lazyLoad(exports, ["ServicehookStorageQueuePipelines"], () => require("./servicehookStorageQueuePipelines"));
+
 export { TaggingPermissionsArgs, TaggingPermissionsState } from "./taggingPermissions";
 export type TaggingPermissions = import("./taggingPermissions").TaggingPermissions;
 export const TaggingPermissions: typeof import("./taggingPermissions").TaggingPermissions = null as any;
@@ -724,6 +729,8 @@ const _module = {
                 return new ServiceendpointPermissions(name, <any>undefined, { urn })
             case "azuredevops:index/servicehookPermissions:ServicehookPermissions":
                 return new ServicehookPermissions(name, <any>undefined, { urn })
+            case "azuredevops:index/servicehookStorageQueuePipelines:ServicehookStorageQueuePipelines":
+                return new ServicehookStorageQueuePipelines(name, <any>undefined, { urn })
             case "azuredevops:index/taggingPermissions:TaggingPermissions":
                 return new TaggingPermissions(name, <any>undefined, { urn })
             case "azuredevops:index/team:Team":
@@ -820,6 +827,7 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointNuget
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointOctopusdeploy", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointPermissions", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/servicehookPermissions", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/servicehookStorageQueuePipelines", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/taggingPermissions", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/team", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/teamAdministrators", _module)

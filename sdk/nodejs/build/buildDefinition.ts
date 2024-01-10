@@ -219,6 +219,10 @@ export class BuildDefinition extends pulumi.CustomResource {
      */
     public readonly pullRequestTrigger!: pulumi.Output<outputs.Build.BuildDefinitionPullRequestTrigger | undefined>;
     /**
+     * The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+     */
+    public readonly queueStatus!: pulumi.Output<string | undefined>;
+    /**
      * A `repository` block as documented below.
      */
     public readonly repository!: pulumi.Output<outputs.Build.BuildDefinitionRepository>;
@@ -259,6 +263,7 @@ export class BuildDefinition extends pulumi.CustomResource {
             resourceInputs["path"] = state ? state.path : undefined;
             resourceInputs["projectId"] = state ? state.projectId : undefined;
             resourceInputs["pullRequestTrigger"] = state ? state.pullRequestTrigger : undefined;
+            resourceInputs["queueStatus"] = state ? state.queueStatus : undefined;
             resourceInputs["repository"] = state ? state.repository : undefined;
             resourceInputs["revision"] = state ? state.revision : undefined;
             resourceInputs["schedules"] = state ? state.schedules : undefined;
@@ -279,6 +284,7 @@ export class BuildDefinition extends pulumi.CustomResource {
             resourceInputs["path"] = args ? args.path : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["pullRequestTrigger"] = args ? args.pullRequestTrigger : undefined;
+            resourceInputs["queueStatus"] = args ? args.queueStatus : undefined;
             resourceInputs["repository"] = args ? args.repository : undefined;
             resourceInputs["schedules"] = args ? args.schedules : undefined;
             resourceInputs["variableGroups"] = args ? args.variableGroups : undefined;
@@ -322,6 +328,10 @@ export interface BuildDefinitionState {
      * Pull Request Integration trigger.
      */
     pullRequestTrigger?: pulumi.Input<inputs.Build.BuildDefinitionPullRequestTrigger>;
+    /**
+     * The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+     */
+    queueStatus?: pulumi.Input<string>;
     /**
      * A `repository` block as documented below.
      */
@@ -373,6 +383,10 @@ export interface BuildDefinitionArgs {
      * Pull Request Integration trigger.
      */
     pullRequestTrigger?: pulumi.Input<inputs.Build.BuildDefinitionPullRequestTrigger>;
+    /**
+     * The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+     */
+    queueStatus?: pulumi.Input<string>;
     /**
      * A `repository` block as documented below.
      */

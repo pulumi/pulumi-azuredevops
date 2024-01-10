@@ -620,7 +620,7 @@ func (o BuildDefinitionCiTriggerOverridePathFilterArrayOutput) Index(i pulumi.In
 type BuildDefinitionFeature struct {
 	// Trigger the pipeline to run after the creation. Defaults to `true`.
 	//
-	// > **Note** The first run(`skipFirstRun = false`) will only be triggered on create.
+	// > **Note** The first run(`skipFirstRun = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
 	SkipFirstRun *bool `pulumi:"skipFirstRun"`
 }
 
@@ -638,7 +638,7 @@ type BuildDefinitionFeatureInput interface {
 type BuildDefinitionFeatureArgs struct {
 	// Trigger the pipeline to run after the creation. Defaults to `true`.
 	//
-	// > **Note** The first run(`skipFirstRun = false`) will only be triggered on create.
+	// > **Note** The first run(`skipFirstRun = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
 	SkipFirstRun pulumi.BoolPtrInput `pulumi:"skipFirstRun"`
 }
 
@@ -695,7 +695,7 @@ func (o BuildDefinitionFeatureOutput) ToBuildDefinitionFeatureOutputWithContext(
 
 // Trigger the pipeline to run after the creation. Defaults to `true`.
 //
-// > **Note** The first run(`skipFirstRun = false`) will only be triggered on create.
+// > **Note** The first run(`skipFirstRun = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
 func (o BuildDefinitionFeatureOutput) SkipFirstRun() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionFeature) *bool { return v.SkipFirstRun }).(pulumi.BoolPtrOutput)
 }

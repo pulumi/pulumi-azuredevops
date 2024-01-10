@@ -10,8 +10,32 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'GetUsersFeaturesResult',
     'GetUsersUserResult',
 ]
+
+@pulumi.output_type
+class GetUsersFeaturesResult(dict):
+    def __init__(__self__, *,
+                 concurrent_workers: Optional[int] = None):
+        """
+        :param int concurrent_workers: Number of workers to process user data concurrently.
+               
+               > **Note** Setting `concurrent_workers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
+        """
+        if concurrent_workers is not None:
+            pulumi.set(__self__, "concurrent_workers", concurrent_workers)
+
+    @property
+    @pulumi.getter(name="concurrentWorkers")
+    def concurrent_workers(self) -> Optional[int]:
+        """
+        Number of workers to process user data concurrently.
+
+        > **Note** Setting `concurrent_workers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
+        """
+        return pulumi.get(self, "concurrent_workers")
+
 
 @pulumi.output_type
 class GetUsersUserResult(dict):
@@ -31,20 +55,6 @@ class GetUsersUserResult(dict):
         :param str origin: The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
         :param str principal_name: The PrincipalName of this graph member from the source provider.
         :param str origin_id: The unique identifier from the system of origin.
-               
-               DataSource without specifying any arguments will return all users inside an organization.
-               
-               List of possible subject types
-               
-               ```python
-               import pulumi
-               ```
-               
-               List of possible origins
-               
-               ```python
-               import pulumi
-               ```
         """
         pulumi.set(__self__, "descriptor", descriptor)
         pulumi.set(__self__, "display_name", display_name)
@@ -108,20 +118,6 @@ class GetUsersUserResult(dict):
     def origin_id(self) -> Optional[str]:
         """
         The unique identifier from the system of origin.
-
-        DataSource without specifying any arguments will return all users inside an organization.
-
-        List of possible subject types
-
-        ```python
-        import pulumi
-        ```
-
-        List of possible origins
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "origin_id")
 

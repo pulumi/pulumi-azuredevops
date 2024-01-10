@@ -11,6 +11,7 @@ from .. import _utilities
 
 __all__ = [
     'AzureRMCredentials',
+    'AzureRMFeatures',
     'GitHubAuthOauth',
     'GitHubAuthPersonal',
     'KubernetesAzureSubscription',
@@ -46,6 +47,25 @@ class AzureRMCredentials(dict):
         The service principal secret. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
         """
         return pulumi.get(self, "serviceprincipalkey")
+
+
+@pulumi.output_type
+class AzureRMFeatures(dict):
+    def __init__(__self__, *,
+                 validate: Optional[bool] = None):
+        """
+        :param bool validate: Whether or not to validate connection with Azure after create or update operations. Defaults to `false`
+        """
+        if validate is not None:
+            pulumi.set(__self__, "validate", validate)
+
+    @property
+    @pulumi.getter
+    def validate(self) -> Optional[bool]:
+        """
+        Whether or not to validate connection with Azure after create or update operations. Defaults to `false`
+        """
+        return pulumi.get(self, "validate")
 
 
 @pulumi.output_type

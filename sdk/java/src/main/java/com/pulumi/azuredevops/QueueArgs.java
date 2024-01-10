@@ -9,6 +9,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
@@ -16,18 +18,41 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
     public static final QueueArgs Empty = new QueueArgs();
 
     /**
-     * The ID of the organization agent pool.
+     * The ID of the organization agent pool. Conflicts with `name`.
+     * 
+     * &gt; **NOTE:**
+     * One of `name` or `agent_pool_id` must be specified, but not both.
+     * When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
      * 
      */
-    @Import(name="agentPoolId", required=true)
-    private Output<Integer> agentPoolId;
+    @Import(name="agentPoolId")
+    private @Nullable Output<Integer> agentPoolId;
 
     /**
-     * @return The ID of the organization agent pool.
+     * @return The ID of the organization agent pool. Conflicts with `name`.
+     * 
+     * &gt; **NOTE:**
+     * One of `name` or `agent_pool_id` must be specified, but not both.
+     * When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
      * 
      */
-    public Output<Integer> agentPoolId() {
-        return this.agentPoolId;
+    public Optional<Output<Integer>> agentPoolId() {
+        return Optional.ofNullable(this.agentPoolId);
+    }
+
+    /**
+     * The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.
+     * 
+     */
+    @Import(name="name")
+    private @Nullable Output<String> name;
+
+    /**
+     * @return The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.
+     * 
+     */
+    public Optional<Output<String>> name() {
+        return Optional.ofNullable(this.name);
     }
 
     /**
@@ -49,6 +74,7 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
 
     private QueueArgs(QueueArgs $) {
         this.agentPoolId = $.agentPoolId;
+        this.name = $.name;
         this.projectId = $.projectId;
     }
 
@@ -71,24 +97,53 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param agentPoolId The ID of the organization agent pool.
+         * @param agentPoolId The ID of the organization agent pool. Conflicts with `name`.
+         * 
+         * &gt; **NOTE:**
+         * One of `name` or `agent_pool_id` must be specified, but not both.
+         * When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
          * 
          * @return builder
          * 
          */
-        public Builder agentPoolId(Output<Integer> agentPoolId) {
+        public Builder agentPoolId(@Nullable Output<Integer> agentPoolId) {
             $.agentPoolId = agentPoolId;
             return this;
         }
 
         /**
-         * @param agentPoolId The ID of the organization agent pool.
+         * @param agentPoolId The ID of the organization agent pool. Conflicts with `name`.
+         * 
+         * &gt; **NOTE:**
+         * One of `name` or `agent_pool_id` must be specified, but not both.
+         * When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
          * 
          * @return builder
          * 
          */
         public Builder agentPoolId(Integer agentPoolId) {
             return agentPoolId(Output.of(agentPoolId));
+        }
+
+        /**
+         * @param name The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(@Nullable Output<String> name) {
+            $.name = name;
+            return this;
+        }
+
+        /**
+         * @param name The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(String name) {
+            return name(Output.of(name));
         }
 
         /**
@@ -113,9 +168,6 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public QueueArgs build() {
-            if ($.agentPoolId == null) {
-                throw new MissingRequiredPropertyException("QueueArgs", "agentPoolId");
-            }
             if ($.projectId == null) {
                 throw new MissingRequiredPropertyException("QueueArgs", "projectId");
             }

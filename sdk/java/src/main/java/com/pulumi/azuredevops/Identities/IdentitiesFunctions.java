@@ -261,6 +261,7 @@ public final class IdentitiesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetUsersArgs;
+     * import com.pulumi.azuredevops.inputs.GetUsersFeaturesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -278,7 +279,11 @@ public final class IdentitiesFunctions {
      *             .principalName(&#34;contoso-user@contoso.onmicrosoft.com&#34;)
      *             .build());
      * 
-     *         final var example-all-users = AzuredevopsFunctions.getUsers();
+     *         final var example-all-users = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
+     *             .features(GetUsersFeaturesArgs.builder()
+     *                 .concurrentWorkers(10)
+     *                 .build())
+     *             .build());
      * 
      *         final var example-all-from-origin = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
      *             .origin(&#34;aad&#34;)
@@ -322,6 +327,7 @@ public final class IdentitiesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetUsersArgs;
+     * import com.pulumi.azuredevops.inputs.GetUsersFeaturesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -339,7 +345,11 @@ public final class IdentitiesFunctions {
      *             .principalName(&#34;contoso-user@contoso.onmicrosoft.com&#34;)
      *             .build());
      * 
-     *         final var example-all-users = AzuredevopsFunctions.getUsers();
+     *         final var example-all-users = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
+     *             .features(GetUsersFeaturesArgs.builder()
+     *                 .concurrentWorkers(10)
+     *                 .build())
+     *             .build());
      * 
      *         final var example-all-from-origin = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
      *             .origin(&#34;aad&#34;)
@@ -383,6 +393,7 @@ public final class IdentitiesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetUsersArgs;
+     * import com.pulumi.azuredevops.inputs.GetUsersFeaturesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -400,7 +411,11 @@ public final class IdentitiesFunctions {
      *             .principalName(&#34;contoso-user@contoso.onmicrosoft.com&#34;)
      *             .build());
      * 
-     *         final var example-all-users = AzuredevopsFunctions.getUsers();
+     *         final var example-all-users = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
+     *             .features(GetUsersFeaturesArgs.builder()
+     *                 .concurrentWorkers(10)
+     *                 .build())
+     *             .build());
      * 
      *         final var example-all-from-origin = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
      *             .origin(&#34;aad&#34;)
@@ -444,6 +459,7 @@ public final class IdentitiesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetUsersArgs;
+     * import com.pulumi.azuredevops.inputs.GetUsersFeaturesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -461,7 +477,11 @@ public final class IdentitiesFunctions {
      *             .principalName(&#34;contoso-user@contoso.onmicrosoft.com&#34;)
      *             .build());
      * 
-     *         final var example-all-users = AzuredevopsFunctions.getUsers();
+     *         final var example-all-users = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
+     *             .features(GetUsersFeaturesArgs.builder()
+     *                 .concurrentWorkers(10)
+     *                 .build())
+     *             .build());
      * 
      *         final var example-all-from-origin = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
      *             .origin(&#34;aad&#34;)
@@ -505,6 +525,7 @@ public final class IdentitiesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetUsersArgs;
+     * import com.pulumi.azuredevops.inputs.GetUsersFeaturesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -522,7 +543,11 @@ public final class IdentitiesFunctions {
      *             .principalName(&#34;contoso-user@contoso.onmicrosoft.com&#34;)
      *             .build());
      * 
-     *         final var example-all-users = AzuredevopsFunctions.getUsers();
+     *         final var example-all-users = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
+     *             .features(GetUsersFeaturesArgs.builder()
+     *                 .concurrentWorkers(10)
+     *                 .build())
+     *             .build());
      * 
      *         final var example-all-from-origin = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
      *             .origin(&#34;aad&#34;)
@@ -566,6 +591,7 @@ public final class IdentitiesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetUsersArgs;
+     * import com.pulumi.azuredevops.inputs.GetUsersFeaturesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -583,7 +609,11 @@ public final class IdentitiesFunctions {
      *             .principalName(&#34;contoso-user@contoso.onmicrosoft.com&#34;)
      *             .build());
      * 
-     *         final var example-all-users = AzuredevopsFunctions.getUsers();
+     *         final var example-all-users = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
+     *             .features(GetUsersFeaturesArgs.builder()
+     *                 .concurrentWorkers(10)
+     *                 .build())
+     *             .build());
      * 
      *         final var example-all-from-origin = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
      *             .origin(&#34;aad&#34;)

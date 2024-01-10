@@ -6,6 +6,7 @@ package com.pulumi.azuredevops.ServiceEndpoint;
 import com.pulumi.azuredevops.ServiceEndpoint.AzureRMArgs;
 import com.pulumi.azuredevops.ServiceEndpoint.inputs.AzureRMState;
 import com.pulumi.azuredevops.ServiceEndpoint.outputs.AzureRMCredentials;
+import com.pulumi.azuredevops.ServiceEndpoint.outputs.AzureRMFeatures;
 import com.pulumi.azuredevops.Utilities;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -466,6 +467,20 @@ public class AzureRM extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> environment() {
         return Codegen.optional(this.environment);
+    }
+    /**
+     * A `features` block.
+     * 
+     */
+    @Export(name="features", refs={AzureRMFeatures.class}, tree="[0]")
+    private Output</* @Nullable */ AzureRMFeatures> features;
+
+    /**
+     * @return A `features` block.
+     * 
+     */
+    public Output<Optional<AzureRMFeatures>> features() {
+        return Codegen.optional(this.features);
     }
     /**
      * The ID of the project.

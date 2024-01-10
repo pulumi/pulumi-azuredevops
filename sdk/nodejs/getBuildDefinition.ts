@@ -80,6 +80,10 @@ export interface GetBuildDefinitionResult {
      */
     readonly pullRequestTriggers: outputs.GetBuildDefinitionPullRequestTrigger[];
     /**
+     * The queue status of the build definition.
+     */
+    readonly queueStatus: string;
+    /**
      * A `repository` block as defined below.
      */
     readonly repositories: outputs.GetBuildDefinitionRepository[];

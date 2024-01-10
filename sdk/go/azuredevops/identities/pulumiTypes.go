@@ -13,6 +13,151 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type GetUsersFeatures struct {
+	// Number of workers to process user data concurrently.
+	//
+	// > **Note** Setting `concurrentWorkers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
+	ConcurrentWorkers *int `pulumi:"concurrentWorkers"`
+}
+
+// GetUsersFeaturesInput is an input type that accepts GetUsersFeaturesArgs and GetUsersFeaturesOutput values.
+// You can construct a concrete instance of `GetUsersFeaturesInput` via:
+//
+//	GetUsersFeaturesArgs{...}
+type GetUsersFeaturesInput interface {
+	pulumi.Input
+
+	ToGetUsersFeaturesOutput() GetUsersFeaturesOutput
+	ToGetUsersFeaturesOutputWithContext(context.Context) GetUsersFeaturesOutput
+}
+
+type GetUsersFeaturesArgs struct {
+	// Number of workers to process user data concurrently.
+	//
+	// > **Note** Setting `concurrentWorkers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
+	ConcurrentWorkers pulumi.IntPtrInput `pulumi:"concurrentWorkers"`
+}
+
+func (GetUsersFeaturesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUsersFeatures)(nil)).Elem()
+}
+
+func (i GetUsersFeaturesArgs) ToGetUsersFeaturesOutput() GetUsersFeaturesOutput {
+	return i.ToGetUsersFeaturesOutputWithContext(context.Background())
+}
+
+func (i GetUsersFeaturesArgs) ToGetUsersFeaturesOutputWithContext(ctx context.Context) GetUsersFeaturesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUsersFeaturesOutput)
+}
+
+func (i GetUsersFeaturesArgs) ToGetUsersFeaturesPtrOutput() GetUsersFeaturesPtrOutput {
+	return i.ToGetUsersFeaturesPtrOutputWithContext(context.Background())
+}
+
+func (i GetUsersFeaturesArgs) ToGetUsersFeaturesPtrOutputWithContext(ctx context.Context) GetUsersFeaturesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUsersFeaturesOutput).ToGetUsersFeaturesPtrOutputWithContext(ctx)
+}
+
+// GetUsersFeaturesPtrInput is an input type that accepts GetUsersFeaturesArgs, GetUsersFeaturesPtr and GetUsersFeaturesPtrOutput values.
+// You can construct a concrete instance of `GetUsersFeaturesPtrInput` via:
+//
+//	        GetUsersFeaturesArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetUsersFeaturesPtrInput interface {
+	pulumi.Input
+
+	ToGetUsersFeaturesPtrOutput() GetUsersFeaturesPtrOutput
+	ToGetUsersFeaturesPtrOutputWithContext(context.Context) GetUsersFeaturesPtrOutput
+}
+
+type getUsersFeaturesPtrType GetUsersFeaturesArgs
+
+func GetUsersFeaturesPtr(v *GetUsersFeaturesArgs) GetUsersFeaturesPtrInput {
+	return (*getUsersFeaturesPtrType)(v)
+}
+
+func (*getUsersFeaturesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetUsersFeatures)(nil)).Elem()
+}
+
+func (i *getUsersFeaturesPtrType) ToGetUsersFeaturesPtrOutput() GetUsersFeaturesPtrOutput {
+	return i.ToGetUsersFeaturesPtrOutputWithContext(context.Background())
+}
+
+func (i *getUsersFeaturesPtrType) ToGetUsersFeaturesPtrOutputWithContext(ctx context.Context) GetUsersFeaturesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUsersFeaturesPtrOutput)
+}
+
+type GetUsersFeaturesOutput struct{ *pulumi.OutputState }
+
+func (GetUsersFeaturesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUsersFeatures)(nil)).Elem()
+}
+
+func (o GetUsersFeaturesOutput) ToGetUsersFeaturesOutput() GetUsersFeaturesOutput {
+	return o
+}
+
+func (o GetUsersFeaturesOutput) ToGetUsersFeaturesOutputWithContext(ctx context.Context) GetUsersFeaturesOutput {
+	return o
+}
+
+func (o GetUsersFeaturesOutput) ToGetUsersFeaturesPtrOutput() GetUsersFeaturesPtrOutput {
+	return o.ToGetUsersFeaturesPtrOutputWithContext(context.Background())
+}
+
+func (o GetUsersFeaturesOutput) ToGetUsersFeaturesPtrOutputWithContext(ctx context.Context) GetUsersFeaturesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetUsersFeatures) *GetUsersFeatures {
+		return &v
+	}).(GetUsersFeaturesPtrOutput)
+}
+
+// Number of workers to process user data concurrently.
+//
+// > **Note** Setting `concurrentWorkers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
+func (o GetUsersFeaturesOutput) ConcurrentWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetUsersFeatures) *int { return v.ConcurrentWorkers }).(pulumi.IntPtrOutput)
+}
+
+type GetUsersFeaturesPtrOutput struct{ *pulumi.OutputState }
+
+func (GetUsersFeaturesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetUsersFeatures)(nil)).Elem()
+}
+
+func (o GetUsersFeaturesPtrOutput) ToGetUsersFeaturesPtrOutput() GetUsersFeaturesPtrOutput {
+	return o
+}
+
+func (o GetUsersFeaturesPtrOutput) ToGetUsersFeaturesPtrOutputWithContext(ctx context.Context) GetUsersFeaturesPtrOutput {
+	return o
+}
+
+func (o GetUsersFeaturesPtrOutput) Elem() GetUsersFeaturesOutput {
+	return o.ApplyT(func(v *GetUsersFeatures) GetUsersFeatures {
+		if v != nil {
+			return *v
+		}
+		var ret GetUsersFeatures
+		return ret
+	}).(GetUsersFeaturesOutput)
+}
+
+// Number of workers to process user data concurrently.
+//
+// > **Note** Setting `concurrentWorkers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
+func (o GetUsersFeaturesPtrOutput) ConcurrentWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetUsersFeatures) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ConcurrentWorkers
+	}).(pulumi.IntPtrOutput)
+}
+
 type GetUsersUser struct {
 	// The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
 	Descriptor string `pulumi:"descriptor"`
@@ -25,40 +170,6 @@ type GetUsersUser struct {
 	// The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
 	Origin string `pulumi:"origin"`
 	// The unique identifier from the system of origin.
-	//
-	// DataSource without specifying any arguments will return all users inside an organization.
-	//
-	// List of possible subject types
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	//
-	// List of possible origins
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	OriginId *string `pulumi:"originId"`
 	// The PrincipalName of this graph member from the source provider.
 	PrincipalName string `pulumi:"principalName"`
@@ -87,40 +198,6 @@ type GetUsersUserArgs struct {
 	// The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
 	Origin pulumi.StringInput `pulumi:"origin"`
 	// The unique identifier from the system of origin.
-	//
-	// DataSource without specifying any arguments will return all users inside an organization.
-	//
-	// List of possible subject types
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	//
-	// List of possible origins
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	OriginId pulumi.StringPtrInput `pulumi:"originId"`
 	// The PrincipalName of this graph member from the source provider.
 	PrincipalName pulumi.StringInput `pulumi:"principalName"`
@@ -203,46 +280,6 @@ func (o GetUsersUserOutput) Origin() pulumi.StringOutput {
 }
 
 // The unique identifier from the system of origin.
-//
-// DataSource without specifying any arguments will return all users inside an organization.
-//
-// # List of possible subject types
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// # List of possible origins
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o GetUsersUserOutput) OriginId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetUsersUser) *string { return v.OriginId }).(pulumi.StringPtrOutput)
 }
@@ -273,8 +310,12 @@ func (o GetUsersUserArrayOutput) Index(i pulumi.IntInput) GetUsersUserOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersFeaturesInput)(nil)).Elem(), GetUsersFeaturesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersFeaturesPtrInput)(nil)).Elem(), GetUsersFeaturesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
+	pulumi.RegisterOutputType(GetUsersFeaturesOutput{})
+	pulumi.RegisterOutputType(GetUsersFeaturesPtrOutput{})
 	pulumi.RegisterOutputType(GetUsersUserOutput{})
 	pulumi.RegisterOutputType(GetUsersUserArrayOutput{})
 }

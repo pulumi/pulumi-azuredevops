@@ -33,7 +33,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.GetUsers(ctx, nil, nil)
+//			_, err = azuredevops.GetUsers(ctx, &azuredevops.GetUsersArgs{
+//				Features: azuredevops.GetUsersFeatures{
+//					ConcurrentWorkers: pulumi.IntRef(10),
+//				},
+//			}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -81,9 +85,7 @@ func GetUsers(ctx *pulumi.Context, args *GetUsersArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getUsers.
 type GetUsersArgs struct {
-	// The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
-	Origin *string `pulumi:"origin"`
-	// The unique identifier from the system of origin.
+	// A `features` block as defined below.
 	//
 	// DataSource without specifying any arguments will return all users inside an organization.
 	//
@@ -118,6 +120,10 @@ type GetUsersArgs struct {
 	// 	})
 	// }
 	// ```
+	Features *GetUsersFeatures `pulumi:"features"`
+	// The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+	Origin *string `pulumi:"origin"`
+	// The unique identifier from the system of origin.
 	OriginId *string `pulumi:"originId"`
 	// The PrincipalName of this graph member from the source provider.
 	PrincipalName *string `pulumi:"principalName"`
@@ -127,6 +133,7 @@ type GetUsersArgs struct {
 
 // A collection of values returned by getUsers.
 type GetUsersResult struct {
+	Features *GetUsersFeatures `pulumi:"features"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The type of source provider for the origin identifier (ex:AD, AAD, MSA)
@@ -155,9 +162,7 @@ func GetUsersOutput(ctx *pulumi.Context, args GetUsersOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getUsers.
 type GetUsersOutputArgs struct {
-	// The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
-	Origin pulumi.StringPtrInput `pulumi:"origin"`
-	// The unique identifier from the system of origin.
+	// A `features` block as defined below.
 	//
 	// DataSource without specifying any arguments will return all users inside an organization.
 	//
@@ -192,6 +197,10 @@ type GetUsersOutputArgs struct {
 	// 	})
 	// }
 	// ```
+	Features GetUsersFeaturesPtrInput `pulumi:"features"`
+	// The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+	Origin pulumi.StringPtrInput `pulumi:"origin"`
+	// The unique identifier from the system of origin.
 	OriginId pulumi.StringPtrInput `pulumi:"originId"`
 	// The PrincipalName of this graph member from the source provider.
 	PrincipalName pulumi.StringPtrInput `pulumi:"principalName"`
@@ -216,6 +225,10 @@ func (o GetUsersResultOutput) ToGetUsersResultOutput() GetUsersResultOutput {
 
 func (o GetUsersResultOutput) ToGetUsersResultOutputWithContext(ctx context.Context) GetUsersResultOutput {
 	return o
+}
+
+func (o GetUsersResultOutput) Features() GetUsersFeaturesPtrOutput {
+	return o.ApplyT(func(v GetUsersResult) *GetUsersFeatures { return v.Features }).(GetUsersFeaturesPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

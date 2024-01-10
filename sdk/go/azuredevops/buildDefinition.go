@@ -245,6 +245,8 @@ type BuildDefinition struct {
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// Pull Request Integration trigger.
 	PullRequestTrigger BuildDefinitionPullRequestTriggerPtrOutput `pulumi:"pullRequestTrigger"`
+	// The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+	QueueStatus pulumi.StringPtrOutput `pulumi:"queueStatus"`
 	// A `repository` block as documented below.
 	Repository BuildDefinitionRepositoryOutput `pulumi:"repository"`
 	// The revision of the build definition
@@ -312,6 +314,8 @@ type buildDefinitionState struct {
 	ProjectId *string `pulumi:"projectId"`
 	// Pull Request Integration trigger.
 	PullRequestTrigger *BuildDefinitionPullRequestTrigger `pulumi:"pullRequestTrigger"`
+	// The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+	QueueStatus *string `pulumi:"queueStatus"`
 	// A `repository` block as documented below.
 	Repository *BuildDefinitionRepository `pulumi:"repository"`
 	// The revision of the build definition
@@ -338,6 +342,8 @@ type BuildDefinitionState struct {
 	ProjectId pulumi.StringPtrInput
 	// Pull Request Integration trigger.
 	PullRequestTrigger BuildDefinitionPullRequestTriggerPtrInput
+	// The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+	QueueStatus pulumi.StringPtrInput
 	// A `repository` block as documented below.
 	Repository BuildDefinitionRepositoryPtrInput
 	// The revision of the build definition
@@ -368,6 +374,8 @@ type buildDefinitionArgs struct {
 	ProjectId string `pulumi:"projectId"`
 	// Pull Request Integration trigger.
 	PullRequestTrigger *BuildDefinitionPullRequestTrigger `pulumi:"pullRequestTrigger"`
+	// The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+	QueueStatus *string `pulumi:"queueStatus"`
 	// A `repository` block as documented below.
 	Repository BuildDefinitionRepository `pulumi:"repository"`
 	Schedules  []BuildDefinitionSchedule `pulumi:"schedules"`
@@ -393,6 +401,8 @@ type BuildDefinitionArgs struct {
 	ProjectId pulumi.StringInput
 	// Pull Request Integration trigger.
 	PullRequestTrigger BuildDefinitionPullRequestTriggerPtrInput
+	// The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+	QueueStatus pulumi.StringPtrInput
 	// A `repository` block as documented below.
 	Repository BuildDefinitionRepositoryInput
 	Schedules  BuildDefinitionScheduleArrayInput
@@ -522,6 +532,11 @@ func (o BuildDefinitionOutput) ProjectId() pulumi.StringOutput {
 // Pull Request Integration trigger.
 func (o BuildDefinitionOutput) PullRequestTrigger() BuildDefinitionPullRequestTriggerPtrOutput {
 	return o.ApplyT(func(v *BuildDefinition) BuildDefinitionPullRequestTriggerPtrOutput { return v.PullRequestTrigger }).(BuildDefinitionPullRequestTriggerPtrOutput)
+}
+
+// The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+func (o BuildDefinitionOutput) QueueStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BuildDefinition) pulumi.StringPtrOutput { return v.QueueStatus }).(pulumi.StringPtrOutput)
 }
 
 // A `repository` block as documented below.

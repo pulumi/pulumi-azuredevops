@@ -151,6 +151,7 @@
         "serviceendpointOctopusdeploy.ts",
         "serviceendpointPermissions.ts",
         "servicehookPermissions.ts",
+        "servicehookStorageQueuePipelines.ts",
         "taggingPermissions.ts",
         "team.ts",
         "teamAdministrators.ts",

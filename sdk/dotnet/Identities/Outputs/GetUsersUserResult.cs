@@ -35,32 +35,6 @@ namespace Pulumi.AzureDevOps.Identities.Outputs
         public readonly string Origin;
         /// <summary>
         /// The unique identifier from the system of origin.
-        /// 
-        /// DataSource without specifying any arguments will return all users inside an organization.
-        /// 
-        /// List of possible subject types
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
-        /// 
-        /// List of possible origins
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         public readonly string? OriginId;
         /// <summary>

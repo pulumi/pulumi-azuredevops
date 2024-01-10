@@ -29,7 +29,11 @@ func LookupEnvironment(ctx *pulumi.Context, args *LookupEnvironmentArgs, opts ..
 // A collection of arguments for invoking getEnvironment.
 type LookupEnvironmentArgs struct {
 	// The ID of the Environment.
-	EnvironmentId int `pulumi:"environmentId"`
+	EnvironmentId *int `pulumi:"environmentId"`
+	// Name of the Environment.
+	//
+	// > **NOTE:** One of either `environmentId` or `name` must be specified.
+	Name *string `pulumi:"name"`
 	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 }
@@ -38,7 +42,7 @@ type LookupEnvironmentArgs struct {
 type LookupEnvironmentResult struct {
 	// A description for the Environment.
 	Description   string `pulumi:"description"`
-	EnvironmentId int    `pulumi:"environmentId"`
+	EnvironmentId *int   `pulumi:"environmentId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The name of the Environment.
@@ -62,7 +66,11 @@ func LookupEnvironmentOutput(ctx *pulumi.Context, args LookupEnvironmentOutputAr
 // A collection of arguments for invoking getEnvironment.
 type LookupEnvironmentOutputArgs struct {
 	// The ID of the Environment.
-	EnvironmentId pulumi.IntInput `pulumi:"environmentId"`
+	EnvironmentId pulumi.IntPtrInput `pulumi:"environmentId"`
+	// Name of the Environment.
+	//
+	// > **NOTE:** One of either `environmentId` or `name` must be specified.
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The ID of the project.
 	ProjectId pulumi.StringInput `pulumi:"projectId"`
 }
@@ -91,8 +99,8 @@ func (o LookupEnvironmentResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-func (o LookupEnvironmentResultOutput) EnvironmentId() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupEnvironmentResult) int { return v.EnvironmentId }).(pulumi.IntOutput)
+func (o LookupEnvironmentResultOutput) EnvironmentId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) *int { return v.EnvironmentId }).(pulumi.IntPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

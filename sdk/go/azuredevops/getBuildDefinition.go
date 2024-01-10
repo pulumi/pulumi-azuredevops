@@ -80,6 +80,8 @@ type LookupBuildDefinitionResult struct {
 	ProjectId string  `pulumi:"projectId"`
 	// A `pullRequestTrigger` block as defined below.
 	PullRequestTriggers []GetBuildDefinitionPullRequestTrigger `pulumi:"pullRequestTriggers"`
+	// The queue status of the build definition.
+	QueueStatus string `pulumi:"queueStatus"`
 	// A `repository` block as defined below.
 	Repositories []GetBuildDefinitionRepository `pulumi:"repositories"`
 	// The revision of the build definition.
@@ -167,6 +169,11 @@ func (o LookupBuildDefinitionResultOutput) PullRequestTriggers() GetBuildDefinit
 	return o.ApplyT(func(v LookupBuildDefinitionResult) []GetBuildDefinitionPullRequestTrigger {
 		return v.PullRequestTriggers
 	}).(GetBuildDefinitionPullRequestTriggerArrayOutput)
+}
+
+// The queue status of the build definition.
+func (o LookupBuildDefinitionResultOutput) QueueStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBuildDefinitionResult) string { return v.QueueStatus }).(pulumi.StringOutput)
 }
 
 // A `repository` block as defined below.

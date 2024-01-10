@@ -22,7 +22,7 @@ class GetBuildDefinitionResult:
     """
     A collection of values returned by getBuildDefinition.
     """
-    def __init__(__self__, agent_pool_name=None, ci_triggers=None, id=None, name=None, path=None, project_id=None, pull_request_triggers=None, repositories=None, revision=None, schedules=None, variable_groups=None, variables=None):
+    def __init__(__self__, agent_pool_name=None, ci_triggers=None, id=None, name=None, path=None, project_id=None, pull_request_triggers=None, queue_status=None, repositories=None, revision=None, schedules=None, variable_groups=None, variables=None):
         if agent_pool_name and not isinstance(agent_pool_name, str):
             raise TypeError("Expected argument 'agent_pool_name' to be a str")
         pulumi.set(__self__, "agent_pool_name", agent_pool_name)
@@ -44,6 +44,9 @@ class GetBuildDefinitionResult:
         if pull_request_triggers and not isinstance(pull_request_triggers, list):
             raise TypeError("Expected argument 'pull_request_triggers' to be a list")
         pulumi.set(__self__, "pull_request_triggers", pull_request_triggers)
+        if queue_status and not isinstance(queue_status, str):
+            raise TypeError("Expected argument 'queue_status' to be a str")
+        pulumi.set(__self__, "queue_status", queue_status)
         if repositories and not isinstance(repositories, list):
             raise TypeError("Expected argument 'repositories' to be a list")
         pulumi.set(__self__, "repositories", repositories)
@@ -111,6 +114,14 @@ class GetBuildDefinitionResult:
         return pulumi.get(self, "pull_request_triggers")
 
     @property
+    @pulumi.getter(name="queueStatus")
+    def queue_status(self) -> str:
+        """
+        The queue status of the build definition.
+        """
+        return pulumi.get(self, "queue_status")
+
+    @property
     @pulumi.getter
     def repositories(self) -> Sequence['outputs.GetBuildDefinitionRepositoryResult']:
         """
@@ -164,6 +175,7 @@ class AwaitableGetBuildDefinitionResult(GetBuildDefinitionResult):
             path=self.path,
             project_id=self.project_id,
             pull_request_triggers=self.pull_request_triggers,
+            queue_status=self.queue_status,
             repositories=self.repositories,
             revision=self.revision,
             schedules=self.schedules,
@@ -210,6 +222,7 @@ def get_build_definition(name: Optional[str] = None,
         path=pulumi.get(__ret__, 'path'),
         project_id=pulumi.get(__ret__, 'project_id'),
         pull_request_triggers=pulumi.get(__ret__, 'pull_request_triggers'),
+        queue_status=pulumi.get(__ret__, 'queue_status'),
         repositories=pulumi.get(__ret__, 'repositories'),
         revision=pulumi.get(__ret__, 'revision'),
         schedules=pulumi.get(__ret__, 'schedules'),

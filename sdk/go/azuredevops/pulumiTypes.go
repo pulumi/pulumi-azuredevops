@@ -2969,7 +2969,7 @@ func (o BuildDefinitionCiTriggerOverridePathFilterArrayOutput) Index(i pulumi.In
 type BuildDefinitionFeature struct {
 	// Trigger the pipeline to run after the creation. Defaults to `true`.
 	//
-	// > **Note** The first run(`skipFirstRun = false`) will only be triggered on create.
+	// > **Note** The first run(`skipFirstRun = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
 	SkipFirstRun *bool `pulumi:"skipFirstRun"`
 }
 
@@ -2987,7 +2987,7 @@ type BuildDefinitionFeatureInput interface {
 type BuildDefinitionFeatureArgs struct {
 	// Trigger the pipeline to run after the creation. Defaults to `true`.
 	//
-	// > **Note** The first run(`skipFirstRun = false`) will only be triggered on create.
+	// > **Note** The first run(`skipFirstRun = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
 	SkipFirstRun pulumi.BoolPtrInput `pulumi:"skipFirstRun"`
 }
 
@@ -3044,7 +3044,7 @@ func (o BuildDefinitionFeatureOutput) ToBuildDefinitionFeatureOutputWithContext(
 
 // Trigger the pipeline to run after the creation. Defaults to `true`.
 //
-// > **Note** The first run(`skipFirstRun = false`) will only be triggered on create.
+// > **Note** The first run(`skipFirstRun = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
 func (o BuildDefinitionFeatureOutput) SkipFirstRun() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionFeature) *bool { return v.SkipFirstRun }).(pulumi.BoolPtrOutput)
 }
@@ -5652,6 +5652,143 @@ func (o ServiceEndpointAzureRMCredentialsPtrOutput) Serviceprincipalkey() pulumi
 		}
 		return v.Serviceprincipalkey
 	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceEndpointAzureRMFeatures struct {
+	// Whether or not to validate connection with Azure after create or update operations. Defaults to `false`
+	Validate *bool `pulumi:"validate"`
+}
+
+// ServiceEndpointAzureRMFeaturesInput is an input type that accepts ServiceEndpointAzureRMFeaturesArgs and ServiceEndpointAzureRMFeaturesOutput values.
+// You can construct a concrete instance of `ServiceEndpointAzureRMFeaturesInput` via:
+//
+//	ServiceEndpointAzureRMFeaturesArgs{...}
+type ServiceEndpointAzureRMFeaturesInput interface {
+	pulumi.Input
+
+	ToServiceEndpointAzureRMFeaturesOutput() ServiceEndpointAzureRMFeaturesOutput
+	ToServiceEndpointAzureRMFeaturesOutputWithContext(context.Context) ServiceEndpointAzureRMFeaturesOutput
+}
+
+type ServiceEndpointAzureRMFeaturesArgs struct {
+	// Whether or not to validate connection with Azure after create or update operations. Defaults to `false`
+	Validate pulumi.BoolPtrInput `pulumi:"validate"`
+}
+
+func (ServiceEndpointAzureRMFeaturesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointAzureRMFeatures)(nil)).Elem()
+}
+
+func (i ServiceEndpointAzureRMFeaturesArgs) ToServiceEndpointAzureRMFeaturesOutput() ServiceEndpointAzureRMFeaturesOutput {
+	return i.ToServiceEndpointAzureRMFeaturesOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointAzureRMFeaturesArgs) ToServiceEndpointAzureRMFeaturesOutputWithContext(ctx context.Context) ServiceEndpointAzureRMFeaturesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAzureRMFeaturesOutput)
+}
+
+func (i ServiceEndpointAzureRMFeaturesArgs) ToServiceEndpointAzureRMFeaturesPtrOutput() ServiceEndpointAzureRMFeaturesPtrOutput {
+	return i.ToServiceEndpointAzureRMFeaturesPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointAzureRMFeaturesArgs) ToServiceEndpointAzureRMFeaturesPtrOutputWithContext(ctx context.Context) ServiceEndpointAzureRMFeaturesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAzureRMFeaturesOutput).ToServiceEndpointAzureRMFeaturesPtrOutputWithContext(ctx)
+}
+
+// ServiceEndpointAzureRMFeaturesPtrInput is an input type that accepts ServiceEndpointAzureRMFeaturesArgs, ServiceEndpointAzureRMFeaturesPtr and ServiceEndpointAzureRMFeaturesPtrOutput values.
+// You can construct a concrete instance of `ServiceEndpointAzureRMFeaturesPtrInput` via:
+//
+//	        ServiceEndpointAzureRMFeaturesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceEndpointAzureRMFeaturesPtrInput interface {
+	pulumi.Input
+
+	ToServiceEndpointAzureRMFeaturesPtrOutput() ServiceEndpointAzureRMFeaturesPtrOutput
+	ToServiceEndpointAzureRMFeaturesPtrOutputWithContext(context.Context) ServiceEndpointAzureRMFeaturesPtrOutput
+}
+
+type serviceEndpointAzureRMFeaturesPtrType ServiceEndpointAzureRMFeaturesArgs
+
+func ServiceEndpointAzureRMFeaturesPtr(v *ServiceEndpointAzureRMFeaturesArgs) ServiceEndpointAzureRMFeaturesPtrInput {
+	return (*serviceEndpointAzureRMFeaturesPtrType)(v)
+}
+
+func (*serviceEndpointAzureRMFeaturesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointAzureRMFeatures)(nil)).Elem()
+}
+
+func (i *serviceEndpointAzureRMFeaturesPtrType) ToServiceEndpointAzureRMFeaturesPtrOutput() ServiceEndpointAzureRMFeaturesPtrOutput {
+	return i.ToServiceEndpointAzureRMFeaturesPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceEndpointAzureRMFeaturesPtrType) ToServiceEndpointAzureRMFeaturesPtrOutputWithContext(ctx context.Context) ServiceEndpointAzureRMFeaturesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAzureRMFeaturesPtrOutput)
+}
+
+type ServiceEndpointAzureRMFeaturesOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointAzureRMFeaturesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointAzureRMFeatures)(nil)).Elem()
+}
+
+func (o ServiceEndpointAzureRMFeaturesOutput) ToServiceEndpointAzureRMFeaturesOutput() ServiceEndpointAzureRMFeaturesOutput {
+	return o
+}
+
+func (o ServiceEndpointAzureRMFeaturesOutput) ToServiceEndpointAzureRMFeaturesOutputWithContext(ctx context.Context) ServiceEndpointAzureRMFeaturesOutput {
+	return o
+}
+
+func (o ServiceEndpointAzureRMFeaturesOutput) ToServiceEndpointAzureRMFeaturesPtrOutput() ServiceEndpointAzureRMFeaturesPtrOutput {
+	return o.ToServiceEndpointAzureRMFeaturesPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceEndpointAzureRMFeaturesOutput) ToServiceEndpointAzureRMFeaturesPtrOutputWithContext(ctx context.Context) ServiceEndpointAzureRMFeaturesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEndpointAzureRMFeatures) *ServiceEndpointAzureRMFeatures {
+		return &v
+	}).(ServiceEndpointAzureRMFeaturesPtrOutput)
+}
+
+// Whether or not to validate connection with Azure after create or update operations. Defaults to `false`
+func (o ServiceEndpointAzureRMFeaturesOutput) Validate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointAzureRMFeatures) *bool { return v.Validate }).(pulumi.BoolPtrOutput)
+}
+
+type ServiceEndpointAzureRMFeaturesPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointAzureRMFeaturesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointAzureRMFeatures)(nil)).Elem()
+}
+
+func (o ServiceEndpointAzureRMFeaturesPtrOutput) ToServiceEndpointAzureRMFeaturesPtrOutput() ServiceEndpointAzureRMFeaturesPtrOutput {
+	return o
+}
+
+func (o ServiceEndpointAzureRMFeaturesPtrOutput) ToServiceEndpointAzureRMFeaturesPtrOutputWithContext(ctx context.Context) ServiceEndpointAzureRMFeaturesPtrOutput {
+	return o
+}
+
+func (o ServiceEndpointAzureRMFeaturesPtrOutput) Elem() ServiceEndpointAzureRMFeaturesOutput {
+	return o.ApplyT(func(v *ServiceEndpointAzureRMFeatures) ServiceEndpointAzureRMFeatures {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceEndpointAzureRMFeatures
+		return ret
+	}).(ServiceEndpointAzureRMFeaturesOutput)
+}
+
+// Whether or not to validate connection with Azure after create or update operations. Defaults to `false`
+func (o ServiceEndpointAzureRMFeaturesPtrOutput) Validate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointAzureRMFeatures) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Validate
+	}).(pulumi.BoolPtrOutput)
 }
 
 type ServiceEndpointGitHubAuthOauth struct {
@@ -9166,6 +9303,375 @@ func (o ServiceendpointMavenAuthenticationTokenPtrOutput) Token() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+type ServicehookStorageQueuePipelinesRunStateChangedEvent struct {
+	// The pipeline ID that will generate an event. If not specified, all pipelines in the project will trigger the event.
+	PipelineId *string `pulumi:"pipelineId"`
+	// Which run result should generate an event. Only valid if publishedEvent is `RunStateChanged`. If not specified, all results will trigger the event.
+	RunResultFilter *string `pulumi:"runResultFilter"`
+	// Which run state should generate an event. Only valid if publishedEvent is `RunStateChanged`. If not specified, all states will trigger the event.
+	RunStateFilter *string `pulumi:"runStateFilter"`
+}
+
+// ServicehookStorageQueuePipelinesRunStateChangedEventInput is an input type that accepts ServicehookStorageQueuePipelinesRunStateChangedEventArgs and ServicehookStorageQueuePipelinesRunStateChangedEventOutput values.
+// You can construct a concrete instance of `ServicehookStorageQueuePipelinesRunStateChangedEventInput` via:
+//
+//	ServicehookStorageQueuePipelinesRunStateChangedEventArgs{...}
+type ServicehookStorageQueuePipelinesRunStateChangedEventInput interface {
+	pulumi.Input
+
+	ToServicehookStorageQueuePipelinesRunStateChangedEventOutput() ServicehookStorageQueuePipelinesRunStateChangedEventOutput
+	ToServicehookStorageQueuePipelinesRunStateChangedEventOutputWithContext(context.Context) ServicehookStorageQueuePipelinesRunStateChangedEventOutput
+}
+
+type ServicehookStorageQueuePipelinesRunStateChangedEventArgs struct {
+	// The pipeline ID that will generate an event. If not specified, all pipelines in the project will trigger the event.
+	PipelineId pulumi.StringPtrInput `pulumi:"pipelineId"`
+	// Which run result should generate an event. Only valid if publishedEvent is `RunStateChanged`. If not specified, all results will trigger the event.
+	RunResultFilter pulumi.StringPtrInput `pulumi:"runResultFilter"`
+	// Which run state should generate an event. Only valid if publishedEvent is `RunStateChanged`. If not specified, all states will trigger the event.
+	RunStateFilter pulumi.StringPtrInput `pulumi:"runStateFilter"`
+}
+
+func (ServicehookStorageQueuePipelinesRunStateChangedEventArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookStorageQueuePipelinesRunStateChangedEvent)(nil)).Elem()
+}
+
+func (i ServicehookStorageQueuePipelinesRunStateChangedEventArgs) ToServicehookStorageQueuePipelinesRunStateChangedEventOutput() ServicehookStorageQueuePipelinesRunStateChangedEventOutput {
+	return i.ToServicehookStorageQueuePipelinesRunStateChangedEventOutputWithContext(context.Background())
+}
+
+func (i ServicehookStorageQueuePipelinesRunStateChangedEventArgs) ToServicehookStorageQueuePipelinesRunStateChangedEventOutputWithContext(ctx context.Context) ServicehookStorageQueuePipelinesRunStateChangedEventOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookStorageQueuePipelinesRunStateChangedEventOutput)
+}
+
+func (i ServicehookStorageQueuePipelinesRunStateChangedEventArgs) ToServicehookStorageQueuePipelinesRunStateChangedEventPtrOutput() ServicehookStorageQueuePipelinesRunStateChangedEventPtrOutput {
+	return i.ToServicehookStorageQueuePipelinesRunStateChangedEventPtrOutputWithContext(context.Background())
+}
+
+func (i ServicehookStorageQueuePipelinesRunStateChangedEventArgs) ToServicehookStorageQueuePipelinesRunStateChangedEventPtrOutputWithContext(ctx context.Context) ServicehookStorageQueuePipelinesRunStateChangedEventPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookStorageQueuePipelinesRunStateChangedEventOutput).ToServicehookStorageQueuePipelinesRunStateChangedEventPtrOutputWithContext(ctx)
+}
+
+// ServicehookStorageQueuePipelinesRunStateChangedEventPtrInput is an input type that accepts ServicehookStorageQueuePipelinesRunStateChangedEventArgs, ServicehookStorageQueuePipelinesRunStateChangedEventPtr and ServicehookStorageQueuePipelinesRunStateChangedEventPtrOutput values.
+// You can construct a concrete instance of `ServicehookStorageQueuePipelinesRunStateChangedEventPtrInput` via:
+//
+//	        ServicehookStorageQueuePipelinesRunStateChangedEventArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServicehookStorageQueuePipelinesRunStateChangedEventPtrInput interface {
+	pulumi.Input
+
+	ToServicehookStorageQueuePipelinesRunStateChangedEventPtrOutput() ServicehookStorageQueuePipelinesRunStateChangedEventPtrOutput
+	ToServicehookStorageQueuePipelinesRunStateChangedEventPtrOutputWithContext(context.Context) ServicehookStorageQueuePipelinesRunStateChangedEventPtrOutput
+}
+
+type servicehookStorageQueuePipelinesRunStateChangedEventPtrType ServicehookStorageQueuePipelinesRunStateChangedEventArgs
+
+func ServicehookStorageQueuePipelinesRunStateChangedEventPtr(v *ServicehookStorageQueuePipelinesRunStateChangedEventArgs) ServicehookStorageQueuePipelinesRunStateChangedEventPtrInput {
+	return (*servicehookStorageQueuePipelinesRunStateChangedEventPtrType)(v)
+}
+
+func (*servicehookStorageQueuePipelinesRunStateChangedEventPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookStorageQueuePipelinesRunStateChangedEvent)(nil)).Elem()
+}
+
+func (i *servicehookStorageQueuePipelinesRunStateChangedEventPtrType) ToServicehookStorageQueuePipelinesRunStateChangedEventPtrOutput() ServicehookStorageQueuePipelinesRunStateChangedEventPtrOutput {
+	return i.ToServicehookStorageQueuePipelinesRunStateChangedEventPtrOutputWithContext(context.Background())
+}
+
+func (i *servicehookStorageQueuePipelinesRunStateChangedEventPtrType) ToServicehookStorageQueuePipelinesRunStateChangedEventPtrOutputWithContext(ctx context.Context) ServicehookStorageQueuePipelinesRunStateChangedEventPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookStorageQueuePipelinesRunStateChangedEventPtrOutput)
+}
+
+type ServicehookStorageQueuePipelinesRunStateChangedEventOutput struct{ *pulumi.OutputState }
+
+func (ServicehookStorageQueuePipelinesRunStateChangedEventOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookStorageQueuePipelinesRunStateChangedEvent)(nil)).Elem()
+}
+
+func (o ServicehookStorageQueuePipelinesRunStateChangedEventOutput) ToServicehookStorageQueuePipelinesRunStateChangedEventOutput() ServicehookStorageQueuePipelinesRunStateChangedEventOutput {
+	return o
+}
+
+func (o ServicehookStorageQueuePipelinesRunStateChangedEventOutput) ToServicehookStorageQueuePipelinesRunStateChangedEventOutputWithContext(ctx context.Context) ServicehookStorageQueuePipelinesRunStateChangedEventOutput {
+	return o
+}
+
+func (o ServicehookStorageQueuePipelinesRunStateChangedEventOutput) ToServicehookStorageQueuePipelinesRunStateChangedEventPtrOutput() ServicehookStorageQueuePipelinesRunStateChangedEventPtrOutput {
+	return o.ToServicehookStorageQueuePipelinesRunStateChangedEventPtrOutputWithContext(context.Background())
+}
+
+func (o ServicehookStorageQueuePipelinesRunStateChangedEventOutput) ToServicehookStorageQueuePipelinesRunStateChangedEventPtrOutputWithContext(ctx context.Context) ServicehookStorageQueuePipelinesRunStateChangedEventPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicehookStorageQueuePipelinesRunStateChangedEvent) *ServicehookStorageQueuePipelinesRunStateChangedEvent {
+		return &v
+	}).(ServicehookStorageQueuePipelinesRunStateChangedEventPtrOutput)
+}
+
+// The pipeline ID that will generate an event. If not specified, all pipelines in the project will trigger the event.
+func (o ServicehookStorageQueuePipelinesRunStateChangedEventOutput) PipelineId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookStorageQueuePipelinesRunStateChangedEvent) *string { return v.PipelineId }).(pulumi.StringPtrOutput)
+}
+
+// Which run result should generate an event. Only valid if publishedEvent is `RunStateChanged`. If not specified, all results will trigger the event.
+func (o ServicehookStorageQueuePipelinesRunStateChangedEventOutput) RunResultFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookStorageQueuePipelinesRunStateChangedEvent) *string { return v.RunResultFilter }).(pulumi.StringPtrOutput)
+}
+
+// Which run state should generate an event. Only valid if publishedEvent is `RunStateChanged`. If not specified, all states will trigger the event.
+func (o ServicehookStorageQueuePipelinesRunStateChangedEventOutput) RunStateFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookStorageQueuePipelinesRunStateChangedEvent) *string { return v.RunStateFilter }).(pulumi.StringPtrOutput)
+}
+
+type ServicehookStorageQueuePipelinesRunStateChangedEventPtrOutput struct{ *pulumi.OutputState }
+
+func (ServicehookStorageQueuePipelinesRunStateChangedEventPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookStorageQueuePipelinesRunStateChangedEvent)(nil)).Elem()
+}
+
+func (o ServicehookStorageQueuePipelinesRunStateChangedEventPtrOutput) ToServicehookStorageQueuePipelinesRunStateChangedEventPtrOutput() ServicehookStorageQueuePipelinesRunStateChangedEventPtrOutput {
+	return o
+}
+
+func (o ServicehookStorageQueuePipelinesRunStateChangedEventPtrOutput) ToServicehookStorageQueuePipelinesRunStateChangedEventPtrOutputWithContext(ctx context.Context) ServicehookStorageQueuePipelinesRunStateChangedEventPtrOutput {
+	return o
+}
+
+func (o ServicehookStorageQueuePipelinesRunStateChangedEventPtrOutput) Elem() ServicehookStorageQueuePipelinesRunStateChangedEventOutput {
+	return o.ApplyT(func(v *ServicehookStorageQueuePipelinesRunStateChangedEvent) ServicehookStorageQueuePipelinesRunStateChangedEvent {
+		if v != nil {
+			return *v
+		}
+		var ret ServicehookStorageQueuePipelinesRunStateChangedEvent
+		return ret
+	}).(ServicehookStorageQueuePipelinesRunStateChangedEventOutput)
+}
+
+// The pipeline ID that will generate an event. If not specified, all pipelines in the project will trigger the event.
+func (o ServicehookStorageQueuePipelinesRunStateChangedEventPtrOutput) PipelineId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookStorageQueuePipelinesRunStateChangedEvent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PipelineId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Which run result should generate an event. Only valid if publishedEvent is `RunStateChanged`. If not specified, all results will trigger the event.
+func (o ServicehookStorageQueuePipelinesRunStateChangedEventPtrOutput) RunResultFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookStorageQueuePipelinesRunStateChangedEvent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RunResultFilter
+	}).(pulumi.StringPtrOutput)
+}
+
+// Which run state should generate an event. Only valid if publishedEvent is `RunStateChanged`. If not specified, all states will trigger the event.
+func (o ServicehookStorageQueuePipelinesRunStateChangedEventPtrOutput) RunStateFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookStorageQueuePipelinesRunStateChangedEvent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RunStateFilter
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServicehookStorageQueuePipelinesStageStateChangedEvent struct {
+	// The pipeline ID that will generate an event.
+	PipelineId *string `pulumi:"pipelineId"`
+	// Which stage should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all stages will trigger the event.
+	StageName *string `pulumi:"stageName"`
+	// Which stage result should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all results will trigger the event.
+	StageResultFilter *string `pulumi:"stageResultFilter"`
+	// Which stage state should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all states will trigger the event.
+	StageStateFilter *string `pulumi:"stageStateFilter"`
+}
+
+// ServicehookStorageQueuePipelinesStageStateChangedEventInput is an input type that accepts ServicehookStorageQueuePipelinesStageStateChangedEventArgs and ServicehookStorageQueuePipelinesStageStateChangedEventOutput values.
+// You can construct a concrete instance of `ServicehookStorageQueuePipelinesStageStateChangedEventInput` via:
+//
+//	ServicehookStorageQueuePipelinesStageStateChangedEventArgs{...}
+type ServicehookStorageQueuePipelinesStageStateChangedEventInput interface {
+	pulumi.Input
+
+	ToServicehookStorageQueuePipelinesStageStateChangedEventOutput() ServicehookStorageQueuePipelinesStageStateChangedEventOutput
+	ToServicehookStorageQueuePipelinesStageStateChangedEventOutputWithContext(context.Context) ServicehookStorageQueuePipelinesStageStateChangedEventOutput
+}
+
+type ServicehookStorageQueuePipelinesStageStateChangedEventArgs struct {
+	// The pipeline ID that will generate an event.
+	PipelineId pulumi.StringPtrInput `pulumi:"pipelineId"`
+	// Which stage should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all stages will trigger the event.
+	StageName pulumi.StringPtrInput `pulumi:"stageName"`
+	// Which stage result should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all results will trigger the event.
+	StageResultFilter pulumi.StringPtrInput `pulumi:"stageResultFilter"`
+	// Which stage state should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all states will trigger the event.
+	StageStateFilter pulumi.StringPtrInput `pulumi:"stageStateFilter"`
+}
+
+func (ServicehookStorageQueuePipelinesStageStateChangedEventArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookStorageQueuePipelinesStageStateChangedEvent)(nil)).Elem()
+}
+
+func (i ServicehookStorageQueuePipelinesStageStateChangedEventArgs) ToServicehookStorageQueuePipelinesStageStateChangedEventOutput() ServicehookStorageQueuePipelinesStageStateChangedEventOutput {
+	return i.ToServicehookStorageQueuePipelinesStageStateChangedEventOutputWithContext(context.Background())
+}
+
+func (i ServicehookStorageQueuePipelinesStageStateChangedEventArgs) ToServicehookStorageQueuePipelinesStageStateChangedEventOutputWithContext(ctx context.Context) ServicehookStorageQueuePipelinesStageStateChangedEventOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookStorageQueuePipelinesStageStateChangedEventOutput)
+}
+
+func (i ServicehookStorageQueuePipelinesStageStateChangedEventArgs) ToServicehookStorageQueuePipelinesStageStateChangedEventPtrOutput() ServicehookStorageQueuePipelinesStageStateChangedEventPtrOutput {
+	return i.ToServicehookStorageQueuePipelinesStageStateChangedEventPtrOutputWithContext(context.Background())
+}
+
+func (i ServicehookStorageQueuePipelinesStageStateChangedEventArgs) ToServicehookStorageQueuePipelinesStageStateChangedEventPtrOutputWithContext(ctx context.Context) ServicehookStorageQueuePipelinesStageStateChangedEventPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookStorageQueuePipelinesStageStateChangedEventOutput).ToServicehookStorageQueuePipelinesStageStateChangedEventPtrOutputWithContext(ctx)
+}
+
+// ServicehookStorageQueuePipelinesStageStateChangedEventPtrInput is an input type that accepts ServicehookStorageQueuePipelinesStageStateChangedEventArgs, ServicehookStorageQueuePipelinesStageStateChangedEventPtr and ServicehookStorageQueuePipelinesStageStateChangedEventPtrOutput values.
+// You can construct a concrete instance of `ServicehookStorageQueuePipelinesStageStateChangedEventPtrInput` via:
+//
+//	        ServicehookStorageQueuePipelinesStageStateChangedEventArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServicehookStorageQueuePipelinesStageStateChangedEventPtrInput interface {
+	pulumi.Input
+
+	ToServicehookStorageQueuePipelinesStageStateChangedEventPtrOutput() ServicehookStorageQueuePipelinesStageStateChangedEventPtrOutput
+	ToServicehookStorageQueuePipelinesStageStateChangedEventPtrOutputWithContext(context.Context) ServicehookStorageQueuePipelinesStageStateChangedEventPtrOutput
+}
+
+type servicehookStorageQueuePipelinesStageStateChangedEventPtrType ServicehookStorageQueuePipelinesStageStateChangedEventArgs
+
+func ServicehookStorageQueuePipelinesStageStateChangedEventPtr(v *ServicehookStorageQueuePipelinesStageStateChangedEventArgs) ServicehookStorageQueuePipelinesStageStateChangedEventPtrInput {
+	return (*servicehookStorageQueuePipelinesStageStateChangedEventPtrType)(v)
+}
+
+func (*servicehookStorageQueuePipelinesStageStateChangedEventPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookStorageQueuePipelinesStageStateChangedEvent)(nil)).Elem()
+}
+
+func (i *servicehookStorageQueuePipelinesStageStateChangedEventPtrType) ToServicehookStorageQueuePipelinesStageStateChangedEventPtrOutput() ServicehookStorageQueuePipelinesStageStateChangedEventPtrOutput {
+	return i.ToServicehookStorageQueuePipelinesStageStateChangedEventPtrOutputWithContext(context.Background())
+}
+
+func (i *servicehookStorageQueuePipelinesStageStateChangedEventPtrType) ToServicehookStorageQueuePipelinesStageStateChangedEventPtrOutputWithContext(ctx context.Context) ServicehookStorageQueuePipelinesStageStateChangedEventPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookStorageQueuePipelinesStageStateChangedEventPtrOutput)
+}
+
+type ServicehookStorageQueuePipelinesStageStateChangedEventOutput struct{ *pulumi.OutputState }
+
+func (ServicehookStorageQueuePipelinesStageStateChangedEventOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookStorageQueuePipelinesStageStateChangedEvent)(nil)).Elem()
+}
+
+func (o ServicehookStorageQueuePipelinesStageStateChangedEventOutput) ToServicehookStorageQueuePipelinesStageStateChangedEventOutput() ServicehookStorageQueuePipelinesStageStateChangedEventOutput {
+	return o
+}
+
+func (o ServicehookStorageQueuePipelinesStageStateChangedEventOutput) ToServicehookStorageQueuePipelinesStageStateChangedEventOutputWithContext(ctx context.Context) ServicehookStorageQueuePipelinesStageStateChangedEventOutput {
+	return o
+}
+
+func (o ServicehookStorageQueuePipelinesStageStateChangedEventOutput) ToServicehookStorageQueuePipelinesStageStateChangedEventPtrOutput() ServicehookStorageQueuePipelinesStageStateChangedEventPtrOutput {
+	return o.ToServicehookStorageQueuePipelinesStageStateChangedEventPtrOutputWithContext(context.Background())
+}
+
+func (o ServicehookStorageQueuePipelinesStageStateChangedEventOutput) ToServicehookStorageQueuePipelinesStageStateChangedEventPtrOutputWithContext(ctx context.Context) ServicehookStorageQueuePipelinesStageStateChangedEventPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicehookStorageQueuePipelinesStageStateChangedEvent) *ServicehookStorageQueuePipelinesStageStateChangedEvent {
+		return &v
+	}).(ServicehookStorageQueuePipelinesStageStateChangedEventPtrOutput)
+}
+
+// The pipeline ID that will generate an event.
+func (o ServicehookStorageQueuePipelinesStageStateChangedEventOutput) PipelineId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookStorageQueuePipelinesStageStateChangedEvent) *string { return v.PipelineId }).(pulumi.StringPtrOutput)
+}
+
+// Which stage should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all stages will trigger the event.
+func (o ServicehookStorageQueuePipelinesStageStateChangedEventOutput) StageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookStorageQueuePipelinesStageStateChangedEvent) *string { return v.StageName }).(pulumi.StringPtrOutput)
+}
+
+// Which stage result should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all results will trigger the event.
+func (o ServicehookStorageQueuePipelinesStageStateChangedEventOutput) StageResultFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookStorageQueuePipelinesStageStateChangedEvent) *string { return v.StageResultFilter }).(pulumi.StringPtrOutput)
+}
+
+// Which stage state should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all states will trigger the event.
+func (o ServicehookStorageQueuePipelinesStageStateChangedEventOutput) StageStateFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookStorageQueuePipelinesStageStateChangedEvent) *string { return v.StageStateFilter }).(pulumi.StringPtrOutput)
+}
+
+type ServicehookStorageQueuePipelinesStageStateChangedEventPtrOutput struct{ *pulumi.OutputState }
+
+func (ServicehookStorageQueuePipelinesStageStateChangedEventPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookStorageQueuePipelinesStageStateChangedEvent)(nil)).Elem()
+}
+
+func (o ServicehookStorageQueuePipelinesStageStateChangedEventPtrOutput) ToServicehookStorageQueuePipelinesStageStateChangedEventPtrOutput() ServicehookStorageQueuePipelinesStageStateChangedEventPtrOutput {
+	return o
+}
+
+func (o ServicehookStorageQueuePipelinesStageStateChangedEventPtrOutput) ToServicehookStorageQueuePipelinesStageStateChangedEventPtrOutputWithContext(ctx context.Context) ServicehookStorageQueuePipelinesStageStateChangedEventPtrOutput {
+	return o
+}
+
+func (o ServicehookStorageQueuePipelinesStageStateChangedEventPtrOutput) Elem() ServicehookStorageQueuePipelinesStageStateChangedEventOutput {
+	return o.ApplyT(func(v *ServicehookStorageQueuePipelinesStageStateChangedEvent) ServicehookStorageQueuePipelinesStageStateChangedEvent {
+		if v != nil {
+			return *v
+		}
+		var ret ServicehookStorageQueuePipelinesStageStateChangedEvent
+		return ret
+	}).(ServicehookStorageQueuePipelinesStageStateChangedEventOutput)
+}
+
+// The pipeline ID that will generate an event.
+func (o ServicehookStorageQueuePipelinesStageStateChangedEventPtrOutput) PipelineId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookStorageQueuePipelinesStageStateChangedEvent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PipelineId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Which stage should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all stages will trigger the event.
+func (o ServicehookStorageQueuePipelinesStageStateChangedEventPtrOutput) StageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookStorageQueuePipelinesStageStateChangedEvent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StageName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Which stage result should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all results will trigger the event.
+func (o ServicehookStorageQueuePipelinesStageStateChangedEventPtrOutput) StageResultFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookStorageQueuePipelinesStageStateChangedEvent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StageResultFilter
+	}).(pulumi.StringPtrOutput)
+}
+
+// Which stage state should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all states will trigger the event.
+func (o ServicehookStorageQueuePipelinesStageStateChangedEventPtrOutput) StageStateFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookStorageQueuePipelinesStageStateChangedEvent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StageStateFilter
+	}).(pulumi.StringPtrOutput)
+}
+
 type VariableGroupKeyVault struct {
 	// The name of the Azure key vault to link secrets from as variables.
 	Name string `pulumi:"name"`
@@ -12065,6 +12571,151 @@ func (o GetTeamsTeamArrayOutput) Index(i pulumi.IntInput) GetTeamsTeamOutput {
 	}).(GetTeamsTeamOutput)
 }
 
+type GetUsersFeatures struct {
+	// Number of workers to process user data concurrently.
+	//
+	// > **Note** Setting `concurrentWorkers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
+	ConcurrentWorkers *int `pulumi:"concurrentWorkers"`
+}
+
+// GetUsersFeaturesInput is an input type that accepts GetUsersFeaturesArgs and GetUsersFeaturesOutput values.
+// You can construct a concrete instance of `GetUsersFeaturesInput` via:
+//
+//	GetUsersFeaturesArgs{...}
+type GetUsersFeaturesInput interface {
+	pulumi.Input
+
+	ToGetUsersFeaturesOutput() GetUsersFeaturesOutput
+	ToGetUsersFeaturesOutputWithContext(context.Context) GetUsersFeaturesOutput
+}
+
+type GetUsersFeaturesArgs struct {
+	// Number of workers to process user data concurrently.
+	//
+	// > **Note** Setting `concurrentWorkers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
+	ConcurrentWorkers pulumi.IntPtrInput `pulumi:"concurrentWorkers"`
+}
+
+func (GetUsersFeaturesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUsersFeatures)(nil)).Elem()
+}
+
+func (i GetUsersFeaturesArgs) ToGetUsersFeaturesOutput() GetUsersFeaturesOutput {
+	return i.ToGetUsersFeaturesOutputWithContext(context.Background())
+}
+
+func (i GetUsersFeaturesArgs) ToGetUsersFeaturesOutputWithContext(ctx context.Context) GetUsersFeaturesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUsersFeaturesOutput)
+}
+
+func (i GetUsersFeaturesArgs) ToGetUsersFeaturesPtrOutput() GetUsersFeaturesPtrOutput {
+	return i.ToGetUsersFeaturesPtrOutputWithContext(context.Background())
+}
+
+func (i GetUsersFeaturesArgs) ToGetUsersFeaturesPtrOutputWithContext(ctx context.Context) GetUsersFeaturesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUsersFeaturesOutput).ToGetUsersFeaturesPtrOutputWithContext(ctx)
+}
+
+// GetUsersFeaturesPtrInput is an input type that accepts GetUsersFeaturesArgs, GetUsersFeaturesPtr and GetUsersFeaturesPtrOutput values.
+// You can construct a concrete instance of `GetUsersFeaturesPtrInput` via:
+//
+//	        GetUsersFeaturesArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetUsersFeaturesPtrInput interface {
+	pulumi.Input
+
+	ToGetUsersFeaturesPtrOutput() GetUsersFeaturesPtrOutput
+	ToGetUsersFeaturesPtrOutputWithContext(context.Context) GetUsersFeaturesPtrOutput
+}
+
+type getUsersFeaturesPtrType GetUsersFeaturesArgs
+
+func GetUsersFeaturesPtr(v *GetUsersFeaturesArgs) GetUsersFeaturesPtrInput {
+	return (*getUsersFeaturesPtrType)(v)
+}
+
+func (*getUsersFeaturesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetUsersFeatures)(nil)).Elem()
+}
+
+func (i *getUsersFeaturesPtrType) ToGetUsersFeaturesPtrOutput() GetUsersFeaturesPtrOutput {
+	return i.ToGetUsersFeaturesPtrOutputWithContext(context.Background())
+}
+
+func (i *getUsersFeaturesPtrType) ToGetUsersFeaturesPtrOutputWithContext(ctx context.Context) GetUsersFeaturesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUsersFeaturesPtrOutput)
+}
+
+type GetUsersFeaturesOutput struct{ *pulumi.OutputState }
+
+func (GetUsersFeaturesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUsersFeatures)(nil)).Elem()
+}
+
+func (o GetUsersFeaturesOutput) ToGetUsersFeaturesOutput() GetUsersFeaturesOutput {
+	return o
+}
+
+func (o GetUsersFeaturesOutput) ToGetUsersFeaturesOutputWithContext(ctx context.Context) GetUsersFeaturesOutput {
+	return o
+}
+
+func (o GetUsersFeaturesOutput) ToGetUsersFeaturesPtrOutput() GetUsersFeaturesPtrOutput {
+	return o.ToGetUsersFeaturesPtrOutputWithContext(context.Background())
+}
+
+func (o GetUsersFeaturesOutput) ToGetUsersFeaturesPtrOutputWithContext(ctx context.Context) GetUsersFeaturesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetUsersFeatures) *GetUsersFeatures {
+		return &v
+	}).(GetUsersFeaturesPtrOutput)
+}
+
+// Number of workers to process user data concurrently.
+//
+// > **Note** Setting `concurrentWorkers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
+func (o GetUsersFeaturesOutput) ConcurrentWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetUsersFeatures) *int { return v.ConcurrentWorkers }).(pulumi.IntPtrOutput)
+}
+
+type GetUsersFeaturesPtrOutput struct{ *pulumi.OutputState }
+
+func (GetUsersFeaturesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetUsersFeatures)(nil)).Elem()
+}
+
+func (o GetUsersFeaturesPtrOutput) ToGetUsersFeaturesPtrOutput() GetUsersFeaturesPtrOutput {
+	return o
+}
+
+func (o GetUsersFeaturesPtrOutput) ToGetUsersFeaturesPtrOutputWithContext(ctx context.Context) GetUsersFeaturesPtrOutput {
+	return o
+}
+
+func (o GetUsersFeaturesPtrOutput) Elem() GetUsersFeaturesOutput {
+	return o.ApplyT(func(v *GetUsersFeatures) GetUsersFeatures {
+		if v != nil {
+			return *v
+		}
+		var ret GetUsersFeatures
+		return ret
+	}).(GetUsersFeaturesOutput)
+}
+
+// Number of workers to process user data concurrently.
+//
+// > **Note** Setting `concurrentWorkers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
+func (o GetUsersFeaturesPtrOutput) ConcurrentWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetUsersFeatures) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ConcurrentWorkers
+	}).(pulumi.IntPtrOutput)
+}
+
 type GetUsersUser struct {
 	// The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
 	Descriptor string `pulumi:"descriptor"`
@@ -12077,40 +12728,6 @@ type GetUsersUser struct {
 	// The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
 	Origin string `pulumi:"origin"`
 	// The unique identifier from the system of origin.
-	//
-	// DataSource without specifying any arguments will return all users inside an organization.
-	//
-	// List of possible subject types
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	//
-	// List of possible origins
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	OriginId *string `pulumi:"originId"`
 	// The PrincipalName of this graph member from the source provider.
 	PrincipalName string `pulumi:"principalName"`
@@ -12139,40 +12756,6 @@ type GetUsersUserArgs struct {
 	// The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
 	Origin pulumi.StringInput `pulumi:"origin"`
 	// The unique identifier from the system of origin.
-	//
-	// DataSource without specifying any arguments will return all users inside an organization.
-	//
-	// List of possible subject types
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	//
-	// List of possible origins
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	OriginId pulumi.StringPtrInput `pulumi:"originId"`
 	// The PrincipalName of this graph member from the source provider.
 	PrincipalName pulumi.StringInput `pulumi:"principalName"`
@@ -12255,46 +12838,6 @@ func (o GetUsersUserOutput) Origin() pulumi.StringOutput {
 }
 
 // The unique identifier from the system of origin.
-//
-// DataSource without specifying any arguments will return all users inside an organization.
-//
-// # List of possible subject types
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// # List of possible origins
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o GetUsersUserOutput) OriginId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetUsersUser) *string { return v.OriginId }).(pulumi.StringPtrOutput)
 }
@@ -12639,6 +13182,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointArtifactoryAuthenticationTokenPtrInput)(nil)).Elem(), ServiceEndpointArtifactoryAuthenticationTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointAzureRMCredentialsInput)(nil)).Elem(), ServiceEndpointAzureRMCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointAzureRMCredentialsPtrInput)(nil)).Elem(), ServiceEndpointAzureRMCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointAzureRMFeaturesInput)(nil)).Elem(), ServiceEndpointAzureRMFeaturesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointAzureRMFeaturesPtrInput)(nil)).Elem(), ServiceEndpointAzureRMFeaturesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointGitHubAuthOauthInput)(nil)).Elem(), ServiceEndpointGitHubAuthOauthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointGitHubAuthOauthPtrInput)(nil)).Elem(), ServiceEndpointGitHubAuthOauthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointGitHubAuthPersonalInput)(nil)).Elem(), ServiceEndpointGitHubAuthPersonalArgs{})
@@ -12685,6 +13230,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointMavenAuthenticationBasicPtrInput)(nil)).Elem(), ServiceendpointMavenAuthenticationBasicArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointMavenAuthenticationTokenInput)(nil)).Elem(), ServiceendpointMavenAuthenticationTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointMavenAuthenticationTokenPtrInput)(nil)).Elem(), ServiceendpointMavenAuthenticationTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookStorageQueuePipelinesRunStateChangedEventInput)(nil)).Elem(), ServicehookStorageQueuePipelinesRunStateChangedEventArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookStorageQueuePipelinesRunStateChangedEventPtrInput)(nil)).Elem(), ServicehookStorageQueuePipelinesRunStateChangedEventArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookStorageQueuePipelinesStageStateChangedEventInput)(nil)).Elem(), ServicehookStorageQueuePipelinesStageStateChangedEventArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookStorageQueuePipelinesStageStateChangedEventPtrInput)(nil)).Elem(), ServicehookStorageQueuePipelinesStageStateChangedEventArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupKeyVaultInput)(nil)).Elem(), VariableGroupKeyVaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupKeyVaultPtrInput)(nil)).Elem(), VariableGroupKeyVaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupVariableInput)(nil)).Elem(), VariableGroupVariableArgs{})
@@ -12729,6 +13278,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoriesRepositoryArrayInput)(nil)).Elem(), GetRepositoriesRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamsTeamInput)(nil)).Elem(), GetTeamsTeamArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamsTeamArrayInput)(nil)).Elem(), GetTeamsTeamArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersFeaturesInput)(nil)).Elem(), GetUsersFeaturesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersFeaturesPtrInput)(nil)).Elem(), GetUsersFeaturesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVariableGroupKeyVaultInput)(nil)).Elem(), GetVariableGroupKeyVaultArgs{})
@@ -12801,6 +13352,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceEndpointArtifactoryAuthenticationTokenPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointAzureRMCredentialsOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointAzureRMCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointAzureRMFeaturesOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointAzureRMFeaturesPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointGitHubAuthOauthOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointGitHubAuthOauthPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointGitHubAuthPersonalOutput{})
@@ -12847,6 +13400,10 @@ func init() {
 	pulumi.RegisterOutputType(ServiceendpointMavenAuthenticationBasicPtrOutput{})
 	pulumi.RegisterOutputType(ServiceendpointMavenAuthenticationTokenOutput{})
 	pulumi.RegisterOutputType(ServiceendpointMavenAuthenticationTokenPtrOutput{})
+	pulumi.RegisterOutputType(ServicehookStorageQueuePipelinesRunStateChangedEventOutput{})
+	pulumi.RegisterOutputType(ServicehookStorageQueuePipelinesRunStateChangedEventPtrOutput{})
+	pulumi.RegisterOutputType(ServicehookStorageQueuePipelinesStageStateChangedEventOutput{})
+	pulumi.RegisterOutputType(ServicehookStorageQueuePipelinesStageStateChangedEventPtrOutput{})
 	pulumi.RegisterOutputType(VariableGroupKeyVaultOutput{})
 	pulumi.RegisterOutputType(VariableGroupKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(VariableGroupVariableOutput{})
@@ -12891,6 +13448,8 @@ func init() {
 	pulumi.RegisterOutputType(GetRepositoriesRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(GetTeamsTeamOutput{})
 	pulumi.RegisterOutputType(GetTeamsTeamArrayOutput{})
+	pulumi.RegisterOutputType(GetUsersFeaturesOutput{})
+	pulumi.RegisterOutputType(GetUsersFeaturesPtrOutput{})
 	pulumi.RegisterOutputType(GetUsersUserOutput{})
 	pulumi.RegisterOutputType(GetUsersUserArrayOutput{})
 	pulumi.RegisterOutputType(GetVariableGroupKeyVaultOutput{})

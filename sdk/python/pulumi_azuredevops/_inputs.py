@@ -43,6 +43,7 @@ __all__ = [
     'ServiceEndpointArtifactoryAuthenticationBasicArgs',
     'ServiceEndpointArtifactoryAuthenticationTokenArgs',
     'ServiceEndpointAzureRMCredentialsArgs',
+    'ServiceEndpointAzureRMFeaturesArgs',
     'ServiceEndpointGitHubAuthOauthArgs',
     'ServiceEndpointGitHubAuthPersonalArgs',
     'ServiceEndpointGitHubEnterpriseAuthPersonalArgs',
@@ -66,8 +67,11 @@ __all__ = [
     'ServiceendpointJfrogXrayV2AuthenticationTokenArgs',
     'ServiceendpointMavenAuthenticationBasicArgs',
     'ServiceendpointMavenAuthenticationTokenArgs',
+    'ServicehookStorageQueuePipelinesRunStateChangedEventArgs',
+    'ServicehookStorageQueuePipelinesStageStateChangedEventArgs',
     'VariableGroupKeyVaultArgs',
     'VariableGroupVariableArgs',
+    'GetUsersFeaturesArgs',
 ]
 
 @pulumi.input_type
@@ -1310,7 +1314,7 @@ class BuildDefinitionFeatureArgs:
         """
         :param pulumi.Input[bool] skip_first_run: Trigger the pipeline to run after the creation. Defaults to `true`.
                
-               > **Note** The first run(`skip_first_run = false`) will only be triggered on create.
+               > **Note** The first run(`skip_first_run = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
         """
         if skip_first_run is not None:
             pulumi.set(__self__, "skip_first_run", skip_first_run)
@@ -1321,7 +1325,7 @@ class BuildDefinitionFeatureArgs:
         """
         Trigger the pipeline to run after the creation. Defaults to `true`.
 
-        > **Note** The first run(`skip_first_run = false`) will only be triggered on create.
+        > **Note** The first run(`skip_first_run = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
         """
         return pulumi.get(self, "skip_first_run")
 
@@ -2455,6 +2459,29 @@ class ServiceEndpointAzureRMCredentialsArgs:
 
 
 @pulumi.input_type
+class ServiceEndpointAzureRMFeaturesArgs:
+    def __init__(__self__, *,
+                 validate: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] validate: Whether or not to validate connection with Azure after create or update operations. Defaults to `false`
+        """
+        if validate is not None:
+            pulumi.set(__self__, "validate", validate)
+
+    @property
+    @pulumi.getter
+    def validate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not to validate connection with Azure after create or update operations. Defaults to `false`
+        """
+        return pulumi.get(self, "validate")
+
+    @validate.setter
+    def validate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "validate", value)
+
+
+@pulumi.input_type
 class ServiceEndpointGitHubAuthOauthArgs:
     def __init__(__self__, *,
                  oauth_configuration_id: pulumi.Input[str]):
@@ -3342,6 +3369,132 @@ class ServiceendpointMavenAuthenticationTokenArgs:
 
 
 @pulumi.input_type
+class ServicehookStorageQueuePipelinesRunStateChangedEventArgs:
+    def __init__(__self__, *,
+                 pipeline_id: Optional[pulumi.Input[str]] = None,
+                 run_result_filter: Optional[pulumi.Input[str]] = None,
+                 run_state_filter: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] pipeline_id: The pipeline ID that will generate an event. If not specified, all pipelines in the project will trigger the event.
+        :param pulumi.Input[str] run_result_filter: Which run result should generate an event. Only valid if published_event is `RunStateChanged`. If not specified, all results will trigger the event.
+        :param pulumi.Input[str] run_state_filter: Which run state should generate an event. Only valid if published_event is `RunStateChanged`. If not specified, all states will trigger the event.
+        """
+        if pipeline_id is not None:
+            pulumi.set(__self__, "pipeline_id", pipeline_id)
+        if run_result_filter is not None:
+            pulumi.set(__self__, "run_result_filter", run_result_filter)
+        if run_state_filter is not None:
+            pulumi.set(__self__, "run_state_filter", run_state_filter)
+
+    @property
+    @pulumi.getter(name="pipelineId")
+    def pipeline_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The pipeline ID that will generate an event. If not specified, all pipelines in the project will trigger the event.
+        """
+        return pulumi.get(self, "pipeline_id")
+
+    @pipeline_id.setter
+    def pipeline_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pipeline_id", value)
+
+    @property
+    @pulumi.getter(name="runResultFilter")
+    def run_result_filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        Which run result should generate an event. Only valid if published_event is `RunStateChanged`. If not specified, all results will trigger the event.
+        """
+        return pulumi.get(self, "run_result_filter")
+
+    @run_result_filter.setter
+    def run_result_filter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "run_result_filter", value)
+
+    @property
+    @pulumi.getter(name="runStateFilter")
+    def run_state_filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        Which run state should generate an event. Only valid if published_event is `RunStateChanged`. If not specified, all states will trigger the event.
+        """
+        return pulumi.get(self, "run_state_filter")
+
+    @run_state_filter.setter
+    def run_state_filter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "run_state_filter", value)
+
+
+@pulumi.input_type
+class ServicehookStorageQueuePipelinesStageStateChangedEventArgs:
+    def __init__(__self__, *,
+                 pipeline_id: Optional[pulumi.Input[str]] = None,
+                 stage_name: Optional[pulumi.Input[str]] = None,
+                 stage_result_filter: Optional[pulumi.Input[str]] = None,
+                 stage_state_filter: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] pipeline_id: The pipeline ID that will generate an event.
+        :param pulumi.Input[str] stage_name: Which stage should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all stages will trigger the event.
+        :param pulumi.Input[str] stage_result_filter: Which stage result should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all results will trigger the event.
+        :param pulumi.Input[str] stage_state_filter: Which stage state should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all states will trigger the event.
+        """
+        if pipeline_id is not None:
+            pulumi.set(__self__, "pipeline_id", pipeline_id)
+        if stage_name is not None:
+            pulumi.set(__self__, "stage_name", stage_name)
+        if stage_result_filter is not None:
+            pulumi.set(__self__, "stage_result_filter", stage_result_filter)
+        if stage_state_filter is not None:
+            pulumi.set(__self__, "stage_state_filter", stage_state_filter)
+
+    @property
+    @pulumi.getter(name="pipelineId")
+    def pipeline_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The pipeline ID that will generate an event.
+        """
+        return pulumi.get(self, "pipeline_id")
+
+    @pipeline_id.setter
+    def pipeline_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pipeline_id", value)
+
+    @property
+    @pulumi.getter(name="stageName")
+    def stage_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Which stage should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all stages will trigger the event.
+        """
+        return pulumi.get(self, "stage_name")
+
+    @stage_name.setter
+    def stage_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stage_name", value)
+
+    @property
+    @pulumi.getter(name="stageResultFilter")
+    def stage_result_filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        Which stage result should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all results will trigger the event.
+        """
+        return pulumi.get(self, "stage_result_filter")
+
+    @stage_result_filter.setter
+    def stage_result_filter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stage_result_filter", value)
+
+    @property
+    @pulumi.getter(name="stageStateFilter")
+    def stage_state_filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        Which stage state should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all states will trigger the event.
+        """
+        return pulumi.get(self, "stage_state_filter")
+
+    @stage_state_filter.setter
+    def stage_state_filter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stage_state_filter", value)
+
+
+@pulumi.input_type
 class VariableGroupKeyVaultArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -3498,5 +3651,32 @@ class VariableGroupVariableArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class GetUsersFeaturesArgs:
+    def __init__(__self__, *,
+                 concurrent_workers: Optional[int] = None):
+        """
+        :param int concurrent_workers: Number of workers to process user data concurrently.
+               
+               > **Note** Setting `concurrent_workers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
+        """
+        if concurrent_workers is not None:
+            pulumi.set(__self__, "concurrent_workers", concurrent_workers)
+
+    @property
+    @pulumi.getter(name="concurrentWorkers")
+    def concurrent_workers(self) -> Optional[int]:
+        """
+        Number of workers to process user data concurrently.
+
+        > **Note** Setting `concurrent_workers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
+        """
+        return pulumi.get(self, "concurrent_workers")
+
+    @concurrent_workers.setter
+    def concurrent_workers(self, value: Optional[int]):
+        pulumi.set(self, "concurrent_workers", value)
 
 

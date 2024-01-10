@@ -11,6 +11,7 @@ from .. import _utilities
 
 __all__ = [
     'AzureRMCredentialsArgs',
+    'AzureRMFeaturesArgs',
     'GitHubAuthOauthArgs',
     'GitHubAuthPersonalArgs',
     'KubernetesAzureSubscriptionArgs',
@@ -54,6 +55,29 @@ class AzureRMCredentialsArgs:
     @serviceprincipalkey.setter
     def serviceprincipalkey(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "serviceprincipalkey", value)
+
+
+@pulumi.input_type
+class AzureRMFeaturesArgs:
+    def __init__(__self__, *,
+                 validate: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] validate: Whether or not to validate connection with Azure after create or update operations. Defaults to `false`
+        """
+        if validate is not None:
+            pulumi.set(__self__, "validate", validate)
+
+    @property
+    @pulumi.getter
+    def validate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not to validate connection with Azure after create or update operations. Defaults to `false`
+        """
+        return pulumi.get(self, "validate")
+
+    @validate.setter
+    def validate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "validate", value)
 
 
 @pulumi.input_type

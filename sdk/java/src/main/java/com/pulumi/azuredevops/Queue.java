@@ -24,6 +24,7 @@ import javax.annotation.Nullable;
  * the `azuredevops.ResourceAuthorization` resource can be used to grant authorization.
  * 
  * ## Example Usage
+ * ### Creating a Queue from an organization-level pool
  * ```java
  * package generated_program;
  * 
@@ -71,6 +72,41 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Creating a Queue at the project level (Organization-level permissions not required)
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azuredevops.AzuredevopsFunctions;
+ * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+ * import com.pulumi.azuredevops.Queue;
+ * import com.pulumi.azuredevops.QueueArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var exampleProject = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+ *             .name(&#34;Example Project&#34;)
+ *             .build());
+ * 
+ *         var exampleQueue = new Queue(&#34;exampleQueue&#34;, QueueArgs.builder()        
+ *             .projectId(exampleProject.applyValue(getProjectResult -&gt; getProjectResult.id()))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ## Relevant Links
  * 
  * - [Azure DevOps Service REST API 7.0 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-7.0)
@@ -87,18 +123,40 @@ import javax.annotation.Nullable;
 @ResourceType(type="azuredevops:index/queue:Queue")
 public class Queue extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the organization agent pool.
+     * The ID of the organization agent pool. Conflicts with `name`.
+     * 
+     * &gt; **NOTE:**
+     * One of `name` or `agent_pool_id` must be specified, but not both.
+     * When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
      * 
      */
     @Export(name="agentPoolId", refs={Integer.class}, tree="[0]")
     private Output<Integer> agentPoolId;
 
     /**
-     * @return The ID of the organization agent pool.
+     * @return The ID of the organization agent pool. Conflicts with `name`.
+     * 
+     * &gt; **NOTE:**
+     * One of `name` or `agent_pool_id` must be specified, but not both.
+     * When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
      * 
      */
     public Output<Integer> agentPoolId() {
         return this.agentPoolId;
+    }
+    /**
+     * The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.
+     * 
+     */
+    @Export(name="name", refs={String.class}, tree="[0]")
+    private Output<String> name;
+
+    /**
+     * @return The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.
+     * 
+     */
+    public Output<String> name() {
+        return this.name;
     }
     /**
      * The ID of the project in which to create the resource.

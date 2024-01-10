@@ -9,4 +9,5 @@ from .get_group import *
 from .get_users import *
 from .group import *
 from .group_membership import *
+from ._inputs import *
 from . import outputs

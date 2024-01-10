@@ -19,6 +19,7 @@ import (
 // the `ResourceAuthorization` resource can be used to grant authorization.
 //
 // ## Example Usage
+// ### Creating a Queue from an organization-level pool
 //
 // ```go
 // package main
@@ -63,6 +64,37 @@ import (
 //	}
 //
 // ```
+// ### Creating a Queue at the project level (Organization-level permissions not required)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
+//				Name: pulumi.StringRef("Example Project"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewQueue(ctx, "exampleQueue", &azuredevops.QueueArgs{
+//				ProjectId: *pulumi.String(exampleProject.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 7.0 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-7.0)
@@ -79,8 +111,14 @@ import (
 type Queue struct {
 	pulumi.CustomResourceState
 
-	// The ID of the organization agent pool.
+	// The ID of the organization agent pool. Conflicts with `name`.
+	//
+	// > **NOTE:**
+	// One of `name` or `agentPoolId` must be specified, but not both.
+	// When `agentPoolId` is specified, the agent queue name will be derived from the agent pool name.
 	AgentPoolId pulumi.IntOutput `pulumi:"agentPoolId"`
+	// The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agentPoolId`.
+	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the project in which to create the resource.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 }
@@ -92,9 +130,6 @@ func NewQueue(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AgentPoolId == nil {
-		return nil, errors.New("invalid value for required argument 'AgentPoolId'")
-	}
 	if args.ProjectId == nil {
 		return nil, errors.New("invalid value for required argument 'ProjectId'")
 	}
@@ -127,15 +162,27 @@ func GetQueue(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Queue resources.
 type queueState struct {
-	// The ID of the organization agent pool.
+	// The ID of the organization agent pool. Conflicts with `name`.
+	//
+	// > **NOTE:**
+	// One of `name` or `agentPoolId` must be specified, but not both.
+	// When `agentPoolId` is specified, the agent queue name will be derived from the agent pool name.
 	AgentPoolId *int `pulumi:"agentPoolId"`
+	// The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agentPoolId`.
+	Name *string `pulumi:"name"`
 	// The ID of the project in which to create the resource.
 	ProjectId *string `pulumi:"projectId"`
 }
 
 type QueueState struct {
-	// The ID of the organization agent pool.
+	// The ID of the organization agent pool. Conflicts with `name`.
+	//
+	// > **NOTE:**
+	// One of `name` or `agentPoolId` must be specified, but not both.
+	// When `agentPoolId` is specified, the agent queue name will be derived from the agent pool name.
 	AgentPoolId pulumi.IntPtrInput
+	// The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agentPoolId`.
+	Name pulumi.StringPtrInput
 	// The ID of the project in which to create the resource.
 	ProjectId pulumi.StringPtrInput
 }
@@ -145,16 +192,28 @@ func (QueueState) ElementType() reflect.Type {
 }
 
 type queueArgs struct {
-	// The ID of the organization agent pool.
-	AgentPoolId int `pulumi:"agentPoolId"`
+	// The ID of the organization agent pool. Conflicts with `name`.
+	//
+	// > **NOTE:**
+	// One of `name` or `agentPoolId` must be specified, but not both.
+	// When `agentPoolId` is specified, the agent queue name will be derived from the agent pool name.
+	AgentPoolId *int `pulumi:"agentPoolId"`
+	// The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agentPoolId`.
+	Name *string `pulumi:"name"`
 	// The ID of the project in which to create the resource.
 	ProjectId string `pulumi:"projectId"`
 }
 
 // The set of arguments for constructing a Queue resource.
 type QueueArgs struct {
-	// The ID of the organization agent pool.
-	AgentPoolId pulumi.IntInput
+	// The ID of the organization agent pool. Conflicts with `name`.
+	//
+	// > **NOTE:**
+	// One of `name` or `agentPoolId` must be specified, but not both.
+	// When `agentPoolId` is specified, the agent queue name will be derived from the agent pool name.
+	AgentPoolId pulumi.IntPtrInput
+	// The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agentPoolId`.
+	Name pulumi.StringPtrInput
 	// The ID of the project in which to create the resource.
 	ProjectId pulumi.StringInput
 }
@@ -246,9 +305,18 @@ func (o QueueOutput) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 	return o
 }
 
-// The ID of the organization agent pool.
+// The ID of the organization agent pool. Conflicts with `name`.
+//
+// > **NOTE:**
+// One of `name` or `agentPoolId` must be specified, but not both.
+// When `agentPoolId` is specified, the agent queue name will be derived from the agent pool name.
 func (o QueueOutput) AgentPoolId() pulumi.IntOutput {
 	return o.ApplyT(func(v *Queue) pulumi.IntOutput { return v.AgentPoolId }).(pulumi.IntOutput)
+}
+
+// The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agentPoolId`.
+func (o QueueOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 // The ID of the project in which to create the resource.

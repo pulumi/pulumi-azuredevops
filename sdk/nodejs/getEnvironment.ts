@@ -16,6 +16,7 @@ export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOpt
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azuredevops:index/getEnvironment:getEnvironment", {
         "environmentId": args.environmentId,
+        "name": args.name,
         "projectId": args.projectId,
     }, opts);
 }
@@ -27,7 +28,13 @@ export interface GetEnvironmentArgs {
     /**
      * The ID of the Environment.
      */
-    environmentId: number;
+    environmentId?: number;
+    /**
+     * Name of the Environment.
+     *
+     * > **NOTE:** One of either `environmentId` or `name` must be specified.
+     */
+    name?: string;
     /**
      * The ID of the project.
      */
@@ -42,7 +49,7 @@ export interface GetEnvironmentResult {
      * A description for the Environment.
      */
     readonly description: string;
-    readonly environmentId: number;
+    readonly environmentId?: number;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -71,7 +78,13 @@ export interface GetEnvironmentOutputArgs {
     /**
      * The ID of the Environment.
      */
-    environmentId: pulumi.Input<number>;
+    environmentId?: pulumi.Input<number>;
+    /**
+     * Name of the Environment.
+     *
+     * > **NOTE:** One of either `environmentId` or `name` must be specified.
+     */
+    name?: pulumi.Input<string>;
     /**
      * The ID of the project.
      */

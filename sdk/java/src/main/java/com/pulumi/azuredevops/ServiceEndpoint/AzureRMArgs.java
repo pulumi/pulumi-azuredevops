@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.ServiceEndpoint;
 
 import com.pulumi.azuredevops.ServiceEndpoint.inputs.AzureRMCredentialsArgs;
+import com.pulumi.azuredevops.ServiceEndpoint.inputs.AzureRMFeaturesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -150,6 +151,21 @@ public final class AzureRMArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A `features` block.
+     * 
+     */
+    @Import(name="features")
+    private @Nullable Output<AzureRMFeaturesArgs> features;
+
+    /**
+     * @return A `features` block.
+     * 
+     */
+    public Optional<Output<AzureRMFeaturesArgs>> features() {
+        return Optional.ofNullable(this.features);
+    }
+
+    /**
      * The ID of the project.
      * 
      */
@@ -225,6 +241,7 @@ public final class AzureRMArgs extends com.pulumi.resources.ResourceArgs {
         this.credentials = $.credentials;
         this.description = $.description;
         this.environment = $.environment;
+        this.features = $.features;
         this.projectId = $.projectId;
         this.resourceGroup = $.resourceGroup;
         this.serviceEndpointAuthenticationScheme = $.serviceEndpointAuthenticationScheme;
@@ -428,6 +445,27 @@ public final class AzureRMArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder environment(String environment) {
             return environment(Output.of(environment));
+        }
+
+        /**
+         * @param features A `features` block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder features(@Nullable Output<AzureRMFeaturesArgs> features) {
+            $.features = features;
+            return this;
+        }
+
+        /**
+         * @param features A `features` block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder features(AzureRMFeaturesArgs features) {
+            return features(Output.of(features));
         }
 
         /**

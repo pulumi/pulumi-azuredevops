@@ -27,6 +27,7 @@ class ServiceEndpointAzureRMArgs:
                  credentials: Optional[pulumi.Input['ServiceEndpointAzureRMCredentialsArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[str]] = None,
+                 features: Optional[pulumi.Input['ServiceEndpointAzureRMFeaturesArgs']] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
                  service_endpoint_authentication_scheme: Optional[pulumi.Input[str]] = None):
         """
@@ -43,6 +44,7 @@ class ServiceEndpointAzureRMArgs:
         :param pulumi.Input[str] environment: The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
                
                > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+        :param pulumi.Input['ServiceEndpointAzureRMFeaturesArgs'] features: A `features` block.
         :param pulumi.Input[str] resource_group: The resource group used for scope of automatic service endpoint.
         :param pulumi.Input[str] service_endpoint_authentication_scheme: Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
                
@@ -67,6 +69,8 @@ class ServiceEndpointAzureRMArgs:
             pulumi.set(__self__, "description", description)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
+        if features is not None:
+            pulumi.set(__self__, "features", features)
         if resource_group is not None:
             pulumi.set(__self__, "resource_group", resource_group)
         if service_endpoint_authentication_scheme is not None:
@@ -204,6 +208,18 @@ class ServiceEndpointAzureRMArgs:
         pulumi.set(self, "environment", value)
 
     @property
+    @pulumi.getter
+    def features(self) -> Optional[pulumi.Input['ServiceEndpointAzureRMFeaturesArgs']]:
+        """
+        A `features` block.
+        """
+        return pulumi.get(self, "features")
+
+    @features.setter
+    def features(self, value: Optional[pulumi.Input['ServiceEndpointAzureRMFeaturesArgs']]):
+        pulumi.set(self, "features", value)
+
+    @property
     @pulumi.getter(name="resourceGroup")
     def resource_group(self) -> Optional[pulumi.Input[str]]:
         """
@@ -242,6 +258,7 @@ class _ServiceEndpointAzureRMState:
                  credentials: Optional[pulumi.Input['ServiceEndpointAzureRMCredentialsArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[str]] = None,
+                 features: Optional[pulumi.Input['ServiceEndpointAzureRMFeaturesArgs']] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
                  service_endpoint_authentication_scheme: Optional[pulumi.Input[str]] = None,
@@ -261,6 +278,7 @@ class _ServiceEndpointAzureRMState:
         :param pulumi.Input[str] environment: The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
                
                > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+        :param pulumi.Input['ServiceEndpointAzureRMFeaturesArgs'] features: A `features` block.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] resource_group: The resource group used for scope of automatic service endpoint.
         :param pulumi.Input[str] service_endpoint_authentication_scheme: Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
@@ -289,6 +307,8 @@ class _ServiceEndpointAzureRMState:
             pulumi.set(__self__, "description", description)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
+        if features is not None:
+            pulumi.set(__self__, "features", features)
         if project_id is not None:
             pulumi.set(__self__, "project_id", project_id)
         if resource_group is not None:
@@ -412,6 +432,18 @@ class _ServiceEndpointAzureRMState:
         pulumi.set(self, "environment", value)
 
     @property
+    @pulumi.getter
+    def features(self) -> Optional[pulumi.Input['ServiceEndpointAzureRMFeaturesArgs']]:
+        """
+        A `features` block.
+        """
+        return pulumi.get(self, "features")
+
+    @features.setter
+    def features(self, value: Optional[pulumi.Input['ServiceEndpointAzureRMFeaturesArgs']]):
+        pulumi.set(self, "features", value)
+
+    @property
     @pulumi.getter(name="projectId")
     def project_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -512,6 +544,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
                  credentials: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointAzureRMCredentialsArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[str]] = None,
+                 features: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointAzureRMFeaturesArgs']]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
                  service_endpoint_authentication_scheme: Optional[pulumi.Input[str]] = None,
@@ -692,6 +725,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         :param pulumi.Input[str] environment: The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
                
                > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+        :param pulumi.Input[pulumi.InputType['ServiceEndpointAzureRMFeaturesArgs']] features: A `features` block.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] resource_group: The resource group used for scope of automatic service endpoint.
         :param pulumi.Input[str] service_endpoint_authentication_scheme: Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
@@ -892,6 +926,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
                  credentials: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointAzureRMCredentialsArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[str]] = None,
+                 features: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointAzureRMFeaturesArgs']]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
                  service_endpoint_authentication_scheme: Optional[pulumi.Input[str]] = None,
@@ -916,6 +951,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             __props__.__dict__["credentials"] = credentials
             __props__.__dict__["description"] = description
             __props__.__dict__["environment"] = environment
+            __props__.__dict__["features"] = features
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__.__dict__["project_id"] = project_id
@@ -948,6 +984,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             credentials: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointAzureRMCredentialsArgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             environment: Optional[pulumi.Input[str]] = None,
+            features: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointAzureRMFeaturesArgs']]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
             resource_group: Optional[pulumi.Input[str]] = None,
             service_endpoint_authentication_scheme: Optional[pulumi.Input[str]] = None,
@@ -972,6 +1009,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         :param pulumi.Input[str] environment: The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
                
                > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+        :param pulumi.Input[pulumi.InputType['ServiceEndpointAzureRMFeaturesArgs']] features: A `features` block.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] resource_group: The resource group used for scope of automatic service endpoint.
         :param pulumi.Input[str] service_endpoint_authentication_scheme: Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
@@ -995,6 +1033,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         __props__.__dict__["credentials"] = credentials
         __props__.__dict__["description"] = description
         __props__.__dict__["environment"] = environment
+        __props__.__dict__["features"] = features
         __props__.__dict__["project_id"] = project_id
         __props__.__dict__["resource_group"] = resource_group
         __props__.__dict__["service_endpoint_authentication_scheme"] = service_endpoint_authentication_scheme
@@ -1074,6 +1113,14 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
         """
         return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter
+    def features(self) -> pulumi.Output[Optional['outputs.ServiceEndpointAzureRMFeatures']]:
+        """
+        A `features` block.
+        """
+        return pulumi.get(self, "features")
 
     @property
     @pulumi.getter(name="projectId")

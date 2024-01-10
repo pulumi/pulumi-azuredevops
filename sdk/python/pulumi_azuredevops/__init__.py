@@ -104,6 +104,7 @@ from .serviceendpoint_nuget import *
 from .serviceendpoint_octopusdeploy import *
 from .serviceendpoint_permissions import *
 from .servicehook_permissions import *
+from .servicehook_storage_queue_pipelines import *
 from .tagging_permissions import *
 from .team import *
 from .team_administrators import *
@@ -897,6 +898,14 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/servicehookPermissions:ServicehookPermissions": "ServicehookPermissions"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/servicehookStorageQueuePipelines",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/servicehookStorageQueuePipelines:ServicehookStorageQueuePipelines": "ServicehookStorageQueuePipelines"
   }
  },
  {
