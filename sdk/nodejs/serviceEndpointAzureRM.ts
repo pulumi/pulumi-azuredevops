@@ -248,6 +248,10 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
      */
     public readonly environment!: pulumi.Output<string | undefined>;
     /**
+     * A `features` block.
+     */
+    public readonly features!: pulumi.Output<outputs.ServiceEndpointAzureRMFeatures | undefined>;
+    /**
      * The ID of the project.
      */
     public readonly projectId!: pulumi.Output<string>;
@@ -300,6 +304,7 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
             resourceInputs["credentials"] = state ? state.credentials : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["environment"] = state ? state.environment : undefined;
+            resourceInputs["features"] = state ? state.features : undefined;
             resourceInputs["projectId"] = state ? state.projectId : undefined;
             resourceInputs["resourceGroup"] = state ? state.resourceGroup : undefined;
             resourceInputs["serviceEndpointAuthenticationScheme"] = state ? state.serviceEndpointAuthenticationScheme : undefined;
@@ -327,6 +332,7 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
             resourceInputs["credentials"] = args ? args.credentials : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["environment"] = args ? args.environment : undefined;
+            resourceInputs["features"] = args ? args.features : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
             resourceInputs["serviceEndpointAuthenticationScheme"] = args ? args.serviceEndpointAuthenticationScheme : undefined;
@@ -381,6 +387,10 @@ export interface ServiceEndpointAzureRMState {
      * > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
      */
     environment?: pulumi.Input<string>;
+    /**
+     * A `features` block.
+     */
+    features?: pulumi.Input<inputs.ServiceEndpointAzureRMFeatures>;
     /**
      * The ID of the project.
      */
@@ -452,6 +462,10 @@ export interface ServiceEndpointAzureRMArgs {
      * > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
      */
     environment?: pulumi.Input<string>;
+    /**
+     * A `features` block.
+     */
+    features?: pulumi.Input<inputs.ServiceEndpointAzureRMFeatures>;
     /**
      * The ID of the project.
      */

@@ -346,7 +346,7 @@ export interface BuildDefinitionFeature {
     /**
      * Trigger the pipeline to run after the creation. Defaults to `true`.
      *
-     * > **Note** The first run(`skipFirstRun = false`) will only be triggered on create.
+     * > **Note** The first run(`skipFirstRun = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
      */
     skipFirstRun?: pulumi.Input<boolean>;
 }
@@ -672,6 +672,24 @@ export interface CheckRequiredTemplateRequiredTemplate {
     templatePath: pulumi.Input<string>;
 }
 
+export interface GetUsersFeatures {
+    /**
+     * Number of workers to process user data concurrently.
+     *
+     * > **Note** Setting `concurrentWorkers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
+     */
+    concurrentWorkers?: number;
+}
+
+export interface GetUsersFeaturesArgs {
+    /**
+     * Number of workers to process user data concurrently.
+     *
+     * > **Note** Setting `concurrentWorkers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
+     */
+    concurrentWorkers?: pulumi.Input<number>;
+}
+
 export interface GitInitialization {
     /**
      * The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
@@ -718,6 +736,13 @@ export interface ServiceEndpointAzureRMCredentials {
      * The service principal secret. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
      */
     serviceprincipalkey?: pulumi.Input<string>;
+}
+
+export interface ServiceEndpointAzureRMFeatures {
+    /**
+     * Whether or not to validate connection with Azure after create or update operations. Defaults to `false`
+     */
+    validate?: pulumi.Input<boolean>;
 }
 
 export interface ServiceEndpointGitHubAuthOauth {
@@ -978,6 +1003,40 @@ export interface ServiceendpointMavenAuthenticationToken {
     token: pulumi.Input<string>;
 }
 
+export interface ServicehookStorageQueuePipelinesRunStateChangedEvent {
+    /**
+     * The pipeline ID that will generate an event. If not specified, all pipelines in the project will trigger the event.
+     */
+    pipelineId?: pulumi.Input<string>;
+    /**
+     * Which run result should generate an event. Only valid if publishedEvent is `RunStateChanged`. If not specified, all results will trigger the event.
+     */
+    runResultFilter?: pulumi.Input<string>;
+    /**
+     * Which run state should generate an event. Only valid if publishedEvent is `RunStateChanged`. If not specified, all states will trigger the event.
+     */
+    runStateFilter?: pulumi.Input<string>;
+}
+
+export interface ServicehookStorageQueuePipelinesStageStateChangedEvent {
+    /**
+     * The pipeline ID that will generate an event.
+     */
+    pipelineId?: pulumi.Input<string>;
+    /**
+     * Which stage should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all stages will trigger the event.
+     */
+    stageName?: pulumi.Input<string>;
+    /**
+     * Which stage result should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all results will trigger the event.
+     */
+    stageResultFilter?: pulumi.Input<string>;
+    /**
+     * Which stage state should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all states will trigger the event.
+     */
+    stageStateFilter?: pulumi.Input<string>;
+}
+
 export interface VariableGroupKeyVault {
     /**
      * The name of the Azure key vault to link secrets from as variables.
@@ -1082,7 +1141,7 @@ export namespace Build {
         /**
          * Trigger the pipeline to run after the creation. Defaults to `true`.
          *
-         * > **Note** The first run(`skipFirstRun = false`) will only be triggered on create.
+         * > **Note** The first run(`skipFirstRun = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
          */
         skipFirstRun?: pulumi.Input<boolean>;
     }
@@ -1394,6 +1453,24 @@ export namespace Core {
 }
 
 export namespace Identities {
+    export interface GetUsersFeatures {
+        /**
+         * Number of workers to process user data concurrently.
+         *
+         * > **Note** Setting `concurrentWorkers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
+         */
+        concurrentWorkers?: number;
+    }
+
+    export interface GetUsersFeaturesArgs {
+        /**
+         * Number of workers to process user data concurrently.
+         *
+         * > **Note** Setting `concurrentWorkers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
+         */
+        concurrentWorkers?: pulumi.Input<number>;
+    }
+
 }
 
 export namespace Pipeline {
@@ -1566,6 +1643,13 @@ export namespace ServiceEndpoint {
          * The service principal secret. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
          */
         serviceprincipalkey?: pulumi.Input<string>;
+    }
+
+    export interface AzureRMFeatures {
+        /**
+         * Whether or not to validate connection with Azure after create or update operations. Defaults to `false`
+         */
+        validate?: pulumi.Input<boolean>;
     }
 
     export interface GitHubAuthOauth {

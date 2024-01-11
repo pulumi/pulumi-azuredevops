@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = [
     'GetUsersResult',
@@ -22,7 +23,10 @@ class GetUsersResult:
     """
     A collection of values returned by getUsers.
     """
-    def __init__(__self__, id=None, origin=None, origin_id=None, principal_name=None, subject_types=None, users=None):
+    def __init__(__self__, features=None, id=None, origin=None, origin_id=None, principal_name=None, subject_types=None, users=None):
+        if features and not isinstance(features, dict):
+            raise TypeError("Expected argument 'features' to be a dict")
+        pulumi.set(__self__, "features", features)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -41,6 +45,11 @@ class GetUsersResult:
         if users and not isinstance(users, list):
             raise TypeError("Expected argument 'users' to be a list")
         pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter
+    def features(self) -> Optional['outputs.GetUsersFeaturesResult']:
+        return pulumi.get(self, "features")
 
     @property
     @pulumi.getter
@@ -94,6 +103,7 @@ class AwaitableGetUsersResult(GetUsersResult):
         if False:
             yield self
         return GetUsersResult(
+            features=self.features,
             id=self.id,
             origin=self.origin,
             origin_id=self.origin_id,
@@ -102,7 +112,8 @@ class AwaitableGetUsersResult(GetUsersResult):
             users=self.users)
 
 
-def get_users(origin: Optional[str] = None,
+def get_users(features: Optional[pulumi.InputType['GetUsersFeaturesArgs']] = None,
+              origin: Optional[str] = None,
               origin_id: Optional[str] = None,
               principal_name: Optional[str] = None,
               subject_types: Optional[Sequence[str]] = None,
@@ -117,7 +128,9 @@ def get_users(origin: Optional[str] = None,
     import pulumi_azuredevops as azuredevops
 
     example = azuredevops.get_users(principal_name="contoso-user@contoso.onmicrosoft.com")
-    example_all_users = azuredevops.get_users()
+    example_all_users = azuredevops.get_users(features=azuredevops.GetUsersFeaturesArgs(
+        concurrent_workers=10,
+    ))
     example_all_from_origin = azuredevops.get_users(origin="aad")
     example_all_from_subject_types = azuredevops.get_users(subject_types=[
         "aad",
@@ -131,8 +144,7 @@ def get_users(origin: Optional[str] = None,
     - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
 
 
-    :param str origin: The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
-    :param str origin_id: The unique identifier from the system of origin.
+    :param pulumi.InputType['GetUsersFeaturesArgs'] features: A `features` block as defined below.
            
            DataSource without specifying any arguments will return all users inside an organization.
            
@@ -147,10 +159,13 @@ def get_users(origin: Optional[str] = None,
            ```python
            import pulumi
            ```
+    :param str origin: The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+    :param str origin_id: The unique identifier from the system of origin.
     :param str principal_name: The PrincipalName of this graph member from the source provider.
     :param Sequence[str] subject_types: A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
     """
     __args__ = dict()
+    __args__['features'] = features
     __args__['origin'] = origin
     __args__['originId'] = origin_id
     __args__['principalName'] = principal_name
@@ -159,6 +174,7 @@ def get_users(origin: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azuredevops:index/getUsers:getUsers', __args__, opts=opts, typ=GetUsersResult).value
 
     return AwaitableGetUsersResult(
+        features=pulumi.get(__ret__, 'features'),
         id=pulumi.get(__ret__, 'id'),
         origin=pulumi.get(__ret__, 'origin'),
         origin_id=pulumi.get(__ret__, 'origin_id'),
@@ -168,7 +184,8 @@ def get_users(origin: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_users)
-def get_users_output(origin: Optional[pulumi.Input[Optional[str]]] = None,
+def get_users_output(features: Optional[pulumi.Input[Optional[pulumi.InputType['GetUsersFeaturesArgs']]]] = None,
+                     origin: Optional[pulumi.Input[Optional[str]]] = None,
                      origin_id: Optional[pulumi.Input[Optional[str]]] = None,
                      principal_name: Optional[pulumi.Input[Optional[str]]] = None,
                      subject_types: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
@@ -183,7 +200,9 @@ def get_users_output(origin: Optional[pulumi.Input[Optional[str]]] = None,
     import pulumi_azuredevops as azuredevops
 
     example = azuredevops.get_users(principal_name="contoso-user@contoso.onmicrosoft.com")
-    example_all_users = azuredevops.get_users()
+    example_all_users = azuredevops.get_users(features=azuredevops.GetUsersFeaturesArgs(
+        concurrent_workers=10,
+    ))
     example_all_from_origin = azuredevops.get_users(origin="aad")
     example_all_from_subject_types = azuredevops.get_users(subject_types=[
         "aad",
@@ -197,8 +216,7 @@ def get_users_output(origin: Optional[pulumi.Input[Optional[str]]] = None,
     - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
 
 
-    :param str origin: The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
-    :param str origin_id: The unique identifier from the system of origin.
+    :param pulumi.InputType['GetUsersFeaturesArgs'] features: A `features` block as defined below.
            
            DataSource without specifying any arguments will return all users inside an organization.
            
@@ -213,6 +231,8 @@ def get_users_output(origin: Optional[pulumi.Input[Optional[str]]] = None,
            ```python
            import pulumi
            ```
+    :param str origin: The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+    :param str origin_id: The unique identifier from the system of origin.
     :param str principal_name: The PrincipalName of this graph member from the source provider.
     :param Sequence[str] subject_types: A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
     """

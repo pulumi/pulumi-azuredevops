@@ -17,6 +17,7 @@ namespace Pulumi.AzureDevOps
     /// the `azuredevops.ResourceAuthorization` resource can be used to grant authorization.
     /// 
     /// ## Example Usage
+    /// ### Creating a Queue from an organization-level pool
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -50,6 +51,28 @@ namespace Pulumi.AzureDevOps
     /// 
     /// });
     /// ```
+    /// ### Creating a Queue at the project level (Organization-level permissions not required)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = AzureDevOps.GetProject.Invoke(new()
+    ///     {
+    ///         Name = "Example Project",
+    ///     });
+    /// 
+    ///     var exampleQueue = new AzureDevOps.Queue("exampleQueue", new()
+    ///     {
+    ///         ProjectId = exampleProject.Apply(getProjectResult =&gt; getProjectResult.Id),
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 7.0 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-7.0)
@@ -66,10 +89,20 @@ namespace Pulumi.AzureDevOps
     public partial class Queue : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the organization agent pool.
+        /// The ID of the organization agent pool. Conflicts with `name`.
+        /// 
+        /// &gt; **NOTE:**
+        /// One of `name` or `agent_pool_id` must be specified, but not both.
+        /// When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
         /// </summary>
         [Output("agentPoolId")]
         public Output<int> AgentPoolId { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.
+        /// </summary>
+        [Output("name")]
+        public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the project in which to create the resource.
@@ -128,10 +161,20 @@ namespace Pulumi.AzureDevOps
     public sealed class QueueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the organization agent pool.
+        /// The ID of the organization agent pool. Conflicts with `name`.
+        /// 
+        /// &gt; **NOTE:**
+        /// One of `name` or `agent_pool_id` must be specified, but not both.
+        /// When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
         /// </summary>
-        [Input("agentPoolId", required: true)]
-        public Input<int> AgentPoolId { get; set; } = null!;
+        [Input("agentPoolId")]
+        public Input<int>? AgentPoolId { get; set; }
+
+        /// <summary>
+        /// The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The ID of the project in which to create the resource.
@@ -148,10 +191,20 @@ namespace Pulumi.AzureDevOps
     public sealed class QueueState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the organization agent pool.
+        /// The ID of the organization agent pool. Conflicts with `name`.
+        /// 
+        /// &gt; **NOTE:**
+        /// One of `name` or `agent_pool_id` must be specified, but not both.
+        /// When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
         /// </summary>
         [Input("agentPoolId")]
         public Input<int>? AgentPoolId { get; set; }
+
+        /// <summary>
+        /// The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The ID of the project in which to create the resource.

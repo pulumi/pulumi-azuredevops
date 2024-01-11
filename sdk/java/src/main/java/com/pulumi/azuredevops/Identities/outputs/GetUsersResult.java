@@ -3,6 +3,7 @@
 
 package com.pulumi.azuredevops.Identities.outputs;
 
+import com.pulumi.azuredevops.Identities.outputs.GetUsersFeatures;
 import com.pulumi.azuredevops.Identities.outputs.GetUsersUser;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -14,6 +15,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetUsersResult {
+    private @Nullable GetUsersFeatures features;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -42,6 +44,9 @@ public final class GetUsersResult {
     private List<GetUsersUser> users;
 
     private GetUsersResult() {}
+    public Optional<GetUsersFeatures> features() {
+        return Optional.ofNullable(this.features);
+    }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -90,6 +95,7 @@ public final class GetUsersResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable GetUsersFeatures features;
         private String id;
         private @Nullable String origin;
         private @Nullable String originId;
@@ -99,6 +105,7 @@ public final class GetUsersResult {
         public Builder() {}
         public Builder(GetUsersResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.features = defaults.features;
     	      this.id = defaults.id;
     	      this.origin = defaults.origin;
     	      this.originId = defaults.originId;
@@ -107,6 +114,12 @@ public final class GetUsersResult {
     	      this.users = defaults.users;
         }
 
+        @CustomType.Setter
+        public Builder features(@Nullable GetUsersFeatures features) {
+
+            this.features = features;
+            return this;
+        }
         @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
@@ -155,6 +168,7 @@ public final class GetUsersResult {
         }
         public GetUsersResult build() {
             final var _resultValue = new GetUsersResult();
+            _resultValue.features = features;
             _resultValue.id = id;
             _resultValue.origin = origin;
             _resultValue.originId = originId;

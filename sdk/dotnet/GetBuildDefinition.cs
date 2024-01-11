@@ -168,6 +168,10 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBuildDefinitionPullRequestTriggerResult> PullRequestTriggers;
         /// <summary>
+        /// The queue status of the build definition.
+        /// </summary>
+        public readonly string QueueStatus;
+        /// <summary>
         /// A `repository` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBuildDefinitionRepositoryResult> Repositories;
@@ -204,6 +208,8 @@ namespace Pulumi.AzureDevOps
 
             ImmutableArray<Outputs.GetBuildDefinitionPullRequestTriggerResult> pullRequestTriggers,
 
+            string queueStatus,
+
             ImmutableArray<Outputs.GetBuildDefinitionRepositoryResult> repositories,
 
             int revision,
@@ -221,6 +227,7 @@ namespace Pulumi.AzureDevOps
             Path = path;
             ProjectId = projectId;
             PullRequestTriggers = pullRequestTriggers;
+            QueueStatus = queueStatus;
             Repositories = repositories;
             Revision = revision;
             Schedules = schedules;

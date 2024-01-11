@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * the `azuredevops.ResourceAuthorization` resource can be used to grant authorization.
  *
  * ## Example Usage
+ * ### Creating a Queue from an organization-level pool
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -32,6 +33,17 @@ import * as utilities from "../utilities";
  *     type: "queue",
  *     authorized: true,
  * });
+ * ```
+ * ### Creating a Queue at the project level (Organization-level permissions not required)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = azuredevops.getProject({
+ *     name: "Example Project",
+ * });
+ * const exampleQueue = new azuredevops.Queue("exampleQueue", {projectId: exampleProject.then(exampleProject => exampleProject.id)});
  * ```
  * ## Relevant Links
  *
@@ -77,9 +89,17 @@ export class Queue extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the organization agent pool.
+     * The ID of the organization agent pool. Conflicts with `name`.
+     *
+     * > **NOTE:**
+     * One of `name` or `agentPoolId` must be specified, but not both.
+     * When `agentPoolId` is specified, the agent queue name will be derived from the agent pool name.
      */
     public readonly agentPoolId!: pulumi.Output<number>;
+    /**
+     * The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agentPoolId`.
+     */
+    public readonly name!: pulumi.Output<string>;
     /**
      * The ID of the project in which to create the resource.
      */
@@ -102,16 +122,15 @@ export class Queue extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as QueueState | undefined;
             resourceInputs["agentPoolId"] = state ? state.agentPoolId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["projectId"] = state ? state.projectId : undefined;
         } else {
             const args = argsOrState as QueueArgs | undefined;
-            if ((!args || args.agentPoolId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'agentPoolId'");
-            }
             if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
             resourceInputs["agentPoolId"] = args ? args.agentPoolId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -124,9 +143,17 @@ export class Queue extends pulumi.CustomResource {
  */
 export interface QueueState {
     /**
-     * The ID of the organization agent pool.
+     * The ID of the organization agent pool. Conflicts with `name`.
+     *
+     * > **NOTE:**
+     * One of `name` or `agentPoolId` must be specified, but not both.
+     * When `agentPoolId` is specified, the agent queue name will be derived from the agent pool name.
      */
     agentPoolId?: pulumi.Input<number>;
+    /**
+     * The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agentPoolId`.
+     */
+    name?: pulumi.Input<string>;
     /**
      * The ID of the project in which to create the resource.
      */
@@ -138,9 +165,17 @@ export interface QueueState {
  */
 export interface QueueArgs {
     /**
-     * The ID of the organization agent pool.
+     * The ID of the organization agent pool. Conflicts with `name`.
+     *
+     * > **NOTE:**
+     * One of `name` or `agentPoolId` must be specified, but not both.
+     * When `agentPoolId` is specified, the agent queue name will be derived from the agent pool name.
      */
-    agentPoolId: pulumi.Input<number>;
+    agentPoolId?: pulumi.Input<number>;
+    /**
+     * The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agentPoolId`.
+     */
+    name?: pulumi.Input<string>;
     /**
      * The ID of the project in which to create the resource.
      */

@@ -171,6 +171,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServiceendpointPermissions{}
 	case "azuredevops:index/servicehookPermissions:ServicehookPermissions":
 		r = &ServicehookPermissions{}
+	case "azuredevops:index/servicehookStorageQueuePipelines:ServicehookStorageQueuePipelines":
+		r = &ServicehookStorageQueuePipelines{}
 	case "azuredevops:index/taggingPermissions:TaggingPermissions":
 		r = &TaggingPermissions{}
 	case "azuredevops:index/team:Team":
@@ -591,6 +593,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/servicehookPermissions",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/servicehookStorageQueuePipelines",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

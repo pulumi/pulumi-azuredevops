@@ -38,8 +38,16 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The ID of the Environment.
         /// </summary>
-        [Input("environmentId", required: true)]
-        public int EnvironmentId { get; set; }
+        [Input("environmentId")]
+        public int? EnvironmentId { get; set; }
+
+        /// <summary>
+        /// Name of the Environment.
+        /// 
+        /// &gt; **NOTE:** One of either `environment_id` or `name` must be specified.
+        /// </summary>
+        [Input("name")]
+        public string? Name { get; set; }
 
         /// <summary>
         /// The ID of the project.
@@ -58,8 +66,16 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The ID of the Environment.
         /// </summary>
-        [Input("environmentId", required: true)]
-        public Input<int> EnvironmentId { get; set; } = null!;
+        [Input("environmentId")]
+        public Input<int>? EnvironmentId { get; set; }
+
+        /// <summary>
+        /// Name of the Environment.
+        /// 
+        /// &gt; **NOTE:** One of either `environment_id` or `name` must be specified.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The ID of the project.
@@ -81,7 +97,7 @@ namespace Pulumi.AzureDevOps
         /// A description for the Environment.
         /// </summary>
         public readonly string Description;
-        public readonly int EnvironmentId;
+        public readonly int? EnvironmentId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -96,7 +112,7 @@ namespace Pulumi.AzureDevOps
         private GetEnvironmentResult(
             string description,
 
-            int environmentId,
+            int? environmentId,
 
             string id,
 

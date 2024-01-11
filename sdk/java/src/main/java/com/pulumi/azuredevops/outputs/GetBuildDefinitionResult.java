@@ -47,6 +47,11 @@ public final class GetBuildDefinitionResult {
      */
     private List<GetBuildDefinitionPullRequestTrigger> pullRequestTriggers;
     /**
+     * @return The queue status of the build definition.
+     * 
+     */
+    private String queueStatus;
+    /**
      * @return A `repository` block as defined below.
      * 
      */
@@ -115,6 +120,13 @@ public final class GetBuildDefinitionResult {
         return this.pullRequestTriggers;
     }
     /**
+     * @return The queue status of the build definition.
+     * 
+     */
+    public String queueStatus() {
+        return this.queueStatus;
+    }
+    /**
      * @return A `repository` block as defined below.
      * 
      */
@@ -166,6 +178,7 @@ public final class GetBuildDefinitionResult {
         private @Nullable String path;
         private String projectId;
         private List<GetBuildDefinitionPullRequestTrigger> pullRequestTriggers;
+        private String queueStatus;
         private List<GetBuildDefinitionRepository> repositories;
         private Integer revision;
         private List<GetBuildDefinitionSchedule> schedules;
@@ -181,6 +194,7 @@ public final class GetBuildDefinitionResult {
     	      this.path = defaults.path;
     	      this.projectId = defaults.projectId;
     	      this.pullRequestTriggers = defaults.pullRequestTriggers;
+    	      this.queueStatus = defaults.queueStatus;
     	      this.repositories = defaults.repositories;
     	      this.revision = defaults.revision;
     	      this.schedules = defaults.schedules;
@@ -249,6 +263,14 @@ public final class GetBuildDefinitionResult {
             return pullRequestTriggers(List.of(pullRequestTriggers));
         }
         @CustomType.Setter
+        public Builder queueStatus(String queueStatus) {
+            if (queueStatus == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionResult", "queueStatus");
+            }
+            this.queueStatus = queueStatus;
+            return this;
+        }
+        @CustomType.Setter
         public Builder repositories(List<GetBuildDefinitionRepository> repositories) {
             if (repositories == null) {
               throw new MissingRequiredPropertyException("GetBuildDefinitionResult", "repositories");
@@ -309,6 +331,7 @@ public final class GetBuildDefinitionResult {
             _resultValue.path = path;
             _resultValue.projectId = projectId;
             _resultValue.pullRequestTriggers = pullRequestTriggers;
+            _resultValue.queueStatus = queueStatus;
             _resultValue.repositories = repositories;
             _resultValue.revision = revision;
             _resultValue.schedules = schedules;

@@ -129,6 +129,21 @@ public final class BuildDefinitionState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+     * 
+     */
+    @Import(name="queueStatus")
+    private @Nullable Output<String> queueStatus;
+
+    /**
+     * @return The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+     * 
+     */
+    public Optional<Output<String>> queueStatus() {
+        return Optional.ofNullable(this.queueStatus);
+    }
+
+    /**
      * A `repository` block as documented below.
      * 
      */
@@ -205,6 +220,7 @@ public final class BuildDefinitionState extends com.pulumi.resources.ResourceArg
         this.path = $.path;
         this.projectId = $.projectId;
         this.pullRequestTrigger = $.pullRequestTrigger;
+        this.queueStatus = $.queueStatus;
         this.repository = $.repository;
         this.revision = $.revision;
         this.schedules = $.schedules;
@@ -385,6 +401,27 @@ public final class BuildDefinitionState extends com.pulumi.resources.ResourceArg
          */
         public Builder pullRequestTrigger(BuildDefinitionPullRequestTriggerArgs pullRequestTrigger) {
             return pullRequestTrigger(Output.of(pullRequestTrigger));
+        }
+
+        /**
+         * @param queueStatus The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder queueStatus(@Nullable Output<String> queueStatus) {
+            $.queueStatus = queueStatus;
+            return this;
+        }
+
+        /**
+         * @param queueStatus The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder queueStatus(String queueStatus) {
+            return queueStatus(Output.of(queueStatus));
         }
 
         /**

@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops;
 
 import com.pulumi.azuredevops.inputs.ServiceEndpointAzureRMCredentialsArgs;
+import com.pulumi.azuredevops.inputs.ServiceEndpointAzureRMFeaturesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -150,6 +151,21 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * A `features` block.
+     * 
+     */
+    @Import(name="features")
+    private @Nullable Output<ServiceEndpointAzureRMFeaturesArgs> features;
+
+    /**
+     * @return A `features` block.
+     * 
+     */
+    public Optional<Output<ServiceEndpointAzureRMFeaturesArgs>> features() {
+        return Optional.ofNullable(this.features);
+    }
+
+    /**
      * The ID of the project.
      * 
      */
@@ -225,6 +241,7 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
         this.credentials = $.credentials;
         this.description = $.description;
         this.environment = $.environment;
+        this.features = $.features;
         this.projectId = $.projectId;
         this.resourceGroup = $.resourceGroup;
         this.serviceEndpointAuthenticationScheme = $.serviceEndpointAuthenticationScheme;
@@ -428,6 +445,27 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
          */
         public Builder environment(String environment) {
             return environment(Output.of(environment));
+        }
+
+        /**
+         * @param features A `features` block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder features(@Nullable Output<ServiceEndpointAzureRMFeaturesArgs> features) {
+            $.features = features;
+            return this;
+        }
+
+        /**
+         * @param features A `features` block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder features(ServiceEndpointAzureRMFeaturesArgs features) {
+            return features(Output.of(features));
         }
 
         /**

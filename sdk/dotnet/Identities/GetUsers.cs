@@ -32,7 +32,13 @@ namespace Pulumi.AzureDevOps.Identities
         ///         PrincipalName = "contoso-user@contoso.onmicrosoft.com",
         ///     });
         /// 
-        ///     var example_all_users = AzureDevOps.GetUsers.Invoke();
+        ///     var example_all_users = AzureDevOps.GetUsers.Invoke(new()
+        ///     {
+        ///         Features = new AzureDevOps.Inputs.GetUsersFeaturesInputArgs
+        ///         {
+        ///             ConcurrentWorkers = 10,
+        ///         },
+        ///     });
         /// 
         ///     var example_all_from_origin = AzureDevOps.GetUsers.Invoke(new()
         ///     {
@@ -85,7 +91,13 @@ namespace Pulumi.AzureDevOps.Identities
         ///         PrincipalName = "contoso-user@contoso.onmicrosoft.com",
         ///     });
         /// 
-        ///     var example_all_users = AzureDevOps.GetUsers.Invoke();
+        ///     var example_all_users = AzureDevOps.GetUsers.Invoke(new()
+        ///     {
+        ///         Features = new AzureDevOps.Inputs.GetUsersFeaturesInputArgs
+        ///         {
+        ///             ConcurrentWorkers = 10,
+        ///         },
+        ///     });
         /// 
         ///     var example_all_from_origin = AzureDevOps.GetUsers.Invoke(new()
         ///     {
@@ -123,13 +135,7 @@ namespace Pulumi.AzureDevOps.Identities
     public sealed class GetUsersArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
-        /// </summary>
-        [Input("origin")]
-        public string? Origin { get; set; }
-
-        /// <summary>
-        /// The unique identifier from the system of origin.
+        /// A `features` block as defined below.
         /// 
         /// DataSource without specifying any arguments will return all users inside an organization.
         /// 
@@ -156,6 +162,18 @@ namespace Pulumi.AzureDevOps.Identities
         /// {
         /// });
         /// ```
+        /// </summary>
+        [Input("features")]
+        public Inputs.GetUsersFeaturesArgs? Features { get; set; }
+
+        /// <summary>
+        /// The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+        /// </summary>
+        [Input("origin")]
+        public string? Origin { get; set; }
+
+        /// <summary>
+        /// The unique identifier from the system of origin.
         /// </summary>
         [Input("originId")]
         public string? OriginId { get; set; }
@@ -187,13 +205,7 @@ namespace Pulumi.AzureDevOps.Identities
     public sealed class GetUsersInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
-        /// </summary>
-        [Input("origin")]
-        public Input<string>? Origin { get; set; }
-
-        /// <summary>
-        /// The unique identifier from the system of origin.
+        /// A `features` block as defined below.
         /// 
         /// DataSource without specifying any arguments will return all users inside an organization.
         /// 
@@ -220,6 +232,18 @@ namespace Pulumi.AzureDevOps.Identities
         /// {
         /// });
         /// ```
+        /// </summary>
+        [Input("features")]
+        public Input<Inputs.GetUsersFeaturesInputArgs>? Features { get; set; }
+
+        /// <summary>
+        /// The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+        /// </summary>
+        [Input("origin")]
+        public Input<string>? Origin { get; set; }
+
+        /// <summary>
+        /// The unique identifier from the system of origin.
         /// </summary>
         [Input("originId")]
         public Input<string>? OriginId { get; set; }
@@ -252,6 +276,7 @@ namespace Pulumi.AzureDevOps.Identities
     [OutputType]
     public sealed class GetUsersResult
     {
+        public readonly Outputs.GetUsersFeaturesResult? Features;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -276,6 +301,8 @@ namespace Pulumi.AzureDevOps.Identities
 
         [OutputConstructor]
         private GetUsersResult(
+            Outputs.GetUsersFeaturesResult? features,
+
             string id,
 
             string? origin,
@@ -288,6 +315,7 @@ namespace Pulumi.AzureDevOps.Identities
 
             ImmutableArray<Outputs.GetUsersUserResult> users)
         {
+            Features = features;
             Id = id;
             Origin = origin;
             OriginId = originId;

@@ -3,6 +3,7 @@
 
 package com.pulumi.azuredevops.Identities.inputs;
 
+import com.pulumi.azuredevops.Identities.inputs.GetUsersFeatures;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.List;
@@ -14,6 +15,121 @@ import javax.annotation.Nullable;
 public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetUsersPlainArgs Empty = new GetUsersPlainArgs();
+
+    /**
+     * A `features` block as defined below.
+     * 
+     * DataSource without specifying any arguments will return all users inside an organization.
+     * 
+     * List of possible subject types
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *     }
+     * }
+     * ```
+     * 
+     * List of possible origins
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *     }
+     * }
+     * ```
+     * 
+     */
+    @Import(name="features")
+    private @Nullable GetUsersFeatures features;
+
+    /**
+     * @return A `features` block as defined below.
+     * 
+     * DataSource without specifying any arguments will return all users inside an organization.
+     * 
+     * List of possible subject types
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *     }
+     * }
+     * ```
+     * 
+     * List of possible origins
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public Optional<GetUsersFeatures> features() {
+        return Optional.ofNullable(this.features);
+    }
 
     /**
      * The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
@@ -33,112 +149,12 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * The unique identifier from the system of origin.
      * 
-     * DataSource without specifying any arguments will return all users inside an organization.
-     * 
-     * List of possible subject types
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * 
-     * List of possible origins
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * 
      */
     @Import(name="originId")
     private @Nullable String originId;
 
     /**
      * @return The unique identifier from the system of origin.
-     * 
-     * DataSource without specifying any arguments will return all users inside an organization.
-     * 
-     * List of possible subject types
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * 
-     * List of possible origins
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     public Optional<String> originId() {
@@ -178,6 +194,7 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetUsersPlainArgs() {}
 
     private GetUsersPlainArgs(GetUsersPlainArgs $) {
+        this.features = $.features;
         this.origin = $.origin;
         this.originId = $.originId;
         this.principalName = $.principalName;
@@ -203,18 +220,7 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param origin The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder origin(@Nullable String origin) {
-            $.origin = origin;
-            return this;
-        }
-
-        /**
-         * @param originId The unique identifier from the system of origin.
+         * @param features A `features` block as defined below.
          * 
          * DataSource without specifying any arguments will return all users inside an organization.
          * 
@@ -265,6 +271,28 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
          *     }
          * }
          * ```
+         * 
+         * @return builder
+         * 
+         */
+        public Builder features(@Nullable GetUsersFeatures features) {
+            $.features = features;
+            return this;
+        }
+
+        /**
+         * @param origin The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder origin(@Nullable String origin) {
+            $.origin = origin;
+            return this;
+        }
+
+        /**
+         * @param originId The unique identifier from the system of origin.
          * 
          * @return builder
          * 

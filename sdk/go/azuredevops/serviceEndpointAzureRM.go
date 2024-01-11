@@ -331,6 +331,8 @@ type ServiceEndpointAzureRM struct {
 	//
 	// > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
 	Environment pulumi.StringPtrOutput `pulumi:"environment"`
+	// A `features` block.
+	Features ServiceEndpointAzureRMFeaturesPtrOutput `pulumi:"features"`
 	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The resource group used for scope of automatic service endpoint.
@@ -413,6 +415,8 @@ type serviceEndpointAzureRMState struct {
 	//
 	// > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
 	Environment *string `pulumi:"environment"`
+	// A `features` block.
+	Features *ServiceEndpointAzureRMFeatures `pulumi:"features"`
 	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// The resource group used for scope of automatic service endpoint.
@@ -451,6 +455,8 @@ type ServiceEndpointAzureRMState struct {
 	//
 	// > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
 	Environment pulumi.StringPtrInput
+	// A `features` block.
+	Features ServiceEndpointAzureRMFeaturesPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// The resource group used for scope of automatic service endpoint.
@@ -493,6 +499,8 @@ type serviceEndpointAzureRMArgs struct {
 	//
 	// > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
 	Environment *string `pulumi:"environment"`
+	// A `features` block.
+	Features *ServiceEndpointAzureRMFeatures `pulumi:"features"`
 	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// The resource group used for scope of automatic service endpoint.
@@ -526,6 +534,8 @@ type ServiceEndpointAzureRMArgs struct {
 	//
 	// > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
 	Environment pulumi.StringPtrInput
+	// A `features` block.
+	Features ServiceEndpointAzureRMFeaturesPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// The resource group used for scope of automatic service endpoint.
@@ -669,6 +679,11 @@ func (o ServiceEndpointAzureRMOutput) Description() pulumi.StringPtrOutput {
 // > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
 func (o ServiceEndpointAzureRMOutput) Environment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointAzureRM) pulumi.StringPtrOutput { return v.Environment }).(pulumi.StringPtrOutput)
+}
+
+// A `features` block.
+func (o ServiceEndpointAzureRMOutput) Features() ServiceEndpointAzureRMFeaturesPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointAzureRM) ServiceEndpointAzureRMFeaturesPtrOutput { return v.Features }).(ServiceEndpointAzureRMFeaturesPtrOutput)
 }
 
 // The ID of the project.

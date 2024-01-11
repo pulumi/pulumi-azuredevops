@@ -48,7 +48,7 @@ class GetEnvironmentResult:
 
     @property
     @pulumi.getter(name="environmentId")
-    def environment_id(self) -> int:
+    def environment_id(self) -> Optional[int]:
         return pulumi.get(self, "environment_id")
 
     @property
@@ -87,6 +87,7 @@ class AwaitableGetEnvironmentResult(GetEnvironmentResult):
 
 
 def get_environment(environment_id: Optional[int] = None,
+                    name: Optional[str] = None,
                     project_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentResult:
     """
@@ -98,10 +99,14 @@ def get_environment(environment_id: Optional[int] = None,
 
 
     :param int environment_id: The ID of the Environment.
+    :param str name: Name of the Environment.
+           
+           > **NOTE:** One of either `environment_id` or `name` must be specified.
     :param str project_id: The ID of the project.
     """
     __args__ = dict()
     __args__['environmentId'] = environment_id
+    __args__['name'] = name
     __args__['projectId'] = project_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azuredevops:index/getEnvironment:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult).value
@@ -115,7 +120,8 @@ def get_environment(environment_id: Optional[int] = None,
 
 
 @_utilities.lift_output_func(get_environment)
-def get_environment_output(environment_id: Optional[pulumi.Input[int]] = None,
+def get_environment_output(environment_id: Optional[pulumi.Input[Optional[int]]] = None,
+                           name: Optional[pulumi.Input[Optional[str]]] = None,
                            project_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
@@ -127,6 +133,9 @@ def get_environment_output(environment_id: Optional[pulumi.Input[int]] = None,
 
 
     :param int environment_id: The ID of the Environment.
+    :param str name: Name of the Environment.
+           
+           > **NOTE:** One of either `environment_id` or `name` must be specified.
     :param str project_id: The ID of the project.
     """
     ...

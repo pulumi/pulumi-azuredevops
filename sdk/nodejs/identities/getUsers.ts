@@ -18,7 +18,11 @@ import * as utilities from "../utilities";
  * const example = azuredevops.getUsers({
  *     principalName: "contoso-user@contoso.onmicrosoft.com",
  * });
- * const example-all-users = azuredevops.getUsers({});
+ * const example-all-users = azuredevops.getUsers({
+ *     features: {
+ *         concurrentWorkers: 10,
+ *     },
+ * });
  * const example-all-from-origin = azuredevops.getUsers({
  *     origin: "aad",
  * });
@@ -44,6 +48,7 @@ export function getUsers(args?: GetUsersArgs, opts?: pulumi.InvokeOptions): Prom
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azuredevops:Identities/getUsers:getUsers", {
+        "features": args.features,
         "origin": args.origin,
         "originId": args.originId,
         "principalName": args.principalName,
@@ -56,11 +61,7 @@ export function getUsers(args?: GetUsersArgs, opts?: pulumi.InvokeOptions): Prom
  */
 export interface GetUsersArgs {
     /**
-     * The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
-     */
-    origin?: string;
-    /**
-     * The unique identifier from the system of origin.
+     * A `features` block as defined below.
      *
      * DataSource without specifying any arguments will return all users inside an organization.
      *
@@ -75,6 +76,14 @@ export interface GetUsersArgs {
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * ```
+     */
+    features?: inputs.Identities.GetUsersFeatures;
+    /**
+     * The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+     */
+    origin?: string;
+    /**
+     * The unique identifier from the system of origin.
      */
     originId?: string;
     /**
@@ -91,6 +100,7 @@ export interface GetUsersArgs {
  * A collection of values returned by getUsers.
  */
 export interface GetUsersResult {
+    readonly features?: outputs.Identities.GetUsersFeatures;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -125,7 +135,11 @@ export interface GetUsersResult {
  * const example = azuredevops.getUsers({
  *     principalName: "contoso-user@contoso.onmicrosoft.com",
  * });
- * const example-all-users = azuredevops.getUsers({});
+ * const example-all-users = azuredevops.getUsers({
+ *     features: {
+ *         concurrentWorkers: 10,
+ *     },
+ * });
  * const example-all-from-origin = azuredevops.getUsers({
  *     origin: "aad",
  * });
@@ -154,11 +168,7 @@ export function getUsersOutput(args?: GetUsersOutputArgs, opts?: pulumi.InvokeOp
  */
 export interface GetUsersOutputArgs {
     /**
-     * The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
-     */
-    origin?: pulumi.Input<string>;
-    /**
-     * The unique identifier from the system of origin.
+     * A `features` block as defined below.
      *
      * DataSource without specifying any arguments will return all users inside an organization.
      *
@@ -173,6 +183,14 @@ export interface GetUsersOutputArgs {
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * ```
+     */
+    features?: pulumi.Input<inputs.Identities.GetUsersFeaturesArgs>;
+    /**
+     * The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+     */
+    origin?: pulumi.Input<string>;
+    /**
+     * The unique identifier from the system of origin.
      */
     originId?: pulumi.Input<string>;
     /**

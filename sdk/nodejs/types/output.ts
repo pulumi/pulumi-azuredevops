@@ -346,7 +346,7 @@ export interface BuildDefinitionFeature {
     /**
      * Trigger the pipeline to run after the creation. Defaults to `true`.
      *
-     * > **Note** The first run(`skipFirstRun = false`) will only be triggered on create.
+     * > **Note** The first run(`skipFirstRun = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
      */
     skipFirstRun?: boolean;
 }
@@ -1088,6 +1088,15 @@ export interface GetTeamsTeam {
     projectId: string;
 }
 
+export interface GetUsersFeatures {
+    /**
+     * Number of workers to process user data concurrently.
+     *
+     * > **Note** Setting `concurrentWorkers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
+     */
+    concurrentWorkers?: number;
+}
+
 export interface GetUsersUser {
     /**
      * The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
@@ -1111,20 +1120,6 @@ export interface GetUsersUser {
     origin: string;
     /**
      * The unique identifier from the system of origin.
-     *
-     * DataSource without specifying any arguments will return all users inside an organization.
-     *
-     * List of possible subject types
-     *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
-     *
-     * List of possible origins
-     *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
      */
     originId?: string;
     /**
@@ -1212,6 +1207,13 @@ export interface ServiceEndpointAzureRMCredentials {
      * The service principal secret. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
      */
     serviceprincipalkey?: string;
+}
+
+export interface ServiceEndpointAzureRMFeatures {
+    /**
+     * Whether or not to validate connection with Azure after create or update operations. Defaults to `false`
+     */
+    validate?: boolean;
 }
 
 export interface ServiceEndpointGitHubAuthOauth {
@@ -1472,6 +1474,40 @@ export interface ServiceendpointMavenAuthenticationToken {
     token: string;
 }
 
+export interface ServicehookStorageQueuePipelinesRunStateChangedEvent {
+    /**
+     * The pipeline ID that will generate an event. If not specified, all pipelines in the project will trigger the event.
+     */
+    pipelineId?: string;
+    /**
+     * Which run result should generate an event. Only valid if publishedEvent is `RunStateChanged`. If not specified, all results will trigger the event.
+     */
+    runResultFilter?: string;
+    /**
+     * Which run state should generate an event. Only valid if publishedEvent is `RunStateChanged`. If not specified, all states will trigger the event.
+     */
+    runStateFilter?: string;
+}
+
+export interface ServicehookStorageQueuePipelinesStageStateChangedEvent {
+    /**
+     * The pipeline ID that will generate an event.
+     */
+    pipelineId?: string;
+    /**
+     * Which stage should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all stages will trigger the event.
+     */
+    stageName?: string;
+    /**
+     * Which stage result should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all results will trigger the event.
+     */
+    stageResultFilter?: string;
+    /**
+     * Which stage state should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all states will trigger the event.
+     */
+    stageStateFilter?: string;
+}
+
 export interface VariableGroupKeyVault {
     /**
      * The name of the Azure key vault to link secrets from as variables.
@@ -1597,7 +1633,7 @@ export namespace Build {
         /**
          * Trigger the pipeline to run after the creation. Defaults to `true`.
          *
-         * > **Note** The first run(`skipFirstRun = false`) will only be triggered on create.
+         * > **Note** The first run(`skipFirstRun = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
          */
         skipFirstRun?: boolean;
     }
@@ -1931,6 +1967,15 @@ export namespace Core {
 }
 
 export namespace Identities {
+    export interface GetUsersFeatures {
+        /**
+         * Number of workers to process user data concurrently.
+         *
+         * > **Note** Setting `concurrentWorkers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
+         */
+        concurrentWorkers?: number;
+    }
+
     export interface GetUsersUser {
         /**
          * The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
@@ -1954,20 +1999,6 @@ export namespace Identities {
         origin: string;
         /**
          * The unique identifier from the system of origin.
-         *
-         * DataSource without specifying any arguments will return all users inside an organization.
-         *
-         * List of possible subject types
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
-         *
-         * List of possible origins
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         originId?: string;
         /**
@@ -2190,6 +2221,13 @@ export namespace ServiceEndpoint {
          * The service principal secret. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
          */
         serviceprincipalkey?: string;
+    }
+
+    export interface AzureRMFeatures {
+        /**
+         * Whether or not to validate connection with Azure after create or update operations. Defaults to `false`
+         */
+        validate?: boolean;
     }
 
     export interface GitHubAuthOauth {

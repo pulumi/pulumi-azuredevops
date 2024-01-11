@@ -14,27 +14,24 @@ __all__ = ['QueueArgs', 'Queue']
 @pulumi.input_type
 class QueueArgs:
     def __init__(__self__, *,
-                 agent_pool_id: pulumi.Input[int],
-                 project_id: pulumi.Input[str]):
+                 project_id: pulumi.Input[str],
+                 agent_pool_id: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Queue resource.
-        :param pulumi.Input[int] agent_pool_id: The ID of the organization agent pool.
         :param pulumi.Input[str] project_id: The ID of the project in which to create the resource.
+        :param pulumi.Input[int] agent_pool_id: The ID of the organization agent pool. Conflicts with `name`.
+               
+               > **NOTE:**
+               One of `name` or `agent_pool_id` must be specified, but not both.
+               When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
+        :param pulumi.Input[str] name: The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.
         """
-        pulumi.set(__self__, "agent_pool_id", agent_pool_id)
         pulumi.set(__self__, "project_id", project_id)
-
-    @property
-    @pulumi.getter(name="agentPoolId")
-    def agent_pool_id(self) -> pulumi.Input[int]:
-        """
-        The ID of the organization agent pool.
-        """
-        return pulumi.get(self, "agent_pool_id")
-
-    @agent_pool_id.setter
-    def agent_pool_id(self, value: pulumi.Input[int]):
-        pulumi.set(self, "agent_pool_id", value)
+        if agent_pool_id is not None:
+            pulumi.set(__self__, "agent_pool_id", agent_pool_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="projectId")
@@ -48,19 +45,55 @@ class QueueArgs:
     def project_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "project_id", value)
 
+    @property
+    @pulumi.getter(name="agentPoolId")
+    def agent_pool_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        The ID of the organization agent pool. Conflicts with `name`.
+
+        > **NOTE:**
+        One of `name` or `agent_pool_id` must be specified, but not both.
+        When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
+        """
+        return pulumi.get(self, "agent_pool_id")
+
+    @agent_pool_id.setter
+    def agent_pool_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "agent_pool_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
 
 @pulumi.input_type
 class _QueueState:
     def __init__(__self__, *,
                  agent_pool_id: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Queue resources.
-        :param pulumi.Input[int] agent_pool_id: The ID of the organization agent pool.
+        :param pulumi.Input[int] agent_pool_id: The ID of the organization agent pool. Conflicts with `name`.
+               
+               > **NOTE:**
+               One of `name` or `agent_pool_id` must be specified, but not both.
+               When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
+        :param pulumi.Input[str] name: The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.
         :param pulumi.Input[str] project_id: The ID of the project in which to create the resource.
         """
         if agent_pool_id is not None:
             pulumi.set(__self__, "agent_pool_id", agent_pool_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if project_id is not None:
             pulumi.set(__self__, "project_id", project_id)
 
@@ -68,13 +101,29 @@ class _QueueState:
     @pulumi.getter(name="agentPoolId")
     def agent_pool_id(self) -> Optional[pulumi.Input[int]]:
         """
-        The ID of the organization agent pool.
+        The ID of the organization agent pool. Conflicts with `name`.
+
+        > **NOTE:**
+        One of `name` or `agent_pool_id` must be specified, but not both.
+        When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
         """
         return pulumi.get(self, "agent_pool_id")
 
     @agent_pool_id.setter
     def agent_pool_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "agent_pool_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="projectId")
@@ -100,6 +149,7 @@ class Queue(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_pool_id: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -110,6 +160,7 @@ class Queue(pulumi.CustomResource):
         the `ResourceAuthorization` resource can be used to grant authorization.
 
         ## Example Usage
+        ### Creating a Queue from an organization-level pool
 
         ```python
         import pulumi
@@ -127,6 +178,15 @@ class Queue(pulumi.CustomResource):
             type="queue",
             authorized=True)
         ```
+        ### Creating a Queue at the project level (Organization-level permissions not required)
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.get_project(name="Example Project")
+        example_queue = azuredevops.Queue("exampleQueue", project_id=example_project.id)
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-7.0)
@@ -141,7 +201,12 @@ class Queue(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] agent_pool_id: The ID of the organization agent pool.
+        :param pulumi.Input[int] agent_pool_id: The ID of the organization agent pool. Conflicts with `name`.
+               
+               > **NOTE:**
+               One of `name` or `agent_pool_id` must be specified, but not both.
+               When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
+        :param pulumi.Input[str] name: The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.
         :param pulumi.Input[str] project_id: The ID of the project in which to create the resource.
         """
         ...
@@ -158,6 +223,7 @@ class Queue(pulumi.CustomResource):
         the `ResourceAuthorization` resource can be used to grant authorization.
 
         ## Example Usage
+        ### Creating a Queue from an organization-level pool
 
         ```python
         import pulumi
@@ -174,6 +240,15 @@ class Queue(pulumi.CustomResource):
             resource_id=example_queue.id,
             type="queue",
             authorized=True)
+        ```
+        ### Creating a Queue at the project level (Organization-level permissions not required)
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.get_project(name="Example Project")
+        example_queue = azuredevops.Queue("exampleQueue", project_id=example_project.id)
         ```
         ## Relevant Links
 
@@ -203,6 +278,7 @@ class Queue(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_pool_id: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""Queue is deprecated: azuredevops.agent.Queue has been deprecated in favor of azuredevops.Queue""")
@@ -214,9 +290,8 @@ class Queue(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = QueueArgs.__new__(QueueArgs)
 
-            if agent_pool_id is None and not opts.urn:
-                raise TypeError("Missing required property 'agent_pool_id'")
             __props__.__dict__["agent_pool_id"] = agent_pool_id
+            __props__.__dict__["name"] = name
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__.__dict__["project_id"] = project_id
@@ -231,6 +306,7 @@ class Queue(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             agent_pool_id: Optional[pulumi.Input[int]] = None,
+            name: Optional[pulumi.Input[str]] = None,
             project_id: Optional[pulumi.Input[str]] = None) -> 'Queue':
         """
         Get an existing Queue resource's state with the given name, id, and optional extra
@@ -239,7 +315,12 @@ class Queue(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] agent_pool_id: The ID of the organization agent pool.
+        :param pulumi.Input[int] agent_pool_id: The ID of the organization agent pool. Conflicts with `name`.
+               
+               > **NOTE:**
+               One of `name` or `agent_pool_id` must be specified, but not both.
+               When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
+        :param pulumi.Input[str] name: The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.
         :param pulumi.Input[str] project_id: The ID of the project in which to create the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -247,6 +328,7 @@ class Queue(pulumi.CustomResource):
         __props__ = _QueueState.__new__(_QueueState)
 
         __props__.__dict__["agent_pool_id"] = agent_pool_id
+        __props__.__dict__["name"] = name
         __props__.__dict__["project_id"] = project_id
         return Queue(resource_name, opts=opts, __props__=__props__)
 
@@ -254,9 +336,21 @@ class Queue(pulumi.CustomResource):
     @pulumi.getter(name="agentPoolId")
     def agent_pool_id(self) -> pulumi.Output[int]:
         """
-        The ID of the organization agent pool.
+        The ID of the organization agent pool. Conflicts with `name`.
+
+        > **NOTE:**
+        One of `name` or `agent_pool_id` must be specified, but not both.
+        When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
         """
         return pulumi.get(self, "agent_pool_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Output[str]:
+        """
+        The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.
+        """
+        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="projectId")

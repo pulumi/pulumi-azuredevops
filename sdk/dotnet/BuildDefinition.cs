@@ -274,6 +274,12 @@ namespace Pulumi.AzureDevOps
         public Output<Outputs.BuildDefinitionPullRequestTrigger?> PullRequestTrigger { get; private set; } = null!;
 
         /// <summary>
+        /// The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+        /// </summary>
+        [Output("queueStatus")]
+        public Output<string?> QueueStatus { get; private set; } = null!;
+
+        /// <summary>
         /// A `repository` block as documented below.
         /// </summary>
         [Output("repository")]
@@ -399,6 +405,12 @@ namespace Pulumi.AzureDevOps
         public Input<Inputs.BuildDefinitionPullRequestTriggerArgs>? PullRequestTrigger { get; set; }
 
         /// <summary>
+        /// The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+        /// </summary>
+        [Input("queueStatus")]
+        public Input<string>? QueueStatus { get; set; }
+
+        /// <summary>
         /// A `repository` block as documented below.
         /// </summary>
         [Input("repository", required: true)]
@@ -491,6 +503,12 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Input("pullRequestTrigger")]
         public Input<Inputs.BuildDefinitionPullRequestTriggerGetArgs>? PullRequestTrigger { get; set; }
+
+        /// <summary>
+        /// The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+        /// </summary>
+        [Input("queueStatus")]
+        public Input<string>? QueueStatus { get; set; }
 
         /// <summary>
         /// A `repository` block as documented below.

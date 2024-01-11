@@ -24,6 +24,7 @@ class BuildDefinitionArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  pull_request_trigger: Optional[pulumi.Input['BuildDefinitionPullRequestTriggerArgs']] = None,
+                 queue_status: Optional[pulumi.Input[str]] = None,
                  schedules: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionScheduleArgs']]]] = None,
                  variable_groups: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionVariableArgs']]]] = None):
@@ -37,6 +38,7 @@ class BuildDefinitionArgs:
         :param pulumi.Input[str] name: The name of the build definition.
         :param pulumi.Input[str] path: The folder path of the build definition.
         :param pulumi.Input['BuildDefinitionPullRequestTriggerArgs'] pull_request_trigger: Pull Request Integration trigger.
+        :param pulumi.Input[str] queue_status: The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] variable_groups: A list of variable group IDs (integers) to link to the build definition.
         :param pulumi.Input[Sequence[pulumi.Input['BuildDefinitionVariableArgs']]] variables: A list of `variable` blocks, as documented below.
         """
@@ -54,6 +56,8 @@ class BuildDefinitionArgs:
             pulumi.set(__self__, "path", path)
         if pull_request_trigger is not None:
             pulumi.set(__self__, "pull_request_trigger", pull_request_trigger)
+        if queue_status is not None:
+            pulumi.set(__self__, "queue_status", queue_status)
         if schedules is not None:
             pulumi.set(__self__, "schedules", schedules)
         if variable_groups is not None:
@@ -158,6 +162,18 @@ class BuildDefinitionArgs:
         pulumi.set(self, "pull_request_trigger", value)
 
     @property
+    @pulumi.getter(name="queueStatus")
+    def queue_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+        """
+        return pulumi.get(self, "queue_status")
+
+    @queue_status.setter
+    def queue_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "queue_status", value)
+
+    @property
     @pulumi.getter
     def schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionScheduleArgs']]]]:
         return pulumi.get(self, "schedules")
@@ -201,6 +217,7 @@ class _BuildDefinitionState:
                  path: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  pull_request_trigger: Optional[pulumi.Input['BuildDefinitionPullRequestTriggerArgs']] = None,
+                 queue_status: Optional[pulumi.Input[str]] = None,
                  repository: Optional[pulumi.Input['BuildDefinitionRepositoryArgs']] = None,
                  revision: Optional[pulumi.Input[int]] = None,
                  schedules: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionScheduleArgs']]]] = None,
@@ -215,6 +232,7 @@ class _BuildDefinitionState:
         :param pulumi.Input[str] path: The folder path of the build definition.
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input['BuildDefinitionPullRequestTriggerArgs'] pull_request_trigger: Pull Request Integration trigger.
+        :param pulumi.Input[str] queue_status: The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
         :param pulumi.Input['BuildDefinitionRepositoryArgs'] repository: A `repository` block as documented below.
         :param pulumi.Input[int] revision: The revision of the build definition
         :param pulumi.Input[Sequence[pulumi.Input[int]]] variable_groups: A list of variable group IDs (integers) to link to the build definition.
@@ -234,6 +252,8 @@ class _BuildDefinitionState:
             pulumi.set(__self__, "project_id", project_id)
         if pull_request_trigger is not None:
             pulumi.set(__self__, "pull_request_trigger", pull_request_trigger)
+        if queue_status is not None:
+            pulumi.set(__self__, "queue_status", queue_status)
         if repository is not None:
             pulumi.set(__self__, "repository", repository)
         if revision is not None:
@@ -330,6 +350,18 @@ class _BuildDefinitionState:
         pulumi.set(self, "pull_request_trigger", value)
 
     @property
+    @pulumi.getter(name="queueStatus")
+    def queue_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+        """
+        return pulumi.get(self, "queue_status")
+
+    @queue_status.setter
+    def queue_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "queue_status", value)
+
+    @property
     @pulumi.getter
     def repository(self) -> Optional[pulumi.Input['BuildDefinitionRepositoryArgs']]:
         """
@@ -399,6 +431,7 @@ class BuildDefinition(pulumi.CustomResource):
                  path: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  pull_request_trigger: Optional[pulumi.Input[pulumi.InputType['BuildDefinitionPullRequestTriggerArgs']]] = None,
+                 queue_status: Optional[pulumi.Input[str]] = None,
                  repository: Optional[pulumi.Input[pulumi.InputType['BuildDefinitionRepositoryArgs']]] = None,
                  schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildDefinitionScheduleArgs']]]]] = None,
                  variable_groups: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
@@ -559,6 +592,7 @@ class BuildDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] path: The folder path of the build definition.
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input[pulumi.InputType['BuildDefinitionPullRequestTriggerArgs']] pull_request_trigger: Pull Request Integration trigger.
+        :param pulumi.Input[str] queue_status: The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
         :param pulumi.Input[pulumi.InputType['BuildDefinitionRepositoryArgs']] repository: A `repository` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] variable_groups: A list of variable group IDs (integers) to link to the build definition.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildDefinitionVariableArgs']]]] variables: A list of `variable` blocks, as documented below.
@@ -737,6 +771,7 @@ class BuildDefinition(pulumi.CustomResource):
                  path: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  pull_request_trigger: Optional[pulumi.Input[pulumi.InputType['BuildDefinitionPullRequestTriggerArgs']]] = None,
+                 queue_status: Optional[pulumi.Input[str]] = None,
                  repository: Optional[pulumi.Input[pulumi.InputType['BuildDefinitionRepositoryArgs']]] = None,
                  schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildDefinitionScheduleArgs']]]]] = None,
                  variable_groups: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
@@ -759,6 +794,7 @@ class BuildDefinition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'project_id'")
             __props__.__dict__["project_id"] = project_id
             __props__.__dict__["pull_request_trigger"] = pull_request_trigger
+            __props__.__dict__["queue_status"] = queue_status
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__.__dict__["repository"] = repository
@@ -785,6 +821,7 @@ class BuildDefinition(pulumi.CustomResource):
             path: Optional[pulumi.Input[str]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
             pull_request_trigger: Optional[pulumi.Input[pulumi.InputType['BuildDefinitionPullRequestTriggerArgs']]] = None,
+            queue_status: Optional[pulumi.Input[str]] = None,
             repository: Optional[pulumi.Input[pulumi.InputType['BuildDefinitionRepositoryArgs']]] = None,
             revision: Optional[pulumi.Input[int]] = None,
             schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildDefinitionScheduleArgs']]]]] = None,
@@ -804,6 +841,7 @@ class BuildDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] path: The folder path of the build definition.
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input[pulumi.InputType['BuildDefinitionPullRequestTriggerArgs']] pull_request_trigger: Pull Request Integration trigger.
+        :param pulumi.Input[str] queue_status: The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
         :param pulumi.Input[pulumi.InputType['BuildDefinitionRepositoryArgs']] repository: A `repository` block as documented below.
         :param pulumi.Input[int] revision: The revision of the build definition
         :param pulumi.Input[Sequence[pulumi.Input[int]]] variable_groups: A list of variable group IDs (integers) to link to the build definition.
@@ -820,6 +858,7 @@ class BuildDefinition(pulumi.CustomResource):
         __props__.__dict__["path"] = path
         __props__.__dict__["project_id"] = project_id
         __props__.__dict__["pull_request_trigger"] = pull_request_trigger
+        __props__.__dict__["queue_status"] = queue_status
         __props__.__dict__["repository"] = repository
         __props__.__dict__["revision"] = revision
         __props__.__dict__["schedules"] = schedules
@@ -882,6 +921,14 @@ class BuildDefinition(pulumi.CustomResource):
         Pull Request Integration trigger.
         """
         return pulumi.get(self, "pull_request_trigger")
+
+    @property
+    @pulumi.getter(name="queueStatus")
+    def queue_status(self) -> pulumi.Output[Optional[str]]:
+        """
+        The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+        """
+        return pulumi.get(self, "queue_status")
 
     @property
     @pulumi.getter

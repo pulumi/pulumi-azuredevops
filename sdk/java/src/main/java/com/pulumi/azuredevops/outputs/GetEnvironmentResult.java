@@ -8,6 +8,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEnvironmentResult {
@@ -16,7 +18,7 @@ public final class GetEnvironmentResult {
      * 
      */
     private String description;
-    private Integer environmentId;
+    private @Nullable Integer environmentId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -37,8 +39,8 @@ public final class GetEnvironmentResult {
     public String description() {
         return this.description;
     }
-    public Integer environmentId() {
-        return this.environmentId;
+    public Optional<Integer> environmentId() {
+        return Optional.ofNullable(this.environmentId);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -68,7 +70,7 @@ public final class GetEnvironmentResult {
     @CustomType.Builder
     public static final class Builder {
         private String description;
-        private Integer environmentId;
+        private @Nullable Integer environmentId;
         private String id;
         private String name;
         private String projectId;
@@ -91,10 +93,8 @@ public final class GetEnvironmentResult {
             return this;
         }
         @CustomType.Setter
-        public Builder environmentId(Integer environmentId) {
-            if (environmentId == null) {
-              throw new MissingRequiredPropertyException("GetEnvironmentResult", "environmentId");
-            }
+        public Builder environmentId(@Nullable Integer environmentId) {
+
             this.environmentId = environmentId;
             return this;
         }

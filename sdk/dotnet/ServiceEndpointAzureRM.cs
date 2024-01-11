@@ -311,6 +311,12 @@ namespace Pulumi.AzureDevOps
         public Output<string?> Environment { get; private set; } = null!;
 
         /// <summary>
+        /// A `features` block.
+        /// </summary>
+        [Output("features")]
+        public Output<Outputs.ServiceEndpointAzureRMFeatures?> Features { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the project.
         /// </summary>
         [Output("projectId")]
@@ -463,6 +469,12 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Environment { get; set; }
 
         /// <summary>
+        /// A `features` block.
+        /// </summary>
+        [Input("features")]
+        public Input<Inputs.ServiceEndpointAzureRMFeaturesArgs>? Features { get; set; }
+
+        /// <summary>
         /// The ID of the project.
         /// </summary>
         [Input("projectId", required: true)]
@@ -553,6 +565,12 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Input("environment")]
         public Input<string>? Environment { get; set; }
+
+        /// <summary>
+        /// A `features` block.
+        /// </summary>
+        [Input("features")]
+        public Input<Inputs.ServiceEndpointAzureRMFeaturesGetArgs>? Features { get; set; }
 
         /// <summary>
         /// The ID of the project.

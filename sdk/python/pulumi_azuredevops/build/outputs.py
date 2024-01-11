@@ -265,7 +265,7 @@ class BuildDefinitionFeature(dict):
         """
         :param bool skip_first_run: Trigger the pipeline to run after the creation. Defaults to `true`.
                
-               > **Note** The first run(`skip_first_run = false`) will only be triggered on create.
+               > **Note** The first run(`skip_first_run = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
         """
         if skip_first_run is not None:
             pulumi.set(__self__, "skip_first_run", skip_first_run)
@@ -276,7 +276,7 @@ class BuildDefinitionFeature(dict):
         """
         Trigger the pipeline to run after the creation. Defaults to `true`.
 
-        > **Note** The first run(`skip_first_run = false`) will only be triggered on create.
+        > **Note** The first run(`skip_first_run = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
         """
         return pulumi.get(self, "skip_first_run")
 

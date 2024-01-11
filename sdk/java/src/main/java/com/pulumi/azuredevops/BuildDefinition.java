@@ -338,6 +338,20 @@ public class BuildDefinition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.pullRequestTrigger);
     }
     /**
+     * The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+     * 
+     */
+    @Export(name="queueStatus", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> queueStatus;
+
+    /**
+     * @return The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+     * 
+     */
+    public Output<Optional<String>> queueStatus() {
+        return Codegen.optional(this.queueStatus);
+    }
+    /**
      * A `repository` block as documented below.
      * 
      */

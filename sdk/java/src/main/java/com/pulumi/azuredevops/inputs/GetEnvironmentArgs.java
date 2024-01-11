@@ -9,6 +9,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetEnvironmentArgs extends com.pulumi.resources.InvokeArgs {
@@ -19,15 +21,34 @@ public final class GetEnvironmentArgs extends com.pulumi.resources.InvokeArgs {
      * The ID of the Environment.
      * 
      */
-    @Import(name="environmentId", required=true)
-    private Output<Integer> environmentId;
+    @Import(name="environmentId")
+    private @Nullable Output<Integer> environmentId;
 
     /**
      * @return The ID of the Environment.
      * 
      */
-    public Output<Integer> environmentId() {
-        return this.environmentId;
+    public Optional<Output<Integer>> environmentId() {
+        return Optional.ofNullable(this.environmentId);
+    }
+
+    /**
+     * Name of the Environment.
+     * 
+     * &gt; **NOTE:** One of either `environment_id` or `name` must be specified.
+     * 
+     */
+    @Import(name="name")
+    private @Nullable Output<String> name;
+
+    /**
+     * @return Name of the Environment.
+     * 
+     * &gt; **NOTE:** One of either `environment_id` or `name` must be specified.
+     * 
+     */
+    public Optional<Output<String>> name() {
+        return Optional.ofNullable(this.name);
     }
 
     /**
@@ -49,6 +70,7 @@ public final class GetEnvironmentArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetEnvironmentArgs(GetEnvironmentArgs $) {
         this.environmentId = $.environmentId;
+        this.name = $.name;
         this.projectId = $.projectId;
     }
 
@@ -76,7 +98,7 @@ public final class GetEnvironmentArgs extends com.pulumi.resources.InvokeArgs {
          * @return builder
          * 
          */
-        public Builder environmentId(Output<Integer> environmentId) {
+        public Builder environmentId(@Nullable Output<Integer> environmentId) {
             $.environmentId = environmentId;
             return this;
         }
@@ -89,6 +111,31 @@ public final class GetEnvironmentArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder environmentId(Integer environmentId) {
             return environmentId(Output.of(environmentId));
+        }
+
+        /**
+         * @param name Name of the Environment.
+         * 
+         * &gt; **NOTE:** One of either `environment_id` or `name` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(@Nullable Output<String> name) {
+            $.name = name;
+            return this;
+        }
+
+        /**
+         * @param name Name of the Environment.
+         * 
+         * &gt; **NOTE:** One of either `environment_id` or `name` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(String name) {
+            return name(Output.of(name));
         }
 
         /**
@@ -113,9 +160,6 @@ public final class GetEnvironmentArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetEnvironmentArgs build() {
-            if ($.environmentId == null) {
-                throw new MissingRequiredPropertyException("GetEnvironmentArgs", "environmentId");
-            }
             if ($.projectId == null) {
                 throw new MissingRequiredPropertyException("GetEnvironmentArgs", "projectId");
             }

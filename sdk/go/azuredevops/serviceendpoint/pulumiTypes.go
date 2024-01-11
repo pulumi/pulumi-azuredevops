@@ -169,6 +169,143 @@ func (o AzureRMCredentialsPtrOutput) Serviceprincipalkey() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+type AzureRMFeatures struct {
+	// Whether or not to validate connection with Azure after create or update operations. Defaults to `false`
+	Validate *bool `pulumi:"validate"`
+}
+
+// AzureRMFeaturesInput is an input type that accepts AzureRMFeaturesArgs and AzureRMFeaturesOutput values.
+// You can construct a concrete instance of `AzureRMFeaturesInput` via:
+//
+//	AzureRMFeaturesArgs{...}
+type AzureRMFeaturesInput interface {
+	pulumi.Input
+
+	ToAzureRMFeaturesOutput() AzureRMFeaturesOutput
+	ToAzureRMFeaturesOutputWithContext(context.Context) AzureRMFeaturesOutput
+}
+
+type AzureRMFeaturesArgs struct {
+	// Whether or not to validate connection with Azure after create or update operations. Defaults to `false`
+	Validate pulumi.BoolPtrInput `pulumi:"validate"`
+}
+
+func (AzureRMFeaturesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureRMFeatures)(nil)).Elem()
+}
+
+func (i AzureRMFeaturesArgs) ToAzureRMFeaturesOutput() AzureRMFeaturesOutput {
+	return i.ToAzureRMFeaturesOutputWithContext(context.Background())
+}
+
+func (i AzureRMFeaturesArgs) ToAzureRMFeaturesOutputWithContext(ctx context.Context) AzureRMFeaturesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureRMFeaturesOutput)
+}
+
+func (i AzureRMFeaturesArgs) ToAzureRMFeaturesPtrOutput() AzureRMFeaturesPtrOutput {
+	return i.ToAzureRMFeaturesPtrOutputWithContext(context.Background())
+}
+
+func (i AzureRMFeaturesArgs) ToAzureRMFeaturesPtrOutputWithContext(ctx context.Context) AzureRMFeaturesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureRMFeaturesOutput).ToAzureRMFeaturesPtrOutputWithContext(ctx)
+}
+
+// AzureRMFeaturesPtrInput is an input type that accepts AzureRMFeaturesArgs, AzureRMFeaturesPtr and AzureRMFeaturesPtrOutput values.
+// You can construct a concrete instance of `AzureRMFeaturesPtrInput` via:
+//
+//	        AzureRMFeaturesArgs{...}
+//
+//	or:
+//
+//	        nil
+type AzureRMFeaturesPtrInput interface {
+	pulumi.Input
+
+	ToAzureRMFeaturesPtrOutput() AzureRMFeaturesPtrOutput
+	ToAzureRMFeaturesPtrOutputWithContext(context.Context) AzureRMFeaturesPtrOutput
+}
+
+type azureRMFeaturesPtrType AzureRMFeaturesArgs
+
+func AzureRMFeaturesPtr(v *AzureRMFeaturesArgs) AzureRMFeaturesPtrInput {
+	return (*azureRMFeaturesPtrType)(v)
+}
+
+func (*azureRMFeaturesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureRMFeatures)(nil)).Elem()
+}
+
+func (i *azureRMFeaturesPtrType) ToAzureRMFeaturesPtrOutput() AzureRMFeaturesPtrOutput {
+	return i.ToAzureRMFeaturesPtrOutputWithContext(context.Background())
+}
+
+func (i *azureRMFeaturesPtrType) ToAzureRMFeaturesPtrOutputWithContext(ctx context.Context) AzureRMFeaturesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureRMFeaturesPtrOutput)
+}
+
+type AzureRMFeaturesOutput struct{ *pulumi.OutputState }
+
+func (AzureRMFeaturesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureRMFeatures)(nil)).Elem()
+}
+
+func (o AzureRMFeaturesOutput) ToAzureRMFeaturesOutput() AzureRMFeaturesOutput {
+	return o
+}
+
+func (o AzureRMFeaturesOutput) ToAzureRMFeaturesOutputWithContext(ctx context.Context) AzureRMFeaturesOutput {
+	return o
+}
+
+func (o AzureRMFeaturesOutput) ToAzureRMFeaturesPtrOutput() AzureRMFeaturesPtrOutput {
+	return o.ToAzureRMFeaturesPtrOutputWithContext(context.Background())
+}
+
+func (o AzureRMFeaturesOutput) ToAzureRMFeaturesPtrOutputWithContext(ctx context.Context) AzureRMFeaturesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureRMFeatures) *AzureRMFeatures {
+		return &v
+	}).(AzureRMFeaturesPtrOutput)
+}
+
+// Whether or not to validate connection with Azure after create or update operations. Defaults to `false`
+func (o AzureRMFeaturesOutput) Validate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureRMFeatures) *bool { return v.Validate }).(pulumi.BoolPtrOutput)
+}
+
+type AzureRMFeaturesPtrOutput struct{ *pulumi.OutputState }
+
+func (AzureRMFeaturesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureRMFeatures)(nil)).Elem()
+}
+
+func (o AzureRMFeaturesPtrOutput) ToAzureRMFeaturesPtrOutput() AzureRMFeaturesPtrOutput {
+	return o
+}
+
+func (o AzureRMFeaturesPtrOutput) ToAzureRMFeaturesPtrOutputWithContext(ctx context.Context) AzureRMFeaturesPtrOutput {
+	return o
+}
+
+func (o AzureRMFeaturesPtrOutput) Elem() AzureRMFeaturesOutput {
+	return o.ApplyT(func(v *AzureRMFeatures) AzureRMFeatures {
+		if v != nil {
+			return *v
+		}
+		var ret AzureRMFeatures
+		return ret
+	}).(AzureRMFeaturesOutput)
+}
+
+// Whether or not to validate connection with Azure after create or update operations. Defaults to `false`
+func (o AzureRMFeaturesPtrOutput) Validate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AzureRMFeatures) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Validate
+	}).(pulumi.BoolPtrOutput)
+}
+
 type GitHubAuthOauth struct {
 	OauthConfigurationId string `pulumi:"oauthConfigurationId"`
 }
@@ -933,6 +1070,8 @@ func (o KubernetesServiceAccountPtrOutput) Token() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AzureRMCredentialsInput)(nil)).Elem(), AzureRMCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AzureRMCredentialsPtrInput)(nil)).Elem(), AzureRMCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureRMFeaturesInput)(nil)).Elem(), AzureRMFeaturesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureRMFeaturesPtrInput)(nil)).Elem(), AzureRMFeaturesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GitHubAuthOauthInput)(nil)).Elem(), GitHubAuthOauthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GitHubAuthOauthPtrInput)(nil)).Elem(), GitHubAuthOauthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GitHubAuthPersonalInput)(nil)).Elem(), GitHubAuthPersonalArgs{})
@@ -945,6 +1084,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesServiceAccountPtrInput)(nil)).Elem(), KubernetesServiceAccountArgs{})
 	pulumi.RegisterOutputType(AzureRMCredentialsOutput{})
 	pulumi.RegisterOutputType(AzureRMCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(AzureRMFeaturesOutput{})
+	pulumi.RegisterOutputType(AzureRMFeaturesPtrOutput{})
 	pulumi.RegisterOutputType(GitHubAuthOauthOutput{})
 	pulumi.RegisterOutputType(GitHubAuthOauthPtrOutput{})
 	pulumi.RegisterOutputType(GitHubAuthPersonalOutput{})
