@@ -22,11 +22,13 @@ import (
 	_ "embed"
 
 	"github.com/microsoft/terraform-provider-azuredevops/azuredevops"
-	"github.com/pulumi/pulumi-azuredevops/provider/v2/pkg/version"
+
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	tks "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
+
+	"github.com/pulumi/pulumi-azuredevops/provider/v2/pkg/version"
 )
 
 // all of the token components used below.
