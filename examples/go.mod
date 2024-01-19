@@ -5,8 +5,8 @@ go 1.21
 require (
 	github.com/pulumi/pulumi-azuredevops/provider/v2 v2.14.0
 	github.com/pulumi/pulumi-terraform-bridge/testing v0.0.1
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.70.0
-	github.com/pulumi/pulumi/pkg/v3 v3.99.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.71.0
+	github.com/pulumi/pulumi/pkg/v3 v3.101.1
 )
 
 replace (
@@ -166,8 +166,8 @@ require (
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
 	github.com/pulumi/esc v0.6.2 // indirect
-	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.4 // indirect
-	github.com/pulumi/pulumi/sdk/v3 v3.99.0 // indirect
+	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.7 // indirect
+	github.com/pulumi/pulumi/sdk/v3 v3.101.1 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
 	github.com/rogpeppe/go-internal v1.11.0 // indirect
