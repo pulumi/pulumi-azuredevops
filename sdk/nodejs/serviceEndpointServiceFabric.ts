@@ -31,7 +31,7 @@ import * as utilities from "./utilities";
  *     certificate: {
  *         serverCertificateLookup: "Thumbprint",
  *         serverCertificateThumbprint: "0000000000000000000000000000000000000000",
- *         clientCertificate: Buffer.from(fs.readFileSync("certificate.pfx", 'binary')).toString('base64'),
+ *         clientCertificate: fs.readFileSync("certificate.pfx", { encoding: "base64" }),
  *         clientCertificatePassword: "password",
  *     },
  * });
