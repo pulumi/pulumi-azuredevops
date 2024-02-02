@@ -10,7 +10,7 @@ require (
 )
 
 replace (
-	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20230912190043-e6d96b3b8f7e
+	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240129205329-74776a5cd5f9
 	github.com/microsoft/terraform-provider-azuredevops => ../upstream
 	github.com/pulumi/pulumi-azuredevops/provider/v2 => ../provider
 )
