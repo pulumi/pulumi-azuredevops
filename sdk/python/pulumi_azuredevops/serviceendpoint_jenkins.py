@@ -305,7 +305,7 @@ class ServiceendpointJenkins(pulumi.CustomResource):
         Service Connection Jenkins can be imported using the `projectId/id` or or `projectName/id`, e.g.
 
         ```sh
-         $ pulumi import azuredevops:index/serviceendpointJenkins:ServiceendpointJenkins example projectName/00000000-0000-0000-0000-000000000000
+        $ pulumi import azuredevops:index/serviceendpointJenkins:ServiceendpointJenkins example projectName/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
@@ -352,7 +352,7 @@ class ServiceendpointJenkins(pulumi.CustomResource):
         Service Connection Jenkins can be imported using the `projectId/id` or or `projectName/id`, e.g.
 
         ```sh
-         $ pulumi import azuredevops:index/serviceendpointJenkins:ServiceendpointJenkins example projectName/00000000-0000-0000-0000-000000000000
+        $ pulumi import azuredevops:index/serviceendpointJenkins:ServiceendpointJenkins example projectName/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.

@@ -69,13 +69,13 @@ import javax.annotation.Nullable;
  * Azure DevOps Projects can be imported using the project name or by the project Guid, e.g.
  * 
  * ```sh
- *  $ pulumi import azuredevops:index/project:Project example &#34;Example Project&#34;
+ * $ pulumi import azuredevops:index/project:Project example &#34;Example Project&#34;
  * ```
  * 
  *  or
  * 
  * ```sh
- *  $ pulumi import azuredevops:index/project:Project example 00000000-0000-0000-0000-000000000000
+ * $ pulumi import azuredevops:index/project:Project example 00000000-0000-0000-0000-000000000000
  * ```
  * 
  */

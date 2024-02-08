@@ -318,7 +318,7 @@ class ProjectPipelineSettings(pulumi.CustomResource):
         Azure DevOps feature settings can be imported using the project id, e.g.
 
         ```sh
-         $ pulumi import azuredevops:index/projectPipelineSettings:ProjectPipelineSettings example 00000000-0000-0000-0000-000000000000
+        $ pulumi import azuredevops:index/projectPipelineSettings:ProjectPipelineSettings example 00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
@@ -377,7 +377,7 @@ class ProjectPipelineSettings(pulumi.CustomResource):
         Azure DevOps feature settings can be imported using the project id, e.g.
 
         ```sh
-         $ pulumi import azuredevops:index/projectPipelineSettings:ProjectPipelineSettings example 00000000-0000-0000-0000-000000000000
+        $ pulumi import azuredevops:index/projectPipelineSettings:ProjectPipelineSettings example 00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.

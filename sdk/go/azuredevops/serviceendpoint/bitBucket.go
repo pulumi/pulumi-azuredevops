@@ -61,9 +61,7 @@ import (
 // Azure DevOps Service Endpoint Bitbucket can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
-//
-//	$ pulumi import azuredevops:ServiceEndpoint/bitBucket:BitBucket example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
-//
+// $ pulumi import azuredevops:ServiceEndpoint/bitBucket:BitBucket example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
 // ```
 //
 // Deprecated: azuredevops.serviceendpoint.BitBucket has been deprecated in favor of azuredevops.ServiceEndpointBitBucket

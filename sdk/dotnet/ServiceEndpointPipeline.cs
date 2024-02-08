@@ -53,7 +53,7 @@ namespace Pulumi.AzureDevOps
     /// Azure DevOps Service Endpoint can be imported using the `project id`, `service connection id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline example projectID/00000000-0000-0000-0000-000000000000
+    /// $ pulumi import azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline example projectID/00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline")]

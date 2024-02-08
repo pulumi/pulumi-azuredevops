@@ -44,13 +44,13 @@ namespace Pulumi.AzureDevOps
     /// Build Folders can be imported using the `project name/path` or `project id/path`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:index/buildFolder:BuildFolder example "Example Project/\\ExampleFolder"
+    /// $ pulumi import azuredevops:index/buildFolder:BuildFolder example "Example Project/\\ExampleFolder"
     /// ```
     /// 
     ///  or
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:index/buildFolder:BuildFolder example 00000000-0000-0000-0000-000000000000/\\ExampleFolder
+    /// $ pulumi import azuredevops:index/buildFolder:BuildFolder example 00000000-0000-0000-0000-000000000000/\\ExampleFolder
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/buildFolder:BuildFolder")]

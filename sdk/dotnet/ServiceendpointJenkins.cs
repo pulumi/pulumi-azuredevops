@@ -49,7 +49,7 @@ namespace Pulumi.AzureDevOps
     /// Service Connection Jenkins can be imported using the `projectId/id` or or `projectName/id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:index/serviceendpointJenkins:ServiceendpointJenkins example projectName/00000000-0000-0000-0000-000000000000
+    /// $ pulumi import azuredevops:index/serviceendpointJenkins:ServiceendpointJenkins example projectName/00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/serviceendpointJenkins:ServiceendpointJenkins")]
