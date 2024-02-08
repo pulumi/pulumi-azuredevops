@@ -23,16 +23,18 @@ import javax.annotation.Nullable;
  * Azure DevOps Repositories can be imported using the repo name or by the repo Guid e.g.
  * 
  * ```sh
- *  $ pulumi import azuredevops:Repository/git:Git example projectName/repoName
+ * $ pulumi import azuredevops:Repository/git:Git example projectName/repoName
  * ```
  * 
  *  or
  * 
  * ```sh
- *  $ pulumi import azuredevops:Repository/git:Git example projectName/00000000-0000-0000-0000-000000000000
+ * $ pulumi import azuredevops:Repository/git:Git example projectName/00000000-0000-0000-0000-000000000000
  * ```
  * 
- *  hcl resource &#34;azuredevops_project&#34; &#34;example&#34; {
+ *  hcl
+ * 
+ *  resource &#34;azuredevops_project&#34; &#34;example&#34; {
  * 
  *  name
  * 
@@ -46,7 +48,11 @@ import javax.annotation.Nullable;
  * 
  * = &#34;Git&#34;
  * 
- *  work_item_template = &#34;Agile&#34; } resource &#34;azuredevops_git_repository&#34; &#34;example&#34; {
+ *  work_item_template = &#34;Agile&#34;
+ * 
+ *  }
+ * 
+ *  resource &#34;azuredevops_git_repository&#34; &#34;example&#34; {
  * 
  *  project_id
  * 
@@ -78,7 +84,9 @@ import javax.annotation.Nullable;
  * 
  *  ]
  * 
- *  } }
+ *  }
+ * 
+ *  }
  * 
  * @deprecated
  * azuredevops.repository.Git has been deprecated in favor of azuredevops.Git

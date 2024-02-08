@@ -60,12 +60,12 @@ import (
 //
 // ## Import
 //
-// Azure DevOps Service Endpoint Generic can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+// Azure DevOps Service Endpoint Generic can be imported using **projectID/serviceEndpointID** or
+//
+//	**projectName/serviceEndpointID**
 //
 // ```sh
-//
-//	$ pulumi import azuredevops:index/serviceEndpointGeneric:ServiceEndpointGeneric example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
-//
+// $ pulumi import azuredevops:index/serviceEndpointGeneric:ServiceEndpointGeneric example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
 // ```
 type ServiceEndpointGeneric struct {
 	pulumi.CustomResourceState

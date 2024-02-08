@@ -50,13 +50,13 @@ namespace Pulumi.AzureDevOps.Core
     /// Azure DevOps Projects can be imported using the project name or by the project Guid, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:Core/project:Project example "Example Project"
+    /// $ pulumi import azuredevops:Core/project:Project example "Example Project"
     /// ```
     /// 
     ///  or
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:Core/project:Project example 00000000-0000-0000-0000-000000000000
+    /// $ pulumi import azuredevops:Core/project:Project example 00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
     [Obsolete(@"azuredevops.core.Project has been deprecated in favor of azuredevops.Project")]

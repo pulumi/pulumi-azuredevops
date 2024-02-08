@@ -66,7 +66,7 @@ namespace Pulumi.AzureDevOps
     /// Azure DevOps Agent Pools can be imported using the Elastic pool ID, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:index/elasticPool:ElasticPool example 0
+    /// $ pulumi import azuredevops:index/elasticPool:ElasticPool example 0
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/elasticPool:ElasticPool")]

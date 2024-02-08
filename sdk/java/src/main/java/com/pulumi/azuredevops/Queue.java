@@ -116,7 +116,7 @@ import javax.annotation.Nullable;
  * Azure DevOps Agent Pools can be imported using the project ID and agent queue ID, e.g.
  * 
  * ```sh
- *  $ pulumi import azuredevops:index/queue:Queue example 00000000-0000-0000-0000-000000000000/0
+ * $ pulumi import azuredevops:index/queue:Queue example 00000000-0000-0000-0000-000000000000/0
  * ```
  * 
  */

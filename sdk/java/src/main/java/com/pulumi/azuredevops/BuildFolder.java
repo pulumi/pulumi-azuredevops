@@ -62,13 +62,13 @@ import javax.annotation.Nullable;
  * Build Folders can be imported using the `project name/path` or `project id/path`, e.g.
  * 
  * ```sh
- *  $ pulumi import azuredevops:index/buildFolder:BuildFolder example &#34;Example Project/\\ExampleFolder&#34;
+ * $ pulumi import azuredevops:index/buildFolder:BuildFolder example &#34;Example Project/\\ExampleFolder&#34;
  * ```
  * 
  *  or
  * 
  * ```sh
- *  $ pulumi import azuredevops:index/buildFolder:BuildFolder example 00000000-0000-0000-0000-000000000000/\\ExampleFolder
+ * $ pulumi import azuredevops:index/buildFolder:BuildFolder example 00000000-0000-0000-0000-000000000000/\\ExampleFolder
  * ```
  * 
  */

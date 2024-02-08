@@ -36,7 +36,7 @@ import * as utilities from "./utilities";
  * Azure DevOps Service Endpoint Bitbucket can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
  *
  * ```sh
- *  $ pulumi import azuredevops:index/serviceEndpointBitBucket:ServiceEndpointBitBucket example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+ * $ pulumi import azuredevops:index/serviceEndpointBitBucket:ServiceEndpointBitBucket example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
  * ```
  */
 export class ServiceEndpointBitBucket extends pulumi.CustomResource {

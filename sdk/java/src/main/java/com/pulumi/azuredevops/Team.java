@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  * Azure DevOps teams can be imported using the complete resource id `&lt;project_id&gt;/&lt;team_id&gt;` e.g.
  * 
  * ```sh
- *  $ pulumi import azuredevops:index/team:Team example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+ * $ pulumi import azuredevops:index/team:Team example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
  * ```
  * 
  */
