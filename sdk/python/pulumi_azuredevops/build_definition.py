@@ -574,13 +574,13 @@ class BuildDefinition(pulumi.CustomResource):
         Azure DevOps Build Definitions can be imported using the project name/definitions Id or by the project Guid/definitions Id, e.g.
 
         ```sh
-         $ pulumi import azuredevops:index/buildDefinition:BuildDefinition example "Example Project"/10
+        $ pulumi import azuredevops:index/buildDefinition:BuildDefinition example "Example Project"/10
         ```
 
          or
 
         ```sh
-         $ pulumi import azuredevops:index/buildDefinition:BuildDefinition example 00000000-0000-0000-0000-000000000000/0
+        $ pulumi import azuredevops:index/buildDefinition:BuildDefinition example 00000000-0000-0000-0000-000000000000/0
         ```
 
         :param str resource_name: The name of the resource.
@@ -740,13 +740,13 @@ class BuildDefinition(pulumi.CustomResource):
         Azure DevOps Build Definitions can be imported using the project name/definitions Id or by the project Guid/definitions Id, e.g.
 
         ```sh
-         $ pulumi import azuredevops:index/buildDefinition:BuildDefinition example "Example Project"/10
+        $ pulumi import azuredevops:index/buildDefinition:BuildDefinition example "Example Project"/10
         ```
 
          or
 
         ```sh
-         $ pulumi import azuredevops:index/buildDefinition:BuildDefinition example 00000000-0000-0000-0000-000000000000/0
+        $ pulumi import azuredevops:index/buildDefinition:BuildDefinition example 00000000-0000-0000-0000-000000000000/0
         ```
 
         :param str resource_name: The name of the resource.

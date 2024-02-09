@@ -15,16 +15,18 @@ namespace Pulumi.AzureDevOps.Repository
     /// Azure DevOps Repositories can be imported using the repo name or by the repo Guid e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:Repository/git:Git example projectName/repoName
+    /// $ pulumi import azuredevops:Repository/git:Git example projectName/repoName
     /// ```
     /// 
     ///  or
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:Repository/git:Git example projectName/00000000-0000-0000-0000-000000000000
+    /// $ pulumi import azuredevops:Repository/git:Git example projectName/00000000-0000-0000-0000-000000000000
     /// ```
     /// 
-    ///  hcl resource "azuredevops_project" "example" {
+    ///  hcl
+    /// 
+    ///  resource "azuredevops_project" "example" {
     /// 
     ///  name
     /// 
@@ -38,7 +40,11 @@ namespace Pulumi.AzureDevOps.Repository
     /// 
     /// = "Git"
     /// 
-    ///  work_item_template = "Agile" } resource "azuredevops_git_repository" "example" {
+    ///  work_item_template = "Agile"
+    /// 
+    ///  }
+    /// 
+    ///  resource "azuredevops_git_repository" "example" {
     /// 
     ///  project_id
     /// 
@@ -70,7 +76,9 @@ namespace Pulumi.AzureDevOps.Repository
     /// 
     ///  ]
     /// 
-    ///  } }
+    ///  }
+    /// 
+    ///  }
     /// </summary>
     [Obsolete(@"azuredevops.repository.Git has been deprecated in favor of azuredevops.Git")]
     [AzureDevOpsResourceType("azuredevops:Repository/git:Git")]

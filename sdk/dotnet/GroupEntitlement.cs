@@ -57,10 +57,12 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ## Import
     /// 
-    /// The resource allows the import via the ID of a group entitlement, which is a UUID.
+    /// The resource allows the import via the ID of a group entitlement, which is a
+    /// 
+    ///  UUID.
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:index/groupEntitlement:GroupEntitlement example 00000000-0000-0000-0000-000000000000
+    /// $ pulumi import azuredevops:index/groupEntitlement:GroupEntitlement example 00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/groupEntitlement:GroupEntitlement")]

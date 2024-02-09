@@ -83,12 +83,10 @@ import (
 //
 // ## Import
 //
-// # Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
+// Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID:
 //
 // ```sh
-//
-//	$ pulumi import azuredevops:index/branchPolicyMinReviewers:BranchPolicyMinReviewers example 00000000-0000-0000-0000-000000000000/0
-//
+// $ pulumi import azuredevops:index/branchPolicyMinReviewers:BranchPolicyMinReviewers example 00000000-0000-0000-0000-000000000000/0
 // ```
 type BranchPolicyMinReviewers struct {
 	pulumi.CustomResourceState

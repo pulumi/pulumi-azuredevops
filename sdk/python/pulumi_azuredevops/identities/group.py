@@ -368,7 +368,7 @@ class Group(pulumi.CustomResource):
         Azure DevOps groups can be imported using the group identity descriptor, e.g.
 
         ```sh
-         $ pulumi import azuredevops:Identities/group:Group example aadgp.Uy0xLTktMTU1MTM3NDI0NS0xMjA0NDAwOTY5LTI0MDI5ODY0MTMtMjE3OTQwODYxNi0zLTIxNjc2NjQyNTMtMzI1Nzg0NDI4OS0yMjU4MjcwOTc0LTI2MDYxODY2NDU
+        $ pulumi import azuredevops:Identities/group:Group example aadgp.Uy0xLTktMTU1MTM3NDI0NS0xMjA0NDAwOTY5LTI0MDI5ODY0MTMtMjE3OTQwODYxNi0zLTIxNjc2NjQyNTMtMzI1Nzg0NDI4OS0yMjU4MjcwOTc0LTI2MDYxODY2NDU
         ```
 
         :param str resource_name: The name of the resource.
@@ -422,7 +422,7 @@ class Group(pulumi.CustomResource):
         Azure DevOps groups can be imported using the group identity descriptor, e.g.
 
         ```sh
-         $ pulumi import azuredevops:Identities/group:Group example aadgp.Uy0xLTktMTU1MTM3NDI0NS0xMjA0NDAwOTY5LTI0MDI5ODY0MTMtMjE3OTQwODYxNi0zLTIxNjc2NjQyNTMtMzI1Nzg0NDI4OS0yMjU4MjcwOTc0LTI2MDYxODY2NDU
+        $ pulumi import azuredevops:Identities/group:Group example aadgp.Uy0xLTktMTU1MTM3NDI0NS0xMjA0NDAwOTY5LTI0MDI5ODY0MTMtMjE3OTQwODYxNi0zLTIxNjc2NjQyNTMtMzI1Nzg0NDI4OS0yMjU4MjcwOTc0LTI2MDYxODY2NDU
         ```
 
         :param str resource_name: The name of the resource.

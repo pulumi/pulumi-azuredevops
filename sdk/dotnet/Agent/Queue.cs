@@ -82,7 +82,7 @@ namespace Pulumi.AzureDevOps.Agent
     /// Azure DevOps Agent Pools can be imported using the project ID and agent queue ID, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:Agent/queue:Queue example 00000000-0000-0000-0000-000000000000/0
+    /// $ pulumi import azuredevops:Agent/queue:Queue example 00000000-0000-0000-0000-000000000000/0
     /// ```
     /// </summary>
     [Obsolete(@"azuredevops.agent.Queue has been deprecated in favor of azuredevops.Queue")]

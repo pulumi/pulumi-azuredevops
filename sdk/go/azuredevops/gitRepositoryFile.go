@@ -70,17 +70,13 @@ import (
 // Repository files can be imported using a combination of the `repository ID` and `file`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azuredevops:index/gitRepositoryFile:GitRepositoryFile example 00000000-0000-0000-0000-000000000000/.gitignore
-//
+// $ pulumi import azuredevops:index/gitRepositoryFile:GitRepositoryFile example 00000000-0000-0000-0000-000000000000/.gitignore
 // ```
 //
 //	To import a file from a branch other than `master`, append `:` and the branch name, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azuredevops:index/gitRepositoryFile:GitRepositoryFile example 00000000-0000-0000-0000-000000000000/.gitignore:refs/heads/master
-//
+// $ pulumi import azuredevops:index/gitRepositoryFile:GitRepositoryFile example 00000000-0000-0000-0000-000000000000/.gitignore:refs/heads/master
 // ```
 type GitRepositoryFile struct {
 	pulumi.CustomResourceState

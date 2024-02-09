@@ -65,9 +65,7 @@ import (
 // Azure DevOps feature settings can be imported using the project id, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azuredevops:index/projectFeatures:ProjectFeatures example 00000000-0000-0000-0000-000000000000
-//
+// $ pulumi import azuredevops:index/projectFeatures:ProjectFeatures example 00000000-0000-0000-0000-000000000000
 // ```
 type ProjectFeatures struct {
 	pulumi.CustomResourceState
