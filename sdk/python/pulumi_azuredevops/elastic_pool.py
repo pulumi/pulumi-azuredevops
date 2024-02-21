@@ -433,7 +433,7 @@ class ElasticPool(pulumi.CustomResource):
         Azure DevOps Agent Pools can be imported using the Elastic pool ID, e.g.
 
         ```sh
-         $ pulumi import azuredevops:index/elasticPool:ElasticPool example 0
+        $ pulumi import azuredevops:index/elasticPool:ElasticPool example 0
         ```
 
         :param str resource_name: The name of the resource.
@@ -498,7 +498,7 @@ class ElasticPool(pulumi.CustomResource):
         Azure DevOps Agent Pools can be imported using the Elastic pool ID, e.g.
 
         ```sh
-         $ pulumi import azuredevops:index/elasticPool:ElasticPool example 0
+        $ pulumi import azuredevops:index/elasticPool:ElasticPool example 0
         ```
 
         :param str resource_name: The name of the resource.

@@ -112,12 +112,10 @@ import (
 //
 // ## Import
 //
-// Azure DevOps repository policies can be imported using the projectID/policyID or projectName/policyID
+// Azure DevOps repository policies can be imported using the projectID/policyID or projectName/policyID:
 //
 // ```sh
-//
-//	$ pulumi import azuredevops:index/repositoryPolicyFilePathPattern:RepositoryPolicyFilePathPattern example 00000000-0000-0000-0000-000000000000/0
-//
+// $ pulumi import azuredevops:index/repositoryPolicyFilePathPattern:RepositoryPolicyFilePathPattern example 00000000-0000-0000-0000-000000000000/0
 // ```
 type RepositoryPolicyFilePathPattern struct {
 	pulumi.CustomResourceState

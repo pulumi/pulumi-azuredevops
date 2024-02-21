@@ -79,9 +79,7 @@ import (
 // Azure DevOps teams can be imported using the complete resource id `<project_id>/<team_id>` e.g.
 //
 // ```sh
-//
-//	$ pulumi import azuredevops:index/team:Team example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
-//
+// $ pulumi import azuredevops:index/team:Team example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
 // ```
 type Team struct {
 	pulumi.CustomResourceState

@@ -59,7 +59,7 @@ import * as utilities from "./utilities";
  * Service Hook Storage Queue Pipeliness can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azuredevops:index/servicehookStorageQueuePipelines:ServicehookStorageQueuePipelines example 00000000-0000-0000-0000-000000000000
+ * $ pulumi import azuredevops:index/servicehookStorageQueuePipelines:ServicehookStorageQueuePipelines example 00000000-0000-0000-0000-000000000000
  * ```
  */
 export class ServicehookStorageQueuePipelines extends pulumi.CustomResource {
