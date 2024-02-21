@@ -12,16 +12,18 @@ import * as utilities from "./utilities";
  * Azure DevOps Repositories can be imported using the repo name or by the repo Guid e.g.
  *
  * ```sh
- *  $ pulumi import azuredevops:index/git:Git example projectName/repoName
+ * $ pulumi import azuredevops:index/git:Git example projectName/repoName
  * ```
  *
  *  or
  *
  * ```sh
- *  $ pulumi import azuredevops:index/git:Git example projectName/00000000-0000-0000-0000-000000000000
+ * $ pulumi import azuredevops:index/git:Git example projectName/00000000-0000-0000-0000-000000000000
  * ```
  *
- *  hcl resource "azuredevops_project" "example" {
+ *  hcl
+ *
+ *  resource "azuredevops_project" "example" {
  *
  *  name
  *
@@ -35,7 +37,11 @@ import * as utilities from "./utilities";
  *
  * = "Git"
  *
- *  work_item_template = "Agile" } resource "azuredevops_git_repository" "example" {
+ *  work_item_template = "Agile"
+ *
+ *  }
+ *
+ *  resource "azuredevops_git_repository" "example" {
  *
  *  project_id
  *
@@ -67,7 +73,9 @@ import * as utilities from "./utilities";
  *
  *  ]
  *
- *  } }
+ *  }
+ *
+ *  }
  */
 export class Git extends pulumi.CustomResource {
     /**

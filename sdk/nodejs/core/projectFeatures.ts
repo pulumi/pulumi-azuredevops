@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  * Azure DevOps feature settings can be imported using the project id, e.g.
  *
  * ```sh
- *  $ pulumi import azuredevops:Core/projectFeatures:ProjectFeatures example 00000000-0000-0000-0000-000000000000
+ * $ pulumi import azuredevops:Core/projectFeatures:ProjectFeatures example 00000000-0000-0000-0000-000000000000
  * ```
  *
  * @deprecated azuredevops.core.ProjectFeatures has been deprecated in favor of azuredevops.ProjectFeatures

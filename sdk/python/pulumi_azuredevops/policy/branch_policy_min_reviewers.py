@@ -219,10 +219,10 @@ class BranchPolicyMinReviewers(pulumi.CustomResource):
 
         ## Import
 
-        Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
+        Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID:
 
         ```sh
-         $ pulumi import azuredevops:Policy/branchPolicyMinReviewers:BranchPolicyMinReviewers example 00000000-0000-0000-0000-000000000000/0
+        $ pulumi import azuredevops:Policy/branchPolicyMinReviewers:BranchPolicyMinReviewers example 00000000-0000-0000-0000-000000000000/0
         ```
 
         :param str resource_name: The name of the resource.
@@ -287,10 +287,10 @@ class BranchPolicyMinReviewers(pulumi.CustomResource):
 
         ## Import
 
-        Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
+        Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID:
 
         ```sh
-         $ pulumi import azuredevops:Policy/branchPolicyMinReviewers:BranchPolicyMinReviewers example 00000000-0000-0000-0000-000000000000/0
+        $ pulumi import azuredevops:Policy/branchPolicyMinReviewers:BranchPolicyMinReviewers example 00000000-0000-0000-0000-000000000000/0
         ```
 
         :param str resource_name: The name of the resource.

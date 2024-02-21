@@ -43,10 +43,10 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ## Import
     /// 
-    /// Azure DevOps Environments can be imported using the project ID and environment ID, e.g.
+    /// Azure DevOps Environments can be imported using the project ID and environment ID, e.g.:
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:index/environment:Environment example 00000000-0000-0000-0000-000000000000/0
+    /// $ pulumi import azuredevops:index/environment:Environment example 00000000-0000-0000-0000-000000000000/0
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/environment:Environment")]

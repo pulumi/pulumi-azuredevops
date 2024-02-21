@@ -300,16 +300,18 @@ class Git(pulumi.CustomResource):
         Azure DevOps Repositories can be imported using the repo name or by the repo Guid e.g.
 
         ```sh
-         $ pulumi import azuredevops:index/git:Git example projectName/repoName
+        $ pulumi import azuredevops:index/git:Git example projectName/repoName
         ```
 
          or
 
         ```sh
-         $ pulumi import azuredevops:index/git:Git example projectName/00000000-0000-0000-0000-000000000000
+        $ pulumi import azuredevops:index/git:Git example projectName/00000000-0000-0000-0000-000000000000
         ```
 
-         hcl resource "azuredevops_project" "example" {
+         hcl
+
+         resource "azuredevops_project" "example" {
 
          name
 
@@ -323,7 +325,11 @@ class Git(pulumi.CustomResource):
 
         = "Git"
 
-         work_item_template = "Agile" } resource "azuredevops_git_repository" "example" {
+         work_item_template = "Agile"
+
+         }
+
+         resource "azuredevops_git_repository" "example" {
 
          project_id
 
@@ -355,7 +361,9 @@ class Git(pulumi.CustomResource):
 
          ]
 
-         } }
+         }
+
+         }
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -377,16 +385,18 @@ class Git(pulumi.CustomResource):
         Azure DevOps Repositories can be imported using the repo name or by the repo Guid e.g.
 
         ```sh
-         $ pulumi import azuredevops:index/git:Git example projectName/repoName
+        $ pulumi import azuredevops:index/git:Git example projectName/repoName
         ```
 
          or
 
         ```sh
-         $ pulumi import azuredevops:index/git:Git example projectName/00000000-0000-0000-0000-000000000000
+        $ pulumi import azuredevops:index/git:Git example projectName/00000000-0000-0000-0000-000000000000
         ```
 
-         hcl resource "azuredevops_project" "example" {
+         hcl
+
+         resource "azuredevops_project" "example" {
 
          name
 
@@ -400,7 +410,11 @@ class Git(pulumi.CustomResource):
 
         = "Git"
 
-         work_item_template = "Agile" } resource "azuredevops_git_repository" "example" {
+         work_item_template = "Agile"
+
+         }
+
+         resource "azuredevops_git_repository" "example" {
 
          project_id
 
@@ -432,7 +446,9 @@ class Git(pulumi.CustomResource):
 
          ]
 
-         } }
+         }
+
+         }
 
         :param str resource_name: The name of the resource.
         :param GitArgs args: The arguments to use to populate this resource's properties.

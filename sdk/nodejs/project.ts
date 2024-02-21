@@ -37,13 +37,13 @@ import * as utilities from "./utilities";
  * Azure DevOps Projects can be imported using the project name or by the project Guid, e.g.
  *
  * ```sh
- *  $ pulumi import azuredevops:index/project:Project example "Example Project"
+ * $ pulumi import azuredevops:index/project:Project example "Example Project"
  * ```
  *
  *  or
  *
  * ```sh
- *  $ pulumi import azuredevops:index/project:Project example 00000000-0000-0000-0000-000000000000
+ * $ pulumi import azuredevops:index/project:Project example 00000000-0000-0000-0000-000000000000
  * ```
  */
 export class Project extends pulumi.CustomResource {

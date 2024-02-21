@@ -55,7 +55,7 @@ namespace Pulumi.AzureDevOps
     /// Azure DevOps feature settings can be imported using the project id, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:index/projectPipelineSettings:ProjectPipelineSettings example 00000000-0000-0000-0000-000000000000
+    /// $ pulumi import azuredevops:index/projectPipelineSettings:ProjectPipelineSettings example 00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/projectPipelineSettings:ProjectPipelineSettings")]
