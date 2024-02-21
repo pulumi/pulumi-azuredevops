@@ -8,3 +8,6 @@ actions:
   preTest:
     - name: Make upstream
       run: make upstream
+plugins:
+  - name: azure
+    version: "5.66.1"

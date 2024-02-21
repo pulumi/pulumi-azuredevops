@@ -310,27 +310,22 @@ class ServicehookStorageQueuePipelines(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import pulumi_azure as azure
         import pulumi_azuredevops as azuredevops
-        import pulumi_azurerm as azurerm
 
         example_project = azuredevops.Project("exampleProject")
-        exampleazurerm_resource_group = azurerm.index.Azurerm_resource_group("exampleazurerm_resource_group",
-            name=example-resources,
-            location=West Europe)
-        exampleazurerm_storage_account = azurerm.index.Azurerm_storage_account("exampleazurerm_storage_account",
-            name=servicehookexamplestacc,
-            resource_group_name=exampleazurerm_resource_group.name,
-            location=exampleazurerm_resource_group.location,
-            account_tier=Standard,
-            account_replication_type=LRS)
-        exampleazurerm_storage_queue = azurerm.index.Azurerm_storage_queue("exampleazurerm_storage_queue",
-            name=examplequeue,
-            storage_account_name=exampleazurerm_storage_account.name)
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_queue = azure.storage.Queue("exampleQueue", storage_account_name=example_account.name)
         example_servicehook_storage_queue_pipelines = azuredevops.ServicehookStorageQueuePipelines("exampleServicehookStorageQueuePipelines",
             project_id=example_project.id,
-            account_name=exampleazurerm_storage_account["name"],
-            account_key=exampleazurerm_storage_account["primaryAccessKey"],
-            queue_name=exampleazurerm_storage_queue["name"],
+            account_name=example_account.name,
+            account_key=example_account.primary_access_key,
+            queue_name=example_queue.name,
             visi_timeout=30,
             run_state_changed_event=azuredevops.ServicehookStorageQueuePipelinesRunStateChangedEventArgs(
                 run_state_filter="Completed",
@@ -387,27 +382,22 @@ class ServicehookStorageQueuePipelines(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import pulumi_azure as azure
         import pulumi_azuredevops as azuredevops
-        import pulumi_azurerm as azurerm
 
         example_project = azuredevops.Project("exampleProject")
-        exampleazurerm_resource_group = azurerm.index.Azurerm_resource_group("exampleazurerm_resource_group",
-            name=example-resources,
-            location=West Europe)
-        exampleazurerm_storage_account = azurerm.index.Azurerm_storage_account("exampleazurerm_storage_account",
-            name=servicehookexamplestacc,
-            resource_group_name=exampleazurerm_resource_group.name,
-            location=exampleazurerm_resource_group.location,
-            account_tier=Standard,
-            account_replication_type=LRS)
-        exampleazurerm_storage_queue = azurerm.index.Azurerm_storage_queue("exampleazurerm_storage_queue",
-            name=examplequeue,
-            storage_account_name=exampleazurerm_storage_account.name)
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_queue = azure.storage.Queue("exampleQueue", storage_account_name=example_account.name)
         example_servicehook_storage_queue_pipelines = azuredevops.ServicehookStorageQueuePipelines("exampleServicehookStorageQueuePipelines",
             project_id=example_project.id,
-            account_name=exampleazurerm_storage_account["name"],
-            account_key=exampleazurerm_storage_account["primaryAccessKey"],
-            queue_name=exampleazurerm_storage_queue["name"],
+            account_name=example_account.name,
+            account_key=example_account.primary_access_key,
+            queue_name=example_queue.name,
             visi_timeout=30,
             run_state_changed_event=azuredevops.ServicehookStorageQueuePipelinesRunStateChangedEventArgs(
                 run_state_filter="Completed",

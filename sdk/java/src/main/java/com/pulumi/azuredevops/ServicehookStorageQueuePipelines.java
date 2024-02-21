@@ -29,12 +29,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azuredevops.Project;
- * import com.pulumi.azurerm.azurerm_resource_group;
- * import com.pulumi.azurerm.Azurerm_resource_groupArgs;
- * import com.pulumi.azurerm.azurerm_storage_account;
- * import com.pulumi.azurerm.Azurerm_storage_accountArgs;
- * import com.pulumi.azurerm.azurerm_storage_queue;
- * import com.pulumi.azurerm.Azurerm_storage_queueArgs;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.storage.Queue;
+ * import com.pulumi.azure.storage.QueueArgs;
  * import com.pulumi.azuredevops.ServicehookStorageQueuePipelines;
  * import com.pulumi.azuredevops.ServicehookStorageQueuePipelinesArgs;
  * import com.pulumi.azuredevops.inputs.ServicehookStorageQueuePipelinesRunStateChangedEventArgs;
@@ -53,29 +53,26 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleProject = new Project(&#34;exampleProject&#34;);
  * 
- *         var exampleazurerm_resource_group = new Azurerm_resource_group(&#34;exampleazurerm_resource_group&#34;, Azurerm_resource_groupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         var exampleazurerm_storage_account = new Azurerm_storage_account(&#34;exampleazurerm_storage_account&#34;, Azurerm_storage_accountArgs.builder()        
- *             .name(&#34;servicehookexamplestacc&#34;)
- *             .resourceGroupName(exampleazurerm_resource_group.name())
- *             .location(exampleazurerm_resource_group.location())
+ *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
- *         var exampleazurerm_storage_queue = new Azurerm_storage_queue(&#34;exampleazurerm_storage_queue&#34;, Azurerm_storage_queueArgs.builder()        
- *             .name(&#34;examplequeue&#34;)
- *             .storageAccountName(exampleazurerm_storage_account.name())
+ *         var exampleQueue = new Queue(&#34;exampleQueue&#34;, QueueArgs.builder()        
+ *             .storageAccountName(exampleAccount.name())
  *             .build());
  * 
  *         var exampleServicehookStorageQueuePipelines = new ServicehookStorageQueuePipelines(&#34;exampleServicehookStorageQueuePipelines&#34;, ServicehookStorageQueuePipelinesArgs.builder()        
  *             .projectId(exampleProject.id())
- *             .accountName(exampleazurerm_storage_account.name())
- *             .accountKey(exampleazurerm_storage_account.primaryAccessKey())
- *             .queueName(exampleazurerm_storage_queue.name())
+ *             .accountName(exampleAccount.name())
+ *             .accountKey(exampleAccount.primaryAccessKey())
+ *             .queueName(exampleQueue.name())
  *             .visiTimeout(30)
  *             .runStateChangedEvent(ServicehookStorageQueuePipelinesRunStateChangedEventArgs.builder()
  *                 .runStateFilter(&#34;Completed&#34;)
