@@ -21,8 +21,9 @@ import (
 //
 // import (
 //
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
 //	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-//	"github.com/pulumi/pulumi-azurerm/sdk/v1/go/azurerm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -33,35 +34,32 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleazurerm_resource_group, err := index.NewAzurerm_resource_group(ctx, "exampleazurerm_resource_group", &index.Azurerm_resource_groupArgs{
-//				Name:     "example-resources",
-//				Location: "West Europe",
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleazurerm_storage_account, err := index.NewAzurerm_storage_account(ctx, "exampleazurerm_storage_account", &index.Azurerm_storage_accountArgs{
-//				Name:                   "servicehookexamplestacc",
-//				ResourceGroupName:      exampleazurerm_resource_group.Name,
-//				Location:               exampleazurerm_resource_group.Location,
-//				AccountTier:            "Standard",
-//				AccountReplicationType: "LRS",
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleazurerm_storage_queue, err := index.NewAzurerm_storage_queue(ctx, "exampleazurerm_storage_queue", &index.Azurerm_storage_queueArgs{
-//				Name:               "examplequeue",
-//				StorageAccountName: exampleazurerm_storage_account.Name,
+//			exampleQueue, err := storage.NewQueue(ctx, "exampleQueue", &storage.QueueArgs{
+//				StorageAccountName: exampleAccount.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = azuredevops.NewServicehookStorageQueuePipelines(ctx, "exampleServicehookStorageQueuePipelines", &azuredevops.ServicehookStorageQueuePipelinesArgs{
 //				ProjectId:   exampleProject.ID(),
-//				AccountName: exampleazurerm_storage_account.Name,
-//				AccountKey:  exampleazurerm_storage_account.PrimaryAccessKey,
-//				QueueName:   exampleazurerm_storage_queue.Name,
+//				AccountName: exampleAccount.Name,
+//				AccountKey:  exampleAccount.PrimaryAccessKey,
+//				QueueName:   exampleQueue.Name,
 //				VisiTimeout: pulumi.Int(30),
 //				RunStateChangedEvent: &azuredevops.ServicehookStorageQueuePipelinesRunStateChangedEventArgs{
 //					RunStateFilter:  pulumi.String("Completed"),

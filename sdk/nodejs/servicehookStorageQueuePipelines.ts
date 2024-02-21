@@ -13,30 +13,23 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
  * import * as azuredevops from "@pulumi/azuredevops";
- * import * as azurerm from "@pulumi/azurerm";
  *
  * const exampleProject = new azuredevops.Project("exampleProject", {});
- * const exampleazurerm_resource_group = new azurerm.index.Azurerm_resource_group("exampleazurerm_resource_group", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleazurerm_storage_account = new azurerm.index.Azurerm_storage_account("exampleazurerm_storage_account", {
- *     name: "servicehookexamplestacc",
- *     resourceGroupName: exampleazurerm_resource_group.name,
- *     location: exampleazurerm_resource_group.location,
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleazurerm_storage_queue = new azurerm.index.Azurerm_storage_queue("exampleazurerm_storage_queue", {
- *     name: "examplequeue",
- *     storageAccountName: exampleazurerm_storage_account.name,
- * });
+ * const exampleQueue = new azure.storage.Queue("exampleQueue", {storageAccountName: exampleAccount.name});
  * const exampleServicehookStorageQueuePipelines = new azuredevops.ServicehookStorageQueuePipelines("exampleServicehookStorageQueuePipelines", {
  *     projectId: exampleProject.id,
- *     accountName: exampleazurerm_storage_account.name,
- *     accountKey: exampleazurerm_storage_account.primaryAccessKey,
- *     queueName: exampleazurerm_storage_queue.name,
+ *     accountName: exampleAccount.name,
+ *     accountKey: exampleAccount.primaryAccessKey,
+ *     queueName: exampleQueue.name,
  *     visiTimeout: 30,
  *     runStateChangedEvent: {
  *         runStateFilter: "Completed",

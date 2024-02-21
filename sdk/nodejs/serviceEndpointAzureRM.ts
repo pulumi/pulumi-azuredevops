@@ -88,50 +88,6 @@ import * as utilities from "./utilities";
  *     azurermSubscriptionName: "Example Subscription Name",
  * });
  * ```
- * ### Workload Identity Federation Manual AzureRM Service Endpoint (Subscription Scoped)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const serviceConnectionName = "example-federated-sc";
- * const exampleProject = new azuredevops.Project("exampleProject", {
- *     visibility: "private",
- *     versionControl: "Git",
- *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
- * });
- * const identity = new azurerm.index.Azurerm_resource_group("identity", {
- *     name: "identity",
- *     location: "UK South",
- * });
- * const exampleazurerm_user_assigned_identity = new azurerm.index.Azurerm_user_assigned_identity("exampleazurerm_user_assigned_identity", {
- *     location: identity.location,
- *     name: "example-identity",
- *     resourceGroupName: "azurerm_resource_group.identity.name",
- * });
- * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", {
- *     projectId: exampleProject.id,
- *     serviceEndpointName: serviceConnectionName,
- *     description: "Managed by Terraform",
- *     serviceEndpointAuthenticationScheme: "WorkloadIdentityFederation",
- *     credentials: {
- *         serviceprincipalid: exampleazurerm_user_assigned_identity.clientId,
- *     },
- *     azurermSpnTenantid: "00000000-0000-0000-0000-000000000000",
- *     azurermSubscriptionId: "00000000-0000-0000-0000-000000000000",
- *     azurermSubscriptionName: "Example Subscription Name",
- * });
- * const exampleazurerm_federated_identity_credential = new azurerm.index.Azurerm_federated_identity_credential("exampleazurerm_federated_identity_credential", {
- *     name: "example-federated-credential",
- *     resourceGroupName: identity.name,
- *     parentId: exampleazurerm_user_assigned_identity.id,
- *     audience: ["api://AzureADTokenExchange"],
- *     issuer: exampleServiceEndpointAzureRM.workloadIdentityFederationIssuer,
- *     subject: exampleServiceEndpointAzureRM.workloadIdentityFederationSubject,
- * });
- * ```
  * ### Workload Identity Federation Automatic AzureRM Service Endpoint
  *
  * ```typescript
