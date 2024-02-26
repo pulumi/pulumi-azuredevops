@@ -37,6 +37,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// dockerhub registry service connection
 //			_, err = azuredevops.NewServiceEndpointDockerRegistry(ctx, "exampleServiceEndpointDockerRegistry", &azuredevops.ServiceEndpointDockerRegistryArgs{
 //				ProjectId:           exampleProject.ID(),
 //				ServiceEndpointName: pulumi.String("Example Docker Hub"),
@@ -48,6 +49,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// other docker registry service connection
 //			_, err = azuredevops.NewServiceEndpointDockerRegistry(ctx, "example-other", &azuredevops.ServiceEndpointDockerRegistryArgs{
 //				ProjectId:           exampleProject.ID(),
 //				ServiceEndpointName: pulumi.String("Example Docker Registry"),
