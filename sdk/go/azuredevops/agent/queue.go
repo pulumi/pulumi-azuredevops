@@ -50,6 +50,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Grant access to queue to all pipelines in the project
 //			_, err = azuredevops.NewResourceAuthorization(ctx, "exampleResourceAuthorization", &azuredevops.ResourceAuthorizationArgs{
 //				ProjectId:  exampleProject.ID(),
 //				ResourceId: exampleQueue.ID(),

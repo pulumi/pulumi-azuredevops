@@ -37,6 +37,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// azure container registry service connection
 //			_, err = azuredevops.NewServiceEndpointAzureEcr(ctx, "exampleServiceEndpointAzureEcr", &azuredevops.ServiceEndpointAzureEcrArgs{
 //				ProjectId:               exampleProject.ID(),
 //				ServiceEndpointName:     pulumi.String("Example AzureCR"),
