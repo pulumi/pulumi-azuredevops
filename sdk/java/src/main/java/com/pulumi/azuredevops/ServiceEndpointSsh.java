@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Manages a SSH service endpoint within Azure DevOps.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -62,6 +64,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Relevant Links
  * 
  * - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
@@ -70,7 +74,7 @@ import javax.annotation.Nullable;
  * 
  * Azure DevOps Service Endpoint SSH can be imported using **projectID/serviceEndpointID** or **
  * 
- *  projectName/serviceEndpointID**
+ * projectName/serviceEndpointID**
  * 
  * ```sh
  * $ pulumi import azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000

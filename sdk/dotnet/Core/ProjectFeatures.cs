@@ -14,6 +14,7 @@ namespace Pulumi.AzureDevOps.Core
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,6 +43,8 @@ namespace Pulumi.AzureDevOps.Core
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Relevant Links
     /// 
     /// No official documentation available

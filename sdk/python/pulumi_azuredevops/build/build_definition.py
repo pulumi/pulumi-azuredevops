@@ -446,7 +446,9 @@ class BuildDefinition(pulumi.CustomResource):
         Manages a Build Definition within Azure DevOps.
 
         ## Example Usage
+
         ### Tfs
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -510,7 +512,10 @@ class BuildDefinition(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### GitHub Enterprise
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -559,6 +564,8 @@ class BuildDefinition(pulumi.CustomResource):
                 time_zone="(UTC) Coordinated Universal Time",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Remarks
 
         The path attribute can not end in `\\` unless the path is the root value of `\\`.
@@ -582,7 +589,7 @@ class BuildDefinition(pulumi.CustomResource):
         $ pulumi import azuredevops:Build/buildDefinition:BuildDefinition example "Example Project"/10
         ```
 
-         or
+        or
 
         ```sh
         $ pulumi import azuredevops:Build/buildDefinition:BuildDefinition example 00000000-0000-0000-0000-000000000000/0
@@ -612,7 +619,9 @@ class BuildDefinition(pulumi.CustomResource):
         Manages a Build Definition within Azure DevOps.
 
         ## Example Usage
+
         ### Tfs
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -676,7 +685,10 @@ class BuildDefinition(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### GitHub Enterprise
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -725,6 +737,8 @@ class BuildDefinition(pulumi.CustomResource):
                 time_zone="(UTC) Coordinated Universal Time",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Remarks
 
         The path attribute can not end in `\\` unless the path is the root value of `\\`.
@@ -748,7 +762,7 @@ class BuildDefinition(pulumi.CustomResource):
         $ pulumi import azuredevops:Build/buildDefinition:BuildDefinition example "Example Project"/10
         ```
 
-         or
+        or
 
         ```sh
         $ pulumi import azuredevops:Build/buildDefinition:BuildDefinition example 00000000-0000-0000-0000-000000000000/0

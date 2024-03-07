@@ -212,6 +212,7 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -228,7 +229,9 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
                 personal_access_token="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -245,7 +248,9 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
                 oauth_configuration_id="00000000-0000-0000-0000-000000000000",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -260,6 +265,8 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
             service_endpoint_name="Example GitHub Apps: Azure Pipelines",
             description="Managed by Terraform")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
@@ -289,6 +296,7 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -305,7 +313,9 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
                 personal_access_token="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -322,7 +332,9 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
                 oauth_configuration_id="00000000-0000-0000-0000-000000000000",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -337,6 +349,8 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
             service_endpoint_name="Example GitHub Apps: Azure Pipelines",
             description="Managed by Terraform")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

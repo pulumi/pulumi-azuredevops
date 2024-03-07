@@ -16,6 +16,7 @@ namespace Pulumi.AzureDevOps.Security
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,9 +51,11 @@ namespace Pulumi.AzureDevOps.Security
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Relevant Links
     /// 
-    /// - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-7.0)
+    /// - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](&lt;https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%!d(MISSING)efinition%!r(MISSING)esources?view=azure-devops-rest-7.0&gt;)
     /// </summary>
     [Obsolete(@"azuredevops.security/resourceauthorization.ResourceAuthorization has been deprecated in favor of azuredevops.index/resourceauthorization.ResourceAuthorization")]
     [AzureDevOpsResourceType("azuredevops:Security/resourceAuthorization:ResourceAuthorization")]

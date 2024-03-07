@@ -14,10 +14,9 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Use this data source to access information about an existing Sonar Cloud Service Endpoint.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,8 +37,7 @@ namespace Pulumi.AzureDevOps
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetServiceendpointSonarcloudResult> InvokeAsync(GetServiceendpointSonarcloudArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceendpointSonarcloudResult>("azuredevops:index/getServiceendpointSonarcloud:getServiceendpointSonarcloud", args ?? new GetServiceendpointSonarcloudArgs(), options.WithDefaults());
@@ -47,10 +45,9 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Use this data source to access information about an existing Sonar Cloud Service Endpoint.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -71,8 +68,7 @@ namespace Pulumi.AzureDevOps
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetServiceendpointSonarcloudResult> Invoke(GetServiceendpointSonarcloudInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceendpointSonarcloudResult>("azuredevops:index/getServiceendpointSonarcloud:getServiceendpointSonarcloud", args ?? new GetServiceendpointSonarcloudInvokeArgs(), options.WithDefaults());

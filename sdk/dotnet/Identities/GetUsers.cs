@@ -15,10 +15,9 @@ namespace Pulumi.AzureDevOps.Identities
         /// <summary>
         /// Use this data source to access information about an existing users within Azure DevOps.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,8 +61,8 @@ namespace Pulumi.AzureDevOps.Identities
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ## Relevant Links
         /// 
         /// - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
@@ -74,10 +73,9 @@ namespace Pulumi.AzureDevOps.Identities
         /// <summary>
         /// Use this data source to access information about an existing users within Azure DevOps.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -121,8 +119,8 @@ namespace Pulumi.AzureDevOps.Identities
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ## Relevant Links
         /// 
         /// - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
@@ -141,6 +139,7 @@ namespace Pulumi.AzureDevOps.Identities
         /// 
         /// List of possible subject types
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -150,9 +149,11 @@ namespace Pulumi.AzureDevOps.Identities
         /// {
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// List of possible origins
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -162,6 +163,7 @@ namespace Pulumi.AzureDevOps.Identities
         /// {
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Input("features")]
         public Inputs.GetUsersFeaturesArgs? Features { get; set; }
@@ -211,6 +213,7 @@ namespace Pulumi.AzureDevOps.Identities
         /// 
         /// List of possible subject types
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -220,9 +223,11 @@ namespace Pulumi.AzureDevOps.Identities
         /// {
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// List of possible origins
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -232,6 +237,7 @@ namespace Pulumi.AzureDevOps.Identities
         /// {
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Input("features")]
         public Input<Inputs.GetUsersFeaturesInputArgs>? Features { get; set; }

@@ -19,8 +19,10 @@ import (
 // the `ResourceAuthorization` resource can be used to grant authorization.
 //
 // ## Example Usage
+//
 // ### Creating a Queue from an organization-level pool
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -65,8 +67,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Creating a Queue at the project level (Organization-level permissions not required)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -96,6 +101,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 7.0 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-7.0)

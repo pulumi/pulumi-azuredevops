@@ -88,6 +88,7 @@ def get_agent_queue(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -102,6 +103,8 @@ def get_agent_queue(name: Optional[str] = None,
     pulumi.export("name", example_agent_queue.name)
     pulumi.export("poolId", example_agent_queue.agent_pool_id)
     ```
+    <!--End PulumiCodeChooser -->
+
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-7.0)
@@ -132,6 +135,7 @@ def get_agent_queue_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -146,6 +150,8 @@ def get_agent_queue_output(name: Optional[pulumi.Input[str]] = None,
     pulumi.export("name", example_agent_queue.name)
     pulumi.export("poolId", example_agent_queue.agent_pool_id)
     ```
+    <!--End PulumiCodeChooser -->
+
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-7.0)

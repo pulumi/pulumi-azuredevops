@@ -8,8 +8,10 @@ import * as utilities from "./utilities";
  * Manages a Work Item in Azure Devops.
  *
  * ## Example Usage
+ *
  * ### Basic usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -28,8 +30,11 @@ import * as utilities from "./utilities";
  *     tags: ["Tag"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With custom fields
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -51,6 +56,7 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -15,10 +15,9 @@ namespace Pulumi.AzureDevOps
         /// Use this data source to access information about **multiple** existing Git Repositories within Azure DevOps.
         /// To read informations about a **single** Git Repository use the data source `azuredevops.Git`
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -46,8 +45,8 @@ namespace Pulumi.AzureDevOps
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ## Relevant Links
         /// 
         /// - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
@@ -59,10 +58,9 @@ namespace Pulumi.AzureDevOps
         /// Use this data source to access information about **multiple** existing Git Repositories within Azure DevOps.
         /// To read informations about a **single** Git Repository use the data source `azuredevops.Git`
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -90,8 +88,8 @@ namespace Pulumi.AzureDevOps
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ## Relevant Links
         /// 
         /// - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)

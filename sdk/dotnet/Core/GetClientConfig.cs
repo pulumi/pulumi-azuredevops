@@ -15,10 +15,9 @@ namespace Pulumi.AzureDevOps.Core
         /// <summary>
         /// Use this data source to access information about the Azure DevOps organization configured for the provider.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,8 +34,7 @@ namespace Pulumi.AzureDevOps.Core
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetClientConfigResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClientConfigResult>("azuredevops:Core/getClientConfig:getClientConfig", InvokeArgs.Empty, options.WithDefaults());
@@ -44,10 +42,9 @@ namespace Pulumi.AzureDevOps.Core
         /// <summary>
         /// Use this data source to access information about the Azure DevOps organization configured for the provider.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -64,8 +61,7 @@ namespace Pulumi.AzureDevOps.Core
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetClientConfigResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClientConfigResult>("azuredevops:Core/getClientConfig:getClientConfig", InvokeArgs.Empty, options.WithDefaults());

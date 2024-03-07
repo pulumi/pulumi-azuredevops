@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Currently supported resources: service endpoint (aka service connection, endpoint).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -71,9 +73,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Relevant Links
  * 
- * - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-7.0)
+ * - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](&lt;https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%!d(MISSING)efinition%!r(MISSING)esources?view=azure-devops-rest-7.0&gt;)
  * 
  * @deprecated
  * azuredevops.security/resourceauthorization.ResourceAuthorization has been deprecated in favor of azuredevops.index/resourceauthorization.ResourceAuthorization

@@ -315,6 +315,7 @@ class ServiceEndpointSsh(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -331,6 +332,8 @@ class ServiceEndpointSsh(pulumi.CustomResource):
             username="username",
             description="Managed by Terraform")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
@@ -339,7 +342,7 @@ class ServiceEndpointSsh(pulumi.CustomResource):
 
         Azure DevOps Service Endpoint SSH can be imported using **projectID/serviceEndpointID** or **
 
-         projectName/serviceEndpointID**
+        projectName/serviceEndpointID**
 
         ```sh
         $ pulumi import azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -366,6 +369,7 @@ class ServiceEndpointSsh(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -382,6 +386,8 @@ class ServiceEndpointSsh(pulumi.CustomResource):
             username="username",
             description="Managed by Terraform")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
@@ -390,7 +396,7 @@ class ServiceEndpointSsh(pulumi.CustomResource):
 
         Azure DevOps Service Endpoint SSH can be imported using **projectID/serviceEndpointID** or **
 
-         projectName/serviceEndpointID**
+        projectName/serviceEndpointID**
 
         ```sh
         $ pulumi import azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000

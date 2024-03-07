@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -36,8 +37,11 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With AzureRM Key Vault
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -78,6 +82,8 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-7.0)
@@ -96,19 +102,19 @@ import * as utilities from "../utilities";
  *
  * **Variable groups containing secret values cannot be imported.**
  *
- *  Azure DevOps Variable groups can be imported using the project name/variable group ID or by the project Guid/variable group ID, e.g.
+ * Azure DevOps Variable groups can be imported using the project name/variable group ID or by the project Guid/variable group ID, e.g.
  *
  * ```sh
  * $ pulumi import azuredevops:Pipeline/variableGroup:VariableGroup example "Example Project/10"
  * ```
  *
- *  or
+ * or
  *
  * ```sh
  * $ pulumi import azuredevops:Pipeline/variableGroup:VariableGroup example 00000000-0000-0000-0000-000000000000/0
  * ```
  *
- *  _Note that for secret variables, the import command retrieve blank value in the tfstate._
+ * _Note that for secret variables, the import command retrieve blank value in the tfstate._
  *
  * @deprecated azuredevops.pipeline.VariableGroup has been deprecated in favor of azuredevops.VariableGroup
  */

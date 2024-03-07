@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -34,9 +35,11 @@ import * as utilities from "./utilities";
  *     authorized: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-7.0)
+ * - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](<https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%!d(MISSING)efinition%!r(MISSING)esources?view=azure-devops-rest-7.0>)
  */
 export class ResourceAuthorization extends pulumi.CustomResource {
     /**

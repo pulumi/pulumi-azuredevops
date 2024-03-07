@@ -8,8 +8,10 @@ import * as utilities from "./utilities";
  * Manages a Approval Check.
  *
  * ## Example Usage
+ *
  * ### Protect an environment
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -25,6 +27,7 @@ import * as utilities from "./utilities";
  *     approvers: [exampleGroup.originId],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

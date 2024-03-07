@@ -14,6 +14,7 @@ namespace Pulumi.AzureDevOps.Core
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,6 +38,8 @@ namespace Pulumi.AzureDevOps.Core
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 7.0 - Projects](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects?view=azure-devops-rest-7.0)
@@ -53,7 +56,7 @@ namespace Pulumi.AzureDevOps.Core
     /// $ pulumi import azuredevops:Core/project:Project example "Example Project"
     /// ```
     /// 
-    ///  or
+    /// or
     /// 
     /// ```sh
     /// $ pulumi import azuredevops:Core/project:Project example 00000000-0000-0000-0000-000000000000

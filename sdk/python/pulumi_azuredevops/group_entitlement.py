@@ -242,14 +242,19 @@ class GroupEntitlement(pulumi.CustomResource):
         Manages a group entitlement within Azure DevOps.
 
         ## Example Usage
+
         ### With an Azure DevOps local group managed by this resource
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
 
         example = azuredevops.GroupEntitlement("example", display_name="Group Name")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With group origin ID
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -258,6 +263,8 @@ class GroupEntitlement(pulumi.CustomResource):
             origin="aad",
             origin_id="00000000-0000-0000-0000-000000000000")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Group Entitlements](https://learn.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/group-entitlements?view=azure-devops-rest-7.1)
@@ -271,7 +278,7 @@ class GroupEntitlement(pulumi.CustomResource):
 
         The resource allows the import via the ID of a group entitlement, which is a
 
-         UUID.
+        UUID.
 
         ```sh
         $ pulumi import azuredevops:index/groupEntitlement:GroupEntitlement example 00000000-0000-0000-0000-000000000000
@@ -297,14 +304,19 @@ class GroupEntitlement(pulumi.CustomResource):
         Manages a group entitlement within Azure DevOps.
 
         ## Example Usage
+
         ### With an Azure DevOps local group managed by this resource
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
 
         example = azuredevops.GroupEntitlement("example", display_name="Group Name")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With group origin ID
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -313,6 +325,8 @@ class GroupEntitlement(pulumi.CustomResource):
             origin="aad",
             origin_id="00000000-0000-0000-0000-000000000000")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Group Entitlements](https://learn.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/group-entitlements?view=azure-devops-rest-7.1)
@@ -326,7 +340,7 @@ class GroupEntitlement(pulumi.CustomResource):
 
         The resource allows the import via the ID of a group entitlement, which is a
 
-         UUID.
+        UUID.
 
         ```sh
         $ pulumi import azuredevops:index/groupEntitlement:GroupEntitlement example 00000000-0000-0000-0000-000000000000

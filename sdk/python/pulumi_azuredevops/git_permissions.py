@@ -332,6 +332,7 @@ class GitPermissions(pulumi.CustomResource):
 
         #### Example usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -352,6 +353,7 @@ class GitPermissions(pulumi.CustomResource):
                 "RenameRepository": "NotSet",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ### Repository level
 
@@ -359,6 +361,7 @@ class GitPermissions(pulumi.CustomResource):
 
         #### Example usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -385,6 +388,7 @@ class GitPermissions(pulumi.CustomResource):
                 "CreateBranch": "NotSet",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ### Branch level
 
@@ -392,6 +396,7 @@ class GitPermissions(pulumi.CustomResource):
 
         #### Example usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -417,9 +422,11 @@ class GitPermissions(pulumi.CustomResource):
                 "ForcePush": "Deny",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -469,6 +476,8 @@ class GitPermissions(pulumi.CustomResource):
                 "ForcePush": "Deny",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
@@ -534,6 +543,7 @@ class GitPermissions(pulumi.CustomResource):
 
         #### Example usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -554,6 +564,7 @@ class GitPermissions(pulumi.CustomResource):
                 "RenameRepository": "NotSet",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ### Repository level
 
@@ -561,6 +572,7 @@ class GitPermissions(pulumi.CustomResource):
 
         #### Example usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -587,6 +599,7 @@ class GitPermissions(pulumi.CustomResource):
                 "CreateBranch": "NotSet",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ### Branch level
 
@@ -594,6 +607,7 @@ class GitPermissions(pulumi.CustomResource):
 
         #### Example usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -619,9 +633,11 @@ class GitPermissions(pulumi.CustomResource):
                 "ForcePush": "Deny",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -671,6 +687,8 @@ class GitPermissions(pulumi.CustomResource):
                 "ForcePush": "Deny",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)

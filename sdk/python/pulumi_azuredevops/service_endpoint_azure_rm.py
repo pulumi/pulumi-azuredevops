@@ -560,8 +560,10 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         For detailed steps to create a service principal with Azure cli see the [documentation](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
 
         ## Example Usage
+
         ### Service Principal Manual AzureRM Service Endpoint (Subscription Scoped)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -584,8 +586,11 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Example Subscription Name")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Service Principal Manual AzureRM Service Endpoint (ManagementGroup Scoped)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -608,8 +613,11 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             azurerm_management_group_id="managementGroup",
             azurerm_management_group_name="managementGroup")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Service Principal Automatic AzureRM Service Endpoint
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -626,8 +634,11 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Example Subscription Name")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Workload Identity Federation Automatic AzureRM Service Endpoint
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -644,8 +655,11 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Example Subscription Name")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Managed Identity AzureRM Service Endpoint
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -662,6 +676,8 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Example Subscription Name")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Service End points](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
@@ -710,8 +726,10 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         For detailed steps to create a service principal with Azure cli see the [documentation](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
 
         ## Example Usage
+
         ### Service Principal Manual AzureRM Service Endpoint (Subscription Scoped)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -734,8 +752,11 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Example Subscription Name")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Service Principal Manual AzureRM Service Endpoint (ManagementGroup Scoped)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -758,8 +779,11 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             azurerm_management_group_id="managementGroup",
             azurerm_management_group_name="managementGroup")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Service Principal Automatic AzureRM Service Endpoint
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -776,8 +800,11 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Example Subscription Name")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Workload Identity Federation Automatic AzureRM Service Endpoint
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -794,8 +821,11 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Example Subscription Name")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Managed Identity AzureRM Service Endpoint
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -812,6 +842,8 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Example Subscription Name")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Service End points](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

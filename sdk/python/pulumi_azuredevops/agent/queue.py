@@ -160,8 +160,10 @@ class Queue(pulumi.CustomResource):
         the `ResourceAuthorization` resource can be used to grant authorization.
 
         ## Example Usage
+
         ### Creating a Queue from an organization-level pool
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -178,8 +180,11 @@ class Queue(pulumi.CustomResource):
             type="queue",
             authorized=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Creating a Queue at the project level (Organization-level permissions not required)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -187,6 +192,8 @@ class Queue(pulumi.CustomResource):
         example_project = azuredevops.get_project(name="Example Project")
         example_queue = azuredevops.Queue("exampleQueue", project_id=example_project.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-7.0)
@@ -223,8 +230,10 @@ class Queue(pulumi.CustomResource):
         the `ResourceAuthorization` resource can be used to grant authorization.
 
         ## Example Usage
+
         ### Creating a Queue from an organization-level pool
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -241,8 +250,11 @@ class Queue(pulumi.CustomResource):
             type="queue",
             authorized=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Creating a Queue at the project level (Organization-level permissions not required)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -250,6 +262,8 @@ class Queue(pulumi.CustomResource):
         example_project = azuredevops.get_project(name="Example Project")
         example_queue = azuredevops.Queue("exampleQueue", project_id=example_project.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-7.0)

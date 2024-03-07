@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -33,6 +34,8 @@ import * as utilities from "./utilities";
  *     overwriteOnCreate: false,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
@@ -45,7 +48,7 @@ import * as utilities from "./utilities";
  * $ pulumi import azuredevops:index/gitRepositoryFile:GitRepositoryFile example 00000000-0000-0000-0000-000000000000/.gitignore
  * ```
  *
- *  To import a file from a branch other than `master`, append `:` and the branch name, e.g.
+ * To import a file from a branch other than `master`, append `:` and the branch name, e.g.
  *
  * ```sh
  * $ pulumi import azuredevops:index/gitRepositoryFile:GitRepositoryFile example 00000000-0000-0000-0000-000000000000/.gitignore:refs/heads/master

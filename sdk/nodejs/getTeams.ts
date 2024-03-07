@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -21,6 +22,8 @@ import * as utilities from "./utilities";
  * export const alladministrators = example.then(example => example.teams.map(__item => __item.administrators));
  * export const administrators = example.then(example => example.teams.map(__item => __item.members));
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)
@@ -77,6 +80,7 @@ export interface GetTeamsResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -87,6 +91,8 @@ export interface GetTeamsResult {
  * export const alladministrators = example.then(example => example.teams.map(__item => __item.administrators));
  * export const administrators = example.then(example => example.teams.map(__item => __item.members));
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)

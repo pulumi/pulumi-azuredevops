@@ -123,6 +123,7 @@ def get_users(features: Optional[pulumi.InputType['GetUsersFeaturesArgs']] = Non
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -139,6 +140,8 @@ def get_users(features: Optional[pulumi.InputType['GetUsersFeaturesArgs']] = Non
     example_all_from_origin_id = azuredevops.get_users(origin="aad",
         origin_id="00000000-0000-0000-0000-000000000000")
     ```
+    <!--End PulumiCodeChooser -->
+
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
@@ -150,15 +153,19 @@ def get_users(features: Optional[pulumi.InputType['GetUsersFeaturesArgs']] = Non
            
            List of possible subject types
            
+           <!--Start PulumiCodeChooser -->
            ```python
            import pulumi
            ```
+           <!--End PulumiCodeChooser -->
            
            List of possible origins
            
+           <!--Start PulumiCodeChooser -->
            ```python
            import pulumi
            ```
+           <!--End PulumiCodeChooser -->
     :param str origin: The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
     :param str origin_id: The unique identifier from the system of origin.
     :param str principal_name: The PrincipalName of this graph member from the source provider.
@@ -195,6 +202,7 @@ def get_users_output(features: Optional[pulumi.Input[Optional[pulumi.InputType['
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -211,6 +219,8 @@ def get_users_output(features: Optional[pulumi.Input[Optional[pulumi.InputType['
     example_all_from_origin_id = azuredevops.get_users(origin="aad",
         origin_id="00000000-0000-0000-0000-000000000000")
     ```
+    <!--End PulumiCodeChooser -->
+
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
@@ -222,15 +232,19 @@ def get_users_output(features: Optional[pulumi.Input[Optional[pulumi.InputType['
            
            List of possible subject types
            
+           <!--Start PulumiCodeChooser -->
            ```python
            import pulumi
            ```
+           <!--End PulumiCodeChooser -->
            
            List of possible origins
            
+           <!--Start PulumiCodeChooser -->
            ```python
            import pulumi
            ```
+           <!--End PulumiCodeChooser -->
     :param str origin: The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
     :param str origin_id: The unique identifier from the system of origin.
     :param str principal_name: The PrincipalName of this graph member from the source provider.

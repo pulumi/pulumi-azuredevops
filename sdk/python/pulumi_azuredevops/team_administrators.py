@@ -195,6 +195,7 @@ class TeamAdministrators(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -213,6 +214,8 @@ class TeamAdministrators(pulumi.CustomResource):
             mode="overwrite",
             administrators=[example_project_contributors.descriptor])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Teams - Update](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/update?view=azure-devops-rest-7.0)
@@ -250,6 +253,7 @@ class TeamAdministrators(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -268,6 +272,8 @@ class TeamAdministrators(pulumi.CustomResource):
             mode="overwrite",
             administrators=[example_project_contributors.descriptor])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Teams - Update](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/update?view=azure-devops-rest-7.0)

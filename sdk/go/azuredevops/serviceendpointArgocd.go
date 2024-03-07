@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,8 +54,10 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 // Alternatively a username and password may be used.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -94,6 +97,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 // ## Relevant Links
 //
 // - [Azure DevOps Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)

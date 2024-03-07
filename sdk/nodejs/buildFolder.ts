@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -24,6 +25,7 @@ import * as utilities from "./utilities";
  *     description: "ExampleFolder description",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -33,7 +35,7 @@ import * as utilities from "./utilities";
  * $ pulumi import azuredevops:index/buildFolder:BuildFolder example "Example Project/\\ExampleFolder"
  * ```
  *
- *  or
+ * or
  *
  * ```sh
  * $ pulumi import azuredevops:index/buildFolder:BuildFolder example 00000000-0000-0000-0000-000000000000/\\ExampleFolder

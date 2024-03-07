@@ -128,6 +128,7 @@ def get_team(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -140,6 +141,8 @@ def get_team(name: Optional[str] = None,
     example_team = azuredevops.get_team_output(project_id=example_project.id,
         name="Example Project Team")
     ```
+    <!--End PulumiCodeChooser -->
+
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)
@@ -181,6 +184,7 @@ def get_team_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -193,6 +197,8 @@ def get_team_output(name: Optional[pulumi.Input[str]] = None,
     example_team = azuredevops.get_team_output(project_id=example_project.id,
         name="Example Project Team")
     ```
+    <!--End PulumiCodeChooser -->
+
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)

@@ -14,11 +14,11 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Use this data source to access information about an existing GitHub service Endpoint.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### By Service Endpoint ID
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -44,10 +44,11 @@ namespace Pulumi.AzureDevOps
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### By Service Endpoint Name
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -73,8 +74,7 @@ namespace Pulumi.AzureDevOps
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetServiceEndpointGithubResult> InvokeAsync(GetServiceEndpointGithubArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceEndpointGithubResult>("azuredevops:index/getServiceEndpointGithub:getServiceEndpointGithub", args ?? new GetServiceEndpointGithubArgs(), options.WithDefaults());
@@ -82,11 +82,11 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Use this data source to access information about an existing GitHub service Endpoint.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### By Service Endpoint ID
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -112,10 +112,11 @@ namespace Pulumi.AzureDevOps
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### By Service Endpoint Name
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -141,8 +142,7 @@ namespace Pulumi.AzureDevOps
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetServiceEndpointGithubResult> Invoke(GetServiceEndpointGithubInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceEndpointGithubResult>("azuredevops:index/getServiceEndpointGithub:getServiceEndpointGithub", args ?? new GetServiceEndpointGithubInvokeArgs(), options.WithDefaults());
