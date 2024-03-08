@@ -202,6 +202,7 @@ class ResourceAuthorization(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -222,9 +223,11 @@ class ResourceAuthorization(pulumi.CustomResource):
             resource_id=example_service_endpoint_bit_bucket.id,
             authorized=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-7.0)
+        - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](<https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%!d(MISSING)efinition%!r(MISSING)esources?view=azure-devops-rest-7.0>)
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -247,6 +250,7 @@ class ResourceAuthorization(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -267,9 +271,11 @@ class ResourceAuthorization(pulumi.CustomResource):
             resource_id=example_service_endpoint_bit_bucket.id,
             authorized=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-7.0)
+        - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](<https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%!d(MISSING)efinition%!r(MISSING)esources?view=azure-devops-rest-7.0>)
 
         :param str resource_name: The name of the resource.
         :param ResourceAuthorizationArgs args: The arguments to use to populate this resource's properties.

@@ -13,7 +13,9 @@ namespace Pulumi.AzureDevOps.Build
     /// Manages a Build Definition within Azure DevOps.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Tfs
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -120,7 +122,10 @@ namespace Pulumi.AzureDevOps.Build
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### GitHub Enterprise
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -199,6 +204,8 @@ namespace Pulumi.AzureDevOps.Build
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Remarks
     /// 
     /// The path attribute can not end in `\` unless the path is the root value of `\`.
@@ -222,7 +229,7 @@ namespace Pulumi.AzureDevOps.Build
     /// $ pulumi import azuredevops:Build/buildDefinition:BuildDefinition example "Example Project"/10
     /// ```
     /// 
-    ///  or
+    /// or
     /// 
     /// ```sh
     /// $ pulumi import azuredevops:Build/buildDefinition:BuildDefinition example 00000000-0000-0000-0000-000000000000/0

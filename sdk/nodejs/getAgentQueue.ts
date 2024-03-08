@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -26,6 +27,8 @@ import * as utilities from "./utilities";
  * export const name = exampleAgentQueue.apply(exampleAgentQueue => exampleAgentQueue.name);
  * export const poolId = exampleAgentQueue.apply(exampleAgentQueue => exampleAgentQueue.agentPoolId);
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-7.0)
@@ -79,6 +82,7 @@ export interface GetAgentQueueResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -96,6 +100,8 @@ export interface GetAgentQueueResult {
  * export const name = exampleAgentQueue.apply(exampleAgentQueue => exampleAgentQueue.name);
  * export const poolId = exampleAgentQueue.apply(exampleAgentQueue => exampleAgentQueue.agentPoolId);
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-7.0)

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,6 +50,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -58,7 +60,7 @@ import (
 // $ pulumi import azuredevops:index/buildFolder:BuildFolder example "Example Project/\\ExampleFolder"
 // ```
 //
-//	or
+// or
 //
 // ```sh
 // $ pulumi import azuredevops:index/buildFolder:BuildFolder example 00000000-0000-0000-0000-000000000000/\\ExampleFolder

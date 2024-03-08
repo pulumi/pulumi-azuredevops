@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Manages a Git Repository Branch.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -70,6 +72,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="azuredevops:index/gitRepositoryBranch:GitRepositoryBranch")

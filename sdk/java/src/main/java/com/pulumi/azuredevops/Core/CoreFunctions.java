@@ -23,6 +23,8 @@ public final class CoreFunctions {
      * Use this data source to access information about the Azure DevOps organization configured for the provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -49,6 +51,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azuredevops.core.getClientConfig has been deprecated in favor of azuredevops.getClientConfig
@@ -62,6 +65,8 @@ public final class CoreFunctions {
      * Use this data source to access information about the Azure DevOps organization configured for the provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -88,6 +93,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azuredevops.core.getClientConfig has been deprecated in favor of azuredevops.getClientConfig
@@ -101,6 +107,8 @@ public final class CoreFunctions {
      * Use this data source to access information about the Azure DevOps organization configured for the provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -127,6 +135,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azuredevops.core.getClientConfig has been deprecated in favor of azuredevops.getClientConfig
@@ -140,6 +149,8 @@ public final class CoreFunctions {
      * Use this data source to access information about the Azure DevOps organization configured for the provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -166,6 +177,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azuredevops.core.getClientConfig has been deprecated in favor of azuredevops.getClientConfig
@@ -179,6 +191,8 @@ public final class CoreFunctions {
      * Use this data source to access information about the Azure DevOps organization configured for the provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -205,6 +219,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azuredevops.core.getClientConfig has been deprecated in favor of azuredevops.getClientConfig
@@ -218,6 +233,8 @@ public final class CoreFunctions {
      * Use this data source to access information about the Azure DevOps organization configured for the provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -244,6 +261,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azuredevops.core.getClientConfig has been deprecated in favor of azuredevops.getClientConfig
@@ -257,6 +275,8 @@ public final class CoreFunctions {
      * Use this data source to access information about an existing Project within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -286,6 +306,8 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
@@ -302,6 +324,8 @@ public final class CoreFunctions {
      * Use this data source to access information about an existing Project within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -331,6 +355,8 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
@@ -347,6 +373,8 @@ public final class CoreFunctions {
      * Use this data source to access information about an existing Project within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -376,6 +404,8 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
@@ -392,6 +422,8 @@ public final class CoreFunctions {
      * Use this data source to access information about an existing Project within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -421,6 +453,8 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
@@ -437,6 +471,8 @@ public final class CoreFunctions {
      * Use this data source to access information about an existing Project within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -466,6 +502,8 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
@@ -482,6 +520,8 @@ public final class CoreFunctions {
      * Use this data source to access information about an existing Project within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -511,6 +551,8 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
@@ -527,6 +569,8 @@ public final class CoreFunctions {
      * Use this data source to access information about existing Projects within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -560,6 +604,8 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
@@ -576,6 +622,8 @@ public final class CoreFunctions {
      * Use this data source to access information about existing Projects within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -609,6 +657,8 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
@@ -625,6 +675,8 @@ public final class CoreFunctions {
      * Use this data source to access information about existing Projects within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -658,6 +710,8 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
@@ -674,6 +728,8 @@ public final class CoreFunctions {
      * Use this data source to access information about existing Projects within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -707,6 +763,8 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
@@ -723,6 +781,8 @@ public final class CoreFunctions {
      * Use this data source to access information about existing Projects within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -756,6 +816,8 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
@@ -772,6 +834,8 @@ public final class CoreFunctions {
      * Use this data source to access information about existing Projects within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -805,6 +869,8 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)

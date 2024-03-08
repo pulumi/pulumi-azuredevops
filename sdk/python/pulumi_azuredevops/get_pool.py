@@ -87,6 +87,7 @@ def get_pool(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -97,6 +98,8 @@ def get_pool(name: Optional[str] = None,
     pulumi.export("autoProvision", example.auto_provision)
     pulumi.export("autoUpdate", example.auto_update)
     ```
+    <!--End PulumiCodeChooser -->
+
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
@@ -125,6 +128,7 @@ def get_pool_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -135,6 +139,8 @@ def get_pool_output(name: Optional[pulumi.Input[str]] = None,
     pulumi.export("autoProvision", example.auto_provision)
     pulumi.export("autoUpdate", example.auto_update)
     ```
+    <!--End PulumiCodeChooser -->
+
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)

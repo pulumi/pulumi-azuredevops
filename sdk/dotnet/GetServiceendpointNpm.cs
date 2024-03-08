@@ -14,10 +14,9 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Use this data source to access information about an existing NPM Service Endpoint.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,8 +37,7 @@ namespace Pulumi.AzureDevOps
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetServiceendpointNpmResult> InvokeAsync(GetServiceendpointNpmArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceendpointNpmResult>("azuredevops:index/getServiceendpointNpm:getServiceendpointNpm", args ?? new GetServiceendpointNpmArgs(), options.WithDefaults());
@@ -47,10 +45,9 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Use this data source to access information about an existing NPM Service Endpoint.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -71,8 +68,7 @@ namespace Pulumi.AzureDevOps
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetServiceendpointNpmResult> Invoke(GetServiceendpointNpmInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceendpointNpmResult>("azuredevops:index/getServiceendpointNpm:getServiceendpointNpm", args ?? new GetServiceendpointNpmInvokeArgs(), options.WithDefaults());

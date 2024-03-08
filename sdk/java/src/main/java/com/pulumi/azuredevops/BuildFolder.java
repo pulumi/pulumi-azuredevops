@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Manages a Build Folder.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -56,6 +58,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -65,7 +68,7 @@ import javax.annotation.Nullable;
  * $ pulumi import azuredevops:index/buildFolder:BuildFolder example &#34;Example Project/\\ExampleFolder&#34;
  * ```
  * 
- *  or
+ * or
  * 
  * ```sh
  * $ pulumi import azuredevops:index/buildFolder:BuildFolder example 00000000-0000-0000-0000-000000000000/\\ExampleFolder

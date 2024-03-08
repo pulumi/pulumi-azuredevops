@@ -12,8 +12,10 @@ import * as utilities from "./utilities";
  * > **Note** If both "All Pipeline Authorization" and "Custom Pipeline Authorization" are configured, "All Pipeline Authorization" has higher priority.
  *
  * ## Example Usage
+ *
  * ### Authorization for all pipelines
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -38,8 +40,11 @@ import * as utilities from "./utilities";
  *     type: "queue",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Authorization for specific pipeline
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -77,6 +82,8 @@ import * as utilities from "./utilities";
  *     pipelineId: exampleBuildDefinition.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.1 - Pipeline Permissions](https://learn.microsoft.com/en-us/rest/api/azure/devops/approvalsandchecks/pipeline-permissions?view=azure-devops-rest-7.1)

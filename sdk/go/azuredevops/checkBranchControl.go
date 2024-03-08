@@ -15,8 +15,10 @@ import (
 // Manages a branch control check on a resource within Azure DevOps.
 //
 // ## Example Usage
+//
 // ### Protect a service connection
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -60,8 +62,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Protect an environment
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -99,8 +104,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Protect an agent queue
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -143,8 +151,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Protect a repository
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -191,8 +202,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Protect a variable group
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -243,6 +257,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Relevant Links
 //
 // - [Define approvals and checks](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops&tabs=check-pass)

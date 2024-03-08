@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
 
 /**
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -70,7 +72,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With AzureRM Key Vault
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -139,6 +145,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Relevant Links
  * 
  * - [Azure DevOps Service REST API 7.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-7.0)
@@ -157,19 +165,19 @@ import javax.annotation.Nullable;
  * 
  * **Variable groups containing secret values cannot be imported.**
  * 
- *  Azure DevOps Variable groups can be imported using the project name/variable group ID or by the project Guid/variable group ID, e.g.
+ * Azure DevOps Variable groups can be imported using the project name/variable group ID or by the project Guid/variable group ID, e.g.
  * 
  * ```sh
  * $ pulumi import azuredevops:Pipeline/variableGroup:VariableGroup example &#34;Example Project/10&#34;
  * ```
  * 
- *  or
+ * or
  * 
  * ```sh
  * $ pulumi import azuredevops:Pipeline/variableGroup:VariableGroup example 00000000-0000-0000-0000-000000000000/0
  * ```
  * 
- *  _Note that for secret variables, the import command retrieve blank value in the tfstate._
+ * _Note that for secret variables, the import command retrieve blank value in the tfstate._
  * 
  * @deprecated
  * azuredevops.pipeline.VariableGroup has been deprecated in favor of azuredevops.VariableGroup

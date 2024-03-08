@@ -22,6 +22,8 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
      * DataSource without specifying any arguments will return all users inside an organization.
      * 
      * List of possible subject types
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -44,8 +46,11 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * List of possible origins
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -68,6 +73,7 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     @Import(name="features")
@@ -79,6 +85,8 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
      * DataSource without specifying any arguments will return all users inside an organization.
      * 
      * List of possible subject types
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -101,8 +109,11 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * List of possible origins
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -125,6 +136,7 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Optional<GetUsersFeatures> features() {
@@ -225,6 +237,8 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
          * DataSource without specifying any arguments will return all users inside an organization.
          * 
          * List of possible subject types
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -247,8 +261,11 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * List of possible origins
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -271,6 +288,7 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 

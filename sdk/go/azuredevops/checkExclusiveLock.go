@@ -17,8 +17,10 @@ import (
 // Adding an exclusive lock will only allow a single stage to utilize this resource at a time. If multiple stages are waiting on the lock, only the latest will run. All others will be canceled.
 //
 // ## Example Usage
+//
 // ### Add Exclusive Lock to an environment
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -60,8 +62,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Protect an environment
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -98,6 +103,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

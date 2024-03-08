@@ -123,6 +123,7 @@ def get_area(fetch_children: Optional[bool] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -136,6 +137,8 @@ def get_area(fetch_children: Optional[bool] = None,
         path="/",
         fetch_children=False))
     ```
+    <!--End PulumiCodeChooser -->
+
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/create-or-update?view=azure-devops-rest-7.0)
@@ -176,6 +179,7 @@ def get_area_output(fetch_children: Optional[pulumi.Input[Optional[bool]]] = Non
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -189,6 +193,8 @@ def get_area_output(fetch_children: Optional[pulumi.Input[Optional[bool]]] = Non
         path="/",
         fetch_children=False))
     ```
+    <!--End PulumiCodeChooser -->
+
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/create-or-update?view=azure-devops-rest-7.0)

@@ -249,6 +249,7 @@ class ServiceendpointNexus(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -266,6 +267,7 @@ class ServiceendpointNexus(pulumi.CustomResource):
             username="username",
             password="password")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -295,6 +297,7 @@ class ServiceendpointNexus(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -312,6 +315,7 @@ class ServiceendpointNexus(pulumi.CustomResource):
             username="username",
             password="password")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

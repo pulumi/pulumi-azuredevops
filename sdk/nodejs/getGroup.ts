@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -28,6 +29,8 @@ import * as utilities from "./utilities";
  * export const collectionGroupId = exampleGroup.then(exampleGroup => exampleGroup.id);
  * export const collectionGroupDescriptor = exampleGroup.then(exampleGroup => exampleGroup.descriptor);
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-7.0)
@@ -83,6 +86,7 @@ export interface GetGroupResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -102,6 +106,8 @@ export interface GetGroupResult {
  * export const collectionGroupId = exampleGroup.then(exampleGroup => exampleGroup.id);
  * export const collectionGroupDescriptor = exampleGroup.then(exampleGroup => exampleGroup.descriptor);
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-7.0)

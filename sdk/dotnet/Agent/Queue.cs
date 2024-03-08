@@ -17,8 +17,10 @@ namespace Pulumi.AzureDevOps.Agent
     /// the `azuredevops.ResourceAuthorization` resource can be used to grant authorization.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Creating a Queue from an organization-level pool
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -51,8 +53,11 @@ namespace Pulumi.AzureDevOps.Agent
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Creating a Queue at the project level (Organization-level permissions not required)
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -73,6 +78,8 @@ namespace Pulumi.AzureDevOps.Agent
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 7.0 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-7.0)

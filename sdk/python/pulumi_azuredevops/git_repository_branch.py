@@ -218,6 +218,7 @@ class GitRepositoryBranch(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -238,6 +239,7 @@ class GitRepositoryBranch(pulumi.CustomResource):
             repository_id=example_git.id,
             ref_commit_id=example_git_repository_branch.last_commit_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -258,6 +260,7 @@ class GitRepositoryBranch(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -278,6 +281,7 @@ class GitRepositoryBranch(pulumi.CustomResource):
             repository_id=example_git.id,
             ref_commit_id=example_git_repository_branch.last_commit_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param GitRepositoryBranchArgs args: The arguments to use to populate this resource's properties.

@@ -100,6 +100,7 @@ def get_repositories(include_hidden: Optional[bool] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -110,6 +111,8 @@ def get_repositories(include_hidden: Optional[bool] = None,
     example_single_repo = azuredevops.get_repositories(project_id=example.id,
         name="Example Repository")
     ```
+    <!--End PulumiCodeChooser -->
+
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
@@ -145,6 +148,7 @@ def get_repositories_output(include_hidden: Optional[pulumi.Input[Optional[bool]
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -155,6 +159,8 @@ def get_repositories_output(include_hidden: Optional[pulumi.Input[Optional[bool]
     example_single_repo = azuredevops.get_repositories(project_id=example.id,
         name="Example Repository")
     ```
+    <!--End PulumiCodeChooser -->
+
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)

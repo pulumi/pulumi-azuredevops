@@ -312,6 +312,7 @@ class ServiceendpointGcpTerraform(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -330,6 +331,8 @@ class ServiceendpointGcpTerraform(pulumi.CustomResource):
             gcp_project_id="Example GCP Project",
             description="Managed by Terraform")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.1)
@@ -361,6 +364,7 @@ class ServiceendpointGcpTerraform(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -379,6 +383,8 @@ class ServiceendpointGcpTerraform(pulumi.CustomResource):
             gcp_project_id="Example GCP Project",
             description="Managed by Terraform")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.1)

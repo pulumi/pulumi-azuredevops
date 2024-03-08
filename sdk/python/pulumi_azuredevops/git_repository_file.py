@@ -237,6 +237,7 @@ class GitRepositoryFile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -258,6 +259,8 @@ class GitRepositoryFile(pulumi.CustomResource):
             commit_message="First commit",
             overwrite_on_create=False)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
@@ -270,7 +273,7 @@ class GitRepositoryFile(pulumi.CustomResource):
         $ pulumi import azuredevops:index/gitRepositoryFile:GitRepositoryFile example 00000000-0000-0000-0000-000000000000/.gitignore
         ```
 
-         To import a file from a branch other than `master`, append `:` and the branch name, e.g.
+        To import a file from a branch other than `master`, append `:` and the branch name, e.g.
 
         ```sh
         $ pulumi import azuredevops:index/gitRepositoryFile:GitRepositoryFile example 00000000-0000-0000-0000-000000000000/.gitignore:refs/heads/master
@@ -297,6 +300,7 @@ class GitRepositoryFile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -318,6 +322,8 @@ class GitRepositoryFile(pulumi.CustomResource):
             commit_message="First commit",
             overwrite_on_create=False)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
@@ -330,7 +336,7 @@ class GitRepositoryFile(pulumi.CustomResource):
         $ pulumi import azuredevops:index/gitRepositoryFile:GitRepositoryFile example 00000000-0000-0000-0000-000000000000/.gitignore
         ```
 
-         To import a file from a branch other than `master`, append `:` and the branch name, e.g.
+        To import a file from a branch other than `master`, append `:` and the branch name, e.g.
 
         ```sh
         $ pulumi import azuredevops:index/gitRepositoryFile:GitRepositoryFile example 00000000-0000-0000-0000-000000000000/.gitignore:refs/heads/master

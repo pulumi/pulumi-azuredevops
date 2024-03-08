@@ -526,8 +526,10 @@ class CheckBusinessHours(pulumi.CustomResource):
         Manages a business hours check on a resource within Azure DevOps.
 
         ## Example Usage
+
         ### Protect a service connection
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -552,8 +554,11 @@ class CheckBusinessHours(pulumi.CustomResource):
             tuesday=True,
             timeout=1440)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Protect an environment
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -571,8 +576,11 @@ class CheckBusinessHours(pulumi.CustomResource):
             monday=True,
             tuesday=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Protect an agent queue
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -593,8 +601,11 @@ class CheckBusinessHours(pulumi.CustomResource):
             monday=True,
             tuesday=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Protect a repository
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -616,8 +627,11 @@ class CheckBusinessHours(pulumi.CustomResource):
             monday=True,
             tuesday=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Protect a variable group
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -649,6 +663,8 @@ class CheckBusinessHours(pulumi.CustomResource):
             monday=True,
             tuesday=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Define approvals and checks](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops&tabs=check-pass)
@@ -829,8 +845,10 @@ class CheckBusinessHours(pulumi.CustomResource):
         Manages a business hours check on a resource within Azure DevOps.
 
         ## Example Usage
+
         ### Protect a service connection
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -855,8 +873,11 @@ class CheckBusinessHours(pulumi.CustomResource):
             tuesday=True,
             timeout=1440)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Protect an environment
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -874,8 +895,11 @@ class CheckBusinessHours(pulumi.CustomResource):
             monday=True,
             tuesday=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Protect an agent queue
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -896,8 +920,11 @@ class CheckBusinessHours(pulumi.CustomResource):
             monday=True,
             tuesday=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Protect a repository
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -919,8 +946,11 @@ class CheckBusinessHours(pulumi.CustomResource):
             monday=True,
             tuesday=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Protect a variable group
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -952,6 +982,8 @@ class CheckBusinessHours(pulumi.CustomResource):
             monday=True,
             tuesday=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Define approvals and checks](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops&tabs=check-pass)
