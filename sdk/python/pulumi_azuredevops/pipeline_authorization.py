@@ -170,8 +170,10 @@ class PipelineAuthorization(pulumi.CustomResource):
         > **Note** If both "All Pipeline Authorization" and "Custom Pipeline Authorization" are configured, "All Pipeline Authorization" has higher priority.
 
         ## Example Usage
+
         ### Authorization for all pipelines
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -192,8 +194,11 @@ class PipelineAuthorization(pulumi.CustomResource):
             resource_id=example_queue.id,
             type="queue")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Authorization for specific pipeline
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -224,6 +229,8 @@ class PipelineAuthorization(pulumi.CustomResource):
             type="queue",
             pipeline_id=example_build_definition.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.1 - Pipeline Permissions](https://learn.microsoft.com/en-us/rest/api/azure/devops/approvalsandchecks/pipeline-permissions?view=azure-devops-rest-7.1)
@@ -249,8 +256,10 @@ class PipelineAuthorization(pulumi.CustomResource):
         > **Note** If both "All Pipeline Authorization" and "Custom Pipeline Authorization" are configured, "All Pipeline Authorization" has higher priority.
 
         ## Example Usage
+
         ### Authorization for all pipelines
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -271,8 +280,11 @@ class PipelineAuthorization(pulumi.CustomResource):
             resource_id=example_queue.id,
             type="queue")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Authorization for specific pipeline
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -303,6 +315,8 @@ class PipelineAuthorization(pulumi.CustomResource):
             type="queue",
             pipeline_id=example_build_definition.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.1 - Pipeline Permissions](https://learn.microsoft.com/en-us/rest/api/azure/devops/approvalsandchecks/pipeline-permissions?view=azure-devops-rest-7.1)

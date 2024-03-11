@@ -63,6 +63,7 @@ def get_pools(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPoolsR
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -73,6 +74,8 @@ def get_pools(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPoolsR
     pulumi.export("autoUpdate", [__item.auto_update for __item in example.agent_pools])
     pulumi.export("poolType", [__item.pool_type for __item in example.agent_pools])
     ```
+    <!--End PulumiCodeChooser -->
+
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
@@ -93,6 +96,7 @@ def get_pools_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Outp
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -103,6 +107,8 @@ def get_pools_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Outp
     pulumi.export("autoUpdate", [__item.auto_update for __item in example.agent_pools])
     pulumi.export("poolType", [__item.pool_type for __item in example.agent_pools])
     ```
+    <!--End PulumiCodeChooser -->
+
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)

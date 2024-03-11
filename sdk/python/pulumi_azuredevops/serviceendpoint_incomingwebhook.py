@@ -250,6 +250,7 @@ class ServiceendpointIncomingwebhook(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -267,6 +268,7 @@ class ServiceendpointIncomingwebhook(pulumi.CustomResource):
             service_endpoint_name="Example IncomingWebhook",
             description="Managed by Terraform")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -295,6 +297,7 @@ class ServiceendpointIncomingwebhook(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -312,6 +315,7 @@ class ServiceendpointIncomingwebhook(pulumi.CustomResource):
             service_endpoint_name="Example IncomingWebhook",
             description="Managed by Terraform")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

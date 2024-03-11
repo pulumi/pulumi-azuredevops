@@ -276,6 +276,7 @@ class Project(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -290,6 +291,8 @@ class Project(pulumi.CustomResource):
             visibility="private",
             work_item_template="Agile")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Projects](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects?view=azure-devops-rest-7.0)
@@ -306,7 +309,7 @@ class Project(pulumi.CustomResource):
         $ pulumi import azuredevops:index/project:Project example "Example Project"
         ```
 
-         or
+        or
 
         ```sh
         $ pulumi import azuredevops:index/project:Project example 00000000-0000-0000-0000-000000000000
@@ -338,6 +341,7 @@ class Project(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -352,6 +356,8 @@ class Project(pulumi.CustomResource):
             visibility="private",
             work_item_template="Agile")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Projects](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects?view=azure-devops-rest-7.0)
@@ -368,7 +374,7 @@ class Project(pulumi.CustomResource):
         $ pulumi import azuredevops:index/project:Project example "Example Project"
         ```
 
-         or
+        or
 
         ```sh
         $ pulumi import azuredevops:index/project:Project example 00000000-0000-0000-0000-000000000000

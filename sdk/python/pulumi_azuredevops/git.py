@@ -303,67 +303,57 @@ class Git(pulumi.CustomResource):
         $ pulumi import azuredevops:index/git:Git example projectName/repoName
         ```
 
-         or
+        or
 
         ```sh
         $ pulumi import azuredevops:index/git:Git example projectName/00000000-0000-0000-0000-000000000000
         ```
 
-         hcl
+        hcl
 
-         resource "azuredevops_project" "example" {
+        resource "azuredevops_project" "example" {
 
-         name
+          name               = "Example Project"
 
-         = "Example Project"
+          visibility         = "private"
 
-         visibility
+          version_control    = "Git"
 
-         = "private"
+          work_item_template = "Agile"
 
-         version_control
+        }
 
-        = "Git"
+        resource "azuredevops_git_repository" "example" {
 
-         work_item_template = "Agile"
+          project_id     = azuredevops_project.example.id
 
-         }
+          name           = "Example Git Repository"
 
-         resource "azuredevops_git_repository" "example" {
+          default_branch = "refs/heads/main"
 
-         project_id
+          initialization {
 
-         = azuredevops_project.example.id
+            init_type = "Clean"
 
-         name
+          }
 
-         = "Example Git Repository"
+          lifecycle {
 
-         default_branch = "refs/heads/main"
+            ignore_changes = [
+            
+              # Ignore changes to initialization to support importing existing repositories
+            
+              # Given that a repo now exists, either imported into terraform state or created by terraform,
+            
+              # we don't care for the configuration of initialization against the existing resource
+            
+              initialization,
+            
+            ]
 
-         initialization {
+          }
 
-         init_type = "Clean"
-
-         }
-
-         lifecycle {
-
-         ignore_changes = [
-
-        # Ignore changes to initialization to support importing existing repositories
-
-        # Given that a repo now exists, either imported into terraform state or created by terraform,
-
-        # we don't care for the configuration of initialization against the existing resource
-
-         initialization,
-
-         ]
-
-         }
-
-         }
+        }
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -388,67 +378,57 @@ class Git(pulumi.CustomResource):
         $ pulumi import azuredevops:index/git:Git example projectName/repoName
         ```
 
-         or
+        or
 
         ```sh
         $ pulumi import azuredevops:index/git:Git example projectName/00000000-0000-0000-0000-000000000000
         ```
 
-         hcl
+        hcl
 
-         resource "azuredevops_project" "example" {
+        resource "azuredevops_project" "example" {
 
-         name
+          name               = "Example Project"
 
-         = "Example Project"
+          visibility         = "private"
 
-         visibility
+          version_control    = "Git"
 
-         = "private"
+          work_item_template = "Agile"
 
-         version_control
+        }
 
-        = "Git"
+        resource "azuredevops_git_repository" "example" {
 
-         work_item_template = "Agile"
+          project_id     = azuredevops_project.example.id
 
-         }
+          name           = "Example Git Repository"
 
-         resource "azuredevops_git_repository" "example" {
+          default_branch = "refs/heads/main"
 
-         project_id
+          initialization {
 
-         = azuredevops_project.example.id
+            init_type = "Clean"
 
-         name
+          }
 
-         = "Example Git Repository"
+          lifecycle {
 
-         default_branch = "refs/heads/main"
+            ignore_changes = [
+            
+              # Ignore changes to initialization to support importing existing repositories
+            
+              # Given that a repo now exists, either imported into terraform state or created by terraform,
+            
+              # we don't care for the configuration of initialization against the existing resource
+            
+              initialization,
+            
+            ]
 
-         initialization {
+          }
 
-         init_type = "Clean"
-
-         }
-
-         lifecycle {
-
-         ignore_changes = [
-
-        # Ignore changes to initialization to support importing existing repositories
-
-        # Given that a repo now exists, either imported into terraform state or created by terraform,
-
-        # we don't care for the configuration of initialization against the existing resource
-
-         initialization,
-
-         ]
-
-         }
-
-         }
+        }
 
         :param str resource_name: The name of the resource.
         :param GitArgs args: The arguments to use to populate this resource's properties.

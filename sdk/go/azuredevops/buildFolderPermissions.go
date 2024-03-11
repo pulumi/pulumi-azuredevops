@@ -17,8 +17,10 @@ import (
 // > **Note** Permissions can be assigned to group principals and not to single user principals.
 //
 // ## Example Usage
+//
 // ### Set specific folder permissions
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -83,7 +85,9 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 // ### Set root folder permissions
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -127,6 +131,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Relevant Links
 //
 // * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)

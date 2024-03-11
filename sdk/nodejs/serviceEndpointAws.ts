@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -27,6 +28,8 @@ import * as utilities from "./utilities";
  *     description: "Managed by AzureDevOps",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Relevant Links
  *
  * * [aws-toolkit-azure-devops](https://github.com/aws/aws-toolkit-azure-devops)

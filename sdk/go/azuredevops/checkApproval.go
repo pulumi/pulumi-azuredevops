@@ -15,8 +15,10 @@ import (
 // Manages a Approval Check.
 //
 // ## Example Usage
+//
 // ### Protect an environment
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -62,6 +64,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

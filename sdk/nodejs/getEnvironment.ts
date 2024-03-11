@@ -6,10 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to access information about an Environment.
- *
- * ## Relevant Links
- *
- * * [Azure DevOps Service REST API 7.0 - Environments](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments?view=azure-devops-rest-7.0)
  */
 export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
 
@@ -62,10 +58,6 @@ export interface GetEnvironmentResult {
 }
 /**
  * Use this data source to access information about an Environment.
- *
- * ## Relevant Links
- *
- * * [Azure DevOps Service REST API 7.0 - Environments](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments?view=azure-devops-rest-7.0)
  */
 export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentResult> {
     return pulumi.output(args).apply((a: any) => getEnvironment(a, opts))

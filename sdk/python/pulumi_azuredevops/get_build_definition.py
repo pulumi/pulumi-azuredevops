@@ -192,6 +192,7 @@ def get_build_definition(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -201,6 +202,7 @@ def get_build_definition(name: Optional[str] = None,
         name="existing")
     pulumi.export("id", example_build_definition.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of this Build Definition.
@@ -240,6 +242,7 @@ def get_build_definition_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -249,6 +252,7 @@ def get_build_definition_output(name: Optional[pulumi.Input[str]] = None,
         name="existing")
     pulumi.export("id", example_build_definition.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of this Build Definition.

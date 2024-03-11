@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  * });
  * export const serviceEndpointId = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServiceendpointSonarcloud(args: GetServiceendpointSonarcloudArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceendpointSonarcloudResult> {
 
@@ -75,6 +77,7 @@ export interface GetServiceendpointSonarcloudResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -85,6 +88,7 @@ export interface GetServiceendpointSonarcloudResult {
  * });
  * export const serviceEndpointId = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServiceendpointSonarcloudOutput(args: GetServiceendpointSonarcloudOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceendpointSonarcloudResult> {
     return pulumi.output(args).apply((a: any) => getServiceendpointSonarcloud(a, opts))

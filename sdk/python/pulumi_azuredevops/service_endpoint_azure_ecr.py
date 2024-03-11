@@ -376,6 +376,7 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -395,6 +396,8 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
             azurecr_subscription_id="00000000-0000-0000-0000-000000000000",
             azurecr_subscription_name="subscription name")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
@@ -429,6 +432,7 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -448,6 +452,8 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
             azurecr_subscription_id="00000000-0000-0000-0000-000000000000",
             azurecr_subscription_name="subscription name")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

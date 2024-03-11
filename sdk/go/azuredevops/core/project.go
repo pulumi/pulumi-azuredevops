@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,6 +46,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 7.0 - Projects](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects?view=azure-devops-rest-7.0)
@@ -61,7 +64,7 @@ import (
 // $ pulumi import azuredevops:Core/project:Project example "Example Project"
 // ```
 //
-//	or
+// or
 //
 // ```sh
 // $ pulumi import azuredevops:Core/project:Project example 00000000-0000-0000-0000-000000000000

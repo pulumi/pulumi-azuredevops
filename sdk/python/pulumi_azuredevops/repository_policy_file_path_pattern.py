@@ -201,6 +201,7 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -225,8 +226,10 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
             ],
             repository_ids=[example_git.id])
         ```
+        <!--End PulumiCodeChooser -->
 
         # Set project level repository policy
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -245,6 +248,8 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
                 "/home/test/*.ts",
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations?view=azure-devops-rest-7.0)
@@ -276,6 +281,7 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -300,8 +306,10 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
             ],
             repository_ids=[example_git.id])
         ```
+        <!--End PulumiCodeChooser -->
 
         # Set project level repository policy
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -320,6 +328,8 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
                 "/home/test/*.ts",
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations?view=azure-devops-rest-7.0)

@@ -8,8 +8,10 @@ import * as utilities from "./utilities";
  * Manages a business hours check on a resource within Azure DevOps.
  *
  * ## Example Usage
+ *
  * ### Protect a service connection
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -36,8 +38,11 @@ import * as utilities from "./utilities";
  *     timeout: 1440,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Protect an environment
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -56,8 +61,11 @@ import * as utilities from "./utilities";
  *     tuesday: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Protect an agent queue
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -80,8 +88,11 @@ import * as utilities from "./utilities";
  *     tuesday: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Protect a repository
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -105,8 +116,11 @@ import * as utilities from "./utilities";
  *     tuesday: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Protect a variable group
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -140,6 +154,8 @@ import * as utilities from "./utilities";
  *     tuesday: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Relevant Links
  *
  * - [Define approvals and checks](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops&tabs=check-pass)

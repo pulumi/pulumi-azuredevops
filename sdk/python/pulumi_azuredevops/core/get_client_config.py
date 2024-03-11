@@ -61,6 +61,7 @@ def get_client_config(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableG
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -68,6 +69,7 @@ def get_client_config(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableG
     example = azuredevops.get_client_config()
     pulumi.export("orgUrl", example.organization_url)
     ```
+    <!--End PulumiCodeChooser -->
     """
     pulumi.log.warn("""get_client_config is deprecated: azuredevops.core.getClientConfig has been deprecated in favor of azuredevops.getClientConfig""")
     __args__ = dict()
@@ -86,6 +88,7 @@ def get_client_config_output(opts: Optional[pulumi.InvokeOptions] = None) -> pul
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -93,6 +96,7 @@ def get_client_config_output(opts: Optional[pulumi.InvokeOptions] = None) -> pul
     example = azuredevops.get_client_config()
     pulumi.export("orgUrl", example.organization_url)
     ```
+    <!--End PulumiCodeChooser -->
     """
     pulumi.log.warn("""get_client_config is deprecated: azuredevops.core.getClientConfig has been deprecated in favor of azuredevops.getClientConfig""")
     ...

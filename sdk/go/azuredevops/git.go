@@ -20,67 +20,57 @@ import (
 // $ pulumi import azuredevops:index/git:Git example projectName/repoName
 // ```
 //
-//	or
+// or
 //
 // ```sh
 // $ pulumi import azuredevops:index/git:Git example projectName/00000000-0000-0000-0000-000000000000
 // ```
 //
-//	hcl
+// hcl
 //
-//	resource "azuredevops_project" "example" {
+// resource "azuredevops_project" "example" {
 //
-//	name
+//	name               = "Example Project"
 //
-//	= "Example Project"
+//	visibility         = "private"
 //
-//	visibility
-//
-//	= "private"
-//
-//	version_control
-//
-// = "Git"
+//	version_control    = "Git"
 //
 //	work_item_template = "Agile"
 //
-//	}
+// }
 //
-//	resource "azuredevops_git_repository" "example" {
+// resource "azuredevops_git_repository" "example" {
 //
-//	project_id
+//	project_id     = azuredevops_project.example.id
 //
-//	= azuredevops_project.example.id
-//
-//	name
-//
-//	= "Example Git Repository"
+//	name           = "Example Git Repository"
 //
 //	default_branch = "refs/heads/main"
 //
 //	initialization {
 //
-//	init_type = "Clean"
+//	  init_type = "Clean"
 //
 //	}
 //
 //	lifecycle {
 //
-//	ignore_changes = [
+//	  ignore_changes = [
 //
-// # Ignore changes to initialization to support importing existing repositories
+//	    # Ignore changes to initialization to support importing existing repositories
 //
-// # Given that a repo now exists, either imported into terraform state or created by terraform,
+//	    # Given that a repo now exists, either imported into terraform state or created by terraform,
 //
-// # we don't care for the configuration of initialization against the existing resource
+//	    # we don't care for the configuration of initialization against the existing resource
 //
-//	initialization,
+//	    initialization,
 //
-//	]
-//
-//	}
+//	  ]
 //
 //	}
+//
+// }
 type Git struct {
 	pulumi.CustomResourceState
 

@@ -239,6 +239,7 @@ class VariableGroup(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -264,8 +265,11 @@ class VariableGroup(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With AzureRM Key Vault
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -303,6 +307,8 @@ class VariableGroup(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-7.0)
@@ -321,19 +327,19 @@ class VariableGroup(pulumi.CustomResource):
 
         **Variable groups containing secret values cannot be imported.**
 
-         Azure DevOps Variable groups can be imported using the project name/variable group ID or by the project Guid/variable group ID, e.g.
+        Azure DevOps Variable groups can be imported using the project name/variable group ID or by the project Guid/variable group ID, e.g.
 
         ```sh
         $ pulumi import azuredevops:Pipeline/variableGroup:VariableGroup example "Example Project/10"
         ```
 
-         or
+        or
 
         ```sh
         $ pulumi import azuredevops:Pipeline/variableGroup:VariableGroup example 00000000-0000-0000-0000-000000000000/0
         ```
 
-         _Note that for secret variables, the import command retrieve blank value in the tfstate._
+        _Note that for secret variables, the import command retrieve blank value in the tfstate._
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -353,6 +359,7 @@ class VariableGroup(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -378,8 +385,11 @@ class VariableGroup(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With AzureRM Key Vault
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -417,6 +427,8 @@ class VariableGroup(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-7.0)
@@ -435,19 +447,19 @@ class VariableGroup(pulumi.CustomResource):
 
         **Variable groups containing secret values cannot be imported.**
 
-         Azure DevOps Variable groups can be imported using the project name/variable group ID or by the project Guid/variable group ID, e.g.
+        Azure DevOps Variable groups can be imported using the project name/variable group ID or by the project Guid/variable group ID, e.g.
 
         ```sh
         $ pulumi import azuredevops:Pipeline/variableGroup:VariableGroup example "Example Project/10"
         ```
 
-         or
+        or
 
         ```sh
         $ pulumi import azuredevops:Pipeline/variableGroup:VariableGroup example 00000000-0000-0000-0000-000000000000/0
         ```
 
-         _Note that for secret variables, the import command retrieve blank value in the tfstate._
+        _Note that for secret variables, the import command retrieve blank value in the tfstate._
 
         :param str resource_name: The name of the resource.
         :param VariableGroupArgs args: The arguments to use to populate this resource's properties.

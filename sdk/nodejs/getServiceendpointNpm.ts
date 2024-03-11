@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  * });
  * export const serviceEndpointId = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServiceendpointNpm(args: GetServiceendpointNpmArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceendpointNpmResult> {
 
@@ -79,6 +81,7 @@ export interface GetServiceendpointNpmResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -89,6 +92,7 @@ export interface GetServiceendpointNpmResult {
  * });
  * export const serviceEndpointId = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServiceendpointNpmOutput(args: GetServiceendpointNpmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceendpointNpmResult> {
     return pulumi.output(args).apply((a: any) => getServiceendpointNpm(a, opts))

@@ -10,7 +10,9 @@ import * as utilities from "./utilities";
  * Manages a Build Definition within Azure DevOps.
  *
  * ## Example Usage
+ *
  * ### Tfs
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -78,7 +80,10 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### GitHub Enterprise
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -130,6 +135,8 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Remarks
  *
  * The path attribute can not end in `\` unless the path is the root value of `\`.
@@ -153,7 +160,7 @@ import * as utilities from "./utilities";
  * $ pulumi import azuredevops:index/buildDefinition:BuildDefinition example "Example Project"/10
  * ```
  *
- *  or
+ * or
  *
  * ```sh
  * $ pulumi import azuredevops:index/buildDefinition:BuildDefinition example 00000000-0000-0000-0000-000000000000/0

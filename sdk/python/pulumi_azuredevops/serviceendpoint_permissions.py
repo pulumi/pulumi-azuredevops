@@ -239,6 +239,7 @@ class ServiceendpointPermissions(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -279,6 +280,8 @@ class ServiceendpointPermissions(pulumi.CustomResource):
                 "ViewEndpoint": "allow",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
@@ -325,6 +328,7 @@ class ServiceendpointPermissions(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -365,6 +369,8 @@ class ServiceendpointPermissions(pulumi.CustomResource):
                 "ViewEndpoint": "allow",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
