@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * basic authentication via a username and password.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -63,6 +65,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Relevant Links
  * 
  * - [Azure DevOps Service REST API 7.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
@@ -71,7 +75,7 @@ import javax.annotation.Nullable;
  * 
  * Azure DevOps Service Endpoint Generic can be imported using **projectID/serviceEndpointID** or
  * 
- *  **projectName/serviceEndpointID**
+ * **projectName/serviceEndpointID**
  * 
  * ```sh
  * $ pulumi import azuredevops:index/serviceEndpointGeneric:ServiceEndpointGeneric example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000

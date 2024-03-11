@@ -14,6 +14,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,6 +53,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/gitRepositoryBranch:GitRepositoryBranch")]
     public partial class GitRepositoryBranch : global::Pulumi.CustomResource

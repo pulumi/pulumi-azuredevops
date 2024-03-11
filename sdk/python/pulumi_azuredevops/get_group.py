@@ -106,6 +106,7 @@ def get_group(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -119,6 +120,8 @@ def get_group(name: Optional[str] = None,
     pulumi.export("collectionGroupId", example_group.id)
     pulumi.export("collectionGroupDescriptor", example_group.descriptor)
     ```
+    <!--End PulumiCodeChooser -->
+
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-7.0)
@@ -151,6 +154,7 @@ def get_group_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -164,6 +168,8 @@ def get_group_output(name: Optional[pulumi.Input[str]] = None,
     pulumi.export("collectionGroupId", example_group.id)
     pulumi.export("collectionGroupDescriptor", example_group.descriptor)
     ```
+    <!--End PulumiCodeChooser -->
+
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-7.0)

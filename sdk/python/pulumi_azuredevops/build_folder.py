@@ -135,6 +135,7 @@ class BuildFolder(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -148,6 +149,7 @@ class BuildFolder(pulumi.CustomResource):
             path="\\\\ExampleFolder",
             description="ExampleFolder description")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -157,7 +159,7 @@ class BuildFolder(pulumi.CustomResource):
         $ pulumi import azuredevops:index/buildFolder:BuildFolder example "Example Project/\\\\ExampleFolder"
         ```
 
-         or
+        or
 
         ```sh
         $ pulumi import azuredevops:index/buildFolder:BuildFolder example 00000000-0000-0000-0000-000000000000/\\\\ExampleFolder
@@ -180,6 +182,7 @@ class BuildFolder(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -193,6 +196,7 @@ class BuildFolder(pulumi.CustomResource):
             path="\\\\ExampleFolder",
             description="ExampleFolder description")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -202,7 +206,7 @@ class BuildFolder(pulumi.CustomResource):
         $ pulumi import azuredevops:index/buildFolder:BuildFolder example "Example Project/\\\\ExampleFolder"
         ```
 
-         or
+        or
 
         ```sh
         $ pulumi import azuredevops:index/buildFolder:BuildFolder example 00000000-0000-0000-0000-000000000000/\\\\ExampleFolder

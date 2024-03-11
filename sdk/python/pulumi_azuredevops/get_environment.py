@@ -93,10 +93,6 @@ def get_environment(environment_id: Optional[int] = None,
     """
     Use this data source to access information about an Environment.
 
-    ## Relevant Links
-
-    * [Azure DevOps Service REST API 7.0 - Environments](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments?view=azure-devops-rest-7.0)
-
 
     :param int environment_id: The ID of the Environment.
     :param str name: Name of the Environment.
@@ -126,10 +122,6 @@ def get_environment_output(environment_id: Optional[pulumi.Input[Optional[int]]]
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     Use this data source to access information about an Environment.
-
-    ## Relevant Links
-
-    * [Azure DevOps Service REST API 7.0 - Environments](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments?view=azure-devops-rest-7.0)
 
 
     :param int environment_id: The ID of the Environment.

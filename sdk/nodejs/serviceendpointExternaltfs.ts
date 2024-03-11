@@ -9,10 +9,6 @@ import * as utilities from "./utilities";
 /**
  * Manages an Azure Repos/Team Foundation Server service endpoint within Azure DevOps.
  *
- * ## Relevant Links
- *
- * - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
- *
  * ## Import
  *
  * Azure DevOps Service Endpoint External TFS can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**

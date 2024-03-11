@@ -23,7 +23,10 @@ import javax.annotation.Nullable;
  * &gt; **Note** If both &#34;All Pipeline Authorization&#34; and &#34;Custom Pipeline Authorization&#34; are configured, &#34;All Pipeline Authorization&#34; has higher priority.
  * 
  * ## Example Usage
+ * 
  * ### Authorization for all pipelines
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -77,7 +80,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Authorization for specific pipeline
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -151,6 +158,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Relevant Links
  * 
  * - [Azure DevOps Service REST API 7.1 - Pipeline Permissions](https://learn.microsoft.com/en-us/rest/api/azure/devops/approvalsandchecks/pipeline-permissions?view=azure-devops-rest-7.1)

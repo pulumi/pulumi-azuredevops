@@ -227,12 +227,15 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
 
         example = azuredevops.User("example", principal_name="foo@contoso.com")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - User Entitlements - Add](https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/user-entitlements/add?view=azure-devops-rest-7.0)
@@ -267,12 +270,15 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
 
         example = azuredevops.User("example", principal_name="foo@contoso.com")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - User Entitlements - Add](https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/user-entitlements/add?view=azure-devops-rest-7.0)

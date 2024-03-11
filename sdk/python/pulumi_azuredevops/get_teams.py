@@ -87,6 +87,7 @@ def get_teams(project_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -97,6 +98,8 @@ def get_teams(project_id: Optional[str] = None,
     pulumi.export("alladministrators", [__item.administrators for __item in example.teams])
     pulumi.export("administrators", [__item.members for __item in example.teams])
     ```
+    <!--End PulumiCodeChooser -->
+
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)
@@ -131,6 +134,7 @@ def get_teams_output(project_id: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -141,6 +145,8 @@ def get_teams_output(project_id: Optional[pulumi.Input[Optional[str]]] = None,
     pulumi.export("alladministrators", [__item.administrators for __item in example.teams])
     pulumi.export("administrators", [__item.members for __item in example.teams])
     ```
+    <!--End PulumiCodeChooser -->
+
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)

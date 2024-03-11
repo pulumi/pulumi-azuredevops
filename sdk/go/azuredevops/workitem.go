@@ -15,8 +15,10 @@ import (
 // Manages a Work Item in Azure Devops.
 //
 // ## Example Usage
+//
 // ### Basic usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,8 +57,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With custom fields
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -98,6 +103,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

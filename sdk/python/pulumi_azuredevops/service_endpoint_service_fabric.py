@@ -260,8 +260,10 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
         Manages a Service Fabric service endpoint within Azure DevOps.
 
         ## Example Usage
+
         ### Client Certificate Authentication
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import base64
@@ -284,8 +286,11 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
                 client_certificate_password="password",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Azure Active Directory Authentication
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -306,8 +311,11 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
                 password="password",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Windows Authentication
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -326,6 +334,8 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
                 cluster_spn="HTTP/www.contoso.com",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
@@ -354,8 +364,10 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
         Manages a Service Fabric service endpoint within Azure DevOps.
 
         ## Example Usage
+
         ### Client Certificate Authentication
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import base64
@@ -378,8 +390,11 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
                 client_certificate_password="password",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Azure Active Directory Authentication
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -400,8 +415,11 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
                 password="password",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Windows Authentication
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -420,6 +438,8 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
                 cluster_spn="HTTP/www.contoso.com",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

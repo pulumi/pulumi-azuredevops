@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * Manages a Approval Check.
  * 
  * ## Example Usage
+ * 
  * ### Protect an environment
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -69,6 +72,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

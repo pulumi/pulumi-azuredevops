@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Manages a project within Azure DevOps.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -54,6 +56,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Relevant Links
  * 
  * - [Azure DevOps Service REST API 7.0 - Projects](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects?view=azure-devops-rest-7.0)
@@ -70,7 +74,7 @@ import javax.annotation.Nullable;
  * $ pulumi import azuredevops:Core/project:Project example &#34;Example Project&#34;
  * ```
  * 
- *  or
+ * or
  * 
  * ```sh
  * $ pulumi import azuredevops:Core/project:Project example 00000000-0000-0000-0000-000000000000

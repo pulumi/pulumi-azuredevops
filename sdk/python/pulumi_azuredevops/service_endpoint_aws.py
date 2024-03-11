@@ -348,6 +348,7 @@ class ServiceEndpointAws(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -364,6 +365,8 @@ class ServiceEndpointAws(pulumi.CustomResource):
             secret_access_key="accesskey",
             description="Managed by AzureDevOps")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         * [aws-toolkit-azure-devops](https://github.com/aws/aws-toolkit-azure-devops)
@@ -399,6 +402,7 @@ class ServiceEndpointAws(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -415,6 +419,8 @@ class ServiceEndpointAws(pulumi.CustomResource):
             secret_access_key="accesskey",
             description="Managed by AzureDevOps")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         * [aws-toolkit-azure-devops](https://github.com/aws/aws-toolkit-azure-devops)

@@ -81,6 +81,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Agent Queue within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -121,6 +123,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-7.0)
@@ -133,6 +137,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Agent Queue within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -173,6 +179,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-7.0)
@@ -185,6 +193,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Agent Queue within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -225,6 +235,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-7.0)
@@ -237,6 +249,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Agent Queue within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -277,6 +291,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-7.0)
@@ -289,6 +305,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Area (Component) within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -328,6 +346,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/create-or-update?view=azure-devops-rest-7.0)
@@ -344,6 +364,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Area (Component) within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -383,6 +405,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/create-or-update?view=azure-devops-rest-7.0)
@@ -399,6 +423,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Area (Component) within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -438,6 +464,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/create-or-update?view=azure-devops-rest-7.0)
@@ -454,6 +482,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Area (Component) within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -493,6 +523,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/create-or-update?view=azure-devops-rest-7.0)
@@ -509,6 +541,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Build Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -544,6 +578,7 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBuildDefinitionResult> getBuildDefinition(GetBuildDefinitionArgs args) {
@@ -553,6 +588,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Build Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -588,6 +625,7 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBuildDefinitionResult> getBuildDefinitionPlain(GetBuildDefinitionPlainArgs args) {
@@ -597,6 +635,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Build Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -632,6 +672,7 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBuildDefinitionResult> getBuildDefinition(GetBuildDefinitionArgs args, InvokeOptions options) {
@@ -641,6 +682,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Build Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -676,6 +719,7 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBuildDefinitionResult> getBuildDefinitionPlain(GetBuildDefinitionPlainArgs args, InvokeOptions options) {
@@ -685,6 +729,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about the Azure DevOps organization configured for the provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -711,6 +757,7 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClientConfigResult> getClientConfig() {
@@ -720,6 +767,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about the Azure DevOps organization configured for the provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -746,6 +795,7 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClientConfigResult> getClientConfigPlain() {
@@ -755,6 +805,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about the Azure DevOps organization configured for the provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -781,6 +833,7 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClientConfigResult> getClientConfig(InvokeArgs args) {
@@ -790,6 +843,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about the Azure DevOps organization configured for the provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -816,6 +871,7 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClientConfigResult> getClientConfigPlain(InvokeArgs args) {
@@ -825,6 +881,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about the Azure DevOps organization configured for the provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -851,6 +909,7 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClientConfigResult> getClientConfig(InvokeArgs args, InvokeOptions options) {
@@ -860,6 +919,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about the Azure DevOps organization configured for the provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -886,6 +947,7 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClientConfigResult> getClientConfigPlain(InvokeArgs args, InvokeOptions options) {
@@ -894,20 +956,12 @@ public final class AzuredevopsFunctions {
     /**
      * Use this data source to access information about an Environment.
      * 
-     * ## Relevant Links
-     * 
-     * * [Azure DevOps Service REST API 7.0 - Environments](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments?view=azure-devops-rest-7.0)
-     * 
      */
     public static Output<GetEnvironmentResult> getEnvironment(GetEnvironmentArgs args) {
         return getEnvironment(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an Environment.
-     * 
-     * ## Relevant Links
-     * 
-     * * [Azure DevOps Service REST API 7.0 - Environments](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetEnvironmentResult> getEnvironmentPlain(GetEnvironmentPlainArgs args) {
@@ -916,20 +970,12 @@ public final class AzuredevopsFunctions {
     /**
      * Use this data source to access information about an Environment.
      * 
-     * ## Relevant Links
-     * 
-     * * [Azure DevOps Service REST API 7.0 - Environments](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments?view=azure-devops-rest-7.0)
-     * 
      */
     public static Output<GetEnvironmentResult> getEnvironment(GetEnvironmentArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azuredevops:index/getEnvironment:getEnvironment", TypeShape.of(GetEnvironmentResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an Environment.
-     * 
-     * ## Relevant Links
-     * 
-     * * [Azure DevOps Service REST API 7.0 - Environments](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetEnvironmentResult> getEnvironmentPlain(GetEnvironmentPlainArgs args, InvokeOptions options) {
@@ -940,6 +986,8 @@ public final class AzuredevopsFunctions {
      * To read information about **multiple** Git Repositories use the data source `azuredevops.getRepositories`
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -974,6 +1022,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
@@ -987,6 +1037,8 @@ public final class AzuredevopsFunctions {
      * To read information about **multiple** Git Repositories use the data source `azuredevops.getRepositories`
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1021,6 +1073,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
@@ -1034,6 +1088,8 @@ public final class AzuredevopsFunctions {
      * To read information about **multiple** Git Repositories use the data source `azuredevops.getRepositories`
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1068,6 +1124,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
@@ -1081,6 +1139,8 @@ public final class AzuredevopsFunctions {
      * To read information about **multiple** Git Repositories use the data source `azuredevops.getRepositories`
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1115,6 +1175,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
@@ -1127,6 +1189,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Group within Azure DevOps
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1169,6 +1233,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-7.0)
@@ -1181,6 +1247,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Group within Azure DevOps
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1223,6 +1291,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-7.0)
@@ -1235,6 +1305,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Group within Azure DevOps
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1277,6 +1349,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-7.0)
@@ -1289,6 +1363,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Group within Azure DevOps
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1331,6 +1407,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-7.0)
@@ -1343,6 +1421,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about existing Groups within Azure DevOps
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1378,6 +1458,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Groups - List](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-7.0)
@@ -1390,6 +1472,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about existing Groups within Azure DevOps
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1425,6 +1509,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Groups - List](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-7.0)
@@ -1437,6 +1523,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about existing Groups within Azure DevOps
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1472,6 +1560,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Groups - List](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-7.0)
@@ -1484,6 +1574,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about existing Groups within Azure DevOps
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1519,6 +1611,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Groups - List](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-7.0)
@@ -1531,6 +1625,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about existing Groups within Azure DevOps
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1566,6 +1662,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Groups - List](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-7.0)
@@ -1578,6 +1676,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about existing Groups within Azure DevOps
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1613,6 +1713,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Groups - List](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-7.0)
@@ -1625,6 +1727,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Iteration (Sprint) within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1670,6 +1774,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/get-classification-nodes?view=azure-devops-rest-7.0)
@@ -1686,6 +1792,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Iteration (Sprint) within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1731,6 +1839,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/get-classification-nodes?view=azure-devops-rest-7.0)
@@ -1747,6 +1857,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Iteration (Sprint) within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1792,6 +1904,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/get-classification-nodes?view=azure-devops-rest-7.0)
@@ -1808,6 +1922,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Iteration (Sprint) within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1853,6 +1969,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/get-classification-nodes?view=azure-devops-rest-7.0)
@@ -1869,6 +1987,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Agent Pool within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1901,6 +2021,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
@@ -1913,6 +2035,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Agent Pool within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1945,6 +2069,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
@@ -1957,6 +2083,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Agent Pool within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1989,6 +2117,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
@@ -2001,6 +2131,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Agent Pool within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2033,6 +2165,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
@@ -2045,6 +2179,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about existing Agent Pools within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2074,6 +2210,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
@@ -2086,6 +2224,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about existing Agent Pools within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2115,6 +2255,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
@@ -2127,6 +2269,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about existing Agent Pools within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2156,6 +2300,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
@@ -2168,6 +2314,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about existing Agent Pools within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2197,6 +2345,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
@@ -2209,6 +2359,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about existing Agent Pools within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2238,6 +2390,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
@@ -2250,6 +2404,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about existing Agent Pools within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2279,6 +2435,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
@@ -2291,6 +2449,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Project within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2320,6 +2480,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
@@ -2332,6 +2494,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Project within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2361,6 +2525,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
@@ -2373,6 +2539,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Project within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2402,6 +2570,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
@@ -2414,6 +2584,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Project within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2443,6 +2615,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
@@ -2455,6 +2629,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Project within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2484,6 +2660,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
@@ -2496,6 +2674,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Project within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2525,6 +2705,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
@@ -2537,6 +2719,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about existing Projects within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2570,6 +2754,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
@@ -2582,6 +2768,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about existing Projects within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2615,6 +2803,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
@@ -2627,6 +2817,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about existing Projects within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2660,6 +2852,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
@@ -2672,6 +2866,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about existing Projects within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2705,6 +2901,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
@@ -2717,6 +2915,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about existing Projects within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2750,6 +2950,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
@@ -2762,6 +2964,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about existing Projects within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2795,6 +2999,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
@@ -2808,6 +3014,8 @@ public final class AzuredevopsFunctions {
      * To read informations about a **single** Git Repository use the data source `azuredevops.Git`
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2847,6 +3055,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
@@ -2860,6 +3070,8 @@ public final class AzuredevopsFunctions {
      * To read informations about a **single** Git Repository use the data source `azuredevops.Git`
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2899,6 +3111,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
@@ -2912,6 +3126,8 @@ public final class AzuredevopsFunctions {
      * To read informations about a **single** Git Repository use the data source `azuredevops.Git`
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2951,6 +3167,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
@@ -2964,6 +3182,8 @@ public final class AzuredevopsFunctions {
      * To read informations about a **single** Git Repository use the data source `azuredevops.Git`
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3003,6 +3223,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
@@ -3016,6 +3238,8 @@ public final class AzuredevopsFunctions {
      * To read informations about a **single** Git Repository use the data source `azuredevops.Git`
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3055,6 +3279,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
@@ -3068,6 +3294,8 @@ public final class AzuredevopsFunctions {
      * To read informations about a **single** Git Repository use the data source `azuredevops.Git`
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3107,6 +3335,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
@@ -3119,7 +3349,10 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing AzureRM service Endpoint.
      * 
      * ## Example Usage
+     * 
      * ### By Service Endpoint ID
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3155,7 +3388,11 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Service Endpoint Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3191,6 +3428,7 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceEndpointAzureRMResult> getServiceEndpointAzureRM(GetServiceEndpointAzureRMArgs args) {
@@ -3200,7 +3438,10 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing AzureRM service Endpoint.
      * 
      * ## Example Usage
+     * 
      * ### By Service Endpoint ID
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3236,7 +3477,11 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Service Endpoint Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3272,6 +3517,7 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceEndpointAzureRMResult> getServiceEndpointAzureRMPlain(GetServiceEndpointAzureRMPlainArgs args) {
@@ -3281,7 +3527,10 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing AzureRM service Endpoint.
      * 
      * ## Example Usage
+     * 
      * ### By Service Endpoint ID
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3317,7 +3566,11 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Service Endpoint Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3353,6 +3606,7 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceEndpointAzureRMResult> getServiceEndpointAzureRM(GetServiceEndpointAzureRMArgs args, InvokeOptions options) {
@@ -3362,7 +3616,10 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing AzureRM service Endpoint.
      * 
      * ## Example Usage
+     * 
      * ### By Service Endpoint ID
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3398,7 +3655,11 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Service Endpoint Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3434,6 +3695,7 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceEndpointAzureRMResult> getServiceEndpointAzureRMPlain(GetServiceEndpointAzureRMPlainArgs args, InvokeOptions options) {
@@ -3443,7 +3705,10 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing GitHub service Endpoint.
      * 
      * ## Example Usage
+     * 
      * ### By Service Endpoint ID
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3479,7 +3744,11 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Service Endpoint Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3515,6 +3784,7 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceEndpointGithubResult> getServiceEndpointGithub(GetServiceEndpointGithubArgs args) {
@@ -3524,7 +3794,10 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing GitHub service Endpoint.
      * 
      * ## Example Usage
+     * 
      * ### By Service Endpoint ID
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3560,7 +3833,11 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Service Endpoint Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3596,6 +3873,7 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceEndpointGithubResult> getServiceEndpointGithubPlain(GetServiceEndpointGithubPlainArgs args) {
@@ -3605,7 +3883,10 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing GitHub service Endpoint.
      * 
      * ## Example Usage
+     * 
      * ### By Service Endpoint ID
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3641,7 +3922,11 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Service Endpoint Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3677,6 +3962,7 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceEndpointGithubResult> getServiceEndpointGithub(GetServiceEndpointGithubArgs args, InvokeOptions options) {
@@ -3686,7 +3972,10 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing GitHub service Endpoint.
      * 
      * ## Example Usage
+     * 
      * ### By Service Endpoint ID
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3722,7 +4011,11 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Service Endpoint Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3758,6 +4051,7 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceEndpointGithubResult> getServiceEndpointGithubPlain(GetServiceEndpointGithubPlainArgs args, InvokeOptions options) {
@@ -3767,6 +4061,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Azure Container Registry Service Endpoint.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3797,6 +4093,7 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceendpointAzurecrResult> getServiceendpointAzurecr(GetServiceendpointAzurecrArgs args) {
@@ -3806,6 +4103,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Azure Container Registry Service Endpoint.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3836,6 +4135,7 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceendpointAzurecrResult> getServiceendpointAzurecrPlain(GetServiceendpointAzurecrPlainArgs args) {
@@ -3845,6 +4145,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Azure Container Registry Service Endpoint.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3875,6 +4177,7 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceendpointAzurecrResult> getServiceendpointAzurecr(GetServiceendpointAzurecrArgs args, InvokeOptions options) {
@@ -3884,6 +4187,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Azure Container Registry Service Endpoint.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3914,6 +4219,7 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceendpointAzurecrResult> getServiceendpointAzurecrPlain(GetServiceendpointAzurecrPlainArgs args, InvokeOptions options) {
@@ -3923,6 +4229,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing NPM Service Endpoint.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3953,6 +4261,7 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceendpointNpmResult> getServiceendpointNpm(GetServiceendpointNpmArgs args) {
@@ -3962,6 +4271,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing NPM Service Endpoint.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3992,6 +4303,7 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceendpointNpmResult> getServiceendpointNpmPlain(GetServiceendpointNpmPlainArgs args) {
@@ -4001,6 +4313,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing NPM Service Endpoint.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4031,6 +4345,7 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceendpointNpmResult> getServiceendpointNpm(GetServiceendpointNpmArgs args, InvokeOptions options) {
@@ -4040,6 +4355,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing NPM Service Endpoint.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4070,6 +4387,7 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceendpointNpmResult> getServiceendpointNpmPlain(GetServiceendpointNpmPlainArgs args, InvokeOptions options) {
@@ -4079,6 +4397,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Sonar Cloud Service Endpoint.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4109,6 +4429,7 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceendpointSonarcloudResult> getServiceendpointSonarcloud(GetServiceendpointSonarcloudArgs args) {
@@ -4118,6 +4439,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Sonar Cloud Service Endpoint.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4148,6 +4471,7 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceendpointSonarcloudResult> getServiceendpointSonarcloudPlain(GetServiceendpointSonarcloudPlainArgs args) {
@@ -4157,6 +4481,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Sonar Cloud Service Endpoint.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4187,6 +4513,7 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceendpointSonarcloudResult> getServiceendpointSonarcloud(GetServiceendpointSonarcloudArgs args, InvokeOptions options) {
@@ -4196,6 +4523,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Sonar Cloud Service Endpoint.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4226,6 +4555,7 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceendpointSonarcloudResult> getServiceendpointSonarcloudPlain(GetServiceendpointSonarcloudPlainArgs args, InvokeOptions options) {
@@ -4235,6 +4565,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Team in a Project within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4273,6 +4605,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)
@@ -4289,6 +4623,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Team in a Project within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4327,6 +4663,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)
@@ -4343,6 +4681,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Team in a Project within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4381,6 +4721,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)
@@ -4397,6 +4739,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Team in a Project within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4435,6 +4779,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)
@@ -4451,6 +4797,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about existing Teams in a Project or globally within an Azure DevOps organization
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4481,6 +4829,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)
@@ -4497,6 +4847,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about existing Teams in a Project or globally within an Azure DevOps organization
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4527,6 +4879,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)
@@ -4543,6 +4897,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about existing Teams in a Project or globally within an Azure DevOps organization
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4573,6 +4929,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)
@@ -4589,6 +4947,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about existing Teams in a Project or globally within an Azure DevOps organization
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4619,6 +4979,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)
@@ -4635,6 +4997,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about existing Teams in a Project or globally within an Azure DevOps organization
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4665,6 +5029,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)
@@ -4681,6 +5047,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about existing Teams in a Project or globally within an Azure DevOps organization
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4711,6 +5079,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)
@@ -4727,6 +5097,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing users within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4777,6 +5149,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
@@ -4789,6 +5163,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing users within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4839,6 +5215,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
@@ -4851,6 +5229,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing users within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4901,6 +5281,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
@@ -4913,6 +5295,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing users within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4963,6 +5347,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
@@ -4975,6 +5361,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing users within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5025,6 +5413,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
@@ -5037,6 +5427,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing users within Azure DevOps.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5087,6 +5479,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
@@ -5098,9 +5492,11 @@ public final class AzuredevopsFunctions {
     /**
      * Use this data source to access information about existing Variable Groups within Azure DevOps.
      * 
-     * &gt; **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&amp;tabs=yaml%2Cbatch#secret-variables)
+     * &gt; **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](&lt;https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&amp;tabs=yaml%!C(MISSING)batch#secret-variables&gt;)
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5136,6 +5532,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-7.0)
@@ -5147,9 +5545,11 @@ public final class AzuredevopsFunctions {
     /**
      * Use this data source to access information about existing Variable Groups within Azure DevOps.
      * 
-     * &gt; **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&amp;tabs=yaml%2Cbatch#secret-variables)
+     * &gt; **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](&lt;https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&amp;tabs=yaml%!C(MISSING)batch#secret-variables&gt;)
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5185,6 +5585,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-7.0)
@@ -5196,9 +5598,11 @@ public final class AzuredevopsFunctions {
     /**
      * Use this data source to access information about existing Variable Groups within Azure DevOps.
      * 
-     * &gt; **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&amp;tabs=yaml%2Cbatch#secret-variables)
+     * &gt; **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](&lt;https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&amp;tabs=yaml%!C(MISSING)batch#secret-variables&gt;)
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5234,6 +5638,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-7.0)
@@ -5245,9 +5651,11 @@ public final class AzuredevopsFunctions {
     /**
      * Use this data source to access information about existing Variable Groups within Azure DevOps.
      * 
-     * &gt; **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&amp;tabs=yaml%2Cbatch#secret-variables)
+     * &gt; **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](&lt;https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&amp;tabs=yaml%!C(MISSING)batch#secret-variables&gt;)
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5283,6 +5691,8 @@ public final class AzuredevopsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-7.0)

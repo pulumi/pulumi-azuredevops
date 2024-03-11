@@ -224,6 +224,7 @@ class ServiceEndpointSonarQube(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -240,6 +241,8 @@ class ServiceEndpointSonarQube(pulumi.CustomResource):
             token="0000000000000000000000000000000000000000",
             description="Managed by Terraform")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
@@ -273,6 +276,7 @@ class ServiceEndpointSonarQube(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -289,6 +293,8 @@ class ServiceEndpointSonarQube(pulumi.CustomResource):
             token="0000000000000000000000000000000000000000",
             description="Managed by Terraform")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

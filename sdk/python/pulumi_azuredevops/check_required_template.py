@@ -167,8 +167,10 @@ class CheckRequiredTemplate(pulumi.CustomResource):
         Manages a Required Template Check.
 
         ## Example Usage
+
         ### Protect a service connection
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -192,8 +194,11 @@ class CheckRequiredTemplate(pulumi.CustomResource):
                 template_path="template/path.yml",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Protect an environment
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -217,6 +222,7 @@ class CheckRequiredTemplate(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -239,8 +245,10 @@ class CheckRequiredTemplate(pulumi.CustomResource):
         Manages a Required Template Check.
 
         ## Example Usage
+
         ### Protect a service connection
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -264,8 +272,11 @@ class CheckRequiredTemplate(pulumi.CustomResource):
                 template_path="template/path.yml",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Protect an environment
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -289,6 +300,7 @@ class CheckRequiredTemplate(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

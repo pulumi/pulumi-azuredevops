@@ -308,6 +308,7 @@ class ServicehookStorageQueuePipelines(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -332,9 +333,11 @@ class ServicehookStorageQueuePipelines(pulumi.CustomResource):
                 run_result_filter="Succeeded",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         An empty configuration block will occur in all events triggering the associated action.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -347,6 +350,7 @@ class ServicehookStorageQueuePipelines(pulumi.CustomResource):
             visi_timeout=30,
             run_state_changed_event=azuredevops.ServicehookStorageQueuePipelinesRunStateChangedEventArgs())
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -380,6 +384,7 @@ class ServicehookStorageQueuePipelines(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -404,9 +409,11 @@ class ServicehookStorageQueuePipelines(pulumi.CustomResource):
                 run_result_filter="Succeeded",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         An empty configuration block will occur in all events triggering the associated action.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -419,6 +426,7 @@ class ServicehookStorageQueuePipelines(pulumi.CustomResource):
             visi_timeout=30,
             run_state_changed_event=azuredevops.ServicehookStorageQueuePipelinesRunStateChangedEventArgs())
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

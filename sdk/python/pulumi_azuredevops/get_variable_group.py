@@ -120,10 +120,11 @@ def get_variable_group(name: Optional[str] = None,
     """
     Use this data source to access information about existing Variable Groups within Azure DevOps.
 
-    > **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables)
+    > **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](<https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%!C(MISSING)batch#secret-variables>)
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -133,6 +134,8 @@ def get_variable_group(name: Optional[str] = None,
         name="Example Variable Group")
     pulumi.export("id", example_variable_group.id)
     ```
+    <!--End PulumiCodeChooser -->
+
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-7.0)
@@ -164,10 +167,11 @@ def get_variable_group_output(name: Optional[pulumi.Input[str]] = None,
     """
     Use this data source to access information about existing Variable Groups within Azure DevOps.
 
-    > **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables)
+    > **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](<https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%!C(MISSING)batch#secret-variables>)
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -177,6 +181,8 @@ def get_variable_group_output(name: Optional[pulumi.Input[str]] = None,
         name="Example Variable Group")
     pulumi.export("id", example_variable_group.id)
     ```
+    <!--End PulumiCodeChooser -->
+
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-7.0)

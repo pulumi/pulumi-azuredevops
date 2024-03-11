@@ -8,8 +8,10 @@ import * as utilities from "./utilities";
  * Use this data source to access information about an existing AzureRM service Endpoint.
  *
  * ## Example Usage
+ *
  * ### By Service Endpoint ID
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -23,8 +25,11 @@ import * as utilities from "./utilities";
  * }));
  * export const serviceEndpointName = serviceendpoint.then(serviceendpoint => serviceendpoint.serviceEndpointName);
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### By Service Endpoint Name
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -38,6 +43,7 @@ import * as utilities from "./utilities";
  * }));
  * export const serviceEndpointId = serviceendpoint.then(serviceendpoint => serviceendpoint.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServiceEndpointAzureRM(args: GetServiceEndpointAzureRMArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceEndpointAzureRMResult> {
 
@@ -134,8 +140,10 @@ export interface GetServiceEndpointAzureRMResult {
  * Use this data source to access information about an existing AzureRM service Endpoint.
  *
  * ## Example Usage
+ *
  * ### By Service Endpoint ID
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -149,8 +157,11 @@ export interface GetServiceEndpointAzureRMResult {
  * }));
  * export const serviceEndpointName = serviceendpoint.then(serviceendpoint => serviceendpoint.serviceEndpointName);
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### By Service Endpoint Name
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -164,6 +175,7 @@ export interface GetServiceEndpointAzureRMResult {
  * }));
  * export const serviceEndpointId = serviceendpoint.then(serviceendpoint => serviceendpoint.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServiceEndpointAzureRMOutput(args: GetServiceEndpointAzureRMOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceEndpointAzureRMResult> {
     return pulumi.output(args).apply((a: any) => getServiceEndpointAzureRM(a, opts))

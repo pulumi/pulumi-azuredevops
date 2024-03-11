@@ -13,7 +13,9 @@ namespace Pulumi.AzureDevOps
     /// Manages a group entitlement within Azure DevOps.
     /// 
     /// ## Example Usage
+    /// 
     /// ### With an Azure DevOps local group managed by this resource
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,7 +31,10 @@ namespace Pulumi.AzureDevOps
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With group origin ID
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,6 +51,8 @@ namespace Pulumi.AzureDevOps
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 7.0 - Group Entitlements](https://learn.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/group-entitlements?view=azure-devops-rest-7.1)
@@ -59,7 +66,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// The resource allows the import via the ID of a group entitlement, which is a
     /// 
-    ///  UUID.
+    /// UUID.
     /// 
     /// ```sh
     /// $ pulumi import azuredevops:index/groupEntitlement:GroupEntitlement example 00000000-0000-0000-0000-000000000000
