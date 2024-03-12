@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-azuredevops/provider/v2
+module github.com/pulumi/pulumi-azuredevops/provider/v3
 
 go 1.21
 
