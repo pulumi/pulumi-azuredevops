@@ -23,6 +23,7 @@ class ElasticPoolArgs:
                  auto_provision: Optional[pulumi.Input[bool]] = None,
                  auto_update: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
                  recycle_after_each_use: Optional[pulumi.Input[bool]] = None,
                  time_to_live_minutes: Optional[pulumi.Input[int]] = None):
         """
@@ -36,6 +37,7 @@ class ElasticPoolArgs:
         :param pulumi.Input[bool] auto_provision: Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
         :param pulumi.Input[bool] auto_update: Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
         :param pulumi.Input[str] name: The name of the Elastic pool.
+        :param pulumi.Input[str] project_id: The ID of the project where a new Elastic Pool will be created.
         :param pulumi.Input[bool] recycle_after_each_use: Tear down virtual machines after every use. Defaults to `false`.
         :param pulumi.Input[int] time_to_live_minutes: Delay in minutes before deleting excess idle agents. Defaults to `30`.
         """
@@ -52,6 +54,8 @@ class ElasticPoolArgs:
             pulumi.set(__self__, "auto_update", auto_update)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if project_id is not None:
+            pulumi.set(__self__, "project_id", project_id)
         if recycle_after_each_use is not None:
             pulumi.set(__self__, "recycle_after_each_use", recycle_after_each_use)
         if time_to_live_minutes is not None:
@@ -166,6 +170,18 @@ class ElasticPoolArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the project where a new Elastic Pool will be created.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "project_id", value)
+
+    @property
     @pulumi.getter(name="recycleAfterEachUse")
     def recycle_after_each_use(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -200,6 +216,7 @@ class _ElasticPoolState:
                  desired_idle: Optional[pulumi.Input[int]] = None,
                  max_capacity: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
                  recycle_after_each_use: Optional[pulumi.Input[bool]] = None,
                  service_endpoint_id: Optional[pulumi.Input[str]] = None,
                  service_endpoint_scope: Optional[pulumi.Input[str]] = None,
@@ -213,6 +230,7 @@ class _ElasticPoolState:
         :param pulumi.Input[int] desired_idle: Number of agents to keep on standby.
         :param pulumi.Input[int] max_capacity: Maximum number of virtual machines in the scale set.
         :param pulumi.Input[str] name: The name of the Elastic pool.
+        :param pulumi.Input[str] project_id: The ID of the project where a new Elastic Pool will be created.
         :param pulumi.Input[bool] recycle_after_each_use: Tear down virtual machines after every use. Defaults to `false`.
         :param pulumi.Input[str] service_endpoint_id: The ID of Service Endpoint used to connect to Azure.
         :param pulumi.Input[str] service_endpoint_scope: The Project ID of Service Endpoint belongs to.
@@ -232,6 +250,8 @@ class _ElasticPoolState:
             pulumi.set(__self__, "max_capacity", max_capacity)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if project_id is not None:
+            pulumi.set(__self__, "project_id", project_id)
         if recycle_after_each_use is not None:
             pulumi.set(__self__, "recycle_after_each_use", recycle_after_each_use)
         if service_endpoint_id is not None:
@@ -326,6 +346,18 @@ class _ElasticPoolState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the project where a new Elastic Pool will be created.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "project_id", value)
+
+    @property
     @pulumi.getter(name="recycleAfterEachUse")
     def recycle_after_each_use(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -386,6 +418,7 @@ class ElasticPool(pulumi.CustomResource):
                  desired_idle: Optional[pulumi.Input[int]] = None,
                  max_capacity: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
                  recycle_after_each_use: Optional[pulumi.Input[bool]] = None,
                  service_endpoint_id: Optional[pulumi.Input[str]] = None,
                  service_endpoint_scope: Optional[pulumi.Input[str]] = None,
@@ -448,6 +481,7 @@ class ElasticPool(pulumi.CustomResource):
         :param pulumi.Input[int] desired_idle: Number of agents to keep on standby.
         :param pulumi.Input[int] max_capacity: Maximum number of virtual machines in the scale set.
         :param pulumi.Input[str] name: The name of the Elastic pool.
+        :param pulumi.Input[str] project_id: The ID of the project where a new Elastic Pool will be created.
         :param pulumi.Input[bool] recycle_after_each_use: Tear down virtual machines after every use. Defaults to `false`.
         :param pulumi.Input[str] service_endpoint_id: The ID of Service Endpoint used to connect to Azure.
         :param pulumi.Input[str] service_endpoint_scope: The Project ID of Service Endpoint belongs to.
@@ -529,6 +563,7 @@ class ElasticPool(pulumi.CustomResource):
                  desired_idle: Optional[pulumi.Input[int]] = None,
                  max_capacity: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
                  recycle_after_each_use: Optional[pulumi.Input[bool]] = None,
                  service_endpoint_id: Optional[pulumi.Input[str]] = None,
                  service_endpoint_scope: Optional[pulumi.Input[str]] = None,
@@ -555,6 +590,7 @@ class ElasticPool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'max_capacity'")
             __props__.__dict__["max_capacity"] = max_capacity
             __props__.__dict__["name"] = name
+            __props__.__dict__["project_id"] = project_id
             __props__.__dict__["recycle_after_each_use"] = recycle_after_each_use
             if service_endpoint_id is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_id'")
@@ -580,6 +616,7 @@ class ElasticPool(pulumi.CustomResource):
             desired_idle: Optional[pulumi.Input[int]] = None,
             max_capacity: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            project_id: Optional[pulumi.Input[str]] = None,
             recycle_after_each_use: Optional[pulumi.Input[bool]] = None,
             service_endpoint_id: Optional[pulumi.Input[str]] = None,
             service_endpoint_scope: Optional[pulumi.Input[str]] = None,
@@ -598,6 +635,7 @@ class ElasticPool(pulumi.CustomResource):
         :param pulumi.Input[int] desired_idle: Number of agents to keep on standby.
         :param pulumi.Input[int] max_capacity: Maximum number of virtual machines in the scale set.
         :param pulumi.Input[str] name: The name of the Elastic pool.
+        :param pulumi.Input[str] project_id: The ID of the project where a new Elastic Pool will be created.
         :param pulumi.Input[bool] recycle_after_each_use: Tear down virtual machines after every use. Defaults to `false`.
         :param pulumi.Input[str] service_endpoint_id: The ID of Service Endpoint used to connect to Azure.
         :param pulumi.Input[str] service_endpoint_scope: The Project ID of Service Endpoint belongs to.
@@ -614,6 +652,7 @@ class ElasticPool(pulumi.CustomResource):
         __props__.__dict__["desired_idle"] = desired_idle
         __props__.__dict__["max_capacity"] = max_capacity
         __props__.__dict__["name"] = name
+        __props__.__dict__["project_id"] = project_id
         __props__.__dict__["recycle_after_each_use"] = recycle_after_each_use
         __props__.__dict__["service_endpoint_id"] = service_endpoint_id
         __props__.__dict__["service_endpoint_scope"] = service_endpoint_scope
@@ -675,6 +714,14 @@ class ElasticPool(pulumi.CustomResource):
         The name of the Elastic pool.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the project where a new Elastic Pool will be created.
+        """
+        return pulumi.get(self, "project_id")
 
     @property
     @pulumi.getter(name="recycleAfterEachUse")

@@ -55,6 +55,11 @@ namespace Pulumi.AzureDevOps
         /// ## Relevant Links
         /// 
         /// - [Azure DevOps Service REST API 7.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-7.0)
+        /// 
+        /// ## PAT Permissions Required
+        /// 
+        /// - **Graph**: Read
+        /// - **Work Items**: Read
         /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azuredevops:index/getGroup:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
@@ -103,6 +108,11 @@ namespace Pulumi.AzureDevOps
         /// ## Relevant Links
         /// 
         /// - [Azure DevOps Service REST API 7.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-7.0)
+        /// 
+        /// ## PAT Permissions Required
+        /// 
+        /// - **Graph**: Read
+        /// - **Work Items**: Read
         /// </summary>
         public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("azuredevops:index/getGroup:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());

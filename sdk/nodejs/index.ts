@@ -100,6 +100,11 @@ export type Environment = import("./environment").Environment;
 export const Environment: typeof import("./environment").Environment = null as any;
 utilities.lazyLoad(exports, ["Environment"], () => require("./environment"));
 
+export { EnvironmentResourceKubernetesArgs, EnvironmentResourceKubernetesState } from "./environmentResourceKubernetes";
+export type EnvironmentResourceKubernetes = import("./environmentResourceKubernetes").EnvironmentResourceKubernetes;
+export const EnvironmentResourceKubernetes: typeof import("./environmentResourceKubernetes").EnvironmentResourceKubernetes = null as any;
+utilities.lazyLoad(exports, ["EnvironmentResourceKubernetes"], () => require("./environmentResourceKubernetes"));
+
 export { GetAgentQueueArgs, GetAgentQueueResult, GetAgentQueueOutputArgs } from "./getAgentQueue";
 export const getAgentQueue: typeof import("./getAgentQueue").getAgentQueue = null as any;
 export const getAgentQueueOutput: typeof import("./getAgentQueue").getAgentQueueOutput = null as any;
@@ -254,6 +259,11 @@ export { IterativePermissionsArgs, IterativePermissionsState } from "./iterative
 export type IterativePermissions = import("./iterativePermissions").IterativePermissions;
 export const IterativePermissions: typeof import("./iterativePermissions").IterativePermissions = null as any;
 utilities.lazyLoad(exports, ["IterativePermissions"], () => require("./iterativePermissions"));
+
+export { LibraryPermissionsArgs, LibraryPermissionsState } from "./libraryPermissions";
+export type LibraryPermissions = import("./libraryPermissions").LibraryPermissions;
+export const LibraryPermissions: typeof import("./libraryPermissions").LibraryPermissions = null as any;
+utilities.lazyLoad(exports, ["LibraryPermissions"], () => require("./libraryPermissions"));
 
 export { PipelineAuthorizationArgs, PipelineAuthorizationState } from "./pipelineAuthorization";
 export type PipelineAuthorization = import("./pipelineAuthorization").PipelineAuthorization;
@@ -535,6 +545,11 @@ export type VariableGroup = import("./variableGroup").VariableGroup;
 export const VariableGroup: typeof import("./variableGroup").VariableGroup = null as any;
 utilities.lazyLoad(exports, ["VariableGroup"], () => require("./variableGroup"));
 
+export { VariableGroupPermissionsArgs, VariableGroupPermissionsState } from "./variableGroupPermissions";
+export type VariableGroupPermissions = import("./variableGroupPermissions").VariableGroupPermissions;
+export const VariableGroupPermissions: typeof import("./variableGroupPermissions").VariableGroupPermissions = null as any;
+utilities.lazyLoad(exports, ["VariableGroupPermissions"], () => require("./variableGroupPermissions"));
+
 export { WorkItemQueryPermissionsArgs, WorkItemQueryPermissionsState } from "./workItemQueryPermissions";
 export type WorkItemQueryPermissions = import("./workItemQueryPermissions").WorkItemQueryPermissions;
 export const WorkItemQueryPermissions: typeof import("./workItemQueryPermissions").WorkItemQueryPermissions = null as any;
@@ -547,31 +562,11 @@ utilities.lazyLoad(exports, ["Workitem"], () => require("./workitem"));
 
 
 // Export sub-modules:
-import * as agent from "./agent";
-import * as build from "./build";
 import * as config from "./config";
-import * as core from "./core";
-import * as entitlement from "./entitlement";
-import * as identities from "./identities";
-import * as pipeline from "./pipeline";
-import * as policy from "./policy";
-import * as repository from "./repository";
-import * as security from "./security";
-import * as serviceendpoint from "./serviceendpoint";
 import * as types from "./types";
 
 export {
-    agent,
-    build,
     config,
-    core,
-    entitlement,
-    identities,
-    pipeline,
-    policy,
-    repository,
-    security,
-    serviceendpoint,
     types,
 };
 
@@ -617,6 +612,8 @@ const _module = {
                 return new ElasticPool(name, <any>undefined, { urn })
             case "azuredevops:index/environment:Environment":
                 return new Environment(name, <any>undefined, { urn })
+            case "azuredevops:index/environmentResourceKubernetes:EnvironmentResourceKubernetes":
+                return new EnvironmentResourceKubernetes(name, <any>undefined, { urn })
             case "azuredevops:index/git:Git":
                 return new Git(name, <any>undefined, { urn })
             case "azuredevops:index/gitPermissions:GitPermissions":
@@ -633,6 +630,8 @@ const _module = {
                 return new GroupMembership(name, <any>undefined, { urn })
             case "azuredevops:index/iterativePermissions:IterativePermissions":
                 return new IterativePermissions(name, <any>undefined, { urn })
+            case "azuredevops:index/libraryPermissions:LibraryPermissions":
+                return new LibraryPermissions(name, <any>undefined, { urn })
             case "azuredevops:index/pipelineAuthorization:PipelineAuthorization":
                 return new PipelineAuthorization(name, <any>undefined, { urn })
             case "azuredevops:index/pool:Pool":
@@ -743,6 +742,8 @@ const _module = {
                 return new User(name, <any>undefined, { urn })
             case "azuredevops:index/variableGroup:VariableGroup":
                 return new VariableGroup(name, <any>undefined, { urn })
+            case "azuredevops:index/variableGroupPermissions:VariableGroupPermissions":
+                return new VariableGroupPermissions(name, <any>undefined, { urn })
             case "azuredevops:index/workItemQueryPermissions:WorkItemQueryPermissions":
                 return new WorkItemQueryPermissions(name, <any>undefined, { urn })
             case "azuredevops:index/workitem:Workitem":
@@ -771,6 +772,7 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/checkExclusiveLock",
 pulumi.runtime.registerResourceModule("azuredevops", "index/checkRequiredTemplate", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/elasticPool", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/environment", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/environmentResourceKubernetes", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/git", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/gitPermissions", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/gitRepositoryBranch", _module)
@@ -779,6 +781,7 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/group", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/groupEntitlement", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/groupMembership", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/iterativePermissions", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/libraryPermissions", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/pipelineAuthorization", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/pool", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/project", _module)
@@ -834,6 +837,7 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/teamAdministrators",
 pulumi.runtime.registerResourceModule("azuredevops", "index/teamMembers", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/user", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/variableGroup", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/variableGroupPermissions", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/workItemQueryPermissions", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/workitem", _module)
 pulumi.runtime.registerResourcePackage("azuredevops", {

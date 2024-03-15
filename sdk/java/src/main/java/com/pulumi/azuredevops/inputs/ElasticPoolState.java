@@ -123,6 +123,21 @@ public final class ElasticPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ID of the project where a new Elastic Pool will be created.
+     * 
+     */
+    @Import(name="projectId")
+    private @Nullable Output<String> projectId;
+
+    /**
+     * @return The ID of the project where a new Elastic Pool will be created.
+     * 
+     */
+    public Optional<Output<String>> projectId() {
+        return Optional.ofNullable(this.projectId);
+    }
+
+    /**
      * Tear down virtual machines after every use. Defaults to `false`.
      * 
      */
@@ -192,6 +207,7 @@ public final class ElasticPoolState extends com.pulumi.resources.ResourceArgs {
         this.desiredIdle = $.desiredIdle;
         this.maxCapacity = $.maxCapacity;
         this.name = $.name;
+        this.projectId = $.projectId;
         this.recycleAfterEachUse = $.recycleAfterEachUse;
         this.serviceEndpointId = $.serviceEndpointId;
         this.serviceEndpointScope = $.serviceEndpointScope;
@@ -361,6 +377,27 @@ public final class ElasticPoolState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param projectId The ID of the project where a new Elastic Pool will be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder projectId(@Nullable Output<String> projectId) {
+            $.projectId = projectId;
+            return this;
+        }
+
+        /**
+         * @param projectId The ID of the project where a new Elastic Pool will be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder projectId(String projectId) {
+            return projectId(Output.of(projectId));
         }
 
         /**

@@ -135,8 +135,6 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["projectId"] = args ? args.projectId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azuredevops:Agent/queue:Queue" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Queue.__pulumiType, name, resourceInputs, opts);
     }
 }

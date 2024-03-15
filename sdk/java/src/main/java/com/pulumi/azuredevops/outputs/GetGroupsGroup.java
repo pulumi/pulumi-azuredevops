@@ -33,6 +33,11 @@ public final class GetGroupsGroup {
      */
     private String domain;
     /**
+     * @return The group ID.
+     * 
+     */
+    private String id;
+    /**
      * @return The email address of record for a given graph member. This may be different than the principal name.
      * 
      */
@@ -88,6 +93,13 @@ public final class GetGroupsGroup {
         return this.domain;
     }
     /**
+     * @return The group ID.
+     * 
+     */
+    public String id() {
+        return this.id;
+    }
+    /**
      * @return The email address of record for a given graph member. This may be different than the principal name.
      * 
      */
@@ -136,6 +148,7 @@ public final class GetGroupsGroup {
         private String descriptor;
         private @Nullable String displayName;
         private String domain;
+        private String id;
         private @Nullable String mailAddress;
         private String origin;
         private @Nullable String originId;
@@ -148,6 +161,7 @@ public final class GetGroupsGroup {
     	      this.descriptor = defaults.descriptor;
     	      this.displayName = defaults.displayName;
     	      this.domain = defaults.domain;
+    	      this.id = defaults.id;
     	      this.mailAddress = defaults.mailAddress;
     	      this.origin = defaults.origin;
     	      this.originId = defaults.originId;
@@ -181,6 +195,14 @@ public final class GetGroupsGroup {
               throw new MissingRequiredPropertyException("GetGroupsGroup", "domain");
             }
             this.domain = domain;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder id(String id) {
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetGroupsGroup", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -225,6 +247,7 @@ public final class GetGroupsGroup {
             _resultValue.descriptor = descriptor;
             _resultValue.displayName = displayName;
             _resultValue.domain = domain;
+            _resultValue.id = id;
             _resultValue.mailAddress = mailAddress;
             _resultValue.origin = origin;
             _resultValue.originId = originId;

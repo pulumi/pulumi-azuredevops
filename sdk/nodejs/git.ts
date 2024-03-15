@@ -185,8 +185,6 @@ export class Git extends pulumi.CustomResource {
             resourceInputs["webUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azuredevops:Repository/git:Git" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Git.__pulumiType, name, resourceInputs, opts);
     }
 }

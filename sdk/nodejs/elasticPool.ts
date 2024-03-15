@@ -112,6 +112,10 @@ export class ElasticPool extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The ID of the project where a new Elastic Pool will be created.
+     */
+    public readonly projectId!: pulumi.Output<string | undefined>;
+    /**
      * Tear down virtual machines after every use. Defaults to `false`.
      */
     public readonly recycleAfterEachUse!: pulumi.Output<boolean | undefined>;
@@ -148,6 +152,7 @@ export class ElasticPool extends pulumi.CustomResource {
             resourceInputs["desiredIdle"] = state ? state.desiredIdle : undefined;
             resourceInputs["maxCapacity"] = state ? state.maxCapacity : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["projectId"] = state ? state.projectId : undefined;
             resourceInputs["recycleAfterEachUse"] = state ? state.recycleAfterEachUse : undefined;
             resourceInputs["serviceEndpointId"] = state ? state.serviceEndpointId : undefined;
             resourceInputs["serviceEndpointScope"] = state ? state.serviceEndpointScope : undefined;
@@ -176,6 +181,7 @@ export class ElasticPool extends pulumi.CustomResource {
             resourceInputs["desiredIdle"] = args ? args.desiredIdle : undefined;
             resourceInputs["maxCapacity"] = args ? args.maxCapacity : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["recycleAfterEachUse"] = args ? args.recycleAfterEachUse : undefined;
             resourceInputs["serviceEndpointId"] = args ? args.serviceEndpointId : undefined;
             resourceInputs["serviceEndpointScope"] = args ? args.serviceEndpointScope : undefined;
@@ -218,6 +224,10 @@ export interface ElasticPoolState {
      * The name of the Elastic pool.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The ID of the project where a new Elastic Pool will be created.
+     */
+    projectId?: pulumi.Input<string>;
     /**
      * Tear down virtual machines after every use. Defaults to `false`.
      */
@@ -268,6 +278,10 @@ export interface ElasticPoolArgs {
      * The name of the Elastic pool.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The ID of the project where a new Elastic Pool will be created.
+     */
+    projectId?: pulumi.Input<string>;
     /**
      * Tear down virtual machines after every use. Defaults to `false`.
      */

@@ -917,8 +917,6 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             __props__.__dict__["service_principal_id"] = None
             __props__.__dict__["workload_identity_federation_issuer"] = None
             __props__.__dict__["workload_identity_federation_subject"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azuredevops:ServiceEndpoint/azureRM:AzureRM")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServiceEndpointAzureRM, __self__).__init__(
             'azuredevops:index/serviceEndpointAzureRM:ServiceEndpointAzureRM',
             resource_name,

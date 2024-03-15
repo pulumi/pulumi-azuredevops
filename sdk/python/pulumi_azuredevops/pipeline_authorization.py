@@ -23,6 +23,11 @@ class PipelineAuthorizationArgs:
         :param pulumi.Input[str] project_id: The  ID of the project. Changing this forces a new resource to be created
         :param pulumi.Input[str] resource_id: The ID of the resource to authorize. Changing this forces a new resource to be created
         :param pulumi.Input[str] type: The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
+               
+               > **Note** `repository` is for AzureDevOps repository. To authorize repository other than
+               Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.
+               Typical process for connecting to GitHub:
+               **Pipeline  <----> Service Connection(`endpoint`) <----> GitHub Repository**
         :param pulumi.Input[int] pipeline_id: The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "project_id", project_id)
@@ -60,6 +65,11 @@ class PipelineAuthorizationArgs:
     def type(self) -> pulumi.Input[str]:
         """
         The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
+
+        > **Note** `repository` is for AzureDevOps repository. To authorize repository other than
+        Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.
+        Typical process for connecting to GitHub:
+        **Pipeline  <----> Service Connection(`endpoint`) <----> GitHub Repository**
         """
         return pulumi.get(self, "type")
 
@@ -93,6 +103,11 @@ class _PipelineAuthorizationState:
         :param pulumi.Input[str] project_id: The  ID of the project. Changing this forces a new resource to be created
         :param pulumi.Input[str] resource_id: The ID of the resource to authorize. Changing this forces a new resource to be created
         :param pulumi.Input[str] type: The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
+               
+               > **Note** `repository` is for AzureDevOps repository. To authorize repository other than
+               Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.
+               Typical process for connecting to GitHub:
+               **Pipeline  <----> Service Connection(`endpoint`) <----> GitHub Repository**
         """
         if pipeline_id is not None:
             pulumi.set(__self__, "pipeline_id", pipeline_id)
@@ -144,6 +159,11 @@ class _PipelineAuthorizationState:
     def type(self) -> Optional[pulumi.Input[str]]:
         """
         The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
+
+        > **Note** `repository` is for AzureDevOps repository. To authorize repository other than
+        Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.
+        Typical process for connecting to GitHub:
+        **Pipeline  <----> Service Connection(`endpoint`) <----> GitHub Repository**
         """
         return pulumi.get(self, "type")
 
@@ -241,6 +261,11 @@ class PipelineAuthorization(pulumi.CustomResource):
         :param pulumi.Input[str] project_id: The  ID of the project. Changing this forces a new resource to be created
         :param pulumi.Input[str] resource_id: The ID of the resource to authorize. Changing this forces a new resource to be created
         :param pulumi.Input[str] type: The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
+               
+               > **Note** `repository` is for AzureDevOps repository. To authorize repository other than
+               Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.
+               Typical process for connecting to GitHub:
+               **Pipeline  <----> Service Connection(`endpoint`) <----> GitHub Repository**
         """
         ...
     @overload
@@ -384,6 +409,11 @@ class PipelineAuthorization(pulumi.CustomResource):
         :param pulumi.Input[str] project_id: The  ID of the project. Changing this forces a new resource to be created
         :param pulumi.Input[str] resource_id: The ID of the resource to authorize. Changing this forces a new resource to be created
         :param pulumi.Input[str] type: The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
+               
+               > **Note** `repository` is for AzureDevOps repository. To authorize repository other than
+               Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.
+               Typical process for connecting to GitHub:
+               **Pipeline  <----> Service Connection(`endpoint`) <----> GitHub Repository**
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -424,6 +454,11 @@ class PipelineAuthorization(pulumi.CustomResource):
     def type(self) -> pulumi.Output[str]:
         """
         The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
+
+        > **Note** `repository` is for AzureDevOps repository. To authorize repository other than
+        Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.
+        Typical process for connecting to GitHub:
+        **Pipeline  <----> Service Connection(`endpoint`) <----> GitHub Repository**
         """
         return pulumi.get(self, "type")
 

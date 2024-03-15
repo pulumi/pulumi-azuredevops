@@ -314,8 +314,6 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
             resourceInputs["workloadIdentityFederationSubject"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azuredevops:ServiceEndpoint/azureRM:AzureRM" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServiceEndpointAzureRM.__pulumiType, name, resourceInputs, opts);
     }
 }

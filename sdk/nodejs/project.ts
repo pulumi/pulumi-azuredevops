@@ -143,8 +143,6 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["processTemplateId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azuredevops:Core/project:Project" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Project.__pulumiType, name, resourceInputs, opts);
     }
 }

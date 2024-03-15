@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
+	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -72,7 +72,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -114,7 +114,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -163,7 +163,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -212,7 +212,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -285,6 +285,8 @@ type CheckBranchControl struct {
 	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
 	// Validate the branches being deployed are protected. Defaults to `false`.
 	VerifyBranchProtection pulumi.BoolPtrOutput `pulumi:"verifyBranchProtection"`
+	// The version of the check.
+	Version pulumi.IntOutput `pulumi:"version"`
 }
 
 // NewCheckBranchControl registers a new resource with the given unique name, arguments, and options.
@@ -342,6 +344,8 @@ type checkBranchControlState struct {
 	Timeout *int `pulumi:"timeout"`
 	// Validate the branches being deployed are protected. Defaults to `false`.
 	VerifyBranchProtection *bool `pulumi:"verifyBranchProtection"`
+	// The version of the check.
+	Version *int `pulumi:"version"`
 }
 
 type CheckBranchControlState struct {
@@ -361,6 +365,8 @@ type CheckBranchControlState struct {
 	Timeout pulumi.IntPtrInput
 	// Validate the branches being deployed are protected. Defaults to `false`.
 	VerifyBranchProtection pulumi.BoolPtrInput
+	// The version of the check.
+	Version pulumi.IntPtrInput
 }
 
 func (CheckBranchControlState) ElementType() reflect.Type {
@@ -531,6 +537,11 @@ func (o CheckBranchControlOutput) Timeout() pulumi.IntPtrOutput {
 // Validate the branches being deployed are protected. Defaults to `false`.
 func (o CheckBranchControlOutput) VerifyBranchProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CheckBranchControl) pulumi.BoolPtrOutput { return v.VerifyBranchProtection }).(pulumi.BoolPtrOutput)
+}
+
+// The version of the check.
+func (o CheckBranchControlOutput) Version() pulumi.IntOutput {
+	return o.ApplyT(func(v *CheckBranchControl) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
 }
 
 type CheckBranchControlArrayOutput struct{ *pulumi.OutputState }

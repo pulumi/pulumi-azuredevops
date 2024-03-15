@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
+	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -99,6 +99,8 @@ type ElasticPool struct {
 	MaxCapacity pulumi.IntOutput `pulumi:"maxCapacity"`
 	// The name of the Elastic pool.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The ID of the project where a new Elastic Pool will be created.
+	ProjectId pulumi.StringPtrOutput `pulumi:"projectId"`
 	// Tear down virtual machines after every use. Defaults to `false`.
 	RecycleAfterEachUse pulumi.BoolPtrOutput `pulumi:"recycleAfterEachUse"`
 	// The ID of Service Endpoint used to connect to Azure.
@@ -168,6 +170,8 @@ type elasticPoolState struct {
 	MaxCapacity *int `pulumi:"maxCapacity"`
 	// The name of the Elastic pool.
 	Name *string `pulumi:"name"`
+	// The ID of the project where a new Elastic Pool will be created.
+	ProjectId *string `pulumi:"projectId"`
 	// Tear down virtual machines after every use. Defaults to `false`.
 	RecycleAfterEachUse *bool `pulumi:"recycleAfterEachUse"`
 	// The ID of Service Endpoint used to connect to Azure.
@@ -193,6 +197,8 @@ type ElasticPoolState struct {
 	MaxCapacity pulumi.IntPtrInput
 	// The name of the Elastic pool.
 	Name pulumi.StringPtrInput
+	// The ID of the project where a new Elastic Pool will be created.
+	ProjectId pulumi.StringPtrInput
 	// Tear down virtual machines after every use. Defaults to `false`.
 	RecycleAfterEachUse pulumi.BoolPtrInput
 	// The ID of Service Endpoint used to connect to Azure.
@@ -222,6 +228,8 @@ type elasticPoolArgs struct {
 	MaxCapacity int `pulumi:"maxCapacity"`
 	// The name of the Elastic pool.
 	Name *string `pulumi:"name"`
+	// The ID of the project where a new Elastic Pool will be created.
+	ProjectId *string `pulumi:"projectId"`
 	// Tear down virtual machines after every use. Defaults to `false`.
 	RecycleAfterEachUse *bool `pulumi:"recycleAfterEachUse"`
 	// The ID of Service Endpoint used to connect to Azure.
@@ -248,6 +256,8 @@ type ElasticPoolArgs struct {
 	MaxCapacity pulumi.IntInput
 	// The name of the Elastic pool.
 	Name pulumi.StringPtrInput
+	// The ID of the project where a new Elastic Pool will be created.
+	ProjectId pulumi.StringPtrInput
 	// Tear down virtual machines after every use. Defaults to `false`.
 	RecycleAfterEachUse pulumi.BoolPtrInput
 	// The ID of Service Endpoint used to connect to Azure.
@@ -378,6 +388,11 @@ func (o ElasticPoolOutput) MaxCapacity() pulumi.IntOutput {
 // The name of the Elastic pool.
 func (o ElasticPoolOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ElasticPool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID of the project where a new Elastic Pool will be created.
+func (o ElasticPoolOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ElasticPool) pulumi.StringPtrOutput { return v.ProjectId }).(pulumi.StringPtrOutput)
 }
 
 // Tear down virtual machines after every use. Defaults to `false`.

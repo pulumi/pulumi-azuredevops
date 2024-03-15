@@ -154,7 +154,8 @@ class _CheckBranchControlState:
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  target_resource_type: Optional[pulumi.Input[str]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
-                 verify_branch_protection: Optional[pulumi.Input[bool]] = None):
+                 verify_branch_protection: Optional[pulumi.Input[bool]] = None,
+                 version: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering CheckBranchControl resources.
         :param pulumi.Input[str] allowed_branches: The branches allowed to use the resource. Specify a comma separated list of allowed branches in `refs/heads/branch_name` format. To allow deployments from all branches, specify ` * ` . `refs/heads/features/* , refs/heads/releases/*` restricts deployments to all branches under features/ or releases/ . Defaults to `*`.
@@ -165,6 +166,7 @@ class _CheckBranchControlState:
         :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
         :param pulumi.Input[int] timeout: The timeout in minutes for the branch control check. Defaults to `1440`.
         :param pulumi.Input[bool] verify_branch_protection: Validate the branches being deployed are protected. Defaults to `false`.
+        :param pulumi.Input[int] version: The version of the check.
         """
         if allowed_branches is not None:
             pulumi.set(__self__, "allowed_branches", allowed_branches)
@@ -182,6 +184,8 @@ class _CheckBranchControlState:
             pulumi.set(__self__, "timeout", timeout)
         if verify_branch_protection is not None:
             pulumi.set(__self__, "verify_branch_protection", verify_branch_protection)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="allowedBranches")
@@ -278,6 +282,18 @@ class _CheckBranchControlState:
     @verify_branch_protection.setter
     def verify_branch_protection(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "verify_branch_protection", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[int]]:
+        """
+        The version of the check.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "version", value)
 
 
 class CheckBranchControl(pulumi.CustomResource):
@@ -619,6 +635,7 @@ class CheckBranchControl(pulumi.CustomResource):
             __props__.__dict__["target_resource_type"] = target_resource_type
             __props__.__dict__["timeout"] = timeout
             __props__.__dict__["verify_branch_protection"] = verify_branch_protection
+            __props__.__dict__["version"] = None
         super(CheckBranchControl, __self__).__init__(
             'azuredevops:index/checkBranchControl:CheckBranchControl',
             resource_name,
@@ -636,7 +653,8 @@ class CheckBranchControl(pulumi.CustomResource):
             target_resource_id: Optional[pulumi.Input[str]] = None,
             target_resource_type: Optional[pulumi.Input[str]] = None,
             timeout: Optional[pulumi.Input[int]] = None,
-            verify_branch_protection: Optional[pulumi.Input[bool]] = None) -> 'CheckBranchControl':
+            verify_branch_protection: Optional[pulumi.Input[bool]] = None,
+            version: Optional[pulumi.Input[int]] = None) -> 'CheckBranchControl':
         """
         Get an existing CheckBranchControl resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -652,6 +670,7 @@ class CheckBranchControl(pulumi.CustomResource):
         :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
         :param pulumi.Input[int] timeout: The timeout in minutes for the branch control check. Defaults to `1440`.
         :param pulumi.Input[bool] verify_branch_protection: Validate the branches being deployed are protected. Defaults to `false`.
+        :param pulumi.Input[int] version: The version of the check.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -665,6 +684,7 @@ class CheckBranchControl(pulumi.CustomResource):
         __props__.__dict__["target_resource_type"] = target_resource_type
         __props__.__dict__["timeout"] = timeout
         __props__.__dict__["verify_branch_protection"] = verify_branch_protection
+        __props__.__dict__["version"] = version
         return CheckBranchControl(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -730,4 +750,12 @@ class CheckBranchControl(pulumi.CustomResource):
         Validate the branches being deployed are protected. Defaults to `false`.
         """
         return pulumi.get(self, "verify_branch_protection")
+
+    @property
+    @pulumi.getter
+    def version(self) -> pulumi.Output[int]:
+        """
+        The version of the check.
+        """
+        return pulumi.get(self, "version")
 

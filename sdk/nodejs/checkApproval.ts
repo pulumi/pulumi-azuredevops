@@ -93,6 +93,10 @@ export class CheckApproval extends pulumi.CustomResource {
      * The timeout in minutes for the approval.  Defaults to `43200`.
      */
     public readonly timeout!: pulumi.Output<number | undefined>;
+    /**
+     * The version of the check.
+     */
+    public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
      * Create a CheckApproval resource with the given unique name, arguments, and options.
@@ -115,6 +119,7 @@ export class CheckApproval extends pulumi.CustomResource {
             resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
             resourceInputs["targetResourceType"] = state ? state.targetResourceType : undefined;
             resourceInputs["timeout"] = state ? state.timeout : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as CheckApprovalArgs | undefined;
             if ((!args || args.approvers === undefined) && !opts.urn) {
@@ -137,6 +142,7 @@ export class CheckApproval extends pulumi.CustomResource {
             resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
             resourceInputs["targetResourceType"] = args ? args.targetResourceType : undefined;
             resourceInputs["timeout"] = args ? args.timeout : undefined;
+            resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CheckApproval.__pulumiType, name, resourceInputs, opts);
@@ -179,6 +185,10 @@ export interface CheckApprovalState {
      * The timeout in minutes for the approval.  Defaults to `43200`.
      */
     timeout?: pulumi.Input<number>;
+    /**
+     * The version of the check.
+     */
+    version?: pulumi.Input<number>;
 }
 
 /**

@@ -468,8 +468,6 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["principal_name"] = None
             __props__.__dict__["subject_kind"] = None
             __props__.__dict__["url"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azuredevops:Identities/group:Group")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Group, __self__).__init__(
             'azuredevops:index/group:Group',
             resource_name,

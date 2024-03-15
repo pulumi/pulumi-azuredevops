@@ -463,6 +463,12 @@ namespace Pulumi.AzureDevOps
         public Output<bool?> Tuesday { get; private set; } = null!;
 
         /// <summary>
+        /// The version of the check.
+        /// </summary>
+        [Output("version")]
+        public Output<int> Version { get; private set; } = null!;
+
+        /// <summary>
         /// This check will pass on Wednesdays. Defaults to `false`.
         /// </summary>
         [Output("wednesday")]
@@ -695,6 +701,12 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Input("tuesday")]
         public Input<bool>? Tuesday { get; set; }
+
+        /// <summary>
+        /// The version of the check.
+        /// </summary>
+        [Input("version")]
+        public Input<int>? Version { get; set; }
 
         /// <summary>
         /// This check will pass on Wednesdays. Defaults to `false`.

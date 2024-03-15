@@ -19,6 +19,92 @@ namespace Pulumi.AzureDevOps
     public partial class Provider : global::Pulumi.ProviderResource
     {
         /// <summary>
+        /// Base64 encoded certificate to use to authenticate to the service principal.
+        /// </summary>
+        [Output("clientCertificate")]
+        public Output<string?> ClientCertificate { get; private set; } = null!;
+
+        /// <summary>
+        /// Password for a client certificate password.
+        /// </summary>
+        [Output("clientCertificatePassword")]
+        public Output<string?> ClientCertificatePassword { get; private set; } = null!;
+
+        /// <summary>
+        /// Path to a certificate to use to authenticate to the service principal.
+        /// </summary>
+        [Output("clientCertificatePath")]
+        public Output<string?> ClientCertificatePath { get; private set; } = null!;
+
+        /// <summary>
+        /// The service principal client or managed service principal id which should be used.
+        /// </summary>
+        [Output("clientId")]
+        public Output<string?> ClientId { get; private set; } = null!;
+
+        /// <summary>
+        /// The service principal client id which should be used during an apply operation in Terraform Cloud.
+        /// </summary>
+        [Output("clientIdApply")]
+        public Output<string?> ClientIdApply { get; private set; } = null!;
+
+        /// <summary>
+        /// The service principal client id which should be used during a plan operation in Terraform Cloud.
+        /// </summary>
+        [Output("clientIdPlan")]
+        public Output<string?> ClientIdPlan { get; private set; } = null!;
+
+        /// <summary>
+        /// Client secret for authenticating to a service principal.
+        /// </summary>
+        [Output("clientSecret")]
+        public Output<string?> ClientSecret { get; private set; } = null!;
+
+        /// <summary>
+        /// Path to a file containing a client secret for authenticating to a service principal.
+        /// </summary>
+        [Output("clientSecretPath")]
+        public Output<string?> ClientSecretPath { get; private set; } = null!;
+
+        /// <summary>
+        /// Set the audience when requesting OIDC tokens.
+        /// </summary>
+        [Output("oidcAudience")]
+        public Output<string?> OidcAudience { get; private set; } = null!;
+
+        /// <summary>
+        /// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
+        /// Connect.
+        /// </summary>
+        [Output("oidcRequestToken")]
+        public Output<string?> OidcRequestToken { get; private set; } = null!;
+
+        /// <summary>
+        /// The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
+        /// using OpenID Connect.
+        /// </summary>
+        [Output("oidcRequestUrl")]
+        public Output<string?> OidcRequestUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// Terraform Cloud dynamic credential provider tag.
+        /// </summary>
+        [Output("oidcTfcTag")]
+        public Output<string?> OidcTfcTag { get; private set; } = null!;
+
+        /// <summary>
+        /// OIDC token to authenticate as a service principal.
+        /// </summary>
+        [Output("oidcToken")]
+        public Output<string?> OidcToken { get; private set; } = null!;
+
+        /// <summary>
+        /// OIDC token from file to authenticate as a service principal.
+        /// </summary>
+        [Output("oidcTokenFilePath")]
+        public Output<string?> OidcTokenFilePath { get; private set; } = null!;
+
+        /// <summary>
         /// The url of the Azure DevOps instance which should be used.
         /// </summary>
         [Output("orgServiceUrl")]
@@ -29,6 +115,24 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Output("personalAccessToken")]
         public Output<string?> PersonalAccessToken { get; private set; } = null!;
+
+        /// <summary>
+        /// The service principal tenant id which should be used.
+        /// </summary>
+        [Output("tenantId")]
+        public Output<string?> TenantId { get; private set; } = null!;
+
+        /// <summary>
+        /// The service principal tenant id which should be used during an apply operation in Terraform Cloud..
+        /// </summary>
+        [Output("tenantIdApply")]
+        public Output<string?> TenantIdApply { get; private set; } = null!;
+
+        /// <summary>
+        /// The service principal tenant id which should be used during a plan operation in Terraform Cloud.
+        /// </summary>
+        [Output("tenantIdPlan")]
+        public Output<string?> TenantIdPlan { get; private set; } = null!;
 
 
         /// <summary>
@@ -50,6 +154,10 @@ namespace Pulumi.AzureDevOps
                 Version = Utilities.Version,
                 AdditionalSecretOutputs =
                 {
+                    "clientCertificate",
+                    "clientCertificatePassword",
+                    "clientSecret",
+                    "oidcToken",
                     "personalAccessToken",
                 },
             };
@@ -62,6 +170,132 @@ namespace Pulumi.AzureDevOps
 
     public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
+        [Input("clientCertificate")]
+        private Input<string>? _clientCertificate;
+
+        /// <summary>
+        /// Base64 encoded certificate to use to authenticate to the service principal.
+        /// </summary>
+        public Input<string>? ClientCertificate
+        {
+            get => _clientCertificate;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientCertificate = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("clientCertificatePassword")]
+        private Input<string>? _clientCertificatePassword;
+
+        /// <summary>
+        /// Password for a client certificate password.
+        /// </summary>
+        public Input<string>? ClientCertificatePassword
+        {
+            get => _clientCertificatePassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientCertificatePassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Path to a certificate to use to authenticate to the service principal.
+        /// </summary>
+        [Input("clientCertificatePath")]
+        public Input<string>? ClientCertificatePath { get; set; }
+
+        /// <summary>
+        /// The service principal client or managed service principal id which should be used.
+        /// </summary>
+        [Input("clientId")]
+        public Input<string>? ClientId { get; set; }
+
+        /// <summary>
+        /// The service principal client id which should be used during an apply operation in Terraform Cloud.
+        /// </summary>
+        [Input("clientIdApply")]
+        public Input<string>? ClientIdApply { get; set; }
+
+        /// <summary>
+        /// The service principal client id which should be used during a plan operation in Terraform Cloud.
+        /// </summary>
+        [Input("clientIdPlan")]
+        public Input<string>? ClientIdPlan { get; set; }
+
+        [Input("clientSecret")]
+        private Input<string>? _clientSecret;
+
+        /// <summary>
+        /// Client secret for authenticating to a service principal.
+        /// </summary>
+        public Input<string>? ClientSecret
+        {
+            get => _clientSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Path to a file containing a client secret for authenticating to a service principal.
+        /// </summary>
+        [Input("clientSecretPath")]
+        public Input<string>? ClientSecretPath { get; set; }
+
+        /// <summary>
+        /// Set the audience when requesting OIDC tokens.
+        /// </summary>
+        [Input("oidcAudience")]
+        public Input<string>? OidcAudience { get; set; }
+
+        /// <summary>
+        /// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
+        /// Connect.
+        /// </summary>
+        [Input("oidcRequestToken")]
+        public Input<string>? OidcRequestToken { get; set; }
+
+        /// <summary>
+        /// The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
+        /// using OpenID Connect.
+        /// </summary>
+        [Input("oidcRequestUrl")]
+        public Input<string>? OidcRequestUrl { get; set; }
+
+        /// <summary>
+        /// Terraform Cloud dynamic credential provider tag.
+        /// </summary>
+        [Input("oidcTfcTag")]
+        public Input<string>? OidcTfcTag { get; set; }
+
+        [Input("oidcToken")]
+        private Input<string>? _oidcToken;
+
+        /// <summary>
+        /// OIDC token to authenticate as a service principal.
+        /// </summary>
+        public Input<string>? OidcToken
+        {
+            get => _oidcToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _oidcToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// OIDC token from file to authenticate as a service principal.
+        /// </summary>
+        [Input("oidcTokenFilePath")]
+        public Input<string>? OidcTokenFilePath { get; set; }
+
         /// <summary>
         /// The url of the Azure DevOps instance which should be used.
         /// </summary>
@@ -83,6 +317,36 @@ namespace Pulumi.AzureDevOps
                 _personalAccessToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// The service principal tenant id which should be used.
+        /// </summary>
+        [Input("tenantId")]
+        public Input<string>? TenantId { get; set; }
+
+        /// <summary>
+        /// The service principal tenant id which should be used during an apply operation in Terraform Cloud..
+        /// </summary>
+        [Input("tenantIdApply")]
+        public Input<string>? TenantIdApply { get; set; }
+
+        /// <summary>
+        /// The service principal tenant id which should be used during a plan operation in Terraform Cloud.
+        /// </summary>
+        [Input("tenantIdPlan")]
+        public Input<string>? TenantIdPlan { get; set; }
+
+        /// <summary>
+        /// Use an Azure Managed Service Identity.
+        /// </summary>
+        [Input("useMsi", json: true)]
+        public Input<bool>? UseMsi { get; set; }
+
+        /// <summary>
+        /// Use an OIDC token to authenticate to a service principal.
+        /// </summary>
+        [Input("useOidc", json: true)]
+        public Input<bool>? UseOidc { get; set; }
 
         public ProviderArgs()
         {

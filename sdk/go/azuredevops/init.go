@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
+	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -59,6 +59,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ElasticPool{}
 	case "azuredevops:index/environment:Environment":
 		r = &Environment{}
+	case "azuredevops:index/environmentResourceKubernetes:EnvironmentResourceKubernetes":
+		r = &EnvironmentResourceKubernetes{}
 	case "azuredevops:index/git:Git":
 		r = &Git{}
 	case "azuredevops:index/gitPermissions:GitPermissions":
@@ -75,6 +77,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GroupMembership{}
 	case "azuredevops:index/iterativePermissions:IterativePermissions":
 		r = &IterativePermissions{}
+	case "azuredevops:index/libraryPermissions:LibraryPermissions":
+		r = &LibraryPermissions{}
 	case "azuredevops:index/pipelineAuthorization:PipelineAuthorization":
 		r = &PipelineAuthorization{}
 	case "azuredevops:index/pool:Pool":
@@ -185,6 +189,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &User{}
 	case "azuredevops:index/variableGroup:VariableGroup":
 		r = &VariableGroup{}
+	case "azuredevops:index/variableGroupPermissions:VariableGroupPermissions":
+		r = &VariableGroupPermissions{}
 	case "azuredevops:index/workItemQueryPermissions:WorkItemQueryPermissions":
 		r = &WorkItemQueryPermissions{}
 	case "azuredevops:index/workitem:Workitem":
@@ -317,6 +323,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azuredevops",
+		"index/environmentResourceKubernetes",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
 		"index/git",
 		&module{version},
 	)
@@ -353,6 +364,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/iterativePermissions",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/libraryPermissions",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -628,6 +644,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/variableGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/variableGroupPermissions",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

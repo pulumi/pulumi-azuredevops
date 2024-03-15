@@ -115,8 +115,6 @@ export class User extends pulumi.CustomResource {
             resourceInputs["descriptor"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azuredevops:Entitlement/user:User" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(User.__pulumiType, name, resourceInputs, opts);
     }
 }

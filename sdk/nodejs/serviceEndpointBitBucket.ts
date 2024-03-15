@@ -130,8 +130,6 @@ export class ServiceEndpointBitBucket extends pulumi.CustomResource {
             resourceInputs["username"] = args ? args.username : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azuredevops:ServiceEndpoint/bitBucket:BitBucket" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         const secretOpts = { additionalSecretOutputs: ["password"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(ServiceEndpointBitBucket.__pulumiType, name, resourceInputs, opts);

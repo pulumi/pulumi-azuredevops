@@ -113,8 +113,6 @@ export class ProjectFeatures extends pulumi.CustomResource {
             resourceInputs["projectId"] = args ? args.projectId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azuredevops:Core/projectFeatures:ProjectFeatures" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProjectFeatures.__pulumiType, name, resourceInputs, opts);
     }
 }

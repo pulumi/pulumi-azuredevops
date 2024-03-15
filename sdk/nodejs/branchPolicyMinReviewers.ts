@@ -142,8 +142,6 @@ export class BranchPolicyMinReviewers extends pulumi.CustomResource {
             resourceInputs["settings"] = args ? args.settings : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azuredevops:Policy/branchPolicyMinReviewers:BranchPolicyMinReviewers" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BranchPolicyMinReviewers.__pulumiType, name, resourceInputs, opts);
     }
 }

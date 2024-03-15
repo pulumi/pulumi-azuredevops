@@ -6,7 +6,6 @@ package com.pulumi.azuredevops;
 import com.pulumi.azuredevops.ServiceEndpointDockerRegistryArgs;
 import com.pulumi.azuredevops.Utilities;
 import com.pulumi.azuredevops.inputs.ServiceEndpointDockerRegistryState;
-import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -235,9 +234,6 @@ public class ServiceEndpointDockerRegistry extends com.pulumi.resources.CustomRe
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .aliases(List.of(
-                Output.of(Alias.builder().type("azuredevops:ServiceEndpoint/dockerRegistry:DockerRegistry").build())
-            ))
             .additionalSecretOutputs(List.of(
                 "dockerPassword"
             ))

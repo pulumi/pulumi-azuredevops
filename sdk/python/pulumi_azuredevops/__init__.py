@@ -24,6 +24,7 @@ from .check_exclusive_lock import *
 from .check_required_template import *
 from .elastic_pool import *
 from .environment import *
+from .environment_resource_kubernetes import *
 from .get_agent_queue import *
 from .get_area import *
 from .get_build_definition import *
@@ -55,6 +56,7 @@ from .group import *
 from .group_entitlement import *
 from .group_membership import *
 from .iterative_permissions import *
+from .library_permissions import *
 from .pipeline_authorization import *
 from .pool import *
 from .project import *
@@ -111,6 +113,7 @@ from .team_administrators import *
 from .team_members import *
 from .user import *
 from .variable_group import *
+from .variable_group_permissions import *
 from .work_item_query_permissions import *
 from .workitem import *
 from ._inputs import *
@@ -118,188 +121,14 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azuredevops.agent as __agent
-    agent = __agent
-    import pulumi_azuredevops.build as __build
-    build = __build
     import pulumi_azuredevops.config as __config
     config = __config
-    import pulumi_azuredevops.core as __core
-    core = __core
-    import pulumi_azuredevops.entitlement as __entitlement
-    entitlement = __entitlement
-    import pulumi_azuredevops.identities as __identities
-    identities = __identities
-    import pulumi_azuredevops.pipeline as __pipeline
-    pipeline = __pipeline
-    import pulumi_azuredevops.policy as __policy
-    policy = __policy
-    import pulumi_azuredevops.repository as __repository
-    repository = __repository
-    import pulumi_azuredevops.security as __security
-    security = __security
-    import pulumi_azuredevops.serviceendpoint as __serviceendpoint
-    serviceendpoint = __serviceendpoint
 else:
-    agent = _utilities.lazy_import('pulumi_azuredevops.agent')
-    build = _utilities.lazy_import('pulumi_azuredevops.build')
     config = _utilities.lazy_import('pulumi_azuredevops.config')
-    core = _utilities.lazy_import('pulumi_azuredevops.core')
-    entitlement = _utilities.lazy_import('pulumi_azuredevops.entitlement')
-    identities = _utilities.lazy_import('pulumi_azuredevops.identities')
-    pipeline = _utilities.lazy_import('pulumi_azuredevops.pipeline')
-    policy = _utilities.lazy_import('pulumi_azuredevops.policy')
-    repository = _utilities.lazy_import('pulumi_azuredevops.repository')
-    security = _utilities.lazy_import('pulumi_azuredevops.security')
-    serviceendpoint = _utilities.lazy_import('pulumi_azuredevops.serviceendpoint')
 
 _utilities.register(
     resource_modules="""
 [
- {
-  "pkg": "azuredevops",
-  "mod": "Agent/pool",
-  "fqn": "pulumi_azuredevops.agent",
-  "classes": {
-   "azuredevops:Agent/pool:Pool": "Pool"
-  }
- },
- {
-  "pkg": "azuredevops",
-  "mod": "Agent/queue",
-  "fqn": "pulumi_azuredevops.agent",
-  "classes": {
-   "azuredevops:Agent/queue:Queue": "Queue"
-  }
- },
- {
-  "pkg": "azuredevops",
-  "mod": "Build/buildDefinition",
-  "fqn": "pulumi_azuredevops.build",
-  "classes": {
-   "azuredevops:Build/buildDefinition:BuildDefinition": "BuildDefinition"
-  }
- },
- {
-  "pkg": "azuredevops",
-  "mod": "Core/project",
-  "fqn": "pulumi_azuredevops.core",
-  "classes": {
-   "azuredevops:Core/project:Project": "Project"
-  }
- },
- {
-  "pkg": "azuredevops",
-  "mod": "Core/projectFeatures",
-  "fqn": "pulumi_azuredevops.core",
-  "classes": {
-   "azuredevops:Core/projectFeatures:ProjectFeatures": "ProjectFeatures"
-  }
- },
- {
-  "pkg": "azuredevops",
-  "mod": "Entitlement/user",
-  "fqn": "pulumi_azuredevops.entitlement",
-  "classes": {
-   "azuredevops:Entitlement/user:User": "User"
-  }
- },
- {
-  "pkg": "azuredevops",
-  "mod": "Identities/group",
-  "fqn": "pulumi_azuredevops.identities",
-  "classes": {
-   "azuredevops:Identities/group:Group": "Group"
-  }
- },
- {
-  "pkg": "azuredevops",
-  "mod": "Identities/groupMembership",
-  "fqn": "pulumi_azuredevops.identities",
-  "classes": {
-   "azuredevops:Identities/groupMembership:GroupMembership": "GroupMembership"
-  }
- },
- {
-  "pkg": "azuredevops",
-  "mod": "Pipeline/variableGroup",
-  "fqn": "pulumi_azuredevops.pipeline",
-  "classes": {
-   "azuredevops:Pipeline/variableGroup:VariableGroup": "VariableGroup"
-  }
- },
- {
-  "pkg": "azuredevops",
-  "mod": "Policy/branchPolicyBuildValidation",
-  "fqn": "pulumi_azuredevops.policy",
-  "classes": {
-   "azuredevops:Policy/branchPolicyBuildValidation:BranchPolicyBuildValidation": "BranchPolicyBuildValidation"
-  }
- },
- {
-  "pkg": "azuredevops",
-  "mod": "Policy/branchPolicyMinReviewers",
-  "fqn": "pulumi_azuredevops.policy",
-  "classes": {
-   "azuredevops:Policy/branchPolicyMinReviewers:BranchPolicyMinReviewers": "BranchPolicyMinReviewers"
-  }
- },
- {
-  "pkg": "azuredevops",
-  "mod": "Repository/git",
-  "fqn": "pulumi_azuredevops.repository",
-  "classes": {
-   "azuredevops:Repository/git:Git": "Git"
-  }
- },
- {
-  "pkg": "azuredevops",
-  "mod": "Security/resourceAuthorization",
-  "fqn": "pulumi_azuredevops.security",
-  "classes": {
-   "azuredevops:Security/resourceAuthorization:ResourceAuthorization": "ResourceAuthorization"
-  }
- },
- {
-  "pkg": "azuredevops",
-  "mod": "ServiceEndpoint/azureRM",
-  "fqn": "pulumi_azuredevops.serviceendpoint",
-  "classes": {
-   "azuredevops:ServiceEndpoint/azureRM:AzureRM": "AzureRM"
-  }
- },
- {
-  "pkg": "azuredevops",
-  "mod": "ServiceEndpoint/bitBucket",
-  "fqn": "pulumi_azuredevops.serviceendpoint",
-  "classes": {
-   "azuredevops:ServiceEndpoint/bitBucket:BitBucket": "BitBucket"
-  }
- },
- {
-  "pkg": "azuredevops",
-  "mod": "ServiceEndpoint/dockerRegistry",
-  "fqn": "pulumi_azuredevops.serviceendpoint",
-  "classes": {
-   "azuredevops:ServiceEndpoint/dockerRegistry:DockerRegistry": "DockerRegistry"
-  }
- },
- {
-  "pkg": "azuredevops",
-  "mod": "ServiceEndpoint/gitHub",
-  "fqn": "pulumi_azuredevops.serviceendpoint",
-  "classes": {
-   "azuredevops:ServiceEndpoint/gitHub:GitHub": "GitHub"
-  }
- },
- {
-  "pkg": "azuredevops",
-  "mod": "ServiceEndpoint/kubernetes",
-  "fqn": "pulumi_azuredevops.serviceendpoint",
-  "classes": {
-   "azuredevops:ServiceEndpoint/kubernetes:Kubernetes": "Kubernetes"
-  }
- },
  {
   "pkg": "azuredevops",
   "mod": "index/areaPermissions",
@@ -454,6 +283,14 @@ _utilities.register(
  },
  {
   "pkg": "azuredevops",
+  "mod": "index/environmentResourceKubernetes",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/environmentResourceKubernetes:EnvironmentResourceKubernetes": "EnvironmentResourceKubernetes"
+  }
+ },
+ {
+  "pkg": "azuredevops",
   "mod": "index/git",
   "fqn": "pulumi_azuredevops",
   "classes": {
@@ -514,6 +351,14 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/iterativePermissions:IterativePermissions": "IterativePermissions"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/libraryPermissions",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/libraryPermissions:LibraryPermissions": "LibraryPermissions"
   }
  },
  {
@@ -954,6 +799,14 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/variableGroup:VariableGroup": "VariableGroup"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/variableGroupPermissions",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/variableGroupPermissions:VariableGroupPermissions": "VariableGroupPermissions"
   }
  },
  {

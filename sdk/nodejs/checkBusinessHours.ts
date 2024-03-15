@@ -393,6 +393,10 @@ export class CheckBusinessHours extends pulumi.CustomResource {
      */
     public readonly tuesday!: pulumi.Output<boolean | undefined>;
     /**
+     * The version of the check.
+     */
+    public /*out*/ readonly version!: pulumi.Output<number>;
+    /**
      * This check will pass on Wednesdays. Defaults to `false`.
      */
     public readonly wednesday!: pulumi.Output<boolean | undefined>;
@@ -424,6 +428,7 @@ export class CheckBusinessHours extends pulumi.CustomResource {
             resourceInputs["timeZone"] = state ? state.timeZone : undefined;
             resourceInputs["timeout"] = state ? state.timeout : undefined;
             resourceInputs["tuesday"] = state ? state.tuesday : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
             resourceInputs["wednesday"] = state ? state.wednesday : undefined;
         } else {
             const args = argsOrState as CheckBusinessHoursArgs | undefined;
@@ -460,6 +465,7 @@ export class CheckBusinessHours extends pulumi.CustomResource {
             resourceInputs["timeout"] = args ? args.timeout : undefined;
             resourceInputs["tuesday"] = args ? args.tuesday : undefined;
             resourceInputs["wednesday"] = args ? args.wednesday : undefined;
+            resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CheckBusinessHours.__pulumiType, name, resourceInputs, opts);
@@ -526,6 +532,10 @@ export interface CheckBusinessHoursState {
      * This check will pass on Tuesday. Defaults to `false`.
      */
     tuesday?: pulumi.Input<boolean>;
+    /**
+     * The version of the check.
+     */
+    version?: pulumi.Input<number>;
     /**
      * This check will pass on Wednesdays. Defaults to `false`.
      */

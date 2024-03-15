@@ -76,6 +76,21 @@ public final class CheckExclusiveLockState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.timeout);
     }
 
+    /**
+     * The version of the check.
+     * 
+     */
+    @Import(name="version")
+    private @Nullable Output<Integer> version;
+
+    /**
+     * @return The version of the check.
+     * 
+     */
+    public Optional<Output<Integer>> version() {
+        return Optional.ofNullable(this.version);
+    }
+
     private CheckExclusiveLockState() {}
 
     private CheckExclusiveLockState(CheckExclusiveLockState $) {
@@ -83,6 +98,7 @@ public final class CheckExclusiveLockState extends com.pulumi.resources.Resource
         this.targetResourceId = $.targetResourceId;
         this.targetResourceType = $.targetResourceType;
         this.timeout = $.timeout;
+        this.version = $.version;
     }
 
     public static Builder builder() {
@@ -185,6 +201,27 @@ public final class CheckExclusiveLockState extends com.pulumi.resources.Resource
          */
         public Builder timeout(Integer timeout) {
             return timeout(Output.of(timeout));
+        }
+
+        /**
+         * @param version The version of the check.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder version(@Nullable Output<Integer> version) {
+            $.version = version;
+            return this;
+        }
+
+        /**
+         * @param version The version of the check.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder version(Integer version) {
+            return version(Output.of(version));
         }
 
         public CheckExclusiveLockState build() {

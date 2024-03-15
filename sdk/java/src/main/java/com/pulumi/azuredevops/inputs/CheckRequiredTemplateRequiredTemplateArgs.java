@@ -47,14 +47,14 @@ public final class CheckRequiredTemplateRequiredTemplateArgs extends com.pulumi.
     }
 
     /**
-     * The type of the repository storing the template. Valid values: `azuregit`, `github`, `bitbucket`. Defaults to `azuregit`.
+     * The type of the repository storing the template. Valid values: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
      * 
      */
     @Import(name="repositoryType")
     private @Nullable Output<String> repositoryType;
 
     /**
-     * @return The type of the repository storing the template. Valid values: `azuregit`, `github`, `bitbucket`. Defaults to `azuregit`.
+     * @return The type of the repository storing the template. Valid values: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
      * 
      */
     public Optional<Output<String>> repositoryType() {
@@ -146,7 +146,7 @@ public final class CheckRequiredTemplateRequiredTemplateArgs extends com.pulumi.
         }
 
         /**
-         * @param repositoryType The type of the repository storing the template. Valid values: `azuregit`, `github`, `bitbucket`. Defaults to `azuregit`.
+         * @param repositoryType The type of the repository storing the template. Valid values: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class CheckRequiredTemplateRequiredTemplateArgs extends com.pulumi.
         }
 
         /**
-         * @param repositoryType The type of the repository storing the template. Valid values: `azuregit`, `github`, `bitbucket`. Defaults to `azuregit`.
+         * @param repositoryType The type of the repository storing the template. Valid values: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
          * 
          * @return builder
          * 

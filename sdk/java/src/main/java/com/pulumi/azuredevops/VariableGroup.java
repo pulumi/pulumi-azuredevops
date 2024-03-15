@@ -8,7 +8,6 @@ import com.pulumi.azuredevops.VariableGroupArgs;
 import com.pulumi.azuredevops.inputs.VariableGroupState;
 import com.pulumi.azuredevops.outputs.VariableGroupKeyVault;
 import com.pulumi.azuredevops.outputs.VariableGroupVariable;
-import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -300,9 +299,6 @@ public class VariableGroup extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .aliases(List.of(
-                Output.of(Alias.builder().type("azuredevops:Pipeline/variableGroup:VariableGroup").build())
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

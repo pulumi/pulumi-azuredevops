@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -194,6 +195,20 @@ public class CheckRequiredTemplate extends com.pulumi.resources.CustomResource {
      */
     public Output<String> targetResourceType() {
         return this.targetResourceType;
+    }
+    /**
+     * The version of the check.
+     * 
+     */
+    @Export(name="version", refs={Integer.class}, tree="[0]")
+    private Output<Integer> version;
+
+    /**
+     * @return The version of the check.
+     * 
+     */
+    public Output<Integer> version() {
+        return this.version;
     }
 
     /**

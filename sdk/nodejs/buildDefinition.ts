@@ -293,8 +293,6 @@ export class BuildDefinition extends pulumi.CustomResource {
             resourceInputs["revision"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azuredevops:Build/buildDefinition:BuildDefinition" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BuildDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }

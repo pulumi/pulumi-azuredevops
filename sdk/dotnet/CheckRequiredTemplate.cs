@@ -133,6 +133,12 @@ namespace Pulumi.AzureDevOps
         [Output("targetResourceType")]
         public Output<string> TargetResourceType { get; private set; } = null!;
 
+        /// <summary>
+        /// The version of the check.
+        /// </summary>
+        [Output("version")]
+        public Output<int> Version { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a CheckRequiredTemplate resource with the given unique name, arguments, and options.
@@ -246,6 +252,12 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Input("targetResourceType")]
         public Input<string>? TargetResourceType { get; set; }
+
+        /// <summary>
+        /// The version of the check.
+        /// </summary>
+        [Input("version")]
+        public Input<int>? Version { get; set; }
 
         public CheckRequiredTemplateState()
         {

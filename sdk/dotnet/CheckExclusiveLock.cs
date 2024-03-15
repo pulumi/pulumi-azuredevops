@@ -112,6 +112,12 @@ namespace Pulumi.AzureDevOps
         [Output("timeout")]
         public Output<int?> Timeout { get; private set; } = null!;
 
+        /// <summary>
+        /// The version of the check.
+        /// </summary>
+        [Output("version")]
+        public Output<int> Version { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a CheckExclusiveLock resource with the given unique name, arguments, and options.
@@ -213,6 +219,12 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }
+
+        /// <summary>
+        /// The version of the check.
+        /// </summary>
+        [Input("version")]
+        public Input<int>? Version { get; set; }
 
         public CheckExclusiveLockState()
         {

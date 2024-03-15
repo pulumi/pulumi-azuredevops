@@ -403,8 +403,6 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
             if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")
             __props__.__dict__["service_endpoint_name"] = service_endpoint_name
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azuredevops:ServiceEndpoint/gitHub:GitHub")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServiceEndpointGitHub, __self__).__init__(
             'azuredevops:index/serviceEndpointGitHub:ServiceEndpointGitHub',
             resource_name,

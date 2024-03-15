@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
+	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -121,12 +121,6 @@ func NewServiceEndpointDockerRegistry(ctx *pulumi.Context,
 	if args.ServiceEndpointName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceEndpointName'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azuredevops:ServiceEndpoint/dockerRegistry:DockerRegistry"),
-		},
-	})
-	opts = append(opts, aliases)
 	if args.DockerPassword != nil {
 		args.DockerPassword = pulumi.ToSecret(args.DockerPassword).(pulumi.StringPtrInput)
 	}

@@ -266,8 +266,6 @@ class Pool(pulumi.CustomResource):
             __props__.__dict__["auto_update"] = auto_update
             __props__.__dict__["name"] = name
             __props__.__dict__["pool_type"] = pool_type
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azuredevops:Agent/pool:Pool")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Pool, __self__).__init__(
             'azuredevops:index/pool:Pool',
             resource_name,

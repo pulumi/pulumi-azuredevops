@@ -126,6 +126,11 @@ def get_group(name: Optional[str] = None,
 
     - [Azure DevOps Service REST API 7.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-7.0)
 
+    ## PAT Permissions Required
+
+    - **Graph**: Read
+    - **Work Items**: Read
+
 
     :param str name: The Group Name.
     :param str project_id: The Project ID. If no project ID is specified the project collection groups will be searched.
@@ -173,6 +178,11 @@ def get_group_output(name: Optional[pulumi.Input[str]] = None,
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-7.0)
+
+    ## PAT Permissions Required
+
+    - **Graph**: Read
+    - **Work Items**: Read
 
 
     :param str name: The Group Name.

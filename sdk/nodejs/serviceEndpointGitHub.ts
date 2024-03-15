@@ -163,8 +163,6 @@ export class ServiceEndpointGitHub extends pulumi.CustomResource {
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azuredevops:ServiceEndpoint/gitHub:GitHub" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServiceEndpointGitHub.__pulumiType, name, resourceInputs, opts);
     }
 }

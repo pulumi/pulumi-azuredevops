@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
+	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -100,12 +100,6 @@ func NewServiceEndpointBitBucket(ctx *pulumi.Context,
 	if args.Username == nil {
 		return nil, errors.New("invalid value for required argument 'Username'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azuredevops:ServiceEndpoint/bitBucket:BitBucket"),
-		},
-	})
-	opts = append(opts, aliases)
 	if args.Password != nil {
 		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringInput)
 	}

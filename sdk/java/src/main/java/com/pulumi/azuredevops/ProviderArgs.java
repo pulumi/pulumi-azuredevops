@@ -6,6 +6,7 @@ package com.pulumi.azuredevops;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -15,6 +16,220 @@ import javax.annotation.Nullable;
 public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ProviderArgs Empty = new ProviderArgs();
+
+    /**
+     * Base64 encoded certificate to use to authenticate to the service principal.
+     * 
+     */
+    @Import(name="clientCertificate")
+    private @Nullable Output<String> clientCertificate;
+
+    /**
+     * @return Base64 encoded certificate to use to authenticate to the service principal.
+     * 
+     */
+    public Optional<Output<String>> clientCertificate() {
+        return Optional.ofNullable(this.clientCertificate);
+    }
+
+    /**
+     * Password for a client certificate password.
+     * 
+     */
+    @Import(name="clientCertificatePassword")
+    private @Nullable Output<String> clientCertificatePassword;
+
+    /**
+     * @return Password for a client certificate password.
+     * 
+     */
+    public Optional<Output<String>> clientCertificatePassword() {
+        return Optional.ofNullable(this.clientCertificatePassword);
+    }
+
+    /**
+     * Path to a certificate to use to authenticate to the service principal.
+     * 
+     */
+    @Import(name="clientCertificatePath")
+    private @Nullable Output<String> clientCertificatePath;
+
+    /**
+     * @return Path to a certificate to use to authenticate to the service principal.
+     * 
+     */
+    public Optional<Output<String>> clientCertificatePath() {
+        return Optional.ofNullable(this.clientCertificatePath);
+    }
+
+    /**
+     * The service principal client or managed service principal id which should be used.
+     * 
+     */
+    @Import(name="clientId")
+    private @Nullable Output<String> clientId;
+
+    /**
+     * @return The service principal client or managed service principal id which should be used.
+     * 
+     */
+    public Optional<Output<String>> clientId() {
+        return Optional.ofNullable(this.clientId);
+    }
+
+    /**
+     * The service principal client id which should be used during an apply operation in Terraform Cloud.
+     * 
+     */
+    @Import(name="clientIdApply")
+    private @Nullable Output<String> clientIdApply;
+
+    /**
+     * @return The service principal client id which should be used during an apply operation in Terraform Cloud.
+     * 
+     */
+    public Optional<Output<String>> clientIdApply() {
+        return Optional.ofNullable(this.clientIdApply);
+    }
+
+    /**
+     * The service principal client id which should be used during a plan operation in Terraform Cloud.
+     * 
+     */
+    @Import(name="clientIdPlan")
+    private @Nullable Output<String> clientIdPlan;
+
+    /**
+     * @return The service principal client id which should be used during a plan operation in Terraform Cloud.
+     * 
+     */
+    public Optional<Output<String>> clientIdPlan() {
+        return Optional.ofNullable(this.clientIdPlan);
+    }
+
+    /**
+     * Client secret for authenticating to a service principal.
+     * 
+     */
+    @Import(name="clientSecret")
+    private @Nullable Output<String> clientSecret;
+
+    /**
+     * @return Client secret for authenticating to a service principal.
+     * 
+     */
+    public Optional<Output<String>> clientSecret() {
+        return Optional.ofNullable(this.clientSecret);
+    }
+
+    /**
+     * Path to a file containing a client secret for authenticating to a service principal.
+     * 
+     */
+    @Import(name="clientSecretPath")
+    private @Nullable Output<String> clientSecretPath;
+
+    /**
+     * @return Path to a file containing a client secret for authenticating to a service principal.
+     * 
+     */
+    public Optional<Output<String>> clientSecretPath() {
+        return Optional.ofNullable(this.clientSecretPath);
+    }
+
+    /**
+     * Set the audience when requesting OIDC tokens.
+     * 
+     */
+    @Import(name="oidcAudience")
+    private @Nullable Output<String> oidcAudience;
+
+    /**
+     * @return Set the audience when requesting OIDC tokens.
+     * 
+     */
+    public Optional<Output<String>> oidcAudience() {
+        return Optional.ofNullable(this.oidcAudience);
+    }
+
+    /**
+     * The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
+     * Connect.
+     * 
+     */
+    @Import(name="oidcRequestToken")
+    private @Nullable Output<String> oidcRequestToken;
+
+    /**
+     * @return The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
+     * Connect.
+     * 
+     */
+    public Optional<Output<String>> oidcRequestToken() {
+        return Optional.ofNullable(this.oidcRequestToken);
+    }
+
+    /**
+     * The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
+     * using OpenID Connect.
+     * 
+     */
+    @Import(name="oidcRequestUrl")
+    private @Nullable Output<String> oidcRequestUrl;
+
+    /**
+     * @return The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
+     * using OpenID Connect.
+     * 
+     */
+    public Optional<Output<String>> oidcRequestUrl() {
+        return Optional.ofNullable(this.oidcRequestUrl);
+    }
+
+    /**
+     * Terraform Cloud dynamic credential provider tag.
+     * 
+     */
+    @Import(name="oidcTfcTag")
+    private @Nullable Output<String> oidcTfcTag;
+
+    /**
+     * @return Terraform Cloud dynamic credential provider tag.
+     * 
+     */
+    public Optional<Output<String>> oidcTfcTag() {
+        return Optional.ofNullable(this.oidcTfcTag);
+    }
+
+    /**
+     * OIDC token to authenticate as a service principal.
+     * 
+     */
+    @Import(name="oidcToken")
+    private @Nullable Output<String> oidcToken;
+
+    /**
+     * @return OIDC token to authenticate as a service principal.
+     * 
+     */
+    public Optional<Output<String>> oidcToken() {
+        return Optional.ofNullable(this.oidcToken);
+    }
+
+    /**
+     * OIDC token from file to authenticate as a service principal.
+     * 
+     */
+    @Import(name="oidcTokenFilePath")
+    private @Nullable Output<String> oidcTokenFilePath;
+
+    /**
+     * @return OIDC token from file to authenticate as a service principal.
+     * 
+     */
+    public Optional<Output<String>> oidcTokenFilePath() {
+        return Optional.ofNullable(this.oidcTokenFilePath);
+    }
 
     /**
      * The url of the Azure DevOps instance which should be used.
@@ -46,11 +261,105 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.personalAccessToken);
     }
 
+    /**
+     * The service principal tenant id which should be used.
+     * 
+     */
+    @Import(name="tenantId")
+    private @Nullable Output<String> tenantId;
+
+    /**
+     * @return The service principal tenant id which should be used.
+     * 
+     */
+    public Optional<Output<String>> tenantId() {
+        return Optional.ofNullable(this.tenantId);
+    }
+
+    /**
+     * The service principal tenant id which should be used during an apply operation in Terraform Cloud..
+     * 
+     */
+    @Import(name="tenantIdApply")
+    private @Nullable Output<String> tenantIdApply;
+
+    /**
+     * @return The service principal tenant id which should be used during an apply operation in Terraform Cloud..
+     * 
+     */
+    public Optional<Output<String>> tenantIdApply() {
+        return Optional.ofNullable(this.tenantIdApply);
+    }
+
+    /**
+     * The service principal tenant id which should be used during a plan operation in Terraform Cloud.
+     * 
+     */
+    @Import(name="tenantIdPlan")
+    private @Nullable Output<String> tenantIdPlan;
+
+    /**
+     * @return The service principal tenant id which should be used during a plan operation in Terraform Cloud.
+     * 
+     */
+    public Optional<Output<String>> tenantIdPlan() {
+        return Optional.ofNullable(this.tenantIdPlan);
+    }
+
+    /**
+     * Use an Azure Managed Service Identity.
+     * 
+     */
+    @Import(name="useMsi", json=true)
+    private @Nullable Output<Boolean> useMsi;
+
+    /**
+     * @return Use an Azure Managed Service Identity.
+     * 
+     */
+    public Optional<Output<Boolean>> useMsi() {
+        return Optional.ofNullable(this.useMsi);
+    }
+
+    /**
+     * Use an OIDC token to authenticate to a service principal.
+     * 
+     */
+    @Import(name="useOidc", json=true)
+    private @Nullable Output<Boolean> useOidc;
+
+    /**
+     * @return Use an OIDC token to authenticate to a service principal.
+     * 
+     */
+    public Optional<Output<Boolean>> useOidc() {
+        return Optional.ofNullable(this.useOidc);
+    }
+
     private ProviderArgs() {}
 
     private ProviderArgs(ProviderArgs $) {
+        this.clientCertificate = $.clientCertificate;
+        this.clientCertificatePassword = $.clientCertificatePassword;
+        this.clientCertificatePath = $.clientCertificatePath;
+        this.clientId = $.clientId;
+        this.clientIdApply = $.clientIdApply;
+        this.clientIdPlan = $.clientIdPlan;
+        this.clientSecret = $.clientSecret;
+        this.clientSecretPath = $.clientSecretPath;
+        this.oidcAudience = $.oidcAudience;
+        this.oidcRequestToken = $.oidcRequestToken;
+        this.oidcRequestUrl = $.oidcRequestUrl;
+        this.oidcTfcTag = $.oidcTfcTag;
+        this.oidcToken = $.oidcToken;
+        this.oidcTokenFilePath = $.oidcTokenFilePath;
         this.orgServiceUrl = $.orgServiceUrl;
         this.personalAccessToken = $.personalAccessToken;
+        this.tenantId = $.tenantId;
+        this.tenantIdApply = $.tenantIdApply;
+        this.tenantIdPlan = $.tenantIdPlan;
+        this.useMsi = $.useMsi;
+        this.useOidc = $.useOidc;
     }
 
     public static Builder builder() {
@@ -69,6 +378,304 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ProviderArgs defaults) {
             $ = new ProviderArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param clientCertificate Base64 encoded certificate to use to authenticate to the service principal.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientCertificate(@Nullable Output<String> clientCertificate) {
+            $.clientCertificate = clientCertificate;
+            return this;
+        }
+
+        /**
+         * @param clientCertificate Base64 encoded certificate to use to authenticate to the service principal.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientCertificate(String clientCertificate) {
+            return clientCertificate(Output.of(clientCertificate));
+        }
+
+        /**
+         * @param clientCertificatePassword Password for a client certificate password.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientCertificatePassword(@Nullable Output<String> clientCertificatePassword) {
+            $.clientCertificatePassword = clientCertificatePassword;
+            return this;
+        }
+
+        /**
+         * @param clientCertificatePassword Password for a client certificate password.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientCertificatePassword(String clientCertificatePassword) {
+            return clientCertificatePassword(Output.of(clientCertificatePassword));
+        }
+
+        /**
+         * @param clientCertificatePath Path to a certificate to use to authenticate to the service principal.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientCertificatePath(@Nullable Output<String> clientCertificatePath) {
+            $.clientCertificatePath = clientCertificatePath;
+            return this;
+        }
+
+        /**
+         * @param clientCertificatePath Path to a certificate to use to authenticate to the service principal.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientCertificatePath(String clientCertificatePath) {
+            return clientCertificatePath(Output.of(clientCertificatePath));
+        }
+
+        /**
+         * @param clientId The service principal client or managed service principal id which should be used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientId(@Nullable Output<String> clientId) {
+            $.clientId = clientId;
+            return this;
+        }
+
+        /**
+         * @param clientId The service principal client or managed service principal id which should be used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientId(String clientId) {
+            return clientId(Output.of(clientId));
+        }
+
+        /**
+         * @param clientIdApply The service principal client id which should be used during an apply operation in Terraform Cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientIdApply(@Nullable Output<String> clientIdApply) {
+            $.clientIdApply = clientIdApply;
+            return this;
+        }
+
+        /**
+         * @param clientIdApply The service principal client id which should be used during an apply operation in Terraform Cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientIdApply(String clientIdApply) {
+            return clientIdApply(Output.of(clientIdApply));
+        }
+
+        /**
+         * @param clientIdPlan The service principal client id which should be used during a plan operation in Terraform Cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientIdPlan(@Nullable Output<String> clientIdPlan) {
+            $.clientIdPlan = clientIdPlan;
+            return this;
+        }
+
+        /**
+         * @param clientIdPlan The service principal client id which should be used during a plan operation in Terraform Cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientIdPlan(String clientIdPlan) {
+            return clientIdPlan(Output.of(clientIdPlan));
+        }
+
+        /**
+         * @param clientSecret Client secret for authenticating to a service principal.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientSecret(@Nullable Output<String> clientSecret) {
+            $.clientSecret = clientSecret;
+            return this;
+        }
+
+        /**
+         * @param clientSecret Client secret for authenticating to a service principal.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientSecret(String clientSecret) {
+            return clientSecret(Output.of(clientSecret));
+        }
+
+        /**
+         * @param clientSecretPath Path to a file containing a client secret for authenticating to a service principal.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientSecretPath(@Nullable Output<String> clientSecretPath) {
+            $.clientSecretPath = clientSecretPath;
+            return this;
+        }
+
+        /**
+         * @param clientSecretPath Path to a file containing a client secret for authenticating to a service principal.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientSecretPath(String clientSecretPath) {
+            return clientSecretPath(Output.of(clientSecretPath));
+        }
+
+        /**
+         * @param oidcAudience Set the audience when requesting OIDC tokens.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder oidcAudience(@Nullable Output<String> oidcAudience) {
+            $.oidcAudience = oidcAudience;
+            return this;
+        }
+
+        /**
+         * @param oidcAudience Set the audience when requesting OIDC tokens.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder oidcAudience(String oidcAudience) {
+            return oidcAudience(Output.of(oidcAudience));
+        }
+
+        /**
+         * @param oidcRequestToken The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
+         * Connect.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder oidcRequestToken(@Nullable Output<String> oidcRequestToken) {
+            $.oidcRequestToken = oidcRequestToken;
+            return this;
+        }
+
+        /**
+         * @param oidcRequestToken The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
+         * Connect.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder oidcRequestToken(String oidcRequestToken) {
+            return oidcRequestToken(Output.of(oidcRequestToken));
+        }
+
+        /**
+         * @param oidcRequestUrl The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
+         * using OpenID Connect.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder oidcRequestUrl(@Nullable Output<String> oidcRequestUrl) {
+            $.oidcRequestUrl = oidcRequestUrl;
+            return this;
+        }
+
+        /**
+         * @param oidcRequestUrl The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
+         * using OpenID Connect.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder oidcRequestUrl(String oidcRequestUrl) {
+            return oidcRequestUrl(Output.of(oidcRequestUrl));
+        }
+
+        /**
+         * @param oidcTfcTag Terraform Cloud dynamic credential provider tag.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder oidcTfcTag(@Nullable Output<String> oidcTfcTag) {
+            $.oidcTfcTag = oidcTfcTag;
+            return this;
+        }
+
+        /**
+         * @param oidcTfcTag Terraform Cloud dynamic credential provider tag.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder oidcTfcTag(String oidcTfcTag) {
+            return oidcTfcTag(Output.of(oidcTfcTag));
+        }
+
+        /**
+         * @param oidcToken OIDC token to authenticate as a service principal.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder oidcToken(@Nullable Output<String> oidcToken) {
+            $.oidcToken = oidcToken;
+            return this;
+        }
+
+        /**
+         * @param oidcToken OIDC token to authenticate as a service principal.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder oidcToken(String oidcToken) {
+            return oidcToken(Output.of(oidcToken));
+        }
+
+        /**
+         * @param oidcTokenFilePath OIDC token from file to authenticate as a service principal.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder oidcTokenFilePath(@Nullable Output<String> oidcTokenFilePath) {
+            $.oidcTokenFilePath = oidcTokenFilePath;
+            return this;
+        }
+
+        /**
+         * @param oidcTokenFilePath OIDC token from file to authenticate as a service principal.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder oidcTokenFilePath(String oidcTokenFilePath) {
+            return oidcTokenFilePath(Output.of(oidcTokenFilePath));
         }
 
         /**
@@ -111,6 +718,111 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder personalAccessToken(String personalAccessToken) {
             return personalAccessToken(Output.of(personalAccessToken));
+        }
+
+        /**
+         * @param tenantId The service principal tenant id which should be used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tenantId(@Nullable Output<String> tenantId) {
+            $.tenantId = tenantId;
+            return this;
+        }
+
+        /**
+         * @param tenantId The service principal tenant id which should be used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tenantId(String tenantId) {
+            return tenantId(Output.of(tenantId));
+        }
+
+        /**
+         * @param tenantIdApply The service principal tenant id which should be used during an apply operation in Terraform Cloud..
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tenantIdApply(@Nullable Output<String> tenantIdApply) {
+            $.tenantIdApply = tenantIdApply;
+            return this;
+        }
+
+        /**
+         * @param tenantIdApply The service principal tenant id which should be used during an apply operation in Terraform Cloud..
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tenantIdApply(String tenantIdApply) {
+            return tenantIdApply(Output.of(tenantIdApply));
+        }
+
+        /**
+         * @param tenantIdPlan The service principal tenant id which should be used during a plan operation in Terraform Cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tenantIdPlan(@Nullable Output<String> tenantIdPlan) {
+            $.tenantIdPlan = tenantIdPlan;
+            return this;
+        }
+
+        /**
+         * @param tenantIdPlan The service principal tenant id which should be used during a plan operation in Terraform Cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tenantIdPlan(String tenantIdPlan) {
+            return tenantIdPlan(Output.of(tenantIdPlan));
+        }
+
+        /**
+         * @param useMsi Use an Azure Managed Service Identity.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useMsi(@Nullable Output<Boolean> useMsi) {
+            $.useMsi = useMsi;
+            return this;
+        }
+
+        /**
+         * @param useMsi Use an Azure Managed Service Identity.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useMsi(Boolean useMsi) {
+            return useMsi(Output.of(useMsi));
+        }
+
+        /**
+         * @param useOidc Use an OIDC token to authenticate to a service principal.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useOidc(@Nullable Output<Boolean> useOidc) {
+            $.useOidc = useOidc;
+            return this;
+        }
+
+        /**
+         * @param useOidc Use an OIDC token to authenticate to a service principal.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useOidc(Boolean useOidc) {
+            return useOidc(Output.of(useOidc));
         }
 
         public ProviderArgs build() {

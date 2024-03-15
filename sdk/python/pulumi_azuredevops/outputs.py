@@ -2330,7 +2330,7 @@ class CheckRequiredTemplateRequiredTemplate(dict):
         :param str repository_name: The name of the repository storing the template.
         :param str repository_ref: The branch in which the template will be referenced.
         :param str template_path: The path to the template yaml.
-        :param str repository_type: The type of the repository storing the template. Valid values: `azuregit`, `github`, `bitbucket`. Defaults to `azuregit`.
+        :param str repository_type: The type of the repository storing the template. Valid values: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
         """
         pulumi.set(__self__, "repository_name", repository_name)
         pulumi.set(__self__, "repository_ref", repository_ref)
@@ -2366,7 +2366,7 @@ class CheckRequiredTemplateRequiredTemplate(dict):
     @pulumi.getter(name="repositoryType")
     def repository_type(self) -> Optional[str]:
         """
-        The type of the repository storing the template. Valid values: `azuregit`, `github`, `bitbucket`. Defaults to `azuregit`.
+        The type of the repository storing the template. Valid values: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
         """
         return pulumi.get(self, "repository_type")
 
@@ -4430,6 +4430,7 @@ class GetGroupsGroupResult(dict):
     def __init__(__self__, *,
                  descriptor: str,
                  domain: str,
+                 id: str,
                  origin: str,
                  principal_name: str,
                  url: str,
@@ -4440,6 +4441,7 @@ class GetGroupsGroupResult(dict):
         """
         :param str descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
         :param str domain: This represents the name of the container of origin for a graph member. (For MSA this is "Windows Live ID", for AD the name of the domain, for AAD the tenantID of the directory, for VSTS groups the ScopeId, etc)
+        :param str id: The group ID.
         :param str origin: The type of source provider for the origin identifier (ex:AD, AAD, MSA)
         :param str principal_name: This is the PrincipalName of this graph member from the source provider. The source provider may change this field over time and it is not guaranteed to be immutable for the life of the graph member by VSTS.
         :param str url: This url is the full route to the source resource of this graph subject.
@@ -4450,6 +4452,7 @@ class GetGroupsGroupResult(dict):
         """
         pulumi.set(__self__, "descriptor", descriptor)
         pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "origin", origin)
         pulumi.set(__self__, "principal_name", principal_name)
         pulumi.set(__self__, "url", url)
@@ -4477,6 +4480,14 @@ class GetGroupsGroupResult(dict):
         This represents the name of the container of origin for a graph member. (For MSA this is "Windows Live ID", for AD the name of the domain, for AAD the tenantID of the directory, for VSTS groups the ScopeId, etc)
         """
         return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The group ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter

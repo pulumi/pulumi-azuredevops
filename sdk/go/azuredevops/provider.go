@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
+	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -18,10 +18,46 @@ import (
 type Provider struct {
 	pulumi.ProviderResourceState
 
+	// Base64 encoded certificate to use to authenticate to the service principal.
+	ClientCertificate pulumi.StringPtrOutput `pulumi:"clientCertificate"`
+	// Password for a client certificate password.
+	ClientCertificatePassword pulumi.StringPtrOutput `pulumi:"clientCertificatePassword"`
+	// Path to a certificate to use to authenticate to the service principal.
+	ClientCertificatePath pulumi.StringPtrOutput `pulumi:"clientCertificatePath"`
+	// The service principal client or managed service principal id which should be used.
+	ClientId pulumi.StringPtrOutput `pulumi:"clientId"`
+	// The service principal client id which should be used during an apply operation in Terraform Cloud.
+	ClientIdApply pulumi.StringPtrOutput `pulumi:"clientIdApply"`
+	// The service principal client id which should be used during a plan operation in Terraform Cloud.
+	ClientIdPlan pulumi.StringPtrOutput `pulumi:"clientIdPlan"`
+	// Client secret for authenticating to a service principal.
+	ClientSecret pulumi.StringPtrOutput `pulumi:"clientSecret"`
+	// Path to a file containing a client secret for authenticating to a service principal.
+	ClientSecretPath pulumi.StringPtrOutput `pulumi:"clientSecretPath"`
+	// Set the audience when requesting OIDC tokens.
+	OidcAudience pulumi.StringPtrOutput `pulumi:"oidcAudience"`
+	// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
+	// Connect.
+	OidcRequestToken pulumi.StringPtrOutput `pulumi:"oidcRequestToken"`
+	// The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
+	// using OpenID Connect.
+	OidcRequestUrl pulumi.StringPtrOutput `pulumi:"oidcRequestUrl"`
+	// Terraform Cloud dynamic credential provider tag.
+	OidcTfcTag pulumi.StringPtrOutput `pulumi:"oidcTfcTag"`
+	// OIDC token to authenticate as a service principal.
+	OidcToken pulumi.StringPtrOutput `pulumi:"oidcToken"`
+	// OIDC token from file to authenticate as a service principal.
+	OidcTokenFilePath pulumi.StringPtrOutput `pulumi:"oidcTokenFilePath"`
 	// The url of the Azure DevOps instance which should be used.
 	OrgServiceUrl pulumi.StringPtrOutput `pulumi:"orgServiceUrl"`
 	// The personal access token which should be used.
 	PersonalAccessToken pulumi.StringPtrOutput `pulumi:"personalAccessToken"`
+	// The service principal tenant id which should be used.
+	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
+	// The service principal tenant id which should be used during an apply operation in Terraform Cloud..
+	TenantIdApply pulumi.StringPtrOutput `pulumi:"tenantIdApply"`
+	// The service principal tenant id which should be used during a plan operation in Terraform Cloud.
+	TenantIdPlan pulumi.StringPtrOutput `pulumi:"tenantIdPlan"`
 }
 
 // NewProvider registers a new resource with the given unique name, arguments, and options.
@@ -36,10 +72,26 @@ func NewProvider(ctx *pulumi.Context,
 			args.OrgServiceUrl = pulumi.StringPtr(d.(string))
 		}
 	}
+	if args.ClientCertificate != nil {
+		args.ClientCertificate = pulumi.ToSecret(args.ClientCertificate).(pulumi.StringPtrInput)
+	}
+	if args.ClientCertificatePassword != nil {
+		args.ClientCertificatePassword = pulumi.ToSecret(args.ClientCertificatePassword).(pulumi.StringPtrInput)
+	}
+	if args.ClientSecret != nil {
+		args.ClientSecret = pulumi.ToSecret(args.ClientSecret).(pulumi.StringPtrInput)
+	}
+	if args.OidcToken != nil {
+		args.OidcToken = pulumi.ToSecret(args.OidcToken).(pulumi.StringPtrInput)
+	}
 	if args.PersonalAccessToken != nil {
 		args.PersonalAccessToken = pulumi.ToSecret(args.PersonalAccessToken).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"clientCertificate",
+		"clientCertificatePassword",
+		"clientSecret",
+		"oidcToken",
 		"personalAccessToken",
 	})
 	opts = append(opts, secrets)
@@ -53,18 +105,98 @@ func NewProvider(ctx *pulumi.Context,
 }
 
 type providerArgs struct {
+	// Base64 encoded certificate to use to authenticate to the service principal.
+	ClientCertificate *string `pulumi:"clientCertificate"`
+	// Password for a client certificate password.
+	ClientCertificatePassword *string `pulumi:"clientCertificatePassword"`
+	// Path to a certificate to use to authenticate to the service principal.
+	ClientCertificatePath *string `pulumi:"clientCertificatePath"`
+	// The service principal client or managed service principal id which should be used.
+	ClientId *string `pulumi:"clientId"`
+	// The service principal client id which should be used during an apply operation in Terraform Cloud.
+	ClientIdApply *string `pulumi:"clientIdApply"`
+	// The service principal client id which should be used during a plan operation in Terraform Cloud.
+	ClientIdPlan *string `pulumi:"clientIdPlan"`
+	// Client secret for authenticating to a service principal.
+	ClientSecret *string `pulumi:"clientSecret"`
+	// Path to a file containing a client secret for authenticating to a service principal.
+	ClientSecretPath *string `pulumi:"clientSecretPath"`
+	// Set the audience when requesting OIDC tokens.
+	OidcAudience *string `pulumi:"oidcAudience"`
+	// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
+	// Connect.
+	OidcRequestToken *string `pulumi:"oidcRequestToken"`
+	// The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
+	// using OpenID Connect.
+	OidcRequestUrl *string `pulumi:"oidcRequestUrl"`
+	// Terraform Cloud dynamic credential provider tag.
+	OidcTfcTag *string `pulumi:"oidcTfcTag"`
+	// OIDC token to authenticate as a service principal.
+	OidcToken *string `pulumi:"oidcToken"`
+	// OIDC token from file to authenticate as a service principal.
+	OidcTokenFilePath *string `pulumi:"oidcTokenFilePath"`
 	// The url of the Azure DevOps instance which should be used.
 	OrgServiceUrl *string `pulumi:"orgServiceUrl"`
 	// The personal access token which should be used.
 	PersonalAccessToken *string `pulumi:"personalAccessToken"`
+	// The service principal tenant id which should be used.
+	TenantId *string `pulumi:"tenantId"`
+	// The service principal tenant id which should be used during an apply operation in Terraform Cloud..
+	TenantIdApply *string `pulumi:"tenantIdApply"`
+	// The service principal tenant id which should be used during a plan operation in Terraform Cloud.
+	TenantIdPlan *string `pulumi:"tenantIdPlan"`
+	// Use an Azure Managed Service Identity.
+	UseMsi *bool `pulumi:"useMsi"`
+	// Use an OIDC token to authenticate to a service principal.
+	UseOidc *bool `pulumi:"useOidc"`
 }
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
+	// Base64 encoded certificate to use to authenticate to the service principal.
+	ClientCertificate pulumi.StringPtrInput
+	// Password for a client certificate password.
+	ClientCertificatePassword pulumi.StringPtrInput
+	// Path to a certificate to use to authenticate to the service principal.
+	ClientCertificatePath pulumi.StringPtrInput
+	// The service principal client or managed service principal id which should be used.
+	ClientId pulumi.StringPtrInput
+	// The service principal client id which should be used during an apply operation in Terraform Cloud.
+	ClientIdApply pulumi.StringPtrInput
+	// The service principal client id which should be used during a plan operation in Terraform Cloud.
+	ClientIdPlan pulumi.StringPtrInput
+	// Client secret for authenticating to a service principal.
+	ClientSecret pulumi.StringPtrInput
+	// Path to a file containing a client secret for authenticating to a service principal.
+	ClientSecretPath pulumi.StringPtrInput
+	// Set the audience when requesting OIDC tokens.
+	OidcAudience pulumi.StringPtrInput
+	// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
+	// Connect.
+	OidcRequestToken pulumi.StringPtrInput
+	// The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
+	// using OpenID Connect.
+	OidcRequestUrl pulumi.StringPtrInput
+	// Terraform Cloud dynamic credential provider tag.
+	OidcTfcTag pulumi.StringPtrInput
+	// OIDC token to authenticate as a service principal.
+	OidcToken pulumi.StringPtrInput
+	// OIDC token from file to authenticate as a service principal.
+	OidcTokenFilePath pulumi.StringPtrInput
 	// The url of the Azure DevOps instance which should be used.
 	OrgServiceUrl pulumi.StringPtrInput
 	// The personal access token which should be used.
 	PersonalAccessToken pulumi.StringPtrInput
+	// The service principal tenant id which should be used.
+	TenantId pulumi.StringPtrInput
+	// The service principal tenant id which should be used during an apply operation in Terraform Cloud..
+	TenantIdApply pulumi.StringPtrInput
+	// The service principal tenant id which should be used during a plan operation in Terraform Cloud.
+	TenantIdPlan pulumi.StringPtrInput
+	// Use an Azure Managed Service Identity.
+	UseMsi pulumi.BoolPtrInput
+	// Use an OIDC token to authenticate to a service principal.
+	UseOidc pulumi.BoolPtrInput
 }
 
 func (ProviderArgs) ElementType() reflect.Type {
@@ -104,6 +236,78 @@ func (o ProviderOutput) ToProviderOutputWithContext(ctx context.Context) Provide
 	return o
 }
 
+// Base64 encoded certificate to use to authenticate to the service principal.
+func (o ProviderOutput) ClientCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientCertificate }).(pulumi.StringPtrOutput)
+}
+
+// Password for a client certificate password.
+func (o ProviderOutput) ClientCertificatePassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientCertificatePassword }).(pulumi.StringPtrOutput)
+}
+
+// Path to a certificate to use to authenticate to the service principal.
+func (o ProviderOutput) ClientCertificatePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientCertificatePath }).(pulumi.StringPtrOutput)
+}
+
+// The service principal client or managed service principal id which should be used.
+func (o ProviderOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The service principal client id which should be used during an apply operation in Terraform Cloud.
+func (o ProviderOutput) ClientIdApply() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientIdApply }).(pulumi.StringPtrOutput)
+}
+
+// The service principal client id which should be used during a plan operation in Terraform Cloud.
+func (o ProviderOutput) ClientIdPlan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientIdPlan }).(pulumi.StringPtrOutput)
+}
+
+// Client secret for authenticating to a service principal.
+func (o ProviderOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+// Path to a file containing a client secret for authenticating to a service principal.
+func (o ProviderOutput) ClientSecretPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientSecretPath }).(pulumi.StringPtrOutput)
+}
+
+// Set the audience when requesting OIDC tokens.
+func (o ProviderOutput) OidcAudience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.OidcAudience }).(pulumi.StringPtrOutput)
+}
+
+// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
+// Connect.
+func (o ProviderOutput) OidcRequestToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.OidcRequestToken }).(pulumi.StringPtrOutput)
+}
+
+// The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
+// using OpenID Connect.
+func (o ProviderOutput) OidcRequestUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.OidcRequestUrl }).(pulumi.StringPtrOutput)
+}
+
+// Terraform Cloud dynamic credential provider tag.
+func (o ProviderOutput) OidcTfcTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.OidcTfcTag }).(pulumi.StringPtrOutput)
+}
+
+// OIDC token to authenticate as a service principal.
+func (o ProviderOutput) OidcToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.OidcToken }).(pulumi.StringPtrOutput)
+}
+
+// OIDC token from file to authenticate as a service principal.
+func (o ProviderOutput) OidcTokenFilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.OidcTokenFilePath }).(pulumi.StringPtrOutput)
+}
+
 // The url of the Azure DevOps instance which should be used.
 func (o ProviderOutput) OrgServiceUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.OrgServiceUrl }).(pulumi.StringPtrOutput)
@@ -112,6 +316,21 @@ func (o ProviderOutput) OrgServiceUrl() pulumi.StringPtrOutput {
 // The personal access token which should be used.
 func (o ProviderOutput) PersonalAccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.PersonalAccessToken }).(pulumi.StringPtrOutput)
+}
+
+// The service principal tenant id which should be used.
+func (o ProviderOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The service principal tenant id which should be used during an apply operation in Terraform Cloud..
+func (o ProviderOutput) TenantIdApply() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.TenantIdApply }).(pulumi.StringPtrOutput)
+}
+
+// The service principal tenant id which should be used during a plan operation in Terraform Cloud.
+func (o ProviderOutput) TenantIdPlan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.TenantIdPlan }).(pulumi.StringPtrOutput)
 }
 
 func init() {
