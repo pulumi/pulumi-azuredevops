@@ -75,14 +75,17 @@ func Provider() tfbridge.ProviderInfo {
 			},
 		},
 		Resources: map[string]*tfbridge.ResourceInfo{
-			"azuredevops_agent_pool":                        {Tok: makeResource("Pool")},
-			"azuredevops_agent_queue":                       {Tok: makeResource("Queue")},
-			"azuredevops_branch_policy_min_reviewers":       {Tok: makeResource("BranchPolicyMinReviewers")},
-			"azuredevops_build_definition":                  {Tok: makeResource("BuildDefinition")},
-			"azuredevops_git_repository":                    {Tok: makeResource("Git")},
-			"azuredevops_group":                             {Tok: makeResource("Group")},
-			"azuredevops_group_membership":                  {Tok: makeResource("GroupMembership")},
-			"azuredevops_iteration_permissions":             {Tok: makeResource("IterativePermissions")}, // iteration -> Iterative
+			"azuredevops_agent_pool":                  {Tok: makeResource("Pool")},
+			"azuredevops_agent_queue":                 {Tok: makeResource("Queue")},
+			"azuredevops_branch_policy_min_reviewers": {Tok: makeResource("BranchPolicyMinReviewers")},
+			"azuredevops_build_definition":            {Tok: makeResource("BuildDefinition")},
+			"azuredevops_git_repository":              {Tok: makeResource("Git")},
+			"azuredevops_group":                       {Tok: makeResource("Group")},
+			"azuredevops_group_membership":            {Tok: makeResource("GroupMembership")},
+			"azuredevops_iteration_permissions": {
+				// iteration -> Iterative
+				Tok: makeResource("IterativePermissions"),
+			},
 			"azuredevops_project":                           {Tok: makeResource("Project")},
 			"azuredevops_project_features":                  {Tok: makeResource("ProjectFeatures")},
 			"azuredevops_serviceendpoint_argocd":            {Tok: makeResource("ServiceendpointArgocd")},
