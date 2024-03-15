@@ -6,6 +6,7 @@ package com.pulumi.azuredevops.inputs;
 import com.pulumi.azuredevops.inputs.CheckRequiredTemplateRequiredTemplateArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -77,6 +78,21 @@ public final class CheckRequiredTemplateState extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.targetResourceType);
     }
 
+    /**
+     * The version of the check.
+     * 
+     */
+    @Import(name="version")
+    private @Nullable Output<Integer> version;
+
+    /**
+     * @return The version of the check.
+     * 
+     */
+    public Optional<Output<Integer>> version() {
+        return Optional.ofNullable(this.version);
+    }
+
     private CheckRequiredTemplateState() {}
 
     private CheckRequiredTemplateState(CheckRequiredTemplateState $) {
@@ -84,6 +100,7 @@ public final class CheckRequiredTemplateState extends com.pulumi.resources.Resou
         this.requiredTemplates = $.requiredTemplates;
         this.targetResourceId = $.targetResourceId;
         this.targetResourceType = $.targetResourceType;
+        this.version = $.version;
     }
 
     public static Builder builder() {
@@ -196,6 +213,27 @@ public final class CheckRequiredTemplateState extends com.pulumi.resources.Resou
          */
         public Builder targetResourceType(String targetResourceType) {
             return targetResourceType(Output.of(targetResourceType));
+        }
+
+        /**
+         * @param version The version of the check.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder version(@Nullable Output<Integer> version) {
+            $.version = version;
+            return this;
+        }
+
+        /**
+         * @param version The version of the check.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder version(Integer version) {
+            return version(Output.of(version));
         }
 
         public CheckRequiredTemplateState build() {

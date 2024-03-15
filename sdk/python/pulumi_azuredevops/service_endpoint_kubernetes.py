@@ -400,8 +400,6 @@ class ServiceEndpointKubernetes(pulumi.CustomResource):
             if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")
             __props__.__dict__["service_endpoint_name"] = service_endpoint_name
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azuredevops:ServiceEndpoint/kubernetes:Kubernetes")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServiceEndpointKubernetes, __self__).__init__(
             'azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes',
             resource_name,

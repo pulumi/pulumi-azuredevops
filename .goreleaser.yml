@@ -33,7 +33,7 @@ builds:
   ignore: []
   ldflags:
   - -X
-    github.com/pulumi/pulumi-azuredevops/provider/v2/pkg/version.Version={{.Tag}}
+    github.com/pulumi/pulumi-azuredevops/provider/v3/pkg/version.Version={{.Tag}}
   main: ./cmd/pulumi-resource-azuredevops/
 changelog:
   filters:

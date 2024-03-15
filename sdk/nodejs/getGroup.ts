@@ -34,6 +34,11 @@ import * as utilities from "./utilities";
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-7.0)
+ *
+ * ## PAT Permissions Required
+ *
+ * - **Graph**: Read
+ * - **Work Items**: Read
  */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
 
@@ -111,6 +116,11 @@ export interface GetGroupResult {
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-7.0)
+ *
+ * ## PAT Permissions Required
+ *
+ * - **Graph**: Read
+ * - **Work Items**: Read
  */
 export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {
     return pulumi.output(args).apply((a: any) => getGroup(a, opts))

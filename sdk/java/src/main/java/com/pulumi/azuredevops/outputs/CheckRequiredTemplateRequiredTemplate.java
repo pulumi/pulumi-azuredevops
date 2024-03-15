@@ -23,7 +23,7 @@ public final class CheckRequiredTemplateRequiredTemplate {
      */
     private String repositoryRef;
     /**
-     * @return The type of the repository storing the template. Valid values: `azuregit`, `github`, `bitbucket`. Defaults to `azuregit`.
+     * @return The type of the repository storing the template. Valid values: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
      * 
      */
     private @Nullable String repositoryType;
@@ -49,7 +49,7 @@ public final class CheckRequiredTemplateRequiredTemplate {
         return this.repositoryRef;
     }
     /**
-     * @return The type of the repository storing the template. Valid values: `azuregit`, `github`, `bitbucket`. Defaults to `azuregit`.
+     * @return The type of the repository storing the template. Valid values: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
      * 
      */
     public Optional<String> repositoryType() {

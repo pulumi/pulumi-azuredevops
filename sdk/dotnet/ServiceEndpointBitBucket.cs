@@ -112,10 +112,6 @@ namespace Pulumi.AzureDevOps
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                Aliases =
-                {
-                    new global::Pulumi.Alias { Type = "azuredevops:ServiceEndpoint/bitBucket:BitBucket" },
-                },
                 AdditionalSecretOutputs =
                 {
                     "password",

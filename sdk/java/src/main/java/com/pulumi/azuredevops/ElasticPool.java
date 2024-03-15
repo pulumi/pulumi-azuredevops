@@ -196,6 +196,20 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * The ID of the project where a new Elastic Pool will be created.
+     * 
+     */
+    @Export(name="projectId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> projectId;
+
+    /**
+     * @return The ID of the project where a new Elastic Pool will be created.
+     * 
+     */
+    public Output<Optional<String>> projectId() {
+        return Codegen.optional(this.projectId);
+    }
+    /**
      * Tear down virtual machines after every use. Defaults to `false`.
      * 
      */

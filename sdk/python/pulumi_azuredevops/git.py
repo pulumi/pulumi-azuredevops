@@ -474,8 +474,6 @@ class Git(pulumi.CustomResource):
             __props__.__dict__["ssh_url"] = None
             __props__.__dict__["url"] = None
             __props__.__dict__["web_url"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azuredevops:Repository/git:Git")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Git, __self__).__init__(
             'azuredevops:index/git:Git',
             resource_name,

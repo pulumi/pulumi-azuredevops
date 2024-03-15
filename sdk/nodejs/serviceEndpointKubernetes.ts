@@ -123,8 +123,6 @@ export class ServiceEndpointKubernetes extends pulumi.CustomResource {
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azuredevops:ServiceEndpoint/kubernetes:Kubernetes" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServiceEndpointKubernetes.__pulumiType, name, resourceInputs, opts);
     }
 }

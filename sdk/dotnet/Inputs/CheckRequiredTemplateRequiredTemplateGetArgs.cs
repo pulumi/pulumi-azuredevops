@@ -25,7 +25,7 @@ namespace Pulumi.AzureDevOps.Inputs
         public Input<string> RepositoryRef { get; set; } = null!;
 
         /// <summary>
-        /// The type of the repository storing the template. Valid values: `azuregit`, `github`, `bitbucket`. Defaults to `azuregit`.
+        /// The type of the repository storing the template. Valid values: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
         /// </summary>
         [Input("repositoryType")]
         public Input<string>? RepositoryType { get; set; }

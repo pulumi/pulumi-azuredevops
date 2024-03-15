@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
+	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -77,7 +77,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -135,6 +135,8 @@ type CheckRequiredTemplate struct {
 	TargetResourceId pulumi.StringOutput `pulumi:"targetResourceId"`
 	// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Required Template Check to be created.
 	TargetResourceType pulumi.StringOutput `pulumi:"targetResourceType"`
+	// The version of the check.
+	Version pulumi.IntOutput `pulumi:"version"`
 }
 
 // NewCheckRequiredTemplate registers a new resource with the given unique name, arguments, and options.
@@ -187,6 +189,8 @@ type checkRequiredTemplateState struct {
 	TargetResourceId *string `pulumi:"targetResourceId"`
 	// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Required Template Check to be created.
 	TargetResourceType *string `pulumi:"targetResourceType"`
+	// The version of the check.
+	Version *int `pulumi:"version"`
 }
 
 type CheckRequiredTemplateState struct {
@@ -198,6 +202,8 @@ type CheckRequiredTemplateState struct {
 	TargetResourceId pulumi.StringPtrInput
 	// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Required Template Check to be created.
 	TargetResourceType pulumi.StringPtrInput
+	// The version of the check.
+	Version pulumi.IntPtrInput
 }
 
 func (CheckRequiredTemplateState) ElementType() reflect.Type {
@@ -334,6 +340,11 @@ func (o CheckRequiredTemplateOutput) TargetResourceId() pulumi.StringOutput {
 // The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Required Template Check to be created.
 func (o CheckRequiredTemplateOutput) TargetResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *CheckRequiredTemplate) pulumi.StringOutput { return v.TargetResourceType }).(pulumi.StringOutput)
+}
+
+// The version of the check.
+func (o CheckRequiredTemplateOutput) Version() pulumi.IntOutput {
+	return o.ApplyT(func(v *CheckRequiredTemplate) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
 }
 
 type CheckRequiredTemplateArrayOutput struct{ *pulumi.OutputState }

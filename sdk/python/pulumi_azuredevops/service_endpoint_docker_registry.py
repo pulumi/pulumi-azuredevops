@@ -470,8 +470,6 @@ class ServiceEndpointDockerRegistry(pulumi.CustomResource):
             if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")
             __props__.__dict__["service_endpoint_name"] = service_endpoint_name
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azuredevops:ServiceEndpoint/dockerRegistry:DockerRegistry")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["dockerPassword"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceEndpointDockerRegistry, __self__).__init__(

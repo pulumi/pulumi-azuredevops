@@ -113,8 +113,6 @@ export class GroupMembership extends pulumi.CustomResource {
             resourceInputs["mode"] = args ? args.mode : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azuredevops:Identities/groupMembership:GroupMembership" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GroupMembership.__pulumiType, name, resourceInputs, opts);
     }
 }

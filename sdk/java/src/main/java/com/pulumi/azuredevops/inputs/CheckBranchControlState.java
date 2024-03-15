@@ -137,6 +137,21 @@ public final class CheckBranchControlState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.verifyBranchProtection);
     }
 
+    /**
+     * The version of the check.
+     * 
+     */
+    @Import(name="version")
+    private @Nullable Output<Integer> version;
+
+    /**
+     * @return The version of the check.
+     * 
+     */
+    public Optional<Output<Integer>> version() {
+        return Optional.ofNullable(this.version);
+    }
+
     private CheckBranchControlState() {}
 
     private CheckBranchControlState(CheckBranchControlState $) {
@@ -148,6 +163,7 @@ public final class CheckBranchControlState extends com.pulumi.resources.Resource
         this.targetResourceType = $.targetResourceType;
         this.timeout = $.timeout;
         this.verifyBranchProtection = $.verifyBranchProtection;
+        this.version = $.version;
     }
 
     public static Builder builder() {
@@ -334,6 +350,27 @@ public final class CheckBranchControlState extends com.pulumi.resources.Resource
          */
         public Builder verifyBranchProtection(Boolean verifyBranchProtection) {
             return verifyBranchProtection(Output.of(verifyBranchProtection));
+        }
+
+        /**
+         * @param version The version of the check.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder version(@Nullable Output<Integer> version) {
+            $.version = version;
+            return this;
+        }
+
+        /**
+         * @param version The version of the check.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder version(Integer version) {
+            return version(Output.of(version));
         }
 
         public CheckBranchControlState build() {

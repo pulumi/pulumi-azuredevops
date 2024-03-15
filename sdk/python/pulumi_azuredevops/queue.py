@@ -303,8 +303,6 @@ class Queue(pulumi.CustomResource):
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__.__dict__["project_id"] = project_id
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azuredevops:Agent/queue:Queue")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Queue, __self__).__init__(
             'azuredevops:index/queue:Queue',
             resource_name,

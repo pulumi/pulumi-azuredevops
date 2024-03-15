@@ -87,13 +87,15 @@ class _CheckRequiredTemplateState:
                  project_id: Optional[pulumi.Input[str]] = None,
                  required_templates: Optional[pulumi.Input[Sequence[pulumi.Input['CheckRequiredTemplateRequiredTemplateArgs']]]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
-                 target_resource_type: Optional[pulumi.Input[str]] = None):
+                 target_resource_type: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering CheckRequiredTemplate resources.
         :param pulumi.Input[str] project_id: The project ID. Changing this forces a new Required Template Check to be created.
         :param pulumi.Input[Sequence[pulumi.Input['CheckRequiredTemplateRequiredTemplateArgs']]] required_templates: One or more `required_template` blocks documented below.
         :param pulumi.Input[str] target_resource_id: The ID of the resource being protected by the check. Changing this forces a new Required Template Check to be created.
         :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Required Template Check to be created.
+        :param pulumi.Input[int] version: The version of the check.
         """
         if project_id is not None:
             pulumi.set(__self__, "project_id", project_id)
@@ -103,6 +105,8 @@ class _CheckRequiredTemplateState:
             pulumi.set(__self__, "target_resource_id", target_resource_id)
         if target_resource_type is not None:
             pulumi.set(__self__, "target_resource_type", target_resource_type)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="projectId")
@@ -151,6 +155,18 @@ class _CheckRequiredTemplateState:
     @target_resource_type.setter
     def target_resource_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_resource_type", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[int]]:
+        """
+        The version of the check.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "version", value)
 
 
 class CheckRequiredTemplate(pulumi.CustomResource):
@@ -346,6 +362,7 @@ class CheckRequiredTemplate(pulumi.CustomResource):
             if target_resource_type is None and not opts.urn:
                 raise TypeError("Missing required property 'target_resource_type'")
             __props__.__dict__["target_resource_type"] = target_resource_type
+            __props__.__dict__["version"] = None
         super(CheckRequiredTemplate, __self__).__init__(
             'azuredevops:index/checkRequiredTemplate:CheckRequiredTemplate',
             resource_name,
@@ -359,7 +376,8 @@ class CheckRequiredTemplate(pulumi.CustomResource):
             project_id: Optional[pulumi.Input[str]] = None,
             required_templates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CheckRequiredTemplateRequiredTemplateArgs']]]]] = None,
             target_resource_id: Optional[pulumi.Input[str]] = None,
-            target_resource_type: Optional[pulumi.Input[str]] = None) -> 'CheckRequiredTemplate':
+            target_resource_type: Optional[pulumi.Input[str]] = None,
+            version: Optional[pulumi.Input[int]] = None) -> 'CheckRequiredTemplate':
         """
         Get an existing CheckRequiredTemplate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -371,6 +389,7 @@ class CheckRequiredTemplate(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CheckRequiredTemplateRequiredTemplateArgs']]]] required_templates: One or more `required_template` blocks documented below.
         :param pulumi.Input[str] target_resource_id: The ID of the resource being protected by the check. Changing this forces a new Required Template Check to be created.
         :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Required Template Check to be created.
+        :param pulumi.Input[int] version: The version of the check.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -380,6 +399,7 @@ class CheckRequiredTemplate(pulumi.CustomResource):
         __props__.__dict__["required_templates"] = required_templates
         __props__.__dict__["target_resource_id"] = target_resource_id
         __props__.__dict__["target_resource_type"] = target_resource_type
+        __props__.__dict__["version"] = version
         return CheckRequiredTemplate(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -413,4 +433,12 @@ class CheckRequiredTemplate(pulumi.CustomResource):
         The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Required Template Check to be created.
         """
         return pulumi.get(self, "target_resource_type")
+
+    @property
+    @pulumi.getter
+    def version(self) -> pulumi.Output[int]:
+        """
+        The version of the check.
+        """
+        return pulumi.get(self, "version")
 

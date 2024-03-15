@@ -118,6 +118,12 @@ namespace Pulumi.AzureDevOps
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the project where a new Elastic Pool will be created.
+        /// </summary>
+        [Output("projectId")]
+        public Output<string?> ProjectId { get; private set; } = null!;
+
+        /// <summary>
         /// Tear down virtual machines after every use. Defaults to `false`.
         /// </summary>
         [Output("recycleAfterEachUse")]
@@ -230,6 +236,12 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The ID of the project where a new Elastic Pool will be created.
+        /// </summary>
+        [Input("projectId")]
+        public Input<string>? ProjectId { get; set; }
+
+        /// <summary>
         /// Tear down virtual machines after every use. Defaults to `false`.
         /// </summary>
         [Input("recycleAfterEachUse")]
@@ -302,6 +314,12 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The ID of the project where a new Elastic Pool will be created.
+        /// </summary>
+        [Input("projectId")]
+        public Input<string>? ProjectId { get; set; }
 
         /// <summary>
         /// Tear down virtual machines after every use. Defaults to `false`.

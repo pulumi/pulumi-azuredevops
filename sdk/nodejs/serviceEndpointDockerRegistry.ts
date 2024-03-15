@@ -160,8 +160,6 @@ export class ServiceEndpointDockerRegistry extends pulumi.CustomResource {
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azuredevops:ServiceEndpoint/dockerRegistry:DockerRegistry" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         const secretOpts = { additionalSecretOutputs: ["dockerPassword"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(ServiceEndpointDockerRegistry.__pulumiType, name, resourceInputs, opts);

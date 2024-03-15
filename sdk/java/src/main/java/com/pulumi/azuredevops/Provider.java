@@ -24,6 +24,206 @@ import javax.annotation.Nullable;
 @ResourceType(type="pulumi:providers:azuredevops")
 public class Provider extends com.pulumi.resources.ProviderResource {
     /**
+     * Base64 encoded certificate to use to authenticate to the service principal.
+     * 
+     */
+    @Export(name="clientCertificate", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> clientCertificate;
+
+    /**
+     * @return Base64 encoded certificate to use to authenticate to the service principal.
+     * 
+     */
+    public Output<Optional<String>> clientCertificate() {
+        return Codegen.optional(this.clientCertificate);
+    }
+    /**
+     * Password for a client certificate password.
+     * 
+     */
+    @Export(name="clientCertificatePassword", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> clientCertificatePassword;
+
+    /**
+     * @return Password for a client certificate password.
+     * 
+     */
+    public Output<Optional<String>> clientCertificatePassword() {
+        return Codegen.optional(this.clientCertificatePassword);
+    }
+    /**
+     * Path to a certificate to use to authenticate to the service principal.
+     * 
+     */
+    @Export(name="clientCertificatePath", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> clientCertificatePath;
+
+    /**
+     * @return Path to a certificate to use to authenticate to the service principal.
+     * 
+     */
+    public Output<Optional<String>> clientCertificatePath() {
+        return Codegen.optional(this.clientCertificatePath);
+    }
+    /**
+     * The service principal client or managed service principal id which should be used.
+     * 
+     */
+    @Export(name="clientId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> clientId;
+
+    /**
+     * @return The service principal client or managed service principal id which should be used.
+     * 
+     */
+    public Output<Optional<String>> clientId() {
+        return Codegen.optional(this.clientId);
+    }
+    /**
+     * The service principal client id which should be used during an apply operation in Terraform Cloud.
+     * 
+     */
+    @Export(name="clientIdApply", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> clientIdApply;
+
+    /**
+     * @return The service principal client id which should be used during an apply operation in Terraform Cloud.
+     * 
+     */
+    public Output<Optional<String>> clientIdApply() {
+        return Codegen.optional(this.clientIdApply);
+    }
+    /**
+     * The service principal client id which should be used during a plan operation in Terraform Cloud.
+     * 
+     */
+    @Export(name="clientIdPlan", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> clientIdPlan;
+
+    /**
+     * @return The service principal client id which should be used during a plan operation in Terraform Cloud.
+     * 
+     */
+    public Output<Optional<String>> clientIdPlan() {
+        return Codegen.optional(this.clientIdPlan);
+    }
+    /**
+     * Client secret for authenticating to a service principal.
+     * 
+     */
+    @Export(name="clientSecret", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> clientSecret;
+
+    /**
+     * @return Client secret for authenticating to a service principal.
+     * 
+     */
+    public Output<Optional<String>> clientSecret() {
+        return Codegen.optional(this.clientSecret);
+    }
+    /**
+     * Path to a file containing a client secret for authenticating to a service principal.
+     * 
+     */
+    @Export(name="clientSecretPath", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> clientSecretPath;
+
+    /**
+     * @return Path to a file containing a client secret for authenticating to a service principal.
+     * 
+     */
+    public Output<Optional<String>> clientSecretPath() {
+        return Codegen.optional(this.clientSecretPath);
+    }
+    /**
+     * Set the audience when requesting OIDC tokens.
+     * 
+     */
+    @Export(name="oidcAudience", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> oidcAudience;
+
+    /**
+     * @return Set the audience when requesting OIDC tokens.
+     * 
+     */
+    public Output<Optional<String>> oidcAudience() {
+        return Codegen.optional(this.oidcAudience);
+    }
+    /**
+     * The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
+     * Connect.
+     * 
+     */
+    @Export(name="oidcRequestToken", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> oidcRequestToken;
+
+    /**
+     * @return The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
+     * Connect.
+     * 
+     */
+    public Output<Optional<String>> oidcRequestToken() {
+        return Codegen.optional(this.oidcRequestToken);
+    }
+    /**
+     * The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
+     * using OpenID Connect.
+     * 
+     */
+    @Export(name="oidcRequestUrl", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> oidcRequestUrl;
+
+    /**
+     * @return The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
+     * using OpenID Connect.
+     * 
+     */
+    public Output<Optional<String>> oidcRequestUrl() {
+        return Codegen.optional(this.oidcRequestUrl);
+    }
+    /**
+     * Terraform Cloud dynamic credential provider tag.
+     * 
+     */
+    @Export(name="oidcTfcTag", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> oidcTfcTag;
+
+    /**
+     * @return Terraform Cloud dynamic credential provider tag.
+     * 
+     */
+    public Output<Optional<String>> oidcTfcTag() {
+        return Codegen.optional(this.oidcTfcTag);
+    }
+    /**
+     * OIDC token to authenticate as a service principal.
+     * 
+     */
+    @Export(name="oidcToken", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> oidcToken;
+
+    /**
+     * @return OIDC token to authenticate as a service principal.
+     * 
+     */
+    public Output<Optional<String>> oidcToken() {
+        return Codegen.optional(this.oidcToken);
+    }
+    /**
+     * OIDC token from file to authenticate as a service principal.
+     * 
+     */
+    @Export(name="oidcTokenFilePath", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> oidcTokenFilePath;
+
+    /**
+     * @return OIDC token from file to authenticate as a service principal.
+     * 
+     */
+    public Output<Optional<String>> oidcTokenFilePath() {
+        return Codegen.optional(this.oidcTokenFilePath);
+    }
+    /**
      * The url of the Azure DevOps instance which should be used.
      * 
      */
@@ -50,6 +250,48 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      */
     public Output<Optional<String>> personalAccessToken() {
         return Codegen.optional(this.personalAccessToken);
+    }
+    /**
+     * The service principal tenant id which should be used.
+     * 
+     */
+    @Export(name="tenantId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> tenantId;
+
+    /**
+     * @return The service principal tenant id which should be used.
+     * 
+     */
+    public Output<Optional<String>> tenantId() {
+        return Codegen.optional(this.tenantId);
+    }
+    /**
+     * The service principal tenant id which should be used during an apply operation in Terraform Cloud..
+     * 
+     */
+    @Export(name="tenantIdApply", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> tenantIdApply;
+
+    /**
+     * @return The service principal tenant id which should be used during an apply operation in Terraform Cloud..
+     * 
+     */
+    public Output<Optional<String>> tenantIdApply() {
+        return Codegen.optional(this.tenantIdApply);
+    }
+    /**
+     * The service principal tenant id which should be used during a plan operation in Terraform Cloud.
+     * 
+     */
+    @Export(name="tenantIdPlan", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> tenantIdPlan;
+
+    /**
+     * @return The service principal tenant id which should be used during a plan operation in Terraform Cloud.
+     * 
+     */
+    public Output<Optional<String>> tenantIdPlan() {
+        return Codegen.optional(this.tenantIdPlan);
     }
 
     /**
@@ -81,6 +323,10 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
+                "clientCertificate",
+                "clientCertificatePassword",
+                "clientSecret",
+                "oidcToken",
                 "personalAccessToken"
             ))
             .build();

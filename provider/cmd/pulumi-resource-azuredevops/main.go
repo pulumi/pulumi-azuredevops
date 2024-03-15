@@ -19,8 +19,8 @@ import (
 
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 
-	azuredevops "github.com/pulumi/pulumi-azuredevops/provider/v2"
-	"github.com/pulumi/pulumi-azuredevops/provider/v2/pkg/version"
+	azuredevops "github.com/pulumi/pulumi-azuredevops/provider/v3"
+	"github.com/pulumi/pulumi-azuredevops/provider/v3/pkg/version"
 )
 
 //go:embed schema.json

@@ -417,8 +417,6 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["visibility"] = visibility
             __props__.__dict__["work_item_template"] = work_item_template
             __props__.__dict__["process_template_id"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azuredevops:Core/project:Project")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Project, __self__).__init__(
             'azuredevops:index/project:Project',
             resource_name,

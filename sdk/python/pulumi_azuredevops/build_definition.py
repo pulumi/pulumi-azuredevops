@@ -816,8 +816,6 @@ class BuildDefinition(pulumi.CustomResource):
             __props__.__dict__["variable_groups"] = variable_groups
             __props__.__dict__["variables"] = variables
             __props__.__dict__["revision"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azuredevops:Build/buildDefinition:BuildDefinition")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BuildDefinition, __self__).__init__(
             'azuredevops:index/buildDefinition:BuildDefinition',
             resource_name,

@@ -262,6 +262,12 @@ namespace Pulumi.AzureDevOps
         [Output("verifyBranchProtection")]
         public Output<bool?> VerifyBranchProtection { get; private set; } = null!;
 
+        /// <summary>
+        /// The version of the check.
+        /// </summary>
+        [Output("version")]
+        public Output<int> Version { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a CheckBranchControl resource with the given unique name, arguments, and options.
@@ -411,6 +417,12 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Input("verifyBranchProtection")]
         public Input<bool>? VerifyBranchProtection { get; set; }
+
+        /// <summary>
+        /// The version of the check.
+        /// </summary>
+        [Input("version")]
+        public Input<int>? Version { get; set; }
 
         public CheckBranchControlState()
         {

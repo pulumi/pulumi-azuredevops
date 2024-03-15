@@ -193,6 +193,20 @@ public class CheckApproval extends com.pulumi.resources.CustomResource {
     public Output<Optional<Integer>> timeout() {
         return Codegen.optional(this.timeout);
     }
+    /**
+     * The version of the check.
+     * 
+     */
+    @Export(name="version", refs={Integer.class}, tree="[0]")
+    private Output<Integer> version;
+
+    /**
+     * @return The version of the check.
+     * 
+     */
+    public Output<Integer> version() {
+        return this.version;
+    }
 
     /**
      *

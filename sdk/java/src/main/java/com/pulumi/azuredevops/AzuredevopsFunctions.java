@@ -1239,6 +1239,11 @@ public final class AzuredevopsFunctions {
      * 
      * - [Azure DevOps Service REST API 7.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-7.0)
      * 
+     * ## PAT Permissions Required
+     * 
+     * - **Graph**: Read
+     * - **Work Items**: Read
+     * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args) {
         return getGroup(args, InvokeOptions.Empty);
@@ -1296,6 +1301,11 @@ public final class AzuredevopsFunctions {
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-7.0)
+     * 
+     * ## PAT Permissions Required
+     * 
+     * - **Graph**: Read
+     * - **Work Items**: Read
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args) {
@@ -1355,6 +1365,11 @@ public final class AzuredevopsFunctions {
      * 
      * - [Azure DevOps Service REST API 7.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-7.0)
      * 
+     * ## PAT Permissions Required
+     * 
+     * - **Graph**: Read
+     * - **Work Items**: Read
+     * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azuredevops:index/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
@@ -1412,6 +1427,11 @@ public final class AzuredevopsFunctions {
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-7.0)
+     * 
+     * ## PAT Permissions Required
+     * 
+     * - **Graph**: Read
+     * - **Work Items**: Read
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args, InvokeOptions options) {

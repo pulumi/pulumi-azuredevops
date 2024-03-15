@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
+	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -72,7 +72,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -119,6 +119,8 @@ type CheckExclusiveLock struct {
 	TargetResourceType pulumi.StringOutput `pulumi:"targetResourceType"`
 	// The timeout in minutes for the exclusive lock. Defaults to `43200`.
 	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
+	// The version of the check.
+	Version pulumi.IntOutput `pulumi:"version"`
 }
 
 // NewCheckExclusiveLock registers a new resource with the given unique name, arguments, and options.
@@ -168,6 +170,8 @@ type checkExclusiveLockState struct {
 	TargetResourceType *string `pulumi:"targetResourceType"`
 	// The timeout in minutes for the exclusive lock. Defaults to `43200`.
 	Timeout *int `pulumi:"timeout"`
+	// The version of the check.
+	Version *int `pulumi:"version"`
 }
 
 type CheckExclusiveLockState struct {
@@ -179,6 +183,8 @@ type CheckExclusiveLockState struct {
 	TargetResourceType pulumi.StringPtrInput
 	// The timeout in minutes for the exclusive lock. Defaults to `43200`.
 	Timeout pulumi.IntPtrInput
+	// The version of the check.
+	Version pulumi.IntPtrInput
 }
 
 func (CheckExclusiveLockState) ElementType() reflect.Type {
@@ -313,6 +319,11 @@ func (o CheckExclusiveLockOutput) TargetResourceType() pulumi.StringOutput {
 // The timeout in minutes for the exclusive lock. Defaults to `43200`.
 func (o CheckExclusiveLockOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CheckExclusiveLock) pulumi.IntPtrOutput { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+// The version of the check.
+func (o CheckExclusiveLockOutput) Version() pulumi.IntOutput {
+	return o.ApplyT(func(v *CheckExclusiveLock) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
 }
 
 type CheckExclusiveLockArrayOutput struct{ *pulumi.OutputState }

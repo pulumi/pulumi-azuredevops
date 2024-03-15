@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
+	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -4892,7 +4892,7 @@ type CheckRequiredTemplateRequiredTemplate struct {
 	RepositoryName string `pulumi:"repositoryName"`
 	// The branch in which the template will be referenced.
 	RepositoryRef string `pulumi:"repositoryRef"`
-	// The type of the repository storing the template. Valid values: `azuregit`, `github`, `bitbucket`. Defaults to `azuregit`.
+	// The type of the repository storing the template. Valid values: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
 	RepositoryType *string `pulumi:"repositoryType"`
 	// The path to the template yaml.
 	TemplatePath string `pulumi:"templatePath"`
@@ -4914,7 +4914,7 @@ type CheckRequiredTemplateRequiredTemplateArgs struct {
 	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
 	// The branch in which the template will be referenced.
 	RepositoryRef pulumi.StringInput `pulumi:"repositoryRef"`
-	// The type of the repository storing the template. Valid values: `azuregit`, `github`, `bitbucket`. Defaults to `azuregit`.
+	// The type of the repository storing the template. Valid values: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
 	RepositoryType pulumi.StringPtrInput `pulumi:"repositoryType"`
 	// The path to the template yaml.
 	TemplatePath pulumi.StringInput `pulumi:"templatePath"`
@@ -4981,7 +4981,7 @@ func (o CheckRequiredTemplateRequiredTemplateOutput) RepositoryRef() pulumi.Stri
 	return o.ApplyT(func(v CheckRequiredTemplateRequiredTemplate) string { return v.RepositoryRef }).(pulumi.StringOutput)
 }
 
-// The type of the repository storing the template. Valid values: `azuregit`, `github`, `bitbucket`. Defaults to `azuregit`.
+// The type of the repository storing the template. Valid values: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
 func (o CheckRequiredTemplateRequiredTemplateOutput) RepositoryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CheckRequiredTemplateRequiredTemplate) *string { return v.RepositoryType }).(pulumi.StringPtrOutput)
 }
@@ -11710,6 +11710,8 @@ type GetGroupsGroup struct {
 	DisplayName *string `pulumi:"displayName"`
 	// This represents the name of the container of origin for a graph member. (For MSA this is "Windows Live ID", for AD the name of the domain, for AAD the tenantID of the directory, for VSTS groups the ScopeId, etc)
 	Domain string `pulumi:"domain"`
+	// The group ID.
+	Id string `pulumi:"id"`
 	// The email address of record for a given graph member. This may be different than the principal name.
 	MailAddress *string `pulumi:"mailAddress"`
 	// The type of source provider for the origin identifier (ex:AD, AAD, MSA)
@@ -11742,6 +11744,8 @@ type GetGroupsGroupArgs struct {
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// This represents the name of the container of origin for a graph member. (For MSA this is "Windows Live ID", for AD the name of the domain, for AAD the tenantID of the directory, for VSTS groups the ScopeId, etc)
 	Domain pulumi.StringInput `pulumi:"domain"`
+	// The group ID.
+	Id pulumi.StringInput `pulumi:"id"`
 	// The email address of record for a given graph member. This may be different than the principal name.
 	MailAddress pulumi.StringPtrInput `pulumi:"mailAddress"`
 	// The type of source provider for the origin identifier (ex:AD, AAD, MSA)
@@ -11823,6 +11827,11 @@ func (o GetGroupsGroupOutput) DisplayName() pulumi.StringPtrOutput {
 // This represents the name of the container of origin for a graph member. (For MSA this is "Windows Live ID", for AD the name of the domain, for AAD the tenantID of the directory, for VSTS groups the ScopeId, etc)
 func (o GetGroupsGroupOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupsGroup) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+// The group ID.
+func (o GetGroupsGroupOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupsGroup) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The email address of record for a given graph member. This may be different than the principal name.

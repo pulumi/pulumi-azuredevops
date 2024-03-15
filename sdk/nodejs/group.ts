@@ -169,8 +169,6 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azuredevops:Identities/group:Group" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Group.__pulumiType, name, resourceInputs, opts);
     }
 }

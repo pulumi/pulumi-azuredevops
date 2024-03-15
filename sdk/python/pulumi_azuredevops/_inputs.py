@@ -2234,7 +2234,7 @@ class CheckRequiredTemplateRequiredTemplateArgs:
         :param pulumi.Input[str] repository_name: The name of the repository storing the template.
         :param pulumi.Input[str] repository_ref: The branch in which the template will be referenced.
         :param pulumi.Input[str] template_path: The path to the template yaml.
-        :param pulumi.Input[str] repository_type: The type of the repository storing the template. Valid values: `azuregit`, `github`, `bitbucket`. Defaults to `azuregit`.
+        :param pulumi.Input[str] repository_type: The type of the repository storing the template. Valid values: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
         """
         pulumi.set(__self__, "repository_name", repository_name)
         pulumi.set(__self__, "repository_ref", repository_ref)
@@ -2282,7 +2282,7 @@ class CheckRequiredTemplateRequiredTemplateArgs:
     @pulumi.getter(name="repositoryType")
     def repository_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the repository storing the template. Valid values: `azuregit`, `github`, `bitbucket`. Defaults to `azuregit`.
+        The type of the repository storing the template. Valid values: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
         """
         return pulumi.get(self, "repository_type")
 

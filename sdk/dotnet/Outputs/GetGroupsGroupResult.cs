@@ -30,6 +30,10 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly string Domain;
         /// <summary>
+        /// The group ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The email address of record for a given graph member. This may be different than the principal name.
         /// </summary>
         public readonly string? MailAddress;
@@ -60,6 +64,8 @@ namespace Pulumi.AzureDevOps.Outputs
 
             string domain,
 
+            string id,
+
             string? mailAddress,
 
             string origin,
@@ -74,6 +80,7 @@ namespace Pulumi.AzureDevOps.Outputs
             Descriptor = descriptor;
             DisplayName = displayName;
             Domain = domain;
+            Id = id;
             MailAddress = mailAddress;
             Origin = origin;
             OriginId = originId;

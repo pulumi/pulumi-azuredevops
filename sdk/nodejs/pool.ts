@@ -103,8 +103,6 @@ export class Pool extends pulumi.CustomResource {
             resourceInputs["poolType"] = args ? args.poolType : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azuredevops:Agent/pool:Pool" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Pool.__pulumiType, name, resourceInputs, opts);
     }
 }

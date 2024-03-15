@@ -204,8 +204,6 @@ export class VariableGroup extends pulumi.CustomResource {
             resourceInputs["variables"] = args ? args.variables : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azuredevops:Pipeline/variableGroup:VariableGroup" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VariableGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

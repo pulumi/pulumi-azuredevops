@@ -118,6 +118,10 @@ export class CheckRequiredTemplate extends pulumi.CustomResource {
      * The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Required Template Check to be created.
      */
     public readonly targetResourceType!: pulumi.Output<string>;
+    /**
+     * The version of the check.
+     */
+    public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
      * Create a CheckRequiredTemplate resource with the given unique name, arguments, and options.
@@ -136,6 +140,7 @@ export class CheckRequiredTemplate extends pulumi.CustomResource {
             resourceInputs["requiredTemplates"] = state ? state.requiredTemplates : undefined;
             resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
             resourceInputs["targetResourceType"] = state ? state.targetResourceType : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as CheckRequiredTemplateArgs | undefined;
             if ((!args || args.projectId === undefined) && !opts.urn) {
@@ -154,6 +159,7 @@ export class CheckRequiredTemplate extends pulumi.CustomResource {
             resourceInputs["requiredTemplates"] = args ? args.requiredTemplates : undefined;
             resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
             resourceInputs["targetResourceType"] = args ? args.targetResourceType : undefined;
+            resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CheckRequiredTemplate.__pulumiType, name, resourceInputs, opts);
@@ -180,6 +186,10 @@ export interface CheckRequiredTemplateState {
      * The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Required Template Check to be created.
      */
     targetResourceType?: pulumi.Input<string>;
+    /**
+     * The version of the check.
+     */
+    version?: pulumi.Input<number>;
 }
 
 /**

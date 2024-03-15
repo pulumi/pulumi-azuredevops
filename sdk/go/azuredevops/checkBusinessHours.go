@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
+	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -76,7 +76,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -122,7 +122,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -175,7 +175,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -228,7 +228,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -461,6 +461,8 @@ type CheckBusinessHours struct {
 	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
 	// This check will pass on Tuesday. Defaults to `false`.
 	Tuesday pulumi.BoolPtrOutput `pulumi:"tuesday"`
+	// The version of the check.
+	Version pulumi.IntOutput `pulumi:"version"`
 	// This check will pass on Wednesdays. Defaults to `false`.
 	Wednesday pulumi.BoolPtrOutput `pulumi:"wednesday"`
 }
@@ -541,6 +543,8 @@ type checkBusinessHoursState struct {
 	Timeout *int `pulumi:"timeout"`
 	// This check will pass on Tuesday. Defaults to `false`.
 	Tuesday *bool `pulumi:"tuesday"`
+	// The version of the check.
+	Version *int `pulumi:"version"`
 	// This check will pass on Wednesdays. Defaults to `false`.
 	Wednesday *bool `pulumi:"wednesday"`
 }
@@ -574,6 +578,8 @@ type CheckBusinessHoursState struct {
 	Timeout pulumi.IntPtrInput
 	// This check will pass on Tuesday. Defaults to `false`.
 	Tuesday pulumi.BoolPtrInput
+	// The version of the check.
+	Version pulumi.IntPtrInput
 	// This check will pass on Wednesdays. Defaults to `false`.
 	Wednesday pulumi.BoolPtrInput
 }
@@ -804,6 +810,11 @@ func (o CheckBusinessHoursOutput) Timeout() pulumi.IntPtrOutput {
 // This check will pass on Tuesday. Defaults to `false`.
 func (o CheckBusinessHoursOutput) Tuesday() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CheckBusinessHours) pulumi.BoolPtrOutput { return v.Tuesday }).(pulumi.BoolPtrOutput)
+}
+
+// The version of the check.
+func (o CheckBusinessHoursOutput) Version() pulumi.IntOutput {
+	return o.ApplyT(func(v *CheckBusinessHours) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
 }
 
 // This check will pass on Wednesdays. Defaults to `false`.

@@ -3,27 +3,19 @@
         "resources": {
             "azuredevops_agent_pool": {
                 "current": "azuredevops:index/pool:Pool",
-                "majorVersion": 2
-            },
-            "azuredevops_agent_pool_legacy": {
-                "current": "azuredevops:Agent/pool:Pool",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_agent_queue": {
                 "current": "azuredevops:index/queue:Queue",
-                "majorVersion": 2
-            },
-            "azuredevops_agent_queue_legacy": {
-                "current": "azuredevops:Agent/queue:Queue",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_area_permissions": {
                 "current": "azuredevops:index/areaPermissions:AreaPermissions",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_branch_policy_auto_reviewers": {
                 "current": "azuredevops:index/branchPolicyAutoReviewers:BranchPolicyAutoReviewers",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "settings": {
                         "maxItemsOne": true,
@@ -52,7 +44,7 @@
                         "majorVersion": 2
                     }
                 ],
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "settings": {
                         "maxItemsOne": true,
@@ -71,7 +63,7 @@
             },
             "azuredevops_branch_policy_comment_resolution": {
                 "current": "azuredevops:index/branchPolicyCommentResolution:BranchPolicyCommentResolution",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "settings": {
                         "maxItemsOne": true,
@@ -87,7 +79,7 @@
             },
             "azuredevops_branch_policy_merge_types": {
                 "current": "azuredevops:index/branchPolicyMergeTypes:BranchPolicyMergeTypes",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "settings": {
                         "maxItemsOne": true,
@@ -103,23 +95,7 @@
             },
             "azuredevops_branch_policy_min_reviewers": {
                 "current": "azuredevops:index/branchPolicyMinReviewers:BranchPolicyMinReviewers",
-                "majorVersion": 2,
-                "fields": {
-                    "settings": {
-                        "maxItemsOne": true,
-                        "elem": {
-                            "fields": {
-                                "scope": {
-                                    "maxItemsOne": false
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "azuredevops_branch_policy_min_reviewers_legacy": {
-                "current": "azuredevops:Policy/branchPolicyMinReviewers:BranchPolicyMinReviewers",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "settings": {
                         "maxItemsOne": true,
@@ -135,7 +111,7 @@
             },
             "azuredevops_branch_policy_status_check": {
                 "current": "azuredevops:index/branchPolicyStatusCheck:BranchPolicyStatusCheck",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "settings": {
                         "maxItemsOne": true,
@@ -154,7 +130,7 @@
             },
             "azuredevops_branch_policy_work_item_linking": {
                 "current": "azuredevops:index/branchPolicyWorkItemLinking:BranchPolicyWorkItemLinking",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "settings": {
                         "maxItemsOne": true,
@@ -170,131 +146,7 @@
             },
             "azuredevops_build_definition": {
                 "current": "azuredevops:index/buildDefinition:BuildDefinition",
-                "majorVersion": 2,
-                "fields": {
-                    "ci_trigger": {
-                        "maxItemsOne": true,
-                        "elem": {
-                            "fields": {
-                                "override": {
-                                    "maxItemsOne": true,
-                                    "elem": {
-                                        "fields": {
-                                            "branch_filter": {
-                                                "maxItemsOne": false,
-                                                "elem": {
-                                                    "fields": {
-                                                        "exclude": {
-                                                            "maxItemsOne": false
-                                                        },
-                                                        "include": {
-                                                            "maxItemsOne": false
-                                                        }
-                                                    }
-                                                }
-                                            },
-                                            "path_filter": {
-                                                "maxItemsOne": false,
-                                                "elem": {
-                                                    "fields": {
-                                                        "exclude": {
-                                                            "maxItemsOne": false
-                                                        },
-                                                        "include": {
-                                                            "maxItemsOne": false
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "features": {
-                        "maxItemsOne": false
-                    },
-                    "pull_request_trigger": {
-                        "maxItemsOne": true,
-                        "elem": {
-                            "fields": {
-                                "forks": {
-                                    "maxItemsOne": true
-                                },
-                                "override": {
-                                    "maxItemsOne": true,
-                                    "elem": {
-                                        "fields": {
-                                            "branch_filter": {
-                                                "maxItemsOne": false,
-                                                "elem": {
-                                                    "fields": {
-                                                        "exclude": {
-                                                            "maxItemsOne": false
-                                                        },
-                                                        "include": {
-                                                            "maxItemsOne": false
-                                                        }
-                                                    }
-                                                }
-                                            },
-                                            "path_filter": {
-                                                "maxItemsOne": false,
-                                                "elem": {
-                                                    "fields": {
-                                                        "exclude": {
-                                                            "maxItemsOne": false
-                                                        },
-                                                        "include": {
-                                                            "maxItemsOne": false
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "repository": {
-                        "maxItemsOne": true
-                    },
-                    "schedules": {
-                        "maxItemsOne": false,
-                        "elem": {
-                            "fields": {
-                                "branch_filter": {
-                                    "maxItemsOne": false,
-                                    "elem": {
-                                        "fields": {
-                                            "exclude": {
-                                                "maxItemsOne": false
-                                            },
-                                            "include": {
-                                                "maxItemsOne": false
-                                            }
-                                        }
-                                    }
-                                },
-                                "days_to_build": {
-                                    "maxItemsOne": false
-                                }
-                            }
-                        }
-                    },
-                    "variable": {
-                        "maxItemsOne": false
-                    },
-                    "variable_groups": {
-                        "maxItemsOne": false
-                    }
-                }
-            },
-            "azuredevops_build_definition_legacy": {
-                "current": "azuredevops:Build/buildDefinition:BuildDefinition",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "ci_trigger": {
                         "maxItemsOne": true,
@@ -418,19 +270,19 @@
             },
             "azuredevops_build_definition_permissions": {
                 "current": "azuredevops:index/buildDefinitionPermissions:BuildDefinitionPermissions",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_build_folder": {
                 "current": "azuredevops:index/buildFolder:BuildFolder",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_build_folder_permissions": {
                 "current": "azuredevops:index/buildFolderPermissions:BuildFolderPermissions",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_check_approval": {
                 "current": "azuredevops:index/checkApproval:CheckApproval",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "approvers": {
                         "maxItemsOne": false
@@ -439,19 +291,19 @@
             },
             "azuredevops_check_branch_control": {
                 "current": "azuredevops:index/checkBranchControl:CheckBranchControl",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_check_business_hours": {
                 "current": "azuredevops:index/checkBusinessHours:CheckBusinessHours",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_check_exclusive_lock": {
                 "current": "azuredevops:index/checkExclusiveLock:CheckExclusiveLock",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_check_required_template": {
                 "current": "azuredevops:index/checkRequiredTemplate:CheckRequiredTemplate",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "required_template": {
                         "maxItemsOne": false
@@ -460,19 +312,28 @@
             },
             "azuredevops_elastic_pool": {
                 "current": "azuredevops:index/elasticPool:ElasticPool",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_environment": {
                 "current": "azuredevops:index/environment:Environment",
-                "majorVersion": 2
+                "majorVersion": 3
+            },
+            "azuredevops_environment_resource_kubernetes": {
+                "current": "azuredevops:index/environmentResourceKubernetes:EnvironmentResourceKubernetes",
+                "majorVersion": 3,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "azuredevops_git_permissions": {
                 "current": "azuredevops:index/gitPermissions:GitPermissions",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_git_repository": {
                 "current": "azuredevops:index/git:Git",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "initialization": {
                         "maxItemsOne": true
@@ -481,24 +342,15 @@
             },
             "azuredevops_git_repository_branch": {
                 "current": "azuredevops:index/gitRepositoryBranch:GitRepositoryBranch",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_git_repository_file": {
                 "current": "azuredevops:index/gitRepositoryFile:GitRepositoryFile",
-                "majorVersion": 2
-            },
-            "azuredevops_git_repository_legacy": {
-                "current": "azuredevops:Repository/git:Git",
-                "majorVersion": 2,
-                "fields": {
-                    "initialization": {
-                        "maxItemsOne": true
-                    }
-                }
+                "majorVersion": 3
             },
             "azuredevops_group": {
                 "current": "azuredevops:index/group:Group",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "members": {
                         "maxItemsOne": false
@@ -507,29 +359,11 @@
             },
             "azuredevops_group_entitlement": {
                 "current": "azuredevops:index/groupEntitlement:GroupEntitlement",
-                "majorVersion": 2
-            },
-            "azuredevops_group_legacy": {
-                "current": "azuredevops:Identities/group:Group",
-                "majorVersion": 2,
-                "fields": {
-                    "members": {
-                        "maxItemsOne": false
-                    }
-                }
+                "majorVersion": 3
             },
             "azuredevops_group_membership": {
                 "current": "azuredevops:index/groupMembership:GroupMembership",
-                "majorVersion": 2,
-                "fields": {
-                    "members": {
-                        "maxItemsOne": false
-                    }
-                }
-            },
-            "azuredevops_group_membership_legacy": {
-                "current": "azuredevops:Identities/groupMembership:GroupMembership",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "members": {
                         "maxItemsOne": false
@@ -538,39 +372,35 @@
             },
             "azuredevops_iteration_permissions": {
                 "current": "azuredevops:index/iterativePermissions:IterativePermissions",
-                "majorVersion": 2
+                "majorVersion": 3
+            },
+            "azuredevops_library_permissions": {
+                "current": "azuredevops:index/libraryPermissions:LibraryPermissions",
+                "majorVersion": 3
             },
             "azuredevops_pipeline_authorization": {
                 "current": "azuredevops:index/pipelineAuthorization:PipelineAuthorization",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_project": {
                 "current": "azuredevops:index/project:Project",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_project_features": {
                 "current": "azuredevops:index/projectFeatures:ProjectFeatures",
-                "majorVersion": 2
-            },
-            "azuredevops_project_features_legacy": {
-                "current": "azuredevops:Core/projectFeatures:ProjectFeatures",
-                "majorVersion": 2
-            },
-            "azuredevops_project_legacy": {
-                "current": "azuredevops:Core/project:Project",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_project_permissions": {
                 "current": "azuredevops:index/projectPermissions:ProjectPermissions",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_project_pipeline_settings": {
                 "current": "azuredevops:index/projectPipelineSettings:ProjectPipelineSettings",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_repository_policy_author_email_pattern": {
                 "current": "azuredevops:index/repositoryPolicyAuthorEmailPattern:RepositoryPolicyAuthorEmailPattern",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "author_email_patterns": {
                         "maxItemsOne": false
@@ -582,7 +412,7 @@
             },
             "azuredevops_repository_policy_case_enforcement": {
                 "current": "azuredevops:index/repositoryPolicyCaseEnforcement:RepositoryPolicyCaseEnforcement",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "repository_ids": {
                         "maxItemsOne": false
@@ -591,7 +421,7 @@
             },
             "azuredevops_repository_policy_check_credentials": {
                 "current": "azuredevops:index/repositoryPolicyCheckCredentials:RepositoryPolicyCheckCredentials",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "repository_ids": {
                         "maxItemsOne": false
@@ -600,7 +430,7 @@
             },
             "azuredevops_repository_policy_file_path_pattern": {
                 "current": "azuredevops:index/repositoryPolicyFilePathPattern:RepositoryPolicyFilePathPattern",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "filepath_patterns": {
                         "maxItemsOne": false
@@ -612,7 +442,7 @@
             },
             "azuredevops_repository_policy_max_file_size": {
                 "current": "azuredevops:index/repositoryPolicyMaxFileSize:RepositoryPolicyMaxFileSize",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "repository_ids": {
                         "maxItemsOne": false
@@ -621,7 +451,7 @@
             },
             "azuredevops_repository_policy_max_path_length": {
                 "current": "azuredevops:index/repositoryPolicyMaxPathLength:RepositoryPolicyMaxPathLength",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "repository_ids": {
                         "maxItemsOne": false
@@ -630,7 +460,7 @@
             },
             "azuredevops_repository_policy_reserved_names": {
                 "current": "azuredevops:index/repositoryPolicyReservedNames:RepositoryPolicyReservedNames",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "repository_ids": {
                         "maxItemsOne": false
@@ -646,11 +476,11 @@
                         "majorVersion": 2
                     }
                 ],
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_serviceendpoint_argocd": {
                 "current": "azuredevops:index/serviceendpointArgocd:ServiceendpointArgocd",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "authentication_basic": {
                         "maxItemsOne": true
@@ -662,7 +492,7 @@
             },
             "azuredevops_serviceendpoint_artifactory": {
                 "current": "azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "authentication_basic": {
                         "maxItemsOne": true
@@ -674,31 +504,19 @@
             },
             "azuredevops_serviceendpoint_aws": {
                 "current": "azuredevops:index/serviceEndpointAws:ServiceEndpointAws",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_serviceendpoint_azurecr": {
                 "current": "azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_serviceendpoint_azuredevops": {
                 "current": "azuredevops:index/serviceEndpointAzureDevOps:ServiceEndpointAzureDevOps",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_serviceendpoint_azurerm": {
                 "current": "azuredevops:index/serviceEndpointAzureRM:ServiceEndpointAzureRM",
-                "majorVersion": 2,
-                "fields": {
-                    "credentials": {
-                        "maxItemsOne": true
-                    },
-                    "features": {
-                        "maxItemsOne": true
-                    }
-                }
-            },
-            "azuredevops_serviceendpoint_azurerm_legacy": {
-                "current": "azuredevops:ServiceEndpoint/azureRM:AzureRM",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "credentials": {
                         "maxItemsOne": true
@@ -710,23 +528,15 @@
             },
             "azuredevops_serviceendpoint_bitbucket": {
                 "current": "azuredevops:index/serviceEndpointBitBucket:ServiceEndpointBitBucket",
-                "majorVersion": 2
-            },
-            "azuredevops_serviceendpoint_bitbucket_legacy": {
-                "current": "azuredevops:ServiceEndpoint/bitBucket:BitBucket",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_serviceendpoint_dockerregistry": {
                 "current": "azuredevops:index/serviceEndpointDockerRegistry:ServiceEndpointDockerRegistry",
-                "majorVersion": 2
-            },
-            "azuredevops_serviceendpoint_dockerregistry_legacy": {
-                "current": "azuredevops:ServiceEndpoint/dockerRegistry:DockerRegistry",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_serviceendpoint_externaltfs": {
                 "current": "azuredevops:index/serviceendpointExternaltfs:ServiceendpointExternaltfs",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "auth_personal": {
                         "maxItemsOne": true
@@ -735,19 +545,19 @@
             },
             "azuredevops_serviceendpoint_gcp_terraform": {
                 "current": "azuredevops:index/serviceendpointGcpTerraform:ServiceendpointGcpTerraform",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_serviceendpoint_generic": {
                 "current": "azuredevops:index/serviceEndpointGeneric:ServiceEndpointGeneric",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_serviceendpoint_generic_git": {
                 "current": "azuredevops:index/serviceEndpointGenericGit:ServiceEndpointGenericGit",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_serviceendpoint_github": {
                 "current": "azuredevops:index/serviceEndpointGitHub:ServiceEndpointGitHub",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "auth_oauth": {
                         "maxItemsOne": true
@@ -759,20 +569,8 @@
             },
             "azuredevops_serviceendpoint_github_enterprise": {
                 "current": "azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
-                    "auth_personal": {
-                        "maxItemsOne": true
-                    }
-                }
-            },
-            "azuredevops_serviceendpoint_github_legacy": {
-                "current": "azuredevops:ServiceEndpoint/gitHub:GitHub",
-                "majorVersion": 2,
-                "fields": {
-                    "auth_oauth": {
-                        "maxItemsOne": true
-                    },
                     "auth_personal": {
                         "maxItemsOne": true
                     }
@@ -780,15 +578,15 @@
             },
             "azuredevops_serviceendpoint_incomingwebhook": {
                 "current": "azuredevops:index/serviceendpointIncomingwebhook:ServiceendpointIncomingwebhook",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_serviceendpoint_jenkins": {
                 "current": "azuredevops:index/serviceendpointJenkins:ServiceendpointJenkins",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_serviceendpoint_jfrog_artifactory_v2": {
                 "current": "azuredevops:index/serviceendpointJfrogArtifactoryV2:ServiceendpointJfrogArtifactoryV2",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "authentication_basic": {
                         "maxItemsOne": true
@@ -800,7 +598,7 @@
             },
             "azuredevops_serviceendpoint_jfrog_distribution_v2": {
                 "current": "azuredevops:index/serviceendpointJfrogDistributionV2:ServiceendpointJfrogDistributionV2",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "authentication_basic": {
                         "maxItemsOne": true
@@ -812,7 +610,7 @@
             },
             "azuredevops_serviceendpoint_jfrog_platform_v2": {
                 "current": "azuredevops:index/serviceendpointJfrogPlatformV2:ServiceendpointJfrogPlatformV2",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "authentication_basic": {
                         "maxItemsOne": true
@@ -824,7 +622,7 @@
             },
             "azuredevops_serviceendpoint_jfrog_xray_v2": {
                 "current": "azuredevops:index/serviceendpointJfrogXrayV2:ServiceendpointJfrogXrayV2",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "authentication_basic": {
                         "maxItemsOne": true
@@ -836,22 +634,7 @@
             },
             "azuredevops_serviceendpoint_kubernetes": {
                 "current": "azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes",
-                "majorVersion": 2,
-                "fields": {
-                    "azure_subscription": {
-                        "maxItemsOne": false
-                    },
-                    "kubeconfig": {
-                        "maxItemsOne": true
-                    },
-                    "service_account": {
-                        "maxItemsOne": true
-                    }
-                }
-            },
-            "azuredevops_serviceendpoint_kubernetes_legacy": {
-                "current": "azuredevops:ServiceEndpoint/kubernetes:Kubernetes",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "azure_subscription": {
                         "maxItemsOne": false
@@ -866,7 +649,7 @@
             },
             "azuredevops_serviceendpoint_maven": {
                 "current": "azuredevops:index/serviceendpointMaven:ServiceendpointMaven",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "authentication_basic": {
                         "maxItemsOne": true
@@ -878,27 +661,27 @@
             },
             "azuredevops_serviceendpoint_nexus": {
                 "current": "azuredevops:index/serviceendpointNexus:ServiceendpointNexus",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_serviceendpoint_npm": {
                 "current": "azuredevops:index/serviceEndpointNpm:ServiceEndpointNpm",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_serviceendpoint_nuget": {
                 "current": "azuredevops:index/serviceendpointNuget:ServiceendpointNuget",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_serviceendpoint_octopusdeploy": {
                 "current": "azuredevops:index/serviceendpointOctopusdeploy:ServiceendpointOctopusdeploy",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_serviceendpoint_permissions": {
                 "current": "azuredevops:index/serviceendpointPermissions:ServiceendpointPermissions",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_serviceendpoint_runpipeline": {
                 "current": "azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "auth_personal": {
                         "maxItemsOne": true
@@ -907,7 +690,7 @@
             },
             "azuredevops_serviceendpoint_servicefabric": {
                 "current": "azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "azure_active_directory": {
                         "maxItemsOne": true
@@ -922,23 +705,23 @@
             },
             "azuredevops_serviceendpoint_sonarcloud": {
                 "current": "azuredevops:index/serviceEndpointSonarCloud:ServiceEndpointSonarCloud",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_serviceendpoint_sonarqube": {
                 "current": "azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_serviceendpoint_ssh": {
                 "current": "azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_servicehook_permissions": {
                 "current": "azuredevops:index/servicehookPermissions:ServicehookPermissions",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_servicehook_storage_queue_pipelines": {
                 "current": "azuredevops:index/servicehookStorageQueuePipelines:ServicehookStorageQueuePipelines",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "run_state_changed_event": {
                         "maxItemsOne": true
@@ -950,11 +733,11 @@
             },
             "azuredevops_tagging_permissions": {
                 "current": "azuredevops:index/taggingPermissions:TaggingPermissions",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_team": {
                 "current": "azuredevops:index/team:Team",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "administrators": {
                         "maxItemsOne": false
@@ -966,7 +749,7 @@
             },
             "azuredevops_team_administrators": {
                 "current": "azuredevops:index/teamAdministrators:TeamAdministrators",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "administrators": {
                         "maxItemsOne": false
@@ -975,7 +758,7 @@
             },
             "azuredevops_team_members": {
                 "current": "azuredevops:index/teamMembers:TeamMembers",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "members": {
                         "maxItemsOne": false
@@ -984,15 +767,11 @@
             },
             "azuredevops_user_entitlement": {
                 "current": "azuredevops:index/user:User",
-                "majorVersion": 2
-            },
-            "azuredevops_user_entitlement_legacy": {
-                "current": "azuredevops:Entitlement/user:User",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_variable_group": {
                 "current": "azuredevops:index/variableGroup:VariableGroup",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "key_vault": {
                         "maxItemsOne": true
@@ -1002,21 +781,13 @@
                     }
                 }
             },
-            "azuredevops_variable_group_legacy": {
-                "current": "azuredevops:Pipeline/variableGroup:VariableGroup",
-                "majorVersion": 2,
-                "fields": {
-                    "key_vault": {
-                        "maxItemsOne": true
-                    },
-                    "variable": {
-                        "maxItemsOne": false
-                    }
-                }
+            "azuredevops_variable_group_permissions": {
+                "current": "azuredevops:index/variableGroupPermissions:VariableGroupPermissions",
+                "majorVersion": 3
             },
             "azuredevops_workitem": {
                 "current": "azuredevops:index/workitem:Workitem",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "tags": {
                         "maxItemsOne": false
@@ -1025,30 +796,17 @@
             },
             "azuredevops_workitemquery_permissions": {
                 "current": "azuredevops:index/workItemQueryPermissions:WorkItemQueryPermissions",
-                "majorVersion": 2
+                "majorVersion": 3
             }
         },
         "datasources": {
             "azuredevops_agent_pool": {
                 "current": "azuredevops:index/getPool:getPool",
-                "majorVersion": 2
-            },
-            "azuredevops_agent_pool_legacy": {
-                "current": "azuredevops:Agent/getPool:getPool",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_agent_pools": {
                 "current": "azuredevops:index/getPools:getPools",
-                "majorVersion": 2,
-                "fields": {
-                    "agent_pools": {
-                        "maxItemsOne": false
-                    }
-                }
-            },
-            "azuredevops_agent_pools_legacy": {
-                "current": "azuredevops:Agent/getPools:getPools",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "agent_pools": {
                         "maxItemsOne": false
@@ -1057,11 +815,11 @@
             },
             "azuredevops_agent_queue": {
                 "current": "azuredevops:index/getAgentQueue:getAgentQueue",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_area": {
                 "current": "azuredevops:index/getArea:getArea",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "children": {
                         "maxItemsOne": false
@@ -1070,7 +828,7 @@
             },
             "azuredevops_build_definition": {
                 "current": "azuredevops:index/getBuildDefinition:getBuildDefinition",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "ci_trigger": {
                         "maxItemsOne": false,
@@ -1191,28 +949,15 @@
             },
             "azuredevops_client_config": {
                 "current": "azuredevops:index/getClientConfig:getClientConfig",
-                "majorVersion": 2
-            },
-            "azuredevops_client_config_legacy": {
-                "current": "azuredevops:Core/getClientConfig:getClientConfig",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_environment": {
                 "current": "azuredevops:index/getEnvironment:getEnvironment",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_git_repositories": {
                 "current": "azuredevops:index/getRepositories:getRepositories",
-                "majorVersion": 2,
-                "fields": {
-                    "repositories": {
-                        "maxItemsOne": false
-                    }
-                }
-            },
-            "azuredevops_git_repositories_legacy": {
-                "current": "azuredevops:Repository/getRepositories:getRepositories",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "repositories": {
                         "maxItemsOne": false
@@ -1221,19 +966,15 @@
             },
             "azuredevops_git_repository": {
                 "current": "azuredevops:index/getGitRepository:getGitRepository",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_group": {
                 "current": "azuredevops:index/getGroup:getGroup",
-                "majorVersion": 2
-            },
-            "azuredevops_group_legacy": {
-                "current": "azuredevops:Identities/getGroup:getGroup",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_groups": {
                 "current": "azuredevops:index/getGroups:getGroups",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "groups": {
                         "maxItemsOne": false
@@ -1242,7 +983,7 @@
             },
             "azuredevops_iteration": {
                 "current": "azuredevops:index/getIteration:getIteration",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "children": {
                         "maxItemsOne": false
@@ -1251,24 +992,11 @@
             },
             "azuredevops_project": {
                 "current": "azuredevops:index/getProject:getProject",
-                "majorVersion": 2
-            },
-            "azuredevops_project_legacy": {
-                "current": "azuredevops:Core/getProject:getProject",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_projects": {
                 "current": "azuredevops:index/getProjects:getProjects",
-                "majorVersion": 2,
-                "fields": {
-                    "projects": {
-                        "maxItemsOne": false
-                    }
-                }
-            },
-            "azuredevops_projects_legacy": {
-                "current": "azuredevops:Core/getProjects:getProjects",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "projects": {
                         "maxItemsOne": false
@@ -1277,27 +1005,27 @@
             },
             "azuredevops_serviceendpoint_azurecr": {
                 "current": "azuredevops:index/getServiceendpointAzurecr:getServiceendpointAzurecr",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_serviceendpoint_azurerm": {
                 "current": "azuredevops:index/getServiceEndpointAzureRM:getServiceEndpointAzureRM",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_serviceendpoint_github": {
                 "current": "azuredevops:index/getServiceEndpointGithub:getServiceEndpointGithub",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_serviceendpoint_npm": {
                 "current": "azuredevops:index/getServiceendpointNpm:getServiceendpointNpm",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_serviceendpoint_sonarcloud": {
                 "current": "azuredevops:index/getServiceendpointSonarcloud:getServiceendpointSonarcloud",
-                "majorVersion": 2
+                "majorVersion": 3
             },
             "azuredevops_team": {
                 "current": "azuredevops:index/getTeam:getTeam",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "administrators": {
                         "maxItemsOne": false
@@ -1309,7 +1037,7 @@
             },
             "azuredevops_teams": {
                 "current": "azuredevops:index/getTeams:getTeams",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "teams": {
                         "maxItemsOne": false,
@@ -1328,22 +1056,7 @@
             },
             "azuredevops_users": {
                 "current": "azuredevops:index/getUsers:getUsers",
-                "majorVersion": 2,
-                "fields": {
-                    "features": {
-                        "maxItemsOne": true
-                    },
-                    "subject_types": {
-                        "maxItemsOne": false
-                    },
-                    "users": {
-                        "maxItemsOne": false
-                    }
-                }
-            },
-            "azuredevops_users_legacy": {
-                "current": "azuredevops:Identities/getUsers:getUsers",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "features": {
                         "maxItemsOne": true
@@ -1358,7 +1071,7 @@
             },
             "azuredevops_variable_group": {
                 "current": "azuredevops:index/getVariableGroup:getVariableGroup",
-                "majorVersion": 2,
+                "majorVersion": 3,
                 "fields": {
                     "key_vault": {
                         "maxItemsOne": false
@@ -1373,12 +1086,12 @@
     "auto-settings": {
         "resources": {
             "azuredevops_branch_policy_build_validation": {
-                "aliases": [
+                "renames": [
                     "azuredevops:Policy/branchPolicyBuildValidation:BranchPolicyBuildValidation"
                 ]
             },
             "azuredevops_resource_authorization": {
-                "aliases": [
+                "renames": [
                     "azuredevops:Security/resourceAuthorization:ResourceAuthorization"
                 ]
             }

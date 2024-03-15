@@ -4,12 +4,78 @@
 package config
 
 import (
-	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
+	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
 
 var _ = internal.GetEnvOrDefault
+
+// Base64 encoded certificate to use to authenticate to the service principal.
+func GetClientCertificate(ctx *pulumi.Context) string {
+	return config.Get(ctx, "azuredevops:clientCertificate")
+}
+
+// Password for a client certificate password.
+func GetClientCertificatePassword(ctx *pulumi.Context) string {
+	return config.Get(ctx, "azuredevops:clientCertificatePassword")
+}
+
+// Path to a certificate to use to authenticate to the service principal.
+func GetClientCertificatePath(ctx *pulumi.Context) string {
+	return config.Get(ctx, "azuredevops:clientCertificatePath")
+}
+
+// The service principal client or managed service principal id which should be used.
+func GetClientId(ctx *pulumi.Context) string {
+	return config.Get(ctx, "azuredevops:clientId")
+}
+func GetClientIdApply(ctx *pulumi.Context) string {
+	return config.Get(ctx, "azuredevops:clientIdApply")
+}
+func GetClientIdPlan(ctx *pulumi.Context) string {
+	return config.Get(ctx, "azuredevops:clientIdPlan")
+}
+
+// Client secret for authenticating to a service principal.
+func GetClientSecret(ctx *pulumi.Context) string {
+	return config.Get(ctx, "azuredevops:clientSecret")
+}
+
+// Path to a file containing a client secret for authenticating to a service principal.
+func GetClientSecretPath(ctx *pulumi.Context) string {
+	return config.Get(ctx, "azuredevops:clientSecretPath")
+}
+
+// Set the audience when requesting OIDC tokens.
+func GetOidcAudience(ctx *pulumi.Context) string {
+	return config.Get(ctx, "azuredevops:oidcAudience")
+}
+
+// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
+// Connect.
+func GetOidcRequestToken(ctx *pulumi.Context) string {
+	return config.Get(ctx, "azuredevops:oidcRequestToken")
+}
+
+// The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
+// using OpenID Connect.
+func GetOidcRequestUrl(ctx *pulumi.Context) string {
+	return config.Get(ctx, "azuredevops:oidcRequestUrl")
+}
+func GetOidcTfcTag(ctx *pulumi.Context) string {
+	return config.Get(ctx, "azuredevops:oidcTfcTag")
+}
+
+// OIDC token to authenticate as a service principal.
+func GetOidcToken(ctx *pulumi.Context) string {
+	return config.Get(ctx, "azuredevops:oidcToken")
+}
+
+// OIDC token from file to authenticate as a service principal.
+func GetOidcTokenFilePath(ctx *pulumi.Context) string {
+	return config.Get(ctx, "azuredevops:oidcTokenFilePath")
+}
 
 // The url of the Azure DevOps instance which should be used.
 func GetOrgServiceUrl(ctx *pulumi.Context) string {
@@ -27,4 +93,25 @@ func GetOrgServiceUrl(ctx *pulumi.Context) string {
 // The personal access token which should be used.
 func GetPersonalAccessToken(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azuredevops:personalAccessToken")
+}
+
+// The service principal tenant id which should be used.
+func GetTenantId(ctx *pulumi.Context) string {
+	return config.Get(ctx, "azuredevops:tenantId")
+}
+func GetTenantIdApply(ctx *pulumi.Context) string {
+	return config.Get(ctx, "azuredevops:tenantIdApply")
+}
+func GetTenantIdPlan(ctx *pulumi.Context) string {
+	return config.Get(ctx, "azuredevops:tenantIdPlan")
+}
+
+// Use an Azure Managed Service Identity.
+func GetUseMsi(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "azuredevops:useMsi")
+}
+
+// Use an OIDC token to authenticate to a service principal.
+func GetUseOidc(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "azuredevops:useOidc")
 }

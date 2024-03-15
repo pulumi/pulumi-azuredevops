@@ -9,7 +9,6 @@ import com.pulumi.azuredevops.inputs.ServiceEndpointKubernetesState;
 import com.pulumi.azuredevops.outputs.ServiceEndpointKubernetesAzureSubscription;
 import com.pulumi.azuredevops.outputs.ServiceEndpointKubernetesKubeconfig;
 import com.pulumi.azuredevops.outputs.ServiceEndpointKubernetesServiceAccount;
-import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -177,9 +176,6 @@ public class ServiceEndpointKubernetes extends com.pulumi.resources.CustomResour
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .aliases(List.of(
-                Output.of(Alias.builder().type("azuredevops:ServiceEndpoint/kubernetes:Kubernetes").build())
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -102,6 +102,10 @@ export class CheckExclusiveLock extends pulumi.CustomResource {
      * The timeout in minutes for the exclusive lock. Defaults to `43200`.
      */
     public readonly timeout!: pulumi.Output<number | undefined>;
+    /**
+     * The version of the check.
+     */
+    public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
      * Create a CheckExclusiveLock resource with the given unique name, arguments, and options.
@@ -120,6 +124,7 @@ export class CheckExclusiveLock extends pulumi.CustomResource {
             resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
             resourceInputs["targetResourceType"] = state ? state.targetResourceType : undefined;
             resourceInputs["timeout"] = state ? state.timeout : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as CheckExclusiveLockArgs | undefined;
             if ((!args || args.projectId === undefined) && !opts.urn) {
@@ -135,6 +140,7 @@ export class CheckExclusiveLock extends pulumi.CustomResource {
             resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
             resourceInputs["targetResourceType"] = args ? args.targetResourceType : undefined;
             resourceInputs["timeout"] = args ? args.timeout : undefined;
+            resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CheckExclusiveLock.__pulumiType, name, resourceInputs, opts);
@@ -161,6 +167,10 @@ export interface CheckExclusiveLockState {
      * The timeout in minutes for the exclusive lock. Defaults to `43200`.
      */
     timeout?: pulumi.Input<number>;
+    /**
+     * The version of the check.
+     */
+    version?: pulumi.Input<number>;
 }
 
 /**

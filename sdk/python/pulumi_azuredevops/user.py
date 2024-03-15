@@ -327,8 +327,6 @@ class User(pulumi.CustomResource):
             __props__.__dict__["origin_id"] = origin_id
             __props__.__dict__["principal_name"] = principal_name
             __props__.__dict__["descriptor"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azuredevops:Entitlement/user:User")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(User, __self__).__init__(
             'azuredevops:index/user:User',
             resource_name,

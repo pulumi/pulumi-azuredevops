@@ -270,6 +270,7 @@ class _CheckBusinessHoursState:
                  time_zone: Optional[pulumi.Input[str]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  tuesday: Optional[pulumi.Input[bool]] = None,
+                 version: Optional[pulumi.Input[int]] = None,
                  wednesday: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering CheckBusinessHours resources.
@@ -287,6 +288,7 @@ class _CheckBusinessHoursState:
         :param pulumi.Input[str] time_zone: The time zone this check will be evaluated in. See below for supported values.
         :param pulumi.Input[int] timeout: The timeout in minutes for the business hours check. Defaults to `1440`.
         :param pulumi.Input[bool] tuesday: This check will pass on Tuesday. Defaults to `false`.
+        :param pulumi.Input[int] version: The version of the check.
         :param pulumi.Input[bool] wednesday: This check will pass on Wednesdays. Defaults to `false`.
         """
         if display_name is not None:
@@ -317,6 +319,8 @@ class _CheckBusinessHoursState:
             pulumi.set(__self__, "timeout", timeout)
         if tuesday is not None:
             pulumi.set(__self__, "tuesday", tuesday)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
         if wednesday is not None:
             pulumi.set(__self__, "wednesday", wednesday)
 
@@ -487,6 +491,18 @@ class _CheckBusinessHoursState:
     @tuesday.setter
     def tuesday(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "tuesday", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[int]]:
+        """
+        The version of the check.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "version", value)
 
     @property
     @pulumi.getter
@@ -1202,6 +1218,7 @@ class CheckBusinessHours(pulumi.CustomResource):
             __props__.__dict__["timeout"] = timeout
             __props__.__dict__["tuesday"] = tuesday
             __props__.__dict__["wednesday"] = wednesday
+            __props__.__dict__["version"] = None
         super(CheckBusinessHours, __self__).__init__(
             'azuredevops:index/checkBusinessHours:CheckBusinessHours',
             resource_name,
@@ -1226,6 +1243,7 @@ class CheckBusinessHours(pulumi.CustomResource):
             time_zone: Optional[pulumi.Input[str]] = None,
             timeout: Optional[pulumi.Input[int]] = None,
             tuesday: Optional[pulumi.Input[bool]] = None,
+            version: Optional[pulumi.Input[int]] = None,
             wednesday: Optional[pulumi.Input[bool]] = None) -> 'CheckBusinessHours':
         """
         Get an existing CheckBusinessHours resource's state with the given name, id, and optional extra
@@ -1248,6 +1266,7 @@ class CheckBusinessHours(pulumi.CustomResource):
         :param pulumi.Input[str] time_zone: The time zone this check will be evaluated in. See below for supported values.
         :param pulumi.Input[int] timeout: The timeout in minutes for the business hours check. Defaults to `1440`.
         :param pulumi.Input[bool] tuesday: This check will pass on Tuesday. Defaults to `false`.
+        :param pulumi.Input[int] version: The version of the check.
         :param pulumi.Input[bool] wednesday: This check will pass on Wednesdays. Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1268,6 +1287,7 @@ class CheckBusinessHours(pulumi.CustomResource):
         __props__.__dict__["time_zone"] = time_zone
         __props__.__dict__["timeout"] = timeout
         __props__.__dict__["tuesday"] = tuesday
+        __props__.__dict__["version"] = version
         __props__.__dict__["wednesday"] = wednesday
         return CheckBusinessHours(resource_name, opts=opts, __props__=__props__)
 
@@ -1382,6 +1402,14 @@ class CheckBusinessHours(pulumi.CustomResource):
         This check will pass on Tuesday. Defaults to `false`.
         """
         return pulumi.get(self, "tuesday")
+
+    @property
+    @pulumi.getter
+    def version(self) -> pulumi.Output[int]:
+        """
+        The version of the check.
+        """
+        return pulumi.get(self, "version")
 
     @property
     @pulumi.getter

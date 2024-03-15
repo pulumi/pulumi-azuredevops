@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	azdo "github.com/pulumi/pulumi-azuredevops/provider/v2"
-	"github.com/pulumi/pulumi-azuredevops/provider/v2/pkg/version"
+	azdo "github.com/pulumi/pulumi-azuredevops/provider/v3"
+	"github.com/pulumi/pulumi-azuredevops/provider/v3/pkg/version"
 	testutils "github.com/pulumi/pulumi-terraform-bridge/testing/x"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"

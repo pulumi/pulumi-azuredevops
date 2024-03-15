@@ -1,9 +1,9 @@
-module github.com/pulumi/pulumi-azuredevops/examples/2
+module github.com/pulumi/pulumi-azuredevops/examples/3
 
 go 1.21
 
 require (
-	github.com/pulumi/pulumi-azuredevops/provider/v2 v2.14.0
+	github.com/pulumi/pulumi-azuredevops/provider/v3 v3.0.0
 	github.com/pulumi/pulumi-terraform-bridge/testing v0.0.1
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.77.0
 	github.com/pulumi/pulumi/pkg/v3 v3.108.1
@@ -12,7 +12,7 @@ require (
 replace (
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240129205329-74776a5cd5f9
 	github.com/microsoft/terraform-provider-azuredevops => ../upstream
-	github.com/pulumi/pulumi-azuredevops/provider/v2 => ../provider
+	github.com/pulumi/pulumi-azuredevops/provider/v3 => ../provider
 )
 
 require (

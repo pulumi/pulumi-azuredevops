@@ -204,6 +204,10 @@ export class CheckBranchControl extends pulumi.CustomResource {
      * Validate the branches being deployed are protected. Defaults to `false`.
      */
     public readonly verifyBranchProtection!: pulumi.Output<boolean | undefined>;
+    /**
+     * The version of the check.
+     */
+    public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
      * Create a CheckBranchControl resource with the given unique name, arguments, and options.
@@ -226,6 +230,7 @@ export class CheckBranchControl extends pulumi.CustomResource {
             resourceInputs["targetResourceType"] = state ? state.targetResourceType : undefined;
             resourceInputs["timeout"] = state ? state.timeout : undefined;
             resourceInputs["verifyBranchProtection"] = state ? state.verifyBranchProtection : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as CheckBranchControlArgs | undefined;
             if ((!args || args.projectId === undefined) && !opts.urn) {
@@ -245,6 +250,7 @@ export class CheckBranchControl extends pulumi.CustomResource {
             resourceInputs["targetResourceType"] = args ? args.targetResourceType : undefined;
             resourceInputs["timeout"] = args ? args.timeout : undefined;
             resourceInputs["verifyBranchProtection"] = args ? args.verifyBranchProtection : undefined;
+            resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CheckBranchControl.__pulumiType, name, resourceInputs, opts);
@@ -287,6 +293,10 @@ export interface CheckBranchControlState {
      * Validate the branches being deployed are protected. Defaults to `false`.
      */
     verifyBranchProtection?: pulumi.Input<boolean>;
+    /**
+     * The version of the check.
+     */
+    version?: pulumi.Input<number>;
 }
 
 /**

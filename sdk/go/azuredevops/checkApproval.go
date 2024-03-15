@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
+	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -88,6 +88,8 @@ type CheckApproval struct {
 	TargetResourceType pulumi.StringOutput `pulumi:"targetResourceType"`
 	// The timeout in minutes for the approval.  Defaults to `43200`.
 	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
+	// The version of the check.
+	Version pulumi.IntOutput `pulumi:"version"`
 }
 
 // NewCheckApproval registers a new resource with the given unique name, arguments, and options.
@@ -148,6 +150,8 @@ type checkApprovalState struct {
 	TargetResourceType *string `pulumi:"targetResourceType"`
 	// The timeout in minutes for the approval.  Defaults to `43200`.
 	Timeout *int `pulumi:"timeout"`
+	// The version of the check.
+	Version *int `pulumi:"version"`
 }
 
 type CheckApprovalState struct {
@@ -167,6 +171,8 @@ type CheckApprovalState struct {
 	TargetResourceType pulumi.StringPtrInput
 	// The timeout in minutes for the approval.  Defaults to `43200`.
 	Timeout pulumi.IntPtrInput
+	// The version of the check.
+	Version pulumi.IntPtrInput
 }
 
 func (CheckApprovalState) ElementType() reflect.Type {
@@ -337,6 +343,11 @@ func (o CheckApprovalOutput) TargetResourceType() pulumi.StringOutput {
 // The timeout in minutes for the approval.  Defaults to `43200`.
 func (o CheckApprovalOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CheckApproval) pulumi.IntPtrOutput { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+// The version of the check.
+func (o CheckApprovalOutput) Version() pulumi.IntOutput {
+	return o.ApplyT(func(v *CheckApproval) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
 }
 
 type CheckApprovalArrayOutput struct{ *pulumi.OutputState }

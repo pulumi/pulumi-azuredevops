@@ -241,8 +241,6 @@ class ProjectFeatures(pulumi.CustomResource):
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__.__dict__["project_id"] = project_id
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azuredevops:Core/projectFeatures:ProjectFeatures")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ProjectFeatures, __self__).__init__(
             'azuredevops:index/projectFeatures:ProjectFeatures',
             resource_name,
