@@ -23,6 +23,13 @@ class EnvironmentResourceKubernetesArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a EnvironmentResourceKubernetes resource.
+        :param pulumi.Input[int] environment_id: The ID of the environment under which to create the Kubernetes Resource.
+        :param pulumi.Input[str] namespace: The namespace for the Kubernetes Resource.
+        :param pulumi.Input[str] project_id: The ID of the project.
+        :param pulumi.Input[str] service_endpoint_id: The ID of the service endpoint to associate with the Kubernetes Resource.
+        :param pulumi.Input[str] cluster_name: A cluster name for the Kubernetes Resource.
+        :param pulumi.Input[str] name: The name for the Kubernetes Resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A set of tags for the Kubernetes Resource.
         """
         pulumi.set(__self__, "environment_id", environment_id)
         pulumi.set(__self__, "namespace", namespace)
@@ -38,6 +45,9 @@ class EnvironmentResourceKubernetesArgs:
     @property
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> pulumi.Input[int]:
+        """
+        The ID of the environment under which to create the Kubernetes Resource.
+        """
         return pulumi.get(self, "environment_id")
 
     @environment_id.setter
@@ -47,6 +57,9 @@ class EnvironmentResourceKubernetesArgs:
     @property
     @pulumi.getter
     def namespace(self) -> pulumi.Input[str]:
+        """
+        The namespace for the Kubernetes Resource.
+        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -56,6 +69,9 @@ class EnvironmentResourceKubernetesArgs:
     @property
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the project.
+        """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
@@ -65,6 +81,9 @@ class EnvironmentResourceKubernetesArgs:
     @property
     @pulumi.getter(name="serviceEndpointId")
     def service_endpoint_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the service endpoint to associate with the Kubernetes Resource.
+        """
         return pulumi.get(self, "service_endpoint_id")
 
     @service_endpoint_id.setter
@@ -74,6 +93,9 @@ class EnvironmentResourceKubernetesArgs:
     @property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A cluster name for the Kubernetes Resource.
+        """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
@@ -83,6 +105,9 @@ class EnvironmentResourceKubernetesArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name for the Kubernetes Resource.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -92,6 +117,9 @@ class EnvironmentResourceKubernetesArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A set of tags for the Kubernetes Resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -111,6 +139,13 @@ class _EnvironmentResourceKubernetesState:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering EnvironmentResourceKubernetes resources.
+        :param pulumi.Input[str] cluster_name: A cluster name for the Kubernetes Resource.
+        :param pulumi.Input[int] environment_id: The ID of the environment under which to create the Kubernetes Resource.
+        :param pulumi.Input[str] name: The name for the Kubernetes Resource.
+        :param pulumi.Input[str] namespace: The namespace for the Kubernetes Resource.
+        :param pulumi.Input[str] project_id: The ID of the project.
+        :param pulumi.Input[str] service_endpoint_id: The ID of the service endpoint to associate with the Kubernetes Resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A set of tags for the Kubernetes Resource.
         """
         if cluster_name is not None:
             pulumi.set(__self__, "cluster_name", cluster_name)
@@ -130,6 +165,9 @@ class _EnvironmentResourceKubernetesState:
     @property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A cluster name for the Kubernetes Resource.
+        """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
@@ -139,6 +177,9 @@ class _EnvironmentResourceKubernetesState:
     @property
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        The ID of the environment under which to create the Kubernetes Resource.
+        """
         return pulumi.get(self, "environment_id")
 
     @environment_id.setter
@@ -148,6 +189,9 @@ class _EnvironmentResourceKubernetesState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name for the Kubernetes Resource.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -157,6 +201,9 @@ class _EnvironmentResourceKubernetesState:
     @property
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[str]]:
+        """
+        The namespace for the Kubernetes Resource.
+        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -166,6 +213,9 @@ class _EnvironmentResourceKubernetesState:
     @property
     @pulumi.getter(name="projectId")
     def project_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the project.
+        """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
@@ -175,6 +225,9 @@ class _EnvironmentResourceKubernetesState:
     @property
     @pulumi.getter(name="serviceEndpointId")
     def service_endpoint_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the service endpoint to associate with the Kubernetes Resource.
+        """
         return pulumi.get(self, "service_endpoint_id")
 
     @service_endpoint_id.setter
@@ -184,6 +237,9 @@ class _EnvironmentResourceKubernetesState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A set of tags for the Kubernetes Resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -205,9 +261,64 @@ class EnvironmentResourceKubernetes(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a EnvironmentResourceKubernetes resource with the given unique name, props, and options.
+        Manages a Kubernetes Resource for an Environment.
+
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_environment = azuredevops.Environment("exampleEnvironment", project_id=example_project.id)
+        example_service_endpoint_kubernetes = azuredevops.ServiceEndpointKubernetes("exampleServiceEndpointKubernetes",
+            project_id=example_project.id,
+            service_endpoint_name="Example Kubernetes",
+            apiserver_url="https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io",
+            authorization_type="AzureSubscription",
+            azure_subscriptions=[azuredevops.ServiceEndpointKubernetesAzureSubscriptionArgs(
+                subscription_id="00000000-0000-0000-0000-000000000000",
+                subscription_name="Example",
+                tenant_id="00000000-0000-0000-0000-000000000000",
+                resourcegroup_id="example-rg",
+                namespace="default",
+                cluster_name="example-aks",
+            )])
+        example_environment_resource_kubernetes = azuredevops.EnvironmentResourceKubernetes("exampleEnvironmentResourceKubernetes",
+            project_id=example_project.id,
+            environment_id=example_environment.id,
+            service_endpoint_id=example_service_endpoint_kubernetes.id,
+            namespace="default",
+            cluster_name="example-aks",
+            tags=[
+                "tag1",
+                "tag2",
+            ])
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ## Relevant Links
+
+        * [Azure DevOps Service REST API 6.0 - Kubernetes](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/kubernetes?view=azure-devops-rest-6.0)
+
+        ## Import
+
+        The resource does not support import.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cluster_name: A cluster name for the Kubernetes Resource.
+        :param pulumi.Input[int] environment_id: The ID of the environment under which to create the Kubernetes Resource.
+        :param pulumi.Input[str] name: The name for the Kubernetes Resource.
+        :param pulumi.Input[str] namespace: The namespace for the Kubernetes Resource.
+        :param pulumi.Input[str] project_id: The ID of the project.
+        :param pulumi.Input[str] service_endpoint_id: The ID of the service endpoint to associate with the Kubernetes Resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A set of tags for the Kubernetes Resource.
         """
         ...
     @overload
@@ -216,7 +327,55 @@ class EnvironmentResourceKubernetes(pulumi.CustomResource):
                  args: EnvironmentResourceKubernetesArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a EnvironmentResourceKubernetes resource with the given unique name, props, and options.
+        Manages a Kubernetes Resource for an Environment.
+
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_environment = azuredevops.Environment("exampleEnvironment", project_id=example_project.id)
+        example_service_endpoint_kubernetes = azuredevops.ServiceEndpointKubernetes("exampleServiceEndpointKubernetes",
+            project_id=example_project.id,
+            service_endpoint_name="Example Kubernetes",
+            apiserver_url="https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io",
+            authorization_type="AzureSubscription",
+            azure_subscriptions=[azuredevops.ServiceEndpointKubernetesAzureSubscriptionArgs(
+                subscription_id="00000000-0000-0000-0000-000000000000",
+                subscription_name="Example",
+                tenant_id="00000000-0000-0000-0000-000000000000",
+                resourcegroup_id="example-rg",
+                namespace="default",
+                cluster_name="example-aks",
+            )])
+        example_environment_resource_kubernetes = azuredevops.EnvironmentResourceKubernetes("exampleEnvironmentResourceKubernetes",
+            project_id=example_project.id,
+            environment_id=example_environment.id,
+            service_endpoint_id=example_service_endpoint_kubernetes.id,
+            namespace="default",
+            cluster_name="example-aks",
+            tags=[
+                "tag1",
+                "tag2",
+            ])
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ## Relevant Links
+
+        * [Azure DevOps Service REST API 6.0 - Kubernetes](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/kubernetes?view=azure-devops-rest-6.0)
+
+        ## Import
+
+        The resource does not support import.
+
         :param str resource_name: The name of the resource.
         :param EnvironmentResourceKubernetesArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -287,6 +446,13 @@ class EnvironmentResourceKubernetes(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cluster_name: A cluster name for the Kubernetes Resource.
+        :param pulumi.Input[int] environment_id: The ID of the environment under which to create the Kubernetes Resource.
+        :param pulumi.Input[str] name: The name for the Kubernetes Resource.
+        :param pulumi.Input[str] namespace: The namespace for the Kubernetes Resource.
+        :param pulumi.Input[str] project_id: The ID of the project.
+        :param pulumi.Input[str] service_endpoint_id: The ID of the service endpoint to associate with the Kubernetes Resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A set of tags for the Kubernetes Resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -304,35 +470,56 @@ class EnvironmentResourceKubernetes(pulumi.CustomResource):
     @property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        A cluster name for the Kubernetes Resource.
+        """
         return pulumi.get(self, "cluster_name")
 
     @property
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> pulumi.Output[int]:
+        """
+        The ID of the environment under which to create the Kubernetes Resource.
+        """
         return pulumi.get(self, "environment_id")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name for the Kubernetes Resource.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def namespace(self) -> pulumi.Output[str]:
+        """
+        The namespace for the Kubernetes Resource.
+        """
         return pulumi.get(self, "namespace")
 
     @property
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the project.
+        """
         return pulumi.get(self, "project_id")
 
     @property
     @pulumi.getter(name="serviceEndpointId")
     def service_endpoint_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the service endpoint to associate with the Kubernetes Resource.
+        """
         return pulumi.get(self, "service_endpoint_id")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A set of tags for the Kubernetes Resource.
+        """
         return pulumi.get(self, "tags")
 
