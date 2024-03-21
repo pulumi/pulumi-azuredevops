@@ -79,9 +79,14 @@ func Provider() tfbridge.ProviderInfo {
 			"azuredevops_agent_queue":                 {Tok: makeResource("Queue")},
 			"azuredevops_branch_policy_min_reviewers": {Tok: makeResource("BranchPolicyMinReviewers")},
 			"azuredevops_build_definition":            {Tok: makeResource("BuildDefinition")},
-			"azuredevops_git_repository":              {Tok: makeResource("Git")},
-			"azuredevops_group":                       {Tok: makeResource("Group")},
-			"azuredevops_group_membership":            {Tok: makeResource("GroupMembership")},
+			"azuredevops_environment_resource_kubernetes": {
+				Docs: &tfbridge.DocInfo{
+					Source: "kubernetes_resource.html.markdown",
+				},
+			},
+			"azuredevops_git_repository":   {Tok: makeResource("Git")},
+			"azuredevops_group":            {Tok: makeResource("Group")},
+			"azuredevops_group_membership": {Tok: makeResource("GroupMembership")},
 			"azuredevops_iteration_permissions": {
 				// iteration -> Iterative
 				Tok: makeResource("IterativePermissions"),

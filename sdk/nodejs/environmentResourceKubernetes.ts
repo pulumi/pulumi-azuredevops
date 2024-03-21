@@ -4,6 +4,59 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Manages a Kubernetes Resource for an Environment.
+ *
+ * ## Example Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     workItemTemplate: "Agile",
+ *     versionControl: "Git",
+ *     visibility: "private",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleEnvironment = new azuredevops.Environment("exampleEnvironment", {projectId: exampleProject.id});
+ * const exampleServiceEndpointKubernetes = new azuredevops.ServiceEndpointKubernetes("exampleServiceEndpointKubernetes", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: "Example Kubernetes",
+ *     apiserverUrl: "https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io",
+ *     authorizationType: "AzureSubscription",
+ *     azureSubscriptions: [{
+ *         subscriptionId: "00000000-0000-0000-0000-000000000000",
+ *         subscriptionName: "Example",
+ *         tenantId: "00000000-0000-0000-0000-000000000000",
+ *         resourcegroupId: "example-rg",
+ *         namespace: "default",
+ *         clusterName: "example-aks",
+ *     }],
+ * });
+ * const exampleEnvironmentResourceKubernetes = new azuredevops.EnvironmentResourceKubernetes("exampleEnvironmentResourceKubernetes", {
+ *     projectId: exampleProject.id,
+ *     environmentId: exampleEnvironment.id,
+ *     serviceEndpointId: exampleServiceEndpointKubernetes.id,
+ *     namespace: "default",
+ *     clusterName: "example-aks",
+ *     tags: [
+ *         "tag1",
+ *         "tag2",
+ *     ],
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ## Relevant Links
+ *
+ * * [Azure DevOps Service REST API 6.0 - Kubernetes](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/kubernetes?view=azure-devops-rest-6.0)
+ *
+ * ## Import
+ *
+ * The resource does not support import.
+ */
 export class EnvironmentResourceKubernetes extends pulumi.CustomResource {
     /**
      * Get an existing EnvironmentResourceKubernetes resource's state with the given name, ID, and optional extra
@@ -32,12 +85,33 @@ export class EnvironmentResourceKubernetes extends pulumi.CustomResource {
         return obj['__pulumiType'] === EnvironmentResourceKubernetes.__pulumiType;
     }
 
+    /**
+     * A cluster name for the Kubernetes Resource.
+     */
     public readonly clusterName!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the environment under which to create the Kubernetes Resource.
+     */
     public readonly environmentId!: pulumi.Output<number>;
+    /**
+     * The name for the Kubernetes Resource.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The namespace for the Kubernetes Resource.
+     */
     public readonly namespace!: pulumi.Output<string>;
+    /**
+     * The ID of the project.
+     */
     public readonly projectId!: pulumi.Output<string>;
+    /**
+     * The ID of the service endpoint to associate with the Kubernetes Resource.
+     */
     public readonly serviceEndpointId!: pulumi.Output<string>;
+    /**
+     * A set of tags for the Kubernetes Resource.
+     */
     public readonly tags!: pulumi.Output<string[] | undefined>;
 
     /**
@@ -91,12 +165,33 @@ export class EnvironmentResourceKubernetes extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EnvironmentResourceKubernetes resources.
  */
 export interface EnvironmentResourceKubernetesState {
+    /**
+     * A cluster name for the Kubernetes Resource.
+     */
     clusterName?: pulumi.Input<string>;
+    /**
+     * The ID of the environment under which to create the Kubernetes Resource.
+     */
     environmentId?: pulumi.Input<number>;
+    /**
+     * The name for the Kubernetes Resource.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The namespace for the Kubernetes Resource.
+     */
     namespace?: pulumi.Input<string>;
+    /**
+     * The ID of the project.
+     */
     projectId?: pulumi.Input<string>;
+    /**
+     * The ID of the service endpoint to associate with the Kubernetes Resource.
+     */
     serviceEndpointId?: pulumi.Input<string>;
+    /**
+     * A set of tags for the Kubernetes Resource.
+     */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
@@ -104,11 +199,32 @@ export interface EnvironmentResourceKubernetesState {
  * The set of arguments for constructing a EnvironmentResourceKubernetes resource.
  */
 export interface EnvironmentResourceKubernetesArgs {
+    /**
+     * A cluster name for the Kubernetes Resource.
+     */
     clusterName?: pulumi.Input<string>;
+    /**
+     * The ID of the environment under which to create the Kubernetes Resource.
+     */
     environmentId: pulumi.Input<number>;
+    /**
+     * The name for the Kubernetes Resource.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The namespace for the Kubernetes Resource.
+     */
     namespace: pulumi.Input<string>;
+    /**
+     * The ID of the project.
+     */
     projectId: pulumi.Input<string>;
+    /**
+     * The ID of the service endpoint to associate with the Kubernetes Resource.
+     */
     serviceEndpointId: pulumi.Input<string>;
+    /**
+     * A set of tags for the Kubernetes Resource.
+     */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
 }

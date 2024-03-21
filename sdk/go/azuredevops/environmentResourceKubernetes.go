@@ -12,16 +12,102 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a Kubernetes Resource for an Environment.
+//
+// ## Example Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				VersionControl:   pulumi.String("Git"),
+//				Visibility:       pulumi.String("private"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEnvironment, err := azuredevops.NewEnvironment(ctx, "exampleEnvironment", &azuredevops.EnvironmentArgs{
+//				ProjectId: exampleProject.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServiceEndpointKubernetes, err := azuredevops.NewServiceEndpointKubernetes(ctx, "exampleServiceEndpointKubernetes", &azuredevops.ServiceEndpointKubernetesArgs{
+//				ProjectId:           exampleProject.ID(),
+//				ServiceEndpointName: pulumi.String("Example Kubernetes"),
+//				ApiserverUrl:        pulumi.String("https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io"),
+//				AuthorizationType:   pulumi.String("AzureSubscription"),
+//				AzureSubscriptions: azuredevops.ServiceEndpointKubernetesAzureSubscriptionArray{
+//					&azuredevops.ServiceEndpointKubernetesAzureSubscriptionArgs{
+//						SubscriptionId:   pulumi.String("00000000-0000-0000-0000-000000000000"),
+//						SubscriptionName: pulumi.String("Example"),
+//						TenantId:         pulumi.String("00000000-0000-0000-0000-000000000000"),
+//						ResourcegroupId:  pulumi.String("example-rg"),
+//						Namespace:        pulumi.String("default"),
+//						ClusterName:      pulumi.String("example-aks"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewEnvironmentResourceKubernetes(ctx, "exampleEnvironmentResourceKubernetes", &azuredevops.EnvironmentResourceKubernetesArgs{
+//				ProjectId:         exampleProject.ID(),
+//				EnvironmentId:     exampleEnvironment.ID(),
+//				ServiceEndpointId: exampleServiceEndpointKubernetes.ID(),
+//				Namespace:         pulumi.String("default"),
+//				ClusterName:       pulumi.String("example-aks"),
+//				Tags: pulumi.StringArray{
+//					pulumi.String("tag1"),
+//					pulumi.String("tag2"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ## Relevant Links
+//
+// * [Azure DevOps Service REST API 6.0 - Kubernetes](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/kubernetes?view=azure-devops-rest-6.0)
+//
+// ## Import
+//
+// The resource does not support import.
 type EnvironmentResourceKubernetes struct {
 	pulumi.CustomResourceState
 
-	ClusterName       pulumi.StringPtrOutput   `pulumi:"clusterName"`
-	EnvironmentId     pulumi.IntOutput         `pulumi:"environmentId"`
-	Name              pulumi.StringOutput      `pulumi:"name"`
-	Namespace         pulumi.StringOutput      `pulumi:"namespace"`
-	ProjectId         pulumi.StringOutput      `pulumi:"projectId"`
-	ServiceEndpointId pulumi.StringOutput      `pulumi:"serviceEndpointId"`
-	Tags              pulumi.StringArrayOutput `pulumi:"tags"`
+	// A cluster name for the Kubernetes Resource.
+	ClusterName pulumi.StringPtrOutput `pulumi:"clusterName"`
+	// The ID of the environment under which to create the Kubernetes Resource.
+	EnvironmentId pulumi.IntOutput `pulumi:"environmentId"`
+	// The name for the Kubernetes Resource.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The namespace for the Kubernetes Resource.
+	Namespace pulumi.StringOutput `pulumi:"namespace"`
+	// The ID of the project.
+	ProjectId pulumi.StringOutput `pulumi:"projectId"`
+	// The ID of the service endpoint to associate with the Kubernetes Resource.
+	ServiceEndpointId pulumi.StringOutput `pulumi:"serviceEndpointId"`
+	// A set of tags for the Kubernetes Resource.
+	Tags pulumi.StringArrayOutput `pulumi:"tags"`
 }
 
 // NewEnvironmentResourceKubernetes registers a new resource with the given unique name, arguments, and options.
@@ -66,23 +152,37 @@ func GetEnvironmentResourceKubernetes(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EnvironmentResourceKubernetes resources.
 type environmentResourceKubernetesState struct {
-	ClusterName       *string  `pulumi:"clusterName"`
-	EnvironmentId     *int     `pulumi:"environmentId"`
-	Name              *string  `pulumi:"name"`
-	Namespace         *string  `pulumi:"namespace"`
-	ProjectId         *string  `pulumi:"projectId"`
-	ServiceEndpointId *string  `pulumi:"serviceEndpointId"`
-	Tags              []string `pulumi:"tags"`
+	// A cluster name for the Kubernetes Resource.
+	ClusterName *string `pulumi:"clusterName"`
+	// The ID of the environment under which to create the Kubernetes Resource.
+	EnvironmentId *int `pulumi:"environmentId"`
+	// The name for the Kubernetes Resource.
+	Name *string `pulumi:"name"`
+	// The namespace for the Kubernetes Resource.
+	Namespace *string `pulumi:"namespace"`
+	// The ID of the project.
+	ProjectId *string `pulumi:"projectId"`
+	// The ID of the service endpoint to associate with the Kubernetes Resource.
+	ServiceEndpointId *string `pulumi:"serviceEndpointId"`
+	// A set of tags for the Kubernetes Resource.
+	Tags []string `pulumi:"tags"`
 }
 
 type EnvironmentResourceKubernetesState struct {
-	ClusterName       pulumi.StringPtrInput
-	EnvironmentId     pulumi.IntPtrInput
-	Name              pulumi.StringPtrInput
-	Namespace         pulumi.StringPtrInput
-	ProjectId         pulumi.StringPtrInput
+	// A cluster name for the Kubernetes Resource.
+	ClusterName pulumi.StringPtrInput
+	// The ID of the environment under which to create the Kubernetes Resource.
+	EnvironmentId pulumi.IntPtrInput
+	// The name for the Kubernetes Resource.
+	Name pulumi.StringPtrInput
+	// The namespace for the Kubernetes Resource.
+	Namespace pulumi.StringPtrInput
+	// The ID of the project.
+	ProjectId pulumi.StringPtrInput
+	// The ID of the service endpoint to associate with the Kubernetes Resource.
 	ServiceEndpointId pulumi.StringPtrInput
-	Tags              pulumi.StringArrayInput
+	// A set of tags for the Kubernetes Resource.
+	Tags pulumi.StringArrayInput
 }
 
 func (EnvironmentResourceKubernetesState) ElementType() reflect.Type {
@@ -90,24 +190,38 @@ func (EnvironmentResourceKubernetesState) ElementType() reflect.Type {
 }
 
 type environmentResourceKubernetesArgs struct {
-	ClusterName       *string  `pulumi:"clusterName"`
-	EnvironmentId     int      `pulumi:"environmentId"`
-	Name              *string  `pulumi:"name"`
-	Namespace         string   `pulumi:"namespace"`
-	ProjectId         string   `pulumi:"projectId"`
-	ServiceEndpointId string   `pulumi:"serviceEndpointId"`
-	Tags              []string `pulumi:"tags"`
+	// A cluster name for the Kubernetes Resource.
+	ClusterName *string `pulumi:"clusterName"`
+	// The ID of the environment under which to create the Kubernetes Resource.
+	EnvironmentId int `pulumi:"environmentId"`
+	// The name for the Kubernetes Resource.
+	Name *string `pulumi:"name"`
+	// The namespace for the Kubernetes Resource.
+	Namespace string `pulumi:"namespace"`
+	// The ID of the project.
+	ProjectId string `pulumi:"projectId"`
+	// The ID of the service endpoint to associate with the Kubernetes Resource.
+	ServiceEndpointId string `pulumi:"serviceEndpointId"`
+	// A set of tags for the Kubernetes Resource.
+	Tags []string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EnvironmentResourceKubernetes resource.
 type EnvironmentResourceKubernetesArgs struct {
-	ClusterName       pulumi.StringPtrInput
-	EnvironmentId     pulumi.IntInput
-	Name              pulumi.StringPtrInput
-	Namespace         pulumi.StringInput
-	ProjectId         pulumi.StringInput
+	// A cluster name for the Kubernetes Resource.
+	ClusterName pulumi.StringPtrInput
+	// The ID of the environment under which to create the Kubernetes Resource.
+	EnvironmentId pulumi.IntInput
+	// The name for the Kubernetes Resource.
+	Name pulumi.StringPtrInput
+	// The namespace for the Kubernetes Resource.
+	Namespace pulumi.StringInput
+	// The ID of the project.
+	ProjectId pulumi.StringInput
+	// The ID of the service endpoint to associate with the Kubernetes Resource.
 	ServiceEndpointId pulumi.StringInput
-	Tags              pulumi.StringArrayInput
+	// A set of tags for the Kubernetes Resource.
+	Tags pulumi.StringArrayInput
 }
 
 func (EnvironmentResourceKubernetesArgs) ElementType() reflect.Type {
@@ -197,30 +311,37 @@ func (o EnvironmentResourceKubernetesOutput) ToEnvironmentResourceKubernetesOutp
 	return o
 }
 
+// A cluster name for the Kubernetes Resource.
 func (o EnvironmentResourceKubernetesOutput) ClusterName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentResourceKubernetes) pulumi.StringPtrOutput { return v.ClusterName }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the environment under which to create the Kubernetes Resource.
 func (o EnvironmentResourceKubernetesOutput) EnvironmentId() pulumi.IntOutput {
 	return o.ApplyT(func(v *EnvironmentResourceKubernetes) pulumi.IntOutput { return v.EnvironmentId }).(pulumi.IntOutput)
 }
 
+// The name for the Kubernetes Resource.
 func (o EnvironmentResourceKubernetesOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentResourceKubernetes) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The namespace for the Kubernetes Resource.
 func (o EnvironmentResourceKubernetesOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentResourceKubernetes) pulumi.StringOutput { return v.Namespace }).(pulumi.StringOutput)
 }
 
+// The ID of the project.
 func (o EnvironmentResourceKubernetesOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentResourceKubernetes) pulumi.StringOutput { return v.ProjectId }).(pulumi.StringOutput)
 }
 
+// The ID of the service endpoint to associate with the Kubernetes Resource.
 func (o EnvironmentResourceKubernetesOutput) ServiceEndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentResourceKubernetes) pulumi.StringOutput { return v.ServiceEndpointId }).(pulumi.StringOutput)
 }
 
+// A set of tags for the Kubernetes Resource.
 func (o EnvironmentResourceKubernetesOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EnvironmentResourceKubernetes) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
 }

@@ -9,27 +9,121 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureDevOps
 {
+    /// <summary>
+    /// Manages a Kubernetes Resource for an Environment.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     {
+    ///         WorkItemTemplate = "Agile",
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var exampleEnvironment = new AzureDevOps.Environment("exampleEnvironment", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///     });
+    /// 
+    ///     var exampleServiceEndpointKubernetes = new AzureDevOps.ServiceEndpointKubernetes("exampleServiceEndpointKubernetes", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServiceEndpointName = "Example Kubernetes",
+    ///         ApiserverUrl = "https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io",
+    ///         AuthorizationType = "AzureSubscription",
+    ///         AzureSubscriptions = new[]
+    ///         {
+    ///             new AzureDevOps.Inputs.ServiceEndpointKubernetesAzureSubscriptionArgs
+    ///             {
+    ///                 SubscriptionId = "00000000-0000-0000-0000-000000000000",
+    ///                 SubscriptionName = "Example",
+    ///                 TenantId = "00000000-0000-0000-0000-000000000000",
+    ///                 ResourcegroupId = "example-rg",
+    ///                 Namespace = "default",
+    ///                 ClusterName = "example-aks",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleEnvironmentResourceKubernetes = new AzureDevOps.EnvironmentResourceKubernetes("exampleEnvironmentResourceKubernetes", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         EnvironmentId = exampleEnvironment.Id,
+    ///         ServiceEndpointId = exampleServiceEndpointKubernetes.Id,
+    ///         Namespace = "default",
+    ///         ClusterName = "example-aks",
+    ///         Tags = new[]
+    ///         {
+    ///             "tag1",
+    ///             "tag2",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ## Relevant Links
+    /// 
+    /// * [Azure DevOps Service REST API 6.0 - Kubernetes](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/kubernetes?view=azure-devops-rest-6.0)
+    /// 
+    /// ## Import
+    /// 
+    /// The resource does not support import.
+    /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/environmentResourceKubernetes:EnvironmentResourceKubernetes")]
     public partial class EnvironmentResourceKubernetes : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A cluster name for the Kubernetes Resource.
+        /// </summary>
         [Output("clusterName")]
         public Output<string?> ClusterName { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the environment under which to create the Kubernetes Resource.
+        /// </summary>
         [Output("environmentId")]
         public Output<int> EnvironmentId { get; private set; } = null!;
 
+        /// <summary>
+        /// The name for the Kubernetes Resource.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The namespace for the Kubernetes Resource.
+        /// </summary>
         [Output("namespace")]
         public Output<string> Namespace { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the project.
+        /// </summary>
         [Output("projectId")]
         public Output<string> ProjectId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the service endpoint to associate with the Kubernetes Resource.
+        /// </summary>
         [Output("serviceEndpointId")]
         public Output<string> ServiceEndpointId { get; private set; } = null!;
 
+        /// <summary>
+        /// A set of tags for the Kubernetes Resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
 
@@ -79,26 +173,48 @@ namespace Pulumi.AzureDevOps
 
     public sealed class EnvironmentResourceKubernetesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A cluster name for the Kubernetes Resource.
+        /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
 
+        /// <summary>
+        /// The ID of the environment under which to create the Kubernetes Resource.
+        /// </summary>
         [Input("environmentId", required: true)]
         public Input<int> EnvironmentId { get; set; } = null!;
 
+        /// <summary>
+        /// The name for the Kubernetes Resource.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The namespace for the Kubernetes Resource.
+        /// </summary>
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the project.
+        /// </summary>
         [Input("projectId", required: true)]
         public Input<string> ProjectId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the service endpoint to associate with the Kubernetes Resource.
+        /// </summary>
         [Input("serviceEndpointId", required: true)]
         public Input<string> ServiceEndpointId { get; set; } = null!;
 
         [Input("tags")]
         private InputList<string>? _tags;
+
+        /// <summary>
+        /// A set of tags for the Kubernetes Resource.
+        /// </summary>
         public InputList<string> Tags
         {
             get => _tags ?? (_tags = new InputList<string>());
@@ -113,26 +229,48 @@ namespace Pulumi.AzureDevOps
 
     public sealed class EnvironmentResourceKubernetesState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A cluster name for the Kubernetes Resource.
+        /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
 
+        /// <summary>
+        /// The ID of the environment under which to create the Kubernetes Resource.
+        /// </summary>
         [Input("environmentId")]
         public Input<int>? EnvironmentId { get; set; }
 
+        /// <summary>
+        /// The name for the Kubernetes Resource.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The namespace for the Kubernetes Resource.
+        /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
 
+        /// <summary>
+        /// The ID of the project.
+        /// </summary>
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }
 
+        /// <summary>
+        /// The ID of the service endpoint to associate with the Kubernetes Resource.
+        /// </summary>
         [Input("serviceEndpointId")]
         public Input<string>? ServiceEndpointId { get; set; }
 
         [Input("tags")]
         private InputList<string>? _tags;
+
+        /// <summary>
+        /// A set of tags for the Kubernetes Resource.
+        /// </summary>
         public InputList<string> Tags
         {
             get => _tags ?? (_tags = new InputList<string>());

@@ -120,7 +120,7 @@ import (
 //			_, err = azuredevops.NewGitPermissions(ctx, "example-permissions", &azuredevops.GitPermissionsArgs{
 //				ProjectId:    exampleGit.ProjectId,
 //				RepositoryId: exampleGit.ID(),
-//				Principal:    *pulumi.String(example_group.Id),
+//				Principal:    pulumi.String(example_group.Id),
 //				Permissions: pulumi.StringMap{
 //					"RemoveOthersLocks": pulumi.String("Allow"),
 //					"ManagePermissions": pulumi.String("Deny"),
@@ -185,7 +185,7 @@ import (
 //				ProjectId:    exampleGit.ProjectId,
 //				RepositoryId: exampleGit.ID(),
 //				BranchName:   pulumi.String("refs/heads/master"),
-//				Principal:    *pulumi.String(example_group.Id),
+//				Principal:    pulumi.String(example_group.Id),
 //				Permissions: pulumi.StringMap{
 //					"RemoveOthersLocks": pulumi.String("Allow"),
 //					"ForcePush":         pulumi.String("Deny"),
