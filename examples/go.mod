@@ -11,7 +11,6 @@ require (
 
 replace (
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240129205329-74776a5cd5f9
-	github.com/microsoft/terraform-provider-azuredevops => ../upstream
 	github.com/pulumi/pulumi-azuredevops/provider/v3 => ../provider
 )
 
@@ -139,7 +138,7 @@ require (
 	github.com/mattn/go-runewidth v0.0.15 // indirect
 	github.com/microsoft/azure-devops-go-api/azuredevops v1.0.0-b5 // indirect
 	github.com/microsoft/azure-devops-go-api/azuredevops/v7 v7.1.0 // indirect
-	github.com/microsoft/terraform-provider-azuredevops v0.0.0-00010101000000-000000000000 // indirect
+	github.com/microsoft/terraform-provider-azuredevops v1.0.1 // indirect
 	github.com/mitchellh/copystructure v1.2.0 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
 	github.com/mitchellh/go-ps v1.0.0 // indirect

@@ -5,11 +5,10 @@ go 1.21
 replace (
 	github.com/hashicorp/go-getter v1.5.0 => github.com/hashicorp/go-getter v1.4.0
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240229143312-4f60ee4e2975
-	github.com/microsoft/terraform-provider-azuredevops => ../upstream
 )
 
 require (
-	github.com/microsoft/terraform-provider-azuredevops v0.0.0-00010101000000-000000000000
+	github.com/microsoft/terraform-provider-azuredevops v1.0.1
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.78.0
 	github.com/pulumi/pulumi/sdk/v3 v3.111.1
 )

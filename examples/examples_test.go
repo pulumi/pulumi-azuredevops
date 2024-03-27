@@ -65,7 +65,10 @@ func TestServiceConnectionIdDefaultDoesNotConflict(t *testing.T) {
 						"name"
 					],
 					"initialization": {
-						"__defaults": [],
+						"__defaults": [
+							"serviceConnectionId"
+						],
+						"serviceConnectionId": "",
 						"initType": "Clean"
 					},
 					"name": "repo-779583a",
@@ -123,11 +126,13 @@ func TestMinReviewersDefaultDoesNotConflict(t *testing.T) {
 						"__defaults": [
 							"allowCompletionWithRejectsOrWaits",
 							"lastPusherCannotApprove",
+							"onLastIterationRequireVote",
 							"onPushResetApprovedVotes",
 							"submitterCanVote"
 						],
 						"allowCompletionWithRejectsOrWaits": false,
 						"lastPusherCannotApprove": false,
+						"onLastIterationRequireVote": false,
 						"onPushResetAllVotes": true,
 						"onPushResetApprovedVotes": false,
 						"reviewerCount": 7,
