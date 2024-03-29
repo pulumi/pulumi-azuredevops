@@ -51,6 +51,7 @@ import javax.annotation.Nullable;
  *             .description(&#34;Managed by Terraform&#34;)
  *             .build());
  * 
+ *         // azure container registry service connection
  *         var exampleServiceEndpointAzureEcr = new ServiceEndpointAzureEcr(&#34;exampleServiceEndpointAzureEcr&#34;, ServiceEndpointAzureEcrArgs.builder()        
  *             .projectId(exampleProject.id())
  *             .serviceEndpointName(&#34;Example AzureCR&#34;)
