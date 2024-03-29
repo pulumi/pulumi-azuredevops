@@ -52,6 +52,7 @@ import javax.annotation.Nullable;
  *             .description(&#34;Managed by Terraform&#34;)
  *             .build());
  * 
+ *         // dockerhub registry service connection
  *         var exampleServiceEndpointDockerRegistry = new ServiceEndpointDockerRegistry(&#34;exampleServiceEndpointDockerRegistry&#34;, ServiceEndpointDockerRegistryArgs.builder()        
  *             .projectId(exampleProject.id())
  *             .serviceEndpointName(&#34;Example Docker Hub&#34;)
@@ -61,6 +62,7 @@ import javax.annotation.Nullable;
  *             .registryType(&#34;DockerHub&#34;)
  *             .build());
  * 
+ *         // other docker registry service connection
  *         var example_other = new ServiceEndpointDockerRegistry(&#34;example-other&#34;, ServiceEndpointDockerRegistryArgs.builder()        
  *             .projectId(exampleProject.id())
  *             .serviceEndpointName(&#34;Example Docker Registry&#34;)

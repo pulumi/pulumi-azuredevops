@@ -63,6 +63,7 @@ import javax.annotation.Nullable;
  *             .agentPoolId(examplePool.applyValue(getPoolResult -&gt; getPoolResult.id()))
  *             .build());
  * 
+ *         // Grant access to queue to all pipelines in the project
  *         var exampleResourceAuthorization = new ResourceAuthorization(&#34;exampleResourceAuthorization&#34;, ResourceAuthorizationArgs.builder()        
  *             .projectId(exampleProject.id())
  *             .resourceId(exampleQueue.id())
