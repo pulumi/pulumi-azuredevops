@@ -5512,7 +5512,7 @@ public final class AzuredevopsFunctions {
     /**
      * Use this data source to access information about existing Variable Groups within Azure DevOps.
      * 
-     * &gt; **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](&lt;https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&amp;tabs=yaml%!C(MISSING)batch#secret-variables&gt;)
+     * &gt; **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&amp;tabs=yaml%2Cbatch#secret-variables)
      * 
      * ## Example Usage
      * 
@@ -5565,7 +5565,7 @@ public final class AzuredevopsFunctions {
     /**
      * Use this data source to access information about existing Variable Groups within Azure DevOps.
      * 
-     * &gt; **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](&lt;https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&amp;tabs=yaml%!C(MISSING)batch#secret-variables&gt;)
+     * &gt; **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&amp;tabs=yaml%2Cbatch#secret-variables)
      * 
      * ## Example Usage
      * 
@@ -5618,7 +5618,7 @@ public final class AzuredevopsFunctions {
     /**
      * Use this data source to access information about existing Variable Groups within Azure DevOps.
      * 
-     * &gt; **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](&lt;https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&amp;tabs=yaml%!C(MISSING)batch#secret-variables&gt;)
+     * &gt; **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&amp;tabs=yaml%2Cbatch#secret-variables)
      * 
      * ## Example Usage
      * 
@@ -5671,7 +5671,7 @@ public final class AzuredevopsFunctions {
     /**
      * Use this data source to access information about existing Variable Groups within Azure DevOps.
      * 
-     * &gt; **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](&lt;https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&amp;tabs=yaml%!C(MISSING)batch#secret-variables&gt;)
+     * &gt; **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&amp;tabs=yaml%2Cbatch#secret-variables)
      * 
      * ## Example Usage
      * 
