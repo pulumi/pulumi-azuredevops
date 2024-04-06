@@ -13,7 +13,7 @@ import (
 
 // Use this data source to access information about existing Variable Groups within Azure DevOps.
 //
-// > **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](<https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%!C(MISSING)batch#secret-variables>)
+// > **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables)
 //
 // ## Example Usage
 //
