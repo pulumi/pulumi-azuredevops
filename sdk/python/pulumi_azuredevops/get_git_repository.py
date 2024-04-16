@@ -164,6 +164,7 @@ def get_git_repository(name: Optional[str] = None,
     import pulumi_azuredevops as azuredevops
 
     example = azuredevops.get_project(name="Example Project")
+    # Load a specific Git repository by name
     example_single_repo = azuredevops.get_git_repository(project_id=example.id,
         name="Example Repository")
     ```
@@ -212,6 +213,7 @@ def get_git_repository_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi_azuredevops as azuredevops
 
     example = azuredevops.get_project(name="Example Project")
+    # Load a specific Git repository by name
     example_single_repo = azuredevops.get_git_repository(project_id=example.id,
         name="Example Repository")
     ```

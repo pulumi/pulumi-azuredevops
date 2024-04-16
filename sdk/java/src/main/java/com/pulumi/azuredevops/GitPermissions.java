@@ -59,6 +59,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
  *             .workItemTemplate(&#34;Agile&#34;)
  *             .versionControl(&#34;Git&#34;)
  *             .visibility(&#34;private&#34;)
@@ -120,7 +121,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+ *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
  *             .workItemTemplate(&#34;Agile&#34;)
  *             .versionControl(&#34;Git&#34;)
  *             .visibility(&#34;private&#34;)
@@ -132,7 +134,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleGit = new Git(&#34;exampleGit&#34;, GitArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
+ *             .name(&#34;Example Empty Git Repository&#34;)
  *             .initialization(GitInitializationArgs.builder()
  *                 .initType(&#34;Clean&#34;)
  *                 .build())
@@ -190,7 +193,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+ *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
  *             .workItemTemplate(&#34;Agile&#34;)
  *             .versionControl(&#34;Git&#34;)
  *             .visibility(&#34;private&#34;)
@@ -198,7 +202,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleGit = new Git(&#34;exampleGit&#34;, GitArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
+ *             .name(&#34;Example Empty Git Repository&#34;)
  *             .initialization(GitInitializationArgs.builder()
  *                 .initType(&#34;Clean&#34;)
  *                 .build())
@@ -255,7 +260,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+ *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
  *             .visibility(&#34;private&#34;)
  *             .versionControl(&#34;Git&#34;)
  *             .workItemTemplate(&#34;Agile&#34;)
@@ -263,22 +269,22 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         final var example-project-readers = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .name(&#34;Readers&#34;)
  *             .build());
  * 
  *         final var example-project-contributors = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .name(&#34;Contributors&#34;)
  *             .build());
  * 
  *         final var example-project-administrators = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .name(&#34;Project administrators&#34;)
  *             .build());
  * 
  *         var example_permissions = new GitPermissions(&#34;example-permissions&#34;, GitPermissionsArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .principal(example_project_readers.applyValue(example_project_readers -&gt; example_project_readers.id()))
  *             .permissions(Map.ofEntries(
  *                 Map.entry(&#34;CreateRepository&#34;, &#34;Deny&#34;),
@@ -288,7 +294,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleGit = new Git(&#34;exampleGit&#34;, GitArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
+ *             .name(&#34;TestRepo&#34;)
  *             .defaultBranch(&#34;refs/heads/master&#34;)
  *             .initialization(GitInitializationArgs.builder()
  *                 .initType(&#34;Clean&#34;)

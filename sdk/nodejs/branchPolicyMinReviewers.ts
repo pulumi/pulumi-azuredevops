@@ -16,15 +16,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {});
- * const exampleGit = new azuredevops.Git("exampleGit", {
- *     projectId: exampleProject.id,
+ * const example = new azuredevops.Project("example", {name: "Example Project"});
+ * const exampleGit = new azuredevops.Git("example", {
+ *     projectId: example.id,
+ *     name: "Example Repository",
  *     initialization: {
  *         initType: "Clean",
  *     },
  * });
- * const exampleBranchPolicyMinReviewers = new azuredevops.BranchPolicyMinReviewers("exampleBranchPolicyMinReviewers", {
- *     projectId: exampleProject.id,
+ * const exampleBranchPolicyMinReviewers = new azuredevops.BranchPolicyMinReviewers("example", {
+ *     projectId: example.id,
  *     enabled: true,
  *     blocking: true,
  *     settings: {

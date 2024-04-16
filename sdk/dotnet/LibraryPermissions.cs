@@ -25,6 +25,7 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     var project = new AzureDevOps.Project("project", new()
     ///     {
+    ///         Name = "Testing",
     ///         Description = "Testing-description",
     ///         Visibility = "private",
     ///         VersionControl = "Git",

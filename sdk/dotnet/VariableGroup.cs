@@ -21,17 +21,19 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
     ///         VersionControl = "Git",
     ///         Visibility = "private",
     ///         Description = "Managed by Terraform",
     ///     });
     /// 
-    ///     var exampleVariableGroup = new AzureDevOps.VariableGroup("exampleVariableGroup", new()
+    ///     var exampleVariableGroup = new AzureDevOps.VariableGroup("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
+    ///         Name = "Example Variable Group",
     ///         Description = "Example Variable Group Description",
     ///         AllowAccess = true,
     ///         Variables = new[]
@@ -65,17 +67,18 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
     ///         VersionControl = "Git",
     ///         Visibility = "private",
     ///         Description = "Managed by Terraform",
     ///     });
     /// 
-    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", new()
+    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example AzureRM",
     ///         Description = "Managed by Terraform",
     ///         Credentials = new AzureDevOps.Inputs.ServiceEndpointAzureRMCredentialsArgs
@@ -88,9 +91,10 @@ namespace Pulumi.AzureDevOps
     ///         AzurermSubscriptionName = "Example Subscription Name",
     ///     });
     /// 
-    ///     var exampleVariableGroup = new AzureDevOps.VariableGroup("exampleVariableGroup", new()
+    ///     var exampleVariableGroup = new AzureDevOps.VariableGroup("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
+    ///         Name = "Example Variable Group",
     ///         Description = "Example Variable Group Description",
     ///         AllowAccess = true,
     ///         KeyVault = new AzureDevOps.Inputs.VariableGroupKeyVaultArgs

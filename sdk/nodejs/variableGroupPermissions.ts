@@ -15,6 +15,7 @@ import * as utilities from "./utilities";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * const project = new azuredevops.Project("project", {
+ *     name: "Testing",
  *     description: "Testing-description",
  *     visibility: "private",
  *     versionControl: "Git",
@@ -22,6 +23,7 @@ import * as utilities from "./utilities";
  * });
  * const example = new azuredevops.VariableGroup("example", {
  *     projectId: project.id,
+ *     name: "test",
  *     description: "Test Description",
  *     allowAccess: true,
  *     variables: [{

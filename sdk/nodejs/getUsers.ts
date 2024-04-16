@@ -8,41 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to access information about an existing users within Azure DevOps.
- *
- * ## Example Usage
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const example = azuredevops.getUsers({
- *     principalName: "contoso-user@contoso.onmicrosoft.com",
- * });
- * const example-all-users = azuredevops.getUsers({
- *     features: {
- *         concurrentWorkers: 10,
- *     },
- * });
- * const example-all-from-origin = azuredevops.getUsers({
- *     origin: "aad",
- * });
- * const example-all-from-subjectTypes = azuredevops.getUsers({
- *     subjectTypes: [
- *         "aad",
- *         "msa",
- *     ],
- * });
- * const example-all-from-origin-id = azuredevops.getUsers({
- *     origin: "aad",
- *     originId: "00000000-0000-0000-0000-000000000000",
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
- * ## Relevant Links
- *
- * - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
  */
 export function getUsers(args?: GetUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetUsersResult> {
     args = args || {};
@@ -67,20 +32,6 @@ export interface GetUsersArgs {
      * DataSource without specifying any arguments will return all users inside an organization.
      *
      * List of possible subject types
-     *
-     * <!--Start PulumiCodeChooser -->
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
-     * <!--End PulumiCodeChooser -->
-     *
-     * List of possible origins
-     *
-     * <!--Start PulumiCodeChooser -->
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
-     * <!--End PulumiCodeChooser -->
      */
     features?: inputs.GetUsersFeatures;
     /**
@@ -130,41 +81,6 @@ export interface GetUsersResult {
 }
 /**
  * Use this data source to access information about an existing users within Azure DevOps.
- *
- * ## Example Usage
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const example = azuredevops.getUsers({
- *     principalName: "contoso-user@contoso.onmicrosoft.com",
- * });
- * const example-all-users = azuredevops.getUsers({
- *     features: {
- *         concurrentWorkers: 10,
- *     },
- * });
- * const example-all-from-origin = azuredevops.getUsers({
- *     origin: "aad",
- * });
- * const example-all-from-subjectTypes = azuredevops.getUsers({
- *     subjectTypes: [
- *         "aad",
- *         "msa",
- *     ],
- * });
- * const example-all-from-origin-id = azuredevops.getUsers({
- *     origin: "aad",
- *     originId: "00000000-0000-0000-0000-000000000000",
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
- * ## Relevant Links
- *
- * - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
  */
 export function getUsersOutput(args?: GetUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUsersResult> {
     return pulumi.output(args).apply((a: any) => getUsers(a, opts))
@@ -180,20 +96,6 @@ export interface GetUsersOutputArgs {
      * DataSource without specifying any arguments will return all users inside an organization.
      *
      * List of possible subject types
-     *
-     * <!--Start PulumiCodeChooser -->
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
-     * <!--End PulumiCodeChooser -->
-     *
-     * List of possible origins
-     *
-     * <!--Start PulumiCodeChooser -->
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
-     * <!--End PulumiCodeChooser -->
      */
     features?: pulumi.Input<inputs.GetUsersFeaturesArgs>;
     /**

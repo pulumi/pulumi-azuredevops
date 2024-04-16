@@ -93,15 +93,16 @@ def get_agent_queue(name: Optional[str] = None,
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    example_project = azuredevops.Project("exampleProject",
+    example_project = azuredevops.Project("example",
+        name="Example Project",
         work_item_template="Agile",
         version_control="Git",
         visibility="private",
         description="Managed by Terraform")
-    example_agent_queue = azuredevops.get_agent_queue_output(project_id=example_project.id,
+    example = azuredevops.get_agent_queue_output(project_id=example_project.id,
         name="Example Agent Queue")
-    pulumi.export("name", example_agent_queue.name)
-    pulumi.export("poolId", example_agent_queue.agent_pool_id)
+    pulumi.export("name", example.name)
+    pulumi.export("poolId", example.agent_pool_id)
     ```
     <!--End PulumiCodeChooser -->
 
@@ -140,15 +141,16 @@ def get_agent_queue_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    example_project = azuredevops.Project("exampleProject",
+    example_project = azuredevops.Project("example",
+        name="Example Project",
         work_item_template="Agile",
         version_control="Git",
         visibility="private",
         description="Managed by Terraform")
-    example_agent_queue = azuredevops.get_agent_queue_output(project_id=example_project.id,
+    example = azuredevops.get_agent_queue_output(project_id=example_project.id,
         name="Example Agent Queue")
-    pulumi.export("name", example_agent_queue.name)
-    pulumi.export("poolId", example_agent_queue.agent_pool_id)
+    pulumi.export("name", example.name)
+    pulumi.export("poolId", example.agent_pool_id)
     ```
     <!--End PulumiCodeChooser -->
 

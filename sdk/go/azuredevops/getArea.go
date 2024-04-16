@@ -28,7 +28,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//			exampleProject, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
 //				WorkItemTemplate: pulumi.String("Agile"),
 //				VersionControl:   pulumi.String("Git"),
 //				Visibility:       pulumi.String("private"),

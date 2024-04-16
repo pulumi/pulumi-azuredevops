@@ -29,7 +29,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
 //				WorkItemTemplate: pulumi.String("Agile"),
 //				VersionControl:   pulumi.String("Git"),
 //				Visibility:       pulumi.String("private"),
@@ -38,8 +39,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewEnvironment(ctx, "exampleEnvironment", &azuredevops.EnvironmentArgs{
-//				ProjectId: exampleProject.ID(),
+//			_, err = azuredevops.NewEnvironment(ctx, "example", &azuredevops.EnvironmentArgs{
+//				ProjectId: example.ID(),
+//				Name:      pulumi.String("Example Environment"),
 //			})
 //			if err != nil {
 //				return err

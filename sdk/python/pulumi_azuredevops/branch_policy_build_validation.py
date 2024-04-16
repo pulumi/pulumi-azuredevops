@@ -175,21 +175,23 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject")
-        example_git = azuredevops.Git("exampleGit",
-            project_id=example_project.id,
+        example = azuredevops.Project("example", name="Example Project")
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Example Repository",
             initialization=azuredevops.GitInitializationArgs(
                 init_type="Clean",
             ))
-        example_build_definition = azuredevops.BuildDefinition("exampleBuildDefinition",
-            project_id=example_project.id,
+        example_build_definition = azuredevops.BuildDefinition("example",
+            project_id=example.id,
+            name="Example Build Definition",
             repository=azuredevops.BuildDefinitionRepositoryArgs(
                 repo_type="TfsGit",
                 repo_id=example_git.id,
                 yml_path="azure-pipelines.yml",
             ))
-        example_branch_policy_build_validation = azuredevops.BranchPolicyBuildValidation("exampleBranchPolicyBuildValidation",
-            project_id=example_project.id,
+        example_branch_policy_build_validation = azuredevops.BranchPolicyBuildValidation("example",
+            project_id=example.id,
             enabled=True,
             blocking=True,
             settings=azuredevops.BranchPolicyBuildValidationSettingsArgs(
@@ -255,21 +257,23 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject")
-        example_git = azuredevops.Git("exampleGit",
-            project_id=example_project.id,
+        example = azuredevops.Project("example", name="Example Project")
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Example Repository",
             initialization=azuredevops.GitInitializationArgs(
                 init_type="Clean",
             ))
-        example_build_definition = azuredevops.BuildDefinition("exampleBuildDefinition",
-            project_id=example_project.id,
+        example_build_definition = azuredevops.BuildDefinition("example",
+            project_id=example.id,
+            name="Example Build Definition",
             repository=azuredevops.BuildDefinitionRepositoryArgs(
                 repo_type="TfsGit",
                 repo_id=example_git.id,
                 yml_path="azure-pipelines.yml",
             ))
-        example_branch_policy_build_validation = azuredevops.BranchPolicyBuildValidation("exampleBranchPolicyBuildValidation",
-            project_id=example_project.id,
+        example_branch_policy_build_validation = azuredevops.BranchPolicyBuildValidation("example",
+            project_id=example.id,
             enabled=True,
             blocking=True,
             settings=azuredevops.BranchPolicyBuildValidationSettingsArgs(

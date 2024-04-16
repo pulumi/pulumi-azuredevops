@@ -242,16 +242,18 @@ class GitRepositoryFile(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
-        example_git = azuredevops.Git("exampleGit",
-            project_id=example_project.id,
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Example Git Repository",
             initialization=azuredevops.GitInitializationArgs(
                 init_type="Clean",
             ))
-        example_git_repository_file = azuredevops.GitRepositoryFile("exampleGitRepositoryFile",
+        example_git_repository_file = azuredevops.GitRepositoryFile("example",
             repository_id=example_git.id,
             file=".gitignore",
             content="**/*.tfstate",
@@ -305,16 +307,18 @@ class GitRepositoryFile(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
-        example_git = azuredevops.Git("exampleGit",
-            project_id=example_project.id,
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Example Git Repository",
             initialization=azuredevops.GitInitializationArgs(
                 init_type="Clean",
             ))
-        example_git_repository_file = azuredevops.GitRepositoryFile("exampleGitRepositoryFile",
+        example_git_repository_file = azuredevops.GitRepositoryFile("example",
             repository_id=example_git.id,
             file=".gitignore",
             content="**/*.tfstate",

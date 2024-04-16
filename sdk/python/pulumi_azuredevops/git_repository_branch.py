@@ -223,20 +223,24 @@ class GitRepositoryBranch(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
-        example_git = azuredevops.Git("exampleGit",
-            project_id=example_project.id,
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Example Git Repository",
             initialization=azuredevops.GitInitializationArgs(
                 init_type="Clean",
             ))
-        example_git_repository_branch = azuredevops.GitRepositoryBranch("exampleGitRepositoryBranch",
+        example_git_repository_branch = azuredevops.GitRepositoryBranch("example",
             repository_id=example_git.id,
+            name="example-branch-name",
             ref_branch=example_git.default_branch)
-        example_from_commit_id = azuredevops.GitRepositoryBranch("exampleFromCommitId",
+        example_from_commit_id = azuredevops.GitRepositoryBranch("example_from_commit_id",
             repository_id=example_git.id,
+            name="example-from-commit-id",
             ref_commit_id=example_git_repository_branch.last_commit_id)
         ```
         <!--End PulumiCodeChooser -->
@@ -265,20 +269,24 @@ class GitRepositoryBranch(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
-        example_git = azuredevops.Git("exampleGit",
-            project_id=example_project.id,
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Example Git Repository",
             initialization=azuredevops.GitInitializationArgs(
                 init_type="Clean",
             ))
-        example_git_repository_branch = azuredevops.GitRepositoryBranch("exampleGitRepositoryBranch",
+        example_git_repository_branch = azuredevops.GitRepositoryBranch("example",
             repository_id=example_git.id,
+            name="example-branch-name",
             ref_branch=example_git.default_branch)
-        example_from_commit_id = azuredevops.GitRepositoryBranch("exampleFromCommitId",
+        example_from_commit_id = azuredevops.GitRepositoryBranch("example_from_commit_id",
             repository_id=example_git.id,
+            name="example-from-commit-id",
             ref_commit_id=example_git_repository_branch.last_commit_id)
         ```
         <!--End PulumiCodeChooser -->

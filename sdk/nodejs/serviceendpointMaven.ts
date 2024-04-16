@@ -16,14 +16,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  *     description: "Managed by Terraform",
  * });
- * const exampleServiceendpointMaven = new azuredevops.ServiceendpointMaven("exampleServiceendpointMaven", {
- *     projectId: exampleProject.id,
+ * const exampleServiceendpointMaven = new azuredevops.ServiceendpointMaven("example", {
+ *     projectId: example.id,
  *     serviceEndpointName: "maven-example",
  *     description: "Service Endpoint for 'Maven' (Managed by Terraform)",
  *     url: "https://example.com",
@@ -42,14 +43,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  *     description: "Managed by Terraform",
  * });
- * const exampleServiceendpointMaven = new azuredevops.ServiceendpointMaven("exampleServiceendpointMaven", {
- *     projectId: exampleProject.id,
+ * const exampleServiceendpointMaven = new azuredevops.ServiceendpointMaven("example", {
+ *     projectId: example.id,
  *     serviceEndpointName: "maven-example",
  *     description: "Service Endpoint for 'Maven' (Managed by Terraform)",
  *     url: "https://example.com",

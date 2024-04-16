@@ -25,17 +25,18 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
     ///         VersionControl = "Git",
     ///         Visibility = "private",
     ///         Description = "Managed by Terraform",
     ///     });
     /// 
-    ///     var exampleWorkitem = new AzureDevOps.Workitem("exampleWorkitem", new()
+    ///     var exampleWorkitem = new AzureDevOps.Workitem("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = exampleAzuredevopsProject.Id,
     ///         Title = "Example Work Item",
     ///         Type = "Issue",
     ///         State = "Active",
@@ -60,17 +61,18 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
     ///         VersionControl = "Git",
     ///         Visibility = "private",
     ///         Description = "Managed by Terraform",
     ///     });
     /// 
-    ///     var exampleWorkitem = new AzureDevOps.Workitem("exampleWorkitem", new()
+    ///     var exampleWorkitem = new AzureDevOps.Workitem("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = exampleAzuredevopsProject.Id,
     ///         Title = "Example Work Item",
     ///         Type = "Issue",
     ///         State = "Active",

@@ -320,14 +320,15 @@ class ServiceEndpointDockerRegistry(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
         # dockerhub registry service connection
-        example_service_endpoint_docker_registry = azuredevops.ServiceEndpointDockerRegistry("exampleServiceEndpointDockerRegistry",
-            project_id=example_project.id,
+        example_service_endpoint_docker_registry = azuredevops.ServiceEndpointDockerRegistry("example",
+            project_id=example.id,
             service_endpoint_name="Example Docker Hub",
             docker_username="example",
             docker_email="email@example.com",
@@ -335,7 +336,7 @@ class ServiceEndpointDockerRegistry(pulumi.CustomResource):
             registry_type="DockerHub")
         # other docker registry service connection
         example_other = azuredevops.ServiceEndpointDockerRegistry("example-other",
-            project_id=example_project.id,
+            project_id=example.id,
             service_endpoint_name="Example Docker Registry",
             docker_registry="https://sample.azurecr.io/v1",
             docker_username="sample",
@@ -383,14 +384,15 @@ class ServiceEndpointDockerRegistry(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
         # dockerhub registry service connection
-        example_service_endpoint_docker_registry = azuredevops.ServiceEndpointDockerRegistry("exampleServiceEndpointDockerRegistry",
-            project_id=example_project.id,
+        example_service_endpoint_docker_registry = azuredevops.ServiceEndpointDockerRegistry("example",
+            project_id=example.id,
             service_endpoint_name="Example Docker Hub",
             docker_username="example",
             docker_email="email@example.com",
@@ -398,7 +400,7 @@ class ServiceEndpointDockerRegistry(pulumi.CustomResource):
             registry_type="DockerHub")
         # other docker registry service connection
         example_other = azuredevops.ServiceEndpointDockerRegistry("example-other",
-            project_id=example_project.id,
+            project_id=example.id,
             service_endpoint_name="Example Docker Registry",
             docker_registry="https://sample.azurecr.io/v1",
             docker_username="sample",

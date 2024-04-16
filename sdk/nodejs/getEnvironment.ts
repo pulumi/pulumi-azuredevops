@@ -6,6 +6,36 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to access information about an Environment.
+ *
+ * ## Example Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("example", {
+ *     name: "Example Project",
+ *     workItemTemplate: "Agile",
+ *     versionControl: "Git",
+ *     visibility: "private",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleEnvironment = new azuredevops.Environment("example", {
+ *     projectId: exampleProject.id,
+ *     name: "Example Environment",
+ *     description: "Managed by Terraform",
+ * });
+ * const example = pulumi.all([exampleProject.id, exampleEnvironment.id]).apply(([exampleProjectId, exampleEnvironmentId]) => azuredevops.getEnvironmentOutput({
+ *     projectId: exampleProjectId,
+ *     environmentId: exampleEnvironmentId,
+ * }));
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ## Relevant Links
+ *
+ * * [Azure DevOps Service REST API 7.0 - Environments](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments?view=azure-devops-rest-7.0)
  */
 export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
 
@@ -58,6 +88,36 @@ export interface GetEnvironmentResult {
 }
 /**
  * Use this data source to access information about an Environment.
+ *
+ * ## Example Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("example", {
+ *     name: "Example Project",
+ *     workItemTemplate: "Agile",
+ *     versionControl: "Git",
+ *     visibility: "private",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleEnvironment = new azuredevops.Environment("example", {
+ *     projectId: exampleProject.id,
+ *     name: "Example Environment",
+ *     description: "Managed by Terraform",
+ * });
+ * const example = pulumi.all([exampleProject.id, exampleEnvironment.id]).apply(([exampleProjectId, exampleEnvironmentId]) => azuredevops.getEnvironmentOutput({
+ *     projectId: exampleProjectId,
+ *     environmentId: exampleEnvironmentId,
+ * }));
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ## Relevant Links
+ *
+ * * [Azure DevOps Service REST API 7.0 - Environments](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments?view=azure-devops-rest-7.0)
  */
 export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentResult> {
     return pulumi.output(args).apply((a: any) => getEnvironment(a, opts))

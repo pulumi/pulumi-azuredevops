@@ -51,6 +51,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var project = new Project(&#34;project&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Testing&#34;)
  *             .description(&#34;Testing-description&#34;)
  *             .visibility(&#34;private&#34;)
  *             .versionControl(&#34;Git&#34;)
@@ -59,6 +60,7 @@ import javax.annotation.Nullable;
  * 
  *         var example = new VariableGroup(&#34;example&#34;, VariableGroupArgs.builder()        
  *             .projectId(project.id())
+ *             .name(&#34;test&#34;)
  *             .description(&#34;Test Description&#34;)
  *             .allowAccess(true)
  *             .variables(VariableGroupVariableArgs.builder()

@@ -16,14 +16,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
  *     description: "Managed by Terraform",
  * });
- * const exampleWorkitem = new azuredevops.Workitem("exampleWorkitem", {
- *     projectId: exampleProject.id,
+ * const exampleWorkitem = new azuredevops.Workitem("example", {
+ *     projectId: exampleAzuredevopsProject.id,
  *     title: "Example Work Item",
  *     type: "Issue",
  *     state: "Active",
@@ -39,14 +40,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
  *     description: "Managed by Terraform",
  * });
- * const exampleWorkitem = new azuredevops.Workitem("exampleWorkitem", {
- *     projectId: exampleProject.id,
+ * const exampleWorkitem = new azuredevops.Workitem("example", {
+ *     projectId: exampleAzuredevopsProject.id,
  *     title: "Example Work Item",
  *     type: "Issue",
  *     state: "Active",

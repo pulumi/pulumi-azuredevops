@@ -28,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
  * import com.pulumi.azuredevops.AzuredevopsFunctions;
  * import com.pulumi.azuredevops.inputs.GetGroupArgs;
  * import com.pulumi.azuredevops.Group;
@@ -45,20 +46,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;);
+ *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
+ *             .build());
  * 
  *         final var example-readers = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .name(&#34;Readers&#34;)
  *             .build());
  * 
  *         final var example-contributors = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .name(&#34;Contributors&#34;)
  *             .build());
  * 
  *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
- *             .scope(exampleProject.id())
+ *             .scope(example.id())
  *             .displayName(&#34;Example group&#34;)
  *             .description(&#34;Example description&#34;)
  *             .members(            

@@ -287,6 +287,7 @@ class ProjectPermissions(pulumi.CustomResource):
         import pulumi_azuredevops as azuredevops
 
         example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
@@ -371,6 +372,7 @@ class ProjectPermissions(pulumi.CustomResource):
         import pulumi_azuredevops as azuredevops
 
         example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",

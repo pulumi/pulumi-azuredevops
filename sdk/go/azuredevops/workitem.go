@@ -31,7 +31,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//			_, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
 //				WorkItemTemplate: pulumi.String("Agile"),
 //				VersionControl:   pulumi.String("Git"),
 //				Visibility:       pulumi.String("private"),
@@ -40,8 +41,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewWorkitem(ctx, "exampleWorkitem", &azuredevops.WorkitemArgs{
-//				ProjectId: exampleProject.ID(),
+//			_, err = azuredevops.NewWorkitem(ctx, "example", &azuredevops.WorkitemArgs{
+//				ProjectId: pulumi.Any(exampleAzuredevopsProject.Id),
 //				Title:     pulumi.String("Example Work Item"),
 //				Type:      pulumi.String("Issue"),
 //				State:     pulumi.String("Active"),
@@ -74,7 +75,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//			_, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
 //				WorkItemTemplate: pulumi.String("Agile"),
 //				VersionControl:   pulumi.String("Git"),
 //				Visibility:       pulumi.String("private"),
@@ -83,8 +85,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewWorkitem(ctx, "exampleWorkitem", &azuredevops.WorkitemArgs{
-//				ProjectId: exampleProject.ID(),
+//			_, err = azuredevops.NewWorkitem(ctx, "example", &azuredevops.WorkitemArgs{
+//				ProjectId: pulumi.Any(exampleAzuredevopsProject.Id),
 //				Title:     pulumi.String("Example Work Item"),
 //				Type:      pulumi.String("Issue"),
 //				State:     pulumi.String("Active"),

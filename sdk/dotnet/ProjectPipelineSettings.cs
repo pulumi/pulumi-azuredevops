@@ -23,17 +23,18 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
     ///         Description = "Managed by Terraform",
     ///     });
     /// 
-    ///     var exampleProjectPipelineSettings = new AzureDevOps.ProjectPipelineSettings("exampleProjectPipelineSettings", new()
+    ///     var exampleProjectPipelineSettings = new AzureDevOps.ProjectPipelineSettings("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         EnforceJobScope = true,
     ///         EnforceReferencedRepoScopedToken = false,
     ///         EnforceSettableVar = true,

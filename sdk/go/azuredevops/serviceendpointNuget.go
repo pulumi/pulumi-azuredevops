@@ -29,7 +29,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
 //				Visibility:       pulumi.String("private"),
 //				VersionControl:   pulumi.String("Git"),
 //				WorkItemTemplate: pulumi.String("Agile"),
@@ -38,8 +39,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewServiceendpointNuget(ctx, "exampleServiceendpointNuget", &azuredevops.ServiceendpointNugetArgs{
-//				ProjectId:           exampleProject.ID(),
+//			_, err = azuredevops.NewServiceendpointNuget(ctx, "example", &azuredevops.ServiceendpointNugetArgs{
+//				ProjectId:           example.ID(),
 //				ApiKey:              pulumi.String("apikey"),
 //				ServiceEndpointName: pulumi.String("Example NuGet"),
 //				Description:         pulumi.String("Managed by Terraform"),

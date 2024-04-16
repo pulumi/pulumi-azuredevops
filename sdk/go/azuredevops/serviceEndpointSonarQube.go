@@ -29,7 +29,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
 //				Visibility:       pulumi.String("private"),
 //				VersionControl:   pulumi.String("Git"),
 //				WorkItemTemplate: pulumi.String("Agile"),
@@ -38,8 +39,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewServiceEndpointSonarQube(ctx, "exampleServiceEndpointSonarQube", &azuredevops.ServiceEndpointSonarQubeArgs{
-//				ProjectId:           exampleProject.ID(),
+//			_, err = azuredevops.NewServiceEndpointSonarQube(ctx, "example", &azuredevops.ServiceEndpointSonarQubeArgs{
+//				ProjectId:           example.ID(),
 //				ServiceEndpointName: pulumi.String("Example SonarQube"),
 //				Url:                 pulumi.String("https://sonarqube.my.com"),
 //				Token:               pulumi.String("0000000000000000000000000000000000000000"),

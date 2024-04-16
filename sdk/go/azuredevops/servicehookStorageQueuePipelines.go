@@ -31,17 +31,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name: pulumi.String("example-project"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("servicehookexamplestacc"),
 //				ResourceGroupName:      exampleResourceGroup.Name,
 //				Location:               exampleResourceGroup.Location,
 //				AccountTier:            pulumi.String("Standard"),
@@ -50,14 +54,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleQueue, err := storage.NewQueue(ctx, "exampleQueue", &storage.QueueArgs{
+//			exampleQueue, err := storage.NewQueue(ctx, "example", &storage.QueueArgs{
+//				Name:               pulumi.String("examplequeue"),
 //				StorageAccountName: exampleAccount.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewServicehookStorageQueuePipelines(ctx, "exampleServicehookStorageQueuePipelines", &azuredevops.ServicehookStorageQueuePipelinesArgs{
-//				ProjectId:   exampleProject.ID(),
+//			_, err = azuredevops.NewServicehookStorageQueuePipelines(ctx, "example", &azuredevops.ServicehookStorageQueuePipelinesArgs{
+//				ProjectId:   example.ID(),
 //				AccountName: exampleAccount.Name,
 //				AccountKey:  exampleAccount.PrimaryAccessKey,
 //				QueueName:   exampleQueue.Name,
@@ -93,10 +98,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := azuredevops.NewServicehookStorageQueuePipelines(ctx, "example", &azuredevops.ServicehookStorageQueuePipelinesArgs{
-//				ProjectId:            pulumi.Any(azuredevops_project.Example.Id),
-//				AccountName:          pulumi.Any(azurerm_storage_account.Example.Name),
-//				AccountKey:           pulumi.Any(azurerm_storage_account.Example.Primary_access_key),
-//				QueueName:            pulumi.Any(azurerm_storage_queue.Example.Name),
+//				ProjectId:            pulumi.Any(exampleAzuredevopsProject.Id),
+//				AccountName:          pulumi.Any(exampleAzurermStorageAccount.Name),
+//				AccountKey:           pulumi.Any(exampleAzurermStorageAccount.PrimaryAccessKey),
+//				QueueName:            pulumi.Any(exampleAzurermStorageQueue.Name),
 //				VisiTimeout:          pulumi.Int(30),
 //				RunStateChangedEvent: nil,
 //			})

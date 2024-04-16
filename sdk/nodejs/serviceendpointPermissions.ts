@@ -21,18 +21,19 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
  *     description: "Managed by Terraform",
  * });
  * const example-readers = azuredevops.getGroupOutput({
- *     projectId: exampleProject.id,
+ *     projectId: example.id,
  *     name: "Readers",
  * });
  * const example_root_permissions = new azuredevops.ServiceendpointPermissions("example-root-permissions", {
- *     projectId: exampleProject.id,
+ *     projectId: example.id,
  *     principal: example_readers.apply(example_readers => example_readers.id),
  *     permissions: {
  *         Use: "allow",
@@ -42,8 +43,8 @@ import * as utilities from "./utilities";
  *         ViewEndpoint: "allow",
  *     },
  * });
- * const exampleServiceEndpointDockerRegistry = new azuredevops.ServiceEndpointDockerRegistry("exampleServiceEndpointDockerRegistry", {
- *     projectId: exampleProject.id,
+ * const exampleServiceEndpointDockerRegistry = new azuredevops.ServiceEndpointDockerRegistry("example", {
+ *     projectId: example.id,
  *     serviceEndpointName: "Example Docker Hub",
  *     dockerUsername: "username",
  *     dockerEmail: "email@example.com",
@@ -51,7 +52,7 @@ import * as utilities from "./utilities";
  *     registryType: "DockerHub",
  * });
  * const example_permissions = new azuredevops.ServiceendpointPermissions("example-permissions", {
- *     projectId: exampleProject.id,
+ *     projectId: example.id,
  *     principal: example_readers.apply(example_readers => example_readers.id),
  *     serviceendpointId: exampleServiceEndpointDockerRegistry.id,
  *     permissions: {

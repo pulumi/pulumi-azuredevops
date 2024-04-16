@@ -18,23 +18,24 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
  *     description: "Managed by Terraform",
  * });
  * const example-readers = azuredevops.getGroupOutput({
- *     projectId: exampleProject.id,
+ *     projectId: example.id,
  *     name: "Readers",
  * });
- * const exampleBuildFolder = new azuredevops.BuildFolder("exampleBuildFolder", {
- *     projectId: exampleProject.id,
+ * const exampleBuildFolder = new azuredevops.BuildFolder("example", {
+ *     projectId: example.id,
  *     path: "\\ExampleFolder",
  *     description: "ExampleFolder description",
  * });
- * const exampleBuildFolderPermissions = new azuredevops.BuildFolderPermissions("exampleBuildFolderPermissions", {
- *     projectId: exampleProject.id,
+ * const exampleBuildFolderPermissions = new azuredevops.BuildFolderPermissions("example", {
+ *     projectId: example.id,
  *     path: "\\ExampleFolder",
  *     principal: example_readers.apply(example_readers => example_readers.id),
  *     permissions: {
@@ -62,18 +63,19 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
  *     description: "Managed by Terraform",
  * });
  * const example-readers = azuredevops.getGroupOutput({
- *     projectId: exampleProject.id,
+ *     projectId: example.id,
  *     name: "Readers",
  * });
- * const exampleBuildFolderPermissions = new azuredevops.BuildFolderPermissions("exampleBuildFolderPermissions", {
- *     projectId: exampleProject.id,
+ * const exampleBuildFolderPermissions = new azuredevops.BuildFolderPermissions("example", {
+ *     projectId: example.id,
  *     path: "\\",
  *     principal: example_readers.apply(example_readers => example_readers.id),
  *     permissions: {

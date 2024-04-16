@@ -191,16 +191,16 @@ class CheckRequiredTemplate(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject")
-        example_service_endpoint_generic = azuredevops.ServiceEndpointGeneric("exampleServiceEndpointGeneric",
-            project_id=example_project.id,
+        example = azuredevops.Project("example", name="Example Project")
+        example_service_endpoint_generic = azuredevops.ServiceEndpointGeneric("example",
+            project_id=example.id,
             server_url="https://some-server.example.com",
             username="username",
             password="password",
             service_endpoint_name="Example Generic",
             description="Managed by Terraform")
-        example_check_required_template = azuredevops.CheckRequiredTemplate("exampleCheckRequiredTemplate",
-            project_id=example_project.id,
+        example_check_required_template = azuredevops.CheckRequiredTemplate("example",
+            project_id=example.id,
             target_resource_id=example_service_endpoint_generic.id,
             target_resource_type="endpoint",
             required_templates=[azuredevops.CheckRequiredTemplateRequiredTemplateArgs(
@@ -219,10 +219,12 @@ class CheckRequiredTemplate(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject")
-        example_environment = azuredevops.Environment("exampleEnvironment", project_id=example_project.id)
-        example_check_required_template = azuredevops.CheckRequiredTemplate("exampleCheckRequiredTemplate",
-            project_id=example_project.id,
+        example = azuredevops.Project("example", name="Example Project")
+        example_environment = azuredevops.Environment("example",
+            project_id=example.id,
+            name="Example Environment")
+        example_check_required_template = azuredevops.CheckRequiredTemplate("example",
+            project_id=example.id,
             target_resource_id=example_environment.id,
             target_resource_type="environment",
             required_templates=[
@@ -269,16 +271,16 @@ class CheckRequiredTemplate(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject")
-        example_service_endpoint_generic = azuredevops.ServiceEndpointGeneric("exampleServiceEndpointGeneric",
-            project_id=example_project.id,
+        example = azuredevops.Project("example", name="Example Project")
+        example_service_endpoint_generic = azuredevops.ServiceEndpointGeneric("example",
+            project_id=example.id,
             server_url="https://some-server.example.com",
             username="username",
             password="password",
             service_endpoint_name="Example Generic",
             description="Managed by Terraform")
-        example_check_required_template = azuredevops.CheckRequiredTemplate("exampleCheckRequiredTemplate",
-            project_id=example_project.id,
+        example_check_required_template = azuredevops.CheckRequiredTemplate("example",
+            project_id=example.id,
             target_resource_id=example_service_endpoint_generic.id,
             target_resource_type="endpoint",
             required_templates=[azuredevops.CheckRequiredTemplateRequiredTemplateArgs(
@@ -297,10 +299,12 @@ class CheckRequiredTemplate(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject")
-        example_environment = azuredevops.Environment("exampleEnvironment", project_id=example_project.id)
-        example_check_required_template = azuredevops.CheckRequiredTemplate("exampleCheckRequiredTemplate",
-            project_id=example_project.id,
+        example = azuredevops.Project("example", name="Example Project")
+        example_environment = azuredevops.Environment("example",
+            project_id=example.id,
+            name="Example Environment")
+        example_check_required_template = azuredevops.CheckRequiredTemplate("example",
+            project_id=example.id,
             target_resource_id=example_environment.id,
             target_resource_type="environment",
             required_templates=[

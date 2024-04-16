@@ -28,20 +28,22 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name: pulumi.String("Example Project"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			example_readers := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: exampleProject.ID(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
 //			example_contributors := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: exampleProject.ID(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Contributors"),
 //			}, nil)
-//			_, err = azuredevops.NewGroup(ctx, "exampleGroup", &azuredevops.GroupArgs{
-//				Scope:       exampleProject.ID(),
+//			_, err = azuredevops.NewGroup(ctx, "example", &azuredevops.GroupArgs{
+//				Scope:       example.ID(),
 //				DisplayName: pulumi.String("Example group"),
 //				Description: pulumi.String("Example description"),
 //				Members: pulumi.StringArray{

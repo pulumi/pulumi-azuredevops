@@ -14,14 +14,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
  *     description: "Managed by Terraform",
  * });
- * const exampleVariableGroup = new azuredevops.VariableGroup("exampleVariableGroup", {
- *     projectId: exampleProject.id,
+ * const exampleVariableGroup = new azuredevops.VariableGroup("example", {
+ *     projectId: example.id,
+ *     name: "Example Variable Group",
  *     description: "Example Variable Group Description",
  *     allowAccess: true,
  *     variables: [
@@ -46,14 +48,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
  *     description: "Managed by Terraform",
  * });
- * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", {
- *     projectId: exampleProject.id,
+ * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("example", {
+ *     projectId: example.id,
  *     serviceEndpointName: "Example AzureRM",
  *     description: "Managed by Terraform",
  *     credentials: {
@@ -64,8 +67,9 @@ import * as utilities from "./utilities";
  *     azurermSubscriptionId: "00000000-0000-0000-0000-000000000000",
  *     azurermSubscriptionName: "Example Subscription Name",
  * });
- * const exampleVariableGroup = new azuredevops.VariableGroup("exampleVariableGroup", {
- *     projectId: exampleProject.id,
+ * const exampleVariableGroup = new azuredevops.VariableGroup("example", {
+ *     projectId: example.id,
+ *     name: "Example Variable Group",
  *     description: "Example Variable Group Description",
  *     allowAccess: true,
  *     keyVault: {

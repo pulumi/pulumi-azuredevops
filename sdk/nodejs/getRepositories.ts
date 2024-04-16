@@ -20,10 +20,12 @@ import * as utilities from "./utilities";
  * const example = azuredevops.getProject({
  *     name: "Example Project",
  * });
+ * // Load all Git repositories of a project, which are accessible for the current user
  * const example-all-repos = example.then(example => azuredevops.getRepositories({
  *     projectId: example.id,
  *     includeHidden: true,
  * }));
+ * // Load a specific Git repository by name
  * const example-single-repo = example.then(example => azuredevops.getRepositories({
  *     projectId: example.id,
  *     name: "Example Repository",
@@ -100,10 +102,12 @@ export interface GetRepositoriesResult {
  * const example = azuredevops.getProject({
  *     name: "Example Project",
  * });
+ * // Load all Git repositories of a project, which are accessible for the current user
  * const example-all-repos = example.then(example => azuredevops.getRepositories({
  *     projectId: example.id,
  *     includeHidden: true,
  * }));
+ * // Load a specific Git repository by name
  * const example-single-repo = example.then(example => azuredevops.getRepositories({
  *     projectId: example.id,
  *     name: "Example Repository",

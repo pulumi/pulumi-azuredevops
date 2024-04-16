@@ -12,6 +12,58 @@ import (
 )
 
 // Use this data source to access information about an Environment.
+//
+// ## Example Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				VersionControl:   pulumi.String("Git"),
+//				Visibility:       pulumi.String("private"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEnvironment, err := azuredevops.NewEnvironment(ctx, "example", &azuredevops.EnvironmentArgs{
+//				ProjectId:   exampleProject.ID(),
+//				Name:        pulumi.String("Example Environment"),
+//				Description: pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_ = pulumi.All(exampleProject.ID(), exampleEnvironment.ID()).ApplyT(func(_args []interface{}) (azuredevops.GetEnvironmentResult, error) {
+//				exampleProjectId := _args[0].(string)
+//				exampleEnvironmentId := _args[1].(string)
+//				return azuredevops.LookupEnvironmentOutput(ctx, azuredevops.GetEnvironmentOutputArgs{
+//					ProjectId:     exampleProjectId,
+//					EnvironmentId: exampleEnvironmentId,
+//				}, nil), nil
+//			}).(azuredevops.GetEnvironmentResultOutput)
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ## Relevant Links
+//
+// * [Azure DevOps Service REST API 7.0 - Environments](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments?view=azure-devops-rest-7.0)
 func LookupEnvironment(ctx *pulumi.Context, args *LookupEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupEnvironmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEnvironmentResult

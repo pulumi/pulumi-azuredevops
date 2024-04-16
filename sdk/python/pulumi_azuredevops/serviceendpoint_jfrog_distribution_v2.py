@@ -275,13 +275,14 @@ class ServiceendpointJfrogDistributionV2(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_serviceendpoint_jfrog_distribution_v2 = azuredevops.ServiceendpointJfrogDistributionV2("exampleServiceendpointJfrogDistributionV2",
-            project_id=example_project.id,
+        example_serviceendpoint_jfrog_distribution_v2 = azuredevops.ServiceendpointJfrogDistributionV2("example",
+            project_id=example.id,
             service_endpoint_name="Example JFrog Distribution V2",
             description="Managed by Terraform",
             url="https://artifactory.my.com",
@@ -297,13 +298,14 @@ class ServiceendpointJfrogDistributionV2(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_serviceendpoint_jfrog_distribution_v2 = azuredevops.ServiceendpointJfrogDistributionV2("exampleServiceendpointJfrogDistributionV2",
-            project_id=example_project.id,
+        example_serviceendpoint_jfrog_distribution_v2 = azuredevops.ServiceendpointJfrogDistributionV2("example",
+            project_id=example.id,
             service_endpoint_name="Example JFrog Distribution V2",
             description="Managed by Terraform",
             url="https://artifactory.my.com",
@@ -356,13 +358,14 @@ class ServiceendpointJfrogDistributionV2(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_serviceendpoint_jfrog_distribution_v2 = azuredevops.ServiceendpointJfrogDistributionV2("exampleServiceendpointJfrogDistributionV2",
-            project_id=example_project.id,
+        example_serviceendpoint_jfrog_distribution_v2 = azuredevops.ServiceendpointJfrogDistributionV2("example",
+            project_id=example.id,
             service_endpoint_name="Example JFrog Distribution V2",
             description="Managed by Terraform",
             url="https://artifactory.my.com",
@@ -378,13 +381,14 @@ class ServiceendpointJfrogDistributionV2(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_serviceendpoint_jfrog_distribution_v2 = azuredevops.ServiceendpointJfrogDistributionV2("exampleServiceendpointJfrogDistributionV2",
-            project_id=example_project.id,
+        example_serviceendpoint_jfrog_distribution_v2 = azuredevops.ServiceendpointJfrogDistributionV2("example",
+            project_id=example.id,
             service_endpoint_name="Example JFrog Distribution V2",
             description="Managed by Terraform",
             url="https://artifactory.my.com",

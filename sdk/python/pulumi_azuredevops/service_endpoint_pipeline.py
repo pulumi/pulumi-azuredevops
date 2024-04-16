@@ -223,13 +223,14 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_service_endpoint_pipeline = azuredevops.ServiceEndpointPipeline("exampleServiceEndpointPipeline",
-            project_id=example_project.id,
+        example_service_endpoint_pipeline = azuredevops.ServiceEndpointPipeline("example",
+            project_id=example.id,
             service_endpoint_name="Example Pipeline Runner",
             organization_name="Organization Name",
             auth_personal=azuredevops.ServiceEndpointPipelineAuthPersonalArgs(
@@ -274,13 +275,14 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_service_endpoint_pipeline = azuredevops.ServiceEndpointPipeline("exampleServiceEndpointPipeline",
-            project_id=example_project.id,
+        example_service_endpoint_pipeline = azuredevops.ServiceEndpointPipeline("example",
+            project_id=example.id,
             service_endpoint_name="Example Pipeline Runner",
             organization_name="Organization Name",
             auth_personal=azuredevops.ServiceEndpointPipelineAuthPersonalArgs(

@@ -16,21 +16,22 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  *     description: "Managed by Terraform",
  * });
- * const exampleServiceEndpointBitBucket = new azuredevops.ServiceEndpointBitBucket("exampleServiceEndpointBitBucket", {
- *     projectId: exampleProject.id,
+ * const exampleServiceEndpointBitBucket = new azuredevops.ServiceEndpointBitBucket("example", {
+ *     projectId: example.id,
  *     username: "username",
  *     password: "password",
  *     serviceEndpointName: "example-bitbucket",
  *     description: "Managed by Terraform",
  * });
- * const exampleResourceAuthorization = new azuredevops.ResourceAuthorization("exampleResourceAuthorization", {
- *     projectId: exampleProject.id,
+ * const exampleResourceAuthorization = new azuredevops.ResourceAuthorization("example", {
+ *     projectId: example.id,
  *     resourceId: exampleServiceEndpointBitBucket.id,
  *     authorized: true,
  * });

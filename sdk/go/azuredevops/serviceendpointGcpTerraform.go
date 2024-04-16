@@ -27,7 +27,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
 //				Visibility:       pulumi.String("private"),
 //				VersionControl:   pulumi.String("Git"),
 //				WorkItemTemplate: pulumi.String("Agile"),
@@ -36,8 +37,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewServiceendpointGcpTerraform(ctx, "exampleServiceendpointGcpTerraform", &azuredevops.ServiceendpointGcpTerraformArgs{
-//				ProjectId:           exampleProject.ID(),
+//			_, err = azuredevops.NewServiceendpointGcpTerraform(ctx, "example", &azuredevops.ServiceendpointGcpTerraformArgs{
+//				ProjectId:           example.ID(),
 //				TokenUri:            pulumi.String("https://oauth2.example.com/token"),
 //				ClientEmail:         pulumi.String("gcp-sa-example@example.iam.gserviceaccount.com"),
 //				PrivateKey:          pulumi.String("0000000000000000000000000000000000000"),

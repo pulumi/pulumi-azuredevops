@@ -23,8 +23,9 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
@@ -32,9 +33,9 @@ namespace Pulumi.AzureDevOps
     ///     });
     /// 
     ///     // azure container registry service connection
-    ///     var exampleServiceEndpointAzureEcr = new AzureDevOps.ServiceEndpointAzureEcr("exampleServiceEndpointAzureEcr", new()
+    ///     var exampleServiceEndpointAzureEcr = new AzureDevOps.ServiceEndpointAzureEcr("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example AzureCR",
     ///         ResourceGroup = "example-rg",
     ///         AzurecrSpnTenantid = "00000000-0000-0000-0000-000000000000",

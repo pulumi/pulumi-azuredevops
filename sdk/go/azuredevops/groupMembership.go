@@ -29,23 +29,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
+//			exampleProject, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name: pulumi.String("Example Project"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleUser, err := azuredevops.NewUser(ctx, "exampleUser", &azuredevops.UserArgs{
+//			exampleUser, err := azuredevops.NewUser(ctx, "example", &azuredevops.UserArgs{
 //				PrincipalName: pulumi.String("foo@contoso.com"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleGroup := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
+//			example := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
 //				ProjectId: exampleProject.ID(),
 //				Name:      pulumi.String("Build Administrators"),
 //			}, nil)
-//			_, err = azuredevops.NewGroupMembership(ctx, "exampleGroupMembership", &azuredevops.GroupMembershipArgs{
-//				Group: exampleGroup.ApplyT(func(exampleGroup azuredevops.GetGroupResult) (*string, error) {
-//					return &exampleGroup.Descriptor, nil
+//			_, err = azuredevops.NewGroupMembership(ctx, "example", &azuredevops.GroupMembershipArgs{
+//				Group: example.ApplyT(func(example azuredevops.GetGroupResult) (*string, error) {
+//					return &example.Descriptor, nil
 //				}).(pulumi.StringPtrOutput),
 //				Members: pulumi.StringArray{
 //					exampleUser.Descriptor,

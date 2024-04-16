@@ -29,7 +29,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
 //				Visibility:       pulumi.String("private"),
 //				VersionControl:   pulumi.String("Git"),
 //				WorkItemTemplate: pulumi.String("Agile"),
@@ -38,8 +39,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewServiceEndpointSsh(ctx, "exampleServiceEndpointSsh", &azuredevops.ServiceEndpointSshArgs{
-//				ProjectId:           exampleProject.ID(),
+//			_, err = azuredevops.NewServiceEndpointSsh(ctx, "example", &azuredevops.ServiceEndpointSshArgs{
+//				ProjectId:           example.ID(),
 //				ServiceEndpointName: pulumi.String("Example SSH"),
 //				Host:                pulumi.String("1.2.3.4"),
 //				Username:            pulumi.String("username"),

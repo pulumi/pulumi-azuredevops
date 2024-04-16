@@ -129,6 +129,7 @@ def get_iteration(fetch_children: Optional[bool] = None,
     import pulumi_azuredevops as azuredevops
 
     example = azuredevops.Project("example",
+        name="Example Project",
         work_item_template="Agile",
         version_control="Git",
         visibility="private",
@@ -188,6 +189,7 @@ def get_iteration_output(fetch_children: Optional[pulumi.Input[Optional[bool]]] 
     import pulumi_azuredevops as azuredevops
 
     example = azuredevops.Project("example",
+        name="Example Project",
         work_item_template="Agile",
         version_control="Git",
         visibility="private",

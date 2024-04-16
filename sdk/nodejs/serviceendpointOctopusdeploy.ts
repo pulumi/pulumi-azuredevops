@@ -14,14 +14,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  *     description: "Managed by Terraform",
  * });
- * const exampleServiceendpointOctopusdeploy = new azuredevops.ServiceendpointOctopusdeploy("exampleServiceendpointOctopusdeploy", {
- *     projectId: exampleProject.id,
+ * const exampleServiceendpointOctopusdeploy = new azuredevops.ServiceendpointOctopusdeploy("example", {
+ *     projectId: example.id,
  *     url: "https://octopus.com",
  *     apiKey: "000000000000000000000000000000000000",
  *     serviceEndpointName: "Example Octopus Deploy",

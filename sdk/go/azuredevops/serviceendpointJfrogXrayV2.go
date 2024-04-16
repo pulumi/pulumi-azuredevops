@@ -31,7 +31,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
 //				Visibility:       pulumi.String("private"),
 //				VersionControl:   pulumi.String("Git"),
 //				WorkItemTemplate: pulumi.String("Agile"),
@@ -40,8 +41,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewServiceendpointJfrogXrayV2(ctx, "exampleServiceendpointJfrogXrayV2", &azuredevops.ServiceendpointJfrogXrayV2Args{
-//				ProjectId:           exampleProject.ID(),
+//			_, err = azuredevops.NewServiceendpointJfrogXrayV2(ctx, "example", &azuredevops.ServiceendpointJfrogXrayV2Args{
+//				ProjectId:           example.ID(),
 //				ServiceEndpointName: pulumi.String("Example Artifactory"),
 //				Description:         pulumi.String("Managed by Terraform"),
 //				Url:                 pulumi.String("https://artifactory.my.com"),
@@ -73,7 +74,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
 //				Visibility:       pulumi.String("private"),
 //				VersionControl:   pulumi.String("Git"),
 //				WorkItemTemplate: pulumi.String("Agile"),
@@ -82,8 +84,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewServiceendpointJfrogXrayV2(ctx, "exampleServiceendpointJfrogXrayV2", &azuredevops.ServiceendpointJfrogXrayV2Args{
-//				ProjectId:           exampleProject.ID(),
+//			_, err = azuredevops.NewServiceendpointJfrogXrayV2(ctx, "example", &azuredevops.ServiceendpointJfrogXrayV2Args{
+//				ProjectId:           example.ID(),
 //				ServiceEndpointName: pulumi.String("Example Artifactory"),
 //				Description:         pulumi.String("Managed by Terraform"),
 //				Url:                 pulumi.String("https://artifactory.my.com"),

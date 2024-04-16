@@ -34,10 +34,12 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// load all existing groups inside an organization
 //			_, err = azuredevops.GetGroups(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
+//			// load all existing groups inside a specific project
 //			_, err = azuredevops.GetGroups(ctx, &azuredevops.GetGroupsArgs{
 //				ProjectId: pulumi.StringRef(example.Id),
 //			}, nil)

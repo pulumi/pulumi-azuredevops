@@ -14,14 +14,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  *     description: "Managed by Terraform",
  * });
- * const exampleServiceendpointNuget = new azuredevops.ServiceendpointNuget("exampleServiceendpointNuget", {
- *     projectId: exampleProject.id,
+ * const exampleServiceendpointNuget = new azuredevops.ServiceendpointNuget("example", {
+ *     projectId: example.id,
  *     apiKey: "apikey",
  *     serviceEndpointName: "Example NuGet",
  *     description: "Managed by Terraform",

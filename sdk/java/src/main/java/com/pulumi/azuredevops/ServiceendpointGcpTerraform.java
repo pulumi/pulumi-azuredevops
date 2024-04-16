@@ -43,7 +43,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+ *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
  *             .visibility(&#34;private&#34;)
  *             .versionControl(&#34;Git&#34;)
  *             .workItemTemplate(&#34;Agile&#34;)
@@ -51,7 +52,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleServiceendpointGcpTerraform = new ServiceendpointGcpTerraform(&#34;exampleServiceendpointGcpTerraform&#34;, ServiceendpointGcpTerraformArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .tokenUri(&#34;https://oauth2.example.com/token&#34;)
  *             .clientEmail(&#34;gcp-sa-example@example.iam.gserviceaccount.com&#34;)
  *             .privateKey(&#34;0000000000000000000000000000000000000&#34;)

@@ -20,22 +20,24 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  *     description: "Managed by Terraform",
  * });
- * const examplePool = new azuredevops.Pool("examplePool", {
+ * const examplePool = new azuredevops.Pool("example", {
+ *     name: "Example Pool",
  *     autoProvision: false,
  *     autoUpdate: false,
  * });
- * const exampleQueue = new azuredevops.Queue("exampleQueue", {
- *     projectId: exampleProject.id,
+ * const exampleQueue = new azuredevops.Queue("example", {
+ *     projectId: example.id,
  *     agentPoolId: examplePool.id,
  * });
- * const examplePipelineAuthorization = new azuredevops.PipelineAuthorization("examplePipelineAuthorization", {
- *     projectId: exampleProject.id,
+ * const examplePipelineAuthorization = new azuredevops.PipelineAuthorization("example", {
+ *     projectId: example.id,
  *     resourceId: exampleQueue.id,
  *     type: "queue",
  * });
@@ -49,33 +51,36 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const exampleProject = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  *     description: "Managed by Terraform",
  * });
- * const examplePool = new azuredevops.Pool("examplePool", {
+ * const examplePool = new azuredevops.Pool("example", {
+ *     name: "Example Pool",
  *     autoProvision: false,
  *     autoUpdate: false,
  * });
- * const exampleQueue = new azuredevops.Queue("exampleQueue", {
+ * const exampleQueue = new azuredevops.Queue("example", {
  *     projectId: exampleProject.id,
  *     agentPoolId: examplePool.id,
  * });
- * const exampleGitRepository = azuredevops.getGitRepositoryOutput({
+ * const example = azuredevops.getGitRepositoryOutput({
  *     projectId: exampleProject.id,
  *     name: "Example Project",
  * });
- * const exampleBuildDefinition = new azuredevops.BuildDefinition("exampleBuildDefinition", {
+ * const exampleBuildDefinition = new azuredevops.BuildDefinition("example", {
  *     projectId: exampleProject.id,
+ *     name: "Example Pipeline",
  *     repository: {
  *         repoType: "TfsGit",
- *         repoId: exampleGitRepository.apply(exampleGitRepository => exampleGitRepository.id),
+ *         repoId: example.apply(example => example.id),
  *         ymlPath: "azure-pipelines.yml",
  *     },
  * });
- * const examplePipelineAuthorization = new azuredevops.PipelineAuthorization("examplePipelineAuthorization", {
+ * const examplePipelineAuthorization = new azuredevops.PipelineAuthorization("example", {
  *     projectId: exampleProject.id,
  *     resourceId: exampleQueue.id,
  *     type: "queue",

@@ -22,6 +22,8 @@ import (
 //
 // import (
 //
+//	"fmt"
+//
 //	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -29,7 +31,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
 //				WorkItemTemplate: pulumi.String("Agile"),
 //				VersionControl:   pulumi.String("Git"),
 //				Visibility:       pulumi.String("private"),
@@ -39,11 +42,14 @@ import (
 //				return err
 //			}
 //			example_project_readers := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: exampleProject.ID(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
-//			exampleTeam, err := azuredevops.NewTeam(ctx, "exampleTeam", &azuredevops.TeamArgs{
-//				ProjectId: exampleProject.ID(),
+//			exampleTeam, err := azuredevops.NewTeam(ctx, "example", &azuredevops.TeamArgs{
+//				ProjectId: example.ID(),
+//				Name: example.Name.ApplyT(func(name string) (string, error) {
+//					return fmt.Sprintf("%v Team 2", name), nil
+//				}).(pulumi.StringOutput),
 //			})
 //			if err != nil {
 //				return err

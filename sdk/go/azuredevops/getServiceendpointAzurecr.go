@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := azuredevops.GetServiceendpointAzurecr(ctx, &azuredevops.GetServiceendpointAzurecrArgs{
-//				ProjectId:           azuredevops_project.Example.Id,
+//				ProjectId:           exampleAzuredevopsProject.Id,
 //				ServiceEndpointName: pulumi.StringRef("Example Azure Container Registry"),
 //			}, nil)
 //			if err != nil {

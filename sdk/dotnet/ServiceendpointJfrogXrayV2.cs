@@ -25,17 +25,18 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
     ///         Description = "Managed by Terraform",
     ///     });
     /// 
-    ///     var exampleServiceendpointJfrogXrayV2 = new AzureDevOps.ServiceendpointJfrogXrayV2("exampleServiceendpointJfrogXrayV2", new()
+    ///     var exampleServiceendpointJfrogXrayV2 = new AzureDevOps.ServiceendpointJfrogXrayV2("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example Artifactory",
     ///         Description = "Managed by Terraform",
     ///         Url = "https://artifactory.my.com",
@@ -59,17 +60,18 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
     ///         Description = "Managed by Terraform",
     ///     });
     /// 
-    ///     var exampleServiceendpointJfrogXrayV2 = new AzureDevOps.ServiceendpointJfrogXrayV2("exampleServiceendpointJfrogXrayV2", new()
+    ///     var exampleServiceendpointJfrogXrayV2 = new AzureDevOps.ServiceendpointJfrogXrayV2("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example Artifactory",
     ///         Description = "Managed by Terraform",
     ///         Url = "https://artifactory.my.com",

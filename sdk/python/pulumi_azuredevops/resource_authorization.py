@@ -207,19 +207,20 @@ class ResourceAuthorization(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_service_endpoint_bit_bucket = azuredevops.ServiceEndpointBitBucket("exampleServiceEndpointBitBucket",
-            project_id=example_project.id,
+        example_service_endpoint_bit_bucket = azuredevops.ServiceEndpointBitBucket("example",
+            project_id=example.id,
             username="username",
             password="password",
             service_endpoint_name="example-bitbucket",
             description="Managed by Terraform")
-        example_resource_authorization = azuredevops.ResourceAuthorization("exampleResourceAuthorization",
-            project_id=example_project.id,
+        example_resource_authorization = azuredevops.ResourceAuthorization("example",
+            project_id=example.id,
             resource_id=example_service_endpoint_bit_bucket.id,
             authorized=True)
         ```
@@ -255,19 +256,20 @@ class ResourceAuthorization(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_service_endpoint_bit_bucket = azuredevops.ServiceEndpointBitBucket("exampleServiceEndpointBitBucket",
-            project_id=example_project.id,
+        example_service_endpoint_bit_bucket = azuredevops.ServiceEndpointBitBucket("example",
+            project_id=example.id,
             username="username",
             password="password",
             service_endpoint_name="example-bitbucket",
             description="Managed by Terraform")
-        example_resource_authorization = azuredevops.ResourceAuthorization("exampleResourceAuthorization",
-            project_id=example_project.id,
+        example_resource_authorization = azuredevops.ResourceAuthorization("example",
+            project_id=example.id,
             resource_id=example_service_endpoint_bit_bucket.id,
             authorized=True)
         ```

@@ -35,6 +35,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Load a specific Git repository by name
 //			_, err = azuredevops.GetGitRepository(ctx, &azuredevops.GetGitRepositoryArgs{
 //				ProjectId: example.Id,
 //				Name:      "Example Repository",

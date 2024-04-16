@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := azuredevops.GetServiceendpointNpm(ctx, &azuredevops.GetServiceendpointNpmArgs{
-//				ProjectId:           azuredevops_project.Example.Id,
+//				ProjectId:           exampleAzuredevopsProject.Id,
 //				ServiceEndpointName: pulumi.StringRef("Example npm"),
 //			}, nil)
 //			if err != nil {

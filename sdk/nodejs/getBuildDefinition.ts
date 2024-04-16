@@ -16,14 +16,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = azuredevops.getProject({
+ * const example = azuredevops.getProject({
  *     name: "Example Project",
  * });
- * const exampleBuildDefinition = exampleProject.then(exampleProject => azuredevops.getBuildDefinition({
- *     projectId: exampleProject.id,
+ * const exampleGetBuildDefinition = example.then(example => azuredevops.getBuildDefinition({
+ *     projectId: example.id,
  *     name: "existing",
  * }));
- * export const id = exampleBuildDefinition.then(exampleBuildDefinition => exampleBuildDefinition.id);
+ * export const id = exampleGetBuildDefinition.then(exampleGetBuildDefinition => exampleGetBuildDefinition.id);
  * ```
  * <!--End PulumiCodeChooser -->
  */
@@ -116,14 +116,14 @@ export interface GetBuildDefinitionResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = azuredevops.getProject({
+ * const example = azuredevops.getProject({
  *     name: "Example Project",
  * });
- * const exampleBuildDefinition = exampleProject.then(exampleProject => azuredevops.getBuildDefinition({
- *     projectId: exampleProject.id,
+ * const exampleGetBuildDefinition = example.then(example => azuredevops.getBuildDefinition({
+ *     projectId: example.id,
  *     name: "existing",
  * }));
- * export const id = exampleBuildDefinition.then(exampleBuildDefinition => exampleBuildDefinition.id);
+ * export const id = exampleGetBuildDefinition.then(exampleGetBuildDefinition => exampleGetBuildDefinition.id);
  * ```
  * <!--End PulumiCodeChooser -->
  */

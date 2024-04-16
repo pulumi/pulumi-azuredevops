@@ -25,6 +25,7 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     var project = new AzureDevOps.Project("project", new()
     ///     {
+    ///         Name = "Testing",
     ///         Description = "Testing-description",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
@@ -34,6 +35,7 @@ namespace Pulumi.AzureDevOps
     ///     var example = new AzureDevOps.VariableGroup("example", new()
     ///     {
     ///         ProjectId = project.Id,
+    ///         Name = "test",
     ///         Description = "Test Description",
     ///         AllowAccess = true,
     ///         Variables = new[]

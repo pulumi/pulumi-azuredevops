@@ -23,8 +23,9 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
     ///         VersionControl = "Git",
     ///         Visibility = "private",
@@ -33,13 +34,14 @@ namespace Pulumi.AzureDevOps
     /// 
     ///     var example_project_readers = AzureDevOps.GetGroup.Invoke(new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         Name = "Readers",
     ///     });
     /// 
-    ///     var exampleTeam = new AzureDevOps.Team("exampleTeam", new()
+    ///     var exampleTeam = new AzureDevOps.Team("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
+    ///         Name = example.Name.Apply(name =&gt; $"{name} Team 2"),
     ///     });
     /// 
     ///     var example_team_members = new AzureDevOps.TeamMembers("example-team-members", new()

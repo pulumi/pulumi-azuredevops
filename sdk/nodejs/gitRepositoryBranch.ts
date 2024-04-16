@@ -14,23 +14,27 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  * });
- * const exampleGit = new azuredevops.Git("exampleGit", {
- *     projectId: exampleProject.id,
+ * const exampleGit = new azuredevops.Git("example", {
+ *     projectId: example.id,
+ *     name: "Example Git Repository",
  *     initialization: {
  *         initType: "Clean",
  *     },
  * });
- * const exampleGitRepositoryBranch = new azuredevops.GitRepositoryBranch("exampleGitRepositoryBranch", {
+ * const exampleGitRepositoryBranch = new azuredevops.GitRepositoryBranch("example", {
  *     repositoryId: exampleGit.id,
+ *     name: "example-branch-name",
  *     refBranch: exampleGit.defaultBranch,
  * });
- * const exampleFromCommitId = new azuredevops.GitRepositoryBranch("exampleFromCommitId", {
+ * const exampleFromCommitId = new azuredevops.GitRepositoryBranch("example_from_commit_id", {
  *     repositoryId: exampleGit.id,
+ *     name: "example-from-commit-id",
  *     refCommitId: exampleGitRepositoryBranch.lastCommitId,
  * });
  * ```

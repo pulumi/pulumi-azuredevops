@@ -208,18 +208,20 @@ class RepositoryPolicyMaxPathLength(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_git = azuredevops.Git("exampleGit",
-            project_id=example_project.id,
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Sample Repo",
             initialization=azuredevops.GitInitializationArgs(
                 init_type="Clean",
             ))
-        example_repository_policy_max_path_length = azuredevops.RepositoryPolicyMaxPathLength("exampleRepositoryPolicyMaxPathLength",
-            project_id=example_project.id,
+        example_repository_policy_max_path_length = azuredevops.RepositoryPolicyMaxPathLength("example",
+            project_id=example.id,
             enabled=True,
             blocking=True,
             max_path_length=500,
@@ -233,13 +235,14 @@ class RepositoryPolicyMaxPathLength(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_repository_policy_max_path_length = azuredevops.RepositoryPolicyMaxPathLength("exampleRepositoryPolicyMaxPathLength",
-            project_id=example_project.id,
+        example_repository_policy_max_path_length = azuredevops.RepositoryPolicyMaxPathLength("example",
+            project_id=example.id,
             enabled=True,
             blocking=True,
             max_path_length=1000)
@@ -284,18 +287,20 @@ class RepositoryPolicyMaxPathLength(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_git = azuredevops.Git("exampleGit",
-            project_id=example_project.id,
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Sample Repo",
             initialization=azuredevops.GitInitializationArgs(
                 init_type="Clean",
             ))
-        example_repository_policy_max_path_length = azuredevops.RepositoryPolicyMaxPathLength("exampleRepositoryPolicyMaxPathLength",
-            project_id=example_project.id,
+        example_repository_policy_max_path_length = azuredevops.RepositoryPolicyMaxPathLength("example",
+            project_id=example.id,
             enabled=True,
             blocking=True,
             max_path_length=500,
@@ -309,13 +314,14 @@ class RepositoryPolicyMaxPathLength(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_repository_policy_max_path_length = azuredevops.RepositoryPolicyMaxPathLength("exampleRepositoryPolicyMaxPathLength",
-            project_id=example_project.id,
+        example_repository_policy_max_path_length = azuredevops.RepositoryPolicyMaxPathLength("example",
+            project_id=example.id,
             enabled=True,
             blocking=True,
             max_path_length=1000)

@@ -353,13 +353,14 @@ class ServiceEndpointAws(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_service_endpoint_aws = azuredevops.ServiceEndpointAws("exampleServiceEndpointAws",
-            project_id=example_project.id,
+        example_service_endpoint_aws = azuredevops.ServiceEndpointAws("example",
+            project_id=example.id,
             service_endpoint_name="Example AWS",
             access_key_id="00000000-0000-0000-0000-000000000000",
             secret_access_key="accesskey",
@@ -407,13 +408,14 @@ class ServiceEndpointAws(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_service_endpoint_aws = azuredevops.ServiceEndpointAws("exampleServiceEndpointAws",
-            project_id=example_project.id,
+        example_service_endpoint_aws = azuredevops.ServiceEndpointAws("example",
+            project_id=example.id,
             service_endpoint_name="Example AWS",
             access_key_id="00000000-0000-0000-0000-000000000000",
             secret_access_key="accesskey",

@@ -46,14 +46,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+ *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
  *             .visibility(&#34;private&#34;)
  *             .versionControl(&#34;Git&#34;)
  *             .workItemTemplate(&#34;Agile&#34;)
  *             .build());
  * 
  *         var exampleGit = new Git(&#34;exampleGit&#34;, GitArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
+ *             .name(&#34;Example Git Repository&#34;)
  *             .initialization(GitInitializationArgs.builder()
  *                 .initType(&#34;Clean&#34;)
  *                 .build())
@@ -61,11 +63,13 @@ import javax.annotation.Nullable;
  * 
  *         var exampleGitRepositoryBranch = new GitRepositoryBranch(&#34;exampleGitRepositoryBranch&#34;, GitRepositoryBranchArgs.builder()        
  *             .repositoryId(exampleGit.id())
+ *             .name(&#34;example-branch-name&#34;)
  *             .refBranch(exampleGit.defaultBranch())
  *             .build());
  * 
  *         var exampleFromCommitId = new GitRepositoryBranch(&#34;exampleFromCommitId&#34;, GitRepositoryBranchArgs.builder()        
  *             .repositoryId(exampleGit.id())
+ *             .name(&#34;example-from-commit-id&#34;)
  *             .refCommitId(exampleGitRepositoryBranch.lastCommitId())
  *             .build());
  * 

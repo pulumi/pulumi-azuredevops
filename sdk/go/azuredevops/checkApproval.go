@@ -31,24 +31,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleEnvironment, err := azuredevops.NewEnvironment(ctx, "exampleEnvironment", &azuredevops.EnvironmentArgs{
-//				ProjectId: exampleProject.ID(),
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name: pulumi.String("Example Project"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleGroup, err := azuredevops.NewGroup(ctx, "exampleGroup", &azuredevops.GroupArgs{
+//			exampleEnvironment, err := azuredevops.NewEnvironment(ctx, "example", &azuredevops.EnvironmentArgs{
+//				ProjectId: example.ID(),
+//				Name:      pulumi.String("Example Environment"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleGroup, err := azuredevops.NewGroup(ctx, "example", &azuredevops.GroupArgs{
 //				DisplayName: pulumi.String("some-azdo-group"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewCheckApproval(ctx, "exampleCheckApproval", &azuredevops.CheckApprovalArgs{
-//				ProjectId:           exampleProject.ID(),
+//			_, err = azuredevops.NewCheckApproval(ctx, "example", &azuredevops.CheckApprovalArgs{
+//				ProjectId:           example.ID(),
 //				TargetResourceId:    exampleEnvironment.ID(),
 //				TargetResourceType:  pulumi.String("environment"),
 //				RequesterCanApprove: pulumi.Bool(true),

@@ -30,7 +30,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
 //				Visibility:       pulumi.String("private"),
 //				VersionControl:   pulumi.String("Git"),
 //				WorkItemTemplate: pulumi.String("Agile"),
@@ -39,8 +40,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewServiceendpointNexus(ctx, "exampleServiceendpointNexus", &azuredevops.ServiceendpointNexusArgs{
-//				ProjectId:           exampleProject.ID(),
+//			_, err = azuredevops.NewServiceendpointNexus(ctx, "example", &azuredevops.ServiceendpointNexusArgs{
+//				ProjectId:           example.ID(),
 //				ServiceEndpointName: pulumi.String("nexus-example"),
 //				Description:         pulumi.String("Service Endpoint for 'Nexus IQ' (Managed by Terraform)"),
 //				Url:                 pulumi.String("https://example.com"),

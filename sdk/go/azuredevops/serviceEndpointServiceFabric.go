@@ -16,63 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// ### Client Certificate Authentication
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/base64"
-//	"os"
-//
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func filebase64OrPanic(path string) string {
-//		if fileData, err := os.ReadFile(path); err == nil {
-//			return base64.StdEncoding.EncodeToString(fileData[:])
-//		} else {
-//			panic(err.Error())
-//		}
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-//				Visibility:       pulumi.String("private"),
-//				VersionControl:   pulumi.String("Git"),
-//				WorkItemTemplate: pulumi.String("Agile"),
-//				Description:      pulumi.String("Managed by Terraform"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = azuredevops.NewServiceEndpointServiceFabric(ctx, "exampleServiceEndpointServiceFabric", &azuredevops.ServiceEndpointServiceFabricArgs{
-//				ProjectId:           exampleProject.ID(),
-//				ServiceEndpointName: pulumi.String("Example Service Fabric"),
-//				Description:         pulumi.String("Managed by Terraform"),
-//				ClusterEndpoint:     pulumi.String("tcp://test"),
-//				Certificate: &azuredevops.ServiceEndpointServiceFabricCertificateArgs{
-//					ServerCertificateLookup:     pulumi.String("Thumbprint"),
-//					ServerCertificateThumbprint: pulumi.String("0000000000000000000000000000000000000000"),
-//					ClientCertificate:           filebase64OrPanic("certificate.pfx"),
-//					ClientCertificatePassword:   pulumi.String("password"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
-//
 // ### Azure Active Directory Authentication
 //
 // <!--Start PulumiCodeChooser -->
@@ -89,6 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Sample Project"),
 //				Visibility:       pulumi.String("private"),
 //				VersionControl:   pulumi.String("Git"),
 //				WorkItemTemplate: pulumi.String("Agile"),
@@ -134,6 +78,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Sample Project"),
 //				Visibility:       pulumi.String("private"),
 //				VersionControl:   pulumi.String("Git"),
 //				WorkItemTemplate: pulumi.String("Agile"),

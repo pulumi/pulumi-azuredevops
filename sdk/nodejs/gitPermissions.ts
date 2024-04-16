@@ -26,6 +26,7 @@ import * as utilities from "./utilities";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
@@ -58,7 +59,8 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
@@ -67,8 +69,9 @@ import * as utilities from "./utilities";
  * const example-group = azuredevops.getGroup({
  *     name: "Project Collection Administrators",
  * });
- * const exampleGit = new azuredevops.Git("exampleGit", {
- *     projectId: exampleProject.id,
+ * const exampleGit = new azuredevops.Git("example", {
+ *     projectId: example.id,
+ *     name: "Example Empty Git Repository",
  *     initialization: {
  *         initType: "Clean",
  *     },
@@ -98,14 +101,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
  *     description: "Managed by Terraform",
  * });
- * const exampleGit = new azuredevops.Git("exampleGit", {
- *     projectId: exampleProject.id,
+ * const exampleGit = new azuredevops.Git("example", {
+ *     projectId: example.id,
+ *     name: "Example Empty Git Repository",
  *     initialization: {
  *         initType: "Clean",
  *     },
@@ -133,26 +138,27 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  *     description: "Managed by Terraform",
  * });
  * const example-project-readers = azuredevops.getGroupOutput({
- *     projectId: exampleProject.id,
+ *     projectId: example.id,
  *     name: "Readers",
  * });
  * const example-project-contributors = azuredevops.getGroupOutput({
- *     projectId: exampleProject.id,
+ *     projectId: example.id,
  *     name: "Contributors",
  * });
  * const example-project-administrators = azuredevops.getGroupOutput({
- *     projectId: exampleProject.id,
+ *     projectId: example.id,
  *     name: "Project administrators",
  * });
  * const example_permissions = new azuredevops.GitPermissions("example-permissions", {
- *     projectId: exampleProject.id,
+ *     projectId: example.id,
  *     principal: example_project_readers.apply(example_project_readers => example_project_readers.id),
  *     permissions: {
  *         CreateRepository: "Deny",
@@ -160,8 +166,9 @@ import * as utilities from "./utilities";
  *         RenameRepository: "NotSet",
  *     },
  * });
- * const exampleGit = new azuredevops.Git("exampleGit", {
- *     projectId: exampleProject.id,
+ * const exampleGit = new azuredevops.Git("example", {
+ *     projectId: example.id,
+ *     name: "TestRepo",
  *     defaultBranch: "refs/heads/master",
  *     initialization: {
  *         initType: "Clean",

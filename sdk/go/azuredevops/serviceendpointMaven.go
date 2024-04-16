@@ -29,7 +29,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
 //				Visibility:       pulumi.String("private"),
 //				VersionControl:   pulumi.String("Git"),
 //				WorkItemTemplate: pulumi.String("Agile"),
@@ -38,8 +39,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewServiceendpointMaven(ctx, "exampleServiceendpointMaven", &azuredevops.ServiceendpointMavenArgs{
-//				ProjectId:           exampleProject.ID(),
+//			_, err = azuredevops.NewServiceendpointMaven(ctx, "example", &azuredevops.ServiceendpointMavenArgs{
+//				ProjectId:           example.ID(),
 //				ServiceEndpointName: pulumi.String("maven-example"),
 //				Description:         pulumi.String("Service Endpoint for 'Maven' (Managed by Terraform)"),
 //				Url:                 pulumi.String("https://example.com"),
@@ -73,7 +74,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
 //				Visibility:       pulumi.String("private"),
 //				VersionControl:   pulumi.String("Git"),
 //				WorkItemTemplate: pulumi.String("Agile"),
@@ -82,8 +84,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewServiceendpointMaven(ctx, "exampleServiceendpointMaven", &azuredevops.ServiceendpointMavenArgs{
-//				ProjectId:           exampleProject.ID(),
+//			_, err = azuredevops.NewServiceendpointMaven(ctx, "example", &azuredevops.ServiceendpointMavenArgs{
+//				ProjectId:           example.ID(),
 //				ServiceEndpointName: pulumi.String("maven-example"),
 //				Description:         pulumi.String("Service Endpoint for 'Maven' (Managed by Terraform)"),
 //				Url:                 pulumi.String("https://example.com"),

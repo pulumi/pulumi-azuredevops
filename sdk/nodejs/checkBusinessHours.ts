@@ -16,17 +16,17 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {});
- * const exampleServiceEndpointGeneric = new azuredevops.ServiceEndpointGeneric("exampleServiceEndpointGeneric", {
- *     projectId: exampleProject.id,
+ * const example = new azuredevops.Project("example", {name: "Example Project"});
+ * const exampleServiceEndpointGeneric = new azuredevops.ServiceEndpointGeneric("example", {
+ *     projectId: example.id,
  *     serverUrl: "https://some-server.example.com",
  *     username: "username",
  *     password: "password",
  *     serviceEndpointName: "Example Generic",
  *     description: "Managed by Terraform",
  * });
- * const exampleCheckBusinessHours = new azuredevops.CheckBusinessHours("exampleCheckBusinessHours", {
- *     projectId: exampleProject.id,
+ * const exampleCheckBusinessHours = new azuredevops.CheckBusinessHours("example", {
+ *     projectId: example.id,
  *     displayName: "Managed by Terraform",
  *     targetResourceId: exampleServiceEndpointGeneric.id,
  *     targetResourceType: "endpoint",
@@ -47,10 +47,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {});
- * const exampleEnvironment = new azuredevops.Environment("exampleEnvironment", {projectId: exampleProject.id});
- * const exampleCheckBusinessHours = new azuredevops.CheckBusinessHours("exampleCheckBusinessHours", {
- *     projectId: exampleProject.id,
+ * const example = new azuredevops.Project("example", {name: "Example Project"});
+ * const exampleEnvironment = new azuredevops.Environment("example", {
+ *     projectId: example.id,
+ *     name: "Example Environment",
+ * });
+ * const exampleCheckBusinessHours = new azuredevops.CheckBusinessHours("example", {
+ *     projectId: example.id,
  *     displayName: "Managed by Terraform",
  *     targetResourceId: exampleEnvironment.id,
  *     targetResourceType: "environment",
@@ -70,14 +73,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {});
- * const examplePool = new azuredevops.Pool("examplePool", {});
- * const exampleQueue = new azuredevops.Queue("exampleQueue", {
- *     projectId: exampleProject.id,
+ * const example = new azuredevops.Project("example", {name: "Example Project"});
+ * const examplePool = new azuredevops.Pool("example", {name: "example-pool"});
+ * const exampleQueue = new azuredevops.Queue("example", {
+ *     projectId: example.id,
  *     agentPoolId: examplePool.id,
  * });
- * const exampleCheckBusinessHours = new azuredevops.CheckBusinessHours("exampleCheckBusinessHours", {
- *     projectId: exampleProject.id,
+ * const exampleCheckBusinessHours = new azuredevops.CheckBusinessHours("example", {
+ *     projectId: example.id,
  *     displayName: "Managed by Terraform",
  *     targetResourceId: exampleQueue.id,
  *     targetResourceType: "queue",
@@ -97,17 +100,18 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {});
- * const exampleGit = new azuredevops.Git("exampleGit", {
- *     projectId: exampleProject.id,
+ * const example = new azuredevops.Project("example", {name: "Example Project"});
+ * const exampleGit = new azuredevops.Git("example", {
+ *     projectId: example.id,
+ *     name: "Example Empty Git Repository",
  *     initialization: {
  *         initType: "Clean",
  *     },
  * });
- * const exampleCheckBusinessHours = new azuredevops.CheckBusinessHours("exampleCheckBusinessHours", {
- *     projectId: exampleProject.id,
+ * const exampleCheckBusinessHours = new azuredevops.CheckBusinessHours("example", {
+ *     projectId: example.id,
  *     displayName: "Managed by Terraform",
- *     targetResourceId: pulumi.interpolate`${exampleProject.id}.${exampleGit.id}`,
+ *     targetResourceId: pulumi.interpolate`${example.id}.${exampleGit.id}`,
  *     targetResourceType: "repository",
  *     startTime: "07:00",
  *     endTime: "15:30",
@@ -125,9 +129,10 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {});
- * const exampleVariableGroup = new azuredevops.VariableGroup("exampleVariableGroup", {
- *     projectId: exampleProject.id,
+ * const example = new azuredevops.Project("example", {name: "Example Project"});
+ * const exampleVariableGroup = new azuredevops.VariableGroup("example", {
+ *     projectId: example.id,
+ *     name: "Example Variable Group",
  *     description: "Example Variable Group Description",
  *     allowAccess: true,
  *     variables: [
@@ -142,8 +147,8 @@ import * as utilities from "./utilities";
  *         },
  *     ],
  * });
- * const exampleCheckBusinessHours = new azuredevops.CheckBusinessHours("exampleCheckBusinessHours", {
- *     projectId: exampleProject.id,
+ * const exampleCheckBusinessHours = new azuredevops.CheckBusinessHours("example", {
+ *     projectId: example.id,
  *     displayName: "Managed by Terraform",
  *     targetResourceId: exampleVariableGroup.id,
  *     targetResourceType: "variablegroup",

@@ -129,10 +129,10 @@ def get_variable_group(name: Optional[str] = None,
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    example_project = azuredevops.get_project(name="Example Project")
-    example_variable_group = azuredevops.get_variable_group(project_id=example_project.id,
+    example = azuredevops.get_project(name="Example Project")
+    example_get_variable_group = azuredevops.get_variable_group(project_id=example.id,
         name="Example Variable Group")
-    pulumi.export("id", example_variable_group.id)
+    pulumi.export("id", example_get_variable_group.id)
     ```
     <!--End PulumiCodeChooser -->
 
@@ -176,10 +176,10 @@ def get_variable_group_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    example_project = azuredevops.get_project(name="Example Project")
-    example_variable_group = azuredevops.get_variable_group(project_id=example_project.id,
+    example = azuredevops.get_project(name="Example Project")
+    example_get_variable_group = azuredevops.get_variable_group(project_id=example.id,
         name="Example Variable Group")
-    pulumi.export("id", example_variable_group.id)
+    pulumi.export("id", example_get_variable_group.id)
     ```
     <!--End PulumiCodeChooser -->
 

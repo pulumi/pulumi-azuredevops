@@ -141,12 +141,15 @@ class Environment(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
             description="Managed by Terraform")
-        example_environment = azuredevops.Environment("exampleEnvironment", project_id=example_project.id)
+        example_environment = azuredevops.Environment("example",
+            project_id=example.id,
+            name="Example Environment")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -184,12 +187,15 @@ class Environment(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
             description="Managed by Terraform")
-        example_environment = azuredevops.Environment("exampleEnvironment", project_id=example_project.id)
+        example_environment = azuredevops.Environment("example",
+            project_id=example.id,
+            name="Example Environment")
         ```
         <!--End PulumiCodeChooser -->
 

@@ -176,6 +176,7 @@ class Pool(pulumi.CustomResource):
         import pulumi_azuredevops as azuredevops
 
         example = azuredevops.Pool("example",
+            name="Example-pool",
             auto_provision=False,
             auto_update=False)
         ```
@@ -217,6 +218,7 @@ class Pool(pulumi.CustomResource):
         import pulumi_azuredevops as azuredevops
 
         example = azuredevops.Pool("example",
+            name="Example-pool",
             auto_provision=False,
             auto_update=False)
         ```

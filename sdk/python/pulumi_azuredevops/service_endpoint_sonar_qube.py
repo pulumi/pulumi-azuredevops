@@ -229,13 +229,14 @@ class ServiceEndpointSonarQube(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_service_endpoint_sonar_qube = azuredevops.ServiceEndpointSonarQube("exampleServiceEndpointSonarQube",
-            project_id=example_project.id,
+        example_service_endpoint_sonar_qube = azuredevops.ServiceEndpointSonarQube("example",
+            project_id=example.id,
             service_endpoint_name="Example SonarQube",
             url="https://sonarqube.my.com",
             token="0000000000000000000000000000000000000000",
@@ -281,13 +282,14 @@ class ServiceEndpointSonarQube(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_service_endpoint_sonar_qube = azuredevops.ServiceEndpointSonarQube("exampleServiceEndpointSonarQube",
-            project_id=example_project.id,
+        example_service_endpoint_sonar_qube = azuredevops.ServiceEndpointSonarQube("example",
+            project_id=example.id,
             service_endpoint_name="Example SonarQube",
             url="https://sonarqube.my.com",
             token="0000000000000000000000000000000000000000",

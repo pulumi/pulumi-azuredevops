@@ -175,7 +175,8 @@ class BranchPolicyStatusCheck(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
@@ -184,16 +185,17 @@ class BranchPolicyStatusCheck(pulumi.CustomResource):
                 "artifacts": "disabled",
             },
             description="Managed by Terraform")
-        example_git = azuredevops.Git("exampleGit",
-            project_id=example_project.id,
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Example Repository",
             initialization=azuredevops.GitInitializationArgs(
                 init_type="Clean",
             ))
-        example_user = azuredevops.User("exampleUser",
+        example_user = azuredevops.User("example",
             principal_name="mail@email.com",
             account_license_type="basic")
-        example_branch_policy_status_check = azuredevops.BranchPolicyStatusCheck("exampleBranchPolicyStatusCheck",
-            project_id=example_project.id,
+        example_branch_policy_status_check = azuredevops.BranchPolicyStatusCheck("example",
+            project_id=example.id,
             enabled=True,
             blocking=True,
             settings=azuredevops.BranchPolicyStatusCheckSettingsArgs(
@@ -251,7 +253,8 @@ class BranchPolicyStatusCheck(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
@@ -260,16 +263,17 @@ class BranchPolicyStatusCheck(pulumi.CustomResource):
                 "artifacts": "disabled",
             },
             description="Managed by Terraform")
-        example_git = azuredevops.Git("exampleGit",
-            project_id=example_project.id,
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Example Repository",
             initialization=azuredevops.GitInitializationArgs(
                 init_type="Clean",
             ))
-        example_user = azuredevops.User("exampleUser",
+        example_user = azuredevops.User("example",
             principal_name="mail@email.com",
             account_license_type="basic")
-        example_branch_policy_status_check = azuredevops.BranchPolicyStatusCheck("exampleBranchPolicyStatusCheck",
-            project_id=example_project.id,
+        example_branch_policy_status_check = azuredevops.BranchPolicyStatusCheck("example",
+            project_id=example.id,
             enabled=True,
             blocking=True,
             settings=azuredevops.BranchPolicyStatusCheckSettingsArgs(

@@ -261,33 +261,6 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Client Certificate Authentication
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import base64
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            visibility="private",
-            version_control="Git",
-            work_item_template="Agile",
-            description="Managed by Terraform")
-        example_service_endpoint_service_fabric = azuredevops.ServiceEndpointServiceFabric("exampleServiceEndpointServiceFabric",
-            project_id=example_project.id,
-            service_endpoint_name="Example Service Fabric",
-            description="Managed by Terraform",
-            cluster_endpoint="tcp://test",
-            certificate=azuredevops.ServiceEndpointServiceFabricCertificateArgs(
-                server_certificate_lookup="Thumbprint",
-                server_certificate_thumbprint="0000000000000000000000000000000000000000",
-                client_certificate=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate.pfx"),
-                client_certificate_password="password",
-            ))
-        ```
-        <!--End PulumiCodeChooser -->
-
         ### Azure Active Directory Authentication
 
         <!--Start PulumiCodeChooser -->
@@ -296,6 +269,7 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
         import pulumi_azuredevops as azuredevops
 
         project = azuredevops.Project("project",
+            name="Sample Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
@@ -321,6 +295,7 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
         import pulumi_azuredevops as azuredevops
 
         project = azuredevops.Project("project",
+            name="Sample Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
@@ -365,33 +340,6 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Client Certificate Authentication
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import base64
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            visibility="private",
-            version_control="Git",
-            work_item_template="Agile",
-            description="Managed by Terraform")
-        example_service_endpoint_service_fabric = azuredevops.ServiceEndpointServiceFabric("exampleServiceEndpointServiceFabric",
-            project_id=example_project.id,
-            service_endpoint_name="Example Service Fabric",
-            description="Managed by Terraform",
-            cluster_endpoint="tcp://test",
-            certificate=azuredevops.ServiceEndpointServiceFabricCertificateArgs(
-                server_certificate_lookup="Thumbprint",
-                server_certificate_thumbprint="0000000000000000000000000000000000000000",
-                client_certificate=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate.pfx"),
-                client_certificate_password="password",
-            ))
-        ```
-        <!--End PulumiCodeChooser -->
-
         ### Azure Active Directory Authentication
 
         <!--Start PulumiCodeChooser -->
@@ -400,6 +348,7 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
         import pulumi_azuredevops as azuredevops
 
         project = azuredevops.Project("project",
+            name="Sample Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
@@ -425,6 +374,7 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
         import pulumi_azuredevops as azuredevops
 
         project = azuredevops.Project("project",
+            name="Sample Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")

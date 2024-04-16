@@ -33,12 +33,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name: pulumi.String("Example Project"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleServiceEndpointGeneric, err := azuredevops.NewServiceEndpointGeneric(ctx, "exampleServiceEndpointGeneric", &azuredevops.ServiceEndpointGenericArgs{
-//				ProjectId:           exampleProject.ID(),
+//			exampleServiceEndpointGeneric, err := azuredevops.NewServiceEndpointGeneric(ctx, "example", &azuredevops.ServiceEndpointGenericArgs{
+//				ProjectId:           example.ID(),
 //				ServerUrl:           pulumi.String("https://some-server.example.com"),
 //				Username:            pulumi.String("username"),
 //				Password:            pulumi.String("password"),
@@ -48,8 +50,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewCheckExclusiveLock(ctx, "exampleCheckExclusiveLock", &azuredevops.CheckExclusiveLockArgs{
-//				ProjectId:          exampleProject.ID(),
+//			_, err = azuredevops.NewCheckExclusiveLock(ctx, "example", &azuredevops.CheckExclusiveLockArgs{
+//				ProjectId:          example.ID(),
 //				TargetResourceId:   exampleServiceEndpointGeneric.ID(),
 //				TargetResourceType: pulumi.String("endpoint"),
 //				Timeout:            pulumi.Int(43200),
@@ -79,18 +81,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleEnvironment, err := azuredevops.NewEnvironment(ctx, "exampleEnvironment", &azuredevops.EnvironmentArgs{
-//				ProjectId: exampleProject.ID(),
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name: pulumi.String("Example Project"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewCheckExclusiveLock(ctx, "exampleCheckExclusiveLock", &azuredevops.CheckExclusiveLockArgs{
-//				ProjectId:          exampleProject.ID(),
+//			exampleEnvironment, err := azuredevops.NewEnvironment(ctx, "example", &azuredevops.EnvironmentArgs{
+//				ProjectId: example.ID(),
+//				Name:      pulumi.String("Example Environment"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewCheckExclusiveLock(ctx, "example", &azuredevops.CheckExclusiveLockArgs{
+//				ProjectId:          example.ID(),
 //				TargetResourceId:   exampleEnvironment.ID(),
 //				TargetResourceType: pulumi.String("environment"),
 //				Timeout:            pulumi.Int(43200),

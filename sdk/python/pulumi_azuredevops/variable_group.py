@@ -239,13 +239,15 @@ class VariableGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
             description="Managed by Terraform")
-        example_variable_group = azuredevops.VariableGroup("exampleVariableGroup",
-            project_id=example_project.id,
+        example_variable_group = azuredevops.VariableGroup("example",
+            project_id=example.id,
+            name="Example Variable Group",
             description="Example Variable Group Description",
             allow_access=True,
             variables=[
@@ -269,13 +271,14 @@ class VariableGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
             description="Managed by Terraform")
-        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM",
-            project_id=example_project.id,
+        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("example",
+            project_id=example.id,
             service_endpoint_name="Example AzureRM",
             description="Managed by Terraform",
             credentials=azuredevops.ServiceEndpointAzureRMCredentialsArgs(
@@ -285,8 +288,9 @@ class VariableGroup(pulumi.CustomResource):
             azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Example Subscription Name")
-        example_variable_group = azuredevops.VariableGroup("exampleVariableGroup",
-            project_id=example_project.id,
+        example_variable_group = azuredevops.VariableGroup("example",
+            project_id=example.id,
+            name="Example Variable Group",
             description="Example Variable Group Description",
             allow_access=True,
             key_vault=azuredevops.VariableGroupKeyVaultArgs(
@@ -359,13 +363,15 @@ class VariableGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
             description="Managed by Terraform")
-        example_variable_group = azuredevops.VariableGroup("exampleVariableGroup",
-            project_id=example_project.id,
+        example_variable_group = azuredevops.VariableGroup("example",
+            project_id=example.id,
+            name="Example Variable Group",
             description="Example Variable Group Description",
             allow_access=True,
             variables=[
@@ -389,13 +395,14 @@ class VariableGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
             description="Managed by Terraform")
-        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM",
-            project_id=example_project.id,
+        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("example",
+            project_id=example.id,
             service_endpoint_name="Example AzureRM",
             description="Managed by Terraform",
             credentials=azuredevops.ServiceEndpointAzureRMCredentialsArgs(
@@ -405,8 +412,9 @@ class VariableGroup(pulumi.CustomResource):
             azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Example Subscription Name")
-        example_variable_group = azuredevops.VariableGroup("exampleVariableGroup",
-            project_id=example_project.id,
+        example_variable_group = azuredevops.VariableGroup("example",
+            project_id=example.id,
+            name="Example Variable Group",
             description="Example Variable Group Description",
             allow_access=True,
             key_vault=azuredevops.VariableGroupKeyVaultArgs(

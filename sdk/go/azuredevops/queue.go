@@ -35,25 +35,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
+//			exampleProject, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name: pulumi.String("Example Project"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePool, err := azuredevops.LookupPool(ctx, &azuredevops.LookupPoolArgs{
+//			example, err := azuredevops.LookupPool(ctx, &azuredevops.LookupPoolArgs{
 //				Name: "example-pool",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleQueue, err := azuredevops.NewQueue(ctx, "exampleQueue", &azuredevops.QueueArgs{
+//			exampleQueue, err := azuredevops.NewQueue(ctx, "example", &azuredevops.QueueArgs{
 //				ProjectId:   exampleProject.ID(),
-//				AgentPoolId: pulumi.String(examplePool.Id),
+//				AgentPoolId: pulumi.String(example.Id),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			// Grant access to queue to all pipelines in the project
-//			_, err = azuredevops.NewResourceAuthorization(ctx, "exampleResourceAuthorization", &azuredevops.ResourceAuthorizationArgs{
+//			_, err = azuredevops.NewResourceAuthorization(ctx, "example", &azuredevops.ResourceAuthorizationArgs{
 //				ProjectId:  exampleProject.ID(),
 //				ResourceId: exampleQueue.ID(),
 //				Type:       pulumi.String("queue"),
@@ -84,14 +86,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
+//			example, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
 //				Name: pulumi.StringRef("Example Project"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewQueue(ctx, "exampleQueue", &azuredevops.QueueArgs{
-//				ProjectId: pulumi.String(exampleProject.Id),
+//			_, err = azuredevops.NewQueue(ctx, "example", &azuredevops.QueueArgs{
+//				Name:      pulumi.String("example-queue"),
+//				ProjectId: pulumi.String(example.Id),
 //			})
 //			if err != nil {
 //				return err

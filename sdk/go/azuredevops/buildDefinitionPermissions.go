@@ -31,7 +31,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
 //				WorkItemTemplate: pulumi.String("Agile"),
 //				VersionControl:   pulumi.String("Git"),
 //				Visibility:       pulumi.String("private"),
@@ -41,11 +42,12 @@ import (
 //				return err
 //			}
 //			example_readers := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: exampleProject.ID(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
-//			exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
-//				ProjectId: exampleProject.ID(),
+//			exampleGit, err := azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
+//				ProjectId: example.ID(),
+//				Name:      pulumi.String("Example Repository"),
 //				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Clean"),
 //				},
@@ -53,8 +55,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleBuildDefinition, err := azuredevops.NewBuildDefinition(ctx, "exampleBuildDefinition", &azuredevops.BuildDefinitionArgs{
-//				ProjectId: exampleProject.ID(),
+//			exampleBuildDefinition, err := azuredevops.NewBuildDefinition(ctx, "example", &azuredevops.BuildDefinitionArgs{
+//				ProjectId: example.ID(),
+//				Name:      pulumi.String("Example Build Definition"),
 //				Path:      pulumi.String("\\ExampleFolder"),
 //				CiTrigger: &azuredevops.BuildDefinitionCiTriggerArgs{
 //					UseYaml: pulumi.Bool(true),
@@ -69,8 +72,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewBuildDefinitionPermissions(ctx, "exampleBuildDefinitionPermissions", &azuredevops.BuildDefinitionPermissionsArgs{
-//				ProjectId: exampleProject.ID(),
+//			_, err = azuredevops.NewBuildDefinitionPermissions(ctx, "example", &azuredevops.BuildDefinitionPermissionsArgs{
+//				ProjectId: example.ID(),
 //				Principal: example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
 //					return &example_readers.Id, nil
 //				}).(pulumi.StringPtrOutput),

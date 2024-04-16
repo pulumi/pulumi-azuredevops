@@ -35,6 +35,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Load all Git repositories of a project, which are accessible for the current user
 //			_, err = azuredevops.GetRepositories(ctx, &azuredevops.GetRepositoriesArgs{
 //				ProjectId:     pulumi.StringRef(example.Id),
 //				IncludeHidden: pulumi.BoolRef(true),
@@ -42,6 +43,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Load a specific Git repository by name
 //			_, err = azuredevops.GetRepositories(ctx, &azuredevops.GetRepositoriesArgs{
 //				ProjectId: pulumi.StringRef(example.Id),
 //				Name:      pulumi.StringRef("Example Repository"),

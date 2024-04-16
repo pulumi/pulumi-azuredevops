@@ -20,16 +20,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {});
- * const examplePool = azuredevops.getPool({
+ * const exampleProject = new azuredevops.Project("example", {name: "Example Project"});
+ * const example = azuredevops.getPool({
  *     name: "example-pool",
  * });
- * const exampleQueue = new azuredevops.Queue("exampleQueue", {
+ * const exampleQueue = new azuredevops.Queue("example", {
  *     projectId: exampleProject.id,
- *     agentPoolId: examplePool.then(examplePool => examplePool.id),
+ *     agentPoolId: example.then(example => example.id),
  * });
  * // Grant access to queue to all pipelines in the project
- * const exampleResourceAuthorization = new azuredevops.ResourceAuthorization("exampleResourceAuthorization", {
+ * const exampleResourceAuthorization = new azuredevops.ResourceAuthorization("example", {
  *     projectId: exampleProject.id,
  *     resourceId: exampleQueue.id,
  *     type: "queue",
@@ -45,10 +45,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = azuredevops.getProject({
+ * const example = azuredevops.getProject({
  *     name: "Example Project",
  * });
- * const exampleQueue = new azuredevops.Queue("exampleQueue", {projectId: exampleProject.then(exampleProject => exampleProject.id)});
+ * const exampleQueue = new azuredevops.Queue("example", {
+ *     name: "example-queue",
+ *     projectId: example.then(example => example.id),
+ * });
  * ```
  * <!--End PulumiCodeChooser -->
  *

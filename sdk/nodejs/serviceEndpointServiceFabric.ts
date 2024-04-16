@@ -11,35 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * ### Client Certificate Authentication
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- * import * as fs from "fs";
- *
- * const exampleProject = new azuredevops.Project("exampleProject", {
- *     visibility: "private",
- *     versionControl: "Git",
- *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
- * });
- * const exampleServiceEndpointServiceFabric = new azuredevops.ServiceEndpointServiceFabric("exampleServiceEndpointServiceFabric", {
- *     projectId: exampleProject.id,
- *     serviceEndpointName: "Example Service Fabric",
- *     description: "Managed by Terraform",
- *     clusterEndpoint: "tcp://test",
- *     certificate: {
- *         serverCertificateLookup: "Thumbprint",
- *         serverCertificateThumbprint: "0000000000000000000000000000000000000000",
- *         clientCertificate: fs.readFileSync("certificate.pfx", { encoding: "base64" }),
- *         clientCertificatePassword: "password",
- *     },
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
  * ### Azure Active Directory Authentication
  *
  * <!--Start PulumiCodeChooser -->
@@ -48,6 +19,7 @@ import * as utilities from "./utilities";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * const project = new azuredevops.Project("project", {
+ *     name: "Sample Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
@@ -75,6 +47,7 @@ import * as utilities from "./utilities";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * const project = new azuredevops.Project("project", {
+ *     name: "Sample Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",

@@ -59,6 +59,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
  *             .workItemTemplate(&#34;Agile&#34;)
  *             .versionControl(&#34;Git&#34;)
  *             .visibility(&#34;private&#34;)
@@ -120,6 +121,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
  *             .workItemTemplate(&#34;Agile&#34;)
  *             .versionControl(&#34;Git&#34;)
  *             .visibility(&#34;private&#34;)
@@ -176,6 +178,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
  *             .workItemTemplate(&#34;Agile&#34;)
  *             .versionControl(&#34;Git&#34;)
  *             .visibility(&#34;private&#34;)

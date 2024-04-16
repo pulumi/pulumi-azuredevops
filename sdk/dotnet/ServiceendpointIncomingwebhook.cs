@@ -23,17 +23,18 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
     ///         Description = "Managed by Terraform",
     ///     });
     /// 
-    ///     var exampleServiceendpointIncomingwebhook = new AzureDevOps.ServiceendpointIncomingwebhook("exampleServiceendpointIncomingwebhook", new()
+    ///     var exampleServiceendpointIncomingwebhook = new AzureDevOps.ServiceendpointIncomingwebhook("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         WebhookName = "example_webhook",
     ///         Secret = "secret",
     ///         HttpHeader = "X-Hub-Signature",

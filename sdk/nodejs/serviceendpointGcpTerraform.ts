@@ -12,14 +12,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  *     description: "Managed by Terraform",
  * });
- * const exampleServiceendpointGcpTerraform = new azuredevops.ServiceendpointGcpTerraform("exampleServiceendpointGcpTerraform", {
- *     projectId: exampleProject.id,
+ * const exampleServiceendpointGcpTerraform = new azuredevops.ServiceendpointGcpTerraform("example", {
+ *     projectId: example.id,
  *     tokenUri: "https://oauth2.example.com/token",
  *     clientEmail: "gcp-sa-example@example.iam.gserviceaccount.com",
  *     privateKey: "0000000000000000000000000000000000000",

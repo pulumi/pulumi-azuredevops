@@ -16,11 +16,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {});
- * const exampleEnvironment = new azuredevops.Environment("exampleEnvironment", {projectId: exampleProject.id});
- * const exampleGroup = new azuredevops.Group("exampleGroup", {displayName: "some-azdo-group"});
- * const exampleCheckApproval = new azuredevops.CheckApproval("exampleCheckApproval", {
- *     projectId: exampleProject.id,
+ * const example = new azuredevops.Project("example", {name: "Example Project"});
+ * const exampleEnvironment = new azuredevops.Environment("example", {
+ *     projectId: example.id,
+ *     name: "Example Environment",
+ * });
+ * const exampleGroup = new azuredevops.Group("example", {displayName: "some-azdo-group"});
+ * const exampleCheckApproval = new azuredevops.CheckApproval("example", {
+ *     projectId: example.id,
  *     targetResourceId: exampleEnvironment.id,
  *     targetResourceType: "environment",
  *     requesterCanApprove: true,

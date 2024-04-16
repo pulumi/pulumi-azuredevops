@@ -12,68 +12,6 @@ import (
 )
 
 // Use this data source to access information about an existing users within Azure DevOps.
-//
-// ## Example Usage
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := azuredevops.GetUsers(ctx, &azuredevops.GetUsersArgs{
-//				PrincipalName: pulumi.StringRef("contoso-user@contoso.onmicrosoft.com"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = azuredevops.GetUsers(ctx, &azuredevops.GetUsersArgs{
-//				Features: azuredevops.GetUsersFeatures{
-//					ConcurrentWorkers: pulumi.IntRef(10),
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = azuredevops.GetUsers(ctx, &azuredevops.GetUsersArgs{
-//				Origin: pulumi.StringRef("aad"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = azuredevops.GetUsers(ctx, &azuredevops.GetUsersArgs{
-//				SubjectTypes: []string{
-//					"aad",
-//					"msa",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = azuredevops.GetUsers(ctx, &azuredevops.GetUsersArgs{
-//				Origin:   pulumi.StringRef("aad"),
-//				OriginId: pulumi.StringRef("00000000-0000-0000-0000-000000000000"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
-//
-// ## Relevant Links
-//
-// - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
 func GetUsers(ctx *pulumi.Context, args *GetUsersArgs, opts ...pulumi.InvokeOption) (*GetUsersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetUsersResult
@@ -91,40 +29,6 @@ type GetUsersArgs struct {
 	// DataSource without specifying any arguments will return all users inside an organization.
 	//
 	// List of possible subject types
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
-	//
-	// List of possible origins
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	Features *GetUsersFeatures `pulumi:"features"`
 	// The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
 	Origin *string `pulumi:"origin"`
@@ -172,40 +76,6 @@ type GetUsersOutputArgs struct {
 	// DataSource without specifying any arguments will return all users inside an organization.
 	//
 	// List of possible subject types
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
-	//
-	// List of possible origins
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	Features GetUsersFeaturesPtrInput `pulumi:"features"`
 	// The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
 	Origin pulumi.StringPtrInput `pulumi:"origin"`

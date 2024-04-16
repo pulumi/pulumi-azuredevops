@@ -229,7 +229,7 @@ def get_serviceendpoint_azurecr(project_id: Optional[str] = None,
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    example = azuredevops.get_serviceendpoint_azurecr(project_id=azuredevops_project["example"]["id"],
+    example = azuredevops.get_serviceendpoint_azurecr(project_id=example_azuredevops_project["id"],
         service_endpoint_name="Example Azure Container Registry")
     pulumi.export("serviceEndpointId", example.id)
     ```
@@ -283,7 +283,7 @@ def get_serviceendpoint_azurecr_output(project_id: Optional[pulumi.Input[str]] =
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    example = azuredevops.get_serviceendpoint_azurecr(project_id=azuredevops_project["example"]["id"],
+    example = azuredevops.get_serviceendpoint_azurecr(project_id=example_azuredevops_project["id"],
         service_endpoint_name="Example Azure Container Registry")
     pulumi.export("serviceEndpointId", example.id)
     ```

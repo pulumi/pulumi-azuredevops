@@ -16,24 +16,27 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
  *     description: "Managed by Terraform",
  * });
  * const example-readers = azuredevops.getGroupOutput({
- *     projectId: exampleProject.id,
+ *     projectId: example.id,
  *     name: "Readers",
  * });
- * const exampleGit = new azuredevops.Git("exampleGit", {
- *     projectId: exampleProject.id,
+ * const exampleGit = new azuredevops.Git("example", {
+ *     projectId: example.id,
+ *     name: "Example Repository",
  *     initialization: {
  *         initType: "Clean",
  *     },
  * });
- * const exampleBuildDefinition = new azuredevops.BuildDefinition("exampleBuildDefinition", {
- *     projectId: exampleProject.id,
+ * const exampleBuildDefinition = new azuredevops.BuildDefinition("example", {
+ *     projectId: example.id,
+ *     name: "Example Build Definition",
  *     path: "\\ExampleFolder",
  *     ciTrigger: {
  *         useYaml: true,
@@ -45,8 +48,8 @@ import * as utilities from "./utilities";
  *         ymlPath: "azure-pipelines.yml",
  *     },
  * });
- * const exampleBuildDefinitionPermissions = new azuredevops.BuildDefinitionPermissions("exampleBuildDefinitionPermissions", {
- *     projectId: exampleProject.id,
+ * const exampleBuildDefinitionPermissions = new azuredevops.BuildDefinitionPermissions("example", {
+ *     projectId: example.id,
  *     principal: example_readers.apply(example_readers => example_readers.id),
  *     buildDefinitionId: exampleBuildDefinition.id,
  *     permissions: {

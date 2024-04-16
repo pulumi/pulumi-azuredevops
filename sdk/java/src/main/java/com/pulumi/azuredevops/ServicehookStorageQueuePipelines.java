@@ -31,6 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.storage.Account;
@@ -53,13 +54,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;);
+ *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;example-project&#34;)
+ *             .build());
  * 
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .name(&#34;servicehookexamplestacc&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .accountTier(&#34;Standard&#34;)
@@ -67,11 +72,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleQueue = new Queue(&#34;exampleQueue&#34;, QueueArgs.builder()        
+ *             .name(&#34;examplequeue&#34;)
  *             .storageAccountName(exampleAccount.name())
  *             .build());
  * 
  *         var exampleServicehookStorageQueuePipelines = new ServicehookStorageQueuePipelines(&#34;exampleServicehookStorageQueuePipelines&#34;, ServicehookStorageQueuePipelinesArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .accountName(exampleAccount.name())
  *             .accountKey(exampleAccount.primaryAccessKey())
  *             .queueName(exampleQueue.name())
@@ -113,10 +119,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ServicehookStorageQueuePipelines(&#34;example&#34;, ServicehookStorageQueuePipelinesArgs.builder()        
- *             .projectId(azuredevops_project.example().id())
- *             .accountName(azurerm_storage_account.example().name())
- *             .accountKey(azurerm_storage_account.example().primary_access_key())
- *             .queueName(azurerm_storage_queue.example().name())
+ *             .projectId(exampleAzuredevopsProject.id())
+ *             .accountName(exampleAzurermStorageAccount.name())
+ *             .accountKey(exampleAzurermStorageAccount.primaryAccessKey())
+ *             .queueName(exampleAzurermStorageQueue.name())
  *             .visiTimeout(30)
  *             .runStateChangedEvent()
  *             .build());

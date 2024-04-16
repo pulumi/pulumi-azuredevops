@@ -29,7 +29,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
 //				WorkItemTemplate: pulumi.String("Agile"),
 //				VersionControl:   pulumi.String("Git"),
 //				Visibility:       pulumi.String("private"),
@@ -38,14 +39,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleEnvironment, err := azuredevops.NewEnvironment(ctx, "exampleEnvironment", &azuredevops.EnvironmentArgs{
-//				ProjectId: exampleProject.ID(),
+//			exampleEnvironment, err := azuredevops.NewEnvironment(ctx, "example", &azuredevops.EnvironmentArgs{
+//				ProjectId: example.ID(),
+//				Name:      pulumi.String("Example Environment"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleServiceEndpointKubernetes, err := azuredevops.NewServiceEndpointKubernetes(ctx, "exampleServiceEndpointKubernetes", &azuredevops.ServiceEndpointKubernetesArgs{
-//				ProjectId:           exampleProject.ID(),
+//			exampleServiceEndpointKubernetes, err := azuredevops.NewServiceEndpointKubernetes(ctx, "example", &azuredevops.ServiceEndpointKubernetesArgs{
+//				ProjectId:           example.ID(),
 //				ServiceEndpointName: pulumi.String("Example Kubernetes"),
 //				ApiserverUrl:        pulumi.String("https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io"),
 //				AuthorizationType:   pulumi.String("AzureSubscription"),
@@ -63,10 +65,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewEnvironmentResourceKubernetes(ctx, "exampleEnvironmentResourceKubernetes", &azuredevops.EnvironmentResourceKubernetesArgs{
-//				ProjectId:         exampleProject.ID(),
+//			_, err = azuredevops.NewEnvironmentResourceKubernetes(ctx, "example", &azuredevops.EnvironmentResourceKubernetesArgs{
+//				ProjectId:         example.ID(),
 //				EnvironmentId:     exampleEnvironment.ID(),
 //				ServiceEndpointId: exampleServiceEndpointKubernetes.ID(),
+//				Name:              pulumi.String("Example"),
 //				Namespace:         pulumi.String("default"),
 //				ClusterName:       pulumi.String("example-aks"),
 //				Tags: pulumi.StringArray{

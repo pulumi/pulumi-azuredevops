@@ -30,8 +30,10 @@ namespace Pulumi.AzureDevOps
         ///         Name = "Example Project",
         ///     });
         /// 
+        ///     // load all existing groups inside an organization
         ///     var example_all_groups = AzureDevOps.GetGroups.Invoke();
         /// 
+        ///     // load all existing groups inside a specific project
         ///     var example_project_groups = AzureDevOps.GetGroups.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
@@ -67,8 +69,10 @@ namespace Pulumi.AzureDevOps
         ///         Name = "Example Project",
         ///     });
         /// 
+        ///     // load all existing groups inside an organization
         ///     var example_all_groups = AzureDevOps.GetGroups.Invoke();
         /// 
+        ///     // load all existing groups inside a specific project
         ///     var example_project_groups = AzureDevOps.GetGroups.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),

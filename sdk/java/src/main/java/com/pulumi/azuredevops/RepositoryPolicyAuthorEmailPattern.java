@@ -48,7 +48,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+ *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
  *             .visibility(&#34;private&#34;)
  *             .versionControl(&#34;Git&#34;)
  *             .workItemTemplate(&#34;Agile&#34;)
@@ -56,14 +57,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleGit = new Git(&#34;exampleGit&#34;, GitArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
+ *             .name(&#34;Example Repository&#34;)
  *             .initialization(GitInitializationArgs.builder()
  *                 .initType(&#34;Clean&#34;)
  *                 .build())
  *             .build());
  * 
  *         var exampleRepositoryPolicyAuthorEmailPattern = new RepositoryPolicyAuthorEmailPattern(&#34;exampleRepositoryPolicyAuthorEmailPattern&#34;, RepositoryPolicyAuthorEmailPatternArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .enabled(true)
  *             .blocking(true)
  *             .authorEmailPatterns(            
@@ -103,7 +105,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+ *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
  *             .visibility(&#34;private&#34;)
  *             .versionControl(&#34;Git&#34;)
  *             .workItemTemplate(&#34;Agile&#34;)
@@ -111,7 +114,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRepositoryPolicyAuthorEmailPattern = new RepositoryPolicyAuthorEmailPattern(&#34;exampleRepositoryPolicyAuthorEmailPattern&#34;, RepositoryPolicyAuthorEmailPatternArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .enabled(true)
  *             .blocking(true)
  *             .authorEmailPatterns(            

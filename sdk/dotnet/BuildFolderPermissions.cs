@@ -27,8 +27,9 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
     ///         VersionControl = "Git",
     ///         Visibility = "private",
@@ -37,20 +38,20 @@ namespace Pulumi.AzureDevOps
     /// 
     ///     var example_readers = AzureDevOps.GetGroup.Invoke(new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         Name = "Readers",
     ///     });
     /// 
-    ///     var exampleBuildFolder = new AzureDevOps.BuildFolder("exampleBuildFolder", new()
+    ///     var exampleBuildFolder = new AzureDevOps.BuildFolder("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         Path = "\\ExampleFolder",
     ///         Description = "ExampleFolder description",
     ///     });
     /// 
-    ///     var exampleBuildFolderPermissions = new AzureDevOps.BuildFolderPermissions("exampleBuildFolderPermissions", new()
+    ///     var exampleBuildFolderPermissions = new AzureDevOps.BuildFolderPermissions("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         Path = "\\ExampleFolder",
     ///         Principal = example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
     ///         Permissions = 
@@ -85,8 +86,9 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
     ///         VersionControl = "Git",
     ///         Visibility = "private",
@@ -95,13 +97,13 @@ namespace Pulumi.AzureDevOps
     /// 
     ///     var example_readers = AzureDevOps.GetGroup.Invoke(new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         Name = "Readers",
     ///     });
     /// 
-    ///     var exampleBuildFolderPermissions = new AzureDevOps.BuildFolderPermissions("exampleBuildFolderPermissions", new()
+    ///     var exampleBuildFolderPermissions = new AzureDevOps.BuildFolderPermissions("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         Path = "\\",
     ///         Principal = example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
     ///         Permissions = 

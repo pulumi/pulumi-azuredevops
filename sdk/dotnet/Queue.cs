@@ -29,21 +29,24 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject");
+    ///     var exampleProject = new AzureDevOps.Project("example", new()
+    ///     {
+    ///         Name = "Example Project",
+    ///     });
     /// 
-    ///     var examplePool = AzureDevOps.GetPool.Invoke(new()
+    ///     var example = AzureDevOps.GetPool.Invoke(new()
     ///     {
     ///         Name = "example-pool",
     ///     });
     /// 
-    ///     var exampleQueue = new AzureDevOps.Queue("exampleQueue", new()
+    ///     var exampleQueue = new AzureDevOps.Queue("example", new()
     ///     {
     ///         ProjectId = exampleProject.Id,
-    ///         AgentPoolId = examplePool.Apply(getPoolResult =&gt; getPoolResult.Id),
+    ///         AgentPoolId = example.Apply(getPoolResult =&gt; getPoolResult.Id),
     ///     });
     /// 
     ///     // Grant access to queue to all pipelines in the project
-    ///     var exampleResourceAuthorization = new AzureDevOps.ResourceAuthorization("exampleResourceAuthorization", new()
+    ///     var exampleResourceAuthorization = new AzureDevOps.ResourceAuthorization("example", new()
     ///     {
     ///         ProjectId = exampleProject.Id,
     ///         ResourceId = exampleQueue.Id,
@@ -66,14 +69,15 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = AzureDevOps.GetProject.Invoke(new()
+    ///     var example = AzureDevOps.GetProject.Invoke(new()
     ///     {
     ///         Name = "Example Project",
     ///     });
     /// 
-    ///     var exampleQueue = new AzureDevOps.Queue("exampleQueue", new()
+    ///     var exampleQueue = new AzureDevOps.Queue("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Apply(getProjectResult =&gt; getProjectResult.Id),
+    ///         Name = "example-queue",
+    ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
     ///     });
     /// 
     /// });

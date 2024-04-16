@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * const example = azuredevops.getServiceendpointNpm({
- *     projectId: azuredevops_project.example.id,
+ *     projectId: exampleAzuredevopsProject.id,
  *     serviceEndpointName: "Example npm",
  * });
  * export const serviceEndpointId = example.then(example => example.id);
@@ -87,7 +87,7 @@ export interface GetServiceendpointNpmResult {
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * const example = azuredevops.getServiceendpointNpm({
- *     projectId: azuredevops_project.example.id,
+ *     projectId: exampleAzuredevopsProject.id,
  *     serviceEndpointName: "Example npm",
  * });
  * export const serviceEndpointId = example.then(example => example.id);

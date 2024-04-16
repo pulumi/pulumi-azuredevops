@@ -16,14 +16,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  *     description: "Managed by Terraform",
  * });
- * const exampleServiceEndpointPipeline = new azuredevops.ServiceEndpointPipeline("exampleServiceEndpointPipeline", {
- *     projectId: exampleProject.id,
+ * const exampleServiceEndpointPipeline = new azuredevops.ServiceEndpointPipeline("example", {
+ *     projectId: example.id,
  *     serviceEndpointName: "Example Pipeline Runner",
  *     organizationName: "Organization Name",
  *     authPersonal: {

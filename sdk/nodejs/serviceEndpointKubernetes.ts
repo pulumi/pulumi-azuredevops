@@ -9,6 +9,82 @@ import * as utilities from "./utilities";
 /**
  * Manages a Kubernetes service endpoint within Azure DevOps.
  *
+ * ## Example Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
+ * });
+ * const example_azure = new azuredevops.ServiceEndpointKubernetes("example-azure", {
+ *     projectId: example.id,
+ *     serviceEndpointName: "Example Kubernetes",
+ *     apiserverUrl: "https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io",
+ *     authorizationType: "AzureSubscription",
+ *     azureSubscriptions: [{
+ *         subscriptionId: "00000000-0000-0000-0000-000000000000",
+ *         subscriptionName: "Example",
+ *         tenantId: "00000000-0000-0000-0000-000000000000",
+ *         resourcegroupId: "example-rg",
+ *         namespace: "default",
+ *         clusterName: "example-aks",
+ *     }],
+ * });
+ * const example_kubeconfig = new azuredevops.ServiceEndpointKubernetes("example-kubeconfig", {
+ *     projectId: example.id,
+ *     serviceEndpointName: "Example Kubernetes",
+ *     apiserverUrl: "https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io",
+ *     authorizationType: "Kubeconfig",
+ *     kubeconfig: {
+ *         kubeConfig: `                              apiVersion: v1
+ *                               clusters:
+ *                               - cluster:
+ *                                   certificate-authority: fake-ca-file
+ *                                   server: https://1.2.3.4
+ *                                 name: development
+ *                               contexts:
+ *                               - context:
+ *                                   cluster: development
+ *                                   namespace: frontend
+ *                                   user: developer
+ *                                 name: dev-frontend
+ *                               current-context: dev-frontend
+ *                               kind: Config
+ *                               preferences: {}
+ *                               users:
+ *                               - name: developer
+ *                                 user:
+ *                                   client-certificate: fake-cert-file
+ *                                   client-key: fake-key-file
+ * `,
+ *         acceptUntrustedCerts: true,
+ *         clusterContext: "dev-frontend",
+ *     },
+ * });
+ * const example_service_account = new azuredevops.ServiceEndpointKubernetes("example-service-account", {
+ *     projectId: example.id,
+ *     serviceEndpointName: "Example Kubernetes",
+ *     apiserverUrl: "https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io",
+ *     authorizationType: "ServiceAccount",
+ *     serviceAccount: {
+ *         token: "000000000000000000000000",
+ *         caCert: "0000000000000000000000000000000",
+ *     },
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ## Relevant Links
+ *
+ * - [Azure DevOps Service REST API 7.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
+ *
  * ## Import
  *
  * Azure DevOps Service Endpoint Kubernetes can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**

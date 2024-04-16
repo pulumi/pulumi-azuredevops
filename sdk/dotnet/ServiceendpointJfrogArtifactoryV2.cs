@@ -25,17 +25,18 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
     ///         Description = "Managed by Terraform",
     ///     });
     /// 
-    ///     var exampleServiceendpointJfrogArtifactoryV2 = new AzureDevOps.ServiceendpointJfrogArtifactoryV2("exampleServiceendpointJfrogArtifactoryV2", new()
+    ///     var exampleServiceendpointJfrogArtifactoryV2 = new AzureDevOps.ServiceendpointJfrogArtifactoryV2("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example JFrog Artifactory V2",
     ///         Description = "Managed by Terraform",
     ///         Url = "https://artifactory.my.com",
@@ -59,17 +60,18 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
     ///         Description = "Managed by Terraform",
     ///     });
     /// 
-    ///     var exampleServiceendpointJfrogArtifactoryV2 = new AzureDevOps.ServiceendpointJfrogArtifactoryV2("exampleServiceendpointJfrogArtifactoryV2", new()
+    ///     var exampleServiceendpointJfrogArtifactoryV2 = new AzureDevOps.ServiceendpointJfrogArtifactoryV2("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example JFrog Artifactory V2",
     ///         Description = "Managed by Terraform",
     ///         Url = "https://artifactory.my.com",

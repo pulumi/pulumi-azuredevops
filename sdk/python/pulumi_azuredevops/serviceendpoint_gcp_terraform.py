@@ -317,13 +317,14 @@ class ServiceendpointGcpTerraform(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_serviceendpoint_gcp_terraform = azuredevops.ServiceendpointGcpTerraform("exampleServiceendpointGcpTerraform",
-            project_id=example_project.id,
+        example_serviceendpoint_gcp_terraform = azuredevops.ServiceendpointGcpTerraform("example",
+            project_id=example.id,
             token_uri="https://oauth2.example.com/token",
             client_email="gcp-sa-example@example.iam.gserviceaccount.com",
             private_key="0000000000000000000000000000000000000",
@@ -369,13 +370,14 @@ class ServiceendpointGcpTerraform(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_serviceendpoint_gcp_terraform = azuredevops.ServiceendpointGcpTerraform("exampleServiceendpointGcpTerraform",
-            project_id=example_project.id,
+        example_serviceendpoint_gcp_terraform = azuredevops.ServiceendpointGcpTerraform("example",
+            project_id=example.id,
             token_uri="https://oauth2.example.com/token",
             client_email="gcp-sa-example@example.iam.gserviceaccount.com",
             private_key="0000000000000000000000000000000000000",

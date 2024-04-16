@@ -28,7 +28,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//			exampleProject, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
 //				WorkItemTemplate: pulumi.String("Agile"),
 //				VersionControl:   pulumi.String("Git"),
 //				Visibility:       pulumi.String("private"),
@@ -37,15 +38,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAgentQueue := azuredevops.GetAgentQueueOutput(ctx, azuredevops.GetAgentQueueOutputArgs{
+//			example := azuredevops.GetAgentQueueOutput(ctx, azuredevops.GetAgentQueueOutputArgs{
 //				ProjectId: exampleProject.ID(),
 //				Name:      pulumi.String("Example Agent Queue"),
 //			}, nil)
-//			ctx.Export("name", exampleAgentQueue.ApplyT(func(exampleAgentQueue azuredevops.GetAgentQueueResult) (*string, error) {
-//				return &exampleAgentQueue.Name, nil
+//			ctx.Export("name", example.ApplyT(func(example azuredevops.GetAgentQueueResult) (*string, error) {
+//				return &example.Name, nil
 //			}).(pulumi.StringPtrOutput))
-//			ctx.Export("poolId", exampleAgentQueue.ApplyT(func(exampleAgentQueue azuredevops.GetAgentQueueResult) (*int, error) {
-//				return &exampleAgentQueue.AgentPoolId, nil
+//			ctx.Export("poolId", example.ApplyT(func(example azuredevops.GetAgentQueueResult) (*int, error) {
+//				return &example.AgentPoolId, nil
 //			}).(pulumi.IntPtrOutput))
 //			return nil
 //		})

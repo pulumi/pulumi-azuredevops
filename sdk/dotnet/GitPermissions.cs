@@ -36,6 +36,7 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
     ///         VersionControl = "Git",
     ///         Visibility = "private",
@@ -79,8 +80,9 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
     ///         VersionControl = "Git",
     ///         Visibility = "private",
@@ -92,9 +94,10 @@ namespace Pulumi.AzureDevOps
     ///         Name = "Project Collection Administrators",
     ///     });
     /// 
-    ///     var exampleGit = new AzureDevOps.Git("exampleGit", new()
+    ///     var exampleGit = new AzureDevOps.Git("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
+    ///         Name = "Example Empty Git Repository",
     ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
     ///         {
     ///             InitType = "Clean",
@@ -134,17 +137,19 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
     ///         VersionControl = "Git",
     ///         Visibility = "private",
     ///         Description = "Managed by Terraform",
     ///     });
     /// 
-    ///     var exampleGit = new AzureDevOps.Git("exampleGit", new()
+    ///     var exampleGit = new AzureDevOps.Git("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
+    ///         Name = "Example Empty Git Repository",
     ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
     ///         {
     ///             InitType = "Clean",
@@ -184,8 +189,9 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
@@ -194,25 +200,25 @@ namespace Pulumi.AzureDevOps
     /// 
     ///     var example_project_readers = AzureDevOps.GetGroup.Invoke(new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         Name = "Readers",
     ///     });
     /// 
     ///     var example_project_contributors = AzureDevOps.GetGroup.Invoke(new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         Name = "Contributors",
     ///     });
     /// 
     ///     var example_project_administrators = AzureDevOps.GetGroup.Invoke(new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         Name = "Project administrators",
     ///     });
     /// 
     ///     var example_permissions = new AzureDevOps.GitPermissions("example-permissions", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         Principal = example_project_readers.Apply(example_project_readers =&gt; example_project_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
     ///         Permissions = 
     ///         {
@@ -222,9 +228,10 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var exampleGit = new AzureDevOps.Git("exampleGit", new()
+    ///     var exampleGit = new AzureDevOps.Git("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
+    ///         Name = "TestRepo",
     ///         DefaultBranch = "refs/heads/master",
     ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
     ///         {

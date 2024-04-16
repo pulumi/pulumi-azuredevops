@@ -21,17 +21,18 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
     ///         Description = "Managed by Terraform",
     ///     });
     /// 
-    ///     var exampleServiceendpointGcpTerraform = new AzureDevOps.ServiceendpointGcpTerraform("exampleServiceendpointGcpTerraform", new()
+    ///     var exampleServiceendpointGcpTerraform = new AzureDevOps.ServiceendpointGcpTerraform("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         TokenUri = "https://oauth2.example.com/token",
     ///         ClientEmail = "gcp-sa-example@example.iam.gserviceaccount.com",
     ///         PrivateKey = "0000000000000000000000000000000000000",

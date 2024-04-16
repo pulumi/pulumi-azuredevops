@@ -25,15 +25,16 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
     ///         Description = "Managed by Terraform",
     ///         Features = 
     ///         {
-    ///             { "artifacts", "disabled" },
     ///             { "testplans", "disabled" },
+    ///             { "artifacts", "disabled" },
     ///         },
-    ///         VersionControl = "Git",
-    ///         Visibility = "private",
-    ///         WorkItemTemplate = "Agile",
     ///     });
     /// 
     /// });

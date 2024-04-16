@@ -31,7 +31,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
 //				Visibility:       pulumi.String("private"),
 //				VersionControl:   pulumi.String("Git"),
 //				WorkItemTemplate: pulumi.String("Agile"),
@@ -40,8 +41,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
-//				ProjectId: exampleProject.ID(),
+//			exampleGit, err := azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
+//				ProjectId: example.ID(),
+//				Name:      pulumi.String("Example Repository"),
 //				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Clean"),
 //				},
@@ -49,8 +51,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewRepositoryPolicyMaxFileSize(ctx, "exampleRepositoryPolicyMaxFileSize", &azuredevops.RepositoryPolicyMaxFileSizeArgs{
-//				ProjectId:   exampleProject.ID(),
+//			_, err = azuredevops.NewRepositoryPolicyMaxFileSize(ctx, "example", &azuredevops.RepositoryPolicyMaxFileSizeArgs{
+//				ProjectId:   example.ID(),
 //				Enabled:     pulumi.Bool(true),
 //				Blocking:    pulumi.Bool(true),
 //				MaxFileSize: pulumi.Int(1),
@@ -82,7 +84,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
 //				Visibility:       pulumi.String("private"),
 //				VersionControl:   pulumi.String("Git"),
 //				WorkItemTemplate: pulumi.String("Agile"),
@@ -91,8 +94,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewRepositoryPolicyMaxFileSize(ctx, "exampleRepositoryPolicyMaxFileSize", &azuredevops.RepositoryPolicyMaxFileSizeArgs{
-//				ProjectId:   exampleProject.ID(),
+//			_, err = azuredevops.NewRepositoryPolicyMaxFileSize(ctx, "example", &azuredevops.RepositoryPolicyMaxFileSizeArgs{
+//				ProjectId:   example.ID(),
 //				Enabled:     pulumi.Bool(true),
 //				Blocking:    pulumi.Bool(true),
 //				MaxFileSize: pulumi.Int(1),

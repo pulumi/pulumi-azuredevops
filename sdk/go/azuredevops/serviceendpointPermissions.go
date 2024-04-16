@@ -36,7 +36,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
 //				WorkItemTemplate: pulumi.String("Agile"),
 //				VersionControl:   pulumi.String("Git"),
 //				Visibility:       pulumi.String("private"),
@@ -46,11 +47,11 @@ import (
 //				return err
 //			}
 //			example_readers := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: exampleProject.ID(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
 //			_, err = azuredevops.NewServiceendpointPermissions(ctx, "example-root-permissions", &azuredevops.ServiceendpointPermissionsArgs{
-//				ProjectId: exampleProject.ID(),
+//				ProjectId: example.ID(),
 //				Principal: example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
 //					return &example_readers.Id, nil
 //				}).(pulumi.StringPtrOutput),
@@ -65,8 +66,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleServiceEndpointDockerRegistry, err := azuredevops.NewServiceEndpointDockerRegistry(ctx, "exampleServiceEndpointDockerRegistry", &azuredevops.ServiceEndpointDockerRegistryArgs{
-//				ProjectId:           exampleProject.ID(),
+//			exampleServiceEndpointDockerRegistry, err := azuredevops.NewServiceEndpointDockerRegistry(ctx, "example", &azuredevops.ServiceEndpointDockerRegistryArgs{
+//				ProjectId:           example.ID(),
 //				ServiceEndpointName: pulumi.String("Example Docker Hub"),
 //				DockerUsername:      pulumi.String("username"),
 //				DockerEmail:         pulumi.String("email@example.com"),
@@ -77,7 +78,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceendpointPermissions(ctx, "example-permissions", &azuredevops.ServiceendpointPermissionsArgs{
-//				ProjectId: exampleProject.ID(),
+//				ProjectId: example.ID(),
 //				Principal: example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
 //					return &example_readers.Id, nil
 //				}).(pulumi.StringPtrOutput),

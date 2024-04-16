@@ -31,17 +31,18 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
     ///         Description = "Managed by Terraform",
     ///     });
     /// 
-    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", new()
+    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example AzureRM",
     ///         Description = "Managed by Terraform",
     ///         ServiceEndpointAuthenticationScheme = "ServicePrincipal",
@@ -70,17 +71,18 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
     ///         Description = "Managed by Terraform",
     ///     });
     /// 
-    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", new()
+    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example AzureRM",
     ///         Description = "Managed by Terraform",
     ///         ServiceEndpointAuthenticationScheme = "ServicePrincipal",
@@ -109,21 +111,87 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
     ///     });
     /// 
-    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", new()
+    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example AzureRM",
     ///         ServiceEndpointAuthenticationScheme = "ServicePrincipal",
     ///         AzurermSpnTenantid = "00000000-0000-0000-0000-000000000000",
     ///         AzurermSubscriptionId = "00000000-0000-0000-0000-000000000000",
     ///         AzurermSubscriptionName = "Example Subscription Name",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Workload Identity Federation Manual AzureRM Service Endpoint (Subscription Scoped)
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serviceConnectionName = "example-federated-sc";
+    /// 
+    ///     var example = new AzureDevOps.Project("example", new()
+    ///     {
+    ///         Name = "Example Project",
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var identity = new Azure.Core.ResourceGroup("identity", new()
+    ///     {
+    ///         Name = "identity",
+    ///         Location = "UK South",
+    ///     });
+    /// 
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
+    ///     {
+    ///         Location = identity.Location,
+    ///         Name = "example-identity",
+    ///         ResourceGroupName = "azurerm_resource_group.identity.name",
+    ///     });
+    /// 
+    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("example", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         ServiceEndpointName = serviceConnectionName,
+    ///         Description = "Managed by Terraform",
+    ///         ServiceEndpointAuthenticationScheme = "WorkloadIdentityFederation",
+    ///         Credentials = new AzureDevOps.Inputs.ServiceEndpointAzureRMCredentialsArgs
+    ///         {
+    ///             Serviceprincipalid = exampleUserAssignedIdentity.ClientId,
+    ///         },
+    ///         AzurermSpnTenantid = "00000000-0000-0000-0000-000000000000",
+    ///         AzurermSubscriptionId = "00000000-0000-0000-0000-000000000000",
+    ///         AzurermSubscriptionName = "Example Subscription Name",
+    ///     });
+    /// 
+    ///     var exampleFederatedIdentityCredential = new Azure.ArmMsi.FederatedIdentityCredential("example", new()
+    ///     {
+    ///         Name = "example-federated-credential",
+    ///         ResourceGroupName = identity.Name,
+    ///         ParentId = exampleUserAssignedIdentity.Id,
+    ///         Audience = "api://AzureADTokenExchange",
+    ///         Issuer = exampleServiceEndpointAzureRM.WorkloadIdentityFederationIssuer,
+    ///         Subject = exampleServiceEndpointAzureRM.WorkloadIdentityFederationSubject,
     ///     });
     /// 
     /// });
@@ -141,16 +209,17 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
     ///     });
     /// 
-    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", new()
+    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example AzureRM",
     ///         ServiceEndpointAuthenticationScheme = "WorkloadIdentityFederation",
     ///         AzurermSpnTenantid = "00000000-0000-0000-0000-000000000000",
@@ -173,16 +242,17 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
     ///     });
     /// 
-    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", new()
+    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example AzureRM",
     ///         ServiceEndpointAuthenticationScheme = "ManagedServiceIdentity",
     ///         AzurermSpnTenantid = "00000000-0000-0000-0000-000000000000",

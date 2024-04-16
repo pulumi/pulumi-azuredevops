@@ -24,29 +24,35 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject");
-    /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "example-project",
+    ///     });
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
+    ///         Name = "servicehookexamplestacc",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleQueue = new Azure.Storage.Queue("exampleQueue", new()
+    ///     var exampleQueue = new Azure.Storage.Queue("example", new()
     ///     {
+    ///         Name = "examplequeue",
     ///         StorageAccountName = exampleAccount.Name,
     ///     });
     /// 
-    ///     var exampleServicehookStorageQueuePipelines = new AzureDevOps.ServicehookStorageQueuePipelines("exampleServicehookStorageQueuePipelines", new()
+    ///     var exampleServicehookStorageQueuePipelines = new AzureDevOps.ServicehookStorageQueuePipelines("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         AccountName = exampleAccount.Name,
     ///         AccountKey = exampleAccount.PrimaryAccessKey,
     ///         QueueName = exampleQueue.Name,
@@ -75,10 +81,10 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     var example = new AzureDevOps.ServicehookStorageQueuePipelines("example", new()
     ///     {
-    ///         ProjectId = azuredevops_project.Example.Id,
-    ///         AccountName = azurerm_storage_account.Example.Name,
-    ///         AccountKey = azurerm_storage_account.Example.Primary_access_key,
-    ///         QueueName = azurerm_storage_queue.Example.Name,
+    ///         ProjectId = exampleAzuredevopsProject.Id,
+    ///         AccountName = exampleAzurermStorageAccount.Name,
+    ///         AccountKey = exampleAzurermStorageAccount.PrimaryAccessKey,
+    ///         QueueName = exampleAzurermStorageQueue.Name,
     ///         VisiTimeout = 30,
     ///         RunStateChangedEvent = null,
     ///     });

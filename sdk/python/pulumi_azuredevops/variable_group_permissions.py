@@ -241,12 +241,14 @@ class VariableGroupPermissions(pulumi.CustomResource):
         import pulumi_azuredevops as azuredevops
 
         project = azuredevops.Project("project",
+            name="Testing",
             description="Testing-description",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
         example = azuredevops.VariableGroup("example",
             project_id=project.id,
+            name="test",
             description="Test Description",
             allow_access=True,
             variables=[azuredevops.VariableGroupVariableArgs(
@@ -323,12 +325,14 @@ class VariableGroupPermissions(pulumi.CustomResource):
         import pulumi_azuredevops as azuredevops
 
         project = azuredevops.Project("project",
+            name="Testing",
             description="Testing-description",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
         example = azuredevops.VariableGroup("example",
             project_id=project.id,
+            name="test",
             description="Test Description",
             allow_access=True,
             variables=[azuredevops.VariableGroupVariableArgs(

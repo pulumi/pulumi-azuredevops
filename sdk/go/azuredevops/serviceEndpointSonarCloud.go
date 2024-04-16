@@ -29,7 +29,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
 //				Visibility:       pulumi.String("private"),
 //				VersionControl:   pulumi.String("Git"),
 //				WorkItemTemplate: pulumi.String("Agile"),
@@ -38,8 +39,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewServiceEndpointSonarCloud(ctx, "exampleServiceEndpointSonarCloud", &azuredevops.ServiceEndpointSonarCloudArgs{
-//				ProjectId:           exampleProject.ID(),
+//			_, err = azuredevops.NewServiceEndpointSonarCloud(ctx, "example", &azuredevops.ServiceEndpointSonarCloudArgs{
+//				ProjectId:           example.ID(),
 //				ServiceEndpointName: pulumi.String("Example SonarCloud"),
 //				Token:               pulumi.String("0000000000000000000000000000000000000000"),
 //				Description:         pulumi.String("Managed by Terraform"),

@@ -49,7 +49,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+ *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
  *             .visibility(&#34;private&#34;)
  *             .versionControl(&#34;Git&#34;)
  *             .workItemTemplate(&#34;Agile&#34;)
@@ -57,7 +58,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleServiceEndpointAzureDevOps = new ServiceEndpointAzureDevOps(&#34;exampleServiceEndpointAzureDevOps&#34;, ServiceEndpointAzureDevOpsArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .serviceEndpointName(&#34;Example Azure DevOps&#34;)
  *             .orgUrl(&#34;https://dev.azure.com/testorganization&#34;)
  *             .releaseApiUrl(&#34;https://vsrm.dev.azure.com/testorganization&#34;)

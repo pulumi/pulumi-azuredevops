@@ -23,22 +23,24 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
     ///         VersionControl = "Git",
     ///         Visibility = "private",
     ///         Description = "Managed by Terraform",
     ///     });
     /// 
-    ///     var exampleEnvironment = new AzureDevOps.Environment("exampleEnvironment", new()
+    ///     var exampleEnvironment = new AzureDevOps.Environment("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
+    ///         Name = "Example Environment",
     ///     });
     /// 
-    ///     var exampleServiceEndpointKubernetes = new AzureDevOps.ServiceEndpointKubernetes("exampleServiceEndpointKubernetes", new()
+    ///     var exampleServiceEndpointKubernetes = new AzureDevOps.ServiceEndpointKubernetes("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example Kubernetes",
     ///         ApiserverUrl = "https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io",
     ///         AuthorizationType = "AzureSubscription",
@@ -56,11 +58,12 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var exampleEnvironmentResourceKubernetes = new AzureDevOps.EnvironmentResourceKubernetes("exampleEnvironmentResourceKubernetes", new()
+    ///     var exampleEnvironmentResourceKubernetes = new AzureDevOps.EnvironmentResourceKubernetes("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         EnvironmentId = exampleEnvironment.Id,
     ///         ServiceEndpointId = exampleServiceEndpointKubernetes.Id,
+    ///         Name = "Example",
     ///         Namespace = "default",
     ///         ClusterName = "example-aks",
     ///         Tags = new[]

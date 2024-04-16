@@ -14,18 +14,20 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  * });
- * const exampleGit = new azuredevops.Git("exampleGit", {
- *     projectId: exampleProject.id,
+ * const exampleGit = new azuredevops.Git("example", {
+ *     projectId: example.id,
+ *     name: "Example Git Repository",
  *     initialization: {
  *         initType: "Clean",
  *     },
  * });
- * const exampleGitRepositoryFile = new azuredevops.GitRepositoryFile("exampleGitRepositoryFile", {
+ * const exampleGitRepositoryFile = new azuredevops.GitRepositoryFile("example", {
  *     repositoryId: exampleGit.id,
  *     file: ".gitignore",
  *     content: "**&#47;*.tfstate",

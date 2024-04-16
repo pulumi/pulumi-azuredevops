@@ -176,18 +176,20 @@ class RepositoryPolicyReservedNames(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_git = azuredevops.Git("exampleGit",
-            project_id=example_project.id,
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Example Repository",
             initialization=azuredevops.GitInitializationArgs(
                 init_type="Clean",
             ))
-        example_repository_policy_reserved_names = azuredevops.RepositoryPolicyReservedNames("exampleRepositoryPolicyReservedNames",
-            project_id=example_project.id,
+        example_repository_policy_reserved_names = azuredevops.RepositoryPolicyReservedNames("example",
+            project_id=example.id,
             enabled=True,
             blocking=True,
             repository_ids=[example_git.id])
@@ -200,13 +202,14 @@ class RepositoryPolicyReservedNames(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_repository_policy_reserved_names = azuredevops.RepositoryPolicyReservedNames("exampleRepositoryPolicyReservedNames",
-            project_id=example_project.id,
+        example_repository_policy_reserved_names = azuredevops.RepositoryPolicyReservedNames("example",
+            project_id=example.id,
             enabled=True,
             blocking=True)
         ```
@@ -249,18 +252,20 @@ class RepositoryPolicyReservedNames(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_git = azuredevops.Git("exampleGit",
-            project_id=example_project.id,
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Example Repository",
             initialization=azuredevops.GitInitializationArgs(
                 init_type="Clean",
             ))
-        example_repository_policy_reserved_names = azuredevops.RepositoryPolicyReservedNames("exampleRepositoryPolicyReservedNames",
-            project_id=example_project.id,
+        example_repository_policy_reserved_names = azuredevops.RepositoryPolicyReservedNames("example",
+            project_id=example.id,
             enabled=True,
             blocking=True,
             repository_ids=[example_git.id])
@@ -273,13 +278,14 @@ class RepositoryPolicyReservedNames(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_repository_policy_reserved_names = azuredevops.RepositoryPolicyReservedNames("exampleRepositoryPolicyReservedNames",
-            project_id=example_project.id,
+        example_repository_policy_reserved_names = azuredevops.RepositoryPolicyReservedNames("example",
+            project_id=example.id,
             enabled=True,
             blocking=True)
         ```

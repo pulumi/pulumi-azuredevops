@@ -14,52 +14,6 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ## Example Usage
     /// 
-    /// ### Client Certificate Authentication
-    /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
-    /// ```csharp
-    /// using System;
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureDevOps = Pulumi.AzureDevOps;
-    /// 
-    /// 	
-    /// string ReadFileBase64(string path) 
-    /// {
-    ///     return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)));
-    /// }
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
-    ///     {
-    ///         Visibility = "private",
-    ///         VersionControl = "Git",
-    ///         WorkItemTemplate = "Agile",
-    ///         Description = "Managed by Terraform",
-    ///     });
-    /// 
-    ///     var exampleServiceEndpointServiceFabric = new AzureDevOps.ServiceEndpointServiceFabric("exampleServiceEndpointServiceFabric", new()
-    ///     {
-    ///         ProjectId = exampleProject.Id,
-    ///         ServiceEndpointName = "Example Service Fabric",
-    ///         Description = "Managed by Terraform",
-    ///         ClusterEndpoint = "tcp://test",
-    ///         Certificate = new AzureDevOps.Inputs.ServiceEndpointServiceFabricCertificateArgs
-    ///         {
-    ///             ServerCertificateLookup = "Thumbprint",
-    ///             ServerCertificateThumbprint = "0000000000000000000000000000000000000000",
-    ///             ClientCertificate = ReadFileBase64("certificate.pfx"),
-    ///             ClientCertificatePassword = "password",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
-    /// 
     /// ### Azure Active Directory Authentication
     /// 
     /// &lt;!--Start PulumiCodeChooser --&gt;
@@ -73,6 +27,7 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     var project = new AzureDevOps.Project("project", new()
     ///     {
+    ///         Name = "Sample Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
@@ -110,6 +65,7 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     var project = new AzureDevOps.Project("project", new()
     ///     {
+    ///         Name = "Sample Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",

@@ -133,12 +133,13 @@ def get_team(name: Optional[str] = None,
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    example_project = azuredevops.Project("exampleProject",
+    example_project = azuredevops.Project("example",
+        name="Example Project",
         work_item_template="Agile",
         version_control="Git",
         visibility="private",
         description="Managed by Terraform")
-    example_team = azuredevops.get_team_output(project_id=example_project.id,
+    example = azuredevops.get_team_output(project_id=example_project.id,
         name="Example Project Team")
     ```
     <!--End PulumiCodeChooser -->
@@ -189,12 +190,13 @@ def get_team_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    example_project = azuredevops.Project("exampleProject",
+    example_project = azuredevops.Project("example",
+        name="Example Project",
         work_item_template="Agile",
         version_control="Git",
         visibility="private",
         description="Managed by Terraform")
-    example_team = azuredevops.get_team_output(project_id=example_project.id,
+    example = azuredevops.get_team_output(project_id=example_project.id,
         name="Example Project Team")
     ```
     <!--End PulumiCodeChooser -->

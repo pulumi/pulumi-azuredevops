@@ -280,19 +280,20 @@ class BuildFolderPermissions(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
             description="Managed by Terraform")
-        example_readers = azuredevops.get_group_output(project_id=example_project.id,
+        example_readers = azuredevops.get_group_output(project_id=example.id,
             name="Readers")
-        example_build_folder = azuredevops.BuildFolder("exampleBuildFolder",
-            project_id=example_project.id,
+        example_build_folder = azuredevops.BuildFolder("example",
+            project_id=example.id,
             path="\\\\ExampleFolder",
             description="ExampleFolder description")
-        example_build_folder_permissions = azuredevops.BuildFolderPermissions("exampleBuildFolderPermissions",
-            project_id=example_project.id,
+        example_build_folder_permissions = azuredevops.BuildFolderPermissions("example",
+            project_id=example.id,
             path="\\\\ExampleFolder",
             principal=example_readers.id,
             permissions={
@@ -319,15 +320,16 @@ class BuildFolderPermissions(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
             description="Managed by Terraform")
-        example_readers = azuredevops.get_group_output(project_id=example_project.id,
+        example_readers = azuredevops.get_group_output(project_id=example.id,
             name="Readers")
-        example_build_folder_permissions = azuredevops.BuildFolderPermissions("exampleBuildFolderPermissions",
-            project_id=example_project.id,
+        example_build_folder_permissions = azuredevops.BuildFolderPermissions("example",
+            project_id=example.id,
             path="\\\\",
             principal=example_readers.id,
             permissions={
@@ -394,19 +396,20 @@ class BuildFolderPermissions(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
             description="Managed by Terraform")
-        example_readers = azuredevops.get_group_output(project_id=example_project.id,
+        example_readers = azuredevops.get_group_output(project_id=example.id,
             name="Readers")
-        example_build_folder = azuredevops.BuildFolder("exampleBuildFolder",
-            project_id=example_project.id,
+        example_build_folder = azuredevops.BuildFolder("example",
+            project_id=example.id,
             path="\\\\ExampleFolder",
             description="ExampleFolder description")
-        example_build_folder_permissions = azuredevops.BuildFolderPermissions("exampleBuildFolderPermissions",
-            project_id=example_project.id,
+        example_build_folder_permissions = azuredevops.BuildFolderPermissions("example",
+            project_id=example.id,
             path="\\\\ExampleFolder",
             principal=example_readers.id,
             permissions={
@@ -433,15 +436,16 @@ class BuildFolderPermissions(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
             description="Managed by Terraform")
-        example_readers = azuredevops.get_group_output(project_id=example_project.id,
+        example_readers = azuredevops.get_group_output(project_id=example.id,
             name="Readers")
-        example_build_folder_permissions = azuredevops.BuildFolderPermissions("exampleBuildFolderPermissions",
-            project_id=example_project.id,
+        example_build_folder_permissions = azuredevops.BuildFolderPermissions("example",
+            project_id=example.id,
             path="\\\\",
             principal=example_readers.id,
             permissions={
