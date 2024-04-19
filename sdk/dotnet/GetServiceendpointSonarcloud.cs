@@ -16,7 +16,6 @@ namespace Pulumi.AzureDevOps
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,7 +36,6 @@ namespace Pulumi.AzureDevOps
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetServiceendpointSonarcloudResult> InvokeAsync(GetServiceendpointSonarcloudArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceendpointSonarcloudResult>("azuredevops:index/getServiceendpointSonarcloud:getServiceendpointSonarcloud", args ?? new GetServiceendpointSonarcloudArgs(), options.WithDefaults());
@@ -47,7 +45,6 @@ namespace Pulumi.AzureDevOps
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -68,7 +65,6 @@ namespace Pulumi.AzureDevOps
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetServiceendpointSonarcloudResult> Invoke(GetServiceendpointSonarcloudInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceendpointSonarcloudResult>("azuredevops:index/getServiceendpointSonarcloud:getServiceendpointSonarcloud", args ?? new GetServiceendpointSonarcloudInvokeArgs(), options.WithDefaults());

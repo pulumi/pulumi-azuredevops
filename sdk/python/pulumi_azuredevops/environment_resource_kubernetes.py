@@ -265,7 +265,6 @@ class EnvironmentResourceKubernetes(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -304,7 +303,6 @@ class EnvironmentResourceKubernetes(pulumi.CustomResource):
                 "tag2",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -335,7 +333,6 @@ class EnvironmentResourceKubernetes(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -374,7 +371,6 @@ class EnvironmentResourceKubernetes(pulumi.CustomResource):
                 "tag2",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

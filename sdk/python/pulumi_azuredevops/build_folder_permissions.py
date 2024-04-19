@@ -275,7 +275,6 @@ class BuildFolderPermissions(pulumi.CustomResource):
 
         ### Set specific folder permissions
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -313,9 +312,7 @@ class BuildFolderPermissions(pulumi.CustomResource):
                 "AdministerBuildPermissions": "NotSet",
             })
         ```
-        <!--End PulumiCodeChooser -->
         ### Set root folder permissions
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -336,7 +333,6 @@ class BuildFolderPermissions(pulumi.CustomResource):
                 "RetainIndefinitely": "Allow",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -391,7 +387,6 @@ class BuildFolderPermissions(pulumi.CustomResource):
 
         ### Set specific folder permissions
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -429,9 +424,7 @@ class BuildFolderPermissions(pulumi.CustomResource):
                 "AdministerBuildPermissions": "NotSet",
             })
         ```
-        <!--End PulumiCodeChooser -->
         ### Set root folder permissions
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -452,7 +445,6 @@ class BuildFolderPermissions(pulumi.CustomResource):
                 "RetainIndefinitely": "Allow",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

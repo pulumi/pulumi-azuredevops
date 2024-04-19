@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -27,7 +26,6 @@ import * as utilities from "./utilities";
  * }));
  * export const id = exampleGetVariableGroup.then(exampleGetVariableGroup => exampleGetVariableGroup.id);
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Relevant Links
  *
@@ -93,7 +91,6 @@ export interface GetVariableGroupResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -107,7 +104,6 @@ export interface GetVariableGroupResult {
  * }));
  * export const id = exampleGetVariableGroup.then(exampleGetVariableGroup => exampleGetVariableGroup.id);
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Relevant Links
  *

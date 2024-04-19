@@ -281,7 +281,6 @@ class ServiceendpointJenkins(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -301,7 +300,6 @@ class ServiceendpointJenkins(pulumi.CustomResource):
             username="username",
             password="password")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -331,7 +329,6 @@ class ServiceendpointJenkins(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -351,7 +348,6 @@ class ServiceendpointJenkins(pulumi.CustomResource):
             username="username",
             password="password")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

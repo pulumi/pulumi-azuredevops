@@ -227,14 +227,12 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
 
         example = azuredevops.User("example", principal_name="foo@contoso.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -270,14 +268,12 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
 
         example = azuredevops.User("example", principal_name="foo@contoso.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

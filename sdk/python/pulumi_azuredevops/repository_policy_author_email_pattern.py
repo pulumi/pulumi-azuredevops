@@ -205,7 +205,6 @@ class RepositoryPolicyAuthorEmailPattern(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -232,11 +231,9 @@ class RepositoryPolicyAuthorEmailPattern(pulumi.CustomResource):
             ],
             repository_ids=[example_git.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Set project level repository policy
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -256,7 +253,6 @@ class RepositoryPolicyAuthorEmailPattern(pulumi.CustomResource):
                 "user2@test.com",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -290,7 +286,6 @@ class RepositoryPolicyAuthorEmailPattern(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -317,11 +312,9 @@ class RepositoryPolicyAuthorEmailPattern(pulumi.CustomResource):
             ],
             repository_ids=[example_git.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Set project level repository policy
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -341,7 +334,6 @@ class RepositoryPolicyAuthorEmailPattern(pulumi.CustomResource):
                 "user2@test.com",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

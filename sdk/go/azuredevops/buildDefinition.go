@@ -17,7 +17,6 @@ import (
 // ## Example Usage
 //
 // ### Tfs
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -123,10 +122,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### GitHub Enterprise
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -207,7 +204,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Remarks
 //

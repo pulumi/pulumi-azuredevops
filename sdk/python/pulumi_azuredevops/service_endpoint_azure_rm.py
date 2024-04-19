@@ -563,7 +563,6 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
 
         ### Service Principal Manual AzureRM Service Endpoint (Subscription Scoped)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -587,11 +586,9 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Example Subscription Name")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Service Principal Manual AzureRM Service Endpoint (ManagementGroup Scoped)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -615,11 +612,9 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             azurerm_management_group_id="managementGroup",
             azurerm_management_group_name="managementGroup")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Service Principal Automatic AzureRM Service Endpoint
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -637,11 +632,9 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Example Subscription Name")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Workload Identity Federation Manual AzureRM Service Endpoint (Subscription Scoped)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -680,11 +673,9 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             issuer=example_service_endpoint_azure_rm.workload_identity_federation_issuer,
             subject=example_service_endpoint_azure_rm.workload_identity_federation_subject)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Workload Identity Federation Automatic AzureRM Service Endpoint
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -702,11 +693,9 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Example Subscription Name")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Managed Identity AzureRM Service Endpoint
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -724,7 +713,6 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Example Subscription Name")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -777,7 +765,6 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
 
         ### Service Principal Manual AzureRM Service Endpoint (Subscription Scoped)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -801,11 +788,9 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Example Subscription Name")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Service Principal Manual AzureRM Service Endpoint (ManagementGroup Scoped)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -829,11 +814,9 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             azurerm_management_group_id="managementGroup",
             azurerm_management_group_name="managementGroup")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Service Principal Automatic AzureRM Service Endpoint
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -851,11 +834,9 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Example Subscription Name")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Workload Identity Federation Manual AzureRM Service Endpoint (Subscription Scoped)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -894,11 +875,9 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             issuer=example_service_endpoint_azure_rm.workload_identity_federation_issuer,
             subject=example_service_endpoint_azure_rm.workload_identity_federation_subject)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Workload Identity Federation Automatic AzureRM Service Endpoint
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -916,11 +895,9 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Example Subscription Name")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Managed Identity AzureRM Service Endpoint
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -938,7 +915,6 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Example Subscription Name")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

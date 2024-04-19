@@ -201,7 +201,6 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -228,10 +227,8 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
             ],
             repository_ids=[example_git.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         # Set project level repository policy
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -251,7 +248,6 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
                 "/home/test/*.ts",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -284,7 +280,6 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -311,10 +306,8 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
             ],
             repository_ids=[example_git.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         # Set project level repository policy
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -334,7 +327,6 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
                 "/home/test/*.ts",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

@@ -187,7 +187,6 @@ class CheckExclusiveLock(pulumi.CustomResource):
 
         ### Add Exclusive Lock to an environment
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -206,11 +205,9 @@ class CheckExclusiveLock(pulumi.CustomResource):
             target_resource_type="endpoint",
             timeout=43200)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Protect an environment
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -225,7 +222,6 @@ class CheckExclusiveLock(pulumi.CustomResource):
             target_resource_type="environment",
             timeout=43200)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -253,7 +249,6 @@ class CheckExclusiveLock(pulumi.CustomResource):
 
         ### Add Exclusive Lock to an environment
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -272,11 +267,9 @@ class CheckExclusiveLock(pulumi.CustomResource):
             target_resource_type="endpoint",
             timeout=43200)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Protect an environment
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -291,7 +284,6 @@ class CheckExclusiveLock(pulumi.CustomResource):
             target_resource_type="environment",
             timeout=43200)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

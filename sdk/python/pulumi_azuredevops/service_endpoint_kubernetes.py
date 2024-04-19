@@ -317,7 +317,6 @@ class ServiceEndpointKubernetes(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -381,7 +380,6 @@ class ServiceEndpointKubernetes(pulumi.CustomResource):
                 ca_cert="0000000000000000000000000000000",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -416,7 +414,6 @@ class ServiceEndpointKubernetes(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -480,7 +477,6 @@ class ServiceEndpointKubernetes(pulumi.CustomResource):
                 ca_cert="0000000000000000000000000000000",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

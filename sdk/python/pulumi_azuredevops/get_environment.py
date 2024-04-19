@@ -95,7 +95,6 @@ def get_environment(environment_id: Optional[int] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -113,7 +112,6 @@ def get_environment(environment_id: Optional[int] = None,
     example = pulumi.Output.all(example_project.id, example_environment.id).apply(lambda exampleProjectId, exampleEnvironmentId: azuredevops.get_environment_output(project_id=example_project_id,
         environment_id=example_environment_id))
     ```
-    <!--End PulumiCodeChooser -->
 
     ## Relevant Links
 
@@ -151,7 +149,6 @@ def get_environment_output(environment_id: Optional[pulumi.Input[Optional[int]]]
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -169,7 +166,6 @@ def get_environment_output(environment_id: Optional[pulumi.Input[Optional[int]]]
     example = pulumi.Output.all(example_project.id, example_environment.id).apply(lambda exampleProjectId, exampleEnvironmentId: azuredevops.get_environment_output(project_id=example_project_id,
         environment_id=example_environment_id))
     ```
-    <!--End PulumiCodeChooser -->
 
     ## Relevant Links
 

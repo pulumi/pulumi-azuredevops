@@ -27,7 +27,6 @@ import (
 //
 // #### Example usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -73,7 +72,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Shared Queries folder level
 //
@@ -83,7 +81,6 @@ import (
 //
 // #### Example usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -130,11 +127,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -199,7 +194,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Relevant Links
 //

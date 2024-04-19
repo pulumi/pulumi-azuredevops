@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -25,7 +24,6 @@ import * as utilities from "./utilities";
  * export const projectUrl = example.then(example => example.projects.map(__item => __item.projectUrl));
  * export const state = example.then(example => example.projects.map(__item => __item.state));
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Relevant Links
  *
@@ -83,7 +81,6 @@ export interface GetProjectsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -97,7 +94,6 @@ export interface GetProjectsResult {
  * export const projectUrl = example.then(example => example.projects.map(__item => __item.projectUrl));
  * export const state = example.then(example => example.projects.map(__item => __item.state));
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Relevant Links
  *

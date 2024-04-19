@@ -118,7 +118,6 @@ class ProjectFeatures(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -136,7 +135,6 @@ class ProjectFeatures(pulumi.CustomResource):
                 "artifacts": "enabled",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -175,7 +173,6 @@ class ProjectFeatures(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -193,7 +190,6 @@ class ProjectFeatures(pulumi.CustomResource):
                 "artifacts": "enabled",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

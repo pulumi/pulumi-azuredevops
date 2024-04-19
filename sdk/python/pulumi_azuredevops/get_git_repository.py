@@ -158,7 +158,6 @@ def get_git_repository(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -168,7 +167,6 @@ def get_git_repository(name: Optional[str] = None,
     example_single_repo = azuredevops.get_git_repository(project_id=example.id,
         name="Example Repository")
     ```
-    <!--End PulumiCodeChooser -->
 
     ## Relevant Links
 
@@ -207,7 +205,6 @@ def get_git_repository_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -217,7 +214,6 @@ def get_git_repository_output(name: Optional[pulumi.Input[str]] = None,
     example_single_repo = azuredevops.get_git_repository(project_id=example.id,
         name="Example Repository")
     ```
-    <!--End PulumiCodeChooser -->
 
     ## Relevant Links
 

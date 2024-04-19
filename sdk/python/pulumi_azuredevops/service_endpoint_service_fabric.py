@@ -263,7 +263,6 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
 
         ### Azure Active Directory Authentication
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -285,11 +284,9 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
                 password="password",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Windows Authentication
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -309,7 +306,6 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
                 cluster_spn="HTTP/www.contoso.com",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -342,7 +338,6 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
 
         ### Azure Active Directory Authentication
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -364,11 +359,9 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
                 password="password",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Windows Authentication
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -388,7 +381,6 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
                 cluster_spn="HTTP/www.contoso.com",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

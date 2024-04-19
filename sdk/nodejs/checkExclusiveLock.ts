@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  *
  * ### Add Exclusive Lock to an environment
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -34,11 +33,9 @@ import * as utilities from "./utilities";
  *     timeout: 43200,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Protect an environment
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -55,7 +52,6 @@ import * as utilities from "./utilities";
  *     timeout: 43200,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

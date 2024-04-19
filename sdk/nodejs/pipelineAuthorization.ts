@@ -15,7 +15,6 @@ import * as utilities from "./utilities";
  *
  * ### Authorization for all pipelines
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -42,11 +41,9 @@ import * as utilities from "./utilities";
  *     type: "queue",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Authorization for specific pipeline
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -87,7 +84,6 @@ import * as utilities from "./utilities";
  *     pipelineId: exampleBuildDefinition.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Relevant Links
  *

@@ -22,7 +22,6 @@ import (
 //
 // ### Authorization for all pipelines
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -73,11 +72,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Authorization for specific pipeline
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -147,7 +144,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Relevant Links
 //

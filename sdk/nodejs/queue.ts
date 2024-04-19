@@ -15,7 +15,6 @@ import * as utilities from "./utilities";
  *
  * ### Creating a Queue from an organization-level pool
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -36,11 +35,9 @@ import * as utilities from "./utilities";
  *     authorized: true,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Creating a Queue at the project level (Organization-level permissions not required)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -53,7 +50,6 @@ import * as utilities from "./utilities";
  *     projectId: example.then(example => example.id),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Relevant Links
  *

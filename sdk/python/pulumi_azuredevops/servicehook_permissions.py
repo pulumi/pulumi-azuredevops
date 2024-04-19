@@ -201,7 +201,6 @@ class ServicehookPermissions(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -224,7 +223,6 @@ class ServicehookPermissions(pulumi.CustomResource):
                 "PublishEvents": "allow",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -268,7 +266,6 @@ class ServicehookPermissions(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -291,7 +288,6 @@ class ServicehookPermissions(pulumi.CustomResource):
                 "PublishEvents": "allow",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

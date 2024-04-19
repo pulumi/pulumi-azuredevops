@@ -27,7 +27,6 @@ import (
 //
 // #### Example usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -73,7 +72,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Repository level
 //
@@ -81,7 +79,6 @@ import (
 //
 // #### Example usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -139,7 +136,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Branch level
 //
@@ -147,7 +143,6 @@ import (
 //
 // #### Example usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -204,11 +199,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -304,7 +297,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Relevant Links
 //

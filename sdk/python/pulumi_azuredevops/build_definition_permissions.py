@@ -273,7 +273,6 @@ class BuildDefinitionPermissions(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -316,7 +315,6 @@ class BuildDefinitionPermissions(pulumi.CustomResource):
                 "StopBuilds": "Allow",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -369,7 +367,6 @@ class BuildDefinitionPermissions(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -412,7 +409,6 @@ class BuildDefinitionPermissions(pulumi.CustomResource):
                 "StopBuilds": "Allow",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

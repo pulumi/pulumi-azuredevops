@@ -237,7 +237,6 @@ class GitRepositoryFile(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -261,7 +260,6 @@ class GitRepositoryFile(pulumi.CustomResource):
             commit_message="First commit",
             overwrite_on_create=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -302,7 +300,6 @@ class GitRepositoryFile(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -326,7 +323,6 @@ class GitRepositoryFile(pulumi.CustomResource):
             commit_message="First commit",
             overwrite_on_create=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

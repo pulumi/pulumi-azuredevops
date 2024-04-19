@@ -124,7 +124,6 @@ def get_variable_group(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -134,7 +133,6 @@ def get_variable_group(name: Optional[str] = None,
         name="Example Variable Group")
     pulumi.export("id", example_get_variable_group.id)
     ```
-    <!--End PulumiCodeChooser -->
 
     ## Relevant Links
 
@@ -171,7 +169,6 @@ def get_variable_group_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -181,7 +178,6 @@ def get_variable_group_output(name: Optional[pulumi.Input[str]] = None,
         name="Example Variable Group")
     pulumi.export("id", example_get_variable_group.id)
     ```
-    <!--End PulumiCodeChooser -->
 
     ## Relevant Links
 
