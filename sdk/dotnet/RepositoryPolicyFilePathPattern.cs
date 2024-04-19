@@ -23,26 +23,28 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
     ///         Description = "Managed by Terraform",
     ///     });
     /// 
-    ///     var exampleGit = new AzureDevOps.Git("exampleGit", new()
+    ///     var exampleGit = new AzureDevOps.Git("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
+    ///         Name = "Example Repository",
     ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
     ///         {
     ///             InitType = "Clean",
     ///         },
     ///     });
     /// 
-    ///     var exampleRepositoryPolicyFilePathPattern = new AzureDevOps.RepositoryPolicyFilePathPattern("exampleRepositoryPolicyFilePathPattern", new()
+    ///     var exampleRepositoryPolicyFilePathPattern = new AzureDevOps.RepositoryPolicyFilePathPattern("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         Enabled = true,
     ///         Blocking = true,
     ///         FilepathPatterns = new[]
@@ -72,6 +74,7 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",

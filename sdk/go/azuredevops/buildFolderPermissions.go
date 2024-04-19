@@ -33,7 +33,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
 //				WorkItemTemplate: pulumi.String("Agile"),
 //				VersionControl:   pulumi.String("Git"),
 //				Visibility:       pulumi.String("private"),
@@ -43,19 +44,19 @@ import (
 //				return err
 //			}
 //			example_readers := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: exampleProject.ID(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
-//			_, err = azuredevops.NewBuildFolder(ctx, "exampleBuildFolder", &azuredevops.BuildFolderArgs{
-//				ProjectId:   exampleProject.ID(),
+//			_, err = azuredevops.NewBuildFolder(ctx, "example", &azuredevops.BuildFolderArgs{
+//				ProjectId:   example.ID(),
 //				Path:        pulumi.String("\\ExampleFolder"),
 //				Description: pulumi.String("ExampleFolder description"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewBuildFolderPermissions(ctx, "exampleBuildFolderPermissions", &azuredevops.BuildFolderPermissionsArgs{
-//				ProjectId: exampleProject.ID(),
+//			_, err = azuredevops.NewBuildFolderPermissions(ctx, "example", &azuredevops.BuildFolderPermissionsArgs{
+//				ProjectId: example.ID(),
 //				Path:      pulumi.String("\\ExampleFolder"),
 //				Principal: example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
 //					return &example_readers.Id, nil
@@ -100,7 +101,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
 //				WorkItemTemplate: pulumi.String("Agile"),
 //				VersionControl:   pulumi.String("Git"),
 //				Visibility:       pulumi.String("private"),
@@ -110,11 +112,11 @@ import (
 //				return err
 //			}
 //			example_readers := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: exampleProject.ID(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
-//			_, err = azuredevops.NewBuildFolderPermissions(ctx, "exampleBuildFolderPermissions", &azuredevops.BuildFolderPermissionsArgs{
-//				ProjectId: exampleProject.ID(),
+//			_, err = azuredevops.NewBuildFolderPermissions(ctx, "example", &azuredevops.BuildFolderPermissionsArgs{
+//				ProjectId: example.ID(),
 //				Path:      pulumi.String("\\"),
 //				Principal: example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
 //					return &example_readers.Id, nil

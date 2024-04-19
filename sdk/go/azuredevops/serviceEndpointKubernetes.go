@@ -14,6 +14,110 @@ import (
 
 // Manages a Kubernetes service endpoint within Azure DevOps.
 //
+// ## Example Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceEndpointKubernetes(ctx, "example-azure", &azuredevops.ServiceEndpointKubernetesArgs{
+//				ProjectId:           example.ID(),
+//				ServiceEndpointName: pulumi.String("Example Kubernetes"),
+//				ApiserverUrl:        pulumi.String("https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io"),
+//				AuthorizationType:   pulumi.String("AzureSubscription"),
+//				AzureSubscriptions: azuredevops.ServiceEndpointKubernetesAzureSubscriptionArray{
+//					&azuredevops.ServiceEndpointKubernetesAzureSubscriptionArgs{
+//						SubscriptionId:   pulumi.String("00000000-0000-0000-0000-000000000000"),
+//						SubscriptionName: pulumi.String("Example"),
+//						TenantId:         pulumi.String("00000000-0000-0000-0000-000000000000"),
+//						ResourcegroupId:  pulumi.String("example-rg"),
+//						Namespace:        pulumi.String("default"),
+//						ClusterName:      pulumi.String("example-aks"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceEndpointKubernetes(ctx, "example-kubeconfig", &azuredevops.ServiceEndpointKubernetesArgs{
+//				ProjectId:           example.ID(),
+//				ServiceEndpointName: pulumi.String("Example Kubernetes"),
+//				ApiserverUrl:        pulumi.String("https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io"),
+//				AuthorizationType:   pulumi.String("Kubeconfig"),
+//				Kubeconfig: &azuredevops.ServiceEndpointKubernetesKubeconfigArgs{
+//					KubeConfig: pulumi.String(`                              apiVersion: v1
+//	                              clusters:
+//	                              - cluster:
+//	                                  certificate-authority: fake-ca-file
+//	                                  server: https://1.2.3.4
+//	                                name: development
+//	                              contexts:
+//	                              - context:
+//	                                  cluster: development
+//	                                  namespace: frontend
+//	                                  user: developer
+//	                                name: dev-frontend
+//	                              current-context: dev-frontend
+//	                              kind: Config
+//	                              preferences: {}
+//	                              users:
+//	                              - name: developer
+//	                                user:
+//	                                  client-certificate: fake-cert-file
+//	                                  client-key: fake-key-file
+//
+// `),
+//
+//					AcceptUntrustedCerts: pulumi.Bool(true),
+//					ClusterContext:       pulumi.String("dev-frontend"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceEndpointKubernetes(ctx, "example-service-account", &azuredevops.ServiceEndpointKubernetesArgs{
+//				ProjectId:           example.ID(),
+//				ServiceEndpointName: pulumi.String("Example Kubernetes"),
+//				ApiserverUrl:        pulumi.String("https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io"),
+//				AuthorizationType:   pulumi.String("ServiceAccount"),
+//				ServiceAccount: &azuredevops.ServiceEndpointKubernetesServiceAccountArgs{
+//					Token:  pulumi.String("000000000000000000000000"),
+//					CaCert: pulumi.String("0000000000000000000000000000000"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ## Relevant Links
+//
+// - [Azure DevOps Service REST API 7.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
+//
 // ## Import
 //
 // Azure DevOps Service Endpoint Kubernetes can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**

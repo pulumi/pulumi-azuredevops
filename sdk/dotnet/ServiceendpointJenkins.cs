@@ -23,17 +23,18 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
     ///         Description = "Managed by Terraform",
     ///     });
     /// 
-    ///     var exampleServiceendpointJenkins = new AzureDevOps.ServiceendpointJenkins("exampleServiceendpointJenkins", new()
+    ///     var exampleServiceendpointJenkins = new AzureDevOps.ServiceendpointJenkins("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "jenkins-example",
     ///         Description = "Service Endpoint for 'Jenkins' (Managed by Terraform)",
     ///         Url = "https://example.com",

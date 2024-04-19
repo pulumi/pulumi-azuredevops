@@ -14,14 +14,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  *     description: "Managed by Terraform",
  * });
- * const exampleServiceEndpointSsh = new azuredevops.ServiceEndpointSsh("exampleServiceEndpointSsh", {
- *     projectId: exampleProject.id,
+ * const exampleServiceEndpointSsh = new azuredevops.ServiceEndpointSsh("example", {
+ *     projectId: example.id,
  *     serviceEndpointName: "Example SSH",
  *     host: "1.2.3.4",
  *     username: "username",

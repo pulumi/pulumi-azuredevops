@@ -14,22 +14,24 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
  *     description: "Managed by Terraform",
  * });
  * const example-project-contributors = azuredevops.getGroupOutput({
- *     projectId: exampleProject.id,
+ *     projectId: example.id,
  *     name: "Contributors",
  * });
  * const example-project-readers = azuredevops.getGroupOutput({
- *     projectId: exampleProject.id,
+ *     projectId: example.id,
  *     name: "Readers",
  * });
- * const exampleTeam = new azuredevops.Team("exampleTeam", {
- *     projectId: exampleProject.id,
+ * const exampleTeam = new azuredevops.Team("example", {
+ *     projectId: example.id,
+ *     name: "Example Team",
  *     administrators: [example_project_contributors.apply(example_project_contributors => example_project_contributors.descriptor)],
  *     members: [example_project_readers.apply(example_project_readers => example_project_readers.descriptor)],
  * });

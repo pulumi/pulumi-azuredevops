@@ -56,7 +56,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+ *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
  *             .workItemTemplate(&#34;Agile&#34;)
  *             .versionControl(&#34;Git&#34;)
  *             .visibility(&#34;private&#34;)
@@ -64,12 +65,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         final var example-readers = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .name(&#34;Readers&#34;)
  *             .build());
  * 
  *         var example_root_permissions = new ServiceendpointPermissions(&#34;example-root-permissions&#34;, ServiceendpointPermissionsArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .principal(example_readers.applyValue(example_readers -&gt; example_readers.id()))
  *             .permissions(Map.ofEntries(
  *                 Map.entry(&#34;Use&#34;, &#34;allow&#34;),
@@ -81,7 +82,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleServiceEndpointDockerRegistry = new ServiceEndpointDockerRegistry(&#34;exampleServiceEndpointDockerRegistry&#34;, ServiceEndpointDockerRegistryArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .serviceEndpointName(&#34;Example Docker Hub&#34;)
  *             .dockerUsername(&#34;username&#34;)
  *             .dockerEmail(&#34;email@example.com&#34;)
@@ -90,7 +91,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example_permissions = new ServiceendpointPermissions(&#34;example-permissions&#34;, ServiceendpointPermissionsArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .principal(example_readers.applyValue(example_readers -&gt; example_readers.id()))
  *             .serviceendpointId(exampleServiceEndpointDockerRegistry.id())
  *             .permissions(Map.ofEntries(

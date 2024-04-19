@@ -16,23 +16,25 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {});
- * const exampleGit = new azuredevops.Git("exampleGit", {
- *     projectId: exampleProject.id,
+ * const example = new azuredevops.Project("example", {name: "Example Project"});
+ * const exampleGit = new azuredevops.Git("example", {
+ *     projectId: example.id,
+ *     name: "Example Repository",
  *     initialization: {
  *         initType: "Clean",
  *     },
  * });
- * const exampleBuildDefinition = new azuredevops.BuildDefinition("exampleBuildDefinition", {
- *     projectId: exampleProject.id,
+ * const exampleBuildDefinition = new azuredevops.BuildDefinition("example", {
+ *     projectId: example.id,
+ *     name: "Example Build Definition",
  *     repository: {
  *         repoType: "TfsGit",
  *         repoId: exampleGit.id,
  *         ymlPath: "azure-pipelines.yml",
  *     },
  * });
- * const exampleBranchPolicyBuildValidation = new azuredevops.BranchPolicyBuildValidation("exampleBranchPolicyBuildValidation", {
- *     projectId: exampleProject.id,
+ * const exampleBranchPolicyBuildValidation = new azuredevops.BranchPolicyBuildValidation("example", {
+ *     projectId: example.id,
  *     enabled: true,
  *     blocking: true,
  *     settings: {

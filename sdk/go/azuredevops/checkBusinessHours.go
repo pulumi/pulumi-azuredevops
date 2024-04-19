@@ -31,12 +31,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name: pulumi.String("Example Project"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleServiceEndpointGeneric, err := azuredevops.NewServiceEndpointGeneric(ctx, "exampleServiceEndpointGeneric", &azuredevops.ServiceEndpointGenericArgs{
-//				ProjectId:           exampleProject.ID(),
+//			exampleServiceEndpointGeneric, err := azuredevops.NewServiceEndpointGeneric(ctx, "example", &azuredevops.ServiceEndpointGenericArgs{
+//				ProjectId:           example.ID(),
 //				ServerUrl:           pulumi.String("https://some-server.example.com"),
 //				Username:            pulumi.String("username"),
 //				Password:            pulumi.String("password"),
@@ -46,8 +48,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewCheckBusinessHours(ctx, "exampleCheckBusinessHours", &azuredevops.CheckBusinessHoursArgs{
-//				ProjectId:          exampleProject.ID(),
+//			_, err = azuredevops.NewCheckBusinessHours(ctx, "example", &azuredevops.CheckBusinessHoursArgs{
+//				ProjectId:          example.ID(),
 //				DisplayName:        pulumi.String("Managed by Terraform"),
 //				TargetResourceId:   exampleServiceEndpointGeneric.ID(),
 //				TargetResourceType: pulumi.String("endpoint"),
@@ -83,18 +85,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleEnvironment, err := azuredevops.NewEnvironment(ctx, "exampleEnvironment", &azuredevops.EnvironmentArgs{
-//				ProjectId: exampleProject.ID(),
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name: pulumi.String("Example Project"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewCheckBusinessHours(ctx, "exampleCheckBusinessHours", &azuredevops.CheckBusinessHoursArgs{
-//				ProjectId:          exampleProject.ID(),
+//			exampleEnvironment, err := azuredevops.NewEnvironment(ctx, "example", &azuredevops.EnvironmentArgs{
+//				ProjectId: example.ID(),
+//				Name:      pulumi.String("Example Environment"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewCheckBusinessHours(ctx, "example", &azuredevops.CheckBusinessHoursArgs{
+//				ProjectId:          example.ID(),
 //				DisplayName:        pulumi.String("Managed by Terraform"),
 //				TargetResourceId:   exampleEnvironment.ID(),
 //				TargetResourceType: pulumi.String("environment"),
@@ -129,23 +134,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name: pulumi.String("Example Project"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePool, err := azuredevops.NewPool(ctx, "examplePool", nil)
+//			examplePool, err := azuredevops.NewPool(ctx, "example", &azuredevops.PoolArgs{
+//				Name: pulumi.String("example-pool"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleQueue, err := azuredevops.NewQueue(ctx, "exampleQueue", &azuredevops.QueueArgs{
-//				ProjectId:   exampleProject.ID(),
+//			exampleQueue, err := azuredevops.NewQueue(ctx, "example", &azuredevops.QueueArgs{
+//				ProjectId:   example.ID(),
 //				AgentPoolId: examplePool.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewCheckBusinessHours(ctx, "exampleCheckBusinessHours", &azuredevops.CheckBusinessHoursArgs{
-//				ProjectId:          exampleProject.ID(),
+//			_, err = azuredevops.NewCheckBusinessHours(ctx, "example", &azuredevops.CheckBusinessHoursArgs{
+//				ProjectId:          example.ID(),
 //				DisplayName:        pulumi.String("Managed by Terraform"),
 //				TargetResourceId:   exampleQueue.ID(),
 //				TargetResourceType: pulumi.String("queue"),
@@ -182,12 +191,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name: pulumi.String("Example Project"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
-//				ProjectId: exampleProject.ID(),
+//			exampleGit, err := azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
+//				ProjectId: example.ID(),
+//				Name:      pulumi.String("Example Empty Git Repository"),
 //				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Clean"),
 //				},
@@ -195,13 +207,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewCheckBusinessHours(ctx, "exampleCheckBusinessHours", &azuredevops.CheckBusinessHoursArgs{
-//				ProjectId:   exampleProject.ID(),
+//			_, err = azuredevops.NewCheckBusinessHours(ctx, "example", &azuredevops.CheckBusinessHoursArgs{
+//				ProjectId:   example.ID(),
 //				DisplayName: pulumi.String("Managed by Terraform"),
-//				TargetResourceId: pulumi.All(exampleProject.ID(), exampleGit.ID()).ApplyT(func(_args []interface{}) (string, error) {
-//					exampleProjectId := _args[0].(string)
+//				TargetResourceId: pulumi.All(example.ID(), exampleGit.ID()).ApplyT(func(_args []interface{}) (string, error) {
+//					exampleId := _args[0].(string)
 //					exampleGitId := _args[1].(string)
-//					return fmt.Sprintf("%v.%v", exampleProjectId, exampleGitId), nil
+//					return fmt.Sprintf("%v.%v", exampleId, exampleGitId), nil
 //				}).(pulumi.StringOutput),
 //				TargetResourceType: pulumi.String("repository"),
 //				StartTime:          pulumi.String("07:00"),
@@ -235,12 +247,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name: pulumi.String("Example Project"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVariableGroup, err := azuredevops.NewVariableGroup(ctx, "exampleVariableGroup", &azuredevops.VariableGroupArgs{
-//				ProjectId:   exampleProject.ID(),
+//			exampleVariableGroup, err := azuredevops.NewVariableGroup(ctx, "example", &azuredevops.VariableGroupArgs{
+//				ProjectId:   example.ID(),
+//				Name:        pulumi.String("Example Variable Group"),
 //				Description: pulumi.String("Example Variable Group Description"),
 //				AllowAccess: pulumi.Bool(true),
 //				Variables: azuredevops.VariableGroupVariableArray{
@@ -258,8 +273,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewCheckBusinessHours(ctx, "exampleCheckBusinessHours", &azuredevops.CheckBusinessHoursArgs{
-//				ProjectId:          exampleProject.ID(),
+//			_, err = azuredevops.NewCheckBusinessHours(ctx, "example", &azuredevops.CheckBusinessHoursArgs{
+//				ProjectId:          example.ID(),
 //				DisplayName:        pulumi.String("Managed by Terraform"),
 //				TargetResourceId:   exampleVariableGroup.ID(),
 //				TargetResourceType: pulumi.String("variablegroup"),

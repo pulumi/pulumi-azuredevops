@@ -14,20 +14,22 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  *     description: "Managed by Terraform",
  * });
- * const exampleGit = new azuredevops.Git("exampleGit", {
- *     projectId: exampleProject.id,
+ * const exampleGit = new azuredevops.Git("example", {
+ *     projectId: example.id,
+ *     name: "Example Repository",
  *     initialization: {
  *         initType: "Clean",
  *     },
  * });
- * const exampleRepositoryPolicyFilePathPattern = new azuredevops.RepositoryPolicyFilePathPattern("exampleRepositoryPolicyFilePathPattern", {
- *     projectId: exampleProject.id,
+ * const exampleRepositoryPolicyFilePathPattern = new azuredevops.RepositoryPolicyFilePathPattern("example", {
+ *     projectId: example.id,
  *     enabled: true,
  *     blocking: true,
  *     filepathPatterns: [
@@ -46,6 +48,7 @@ import * as utilities from "./utilities";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",

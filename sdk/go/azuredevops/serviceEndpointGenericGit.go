@@ -30,7 +30,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
 //				Visibility:       pulumi.String("private"),
 //				VersionControl:   pulumi.String("Git"),
 //				WorkItemTemplate: pulumi.String("Agile"),
@@ -39,8 +40,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewServiceEndpointGenericGit(ctx, "exampleServiceEndpointGenericGit", &azuredevops.ServiceEndpointGenericGitArgs{
-//				ProjectId:           exampleProject.ID(),
+//			_, err = azuredevops.NewServiceEndpointGenericGit(ctx, "example", &azuredevops.ServiceEndpointGenericGitArgs{
+//				ProjectId:           example.ID(),
 //				RepositoryUrl:       pulumi.String("https://dev.azure.com/org/project/_git/repository"),
 //				Username:            pulumi.String("username"),
 //				Password:            pulumi.String("password"),

@@ -29,7 +29,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
 //				Visibility:       pulumi.String("private"),
 //				VersionControl:   pulumi.String("Git"),
 //				WorkItemTemplate: pulumi.String("Agile"),
@@ -38,8 +39,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleServiceEndpointAzureRM, err := azuredevops.NewServiceEndpointAzureRM(ctx, "exampleServiceEndpointAzureRM", &azuredevops.ServiceEndpointAzureRMArgs{
-//				ProjectId:                           exampleProject.ID(),
+//			exampleServiceEndpointAzureRM, err := azuredevops.NewServiceEndpointAzureRM(ctx, "example", &azuredevops.ServiceEndpointAzureRMArgs{
+//				ProjectId:                           example.ID(),
 //				ServiceEndpointName:                 pulumi.String("Example Azure Connection"),
 //				Description:                         pulumi.String("Managed by Terraform"),
 //				ServiceEndpointAuthenticationScheme: pulumi.String("ServicePrincipal"),
@@ -54,9 +55,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewElasticPool(ctx, "exampleElasticPool", &azuredevops.ElasticPoolArgs{
+//			_, err = azuredevops.NewElasticPool(ctx, "example", &azuredevops.ElasticPoolArgs{
+//				Name:                 pulumi.String("Example Elastic Pool"),
 //				ServiceEndpointId:    exampleServiceEndpointAzureRM.ID(),
-//				ServiceEndpointScope: exampleProject.ID(),
+//				ServiceEndpointScope: example.ID(),
 //				DesiredIdle:          pulumi.Int(2),
 //				MaxCapacity:          pulumi.Int(3),
 //				AzureResourceId:      pulumi.String("/subscriptions/<Subscription Id>/resourceGroups/<Resource Name>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS Name>"),

@@ -23,17 +23,18 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
     ///         Description = "Managed by Terraform",
     ///     });
     /// 
-    ///     var exampleServiceEndpointAws = new AzureDevOps.ServiceEndpointAws("exampleServiceEndpointAws", new()
+    ///     var exampleServiceEndpointAws = new AzureDevOps.ServiceEndpointAws("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example AWS",
     ///         AccessKeyId = "00000000-0000-0000-0000-000000000000",
     ///         SecretAccessKey = "accesskey",

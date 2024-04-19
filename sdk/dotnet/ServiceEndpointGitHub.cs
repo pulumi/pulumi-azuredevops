@@ -23,17 +23,18 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
     ///         Description = "Managed by Terraform",
     ///     });
     /// 
-    ///     var exampleServiceEndpointGitHub = new AzureDevOps.ServiceEndpointGitHub("exampleServiceEndpointGitHub", new()
+    ///     var exampleServiceEndpointGitHub = new AzureDevOps.ServiceEndpointGitHub("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example GitHub Personal Access Token",
     ///         AuthPersonal = new AzureDevOps.Inputs.ServiceEndpointGitHubAuthPersonalArgs
     ///         {
@@ -54,17 +55,18 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
     ///         Description = "Managed by Terraform",
     ///     });
     /// 
-    ///     var exampleServiceEndpointGitHub = new AzureDevOps.ServiceEndpointGitHub("exampleServiceEndpointGitHub", new()
+    ///     var exampleServiceEndpointGitHub = new AzureDevOps.ServiceEndpointGitHub("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example GitHub",
     ///         AuthOauth = new AzureDevOps.Inputs.ServiceEndpointGitHubAuthOauthArgs
     ///         {
@@ -85,17 +87,18 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
     ///         Description = "Managed by Terraform",
     ///     });
     /// 
-    ///     var exampleServiceEndpointGitHub = new AzureDevOps.ServiceEndpointGitHub("exampleServiceEndpointGitHub", new()
+    ///     var exampleServiceEndpointGitHub = new AzureDevOps.ServiceEndpointGitHub("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example GitHub Apps: Azure Pipelines",
     ///         Description = "Managed by Terraform",
     ///     });

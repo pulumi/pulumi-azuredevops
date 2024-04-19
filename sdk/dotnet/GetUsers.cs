@@ -13,116 +13,12 @@ namespace Pulumi.AzureDevOps
     {
         /// <summary>
         /// Use this data source to access information about an existing users within Azure DevOps.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using AzureDevOps = Pulumi.AzureDevOps;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = AzureDevOps.GetUsers.Invoke(new()
-        ///     {
-        ///         PrincipalName = "contoso-user@contoso.onmicrosoft.com",
-        ///     });
-        /// 
-        ///     var example_all_users = AzureDevOps.GetUsers.Invoke(new()
-        ///     {
-        ///         Features = new AzureDevOps.Inputs.GetUsersFeaturesInputArgs
-        ///         {
-        ///             ConcurrentWorkers = 10,
-        ///         },
-        ///     });
-        /// 
-        ///     var example_all_from_origin = AzureDevOps.GetUsers.Invoke(new()
-        ///     {
-        ///         Origin = "aad",
-        ///     });
-        /// 
-        ///     var example_all_from_subjectTypes = AzureDevOps.GetUsers.Invoke(new()
-        ///     {
-        ///         SubjectTypes = new[]
-        ///         {
-        ///             "aad",
-        ///             "msa",
-        ///         },
-        ///     });
-        /// 
-        ///     var example_all_from_origin_id = AzureDevOps.GetUsers.Invoke(new()
-        ///     {
-        ///         Origin = "aad",
-        ///         OriginId = "00000000-0000-0000-0000-000000000000",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
-        /// 
-        /// ## Relevant Links
-        /// 
-        /// - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
         /// </summary>
         public static Task<GetUsersResult> InvokeAsync(GetUsersArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUsersResult>("azuredevops:index/getUsers:getUsers", args ?? new GetUsersArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing users within Azure DevOps.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using AzureDevOps = Pulumi.AzureDevOps;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = AzureDevOps.GetUsers.Invoke(new()
-        ///     {
-        ///         PrincipalName = "contoso-user@contoso.onmicrosoft.com",
-        ///     });
-        /// 
-        ///     var example_all_users = AzureDevOps.GetUsers.Invoke(new()
-        ///     {
-        ///         Features = new AzureDevOps.Inputs.GetUsersFeaturesInputArgs
-        ///         {
-        ///             ConcurrentWorkers = 10,
-        ///         },
-        ///     });
-        /// 
-        ///     var example_all_from_origin = AzureDevOps.GetUsers.Invoke(new()
-        ///     {
-        ///         Origin = "aad",
-        ///     });
-        /// 
-        ///     var example_all_from_subjectTypes = AzureDevOps.GetUsers.Invoke(new()
-        ///     {
-        ///         SubjectTypes = new[]
-        ///         {
-        ///             "aad",
-        ///             "msa",
-        ///         },
-        ///     });
-        /// 
-        ///     var example_all_from_origin_id = AzureDevOps.GetUsers.Invoke(new()
-        ///     {
-        ///         Origin = "aad",
-        ///         OriginId = "00000000-0000-0000-0000-000000000000",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
-        /// 
-        /// ## Relevant Links
-        /// 
-        /// - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
         /// </summary>
         public static Output<GetUsersResult> Invoke(GetUsersInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUsersResult>("azuredevops:index/getUsers:getUsers", args ?? new GetUsersInvokeArgs(), options.WithDefaults());
@@ -137,32 +33,6 @@ namespace Pulumi.AzureDevOps
         /// DataSource without specifying any arguments will return all users inside an organization.
         /// 
         /// List of possible subject types
-        /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
-        /// 
-        /// List of possible origins
-        /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Input("features")]
         public Inputs.GetUsersFeaturesArgs? Features { get; set; }
@@ -211,32 +81,6 @@ namespace Pulumi.AzureDevOps
         /// DataSource without specifying any arguments will return all users inside an organization.
         /// 
         /// List of possible subject types
-        /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
-        /// 
-        /// List of possible origins
-        /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Input("features")]
         public Input<Inputs.GetUsersFeaturesInputArgs>? Features { get; set; }

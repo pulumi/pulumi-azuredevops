@@ -33,6 +33,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
  * import com.pulumi.azuredevops.AzuredevopsFunctions;
  * import com.pulumi.azuredevops.inputs.GetPoolArgs;
  * import com.pulumi.azuredevops.Queue;
@@ -52,15 +53,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;);
+ *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
+ *             .build());
  * 
- *         final var examplePool = AzuredevopsFunctions.getPool(GetPoolArgs.builder()
+ *         final var example = AzuredevopsFunctions.getPool(GetPoolArgs.builder()
  *             .name(&#34;example-pool&#34;)
  *             .build());
  * 
  *         var exampleQueue = new Queue(&#34;exampleQueue&#34;, QueueArgs.builder()        
  *             .projectId(exampleProject.id())
- *             .agentPoolId(examplePool.applyValue(getPoolResult -&gt; getPoolResult.id()))
+ *             .agentPoolId(example.applyValue(getPoolResult -&gt; getPoolResult.id()))
  *             .build());
  * 
  *         // Grant access to queue to all pipelines in the project
@@ -102,12 +105,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleProject = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+ *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
  *             .name(&#34;Example Project&#34;)
  *             .build());
  * 
  *         var exampleQueue = new Queue(&#34;exampleQueue&#34;, QueueArgs.builder()        
- *             .projectId(exampleProject.applyValue(getProjectResult -&gt; getProjectResult.id()))
+ *             .name(&#34;example-queue&#34;)
+ *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
  *             .build());
  * 
  *     }

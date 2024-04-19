@@ -93,6 +93,32 @@ def get_environment(environment_id: Optional[int] = None,
     """
     Use this data source to access information about an Environment.
 
+    ## Example Usage
+
+    <!--Start PulumiCodeChooser -->
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    example_project = azuredevops.Project("example",
+        name="Example Project",
+        work_item_template="Agile",
+        version_control="Git",
+        visibility="private",
+        description="Managed by Terraform")
+    example_environment = azuredevops.Environment("example",
+        project_id=example_project.id,
+        name="Example Environment",
+        description="Managed by Terraform")
+    example = pulumi.Output.all(example_project.id, example_environment.id).apply(lambda exampleProjectId, exampleEnvironmentId: azuredevops.get_environment_output(project_id=example_project_id,
+        environment_id=example_environment_id))
+    ```
+    <!--End PulumiCodeChooser -->
+
+    ## Relevant Links
+
+    * [Azure DevOps Service REST API 7.0 - Environments](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments?view=azure-devops-rest-7.0)
+
 
     :param int environment_id: The ID of the Environment.
     :param str name: Name of the Environment.
@@ -122,6 +148,32 @@ def get_environment_output(environment_id: Optional[pulumi.Input[Optional[int]]]
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     Use this data source to access information about an Environment.
+
+    ## Example Usage
+
+    <!--Start PulumiCodeChooser -->
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    example_project = azuredevops.Project("example",
+        name="Example Project",
+        work_item_template="Agile",
+        version_control="Git",
+        visibility="private",
+        description="Managed by Terraform")
+    example_environment = azuredevops.Environment("example",
+        project_id=example_project.id,
+        name="Example Environment",
+        description="Managed by Terraform")
+    example = pulumi.Output.all(example_project.id, example_environment.id).apply(lambda exampleProjectId, exampleEnvironmentId: azuredevops.get_environment_output(project_id=example_project_id,
+        environment_id=example_environment_id))
+    ```
+    <!--End PulumiCodeChooser -->
+
+    ## Relevant Links
+
+    * [Azure DevOps Service REST API 7.0 - Environments](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments?view=azure-devops-rest-7.0)
 
 
     :param int environment_id: The ID of the Environment.

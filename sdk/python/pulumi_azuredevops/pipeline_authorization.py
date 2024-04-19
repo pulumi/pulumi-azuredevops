@@ -198,19 +198,21 @@ class PipelineAuthorization(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_pool = azuredevops.Pool("examplePool",
+        example_pool = azuredevops.Pool("example",
+            name="Example Pool",
             auto_provision=False,
             auto_update=False)
-        example_queue = azuredevops.Queue("exampleQueue",
-            project_id=example_project.id,
+        example_queue = azuredevops.Queue("example",
+            project_id=example.id,
             agent_pool_id=example_pool.id)
-        example_pipeline_authorization = azuredevops.PipelineAuthorization("examplePipelineAuthorization",
-            project_id=example_project.id,
+        example_pipeline_authorization = azuredevops.PipelineAuthorization("example",
+            project_id=example.id,
             resource_id=example_queue.id,
             type="queue")
         ```
@@ -223,27 +225,30 @@ class PipelineAuthorization(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example_project = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_pool = azuredevops.Pool("examplePool",
+        example_pool = azuredevops.Pool("example",
+            name="Example Pool",
             auto_provision=False,
             auto_update=False)
-        example_queue = azuredevops.Queue("exampleQueue",
+        example_queue = azuredevops.Queue("example",
             project_id=example_project.id,
             agent_pool_id=example_pool.id)
-        example_git_repository = azuredevops.get_git_repository_output(project_id=example_project.id,
+        example = azuredevops.get_git_repository_output(project_id=example_project.id,
             name="Example Project")
-        example_build_definition = azuredevops.BuildDefinition("exampleBuildDefinition",
+        example_build_definition = azuredevops.BuildDefinition("example",
             project_id=example_project.id,
+            name="Example Pipeline",
             repository=azuredevops.BuildDefinitionRepositoryArgs(
                 repo_type="TfsGit",
-                repo_id=example_git_repository.id,
+                repo_id=example.id,
                 yml_path="azure-pipelines.yml",
             ))
-        example_pipeline_authorization = azuredevops.PipelineAuthorization("examplePipelineAuthorization",
+        example_pipeline_authorization = azuredevops.PipelineAuthorization("example",
             project_id=example_project.id,
             resource_id=example_queue.id,
             type="queue",
@@ -289,19 +294,21 @@ class PipelineAuthorization(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_pool = azuredevops.Pool("examplePool",
+        example_pool = azuredevops.Pool("example",
+            name="Example Pool",
             auto_provision=False,
             auto_update=False)
-        example_queue = azuredevops.Queue("exampleQueue",
-            project_id=example_project.id,
+        example_queue = azuredevops.Queue("example",
+            project_id=example.id,
             agent_pool_id=example_pool.id)
-        example_pipeline_authorization = azuredevops.PipelineAuthorization("examplePipelineAuthorization",
-            project_id=example_project.id,
+        example_pipeline_authorization = azuredevops.PipelineAuthorization("example",
+            project_id=example.id,
             resource_id=example_queue.id,
             type="queue")
         ```
@@ -314,27 +321,30 @@ class PipelineAuthorization(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example_project = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_pool = azuredevops.Pool("examplePool",
+        example_pool = azuredevops.Pool("example",
+            name="Example Pool",
             auto_provision=False,
             auto_update=False)
-        example_queue = azuredevops.Queue("exampleQueue",
+        example_queue = azuredevops.Queue("example",
             project_id=example_project.id,
             agent_pool_id=example_pool.id)
-        example_git_repository = azuredevops.get_git_repository_output(project_id=example_project.id,
+        example = azuredevops.get_git_repository_output(project_id=example_project.id,
             name="Example Project")
-        example_build_definition = azuredevops.BuildDefinition("exampleBuildDefinition",
+        example_build_definition = azuredevops.BuildDefinition("example",
             project_id=example_project.id,
+            name="Example Pipeline",
             repository=azuredevops.BuildDefinitionRepositoryArgs(
                 repo_type="TfsGit",
-                repo_id=example_git_repository.id,
+                repo_id=example.id,
                 yml_path="azure-pipelines.yml",
             ))
-        example_pipeline_authorization = azuredevops.PipelineAuthorization("examplePipelineAuthorization",
+        example_pipeline_authorization = azuredevops.PipelineAuthorization("example",
             project_id=example_project.id,
             resource_id=example_queue.id,
             type="queue",

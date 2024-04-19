@@ -106,8 +106,10 @@ def get_repositories(include_hidden: Optional[bool] = None,
     import pulumi_azuredevops as azuredevops
 
     example = azuredevops.get_project(name="Example Project")
+    # Load all Git repositories of a project, which are accessible for the current user
     example_all_repos = azuredevops.get_repositories(project_id=example.id,
         include_hidden=True)
+    # Load a specific Git repository by name
     example_single_repo = azuredevops.get_repositories(project_id=example.id,
         name="Example Repository")
     ```
@@ -154,8 +156,10 @@ def get_repositories_output(include_hidden: Optional[pulumi.Input[Optional[bool]
     import pulumi_azuredevops as azuredevops
 
     example = azuredevops.get_project(name="Example Project")
+    # Load all Git repositories of a project, which are accessible for the current user
     example_all_repos = azuredevops.get_repositories(project_id=example.id,
         include_hidden=True)
+    # Load a specific Git repository by name
     example_single_repo = azuredevops.get_repositories(project_id=example.id,
         name="Example Repository")
     ```

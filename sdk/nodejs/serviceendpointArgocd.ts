@@ -16,13 +16,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  * });
- * const exampleServiceendpointArgocd = new azuredevops.ServiceendpointArgocd("exampleServiceendpointArgocd", {
- *     projectId: exampleProject.id,
+ * const exampleServiceendpointArgocd = new azuredevops.ServiceendpointArgocd("example", {
+ *     projectId: example.id,
  *     serviceEndpointName: "Example ArgoCD",
  *     description: "Managed by Terraform",
  *     url: "https://argocd.my.com",
@@ -39,14 +40,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  *     description: "Managed by Terraform",
  * });
- * const exampleServiceendpointArgocd = new azuredevops.ServiceendpointArgocd("exampleServiceendpointArgocd", {
- *     projectId: exampleProject.id,
+ * const exampleServiceendpointArgocd = new azuredevops.ServiceendpointArgocd("example", {
+ *     projectId: example.id,
  *     serviceEndpointName: "Example ArgoCD",
  *     description: "Managed by Terraform",
  *     url: "https://argocd.my.com",

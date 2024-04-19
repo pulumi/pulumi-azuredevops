@@ -29,12 +29,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name: pulumi.String("Example Project"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
-//				ProjectId: exampleProject.ID(),
+//			exampleGit, err := azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
+//				ProjectId: example.ID(),
+//				Name:      pulumi.String("Example Repository"),
 //				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Clean"),
 //				},
@@ -42,8 +45,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleBuildDefinition, err := azuredevops.NewBuildDefinition(ctx, "exampleBuildDefinition", &azuredevops.BuildDefinitionArgs{
-//				ProjectId: exampleProject.ID(),
+//			exampleBuildDefinition, err := azuredevops.NewBuildDefinition(ctx, "example", &azuredevops.BuildDefinitionArgs{
+//				ProjectId: example.ID(),
+//				Name:      pulumi.String("Example Build Definition"),
 //				Repository: &azuredevops.BuildDefinitionRepositoryArgs{
 //					RepoType: pulumi.String("TfsGit"),
 //					RepoId:   exampleGit.ID(),
@@ -53,8 +57,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewBranchPolicyBuildValidation(ctx, "exampleBranchPolicyBuildValidation", &azuredevops.BranchPolicyBuildValidationArgs{
-//				ProjectId: exampleProject.ID(),
+//			_, err = azuredevops.NewBranchPolicyBuildValidation(ctx, "example", &azuredevops.BranchPolicyBuildValidationArgs{
+//				ProjectId: example.ID(),
 //				Enabled:   pulumi.Bool(true),
 //				Blocking:  pulumi.Bool(true),
 //				Settings: &azuredevops.BranchPolicyBuildValidationSettingsArgs{

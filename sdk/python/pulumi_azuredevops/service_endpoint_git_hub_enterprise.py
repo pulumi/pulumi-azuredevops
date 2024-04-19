@@ -215,13 +215,14 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_service_endpoint_git_hub_enterprise = azuredevops.ServiceEndpointGitHubEnterprise("exampleServiceEndpointGitHubEnterprise",
-            project_id=example_project.id,
+        example_service_endpoint_git_hub_enterprise = azuredevops.ServiceEndpointGitHubEnterprise("example",
+            project_id=example.id,
             service_endpoint_name="Example GitHub Enterprise",
             url="https://github.contoso.com",
             description="Managed by Terraform",
@@ -265,13 +266,14 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_service_endpoint_git_hub_enterprise = azuredevops.ServiceEndpointGitHubEnterprise("exampleServiceEndpointGitHubEnterprise",
-            project_id=example_project.id,
+        example_service_endpoint_git_hub_enterprise = azuredevops.ServiceEndpointGitHubEnterprise("example",
+            project_id=example.id,
             service_endpoint_name="Example GitHub Enterprise",
             url="https://github.contoso.com",
             description="Managed by Terraform",

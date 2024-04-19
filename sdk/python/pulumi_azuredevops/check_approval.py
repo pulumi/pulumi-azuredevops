@@ -321,11 +321,13 @@ class CheckApproval(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject")
-        example_environment = azuredevops.Environment("exampleEnvironment", project_id=example_project.id)
-        example_group = azuredevops.Group("exampleGroup", display_name="some-azdo-group")
-        example_check_approval = azuredevops.CheckApproval("exampleCheckApproval",
-            project_id=example_project.id,
+        example = azuredevops.Project("example", name="Example Project")
+        example_environment = azuredevops.Environment("example",
+            project_id=example.id,
+            name="Example Environment")
+        example_group = azuredevops.Group("example", display_name="some-azdo-group")
+        example_check_approval = azuredevops.CheckApproval("example",
+            project_id=example.id,
             target_resource_id=example_environment.id,
             target_resource_type="environment",
             requester_can_approve=True,
@@ -366,11 +368,13 @@ class CheckApproval(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject")
-        example_environment = azuredevops.Environment("exampleEnvironment", project_id=example_project.id)
-        example_group = azuredevops.Group("exampleGroup", display_name="some-azdo-group")
-        example_check_approval = azuredevops.CheckApproval("exampleCheckApproval",
-            project_id=example_project.id,
+        example = azuredevops.Project("example", name="Example Project")
+        example_environment = azuredevops.Environment("example",
+            project_id=example.id,
+            name="Example Environment")
+        example_group = azuredevops.Group("example", display_name="some-azdo-group")
+        example_check_approval = azuredevops.CheckApproval("example",
+            project_id=example.id,
             target_resource_id=example_environment.id,
             target_resource_type="environment",
             requester_can_approve=True,

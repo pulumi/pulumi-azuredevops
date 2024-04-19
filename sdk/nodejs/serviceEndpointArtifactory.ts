@@ -16,14 +16,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  *     description: "Managed by Terraform",
  * });
- * const exampleServiceEndpointArtifactory = new azuredevops.ServiceEndpointArtifactory("exampleServiceEndpointArtifactory", {
- *     projectId: exampleProject.id,
+ * const exampleServiceEndpointArtifactory = new azuredevops.ServiceEndpointArtifactory("example", {
+ *     projectId: example.id,
  *     serviceEndpointName: "Example Artifactory",
  *     description: "Managed by Terraform",
  *     url: "https://artifactory.my.com",
@@ -40,14 +41,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  *     description: "Managed by Terraform",
  * });
- * const exampleServiceEndpointArtifactory = new azuredevops.ServiceEndpointArtifactory("exampleServiceEndpointArtifactory", {
- *     projectId: exampleProject.id,
+ * const exampleServiceEndpointArtifactory = new azuredevops.ServiceEndpointArtifactory("example", {
+ *     projectId: example.id,
  *     serviceEndpointName: "Example Artifactory",
  *     description: "Managed by Terraform",
  *     url: "https://artifactory.my.com",

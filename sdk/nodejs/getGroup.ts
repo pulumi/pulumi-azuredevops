@@ -14,20 +14,20 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = azuredevops.getProject({
+ * const example = azuredevops.getProject({
  *     name: "Example Project",
  * });
- * const exampleGroup = exampleProject.then(exampleProject => azuredevops.getGroup({
- *     projectId: exampleProject.id,
+ * const exampleGetGroup = example.then(example => azuredevops.getGroup({
+ *     projectId: example.id,
  *     name: "Example Group",
  * }));
- * export const groupId = exampleGroup.then(exampleGroup => exampleGroup.id);
- * export const groupDescriptor = exampleGroup.then(exampleGroup => exampleGroup.descriptor);
+ * export const groupId = exampleGetGroup.then(exampleGetGroup => exampleGetGroup.id);
+ * export const groupDescriptor = exampleGetGroup.then(exampleGetGroup => exampleGetGroup.descriptor);
  * const example-collection-group = azuredevops.getGroup({
  *     name: "Project Collection Administrators",
  * });
- * export const collectionGroupId = exampleGroup.then(exampleGroup => exampleGroup.id);
- * export const collectionGroupDescriptor = exampleGroup.then(exampleGroup => exampleGroup.descriptor);
+ * export const collectionGroupId = exampleGetGroup.then(exampleGetGroup => exampleGetGroup.id);
+ * export const collectionGroupDescriptor = exampleGetGroup.then(exampleGetGroup => exampleGetGroup.descriptor);
  * ```
  * <!--End PulumiCodeChooser -->
  *
@@ -96,20 +96,20 @@ export interface GetGroupResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = azuredevops.getProject({
+ * const example = azuredevops.getProject({
  *     name: "Example Project",
  * });
- * const exampleGroup = exampleProject.then(exampleProject => azuredevops.getGroup({
- *     projectId: exampleProject.id,
+ * const exampleGetGroup = example.then(example => azuredevops.getGroup({
+ *     projectId: example.id,
  *     name: "Example Group",
  * }));
- * export const groupId = exampleGroup.then(exampleGroup => exampleGroup.id);
- * export const groupDescriptor = exampleGroup.then(exampleGroup => exampleGroup.descriptor);
+ * export const groupId = exampleGetGroup.then(exampleGetGroup => exampleGetGroup.id);
+ * export const groupDescriptor = exampleGetGroup.then(exampleGetGroup => exampleGetGroup.descriptor);
  * const example-collection-group = azuredevops.getGroup({
  *     name: "Project Collection Administrators",
  * });
- * export const collectionGroupId = exampleGroup.then(exampleGroup => exampleGroup.id);
- * export const collectionGroupDescriptor = exampleGroup.then(exampleGroup => exampleGroup.descriptor);
+ * export const collectionGroupId = exampleGetGroup.then(exampleGetGroup => exampleGetGroup.id);
+ * export const collectionGroupDescriptor = exampleGetGroup.then(exampleGetGroup => exampleGetGroup.descriptor);
  * ```
  * <!--End PulumiCodeChooser -->
  *

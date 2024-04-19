@@ -23,17 +23,18 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
     ///         Description = "Managed by Terraform",
     ///     });
     /// 
-    ///     var exampleServiceEndpointNpm = new AzureDevOps.ServiceEndpointNpm("exampleServiceEndpointNpm", new()
+    ///     var exampleServiceEndpointNpm = new AzureDevOps.ServiceEndpointNpm("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example npm",
     ///         Url = "https://registry.npmjs.org",
     ///         AccessToken = "00000000-0000-0000-0000-000000000000",

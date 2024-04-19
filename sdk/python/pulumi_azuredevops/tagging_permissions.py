@@ -207,6 +207,7 @@ class TaggingPermissions(pulumi.CustomResource):
         import pulumi_azuredevops as azuredevops
 
         example = azuredevops.Project("example",
+            name="Example Project",
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
@@ -273,6 +274,7 @@ class TaggingPermissions(pulumi.CustomResource):
         import pulumi_azuredevops as azuredevops
 
         example = azuredevops.Project("example",
+            name="Example Project",
             work_item_template="Agile",
             version_control="Git",
             visibility="private",

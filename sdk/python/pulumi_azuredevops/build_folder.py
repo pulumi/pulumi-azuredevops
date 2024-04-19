@@ -140,12 +140,13 @@ class BuildFolder(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
-        example_build_folder = azuredevops.BuildFolder("exampleBuildFolder",
-            project_id=example_project.id,
+        example_build_folder = azuredevops.BuildFolder("example",
+            project_id=example.id,
             path="\\\\ExampleFolder",
             description="ExampleFolder description")
         ```
@@ -187,12 +188,13 @@ class BuildFolder(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
-        example_build_folder = azuredevops.BuildFolder("exampleBuildFolder",
-            project_id=example_project.id,
+        example_build_folder = azuredevops.BuildFolder("example",
+            project_id=example.id,
             path="\\\\ExampleFolder",
             description="ExampleFolder description")
         ```

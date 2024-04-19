@@ -17,17 +17,24 @@ import * as utilities from "./utilities";
  * import * as azure from "@pulumi/azure";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ * const example = new azuredevops.Project("example", {name: "example-project"});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "servicehookexamplestacc",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleQueue = new azure.storage.Queue("exampleQueue", {storageAccountName: exampleAccount.name});
- * const exampleServicehookStorageQueuePipelines = new azuredevops.ServicehookStorageQueuePipelines("exampleServicehookStorageQueuePipelines", {
- *     projectId: exampleProject.id,
+ * const exampleQueue = new azure.storage.Queue("example", {
+ *     name: "examplequeue",
+ *     storageAccountName: exampleAccount.name,
+ * });
+ * const exampleServicehookStorageQueuePipelines = new azuredevops.ServicehookStorageQueuePipelines("example", {
+ *     projectId: example.id,
  *     accountName: exampleAccount.name,
  *     accountKey: exampleAccount.primaryAccessKey,
  *     queueName: exampleQueue.name,
@@ -48,10 +55,10 @@ import * as utilities from "./utilities";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * const example = new azuredevops.ServicehookStorageQueuePipelines("example", {
- *     projectId: azuredevops_project.example.id,
- *     accountName: azurerm_storage_account.example.name,
- *     accountKey: azurerm_storage_account.example.primary_access_key,
- *     queueName: azurerm_storage_queue.example.name,
+ *     projectId: exampleAzuredevopsProject.id,
+ *     accountName: exampleAzurermStorageAccount.name,
+ *     accountKey: exampleAzurermStorageAccount.primaryAccessKey,
+ *     queueName: exampleAzurermStorageQueue.name,
  *     visiTimeout: 30,
  *     runStateChangedEvent: {},
  * });

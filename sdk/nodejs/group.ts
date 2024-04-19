@@ -14,17 +14,17 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {});
+ * const example = new azuredevops.Project("example", {name: "Example Project"});
  * const example-readers = azuredevops.getGroupOutput({
- *     projectId: exampleProject.id,
+ *     projectId: example.id,
  *     name: "Readers",
  * });
  * const example-contributors = azuredevops.getGroupOutput({
- *     projectId: exampleProject.id,
+ *     projectId: example.id,
  *     name: "Contributors",
  * });
- * const exampleGroup = new azuredevops.Group("exampleGroup", {
- *     scope: exampleProject.id,
+ * const exampleGroup = new azuredevops.Group("example", {
+ *     scope: example.id,
  *     displayName: "Example group",
  *     description: "Example description",
  *     members: [

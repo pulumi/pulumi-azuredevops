@@ -25,11 +25,14 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject");
-    /// 
-    ///     var exampleServiceEndpointGeneric = new AzureDevOps.ServiceEndpointGeneric("exampleServiceEndpointGeneric", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         Name = "Example Project",
+    ///     });
+    /// 
+    ///     var exampleServiceEndpointGeneric = new AzureDevOps.ServiceEndpointGeneric("example", new()
+    ///     {
+    ///         ProjectId = example.Id,
     ///         ServerUrl = "https://some-server.example.com",
     ///         Username = "username",
     ///         Password = "password",
@@ -37,9 +40,9 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Terraform",
     ///     });
     /// 
-    ///     var exampleCheckBranchControl = new AzureDevOps.CheckBranchControl("exampleCheckBranchControl", new()
+    ///     var exampleCheckBranchControl = new AzureDevOps.CheckBranchControl("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         DisplayName = "Managed by Terraform",
     ///         TargetResourceId = exampleServiceEndpointGeneric.Id,
     ///         TargetResourceType = "endpoint",
@@ -62,16 +65,20 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject");
-    /// 
-    ///     var exampleEnvironment = new AzureDevOps.Environment("exampleEnvironment", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         Name = "Example Project",
     ///     });
     /// 
-    ///     var exampleCheckBranchControl = new AzureDevOps.CheckBranchControl("exampleCheckBranchControl", new()
+    ///     var exampleEnvironment = new AzureDevOps.Environment("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
+    ///         Name = "Example Environment",
+    ///     });
+    /// 
+    ///     var exampleCheckBranchControl = new AzureDevOps.CheckBranchControl("example", new()
+    ///     {
+    ///         ProjectId = example.Id,
     ///         DisplayName = "Managed by Terraform",
     ///         TargetResourceId = exampleEnvironment.Id,
     ///         TargetResourceType = "environment",
@@ -93,19 +100,25 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject");
-    /// 
-    ///     var examplePool = new AzureDevOps.Pool("examplePool");
-    /// 
-    ///     var exampleQueue = new AzureDevOps.Queue("exampleQueue", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         Name = "Example Project",
+    ///     });
+    /// 
+    ///     var examplePool = new AzureDevOps.Pool("example", new()
+    ///     {
+    ///         Name = "example-pool",
+    ///     });
+    /// 
+    ///     var exampleQueue = new AzureDevOps.Queue("example", new()
+    ///     {
+    ///         ProjectId = example.Id,
     ///         AgentPoolId = examplePool.Id,
     ///     });
     /// 
-    ///     var exampleCheckBranchControl = new AzureDevOps.CheckBranchControl("exampleCheckBranchControl", new()
+    ///     var exampleCheckBranchControl = new AzureDevOps.CheckBranchControl("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         DisplayName = "Managed by Terraform",
     ///         TargetResourceId = exampleQueue.Id,
     ///         TargetResourceType = "queue",
@@ -127,26 +140,30 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject");
-    /// 
-    ///     var exampleGit = new AzureDevOps.Git("exampleGit", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         Name = "Example Project",
+    ///     });
+    /// 
+    ///     var exampleGit = new AzureDevOps.Git("example", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Example Empty Git Repository",
     ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
     ///         {
     ///             InitType = "Clean",
     ///         },
     ///     });
     /// 
-    ///     var exampleCheckBranchControl = new AzureDevOps.CheckBranchControl("exampleCheckBranchControl", new()
+    ///     var exampleCheckBranchControl = new AzureDevOps.CheckBranchControl("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         DisplayName = "Managed by Terraform",
-    ///         TargetResourceId = Output.Tuple(exampleProject.Id, exampleGit.Id).Apply(values =&gt;
+    ///         TargetResourceId = Output.Tuple(example.Id, exampleGit.Id).Apply(values =&gt;
     ///         {
-    ///             var exampleProjectId = values.Item1;
+    ///             var exampleId = values.Item1;
     ///             var exampleGitId = values.Item2;
-    ///             return $"{exampleProjectId}.{exampleGitId}";
+    ///             return $"{exampleId}.{exampleGitId}";
     ///         }),
     ///         TargetResourceType = "repository",
     ///         AllowedBranches = "refs/heads/main, refs/heads/features/*",
@@ -167,11 +184,15 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject");
-    /// 
-    ///     var exampleVariableGroup = new AzureDevOps.VariableGroup("exampleVariableGroup", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         Name = "Example Project",
+    ///     });
+    /// 
+    ///     var exampleVariableGroup = new AzureDevOps.VariableGroup("example", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Example Variable Group",
     ///         Description = "Example Variable Group Description",
     ///         AllowAccess = true,
     ///         Variables = new[]
@@ -190,9 +211,9 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var exampleCheckBranchControl = new AzureDevOps.CheckBranchControl("exampleCheckBranchControl", new()
+    ///     var exampleCheckBranchControl = new AzureDevOps.CheckBranchControl("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         DisplayName = "Managed by Terraform",
     ///         TargetResourceId = exampleVariableGroup.Id,
     ///         TargetResourceType = "variablegroup",

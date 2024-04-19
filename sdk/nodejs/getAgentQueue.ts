@@ -14,18 +14,19 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const exampleProject = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
  *     description: "Managed by Terraform",
  * });
- * const exampleAgentQueue = azuredevops.getAgentQueueOutput({
+ * const example = azuredevops.getAgentQueueOutput({
  *     projectId: exampleProject.id,
  *     name: "Example Agent Queue",
  * });
- * export const name = exampleAgentQueue.apply(exampleAgentQueue => exampleAgentQueue.name);
- * export const poolId = exampleAgentQueue.apply(exampleAgentQueue => exampleAgentQueue.agentPoolId);
+ * export const name = example.apply(example => example.name);
+ * export const poolId = example.apply(example => example.agentPoolId);
  * ```
  * <!--End PulumiCodeChooser -->
  *
@@ -87,18 +88,19 @@ export interface GetAgentQueueResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const exampleProject = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
  *     description: "Managed by Terraform",
  * });
- * const exampleAgentQueue = azuredevops.getAgentQueueOutput({
+ * const example = azuredevops.getAgentQueueOutput({
  *     projectId: exampleProject.id,
  *     name: "Example Agent Queue",
  * });
- * export const name = exampleAgentQueue.apply(exampleAgentQueue => exampleAgentQueue.name);
- * export const poolId = exampleAgentQueue.apply(exampleAgentQueue => exampleAgentQueue.agentPoolId);
+ * export const name = example.apply(example => example.name);
+ * export const poolId = example.apply(example => example.agentPoolId);
  * ```
  * <!--End PulumiCodeChooser -->
  *

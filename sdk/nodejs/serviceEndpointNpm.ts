@@ -14,14 +14,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  *     description: "Managed by Terraform",
  * });
- * const exampleServiceEndpointNpm = new azuredevops.ServiceEndpointNpm("exampleServiceEndpointNpm", {
- *     projectId: exampleProject.id,
+ * const exampleServiceEndpointNpm = new azuredevops.ServiceEndpointNpm("example", {
+ *     projectId: example.id,
  *     serviceEndpointName: "Example npm",
  *     url: "https://registry.npmjs.org",
  *     accessToken: "00000000-0000-0000-0000-000000000000",

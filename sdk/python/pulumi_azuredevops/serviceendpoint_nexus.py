@@ -254,13 +254,14 @@ class ServiceendpointNexus(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_serviceendpoint_nexus = azuredevops.ServiceendpointNexus("exampleServiceendpointNexus",
-            project_id=example_project.id,
+        example_serviceendpoint_nexus = azuredevops.ServiceendpointNexus("example",
+            project_id=example.id,
             service_endpoint_name="nexus-example",
             description="Service Endpoint for 'Nexus IQ' (Managed by Terraform)",
             url="https://example.com",
@@ -302,13 +303,14 @@ class ServiceendpointNexus(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_serviceendpoint_nexus = azuredevops.ServiceendpointNexus("exampleServiceendpointNexus",
-            project_id=example_project.id,
+        example_serviceendpoint_nexus = azuredevops.ServiceendpointNexus("example",
+            project_id=example.id,
             service_endpoint_name="nexus-example",
             description="Service Endpoint for 'Nexus IQ' (Managed by Terraform)",
             url="https://example.com",

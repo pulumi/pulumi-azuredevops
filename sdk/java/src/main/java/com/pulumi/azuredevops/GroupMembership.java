@@ -28,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
  * import com.pulumi.azuredevops.User;
  * import com.pulumi.azuredevops.UserArgs;
  * import com.pulumi.azuredevops.AzuredevopsFunctions;
@@ -47,19 +48,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;);
+ *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
+ *             .build());
  * 
  *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
  *             .principalName(&#34;foo@contoso.com&#34;)
  *             .build());
  * 
- *         final var exampleGroup = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
+ *         final var example = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
  *             .projectId(exampleProject.id())
  *             .name(&#34;Build Administrators&#34;)
  *             .build());
  * 
  *         var exampleGroupMembership = new GroupMembership(&#34;exampleGroupMembership&#34;, GroupMembershipArgs.builder()        
- *             .group(exampleGroup.applyValue(getGroupResult -&gt; getGroupResult).applyValue(exampleGroup -&gt; exampleGroup.applyValue(getGroupResult -&gt; getGroupResult.descriptor())))
+ *             .group(example.applyValue(getGroupResult -&gt; getGroupResult).applyValue(example -&gt; example.applyValue(getGroupResult -&gt; getGroupResult.descriptor())))
  *             .members(exampleUser.descriptor())
  *             .build());
  * 

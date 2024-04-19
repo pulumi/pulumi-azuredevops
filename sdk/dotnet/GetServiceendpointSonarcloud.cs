@@ -27,7 +27,7 @@ namespace Pulumi.AzureDevOps
         /// {
         ///     var example = AzureDevOps.GetServiceendpointSonarcloud.Invoke(new()
         ///     {
-        ///         ProjectId = azuredevops_project.Example.Id,
+        ///         ProjectId = exampleAzuredevopsProject.Id,
         ///         ServiceEndpointName = "Example Sonar Cloud",
         ///     });
         /// 
@@ -58,7 +58,7 @@ namespace Pulumi.AzureDevOps
         /// {
         ///     var example = AzureDevOps.GetServiceendpointSonarcloud.Invoke(new()
         ///     {
-        ///         ProjectId = azuredevops_project.Example.Id,
+        ///         ProjectId = exampleAzuredevopsProject.Id,
         ///         ServiceEndpointName = "Example Sonar Cloud",
         ///     });
         /// 

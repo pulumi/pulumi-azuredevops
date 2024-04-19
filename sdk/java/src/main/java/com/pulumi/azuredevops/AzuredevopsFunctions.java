@@ -107,19 +107,20 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+     *             .name(&#34;Example Project&#34;)
      *             .workItemTemplate(&#34;Agile&#34;)
      *             .versionControl(&#34;Git&#34;)
      *             .visibility(&#34;private&#34;)
      *             .description(&#34;Managed by Terraform&#34;)
      *             .build());
      * 
-     *         final var exampleAgentQueue = AzuredevopsFunctions.getAgentQueue(GetAgentQueueArgs.builder()
+     *         final var example = AzuredevopsFunctions.getAgentQueue(GetAgentQueueArgs.builder()
      *             .projectId(exampleProject.id())
      *             .name(&#34;Example Agent Queue&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, exampleAgentQueue.applyValue(getAgentQueueResult -&gt; getAgentQueueResult).applyValue(exampleAgentQueue -&gt; exampleAgentQueue.applyValue(getAgentQueueResult -&gt; getAgentQueueResult.name())));
-     *         ctx.export(&#34;poolId&#34;, exampleAgentQueue.applyValue(getAgentQueueResult -&gt; getAgentQueueResult).applyValue(exampleAgentQueue -&gt; exampleAgentQueue.applyValue(getAgentQueueResult -&gt; getAgentQueueResult.agentPoolId())));
+     *         ctx.export(&#34;name&#34;, example.applyValue(getAgentQueueResult -&gt; getAgentQueueResult).applyValue(example -&gt; example.applyValue(getAgentQueueResult -&gt; getAgentQueueResult.name())));
+     *         ctx.export(&#34;poolId&#34;, example.applyValue(getAgentQueueResult -&gt; getAgentQueueResult).applyValue(example -&gt; example.applyValue(getAgentQueueResult -&gt; getAgentQueueResult.agentPoolId())));
      *     }
      * }
      * ```
@@ -163,19 +164,20 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+     *             .name(&#34;Example Project&#34;)
      *             .workItemTemplate(&#34;Agile&#34;)
      *             .versionControl(&#34;Git&#34;)
      *             .visibility(&#34;private&#34;)
      *             .description(&#34;Managed by Terraform&#34;)
      *             .build());
      * 
-     *         final var exampleAgentQueue = AzuredevopsFunctions.getAgentQueue(GetAgentQueueArgs.builder()
+     *         final var example = AzuredevopsFunctions.getAgentQueue(GetAgentQueueArgs.builder()
      *             .projectId(exampleProject.id())
      *             .name(&#34;Example Agent Queue&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, exampleAgentQueue.applyValue(getAgentQueueResult -&gt; getAgentQueueResult).applyValue(exampleAgentQueue -&gt; exampleAgentQueue.applyValue(getAgentQueueResult -&gt; getAgentQueueResult.name())));
-     *         ctx.export(&#34;poolId&#34;, exampleAgentQueue.applyValue(getAgentQueueResult -&gt; getAgentQueueResult).applyValue(exampleAgentQueue -&gt; exampleAgentQueue.applyValue(getAgentQueueResult -&gt; getAgentQueueResult.agentPoolId())));
+     *         ctx.export(&#34;name&#34;, example.applyValue(getAgentQueueResult -&gt; getAgentQueueResult).applyValue(example -&gt; example.applyValue(getAgentQueueResult -&gt; getAgentQueueResult.name())));
+     *         ctx.export(&#34;poolId&#34;, example.applyValue(getAgentQueueResult -&gt; getAgentQueueResult).applyValue(example -&gt; example.applyValue(getAgentQueueResult -&gt; getAgentQueueResult.agentPoolId())));
      *     }
      * }
      * ```
@@ -219,19 +221,20 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+     *             .name(&#34;Example Project&#34;)
      *             .workItemTemplate(&#34;Agile&#34;)
      *             .versionControl(&#34;Git&#34;)
      *             .visibility(&#34;private&#34;)
      *             .description(&#34;Managed by Terraform&#34;)
      *             .build());
      * 
-     *         final var exampleAgentQueue = AzuredevopsFunctions.getAgentQueue(GetAgentQueueArgs.builder()
+     *         final var example = AzuredevopsFunctions.getAgentQueue(GetAgentQueueArgs.builder()
      *             .projectId(exampleProject.id())
      *             .name(&#34;Example Agent Queue&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, exampleAgentQueue.applyValue(getAgentQueueResult -&gt; getAgentQueueResult).applyValue(exampleAgentQueue -&gt; exampleAgentQueue.applyValue(getAgentQueueResult -&gt; getAgentQueueResult.name())));
-     *         ctx.export(&#34;poolId&#34;, exampleAgentQueue.applyValue(getAgentQueueResult -&gt; getAgentQueueResult).applyValue(exampleAgentQueue -&gt; exampleAgentQueue.applyValue(getAgentQueueResult -&gt; getAgentQueueResult.agentPoolId())));
+     *         ctx.export(&#34;name&#34;, example.applyValue(getAgentQueueResult -&gt; getAgentQueueResult).applyValue(example -&gt; example.applyValue(getAgentQueueResult -&gt; getAgentQueueResult.name())));
+     *         ctx.export(&#34;poolId&#34;, example.applyValue(getAgentQueueResult -&gt; getAgentQueueResult).applyValue(example -&gt; example.applyValue(getAgentQueueResult -&gt; getAgentQueueResult.agentPoolId())));
      *     }
      * }
      * ```
@@ -275,19 +278,20 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+     *             .name(&#34;Example Project&#34;)
      *             .workItemTemplate(&#34;Agile&#34;)
      *             .versionControl(&#34;Git&#34;)
      *             .visibility(&#34;private&#34;)
      *             .description(&#34;Managed by Terraform&#34;)
      *             .build());
      * 
-     *         final var exampleAgentQueue = AzuredevopsFunctions.getAgentQueue(GetAgentQueueArgs.builder()
+     *         final var example = AzuredevopsFunctions.getAgentQueue(GetAgentQueueArgs.builder()
      *             .projectId(exampleProject.id())
      *             .name(&#34;Example Agent Queue&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, exampleAgentQueue.applyValue(getAgentQueueResult -&gt; getAgentQueueResult).applyValue(exampleAgentQueue -&gt; exampleAgentQueue.applyValue(getAgentQueueResult -&gt; getAgentQueueResult.name())));
-     *         ctx.export(&#34;poolId&#34;, exampleAgentQueue.applyValue(getAgentQueueResult -&gt; getAgentQueueResult).applyValue(exampleAgentQueue -&gt; exampleAgentQueue.applyValue(getAgentQueueResult -&gt; getAgentQueueResult.agentPoolId())));
+     *         ctx.export(&#34;name&#34;, example.applyValue(getAgentQueueResult -&gt; getAgentQueueResult).applyValue(example -&gt; example.applyValue(getAgentQueueResult -&gt; getAgentQueueResult.name())));
+     *         ctx.export(&#34;poolId&#34;, example.applyValue(getAgentQueueResult -&gt; getAgentQueueResult).applyValue(example -&gt; example.applyValue(getAgentQueueResult -&gt; getAgentQueueResult.agentPoolId())));
      *     }
      * }
      * ```
@@ -331,13 +335,14 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+     *             .name(&#34;Example Project&#34;)
      *             .workItemTemplate(&#34;Agile&#34;)
      *             .versionControl(&#34;Git&#34;)
      *             .visibility(&#34;private&#34;)
      *             .description(&#34;Managed by Terraform&#34;)
      *             .build());
      * 
-     *         final var exampleArea = AzuredevopsFunctions.getArea(GetAreaArgs.builder()
+     *         final var example = AzuredevopsFunctions.getArea(GetAreaArgs.builder()
      *             .projectId(exampleProject.id())
      *             .path(&#34;/&#34;)
      *             .fetchChildren(&#34;false&#34;)
@@ -390,13 +395,14 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+     *             .name(&#34;Example Project&#34;)
      *             .workItemTemplate(&#34;Agile&#34;)
      *             .versionControl(&#34;Git&#34;)
      *             .visibility(&#34;private&#34;)
      *             .description(&#34;Managed by Terraform&#34;)
      *             .build());
      * 
-     *         final var exampleArea = AzuredevopsFunctions.getArea(GetAreaArgs.builder()
+     *         final var example = AzuredevopsFunctions.getArea(GetAreaArgs.builder()
      *             .projectId(exampleProject.id())
      *             .path(&#34;/&#34;)
      *             .fetchChildren(&#34;false&#34;)
@@ -449,13 +455,14 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+     *             .name(&#34;Example Project&#34;)
      *             .workItemTemplate(&#34;Agile&#34;)
      *             .versionControl(&#34;Git&#34;)
      *             .visibility(&#34;private&#34;)
      *             .description(&#34;Managed by Terraform&#34;)
      *             .build());
      * 
-     *         final var exampleArea = AzuredevopsFunctions.getArea(GetAreaArgs.builder()
+     *         final var example = AzuredevopsFunctions.getArea(GetAreaArgs.builder()
      *             .projectId(exampleProject.id())
      *             .path(&#34;/&#34;)
      *             .fetchChildren(&#34;false&#34;)
@@ -508,13 +515,14 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+     *             .name(&#34;Example Project&#34;)
      *             .workItemTemplate(&#34;Agile&#34;)
      *             .versionControl(&#34;Git&#34;)
      *             .visibility(&#34;private&#34;)
      *             .description(&#34;Managed by Terraform&#34;)
      *             .build());
      * 
-     *         final var exampleArea = AzuredevopsFunctions.getArea(GetAreaArgs.builder()
+     *         final var example = AzuredevopsFunctions.getArea(GetAreaArgs.builder()
      *             .projectId(exampleProject.id())
      *             .path(&#34;/&#34;)
      *             .fetchChildren(&#34;false&#34;)
@@ -565,16 +573,16 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleProject = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
      *             .name(&#34;Example Project&#34;)
      *             .build());
      * 
-     *         final var exampleBuildDefinition = AzuredevopsFunctions.getBuildDefinition(GetBuildDefinitionArgs.builder()
-     *             .projectId(exampleProject.applyValue(getProjectResult -&gt; getProjectResult.id()))
+     *         final var exampleGetBuildDefinition = AzuredevopsFunctions.getBuildDefinition(GetBuildDefinitionArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .name(&#34;existing&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleBuildDefinition.applyValue(getBuildDefinitionResult -&gt; getBuildDefinitionResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleGetBuildDefinition.applyValue(getBuildDefinitionResult -&gt; getBuildDefinitionResult.id()));
      *     }
      * }
      * ```
@@ -612,16 +620,16 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleProject = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
      *             .name(&#34;Example Project&#34;)
      *             .build());
      * 
-     *         final var exampleBuildDefinition = AzuredevopsFunctions.getBuildDefinition(GetBuildDefinitionArgs.builder()
-     *             .projectId(exampleProject.applyValue(getProjectResult -&gt; getProjectResult.id()))
+     *         final var exampleGetBuildDefinition = AzuredevopsFunctions.getBuildDefinition(GetBuildDefinitionArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .name(&#34;existing&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleBuildDefinition.applyValue(getBuildDefinitionResult -&gt; getBuildDefinitionResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleGetBuildDefinition.applyValue(getBuildDefinitionResult -&gt; getBuildDefinitionResult.id()));
      *     }
      * }
      * ```
@@ -659,16 +667,16 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleProject = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
      *             .name(&#34;Example Project&#34;)
      *             .build());
      * 
-     *         final var exampleBuildDefinition = AzuredevopsFunctions.getBuildDefinition(GetBuildDefinitionArgs.builder()
-     *             .projectId(exampleProject.applyValue(getProjectResult -&gt; getProjectResult.id()))
+     *         final var exampleGetBuildDefinition = AzuredevopsFunctions.getBuildDefinition(GetBuildDefinitionArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .name(&#34;existing&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleBuildDefinition.applyValue(getBuildDefinitionResult -&gt; getBuildDefinitionResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleGetBuildDefinition.applyValue(getBuildDefinitionResult -&gt; getBuildDefinitionResult.id()));
      *     }
      * }
      * ```
@@ -706,16 +714,16 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleProject = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
      *             .name(&#34;Example Project&#34;)
      *             .build());
      * 
-     *         final var exampleBuildDefinition = AzuredevopsFunctions.getBuildDefinition(GetBuildDefinitionArgs.builder()
-     *             .projectId(exampleProject.applyValue(getProjectResult -&gt; getProjectResult.id()))
+     *         final var exampleGetBuildDefinition = AzuredevopsFunctions.getBuildDefinition(GetBuildDefinitionArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .name(&#34;existing&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleBuildDefinition.applyValue(getBuildDefinitionResult -&gt; getBuildDefinitionResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleGetBuildDefinition.applyValue(getBuildDefinitionResult -&gt; getBuildDefinitionResult.id()));
      *     }
      * }
      * ```
@@ -956,12 +964,124 @@ public final class AzuredevopsFunctions {
     /**
      * Use this data source to access information about an Environment.
      * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.Project;
+     * import com.pulumi.azuredevops.ProjectArgs;
+     * import com.pulumi.azuredevops.Environment;
+     * import com.pulumi.azuredevops.EnvironmentArgs;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+     *             .name(&#34;Example Project&#34;)
+     *             .workItemTemplate(&#34;Agile&#34;)
+     *             .versionControl(&#34;Git&#34;)
+     *             .visibility(&#34;private&#34;)
+     *             .description(&#34;Managed by Terraform&#34;)
+     *             .build());
+     * 
+     *         var exampleEnvironment = new Environment(&#34;exampleEnvironment&#34;, EnvironmentArgs.builder()        
+     *             .projectId(exampleProject.id())
+     *             .name(&#34;Example Environment&#34;)
+     *             .description(&#34;Managed by Terraform&#34;)
+     *             .build());
+     * 
+     *         final var example = AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *             .projectId(exampleProject.id())
+     *             .environmentId(exampleEnvironment.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * * [Azure DevOps Service REST API 7.0 - Environments](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments?view=azure-devops-rest-7.0)
+     * 
      */
     public static Output<GetEnvironmentResult> getEnvironment(GetEnvironmentArgs args) {
         return getEnvironment(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an Environment.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.Project;
+     * import com.pulumi.azuredevops.ProjectArgs;
+     * import com.pulumi.azuredevops.Environment;
+     * import com.pulumi.azuredevops.EnvironmentArgs;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+     *             .name(&#34;Example Project&#34;)
+     *             .workItemTemplate(&#34;Agile&#34;)
+     *             .versionControl(&#34;Git&#34;)
+     *             .visibility(&#34;private&#34;)
+     *             .description(&#34;Managed by Terraform&#34;)
+     *             .build());
+     * 
+     *         var exampleEnvironment = new Environment(&#34;exampleEnvironment&#34;, EnvironmentArgs.builder()        
+     *             .projectId(exampleProject.id())
+     *             .name(&#34;Example Environment&#34;)
+     *             .description(&#34;Managed by Terraform&#34;)
+     *             .build());
+     * 
+     *         final var example = AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *             .projectId(exampleProject.id())
+     *             .environmentId(exampleEnvironment.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * * [Azure DevOps Service REST API 7.0 - Environments](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetEnvironmentResult> getEnvironmentPlain(GetEnvironmentPlainArgs args) {
@@ -970,12 +1090,124 @@ public final class AzuredevopsFunctions {
     /**
      * Use this data source to access information about an Environment.
      * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.Project;
+     * import com.pulumi.azuredevops.ProjectArgs;
+     * import com.pulumi.azuredevops.Environment;
+     * import com.pulumi.azuredevops.EnvironmentArgs;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+     *             .name(&#34;Example Project&#34;)
+     *             .workItemTemplate(&#34;Agile&#34;)
+     *             .versionControl(&#34;Git&#34;)
+     *             .visibility(&#34;private&#34;)
+     *             .description(&#34;Managed by Terraform&#34;)
+     *             .build());
+     * 
+     *         var exampleEnvironment = new Environment(&#34;exampleEnvironment&#34;, EnvironmentArgs.builder()        
+     *             .projectId(exampleProject.id())
+     *             .name(&#34;Example Environment&#34;)
+     *             .description(&#34;Managed by Terraform&#34;)
+     *             .build());
+     * 
+     *         final var example = AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *             .projectId(exampleProject.id())
+     *             .environmentId(exampleEnvironment.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * * [Azure DevOps Service REST API 7.0 - Environments](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments?view=azure-devops-rest-7.0)
+     * 
      */
     public static Output<GetEnvironmentResult> getEnvironment(GetEnvironmentArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azuredevops:index/getEnvironment:getEnvironment", TypeShape.of(GetEnvironmentResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an Environment.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.Project;
+     * import com.pulumi.azuredevops.ProjectArgs;
+     * import com.pulumi.azuredevops.Environment;
+     * import com.pulumi.azuredevops.EnvironmentArgs;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+     *             .name(&#34;Example Project&#34;)
+     *             .workItemTemplate(&#34;Agile&#34;)
+     *             .versionControl(&#34;Git&#34;)
+     *             .visibility(&#34;private&#34;)
+     *             .description(&#34;Managed by Terraform&#34;)
+     *             .build());
+     * 
+     *         var exampleEnvironment = new Environment(&#34;exampleEnvironment&#34;, EnvironmentArgs.builder()        
+     *             .projectId(exampleProject.id())
+     *             .name(&#34;Example Environment&#34;)
+     *             .description(&#34;Managed by Terraform&#34;)
+     *             .build());
+     * 
+     *         final var example = AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *             .projectId(exampleProject.id())
+     *             .environmentId(exampleEnvironment.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * * [Azure DevOps Service REST API 7.0 - Environments](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetEnvironmentResult> getEnvironmentPlain(GetEnvironmentPlainArgs args, InvokeOptions options) {
@@ -1014,6 +1246,7 @@ public final class AzuredevopsFunctions {
      *             .name(&#34;Example Project&#34;)
      *             .build());
      * 
+     *         // Load a specific Git repository by name
      *         final var example-single-repo = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
      *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .name(&#34;Example Repository&#34;)
@@ -1065,6 +1298,7 @@ public final class AzuredevopsFunctions {
      *             .name(&#34;Example Project&#34;)
      *             .build());
      * 
+     *         // Load a specific Git repository by name
      *         final var example-single-repo = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
      *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .name(&#34;Example Repository&#34;)
@@ -1116,6 +1350,7 @@ public final class AzuredevopsFunctions {
      *             .name(&#34;Example Project&#34;)
      *             .build());
      * 
+     *         // Load a specific Git repository by name
      *         final var example-single-repo = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
      *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .name(&#34;Example Repository&#34;)
@@ -1167,6 +1402,7 @@ public final class AzuredevopsFunctions {
      *             .name(&#34;Example Project&#34;)
      *             .build());
      * 
+     *         // Load a specific Git repository by name
      *         final var example-single-repo = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
      *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .name(&#34;Example Repository&#34;)
@@ -1213,23 +1449,23 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleProject = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
      *             .name(&#34;Example Project&#34;)
      *             .build());
      * 
-     *         final var exampleGroup = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
-     *             .projectId(exampleProject.applyValue(getProjectResult -&gt; getProjectResult.id()))
+     *         final var exampleGetGroup = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .name(&#34;Example Group&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;groupId&#34;, exampleGroup.applyValue(getGroupResult -&gt; getGroupResult.id()));
-     *         ctx.export(&#34;groupDescriptor&#34;, exampleGroup.applyValue(getGroupResult -&gt; getGroupResult.descriptor()));
+     *         ctx.export(&#34;groupId&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.id()));
+     *         ctx.export(&#34;groupDescriptor&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.descriptor()));
      *         final var example-collection-group = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
      *             .name(&#34;Project Collection Administrators&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;collectionGroupId&#34;, exampleGroup.applyValue(getGroupResult -&gt; getGroupResult.id()));
-     *         ctx.export(&#34;collectionGroupDescriptor&#34;, exampleGroup.applyValue(getGroupResult -&gt; getGroupResult.descriptor()));
+     *         ctx.export(&#34;collectionGroupId&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.id()));
+     *         ctx.export(&#34;collectionGroupDescriptor&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.descriptor()));
      *     }
      * }
      * ```
@@ -1276,23 +1512,23 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleProject = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
      *             .name(&#34;Example Project&#34;)
      *             .build());
      * 
-     *         final var exampleGroup = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
-     *             .projectId(exampleProject.applyValue(getProjectResult -&gt; getProjectResult.id()))
+     *         final var exampleGetGroup = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .name(&#34;Example Group&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;groupId&#34;, exampleGroup.applyValue(getGroupResult -&gt; getGroupResult.id()));
-     *         ctx.export(&#34;groupDescriptor&#34;, exampleGroup.applyValue(getGroupResult -&gt; getGroupResult.descriptor()));
+     *         ctx.export(&#34;groupId&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.id()));
+     *         ctx.export(&#34;groupDescriptor&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.descriptor()));
      *         final var example-collection-group = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
      *             .name(&#34;Project Collection Administrators&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;collectionGroupId&#34;, exampleGroup.applyValue(getGroupResult -&gt; getGroupResult.id()));
-     *         ctx.export(&#34;collectionGroupDescriptor&#34;, exampleGroup.applyValue(getGroupResult -&gt; getGroupResult.descriptor()));
+     *         ctx.export(&#34;collectionGroupId&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.id()));
+     *         ctx.export(&#34;collectionGroupDescriptor&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.descriptor()));
      *     }
      * }
      * ```
@@ -1339,23 +1575,23 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleProject = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
      *             .name(&#34;Example Project&#34;)
      *             .build());
      * 
-     *         final var exampleGroup = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
-     *             .projectId(exampleProject.applyValue(getProjectResult -&gt; getProjectResult.id()))
+     *         final var exampleGetGroup = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .name(&#34;Example Group&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;groupId&#34;, exampleGroup.applyValue(getGroupResult -&gt; getGroupResult.id()));
-     *         ctx.export(&#34;groupDescriptor&#34;, exampleGroup.applyValue(getGroupResult -&gt; getGroupResult.descriptor()));
+     *         ctx.export(&#34;groupId&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.id()));
+     *         ctx.export(&#34;groupDescriptor&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.descriptor()));
      *         final var example-collection-group = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
      *             .name(&#34;Project Collection Administrators&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;collectionGroupId&#34;, exampleGroup.applyValue(getGroupResult -&gt; getGroupResult.id()));
-     *         ctx.export(&#34;collectionGroupDescriptor&#34;, exampleGroup.applyValue(getGroupResult -&gt; getGroupResult.descriptor()));
+     *         ctx.export(&#34;collectionGroupId&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.id()));
+     *         ctx.export(&#34;collectionGroupDescriptor&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.descriptor()));
      *     }
      * }
      * ```
@@ -1402,23 +1638,23 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleProject = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
      *             .name(&#34;Example Project&#34;)
      *             .build());
      * 
-     *         final var exampleGroup = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
-     *             .projectId(exampleProject.applyValue(getProjectResult -&gt; getProjectResult.id()))
+     *         final var exampleGetGroup = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .name(&#34;Example Group&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;groupId&#34;, exampleGroup.applyValue(getGroupResult -&gt; getGroupResult.id()));
-     *         ctx.export(&#34;groupDescriptor&#34;, exampleGroup.applyValue(getGroupResult -&gt; getGroupResult.descriptor()));
+     *         ctx.export(&#34;groupId&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.id()));
+     *         ctx.export(&#34;groupDescriptor&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.descriptor()));
      *         final var example-collection-group = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
      *             .name(&#34;Project Collection Administrators&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;collectionGroupId&#34;, exampleGroup.applyValue(getGroupResult -&gt; getGroupResult.id()));
-     *         ctx.export(&#34;collectionGroupDescriptor&#34;, exampleGroup.applyValue(getGroupResult -&gt; getGroupResult.descriptor()));
+     *         ctx.export(&#34;collectionGroupId&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.id()));
+     *         ctx.export(&#34;collectionGroupDescriptor&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.descriptor()));
      *     }
      * }
      * ```
@@ -1469,8 +1705,10 @@ public final class AzuredevopsFunctions {
      *             .name(&#34;Example Project&#34;)
      *             .build());
      * 
+     *         // load all existing groups inside an organization
      *         final var example-all-groups = AzuredevopsFunctions.getGroups();
      * 
+     *         // load all existing groups inside a specific project
      *         final var example-project-groups = AzuredevopsFunctions.getGroups(GetGroupsArgs.builder()
      *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .build());
@@ -1520,8 +1758,10 @@ public final class AzuredevopsFunctions {
      *             .name(&#34;Example Project&#34;)
      *             .build());
      * 
+     *         // load all existing groups inside an organization
      *         final var example-all-groups = AzuredevopsFunctions.getGroups();
      * 
+     *         // load all existing groups inside a specific project
      *         final var example-project-groups = AzuredevopsFunctions.getGroups(GetGroupsArgs.builder()
      *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .build());
@@ -1571,8 +1811,10 @@ public final class AzuredevopsFunctions {
      *             .name(&#34;Example Project&#34;)
      *             .build());
      * 
+     *         // load all existing groups inside an organization
      *         final var example-all-groups = AzuredevopsFunctions.getGroups();
      * 
+     *         // load all existing groups inside a specific project
      *         final var example-project-groups = AzuredevopsFunctions.getGroups(GetGroupsArgs.builder()
      *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .build());
@@ -1622,8 +1864,10 @@ public final class AzuredevopsFunctions {
      *             .name(&#34;Example Project&#34;)
      *             .build());
      * 
+     *         // load all existing groups inside an organization
      *         final var example-all-groups = AzuredevopsFunctions.getGroups();
      * 
+     *         // load all existing groups inside a specific project
      *         final var example-project-groups = AzuredevopsFunctions.getGroups(GetGroupsArgs.builder()
      *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .build());
@@ -1673,8 +1917,10 @@ public final class AzuredevopsFunctions {
      *             .name(&#34;Example Project&#34;)
      *             .build());
      * 
+     *         // load all existing groups inside an organization
      *         final var example-all-groups = AzuredevopsFunctions.getGroups();
      * 
+     *         // load all existing groups inside a specific project
      *         final var example-project-groups = AzuredevopsFunctions.getGroups(GetGroupsArgs.builder()
      *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .build());
@@ -1724,8 +1970,10 @@ public final class AzuredevopsFunctions {
      *             .name(&#34;Example Project&#34;)
      *             .build());
      * 
+     *         // load all existing groups inside an organization
      *         final var example-all-groups = AzuredevopsFunctions.getGroups();
      * 
+     *         // load all existing groups inside a specific project
      *         final var example-project-groups = AzuredevopsFunctions.getGroups(GetGroupsArgs.builder()
      *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .build());
@@ -1773,6 +2021,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+     *             .name(&#34;Example Project&#34;)
      *             .workItemTemplate(&#34;Agile&#34;)
      *             .versionControl(&#34;Git&#34;)
      *             .visibility(&#34;private&#34;)
@@ -1838,6 +2087,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+     *             .name(&#34;Example Project&#34;)
      *             .workItemTemplate(&#34;Agile&#34;)
      *             .versionControl(&#34;Git&#34;)
      *             .visibility(&#34;private&#34;)
@@ -1903,6 +2153,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+     *             .name(&#34;Example Project&#34;)
      *             .workItemTemplate(&#34;Agile&#34;)
      *             .versionControl(&#34;Git&#34;)
      *             .visibility(&#34;private&#34;)
@@ -1968,6 +2219,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+     *             .name(&#34;Example Project&#34;)
      *             .workItemTemplate(&#34;Agile&#34;)
      *             .versionControl(&#34;Git&#34;)
      *             .visibility(&#34;private&#34;)
@@ -3062,11 +3314,13 @@ public final class AzuredevopsFunctions {
      *             .name(&#34;Example Project&#34;)
      *             .build());
      * 
+     *         // Load all Git repositories of a project, which are accessible for the current user
      *         final var example-all-repos = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
      *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .includeHidden(true)
      *             .build());
      * 
+     *         // Load a specific Git repository by name
      *         final var example-single-repo = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
      *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .name(&#34;Example Repository&#34;)
@@ -3118,11 +3372,13 @@ public final class AzuredevopsFunctions {
      *             .name(&#34;Example Project&#34;)
      *             .build());
      * 
+     *         // Load all Git repositories of a project, which are accessible for the current user
      *         final var example-all-repos = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
      *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .includeHidden(true)
      *             .build());
      * 
+     *         // Load a specific Git repository by name
      *         final var example-single-repo = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
      *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .name(&#34;Example Repository&#34;)
@@ -3174,11 +3430,13 @@ public final class AzuredevopsFunctions {
      *             .name(&#34;Example Project&#34;)
      *             .build());
      * 
+     *         // Load all Git repositories of a project, which are accessible for the current user
      *         final var example-all-repos = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
      *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .includeHidden(true)
      *             .build());
      * 
+     *         // Load a specific Git repository by name
      *         final var example-single-repo = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
      *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .name(&#34;Example Repository&#34;)
@@ -3230,11 +3488,13 @@ public final class AzuredevopsFunctions {
      *             .name(&#34;Example Project&#34;)
      *             .build());
      * 
+     *         // Load all Git repositories of a project, which are accessible for the current user
      *         final var example-all-repos = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
      *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .includeHidden(true)
      *             .build());
      * 
+     *         // Load a specific Git repository by name
      *         final var example-single-repo = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
      *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .name(&#34;Example Repository&#34;)
@@ -3286,11 +3546,13 @@ public final class AzuredevopsFunctions {
      *             .name(&#34;Example Project&#34;)
      *             .build());
      * 
+     *         // Load all Git repositories of a project, which are accessible for the current user
      *         final var example-all-repos = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
      *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .includeHidden(true)
      *             .build());
      * 
+     *         // Load a specific Git repository by name
      *         final var example-single-repo = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
      *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .name(&#34;Example Repository&#34;)
@@ -3342,11 +3604,13 @@ public final class AzuredevopsFunctions {
      *             .name(&#34;Example Project&#34;)
      *             .build());
      * 
+     *         // Load all Git repositories of a project, which are accessible for the current user
      *         final var example-all-repos = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
      *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .includeHidden(true)
      *             .build());
      * 
+     *         // Load a specific Git repository by name
      *         final var example-single-repo = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
      *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .name(&#34;Example Repository&#34;)
@@ -4105,7 +4369,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointAzurecr(GetServiceendpointAzurecrArgs.builder()
-     *             .projectId(azuredevops_project.example().id())
+     *             .projectId(exampleAzuredevopsProject.id())
      *             .serviceEndpointName(&#34;Example Azure Container Registry&#34;)
      *             .build());
      * 
@@ -4147,7 +4411,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointAzurecr(GetServiceendpointAzurecrArgs.builder()
-     *             .projectId(azuredevops_project.example().id())
+     *             .projectId(exampleAzuredevopsProject.id())
      *             .serviceEndpointName(&#34;Example Azure Container Registry&#34;)
      *             .build());
      * 
@@ -4189,7 +4453,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointAzurecr(GetServiceendpointAzurecrArgs.builder()
-     *             .projectId(azuredevops_project.example().id())
+     *             .projectId(exampleAzuredevopsProject.id())
      *             .serviceEndpointName(&#34;Example Azure Container Registry&#34;)
      *             .build());
      * 
@@ -4231,7 +4495,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointAzurecr(GetServiceendpointAzurecrArgs.builder()
-     *             .projectId(azuredevops_project.example().id())
+     *             .projectId(exampleAzuredevopsProject.id())
      *             .serviceEndpointName(&#34;Example Azure Container Registry&#34;)
      *             .build());
      * 
@@ -4273,7 +4537,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointNpm(GetServiceendpointNpmArgs.builder()
-     *             .projectId(azuredevops_project.example().id())
+     *             .projectId(exampleAzuredevopsProject.id())
      *             .serviceEndpointName(&#34;Example npm&#34;)
      *             .build());
      * 
@@ -4315,7 +4579,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointNpm(GetServiceendpointNpmArgs.builder()
-     *             .projectId(azuredevops_project.example().id())
+     *             .projectId(exampleAzuredevopsProject.id())
      *             .serviceEndpointName(&#34;Example npm&#34;)
      *             .build());
      * 
@@ -4357,7 +4621,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointNpm(GetServiceendpointNpmArgs.builder()
-     *             .projectId(azuredevops_project.example().id())
+     *             .projectId(exampleAzuredevopsProject.id())
      *             .serviceEndpointName(&#34;Example npm&#34;)
      *             .build());
      * 
@@ -4399,7 +4663,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointNpm(GetServiceendpointNpmArgs.builder()
-     *             .projectId(azuredevops_project.example().id())
+     *             .projectId(exampleAzuredevopsProject.id())
      *             .serviceEndpointName(&#34;Example npm&#34;)
      *             .build());
      * 
@@ -4441,7 +4705,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointSonarcloud(GetServiceendpointSonarcloudArgs.builder()
-     *             .projectId(azuredevops_project.example().id())
+     *             .projectId(exampleAzuredevopsProject.id())
      *             .serviceEndpointName(&#34;Example Sonar Cloud&#34;)
      *             .build());
      * 
@@ -4483,7 +4747,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointSonarcloud(GetServiceendpointSonarcloudArgs.builder()
-     *             .projectId(azuredevops_project.example().id())
+     *             .projectId(exampleAzuredevopsProject.id())
      *             .serviceEndpointName(&#34;Example Sonar Cloud&#34;)
      *             .build());
      * 
@@ -4525,7 +4789,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointSonarcloud(GetServiceendpointSonarcloudArgs.builder()
-     *             .projectId(azuredevops_project.example().id())
+     *             .projectId(exampleAzuredevopsProject.id())
      *             .serviceEndpointName(&#34;Example Sonar Cloud&#34;)
      *             .build());
      * 
@@ -4567,7 +4831,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointSonarcloud(GetServiceendpointSonarcloudArgs.builder()
-     *             .projectId(azuredevops_project.example().id())
+     *             .projectId(exampleAzuredevopsProject.id())
      *             .serviceEndpointName(&#34;Example Sonar Cloud&#34;)
      *             .build());
      * 
@@ -4611,13 +4875,14 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+     *             .name(&#34;Example Project&#34;)
      *             .workItemTemplate(&#34;Agile&#34;)
      *             .versionControl(&#34;Git&#34;)
      *             .visibility(&#34;private&#34;)
      *             .description(&#34;Managed by Terraform&#34;)
      *             .build());
      * 
-     *         final var exampleTeam = AzuredevopsFunctions.getTeam(GetTeamArgs.builder()
+     *         final var example = AzuredevopsFunctions.getTeam(GetTeamArgs.builder()
      *             .projectId(exampleProject.id())
      *             .name(&#34;Example Project Team&#34;)
      *             .build());
@@ -4669,13 +4934,14 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+     *             .name(&#34;Example Project&#34;)
      *             .workItemTemplate(&#34;Agile&#34;)
      *             .versionControl(&#34;Git&#34;)
      *             .visibility(&#34;private&#34;)
      *             .description(&#34;Managed by Terraform&#34;)
      *             .build());
      * 
-     *         final var exampleTeam = AzuredevopsFunctions.getTeam(GetTeamArgs.builder()
+     *         final var example = AzuredevopsFunctions.getTeam(GetTeamArgs.builder()
      *             .projectId(exampleProject.id())
      *             .name(&#34;Example Project Team&#34;)
      *             .build());
@@ -4727,13 +4993,14 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+     *             .name(&#34;Example Project&#34;)
      *             .workItemTemplate(&#34;Agile&#34;)
      *             .versionControl(&#34;Git&#34;)
      *             .visibility(&#34;private&#34;)
      *             .description(&#34;Managed by Terraform&#34;)
      *             .build());
      * 
-     *         final var exampleTeam = AzuredevopsFunctions.getTeam(GetTeamArgs.builder()
+     *         final var example = AzuredevopsFunctions.getTeam(GetTeamArgs.builder()
      *             .projectId(exampleProject.id())
      *             .name(&#34;Example Project Team&#34;)
      *             .build());
@@ -4785,13 +5052,14 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+     *             .name(&#34;Example Project&#34;)
      *             .workItemTemplate(&#34;Agile&#34;)
      *             .versionControl(&#34;Git&#34;)
      *             .visibility(&#34;private&#34;)
      *             .description(&#34;Managed by Terraform&#34;)
      *             .build());
      * 
-     *         final var exampleTeam = AzuredevopsFunctions.getTeam(GetTeamArgs.builder()
+     *         final var example = AzuredevopsFunctions.getTeam(GetTeamArgs.builder()
      *             .projectId(exampleProject.id())
      *             .name(&#34;Example Project Team&#34;)
      *             .build());
@@ -5116,130 +5384,12 @@ public final class AzuredevopsFunctions {
     /**
      * Use this data source to access information about an existing users within Azure DevOps.
      * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.inputs.GetUsersArgs;
-     * import com.pulumi.azuredevops.inputs.GetUsersFeaturesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
-     *             .principalName(&#34;contoso-user@contoso.onmicrosoft.com&#34;)
-     *             .build());
-     * 
-     *         final var example-all-users = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
-     *             .features(GetUsersFeaturesArgs.builder()
-     *                 .concurrentWorkers(10)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var example-all-from-origin = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
-     *             .origin(&#34;aad&#34;)
-     *             .build());
-     * 
-     *         final var example-all-from-subjectTypes = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
-     *             .subjectTypes(            
-     *                 &#34;aad&#34;,
-     *                 &#34;msa&#34;)
-     *             .build());
-     * 
-     *         final var example-all-from-origin-id = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
-     *             .origin(&#34;aad&#34;)
-     *             .originId(&#34;00000000-0000-0000-0000-000000000000&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     * ## Relevant Links
-     * 
-     * - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
-     * 
      */
     public static Output<GetUsersResult> getUsers() {
         return getUsers(GetUsersArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing users within Azure DevOps.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.inputs.GetUsersArgs;
-     * import com.pulumi.azuredevops.inputs.GetUsersFeaturesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
-     *             .principalName(&#34;contoso-user@contoso.onmicrosoft.com&#34;)
-     *             .build());
-     * 
-     *         final var example-all-users = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
-     *             .features(GetUsersFeaturesArgs.builder()
-     *                 .concurrentWorkers(10)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var example-all-from-origin = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
-     *             .origin(&#34;aad&#34;)
-     *             .build());
-     * 
-     *         final var example-all-from-subjectTypes = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
-     *             .subjectTypes(            
-     *                 &#34;aad&#34;,
-     *                 &#34;msa&#34;)
-     *             .build());
-     * 
-     *         final var example-all-from-origin-id = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
-     *             .origin(&#34;aad&#34;)
-     *             .originId(&#34;00000000-0000-0000-0000-000000000000&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     * ## Relevant Links
-     * 
-     * - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain() {
@@ -5248,130 +5398,12 @@ public final class AzuredevopsFunctions {
     /**
      * Use this data source to access information about an existing users within Azure DevOps.
      * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.inputs.GetUsersArgs;
-     * import com.pulumi.azuredevops.inputs.GetUsersFeaturesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
-     *             .principalName(&#34;contoso-user@contoso.onmicrosoft.com&#34;)
-     *             .build());
-     * 
-     *         final var example-all-users = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
-     *             .features(GetUsersFeaturesArgs.builder()
-     *                 .concurrentWorkers(10)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var example-all-from-origin = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
-     *             .origin(&#34;aad&#34;)
-     *             .build());
-     * 
-     *         final var example-all-from-subjectTypes = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
-     *             .subjectTypes(            
-     *                 &#34;aad&#34;,
-     *                 &#34;msa&#34;)
-     *             .build());
-     * 
-     *         final var example-all-from-origin-id = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
-     *             .origin(&#34;aad&#34;)
-     *             .originId(&#34;00000000-0000-0000-0000-000000000000&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     * ## Relevant Links
-     * 
-     * - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
-     * 
      */
     public static Output<GetUsersResult> getUsers(GetUsersArgs args) {
         return getUsers(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing users within Azure DevOps.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.inputs.GetUsersArgs;
-     * import com.pulumi.azuredevops.inputs.GetUsersFeaturesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
-     *             .principalName(&#34;contoso-user@contoso.onmicrosoft.com&#34;)
-     *             .build());
-     * 
-     *         final var example-all-users = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
-     *             .features(GetUsersFeaturesArgs.builder()
-     *                 .concurrentWorkers(10)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var example-all-from-origin = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
-     *             .origin(&#34;aad&#34;)
-     *             .build());
-     * 
-     *         final var example-all-from-subjectTypes = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
-     *             .subjectTypes(            
-     *                 &#34;aad&#34;,
-     *                 &#34;msa&#34;)
-     *             .build());
-     * 
-     *         final var example-all-from-origin-id = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
-     *             .origin(&#34;aad&#34;)
-     *             .originId(&#34;00000000-0000-0000-0000-000000000000&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     * ## Relevant Links
-     * 
-     * - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain(GetUsersPlainArgs args) {
@@ -5380,130 +5412,12 @@ public final class AzuredevopsFunctions {
     /**
      * Use this data source to access information about an existing users within Azure DevOps.
      * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.inputs.GetUsersArgs;
-     * import com.pulumi.azuredevops.inputs.GetUsersFeaturesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
-     *             .principalName(&#34;contoso-user@contoso.onmicrosoft.com&#34;)
-     *             .build());
-     * 
-     *         final var example-all-users = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
-     *             .features(GetUsersFeaturesArgs.builder()
-     *                 .concurrentWorkers(10)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var example-all-from-origin = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
-     *             .origin(&#34;aad&#34;)
-     *             .build());
-     * 
-     *         final var example-all-from-subjectTypes = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
-     *             .subjectTypes(            
-     *                 &#34;aad&#34;,
-     *                 &#34;msa&#34;)
-     *             .build());
-     * 
-     *         final var example-all-from-origin-id = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
-     *             .origin(&#34;aad&#34;)
-     *             .originId(&#34;00000000-0000-0000-0000-000000000000&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     * ## Relevant Links
-     * 
-     * - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
-     * 
      */
     public static Output<GetUsersResult> getUsers(GetUsersArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azuredevops:index/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing users within Azure DevOps.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.inputs.GetUsersArgs;
-     * import com.pulumi.azuredevops.inputs.GetUsersFeaturesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
-     *             .principalName(&#34;contoso-user@contoso.onmicrosoft.com&#34;)
-     *             .build());
-     * 
-     *         final var example-all-users = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
-     *             .features(GetUsersFeaturesArgs.builder()
-     *                 .concurrentWorkers(10)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var example-all-from-origin = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
-     *             .origin(&#34;aad&#34;)
-     *             .build());
-     * 
-     *         final var example-all-from-subjectTypes = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
-     *             .subjectTypes(            
-     *                 &#34;aad&#34;,
-     *                 &#34;msa&#34;)
-     *             .build());
-     * 
-     *         final var example-all-from-origin-id = AzuredevopsFunctions.getUsers(GetUsersArgs.builder()
-     *             .origin(&#34;aad&#34;)
-     *             .originId(&#34;00000000-0000-0000-0000-000000000000&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     * ## Relevant Links
-     * 
-     * - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain(GetUsersPlainArgs args, InvokeOptions options) {
@@ -5539,16 +5453,16 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleProject = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
      *             .name(&#34;Example Project&#34;)
      *             .build());
      * 
-     *         final var exampleVariableGroup = AzuredevopsFunctions.getVariableGroup(GetVariableGroupArgs.builder()
-     *             .projectId(exampleProject.applyValue(getProjectResult -&gt; getProjectResult.id()))
+     *         final var exampleGetVariableGroup = AzuredevopsFunctions.getVariableGroup(GetVariableGroupArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .name(&#34;Example Variable Group&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleVariableGroup.applyValue(getVariableGroupResult -&gt; getVariableGroupResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleGetVariableGroup.applyValue(getVariableGroupResult -&gt; getVariableGroupResult.id()));
      *     }
      * }
      * ```
@@ -5592,16 +5506,16 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleProject = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
      *             .name(&#34;Example Project&#34;)
      *             .build());
      * 
-     *         final var exampleVariableGroup = AzuredevopsFunctions.getVariableGroup(GetVariableGroupArgs.builder()
-     *             .projectId(exampleProject.applyValue(getProjectResult -&gt; getProjectResult.id()))
+     *         final var exampleGetVariableGroup = AzuredevopsFunctions.getVariableGroup(GetVariableGroupArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .name(&#34;Example Variable Group&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleVariableGroup.applyValue(getVariableGroupResult -&gt; getVariableGroupResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleGetVariableGroup.applyValue(getVariableGroupResult -&gt; getVariableGroupResult.id()));
      *     }
      * }
      * ```
@@ -5645,16 +5559,16 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleProject = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
      *             .name(&#34;Example Project&#34;)
      *             .build());
      * 
-     *         final var exampleVariableGroup = AzuredevopsFunctions.getVariableGroup(GetVariableGroupArgs.builder()
-     *             .projectId(exampleProject.applyValue(getProjectResult -&gt; getProjectResult.id()))
+     *         final var exampleGetVariableGroup = AzuredevopsFunctions.getVariableGroup(GetVariableGroupArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .name(&#34;Example Variable Group&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleVariableGroup.applyValue(getVariableGroupResult -&gt; getVariableGroupResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleGetVariableGroup.applyValue(getVariableGroupResult -&gt; getVariableGroupResult.id()));
      *     }
      * }
      * ```
@@ -5698,16 +5612,16 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleProject = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
      *             .name(&#34;Example Project&#34;)
      *             .build());
      * 
-     *         final var exampleVariableGroup = AzuredevopsFunctions.getVariableGroup(GetVariableGroupArgs.builder()
-     *             .projectId(exampleProject.applyValue(getProjectResult -&gt; getProjectResult.id()))
+     *         final var exampleGetVariableGroup = AzuredevopsFunctions.getVariableGroup(GetVariableGroupArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
      *             .name(&#34;Example Variable Group&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleVariableGroup.applyValue(getVariableGroupResult -&gt; getVariableGroupResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleGetVariableGroup.applyValue(getVariableGroupResult -&gt; getVariableGroupResult.id()));
      *     }
      * }
      * ```

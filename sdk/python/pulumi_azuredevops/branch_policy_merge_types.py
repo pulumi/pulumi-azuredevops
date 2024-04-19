@@ -175,14 +175,15 @@ class BranchPolicyMergeTypes(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject")
-        example_git = azuredevops.Git("exampleGit",
-            project_id=example_project.id,
+        example = azuredevops.Project("example", name="Example Project")
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Example Repository",
             initialization=azuredevops.GitInitializationArgs(
                 init_type="Clean",
             ))
-        example_branch_policy_merge_types = azuredevops.BranchPolicyMergeTypes("exampleBranchPolicyMergeTypes",
-            project_id=example_project.id,
+        example_branch_policy_merge_types = azuredevops.BranchPolicyMergeTypes("example",
+            project_id=example.id,
             enabled=True,
             blocking=True,
             settings=azuredevops.BranchPolicyMergeTypesSettingsArgs(
@@ -244,14 +245,15 @@ class BranchPolicyMergeTypes(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject")
-        example_git = azuredevops.Git("exampleGit",
-            project_id=example_project.id,
+        example = azuredevops.Project("example", name="Example Project")
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Example Repository",
             initialization=azuredevops.GitInitializationArgs(
                 init_type="Clean",
             ))
-        example_branch_policy_merge_types = azuredevops.BranchPolicyMergeTypes("exampleBranchPolicyMergeTypes",
-            project_id=example_project.id,
+        example_branch_policy_merge_types = azuredevops.BranchPolicyMergeTypes("example",
+            project_id=example.id,
             enabled=True,
             blocking=True,
             settings=azuredevops.BranchPolicyMergeTypesSettingsArgs(

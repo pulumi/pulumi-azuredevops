@@ -25,6 +25,7 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     var example = new AzureDevOps.Pool("example", new()
     ///     {
+    ///         Name = "Example-pool",
     ///         AutoProvision = false,
     ///         AutoUpdate = false,
     ///     });

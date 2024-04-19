@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * const example = azuredevops.getServiceendpointAzurecr({
- *     projectId: azuredevops_project.example.id,
+ *     projectId: exampleAzuredevopsProject.id,
  *     serviceEndpointName: "Example Azure Container Registry",
  * });
  * export const serviceEndpointId = example.then(example => example.id);
@@ -123,7 +123,7 @@ export interface GetServiceendpointAzurecrResult {
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * const example = azuredevops.getServiceendpointAzurecr({
- *     projectId: azuredevops_project.example.id,
+ *     projectId: exampleAzuredevopsProject.id,
  *     serviceEndpointName: "Example Azure Container Registry",
  * });
  * export const serviceEndpointId = example.then(example => example.id);

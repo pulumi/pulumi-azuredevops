@@ -25,20 +25,20 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleProject = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleBuildDefinition = AzureDevOps.GetBuildDefinition.Invoke(new()
+        ///     var exampleGetBuildDefinition = AzureDevOps.GetBuildDefinition.Invoke(new()
         ///     {
-        ///         ProjectId = exampleProject.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         Name = "existing",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = exampleBuildDefinition.Apply(getBuildDefinitionResult =&gt; getBuildDefinitionResult.Id),
+        ///         ["id"] = exampleGetBuildDefinition.Apply(getBuildDefinitionResult =&gt; getBuildDefinitionResult.Id),
         ///     };
         /// });
         /// ```
@@ -61,20 +61,20 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleProject = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleBuildDefinition = AzureDevOps.GetBuildDefinition.Invoke(new()
+        ///     var exampleGetBuildDefinition = AzureDevOps.GetBuildDefinition.Invoke(new()
         ///     {
-        ///         ProjectId = exampleProject.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         Name = "existing",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = exampleBuildDefinition.Apply(getBuildDefinitionResult =&gt; getBuildDefinitionResult.Id),
+        ///         ["id"] = exampleGetBuildDefinition.Apply(getBuildDefinitionResult =&gt; getBuildDefinitionResult.Id),
         ///     };
         /// });
         /// ```

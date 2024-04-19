@@ -568,13 +568,14 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM",
-            project_id=example_project.id,
+        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("example",
+            project_id=example.id,
             service_endpoint_name="Example AzureRM",
             description="Managed by Terraform",
             service_endpoint_authentication_scheme="ServicePrincipal",
@@ -595,13 +596,14 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM",
-            project_id=example_project.id,
+        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("example",
+            project_id=example.id,
             service_endpoint_name="Example AzureRM",
             description="Managed by Terraform",
             service_endpoint_authentication_scheme="ServicePrincipal",
@@ -622,17 +624,61 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
-        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM",
-            project_id=example_project.id,
+        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("example",
+            project_id=example.id,
             service_endpoint_name="Example AzureRM",
             service_endpoint_authentication_scheme="ServicePrincipal",
             azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Example Subscription Name")
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ### Workload Identity Federation Manual AzureRM Service Endpoint (Subscription Scoped)
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_azuredevops as azuredevops
+
+        service_connection_name = "example-federated-sc"
+        example = azuredevops.Project("example",
+            name="Example Project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        identity = azure.core.ResourceGroup("identity",
+            name="identity",
+            location="UK South")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            location=identity.location,
+            name="example-identity",
+            resource_group_name="azurerm_resource_group.identity.name")
+        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("example",
+            project_id=example.id,
+            service_endpoint_name=service_connection_name,
+            description="Managed by Terraform",
+            service_endpoint_authentication_scheme="WorkloadIdentityFederation",
+            credentials=azuredevops.ServiceEndpointAzureRMCredentialsArgs(
+                serviceprincipalid=example_user_assigned_identity.client_id,
+            ),
+            azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_name="Example Subscription Name")
+        example_federated_identity_credential = azure.armmsi.FederatedIdentityCredential("example",
+            name="example-federated-credential",
+            resource_group_name=identity.name,
+            parent_id=example_user_assigned_identity.id,
+            audience="api://AzureADTokenExchange",
+            issuer=example_service_endpoint_azure_rm.workload_identity_federation_issuer,
+            subject=example_service_endpoint_azure_rm.workload_identity_federation_subject)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -643,12 +689,13 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
-        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM",
-            project_id=example_project.id,
+        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("example",
+            project_id=example.id,
             service_endpoint_name="Example AzureRM",
             service_endpoint_authentication_scheme="WorkloadIdentityFederation",
             azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
@@ -664,12 +711,13 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
-        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM",
-            project_id=example_project.id,
+        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("example",
+            project_id=example.id,
             service_endpoint_name="Example AzureRM",
             service_endpoint_authentication_scheme="ManagedServiceIdentity",
             azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
@@ -734,13 +782,14 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM",
-            project_id=example_project.id,
+        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("example",
+            project_id=example.id,
             service_endpoint_name="Example AzureRM",
             description="Managed by Terraform",
             service_endpoint_authentication_scheme="ServicePrincipal",
@@ -761,13 +810,14 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM",
-            project_id=example_project.id,
+        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("example",
+            project_id=example.id,
             service_endpoint_name="Example AzureRM",
             description="Managed by Terraform",
             service_endpoint_authentication_scheme="ServicePrincipal",
@@ -788,17 +838,61 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
-        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM",
-            project_id=example_project.id,
+        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("example",
+            project_id=example.id,
             service_endpoint_name="Example AzureRM",
             service_endpoint_authentication_scheme="ServicePrincipal",
             azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Example Subscription Name")
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ### Workload Identity Federation Manual AzureRM Service Endpoint (Subscription Scoped)
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_azuredevops as azuredevops
+
+        service_connection_name = "example-federated-sc"
+        example = azuredevops.Project("example",
+            name="Example Project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        identity = azure.core.ResourceGroup("identity",
+            name="identity",
+            location="UK South")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            location=identity.location,
+            name="example-identity",
+            resource_group_name="azurerm_resource_group.identity.name")
+        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("example",
+            project_id=example.id,
+            service_endpoint_name=service_connection_name,
+            description="Managed by Terraform",
+            service_endpoint_authentication_scheme="WorkloadIdentityFederation",
+            credentials=azuredevops.ServiceEndpointAzureRMCredentialsArgs(
+                serviceprincipalid=example_user_assigned_identity.client_id,
+            ),
+            azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_name="Example Subscription Name")
+        example_federated_identity_credential = azure.armmsi.FederatedIdentityCredential("example",
+            name="example-federated-credential",
+            resource_group_name=identity.name,
+            parent_id=example_user_assigned_identity.id,
+            audience="api://AzureADTokenExchange",
+            issuer=example_service_endpoint_azure_rm.workload_identity_federation_issuer,
+            subject=example_service_endpoint_azure_rm.workload_identity_federation_subject)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -809,12 +903,13 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
-        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM",
-            project_id=example_project.id,
+        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("example",
+            project_id=example.id,
             service_endpoint_name="Example AzureRM",
             service_endpoint_authentication_scheme="WorkloadIdentityFederation",
             azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
@@ -830,12 +925,13 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
-        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM",
-            project_id=example_project.id,
+        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("example",
+            project_id=example.id,
             service_endpoint_name="Example AzureRM",
             service_endpoint_authentication_scheme="ManagedServiceIdentity",
             azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",

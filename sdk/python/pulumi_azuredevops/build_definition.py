@@ -448,25 +448,29 @@ class BuildDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
-        example_git = azuredevops.Git("exampleGit",
-            project_id=example_project.id,
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Example Repository",
             initialization=azuredevops.GitInitializationArgs(
                 init_type="Clean",
             ))
-        example_variable_group = azuredevops.VariableGroup("exampleVariableGroup",
-            project_id=example_project.id,
+        example_variable_group = azuredevops.VariableGroup("example",
+            project_id=example.id,
+            name="Example Pipeline Variables",
             description="Managed by Terraform",
             allow_access=True,
             variables=[azuredevops.VariableGroupVariableArgs(
                 name="FOO",
                 value="BAR",
             )])
-        example_build_definition = azuredevops.BuildDefinition("exampleBuildDefinition",
-            project_id=example_project.id,
+        example_build_definition = azuredevops.BuildDefinition("example",
+            project_id=example.id,
+            name="Example Build Definition",
             path="\\\\ExampleFolder",
             ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(
                 use_yaml=False,
@@ -515,20 +519,22 @@ class BuildDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
-        example_service_endpoint_git_hub_enterprise = azuredevops.ServiceEndpointGitHubEnterprise("exampleServiceEndpointGitHubEnterprise",
-            project_id=example_project.id,
+        example_service_endpoint_git_hub_enterprise = azuredevops.ServiceEndpointGitHubEnterprise("example",
+            project_id=example.id,
             service_endpoint_name="Example GitHub Enterprise",
             url="https://github.contoso.com",
             description="Managed by Terraform",
             auth_personal=azuredevops.ServiceEndpointGitHubEnterpriseAuthPersonalArgs(
                 personal_access_token="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
             ))
-        example_build_definition = azuredevops.BuildDefinition("exampleBuildDefinition",
-            project_id=example_project.id,
+        example_build_definition = azuredevops.BuildDefinition("example",
+            project_id=example.id,
+            name="Example Build Definition",
             path="\\\\ExampleFolder",
             ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(
                 use_yaml=False,
@@ -621,25 +627,29 @@ class BuildDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
-        example_git = azuredevops.Git("exampleGit",
-            project_id=example_project.id,
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Example Repository",
             initialization=azuredevops.GitInitializationArgs(
                 init_type="Clean",
             ))
-        example_variable_group = azuredevops.VariableGroup("exampleVariableGroup",
-            project_id=example_project.id,
+        example_variable_group = azuredevops.VariableGroup("example",
+            project_id=example.id,
+            name="Example Pipeline Variables",
             description="Managed by Terraform",
             allow_access=True,
             variables=[azuredevops.VariableGroupVariableArgs(
                 name="FOO",
                 value="BAR",
             )])
-        example_build_definition = azuredevops.BuildDefinition("exampleBuildDefinition",
-            project_id=example_project.id,
+        example_build_definition = azuredevops.BuildDefinition("example",
+            project_id=example.id,
+            name="Example Build Definition",
             path="\\\\ExampleFolder",
             ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(
                 use_yaml=False,
@@ -688,20 +698,22 @@ class BuildDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
-        example_service_endpoint_git_hub_enterprise = azuredevops.ServiceEndpointGitHubEnterprise("exampleServiceEndpointGitHubEnterprise",
-            project_id=example_project.id,
+        example_service_endpoint_git_hub_enterprise = azuredevops.ServiceEndpointGitHubEnterprise("example",
+            project_id=example.id,
             service_endpoint_name="Example GitHub Enterprise",
             url="https://github.contoso.com",
             description="Managed by Terraform",
             auth_personal=azuredevops.ServiceEndpointGitHubEnterpriseAuthPersonalArgs(
                 personal_access_token="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
             ))
-        example_build_definition = azuredevops.BuildDefinition("exampleBuildDefinition",
-            project_id=example_project.id,
+        example_build_definition = azuredevops.BuildDefinition("example",
+            project_id=example.id,
+            name="Example Build Definition",
             path="\\\\ExampleFolder",
             ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(
                 use_yaml=False,

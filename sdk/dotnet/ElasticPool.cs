@@ -23,17 +23,18 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
     ///         Description = "Managed by Terraform",
     ///     });
     /// 
-    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", new()
+    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example Azure Connection",
     ///         Description = "Managed by Terraform",
     ///         ServiceEndpointAuthenticationScheme = "ServicePrincipal",
@@ -47,10 +48,11 @@ namespace Pulumi.AzureDevOps
     ///         AzurermSubscriptionName = "Subscription Name",
     ///     });
     /// 
-    ///     var exampleElasticPool = new AzureDevOps.ElasticPool("exampleElasticPool", new()
+    ///     var exampleElasticPool = new AzureDevOps.ElasticPool("example", new()
     ///     {
+    ///         Name = "Example Elastic Pool",
     ///         ServiceEndpointId = exampleServiceEndpointAzureRM.Id,
-    ///         ServiceEndpointScope = exampleProject.Id,
+    ///         ServiceEndpointScope = example.Id,
     ///         DesiredIdle = 2,
     ///         MaxCapacity = 3,
     ///         AzureResourceId = "/subscriptions/&lt;Subscription Id&gt;/resourceGroups/&lt;Resource Name&gt;/providers/Microsoft.Compute/virtualMachineScaleSets/&lt;VMSS Name&gt;",

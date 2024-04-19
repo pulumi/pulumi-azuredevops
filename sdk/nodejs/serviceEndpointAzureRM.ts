@@ -24,14 +24,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  *     description: "Managed by Terraform",
  * });
- * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", {
- *     projectId: exampleProject.id,
+ * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("example", {
+ *     projectId: example.id,
  *     serviceEndpointName: "Example AzureRM",
  *     description: "Managed by Terraform",
  *     serviceEndpointAuthenticationScheme: "ServicePrincipal",
@@ -53,14 +54,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  *     description: "Managed by Terraform",
  * });
- * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", {
- *     projectId: exampleProject.id,
+ * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("example", {
+ *     projectId: example.id,
  *     serviceEndpointName: "Example AzureRM",
  *     description: "Managed by Terraform",
  *     serviceEndpointAuthenticationScheme: "ServicePrincipal",
@@ -82,18 +84,67 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  * });
- * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", {
- *     projectId: exampleProject.id,
+ * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("example", {
+ *     projectId: example.id,
  *     serviceEndpointName: "Example AzureRM",
  *     serviceEndpointAuthenticationScheme: "ServicePrincipal",
  *     azurermSpnTenantid: "00000000-0000-0000-0000-000000000000",
  *     azurermSubscriptionId: "00000000-0000-0000-0000-000000000000",
  *     azurermSubscriptionName: "Example Subscription Name",
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### Workload Identity Federation Manual AzureRM Service Endpoint (Subscription Scoped)
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const serviceConnectionName = "example-federated-sc";
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
+ * });
+ * const identity = new azure.core.ResourceGroup("identity", {
+ *     name: "identity",
+ *     location: "UK South",
+ * });
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+ *     location: identity.location,
+ *     name: "example-identity",
+ *     resourceGroupName: "azurerm_resource_group.identity.name",
+ * });
+ * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("example", {
+ *     projectId: example.id,
+ *     serviceEndpointName: serviceConnectionName,
+ *     description: "Managed by Terraform",
+ *     serviceEndpointAuthenticationScheme: "WorkloadIdentityFederation",
+ *     credentials: {
+ *         serviceprincipalid: exampleUserAssignedIdentity.clientId,
+ *     },
+ *     azurermSpnTenantid: "00000000-0000-0000-0000-000000000000",
+ *     azurermSubscriptionId: "00000000-0000-0000-0000-000000000000",
+ *     azurermSubscriptionName: "Example Subscription Name",
+ * });
+ * const exampleFederatedIdentityCredential = new azure.armmsi.FederatedIdentityCredential("example", {
+ *     name: "example-federated-credential",
+ *     resourceGroupName: identity.name,
+ *     parentId: exampleUserAssignedIdentity.id,
+ *     audience: "api://AzureADTokenExchange",
+ *     issuer: exampleServiceEndpointAzureRM.workloadIdentityFederationIssuer,
+ *     subject: exampleServiceEndpointAzureRM.workloadIdentityFederationSubject,
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -105,13 +156,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  * });
- * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", {
- *     projectId: exampleProject.id,
+ * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("example", {
+ *     projectId: example.id,
  *     serviceEndpointName: "Example AzureRM",
  *     serviceEndpointAuthenticationScheme: "WorkloadIdentityFederation",
  *     azurermSpnTenantid: "00000000-0000-0000-0000-000000000000",
@@ -128,13 +180,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  * });
- * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", {
- *     projectId: exampleProject.id,
+ * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("example", {
+ *     projectId: example.id,
  *     serviceEndpointName: "Example AzureRM",
  *     serviceEndpointAuthenticationScheme: "ManagedServiceIdentity",
  *     azurermSpnTenantid: "00000000-0000-0000-0000-000000000000",

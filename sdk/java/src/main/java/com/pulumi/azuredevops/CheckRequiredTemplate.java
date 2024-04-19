@@ -31,6 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
  * import com.pulumi.azuredevops.ServiceEndpointGeneric;
  * import com.pulumi.azuredevops.ServiceEndpointGenericArgs;
  * import com.pulumi.azuredevops.CheckRequiredTemplate;
@@ -49,10 +50,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;);
+ *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
+ *             .build());
  * 
  *         var exampleServiceEndpointGeneric = new ServiceEndpointGeneric(&#34;exampleServiceEndpointGeneric&#34;, ServiceEndpointGenericArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .serverUrl(&#34;https://some-server.example.com&#34;)
  *             .username(&#34;username&#34;)
  *             .password(&#34;password&#34;)
@@ -61,7 +64,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCheckRequiredTemplate = new CheckRequiredTemplate(&#34;exampleCheckRequiredTemplate&#34;, CheckRequiredTemplateArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .targetResourceId(exampleServiceEndpointGeneric.id())
  *             .targetResourceType(&#34;endpoint&#34;)
  *             .requiredTemplates(CheckRequiredTemplateRequiredTemplateArgs.builder()
@@ -87,6 +90,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
  * import com.pulumi.azuredevops.Environment;
  * import com.pulumi.azuredevops.EnvironmentArgs;
  * import com.pulumi.azuredevops.CheckRequiredTemplate;
@@ -105,14 +109,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;);
+ *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
+ *             .build());
  * 
  *         var exampleEnvironment = new Environment(&#34;exampleEnvironment&#34;, EnvironmentArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
+ *             .name(&#34;Example Environment&#34;)
  *             .build());
  * 
  *         var exampleCheckRequiredTemplate = new CheckRequiredTemplate(&#34;exampleCheckRequiredTemplate&#34;, CheckRequiredTemplateArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .targetResourceId(exampleEnvironment.id())
  *             .targetResourceType(&#34;environment&#34;)
  *             .requiredTemplates(            

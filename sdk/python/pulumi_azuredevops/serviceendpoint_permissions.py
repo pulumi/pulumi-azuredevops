@@ -244,15 +244,16 @@ class ServiceendpointPermissions(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
             description="Managed by Terraform")
-        example_readers = azuredevops.get_group_output(project_id=example_project.id,
+        example_readers = azuredevops.get_group_output(project_id=example.id,
             name="Readers")
         example_root_permissions = azuredevops.ServiceendpointPermissions("example-root-permissions",
-            project_id=example_project.id,
+            project_id=example.id,
             principal=example_readers.id,
             permissions={
                 "Use": "allow",
@@ -261,15 +262,15 @@ class ServiceendpointPermissions(pulumi.CustomResource):
                 "ViewAuthorization": "allow",
                 "ViewEndpoint": "allow",
             })
-        example_service_endpoint_docker_registry = azuredevops.ServiceEndpointDockerRegistry("exampleServiceEndpointDockerRegistry",
-            project_id=example_project.id,
+        example_service_endpoint_docker_registry = azuredevops.ServiceEndpointDockerRegistry("example",
+            project_id=example.id,
             service_endpoint_name="Example Docker Hub",
             docker_username="username",
             docker_email="email@example.com",
             docker_password="password",
             registry_type="DockerHub")
         example_permissions = azuredevops.ServiceendpointPermissions("example-permissions",
-            project_id=example_project.id,
+            project_id=example.id,
             principal=example_readers.id,
             serviceendpoint_id=example_service_endpoint_docker_registry.id,
             permissions={
@@ -333,15 +334,16 @@ class ServiceendpointPermissions(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
             description="Managed by Terraform")
-        example_readers = azuredevops.get_group_output(project_id=example_project.id,
+        example_readers = azuredevops.get_group_output(project_id=example.id,
             name="Readers")
         example_root_permissions = azuredevops.ServiceendpointPermissions("example-root-permissions",
-            project_id=example_project.id,
+            project_id=example.id,
             principal=example_readers.id,
             permissions={
                 "Use": "allow",
@@ -350,15 +352,15 @@ class ServiceendpointPermissions(pulumi.CustomResource):
                 "ViewAuthorization": "allow",
                 "ViewEndpoint": "allow",
             })
-        example_service_endpoint_docker_registry = azuredevops.ServiceEndpointDockerRegistry("exampleServiceEndpointDockerRegistry",
-            project_id=example_project.id,
+        example_service_endpoint_docker_registry = azuredevops.ServiceEndpointDockerRegistry("example",
+            project_id=example.id,
             service_endpoint_name="Example Docker Hub",
             docker_username="username",
             docker_email="email@example.com",
             docker_password="password",
             registry_type="DockerHub")
         example_permissions = azuredevops.ServiceendpointPermissions("example-permissions",
-            project_id=example_project.id,
+            project_id=example.id,
             principal=example_readers.id,
             serviceendpoint_id=example_service_endpoint_docker_registry.id,
             permissions={

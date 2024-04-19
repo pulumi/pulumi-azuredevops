@@ -23,31 +23,35 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
     ///     });
     /// 
-    ///     var exampleGit = new AzureDevOps.Git("exampleGit", new()
+    ///     var exampleGit = new AzureDevOps.Git("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
+    ///         Name = "Example Git Repository",
     ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
     ///         {
     ///             InitType = "Clean",
     ///         },
     ///     });
     /// 
-    ///     var exampleGitRepositoryBranch = new AzureDevOps.GitRepositoryBranch("exampleGitRepositoryBranch", new()
+    ///     var exampleGitRepositoryBranch = new AzureDevOps.GitRepositoryBranch("example", new()
     ///     {
     ///         RepositoryId = exampleGit.Id,
+    ///         Name = "example-branch-name",
     ///         RefBranch = exampleGit.DefaultBranch,
     ///     });
     /// 
-    ///     var exampleFromCommitId = new AzureDevOps.GitRepositoryBranch("exampleFromCommitId", new()
+    ///     var exampleFromCommitId = new AzureDevOps.GitRepositoryBranch("example_from_commit_id", new()
     ///     {
     ///         RepositoryId = exampleGit.Id,
+    ///         Name = "example-from-commit-id",
     ///         RefCommitId = exampleGitRepositoryBranch.LastCommitId,
     ///     });
     /// 

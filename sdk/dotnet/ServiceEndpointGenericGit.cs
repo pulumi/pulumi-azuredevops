@@ -24,17 +24,18 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
     ///         Description = "Managed by Terraform",
     ///     });
     /// 
-    ///     var exampleServiceEndpointGenericGit = new AzureDevOps.ServiceEndpointGenericGit("exampleServiceEndpointGenericGit", new()
+    ///     var exampleServiceEndpointGenericGit = new AzureDevOps.ServiceEndpointGenericGit("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         RepositoryUrl = "https://dev.azure.com/org/project/_git/repository",
     ///         Username = "username",
     ///         Password = "password",

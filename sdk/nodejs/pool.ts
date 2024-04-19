@@ -15,6 +15,7 @@ import * as utilities from "./utilities";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * const example = new azuredevops.Pool("example", {
+ *     name: "Example-pool",
  *     autoProvision: false,
  *     autoUpdate: false,
  * });

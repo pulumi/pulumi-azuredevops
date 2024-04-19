@@ -23,17 +23,18 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
     ///         Description = "Managed by Terraform",
     ///     });
     /// 
-    ///     var exampleServiceEndpointSonarCloud = new AzureDevOps.ServiceEndpointSonarCloud("exampleServiceEndpointSonarCloud", new()
+    ///     var exampleServiceEndpointSonarCloud = new AzureDevOps.ServiceEndpointSonarCloud("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example SonarCloud",
     ///         Token = "0000000000000000000000000000000000000000",
     ///         Description = "Managed by Terraform",

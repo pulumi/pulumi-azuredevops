@@ -25,8 +25,9 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
     ///         VersionControl = "Git",
     ///         Visibility = "private",
@@ -35,22 +36,24 @@ namespace Pulumi.AzureDevOps
     /// 
     ///     var example_readers = AzureDevOps.GetGroup.Invoke(new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         Name = "Readers",
     ///     });
     /// 
-    ///     var exampleGit = new AzureDevOps.Git("exampleGit", new()
+    ///     var exampleGit = new AzureDevOps.Git("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
+    ///         Name = "Example Repository",
     ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
     ///         {
     ///             InitType = "Clean",
     ///         },
     ///     });
     /// 
-    ///     var exampleBuildDefinition = new AzureDevOps.BuildDefinition("exampleBuildDefinition", new()
+    ///     var exampleBuildDefinition = new AzureDevOps.BuildDefinition("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
+    ///         Name = "Example Build Definition",
     ///         Path = "\\ExampleFolder",
     ///         CiTrigger = new AzureDevOps.Inputs.BuildDefinitionCiTriggerArgs
     ///         {
@@ -65,9 +68,9 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var exampleBuildDefinitionPermissions = new AzureDevOps.BuildDefinitionPermissions("exampleBuildDefinitionPermissions", new()
+    ///     var exampleBuildDefinitionPermissions = new AzureDevOps.BuildDefinitionPermissions("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         Principal = example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
     ///         BuildDefinitionId = exampleBuildDefinition.Id,
     ///         Permissions = 

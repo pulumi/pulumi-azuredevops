@@ -278,20 +278,23 @@ class BuildDefinitionPermissions(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
             description="Managed by Terraform")
-        example_readers = azuredevops.get_group_output(project_id=example_project.id,
+        example_readers = azuredevops.get_group_output(project_id=example.id,
             name="Readers")
-        example_git = azuredevops.Git("exampleGit",
-            project_id=example_project.id,
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Example Repository",
             initialization=azuredevops.GitInitializationArgs(
                 init_type="Clean",
             ))
-        example_build_definition = azuredevops.BuildDefinition("exampleBuildDefinition",
-            project_id=example_project.id,
+        example_build_definition = azuredevops.BuildDefinition("example",
+            project_id=example.id,
+            name="Example Build Definition",
             path="\\\\ExampleFolder",
             ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(
                 use_yaml=True,
@@ -302,8 +305,8 @@ class BuildDefinitionPermissions(pulumi.CustomResource):
                 branch_name=example_git.default_branch,
                 yml_path="azure-pipelines.yml",
             ))
-        example_build_definition_permissions = azuredevops.BuildDefinitionPermissions("exampleBuildDefinitionPermissions",
-            project_id=example_project.id,
+        example_build_definition_permissions = azuredevops.BuildDefinitionPermissions("example",
+            project_id=example.id,
             principal=example_readers.id,
             build_definition_id=example_build_definition.id,
             permissions={
@@ -371,20 +374,23 @@ class BuildDefinitionPermissions(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
             description="Managed by Terraform")
-        example_readers = azuredevops.get_group_output(project_id=example_project.id,
+        example_readers = azuredevops.get_group_output(project_id=example.id,
             name="Readers")
-        example_git = azuredevops.Git("exampleGit",
-            project_id=example_project.id,
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Example Repository",
             initialization=azuredevops.GitInitializationArgs(
                 init_type="Clean",
             ))
-        example_build_definition = azuredevops.BuildDefinition("exampleBuildDefinition",
-            project_id=example_project.id,
+        example_build_definition = azuredevops.BuildDefinition("example",
+            project_id=example.id,
+            name="Example Build Definition",
             path="\\\\ExampleFolder",
             ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(
                 use_yaml=True,
@@ -395,8 +401,8 @@ class BuildDefinitionPermissions(pulumi.CustomResource):
                 branch_name=example_git.default_branch,
                 yml_path="azure-pipelines.yml",
             ))
-        example_build_definition_permissions = azuredevops.BuildDefinitionPermissions("exampleBuildDefinitionPermissions",
-            project_id=example_project.id,
+        example_build_definition_permissions = azuredevops.BuildDefinitionPermissions("example",
+            project_id=example.id,
             principal=example_readers.id,
             build_definition_id=example_build_definition.id,
             permissions={

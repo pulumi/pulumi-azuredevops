@@ -27,20 +27,20 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleProject = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleVariableGroup = AzureDevOps.GetVariableGroup.Invoke(new()
+        ///     var exampleGetVariableGroup = AzureDevOps.GetVariableGroup.Invoke(new()
         ///     {
-        ///         ProjectId = exampleProject.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         Name = "Example Variable Group",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = exampleVariableGroup.Apply(getVariableGroupResult =&gt; getVariableGroupResult.Id),
+        ///         ["id"] = exampleGetVariableGroup.Apply(getVariableGroupResult =&gt; getVariableGroupResult.Id),
         ///     };
         /// });
         /// ```
@@ -69,20 +69,20 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleProject = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleVariableGroup = AzureDevOps.GetVariableGroup.Invoke(new()
+        ///     var exampleGetVariableGroup = AzureDevOps.GetVariableGroup.Invoke(new()
         ///     {
-        ///         ProjectId = exampleProject.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         Name = "Example Variable Group",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = exampleVariableGroup.Apply(getVariableGroupResult =&gt; getVariableGroupResult.Id),
+        ///         ["id"] = exampleGetVariableGroup.Apply(getVariableGroupResult =&gt; getVariableGroupResult.Id),
         ///     };
         /// });
         /// ```

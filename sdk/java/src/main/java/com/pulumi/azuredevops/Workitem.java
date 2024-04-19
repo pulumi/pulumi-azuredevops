@@ -47,7 +47,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+ *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
  *             .workItemTemplate(&#34;Agile&#34;)
  *             .versionControl(&#34;Git&#34;)
  *             .visibility(&#34;private&#34;)
@@ -55,7 +56,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleWorkitem = new Workitem(&#34;exampleWorkitem&#34;, WorkitemArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(exampleAzuredevopsProject.id())
  *             .title(&#34;Example Work Item&#34;)
  *             .type(&#34;Issue&#34;)
  *             .state(&#34;Active&#34;)
@@ -93,7 +94,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+ *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
  *             .workItemTemplate(&#34;Agile&#34;)
  *             .versionControl(&#34;Git&#34;)
  *             .visibility(&#34;private&#34;)
@@ -101,7 +103,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleWorkitem = new Workitem(&#34;exampleWorkitem&#34;, WorkitemArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(exampleAzuredevopsProject.id())
  *             .title(&#34;Example Work Item&#34;)
  *             .type(&#34;Issue&#34;)
  *             .state(&#34;Active&#34;)

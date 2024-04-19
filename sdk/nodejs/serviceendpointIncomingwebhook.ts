@@ -14,14 +14,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  *     description: "Managed by Terraform",
  * });
- * const exampleServiceendpointIncomingwebhook = new azuredevops.ServiceendpointIncomingwebhook("exampleServiceendpointIncomingwebhook", {
- *     projectId: exampleProject.id,
+ * const exampleServiceendpointIncomingwebhook = new azuredevops.ServiceendpointIncomingwebhook("example", {
+ *     projectId: example.id,
  *     webhookName: "example_webhook",
  *     secret: "secret",
  *     httpHeader: "X-Hub-Signature",

@@ -29,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := azuredevops.NewPool(ctx, "example", &azuredevops.PoolArgs{
+//				Name:          pulumi.String("Example-pool"),
 //				AutoProvision: pulumi.Bool(false),
 //				AutoUpdate:    pulumi.Bool(false),
 //			})

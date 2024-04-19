@@ -15,14 +15,15 @@ import * as utilities from "./utilities";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
  *     description: "Managed by Terraform",
  *     features: {
- *         artifacts: "disabled",
  *         testplans: "disabled",
+ *         artifacts: "disabled",
  *     },
- *     versionControl: "Git",
- *     visibility: "private",
- *     workItemTemplate: "Agile",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

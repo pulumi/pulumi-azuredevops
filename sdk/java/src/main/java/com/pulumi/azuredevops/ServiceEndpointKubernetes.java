@@ -22,6 +22,111 @@ import javax.annotation.Nullable;
 /**
  * Manages a Kubernetes service endpoint within Azure DevOps.
  * 
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
+ * import com.pulumi.azuredevops.ServiceEndpointKubernetes;
+ * import com.pulumi.azuredevops.ServiceEndpointKubernetesArgs;
+ * import com.pulumi.azuredevops.inputs.ServiceEndpointKubernetesAzureSubscriptionArgs;
+ * import com.pulumi.azuredevops.inputs.ServiceEndpointKubernetesKubeconfigArgs;
+ * import com.pulumi.azuredevops.inputs.ServiceEndpointKubernetesServiceAccountArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
+ *             .visibility(&#34;private&#34;)
+ *             .versionControl(&#34;Git&#34;)
+ *             .workItemTemplate(&#34;Agile&#34;)
+ *             .description(&#34;Managed by Terraform&#34;)
+ *             .build());
+ * 
+ *         var example_azure = new ServiceEndpointKubernetes(&#34;example-azure&#34;, ServiceEndpointKubernetesArgs.builder()        
+ *             .projectId(example.id())
+ *             .serviceEndpointName(&#34;Example Kubernetes&#34;)
+ *             .apiserverUrl(&#34;https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io&#34;)
+ *             .authorizationType(&#34;AzureSubscription&#34;)
+ *             .azureSubscriptions(ServiceEndpointKubernetesAzureSubscriptionArgs.builder()
+ *                 .subscriptionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+ *                 .subscriptionName(&#34;Example&#34;)
+ *                 .tenantId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+ *                 .resourcegroupId(&#34;example-rg&#34;)
+ *                 .namespace(&#34;default&#34;)
+ *                 .clusterName(&#34;example-aks&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var example_kubeconfig = new ServiceEndpointKubernetes(&#34;example-kubeconfig&#34;, ServiceEndpointKubernetesArgs.builder()        
+ *             .projectId(example.id())
+ *             .serviceEndpointName(&#34;Example Kubernetes&#34;)
+ *             .apiserverUrl(&#34;https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io&#34;)
+ *             .authorizationType(&#34;Kubeconfig&#34;)
+ *             .kubeconfig(ServiceEndpointKubernetesKubeconfigArgs.builder()
+ *                 .kubeConfig(&#34;&#34;&#34;
+ *                               apiVersion: v1
+ *                               clusters:
+ *                               - cluster:
+ *                                   certificate-authority: fake-ca-file
+ *                                   server: https://1.2.3.4
+ *                                 name: development
+ *                               contexts:
+ *                               - context:
+ *                                   cluster: development
+ *                                   namespace: frontend
+ *                                   user: developer
+ *                                 name: dev-frontend
+ *                               current-context: dev-frontend
+ *                               kind: Config
+ *                               preferences: {}
+ *                               users:
+ *                               - name: developer
+ *                                 user:
+ *                                   client-certificate: fake-cert-file
+ *                                   client-key: fake-key-file
+ *                 &#34;&#34;&#34;)
+ *                 .acceptUntrustedCerts(true)
+ *                 .clusterContext(&#34;dev-frontend&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var example_service_account = new ServiceEndpointKubernetes(&#34;example-service-account&#34;, ServiceEndpointKubernetesArgs.builder()        
+ *             .projectId(example.id())
+ *             .serviceEndpointName(&#34;Example Kubernetes&#34;)
+ *             .apiserverUrl(&#34;https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io&#34;)
+ *             .authorizationType(&#34;ServiceAccount&#34;)
+ *             .serviceAccount(ServiceEndpointKubernetesServiceAccountArgs.builder()
+ *                 .token(&#34;000000000000000000000000&#34;)
+ *                 .caCert(&#34;0000000000000000000000000000000&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Relevant Links
+ * 
+ * - [Azure DevOps Service REST API 7.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
+ * 
  * ## Import
  * 
  * Azure DevOps Service Endpoint Kubernetes can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**

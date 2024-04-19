@@ -23,16 +23,17 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
     ///     });
     /// 
-    ///     var exampleServiceendpointArgocd = new AzureDevOps.ServiceendpointArgocd("exampleServiceendpointArgocd", new()
+    ///     var exampleServiceendpointArgocd = new AzureDevOps.ServiceendpointArgocd("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example ArgoCD",
     ///         Description = "Managed by Terraform",
     ///         Url = "https://argocd.my.com",
@@ -56,17 +57,18 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
     ///         Description = "Managed by Terraform",
     ///     });
     /// 
-    ///     var exampleServiceendpointArgocd = new AzureDevOps.ServiceendpointArgocd("exampleServiceendpointArgocd", new()
+    ///     var exampleServiceendpointArgocd = new AzureDevOps.ServiceendpointArgocd("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example ArgoCD",
     ///         Description = "Managed by Terraform",
     ///         Url = "https://argocd.my.com",

@@ -254,13 +254,14 @@ class ServiceendpointOctopusdeploy(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_serviceendpoint_octopusdeploy = azuredevops.ServiceendpointOctopusdeploy("exampleServiceendpointOctopusdeploy",
-            project_id=example_project.id,
+        example_serviceendpoint_octopusdeploy = azuredevops.ServiceendpointOctopusdeploy("example",
+            project_id=example.id,
             url="https://octopus.com",
             api_key="000000000000000000000000000000000000",
             service_endpoint_name="Example Octopus Deploy",
@@ -304,13 +305,14 @@ class ServiceendpointOctopusdeploy(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_serviceendpoint_octopusdeploy = azuredevops.ServiceendpointOctopusdeploy("exampleServiceendpointOctopusdeploy",
-            project_id=example_project.id,
+        example_serviceendpoint_octopusdeploy = azuredevops.ServiceendpointOctopusdeploy("example",
+            project_id=example.id,
             url="https://octopus.com",
             api_key="000000000000000000000000000000000000",
             service_endpoint_name="Example Octopus Deploy",

@@ -27,17 +27,18 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
     ///         Description = "Managed by Terraform",
     ///     });
     /// 
-    ///     var exampleServiceEndpointAzureDevOps = new AzureDevOps.ServiceEndpointAzureDevOps("exampleServiceEndpointAzureDevOps", new()
+    ///     var exampleServiceEndpointAzureDevOps = new AzureDevOps.ServiceEndpointAzureDevOps("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example Azure DevOps",
     ///         OrgUrl = "https://dev.azure.com/testorganization",
     ///         ReleaseApiUrl = "https://vsrm.dev.azure.com/testorganization",

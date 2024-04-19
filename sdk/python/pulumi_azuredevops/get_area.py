@@ -128,12 +128,13 @@ def get_area(fetch_children: Optional[bool] = None,
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    example_project = azuredevops.Project("exampleProject",
+    example_project = azuredevops.Project("example",
+        name="Example Project",
         work_item_template="Agile",
         version_control="Git",
         visibility="private",
         description="Managed by Terraform")
-    example_area = example_project.id.apply(lambda id: azuredevops.get_area_output(project_id=id,
+    example = example_project.id.apply(lambda id: azuredevops.get_area_output(project_id=id,
         path="/",
         fetch_children=False))
     ```
@@ -184,12 +185,13 @@ def get_area_output(fetch_children: Optional[pulumi.Input[Optional[bool]]] = Non
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    example_project = azuredevops.Project("exampleProject",
+    example_project = azuredevops.Project("example",
+        name="Example Project",
         work_item_template="Agile",
         version_control="Git",
         visibility="private",
         description="Managed by Terraform")
-    example_area = example_project.id.apply(lambda id: azuredevops.get_area_output(project_id=id,
+    example = example_project.id.apply(lambda id: azuredevops.get_area_output(project_id=id,
         path="/",
         fetch_children=False))
     ```

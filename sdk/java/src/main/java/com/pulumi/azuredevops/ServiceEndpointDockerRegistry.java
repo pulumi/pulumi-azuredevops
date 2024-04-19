@@ -45,7 +45,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+ *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
  *             .visibility(&#34;private&#34;)
  *             .versionControl(&#34;Git&#34;)
  *             .workItemTemplate(&#34;Agile&#34;)
@@ -54,7 +55,7 @@ import javax.annotation.Nullable;
  * 
  *         // dockerhub registry service connection
  *         var exampleServiceEndpointDockerRegistry = new ServiceEndpointDockerRegistry(&#34;exampleServiceEndpointDockerRegistry&#34;, ServiceEndpointDockerRegistryArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .serviceEndpointName(&#34;Example Docker Hub&#34;)
  *             .dockerUsername(&#34;example&#34;)
  *             .dockerEmail(&#34;email@example.com&#34;)
@@ -64,7 +65,7 @@ import javax.annotation.Nullable;
  * 
  *         // other docker registry service connection
  *         var example_other = new ServiceEndpointDockerRegistry(&#34;example-other&#34;, ServiceEndpointDockerRegistryArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .serviceEndpointName(&#34;Example Docker Registry&#34;)
  *             .dockerRegistry(&#34;https://sample.azurecr.io/v1&#34;)
  *             .dockerUsername(&#34;sample&#34;)

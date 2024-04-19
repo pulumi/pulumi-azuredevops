@@ -121,7 +121,7 @@ def get_serviceendpoint_npm(project_id: Optional[str] = None,
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    example = azuredevops.get_serviceendpoint_npm(project_id=azuredevops_project["example"]["id"],
+    example = azuredevops.get_serviceendpoint_npm(project_id=example_azuredevops_project["id"],
         service_endpoint_name="Example npm")
     pulumi.export("serviceEndpointId", example.id)
     ```
@@ -166,7 +166,7 @@ def get_serviceendpoint_npm_output(project_id: Optional[pulumi.Input[str]] = Non
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    example = azuredevops.get_serviceendpoint_npm(project_id=azuredevops_project["example"]["id"],
+    example = azuredevops.get_serviceendpoint_npm(project_id=example_azuredevops_project["id"],
         service_endpoint_name="Example npm")
     pulumi.export("serviceEndpointId", example.id)
     ```

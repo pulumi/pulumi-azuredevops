@@ -163,13 +163,13 @@ class Queue(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject")
-        example_pool = azuredevops.get_pool(name="example-pool")
-        example_queue = azuredevops.Queue("exampleQueue",
+        example_project = azuredevops.Project("example", name="Example Project")
+        example = azuredevops.get_pool(name="example-pool")
+        example_queue = azuredevops.Queue("example",
             project_id=example_project.id,
-            agent_pool_id=example_pool.id)
+            agent_pool_id=example.id)
         # Grant access to queue to all pipelines in the project
-        example_resource_authorization = azuredevops.ResourceAuthorization("exampleResourceAuthorization",
+        example_resource_authorization = azuredevops.ResourceAuthorization("example",
             project_id=example_project.id,
             resource_id=example_queue.id,
             type="queue",
@@ -184,8 +184,10 @@ class Queue(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.get_project(name="Example Project")
-        example_queue = azuredevops.Queue("exampleQueue", project_id=example_project.id)
+        example = azuredevops.get_project(name="Example Project")
+        example_queue = azuredevops.Queue("example",
+            name="example-queue",
+            project_id=example.id)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -233,13 +235,13 @@ class Queue(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject")
-        example_pool = azuredevops.get_pool(name="example-pool")
-        example_queue = azuredevops.Queue("exampleQueue",
+        example_project = azuredevops.Project("example", name="Example Project")
+        example = azuredevops.get_pool(name="example-pool")
+        example_queue = azuredevops.Queue("example",
             project_id=example_project.id,
-            agent_pool_id=example_pool.id)
+            agent_pool_id=example.id)
         # Grant access to queue to all pipelines in the project
-        example_resource_authorization = azuredevops.ResourceAuthorization("exampleResourceAuthorization",
+        example_resource_authorization = azuredevops.ResourceAuthorization("example",
             project_id=example_project.id,
             resource_id=example_queue.id,
             type="queue",
@@ -254,8 +256,10 @@ class Queue(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.get_project(name="Example Project")
-        example_queue = azuredevops.Queue("exampleQueue", project_id=example_project.id)
+        example = azuredevops.get_project(name="Example Project")
+        example_queue = azuredevops.Queue("example",
+            name="example-queue",
+            project_id=example.id)
         ```
         <!--End PulumiCodeChooser -->
 

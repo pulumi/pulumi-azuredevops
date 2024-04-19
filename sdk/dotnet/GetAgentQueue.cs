@@ -25,15 +25,16 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+        ///     var exampleProject = new AzureDevOps.Project("example", new()
         ///     {
+        ///         Name = "Example Project",
         ///         WorkItemTemplate = "Agile",
         ///         VersionControl = "Git",
         ///         Visibility = "private",
         ///         Description = "Managed by Terraform",
         ///     });
         /// 
-        ///     var exampleAgentQueue = AzureDevOps.GetAgentQueue.Invoke(new()
+        ///     var example = AzureDevOps.GetAgentQueue.Invoke(new()
         ///     {
         ///         ProjectId = exampleProject.Id,
         ///         Name = "Example Agent Queue",
@@ -41,8 +42,8 @@ namespace Pulumi.AzureDevOps
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["name"] = exampleAgentQueue.Apply(getAgentQueueResult =&gt; getAgentQueueResult.Name),
-        ///         ["poolId"] = exampleAgentQueue.Apply(getAgentQueueResult =&gt; getAgentQueueResult.AgentPoolId),
+        ///         ["name"] = example.Apply(getAgentQueueResult =&gt; getAgentQueueResult.Name),
+        ///         ["poolId"] = example.Apply(getAgentQueueResult =&gt; getAgentQueueResult.AgentPoolId),
         ///     };
         /// });
         /// ```
@@ -69,15 +70,16 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+        ///     var exampleProject = new AzureDevOps.Project("example", new()
         ///     {
+        ///         Name = "Example Project",
         ///         WorkItemTemplate = "Agile",
         ///         VersionControl = "Git",
         ///         Visibility = "private",
         ///         Description = "Managed by Terraform",
         ///     });
         /// 
-        ///     var exampleAgentQueue = AzureDevOps.GetAgentQueue.Invoke(new()
+        ///     var example = AzureDevOps.GetAgentQueue.Invoke(new()
         ///     {
         ///         ProjectId = exampleProject.Id,
         ///         Name = "Example Agent Queue",
@@ -85,8 +87,8 @@ namespace Pulumi.AzureDevOps
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["name"] = exampleAgentQueue.Apply(getAgentQueueResult =&gt; getAgentQueueResult.Name),
-        ///         ["poolId"] = exampleAgentQueue.Apply(getAgentQueueResult =&gt; getAgentQueueResult.AgentPoolId),
+        ///         ["name"] = example.Apply(getAgentQueueResult =&gt; getAgentQueueResult.Name),
+        ///         ["poolId"] = example.Apply(getAgentQueueResult =&gt; getAgentQueueResult.AgentPoolId),
         ///     };
         /// });
         /// ```

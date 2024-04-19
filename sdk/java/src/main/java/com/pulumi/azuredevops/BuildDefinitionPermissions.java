@@ -56,7 +56,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+ *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
  *             .workItemTemplate(&#34;Agile&#34;)
  *             .versionControl(&#34;Git&#34;)
  *             .visibility(&#34;private&#34;)
@@ -64,19 +65,21 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         final var example-readers = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .name(&#34;Readers&#34;)
  *             .build());
  * 
  *         var exampleGit = new Git(&#34;exampleGit&#34;, GitArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
+ *             .name(&#34;Example Repository&#34;)
  *             .initialization(GitInitializationArgs.builder()
  *                 .initType(&#34;Clean&#34;)
  *                 .build())
  *             .build());
  * 
  *         var exampleBuildDefinition = new BuildDefinition(&#34;exampleBuildDefinition&#34;, BuildDefinitionArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
+ *             .name(&#34;Example Build Definition&#34;)
  *             .path(&#34;\\ExampleFolder&#34;)
  *             .ciTrigger(BuildDefinitionCiTriggerArgs.builder()
  *                 .useYaml(true)
@@ -90,7 +93,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBuildDefinitionPermissions = new BuildDefinitionPermissions(&#34;exampleBuildDefinitionPermissions&#34;, BuildDefinitionPermissionsArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .principal(example_readers.applyValue(example_readers -&gt; example_readers.id()))
  *             .buildDefinitionId(exampleBuildDefinition.id())
  *             .permissions(Map.ofEntries(

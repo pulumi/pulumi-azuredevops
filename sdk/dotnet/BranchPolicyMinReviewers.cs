@@ -23,20 +23,24 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject");
-    /// 
-    ///     var exampleGit = new AzureDevOps.Git("exampleGit", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         Name = "Example Project",
+    ///     });
+    /// 
+    ///     var exampleGit = new AzureDevOps.Git("example", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Example Repository",
     ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
     ///         {
     ///             InitType = "Clean",
     ///         },
     ///     });
     /// 
-    ///     var exampleBranchPolicyMinReviewers = new AzureDevOps.BranchPolicyMinReviewers("exampleBranchPolicyMinReviewers", new()
+    ///     var exampleBranchPolicyMinReviewers = new AzureDevOps.BranchPolicyMinReviewers("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         Enabled = true,
     ///         Blocking = true,
     ///         Settings = new AzureDevOps.Inputs.BranchPolicyMinReviewersSettingsArgs

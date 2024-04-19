@@ -23,17 +23,18 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
     ///         Description = "Managed by Terraform",
     ///     });
     /// 
-    ///     var exampleServiceendpointOctopusdeploy = new AzureDevOps.ServiceendpointOctopusdeploy("exampleServiceendpointOctopusdeploy", new()
+    ///     var exampleServiceendpointOctopusdeploy = new AzureDevOps.ServiceendpointOctopusdeploy("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         Url = "https://octopus.com",
     ///         ApiKey = "000000000000000000000000000000000000",
     ///         ServiceEndpointName = "Example Octopus Deploy",

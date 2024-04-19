@@ -29,7 +29,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
 //				Visibility:       pulumi.String("private"),
 //				VersionControl:   pulumi.String("Git"),
 //				WorkItemTemplate: pulumi.String("Agile"),
@@ -38,8 +39,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewServiceEndpointNpm(ctx, "exampleServiceEndpointNpm", &azuredevops.ServiceEndpointNpmArgs{
-//				ProjectId:           exampleProject.ID(),
+//			_, err = azuredevops.NewServiceEndpointNpm(ctx, "example", &azuredevops.ServiceEndpointNpmArgs{
+//				ProjectId:           example.ID(),
 //				ServiceEndpointName: pulumi.String("Example npm"),
 //				Url:                 pulumi.String("https://registry.npmjs.org"),
 //				AccessToken:         pulumi.String("00000000-0000-0000-0000-000000000000"),

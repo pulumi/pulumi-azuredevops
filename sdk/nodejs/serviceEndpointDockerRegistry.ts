@@ -14,15 +14,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  *     description: "Managed by Terraform",
  * });
  * // dockerhub registry service connection
- * const exampleServiceEndpointDockerRegistry = new azuredevops.ServiceEndpointDockerRegistry("exampleServiceEndpointDockerRegistry", {
- *     projectId: exampleProject.id,
+ * const exampleServiceEndpointDockerRegistry = new azuredevops.ServiceEndpointDockerRegistry("example", {
+ *     projectId: example.id,
  *     serviceEndpointName: "Example Docker Hub",
  *     dockerUsername: "example",
  *     dockerEmail: "email@example.com",
@@ -31,7 +32,7 @@ import * as utilities from "./utilities";
  * });
  * // other docker registry service connection
  * const example_other = new azuredevops.ServiceEndpointDockerRegistry("example-other", {
- *     projectId: exampleProject.id,
+ *     projectId: example.id,
  *     serviceEndpointName: "Example Docker Registry",
  *     dockerRegistry: "https://sample.azurecr.io/v1",
  *     dockerUsername: "sample",

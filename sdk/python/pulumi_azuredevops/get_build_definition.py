@@ -197,10 +197,10 @@ def get_build_definition(name: Optional[str] = None,
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    example_project = azuredevops.get_project(name="Example Project")
-    example_build_definition = azuredevops.get_build_definition(project_id=example_project.id,
+    example = azuredevops.get_project(name="Example Project")
+    example_get_build_definition = azuredevops.get_build_definition(project_id=example.id,
         name="existing")
-    pulumi.export("id", example_build_definition.id)
+    pulumi.export("id", example_get_build_definition.id)
     ```
     <!--End PulumiCodeChooser -->
 
@@ -247,10 +247,10 @@ def get_build_definition_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    example_project = azuredevops.get_project(name="Example Project")
-    example_build_definition = azuredevops.get_build_definition(project_id=example_project.id,
+    example = azuredevops.get_project(name="Example Project")
+    example_get_build_definition = azuredevops.get_build_definition(project_id=example.id,
         name="existing")
-    pulumi.export("id", example_build_definition.id)
+    pulumi.export("id", example_get_build_definition.id)
     ```
     <!--End PulumiCodeChooser -->
 

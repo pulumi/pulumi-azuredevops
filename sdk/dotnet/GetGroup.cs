@@ -25,14 +25,14 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleProject = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleGroup = AzureDevOps.GetGroup.Invoke(new()
+        ///     var exampleGetGroup = AzureDevOps.GetGroup.Invoke(new()
         ///     {
-        ///         ProjectId = exampleProject.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         Name = "Example Group",
         ///     });
         /// 
@@ -43,10 +43,10 @@ namespace Pulumi.AzureDevOps
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["groupId"] = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Id),
-        ///         ["groupDescriptor"] = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Descriptor),
-        ///         ["collectionGroupId"] = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Id),
-        ///         ["collectionGroupDescriptor"] = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Descriptor),
+        ///         ["groupId"] = exampleGetGroup.Apply(getGroupResult =&gt; getGroupResult.Id),
+        ///         ["groupDescriptor"] = exampleGetGroup.Apply(getGroupResult =&gt; getGroupResult.Descriptor),
+        ///         ["collectionGroupId"] = exampleGetGroup.Apply(getGroupResult =&gt; getGroupResult.Id),
+        ///         ["collectionGroupDescriptor"] = exampleGetGroup.Apply(getGroupResult =&gt; getGroupResult.Descriptor),
         ///     };
         /// });
         /// ```
@@ -78,14 +78,14 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleProject = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleGroup = AzureDevOps.GetGroup.Invoke(new()
+        ///     var exampleGetGroup = AzureDevOps.GetGroup.Invoke(new()
         ///     {
-        ///         ProjectId = exampleProject.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         Name = "Example Group",
         ///     });
         /// 
@@ -96,10 +96,10 @@ namespace Pulumi.AzureDevOps
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["groupId"] = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Id),
-        ///         ["groupDescriptor"] = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Descriptor),
-        ///         ["collectionGroupId"] = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Id),
-        ///         ["collectionGroupDescriptor"] = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Descriptor),
+        ///         ["groupId"] = exampleGetGroup.Apply(getGroupResult =&gt; getGroupResult.Id),
+        ///         ["groupDescriptor"] = exampleGetGroup.Apply(getGroupResult =&gt; getGroupResult.Descriptor),
+        ///         ["collectionGroupId"] = exampleGetGroup.Apply(getGroupResult =&gt; getGroupResult.Id),
+        ///         ["collectionGroupDescriptor"] = exampleGetGroup.Apply(getGroupResult =&gt; getGroupResult.Descriptor),
         ///     };
         /// });
         /// ```

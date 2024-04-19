@@ -28,29 +28,29 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
+//			example, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
 //				Name: pulumi.StringRef("Example Project"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleGroup, err := azuredevops.LookupGroup(ctx, &azuredevops.LookupGroupArgs{
-//				ProjectId: pulumi.StringRef(exampleProject.Id),
+//			exampleGetGroup, err := azuredevops.LookupGroup(ctx, &azuredevops.LookupGroupArgs{
+//				ProjectId: pulumi.StringRef(example.Id),
 //				Name:      "Example Group",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("groupId", exampleGroup.Id)
-//			ctx.Export("groupDescriptor", exampleGroup.Descriptor)
+//			ctx.Export("groupId", exampleGetGroup.Id)
+//			ctx.Export("groupDescriptor", exampleGetGroup.Descriptor)
 //			_, err = azuredevops.LookupGroup(ctx, &azuredevops.LookupGroupArgs{
 //				Name: "Project Collection Administrators",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("collectionGroupId", exampleGroup.Id)
-//			ctx.Export("collectionGroupDescriptor", exampleGroup.Descriptor)
+//			ctx.Export("collectionGroupId", exampleGetGroup.Id)
+//			ctx.Export("collectionGroupDescriptor", exampleGetGroup.Descriptor)
 //			return nil
 //		})
 //	}

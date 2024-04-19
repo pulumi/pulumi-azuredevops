@@ -29,7 +29,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
 //				Visibility:       pulumi.String("private"),
 //				VersionControl:   pulumi.String("Git"),
 //				WorkItemTemplate: pulumi.String("Agile"),
@@ -38,8 +39,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewProjectPipelineSettings(ctx, "exampleProjectPipelineSettings", &azuredevops.ProjectPipelineSettingsArgs{
-//				ProjectId:                        exampleProject.ID(),
+//			_, err = azuredevops.NewProjectPipelineSettings(ctx, "example", &azuredevops.ProjectPipelineSettingsArgs{
+//				ProjectId:                        example.ID(),
 //				EnforceJobScope:                  pulumi.Bool(true),
 //				EnforceReferencedRepoScopedToken: pulumi.Bool(false),
 //				EnforceSettableVar:               pulumi.Bool(true),

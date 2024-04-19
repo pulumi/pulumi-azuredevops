@@ -35,7 +35,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
 //				Visibility:       pulumi.String("private"),
 //				VersionControl:   pulumi.String("Git"),
 //				WorkItemTemplate: pulumi.String("Agile"),
@@ -44,22 +45,23 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			examplePool, err := azuredevops.NewPool(ctx, "examplePool", &azuredevops.PoolArgs{
+//			examplePool, err := azuredevops.NewPool(ctx, "example", &azuredevops.PoolArgs{
+//				Name:          pulumi.String("Example Pool"),
 //				AutoProvision: pulumi.Bool(false),
 //				AutoUpdate:    pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleQueue, err := azuredevops.NewQueue(ctx, "exampleQueue", &azuredevops.QueueArgs{
-//				ProjectId:   exampleProject.ID(),
+//			exampleQueue, err := azuredevops.NewQueue(ctx, "example", &azuredevops.QueueArgs{
+//				ProjectId:   example.ID(),
 //				AgentPoolId: examplePool.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewPipelineAuthorization(ctx, "examplePipelineAuthorization", &azuredevops.PipelineAuthorizationArgs{
-//				ProjectId:  exampleProject.ID(),
+//			_, err = azuredevops.NewPipelineAuthorization(ctx, "example", &azuredevops.PipelineAuthorizationArgs{
+//				ProjectId:  example.ID(),
 //				ResourceId: exampleQueue.ID(),
 //				Type:       pulumi.String("queue"),
 //			})
@@ -88,7 +90,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//			exampleProject, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
 //				Visibility:       pulumi.String("private"),
 //				VersionControl:   pulumi.String("Git"),
 //				WorkItemTemplate: pulumi.String("Agile"),
@@ -97,30 +100,32 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			examplePool, err := azuredevops.NewPool(ctx, "examplePool", &azuredevops.PoolArgs{
+//			examplePool, err := azuredevops.NewPool(ctx, "example", &azuredevops.PoolArgs{
+//				Name:          pulumi.String("Example Pool"),
 //				AutoProvision: pulumi.Bool(false),
 //				AutoUpdate:    pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleQueue, err := azuredevops.NewQueue(ctx, "exampleQueue", &azuredevops.QueueArgs{
+//			exampleQueue, err := azuredevops.NewQueue(ctx, "example", &azuredevops.QueueArgs{
 //				ProjectId:   exampleProject.ID(),
 //				AgentPoolId: examplePool.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleGitRepository := azuredevops.GetGitRepositoryOutput(ctx, azuredevops.GetGitRepositoryOutputArgs{
+//			example := azuredevops.GetGitRepositoryOutput(ctx, azuredevops.GetGitRepositoryOutputArgs{
 //				ProjectId: exampleProject.ID(),
 //				Name:      pulumi.String("Example Project"),
 //			}, nil)
-//			exampleBuildDefinition, err := azuredevops.NewBuildDefinition(ctx, "exampleBuildDefinition", &azuredevops.BuildDefinitionArgs{
+//			exampleBuildDefinition, err := azuredevops.NewBuildDefinition(ctx, "example", &azuredevops.BuildDefinitionArgs{
 //				ProjectId: exampleProject.ID(),
+//				Name:      pulumi.String("Example Pipeline"),
 //				Repository: &azuredevops.BuildDefinitionRepositoryArgs{
 //					RepoType: pulumi.String("TfsGit"),
-//					RepoId: exampleGitRepository.ApplyT(func(exampleGitRepository azuredevops.GetGitRepositoryResult) (*string, error) {
-//						return &exampleGitRepository.Id, nil
+//					RepoId: example.ApplyT(func(example azuredevops.GetGitRepositoryResult) (*string, error) {
+//						return &example.Id, nil
 //					}).(pulumi.StringPtrOutput),
 //					YmlPath: pulumi.String("azure-pipelines.yml"),
 //				},
@@ -128,7 +133,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.NewPipelineAuthorization(ctx, "examplePipelineAuthorization", &azuredevops.PipelineAuthorizationArgs{
+//			_, err = azuredevops.NewPipelineAuthorization(ctx, "example", &azuredevops.PipelineAuthorizationArgs{
 //				ProjectId:  exampleProject.ID(),
 //				ResourceId: exampleQueue.ID(),
 //				Type:       pulumi.String("queue"),

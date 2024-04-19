@@ -29,29 +29,31 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
     ///         Description = "Managed by Terraform",
     ///     });
     /// 
-    ///     var examplePool = new AzureDevOps.Pool("examplePool", new()
+    ///     var examplePool = new AzureDevOps.Pool("example", new()
     ///     {
+    ///         Name = "Example Pool",
     ///         AutoProvision = false,
     ///         AutoUpdate = false,
     ///     });
     /// 
-    ///     var exampleQueue = new AzureDevOps.Queue("exampleQueue", new()
+    ///     var exampleQueue = new AzureDevOps.Queue("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         AgentPoolId = examplePool.Id,
     ///     });
     /// 
-    ///     var examplePipelineAuthorization = new AzureDevOps.PipelineAuthorization("examplePipelineAuthorization", new()
+    ///     var examplePipelineAuthorization = new AzureDevOps.PipelineAuthorization("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         ResourceId = exampleQueue.Id,
     ///         Type = "queue",
     ///     });
@@ -71,44 +73,47 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var exampleProject = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
     ///         Description = "Managed by Terraform",
     ///     });
     /// 
-    ///     var examplePool = new AzureDevOps.Pool("examplePool", new()
+    ///     var examplePool = new AzureDevOps.Pool("example", new()
     ///     {
+    ///         Name = "Example Pool",
     ///         AutoProvision = false,
     ///         AutoUpdate = false,
     ///     });
     /// 
-    ///     var exampleQueue = new AzureDevOps.Queue("exampleQueue", new()
+    ///     var exampleQueue = new AzureDevOps.Queue("example", new()
     ///     {
     ///         ProjectId = exampleProject.Id,
     ///         AgentPoolId = examplePool.Id,
     ///     });
     /// 
-    ///     var exampleGitRepository = AzureDevOps.GetGitRepository.Invoke(new()
+    ///     var example = AzureDevOps.GetGitRepository.Invoke(new()
     ///     {
     ///         ProjectId = exampleProject.Id,
     ///         Name = "Example Project",
     ///     });
     /// 
-    ///     var exampleBuildDefinition = new AzureDevOps.BuildDefinition("exampleBuildDefinition", new()
+    ///     var exampleBuildDefinition = new AzureDevOps.BuildDefinition("example", new()
     ///     {
     ///         ProjectId = exampleProject.Id,
+    ///         Name = "Example Pipeline",
     ///         Repository = new AzureDevOps.Inputs.BuildDefinitionRepositoryArgs
     ///         {
     ///             RepoType = "TfsGit",
-    ///             RepoId = exampleGitRepository.Apply(getGitRepositoryResult =&gt; getGitRepositoryResult.Id),
+    ///             RepoId = example.Apply(getGitRepositoryResult =&gt; getGitRepositoryResult.Id),
     ///             YmlPath = "azure-pipelines.yml",
     ///         },
     ///     });
     /// 
-    ///     var examplePipelineAuthorization = new AzureDevOps.PipelineAuthorization("examplePipelineAuthorization", new()
+    ///     var examplePipelineAuthorization = new AzureDevOps.PipelineAuthorization("example", new()
     ///     {
     ///         ProjectId = exampleProject.Id,
     ///         ResourceId = exampleQueue.Id,

@@ -17,19 +17,22 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  * });
- * const exampleGit = new azuredevops.Git("exampleGit", {
- *     projectId: exampleProject.id,
+ * const exampleGit = new azuredevops.Git("example", {
+ *     projectId: example.id,
+ *     name: "Example Repository",
  *     initialization: {
  *         initType: "Clean",
  *     },
  * });
- * const exampleVariableGroup = new azuredevops.VariableGroup("exampleVariableGroup", {
- *     projectId: exampleProject.id,
+ * const exampleVariableGroup = new azuredevops.VariableGroup("example", {
+ *     projectId: example.id,
+ *     name: "Example Pipeline Variables",
  *     description: "Managed by Terraform",
  *     allowAccess: true,
  *     variables: [{
@@ -37,8 +40,9 @@ import * as utilities from "./utilities";
  *         value: "BAR",
  *     }],
  * });
- * const exampleBuildDefinition = new azuredevops.BuildDefinition("exampleBuildDefinition", {
- *     projectId: exampleProject.id,
+ * const exampleBuildDefinition = new azuredevops.BuildDefinition("example", {
+ *     projectId: example.id,
+ *     name: "Example Build Definition",
  *     path: "\\ExampleFolder",
  *     ciTrigger: {
  *         useYaml: false,
@@ -88,13 +92,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  * });
- * const exampleServiceEndpointGitHubEnterprise = new azuredevops.ServiceEndpointGitHubEnterprise("exampleServiceEndpointGitHubEnterprise", {
- *     projectId: exampleProject.id,
+ * const exampleServiceEndpointGitHubEnterprise = new azuredevops.ServiceEndpointGitHubEnterprise("example", {
+ *     projectId: example.id,
  *     serviceEndpointName: "Example GitHub Enterprise",
  *     url: "https://github.contoso.com",
  *     description: "Managed by Terraform",
@@ -102,8 +107,9 @@ import * as utilities from "./utilities";
  *         personalAccessToken: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
  *     },
  * });
- * const exampleBuildDefinition = new azuredevops.BuildDefinition("exampleBuildDefinition", {
- *     projectId: exampleProject.id,
+ * const exampleBuildDefinition = new azuredevops.BuildDefinition("example", {
+ *     projectId: example.id,
+ *     name: "Example Build Definition",
  *     path: "\\ExampleFolder",
  *     ciTrigger: {
  *         useYaml: false,

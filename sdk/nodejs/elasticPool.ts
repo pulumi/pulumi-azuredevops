@@ -14,14 +14,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  *     description: "Managed by Terraform",
  * });
- * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", {
- *     projectId: exampleProject.id,
+ * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("example", {
+ *     projectId: example.id,
  *     serviceEndpointName: "Example Azure Connection",
  *     description: "Managed by Terraform",
  *     serviceEndpointAuthenticationScheme: "ServicePrincipal",
@@ -33,9 +34,10 @@ import * as utilities from "./utilities";
  *     azurermSubscriptionId: "00000000-0000-0000-0000-000000000000",
  *     azurermSubscriptionName: "Subscription Name",
  * });
- * const exampleElasticPool = new azuredevops.ElasticPool("exampleElasticPool", {
+ * const exampleElasticPool = new azuredevops.ElasticPool("example", {
+ *     name: "Example Elastic Pool",
  *     serviceEndpointId: exampleServiceEndpointAzureRM.id,
- *     serviceEndpointScope: exampleProject.id,
+ *     serviceEndpointScope: example.id,
  *     desiredIdle: 2,
  *     maxCapacity: 3,
  *     azureResourceId: "/subscriptions/<Subscription Id>/resourceGroups/<Resource Name>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS Name>",

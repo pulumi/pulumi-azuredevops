@@ -23,23 +23,25 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
+    ///         Name = "Example Project",
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
     ///     });
     /// 
-    ///     var exampleGit = new AzureDevOps.Git("exampleGit", new()
+    ///     var exampleGit = new AzureDevOps.Git("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
+    ///         Name = "Example Git Repository",
     ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
     ///         {
     ///             InitType = "Clean",
     ///         },
     ///     });
     /// 
-    ///     var exampleGitRepositoryFile = new AzureDevOps.GitRepositoryFile("exampleGitRepositoryFile", new()
+    ///     var exampleGitRepositoryFile = new AzureDevOps.GitRepositoryFile("example", new()
     ///     {
     ///         RepositoryId = exampleGit.Id,
     ///         File = ".gitignore",

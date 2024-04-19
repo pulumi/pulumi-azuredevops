@@ -27,11 +27,14 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject");
-    /// 
-    ///     var exampleServiceEndpointGeneric = new AzureDevOps.ServiceEndpointGeneric("exampleServiceEndpointGeneric", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         Name = "Example Project",
+    ///     });
+    /// 
+    ///     var exampleServiceEndpointGeneric = new AzureDevOps.ServiceEndpointGeneric("example", new()
+    ///     {
+    ///         ProjectId = example.Id,
     ///         ServerUrl = "https://some-server.example.com",
     ///         Username = "username",
     ///         Password = "password",
@@ -39,9 +42,9 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Terraform",
     ///     });
     /// 
-    ///     var exampleCheckExclusiveLock = new AzureDevOps.CheckExclusiveLock("exampleCheckExclusiveLock", new()
+    ///     var exampleCheckExclusiveLock = new AzureDevOps.CheckExclusiveLock("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         TargetResourceId = exampleServiceEndpointGeneric.Id,
     ///         TargetResourceType = "endpoint",
     ///         Timeout = 43200,
@@ -62,16 +65,20 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject");
-    /// 
-    ///     var exampleEnvironment = new AzureDevOps.Environment("exampleEnvironment", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         Name = "Example Project",
     ///     });
     /// 
-    ///     var exampleCheckExclusiveLock = new AzureDevOps.CheckExclusiveLock("exampleCheckExclusiveLock", new()
+    ///     var exampleEnvironment = new AzureDevOps.Environment("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
+    ///         Name = "Example Environment",
+    ///     });
+    /// 
+    ///     var exampleCheckExclusiveLock = new AzureDevOps.CheckExclusiveLock("example", new()
+    ///     {
+    ///         ProjectId = example.Id,
     ///         TargetResourceId = exampleEnvironment.Id,
     ///         TargetResourceType = "environment",
     ///         Timeout = 43200,

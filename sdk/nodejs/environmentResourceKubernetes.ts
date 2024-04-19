@@ -14,15 +14,19 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
  *     description: "Managed by Terraform",
  * });
- * const exampleEnvironment = new azuredevops.Environment("exampleEnvironment", {projectId: exampleProject.id});
- * const exampleServiceEndpointKubernetes = new azuredevops.ServiceEndpointKubernetes("exampleServiceEndpointKubernetes", {
- *     projectId: exampleProject.id,
+ * const exampleEnvironment = new azuredevops.Environment("example", {
+ *     projectId: example.id,
+ *     name: "Example Environment",
+ * });
+ * const exampleServiceEndpointKubernetes = new azuredevops.ServiceEndpointKubernetes("example", {
+ *     projectId: example.id,
  *     serviceEndpointName: "Example Kubernetes",
  *     apiserverUrl: "https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io",
  *     authorizationType: "AzureSubscription",
@@ -35,10 +39,11 @@ import * as utilities from "./utilities";
  *         clusterName: "example-aks",
  *     }],
  * });
- * const exampleEnvironmentResourceKubernetes = new azuredevops.EnvironmentResourceKubernetes("exampleEnvironmentResourceKubernetes", {
- *     projectId: exampleProject.id,
+ * const exampleEnvironmentResourceKubernetes = new azuredevops.EnvironmentResourceKubernetes("example", {
+ *     projectId: example.id,
  *     environmentId: exampleEnvironment.id,
  *     serviceEndpointId: exampleServiceEndpointKubernetes.id,
+ *     name: "Example",
  *     namespace: "default",
  *     clusterName: "example-aks",
  *     tags: [

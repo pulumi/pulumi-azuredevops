@@ -32,6 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
  * import com.pulumi.azuredevops.Environment;
  * import com.pulumi.azuredevops.EnvironmentArgs;
  * import com.pulumi.azuredevops.Group;
@@ -51,10 +52,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;);
+ *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
+ *             .build());
  * 
  *         var exampleEnvironment = new Environment(&#34;exampleEnvironment&#34;, EnvironmentArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
+ *             .name(&#34;Example Environment&#34;)
  *             .build());
  * 
  *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
@@ -62,7 +66,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCheckApproval = new CheckApproval(&#34;exampleCheckApproval&#34;, CheckApprovalArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .targetResourceId(exampleEnvironment.id())
  *             .targetResourceType(&#34;environment&#34;)
  *             .requesterCanApprove(true)

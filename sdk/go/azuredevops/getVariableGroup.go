@@ -30,20 +30,20 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
+//			example, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
 //				Name: pulumi.StringRef("Example Project"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleVariableGroup, err := azuredevops.LookupVariableGroup(ctx, &azuredevops.LookupVariableGroupArgs{
-//				ProjectId: exampleProject.Id,
+//			exampleGetVariableGroup, err := azuredevops.LookupVariableGroup(ctx, &azuredevops.LookupVariableGroupArgs{
+//				ProjectId: example.Id,
 //				Name:      "Example Variable Group",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("id", exampleVariableGroup.Id)
+//			ctx.Export("id", exampleGetVariableGroup.Id)
 //			return nil
 //		})
 //	}

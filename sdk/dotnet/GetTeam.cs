@@ -25,15 +25,16 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+        ///     var exampleProject = new AzureDevOps.Project("example", new()
         ///     {
+        ///         Name = "Example Project",
         ///         WorkItemTemplate = "Agile",
         ///         VersionControl = "Git",
         ///         Visibility = "private",
         ///         Description = "Managed by Terraform",
         ///     });
         /// 
-        ///     var exampleTeam = AzureDevOps.GetTeam.Invoke(new()
+        ///     var example = AzureDevOps.GetTeam.Invoke(new()
         ///     {
         ///         ProjectId = exampleProject.Id,
         ///         Name = "Example Project Team",
@@ -68,15 +69,16 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+        ///     var exampleProject = new AzureDevOps.Project("example", new()
         ///     {
+        ///         Name = "Example Project",
         ///         WorkItemTemplate = "Agile",
         ///         VersionControl = "Git",
         ///         Visibility = "private",
         ///         Description = "Managed by Terraform",
         ///     });
         /// 
-        ///     var exampleTeam = AzureDevOps.GetTeam.Invoke(new()
+        ///     var example = AzureDevOps.GetTeam.Invoke(new()
         ///     {
         ///         ProjectId = exampleProject.Id,
         ///         Name = "Example Project Team",

@@ -14,14 +14,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  *     description: "Managed by Terraform",
  * });
- * const exampleServiceEndpointSonarQube = new azuredevops.ServiceEndpointSonarQube("exampleServiceEndpointSonarQube", {
- *     projectId: exampleProject.id,
+ * const exampleServiceEndpointSonarQube = new azuredevops.ServiceEndpointSonarQube("example", {
+ *     projectId: example.id,
  *     serviceEndpointName: "Example SonarQube",
  *     url: "https://sonarqube.my.com",
  *     token: "0000000000000000000000000000000000000000",

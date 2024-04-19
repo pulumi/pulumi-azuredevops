@@ -270,14 +270,17 @@ class EnvironmentResourceKubernetes(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
             description="Managed by Terraform")
-        example_environment = azuredevops.Environment("exampleEnvironment", project_id=example_project.id)
-        example_service_endpoint_kubernetes = azuredevops.ServiceEndpointKubernetes("exampleServiceEndpointKubernetes",
-            project_id=example_project.id,
+        example_environment = azuredevops.Environment("example",
+            project_id=example.id,
+            name="Example Environment")
+        example_service_endpoint_kubernetes = azuredevops.ServiceEndpointKubernetes("example",
+            project_id=example.id,
             service_endpoint_name="Example Kubernetes",
             apiserver_url="https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io",
             authorization_type="AzureSubscription",
@@ -289,10 +292,11 @@ class EnvironmentResourceKubernetes(pulumi.CustomResource):
                 namespace="default",
                 cluster_name="example-aks",
             )])
-        example_environment_resource_kubernetes = azuredevops.EnvironmentResourceKubernetes("exampleEnvironmentResourceKubernetes",
-            project_id=example_project.id,
+        example_environment_resource_kubernetes = azuredevops.EnvironmentResourceKubernetes("example",
+            project_id=example.id,
             environment_id=example_environment.id,
             service_endpoint_id=example_service_endpoint_kubernetes.id,
+            name="Example",
             namespace="default",
             cluster_name="example-aks",
             tags=[
@@ -336,14 +340,17 @@ class EnvironmentResourceKubernetes(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
             description="Managed by Terraform")
-        example_environment = azuredevops.Environment("exampleEnvironment", project_id=example_project.id)
-        example_service_endpoint_kubernetes = azuredevops.ServiceEndpointKubernetes("exampleServiceEndpointKubernetes",
-            project_id=example_project.id,
+        example_environment = azuredevops.Environment("example",
+            project_id=example.id,
+            name="Example Environment")
+        example_service_endpoint_kubernetes = azuredevops.ServiceEndpointKubernetes("example",
+            project_id=example.id,
             service_endpoint_name="Example Kubernetes",
             apiserver_url="https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io",
             authorization_type="AzureSubscription",
@@ -355,10 +362,11 @@ class EnvironmentResourceKubernetes(pulumi.CustomResource):
                 namespace="default",
                 cluster_name="example-aks",
             )])
-        example_environment_resource_kubernetes = azuredevops.EnvironmentResourceKubernetes("exampleEnvironmentResourceKubernetes",
-            project_id=example_project.id,
+        example_environment_resource_kubernetes = azuredevops.EnvironmentResourceKubernetes("example",
+            project_id=example.id,
             environment_id=example_environment.id,
             service_endpoint_id=example_service_endpoint_kubernetes.id,
+            name="Example",
             namespace="default",
             cluster_name="example-aks",
             tags=[

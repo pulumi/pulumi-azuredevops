@@ -18,14 +18,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = azuredevops.getProject({
+ * const example = azuredevops.getProject({
  *     name: "Example Project",
  * });
- * const exampleVariableGroup = exampleProject.then(exampleProject => azuredevops.getVariableGroup({
- *     projectId: exampleProject.id,
+ * const exampleGetVariableGroup = example.then(example => azuredevops.getVariableGroup({
+ *     projectId: example.id,
  *     name: "Example Variable Group",
  * }));
- * export const id = exampleVariableGroup.then(exampleVariableGroup => exampleVariableGroup.id);
+ * export const id = exampleGetVariableGroup.then(exampleGetVariableGroup => exampleGetVariableGroup.id);
  * ```
  * <!--End PulumiCodeChooser -->
  *
@@ -98,14 +98,14 @@ export interface GetVariableGroupResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = azuredevops.getProject({
+ * const example = azuredevops.getProject({
  *     name: "Example Project",
  * });
- * const exampleVariableGroup = exampleProject.then(exampleProject => azuredevops.getVariableGroup({
- *     projectId: exampleProject.id,
+ * const exampleGetVariableGroup = example.then(example => azuredevops.getVariableGroup({
+ *     projectId: example.id,
  *     name: "Example Variable Group",
  * }));
- * export const id = exampleVariableGroup.then(exampleVariableGroup => exampleVariableGroup.id);
+ * export const id = exampleGetVariableGroup.then(exampleGetVariableGroup => exampleGetVariableGroup.id);
  * ```
  * <!--End PulumiCodeChooser -->
  *

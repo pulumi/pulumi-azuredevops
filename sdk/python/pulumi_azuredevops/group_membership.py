@@ -156,12 +156,12 @@ class GroupMembership(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject")
-        example_user = azuredevops.User("exampleUser", principal_name="foo@contoso.com")
-        example_group = azuredevops.get_group_output(project_id=example_project.id,
+        example_project = azuredevops.Project("example", name="Example Project")
+        example_user = azuredevops.User("example", principal_name="foo@contoso.com")
+        example = azuredevops.get_group_output(project_id=example_project.id,
             name="Build Administrators")
-        example_group_membership = azuredevops.GroupMembership("exampleGroupMembership",
-            group=example_group.descriptor,
+        example_group_membership = azuredevops.GroupMembership("example",
+            group=example.descriptor,
             members=[example_user.descriptor])
         ```
         <!--End PulumiCodeChooser -->
@@ -204,12 +204,12 @@ class GroupMembership(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject")
-        example_user = azuredevops.User("exampleUser", principal_name="foo@contoso.com")
-        example_group = azuredevops.get_group_output(project_id=example_project.id,
+        example_project = azuredevops.Project("example", name="Example Project")
+        example_user = azuredevops.User("example", principal_name="foo@contoso.com")
+        example = azuredevops.get_group_output(project_id=example_project.id,
             name="Build Administrators")
-        example_group_membership = azuredevops.GroupMembership("exampleGroupMembership",
-            group=example_group.descriptor,
+        example_group_membership = azuredevops.GroupMembership("example",
+            group=example.descriptor,
             members=[example_user.descriptor])
         ```
         <!--End PulumiCodeChooser -->

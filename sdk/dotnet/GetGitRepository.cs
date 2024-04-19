@@ -31,6 +31,7 @@ namespace Pulumi.AzureDevOps
         ///         Name = "Example Project",
         ///     });
         /// 
+        ///     // Load a specific Git repository by name
         ///     var example_single_repo = AzureDevOps.GetGitRepository.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
@@ -68,6 +69,7 @@ namespace Pulumi.AzureDevOps
         ///         Name = "Example Project",
         ///     });
         /// 
+        ///     // Load a specific Git repository by name
         ///     var example_single_repo = AzureDevOps.GetGitRepository.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),

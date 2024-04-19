@@ -16,20 +16,22 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  *     description: "Managed by Terraform",
  * });
- * const exampleGit = new azuredevops.Git("exampleGit", {
- *     projectId: exampleProject.id,
+ * const exampleGit = new azuredevops.Git("example", {
+ *     projectId: example.id,
+ *     name: "Example Repository",
  *     initialization: {
  *         initType: "Clean",
  *     },
  * });
- * const exampleRepositoryPolicyReservedNames = new azuredevops.RepositoryPolicyReservedNames("exampleRepositoryPolicyReservedNames", {
- *     projectId: exampleProject.id,
+ * const exampleRepositoryPolicyReservedNames = new azuredevops.RepositoryPolicyReservedNames("example", {
+ *     projectId: example.id,
  *     enabled: true,
  *     blocking: true,
  *     repositoryIds: [exampleGit.id],
@@ -43,14 +45,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  *     description: "Managed by Terraform",
  * });
- * const exampleRepositoryPolicyReservedNames = new azuredevops.RepositoryPolicyReservedNames("exampleRepositoryPolicyReservedNames", {
- *     projectId: exampleProject.id,
+ * const exampleRepositoryPolicyReservedNames = new azuredevops.RepositoryPolicyReservedNames("example", {
+ *     projectId: example.id,
  *     enabled: true,
  *     blocking: true,
  * });

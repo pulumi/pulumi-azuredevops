@@ -31,6 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
  * import com.pulumi.azuredevops.ServiceEndpointGeneric;
  * import com.pulumi.azuredevops.ServiceEndpointGenericArgs;
  * import com.pulumi.azuredevops.CheckBranchControl;
@@ -48,10 +49,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;);
+ *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
+ *             .build());
  * 
  *         var exampleServiceEndpointGeneric = new ServiceEndpointGeneric(&#34;exampleServiceEndpointGeneric&#34;, ServiceEndpointGenericArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .serverUrl(&#34;https://some-server.example.com&#34;)
  *             .username(&#34;username&#34;)
  *             .password(&#34;password&#34;)
@@ -60,7 +63,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCheckBranchControl = new CheckBranchControl(&#34;exampleCheckBranchControl&#34;, CheckBranchControlArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .displayName(&#34;Managed by Terraform&#34;)
  *             .targetResourceId(exampleServiceEndpointGeneric.id())
  *             .targetResourceType(&#34;endpoint&#34;)
@@ -83,6 +86,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
  * import com.pulumi.azuredevops.Environment;
  * import com.pulumi.azuredevops.EnvironmentArgs;
  * import com.pulumi.azuredevops.CheckBranchControl;
@@ -100,14 +104,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;);
+ *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
+ *             .build());
  * 
  *         var exampleEnvironment = new Environment(&#34;exampleEnvironment&#34;, EnvironmentArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
+ *             .name(&#34;Example Environment&#34;)
  *             .build());
  * 
  *         var exampleCheckBranchControl = new CheckBranchControl(&#34;exampleCheckBranchControl&#34;, CheckBranchControlArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .displayName(&#34;Managed by Terraform&#34;)
  *             .targetResourceId(exampleEnvironment.id())
  *             .targetResourceType(&#34;environment&#34;)
@@ -129,7 +136,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
  * import com.pulumi.azuredevops.Pool;
+ * import com.pulumi.azuredevops.PoolArgs;
  * import com.pulumi.azuredevops.Queue;
  * import com.pulumi.azuredevops.QueueArgs;
  * import com.pulumi.azuredevops.CheckBranchControl;
@@ -147,17 +156,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;);
+ *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
+ *             .build());
  * 
- *         var examplePool = new Pool(&#34;examplePool&#34;);
+ *         var examplePool = new Pool(&#34;examplePool&#34;, PoolArgs.builder()        
+ *             .name(&#34;example-pool&#34;)
+ *             .build());
  * 
  *         var exampleQueue = new Queue(&#34;exampleQueue&#34;, QueueArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .agentPoolId(examplePool.id())
  *             .build());
  * 
  *         var exampleCheckBranchControl = new CheckBranchControl(&#34;exampleCheckBranchControl&#34;, CheckBranchControlArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .displayName(&#34;Managed by Terraform&#34;)
  *             .targetResourceId(exampleQueue.id())
  *             .targetResourceType(&#34;queue&#34;)
@@ -179,6 +192,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
  * import com.pulumi.azuredevops.Git;
  * import com.pulumi.azuredevops.GitArgs;
  * import com.pulumi.azuredevops.inputs.GitInitializationArgs;
@@ -197,22 +211,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;);
+ *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
+ *             .build());
  * 
  *         var exampleGit = new Git(&#34;exampleGit&#34;, GitArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
+ *             .name(&#34;Example Empty Git Repository&#34;)
  *             .initialization(GitInitializationArgs.builder()
  *                 .initType(&#34;Clean&#34;)
  *                 .build())
  *             .build());
  * 
  *         var exampleCheckBranchControl = new CheckBranchControl(&#34;exampleCheckBranchControl&#34;, CheckBranchControlArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .displayName(&#34;Managed by Terraform&#34;)
- *             .targetResourceId(Output.tuple(exampleProject.id(), exampleGit.id()).applyValue(values -&gt; {
- *                 var exampleProjectId = values.t1;
+ *             .targetResourceId(Output.tuple(example.id(), exampleGit.id()).applyValue(values -&gt; {
+ *                 var exampleId = values.t1;
  *                 var exampleGitId = values.t2;
- *                 return String.format(&#34;%s.%s&#34;, exampleProjectId,exampleGitId);
+ *                 return String.format(&#34;%s.%s&#34;, exampleId,exampleGitId);
  *             }))
  *             .targetResourceType(&#34;repository&#34;)
  *             .allowedBranches(&#34;refs/heads/main, refs/heads/features/*&#34;)
@@ -233,6 +250,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
  * import com.pulumi.azuredevops.VariableGroup;
  * import com.pulumi.azuredevops.VariableGroupArgs;
  * import com.pulumi.azuredevops.inputs.VariableGroupVariableArgs;
@@ -251,10 +269,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;);
+ *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
+ *             .build());
  * 
  *         var exampleVariableGroup = new VariableGroup(&#34;exampleVariableGroup&#34;, VariableGroupArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
+ *             .name(&#34;Example Variable Group&#34;)
  *             .description(&#34;Example Variable Group Description&#34;)
  *             .allowAccess(true)
  *             .variables(            
@@ -270,7 +291,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCheckBranchControl = new CheckBranchControl(&#34;exampleCheckBranchControl&#34;, CheckBranchControlArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .displayName(&#34;Managed by Terraform&#34;)
  *             .targetResourceId(exampleVariableGroup.id())
  *             .targetResourceType(&#34;variablegroup&#34;)

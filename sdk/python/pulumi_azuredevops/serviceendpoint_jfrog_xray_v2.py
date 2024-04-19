@@ -275,13 +275,14 @@ class ServiceendpointJfrogXrayV2(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_serviceendpoint_jfrog_xray_v2 = azuredevops.ServiceendpointJfrogXrayV2("exampleServiceendpointJfrogXrayV2",
-            project_id=example_project.id,
+        example_serviceendpoint_jfrog_xray_v2 = azuredevops.ServiceendpointJfrogXrayV2("example",
+            project_id=example.id,
             service_endpoint_name="Example Artifactory",
             description="Managed by Terraform",
             url="https://artifactory.my.com",
@@ -297,13 +298,14 @@ class ServiceendpointJfrogXrayV2(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_serviceendpoint_jfrog_xray_v2 = azuredevops.ServiceendpointJfrogXrayV2("exampleServiceendpointJfrogXrayV2",
-            project_id=example_project.id,
+        example_serviceendpoint_jfrog_xray_v2 = azuredevops.ServiceendpointJfrogXrayV2("example",
+            project_id=example.id,
             service_endpoint_name="Example Artifactory",
             description="Managed by Terraform",
             url="https://artifactory.my.com",
@@ -356,13 +358,14 @@ class ServiceendpointJfrogXrayV2(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_serviceendpoint_jfrog_xray_v2 = azuredevops.ServiceendpointJfrogXrayV2("exampleServiceendpointJfrogXrayV2",
-            project_id=example_project.id,
+        example_serviceendpoint_jfrog_xray_v2 = azuredevops.ServiceendpointJfrogXrayV2("example",
+            project_id=example.id,
             service_endpoint_name="Example Artifactory",
             description="Managed by Terraform",
             url="https://artifactory.my.com",
@@ -378,13 +381,14 @@ class ServiceendpointJfrogXrayV2(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_serviceendpoint_jfrog_xray_v2 = azuredevops.ServiceendpointJfrogXrayV2("exampleServiceendpointJfrogXrayV2",
-            project_id=example_project.id,
+        example_serviceendpoint_jfrog_xray_v2 = azuredevops.ServiceendpointJfrogXrayV2("example",
+            project_id=example.id,
             service_endpoint_name="Example Artifactory",
             description="Managed by Terraform",
             url="https://artifactory.my.com",

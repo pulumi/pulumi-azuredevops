@@ -315,6 +315,78 @@ class ServiceEndpointKubernetes(pulumi.CustomResource):
         """
         Manages a Kubernetes service endpoint within Azure DevOps.
 
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            name="Example Project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_azure = azuredevops.ServiceEndpointKubernetes("example-azure",
+            project_id=example.id,
+            service_endpoint_name="Example Kubernetes",
+            apiserver_url="https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io",
+            authorization_type="AzureSubscription",
+            azure_subscriptions=[azuredevops.ServiceEndpointKubernetesAzureSubscriptionArgs(
+                subscription_id="00000000-0000-0000-0000-000000000000",
+                subscription_name="Example",
+                tenant_id="00000000-0000-0000-0000-000000000000",
+                resourcegroup_id="example-rg",
+                namespace="default",
+                cluster_name="example-aks",
+            )])
+        example_kubeconfig = azuredevops.ServiceEndpointKubernetes("example-kubeconfig",
+            project_id=example.id,
+            service_endpoint_name="Example Kubernetes",
+            apiserver_url="https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io",
+            authorization_type="Kubeconfig",
+            kubeconfig=azuredevops.ServiceEndpointKubernetesKubeconfigArgs(
+                kube_config=\"\"\"                              apiVersion: v1
+                                      clusters:
+                                      - cluster:
+                                          certificate-authority: fake-ca-file
+                                          server: https://1.2.3.4
+                                        name: development
+                                      contexts:
+                                      - context:
+                                          cluster: development
+                                          namespace: frontend
+                                          user: developer
+                                        name: dev-frontend
+                                      current-context: dev-frontend
+                                      kind: Config
+                                      preferences: {}
+                                      users:
+                                      - name: developer
+                                        user:
+                                          client-certificate: fake-cert-file
+                                          client-key: fake-key-file
+        \"\"\",
+                accept_untrusted_certs=True,
+                cluster_context="dev-frontend",
+            ))
+        example_service_account = azuredevops.ServiceEndpointKubernetes("example-service-account",
+            project_id=example.id,
+            service_endpoint_name="Example Kubernetes",
+            apiserver_url="https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io",
+            authorization_type="ServiceAccount",
+            service_account=azuredevops.ServiceEndpointKubernetesServiceAccountArgs(
+                token="000000000000000000000000",
+                ca_cert="0000000000000000000000000000000",
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ## Relevant Links
+
+        - [Azure DevOps Service REST API 7.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
+
         ## Import
 
         Azure DevOps Service Endpoint Kubernetes can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
@@ -341,6 +413,78 @@ class ServiceEndpointKubernetes(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Kubernetes service endpoint within Azure DevOps.
+
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            name="Example Project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_azure = azuredevops.ServiceEndpointKubernetes("example-azure",
+            project_id=example.id,
+            service_endpoint_name="Example Kubernetes",
+            apiserver_url="https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io",
+            authorization_type="AzureSubscription",
+            azure_subscriptions=[azuredevops.ServiceEndpointKubernetesAzureSubscriptionArgs(
+                subscription_id="00000000-0000-0000-0000-000000000000",
+                subscription_name="Example",
+                tenant_id="00000000-0000-0000-0000-000000000000",
+                resourcegroup_id="example-rg",
+                namespace="default",
+                cluster_name="example-aks",
+            )])
+        example_kubeconfig = azuredevops.ServiceEndpointKubernetes("example-kubeconfig",
+            project_id=example.id,
+            service_endpoint_name="Example Kubernetes",
+            apiserver_url="https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io",
+            authorization_type="Kubeconfig",
+            kubeconfig=azuredevops.ServiceEndpointKubernetesKubeconfigArgs(
+                kube_config=\"\"\"                              apiVersion: v1
+                                      clusters:
+                                      - cluster:
+                                          certificate-authority: fake-ca-file
+                                          server: https://1.2.3.4
+                                        name: development
+                                      contexts:
+                                      - context:
+                                          cluster: development
+                                          namespace: frontend
+                                          user: developer
+                                        name: dev-frontend
+                                      current-context: dev-frontend
+                                      kind: Config
+                                      preferences: {}
+                                      users:
+                                      - name: developer
+                                        user:
+                                          client-certificate: fake-cert-file
+                                          client-key: fake-key-file
+        \"\"\",
+                accept_untrusted_certs=True,
+                cluster_context="dev-frontend",
+            ))
+        example_service_account = azuredevops.ServiceEndpointKubernetes("example-service-account",
+            project_id=example.id,
+            service_endpoint_name="Example Kubernetes",
+            apiserver_url="https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io",
+            authorization_type="ServiceAccount",
+            service_account=azuredevops.ServiceEndpointKubernetesServiceAccountArgs(
+                token="000000000000000000000000",
+                ca_cert="0000000000000000000000000000000",
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ## Relevant Links
+
+        - [Azure DevOps Service REST API 7.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
 
         ## Import
 

@@ -10,5 +10,10 @@ actions:
     - name: Make upstream
       run: make upstream
 plugins:
+  - name: terraform
+    version: "1.0.16"
+    kind: converter
+
   - name: azure
     version: "5.66.1"
+pulumiConvert: 1

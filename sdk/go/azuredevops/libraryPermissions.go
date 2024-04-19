@@ -30,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Testing"),
 //				Description:      pulumi.String("Testing-description"),
 //				Visibility:       pulumi.String("private"),
 //				VersionControl:   pulumi.String("Git"),

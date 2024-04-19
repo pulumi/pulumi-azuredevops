@@ -14,14 +14,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {});
- * const exampleUser = new azuredevops.User("exampleUser", {principalName: "foo@contoso.com"});
- * const exampleGroup = azuredevops.getGroupOutput({
+ * const exampleProject = new azuredevops.Project("example", {name: "Example Project"});
+ * const exampleUser = new azuredevops.User("example", {principalName: "foo@contoso.com"});
+ * const example = azuredevops.getGroupOutput({
  *     projectId: exampleProject.id,
  *     name: "Build Administrators",
  * });
- * const exampleGroupMembership = new azuredevops.GroupMembership("exampleGroupMembership", {
- *     group: exampleGroup.apply(exampleGroup => exampleGroup.descriptor),
+ * const exampleGroupMembership = new azuredevops.GroupMembership("example", {
+ *     group: example.apply(example => example.descriptor),
  *     members: [exampleUser.descriptor],
  * });
  * ```

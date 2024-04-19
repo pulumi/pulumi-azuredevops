@@ -23,58 +23,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### Client Certificate Authentication
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azuredevops.Project;
- * import com.pulumi.azuredevops.ProjectArgs;
- * import com.pulumi.azuredevops.ServiceEndpointServiceFabric;
- * import com.pulumi.azuredevops.ServiceEndpointServiceFabricArgs;
- * import com.pulumi.azuredevops.inputs.ServiceEndpointServiceFabricCertificateArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
- *             .build());
- * 
- *         var exampleServiceEndpointServiceFabric = new ServiceEndpointServiceFabric(&#34;exampleServiceEndpointServiceFabric&#34;, ServiceEndpointServiceFabricArgs.builder()        
- *             .projectId(exampleProject.id())
- *             .serviceEndpointName(&#34;Example Service Fabric&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
- *             .clusterEndpoint(&#34;tcp://test&#34;)
- *             .certificate(ServiceEndpointServiceFabricCertificateArgs.builder()
- *                 .serverCertificateLookup(&#34;Thumbprint&#34;)
- *                 .serverCertificateThumbprint(&#34;0000000000000000000000000000000000000000&#34;)
- *                 .clientCertificate(Base64.getEncoder().encodeToString(Files.readAllBytes(Paths.get(&#34;certificate.pfx&#34;))))
- *                 .clientCertificatePassword(&#34;password&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ### Azure Active Directory Authentication
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -103,6 +51,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var project = new Project(&#34;project&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Sample Project&#34;)
  *             .visibility(&#34;private&#34;)
  *             .versionControl(&#34;Git&#34;)
  *             .workItemTemplate(&#34;Agile&#34;)
@@ -154,6 +103,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var project = new Project(&#34;project&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Sample Project&#34;)
  *             .visibility(&#34;private&#34;)
  *             .versionControl(&#34;Git&#34;)
  *             .workItemTemplate(&#34;Agile&#34;)

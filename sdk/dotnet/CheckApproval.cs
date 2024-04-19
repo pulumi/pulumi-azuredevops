@@ -25,21 +25,25 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject");
-    /// 
-    ///     var exampleEnvironment = new AzureDevOps.Environment("exampleEnvironment", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         Name = "Example Project",
     ///     });
     /// 
-    ///     var exampleGroup = new AzureDevOps.Group("exampleGroup", new()
+    ///     var exampleEnvironment = new AzureDevOps.Environment("example", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Example Environment",
+    ///     });
+    /// 
+    ///     var exampleGroup = new AzureDevOps.Group("example", new()
     ///     {
     ///         DisplayName = "some-azdo-group",
     ///     });
     /// 
-    ///     var exampleCheckApproval = new AzureDevOps.CheckApproval("exampleCheckApproval", new()
+    ///     var exampleCheckApproval = new AzureDevOps.CheckApproval("example", new()
     ///     {
-    ///         ProjectId = exampleProject.Id,
+    ///         ProjectId = example.Id,
     ///         TargetResourceId = exampleEnvironment.Id,
     ///         TargetResourceType = "environment",
     ///         RequesterCanApprove = true,

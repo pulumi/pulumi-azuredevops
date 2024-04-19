@@ -31,12 +31,14 @@ namespace Pulumi.AzureDevOps
         ///         Name = "Example Project",
         ///     });
         /// 
+        ///     // Load all Git repositories of a project, which are accessible for the current user
         ///     var example_all_repos = AzureDevOps.GetRepositories.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         IncludeHidden = true,
         ///     });
         /// 
+        ///     // Load a specific Git repository by name
         ///     var example_single_repo = AzureDevOps.GetRepositories.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
@@ -74,12 +76,14 @@ namespace Pulumi.AzureDevOps
         ///         Name = "Example Project",
         ///     });
         /// 
+        ///     // Load all Git repositories of a project, which are accessible for the current user
         ///     var example_all_repos = AzureDevOps.GetRepositories.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         IncludeHidden = true,
         ///     });
         /// 
+        ///     // Load a specific Git repository by name
         ///     var example_single_repo = AzureDevOps.GetRepositories.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),

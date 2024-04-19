@@ -54,7 +54,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+ *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
  *             .visibility(&#34;private&#34;)
  *             .versionControl(&#34;Git&#34;)
  *             .workItemTemplate(&#34;Agile&#34;)
@@ -62,17 +63,18 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePool = new Pool(&#34;examplePool&#34;, PoolArgs.builder()        
+ *             .name(&#34;Example Pool&#34;)
  *             .autoProvision(false)
  *             .autoUpdate(false)
  *             .build());
  * 
  *         var exampleQueue = new Queue(&#34;exampleQueue&#34;, QueueArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .agentPoolId(examplePool.id())
  *             .build());
  * 
  *         var examplePipelineAuthorization = new PipelineAuthorization(&#34;examplePipelineAuthorization&#34;, PipelineAuthorizationArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .resourceId(exampleQueue.id())
  *             .type(&#34;queue&#34;)
  *             .build());
@@ -118,6 +120,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
  *             .visibility(&#34;private&#34;)
  *             .versionControl(&#34;Git&#34;)
  *             .workItemTemplate(&#34;Agile&#34;)
@@ -125,6 +128,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePool = new Pool(&#34;examplePool&#34;, PoolArgs.builder()        
+ *             .name(&#34;Example Pool&#34;)
  *             .autoProvision(false)
  *             .autoUpdate(false)
  *             .build());
@@ -134,16 +138,17 @@ import javax.annotation.Nullable;
  *             .agentPoolId(examplePool.id())
  *             .build());
  * 
- *         final var exampleGitRepository = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
+ *         final var example = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
  *             .projectId(exampleProject.id())
  *             .name(&#34;Example Project&#34;)
  *             .build());
  * 
  *         var exampleBuildDefinition = new BuildDefinition(&#34;exampleBuildDefinition&#34;, BuildDefinitionArgs.builder()        
  *             .projectId(exampleProject.id())
+ *             .name(&#34;Example Pipeline&#34;)
  *             .repository(BuildDefinitionRepositoryArgs.builder()
  *                 .repoType(&#34;TfsGit&#34;)
- *                 .repoId(exampleGitRepository.applyValue(getGitRepositoryResult -&gt; getGitRepositoryResult).applyValue(exampleGitRepository -&gt; exampleGitRepository.applyValue(getGitRepositoryResult -&gt; getGitRepositoryResult.id())))
+ *                 .repoId(example.applyValue(getGitRepositoryResult -&gt; getGitRepositoryResult).applyValue(example -&gt; example.applyValue(getGitRepositoryResult -&gt; getGitRepositoryResult.id())))
  *                 .ymlPath(&#34;azure-pipelines.yml&#34;)
  *                 .build())
  *             .build());

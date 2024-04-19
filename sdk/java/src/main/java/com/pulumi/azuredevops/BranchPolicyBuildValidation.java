@@ -31,6 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
  * import com.pulumi.azuredevops.Git;
  * import com.pulumi.azuredevops.GitArgs;
  * import com.pulumi.azuredevops.inputs.GitInitializationArgs;
@@ -53,17 +54,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;);
+ *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
+ *             .build());
  * 
  *         var exampleGit = new Git(&#34;exampleGit&#34;, GitArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
+ *             .name(&#34;Example Repository&#34;)
  *             .initialization(GitInitializationArgs.builder()
  *                 .initType(&#34;Clean&#34;)
  *                 .build())
  *             .build());
  * 
  *         var exampleBuildDefinition = new BuildDefinition(&#34;exampleBuildDefinition&#34;, BuildDefinitionArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
+ *             .name(&#34;Example Build Definition&#34;)
  *             .repository(BuildDefinitionRepositoryArgs.builder()
  *                 .repoType(&#34;TfsGit&#34;)
  *                 .repoId(exampleGit.id())
@@ -72,7 +77,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBranchPolicyBuildValidation = new BranchPolicyBuildValidation(&#34;exampleBranchPolicyBuildValidation&#34;, BranchPolicyBuildValidationArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .enabled(true)
  *             .blocking(true)
  *             .settings(BranchPolicyBuildValidationSettingsArgs.builder()

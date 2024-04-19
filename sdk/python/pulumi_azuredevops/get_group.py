@@ -111,14 +111,14 @@ def get_group(name: Optional[str] = None,
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    example_project = azuredevops.get_project(name="Example Project")
-    example_group = azuredevops.get_group(project_id=example_project.id,
+    example = azuredevops.get_project(name="Example Project")
+    example_get_group = azuredevops.get_group(project_id=example.id,
         name="Example Group")
-    pulumi.export("groupId", example_group.id)
-    pulumi.export("groupDescriptor", example_group.descriptor)
+    pulumi.export("groupId", example_get_group.id)
+    pulumi.export("groupDescriptor", example_get_group.descriptor)
     example_collection_group = azuredevops.get_group(name="Project Collection Administrators")
-    pulumi.export("collectionGroupId", example_group.id)
-    pulumi.export("collectionGroupDescriptor", example_group.descriptor)
+    pulumi.export("collectionGroupId", example_get_group.id)
+    pulumi.export("collectionGroupDescriptor", example_get_group.descriptor)
     ```
     <!--End PulumiCodeChooser -->
 
@@ -164,14 +164,14 @@ def get_group_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    example_project = azuredevops.get_project(name="Example Project")
-    example_group = azuredevops.get_group(project_id=example_project.id,
+    example = azuredevops.get_project(name="Example Project")
+    example_get_group = azuredevops.get_group(project_id=example.id,
         name="Example Group")
-    pulumi.export("groupId", example_group.id)
-    pulumi.export("groupDescriptor", example_group.descriptor)
+    pulumi.export("groupId", example_get_group.id)
+    pulumi.export("groupDescriptor", example_get_group.descriptor)
     example_collection_group = azuredevops.get_group(name="Project Collection Administrators")
-    pulumi.export("collectionGroupId", example_group.id)
-    pulumi.export("collectionGroupDescriptor", example_group.descriptor)
+    pulumi.export("collectionGroupId", example_get_group.id)
+    pulumi.export("collectionGroupDescriptor", example_get_group.descriptor)
     ```
     <!--End PulumiCodeChooser -->
 

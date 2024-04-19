@@ -62,21 +62,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+ *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
  *             .visibility(&#34;private&#34;)
  *             .versionControl(&#34;Git&#34;)
  *             .workItemTemplate(&#34;Agile&#34;)
  *             .build());
  * 
  *         var exampleGit = new Git(&#34;exampleGit&#34;, GitArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
+ *             .name(&#34;Example Repository&#34;)
  *             .initialization(GitInitializationArgs.builder()
  *                 .initType(&#34;Clean&#34;)
  *                 .build())
  *             .build());
  * 
  *         var exampleVariableGroup = new VariableGroup(&#34;exampleVariableGroup&#34;, VariableGroupArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
+ *             .name(&#34;Example Pipeline Variables&#34;)
  *             .description(&#34;Managed by Terraform&#34;)
  *             .allowAccess(true)
  *             .variables(VariableGroupVariableArgs.builder()
@@ -86,7 +89,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBuildDefinition = new BuildDefinition(&#34;exampleBuildDefinition&#34;, BuildDefinitionArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
+ *             .name(&#34;Example Build Definition&#34;)
  *             .path(&#34;\\ExampleFolder&#34;)
  *             .ciTrigger(BuildDefinitionCiTriggerArgs.builder()
  *                 .useYaml(false)
@@ -161,14 +165,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+ *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
  *             .visibility(&#34;private&#34;)
  *             .versionControl(&#34;Git&#34;)
  *             .workItemTemplate(&#34;Agile&#34;)
  *             .build());
  * 
  *         var exampleServiceEndpointGitHubEnterprise = new ServiceEndpointGitHubEnterprise(&#34;exampleServiceEndpointGitHubEnterprise&#34;, ServiceEndpointGitHubEnterpriseArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .serviceEndpointName(&#34;Example GitHub Enterprise&#34;)
  *             .url(&#34;https://github.contoso.com&#34;)
  *             .description(&#34;Managed by Terraform&#34;)
@@ -178,7 +183,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBuildDefinition = new BuildDefinition(&#34;exampleBuildDefinition&#34;, BuildDefinitionArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
+ *             .name(&#34;Example Build Definition&#34;)
  *             .path(&#34;\\ExampleFolder&#34;)
  *             .ciTrigger(BuildDefinitionCiTriggerArgs.builder()
  *                 .useYaml(false)

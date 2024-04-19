@@ -209,6 +209,7 @@ class LibraryPermissions(pulumi.CustomResource):
         import pulumi_azuredevops as azuredevops
 
         project = azuredevops.Project("project",
+            name="Testing",
             description="Testing-description",
             visibility="private",
             version_control="Git",
@@ -282,6 +283,7 @@ class LibraryPermissions(pulumi.CustomResource):
         import pulumi_azuredevops as azuredevops
 
         project = azuredevops.Project("project",
+            name="Testing",
             description="Testing-description",
             visibility="private",
             version_control="Git",

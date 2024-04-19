@@ -48,7 +48,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+ *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example Project&#34;)
  *             .visibility(&#34;private&#34;)
  *             .versionControl(&#34;Git&#34;)
  *             .workItemTemplate(&#34;Agile&#34;)
@@ -56,7 +57,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM(&#34;exampleServiceEndpointAzureRM&#34;, ServiceEndpointAzureRMArgs.builder()        
- *             .projectId(exampleProject.id())
+ *             .projectId(example.id())
  *             .serviceEndpointName(&#34;Example Azure Connection&#34;)
  *             .description(&#34;Managed by Terraform&#34;)
  *             .serviceEndpointAuthenticationScheme(&#34;ServicePrincipal&#34;)
@@ -70,8 +71,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleElasticPool = new ElasticPool(&#34;exampleElasticPool&#34;, ElasticPoolArgs.builder()        
+ *             .name(&#34;Example Elastic Pool&#34;)
  *             .serviceEndpointId(exampleServiceEndpointAzureRM.id())
- *             .serviceEndpointScope(exampleProject.id())
+ *             .serviceEndpointScope(example.id())
  *             .desiredIdle(2)
  *             .maxCapacity(3)
  *             .azureResourceId(&#34;/subscriptions/&lt;Subscription Id&gt;/resourceGroups/&lt;Resource Name&gt;/providers/Microsoft.Compute/virtualMachineScaleSets/&lt;VMSS Name&gt;&#34;)

@@ -16,20 +16,22 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  *     description: "Managed by Terraform",
  * });
- * const exampleGit = new azuredevops.Git("exampleGit", {
- *     projectId: exampleProject.id,
+ * const exampleGit = new azuredevops.Git("example", {
+ *     projectId: example.id,
+ *     name: "Sample Repo",
  *     initialization: {
  *         initType: "Clean",
  *     },
  * });
- * const exampleRepositoryPolicyMaxPathLength = new azuredevops.RepositoryPolicyMaxPathLength("exampleRepositoryPolicyMaxPathLength", {
- *     projectId: exampleProject.id,
+ * const exampleRepositoryPolicyMaxPathLength = new azuredevops.RepositoryPolicyMaxPathLength("example", {
+ *     projectId: example.id,
  *     enabled: true,
  *     blocking: true,
  *     maxPathLength: 500,
@@ -44,14 +46,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  *     description: "Managed by Terraform",
  * });
- * const exampleRepositoryPolicyMaxPathLength = new azuredevops.RepositoryPolicyMaxPathLength("exampleRepositoryPolicyMaxPathLength", {
- *     projectId: exampleProject.id,
+ * const exampleRepositoryPolicyMaxPathLength = new azuredevops.RepositoryPolicyMaxPathLength("example", {
+ *     projectId: example.id,
  *     enabled: true,
  *     blocking: true,
  *     maxPathLength: 1000,

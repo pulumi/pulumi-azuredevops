@@ -263,17 +263,19 @@ class Team(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
             description="Managed by Terraform")
-        example_project_contributors = azuredevops.get_group_output(project_id=example_project.id,
+        example_project_contributors = azuredevops.get_group_output(project_id=example.id,
             name="Contributors")
-        example_project_readers = azuredevops.get_group_output(project_id=example_project.id,
+        example_project_readers = azuredevops.get_group_output(project_id=example.id,
             name="Readers")
-        example_team = azuredevops.Team("exampleTeam",
-            project_id=example_project.id,
+        example_team = azuredevops.Team("example",
+            project_id=example.id,
+            name="Example Team",
             administrators=[example_project_contributors.descriptor],
             members=[example_project_readers.descriptor])
         ```
@@ -329,17 +331,19 @@ class Team(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
             description="Managed by Terraform")
-        example_project_contributors = azuredevops.get_group_output(project_id=example_project.id,
+        example_project_contributors = azuredevops.get_group_output(project_id=example.id,
             name="Contributors")
-        example_project_readers = azuredevops.get_group_output(project_id=example_project.id,
+        example_project_readers = azuredevops.get_group_output(project_id=example.id,
             name="Readers")
-        example_team = azuredevops.Team("exampleTeam",
-            project_id=example_project.id,
+        example_team = azuredevops.Team("example",
+            project_id=example.id,
+            name="Example Team",
             administrators=[example_project_contributors.descriptor],
             members=[example_project_readers.descriptor])
         ```

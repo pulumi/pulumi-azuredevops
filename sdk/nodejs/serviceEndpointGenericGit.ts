@@ -15,14 +15,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  *     description: "Managed by Terraform",
  * });
- * const exampleServiceEndpointGenericGit = new azuredevops.ServiceEndpointGenericGit("exampleServiceEndpointGenericGit", {
- *     projectId: exampleProject.id,
+ * const exampleServiceEndpointGenericGit = new azuredevops.ServiceEndpointGenericGit("example", {
+ *     projectId: example.id,
  *     repositoryUrl: "https://dev.azure.com/org/project/_git/repository",
  *     username: "username",
  *     password: "password",

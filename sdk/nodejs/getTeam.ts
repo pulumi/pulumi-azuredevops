@@ -14,13 +14,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const exampleProject = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
  *     description: "Managed by Terraform",
  * });
- * const exampleTeam = azuredevops.getTeamOutput({
+ * const example = azuredevops.getTeamOutput({
  *     projectId: exampleProject.id,
  *     name: "Example Project Team",
  * });
@@ -101,13 +102,14 @@ export interface GetTeamResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const exampleProject = new azuredevops.Project("exampleProject", {
+ * const exampleProject = new azuredevops.Project("example", {
+ *     name: "Example Project",
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
  *     description: "Managed by Terraform",
  * });
- * const exampleTeam = azuredevops.getTeamOutput({
+ * const example = azuredevops.getTeamOutput({
  *     projectId: exampleProject.id,
  *     name: "Example Project Team",
  * });

@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * const example = azuredevops.getServiceendpointSonarcloud({
- *     projectId: azuredevops_project.example.id,
+ *     projectId: exampleAzuredevopsProject.id,
  *     serviceEndpointName: "Example Sonar Cloud",
  * });
  * export const serviceEndpointId = example.then(example => example.id);
@@ -83,7 +83,7 @@ export interface GetServiceendpointSonarcloudResult {
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * const example = azuredevops.getServiceendpointSonarcloud({
- *     projectId: azuredevops_project.example.id,
+ *     projectId: exampleAzuredevopsProject.id,
  *     serviceEndpointName: "Example Sonar Cloud",
  * });
  * export const serviceEndpointId = example.then(example => example.id);

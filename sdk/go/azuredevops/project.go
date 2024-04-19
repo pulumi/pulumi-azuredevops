@@ -29,14 +29,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
-//				Description: pulumi.String("Managed by Terraform"),
-//				Features: pulumi.StringMap{
-//					"artifacts": pulumi.String("disabled"),
-//					"testplans": pulumi.String("disabled"),
-//				},
-//				VersionControl:   pulumi.String("Git"),
+//				Name:             pulumi.String("Example Project"),
 //				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
 //				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//				Features: pulumi.StringMap{
+//					"testplans": pulumi.String("disabled"),
+//					"artifacts": pulumi.String("disabled"),
+//				},
 //			})
 //			if err != nil {
 //				return err

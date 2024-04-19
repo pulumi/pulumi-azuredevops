@@ -28,20 +28,20 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
+//			example, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
 //				Name: pulumi.StringRef("Example Project"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleBuildDefinition, err := azuredevops.LookupBuildDefinition(ctx, &azuredevops.LookupBuildDefinitionArgs{
-//				ProjectId: exampleProject.Id,
+//			exampleGetBuildDefinition, err := azuredevops.LookupBuildDefinition(ctx, &azuredevops.LookupBuildDefinitionArgs{
+//				ProjectId: example.Id,
 //				Name:      "existing",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("id", exampleBuildDefinition.Id)
+//			ctx.Export("id", exampleGetBuildDefinition.Id)
 //			return nil
 //		})
 //	}

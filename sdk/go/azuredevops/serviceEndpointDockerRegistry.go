@@ -29,7 +29,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
 //				Visibility:       pulumi.String("private"),
 //				VersionControl:   pulumi.String("Git"),
 //				WorkItemTemplate: pulumi.String("Agile"),
@@ -39,8 +40,8 @@ import (
 //				return err
 //			}
 //			// dockerhub registry service connection
-//			_, err = azuredevops.NewServiceEndpointDockerRegistry(ctx, "exampleServiceEndpointDockerRegistry", &azuredevops.ServiceEndpointDockerRegistryArgs{
-//				ProjectId:           exampleProject.ID(),
+//			_, err = azuredevops.NewServiceEndpointDockerRegistry(ctx, "example", &azuredevops.ServiceEndpointDockerRegistryArgs{
+//				ProjectId:           example.ID(),
 //				ServiceEndpointName: pulumi.String("Example Docker Hub"),
 //				DockerUsername:      pulumi.String("example"),
 //				DockerEmail:         pulumi.String("email@example.com"),
@@ -52,7 +53,7 @@ import (
 //			}
 //			// other docker registry service connection
 //			_, err = azuredevops.NewServiceEndpointDockerRegistry(ctx, "example-other", &azuredevops.ServiceEndpointDockerRegistryArgs{
-//				ProjectId:           exampleProject.ID(),
+//				ProjectId:           example.ID(),
 //				ServiceEndpointName: pulumi.String("Example Docker Registry"),
 //				DockerRegistry:      pulumi.String("https://sample.azurecr.io/v1"),
 //				DockerUsername:      pulumi.String("sample"),

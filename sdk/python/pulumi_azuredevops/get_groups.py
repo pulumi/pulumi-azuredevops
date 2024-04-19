@@ -79,7 +79,9 @@ def get_groups(project_id: Optional[str] = None,
     import pulumi_azuredevops as azuredevops
 
     example = azuredevops.get_project(name="Example Project")
+    # load all existing groups inside an organization
     example_all_groups = azuredevops.get_groups()
+    # load all existing groups inside a specific project
     example_project_groups = azuredevops.get_groups(project_id=example.id)
     ```
     <!--End PulumiCodeChooser -->
@@ -116,7 +118,9 @@ def get_groups_output(project_id: Optional[pulumi.Input[Optional[str]]] = None,
     import pulumi_azuredevops as azuredevops
 
     example = azuredevops.get_project(name="Example Project")
+    # load all existing groups inside an organization
     example_all_groups = azuredevops.get_groups()
+    # load all existing groups inside a specific project
     example_project_groups = azuredevops.get_groups(project_id=example.id)
     ```
     <!--End PulumiCodeChooser -->

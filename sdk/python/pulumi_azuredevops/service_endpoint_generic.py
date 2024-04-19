@@ -256,13 +256,14 @@ class ServiceEndpointGeneric(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_service_endpoint_generic = azuredevops.ServiceEndpointGeneric("exampleServiceEndpointGeneric",
-            project_id=example_project.id,
+        example_service_endpoint_generic = azuredevops.ServiceEndpointGeneric("example",
+            project_id=example.id,
             server_url="https://some-server.example.com",
             username="username",
             password="password",
@@ -310,13 +311,14 @@ class ServiceEndpointGeneric(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject",
+        example = azuredevops.Project("example",
+            name="Example Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Terraform")
-        example_service_endpoint_generic = azuredevops.ServiceEndpointGeneric("exampleServiceEndpointGeneric",
-            project_id=example_project.id,
+        example_service_endpoint_generic = azuredevops.ServiceEndpointGeneric("example",
+            project_id=example.id,
             server_url="https://some-server.example.com",
             username="username",
             password="password",

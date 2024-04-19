@@ -337,13 +337,13 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject")
-        example_readers = azuredevops.get_group_output(project_id=example_project.id,
+        example = azuredevops.Project("example", name="Example Project")
+        example_readers = azuredevops.get_group_output(project_id=example.id,
             name="Readers")
-        example_contributors = azuredevops.get_group_output(project_id=example_project.id,
+        example_contributors = azuredevops.get_group_output(project_id=example.id,
             name="Contributors")
-        example_group = azuredevops.Group("exampleGroup",
-            scope=example_project.id,
+        example_group = azuredevops.Group("example",
+            scope=example.id,
             display_name="Example group",
             description="Example description",
             members=[
@@ -394,13 +394,13 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example_project = azuredevops.Project("exampleProject")
-        example_readers = azuredevops.get_group_output(project_id=example_project.id,
+        example = azuredevops.Project("example", name="Example Project")
+        example_readers = azuredevops.get_group_output(project_id=example.id,
             name="Readers")
-        example_contributors = azuredevops.get_group_output(project_id=example_project.id,
+        example_contributors = azuredevops.get_group_output(project_id=example.id,
             name="Contributors")
-        example_group = azuredevops.Group("exampleGroup",
-            scope=example_project.id,
+        example_group = azuredevops.Group("example",
+            scope=example.id,
             display_name="Example group",
             description="Example description",
             members=[
