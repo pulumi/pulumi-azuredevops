@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  * });
  * export const serviceEndpointId = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getServiceendpointAzurecr(args: GetServiceendpointAzurecrArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceendpointAzurecrResult> {
 
@@ -117,7 +115,6 @@ export interface GetServiceendpointAzurecrResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -128,7 +125,6 @@ export interface GetServiceendpointAzurecrResult {
  * });
  * export const serviceEndpointId = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getServiceendpointAzurecrOutput(args: GetServiceendpointAzurecrOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceendpointAzurecrResult> {
     return pulumi.output(args).apply((a: any) => getServiceendpointAzurecr(a, opts))

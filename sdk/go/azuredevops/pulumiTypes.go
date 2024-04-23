@@ -1994,11 +1994,8 @@ func (o BranchPolicyStatusCheckSettingsPtrOutput) Scopes() BranchPolicyStatusChe
 }
 
 type BranchPolicyStatusCheckSettingsScope struct {
-	// The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
-	MatchType *string `pulumi:"matchType"`
-	// The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
-	RepositoryId *string `pulumi:"repositoryId"`
-	// The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+	MatchType     *string `pulumi:"matchType"`
+	RepositoryId  *string `pulumi:"repositoryId"`
 	RepositoryRef *string `pulumi:"repositoryRef"`
 }
 
@@ -2014,11 +2011,8 @@ type BranchPolicyStatusCheckSettingsScopeInput interface {
 }
 
 type BranchPolicyStatusCheckSettingsScopeArgs struct {
-	// The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
-	MatchType pulumi.StringPtrInput `pulumi:"matchType"`
-	// The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
-	RepositoryId pulumi.StringPtrInput `pulumi:"repositoryId"`
-	// The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+	MatchType     pulumi.StringPtrInput `pulumi:"matchType"`
+	RepositoryId  pulumi.StringPtrInput `pulumi:"repositoryId"`
 	RepositoryRef pulumi.StringPtrInput `pulumi:"repositoryRef"`
 }
 
@@ -2073,17 +2067,14 @@ func (o BranchPolicyStatusCheckSettingsScopeOutput) ToBranchPolicyStatusCheckSet
 	return o
 }
 
-// The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
 func (o BranchPolicyStatusCheckSettingsScopeOutput) MatchType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BranchPolicyStatusCheckSettingsScope) *string { return v.MatchType }).(pulumi.StringPtrOutput)
 }
 
-// The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
 func (o BranchPolicyStatusCheckSettingsScopeOutput) RepositoryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BranchPolicyStatusCheckSettingsScope) *string { return v.RepositoryId }).(pulumi.StringPtrOutput)
 }
 
-// The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
 func (o BranchPolicyStatusCheckSettingsScopeOutput) RepositoryRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BranchPolicyStatusCheckSettingsScope) *string { return v.RepositoryRef }).(pulumi.StringPtrOutput)
 }
@@ -2967,9 +2958,6 @@ func (o BuildDefinitionCiTriggerOverridePathFilterArrayOutput) Index(i pulumi.In
 }
 
 type BuildDefinitionFeature struct {
-	// Trigger the pipeline to run after the creation. Defaults to `true`.
-	//
-	// > **Note** The first run(`skipFirstRun = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
 	SkipFirstRun *bool `pulumi:"skipFirstRun"`
 }
 
@@ -2985,9 +2973,6 @@ type BuildDefinitionFeatureInput interface {
 }
 
 type BuildDefinitionFeatureArgs struct {
-	// Trigger the pipeline to run after the creation. Defaults to `true`.
-	//
-	// > **Note** The first run(`skipFirstRun = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
 	SkipFirstRun pulumi.BoolPtrInput `pulumi:"skipFirstRun"`
 }
 
@@ -3042,9 +3027,6 @@ func (o BuildDefinitionFeatureOutput) ToBuildDefinitionFeatureOutputWithContext(
 	return o
 }
 
-// Trigger the pipeline to run after the creation. Defaults to `true`.
-//
-// > **Note** The first run(`skipFirstRun = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
 func (o BuildDefinitionFeatureOutput) SkipFirstRun() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionFeature) *bool { return v.SkipFirstRun }).(pulumi.BoolPtrOutput)
 }
@@ -5206,9 +5188,9 @@ func (o GitInitializationPtrOutput) SourceUrl() pulumi.StringPtrOutput {
 }
 
 type ServiceEndpointArtifactoryAuthenticationBasic struct {
-	// Artifactory Password.
+	// The Artifactory password.
 	Password string `pulumi:"password"`
-	// Artifactory Username.
+	// The Artifactory user name.
 	Username string `pulumi:"username"`
 }
 
@@ -5224,9 +5206,9 @@ type ServiceEndpointArtifactoryAuthenticationBasicInput interface {
 }
 
 type ServiceEndpointArtifactoryAuthenticationBasicArgs struct {
-	// Artifactory Password.
+	// The Artifactory password.
 	Password pulumi.StringInput `pulumi:"password"`
-	// Artifactory Username.
+	// The Artifactory user name.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -5307,12 +5289,12 @@ func (o ServiceEndpointArtifactoryAuthenticationBasicOutput) ToServiceEndpointAr
 	}).(ServiceEndpointArtifactoryAuthenticationBasicPtrOutput)
 }
 
-// Artifactory Password.
+// The Artifactory password.
 func (o ServiceEndpointArtifactoryAuthenticationBasicOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceEndpointArtifactoryAuthenticationBasic) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// Artifactory Username.
+// The Artifactory user name.
 func (o ServiceEndpointArtifactoryAuthenticationBasicOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceEndpointArtifactoryAuthenticationBasic) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -5341,7 +5323,7 @@ func (o ServiceEndpointArtifactoryAuthenticationBasicPtrOutput) Elem() ServiceEn
 	}).(ServiceEndpointArtifactoryAuthenticationBasicOutput)
 }
 
-// Artifactory Password.
+// The Artifactory password.
 func (o ServiceEndpointArtifactoryAuthenticationBasicPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointArtifactoryAuthenticationBasic) *string {
 		if v == nil {
@@ -5351,7 +5333,7 @@ func (o ServiceEndpointArtifactoryAuthenticationBasicPtrOutput) Password() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Artifactory Username.
+// The Artifactory user name.
 func (o ServiceEndpointArtifactoryAuthenticationBasicPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointArtifactoryAuthenticationBasic) *string {
 		if v == nil {
@@ -5362,7 +5344,7 @@ func (o ServiceEndpointArtifactoryAuthenticationBasicPtrOutput) Username() pulum
 }
 
 type ServiceEndpointArtifactoryAuthenticationToken struct {
-	// Authentication Token generated through Artifactory.
+	// The Artifactory access token.
 	Token string `pulumi:"token"`
 }
 
@@ -5378,7 +5360,7 @@ type ServiceEndpointArtifactoryAuthenticationTokenInput interface {
 }
 
 type ServiceEndpointArtifactoryAuthenticationTokenArgs struct {
-	// Authentication Token generated through Artifactory.
+	// The Artifactory access token.
 	Token pulumi.StringInput `pulumi:"token"`
 }
 
@@ -5459,7 +5441,7 @@ func (o ServiceEndpointArtifactoryAuthenticationTokenOutput) ToServiceEndpointAr
 	}).(ServiceEndpointArtifactoryAuthenticationTokenPtrOutput)
 }
 
-// Authentication Token generated through Artifactory.
+// The Artifactory access token.
 func (o ServiceEndpointArtifactoryAuthenticationTokenOutput) Token() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceEndpointArtifactoryAuthenticationToken) string { return v.Token }).(pulumi.StringOutput)
 }
@@ -5488,7 +5470,7 @@ func (o ServiceEndpointArtifactoryAuthenticationTokenPtrOutput) Elem() ServiceEn
 	}).(ServiceEndpointArtifactoryAuthenticationTokenOutput)
 }
 
-// Authentication Token generated through Artifactory.
+// The Artifactory access token.
 func (o ServiceEndpointArtifactoryAuthenticationTokenPtrOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointArtifactoryAuthenticationToken) *string {
 		if v == nil {
@@ -7409,9 +7391,9 @@ func (o ServiceEndpointServiceFabricNonePtrOutput) Unsecured() pulumi.BoolPtrOut
 }
 
 type ServiceendpointArgocdAuthenticationBasic struct {
-	// ArgoCD Password.
+	// The ArgoCD password.
 	Password string `pulumi:"password"`
-	// ArgoCD Username.
+	// The ArgoCD user name.
 	Username string `pulumi:"username"`
 }
 
@@ -7427,9 +7409,9 @@ type ServiceendpointArgocdAuthenticationBasicInput interface {
 }
 
 type ServiceendpointArgocdAuthenticationBasicArgs struct {
-	// ArgoCD Password.
+	// The ArgoCD password.
 	Password pulumi.StringInput `pulumi:"password"`
-	// ArgoCD Username.
+	// The ArgoCD user name.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -7510,12 +7492,12 @@ func (o ServiceendpointArgocdAuthenticationBasicOutput) ToServiceendpointArgocdA
 	}).(ServiceendpointArgocdAuthenticationBasicPtrOutput)
 }
 
-// ArgoCD Password.
+// The ArgoCD password.
 func (o ServiceendpointArgocdAuthenticationBasicOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceendpointArgocdAuthenticationBasic) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// ArgoCD Username.
+// The ArgoCD user name.
 func (o ServiceendpointArgocdAuthenticationBasicOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceendpointArgocdAuthenticationBasic) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -7544,7 +7526,7 @@ func (o ServiceendpointArgocdAuthenticationBasicPtrOutput) Elem() Serviceendpoin
 	}).(ServiceendpointArgocdAuthenticationBasicOutput)
 }
 
-// ArgoCD Password.
+// The ArgoCD password.
 func (o ServiceendpointArgocdAuthenticationBasicPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointArgocdAuthenticationBasic) *string {
 		if v == nil {
@@ -7554,7 +7536,7 @@ func (o ServiceendpointArgocdAuthenticationBasicPtrOutput) Password() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// ArgoCD Username.
+// The ArgoCD user name.
 func (o ServiceendpointArgocdAuthenticationBasicPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointArgocdAuthenticationBasic) *string {
 		if v == nil {
@@ -7565,7 +7547,7 @@ func (o ServiceendpointArgocdAuthenticationBasicPtrOutput) Username() pulumi.Str
 }
 
 type ServiceendpointArgocdAuthenticationToken struct {
-	// Authentication Token generated through ArgoCD.
+	// The ArgoCD access token.
 	Token string `pulumi:"token"`
 }
 
@@ -7581,7 +7563,7 @@ type ServiceendpointArgocdAuthenticationTokenInput interface {
 }
 
 type ServiceendpointArgocdAuthenticationTokenArgs struct {
-	// Authentication Token generated through ArgoCD.
+	// The ArgoCD access token.
 	Token pulumi.StringInput `pulumi:"token"`
 }
 
@@ -7662,7 +7644,7 @@ func (o ServiceendpointArgocdAuthenticationTokenOutput) ToServiceendpointArgocdA
 	}).(ServiceendpointArgocdAuthenticationTokenPtrOutput)
 }
 
-// Authentication Token generated through ArgoCD.
+// The ArgoCD access token.
 func (o ServiceendpointArgocdAuthenticationTokenOutput) Token() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceendpointArgocdAuthenticationToken) string { return v.Token }).(pulumi.StringOutput)
 }
@@ -7691,7 +7673,7 @@ func (o ServiceendpointArgocdAuthenticationTokenPtrOutput) Elem() Serviceendpoin
 	}).(ServiceendpointArgocdAuthenticationTokenOutput)
 }
 
-// Authentication Token generated through ArgoCD.
+// The ArgoCD access token.
 func (o ServiceendpointArgocdAuthenticationTokenPtrOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointArgocdAuthenticationToken) *string {
 		if v == nil {

@@ -193,7 +193,6 @@ class PipelineAuthorization(pulumi.CustomResource):
 
         ### Authorization for all pipelines
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -216,11 +215,9 @@ class PipelineAuthorization(pulumi.CustomResource):
             resource_id=example_queue.id,
             type="queue")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Authorization for specific pipeline
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -254,7 +251,6 @@ class PipelineAuthorization(pulumi.CustomResource):
             type="queue",
             pipeline_id=example_build_definition.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -289,7 +285,6 @@ class PipelineAuthorization(pulumi.CustomResource):
 
         ### Authorization for all pipelines
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -312,11 +307,9 @@ class PipelineAuthorization(pulumi.CustomResource):
             resource_id=example_queue.id,
             type="queue")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Authorization for specific pipeline
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -350,7 +343,6 @@ class PipelineAuthorization(pulumi.CustomResource):
             type="queue",
             pipeline_id=example_build_definition.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

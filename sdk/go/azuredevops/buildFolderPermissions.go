@@ -20,7 +20,6 @@ import (
 //
 // ### Set specific folder permissions
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -86,9 +85,7 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 // ### Set root folder permissions
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -133,7 +130,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Relevant Links
 //

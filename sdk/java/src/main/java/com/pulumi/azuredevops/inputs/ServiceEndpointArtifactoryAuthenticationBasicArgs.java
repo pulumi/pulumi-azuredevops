@@ -15,14 +15,14 @@ public final class ServiceEndpointArtifactoryAuthenticationBasicArgs extends com
     public static final ServiceEndpointArtifactoryAuthenticationBasicArgs Empty = new ServiceEndpointArtifactoryAuthenticationBasicArgs();
 
     /**
-     * Artifactory Password.
+     * The Artifactory password.
      * 
      */
     @Import(name="password", required=true)
     private Output<String> password;
 
     /**
-     * @return Artifactory Password.
+     * @return The Artifactory password.
      * 
      */
     public Output<String> password() {
@@ -30,14 +30,14 @@ public final class ServiceEndpointArtifactoryAuthenticationBasicArgs extends com
     }
 
     /**
-     * Artifactory Username.
+     * The Artifactory user name.
      * 
      */
     @Import(name="username", required=true)
     private Output<String> username;
 
     /**
-     * @return Artifactory Username.
+     * @return The Artifactory user name.
      * 
      */
     public Output<String> username() {
@@ -70,7 +70,7 @@ public final class ServiceEndpointArtifactoryAuthenticationBasicArgs extends com
         }
 
         /**
-         * @param password Artifactory Password.
+         * @param password The Artifactory password.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class ServiceEndpointArtifactoryAuthenticationBasicArgs extends com
         }
 
         /**
-         * @param password Artifactory Password.
+         * @param password The Artifactory password.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class ServiceEndpointArtifactoryAuthenticationBasicArgs extends com
         }
 
         /**
-         * @param username Artifactory Username.
+         * @param username The Artifactory user name.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ServiceEndpointArtifactoryAuthenticationBasicArgs extends com
         }
 
         /**
-         * @param username Artifactory Username.
+         * @param username The Artifactory user name.
          * 
          * @return builder
          * 

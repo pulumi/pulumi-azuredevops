@@ -14,7 +14,7 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class ServiceEndpointArtifactoryAuthenticationToken
     {
         /// <summary>
-        /// Authentication Token generated through Artifactory.
+        /// The Artifactory access token.
         /// </summary>
         public readonly string Token;
 

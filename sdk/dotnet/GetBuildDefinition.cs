@@ -16,7 +16,6 @@ namespace Pulumi.AzureDevOps
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -42,7 +41,6 @@ namespace Pulumi.AzureDevOps
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetBuildDefinitionResult> InvokeAsync(GetBuildDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBuildDefinitionResult>("azuredevops:index/getBuildDefinition:getBuildDefinition", args ?? new GetBuildDefinitionArgs(), options.WithDefaults());
@@ -52,7 +50,6 @@ namespace Pulumi.AzureDevOps
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -78,7 +75,6 @@ namespace Pulumi.AzureDevOps
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetBuildDefinitionResult> Invoke(GetBuildDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBuildDefinitionResult>("azuredevops:index/getBuildDefinition:getBuildDefinition", args ?? new GetBuildDefinitionInvokeArgs(), options.WithDefaults());

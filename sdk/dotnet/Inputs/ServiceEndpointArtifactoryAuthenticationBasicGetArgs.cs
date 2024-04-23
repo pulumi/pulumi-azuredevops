@@ -16,7 +16,7 @@ namespace Pulumi.AzureDevOps.Inputs
         private Input<string>? _password;
 
         /// <summary>
-        /// Artifactory Password.
+        /// The Artifactory password.
         /// </summary>
         public Input<string>? Password
         {
@@ -32,7 +32,7 @@ namespace Pulumi.AzureDevOps.Inputs
         private Input<string>? _username;
 
         /// <summary>
-        /// Artifactory Username.
+        /// The Artifactory user name.
         /// </summary>
         public Input<string>? Username
         {

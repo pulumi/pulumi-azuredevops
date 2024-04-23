@@ -136,7 +136,6 @@ class Environment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -151,7 +150,6 @@ class Environment(pulumi.CustomResource):
             project_id=example.id,
             name="Example Environment")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -182,7 +180,6 @@ class Environment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -197,7 +194,6 @@ class Environment(pulumi.CustomResource):
             project_id=example.id,
             name="Example Environment")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

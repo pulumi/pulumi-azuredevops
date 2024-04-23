@@ -10,17 +10,14 @@ import * as utilities from "./utilities";
  * ## Example Usage
  *
  * ### With an Azure DevOps local group managed by this resource
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * const example = new azuredevops.GroupEntitlement("example", {displayName: "Group Name"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With group origin ID
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -30,7 +27,6 @@ import * as utilities from "./utilities";
  *     originId: "00000000-0000-0000-0000-000000000000",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Relevant Links
  *

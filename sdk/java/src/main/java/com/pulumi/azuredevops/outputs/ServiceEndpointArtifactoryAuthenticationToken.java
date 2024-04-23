@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class ServiceEndpointArtifactoryAuthenticationToken {
     /**
-     * @return Authentication Token generated through Artifactory.
+     * @return The Artifactory access token.
      * 
      */
     private String token;
 
     private ServiceEndpointArtifactoryAuthenticationToken() {}
     /**
-     * @return Authentication Token generated through Artifactory.
+     * @return The Artifactory access token.
      * 
      */
     public String token() {

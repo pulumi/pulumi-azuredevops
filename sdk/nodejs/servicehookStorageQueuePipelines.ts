@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -45,11 +44,9 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * An empty configuration block will occur in all events triggering the associated action.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -63,7 +60,6 @@ import * as utilities from "./utilities";
  *     runStateChangedEvent: {},
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

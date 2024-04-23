@@ -170,7 +170,6 @@ class BranchPolicyMergeTypes(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -208,7 +207,6 @@ class BranchPolicyMergeTypes(pulumi.CustomResource):
                 ],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -240,7 +238,6 @@ class BranchPolicyMergeTypes(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -278,7 +275,6 @@ class BranchPolicyMergeTypes(pulumi.CustomResource):
                 ],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

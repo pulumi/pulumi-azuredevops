@@ -288,7 +288,6 @@ class ProjectPipelineSettings(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -307,7 +306,6 @@ class ProjectPipelineSettings(pulumi.CustomResource):
             publish_pipeline_metadata=False,
             status_badges_are_private=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -351,7 +349,6 @@ class ProjectPipelineSettings(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -370,7 +367,6 @@ class ProjectPipelineSettings(pulumi.CustomResource):
             publish_pipeline_metadata=False,
             status_badges_are_private=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

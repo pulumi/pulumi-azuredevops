@@ -316,7 +316,6 @@ class CheckApproval(pulumi.CustomResource):
 
         ### Protect an environment
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -333,7 +332,6 @@ class CheckApproval(pulumi.CustomResource):
             requester_can_approve=True,
             approvers=[example_group.origin_id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -363,7 +361,6 @@ class CheckApproval(pulumi.CustomResource):
 
         ### Protect an environment
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -380,7 +377,6 @@ class CheckApproval(pulumi.CustomResource):
             requester_can_approve=True,
             approvers=[example_group.origin_id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

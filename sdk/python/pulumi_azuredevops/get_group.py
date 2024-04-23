@@ -106,7 +106,6 @@ def get_group(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -120,7 +119,6 @@ def get_group(name: Optional[str] = None,
     pulumi.export("collectionGroupId", example_get_group.id)
     pulumi.export("collectionGroupDescriptor", example_get_group.descriptor)
     ```
-    <!--End PulumiCodeChooser -->
 
     ## Relevant Links
 
@@ -159,7 +157,6 @@ def get_group_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -173,7 +170,6 @@ def get_group_output(name: Optional[pulumi.Input[str]] = None,
     pulumi.export("collectionGroupId", example_get_group.id)
     pulumi.export("collectionGroupDescriptor", example_get_group.descriptor)
     ```
-    <!--End PulumiCodeChooser -->
 
     ## Relevant Links
 

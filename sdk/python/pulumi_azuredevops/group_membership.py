@@ -151,7 +151,6 @@ class GroupMembership(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -164,7 +163,6 @@ class GroupMembership(pulumi.CustomResource):
             group=example.descriptor,
             members=[example_user.descriptor])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -199,7 +197,6 @@ class GroupMembership(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -212,7 +209,6 @@ class GroupMembership(pulumi.CustomResource):
             group=example.descriptor,
             members=[example_user.descriptor])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

@@ -239,7 +239,6 @@ class ServiceendpointPermissions(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -281,7 +280,6 @@ class ServiceendpointPermissions(pulumi.CustomResource):
                 "ViewEndpoint": "allow",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -329,7 +327,6 @@ class ServiceendpointPermissions(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -371,7 +368,6 @@ class ServiceendpointPermissions(pulumi.CustomResource):
                 "ViewEndpoint": "allow",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

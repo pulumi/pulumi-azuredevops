@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -22,7 +21,6 @@ import * as utilities from "./utilities";
  * export const alladministrators = example.then(example => example.teams.map(__item => __item.administrators));
  * export const administrators = example.then(example => example.teams.map(__item => __item.members));
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Relevant Links
  *
@@ -80,7 +78,6 @@ export interface GetTeamsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -91,7 +88,6 @@ export interface GetTeamsResult {
  * export const alladministrators = example.then(example => example.teams.map(__item => __item.administrators));
  * export const administrators = example.then(example => example.teams.map(__item => __item.members));
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Relevant Links
  *

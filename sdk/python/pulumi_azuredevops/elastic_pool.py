@@ -429,7 +429,6 @@ class ElasticPool(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -460,7 +459,6 @@ class ElasticPool(pulumi.CustomResource):
             max_capacity=3,
             azure_resource_id="/subscriptions/<Subscription Id>/resourceGroups/<Resource Name>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS Name>")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -500,7 +498,6 @@ class ElasticPool(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -531,7 +528,6 @@ class ElasticPool(pulumi.CustomResource):
             max_capacity=3,
             azure_resource_id="/subscriptions/<Subscription Id>/resourceGroups/<Resource Name>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS Name>")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

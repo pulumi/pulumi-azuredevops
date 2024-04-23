@@ -270,7 +270,6 @@ class ServiceendpointJfrogPlatformV2(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -290,10 +289,8 @@ class ServiceendpointJfrogPlatformV2(pulumi.CustomResource):
                 token="0000000000000000000000000000000000000000",
             ))
         ```
-        <!--End PulumiCodeChooser -->
         Alternatively a username and password may be used.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -314,7 +311,6 @@ class ServiceendpointJfrogPlatformV2(pulumi.CustomResource):
                 password="password",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -353,7 +349,6 @@ class ServiceendpointJfrogPlatformV2(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -373,10 +368,8 @@ class ServiceendpointJfrogPlatformV2(pulumi.CustomResource):
                 token="0000000000000000000000000000000000000000",
             ))
         ```
-        <!--End PulumiCodeChooser -->
         Alternatively a username and password may be used.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -397,7 +390,6 @@ class ServiceendpointJfrogPlatformV2(pulumi.CustomResource):
                 password="password",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

@@ -18,7 +18,6 @@ namespace Pulumi.AzureDevOps
         /// 
         /// ### By Service Endpoint ID
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -44,11 +43,9 @@ namespace Pulumi.AzureDevOps
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### By Service Endpoint Name
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -74,7 +71,6 @@ namespace Pulumi.AzureDevOps
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetServiceEndpointAzureRMResult> InvokeAsync(GetServiceEndpointAzureRMArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceEndpointAzureRMResult>("azuredevops:index/getServiceEndpointAzureRM:getServiceEndpointAzureRM", args ?? new GetServiceEndpointAzureRMArgs(), options.WithDefaults());
@@ -86,7 +82,6 @@ namespace Pulumi.AzureDevOps
         /// 
         /// ### By Service Endpoint ID
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -112,11 +107,9 @@ namespace Pulumi.AzureDevOps
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### By Service Endpoint Name
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -142,7 +135,6 @@ namespace Pulumi.AzureDevOps
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetServiceEndpointAzureRMResult> Invoke(GetServiceEndpointAzureRMInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceEndpointAzureRMResult>("azuredevops:index/getServiceEndpointAzureRM:getServiceEndpointAzureRM", args ?? new GetServiceEndpointAzureRMInvokeArgs(), options.WithDefaults());

@@ -315,7 +315,6 @@ class ServiceEndpointDockerRegistry(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -343,7 +342,6 @@ class ServiceEndpointDockerRegistry(pulumi.CustomResource):
             docker_password="12345",
             registry_type="Others")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -379,7 +377,6 @@ class ServiceEndpointDockerRegistry(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -407,7 +404,6 @@ class ServiceEndpointDockerRegistry(pulumi.CustomResource):
             docker_password="12345",
             registry_type="Others")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
