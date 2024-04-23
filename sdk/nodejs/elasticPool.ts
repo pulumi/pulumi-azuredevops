@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -43,7 +42,6 @@ import * as utilities from "./utilities";
  *     azureResourceId: "/subscriptions/<Subscription Id>/resourceGroups/<Resource Name>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS Name>",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Relevant Links
  *

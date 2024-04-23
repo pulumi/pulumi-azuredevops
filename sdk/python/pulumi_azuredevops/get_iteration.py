@@ -123,7 +123,6 @@ def get_iteration(fetch_children: Optional[bool] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -141,7 +140,6 @@ def get_iteration(fetch_children: Optional[bool] = None,
         path="/Iteration 1",
         fetch_children=True)
     ```
-    <!--End PulumiCodeChooser -->
 
     ## Relevant Links
 
@@ -183,7 +181,6 @@ def get_iteration_output(fetch_children: Optional[pulumi.Input[Optional[bool]]] 
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -201,7 +198,6 @@ def get_iteration_output(fetch_children: Optional[pulumi.Input[Optional[bool]]] 
         path="/Iteration 1",
         fetch_children=True)
     ```
-    <!--End PulumiCodeChooser -->
 
     ## Relevant Links
 

@@ -244,17 +244,14 @@ class GroupEntitlement(pulumi.CustomResource):
         ## Example Usage
 
         ### With an Azure DevOps local group managed by this resource
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
 
         example = azuredevops.GroupEntitlement("example", display_name="Group Name")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With group origin ID
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -263,7 +260,6 @@ class GroupEntitlement(pulumi.CustomResource):
             origin="aad",
             origin_id="00000000-0000-0000-0000-000000000000")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -306,17 +302,14 @@ class GroupEntitlement(pulumi.CustomResource):
         ## Example Usage
 
         ### With an Azure DevOps local group managed by this resource
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
 
         example = azuredevops.GroupEntitlement("example", display_name="Group Name")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With group origin ID
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -325,7 +318,6 @@ class GroupEntitlement(pulumi.CustomResource):
             origin="aad",
             origin_id="00000000-0000-0000-0000-000000000000")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

@@ -25,7 +25,6 @@ namespace Pulumi.AzureDevOps
     /// 
     /// #### Example usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -63,7 +62,6 @@ namespace Pulumi.AzureDevOps
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Repository level
     /// 
@@ -71,7 +69,6 @@ namespace Pulumi.AzureDevOps
     /// 
     /// #### Example usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -120,7 +117,6 @@ namespace Pulumi.AzureDevOps
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Branch level
     /// 
@@ -128,7 +124,6 @@ namespace Pulumi.AzureDevOps
     /// 
     /// #### Example usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -176,11 +171,9 @@ namespace Pulumi.AzureDevOps
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -268,7 +261,6 @@ namespace Pulumi.AzureDevOps
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Relevant Links
     /// 

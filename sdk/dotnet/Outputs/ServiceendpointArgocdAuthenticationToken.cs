@@ -14,7 +14,7 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class ServiceendpointArgocdAuthenticationToken
     {
         /// <summary>
-        /// Authentication Token generated through ArgoCD.
+        /// The ArgoCD access token.
         /// </summary>
         public readonly string Token;
 

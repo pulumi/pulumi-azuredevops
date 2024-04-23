@@ -18,7 +18,6 @@ import (
 //
 // ### Protect a service connection
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,11 +67,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Protect an environment
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -117,11 +114,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Protect an agent queue
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -172,11 +167,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Protect a repository
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -230,11 +223,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Protect a variable group
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -292,7 +283,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Relevant Links
 //

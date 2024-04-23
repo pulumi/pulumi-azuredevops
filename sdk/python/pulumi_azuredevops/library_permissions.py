@@ -203,7 +203,6 @@ class LibraryPermissions(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -225,7 +224,6 @@ class LibraryPermissions(pulumi.CustomResource):
                 "Use": "allow",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Roles
 
@@ -277,7 +275,6 @@ class LibraryPermissions(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -299,7 +296,6 @@ class LibraryPermissions(pulumi.CustomResource):
                 "Use": "allow",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Roles
 

@@ -203,7 +203,6 @@ class RepositoryPolicyCaseEnforcement(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -227,10 +226,8 @@ class RepositoryPolicyCaseEnforcement(pulumi.CustomResource):
             enforce_consistent_case=True,
             repository_ids=[example_git.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         # Set project level repository policy
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -247,7 +244,6 @@ class RepositoryPolicyCaseEnforcement(pulumi.CustomResource):
             blocking=True,
             enforce_consistent_case=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -282,7 +278,6 @@ class RepositoryPolicyCaseEnforcement(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -306,10 +301,8 @@ class RepositoryPolicyCaseEnforcement(pulumi.CustomResource):
             enforce_consistent_case=True,
             repository_ids=[example_git.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         # Set project level repository policy
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -326,7 +319,6 @@ class RepositoryPolicyCaseEnforcement(pulumi.CustomResource):
             blocking=True,
             enforce_consistent_case=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

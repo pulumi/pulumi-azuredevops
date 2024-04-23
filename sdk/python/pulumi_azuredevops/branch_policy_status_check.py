@@ -170,7 +170,6 @@ class BranchPolicyStatusCheck(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -216,7 +215,6 @@ class BranchPolicyStatusCheck(pulumi.CustomResource):
                 ],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -248,7 +246,6 @@ class BranchPolicyStatusCheck(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -294,7 +291,6 @@ class BranchPolicyStatusCheck(pulumi.CustomResource):
                 ],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

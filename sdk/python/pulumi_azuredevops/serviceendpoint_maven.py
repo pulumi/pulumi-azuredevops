@@ -284,7 +284,6 @@ class ServiceendpointMaven(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -305,11 +304,9 @@ class ServiceendpointMaven(pulumi.CustomResource):
                 token="0000000000000000000000000000000000000000",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         Alternatively a username and password may be used.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -331,7 +328,6 @@ class ServiceendpointMaven(pulumi.CustomResource):
                 password="password",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -361,7 +357,6 @@ class ServiceendpointMaven(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -382,11 +377,9 @@ class ServiceendpointMaven(pulumi.CustomResource):
                 token="0000000000000000000000000000000000000000",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         Alternatively a username and password may be used.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -408,7 +401,6 @@ class ServiceendpointMaven(pulumi.CustomResource):
                 password="password",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

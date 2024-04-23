@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -31,7 +30,6 @@ import * as utilities from "./utilities";
  *     environmentId: exampleEnvironmentId,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Relevant Links
  *
@@ -91,7 +89,6 @@ export interface GetEnvironmentResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -113,7 +110,6 @@ export interface GetEnvironmentResult {
  *     environmentId: exampleEnvironmentId,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Relevant Links
  *

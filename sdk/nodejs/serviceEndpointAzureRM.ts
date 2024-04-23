@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  *
  * ### Service Principal Manual AzureRM Service Endpoint (Subscription Scoped)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -45,11 +44,9 @@ import * as utilities from "./utilities";
  *     azurermSubscriptionName: "Example Subscription Name",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Service Principal Manual AzureRM Service Endpoint (ManagementGroup Scoped)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -75,11 +72,9 @@ import * as utilities from "./utilities";
  *     azurermManagementGroupName: "managementGroup",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Service Principal Automatic AzureRM Service Endpoint
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -99,11 +94,9 @@ import * as utilities from "./utilities";
  *     azurermSubscriptionName: "Example Subscription Name",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Workload Identity Federation Manual AzureRM Service Endpoint (Subscription Scoped)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -147,11 +140,9 @@ import * as utilities from "./utilities";
  *     subject: exampleServiceEndpointAzureRM.workloadIdentityFederationSubject,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Workload Identity Federation Automatic AzureRM Service Endpoint
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -171,11 +162,9 @@ import * as utilities from "./utilities";
  *     azurermSubscriptionName: "Example Subscription Name",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Managed Identity AzureRM Service Endpoint
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -195,7 +184,6 @@ import * as utilities from "./utilities";
  *     azurermSubscriptionName: "Example Subscription Name",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Relevant Links
  *

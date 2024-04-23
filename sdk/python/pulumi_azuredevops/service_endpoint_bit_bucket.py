@@ -216,7 +216,6 @@ class ServiceEndpointBitBucket(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -234,7 +233,6 @@ class ServiceEndpointBitBucket(pulumi.CustomResource):
             service_endpoint_name="Example Bitbucket",
             description="Managed by Terraform")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -266,7 +264,6 @@ class ServiceEndpointBitBucket(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -284,7 +281,6 @@ class ServiceEndpointBitBucket(pulumi.CustomResource):
             service_endpoint_name="Example Bitbucket",
             description="Managed by Terraform")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

@@ -268,7 +268,6 @@ class ServiceendpointArgocd(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -287,10 +286,8 @@ class ServiceendpointArgocd(pulumi.CustomResource):
                 token="0000000000000000000000000000000000000000",
             ))
         ```
-        <!--End PulumiCodeChooser -->
         Alternatively a username and password may be used.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -311,7 +308,6 @@ class ServiceendpointArgocd(pulumi.CustomResource):
                 password="password",
             ))
         ```
-        <!--End PulumiCodeChooser -->
         ## Relevant Links
 
         - [Azure DevOps Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)
@@ -348,7 +344,6 @@ class ServiceendpointArgocd(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -367,10 +362,8 @@ class ServiceendpointArgocd(pulumi.CustomResource):
                 token="0000000000000000000000000000000000000000",
             ))
         ```
-        <!--End PulumiCodeChooser -->
         Alternatively a username and password may be used.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -391,7 +384,6 @@ class ServiceendpointArgocd(pulumi.CustomResource):
                 password="password",
             ))
         ```
-        <!--End PulumiCodeChooser -->
         ## Relevant Links
 
         - [Azure DevOps Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)

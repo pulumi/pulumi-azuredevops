@@ -87,7 +87,6 @@ def get_pool(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -98,7 +97,6 @@ def get_pool(name: Optional[str] = None,
     pulumi.export("autoProvision", example.auto_provision)
     pulumi.export("autoUpdate", example.auto_update)
     ```
-    <!--End PulumiCodeChooser -->
 
     ## Relevant Links
 
@@ -128,7 +126,6 @@ def get_pool_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -139,7 +136,6 @@ def get_pool_output(name: Optional[pulumi.Input[str]] = None,
     pulumi.export("autoProvision", example.auto_provision)
     pulumi.export("autoUpdate", example.auto_update)
     ```
-    <!--End PulumiCodeChooser -->
 
     ## Relevant Links
 

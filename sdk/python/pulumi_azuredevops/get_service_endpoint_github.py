@@ -106,7 +106,6 @@ def get_service_endpoint_github(project_id: Optional[str] = None,
 
     ### By Service Endpoint ID
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -116,11 +115,9 @@ def get_service_endpoint_github(project_id: Optional[str] = None,
         service_endpoint_id="00000000-0000-0000-0000-000000000000")
     pulumi.export("serviceEndpointName", serviceendpoint.service_endpoint_name)
     ```
-    <!--End PulumiCodeChooser -->
 
     ### By Service Endpoint Name
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -130,7 +127,6 @@ def get_service_endpoint_github(project_id: Optional[str] = None,
         service_endpoint_name="Example-Service-Endpoint")
     pulumi.export("serviceEndpointId", serviceendpoint.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str project_id: The ID of the project.
@@ -168,7 +164,6 @@ def get_service_endpoint_github_output(project_id: Optional[pulumi.Input[str]] =
 
     ### By Service Endpoint ID
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -178,11 +173,9 @@ def get_service_endpoint_github_output(project_id: Optional[pulumi.Input[str]] =
         service_endpoint_id="00000000-0000-0000-0000-000000000000")
     pulumi.export("serviceEndpointName", serviceendpoint.service_endpoint_name)
     ```
-    <!--End PulumiCodeChooser -->
 
     ### By Service Endpoint Name
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -192,7 +185,6 @@ def get_service_endpoint_github_output(project_id: Optional[pulumi.Input[str]] =
         service_endpoint_name="Example-Service-Endpoint")
     pulumi.export("serviceEndpointId", serviceendpoint.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str project_id: The ID of the project.

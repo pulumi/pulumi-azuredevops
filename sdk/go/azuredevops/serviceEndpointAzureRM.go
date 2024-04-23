@@ -24,7 +24,6 @@ import (
 //
 // ### Service Principal Manual AzureRM Service Endpoint (Subscription Scoped)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,11 +67,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Service Principal Manual AzureRM Service Endpoint (ManagementGroup Scoped)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -116,11 +113,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Service Principal Automatic AzureRM Service Endpoint
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -158,11 +153,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Workload Identity Federation Manual AzureRM Service Endpoint (Subscription Scoped)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -235,11 +228,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Workload Identity Federation Automatic AzureRM Service Endpoint
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -277,11 +268,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Managed Identity AzureRM Service Endpoint
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -319,7 +308,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Relevant Links
 //

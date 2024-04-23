@@ -239,7 +239,6 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
 
         #### Example usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -261,7 +260,6 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
                 "RenameRepository": "NotSet",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Shared Queries folder level
 
@@ -271,7 +269,6 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
 
         #### Example usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -294,11 +291,9 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
                 "Read": "NotSet",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -331,7 +326,6 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
                 "Delete": "Deny",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -382,7 +376,6 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
 
         #### Example usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -404,7 +397,6 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
                 "RenameRepository": "NotSet",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Shared Queries folder level
 
@@ -414,7 +406,6 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
 
         #### Example usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -437,11 +428,9 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
                 "Read": "NotSet",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -474,7 +463,6 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
                 "Delete": "Deny",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

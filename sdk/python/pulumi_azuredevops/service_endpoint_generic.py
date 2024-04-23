@@ -251,7 +251,6 @@ class ServiceEndpointGeneric(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -270,7 +269,6 @@ class ServiceEndpointGeneric(pulumi.CustomResource):
             service_endpoint_name="Example Generic",
             description="Managed by Terraform")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -306,7 +304,6 @@ class ServiceEndpointGeneric(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -325,7 +322,6 @@ class ServiceEndpointGeneric(pulumi.CustomResource):
             service_endpoint_name="Example Generic",
             description="Managed by Terraform")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

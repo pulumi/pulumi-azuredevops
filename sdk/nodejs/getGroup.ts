@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -29,7 +28,6 @@ import * as utilities from "./utilities";
  * export const collectionGroupId = exampleGetGroup.then(exampleGetGroup => exampleGetGroup.id);
  * export const collectionGroupDescriptor = exampleGetGroup.then(exampleGetGroup => exampleGetGroup.descriptor);
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Relevant Links
  *
@@ -91,7 +89,6 @@ export interface GetGroupResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -111,7 +108,6 @@ export interface GetGroupResult {
  * export const collectionGroupId = exampleGetGroup.then(exampleGetGroup => exampleGetGroup.id);
  * export const collectionGroupDescriptor = exampleGetGroup.then(exampleGetGroup => exampleGetGroup.descriptor);
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Relevant Links
  *

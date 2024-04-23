@@ -22,7 +22,6 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ### Service Principal Manual AzureRM Service Endpoint (Subscription Scoped)
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -58,11 +57,9 @@ namespace Pulumi.AzureDevOps
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Service Principal Manual AzureRM Service Endpoint (ManagementGroup Scoped)
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -98,11 +95,9 @@ namespace Pulumi.AzureDevOps
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Service Principal Automatic AzureRM Service Endpoint
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -131,11 +126,9 @@ namespace Pulumi.AzureDevOps
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Workload Identity Federation Manual AzureRM Service Endpoint (Subscription Scoped)
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -196,11 +189,9 @@ namespace Pulumi.AzureDevOps
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Workload Identity Federation Automatic AzureRM Service Endpoint
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -229,11 +220,9 @@ namespace Pulumi.AzureDevOps
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Managed Identity AzureRM Service Endpoint
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -262,7 +251,6 @@ namespace Pulumi.AzureDevOps
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Relevant Links
     /// 

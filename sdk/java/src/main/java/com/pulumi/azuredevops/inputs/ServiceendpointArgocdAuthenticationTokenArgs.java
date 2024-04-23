@@ -15,14 +15,14 @@ public final class ServiceendpointArgocdAuthenticationTokenArgs extends com.pulu
     public static final ServiceendpointArgocdAuthenticationTokenArgs Empty = new ServiceendpointArgocdAuthenticationTokenArgs();
 
     /**
-     * Authentication Token generated through ArgoCD.
+     * The ArgoCD access token.
      * 
      */
     @Import(name="token", required=true)
     private Output<String> token;
 
     /**
-     * @return Authentication Token generated through ArgoCD.
+     * @return The ArgoCD access token.
      * 
      */
     public Output<String> token() {
@@ -54,7 +54,7 @@ public final class ServiceendpointArgocdAuthenticationTokenArgs extends com.pulu
         }
 
         /**
-         * @param token Authentication Token generated through ArgoCD.
+         * @param token The ArgoCD access token.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ServiceendpointArgocdAuthenticationTokenArgs extends com.pulu
         }
 
         /**
-         * @param token Authentication Token generated through ArgoCD.
+         * @param token The ArgoCD access token.
          * 
          * @return builder
          * 

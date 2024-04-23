@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -25,7 +24,6 @@ import * as utilities from "./utilities";
  * }));
  * export const id = exampleGetBuildDefinition.then(exampleGetBuildDefinition => exampleGetBuildDefinition.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getBuildDefinition(args: GetBuildDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildDefinitionResult> {
 
@@ -111,7 +109,6 @@ export interface GetBuildDefinitionResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -125,7 +122,6 @@ export interface GetBuildDefinitionResult {
  * }));
  * export const id = exampleGetBuildDefinition.then(exampleGetBuildDefinition => exampleGetBuildDefinition.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getBuildDefinitionOutput(args: GetBuildDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getBuildDefinition(a, opts))

@@ -170,7 +170,6 @@ class BranchPolicyAutoReviewers(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -201,7 +200,6 @@ class BranchPolicyAutoReviewers(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -233,7 +231,6 @@ class BranchPolicyAutoReviewers(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -264,7 +261,6 @@ class BranchPolicyAutoReviewers(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

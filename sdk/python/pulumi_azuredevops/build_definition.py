@@ -443,7 +443,6 @@ class BuildDefinition(pulumi.CustomResource):
         ## Example Usage
 
         ### Tfs
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -511,10 +510,8 @@ class BuildDefinition(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### GitHub Enterprise
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -565,7 +562,6 @@ class BuildDefinition(pulumi.CustomResource):
                 time_zone="(UTC) Coordinated Universal Time",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Remarks
 
@@ -622,7 +618,6 @@ class BuildDefinition(pulumi.CustomResource):
         ## Example Usage
 
         ### Tfs
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -690,10 +685,8 @@ class BuildDefinition(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### GitHub Enterprise
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -744,7 +737,6 @@ class BuildDefinition(pulumi.CustomResource):
                 time_zone="(UTC) Coordinated Universal Time",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Remarks
 

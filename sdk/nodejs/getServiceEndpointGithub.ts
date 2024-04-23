@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ### By Service Endpoint ID
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -25,11 +24,9 @@ import * as utilities from "./utilities";
  * }));
  * export const serviceEndpointName = serviceendpoint.then(serviceendpoint => serviceendpoint.serviceEndpointName);
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### By Service Endpoint Name
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -43,7 +40,6 @@ import * as utilities from "./utilities";
  * }));
  * export const serviceEndpointId = serviceendpoint.then(serviceendpoint => serviceendpoint.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getServiceEndpointGithub(args: GetServiceEndpointGithubArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceEndpointGithubResult> {
 
@@ -103,7 +99,6 @@ export interface GetServiceEndpointGithubResult {
  *
  * ### By Service Endpoint ID
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -117,11 +112,9 @@ export interface GetServiceEndpointGithubResult {
  * }));
  * export const serviceEndpointName = serviceendpoint.then(serviceendpoint => serviceendpoint.serviceEndpointName);
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### By Service Endpoint Name
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -135,7 +128,6 @@ export interface GetServiceEndpointGithubResult {
  * }));
  * export const serviceEndpointId = serviceendpoint.then(serviceendpoint => serviceendpoint.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getServiceEndpointGithubOutput(args: GetServiceEndpointGithubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceEndpointGithubResult> {
     return pulumi.output(args).apply((a: any) => getServiceEndpointGithub(a, opts))

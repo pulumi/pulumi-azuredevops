@@ -88,7 +88,6 @@ def get_agent_queue(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -104,7 +103,6 @@ def get_agent_queue(name: Optional[str] = None,
     pulumi.export("name", example.name)
     pulumi.export("poolId", example.agent_pool_id)
     ```
-    <!--End PulumiCodeChooser -->
 
     ## Relevant Links
 
@@ -136,7 +134,6 @@ def get_agent_queue_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -152,7 +149,6 @@ def get_agent_queue_output(name: Optional[pulumi.Input[str]] = None,
     pulumi.export("name", example.name)
     pulumi.export("poolId", example.agent_pool_id)
     ```
-    <!--End PulumiCodeChooser -->
 
     ## Relevant Links
 

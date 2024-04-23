@@ -170,7 +170,6 @@ class Pool(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -180,7 +179,6 @@ class Pool(pulumi.CustomResource):
             auto_provision=False,
             auto_update=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -212,7 +210,6 @@ class Pool(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -222,7 +219,6 @@ class Pool(pulumi.CustomResource):
             auto_provision=False,
             auto_update=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

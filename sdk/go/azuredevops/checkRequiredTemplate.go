@@ -18,7 +18,6 @@ import (
 //
 // ### Protect a service connection
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -69,11 +68,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Protect an environment
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -124,7 +121,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
