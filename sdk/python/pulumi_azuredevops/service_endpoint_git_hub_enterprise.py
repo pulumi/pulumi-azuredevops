@@ -210,7 +210,6 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -230,7 +229,6 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
                 personal_access_token="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -261,7 +259,6 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -281,7 +278,6 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
                 personal_access_token="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

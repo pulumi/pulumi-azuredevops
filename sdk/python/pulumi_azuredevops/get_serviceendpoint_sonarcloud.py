@@ -104,7 +104,6 @@ def get_serviceendpoint_sonarcloud(project_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -113,7 +112,6 @@ def get_serviceendpoint_sonarcloud(project_id: Optional[str] = None,
         service_endpoint_name="Example Sonar Cloud")
     pulumi.export("serviceEndpointId", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str project_id: The ID of the project.
@@ -148,7 +146,6 @@ def get_serviceendpoint_sonarcloud_output(project_id: Optional[pulumi.Input[str]
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -157,7 +154,6 @@ def get_serviceendpoint_sonarcloud_output(project_id: Optional[pulumi.Input[str]
         service_endpoint_name="Example Sonar Cloud")
     pulumi.export("serviceEndpointId", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str project_id: The ID of the project.

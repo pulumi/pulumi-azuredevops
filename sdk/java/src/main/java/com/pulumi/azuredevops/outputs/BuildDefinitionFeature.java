@@ -11,21 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BuildDefinitionFeature {
-    /**
-     * @return Trigger the pipeline to run after the creation. Defaults to `true`.
-     * 
-     * &gt; **Note** The first run(`skip_first_run = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
-     * 
-     */
     private @Nullable Boolean skipFirstRun;
 
     private BuildDefinitionFeature() {}
-    /**
-     * @return Trigger the pipeline to run after the creation. Defaults to `true`.
-     * 
-     * &gt; **Note** The first run(`skip_first_run = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
-     * 
-     */
     public Optional<Boolean> skipFirstRun() {
         return Optional.ofNullable(this.skipFirstRun);
     }

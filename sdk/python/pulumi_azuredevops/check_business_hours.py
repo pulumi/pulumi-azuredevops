@@ -545,7 +545,6 @@ class CheckBusinessHours(pulumi.CustomResource):
 
         ### Protect a service connection
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -570,11 +569,9 @@ class CheckBusinessHours(pulumi.CustomResource):
             tuesday=True,
             timeout=1440)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Protect an environment
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -594,11 +591,9 @@ class CheckBusinessHours(pulumi.CustomResource):
             monday=True,
             tuesday=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Protect an agent queue
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -619,11 +614,9 @@ class CheckBusinessHours(pulumi.CustomResource):
             monday=True,
             tuesday=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Protect a repository
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -646,11 +639,9 @@ class CheckBusinessHours(pulumi.CustomResource):
             monday=True,
             tuesday=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Protect a variable group
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -683,7 +674,6 @@ class CheckBusinessHours(pulumi.CustomResource):
             monday=True,
             tuesday=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -868,7 +858,6 @@ class CheckBusinessHours(pulumi.CustomResource):
 
         ### Protect a service connection
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -893,11 +882,9 @@ class CheckBusinessHours(pulumi.CustomResource):
             tuesday=True,
             timeout=1440)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Protect an environment
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -917,11 +904,9 @@ class CheckBusinessHours(pulumi.CustomResource):
             monday=True,
             tuesday=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Protect an agent queue
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -942,11 +927,9 @@ class CheckBusinessHours(pulumi.CustomResource):
             monday=True,
             tuesday=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Protect a repository
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -969,11 +952,9 @@ class CheckBusinessHours(pulumi.CustomResource):
             monday=True,
             tuesday=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Protect a variable group
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -1006,7 +987,6 @@ class CheckBusinessHours(pulumi.CustomResource):
             monday=True,
             tuesday=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

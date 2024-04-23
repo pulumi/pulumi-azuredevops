@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -22,7 +21,6 @@ import * as utilities from "./utilities";
  * export const autoUpdate = example.then(example => example.agentPools.map(__item => __item.autoUpdate));
  * export const poolType = example.then(example => example.agentPools.map(__item => __item.poolType));
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Relevant Links
  *
@@ -53,7 +51,6 @@ export interface GetPoolsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -64,7 +61,6 @@ export interface GetPoolsResult {
  * export const autoUpdate = example.then(example => example.agentPools.map(__item => __item.autoUpdate));
  * export const poolType = example.then(example => example.agentPools.map(__item => __item.poolType));
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Relevant Links
  *

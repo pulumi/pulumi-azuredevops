@@ -15,21 +15,9 @@ public final class BuildDefinitionFeatureArgs extends com.pulumi.resources.Resou
 
     public static final BuildDefinitionFeatureArgs Empty = new BuildDefinitionFeatureArgs();
 
-    /**
-     * Trigger the pipeline to run after the creation. Defaults to `true`.
-     * 
-     * &gt; **Note** The first run(`skip_first_run = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
-     * 
-     */
     @Import(name="skipFirstRun")
     private @Nullable Output<Boolean> skipFirstRun;
 
-    /**
-     * @return Trigger the pipeline to run after the creation. Defaults to `true`.
-     * 
-     * &gt; **Note** The first run(`skip_first_run = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
-     * 
-     */
     public Optional<Output<Boolean>> skipFirstRun() {
         return Optional.ofNullable(this.skipFirstRun);
     }
@@ -58,27 +46,11 @@ public final class BuildDefinitionFeatureArgs extends com.pulumi.resources.Resou
             $ = new BuildDefinitionFeatureArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param skipFirstRun Trigger the pipeline to run after the creation. Defaults to `true`.
-         * 
-         * &gt; **Note** The first run(`skip_first_run = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder skipFirstRun(@Nullable Output<Boolean> skipFirstRun) {
             $.skipFirstRun = skipFirstRun;
             return this;
         }
 
-        /**
-         * @param skipFirstRun Trigger the pipeline to run after the creation. Defaults to `true`.
-         * 
-         * &gt; **Note** The first run(`skip_first_run = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder skipFirstRun(Boolean skipFirstRun) {
             return skipFirstRun(Output.of(skipFirstRun));
         }

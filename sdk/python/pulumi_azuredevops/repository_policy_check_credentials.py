@@ -171,7 +171,6 @@ class RepositoryPolicyCheckCredentials(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -194,10 +193,8 @@ class RepositoryPolicyCheckCredentials(pulumi.CustomResource):
             blocking=True,
             repository_ids=[example_git.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         # Set project level repository policy
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -213,7 +210,6 @@ class RepositoryPolicyCheckCredentials(pulumi.CustomResource):
             enabled=True,
             blocking=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -247,7 +243,6 @@ class RepositoryPolicyCheckCredentials(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -270,10 +265,8 @@ class RepositoryPolicyCheckCredentials(pulumi.CustomResource):
             blocking=True,
             repository_ids=[example_git.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         # Set project level repository policy
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -289,7 +282,6 @@ class RepositoryPolicyCheckCredentials(pulumi.CustomResource):
             enabled=True,
             blocking=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -38,10 +37,8 @@ import * as utilities from "./utilities";
  *     repositoryIds: [exampleGit.id],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * # Set project level repository policy
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -60,7 +57,6 @@ import * as utilities from "./utilities";
  *     enforceConsistentCase: true,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Relevant Links
  *

@@ -218,7 +218,6 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -238,7 +237,6 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
             ),
             description="Managed by Terraform")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -270,7 +268,6 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -290,7 +287,6 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
             ),
             description="Managed by Terraform")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

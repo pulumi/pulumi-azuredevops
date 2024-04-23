@@ -16,7 +16,6 @@ import (
 // ## Example Usage
 //
 // ### With an Azure DevOps local group managed by this resource
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,10 +39,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With group origin ID
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,7 +65,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Relevant Links
 //

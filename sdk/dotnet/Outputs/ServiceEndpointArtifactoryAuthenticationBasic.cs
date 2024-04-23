@@ -14,11 +14,11 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class ServiceEndpointArtifactoryAuthenticationBasic
     {
         /// <summary>
-        /// Artifactory Password.
+        /// The Artifactory password.
         /// </summary>
         public readonly string Password;
         /// <summary>
-        /// Artifactory Username.
+        /// The Artifactory user name.
         /// </summary>
         public readonly string Username;
 

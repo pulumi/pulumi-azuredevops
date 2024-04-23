@@ -317,7 +317,6 @@ class CheckBranchControl(pulumi.CustomResource):
 
         ### Protect a service connection
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -338,11 +337,9 @@ class CheckBranchControl(pulumi.CustomResource):
             allowed_branches="refs/heads/main, refs/heads/features/*",
             timeout=1440)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Protect an environment
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -358,11 +355,9 @@ class CheckBranchControl(pulumi.CustomResource):
             target_resource_type="environment",
             allowed_branches="refs/heads/main, refs/heads/features/*")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Protect an agent queue
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -379,11 +374,9 @@ class CheckBranchControl(pulumi.CustomResource):
             target_resource_type="queue",
             allowed_branches="refs/heads/main, refs/heads/features/*")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Protect a repository
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -402,11 +395,9 @@ class CheckBranchControl(pulumi.CustomResource):
             target_resource_type="repository",
             allowed_branches="refs/heads/main, refs/heads/features/*")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Protect a variable group
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -435,7 +426,6 @@ class CheckBranchControl(pulumi.CustomResource):
             target_resource_type="variablegroup",
             allowed_branches="refs/heads/main, refs/heads/features/*")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -469,7 +459,6 @@ class CheckBranchControl(pulumi.CustomResource):
 
         ### Protect a service connection
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -490,11 +479,9 @@ class CheckBranchControl(pulumi.CustomResource):
             allowed_branches="refs/heads/main, refs/heads/features/*",
             timeout=1440)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Protect an environment
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -510,11 +497,9 @@ class CheckBranchControl(pulumi.CustomResource):
             target_resource_type="environment",
             allowed_branches="refs/heads/main, refs/heads/features/*")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Protect an agent queue
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -531,11 +516,9 @@ class CheckBranchControl(pulumi.CustomResource):
             target_resource_type="queue",
             allowed_branches="refs/heads/main, refs/heads/features/*")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Protect a repository
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -554,11 +537,9 @@ class CheckBranchControl(pulumi.CustomResource):
             target_resource_type="repository",
             allowed_branches="refs/heads/main, refs/heads/features/*")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Protect a variable group
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -587,7 +568,6 @@ class CheckBranchControl(pulumi.CustomResource):
             target_resource_type="variablegroup",
             allowed_branches="refs/heads/main, refs/heads/features/*")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

@@ -1036,11 +1036,6 @@ class BranchPolicyStatusCheckSettingsScope(dict):
                  match_type: Optional[str] = None,
                  repository_id: Optional[str] = None,
                  repository_ref: Optional[str] = None):
-        """
-        :param str match_type: The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
-        :param str repository_id: The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
-        :param str repository_ref: The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
-        """
         if match_type is not None:
             pulumi.set(__self__, "match_type", match_type)
         if repository_id is not None:
@@ -1051,25 +1046,16 @@ class BranchPolicyStatusCheckSettingsScope(dict):
     @property
     @pulumi.getter(name="matchType")
     def match_type(self) -> Optional[str]:
-        """
-        The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
-        """
         return pulumi.get(self, "match_type")
 
     @property
     @pulumi.getter(name="repositoryId")
     def repository_id(self) -> Optional[str]:
-        """
-        The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
-        """
         return pulumi.get(self, "repository_id")
 
     @property
     @pulumi.getter(name="repositoryRef")
     def repository_ref(self) -> Optional[str]:
-        """
-        The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
-        """
         return pulumi.get(self, "repository_ref")
 
 
@@ -1390,22 +1376,12 @@ class BuildDefinitionFeature(dict):
 
     def __init__(__self__, *,
                  skip_first_run: Optional[bool] = None):
-        """
-        :param bool skip_first_run: Trigger the pipeline to run after the creation. Defaults to `true`.
-               
-               > **Note** The first run(`skip_first_run = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
-        """
         if skip_first_run is not None:
             pulumi.set(__self__, "skip_first_run", skip_first_run)
 
     @property
     @pulumi.getter(name="skipFirstRun")
     def skip_first_run(self) -> Optional[bool]:
-        """
-        Trigger the pipeline to run after the creation. Defaults to `true`.
-
-        > **Note** The first run(`skip_first_run = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
-        """
         return pulumi.get(self, "skip_first_run")
 
 
@@ -2454,8 +2430,8 @@ class ServiceEndpointArtifactoryAuthenticationBasic(dict):
                  password: str,
                  username: str):
         """
-        :param str password: Artifactory Password.
-        :param str username: Artifactory Username.
+        :param str password: The Artifactory password.
+        :param str username: The Artifactory user name.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -2464,7 +2440,7 @@ class ServiceEndpointArtifactoryAuthenticationBasic(dict):
     @pulumi.getter
     def password(self) -> str:
         """
-        Artifactory Password.
+        The Artifactory password.
         """
         return pulumi.get(self, "password")
 
@@ -2472,7 +2448,7 @@ class ServiceEndpointArtifactoryAuthenticationBasic(dict):
     @pulumi.getter
     def username(self) -> str:
         """
-        Artifactory Username.
+        The Artifactory user name.
         """
         return pulumi.get(self, "username")
 
@@ -2482,7 +2458,7 @@ class ServiceEndpointArtifactoryAuthenticationToken(dict):
     def __init__(__self__, *,
                  token: str):
         """
-        :param str token: Authentication Token generated through Artifactory.
+        :param str token: The Artifactory access token.
         """
         pulumi.set(__self__, "token", token)
 
@@ -2490,7 +2466,7 @@ class ServiceEndpointArtifactoryAuthenticationToken(dict):
     @pulumi.getter
     def token(self) -> str:
         """
-        Authentication Token generated through Artifactory.
+        The Artifactory access token.
         """
         return pulumi.get(self, "token")
 
@@ -3143,8 +3119,8 @@ class ServiceendpointArgocdAuthenticationBasic(dict):
                  password: str,
                  username: str):
         """
-        :param str password: ArgoCD Password.
-        :param str username: ArgoCD Username.
+        :param str password: The ArgoCD password.
+        :param str username: The ArgoCD user name.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -3153,7 +3129,7 @@ class ServiceendpointArgocdAuthenticationBasic(dict):
     @pulumi.getter
     def password(self) -> str:
         """
-        ArgoCD Password.
+        The ArgoCD password.
         """
         return pulumi.get(self, "password")
 
@@ -3161,7 +3137,7 @@ class ServiceendpointArgocdAuthenticationBasic(dict):
     @pulumi.getter
     def username(self) -> str:
         """
-        ArgoCD Username.
+        The ArgoCD user name.
         """
         return pulumi.get(self, "username")
 
@@ -3171,7 +3147,7 @@ class ServiceendpointArgocdAuthenticationToken(dict):
     def __init__(__self__, *,
                  token: str):
         """
-        :param str token: Authentication Token generated through ArgoCD.
+        :param str token: The ArgoCD access token.
         """
         pulumi.set(__self__, "token", token)
 
@@ -3179,7 +3155,7 @@ class ServiceendpointArgocdAuthenticationToken(dict):
     @pulumi.getter
     def token(self) -> str:
         """
-        Authentication Token generated through ArgoCD.
+        The ArgoCD access token.
         """
         return pulumi.get(self, "token")
 

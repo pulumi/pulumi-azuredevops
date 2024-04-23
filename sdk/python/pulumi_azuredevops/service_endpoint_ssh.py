@@ -315,7 +315,6 @@ class ServiceEndpointSsh(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -333,7 +332,6 @@ class ServiceEndpointSsh(pulumi.CustomResource):
             username="username",
             description="Managed by Terraform")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -370,7 +368,6 @@ class ServiceEndpointSsh(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -388,7 +385,6 @@ class ServiceEndpointSsh(pulumi.CustomResource):
             username="username",
             description="Managed by Terraform")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

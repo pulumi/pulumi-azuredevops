@@ -59,7 +59,6 @@ def get_client_config(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableG
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -67,7 +66,6 @@ def get_client_config(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableG
     example = azuredevops.get_client_config()
     pulumi.export("orgUrl", example.organization_url)
     ```
-    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -85,7 +83,6 @@ def get_client_config_output(opts: Optional[pulumi.InvokeOptions] = None) -> pul
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -93,6 +90,5 @@ def get_client_config_output(opts: Optional[pulumi.InvokeOptions] = None) -> pul
     example = azuredevops.get_client_config()
     pulumi.export("orgUrl", example.organization_url)
     ```
-    <!--End PulumiCodeChooser -->
     """
     ...

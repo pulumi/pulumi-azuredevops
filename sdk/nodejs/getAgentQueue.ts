@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -28,7 +27,6 @@ import * as utilities from "./utilities";
  * export const name = example.apply(example => example.name);
  * export const poolId = example.apply(example => example.agentPoolId);
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Relevant Links
  *
@@ -83,7 +81,6 @@ export interface GetAgentQueueResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -102,7 +99,6 @@ export interface GetAgentQueueResult {
  * export const name = example.apply(example => example.name);
  * export const poolId = example.apply(example => example.agentPoolId);
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Relevant Links
  *

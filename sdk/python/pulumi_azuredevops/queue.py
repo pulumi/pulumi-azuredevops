@@ -158,7 +158,6 @@ class Queue(pulumi.CustomResource):
 
         ### Creating a Queue from an organization-level pool
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -175,11 +174,9 @@ class Queue(pulumi.CustomResource):
             type="queue",
             authorized=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Creating a Queue at the project level (Organization-level permissions not required)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -189,7 +186,6 @@ class Queue(pulumi.CustomResource):
             name="example-queue",
             project_id=example.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -230,7 +226,6 @@ class Queue(pulumi.CustomResource):
 
         ### Creating a Queue from an organization-level pool
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -247,11 +242,9 @@ class Queue(pulumi.CustomResource):
             type="queue",
             authorized=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Creating a Queue at the project level (Organization-level permissions not required)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -261,7 +254,6 @@ class Queue(pulumi.CustomResource):
             name="example-queue",
             project_id=example.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

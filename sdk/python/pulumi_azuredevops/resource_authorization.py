@@ -202,7 +202,6 @@ class ResourceAuthorization(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -224,7 +223,6 @@ class ResourceAuthorization(pulumi.CustomResource):
             resource_id=example_service_endpoint_bit_bucket.id,
             authorized=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -251,7 +249,6 @@ class ResourceAuthorization(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -273,7 +270,6 @@ class ResourceAuthorization(pulumi.CustomResource):
             resource_id=example_service_endpoint_bit_bucket.id,
             authorized=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

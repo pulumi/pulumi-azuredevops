@@ -17,7 +17,6 @@ import (
 //
 // ### By Service Endpoint ID
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,11 +48,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### By Service Endpoint Name
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -85,7 +82,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupServiceEndpointAzureRM(ctx *pulumi.Context, args *LookupServiceEndpointAzureRMArgs, opts ...pulumi.InvokeOption) (*LookupServiceEndpointAzureRMResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServiceEndpointAzureRMResult

@@ -192,7 +192,6 @@ class ServiceEndpointSonarCloud(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -209,7 +208,6 @@ class ServiceEndpointSonarCloud(pulumi.CustomResource):
             token="0000000000000000000000000000000000000000",
             description="Managed by Terraform")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -243,7 +241,6 @@ class ServiceEndpointSonarCloud(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -260,7 +257,6 @@ class ServiceEndpointSonarCloud(pulumi.CustomResource):
             token="0000000000000000000000000000000000000000",
             description="Managed by Terraform")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

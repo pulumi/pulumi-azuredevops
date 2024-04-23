@@ -301,7 +301,6 @@ class Workitem(pulumi.CustomResource):
 
         ### Basic usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -319,11 +318,9 @@ class Workitem(pulumi.CustomResource):
             state="Active",
             tags=["Tag"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With custom fields
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -344,7 +341,6 @@ class Workitem(pulumi.CustomResource):
                 "example": "example",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -374,7 +370,6 @@ class Workitem(pulumi.CustomResource):
 
         ### Basic usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -392,11 +387,9 @@ class Workitem(pulumi.CustomResource):
             state="Active",
             tags=["Tag"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With custom fields
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -417,7 +410,6 @@ class Workitem(pulumi.CustomResource):
                 "example": "example",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

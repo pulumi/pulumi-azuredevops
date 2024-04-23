@@ -89,7 +89,6 @@ def get_projects(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -101,7 +100,6 @@ def get_projects(name: Optional[str] = None,
     pulumi.export("projectUrl", [__item.project_url for __item in example.projects])
     pulumi.export("state", [__item.state for __item in example.projects])
     ```
-    <!--End PulumiCodeChooser -->
 
     ## Relevant Links
 
@@ -135,7 +133,6 @@ def get_projects_output(name: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -147,7 +144,6 @@ def get_projects_output(name: Optional[pulumi.Input[Optional[str]]] = None,
     pulumi.export("projectUrl", [__item.project_url for __item in example.projects])
     pulumi.export("state", [__item.state for __item in example.projects])
     ```
-    <!--End PulumiCodeChooser -->
 
     ## Relevant Links
 

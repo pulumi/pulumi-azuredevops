@@ -224,7 +224,6 @@ class ServiceEndpointNpm(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -242,7 +241,6 @@ class ServiceEndpointNpm(pulumi.CustomResource):
             access_token="00000000-0000-0000-0000-000000000000",
             description="Managed by Terraform")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -277,7 +275,6 @@ class ServiceEndpointNpm(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -295,7 +292,6 @@ class ServiceEndpointNpm(pulumi.CustomResource):
             access_token="00000000-0000-0000-0000-000000000000",
             description="Managed by Terraform")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 

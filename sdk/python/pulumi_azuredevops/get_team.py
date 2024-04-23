@@ -128,7 +128,6 @@ def get_team(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -142,7 +141,6 @@ def get_team(name: Optional[str] = None,
     example = azuredevops.get_team_output(project_id=example_project.id,
         name="Example Project Team")
     ```
-    <!--End PulumiCodeChooser -->
 
     ## Relevant Links
 
@@ -185,7 +183,6 @@ def get_team_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azuredevops as azuredevops
@@ -199,7 +196,6 @@ def get_team_output(name: Optional[pulumi.Input[str]] = None,
     example = azuredevops.get_team_output(project_id=example_project.id,
         name="Example Project Team")
     ```
-    <!--End PulumiCodeChooser -->
 
     ## Relevant Links
 

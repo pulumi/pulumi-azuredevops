@@ -195,7 +195,6 @@ class TeamAdministrators(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -217,7 +216,6 @@ class TeamAdministrators(pulumi.CustomResource):
             mode="overwrite",
             administrators=[example_project_contributors.descriptor])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
@@ -256,7 +254,6 @@ class TeamAdministrators(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -278,7 +275,6 @@ class TeamAdministrators(pulumi.CustomResource):
             mode="overwrite",
             administrators=[example_project_contributors.descriptor])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Relevant Links
 
