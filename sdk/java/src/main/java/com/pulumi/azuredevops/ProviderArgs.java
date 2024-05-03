@@ -77,32 +77,16 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.clientId);
     }
 
-    /**
-     * The service principal client id which should be used during an apply operation in Terraform Cloud.
-     * 
-     */
     @Import(name="clientIdApply")
     private @Nullable Output<String> clientIdApply;
 
-    /**
-     * @return The service principal client id which should be used during an apply operation in Terraform Cloud.
-     * 
-     */
     public Optional<Output<String>> clientIdApply() {
         return Optional.ofNullable(this.clientIdApply);
     }
 
-    /**
-     * The service principal client id which should be used during a plan operation in Terraform Cloud.
-     * 
-     */
     @Import(name="clientIdPlan")
     private @Nullable Output<String> clientIdPlan;
 
-    /**
-     * @return The service principal client id which should be used during a plan operation in Terraform Cloud.
-     * 
-     */
     public Optional<Output<String>> clientIdPlan() {
         return Optional.ofNullable(this.clientIdPlan);
     }
@@ -186,17 +170,9 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.oidcRequestUrl);
     }
 
-    /**
-     * Terraform Cloud dynamic credential provider tag.
-     * 
-     */
     @Import(name="oidcTfcTag")
     private @Nullable Output<String> oidcTfcTag;
 
-    /**
-     * @return Terraform Cloud dynamic credential provider tag.
-     * 
-     */
     public Optional<Output<String>> oidcTfcTag() {
         return Optional.ofNullable(this.oidcTfcTag);
     }
@@ -276,32 +252,16 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tenantId);
     }
 
-    /**
-     * The service principal tenant id which should be used during an apply operation in Terraform Cloud..
-     * 
-     */
     @Import(name="tenantIdApply")
     private @Nullable Output<String> tenantIdApply;
 
-    /**
-     * @return The service principal tenant id which should be used during an apply operation in Terraform Cloud..
-     * 
-     */
     public Optional<Output<String>> tenantIdApply() {
         return Optional.ofNullable(this.tenantIdApply);
     }
 
-    /**
-     * The service principal tenant id which should be used during a plan operation in Terraform Cloud.
-     * 
-     */
     @Import(name="tenantIdPlan")
     private @Nullable Output<String> tenantIdPlan;
 
-    /**
-     * @return The service principal tenant id which should be used during a plan operation in Terraform Cloud.
-     * 
-     */
     public Optional<Output<String>> tenantIdPlan() {
         return Optional.ofNullable(this.tenantIdPlan);
     }
@@ -464,44 +424,20 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
             return clientId(Output.of(clientId));
         }
 
-        /**
-         * @param clientIdApply The service principal client id which should be used during an apply operation in Terraform Cloud.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientIdApply(@Nullable Output<String> clientIdApply) {
             $.clientIdApply = clientIdApply;
             return this;
         }
 
-        /**
-         * @param clientIdApply The service principal client id which should be used during an apply operation in Terraform Cloud.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientIdApply(String clientIdApply) {
             return clientIdApply(Output.of(clientIdApply));
         }
 
-        /**
-         * @param clientIdPlan The service principal client id which should be used during a plan operation in Terraform Cloud.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientIdPlan(@Nullable Output<String> clientIdPlan) {
             $.clientIdPlan = clientIdPlan;
             return this;
         }
 
-        /**
-         * @param clientIdPlan The service principal client id which should be used during a plan operation in Terraform Cloud.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientIdPlan(String clientIdPlan) {
             return clientIdPlan(Output.of(clientIdPlan));
         }
@@ -615,23 +551,11 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
             return oidcRequestUrl(Output.of(oidcRequestUrl));
         }
 
-        /**
-         * @param oidcTfcTag Terraform Cloud dynamic credential provider tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oidcTfcTag(@Nullable Output<String> oidcTfcTag) {
             $.oidcTfcTag = oidcTfcTag;
             return this;
         }
 
-        /**
-         * @param oidcTfcTag Terraform Cloud dynamic credential provider tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oidcTfcTag(String oidcTfcTag) {
             return oidcTfcTag(Output.of(oidcTfcTag));
         }
@@ -741,44 +665,20 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
             return tenantId(Output.of(tenantId));
         }
 
-        /**
-         * @param tenantIdApply The service principal tenant id which should be used during an apply operation in Terraform Cloud..
-         * 
-         * @return builder
-         * 
-         */
         public Builder tenantIdApply(@Nullable Output<String> tenantIdApply) {
             $.tenantIdApply = tenantIdApply;
             return this;
         }
 
-        /**
-         * @param tenantIdApply The service principal tenant id which should be used during an apply operation in Terraform Cloud..
-         * 
-         * @return builder
-         * 
-         */
         public Builder tenantIdApply(String tenantIdApply) {
             return tenantIdApply(Output.of(tenantIdApply));
         }
 
-        /**
-         * @param tenantIdPlan The service principal tenant id which should be used during a plan operation in Terraform Cloud.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tenantIdPlan(@Nullable Output<String> tenantIdPlan) {
             $.tenantIdPlan = tenantIdPlan;
             return this;
         }
 
-        /**
-         * @param tenantIdPlan The service principal tenant id which should be used during a plan operation in Terraform Cloud.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tenantIdPlan(String tenantIdPlan) {
             return tenantIdPlan(Output.of(tenantIdPlan));
         }
