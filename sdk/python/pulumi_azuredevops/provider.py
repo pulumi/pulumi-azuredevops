@@ -41,8 +41,6 @@ class ProviderArgs:
         :param pulumi.Input[str] client_certificate_password: Password for a client certificate password.
         :param pulumi.Input[str] client_certificate_path: Path to a certificate to use to authenticate to the service principal.
         :param pulumi.Input[str] client_id: The service principal client or managed service principal id which should be used.
-        :param pulumi.Input[str] client_id_apply: The service principal client id which should be used during an apply operation in Terraform Cloud.
-        :param pulumi.Input[str] client_id_plan: The service principal client id which should be used during a plan operation in Terraform Cloud.
         :param pulumi.Input[str] client_secret: Client secret for authenticating to a service principal.
         :param pulumi.Input[str] client_secret_path: Path to a file containing a client secret for authenticating to a service principal.
         :param pulumi.Input[str] oidc_audience: Set the audience when requesting OIDC tokens.
@@ -50,14 +48,11 @@ class ProviderArgs:
                Connect.
         :param pulumi.Input[str] oidc_request_url: The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
                using OpenID Connect.
-        :param pulumi.Input[str] oidc_tfc_tag: Terraform Cloud dynamic credential provider tag.
         :param pulumi.Input[str] oidc_token: OIDC token to authenticate as a service principal.
         :param pulumi.Input[str] oidc_token_file_path: OIDC token from file to authenticate as a service principal.
         :param pulumi.Input[str] org_service_url: The url of the Azure DevOps instance which should be used.
         :param pulumi.Input[str] personal_access_token: The personal access token which should be used.
         :param pulumi.Input[str] tenant_id: The service principal tenant id which should be used.
-        :param pulumi.Input[str] tenant_id_apply: The service principal tenant id which should be used during an apply operation in Terraform Cloud..
-        :param pulumi.Input[str] tenant_id_plan: The service principal tenant id which should be used during a plan operation in Terraform Cloud.
         :param pulumi.Input[bool] use_msi: Use an Azure Managed Service Identity.
         :param pulumi.Input[bool] use_oidc: Use an OIDC token to authenticate to a service principal.
         """
@@ -157,9 +152,6 @@ class ProviderArgs:
     @property
     @pulumi.getter(name="clientIdApply")
     def client_id_apply(self) -> Optional[pulumi.Input[str]]:
-        """
-        The service principal client id which should be used during an apply operation in Terraform Cloud.
-        """
         return pulumi.get(self, "client_id_apply")
 
     @client_id_apply.setter
@@ -169,9 +161,6 @@ class ProviderArgs:
     @property
     @pulumi.getter(name="clientIdPlan")
     def client_id_plan(self) -> Optional[pulumi.Input[str]]:
-        """
-        The service principal client id which should be used during a plan operation in Terraform Cloud.
-        """
         return pulumi.get(self, "client_id_plan")
 
     @client_id_plan.setter
@@ -243,9 +232,6 @@ class ProviderArgs:
     @property
     @pulumi.getter(name="oidcTfcTag")
     def oidc_tfc_tag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Terraform Cloud dynamic credential provider tag.
-        """
         return pulumi.get(self, "oidc_tfc_tag")
 
     @oidc_tfc_tag.setter
@@ -315,9 +301,6 @@ class ProviderArgs:
     @property
     @pulumi.getter(name="tenantIdApply")
     def tenant_id_apply(self) -> Optional[pulumi.Input[str]]:
-        """
-        The service principal tenant id which should be used during an apply operation in Terraform Cloud..
-        """
         return pulumi.get(self, "tenant_id_apply")
 
     @tenant_id_apply.setter
@@ -327,9 +310,6 @@ class ProviderArgs:
     @property
     @pulumi.getter(name="tenantIdPlan")
     def tenant_id_plan(self) -> Optional[pulumi.Input[str]]:
-        """
-        The service principal tenant id which should be used during a plan operation in Terraform Cloud.
-        """
         return pulumi.get(self, "tenant_id_plan")
 
     @tenant_id_plan.setter
@@ -400,8 +380,6 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] client_certificate_password: Password for a client certificate password.
         :param pulumi.Input[str] client_certificate_path: Path to a certificate to use to authenticate to the service principal.
         :param pulumi.Input[str] client_id: The service principal client or managed service principal id which should be used.
-        :param pulumi.Input[str] client_id_apply: The service principal client id which should be used during an apply operation in Terraform Cloud.
-        :param pulumi.Input[str] client_id_plan: The service principal client id which should be used during a plan operation in Terraform Cloud.
         :param pulumi.Input[str] client_secret: Client secret for authenticating to a service principal.
         :param pulumi.Input[str] client_secret_path: Path to a file containing a client secret for authenticating to a service principal.
         :param pulumi.Input[str] oidc_audience: Set the audience when requesting OIDC tokens.
@@ -409,14 +387,11 @@ class Provider(pulumi.ProviderResource):
                Connect.
         :param pulumi.Input[str] oidc_request_url: The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
                using OpenID Connect.
-        :param pulumi.Input[str] oidc_tfc_tag: Terraform Cloud dynamic credential provider tag.
         :param pulumi.Input[str] oidc_token: OIDC token to authenticate as a service principal.
         :param pulumi.Input[str] oidc_token_file_path: OIDC token from file to authenticate as a service principal.
         :param pulumi.Input[str] org_service_url: The url of the Azure DevOps instance which should be used.
         :param pulumi.Input[str] personal_access_token: The personal access token which should be used.
         :param pulumi.Input[str] tenant_id: The service principal tenant id which should be used.
-        :param pulumi.Input[str] tenant_id_apply: The service principal tenant id which should be used during an apply operation in Terraform Cloud..
-        :param pulumi.Input[str] tenant_id_plan: The service principal tenant id which should be used during a plan operation in Terraform Cloud.
         :param pulumi.Input[bool] use_msi: Use an Azure Managed Service Identity.
         :param pulumi.Input[bool] use_oidc: Use an OIDC token to authenticate to a service principal.
         """
@@ -543,17 +518,11 @@ class Provider(pulumi.ProviderResource):
     @property
     @pulumi.getter(name="clientIdApply")
     def client_id_apply(self) -> pulumi.Output[Optional[str]]:
-        """
-        The service principal client id which should be used during an apply operation in Terraform Cloud.
-        """
         return pulumi.get(self, "client_id_apply")
 
     @property
     @pulumi.getter(name="clientIdPlan")
     def client_id_plan(self) -> pulumi.Output[Optional[str]]:
-        """
-        The service principal client id which should be used during a plan operation in Terraform Cloud.
-        """
         return pulumi.get(self, "client_id_plan")
 
     @property
@@ -601,9 +570,6 @@ class Provider(pulumi.ProviderResource):
     @property
     @pulumi.getter(name="oidcTfcTag")
     def oidc_tfc_tag(self) -> pulumi.Output[Optional[str]]:
-        """
-        Terraform Cloud dynamic credential provider tag.
-        """
         return pulumi.get(self, "oidc_tfc_tag")
 
     @property
@@ -649,16 +615,10 @@ class Provider(pulumi.ProviderResource):
     @property
     @pulumi.getter(name="tenantIdApply")
     def tenant_id_apply(self) -> pulumi.Output[Optional[str]]:
-        """
-        The service principal tenant id which should be used during an apply operation in Terraform Cloud..
-        """
         return pulumi.get(self, "tenant_id_apply")
 
     @property
     @pulumi.getter(name="tenantIdPlan")
     def tenant_id_plan(self) -> pulumi.Output[Optional[str]]:
-        """
-        The service principal tenant id which should be used during a plan operation in Terraform Cloud.
-        """
         return pulumi.get(self, "tenant_id_plan")
 

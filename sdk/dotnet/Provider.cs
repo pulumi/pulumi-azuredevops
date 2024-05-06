@@ -42,15 +42,9 @@ namespace Pulumi.AzureDevOps
         [Output("clientId")]
         public Output<string?> ClientId { get; private set; } = null!;
 
-        /// <summary>
-        /// The service principal client id which should be used during an apply operation in Terraform Cloud.
-        /// </summary>
         [Output("clientIdApply")]
         public Output<string?> ClientIdApply { get; private set; } = null!;
 
-        /// <summary>
-        /// The service principal client id which should be used during a plan operation in Terraform Cloud.
-        /// </summary>
         [Output("clientIdPlan")]
         public Output<string?> ClientIdPlan { get; private set; } = null!;
 
@@ -86,9 +80,6 @@ namespace Pulumi.AzureDevOps
         [Output("oidcRequestUrl")]
         public Output<string?> OidcRequestUrl { get; private set; } = null!;
 
-        /// <summary>
-        /// Terraform Cloud dynamic credential provider tag.
-        /// </summary>
         [Output("oidcTfcTag")]
         public Output<string?> OidcTfcTag { get; private set; } = null!;
 
@@ -122,15 +113,9 @@ namespace Pulumi.AzureDevOps
         [Output("tenantId")]
         public Output<string?> TenantId { get; private set; } = null!;
 
-        /// <summary>
-        /// The service principal tenant id which should be used during an apply operation in Terraform Cloud..
-        /// </summary>
         [Output("tenantIdApply")]
         public Output<string?> TenantIdApply { get; private set; } = null!;
 
-        /// <summary>
-        /// The service principal tenant id which should be used during a plan operation in Terraform Cloud.
-        /// </summary>
         [Output("tenantIdPlan")]
         public Output<string?> TenantIdPlan { get; private set; } = null!;
 
@@ -214,15 +199,9 @@ namespace Pulumi.AzureDevOps
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
-        /// <summary>
-        /// The service principal client id which should be used during an apply operation in Terraform Cloud.
-        /// </summary>
         [Input("clientIdApply")]
         public Input<string>? ClientIdApply { get; set; }
 
-        /// <summary>
-        /// The service principal client id which should be used during a plan operation in Terraform Cloud.
-        /// </summary>
         [Input("clientIdPlan")]
         public Input<string>? ClientIdPlan { get; set; }
 
@@ -268,9 +247,6 @@ namespace Pulumi.AzureDevOps
         [Input("oidcRequestUrl")]
         public Input<string>? OidcRequestUrl { get; set; }
 
-        /// <summary>
-        /// Terraform Cloud dynamic credential provider tag.
-        /// </summary>
         [Input("oidcTfcTag")]
         public Input<string>? OidcTfcTag { get; set; }
 
@@ -324,15 +300,9 @@ namespace Pulumi.AzureDevOps
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
-        /// <summary>
-        /// The service principal tenant id which should be used during an apply operation in Terraform Cloud..
-        /// </summary>
         [Input("tenantIdApply")]
         public Input<string>? TenantIdApply { get; set; }
 
-        /// <summary>
-        /// The service principal tenant id which should be used during a plan operation in Terraform Cloud.
-        /// </summary>
         [Input("tenantIdPlan")]
         public Input<string>? TenantIdPlan { get; set; }
 

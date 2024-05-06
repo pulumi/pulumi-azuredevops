@@ -79,31 +79,15 @@ public class Provider extends com.pulumi.resources.ProviderResource {
     public Output<Optional<String>> clientId() {
         return Codegen.optional(this.clientId);
     }
-    /**
-     * The service principal client id which should be used during an apply operation in Terraform Cloud.
-     * 
-     */
     @Export(name="clientIdApply", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientIdApply;
 
-    /**
-     * @return The service principal client id which should be used during an apply operation in Terraform Cloud.
-     * 
-     */
     public Output<Optional<String>> clientIdApply() {
         return Codegen.optional(this.clientIdApply);
     }
-    /**
-     * The service principal client id which should be used during a plan operation in Terraform Cloud.
-     * 
-     */
     @Export(name="clientIdPlan", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientIdPlan;
 
-    /**
-     * @return The service principal client id which should be used during a plan operation in Terraform Cloud.
-     * 
-     */
     public Output<Optional<String>> clientIdPlan() {
         return Codegen.optional(this.clientIdPlan);
     }
@@ -181,17 +165,9 @@ public class Provider extends com.pulumi.resources.ProviderResource {
     public Output<Optional<String>> oidcRequestUrl() {
         return Codegen.optional(this.oidcRequestUrl);
     }
-    /**
-     * Terraform Cloud dynamic credential provider tag.
-     * 
-     */
     @Export(name="oidcTfcTag", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oidcTfcTag;
 
-    /**
-     * @return Terraform Cloud dynamic credential provider tag.
-     * 
-     */
     public Output<Optional<String>> oidcTfcTag() {
         return Codegen.optional(this.oidcTfcTag);
     }
@@ -265,31 +241,15 @@ public class Provider extends com.pulumi.resources.ProviderResource {
     public Output<Optional<String>> tenantId() {
         return Codegen.optional(this.tenantId);
     }
-    /**
-     * The service principal tenant id which should be used during an apply operation in Terraform Cloud..
-     * 
-     */
     @Export(name="tenantIdApply", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tenantIdApply;
 
-    /**
-     * @return The service principal tenant id which should be used during an apply operation in Terraform Cloud..
-     * 
-     */
     public Output<Optional<String>> tenantIdApply() {
         return Codegen.optional(this.tenantIdApply);
     }
-    /**
-     * The service principal tenant id which should be used during a plan operation in Terraform Cloud.
-     * 
-     */
     @Export(name="tenantIdPlan", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tenantIdPlan;
 
-    /**
-     * @return The service principal tenant id which should be used during a plan operation in Terraform Cloud.
-     * 
-     */
     public Output<Optional<String>> tenantIdPlan() {
         return Codegen.optional(this.tenantIdPlan);
     }
