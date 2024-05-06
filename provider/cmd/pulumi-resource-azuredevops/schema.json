@@ -2373,12 +2373,10 @@
                 "description": "The service principal client or managed service principal id which should be used.\n"
             },
             "clientIdApply": {
-                "type": "string",
-                "description": "The service principal client id which should be used during an apply operation in Terraform Cloud.\n"
+                "type": "string"
             },
             "clientIdPlan": {
-                "type": "string",
-                "description": "The service principal client id which should be used during a plan operation in Terraform Cloud.\n"
+                "type": "string"
             },
             "clientSecret": {
                 "type": "string",
@@ -2402,8 +2400,7 @@
                 "description": "The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal\nusing OpenID Connect.\n"
             },
             "oidcTfcTag": {
-                "type": "string",
-                "description": "Terraform Cloud dynamic credential provider tag.\n"
+                "type": "string"
             },
             "oidcToken": {
                 "type": "string",
@@ -2428,12 +2425,10 @@
                 "description": "The service principal tenant id which should be used.\n"
             },
             "tenantIdApply": {
-                "type": "string",
-                "description": "The service principal tenant id which should be used during an apply operation in Terraform Cloud..\n"
+                "type": "string"
             },
             "tenantIdPlan": {
-                "type": "string",
-                "description": "The service principal tenant id which should be used during a plan operation in Terraform Cloud.\n"
+                "type": "string"
             },
             "useMsi": {
                 "type": "boolean",
@@ -2464,12 +2459,10 @@
                 "description": "The service principal client or managed service principal id which should be used.\n"
             },
             "clientIdApply": {
-                "type": "string",
-                "description": "The service principal client id which should be used during an apply operation in Terraform Cloud.\n"
+                "type": "string"
             },
             "clientIdPlan": {
-                "type": "string",
-                "description": "The service principal client id which should be used during a plan operation in Terraform Cloud.\n"
+                "type": "string"
             },
             "clientSecret": {
                 "type": "string",
@@ -2493,8 +2486,7 @@
                 "description": "The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal\nusing OpenID Connect.\n"
             },
             "oidcTfcTag": {
-                "type": "string",
-                "description": "Terraform Cloud dynamic credential provider tag.\n"
+                "type": "string"
             },
             "oidcToken": {
                 "type": "string",
@@ -2524,12 +2516,10 @@
                 "description": "The service principal tenant id which should be used.\n"
             },
             "tenantIdApply": {
-                "type": "string",
-                "description": "The service principal tenant id which should be used during an apply operation in Terraform Cloud..\n"
+                "type": "string"
             },
             "tenantIdPlan": {
-                "type": "string",
-                "description": "The service principal tenant id which should be used during a plan operation in Terraform Cloud.\n"
+                "type": "string"
             },
             "useMsi": {
                 "type": "boolean",
