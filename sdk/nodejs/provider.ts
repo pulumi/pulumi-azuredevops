@@ -41,13 +41,7 @@ export class Provider extends pulumi.ProviderResource {
      * The service principal client or managed service principal id which should be used.
      */
     public readonly clientId!: pulumi.Output<string | undefined>;
-    /**
-     * The service principal client id which should be used during an apply operation in Terraform Cloud.
-     */
     public readonly clientIdApply!: pulumi.Output<string | undefined>;
-    /**
-     * The service principal client id which should be used during a plan operation in Terraform Cloud.
-     */
     public readonly clientIdPlan!: pulumi.Output<string | undefined>;
     /**
      * Client secret for authenticating to a service principal.
@@ -71,9 +65,6 @@ export class Provider extends pulumi.ProviderResource {
      * using OpenID Connect.
      */
     public readonly oidcRequestUrl!: pulumi.Output<string | undefined>;
-    /**
-     * Terraform Cloud dynamic credential provider tag.
-     */
     public readonly oidcTfcTag!: pulumi.Output<string | undefined>;
     /**
      * OIDC token to authenticate as a service principal.
@@ -95,13 +86,7 @@ export class Provider extends pulumi.ProviderResource {
      * The service principal tenant id which should be used.
      */
     public readonly tenantId!: pulumi.Output<string | undefined>;
-    /**
-     * The service principal tenant id which should be used during an apply operation in Terraform Cloud..
-     */
     public readonly tenantIdApply!: pulumi.Output<string | undefined>;
-    /**
-     * The service principal tenant id which should be used during a plan operation in Terraform Cloud.
-     */
     public readonly tenantIdPlan!: pulumi.Output<string | undefined>;
 
     /**
@@ -164,13 +149,7 @@ export interface ProviderArgs {
      * The service principal client or managed service principal id which should be used.
      */
     clientId?: pulumi.Input<string>;
-    /**
-     * The service principal client id which should be used during an apply operation in Terraform Cloud.
-     */
     clientIdApply?: pulumi.Input<string>;
-    /**
-     * The service principal client id which should be used during a plan operation in Terraform Cloud.
-     */
     clientIdPlan?: pulumi.Input<string>;
     /**
      * Client secret for authenticating to a service principal.
@@ -194,9 +173,6 @@ export interface ProviderArgs {
      * using OpenID Connect.
      */
     oidcRequestUrl?: pulumi.Input<string>;
-    /**
-     * Terraform Cloud dynamic credential provider tag.
-     */
     oidcTfcTag?: pulumi.Input<string>;
     /**
      * OIDC token to authenticate as a service principal.
@@ -218,13 +194,7 @@ export interface ProviderArgs {
      * The service principal tenant id which should be used.
      */
     tenantId?: pulumi.Input<string>;
-    /**
-     * The service principal tenant id which should be used during an apply operation in Terraform Cloud..
-     */
     tenantIdApply?: pulumi.Input<string>;
-    /**
-     * The service principal tenant id which should be used during a plan operation in Terraform Cloud.
-     */
     tenantIdPlan?: pulumi.Input<string>;
     /**
      * Use an Azure Managed Service Identity.
