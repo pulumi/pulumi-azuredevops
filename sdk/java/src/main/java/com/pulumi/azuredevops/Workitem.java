@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,31 +48,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .visibility(&#34;private&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .workItemTemplate("Agile")
+ *             .versionControl("Git")
+ *             .visibility("private")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleWorkitem = new Workitem(&#34;exampleWorkitem&#34;, WorkitemArgs.builder()        
+ *         var exampleWorkitem = new Workitem("exampleWorkitem", WorkitemArgs.builder()        
  *             .projectId(exampleAzuredevopsProject.id())
- *             .title(&#34;Example Work Item&#34;)
- *             .type(&#34;Issue&#34;)
- *             .state(&#34;Active&#34;)
- *             .tags(&#34;Tag&#34;)
+ *             .title("Example Work Item")
+ *             .type("Issue")
+ *             .state("Active")
+ *             .tags("Tag")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With custom fields
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -94,26 +97,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .visibility(&#34;private&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .workItemTemplate("Agile")
+ *             .versionControl("Git")
+ *             .visibility("private")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleWorkitem = new Workitem(&#34;exampleWorkitem&#34;, WorkitemArgs.builder()        
+ *         var exampleWorkitem = new Workitem("exampleWorkitem", WorkitemArgs.builder()        
  *             .projectId(exampleAzuredevopsProject.id())
- *             .title(&#34;Example Work Item&#34;)
- *             .type(&#34;Issue&#34;)
- *             .state(&#34;Active&#34;)
- *             .tags(&#34;Tag&#34;)
- *             .customFields(Map.of(&#34;example&#34;, &#34;example&#34;))
+ *             .title("Example Work Item")
+ *             .type("Issue")
+ *             .state("Active")
+ *             .tags("Tag")
+ *             .customFields(Map.of("example", "example"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

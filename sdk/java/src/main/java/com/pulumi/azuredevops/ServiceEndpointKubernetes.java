@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,36 +52,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var example_azure = new ServiceEndpointKubernetes(&#34;example-azure&#34;, ServiceEndpointKubernetesArgs.builder()        
+ *         var example_azure = new ServiceEndpointKubernetes("example-azure", ServiceEndpointKubernetesArgs.builder()        
  *             .projectId(example.id())
- *             .serviceEndpointName(&#34;Example Kubernetes&#34;)
- *             .apiserverUrl(&#34;https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io&#34;)
- *             .authorizationType(&#34;AzureSubscription&#34;)
+ *             .serviceEndpointName("Example Kubernetes")
+ *             .apiserverUrl("https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io")
+ *             .authorizationType("AzureSubscription")
  *             .azureSubscriptions(ServiceEndpointKubernetesAzureSubscriptionArgs.builder()
- *                 .subscriptionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *                 .subscriptionName(&#34;Example&#34;)
- *                 .tenantId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *                 .resourcegroupId(&#34;example-rg&#34;)
- *                 .namespace(&#34;default&#34;)
- *                 .clusterName(&#34;example-aks&#34;)
+ *                 .subscriptionId("00000000-0000-0000-0000-000000000000")
+ *                 .subscriptionName("Example")
+ *                 .tenantId("00000000-0000-0000-0000-000000000000")
+ *                 .resourcegroupId("example-rg")
+ *                 .namespace("default")
+ *                 .clusterName("example-aks")
  *                 .build())
  *             .build());
  * 
- *         var example_kubeconfig = new ServiceEndpointKubernetes(&#34;example-kubeconfig&#34;, ServiceEndpointKubernetesArgs.builder()        
+ *         var example_kubeconfig = new ServiceEndpointKubernetes("example-kubeconfig", ServiceEndpointKubernetesArgs.builder()        
  *             .projectId(example.id())
- *             .serviceEndpointName(&#34;Example Kubernetes&#34;)
- *             .apiserverUrl(&#34;https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io&#34;)
- *             .authorizationType(&#34;Kubeconfig&#34;)
+ *             .serviceEndpointName("Example Kubernetes")
+ *             .apiserverUrl("https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io")
+ *             .authorizationType("Kubeconfig")
  *             .kubeconfig(ServiceEndpointKubernetesKubeconfigArgs.builder()
- *                 .kubeConfig(&#34;&#34;&#34;
+ *                 .kubeConfig("""
  *                               apiVersion: v1
  *                               clusters:
  *                               - cluster:
@@ -101,26 +102,27 @@ import javax.annotation.Nullable;
  *                                 user:
  *                                   client-certificate: fake-cert-file
  *                                   client-key: fake-key-file
- *                 &#34;&#34;&#34;)
+ *                 """)
  *                 .acceptUntrustedCerts(true)
- *                 .clusterContext(&#34;dev-frontend&#34;)
+ *                 .clusterContext("dev-frontend")
  *                 .build())
  *             .build());
  * 
- *         var example_service_account = new ServiceEndpointKubernetes(&#34;example-service-account&#34;, ServiceEndpointKubernetesArgs.builder()        
+ *         var example_service_account = new ServiceEndpointKubernetes("example-service-account", ServiceEndpointKubernetesArgs.builder()        
  *             .projectId(example.id())
- *             .serviceEndpointName(&#34;Example Kubernetes&#34;)
- *             .apiserverUrl(&#34;https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io&#34;)
- *             .authorizationType(&#34;ServiceAccount&#34;)
+ *             .serviceEndpointName("Example Kubernetes")
+ *             .apiserverUrl("https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io")
+ *             .authorizationType("ServiceAccount")
  *             .serviceAccount(ServiceEndpointKubernetesServiceAccountArgs.builder()
- *                 .token(&#34;000000000000000000000000&#34;)
- *                 .caCert(&#34;0000000000000000000000000000000&#34;)
+ *                 .token("000000000000000000000000")
+ *                 .caCert("0000000000000000000000000000000")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Relevant Links

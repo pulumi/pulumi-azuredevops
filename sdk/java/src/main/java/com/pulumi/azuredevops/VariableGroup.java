@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,40 +47,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .visibility(&#34;private&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .workItemTemplate("Agile")
+ *             .versionControl("Git")
+ *             .visibility("private")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleVariableGroup = new VariableGroup(&#34;exampleVariableGroup&#34;, VariableGroupArgs.builder()        
+ *         var exampleVariableGroup = new VariableGroup("exampleVariableGroup", VariableGroupArgs.builder()        
  *             .projectId(example.id())
- *             .name(&#34;Example Variable Group&#34;)
- *             .description(&#34;Example Variable Group Description&#34;)
+ *             .name("Example Variable Group")
+ *             .description("Example Variable Group Description")
  *             .allowAccess(true)
  *             .variables(            
  *                 VariableGroupVariableArgs.builder()
- *                     .name(&#34;key1&#34;)
- *                     .value(&#34;val1&#34;)
+ *                     .name("key1")
+ *                     .value("val1")
  *                     .build(),
  *                 VariableGroupVariableArgs.builder()
- *                     .name(&#34;key2&#34;)
- *                     .secretValue(&#34;val2&#34;)
+ *                     .name("key2")
+ *                     .secretValue("val2")
  *                     .isSecret(true)
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With AzureRM Key Vault
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -107,48 +110,49 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .visibility(&#34;private&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .workItemTemplate("Agile")
+ *             .versionControl("Git")
+ *             .visibility("private")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM(&#34;exampleServiceEndpointAzureRM&#34;, ServiceEndpointAzureRMArgs.builder()        
+ *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", ServiceEndpointAzureRMArgs.builder()        
  *             .projectId(example.id())
- *             .serviceEndpointName(&#34;Example AzureRM&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *             .serviceEndpointName("Example AzureRM")
+ *             .description("Managed by Terraform")
  *             .credentials(ServiceEndpointAzureRMCredentialsArgs.builder()
- *                 .serviceprincipalid(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *                 .serviceprincipalkey(&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;)
+ *                 .serviceprincipalid("00000000-0000-0000-0000-000000000000")
+ *                 .serviceprincipalkey("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
  *                 .build())
- *             .azurermSpnTenantid(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .azurermSubscriptionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .azurermSubscriptionName(&#34;Example Subscription Name&#34;)
+ *             .azurermSpnTenantid("00000000-0000-0000-0000-000000000000")
+ *             .azurermSubscriptionId("00000000-0000-0000-0000-000000000000")
+ *             .azurermSubscriptionName("Example Subscription Name")
  *             .build());
  * 
- *         var exampleVariableGroup = new VariableGroup(&#34;exampleVariableGroup&#34;, VariableGroupArgs.builder()        
+ *         var exampleVariableGroup = new VariableGroup("exampleVariableGroup", VariableGroupArgs.builder()        
  *             .projectId(example.id())
- *             .name(&#34;Example Variable Group&#34;)
- *             .description(&#34;Example Variable Group Description&#34;)
+ *             .name("Example Variable Group")
+ *             .description("Example Variable Group Description")
  *             .allowAccess(true)
  *             .keyVault(VariableGroupKeyVaultArgs.builder()
- *                 .name(&#34;example-kv&#34;)
+ *                 .name("example-kv")
  *                 .serviceEndpointId(exampleServiceEndpointAzureRM.id())
  *                 .build())
  *             .variables(            
  *                 VariableGroupVariableArgs.builder()
- *                     .name(&#34;key1&#34;)
+ *                     .name("key1")
  *                     .build(),
  *                 VariableGroupVariableArgs.builder()
- *                     .name(&#34;key2&#34;)
+ *                     .name("key2")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Relevant Links

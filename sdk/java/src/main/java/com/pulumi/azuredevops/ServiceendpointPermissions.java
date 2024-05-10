@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,56 +57,57 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .visibility(&#34;private&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .workItemTemplate("Agile")
+ *             .versionControl("Git")
+ *             .visibility("private")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
  *         final var example-readers = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
  *             .projectId(example.id())
- *             .name(&#34;Readers&#34;)
+ *             .name("Readers")
  *             .build());
  * 
- *         var example_root_permissions = new ServiceendpointPermissions(&#34;example-root-permissions&#34;, ServiceendpointPermissionsArgs.builder()        
+ *         var example_root_permissions = new ServiceendpointPermissions("example-root-permissions", ServiceendpointPermissionsArgs.builder()        
  *             .projectId(example.id())
- *             .principal(example_readers.applyValue(example_readers -&gt; example_readers.id()))
+ *             .principal(example_readers.applyValue(example_readers -> example_readers.id()))
  *             .permissions(Map.ofEntries(
- *                 Map.entry(&#34;Use&#34;, &#34;allow&#34;),
- *                 Map.entry(&#34;Administer&#34;, &#34;allow&#34;),
- *                 Map.entry(&#34;Create&#34;, &#34;allow&#34;),
- *                 Map.entry(&#34;ViewAuthorization&#34;, &#34;allow&#34;),
- *                 Map.entry(&#34;ViewEndpoint&#34;, &#34;allow&#34;)
+ *                 Map.entry("Use", "allow"),
+ *                 Map.entry("Administer", "allow"),
+ *                 Map.entry("Create", "allow"),
+ *                 Map.entry("ViewAuthorization", "allow"),
+ *                 Map.entry("ViewEndpoint", "allow")
  *             ))
  *             .build());
  * 
- *         var exampleServiceEndpointDockerRegistry = new ServiceEndpointDockerRegistry(&#34;exampleServiceEndpointDockerRegistry&#34;, ServiceEndpointDockerRegistryArgs.builder()        
+ *         var exampleServiceEndpointDockerRegistry = new ServiceEndpointDockerRegistry("exampleServiceEndpointDockerRegistry", ServiceEndpointDockerRegistryArgs.builder()        
  *             .projectId(example.id())
- *             .serviceEndpointName(&#34;Example Docker Hub&#34;)
- *             .dockerUsername(&#34;username&#34;)
- *             .dockerEmail(&#34;email@example.com&#34;)
- *             .dockerPassword(&#34;password&#34;)
- *             .registryType(&#34;DockerHub&#34;)
+ *             .serviceEndpointName("Example Docker Hub")
+ *             .dockerUsername("username")
+ *             .dockerEmail("email{@literal @}example.com")
+ *             .dockerPassword("password")
+ *             .registryType("DockerHub")
  *             .build());
  * 
- *         var example_permissions = new ServiceendpointPermissions(&#34;example-permissions&#34;, ServiceendpointPermissionsArgs.builder()        
+ *         var example_permissions = new ServiceendpointPermissions("example-permissions", ServiceendpointPermissionsArgs.builder()        
  *             .projectId(example.id())
- *             .principal(example_readers.applyValue(example_readers -&gt; example_readers.id()))
+ *             .principal(example_readers.applyValue(example_readers -> example_readers.id()))
  *             .serviceendpointId(exampleServiceEndpointDockerRegistry.id())
  *             .permissions(Map.ofEntries(
- *                 Map.entry(&#34;Use&#34;, &#34;allow&#34;),
- *                 Map.entry(&#34;Administer&#34;, &#34;deny&#34;),
- *                 Map.entry(&#34;Create&#34;, &#34;deny&#34;),
- *                 Map.entry(&#34;ViewAuthorization&#34;, &#34;allow&#34;),
- *                 Map.entry(&#34;ViewEndpoint&#34;, &#34;allow&#34;)
+ *                 Map.entry("Use", "allow"),
+ *                 Map.entry("Administer", "deny"),
+ *                 Map.entry("Create", "deny"),
+ *                 Map.entry("ViewAuthorization", "allow"),
+ *                 Map.entry("ViewEndpoint", "allow")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Relevant Links

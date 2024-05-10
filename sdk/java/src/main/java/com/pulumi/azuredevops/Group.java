@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,32 +47,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
  *             .build());
  * 
  *         final var example-readers = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
  *             .projectId(example.id())
- *             .name(&#34;Readers&#34;)
+ *             .name("Readers")
  *             .build());
  * 
  *         final var example-contributors = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
  *             .projectId(example.id())
- *             .name(&#34;Contributors&#34;)
+ *             .name("Contributors")
  *             .build());
  * 
- *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
  *             .scope(example.id())
- *             .displayName(&#34;Example group&#34;)
- *             .description(&#34;Example description&#34;)
+ *             .displayName("Example group")
+ *             .description("Example description")
  *             .members(            
- *                 example_readers.applyValue(example_readers -&gt; example_readers.descriptor()),
- *                 example_contributors.applyValue(example_contributors -&gt; example_contributors.descriptor()))
+ *                 example_readers.applyValue(example_readers -> example_readers.descriptor()),
+ *                 example_contributors.applyValue(example_contributors -> example_contributors.descriptor()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Relevant Links

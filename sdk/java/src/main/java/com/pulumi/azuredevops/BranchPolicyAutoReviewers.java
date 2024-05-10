@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,43 +52,44 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
  *             .build());
  * 
- *         var exampleGit = new Git(&#34;exampleGit&#34;, GitArgs.builder()        
+ *         var exampleGit = new Git("exampleGit", GitArgs.builder()        
  *             .projectId(example.id())
- *             .name(&#34;Example Repository&#34;)
+ *             .name("Example Repository")
  *             .initialization(GitInitializationArgs.builder()
- *                 .initType(&#34;Clean&#34;)
+ *                 .initType("Clean")
  *                 .build())
  *             .build());
  * 
- *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
- *             .principalName(&#34;mail@email.com&#34;)
- *             .accountLicenseType(&#34;basic&#34;)
+ *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+ *             .principalName("mail{@literal @}email.com")
+ *             .accountLicenseType("basic")
  *             .build());
  * 
- *         var exampleBranchPolicyAutoReviewers = new BranchPolicyAutoReviewers(&#34;exampleBranchPolicyAutoReviewers&#34;, BranchPolicyAutoReviewersArgs.builder()        
+ *         var exampleBranchPolicyAutoReviewers = new BranchPolicyAutoReviewers("exampleBranchPolicyAutoReviewers", BranchPolicyAutoReviewersArgs.builder()        
  *             .projectId(example.id())
  *             .enabled(true)
  *             .blocking(true)
  *             .settings(BranchPolicyAutoReviewersSettingsArgs.builder()
  *                 .autoReviewerIds(exampleUser.id())
  *                 .submitterCanVote(false)
- *                 .message(&#34;Auto reviewer&#34;)
- *                 .pathFilters(&#34;*{@literal /}src/*.ts&#34;)
+ *                 .message("Auto reviewer")
+ *                 .pathFilters("*{@literal /}src/*.ts")
  *                 .scopes(BranchPolicyAutoReviewersSettingsScopeArgs.builder()
  *                     .repositoryId(exampleGit.id())
  *                     .repositoryRef(exampleGit.defaultBranch())
- *                     .matchType(&#34;Exact&#34;)
+ *                     .matchType("Exact")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Relevant Links

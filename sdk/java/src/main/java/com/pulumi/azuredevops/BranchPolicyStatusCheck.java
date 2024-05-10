@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,56 +52,57 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
  *             .features(Map.ofEntries(
- *                 Map.entry(&#34;testplans&#34;, &#34;disabled&#34;),
- *                 Map.entry(&#34;artifacts&#34;, &#34;disabled&#34;)
+ *                 Map.entry("testplans", "disabled"),
+ *                 Map.entry("artifacts", "disabled")
  *             ))
- *             .description(&#34;Managed by Terraform&#34;)
+ *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleGit = new Git(&#34;exampleGit&#34;, GitArgs.builder()        
+ *         var exampleGit = new Git("exampleGit", GitArgs.builder()        
  *             .projectId(example.id())
- *             .name(&#34;Example Repository&#34;)
+ *             .name("Example Repository")
  *             .initialization(GitInitializationArgs.builder()
- *                 .initType(&#34;Clean&#34;)
+ *                 .initType("Clean")
  *                 .build())
  *             .build());
  * 
- *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
- *             .principalName(&#34;mail@email.com&#34;)
- *             .accountLicenseType(&#34;basic&#34;)
+ *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+ *             .principalName("mail{@literal @}email.com")
+ *             .accountLicenseType("basic")
  *             .build());
  * 
- *         var exampleBranchPolicyStatusCheck = new BranchPolicyStatusCheck(&#34;exampleBranchPolicyStatusCheck&#34;, BranchPolicyStatusCheckArgs.builder()        
+ *         var exampleBranchPolicyStatusCheck = new BranchPolicyStatusCheck("exampleBranchPolicyStatusCheck", BranchPolicyStatusCheckArgs.builder()        
  *             .projectId(example.id())
  *             .enabled(true)
  *             .blocking(true)
  *             .settings(BranchPolicyStatusCheckSettingsArgs.builder()
- *                 .name(&#34;Release&#34;)
+ *                 .name("Release")
  *                 .authorId(exampleUser.id())
  *                 .invalidateOnUpdate(true)
- *                 .applicability(&#34;conditional&#34;)
- *                 .displayName(&#34;PreCheck&#34;)
+ *                 .applicability("conditional")
+ *                 .displayName("PreCheck")
  *                 .scopes(                
  *                     BranchPolicyStatusCheckSettingsScopeArgs.builder()
  *                         .repositoryId(exampleGit.id())
  *                         .repositoryRef(exampleGit.defaultBranch())
- *                         .matchType(&#34;Exact&#34;)
+ *                         .matchType("Exact")
  *                         .build(),
  *                     BranchPolicyStatusCheckSettingsScopeArgs.builder()
- *                         .matchType(&#34;DefaultBranch&#34;)
+ *                         .matchType("DefaultBranch")
  *                         .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Relevant Links

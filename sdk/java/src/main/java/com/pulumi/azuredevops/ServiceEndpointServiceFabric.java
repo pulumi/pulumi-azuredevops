@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Azure Active Directory Authentication
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,35 +51,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var project = new Project(&#34;project&#34;, ProjectArgs.builder()        
- *             .name(&#34;Sample Project&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
+ *         var project = new Project("project", ProjectArgs.builder()        
+ *             .name("Sample Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
  *             .build());
  * 
- *         var test = new ServiceEndpointServiceFabric(&#34;test&#34;, ServiceEndpointServiceFabricArgs.builder()        
+ *         var test = new ServiceEndpointServiceFabric("test", ServiceEndpointServiceFabricArgs.builder()        
  *             .projectId(project.id())
- *             .serviceEndpointName(&#34;Sample Service Fabric&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
- *             .clusterEndpoint(&#34;tcp://test&#34;)
+ *             .serviceEndpointName("Sample Service Fabric")
+ *             .description("Managed by Terraform")
+ *             .clusterEndpoint("tcp://test")
  *             .azureActiveDirectory(ServiceEndpointServiceFabricAzureActiveDirectoryArgs.builder()
- *                 .serverCertificateLookup(&#34;Thumbprint&#34;)
- *                 .serverCertificateThumbprint(&#34;0000000000000000000000000000000000000000&#34;)
- *                 .username(&#34;username&#34;)
- *                 .password(&#34;password&#34;)
+ *                 .serverCertificateLookup("Thumbprint")
+ *                 .serverCertificateThumbprint("0000000000000000000000000000000000000000")
+ *                 .username("username")
+ *                 .password("password")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Windows Authentication
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -102,27 +105,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var project = new Project(&#34;project&#34;, ProjectArgs.builder()        
- *             .name(&#34;Sample Project&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
+ *         var project = new Project("project", ProjectArgs.builder()        
+ *             .name("Sample Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
  *             .build());
  * 
- *         var test = new ServiceEndpointServiceFabric(&#34;test&#34;, ServiceEndpointServiceFabricArgs.builder()        
+ *         var test = new ServiceEndpointServiceFabric("test", ServiceEndpointServiceFabricArgs.builder()        
  *             .projectId(project.id())
- *             .serviceEndpointName(&#34;Sample Service Fabric&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
- *             .clusterEndpoint(&#34;tcp://test&#34;)
+ *             .serviceEndpointName("Sample Service Fabric")
+ *             .description("Managed by Terraform")
+ *             .clusterEndpoint("tcp://test")
  *             .none(ServiceEndpointServiceFabricNoneArgs.builder()
  *                 .unsecured(false)
- *                 .clusterSpn(&#34;HTTP/www.contoso.com&#34;)
+ *                 .clusterSpn("HTTP/www.contoso.com")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Relevant Links

@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Protect an environment
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,30 +53,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
  *             .build());
  * 
- *         var exampleEnvironment = new Environment(&#34;exampleEnvironment&#34;, EnvironmentArgs.builder()        
+ *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()        
  *             .projectId(example.id())
- *             .name(&#34;Example Environment&#34;)
+ *             .name("Example Environment")
  *             .build());
  * 
- *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
- *             .displayName(&#34;some-azdo-group&#34;)
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+ *             .displayName("some-azdo-group")
  *             .build());
  * 
- *         var exampleCheckApproval = new CheckApproval(&#34;exampleCheckApproval&#34;, CheckApprovalArgs.builder()        
+ *         var exampleCheckApproval = new CheckApproval("exampleCheckApproval", CheckApprovalArgs.builder()        
  *             .projectId(example.id())
  *             .targetResourceId(exampleEnvironment.id())
- *             .targetResourceType(&#34;environment&#34;)
+ *             .targetResourceType("environment")
  *             .requesterCanApprove(true)
  *             .approvers(exampleGroup.originId())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

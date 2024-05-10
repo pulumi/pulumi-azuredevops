@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * 
  * ### Tfs
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -62,81 +63,83 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
  *             .build());
  * 
- *         var exampleGit = new Git(&#34;exampleGit&#34;, GitArgs.builder()        
+ *         var exampleGit = new Git("exampleGit", GitArgs.builder()        
  *             .projectId(example.id())
- *             .name(&#34;Example Repository&#34;)
+ *             .name("Example Repository")
  *             .initialization(GitInitializationArgs.builder()
- *                 .initType(&#34;Clean&#34;)
+ *                 .initType("Clean")
  *                 .build())
  *             .build());
  * 
- *         var exampleVariableGroup = new VariableGroup(&#34;exampleVariableGroup&#34;, VariableGroupArgs.builder()        
+ *         var exampleVariableGroup = new VariableGroup("exampleVariableGroup", VariableGroupArgs.builder()        
  *             .projectId(example.id())
- *             .name(&#34;Example Pipeline Variables&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *             .name("Example Pipeline Variables")
+ *             .description("Managed by Terraform")
  *             .allowAccess(true)
  *             .variables(VariableGroupVariableArgs.builder()
- *                 .name(&#34;FOO&#34;)
- *                 .value(&#34;BAR&#34;)
+ *                 .name("FOO")
+ *                 .value("BAR")
  *                 .build())
  *             .build());
  * 
- *         var exampleBuildDefinition = new BuildDefinition(&#34;exampleBuildDefinition&#34;, BuildDefinitionArgs.builder()        
+ *         var exampleBuildDefinition = new BuildDefinition("exampleBuildDefinition", BuildDefinitionArgs.builder()        
  *             .projectId(example.id())
- *             .name(&#34;Example Build Definition&#34;)
- *             .path(&#34;\\ExampleFolder&#34;)
+ *             .name("Example Build Definition")
+ *             .path("\\ExampleFolder")
  *             .ciTrigger(BuildDefinitionCiTriggerArgs.builder()
  *                 .useYaml(false)
  *                 .build())
  *             .schedules(BuildDefinitionScheduleArgs.builder()
  *                 .branchFilters(BuildDefinitionScheduleBranchFilterArgs.builder()
- *                     .includes(&#34;master&#34;)
+ *                     .includes("master")
  *                     .excludes(                    
- *                         &#34;test&#34;,
- *                         &#34;regression&#34;)
+ *                         "test",
+ *                         "regression")
  *                     .build())
  *                 .daysToBuilds(                
- *                     &#34;Wed&#34;,
- *                     &#34;Sun&#34;)
+ *                     "Wed",
+ *                     "Sun")
  *                 .scheduleOnlyWithChanges(true)
  *                 .startHours(10)
  *                 .startMinutes(59)
- *                 .timeZone(&#34;(UTC) Coordinated Universal Time&#34;)
+ *                 .timeZone("(UTC) Coordinated Universal Time")
  *                 .build())
  *             .repository(BuildDefinitionRepositoryArgs.builder()
- *                 .repoType(&#34;TfsGit&#34;)
+ *                 .repoType("TfsGit")
  *                 .repoId(exampleGit.id())
  *                 .branchName(exampleGit.defaultBranch())
- *                 .ymlPath(&#34;azure-pipelines.yml&#34;)
+ *                 .ymlPath("azure-pipelines.yml")
  *                 .build())
  *             .variableGroups(exampleVariableGroup.id())
  *             .variables(            
  *                 BuildDefinitionVariableArgs.builder()
- *                     .name(&#34;PipelineVariable&#34;)
- *                     .value(&#34;Go Microsoft!&#34;)
+ *                     .name("PipelineVariable")
+ *                     .value("Go Microsoft!")
  *                     .build(),
  *                 BuildDefinitionVariableArgs.builder()
- *                     .name(&#34;PipelineSecret&#34;)
- *                     .secretValue(&#34;ZGV2cw&#34;)
+ *                     .name("PipelineSecret")
+ *                     .secretValue("ZGV2cw")
  *                     .isSecret(true)
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### GitHub Enterprise
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -165,58 +168,59 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
  *             .build());
  * 
- *         var exampleServiceEndpointGitHubEnterprise = new ServiceEndpointGitHubEnterprise(&#34;exampleServiceEndpointGitHubEnterprise&#34;, ServiceEndpointGitHubEnterpriseArgs.builder()        
+ *         var exampleServiceEndpointGitHubEnterprise = new ServiceEndpointGitHubEnterprise("exampleServiceEndpointGitHubEnterprise", ServiceEndpointGitHubEnterpriseArgs.builder()        
  *             .projectId(example.id())
- *             .serviceEndpointName(&#34;Example GitHub Enterprise&#34;)
- *             .url(&#34;https://github.contoso.com&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *             .serviceEndpointName("Example GitHub Enterprise")
+ *             .url("https://github.contoso.com")
+ *             .description("Managed by Terraform")
  *             .authPersonal(ServiceEndpointGitHubEnterpriseAuthPersonalArgs.builder()
- *                 .personalAccessToken(&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;)
+ *                 .personalAccessToken("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
  *                 .build())
  *             .build());
  * 
- *         var exampleBuildDefinition = new BuildDefinition(&#34;exampleBuildDefinition&#34;, BuildDefinitionArgs.builder()        
+ *         var exampleBuildDefinition = new BuildDefinition("exampleBuildDefinition", BuildDefinitionArgs.builder()        
  *             .projectId(example.id())
- *             .name(&#34;Example Build Definition&#34;)
- *             .path(&#34;\\ExampleFolder&#34;)
+ *             .name("Example Build Definition")
+ *             .path("\\ExampleFolder")
  *             .ciTrigger(BuildDefinitionCiTriggerArgs.builder()
  *                 .useYaml(false)
  *                 .build())
  *             .repository(BuildDefinitionRepositoryArgs.builder()
- *                 .repoType(&#34;GitHubEnterprise&#34;)
- *                 .repoId(&#34;&lt;GitHub Org&gt;/&lt;Repo Name&gt;&#34;)
- *                 .githubEnterpriseUrl(&#34;https://github.company.com&#34;)
- *                 .branchName(&#34;master&#34;)
- *                 .ymlPath(&#34;azure-pipelines.yml&#34;)
+ *                 .repoType("GitHubEnterprise")
+ *                 .repoId("<GitHub Org>/<Repo Name>")
+ *                 .githubEnterpriseUrl("https://github.company.com")
+ *                 .branchName("master")
+ *                 .ymlPath("azure-pipelines.yml")
  *                 .serviceConnectionId(exampleServiceEndpointGitHubEnterprise.id())
  *                 .build())
  *             .schedules(BuildDefinitionScheduleArgs.builder()
  *                 .branchFilters(BuildDefinitionScheduleBranchFilterArgs.builder()
- *                     .includes(&#34;main&#34;)
+ *                     .includes("main")
  *                     .excludes(                    
- *                         &#34;test&#34;,
- *                         &#34;regression&#34;)
+ *                         "test",
+ *                         "regression")
  *                     .build())
  *                 .daysToBuilds(                
- *                     &#34;Wed&#34;,
- *                     &#34;Sun&#34;)
+ *                     "Wed",
+ *                     "Sun")
  *                 .scheduleOnlyWithChanges(true)
  *                 .startHours(10)
  *                 .startMinutes(59)
- *                 .timeZone(&#34;(UTC) Coordinated Universal Time&#34;)
+ *                 .timeZone("(UTC) Coordinated Universal Time")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Remarks

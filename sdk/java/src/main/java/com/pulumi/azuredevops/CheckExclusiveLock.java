@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Add Exclusive Lock to an environment
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,35 +51,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
  *             .build());
  * 
- *         var exampleServiceEndpointGeneric = new ServiceEndpointGeneric(&#34;exampleServiceEndpointGeneric&#34;, ServiceEndpointGenericArgs.builder()        
+ *         var exampleServiceEndpointGeneric = new ServiceEndpointGeneric("exampleServiceEndpointGeneric", ServiceEndpointGenericArgs.builder()        
  *             .projectId(example.id())
- *             .serverUrl(&#34;https://some-server.example.com&#34;)
- *             .username(&#34;username&#34;)
- *             .password(&#34;password&#34;)
- *             .serviceEndpointName(&#34;Example Generic&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *             .serverUrl("https://some-server.example.com")
+ *             .username("username")
+ *             .password("password")
+ *             .serviceEndpointName("Example Generic")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleCheckExclusiveLock = new CheckExclusiveLock(&#34;exampleCheckExclusiveLock&#34;, CheckExclusiveLockArgs.builder()        
+ *         var exampleCheckExclusiveLock = new CheckExclusiveLock("exampleCheckExclusiveLock", CheckExclusiveLockArgs.builder()        
  *             .projectId(example.id())
  *             .targetResourceId(exampleServiceEndpointGeneric.id())
- *             .targetResourceType(&#34;endpoint&#34;)
+ *             .targetResourceType("endpoint")
  *             .timeout(43200)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Protect an environment
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -103,25 +106,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
  *             .build());
  * 
- *         var exampleEnvironment = new Environment(&#34;exampleEnvironment&#34;, EnvironmentArgs.builder()        
+ *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()        
  *             .projectId(example.id())
- *             .name(&#34;Example Environment&#34;)
+ *             .name("Example Environment")
  *             .build());
  * 
- *         var exampleCheckExclusiveLock = new CheckExclusiveLock(&#34;exampleCheckExclusiveLock&#34;, CheckExclusiveLockArgs.builder()        
+ *         var exampleCheckExclusiveLock = new CheckExclusiveLock("exampleCheckExclusiveLock", CheckExclusiveLockArgs.builder()        
  *             .projectId(example.id())
  *             .targetResourceId(exampleEnvironment.id())
- *             .targetResourceType(&#34;environment&#34;)
+ *             .targetResourceType("environment")
  *             .timeout(43200)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,32 +48,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var project = new Project(&#34;project&#34;, ProjectArgs.builder()        
- *             .name(&#34;Testing&#34;)
- *             .description(&#34;Testing-description&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
+ *         var project = new Project("project", ProjectArgs.builder()        
+ *             .name("Testing")
+ *             .description("Testing-description")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
  *             .build());
  * 
  *         final var tf-project-readers = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
  *             .projectId(project.id())
- *             .name(&#34;Readers&#34;)
+ *             .name("Readers")
  *             .build());
  * 
- *         var permissions = new LibraryPermissions(&#34;permissions&#34;, LibraryPermissionsArgs.builder()        
+ *         var permissions = new LibraryPermissions("permissions", LibraryPermissionsArgs.builder()        
  *             .projectId(project.id())
- *             .principal(tf_project_readers.applyValue(tf_project_readers -&gt; tf_project_readers.id()))
+ *             .principal(tf_project_readers.applyValue(tf_project_readers -> tf_project_readers.id()))
  *             .permissions(Map.ofEntries(
- *                 Map.entry(&#34;View&#34;, &#34;allow&#34;),
- *                 Map.entry(&#34;Administer&#34;, &#34;allow&#34;),
- *                 Map.entry(&#34;Use&#34;, &#34;allow&#34;)
+ *                 Map.entry("View", "allow"),
+ *                 Map.entry("Administer", "allow"),
+ *                 Map.entry("Use", "allow")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Roles

@@ -83,7 +83,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -106,24 +107,25 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
-     *             .name(&#34;Example Project&#34;)
-     *             .workItemTemplate(&#34;Agile&#34;)
-     *             .versionControl(&#34;Git&#34;)
-     *             .visibility(&#34;private&#34;)
-     *             .description(&#34;Managed by Terraform&#34;)
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+     *             .name("Example Project")
+     *             .workItemTemplate("Agile")
+     *             .versionControl("Git")
+     *             .visibility("private")
+     *             .description("Managed by Terraform")
      *             .build());
      * 
      *         final var example = AzuredevopsFunctions.getAgentQueue(GetAgentQueueArgs.builder()
      *             .projectId(exampleProject.id())
-     *             .name(&#34;Example Agent Queue&#34;)
+     *             .name("Example Agent Queue")
      *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, example.applyValue(getAgentQueueResult -&gt; getAgentQueueResult).applyValue(example -&gt; example.applyValue(getAgentQueueResult -&gt; getAgentQueueResult.name())));
-     *         ctx.export(&#34;poolId&#34;, example.applyValue(getAgentQueueResult -&gt; getAgentQueueResult).applyValue(example -&gt; example.applyValue(getAgentQueueResult -&gt; getAgentQueueResult.agentPoolId())));
+     *         ctx.export("name", example.applyValue(getAgentQueueResult -> getAgentQueueResult).applyValue(example -> example.applyValue(getAgentQueueResult -> getAgentQueueResult.name())));
+     *         ctx.export("poolId", example.applyValue(getAgentQueueResult -> getAgentQueueResult).applyValue(example -> example.applyValue(getAgentQueueResult -> getAgentQueueResult.agentPoolId())));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -140,7 +142,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -163,24 +166,25 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
-     *             .name(&#34;Example Project&#34;)
-     *             .workItemTemplate(&#34;Agile&#34;)
-     *             .versionControl(&#34;Git&#34;)
-     *             .visibility(&#34;private&#34;)
-     *             .description(&#34;Managed by Terraform&#34;)
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+     *             .name("Example Project")
+     *             .workItemTemplate("Agile")
+     *             .versionControl("Git")
+     *             .visibility("private")
+     *             .description("Managed by Terraform")
      *             .build());
      * 
      *         final var example = AzuredevopsFunctions.getAgentQueue(GetAgentQueueArgs.builder()
      *             .projectId(exampleProject.id())
-     *             .name(&#34;Example Agent Queue&#34;)
+     *             .name("Example Agent Queue")
      *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, example.applyValue(getAgentQueueResult -&gt; getAgentQueueResult).applyValue(example -&gt; example.applyValue(getAgentQueueResult -&gt; getAgentQueueResult.name())));
-     *         ctx.export(&#34;poolId&#34;, example.applyValue(getAgentQueueResult -&gt; getAgentQueueResult).applyValue(example -&gt; example.applyValue(getAgentQueueResult -&gt; getAgentQueueResult.agentPoolId())));
+     *         ctx.export("name", example.applyValue(getAgentQueueResult -> getAgentQueueResult).applyValue(example -> example.applyValue(getAgentQueueResult -> getAgentQueueResult.name())));
+     *         ctx.export("poolId", example.applyValue(getAgentQueueResult -> getAgentQueueResult).applyValue(example -> example.applyValue(getAgentQueueResult -> getAgentQueueResult.agentPoolId())));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -197,7 +201,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -220,24 +225,25 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
-     *             .name(&#34;Example Project&#34;)
-     *             .workItemTemplate(&#34;Agile&#34;)
-     *             .versionControl(&#34;Git&#34;)
-     *             .visibility(&#34;private&#34;)
-     *             .description(&#34;Managed by Terraform&#34;)
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+     *             .name("Example Project")
+     *             .workItemTemplate("Agile")
+     *             .versionControl("Git")
+     *             .visibility("private")
+     *             .description("Managed by Terraform")
      *             .build());
      * 
      *         final var example = AzuredevopsFunctions.getAgentQueue(GetAgentQueueArgs.builder()
      *             .projectId(exampleProject.id())
-     *             .name(&#34;Example Agent Queue&#34;)
+     *             .name("Example Agent Queue")
      *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, example.applyValue(getAgentQueueResult -&gt; getAgentQueueResult).applyValue(example -&gt; example.applyValue(getAgentQueueResult -&gt; getAgentQueueResult.name())));
-     *         ctx.export(&#34;poolId&#34;, example.applyValue(getAgentQueueResult -&gt; getAgentQueueResult).applyValue(example -&gt; example.applyValue(getAgentQueueResult -&gt; getAgentQueueResult.agentPoolId())));
+     *         ctx.export("name", example.applyValue(getAgentQueueResult -> getAgentQueueResult).applyValue(example -> example.applyValue(getAgentQueueResult -> getAgentQueueResult.name())));
+     *         ctx.export("poolId", example.applyValue(getAgentQueueResult -> getAgentQueueResult).applyValue(example -> example.applyValue(getAgentQueueResult -> getAgentQueueResult.agentPoolId())));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -254,7 +260,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -277,24 +284,25 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
-     *             .name(&#34;Example Project&#34;)
-     *             .workItemTemplate(&#34;Agile&#34;)
-     *             .versionControl(&#34;Git&#34;)
-     *             .visibility(&#34;private&#34;)
-     *             .description(&#34;Managed by Terraform&#34;)
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+     *             .name("Example Project")
+     *             .workItemTemplate("Agile")
+     *             .versionControl("Git")
+     *             .visibility("private")
+     *             .description("Managed by Terraform")
      *             .build());
      * 
      *         final var example = AzuredevopsFunctions.getAgentQueue(GetAgentQueueArgs.builder()
      *             .projectId(exampleProject.id())
-     *             .name(&#34;Example Agent Queue&#34;)
+     *             .name("Example Agent Queue")
      *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, example.applyValue(getAgentQueueResult -&gt; getAgentQueueResult).applyValue(example -&gt; example.applyValue(getAgentQueueResult -&gt; getAgentQueueResult.name())));
-     *         ctx.export(&#34;poolId&#34;, example.applyValue(getAgentQueueResult -&gt; getAgentQueueResult).applyValue(example -&gt; example.applyValue(getAgentQueueResult -&gt; getAgentQueueResult.agentPoolId())));
+     *         ctx.export("name", example.applyValue(getAgentQueueResult -> getAgentQueueResult).applyValue(example -> example.applyValue(getAgentQueueResult -> getAgentQueueResult.name())));
+     *         ctx.export("poolId", example.applyValue(getAgentQueueResult -> getAgentQueueResult).applyValue(example -> example.applyValue(getAgentQueueResult -> getAgentQueueResult.agentPoolId())));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -311,7 +319,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -334,23 +343,24 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
-     *             .name(&#34;Example Project&#34;)
-     *             .workItemTemplate(&#34;Agile&#34;)
-     *             .versionControl(&#34;Git&#34;)
-     *             .visibility(&#34;private&#34;)
-     *             .description(&#34;Managed by Terraform&#34;)
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+     *             .name("Example Project")
+     *             .workItemTemplate("Agile")
+     *             .versionControl("Git")
+     *             .visibility("private")
+     *             .description("Managed by Terraform")
      *             .build());
      * 
      *         final var example = AzuredevopsFunctions.getArea(GetAreaArgs.builder()
      *             .projectId(exampleProject.id())
-     *             .path(&#34;/&#34;)
-     *             .fetchChildren(&#34;false&#34;)
+     *             .path("/")
+     *             .fetchChildren("false")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -371,7 +381,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -394,23 +405,24 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
-     *             .name(&#34;Example Project&#34;)
-     *             .workItemTemplate(&#34;Agile&#34;)
-     *             .versionControl(&#34;Git&#34;)
-     *             .visibility(&#34;private&#34;)
-     *             .description(&#34;Managed by Terraform&#34;)
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+     *             .name("Example Project")
+     *             .workItemTemplate("Agile")
+     *             .versionControl("Git")
+     *             .visibility("private")
+     *             .description("Managed by Terraform")
      *             .build());
      * 
      *         final var example = AzuredevopsFunctions.getArea(GetAreaArgs.builder()
      *             .projectId(exampleProject.id())
-     *             .path(&#34;/&#34;)
-     *             .fetchChildren(&#34;false&#34;)
+     *             .path("/")
+     *             .fetchChildren("false")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -431,7 +443,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -454,23 +467,24 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
-     *             .name(&#34;Example Project&#34;)
-     *             .workItemTemplate(&#34;Agile&#34;)
-     *             .versionControl(&#34;Git&#34;)
-     *             .visibility(&#34;private&#34;)
-     *             .description(&#34;Managed by Terraform&#34;)
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+     *             .name("Example Project")
+     *             .workItemTemplate("Agile")
+     *             .versionControl("Git")
+     *             .visibility("private")
+     *             .description("Managed by Terraform")
      *             .build());
      * 
      *         final var example = AzuredevopsFunctions.getArea(GetAreaArgs.builder()
      *             .projectId(exampleProject.id())
-     *             .path(&#34;/&#34;)
-     *             .fetchChildren(&#34;false&#34;)
+     *             .path("/")
+     *             .fetchChildren("false")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -491,7 +505,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -514,23 +529,24 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
-     *             .name(&#34;Example Project&#34;)
-     *             .workItemTemplate(&#34;Agile&#34;)
-     *             .versionControl(&#34;Git&#34;)
-     *             .visibility(&#34;private&#34;)
-     *             .description(&#34;Managed by Terraform&#34;)
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+     *             .name("Example Project")
+     *             .workItemTemplate("Agile")
+     *             .versionControl("Git")
+     *             .visibility("private")
+     *             .description("Managed by Terraform")
      *             .build());
      * 
      *         final var example = AzuredevopsFunctions.getArea(GetAreaArgs.builder()
      *             .projectId(exampleProject.id())
-     *             .path(&#34;/&#34;)
-     *             .fetchChildren(&#34;false&#34;)
+     *             .path("/")
+     *             .fetchChildren("false")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -551,7 +567,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -574,18 +591,19 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
      *         final var exampleGetBuildDefinition = AzuredevopsFunctions.getBuildDefinition(GetBuildDefinitionArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .name(&#34;existing&#34;)
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .name("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleGetBuildDefinition.applyValue(getBuildDefinitionResult -&gt; getBuildDefinitionResult.id()));
+     *         ctx.export("id", exampleGetBuildDefinition.applyValue(getBuildDefinitionResult -> getBuildDefinitionResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -598,7 +616,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -621,18 +640,19 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
      *         final var exampleGetBuildDefinition = AzuredevopsFunctions.getBuildDefinition(GetBuildDefinitionArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .name(&#34;existing&#34;)
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .name("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleGetBuildDefinition.applyValue(getBuildDefinitionResult -&gt; getBuildDefinitionResult.id()));
+     *         ctx.export("id", exampleGetBuildDefinition.applyValue(getBuildDefinitionResult -> getBuildDefinitionResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -645,7 +665,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -668,18 +689,19 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
      *         final var exampleGetBuildDefinition = AzuredevopsFunctions.getBuildDefinition(GetBuildDefinitionArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .name(&#34;existing&#34;)
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .name("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleGetBuildDefinition.applyValue(getBuildDefinitionResult -&gt; getBuildDefinitionResult.id()));
+     *         ctx.export("id", exampleGetBuildDefinition.applyValue(getBuildDefinitionResult -> getBuildDefinitionResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -692,7 +714,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -715,18 +738,19 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
      *         final var exampleGetBuildDefinition = AzuredevopsFunctions.getBuildDefinition(GetBuildDefinitionArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .name(&#34;existing&#34;)
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .name("existing")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleGetBuildDefinition.applyValue(getBuildDefinitionResult -&gt; getBuildDefinitionResult.id()));
+     *         ctx.export("id", exampleGetBuildDefinition.applyValue(getBuildDefinitionResult -> getBuildDefinitionResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -739,7 +763,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -761,10 +786,11 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getClientConfig();
      * 
-     *         ctx.export(&#34;orgUrl&#34;, example.applyValue(getClientConfigResult -&gt; getClientConfigResult.organizationUrl()));
+     *         ctx.export("orgUrl", example.applyValue(getClientConfigResult -> getClientConfigResult.organizationUrl()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -777,7 +803,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -799,10 +826,11 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getClientConfig();
      * 
-     *         ctx.export(&#34;orgUrl&#34;, example.applyValue(getClientConfigResult -&gt; getClientConfigResult.organizationUrl()));
+     *         ctx.export("orgUrl", example.applyValue(getClientConfigResult -> getClientConfigResult.organizationUrl()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -815,7 +843,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -837,10 +866,11 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getClientConfig();
      * 
-     *         ctx.export(&#34;orgUrl&#34;, example.applyValue(getClientConfigResult -&gt; getClientConfigResult.organizationUrl()));
+     *         ctx.export("orgUrl", example.applyValue(getClientConfigResult -> getClientConfigResult.organizationUrl()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -853,7 +883,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -875,10 +906,11 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getClientConfig();
      * 
-     *         ctx.export(&#34;orgUrl&#34;, example.applyValue(getClientConfigResult -&gt; getClientConfigResult.organizationUrl()));
+     *         ctx.export("orgUrl", example.applyValue(getClientConfigResult -> getClientConfigResult.organizationUrl()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -891,7 +923,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -913,10 +946,11 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getClientConfig();
      * 
-     *         ctx.export(&#34;orgUrl&#34;, example.applyValue(getClientConfigResult -&gt; getClientConfigResult.organizationUrl()));
+     *         ctx.export("orgUrl", example.applyValue(getClientConfigResult -> getClientConfigResult.organizationUrl()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -929,7 +963,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -951,10 +986,11 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getClientConfig();
      * 
-     *         ctx.export(&#34;orgUrl&#34;, example.applyValue(getClientConfigResult -&gt; getClientConfigResult.organizationUrl()));
+     *         ctx.export("orgUrl", example.applyValue(getClientConfigResult -> getClientConfigResult.organizationUrl()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -967,7 +1003,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -992,18 +1029,18 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
-     *             .name(&#34;Example Project&#34;)
-     *             .workItemTemplate(&#34;Agile&#34;)
-     *             .versionControl(&#34;Git&#34;)
-     *             .visibility(&#34;private&#34;)
-     *             .description(&#34;Managed by Terraform&#34;)
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+     *             .name("Example Project")
+     *             .workItemTemplate("Agile")
+     *             .versionControl("Git")
+     *             .visibility("private")
+     *             .description("Managed by Terraform")
      *             .build());
      * 
-     *         var exampleEnvironment = new Environment(&#34;exampleEnvironment&#34;, EnvironmentArgs.builder()        
+     *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()        
      *             .projectId(exampleProject.id())
-     *             .name(&#34;Example Environment&#34;)
-     *             .description(&#34;Managed by Terraform&#34;)
+     *             .name("Example Environment")
+     *             .description("Managed by Terraform")
      *             .build());
      * 
      *         final var example = AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()
@@ -1013,7 +1050,8 @@ public final class AzuredevopsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -1030,7 +1068,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1055,18 +1094,18 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
-     *             .name(&#34;Example Project&#34;)
-     *             .workItemTemplate(&#34;Agile&#34;)
-     *             .versionControl(&#34;Git&#34;)
-     *             .visibility(&#34;private&#34;)
-     *             .description(&#34;Managed by Terraform&#34;)
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+     *             .name("Example Project")
+     *             .workItemTemplate("Agile")
+     *             .versionControl("Git")
+     *             .visibility("private")
+     *             .description("Managed by Terraform")
      *             .build());
      * 
-     *         var exampleEnvironment = new Environment(&#34;exampleEnvironment&#34;, EnvironmentArgs.builder()        
+     *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()        
      *             .projectId(exampleProject.id())
-     *             .name(&#34;Example Environment&#34;)
-     *             .description(&#34;Managed by Terraform&#34;)
+     *             .name("Example Environment")
+     *             .description("Managed by Terraform")
      *             .build());
      * 
      *         final var example = AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()
@@ -1076,7 +1115,8 @@ public final class AzuredevopsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -1093,7 +1133,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1118,18 +1159,18 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
-     *             .name(&#34;Example Project&#34;)
-     *             .workItemTemplate(&#34;Agile&#34;)
-     *             .versionControl(&#34;Git&#34;)
-     *             .visibility(&#34;private&#34;)
-     *             .description(&#34;Managed by Terraform&#34;)
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+     *             .name("Example Project")
+     *             .workItemTemplate("Agile")
+     *             .versionControl("Git")
+     *             .visibility("private")
+     *             .description("Managed by Terraform")
      *             .build());
      * 
-     *         var exampleEnvironment = new Environment(&#34;exampleEnvironment&#34;, EnvironmentArgs.builder()        
+     *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()        
      *             .projectId(exampleProject.id())
-     *             .name(&#34;Example Environment&#34;)
-     *             .description(&#34;Managed by Terraform&#34;)
+     *             .name("Example Environment")
+     *             .description("Managed by Terraform")
      *             .build());
      * 
      *         final var example = AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()
@@ -1139,7 +1180,8 @@ public final class AzuredevopsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -1156,7 +1198,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1181,18 +1224,18 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
-     *             .name(&#34;Example Project&#34;)
-     *             .workItemTemplate(&#34;Agile&#34;)
-     *             .versionControl(&#34;Git&#34;)
-     *             .visibility(&#34;private&#34;)
-     *             .description(&#34;Managed by Terraform&#34;)
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+     *             .name("Example Project")
+     *             .workItemTemplate("Agile")
+     *             .versionControl("Git")
+     *             .visibility("private")
+     *             .description("Managed by Terraform")
      *             .build());
      * 
-     *         var exampleEnvironment = new Environment(&#34;exampleEnvironment&#34;, EnvironmentArgs.builder()        
+     *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()        
      *             .projectId(exampleProject.id())
-     *             .name(&#34;Example Environment&#34;)
-     *             .description(&#34;Managed by Terraform&#34;)
+     *             .name("Example Environment")
+     *             .description("Managed by Terraform")
      *             .build());
      * 
      *         final var example = AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()
@@ -1202,7 +1245,8 @@ public final class AzuredevopsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -1220,7 +1264,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1243,18 +1288,19 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
      *         // Load a specific Git repository by name
      *         final var example-single-repo = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .name(&#34;Example Repository&#34;)
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .name("Example Repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -1272,7 +1318,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1295,18 +1342,19 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
      *         // Load a specific Git repository by name
      *         final var example-single-repo = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .name(&#34;Example Repository&#34;)
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .name("Example Repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -1324,7 +1372,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1347,18 +1396,19 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
      *         // Load a specific Git repository by name
      *         final var example-single-repo = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .name(&#34;Example Repository&#34;)
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .name("Example Repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -1376,7 +1426,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1399,18 +1450,19 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
      *         // Load a specific Git repository by name
      *         final var example-single-repo = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .name(&#34;Example Repository&#34;)
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .name("Example Repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -1427,7 +1479,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1450,25 +1503,26 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
      *         final var exampleGetGroup = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .name(&#34;Example Group&#34;)
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .name("Example Group")
      *             .build());
      * 
-     *         ctx.export(&#34;groupId&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.id()));
-     *         ctx.export(&#34;groupDescriptor&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.descriptor()));
+     *         ctx.export("groupId", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.id()));
+     *         ctx.export("groupDescriptor", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.descriptor()));
      *         final var example-collection-group = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;Project Collection Administrators&#34;)
+     *             .name("Project Collection Administrators")
      *             .build());
      * 
-     *         ctx.export(&#34;collectionGroupId&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.id()));
-     *         ctx.export(&#34;collectionGroupDescriptor&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.descriptor()));
+     *         ctx.export("collectionGroupId", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.id()));
+     *         ctx.export("collectionGroupDescriptor", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.descriptor()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -1490,7 +1544,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1513,25 +1568,26 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
      *         final var exampleGetGroup = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .name(&#34;Example Group&#34;)
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .name("Example Group")
      *             .build());
      * 
-     *         ctx.export(&#34;groupId&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.id()));
-     *         ctx.export(&#34;groupDescriptor&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.descriptor()));
+     *         ctx.export("groupId", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.id()));
+     *         ctx.export("groupDescriptor", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.descriptor()));
      *         final var example-collection-group = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;Project Collection Administrators&#34;)
+     *             .name("Project Collection Administrators")
      *             .build());
      * 
-     *         ctx.export(&#34;collectionGroupId&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.id()));
-     *         ctx.export(&#34;collectionGroupDescriptor&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.descriptor()));
+     *         ctx.export("collectionGroupId", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.id()));
+     *         ctx.export("collectionGroupDescriptor", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.descriptor()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -1553,7 +1609,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1576,25 +1633,26 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
      *         final var exampleGetGroup = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .name(&#34;Example Group&#34;)
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .name("Example Group")
      *             .build());
      * 
-     *         ctx.export(&#34;groupId&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.id()));
-     *         ctx.export(&#34;groupDescriptor&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.descriptor()));
+     *         ctx.export("groupId", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.id()));
+     *         ctx.export("groupDescriptor", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.descriptor()));
      *         final var example-collection-group = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;Project Collection Administrators&#34;)
+     *             .name("Project Collection Administrators")
      *             .build());
      * 
-     *         ctx.export(&#34;collectionGroupId&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.id()));
-     *         ctx.export(&#34;collectionGroupDescriptor&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.descriptor()));
+     *         ctx.export("collectionGroupId", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.id()));
+     *         ctx.export("collectionGroupDescriptor", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.descriptor()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -1616,7 +1674,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1639,25 +1698,26 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
      *         final var exampleGetGroup = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .name(&#34;Example Group&#34;)
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .name("Example Group")
      *             .build());
      * 
-     *         ctx.export(&#34;groupId&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.id()));
-     *         ctx.export(&#34;groupDescriptor&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.descriptor()));
+     *         ctx.export("groupId", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.id()));
+     *         ctx.export("groupDescriptor", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.descriptor()));
      *         final var example-collection-group = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;Project Collection Administrators&#34;)
+     *             .name("Project Collection Administrators")
      *             .build());
      * 
-     *         ctx.export(&#34;collectionGroupId&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.id()));
-     *         ctx.export(&#34;collectionGroupDescriptor&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.descriptor()));
+     *         ctx.export("collectionGroupId", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.id()));
+     *         ctx.export("collectionGroupDescriptor", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.descriptor()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -1679,7 +1739,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1702,7 +1763,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
      *         // load all existing groups inside an organization
@@ -1710,12 +1771,13 @@ public final class AzuredevopsFunctions {
      * 
      *         // load all existing groups inside a specific project
      *         final var example-project-groups = AzuredevopsFunctions.getGroups(GetGroupsArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -1732,7 +1794,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1755,7 +1818,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
      *         // load all existing groups inside an organization
@@ -1763,12 +1826,13 @@ public final class AzuredevopsFunctions {
      * 
      *         // load all existing groups inside a specific project
      *         final var example-project-groups = AzuredevopsFunctions.getGroups(GetGroupsArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -1785,7 +1849,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1808,7 +1873,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
      *         // load all existing groups inside an organization
@@ -1816,12 +1881,13 @@ public final class AzuredevopsFunctions {
      * 
      *         // load all existing groups inside a specific project
      *         final var example-project-groups = AzuredevopsFunctions.getGroups(GetGroupsArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -1838,7 +1904,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1861,7 +1928,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
      *         // load all existing groups inside an organization
@@ -1869,12 +1936,13 @@ public final class AzuredevopsFunctions {
      * 
      *         // load all existing groups inside a specific project
      *         final var example-project-groups = AzuredevopsFunctions.getGroups(GetGroupsArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -1891,7 +1959,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1914,7 +1983,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
      *         // load all existing groups inside an organization
@@ -1922,12 +1991,13 @@ public final class AzuredevopsFunctions {
      * 
      *         // load all existing groups inside a specific project
      *         final var example-project-groups = AzuredevopsFunctions.getGroups(GetGroupsArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -1944,7 +2014,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1967,7 +2038,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
      *         // load all existing groups inside an organization
@@ -1975,12 +2046,13 @@ public final class AzuredevopsFunctions {
      * 
      *         // load all existing groups inside a specific project
      *         final var example-project-groups = AzuredevopsFunctions.getGroups(GetGroupsArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -1997,7 +2069,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2020,29 +2093,30 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
-     *             .name(&#34;Example Project&#34;)
-     *             .workItemTemplate(&#34;Agile&#34;)
-     *             .versionControl(&#34;Git&#34;)
-     *             .visibility(&#34;private&#34;)
-     *             .description(&#34;Managed by Terraform&#34;)
+     *         var example = new Project("example", ProjectArgs.builder()        
+     *             .name("Example Project")
+     *             .workItemTemplate("Agile")
+     *             .versionControl("Git")
+     *             .visibility("private")
+     *             .description("Managed by Terraform")
      *             .build());
      * 
      *         final var example-root-iteration = AzuredevopsFunctions.getIteration(GetIterationArgs.builder()
      *             .projectId(example.id())
-     *             .path(&#34;/&#34;)
+     *             .path("/")
      *             .fetchChildren(true)
      *             .build());
      * 
      *         final var example-child-iteration = AzuredevopsFunctions.getIteration(GetIterationArgs.builder()
      *             .projectId(example.id())
-     *             .path(&#34;/Iteration 1&#34;)
+     *             .path("/Iteration 1")
      *             .fetchChildren(true)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -2063,7 +2137,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2086,29 +2161,30 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
-     *             .name(&#34;Example Project&#34;)
-     *             .workItemTemplate(&#34;Agile&#34;)
-     *             .versionControl(&#34;Git&#34;)
-     *             .visibility(&#34;private&#34;)
-     *             .description(&#34;Managed by Terraform&#34;)
+     *         var example = new Project("example", ProjectArgs.builder()        
+     *             .name("Example Project")
+     *             .workItemTemplate("Agile")
+     *             .versionControl("Git")
+     *             .visibility("private")
+     *             .description("Managed by Terraform")
      *             .build());
      * 
      *         final var example-root-iteration = AzuredevopsFunctions.getIteration(GetIterationArgs.builder()
      *             .projectId(example.id())
-     *             .path(&#34;/&#34;)
+     *             .path("/")
      *             .fetchChildren(true)
      *             .build());
      * 
      *         final var example-child-iteration = AzuredevopsFunctions.getIteration(GetIterationArgs.builder()
      *             .projectId(example.id())
-     *             .path(&#34;/Iteration 1&#34;)
+     *             .path("/Iteration 1")
      *             .fetchChildren(true)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -2129,7 +2205,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2152,29 +2229,30 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
-     *             .name(&#34;Example Project&#34;)
-     *             .workItemTemplate(&#34;Agile&#34;)
-     *             .versionControl(&#34;Git&#34;)
-     *             .visibility(&#34;private&#34;)
-     *             .description(&#34;Managed by Terraform&#34;)
+     *         var example = new Project("example", ProjectArgs.builder()        
+     *             .name("Example Project")
+     *             .workItemTemplate("Agile")
+     *             .versionControl("Git")
+     *             .visibility("private")
+     *             .description("Managed by Terraform")
      *             .build());
      * 
      *         final var example-root-iteration = AzuredevopsFunctions.getIteration(GetIterationArgs.builder()
      *             .projectId(example.id())
-     *             .path(&#34;/&#34;)
+     *             .path("/")
      *             .fetchChildren(true)
      *             .build());
      * 
      *         final var example-child-iteration = AzuredevopsFunctions.getIteration(GetIterationArgs.builder()
      *             .projectId(example.id())
-     *             .path(&#34;/Iteration 1&#34;)
+     *             .path("/Iteration 1")
      *             .fetchChildren(true)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -2195,7 +2273,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2218,29 +2297,30 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
-     *             .name(&#34;Example Project&#34;)
-     *             .workItemTemplate(&#34;Agile&#34;)
-     *             .versionControl(&#34;Git&#34;)
-     *             .visibility(&#34;private&#34;)
-     *             .description(&#34;Managed by Terraform&#34;)
+     *         var example = new Project("example", ProjectArgs.builder()        
+     *             .name("Example Project")
+     *             .workItemTemplate("Agile")
+     *             .versionControl("Git")
+     *             .visibility("private")
+     *             .description("Managed by Terraform")
      *             .build());
      * 
      *         final var example-root-iteration = AzuredevopsFunctions.getIteration(GetIterationArgs.builder()
      *             .projectId(example.id())
-     *             .path(&#34;/&#34;)
+     *             .path("/")
      *             .fetchChildren(true)
      *             .build());
      * 
      *         final var example-child-iteration = AzuredevopsFunctions.getIteration(GetIterationArgs.builder()
      *             .projectId(example.id())
-     *             .path(&#34;/Iteration 1&#34;)
+     *             .path("/Iteration 1")
      *             .fetchChildren(true)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -2261,7 +2341,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2283,16 +2364,17 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getPool(GetPoolArgs.builder()
-     *             .name(&#34;Example Agent Pool&#34;)
+     *             .name("Example Agent Pool")
      *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.name()));
-     *         ctx.export(&#34;poolType&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.poolType()));
-     *         ctx.export(&#34;autoProvision&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.autoProvision()));
-     *         ctx.export(&#34;autoUpdate&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.autoUpdate()));
+     *         ctx.export("name", example.applyValue(getPoolResult -> getPoolResult.name()));
+     *         ctx.export("poolType", example.applyValue(getPoolResult -> getPoolResult.poolType()));
+     *         ctx.export("autoProvision", example.applyValue(getPoolResult -> getPoolResult.autoProvision()));
+     *         ctx.export("autoUpdate", example.applyValue(getPoolResult -> getPoolResult.autoUpdate()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -2309,7 +2391,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2331,16 +2414,17 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getPool(GetPoolArgs.builder()
-     *             .name(&#34;Example Agent Pool&#34;)
+     *             .name("Example Agent Pool")
      *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.name()));
-     *         ctx.export(&#34;poolType&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.poolType()));
-     *         ctx.export(&#34;autoProvision&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.autoProvision()));
-     *         ctx.export(&#34;autoUpdate&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.autoUpdate()));
+     *         ctx.export("name", example.applyValue(getPoolResult -> getPoolResult.name()));
+     *         ctx.export("poolType", example.applyValue(getPoolResult -> getPoolResult.poolType()));
+     *         ctx.export("autoProvision", example.applyValue(getPoolResult -> getPoolResult.autoProvision()));
+     *         ctx.export("autoUpdate", example.applyValue(getPoolResult -> getPoolResult.autoUpdate()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -2357,7 +2441,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2379,16 +2464,17 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getPool(GetPoolArgs.builder()
-     *             .name(&#34;Example Agent Pool&#34;)
+     *             .name("Example Agent Pool")
      *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.name()));
-     *         ctx.export(&#34;poolType&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.poolType()));
-     *         ctx.export(&#34;autoProvision&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.autoProvision()));
-     *         ctx.export(&#34;autoUpdate&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.autoUpdate()));
+     *         ctx.export("name", example.applyValue(getPoolResult -> getPoolResult.name()));
+     *         ctx.export("poolType", example.applyValue(getPoolResult -> getPoolResult.poolType()));
+     *         ctx.export("autoProvision", example.applyValue(getPoolResult -> getPoolResult.autoProvision()));
+     *         ctx.export("autoUpdate", example.applyValue(getPoolResult -> getPoolResult.autoUpdate()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -2405,7 +2491,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2427,16 +2514,17 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getPool(GetPoolArgs.builder()
-     *             .name(&#34;Example Agent Pool&#34;)
+     *             .name("Example Agent Pool")
      *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.name()));
-     *         ctx.export(&#34;poolType&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.poolType()));
-     *         ctx.export(&#34;autoProvision&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.autoProvision()));
-     *         ctx.export(&#34;autoUpdate&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.autoUpdate()));
+     *         ctx.export("name", example.applyValue(getPoolResult -> getPoolResult.name()));
+     *         ctx.export("poolType", example.applyValue(getPoolResult -> getPoolResult.poolType()));
+     *         ctx.export("autoProvision", example.applyValue(getPoolResult -> getPoolResult.autoProvision()));
+     *         ctx.export("autoUpdate", example.applyValue(getPoolResult -> getPoolResult.autoUpdate()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -2453,7 +2541,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2475,13 +2564,14 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getPools();
      * 
-     *         ctx.export(&#34;agentPoolName&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.name()).collect(toList()));
-     *         ctx.export(&#34;autoProvision&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.autoProvision()).collect(toList()));
-     *         ctx.export(&#34;autoUpdate&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.autoUpdate()).collect(toList()));
-     *         ctx.export(&#34;poolType&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.poolType()).collect(toList()));
+     *         ctx.export("agentPoolName", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("autoProvision", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.autoProvision()).collect(toList()));
+     *         ctx.export("autoUpdate", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.autoUpdate()).collect(toList()));
+     *         ctx.export("poolType", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.poolType()).collect(toList()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -2498,7 +2588,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2520,13 +2611,14 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getPools();
      * 
-     *         ctx.export(&#34;agentPoolName&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.name()).collect(toList()));
-     *         ctx.export(&#34;autoProvision&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.autoProvision()).collect(toList()));
-     *         ctx.export(&#34;autoUpdate&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.autoUpdate()).collect(toList()));
-     *         ctx.export(&#34;poolType&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.poolType()).collect(toList()));
+     *         ctx.export("agentPoolName", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("autoProvision", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.autoProvision()).collect(toList()));
+     *         ctx.export("autoUpdate", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.autoUpdate()).collect(toList()));
+     *         ctx.export("poolType", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.poolType()).collect(toList()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -2543,7 +2635,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2565,13 +2658,14 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getPools();
      * 
-     *         ctx.export(&#34;agentPoolName&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.name()).collect(toList()));
-     *         ctx.export(&#34;autoProvision&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.autoProvision()).collect(toList()));
-     *         ctx.export(&#34;autoUpdate&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.autoUpdate()).collect(toList()));
-     *         ctx.export(&#34;poolType&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.poolType()).collect(toList()));
+     *         ctx.export("agentPoolName", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("autoProvision", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.autoProvision()).collect(toList()));
+     *         ctx.export("autoUpdate", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.autoUpdate()).collect(toList()));
+     *         ctx.export("poolType", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.poolType()).collect(toList()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -2588,7 +2682,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2610,13 +2705,14 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getPools();
      * 
-     *         ctx.export(&#34;agentPoolName&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.name()).collect(toList()));
-     *         ctx.export(&#34;autoProvision&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.autoProvision()).collect(toList()));
-     *         ctx.export(&#34;autoUpdate&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.autoUpdate()).collect(toList()));
-     *         ctx.export(&#34;poolType&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.poolType()).collect(toList()));
+     *         ctx.export("agentPoolName", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("autoProvision", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.autoProvision()).collect(toList()));
+     *         ctx.export("autoUpdate", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.autoUpdate()).collect(toList()));
+     *         ctx.export("poolType", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.poolType()).collect(toList()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -2633,7 +2729,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2655,13 +2752,14 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getPools();
      * 
-     *         ctx.export(&#34;agentPoolName&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.name()).collect(toList()));
-     *         ctx.export(&#34;autoProvision&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.autoProvision()).collect(toList()));
-     *         ctx.export(&#34;autoUpdate&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.autoUpdate()).collect(toList()));
-     *         ctx.export(&#34;poolType&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.poolType()).collect(toList()));
+     *         ctx.export("agentPoolName", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("autoProvision", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.autoProvision()).collect(toList()));
+     *         ctx.export("autoUpdate", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.autoUpdate()).collect(toList()));
+     *         ctx.export("poolType", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.poolType()).collect(toList()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -2678,7 +2776,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2700,13 +2799,14 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getPools();
      * 
-     *         ctx.export(&#34;agentPoolName&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.name()).collect(toList()));
-     *         ctx.export(&#34;autoProvision&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.autoProvision()).collect(toList()));
-     *         ctx.export(&#34;autoUpdate&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.autoUpdate()).collect(toList()));
-     *         ctx.export(&#34;poolType&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.poolType()).collect(toList()));
+     *         ctx.export("agentPoolName", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("autoProvision", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.autoProvision()).collect(toList()));
+     *         ctx.export("autoUpdate", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.autoUpdate()).collect(toList()));
+     *         ctx.export("poolType", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.poolType()).collect(toList()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -2723,7 +2823,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2745,13 +2846,14 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
-     *         ctx.export(&#34;project&#34;, example.applyValue(getProjectResult -&gt; getProjectResult));
+     *         ctx.export("project", example.applyValue(getProjectResult -> getProjectResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -2768,7 +2870,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2790,13 +2893,14 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
-     *         ctx.export(&#34;project&#34;, example.applyValue(getProjectResult -&gt; getProjectResult));
+     *         ctx.export("project", example.applyValue(getProjectResult -> getProjectResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -2813,7 +2917,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2835,13 +2940,14 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
-     *         ctx.export(&#34;project&#34;, example.applyValue(getProjectResult -&gt; getProjectResult));
+     *         ctx.export("project", example.applyValue(getProjectResult -> getProjectResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -2858,7 +2964,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2880,13 +2987,14 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
-     *         ctx.export(&#34;project&#34;, example.applyValue(getProjectResult -&gt; getProjectResult));
+     *         ctx.export("project", example.applyValue(getProjectResult -> getProjectResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -2903,7 +3011,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2925,13 +3034,14 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
-     *         ctx.export(&#34;project&#34;, example.applyValue(getProjectResult -&gt; getProjectResult));
+     *         ctx.export("project", example.applyValue(getProjectResult -> getProjectResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -2948,7 +3058,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2970,13 +3081,14 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
-     *         ctx.export(&#34;project&#34;, example.applyValue(getProjectResult -&gt; getProjectResult));
+     *         ctx.export("project", example.applyValue(getProjectResult -> getProjectResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -2993,7 +3105,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3015,17 +3128,18 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProjects(GetProjectsArgs.builder()
-     *             .name(&#34;Example Project&#34;)
-     *             .state(&#34;wellFormed&#34;)
+     *             .name("Example Project")
+     *             .state("wellFormed")
      *             .build());
      * 
-     *         ctx.export(&#34;projectId&#34;, example.applyValue(getProjectsResult -&gt; getProjectsResult.projects()).stream().map(element -&gt; element.projectId()).collect(toList()));
-     *         ctx.export(&#34;name&#34;, example.applyValue(getProjectsResult -&gt; getProjectsResult.projects()).stream().map(element -&gt; element.name()).collect(toList()));
-     *         ctx.export(&#34;projectUrl&#34;, example.applyValue(getProjectsResult -&gt; getProjectsResult.projects()).stream().map(element -&gt; element.projectUrl()).collect(toList()));
-     *         ctx.export(&#34;state&#34;, example.applyValue(getProjectsResult -&gt; getProjectsResult.projects()).stream().map(element -&gt; element.state()).collect(toList()));
+     *         ctx.export("projectId", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.projectId()).collect(toList()));
+     *         ctx.export("name", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("projectUrl", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.projectUrl()).collect(toList()));
+     *         ctx.export("state", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.state()).collect(toList()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -3042,7 +3156,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3064,17 +3179,18 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProjects(GetProjectsArgs.builder()
-     *             .name(&#34;Example Project&#34;)
-     *             .state(&#34;wellFormed&#34;)
+     *             .name("Example Project")
+     *             .state("wellFormed")
      *             .build());
      * 
-     *         ctx.export(&#34;projectId&#34;, example.applyValue(getProjectsResult -&gt; getProjectsResult.projects()).stream().map(element -&gt; element.projectId()).collect(toList()));
-     *         ctx.export(&#34;name&#34;, example.applyValue(getProjectsResult -&gt; getProjectsResult.projects()).stream().map(element -&gt; element.name()).collect(toList()));
-     *         ctx.export(&#34;projectUrl&#34;, example.applyValue(getProjectsResult -&gt; getProjectsResult.projects()).stream().map(element -&gt; element.projectUrl()).collect(toList()));
-     *         ctx.export(&#34;state&#34;, example.applyValue(getProjectsResult -&gt; getProjectsResult.projects()).stream().map(element -&gt; element.state()).collect(toList()));
+     *         ctx.export("projectId", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.projectId()).collect(toList()));
+     *         ctx.export("name", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("projectUrl", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.projectUrl()).collect(toList()));
+     *         ctx.export("state", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.state()).collect(toList()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -3091,7 +3207,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3113,17 +3230,18 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProjects(GetProjectsArgs.builder()
-     *             .name(&#34;Example Project&#34;)
-     *             .state(&#34;wellFormed&#34;)
+     *             .name("Example Project")
+     *             .state("wellFormed")
      *             .build());
      * 
-     *         ctx.export(&#34;projectId&#34;, example.applyValue(getProjectsResult -&gt; getProjectsResult.projects()).stream().map(element -&gt; element.projectId()).collect(toList()));
-     *         ctx.export(&#34;name&#34;, example.applyValue(getProjectsResult -&gt; getProjectsResult.projects()).stream().map(element -&gt; element.name()).collect(toList()));
-     *         ctx.export(&#34;projectUrl&#34;, example.applyValue(getProjectsResult -&gt; getProjectsResult.projects()).stream().map(element -&gt; element.projectUrl()).collect(toList()));
-     *         ctx.export(&#34;state&#34;, example.applyValue(getProjectsResult -&gt; getProjectsResult.projects()).stream().map(element -&gt; element.state()).collect(toList()));
+     *         ctx.export("projectId", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.projectId()).collect(toList()));
+     *         ctx.export("name", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("projectUrl", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.projectUrl()).collect(toList()));
+     *         ctx.export("state", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.state()).collect(toList()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -3140,7 +3258,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3162,17 +3281,18 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProjects(GetProjectsArgs.builder()
-     *             .name(&#34;Example Project&#34;)
-     *             .state(&#34;wellFormed&#34;)
+     *             .name("Example Project")
+     *             .state("wellFormed")
      *             .build());
      * 
-     *         ctx.export(&#34;projectId&#34;, example.applyValue(getProjectsResult -&gt; getProjectsResult.projects()).stream().map(element -&gt; element.projectId()).collect(toList()));
-     *         ctx.export(&#34;name&#34;, example.applyValue(getProjectsResult -&gt; getProjectsResult.projects()).stream().map(element -&gt; element.name()).collect(toList()));
-     *         ctx.export(&#34;projectUrl&#34;, example.applyValue(getProjectsResult -&gt; getProjectsResult.projects()).stream().map(element -&gt; element.projectUrl()).collect(toList()));
-     *         ctx.export(&#34;state&#34;, example.applyValue(getProjectsResult -&gt; getProjectsResult.projects()).stream().map(element -&gt; element.state()).collect(toList()));
+     *         ctx.export("projectId", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.projectId()).collect(toList()));
+     *         ctx.export("name", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("projectUrl", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.projectUrl()).collect(toList()));
+     *         ctx.export("state", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.state()).collect(toList()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -3189,7 +3309,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3211,17 +3332,18 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProjects(GetProjectsArgs.builder()
-     *             .name(&#34;Example Project&#34;)
-     *             .state(&#34;wellFormed&#34;)
+     *             .name("Example Project")
+     *             .state("wellFormed")
      *             .build());
      * 
-     *         ctx.export(&#34;projectId&#34;, example.applyValue(getProjectsResult -&gt; getProjectsResult.projects()).stream().map(element -&gt; element.projectId()).collect(toList()));
-     *         ctx.export(&#34;name&#34;, example.applyValue(getProjectsResult -&gt; getProjectsResult.projects()).stream().map(element -&gt; element.name()).collect(toList()));
-     *         ctx.export(&#34;projectUrl&#34;, example.applyValue(getProjectsResult -&gt; getProjectsResult.projects()).stream().map(element -&gt; element.projectUrl()).collect(toList()));
-     *         ctx.export(&#34;state&#34;, example.applyValue(getProjectsResult -&gt; getProjectsResult.projects()).stream().map(element -&gt; element.state()).collect(toList()));
+     *         ctx.export("projectId", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.projectId()).collect(toList()));
+     *         ctx.export("name", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("projectUrl", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.projectUrl()).collect(toList()));
+     *         ctx.export("state", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.state()).collect(toList()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -3238,7 +3360,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3260,17 +3383,18 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProjects(GetProjectsArgs.builder()
-     *             .name(&#34;Example Project&#34;)
-     *             .state(&#34;wellFormed&#34;)
+     *             .name("Example Project")
+     *             .state("wellFormed")
      *             .build());
      * 
-     *         ctx.export(&#34;projectId&#34;, example.applyValue(getProjectsResult -&gt; getProjectsResult.projects()).stream().map(element -&gt; element.projectId()).collect(toList()));
-     *         ctx.export(&#34;name&#34;, example.applyValue(getProjectsResult -&gt; getProjectsResult.projects()).stream().map(element -&gt; element.name()).collect(toList()));
-     *         ctx.export(&#34;projectUrl&#34;, example.applyValue(getProjectsResult -&gt; getProjectsResult.projects()).stream().map(element -&gt; element.projectUrl()).collect(toList()));
-     *         ctx.export(&#34;state&#34;, example.applyValue(getProjectsResult -&gt; getProjectsResult.projects()).stream().map(element -&gt; element.state()).collect(toList()));
+     *         ctx.export("projectId", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.projectId()).collect(toList()));
+     *         ctx.export("name", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("projectUrl", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.projectUrl()).collect(toList()));
+     *         ctx.export("state", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.state()).collect(toList()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -3288,7 +3412,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3311,24 +3436,25 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
      *         // Load all Git repositories of a project, which are accessible for the current user
      *         final var example-all-repos = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
      *             .includeHidden(true)
      *             .build());
      * 
      *         // Load a specific Git repository by name
      *         final var example-single-repo = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .name(&#34;Example Repository&#34;)
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .name("Example Repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -3346,7 +3472,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3369,24 +3496,25 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
      *         // Load all Git repositories of a project, which are accessible for the current user
      *         final var example-all-repos = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
      *             .includeHidden(true)
      *             .build());
      * 
      *         // Load a specific Git repository by name
      *         final var example-single-repo = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .name(&#34;Example Repository&#34;)
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .name("Example Repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -3404,7 +3532,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3427,24 +3556,25 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
      *         // Load all Git repositories of a project, which are accessible for the current user
      *         final var example-all-repos = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
      *             .includeHidden(true)
      *             .build());
      * 
      *         // Load a specific Git repository by name
      *         final var example-single-repo = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .name(&#34;Example Repository&#34;)
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .name("Example Repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -3462,7 +3592,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3485,24 +3616,25 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
      *         // Load all Git repositories of a project, which are accessible for the current user
      *         final var example-all-repos = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
      *             .includeHidden(true)
      *             .build());
      * 
      *         // Load a specific Git repository by name
      *         final var example-single-repo = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .name(&#34;Example Repository&#34;)
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .name("Example Repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -3520,7 +3652,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3543,24 +3676,25 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
      *         // Load all Git repositories of a project, which are accessible for the current user
      *         final var example-all-repos = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
      *             .includeHidden(true)
      *             .build());
      * 
      *         // Load a specific Git repository by name
      *         final var example-single-repo = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .name(&#34;Example Repository&#34;)
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .name("Example Repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -3578,7 +3712,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3601,24 +3736,25 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
      *         // Load all Git repositories of a project, which are accessible for the current user
      *         final var example-all-repos = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
      *             .includeHidden(true)
      *             .build());
      * 
      *         // Load a specific Git repository by name
      *         final var example-single-repo = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .name(&#34;Example Repository&#34;)
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .name("Example Repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -3637,7 +3773,8 @@ public final class AzuredevopsFunctions {
      * ### By Service Endpoint ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3660,24 +3797,26 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sample = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Sample Project&#34;)
+     *             .name("Sample Project")
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointAzureRM(GetServiceEndpointAzureRMArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .serviceEndpointId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export(&#34;serviceEndpointName&#34;, serviceendpoint.applyValue(getServiceEndpointAzureRMResult -&gt; getServiceEndpointAzureRMResult.serviceEndpointName()));
+     *         ctx.export("serviceEndpointName", serviceendpoint.applyValue(getServiceEndpointAzureRMResult -> getServiceEndpointAzureRMResult.serviceEndpointName()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Service Endpoint Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3700,18 +3839,19 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sample = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Sample Project&#34;)
+     *             .name("Sample Project")
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointAzureRM(GetServiceEndpointAzureRMArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .serviceEndpointName(&#34;Example-Service-Endpoint&#34;)
+     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .serviceEndpointName("Example-Service-Endpoint")
      *             .build());
      * 
-     *         ctx.export(&#34;serviceEndpointId&#34;, serviceendpoint.applyValue(getServiceEndpointAzureRMResult -&gt; getServiceEndpointAzureRMResult.id()));
+     *         ctx.export("serviceEndpointId", serviceendpoint.applyValue(getServiceEndpointAzureRMResult -> getServiceEndpointAzureRMResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3726,7 +3866,8 @@ public final class AzuredevopsFunctions {
      * ### By Service Endpoint ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3749,24 +3890,26 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sample = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Sample Project&#34;)
+     *             .name("Sample Project")
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointAzureRM(GetServiceEndpointAzureRMArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .serviceEndpointId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export(&#34;serviceEndpointName&#34;, serviceendpoint.applyValue(getServiceEndpointAzureRMResult -&gt; getServiceEndpointAzureRMResult.serviceEndpointName()));
+     *         ctx.export("serviceEndpointName", serviceendpoint.applyValue(getServiceEndpointAzureRMResult -> getServiceEndpointAzureRMResult.serviceEndpointName()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Service Endpoint Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3789,18 +3932,19 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sample = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Sample Project&#34;)
+     *             .name("Sample Project")
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointAzureRM(GetServiceEndpointAzureRMArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .serviceEndpointName(&#34;Example-Service-Endpoint&#34;)
+     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .serviceEndpointName("Example-Service-Endpoint")
      *             .build());
      * 
-     *         ctx.export(&#34;serviceEndpointId&#34;, serviceendpoint.applyValue(getServiceEndpointAzureRMResult -&gt; getServiceEndpointAzureRMResult.id()));
+     *         ctx.export("serviceEndpointId", serviceendpoint.applyValue(getServiceEndpointAzureRMResult -> getServiceEndpointAzureRMResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3815,7 +3959,8 @@ public final class AzuredevopsFunctions {
      * ### By Service Endpoint ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3838,24 +3983,26 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sample = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Sample Project&#34;)
+     *             .name("Sample Project")
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointAzureRM(GetServiceEndpointAzureRMArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .serviceEndpointId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export(&#34;serviceEndpointName&#34;, serviceendpoint.applyValue(getServiceEndpointAzureRMResult -&gt; getServiceEndpointAzureRMResult.serviceEndpointName()));
+     *         ctx.export("serviceEndpointName", serviceendpoint.applyValue(getServiceEndpointAzureRMResult -> getServiceEndpointAzureRMResult.serviceEndpointName()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Service Endpoint Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3878,18 +4025,19 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sample = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Sample Project&#34;)
+     *             .name("Sample Project")
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointAzureRM(GetServiceEndpointAzureRMArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .serviceEndpointName(&#34;Example-Service-Endpoint&#34;)
+     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .serviceEndpointName("Example-Service-Endpoint")
      *             .build());
      * 
-     *         ctx.export(&#34;serviceEndpointId&#34;, serviceendpoint.applyValue(getServiceEndpointAzureRMResult -&gt; getServiceEndpointAzureRMResult.id()));
+     *         ctx.export("serviceEndpointId", serviceendpoint.applyValue(getServiceEndpointAzureRMResult -> getServiceEndpointAzureRMResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3904,7 +4052,8 @@ public final class AzuredevopsFunctions {
      * ### By Service Endpoint ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3927,24 +4076,26 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sample = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Sample Project&#34;)
+     *             .name("Sample Project")
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointAzureRM(GetServiceEndpointAzureRMArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .serviceEndpointId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export(&#34;serviceEndpointName&#34;, serviceendpoint.applyValue(getServiceEndpointAzureRMResult -&gt; getServiceEndpointAzureRMResult.serviceEndpointName()));
+     *         ctx.export("serviceEndpointName", serviceendpoint.applyValue(getServiceEndpointAzureRMResult -> getServiceEndpointAzureRMResult.serviceEndpointName()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Service Endpoint Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3967,18 +4118,19 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sample = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Sample Project&#34;)
+     *             .name("Sample Project")
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointAzureRM(GetServiceEndpointAzureRMArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .serviceEndpointName(&#34;Example-Service-Endpoint&#34;)
+     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .serviceEndpointName("Example-Service-Endpoint")
      *             .build());
      * 
-     *         ctx.export(&#34;serviceEndpointId&#34;, serviceendpoint.applyValue(getServiceEndpointAzureRMResult -&gt; getServiceEndpointAzureRMResult.id()));
+     *         ctx.export("serviceEndpointId", serviceendpoint.applyValue(getServiceEndpointAzureRMResult -> getServiceEndpointAzureRMResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3993,7 +4145,8 @@ public final class AzuredevopsFunctions {
      * ### By Service Endpoint ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4016,24 +4169,26 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sample = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Sample Project&#34;)
+     *             .name("Sample Project")
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointGithub(GetServiceEndpointGithubArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .serviceEndpointId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export(&#34;serviceEndpointName&#34;, serviceendpoint.applyValue(getServiceEndpointGithubResult -&gt; getServiceEndpointGithubResult.serviceEndpointName()));
+     *         ctx.export("serviceEndpointName", serviceendpoint.applyValue(getServiceEndpointGithubResult -> getServiceEndpointGithubResult.serviceEndpointName()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Service Endpoint Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4056,18 +4211,19 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sample = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Sample Project&#34;)
+     *             .name("Sample Project")
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointGithub(GetServiceEndpointGithubArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .serviceEndpointName(&#34;Example-Service-Endpoint&#34;)
+     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .serviceEndpointName("Example-Service-Endpoint")
      *             .build());
      * 
-     *         ctx.export(&#34;serviceEndpointId&#34;, serviceendpoint.applyValue(getServiceEndpointGithubResult -&gt; getServiceEndpointGithubResult.id()));
+     *         ctx.export("serviceEndpointId", serviceendpoint.applyValue(getServiceEndpointGithubResult -> getServiceEndpointGithubResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4082,7 +4238,8 @@ public final class AzuredevopsFunctions {
      * ### By Service Endpoint ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4105,24 +4262,26 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sample = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Sample Project&#34;)
+     *             .name("Sample Project")
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointGithub(GetServiceEndpointGithubArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .serviceEndpointId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export(&#34;serviceEndpointName&#34;, serviceendpoint.applyValue(getServiceEndpointGithubResult -&gt; getServiceEndpointGithubResult.serviceEndpointName()));
+     *         ctx.export("serviceEndpointName", serviceendpoint.applyValue(getServiceEndpointGithubResult -> getServiceEndpointGithubResult.serviceEndpointName()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Service Endpoint Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4145,18 +4304,19 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sample = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Sample Project&#34;)
+     *             .name("Sample Project")
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointGithub(GetServiceEndpointGithubArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .serviceEndpointName(&#34;Example-Service-Endpoint&#34;)
+     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .serviceEndpointName("Example-Service-Endpoint")
      *             .build());
      * 
-     *         ctx.export(&#34;serviceEndpointId&#34;, serviceendpoint.applyValue(getServiceEndpointGithubResult -&gt; getServiceEndpointGithubResult.id()));
+     *         ctx.export("serviceEndpointId", serviceendpoint.applyValue(getServiceEndpointGithubResult -> getServiceEndpointGithubResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4171,7 +4331,8 @@ public final class AzuredevopsFunctions {
      * ### By Service Endpoint ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4194,24 +4355,26 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sample = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Sample Project&#34;)
+     *             .name("Sample Project")
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointGithub(GetServiceEndpointGithubArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .serviceEndpointId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export(&#34;serviceEndpointName&#34;, serviceendpoint.applyValue(getServiceEndpointGithubResult -&gt; getServiceEndpointGithubResult.serviceEndpointName()));
+     *         ctx.export("serviceEndpointName", serviceendpoint.applyValue(getServiceEndpointGithubResult -> getServiceEndpointGithubResult.serviceEndpointName()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Service Endpoint Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4234,18 +4397,19 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sample = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Sample Project&#34;)
+     *             .name("Sample Project")
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointGithub(GetServiceEndpointGithubArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .serviceEndpointName(&#34;Example-Service-Endpoint&#34;)
+     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .serviceEndpointName("Example-Service-Endpoint")
      *             .build());
      * 
-     *         ctx.export(&#34;serviceEndpointId&#34;, serviceendpoint.applyValue(getServiceEndpointGithubResult -&gt; getServiceEndpointGithubResult.id()));
+     *         ctx.export("serviceEndpointId", serviceendpoint.applyValue(getServiceEndpointGithubResult -> getServiceEndpointGithubResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4260,7 +4424,8 @@ public final class AzuredevopsFunctions {
      * ### By Service Endpoint ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4283,24 +4448,26 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sample = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Sample Project&#34;)
+     *             .name("Sample Project")
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointGithub(GetServiceEndpointGithubArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .serviceEndpointId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export(&#34;serviceEndpointName&#34;, serviceendpoint.applyValue(getServiceEndpointGithubResult -&gt; getServiceEndpointGithubResult.serviceEndpointName()));
+     *         ctx.export("serviceEndpointName", serviceendpoint.applyValue(getServiceEndpointGithubResult -> getServiceEndpointGithubResult.serviceEndpointName()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Service Endpoint Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4323,18 +4490,19 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sample = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Sample Project&#34;)
+     *             .name("Sample Project")
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointGithub(GetServiceEndpointGithubArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .serviceEndpointName(&#34;Example-Service-Endpoint&#34;)
+     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .serviceEndpointName("Example-Service-Endpoint")
      *             .build());
      * 
-     *         ctx.export(&#34;serviceEndpointId&#34;, serviceendpoint.applyValue(getServiceEndpointGithubResult -&gt; getServiceEndpointGithubResult.id()));
+     *         ctx.export("serviceEndpointId", serviceendpoint.applyValue(getServiceEndpointGithubResult -> getServiceEndpointGithubResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4347,7 +4515,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4370,13 +4539,14 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointAzurecr(GetServiceendpointAzurecrArgs.builder()
      *             .projectId(exampleAzuredevopsProject.id())
-     *             .serviceEndpointName(&#34;Example Azure Container Registry&#34;)
+     *             .serviceEndpointName("Example Azure Container Registry")
      *             .build());
      * 
-     *         ctx.export(&#34;serviceEndpointId&#34;, example.applyValue(getServiceendpointAzurecrResult -&gt; getServiceendpointAzurecrResult.id()));
+     *         ctx.export("serviceEndpointId", example.applyValue(getServiceendpointAzurecrResult -> getServiceendpointAzurecrResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4389,7 +4559,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4412,13 +4583,14 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointAzurecr(GetServiceendpointAzurecrArgs.builder()
      *             .projectId(exampleAzuredevopsProject.id())
-     *             .serviceEndpointName(&#34;Example Azure Container Registry&#34;)
+     *             .serviceEndpointName("Example Azure Container Registry")
      *             .build());
      * 
-     *         ctx.export(&#34;serviceEndpointId&#34;, example.applyValue(getServiceendpointAzurecrResult -&gt; getServiceendpointAzurecrResult.id()));
+     *         ctx.export("serviceEndpointId", example.applyValue(getServiceendpointAzurecrResult -> getServiceendpointAzurecrResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4431,7 +4603,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4454,13 +4627,14 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointAzurecr(GetServiceendpointAzurecrArgs.builder()
      *             .projectId(exampleAzuredevopsProject.id())
-     *             .serviceEndpointName(&#34;Example Azure Container Registry&#34;)
+     *             .serviceEndpointName("Example Azure Container Registry")
      *             .build());
      * 
-     *         ctx.export(&#34;serviceEndpointId&#34;, example.applyValue(getServiceendpointAzurecrResult -&gt; getServiceendpointAzurecrResult.id()));
+     *         ctx.export("serviceEndpointId", example.applyValue(getServiceendpointAzurecrResult -> getServiceendpointAzurecrResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4473,7 +4647,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4496,13 +4671,14 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointAzurecr(GetServiceendpointAzurecrArgs.builder()
      *             .projectId(exampleAzuredevopsProject.id())
-     *             .serviceEndpointName(&#34;Example Azure Container Registry&#34;)
+     *             .serviceEndpointName("Example Azure Container Registry")
      *             .build());
      * 
-     *         ctx.export(&#34;serviceEndpointId&#34;, example.applyValue(getServiceendpointAzurecrResult -&gt; getServiceendpointAzurecrResult.id()));
+     *         ctx.export("serviceEndpointId", example.applyValue(getServiceendpointAzurecrResult -> getServiceendpointAzurecrResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4515,7 +4691,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4538,13 +4715,14 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointNpm(GetServiceendpointNpmArgs.builder()
      *             .projectId(exampleAzuredevopsProject.id())
-     *             .serviceEndpointName(&#34;Example npm&#34;)
+     *             .serviceEndpointName("Example npm")
      *             .build());
      * 
-     *         ctx.export(&#34;serviceEndpointId&#34;, example.applyValue(getServiceendpointNpmResult -&gt; getServiceendpointNpmResult.id()));
+     *         ctx.export("serviceEndpointId", example.applyValue(getServiceendpointNpmResult -> getServiceendpointNpmResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4557,7 +4735,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4580,13 +4759,14 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointNpm(GetServiceendpointNpmArgs.builder()
      *             .projectId(exampleAzuredevopsProject.id())
-     *             .serviceEndpointName(&#34;Example npm&#34;)
+     *             .serviceEndpointName("Example npm")
      *             .build());
      * 
-     *         ctx.export(&#34;serviceEndpointId&#34;, example.applyValue(getServiceendpointNpmResult -&gt; getServiceendpointNpmResult.id()));
+     *         ctx.export("serviceEndpointId", example.applyValue(getServiceendpointNpmResult -> getServiceendpointNpmResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4599,7 +4779,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4622,13 +4803,14 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointNpm(GetServiceendpointNpmArgs.builder()
      *             .projectId(exampleAzuredevopsProject.id())
-     *             .serviceEndpointName(&#34;Example npm&#34;)
+     *             .serviceEndpointName("Example npm")
      *             .build());
      * 
-     *         ctx.export(&#34;serviceEndpointId&#34;, example.applyValue(getServiceendpointNpmResult -&gt; getServiceendpointNpmResult.id()));
+     *         ctx.export("serviceEndpointId", example.applyValue(getServiceendpointNpmResult -> getServiceendpointNpmResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4641,7 +4823,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4664,13 +4847,14 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointNpm(GetServiceendpointNpmArgs.builder()
      *             .projectId(exampleAzuredevopsProject.id())
-     *             .serviceEndpointName(&#34;Example npm&#34;)
+     *             .serviceEndpointName("Example npm")
      *             .build());
      * 
-     *         ctx.export(&#34;serviceEndpointId&#34;, example.applyValue(getServiceendpointNpmResult -&gt; getServiceendpointNpmResult.id()));
+     *         ctx.export("serviceEndpointId", example.applyValue(getServiceendpointNpmResult -> getServiceendpointNpmResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4683,7 +4867,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4706,13 +4891,14 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointSonarcloud(GetServiceendpointSonarcloudArgs.builder()
      *             .projectId(exampleAzuredevopsProject.id())
-     *             .serviceEndpointName(&#34;Example Sonar Cloud&#34;)
+     *             .serviceEndpointName("Example Sonar Cloud")
      *             .build());
      * 
-     *         ctx.export(&#34;serviceEndpointId&#34;, example.applyValue(getServiceendpointSonarcloudResult -&gt; getServiceendpointSonarcloudResult.id()));
+     *         ctx.export("serviceEndpointId", example.applyValue(getServiceendpointSonarcloudResult -> getServiceendpointSonarcloudResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4725,7 +4911,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4748,13 +4935,14 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointSonarcloud(GetServiceendpointSonarcloudArgs.builder()
      *             .projectId(exampleAzuredevopsProject.id())
-     *             .serviceEndpointName(&#34;Example Sonar Cloud&#34;)
+     *             .serviceEndpointName("Example Sonar Cloud")
      *             .build());
      * 
-     *         ctx.export(&#34;serviceEndpointId&#34;, example.applyValue(getServiceendpointSonarcloudResult -&gt; getServiceendpointSonarcloudResult.id()));
+     *         ctx.export("serviceEndpointId", example.applyValue(getServiceendpointSonarcloudResult -> getServiceendpointSonarcloudResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4767,7 +4955,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4790,13 +4979,14 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointSonarcloud(GetServiceendpointSonarcloudArgs.builder()
      *             .projectId(exampleAzuredevopsProject.id())
-     *             .serviceEndpointName(&#34;Example Sonar Cloud&#34;)
+     *             .serviceEndpointName("Example Sonar Cloud")
      *             .build());
      * 
-     *         ctx.export(&#34;serviceEndpointId&#34;, example.applyValue(getServiceendpointSonarcloudResult -&gt; getServiceendpointSonarcloudResult.id()));
+     *         ctx.export("serviceEndpointId", example.applyValue(getServiceendpointSonarcloudResult -> getServiceendpointSonarcloudResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4809,7 +4999,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4832,13 +5023,14 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointSonarcloud(GetServiceendpointSonarcloudArgs.builder()
      *             .projectId(exampleAzuredevopsProject.id())
-     *             .serviceEndpointName(&#34;Example Sonar Cloud&#34;)
+     *             .serviceEndpointName("Example Sonar Cloud")
      *             .build());
      * 
-     *         ctx.export(&#34;serviceEndpointId&#34;, example.applyValue(getServiceendpointSonarcloudResult -&gt; getServiceendpointSonarcloudResult.id()));
+     *         ctx.export("serviceEndpointId", example.applyValue(getServiceendpointSonarcloudResult -> getServiceendpointSonarcloudResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4851,7 +5043,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4874,22 +5067,23 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
-     *             .name(&#34;Example Project&#34;)
-     *             .workItemTemplate(&#34;Agile&#34;)
-     *             .versionControl(&#34;Git&#34;)
-     *             .visibility(&#34;private&#34;)
-     *             .description(&#34;Managed by Terraform&#34;)
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+     *             .name("Example Project")
+     *             .workItemTemplate("Agile")
+     *             .versionControl("Git")
+     *             .visibility("private")
+     *             .description("Managed by Terraform")
      *             .build());
      * 
      *         final var example = AzuredevopsFunctions.getTeam(GetTeamArgs.builder()
      *             .projectId(exampleProject.id())
-     *             .name(&#34;Example Project Team&#34;)
+     *             .name("Example Project Team")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -4910,7 +5104,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4933,22 +5128,23 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
-     *             .name(&#34;Example Project&#34;)
-     *             .workItemTemplate(&#34;Agile&#34;)
-     *             .versionControl(&#34;Git&#34;)
-     *             .visibility(&#34;private&#34;)
-     *             .description(&#34;Managed by Terraform&#34;)
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+     *             .name("Example Project")
+     *             .workItemTemplate("Agile")
+     *             .versionControl("Git")
+     *             .visibility("private")
+     *             .description("Managed by Terraform")
      *             .build());
      * 
      *         final var example = AzuredevopsFunctions.getTeam(GetTeamArgs.builder()
      *             .projectId(exampleProject.id())
-     *             .name(&#34;Example Project Team&#34;)
+     *             .name("Example Project Team")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -4969,7 +5165,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4992,22 +5189,23 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
-     *             .name(&#34;Example Project&#34;)
-     *             .workItemTemplate(&#34;Agile&#34;)
-     *             .versionControl(&#34;Git&#34;)
-     *             .visibility(&#34;private&#34;)
-     *             .description(&#34;Managed by Terraform&#34;)
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+     *             .name("Example Project")
+     *             .workItemTemplate("Agile")
+     *             .versionControl("Git")
+     *             .visibility("private")
+     *             .description("Managed by Terraform")
      *             .build());
      * 
      *         final var example = AzuredevopsFunctions.getTeam(GetTeamArgs.builder()
      *             .projectId(exampleProject.id())
-     *             .name(&#34;Example Project Team&#34;)
+     *             .name("Example Project Team")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -5028,7 +5226,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5051,22 +5250,23 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
-     *             .name(&#34;Example Project&#34;)
-     *             .workItemTemplate(&#34;Agile&#34;)
-     *             .versionControl(&#34;Git&#34;)
-     *             .visibility(&#34;private&#34;)
-     *             .description(&#34;Managed by Terraform&#34;)
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+     *             .name("Example Project")
+     *             .workItemTemplate("Agile")
+     *             .versionControl("Git")
+     *             .visibility("private")
+     *             .description("Managed by Terraform")
      *             .build());
      * 
      *         final var example = AzuredevopsFunctions.getTeam(GetTeamArgs.builder()
      *             .projectId(exampleProject.id())
-     *             .name(&#34;Example Project Team&#34;)
+     *             .name("Example Project Team")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -5087,7 +5287,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5110,13 +5311,14 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getTeams();
      * 
-     *         ctx.export(&#34;projectId&#34;, example.applyValue(getTeamsResult -&gt; getTeamsResult.teams()).stream().map(element -&gt; element.projectId()).collect(toList()));
-     *         ctx.export(&#34;name&#34;, example.applyValue(getTeamsResult -&gt; getTeamsResult.teams()).stream().map(element -&gt; element.name()).collect(toList()));
-     *         ctx.export(&#34;alladministrators&#34;, example.applyValue(getTeamsResult -&gt; getTeamsResult.teams()).stream().map(element -&gt; element.administrators()).collect(toList()));
-     *         ctx.export(&#34;administrators&#34;, example.applyValue(getTeamsResult -&gt; getTeamsResult.teams()).stream().map(element -&gt; element.members()).collect(toList()));
+     *         ctx.export("projectId", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.projectId()).collect(toList()));
+     *         ctx.export("name", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("alladministrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.administrators()).collect(toList()));
+     *         ctx.export("administrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.members()).collect(toList()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -5137,7 +5339,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5160,13 +5363,14 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getTeams();
      * 
-     *         ctx.export(&#34;projectId&#34;, example.applyValue(getTeamsResult -&gt; getTeamsResult.teams()).stream().map(element -&gt; element.projectId()).collect(toList()));
-     *         ctx.export(&#34;name&#34;, example.applyValue(getTeamsResult -&gt; getTeamsResult.teams()).stream().map(element -&gt; element.name()).collect(toList()));
-     *         ctx.export(&#34;alladministrators&#34;, example.applyValue(getTeamsResult -&gt; getTeamsResult.teams()).stream().map(element -&gt; element.administrators()).collect(toList()));
-     *         ctx.export(&#34;administrators&#34;, example.applyValue(getTeamsResult -&gt; getTeamsResult.teams()).stream().map(element -&gt; element.members()).collect(toList()));
+     *         ctx.export("projectId", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.projectId()).collect(toList()));
+     *         ctx.export("name", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("alladministrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.administrators()).collect(toList()));
+     *         ctx.export("administrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.members()).collect(toList()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -5187,7 +5391,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5210,13 +5415,14 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getTeams();
      * 
-     *         ctx.export(&#34;projectId&#34;, example.applyValue(getTeamsResult -&gt; getTeamsResult.teams()).stream().map(element -&gt; element.projectId()).collect(toList()));
-     *         ctx.export(&#34;name&#34;, example.applyValue(getTeamsResult -&gt; getTeamsResult.teams()).stream().map(element -&gt; element.name()).collect(toList()));
-     *         ctx.export(&#34;alladministrators&#34;, example.applyValue(getTeamsResult -&gt; getTeamsResult.teams()).stream().map(element -&gt; element.administrators()).collect(toList()));
-     *         ctx.export(&#34;administrators&#34;, example.applyValue(getTeamsResult -&gt; getTeamsResult.teams()).stream().map(element -&gt; element.members()).collect(toList()));
+     *         ctx.export("projectId", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.projectId()).collect(toList()));
+     *         ctx.export("name", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("alladministrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.administrators()).collect(toList()));
+     *         ctx.export("administrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.members()).collect(toList()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -5237,7 +5443,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5260,13 +5467,14 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getTeams();
      * 
-     *         ctx.export(&#34;projectId&#34;, example.applyValue(getTeamsResult -&gt; getTeamsResult.teams()).stream().map(element -&gt; element.projectId()).collect(toList()));
-     *         ctx.export(&#34;name&#34;, example.applyValue(getTeamsResult -&gt; getTeamsResult.teams()).stream().map(element -&gt; element.name()).collect(toList()));
-     *         ctx.export(&#34;alladministrators&#34;, example.applyValue(getTeamsResult -&gt; getTeamsResult.teams()).stream().map(element -&gt; element.administrators()).collect(toList()));
-     *         ctx.export(&#34;administrators&#34;, example.applyValue(getTeamsResult -&gt; getTeamsResult.teams()).stream().map(element -&gt; element.members()).collect(toList()));
+     *         ctx.export("projectId", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.projectId()).collect(toList()));
+     *         ctx.export("name", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("alladministrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.administrators()).collect(toList()));
+     *         ctx.export("administrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.members()).collect(toList()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -5287,7 +5495,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5310,13 +5519,14 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getTeams();
      * 
-     *         ctx.export(&#34;projectId&#34;, example.applyValue(getTeamsResult -&gt; getTeamsResult.teams()).stream().map(element -&gt; element.projectId()).collect(toList()));
-     *         ctx.export(&#34;name&#34;, example.applyValue(getTeamsResult -&gt; getTeamsResult.teams()).stream().map(element -&gt; element.name()).collect(toList()));
-     *         ctx.export(&#34;alladministrators&#34;, example.applyValue(getTeamsResult -&gt; getTeamsResult.teams()).stream().map(element -&gt; element.administrators()).collect(toList()));
-     *         ctx.export(&#34;administrators&#34;, example.applyValue(getTeamsResult -&gt; getTeamsResult.teams()).stream().map(element -&gt; element.members()).collect(toList()));
+     *         ctx.export("projectId", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.projectId()).collect(toList()));
+     *         ctx.export("name", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("alladministrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.administrators()).collect(toList()));
+     *         ctx.export("administrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.members()).collect(toList()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -5337,7 +5547,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5360,13 +5571,14 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getTeams();
      * 
-     *         ctx.export(&#34;projectId&#34;, example.applyValue(getTeamsResult -&gt; getTeamsResult.teams()).stream().map(element -&gt; element.projectId()).collect(toList()));
-     *         ctx.export(&#34;name&#34;, example.applyValue(getTeamsResult -&gt; getTeamsResult.teams()).stream().map(element -&gt; element.name()).collect(toList()));
-     *         ctx.export(&#34;alladministrators&#34;, example.applyValue(getTeamsResult -&gt; getTeamsResult.teams()).stream().map(element -&gt; element.administrators()).collect(toList()));
-     *         ctx.export(&#34;administrators&#34;, example.applyValue(getTeamsResult -&gt; getTeamsResult.teams()).stream().map(element -&gt; element.members()).collect(toList()));
+     *         ctx.export("projectId", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.projectId()).collect(toList()));
+     *         ctx.export("name", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("alladministrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.administrators()).collect(toList()));
+     *         ctx.export("administrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.members()).collect(toList()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -5431,7 +5643,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5454,18 +5667,19 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
      *         final var exampleGetVariableGroup = AzuredevopsFunctions.getVariableGroup(GetVariableGroupArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .name(&#34;Example Variable Group&#34;)
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .name("Example Variable Group")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleGetVariableGroup.applyValue(getVariableGroupResult -&gt; getVariableGroupResult.id()));
+     *         ctx.export("id", exampleGetVariableGroup.applyValue(getVariableGroupResult -> getVariableGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -5484,7 +5698,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5507,18 +5722,19 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
      *         final var exampleGetVariableGroup = AzuredevopsFunctions.getVariableGroup(GetVariableGroupArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .name(&#34;Example Variable Group&#34;)
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .name("Example Variable Group")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleGetVariableGroup.applyValue(getVariableGroupResult -&gt; getVariableGroupResult.id()));
+     *         ctx.export("id", exampleGetVariableGroup.applyValue(getVariableGroupResult -> getVariableGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -5537,7 +5753,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5560,18 +5777,19 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
      *         final var exampleGetVariableGroup = AzuredevopsFunctions.getVariableGroup(GetVariableGroupArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .name(&#34;Example Variable Group&#34;)
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .name("Example Variable Group")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleGetVariableGroup.applyValue(getVariableGroupResult -&gt; getVariableGroupResult.id()));
+     *         ctx.export("id", exampleGetVariableGroup.applyValue(getVariableGroupResult -> getVariableGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -5590,7 +5808,8 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5613,18 +5832,19 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;Example Project&#34;)
+     *             .name("Example Project")
      *             .build());
      * 
      *         final var exampleGetVariableGroup = AzuredevopsFunctions.getVariableGroup(GetVariableGroupArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
-     *             .name(&#34;Example Variable Group&#34;)
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .name("Example Variable Group")
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleGetVariableGroup.applyValue(getVariableGroupResult -&gt; getVariableGroupResult.id()));
+     *         ctx.export("id", exampleGetVariableGroup.applyValue(getVariableGroupResult -> getVariableGroupResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links

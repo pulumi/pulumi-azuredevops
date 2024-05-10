@@ -31,7 +31,8 @@ import javax.annotation.Nullable;
  * ### Service Principal Manual AzureRM Service Endpoint (Subscription Scoped)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,37 +56,39 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM(&#34;exampleServiceEndpointAzureRM&#34;, ServiceEndpointAzureRMArgs.builder()        
+ *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", ServiceEndpointAzureRMArgs.builder()        
  *             .projectId(example.id())
- *             .serviceEndpointName(&#34;Example AzureRM&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
- *             .serviceEndpointAuthenticationScheme(&#34;ServicePrincipal&#34;)
+ *             .serviceEndpointName("Example AzureRM")
+ *             .description("Managed by Terraform")
+ *             .serviceEndpointAuthenticationScheme("ServicePrincipal")
  *             .credentials(ServiceEndpointAzureRMCredentialsArgs.builder()
- *                 .serviceprincipalid(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *                 .serviceprincipalkey(&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;)
+ *                 .serviceprincipalid("00000000-0000-0000-0000-000000000000")
+ *                 .serviceprincipalkey("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
  *                 .build())
- *             .azurermSpnTenantid(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .azurermSubscriptionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .azurermSubscriptionName(&#34;Example Subscription Name&#34;)
+ *             .azurermSpnTenantid("00000000-0000-0000-0000-000000000000")
+ *             .azurermSubscriptionId("00000000-0000-0000-0000-000000000000")
+ *             .azurermSubscriptionName("Example Subscription Name")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Service Principal Manual AzureRM Service Endpoint (ManagementGroup Scoped)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -109,37 +112,39 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM(&#34;exampleServiceEndpointAzureRM&#34;, ServiceEndpointAzureRMArgs.builder()        
+ *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", ServiceEndpointAzureRMArgs.builder()        
  *             .projectId(example.id())
- *             .serviceEndpointName(&#34;Example AzureRM&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
- *             .serviceEndpointAuthenticationScheme(&#34;ServicePrincipal&#34;)
+ *             .serviceEndpointName("Example AzureRM")
+ *             .description("Managed by Terraform")
+ *             .serviceEndpointAuthenticationScheme("ServicePrincipal")
  *             .credentials(ServiceEndpointAzureRMCredentialsArgs.builder()
- *                 .serviceprincipalid(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *                 .serviceprincipalkey(&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;)
+ *                 .serviceprincipalid("00000000-0000-0000-0000-000000000000")
+ *                 .serviceprincipalkey("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
  *                 .build())
- *             .azurermSpnTenantid(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .azurermManagementGroupId(&#34;managementGroup&#34;)
- *             .azurermManagementGroupName(&#34;managementGroup&#34;)
+ *             .azurermSpnTenantid("00000000-0000-0000-0000-000000000000")
+ *             .azurermManagementGroupId("managementGroup")
+ *             .azurermManagementGroupName("managementGroup")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Service Principal Automatic AzureRM Service Endpoint
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -162,31 +167,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
  *             .build());
  * 
- *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM(&#34;exampleServiceEndpointAzureRM&#34;, ServiceEndpointAzureRMArgs.builder()        
+ *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", ServiceEndpointAzureRMArgs.builder()        
  *             .projectId(example.id())
- *             .serviceEndpointName(&#34;Example AzureRM&#34;)
- *             .serviceEndpointAuthenticationScheme(&#34;ServicePrincipal&#34;)
- *             .azurermSpnTenantid(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .azurermSubscriptionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .azurermSubscriptionName(&#34;Example Subscription Name&#34;)
+ *             .serviceEndpointName("Example AzureRM")
+ *             .serviceEndpointAuthenticationScheme("ServicePrincipal")
+ *             .azurermSpnTenantid("00000000-0000-0000-0000-000000000000")
+ *             .azurermSubscriptionId("00000000-0000-0000-0000-000000000000")
+ *             .azurermSubscriptionName("Example Subscription Name")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Workload Identity Federation Manual AzureRM Service Endpoint (Subscription Scoped)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -216,58 +223,60 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var serviceConnectionName = &#34;example-federated-sc&#34;;
+ *         final var serviceConnectionName = "example-federated-sc";
  * 
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var identity = new ResourceGroup(&#34;identity&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;identity&#34;)
- *             .location(&#34;UK South&#34;)
+ *         var identity = new ResourceGroup("identity", ResourceGroupArgs.builder()        
+ *             .name("identity")
+ *             .location("UK South")
  *             .build());
  * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
  *             .location(identity.location())
- *             .name(&#34;example-identity&#34;)
- *             .resourceGroupName(&#34;azurerm_resource_group.identity.name&#34;)
+ *             .name("example-identity")
+ *             .resourceGroupName("azurerm_resource_group.identity.name")
  *             .build());
  * 
- *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM(&#34;exampleServiceEndpointAzureRM&#34;, ServiceEndpointAzureRMArgs.builder()        
+ *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", ServiceEndpointAzureRMArgs.builder()        
  *             .projectId(example.id())
  *             .serviceEndpointName(serviceConnectionName)
- *             .description(&#34;Managed by Terraform&#34;)
- *             .serviceEndpointAuthenticationScheme(&#34;WorkloadIdentityFederation&#34;)
+ *             .description("Managed by Terraform")
+ *             .serviceEndpointAuthenticationScheme("WorkloadIdentityFederation")
  *             .credentials(ServiceEndpointAzureRMCredentialsArgs.builder()
  *                 .serviceprincipalid(exampleUserAssignedIdentity.clientId())
  *                 .build())
- *             .azurermSpnTenantid(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .azurermSubscriptionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .azurermSubscriptionName(&#34;Example Subscription Name&#34;)
+ *             .azurermSpnTenantid("00000000-0000-0000-0000-000000000000")
+ *             .azurermSubscriptionId("00000000-0000-0000-0000-000000000000")
+ *             .azurermSubscriptionName("Example Subscription Name")
  *             .build());
  * 
- *         var exampleFederatedIdentityCredential = new FederatedIdentityCredential(&#34;exampleFederatedIdentityCredential&#34;, FederatedIdentityCredentialArgs.builder()        
- *             .name(&#34;example-federated-credential&#34;)
+ *         var exampleFederatedIdentityCredential = new FederatedIdentityCredential("exampleFederatedIdentityCredential", FederatedIdentityCredentialArgs.builder()        
+ *             .name("example-federated-credential")
  *             .resourceGroupName(identity.name())
  *             .parentId(exampleUserAssignedIdentity.id())
- *             .audience(&#34;api://AzureADTokenExchange&#34;)
+ *             .audience("api://AzureADTokenExchange")
  *             .issuer(exampleServiceEndpointAzureRM.workloadIdentityFederationIssuer())
  *             .subject(exampleServiceEndpointAzureRM.workloadIdentityFederationSubject())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Workload Identity Federation Automatic AzureRM Service Endpoint
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -290,31 +299,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
  *             .build());
  * 
- *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM(&#34;exampleServiceEndpointAzureRM&#34;, ServiceEndpointAzureRMArgs.builder()        
+ *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", ServiceEndpointAzureRMArgs.builder()        
  *             .projectId(example.id())
- *             .serviceEndpointName(&#34;Example AzureRM&#34;)
- *             .serviceEndpointAuthenticationScheme(&#34;WorkloadIdentityFederation&#34;)
- *             .azurermSpnTenantid(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .azurermSubscriptionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .azurermSubscriptionName(&#34;Example Subscription Name&#34;)
+ *             .serviceEndpointName("Example AzureRM")
+ *             .serviceEndpointAuthenticationScheme("WorkloadIdentityFederation")
+ *             .azurermSpnTenantid("00000000-0000-0000-0000-000000000000")
+ *             .azurermSubscriptionId("00000000-0000-0000-0000-000000000000")
+ *             .azurermSubscriptionName("Example Subscription Name")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Managed Identity AzureRM Service Endpoint
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -337,25 +348,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
  *             .build());
  * 
- *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM(&#34;exampleServiceEndpointAzureRM&#34;, ServiceEndpointAzureRMArgs.builder()        
+ *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", ServiceEndpointAzureRMArgs.builder()        
  *             .projectId(example.id())
- *             .serviceEndpointName(&#34;Example AzureRM&#34;)
- *             .serviceEndpointAuthenticationScheme(&#34;ManagedServiceIdentity&#34;)
- *             .azurermSpnTenantid(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .azurermSubscriptionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .azurermSubscriptionName(&#34;Example Subscription Name&#34;)
+ *             .serviceEndpointName("Example AzureRM")
+ *             .serviceEndpointAuthenticationScheme("ManagedServiceIdentity")
+ *             .azurermSpnTenantid("00000000-0000-0000-0000-000000000000")
+ *             .azurermSubscriptionId("00000000-0000-0000-0000-000000000000")
+ *             .azurermSubscriptionName("Example Subscription Name")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Relevant Links

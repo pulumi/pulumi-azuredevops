@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * 
  * ### With an Azure DevOps local group managed by this resource
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,18 +43,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GroupEntitlement(&#34;example&#34;, GroupEntitlementArgs.builder()        
- *             .displayName(&#34;Group Name&#34;)
+ *         var example = new GroupEntitlement("example", GroupEntitlementArgs.builder()        
+ *             .displayName("Group Name")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With group origin ID
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -74,14 +77,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GroupEntitlement(&#34;example&#34;, GroupEntitlementArgs.builder()        
- *             .origin(&#34;aad&#34;)
- *             .originId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+ *         var example = new GroupEntitlement("example", GroupEntitlementArgs.builder()        
+ *             .origin("aad")
+ *             .originId("00000000-0000-0000-0000-000000000000")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Relevant Links

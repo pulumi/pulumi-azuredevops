@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,49 +51,50 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .visibility(&#34;private&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .workItemTemplate("Agile")
+ *             .versionControl("Git")
+ *             .visibility("private")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleEnvironment = new Environment(&#34;exampleEnvironment&#34;, EnvironmentArgs.builder()        
+ *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()        
  *             .projectId(example.id())
- *             .name(&#34;Example Environment&#34;)
+ *             .name("Example Environment")
  *             .build());
  * 
- *         var exampleServiceEndpointKubernetes = new ServiceEndpointKubernetes(&#34;exampleServiceEndpointKubernetes&#34;, ServiceEndpointKubernetesArgs.builder()        
+ *         var exampleServiceEndpointKubernetes = new ServiceEndpointKubernetes("exampleServiceEndpointKubernetes", ServiceEndpointKubernetesArgs.builder()        
  *             .projectId(example.id())
- *             .serviceEndpointName(&#34;Example Kubernetes&#34;)
- *             .apiserverUrl(&#34;https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io&#34;)
- *             .authorizationType(&#34;AzureSubscription&#34;)
+ *             .serviceEndpointName("Example Kubernetes")
+ *             .apiserverUrl("https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io")
+ *             .authorizationType("AzureSubscription")
  *             .azureSubscriptions(ServiceEndpointKubernetesAzureSubscriptionArgs.builder()
- *                 .subscriptionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *                 .subscriptionName(&#34;Example&#34;)
- *                 .tenantId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *                 .resourcegroupId(&#34;example-rg&#34;)
- *                 .namespace(&#34;default&#34;)
- *                 .clusterName(&#34;example-aks&#34;)
+ *                 .subscriptionId("00000000-0000-0000-0000-000000000000")
+ *                 .subscriptionName("Example")
+ *                 .tenantId("00000000-0000-0000-0000-000000000000")
+ *                 .resourcegroupId("example-rg")
+ *                 .namespace("default")
+ *                 .clusterName("example-aks")
  *                 .build())
  *             .build());
  * 
- *         var exampleEnvironmentResourceKubernetes = new EnvironmentResourceKubernetes(&#34;exampleEnvironmentResourceKubernetes&#34;, EnvironmentResourceKubernetesArgs.builder()        
+ *         var exampleEnvironmentResourceKubernetes = new EnvironmentResourceKubernetes("exampleEnvironmentResourceKubernetes", EnvironmentResourceKubernetesArgs.builder()        
  *             .projectId(example.id())
  *             .environmentId(exampleEnvironment.id())
  *             .serviceEndpointId(exampleServiceEndpointKubernetes.id())
- *             .name(&#34;Example&#34;)
- *             .namespace(&#34;default&#34;)
- *             .clusterName(&#34;example-aks&#34;)
+ *             .name("Example")
+ *             .namespace("default")
+ *             .clusterName("example-aks")
  *             .tags(            
- *                 &#34;tag1&#34;,
- *                 &#34;tag2&#34;)
+ *                 "tag1",
+ *                 "tag2")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Relevant Links

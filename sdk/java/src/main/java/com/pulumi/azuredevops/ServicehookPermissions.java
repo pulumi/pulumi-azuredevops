@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,33 +53,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .visibility(&#34;private&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .workItemTemplate("Agile")
+ *             .versionControl("Git")
+ *             .visibility("private")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
  *         final var example-readers = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
  *             .projectId(example.id())
- *             .name(&#34;Readers&#34;)
+ *             .name("Readers")
  *             .build());
  * 
- *         var example_permissions = new ServicehookPermissions(&#34;example-permissions&#34;, ServicehookPermissionsArgs.builder()        
+ *         var example_permissions = new ServicehookPermissions("example-permissions", ServicehookPermissionsArgs.builder()        
  *             .projectId(example.id())
- *             .principal(example_readers.applyValue(example_readers -&gt; example_readers.id()))
+ *             .principal(example_readers.applyValue(example_readers -> example_readers.id()))
  *             .permissions(Map.ofEntries(
- *                 Map.entry(&#34;ViewSubscriptions&#34;, &#34;allow&#34;),
- *                 Map.entry(&#34;EditSubscriptions&#34;, &#34;allow&#34;),
- *                 Map.entry(&#34;DeleteSubscriptions&#34;, &#34;allow&#34;),
- *                 Map.entry(&#34;PublishEvents&#34;, &#34;allow&#34;)
+ *                 Map.entry("ViewSubscriptions", "allow"),
+ *                 Map.entry("EditSubscriptions", "allow"),
+ *                 Map.entry("DeleteSubscriptions", "allow"),
+ *                 Map.entry("PublishEvents", "allow")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Relevant Links

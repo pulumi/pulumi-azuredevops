@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,37 +46,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
  *         // dockerhub registry service connection
- *         var exampleServiceEndpointDockerRegistry = new ServiceEndpointDockerRegistry(&#34;exampleServiceEndpointDockerRegistry&#34;, ServiceEndpointDockerRegistryArgs.builder()        
+ *         var exampleServiceEndpointDockerRegistry = new ServiceEndpointDockerRegistry("exampleServiceEndpointDockerRegistry", ServiceEndpointDockerRegistryArgs.builder()        
  *             .projectId(example.id())
- *             .serviceEndpointName(&#34;Example Docker Hub&#34;)
- *             .dockerUsername(&#34;example&#34;)
- *             .dockerEmail(&#34;email@example.com&#34;)
- *             .dockerPassword(&#34;12345&#34;)
- *             .registryType(&#34;DockerHub&#34;)
+ *             .serviceEndpointName("Example Docker Hub")
+ *             .dockerUsername("example")
+ *             .dockerEmail("email{@literal @}example.com")
+ *             .dockerPassword("12345")
+ *             .registryType("DockerHub")
  *             .build());
  * 
  *         // other docker registry service connection
- *         var example_other = new ServiceEndpointDockerRegistry(&#34;example-other&#34;, ServiceEndpointDockerRegistryArgs.builder()        
+ *         var example_other = new ServiceEndpointDockerRegistry("example-other", ServiceEndpointDockerRegistryArgs.builder()        
  *             .projectId(example.id())
- *             .serviceEndpointName(&#34;Example Docker Registry&#34;)
- *             .dockerRegistry(&#34;https://sample.azurecr.io/v1&#34;)
- *             .dockerUsername(&#34;sample&#34;)
- *             .dockerPassword(&#34;12345&#34;)
- *             .registryType(&#34;Others&#34;)
+ *             .serviceEndpointName("Example Docker Registry")
+ *             .dockerRegistry("https://sample.azurecr.io/v1")
+ *             .dockerUsername("sample")
+ *             .dockerPassword("12345")
+ *             .registryType("Others")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Relevant Links
