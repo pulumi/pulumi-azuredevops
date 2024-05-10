@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,27 +47,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceendpointExternaltfs = new ServiceendpointExternaltfs(&#34;exampleServiceendpointExternaltfs&#34;, ServiceendpointExternaltfsArgs.builder()        
+ *         var exampleServiceendpointExternaltfs = new ServiceendpointExternaltfs("exampleServiceendpointExternaltfs", ServiceendpointExternaltfsArgs.builder()        
  *             .projectId(example.id())
- *             .serviceEndpointName(&#34;Example External TFS Name&#34;)
- *             .url(&#34;https://dev.azure.com/myorganization&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *             .serviceEndpointName("Example External TFS Name")
+ *             .url("https://dev.azure.com/myorganization")
+ *             .description("Managed by Terraform")
  *             .authPersonal(ServiceendpointExternaltfsAuthPersonalArgs.builder()
- *                 .personalAccessToken(&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;)
+ *                 .personalAccessToken("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Relevant Links

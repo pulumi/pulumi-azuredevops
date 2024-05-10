@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,33 +48,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
  *             .build());
  * 
- *         var exampleGit = new Git(&#34;exampleGit&#34;, GitArgs.builder()        
+ *         var exampleGit = new Git("exampleGit", GitArgs.builder()        
  *             .projectId(example.id())
- *             .name(&#34;Example Git Repository&#34;)
+ *             .name("Example Git Repository")
  *             .initialization(GitInitializationArgs.builder()
- *                 .initType(&#34;Clean&#34;)
+ *                 .initType("Clean")
  *                 .build())
  *             .build());
  * 
- *         var exampleGitRepositoryFile = new GitRepositoryFile(&#34;exampleGitRepositoryFile&#34;, GitRepositoryFileArgs.builder()        
+ *         var exampleGitRepositoryFile = new GitRepositoryFile("exampleGitRepositoryFile", GitRepositoryFileArgs.builder()        
  *             .repositoryId(exampleGit.id())
- *             .file(&#34;.gitignore&#34;)
- *             .content(&#34;**{@literal /}*.tfstate&#34;)
- *             .branch(&#34;refs/heads/master&#34;)
- *             .commitMessage(&#34;First commit&#34;)
+ *             .file(".gitignore")
+ *             .content("**{@literal /}*.tfstate")
+ *             .branch("refs/heads/master")
+ *             .commitMessage("First commit")
  *             .overwriteOnCreate(false)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Relevant Links

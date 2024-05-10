@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,44 +51,45 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var project = new Project(&#34;project&#34;, ProjectArgs.builder()        
- *             .name(&#34;Testing&#34;)
- *             .description(&#34;Testing-description&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
+ *         var project = new Project("project", ProjectArgs.builder()        
+ *             .name("Testing")
+ *             .description("Testing-description")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
  *             .build());
  * 
- *         var example = new VariableGroup(&#34;example&#34;, VariableGroupArgs.builder()        
+ *         var example = new VariableGroup("example", VariableGroupArgs.builder()        
  *             .projectId(project.id())
- *             .name(&#34;test&#34;)
- *             .description(&#34;Test Description&#34;)
+ *             .name("test")
+ *             .description("Test Description")
  *             .allowAccess(true)
  *             .variables(VariableGroupVariableArgs.builder()
- *                 .name(&#34;key1&#34;)
- *                 .value(&#34;val1&#34;)
+ *                 .name("key1")
+ *                 .value("val1")
  *                 .build())
  *             .build());
  * 
  *         final var tf-project-readers = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
  *             .projectId(project.id())
- *             .name(&#34;Readers&#34;)
+ *             .name("Readers")
  *             .build());
  * 
- *         var permissions = new VariableGroupPermissions(&#34;permissions&#34;, VariableGroupPermissionsArgs.builder()        
+ *         var permissions = new VariableGroupPermissions("permissions", VariableGroupPermissionsArgs.builder()        
  *             .projectId(project.id())
  *             .variableGroupId(example.id())
- *             .principal(tf_project_readers.applyValue(tf_project_readers -&gt; tf_project_readers.id()))
+ *             .principal(tf_project_readers.applyValue(tf_project_readers -> tf_project_readers.id()))
  *             .permissions(Map.ofEntries(
- *                 Map.entry(&#34;View&#34;, &#34;allow&#34;),
- *                 Map.entry(&#34;Administer&#34;, &#34;allow&#34;),
- *                 Map.entry(&#34;Use&#34;, &#34;allow&#34;)
+ *                 Map.entry("View", "allow"),
+ *                 Map.entry("Administer", "allow"),
+ *                 Map.entry("Use", "allow")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Roles

@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,27 +47,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceendpointJenkins = new ServiceendpointJenkins(&#34;exampleServiceendpointJenkins&#34;, ServiceendpointJenkinsArgs.builder()        
+ *         var exampleServiceendpointJenkins = new ServiceendpointJenkins("exampleServiceendpointJenkins", ServiceendpointJenkinsArgs.builder()        
  *             .projectId(example.id())
- *             .serviceEndpointName(&#34;jenkins-example&#34;)
- *             .description(&#34;Service Endpoint for &#39;Jenkins&#39; (Managed by Terraform)&#34;)
- *             .url(&#34;https://example.com&#34;)
+ *             .serviceEndpointName("jenkins-example")
+ *             .description("Service Endpoint for 'Jenkins' (Managed by Terraform)")
+ *             .url("https://example.com")
  *             .acceptUntrustedCerts(false)
- *             .username(&#34;username&#34;)
- *             .password(&#34;password&#34;)
+ *             .username("username")
+ *             .password("password")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

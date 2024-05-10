@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,57 +57,58 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .visibility(&#34;private&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .workItemTemplate("Agile")
+ *             .versionControl("Git")
+ *             .visibility("private")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
  *         final var example-readers = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
  *             .projectId(example.id())
- *             .name(&#34;Readers&#34;)
+ *             .name("Readers")
  *             .build());
  * 
- *         var exampleGit = new Git(&#34;exampleGit&#34;, GitArgs.builder()        
+ *         var exampleGit = new Git("exampleGit", GitArgs.builder()        
  *             .projectId(example.id())
- *             .name(&#34;Example Repository&#34;)
+ *             .name("Example Repository")
  *             .initialization(GitInitializationArgs.builder()
- *                 .initType(&#34;Clean&#34;)
+ *                 .initType("Clean")
  *                 .build())
  *             .build());
  * 
- *         var exampleBuildDefinition = new BuildDefinition(&#34;exampleBuildDefinition&#34;, BuildDefinitionArgs.builder()        
+ *         var exampleBuildDefinition = new BuildDefinition("exampleBuildDefinition", BuildDefinitionArgs.builder()        
  *             .projectId(example.id())
- *             .name(&#34;Example Build Definition&#34;)
- *             .path(&#34;\\ExampleFolder&#34;)
+ *             .name("Example Build Definition")
+ *             .path("\\ExampleFolder")
  *             .ciTrigger(BuildDefinitionCiTriggerArgs.builder()
  *                 .useYaml(true)
  *                 .build())
  *             .repository(BuildDefinitionRepositoryArgs.builder()
- *                 .repoType(&#34;TfsGit&#34;)
+ *                 .repoType("TfsGit")
  *                 .repoId(exampleGit.id())
  *                 .branchName(exampleGit.defaultBranch())
- *                 .ymlPath(&#34;azure-pipelines.yml&#34;)
+ *                 .ymlPath("azure-pipelines.yml")
  *                 .build())
  *             .build());
  * 
- *         var exampleBuildDefinitionPermissions = new BuildDefinitionPermissions(&#34;exampleBuildDefinitionPermissions&#34;, BuildDefinitionPermissionsArgs.builder()        
+ *         var exampleBuildDefinitionPermissions = new BuildDefinitionPermissions("exampleBuildDefinitionPermissions", BuildDefinitionPermissionsArgs.builder()        
  *             .projectId(example.id())
- *             .principal(example_readers.applyValue(example_readers -&gt; example_readers.id()))
+ *             .principal(example_readers.applyValue(example_readers -> example_readers.id()))
  *             .buildDefinitionId(exampleBuildDefinition.id())
  *             .permissions(Map.ofEntries(
- *                 Map.entry(&#34;ViewBuilds&#34;, &#34;Allow&#34;),
- *                 Map.entry(&#34;EditBuildQuality&#34;, &#34;Deny&#34;),
- *                 Map.entry(&#34;DeleteBuilds&#34;, &#34;Deny&#34;),
- *                 Map.entry(&#34;StopBuilds&#34;, &#34;Allow&#34;)
+ *                 Map.entry("ViewBuilds", "Allow"),
+ *                 Map.entry("EditBuildQuality", "Deny"),
+ *                 Map.entry("DeleteBuilds", "Deny"),
+ *                 Map.entry("StopBuilds", "Allow")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Relevant Links

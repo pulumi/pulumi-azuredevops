@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,29 +48,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceEndpointGitHub = new ServiceEndpointGitHub(&#34;exampleServiceEndpointGitHub&#34;, ServiceEndpointGitHubArgs.builder()        
+ *         var exampleServiceEndpointGitHub = new ServiceEndpointGitHub("exampleServiceEndpointGitHub", ServiceEndpointGitHubArgs.builder()        
  *             .projectId(example.id())
- *             .serviceEndpointName(&#34;Example GitHub Personal Access Token&#34;)
+ *             .serviceEndpointName("Example GitHub Personal Access Token")
  *             .authPersonal(ServiceEndpointGitHubAuthPersonalArgs.builder()
- *                 .personalAccessToken(&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;)
+ *                 .personalAccessToken("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -93,29 +96,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceEndpointGitHub = new ServiceEndpointGitHub(&#34;exampleServiceEndpointGitHub&#34;, ServiceEndpointGitHubArgs.builder()        
+ *         var exampleServiceEndpointGitHub = new ServiceEndpointGitHub("exampleServiceEndpointGitHub", ServiceEndpointGitHubArgs.builder()        
  *             .projectId(example.id())
- *             .serviceEndpointName(&#34;Example GitHub&#34;)
+ *             .serviceEndpointName("Example GitHub")
  *             .authOauth(ServiceEndpointGitHubAuthOauthArgs.builder()
- *                 .oauthConfigurationId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+ *                 .oauthConfigurationId("00000000-0000-0000-0000-000000000000")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -138,23 +143,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceEndpointGitHub = new ServiceEndpointGitHub(&#34;exampleServiceEndpointGitHub&#34;, ServiceEndpointGitHubArgs.builder()        
+ *         var exampleServiceEndpointGitHub = new ServiceEndpointGitHub("exampleServiceEndpointGitHub", ServiceEndpointGitHubArgs.builder()        
  *             .projectId(example.id())
- *             .serviceEndpointName(&#34;Example GitHub Apps: Azure Pipelines&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *             .serviceEndpointName("Example GitHub Apps: Azure Pipelines")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Relevant Links

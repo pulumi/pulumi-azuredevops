@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,27 +44,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceendpointGcpTerraform = new ServiceendpointGcpTerraform(&#34;exampleServiceendpointGcpTerraform&#34;, ServiceendpointGcpTerraformArgs.builder()        
+ *         var exampleServiceendpointGcpTerraform = new ServiceendpointGcpTerraform("exampleServiceendpointGcpTerraform", ServiceendpointGcpTerraformArgs.builder()        
  *             .projectId(example.id())
- *             .tokenUri(&#34;https://oauth2.example.com/token&#34;)
- *             .clientEmail(&#34;gcp-sa-example@example.iam.gserviceaccount.com&#34;)
- *             .privateKey(&#34;0000000000000000000000000000000000000&#34;)
- *             .serviceEndpointName(&#34;Example GCP Terraform extension&#34;)
- *             .gcpProjectId(&#34;Example GCP Project&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *             .tokenUri("https://oauth2.example.com/token")
+ *             .clientEmail("gcp-sa-example{@literal @}example.iam.gserviceaccount.com")
+ *             .privateKey("0000000000000000000000000000000000000")
+ *             .serviceEndpointName("Example GCP Terraform extension")
+ *             .gcpProjectId("Example GCP Project")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Relevant Links

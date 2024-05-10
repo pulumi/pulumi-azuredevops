@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### Authorization for all pipelines
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,40 +55,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var examplePool = new Pool(&#34;examplePool&#34;, PoolArgs.builder()        
- *             .name(&#34;Example Pool&#34;)
+ *         var examplePool = new Pool("examplePool", PoolArgs.builder()        
+ *             .name("Example Pool")
  *             .autoProvision(false)
  *             .autoUpdate(false)
  *             .build());
  * 
- *         var exampleQueue = new Queue(&#34;exampleQueue&#34;, QueueArgs.builder()        
+ *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()        
  *             .projectId(example.id())
  *             .agentPoolId(examplePool.id())
  *             .build());
  * 
- *         var examplePipelineAuthorization = new PipelineAuthorization(&#34;examplePipelineAuthorization&#34;, PipelineAuthorizationArgs.builder()        
+ *         var examplePipelineAuthorization = new PipelineAuthorization("examplePipelineAuthorization", PipelineAuthorizationArgs.builder()        
  *             .projectId(example.id())
  *             .resourceId(exampleQueue.id())
- *             .type(&#34;queue&#34;)
+ *             .type("queue")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Authorization for specific pipeline
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -119,50 +122,51 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var examplePool = new Pool(&#34;examplePool&#34;, PoolArgs.builder()        
- *             .name(&#34;Example Pool&#34;)
+ *         var examplePool = new Pool("examplePool", PoolArgs.builder()        
+ *             .name("Example Pool")
  *             .autoProvision(false)
  *             .autoUpdate(false)
  *             .build());
  * 
- *         var exampleQueue = new Queue(&#34;exampleQueue&#34;, QueueArgs.builder()        
+ *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()        
  *             .projectId(exampleProject.id())
  *             .agentPoolId(examplePool.id())
  *             .build());
  * 
  *         final var example = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
  *             .projectId(exampleProject.id())
- *             .name(&#34;Example Project&#34;)
+ *             .name("Example Project")
  *             .build());
  * 
- *         var exampleBuildDefinition = new BuildDefinition(&#34;exampleBuildDefinition&#34;, BuildDefinitionArgs.builder()        
+ *         var exampleBuildDefinition = new BuildDefinition("exampleBuildDefinition", BuildDefinitionArgs.builder()        
  *             .projectId(exampleProject.id())
- *             .name(&#34;Example Pipeline&#34;)
+ *             .name("Example Pipeline")
  *             .repository(BuildDefinitionRepositoryArgs.builder()
- *                 .repoType(&#34;TfsGit&#34;)
- *                 .repoId(example.applyValue(getGitRepositoryResult -&gt; getGitRepositoryResult).applyValue(example -&gt; example.applyValue(getGitRepositoryResult -&gt; getGitRepositoryResult.id())))
- *                 .ymlPath(&#34;azure-pipelines.yml&#34;)
+ *                 .repoType("TfsGit")
+ *                 .repoId(example.applyValue(getGitRepositoryResult -> getGitRepositoryResult).applyValue(example -> example.applyValue(getGitRepositoryResult -> getGitRepositoryResult.id())))
+ *                 .ymlPath("azure-pipelines.yml")
  *                 .build())
  *             .build());
  * 
- *         var examplePipelineAuthorization = new PipelineAuthorization(&#34;examplePipelineAuthorization&#34;, PipelineAuthorizationArgs.builder()        
+ *         var examplePipelineAuthorization = new PipelineAuthorization("examplePipelineAuthorization", PipelineAuthorizationArgs.builder()        
  *             .projectId(exampleProject.id())
  *             .resourceId(exampleQueue.id())
- *             .type(&#34;queue&#34;)
+ *             .type("queue")
  *             .pipelineId(exampleBuildDefinition.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Relevant Links

@@ -33,7 +33,8 @@ import javax.annotation.Nullable;
  * #### Example usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -58,32 +59,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .visibility(&#34;private&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .workItemTemplate("Agile")
+ *             .versionControl("Git")
+ *             .visibility("private")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
  *         final var example-readers = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
  *             .projectId(example.id())
- *             .name(&#34;Readers&#34;)
+ *             .name("Readers")
  *             .build());
  * 
- *         var example_permissions = new GitPermissions(&#34;example-permissions&#34;, GitPermissionsArgs.builder()        
+ *         var example_permissions = new GitPermissions("example-permissions", GitPermissionsArgs.builder()        
  *             .projectId(example.id())
- *             .principal(example_readers.applyValue(example_readers -&gt; example_readers.id()))
+ *             .principal(example_readers.applyValue(example_readers -> example_readers.id()))
  *             .permissions(Map.ofEntries(
- *                 Map.entry(&#34;CreateRepository&#34;, &#34;Deny&#34;),
- *                 Map.entry(&#34;DeleteRepository&#34;, &#34;Deny&#34;),
- *                 Map.entry(&#34;RenameRepository&#34;, &#34;NotSet&#34;)
+ *                 Map.entry("CreateRepository", "Deny"),
+ *                 Map.entry("DeleteRepository", "Deny"),
+ *                 Map.entry("RenameRepository", "NotSet")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Repository level
@@ -93,7 +95,8 @@ import javax.annotation.Nullable;
  * #### Example usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -121,41 +124,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .visibility(&#34;private&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .workItemTemplate("Agile")
+ *             .versionControl("Git")
+ *             .visibility("private")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
  *         final var example-group = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
- *             .name(&#34;Project Collection Administrators&#34;)
+ *             .name("Project Collection Administrators")
  *             .build());
  * 
- *         var exampleGit = new Git(&#34;exampleGit&#34;, GitArgs.builder()        
+ *         var exampleGit = new Git("exampleGit", GitArgs.builder()        
  *             .projectId(example.id())
- *             .name(&#34;Example Empty Git Repository&#34;)
+ *             .name("Example Empty Git Repository")
  *             .initialization(GitInitializationArgs.builder()
- *                 .initType(&#34;Clean&#34;)
+ *                 .initType("Clean")
  *                 .build())
  *             .build());
  * 
- *         var example_permissions = new GitPermissions(&#34;example-permissions&#34;, GitPermissionsArgs.builder()        
+ *         var example_permissions = new GitPermissions("example-permissions", GitPermissionsArgs.builder()        
  *             .projectId(exampleGit.projectId())
  *             .repositoryId(exampleGit.id())
  *             .principal(example_group.id())
  *             .permissions(Map.ofEntries(
- *                 Map.entry(&#34;RemoveOthersLocks&#34;, &#34;Allow&#34;),
- *                 Map.entry(&#34;ManagePermissions&#34;, &#34;Deny&#34;),
- *                 Map.entry(&#34;CreateTag&#34;, &#34;Deny&#34;),
- *                 Map.entry(&#34;CreateBranch&#34;, &#34;NotSet&#34;)
+ *                 Map.entry("RemoveOthersLocks", "Allow"),
+ *                 Map.entry("ManagePermissions", "Deny"),
+ *                 Map.entry("CreateTag", "Deny"),
+ *                 Map.entry("CreateBranch", "NotSet")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Branch level
@@ -165,7 +169,8 @@ import javax.annotation.Nullable;
  * #### Example usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -193,46 +198,48 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .visibility(&#34;private&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .workItemTemplate("Agile")
+ *             .versionControl("Git")
+ *             .visibility("private")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleGit = new Git(&#34;exampleGit&#34;, GitArgs.builder()        
+ *         var exampleGit = new Git("exampleGit", GitArgs.builder()        
  *             .projectId(example.id())
- *             .name(&#34;Example Empty Git Repository&#34;)
+ *             .name("Example Empty Git Repository")
  *             .initialization(GitInitializationArgs.builder()
- *                 .initType(&#34;Clean&#34;)
+ *                 .initType("Clean")
  *                 .build())
  *             .build());
  * 
  *         final var example-group = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
- *             .name(&#34;Project Collection Administrators&#34;)
+ *             .name("Project Collection Administrators")
  *             .build());
  * 
- *         var example_permissions = new GitPermissions(&#34;example-permissions&#34;, GitPermissionsArgs.builder()        
+ *         var example_permissions = new GitPermissions("example-permissions", GitPermissionsArgs.builder()        
  *             .projectId(exampleGit.projectId())
  *             .repositoryId(exampleGit.id())
- *             .branchName(&#34;refs/heads/master&#34;)
+ *             .branchName("refs/heads/master")
  *             .principal(example_group.id())
  *             .permissions(Map.ofEntries(
- *                 Map.entry(&#34;RemoveOthersLocks&#34;, &#34;Allow&#34;),
- *                 Map.entry(&#34;ForcePush&#34;, &#34;Deny&#34;)
+ *                 Map.entry("RemoveOthersLocks", "Allow"),
+ *                 Map.entry("ForcePush", "Deny")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -260,74 +267,75 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
  *         final var example-project-readers = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
  *             .projectId(example.id())
- *             .name(&#34;Readers&#34;)
+ *             .name("Readers")
  *             .build());
  * 
  *         final var example-project-contributors = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
  *             .projectId(example.id())
- *             .name(&#34;Contributors&#34;)
+ *             .name("Contributors")
  *             .build());
  * 
  *         final var example-project-administrators = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
  *             .projectId(example.id())
- *             .name(&#34;Project administrators&#34;)
+ *             .name("Project administrators")
  *             .build());
  * 
- *         var example_permissions = new GitPermissions(&#34;example-permissions&#34;, GitPermissionsArgs.builder()        
+ *         var example_permissions = new GitPermissions("example-permissions", GitPermissionsArgs.builder()        
  *             .projectId(example.id())
- *             .principal(example_project_readers.applyValue(example_project_readers -&gt; example_project_readers.id()))
+ *             .principal(example_project_readers.applyValue(example_project_readers -> example_project_readers.id()))
  *             .permissions(Map.ofEntries(
- *                 Map.entry(&#34;CreateRepository&#34;, &#34;Deny&#34;),
- *                 Map.entry(&#34;DeleteRepository&#34;, &#34;Deny&#34;),
- *                 Map.entry(&#34;RenameRepository&#34;, &#34;NotSet&#34;)
+ *                 Map.entry("CreateRepository", "Deny"),
+ *                 Map.entry("DeleteRepository", "Deny"),
+ *                 Map.entry("RenameRepository", "NotSet")
  *             ))
  *             .build());
  * 
- *         var exampleGit = new Git(&#34;exampleGit&#34;, GitArgs.builder()        
+ *         var exampleGit = new Git("exampleGit", GitArgs.builder()        
  *             .projectId(example.id())
- *             .name(&#34;TestRepo&#34;)
- *             .defaultBranch(&#34;refs/heads/master&#34;)
+ *             .name("TestRepo")
+ *             .defaultBranch("refs/heads/master")
  *             .initialization(GitInitializationArgs.builder()
- *                 .initType(&#34;Clean&#34;)
+ *                 .initType("Clean")
  *                 .build())
  *             .build());
  * 
- *         var example_repo_permissions = new GitPermissions(&#34;example-repo-permissions&#34;, GitPermissionsArgs.builder()        
+ *         var example_repo_permissions = new GitPermissions("example-repo-permissions", GitPermissionsArgs.builder()        
  *             .projectId(exampleGit.projectId())
  *             .repositoryId(exampleGit.id())
- *             .principal(example_project_administrators.applyValue(example_project_administrators -&gt; example_project_administrators.id()))
+ *             .principal(example_project_administrators.applyValue(example_project_administrators -> example_project_administrators.id()))
  *             .permissions(Map.ofEntries(
- *                 Map.entry(&#34;RemoveOthersLocks&#34;, &#34;Allow&#34;),
- *                 Map.entry(&#34;ManagePermissions&#34;, &#34;Deny&#34;),
- *                 Map.entry(&#34;CreateTag&#34;, &#34;Deny&#34;),
- *                 Map.entry(&#34;CreateBranch&#34;, &#34;NotSet&#34;)
+ *                 Map.entry("RemoveOthersLocks", "Allow"),
+ *                 Map.entry("ManagePermissions", "Deny"),
+ *                 Map.entry("CreateTag", "Deny"),
+ *                 Map.entry("CreateBranch", "NotSet")
  *             ))
  *             .build());
  * 
- *         var example_branch_permissions = new GitPermissions(&#34;example-branch-permissions&#34;, GitPermissionsArgs.builder()        
+ *         var example_branch_permissions = new GitPermissions("example-branch-permissions", GitPermissionsArgs.builder()        
  *             .projectId(exampleGit.projectId())
  *             .repositoryId(exampleGit.id())
- *             .branchName(&#34;master&#34;)
- *             .principal(example_project_contributors.applyValue(example_project_contributors -&gt; example_project_contributors.id()))
+ *             .branchName("master")
+ *             .principal(example_project_contributors.applyValue(example_project_contributors -> example_project_contributors.id()))
  *             .permissions(Map.ofEntries(
- *                 Map.entry(&#34;RemoveOthersLocks&#34;, &#34;Allow&#34;),
- *                 Map.entry(&#34;ForcePush&#34;, &#34;Deny&#34;)
+ *                 Map.entry("RemoveOthersLocks", "Allow"),
+ *                 Map.entry("ForcePush", "Deny")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Relevant Links

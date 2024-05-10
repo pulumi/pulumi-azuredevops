@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,32 +50,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceendpointJfrogXrayV2 = new ServiceendpointJfrogXrayV2(&#34;exampleServiceendpointJfrogXrayV2&#34;, ServiceendpointJfrogXrayV2Args.builder()        
+ *         var exampleServiceendpointJfrogXrayV2 = new ServiceendpointJfrogXrayV2("exampleServiceendpointJfrogXrayV2", ServiceendpointJfrogXrayV2Args.builder()        
  *             .projectId(example.id())
- *             .serviceEndpointName(&#34;Example Artifactory&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
- *             .url(&#34;https://artifactory.my.com&#34;)
+ *             .serviceEndpointName("Example Artifactory")
+ *             .description("Managed by Terraform")
+ *             .url("https://artifactory.my.com")
  *             .authenticationToken(ServiceendpointJfrogXrayV2AuthenticationTokenArgs.builder()
- *                 .token(&#34;0000000000000000000000000000000000000000&#34;)
+ *                 .token("0000000000000000000000000000000000000000")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * Alternatively a username and password may be used.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -98,28 +101,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceendpointJfrogXrayV2 = new ServiceendpointJfrogXrayV2(&#34;exampleServiceendpointJfrogXrayV2&#34;, ServiceendpointJfrogXrayV2Args.builder()        
+ *         var exampleServiceendpointJfrogXrayV2 = new ServiceendpointJfrogXrayV2("exampleServiceendpointJfrogXrayV2", ServiceendpointJfrogXrayV2Args.builder()        
  *             .projectId(example.id())
- *             .serviceEndpointName(&#34;Example Artifactory&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
- *             .url(&#34;https://artifactory.my.com&#34;)
+ *             .serviceEndpointName("Example Artifactory")
+ *             .description("Managed by Terraform")
+ *             .url("https://artifactory.my.com")
  *             .authenticationBasic(ServiceendpointJfrogXrayV2AuthenticationBasicArgs.builder()
- *                 .username(&#34;username&#34;)
- *                 .password(&#34;password&#34;)
+ *                 .username("username")
+ *                 .password("password")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Relevant Links

@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,40 +49,41 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM(&#34;exampleServiceEndpointAzureRM&#34;, ServiceEndpointAzureRMArgs.builder()        
+ *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", ServiceEndpointAzureRMArgs.builder()        
  *             .projectId(example.id())
- *             .serviceEndpointName(&#34;Example Azure Connection&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
- *             .serviceEndpointAuthenticationScheme(&#34;ServicePrincipal&#34;)
+ *             .serviceEndpointName("Example Azure Connection")
+ *             .description("Managed by Terraform")
+ *             .serviceEndpointAuthenticationScheme("ServicePrincipal")
  *             .credentials(ServiceEndpointAzureRMCredentialsArgs.builder()
- *                 .serviceprincipalid(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *                 .serviceprincipalkey(&#34;00000000-0000-0000-0000-000000000000&#34;)
+ *                 .serviceprincipalid("00000000-0000-0000-0000-000000000000")
+ *                 .serviceprincipalkey("00000000-0000-0000-0000-000000000000")
  *                 .build())
- *             .azurermSpnTenantid(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .azurermSubscriptionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .azurermSubscriptionName(&#34;Subscription Name&#34;)
+ *             .azurermSpnTenantid("00000000-0000-0000-0000-000000000000")
+ *             .azurermSubscriptionId("00000000-0000-0000-0000-000000000000")
+ *             .azurermSubscriptionName("Subscription Name")
  *             .build());
  * 
- *         var exampleElasticPool = new ElasticPool(&#34;exampleElasticPool&#34;, ElasticPoolArgs.builder()        
- *             .name(&#34;Example Elastic Pool&#34;)
+ *         var exampleElasticPool = new ElasticPool("exampleElasticPool", ElasticPoolArgs.builder()        
+ *             .name("Example Elastic Pool")
  *             .serviceEndpointId(exampleServiceEndpointAzureRM.id())
  *             .serviceEndpointScope(example.id())
  *             .desiredIdle(2)
  *             .maxCapacity(3)
- *             .azureResourceId(&#34;/subscriptions/&lt;Subscription Id&gt;/resourceGroups/&lt;Resource Name&gt;/providers/Microsoft.Compute/virtualMachineScaleSets/&lt;VMSS Name&gt;&#34;)
+ *             .azureResourceId("/subscriptions/<Subscription Id>/resourceGroups/<Resource Name>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS Name>")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Relevant Links

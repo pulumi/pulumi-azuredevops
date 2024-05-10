@@ -17,12 +17,13 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a Azure DevOps Service Connection service endpoint within Azure DevOps. Allows to run downstream pipelines, monitoring their execution, collecting and consolidating artefacts produced in the delegate pipelines (yaml block `task: RunPipelines@1`). More details on Marketplace page: [RunPipelines](https://marketplace.visualstudio.com/items?itemName=CSE-DevOps.RunPipelines)
+ * Manages a Azure DevOps Service Connection service endpoint within Azure DevOps. Allows to run downstream pipelines, monitoring their execution, collecting and consolidating artefacts produced in the delegate pipelines (yaml block `task: RunPipelines{@literal @}1`). More details on Marketplace page: [RunPipelines](https://marketplace.visualstudio.com/items?itemName=CSE-DevOps.RunPipelines)
  * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,27 +47,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceEndpointPipeline = new ServiceEndpointPipeline(&#34;exampleServiceEndpointPipeline&#34;, ServiceEndpointPipelineArgs.builder()        
+ *         var exampleServiceEndpointPipeline = new ServiceEndpointPipeline("exampleServiceEndpointPipeline", ServiceEndpointPipelineArgs.builder()        
  *             .projectId(example.id())
- *             .serviceEndpointName(&#34;Example Pipeline Runner&#34;)
- *             .organizationName(&#34;Organization Name&#34;)
+ *             .serviceEndpointName("Example Pipeline Runner")
+ *             .organizationName("Organization Name")
  *             .authPersonal(ServiceEndpointPipelineAuthPersonalArgs.builder()
- *                 .personalAccessToken(&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;)
+ *                 .personalAccessToken("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
  *                 .build())
- *             .description(&#34;Managed by Terraform&#34;)
+ *             .description("Managed by Terraform")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Relevant Links

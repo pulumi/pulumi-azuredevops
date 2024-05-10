@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,19 +50,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
  *             .build());
  * 
- *         var exampleGit = new Git(&#34;exampleGit&#34;, GitArgs.builder()        
+ *         var exampleGit = new Git("exampleGit", GitArgs.builder()        
  *             .projectId(example.id())
- *             .name(&#34;Example Repository&#34;)
+ *             .name("Example Repository")
  *             .initialization(GitInitializationArgs.builder()
- *                 .initType(&#34;Clean&#34;)
+ *                 .initType("Clean")
  *                 .build())
  *             .build());
  * 
- *         var exampleBranchPolicyMergeTypes = new BranchPolicyMergeTypes(&#34;exampleBranchPolicyMergeTypes&#34;, BranchPolicyMergeTypesArgs.builder()        
+ *         var exampleBranchPolicyMergeTypes = new BranchPolicyMergeTypes("exampleBranchPolicyMergeTypes", BranchPolicyMergeTypesArgs.builder()        
  *             .projectId(example.id())
  *             .enabled(true)
  *             .blocking(true)
@@ -74,22 +75,23 @@ import javax.annotation.Nullable;
  *                     BranchPolicyMergeTypesSettingsScopeArgs.builder()
  *                         .repositoryId(exampleGit.id())
  *                         .repositoryRef(exampleGit.defaultBranch())
- *                         .matchType(&#34;Exact&#34;)
+ *                         .matchType("Exact")
  *                         .build(),
  *                     BranchPolicyMergeTypesSettingsScopeArgs.builder()
  *                         .repositoryId(null)
- *                         .repositoryRef(&#34;refs/heads/releases&#34;)
- *                         .matchType(&#34;Prefix&#34;)
+ *                         .repositoryRef("refs/heads/releases")
+ *                         .matchType("Prefix")
  *                         .build(),
  *                     BranchPolicyMergeTypesSettingsScopeArgs.builder()
- *                         .matchType(&#34;DefaultBranch&#34;)
+ *                         .matchType("DefaultBranch")
  *                         .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Relevant Links

@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,28 +45,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
  *         // azure container registry service connection
- *         var exampleServiceEndpointAzureEcr = new ServiceEndpointAzureEcr(&#34;exampleServiceEndpointAzureEcr&#34;, ServiceEndpointAzureEcrArgs.builder()        
+ *         var exampleServiceEndpointAzureEcr = new ServiceEndpointAzureEcr("exampleServiceEndpointAzureEcr", ServiceEndpointAzureEcrArgs.builder()        
  *             .projectId(example.id())
- *             .serviceEndpointName(&#34;Example AzureCR&#34;)
- *             .resourceGroup(&#34;example-rg&#34;)
- *             .azurecrSpnTenantid(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .azurecrName(&#34;ExampleAcr&#34;)
- *             .azurecrSubscriptionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .azurecrSubscriptionName(&#34;subscription name&#34;)
+ *             .serviceEndpointName("Example AzureCR")
+ *             .resourceGroup("example-rg")
+ *             .azurecrSpnTenantid("00000000-0000-0000-0000-000000000000")
+ *             .azurecrName("ExampleAcr")
+ *             .azurecrSubscriptionId("00000000-0000-0000-0000-000000000000")
+ *             .azurecrSubscriptionName("subscription name")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Relevant Links

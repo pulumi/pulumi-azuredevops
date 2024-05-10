@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,34 +48,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceendpointMaven = new ServiceendpointMaven(&#34;exampleServiceendpointMaven&#34;, ServiceendpointMavenArgs.builder()        
+ *         var exampleServiceendpointMaven = new ServiceendpointMaven("exampleServiceendpointMaven", ServiceendpointMavenArgs.builder()        
  *             .projectId(example.id())
- *             .serviceEndpointName(&#34;maven-example&#34;)
- *             .description(&#34;Service Endpoint for &#39;Maven&#39; (Managed by Terraform)&#34;)
- *             .url(&#34;https://example.com&#34;)
- *             .repositoryId(&#34;example&#34;)
+ *             .serviceEndpointName("maven-example")
+ *             .description("Service Endpoint for 'Maven' (Managed by Terraform)")
+ *             .url("https://example.com")
+ *             .repositoryId("example")
  *             .authenticationToken(ServiceendpointMavenAuthenticationTokenArgs.builder()
- *                 .token(&#34;0000000000000000000000000000000000000000&#34;)
+ *                 .token("0000000000000000000000000000000000000000")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Alternatively a username and password may be used.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -98,29 +101,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceendpointMaven = new ServiceendpointMaven(&#34;exampleServiceendpointMaven&#34;, ServiceendpointMavenArgs.builder()        
+ *         var exampleServiceendpointMaven = new ServiceendpointMaven("exampleServiceendpointMaven", ServiceendpointMavenArgs.builder()        
  *             .projectId(example.id())
- *             .serviceEndpointName(&#34;maven-example&#34;)
- *             .description(&#34;Service Endpoint for &#39;Maven&#39; (Managed by Terraform)&#34;)
- *             .url(&#34;https://example.com&#34;)
- *             .repositoryId(&#34;example&#34;)
+ *             .serviceEndpointName("maven-example")
+ *             .description("Service Endpoint for 'Maven' (Managed by Terraform)")
+ *             .url("https://example.com")
+ *             .repositoryId("example")
  *             .authenticationBasic(ServiceendpointMavenAuthenticationBasicArgs.builder()
- *                 .username(&#34;username&#34;)
- *                 .password(&#34;password&#34;)
+ *                 .username("username")
+ *                 .password("password")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

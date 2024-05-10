@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,26 +46,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceendpointIncomingwebhook = new ServiceendpointIncomingwebhook(&#34;exampleServiceendpointIncomingwebhook&#34;, ServiceendpointIncomingwebhookArgs.builder()        
+ *         var exampleServiceendpointIncomingwebhook = new ServiceendpointIncomingwebhook("exampleServiceendpointIncomingwebhook", ServiceendpointIncomingwebhookArgs.builder()        
  *             .projectId(example.id())
- *             .webhookName(&#34;example_webhook&#34;)
- *             .secret(&#34;secret&#34;)
- *             .httpHeader(&#34;X-Hub-Signature&#34;)
- *             .serviceEndpointName(&#34;Example IncomingWebhook&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *             .webhookName("example_webhook")
+ *             .secret("secret")
+ *             .httpHeader("X-Hub-Signature")
+ *             .serviceEndpointName("Example IncomingWebhook")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

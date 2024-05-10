@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Creating a Queue from an organization-level pool
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,36 +54,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
+ *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+ *             .name("Example Project")
  *             .build());
  * 
  *         final var example = AzuredevopsFunctions.getPool(GetPoolArgs.builder()
- *             .name(&#34;example-pool&#34;)
+ *             .name("example-pool")
  *             .build());
  * 
- *         var exampleQueue = new Queue(&#34;exampleQueue&#34;, QueueArgs.builder()        
+ *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()        
  *             .projectId(exampleProject.id())
- *             .agentPoolId(example.applyValue(getPoolResult -&gt; getPoolResult.id()))
+ *             .agentPoolId(example.applyValue(getPoolResult -> getPoolResult.id()))
  *             .build());
  * 
  *         // Grant access to queue to all pipelines in the project
- *         var exampleResourceAuthorization = new ResourceAuthorization(&#34;exampleResourceAuthorization&#34;, ResourceAuthorizationArgs.builder()        
+ *         var exampleResourceAuthorization = new ResourceAuthorization("exampleResourceAuthorization", ResourceAuthorizationArgs.builder()        
  *             .projectId(exampleProject.id())
  *             .resourceId(exampleQueue.id())
- *             .type(&#34;queue&#34;)
+ *             .type("queue")
  *             .authorized(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Creating a Queue at the project level (Organization-level permissions not required)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -106,17 +109,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
- *             .name(&#34;Example Project&#34;)
+ *             .name("Example Project")
  *             .build());
  * 
- *         var exampleQueue = new Queue(&#34;exampleQueue&#34;, QueueArgs.builder()        
- *             .name(&#34;example-queue&#34;)
- *             .projectId(example.applyValue(getProjectResult -&gt; getProjectResult.id()))
+ *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()        
+ *             .name("example-queue")
+ *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Relevant Links

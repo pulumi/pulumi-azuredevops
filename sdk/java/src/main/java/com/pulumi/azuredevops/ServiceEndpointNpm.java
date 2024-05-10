@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,25 +46,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .visibility(&#34;private&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceEndpointNpm = new ServiceEndpointNpm(&#34;exampleServiceEndpointNpm&#34;, ServiceEndpointNpmArgs.builder()        
+ *         var exampleServiceEndpointNpm = new ServiceEndpointNpm("exampleServiceEndpointNpm", ServiceEndpointNpmArgs.builder()        
  *             .projectId(example.id())
- *             .serviceEndpointName(&#34;Example npm&#34;)
- *             .url(&#34;https://registry.npmjs.org&#34;)
- *             .accessToken(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *             .serviceEndpointName("Example npm")
+ *             .url("https://registry.npmjs.org")
+ *             .accessToken("00000000-0000-0000-0000-000000000000")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Relevant Links

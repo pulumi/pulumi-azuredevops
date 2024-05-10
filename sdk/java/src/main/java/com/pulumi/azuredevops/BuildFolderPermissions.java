@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Set specific folder permissions
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,54 +54,56 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .visibility(&#34;private&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .workItemTemplate("Agile")
+ *             .versionControl("Git")
+ *             .visibility("private")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
  *         final var example-readers = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
  *             .projectId(example.id())
- *             .name(&#34;Readers&#34;)
+ *             .name("Readers")
  *             .build());
  * 
- *         var exampleBuildFolder = new BuildFolder(&#34;exampleBuildFolder&#34;, BuildFolderArgs.builder()        
+ *         var exampleBuildFolder = new BuildFolder("exampleBuildFolder", BuildFolderArgs.builder()        
  *             .projectId(example.id())
- *             .path(&#34;\\ExampleFolder&#34;)
- *             .description(&#34;ExampleFolder description&#34;)
+ *             .path("\\ExampleFolder")
+ *             .description("ExampleFolder description")
  *             .build());
  * 
- *         var exampleBuildFolderPermissions = new BuildFolderPermissions(&#34;exampleBuildFolderPermissions&#34;, BuildFolderPermissionsArgs.builder()        
+ *         var exampleBuildFolderPermissions = new BuildFolderPermissions("exampleBuildFolderPermissions", BuildFolderPermissionsArgs.builder()        
  *             .projectId(example.id())
- *             .path(&#34;\\ExampleFolder&#34;)
- *             .principal(example_readers.applyValue(example_readers -&gt; example_readers.id()))
+ *             .path("\\ExampleFolder")
+ *             .principal(example_readers.applyValue(example_readers -> example_readers.id()))
  *             .permissions(Map.ofEntries(
- *                 Map.entry(&#34;ViewBuilds&#34;, &#34;Allow&#34;),
- *                 Map.entry(&#34;EditBuildQuality&#34;, &#34;Allow&#34;),
- *                 Map.entry(&#34;RetainIndefinitely&#34;, &#34;Allow&#34;),
- *                 Map.entry(&#34;DeleteBuilds&#34;, &#34;Deny&#34;),
- *                 Map.entry(&#34;ManageBuildQualities&#34;, &#34;Deny&#34;),
- *                 Map.entry(&#34;DestroyBuilds&#34;, &#34;Deny&#34;),
- *                 Map.entry(&#34;UpdateBuildInformation&#34;, &#34;Deny&#34;),
- *                 Map.entry(&#34;QueueBuilds&#34;, &#34;Allow&#34;),
- *                 Map.entry(&#34;ManageBuildQueue&#34;, &#34;Deny&#34;),
- *                 Map.entry(&#34;StopBuilds&#34;, &#34;Allow&#34;),
- *                 Map.entry(&#34;ViewBuildDefinition&#34;, &#34;Allow&#34;),
- *                 Map.entry(&#34;EditBuildDefinition&#34;, &#34;Deny&#34;),
- *                 Map.entry(&#34;DeleteBuildDefinition&#34;, &#34;Deny&#34;),
- *                 Map.entry(&#34;AdministerBuildPermissions&#34;, &#34;NotSet&#34;)
+ *                 Map.entry("ViewBuilds", "Allow"),
+ *                 Map.entry("EditBuildQuality", "Allow"),
+ *                 Map.entry("RetainIndefinitely", "Allow"),
+ *                 Map.entry("DeleteBuilds", "Deny"),
+ *                 Map.entry("ManageBuildQualities", "Deny"),
+ *                 Map.entry("DestroyBuilds", "Deny"),
+ *                 Map.entry("UpdateBuildInformation", "Deny"),
+ *                 Map.entry("QueueBuilds", "Allow"),
+ *                 Map.entry("ManageBuildQueue", "Deny"),
+ *                 Map.entry("StopBuilds", "Allow"),
+ *                 Map.entry("ViewBuildDefinition", "Allow"),
+ *                 Map.entry("EditBuildDefinition", "Deny"),
+ *                 Map.entry("DeleteBuildDefinition", "Deny"),
+ *                 Map.entry("AdministerBuildPermissions", "NotSet")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * ### Set root folder permissions
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -125,29 +128,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
- *             .workItemTemplate(&#34;Agile&#34;)
- *             .versionControl(&#34;Git&#34;)
- *             .visibility(&#34;private&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
+ *             .workItemTemplate("Agile")
+ *             .versionControl("Git")
+ *             .visibility("private")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
  *         final var example-readers = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
  *             .projectId(example.id())
- *             .name(&#34;Readers&#34;)
+ *             .name("Readers")
  *             .build());
  * 
- *         var exampleBuildFolderPermissions = new BuildFolderPermissions(&#34;exampleBuildFolderPermissions&#34;, BuildFolderPermissionsArgs.builder()        
+ *         var exampleBuildFolderPermissions = new BuildFolderPermissions("exampleBuildFolderPermissions", BuildFolderPermissionsArgs.builder()        
  *             .projectId(example.id())
- *             .path(&#34;\\&#34;)
- *             .principal(example_readers.applyValue(example_readers -&gt; example_readers.id()))
- *             .permissions(Map.of(&#34;RetainIndefinitely&#34;, &#34;Allow&#34;))
+ *             .path("\\")
+ *             .principal(example_readers.applyValue(example_readers -> example_readers.id()))
+ *             .permissions(Map.of("RetainIndefinitely", "Allow"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Relevant Links

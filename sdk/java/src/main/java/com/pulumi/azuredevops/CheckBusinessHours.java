@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Protect a service connection
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,27 +50,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
  *             .build());
  * 
- *         var exampleServiceEndpointGeneric = new ServiceEndpointGeneric(&#34;exampleServiceEndpointGeneric&#34;, ServiceEndpointGenericArgs.builder()        
+ *         var exampleServiceEndpointGeneric = new ServiceEndpointGeneric("exampleServiceEndpointGeneric", ServiceEndpointGenericArgs.builder()        
  *             .projectId(example.id())
- *             .serverUrl(&#34;https://some-server.example.com&#34;)
- *             .username(&#34;username&#34;)
- *             .password(&#34;password&#34;)
- *             .serviceEndpointName(&#34;Example Generic&#34;)
- *             .description(&#34;Managed by Terraform&#34;)
+ *             .serverUrl("https://some-server.example.com")
+ *             .username("username")
+ *             .password("password")
+ *             .serviceEndpointName("Example Generic")
+ *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleCheckBusinessHours = new CheckBusinessHours(&#34;exampleCheckBusinessHours&#34;, CheckBusinessHoursArgs.builder()        
+ *         var exampleCheckBusinessHours = new CheckBusinessHours("exampleCheckBusinessHours", CheckBusinessHoursArgs.builder()        
  *             .projectId(example.id())
- *             .displayName(&#34;Managed by Terraform&#34;)
+ *             .displayName("Managed by Terraform")
  *             .targetResourceId(exampleServiceEndpointGeneric.id())
- *             .targetResourceType(&#34;endpoint&#34;)
- *             .startTime(&#34;07:00&#34;)
- *             .endTime(&#34;15:30&#34;)
- *             .timeZone(&#34;UTC&#34;)
+ *             .targetResourceType("endpoint")
+ *             .startTime("07:00")
+ *             .endTime("15:30")
+ *             .timeZone("UTC")
  *             .monday(true)
  *             .tuesday(true)
  *             .timeout(1440)
@@ -77,13 +78,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Protect an environment
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -108,36 +111,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
  *             .build());
  * 
- *         var exampleEnvironment = new Environment(&#34;exampleEnvironment&#34;, EnvironmentArgs.builder()        
+ *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()        
  *             .projectId(example.id())
- *             .name(&#34;Example Environment&#34;)
+ *             .name("Example Environment")
  *             .build());
  * 
- *         var exampleCheckBusinessHours = new CheckBusinessHours(&#34;exampleCheckBusinessHours&#34;, CheckBusinessHoursArgs.builder()        
+ *         var exampleCheckBusinessHours = new CheckBusinessHours("exampleCheckBusinessHours", CheckBusinessHoursArgs.builder()        
  *             .projectId(example.id())
- *             .displayName(&#34;Managed by Terraform&#34;)
+ *             .displayName("Managed by Terraform")
  *             .targetResourceId(exampleEnvironment.id())
- *             .targetResourceType(&#34;environment&#34;)
- *             .startTime(&#34;07:00&#34;)
- *             .endTime(&#34;15:30&#34;)
- *             .timeZone(&#34;UTC&#34;)
+ *             .targetResourceType("environment")
+ *             .startTime("07:00")
+ *             .endTime("15:30")
+ *             .timeZone("UTC")
  *             .monday(true)
  *             .tuesday(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Protect an agent queue
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -164,40 +169,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
  *             .build());
  * 
- *         var examplePool = new Pool(&#34;examplePool&#34;, PoolArgs.builder()        
- *             .name(&#34;example-pool&#34;)
+ *         var examplePool = new Pool("examplePool", PoolArgs.builder()        
+ *             .name("example-pool")
  *             .build());
  * 
- *         var exampleQueue = new Queue(&#34;exampleQueue&#34;, QueueArgs.builder()        
+ *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()        
  *             .projectId(example.id())
  *             .agentPoolId(examplePool.id())
  *             .build());
  * 
- *         var exampleCheckBusinessHours = new CheckBusinessHours(&#34;exampleCheckBusinessHours&#34;, CheckBusinessHoursArgs.builder()        
+ *         var exampleCheckBusinessHours = new CheckBusinessHours("exampleCheckBusinessHours", CheckBusinessHoursArgs.builder()        
  *             .projectId(example.id())
- *             .displayName(&#34;Managed by Terraform&#34;)
+ *             .displayName("Managed by Terraform")
  *             .targetResourceId(exampleQueue.id())
- *             .targetResourceType(&#34;queue&#34;)
- *             .startTime(&#34;07:00&#34;)
- *             .endTime(&#34;15:30&#34;)
- *             .timeZone(&#34;UTC&#34;)
+ *             .targetResourceType("queue")
+ *             .startTime("07:00")
+ *             .endTime("15:30")
+ *             .timeZone("UTC")
  *             .monday(true)
  *             .tuesday(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Protect a repository
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -223,43 +230,45 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
  *             .build());
  * 
- *         var exampleGit = new Git(&#34;exampleGit&#34;, GitArgs.builder()        
+ *         var exampleGit = new Git("exampleGit", GitArgs.builder()        
  *             .projectId(example.id())
- *             .name(&#34;Example Empty Git Repository&#34;)
+ *             .name("Example Empty Git Repository")
  *             .initialization(GitInitializationArgs.builder()
- *                 .initType(&#34;Clean&#34;)
+ *                 .initType("Clean")
  *                 .build())
  *             .build());
  * 
- *         var exampleCheckBusinessHours = new CheckBusinessHours(&#34;exampleCheckBusinessHours&#34;, CheckBusinessHoursArgs.builder()        
+ *         var exampleCheckBusinessHours = new CheckBusinessHours("exampleCheckBusinessHours", CheckBusinessHoursArgs.builder()        
  *             .projectId(example.id())
- *             .displayName(&#34;Managed by Terraform&#34;)
- *             .targetResourceId(Output.tuple(example.id(), exampleGit.id()).applyValue(values -&gt; {
+ *             .displayName("Managed by Terraform")
+ *             .targetResourceId(Output.tuple(example.id(), exampleGit.id()).applyValue(values -> {
  *                 var exampleId = values.t1;
  *                 var exampleGitId = values.t2;
- *                 return String.format(&#34;%s.%s&#34;, exampleId,exampleGitId);
+ *                 return String.format("%s.%s", exampleId,exampleGitId);
  *             }))
- *             .targetResourceType(&#34;repository&#34;)
- *             .startTime(&#34;07:00&#34;)
- *             .endTime(&#34;15:30&#34;)
- *             .timeZone(&#34;UTC&#34;)
+ *             .targetResourceType("repository")
+ *             .startTime("07:00")
+ *             .endTime("15:30")
+ *             .timeZone("UTC")
  *             .monday(true)
  *             .tuesday(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Protect a variable group
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -285,42 +294,43 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example Project&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example Project")
  *             .build());
  * 
- *         var exampleVariableGroup = new VariableGroup(&#34;exampleVariableGroup&#34;, VariableGroupArgs.builder()        
+ *         var exampleVariableGroup = new VariableGroup("exampleVariableGroup", VariableGroupArgs.builder()        
  *             .projectId(example.id())
- *             .name(&#34;Example Variable Group&#34;)
- *             .description(&#34;Example Variable Group Description&#34;)
+ *             .name("Example Variable Group")
+ *             .description("Example Variable Group Description")
  *             .allowAccess(true)
  *             .variables(            
  *                 VariableGroupVariableArgs.builder()
- *                     .name(&#34;key1&#34;)
- *                     .value(&#34;val1&#34;)
+ *                     .name("key1")
+ *                     .value("val1")
  *                     .build(),
  *                 VariableGroupVariableArgs.builder()
- *                     .name(&#34;key2&#34;)
- *                     .secretValue(&#34;val2&#34;)
+ *                     .name("key2")
+ *                     .secretValue("val2")
  *                     .isSecret(true)
  *                     .build())
  *             .build());
  * 
- *         var exampleCheckBusinessHours = new CheckBusinessHours(&#34;exampleCheckBusinessHours&#34;, CheckBusinessHoursArgs.builder()        
+ *         var exampleCheckBusinessHours = new CheckBusinessHours("exampleCheckBusinessHours", CheckBusinessHoursArgs.builder()        
  *             .projectId(example.id())
- *             .displayName(&#34;Managed by Terraform&#34;)
+ *             .displayName("Managed by Terraform")
  *             .targetResourceId(exampleVariableGroup.id())
- *             .targetResourceType(&#34;variablegroup&#34;)
- *             .startTime(&#34;07:00&#34;)
- *             .endTime(&#34;15:30&#34;)
- *             .timeZone(&#34;UTC&#34;)
+ *             .targetResourceType("variablegroup")
+ *             .startTime("07:00")
+ *             .endTime("15:30")
+ *             .timeZone("UTC")
  *             .monday(true)
  *             .tuesday(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Relevant Links

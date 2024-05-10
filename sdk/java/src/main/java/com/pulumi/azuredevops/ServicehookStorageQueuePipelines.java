@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,49 +55,51 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;example-project&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("example-project")
  *             .build());
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *             .name("example-resources")
+ *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;servicehookexamplestacc&#34;)
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *             .name("servicehookexamplestacc")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleQueue = new Queue(&#34;exampleQueue&#34;, QueueArgs.builder()        
- *             .name(&#34;examplequeue&#34;)
+ *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()        
+ *             .name("examplequeue")
  *             .storageAccountName(exampleAccount.name())
  *             .build());
  * 
- *         var exampleServicehookStorageQueuePipelines = new ServicehookStorageQueuePipelines(&#34;exampleServicehookStorageQueuePipelines&#34;, ServicehookStorageQueuePipelinesArgs.builder()        
+ *         var exampleServicehookStorageQueuePipelines = new ServicehookStorageQueuePipelines("exampleServicehookStorageQueuePipelines", ServicehookStorageQueuePipelinesArgs.builder()        
  *             .projectId(example.id())
  *             .accountName(exampleAccount.name())
  *             .accountKey(exampleAccount.primaryAccessKey())
  *             .queueName(exampleQueue.name())
  *             .visiTimeout(30)
  *             .runStateChangedEvent(ServicehookStorageQueuePipelinesRunStateChangedEventArgs.builder()
- *                 .runStateFilter(&#34;Completed&#34;)
- *                 .runResultFilter(&#34;Succeeded&#34;)
+ *                 .runStateFilter("Completed")
+ *                 .runResultFilter("Succeeded")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * An empty configuration block will occur in all events triggering the associated action.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -118,7 +121,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServicehookStorageQueuePipelines(&#34;example&#34;, ServicehookStorageQueuePipelinesArgs.builder()        
+ *         var example = new ServicehookStorageQueuePipelines("example", ServicehookStorageQueuePipelinesArgs.builder()        
  *             .projectId(exampleAzuredevopsProject.id())
  *             .accountName(exampleAzurermStorageAccount.name())
  *             .accountKey(exampleAzurermStorageAccount.primaryAccessKey())
@@ -129,7 +132,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
