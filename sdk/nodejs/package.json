@@ -1,6 +1,6 @@
 {
     "name": "@pulumi/azuredevops",
-    "version": "${VERSION}",
+    "version": "3.0.0-alpha.0+dev",
     "description": "A Pulumi package for creating and managing Azure DevOps.",
     "keywords": [
         "pulumi",
@@ -22,6 +22,7 @@
     },
     "pulumi": {
         "resource": true,
-        "name": "azuredevops"
+        "name": "azuredevops",
+        "version": "3.0.0-alpha.0+dev"
     }
 }
