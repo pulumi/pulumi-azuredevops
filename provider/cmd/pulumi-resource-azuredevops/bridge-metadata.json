@@ -327,6 +327,19 @@
                     }
                 }
             },
+            "azuredevops_feed": {
+                "current": "azuredevops:index/feed:Feed",
+                "majorVersion": 3,
+                "fields": {
+                    "features": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azuredevops_feed_permission": {
+                "current": "azuredevops:index/feedPermission:FeedPermission",
+                "majorVersion": 3
+            },
             "azuredevops_git_permissions": {
                 "current": "azuredevops:index/gitPermissions:GitPermissions",
                 "majorVersion": 3
@@ -476,6 +489,10 @@
                         "majorVersion": 2
                     }
                 ],
+                "majorVersion": 3
+            },
+            "azuredevops_securityrole_assignment": {
+                "current": "azuredevops:index/securityroleAssignment:SecurityroleAssignment",
                 "majorVersion": 3
             },
             "azuredevops_serviceendpoint_argocd": {
@@ -955,6 +972,10 @@
                 "current": "azuredevops:index/getEnvironment:getEnvironment",
                 "majorVersion": 3
             },
+            "azuredevops_feed": {
+                "current": "azuredevops:index/getFeed:getFeed",
+                "majorVersion": 3
+            },
             "azuredevops_git_repositories": {
                 "current": "azuredevops:index/getRepositories:getRepositories",
                 "majorVersion": 3,
@@ -981,6 +1002,23 @@
                     }
                 }
             },
+            "azuredevops_identity_group": {
+                "current": "azuredevops:index/getIdentityGroup:getIdentityGroup",
+                "majorVersion": 3
+            },
+            "azuredevops_identity_groups": {
+                "current": "azuredevops:index/getIdentityGroups:getIdentityGroups",
+                "majorVersion": 3,
+                "fields": {
+                    "groups": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azuredevops_identity_user": {
+                "current": "azuredevops:index/getIdentityUsers:getIdentityUsers",
+                "majorVersion": 3
+            },
             "azuredevops_iteration": {
                 "current": "azuredevops:index/getIteration:getIteration",
                 "majorVersion": 3,
@@ -999,6 +1037,15 @@
                 "majorVersion": 3,
                 "fields": {
                     "projects": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azuredevops_securityrole_definitions": {
+                "current": "azuredevops:index/getSecurityroleDefinitions:getSecurityroleDefinitions",
+                "majorVersion": 3,
+                "fields": {
+                    "definitions": {
                         "maxItemsOne": false
                     }
                 }
