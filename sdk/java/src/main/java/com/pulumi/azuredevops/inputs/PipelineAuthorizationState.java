@@ -32,6 +32,21 @@ public final class PipelineAuthorizationState extends com.pulumi.resources.Resou
     }
 
     /**
+     * The ID of the project where the pipeline exists. Defaults to `project_id` if not specified. Changing this forces a new resource to be created
+     * 
+     */
+    @Import(name="pipelineProjectId")
+    private @Nullable Output<String> pipelineProjectId;
+
+    /**
+     * @return The ID of the project where the pipeline exists. Defaults to `project_id` if not specified. Changing this forces a new resource to be created
+     * 
+     */
+    public Optional<Output<String>> pipelineProjectId() {
+        return Optional.ofNullable(this.pipelineProjectId);
+    }
+
+    /**
      * The  ID of the project. Changing this forces a new resource to be created
      * 
      */
@@ -90,6 +105,7 @@ public final class PipelineAuthorizationState extends com.pulumi.resources.Resou
 
     private PipelineAuthorizationState(PipelineAuthorizationState $) {
         this.pipelineId = $.pipelineId;
+        this.pipelineProjectId = $.pipelineProjectId;
         this.projectId = $.projectId;
         this.resourceId = $.resourceId;
         this.type = $.type;
@@ -132,6 +148,27 @@ public final class PipelineAuthorizationState extends com.pulumi.resources.Resou
          */
         public Builder pipelineId(Integer pipelineId) {
             return pipelineId(Output.of(pipelineId));
+        }
+
+        /**
+         * @param pipelineProjectId The ID of the project where the pipeline exists. Defaults to `project_id` if not specified. Changing this forces a new resource to be created
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pipelineProjectId(@Nullable Output<String> pipelineProjectId) {
+            $.pipelineProjectId = pipelineProjectId;
+            return this;
+        }
+
+        /**
+         * @param pipelineProjectId The ID of the project where the pipeline exists. Defaults to `project_id` if not specified. Changing this forces a new resource to be created
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pipelineProjectId(String pipelineProjectId) {
+            return pipelineProjectId(Output.of(pipelineProjectId));
         }
 
         /**

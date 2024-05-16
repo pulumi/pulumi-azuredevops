@@ -658,6 +658,17 @@ export interface CheckRequiredTemplateRequiredTemplate {
     templatePath: pulumi.Input<string>;
 }
 
+export interface FeedFeature {
+    /**
+     * Determines if Feed should be Permanently removed, Defaults to `false`
+     */
+    permanentDelete?: pulumi.Input<boolean>;
+    /**
+     * Determines if Feed should be Restored during creation (if possible), Defaults to `false`
+     */
+    restore?: pulumi.Input<boolean>;
+}
+
 export interface GetUsersFeatures {
     /**
      * Number of workers to process user data concurrently.

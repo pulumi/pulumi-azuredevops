@@ -4993,6 +4993,112 @@ func (o CheckRequiredTemplateRequiredTemplateArrayOutput) Index(i pulumi.IntInpu
 	}).(CheckRequiredTemplateRequiredTemplateOutput)
 }
 
+type FeedFeature struct {
+	// Determines if Feed should be Permanently removed, Defaults to `false`
+	PermanentDelete *bool `pulumi:"permanentDelete"`
+	// Determines if Feed should be Restored during creation (if possible), Defaults to `false`
+	Restore *bool `pulumi:"restore"`
+}
+
+// FeedFeatureInput is an input type that accepts FeedFeatureArgs and FeedFeatureOutput values.
+// You can construct a concrete instance of `FeedFeatureInput` via:
+//
+//	FeedFeatureArgs{...}
+type FeedFeatureInput interface {
+	pulumi.Input
+
+	ToFeedFeatureOutput() FeedFeatureOutput
+	ToFeedFeatureOutputWithContext(context.Context) FeedFeatureOutput
+}
+
+type FeedFeatureArgs struct {
+	// Determines if Feed should be Permanently removed, Defaults to `false`
+	PermanentDelete pulumi.BoolPtrInput `pulumi:"permanentDelete"`
+	// Determines if Feed should be Restored during creation (if possible), Defaults to `false`
+	Restore pulumi.BoolPtrInput `pulumi:"restore"`
+}
+
+func (FeedFeatureArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeedFeature)(nil)).Elem()
+}
+
+func (i FeedFeatureArgs) ToFeedFeatureOutput() FeedFeatureOutput {
+	return i.ToFeedFeatureOutputWithContext(context.Background())
+}
+
+func (i FeedFeatureArgs) ToFeedFeatureOutputWithContext(ctx context.Context) FeedFeatureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeedFeatureOutput)
+}
+
+// FeedFeatureArrayInput is an input type that accepts FeedFeatureArray and FeedFeatureArrayOutput values.
+// You can construct a concrete instance of `FeedFeatureArrayInput` via:
+//
+//	FeedFeatureArray{ FeedFeatureArgs{...} }
+type FeedFeatureArrayInput interface {
+	pulumi.Input
+
+	ToFeedFeatureArrayOutput() FeedFeatureArrayOutput
+	ToFeedFeatureArrayOutputWithContext(context.Context) FeedFeatureArrayOutput
+}
+
+type FeedFeatureArray []FeedFeatureInput
+
+func (FeedFeatureArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FeedFeature)(nil)).Elem()
+}
+
+func (i FeedFeatureArray) ToFeedFeatureArrayOutput() FeedFeatureArrayOutput {
+	return i.ToFeedFeatureArrayOutputWithContext(context.Background())
+}
+
+func (i FeedFeatureArray) ToFeedFeatureArrayOutputWithContext(ctx context.Context) FeedFeatureArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeedFeatureArrayOutput)
+}
+
+type FeedFeatureOutput struct{ *pulumi.OutputState }
+
+func (FeedFeatureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeedFeature)(nil)).Elem()
+}
+
+func (o FeedFeatureOutput) ToFeedFeatureOutput() FeedFeatureOutput {
+	return o
+}
+
+func (o FeedFeatureOutput) ToFeedFeatureOutputWithContext(ctx context.Context) FeedFeatureOutput {
+	return o
+}
+
+// Determines if Feed should be Permanently removed, Defaults to `false`
+func (o FeedFeatureOutput) PermanentDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FeedFeature) *bool { return v.PermanentDelete }).(pulumi.BoolPtrOutput)
+}
+
+// Determines if Feed should be Restored during creation (if possible), Defaults to `false`
+func (o FeedFeatureOutput) Restore() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FeedFeature) *bool { return v.Restore }).(pulumi.BoolPtrOutput)
+}
+
+type FeedFeatureArrayOutput struct{ *pulumi.OutputState }
+
+func (FeedFeatureArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FeedFeature)(nil)).Elem()
+}
+
+func (o FeedFeatureArrayOutput) ToFeedFeatureArrayOutput() FeedFeatureArrayOutput {
+	return o
+}
+
+func (o FeedFeatureArrayOutput) ToFeedFeatureArrayOutputWithContext(ctx context.Context) FeedFeatureArrayOutput {
+	return o
+}
+
+func (o FeedFeatureArrayOutput) Index(i pulumi.IntInput) FeedFeatureOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FeedFeature {
+		return vs[0].([]FeedFeature)[vs[1].(int)]
+	}).(FeedFeatureOutput)
+}
+
 type GitInitialization struct {
 	// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
 	InitType string `pulumi:"initType"`
@@ -11861,6 +11967,109 @@ func (o GetGroupsGroupArrayOutput) Index(i pulumi.IntInput) GetGroupsGroupOutput
 	}).(GetGroupsGroupOutput)
 }
 
+type GetIdentityGroupsGroup struct {
+	Id string `pulumi:"id"`
+	// This is the non-unique display name of the identity subject. To change this field, you must alter its value in the source provider.
+	Name string `pulumi:"name"`
+}
+
+// GetIdentityGroupsGroupInput is an input type that accepts GetIdentityGroupsGroupArgs and GetIdentityGroupsGroupOutput values.
+// You can construct a concrete instance of `GetIdentityGroupsGroupInput` via:
+//
+//	GetIdentityGroupsGroupArgs{...}
+type GetIdentityGroupsGroupInput interface {
+	pulumi.Input
+
+	ToGetIdentityGroupsGroupOutput() GetIdentityGroupsGroupOutput
+	ToGetIdentityGroupsGroupOutputWithContext(context.Context) GetIdentityGroupsGroupOutput
+}
+
+type GetIdentityGroupsGroupArgs struct {
+	Id pulumi.StringInput `pulumi:"id"`
+	// This is the non-unique display name of the identity subject. To change this field, you must alter its value in the source provider.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIdentityGroupsGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIdentityGroupsGroup)(nil)).Elem()
+}
+
+func (i GetIdentityGroupsGroupArgs) ToGetIdentityGroupsGroupOutput() GetIdentityGroupsGroupOutput {
+	return i.ToGetIdentityGroupsGroupOutputWithContext(context.Background())
+}
+
+func (i GetIdentityGroupsGroupArgs) ToGetIdentityGroupsGroupOutputWithContext(ctx context.Context) GetIdentityGroupsGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIdentityGroupsGroupOutput)
+}
+
+// GetIdentityGroupsGroupArrayInput is an input type that accepts GetIdentityGroupsGroupArray and GetIdentityGroupsGroupArrayOutput values.
+// You can construct a concrete instance of `GetIdentityGroupsGroupArrayInput` via:
+//
+//	GetIdentityGroupsGroupArray{ GetIdentityGroupsGroupArgs{...} }
+type GetIdentityGroupsGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetIdentityGroupsGroupArrayOutput() GetIdentityGroupsGroupArrayOutput
+	ToGetIdentityGroupsGroupArrayOutputWithContext(context.Context) GetIdentityGroupsGroupArrayOutput
+}
+
+type GetIdentityGroupsGroupArray []GetIdentityGroupsGroupInput
+
+func (GetIdentityGroupsGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIdentityGroupsGroup)(nil)).Elem()
+}
+
+func (i GetIdentityGroupsGroupArray) ToGetIdentityGroupsGroupArrayOutput() GetIdentityGroupsGroupArrayOutput {
+	return i.ToGetIdentityGroupsGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetIdentityGroupsGroupArray) ToGetIdentityGroupsGroupArrayOutputWithContext(ctx context.Context) GetIdentityGroupsGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIdentityGroupsGroupArrayOutput)
+}
+
+type GetIdentityGroupsGroupOutput struct{ *pulumi.OutputState }
+
+func (GetIdentityGroupsGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIdentityGroupsGroup)(nil)).Elem()
+}
+
+func (o GetIdentityGroupsGroupOutput) ToGetIdentityGroupsGroupOutput() GetIdentityGroupsGroupOutput {
+	return o
+}
+
+func (o GetIdentityGroupsGroupOutput) ToGetIdentityGroupsGroupOutputWithContext(ctx context.Context) GetIdentityGroupsGroupOutput {
+	return o
+}
+
+func (o GetIdentityGroupsGroupOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIdentityGroupsGroup) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// This is the non-unique display name of the identity subject. To change this field, you must alter its value in the source provider.
+func (o GetIdentityGroupsGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIdentityGroupsGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIdentityGroupsGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIdentityGroupsGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIdentityGroupsGroup)(nil)).Elem()
+}
+
+func (o GetIdentityGroupsGroupArrayOutput) ToGetIdentityGroupsGroupArrayOutput() GetIdentityGroupsGroupArrayOutput {
+	return o
+}
+
+func (o GetIdentityGroupsGroupArrayOutput) ToGetIdentityGroupsGroupArrayOutputWithContext(ctx context.Context) GetIdentityGroupsGroupArrayOutput {
+	return o
+}
+
+func (o GetIdentityGroupsGroupArrayOutput) Index(i pulumi.IntInput) GetIdentityGroupsGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIdentityGroupsGroup {
+		return vs[0].([]GetIdentityGroupsGroup)[vs[1].(int)]
+	}).(GetIdentityGroupsGroupOutput)
+}
+
 type GetIterationChildren struct {
 	// Indicator if the child Iteration node has child nodes
 	HasChildren bool `pulumi:"hasChildren"`
@@ -12257,6 +12466,8 @@ func (o GetProjectsProjectArrayOutput) Index(i pulumi.IntInput) GetProjectsProje
 type GetRepositoriesRepository struct {
 	// The ref of the default branch.
 	DefaultBranch string `pulumi:"defaultBranch"`
+	// Is the repository disabled?
+	Disabled bool `pulumi:"disabled"`
 	// Git repository identifier.
 	Id string `pulumi:"id"`
 	// Name of the Git repository to retrieve; requires `projectId` to be specified as well
@@ -12289,6 +12500,8 @@ type GetRepositoriesRepositoryInput interface {
 type GetRepositoriesRepositoryArgs struct {
 	// The ref of the default branch.
 	DefaultBranch pulumi.StringInput `pulumi:"defaultBranch"`
+	// Is the repository disabled?
+	Disabled pulumi.BoolInput `pulumi:"disabled"`
 	// Git repository identifier.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Name of the Git repository to retrieve; requires `projectId` to be specified as well
@@ -12363,6 +12576,11 @@ func (o GetRepositoriesRepositoryOutput) DefaultBranch() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoriesRepository) string { return v.DefaultBranch }).(pulumi.StringOutput)
 }
 
+// Is the repository disabled?
+func (o GetRepositoriesRepositoryOutput) Disabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRepositoriesRepository) bool { return v.Disabled }).(pulumi.BoolOutput)
+}
+
 // Git repository identifier.
 func (o GetRepositoriesRepositoryOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoriesRepository) string { return v.Id }).(pulumi.StringOutput)
@@ -12421,6 +12639,163 @@ func (o GetRepositoriesRepositoryArrayOutput) Index(i pulumi.IntInput) GetReposi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRepositoriesRepository {
 		return vs[0].([]GetRepositoriesRepository)[vs[1].(int)]
 	}).(GetRepositoriesRepositoryOutput)
+}
+
+type GetSecurityroleDefinitionsDefinition struct {
+	// The mask of allowed permissions of the Security Role Definition.
+	AllowPermissions int `pulumi:"allowPermissions"`
+	// The mask of the denied permissions of the Security Role Definition.
+	DenyPermissions *int `pulumi:"denyPermissions"`
+	// The description of the Security Role Definition.
+	Description string `pulumi:"description"`
+	// The display name of the Security Role Definition.
+	DisplayName string `pulumi:"displayName"`
+	// The identifier of the Security Role Definition.
+	Identifier string `pulumi:"identifier"`
+	// The name of the Security Role Definition.
+	Name string `pulumi:"name"`
+	// Name of the Scope for which Security Role Definitions will be returned.
+	//
+	// DataSource without specifying any arguments will return all projects.
+	Scope string `pulumi:"scope"`
+}
+
+// GetSecurityroleDefinitionsDefinitionInput is an input type that accepts GetSecurityroleDefinitionsDefinitionArgs and GetSecurityroleDefinitionsDefinitionOutput values.
+// You can construct a concrete instance of `GetSecurityroleDefinitionsDefinitionInput` via:
+//
+//	GetSecurityroleDefinitionsDefinitionArgs{...}
+type GetSecurityroleDefinitionsDefinitionInput interface {
+	pulumi.Input
+
+	ToGetSecurityroleDefinitionsDefinitionOutput() GetSecurityroleDefinitionsDefinitionOutput
+	ToGetSecurityroleDefinitionsDefinitionOutputWithContext(context.Context) GetSecurityroleDefinitionsDefinitionOutput
+}
+
+type GetSecurityroleDefinitionsDefinitionArgs struct {
+	// The mask of allowed permissions of the Security Role Definition.
+	AllowPermissions pulumi.IntInput `pulumi:"allowPermissions"`
+	// The mask of the denied permissions of the Security Role Definition.
+	DenyPermissions pulumi.IntPtrInput `pulumi:"denyPermissions"`
+	// The description of the Security Role Definition.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The display name of the Security Role Definition.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// The identifier of the Security Role Definition.
+	Identifier pulumi.StringInput `pulumi:"identifier"`
+	// The name of the Security Role Definition.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the Scope for which Security Role Definitions will be returned.
+	//
+	// DataSource without specifying any arguments will return all projects.
+	Scope pulumi.StringInput `pulumi:"scope"`
+}
+
+func (GetSecurityroleDefinitionsDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityroleDefinitionsDefinition)(nil)).Elem()
+}
+
+func (i GetSecurityroleDefinitionsDefinitionArgs) ToGetSecurityroleDefinitionsDefinitionOutput() GetSecurityroleDefinitionsDefinitionOutput {
+	return i.ToGetSecurityroleDefinitionsDefinitionOutputWithContext(context.Background())
+}
+
+func (i GetSecurityroleDefinitionsDefinitionArgs) ToGetSecurityroleDefinitionsDefinitionOutputWithContext(ctx context.Context) GetSecurityroleDefinitionsDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityroleDefinitionsDefinitionOutput)
+}
+
+// GetSecurityroleDefinitionsDefinitionArrayInput is an input type that accepts GetSecurityroleDefinitionsDefinitionArray and GetSecurityroleDefinitionsDefinitionArrayOutput values.
+// You can construct a concrete instance of `GetSecurityroleDefinitionsDefinitionArrayInput` via:
+//
+//	GetSecurityroleDefinitionsDefinitionArray{ GetSecurityroleDefinitionsDefinitionArgs{...} }
+type GetSecurityroleDefinitionsDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToGetSecurityroleDefinitionsDefinitionArrayOutput() GetSecurityroleDefinitionsDefinitionArrayOutput
+	ToGetSecurityroleDefinitionsDefinitionArrayOutputWithContext(context.Context) GetSecurityroleDefinitionsDefinitionArrayOutput
+}
+
+type GetSecurityroleDefinitionsDefinitionArray []GetSecurityroleDefinitionsDefinitionInput
+
+func (GetSecurityroleDefinitionsDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecurityroleDefinitionsDefinition)(nil)).Elem()
+}
+
+func (i GetSecurityroleDefinitionsDefinitionArray) ToGetSecurityroleDefinitionsDefinitionArrayOutput() GetSecurityroleDefinitionsDefinitionArrayOutput {
+	return i.ToGetSecurityroleDefinitionsDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i GetSecurityroleDefinitionsDefinitionArray) ToGetSecurityroleDefinitionsDefinitionArrayOutputWithContext(ctx context.Context) GetSecurityroleDefinitionsDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityroleDefinitionsDefinitionArrayOutput)
+}
+
+type GetSecurityroleDefinitionsDefinitionOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityroleDefinitionsDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityroleDefinitionsDefinition)(nil)).Elem()
+}
+
+func (o GetSecurityroleDefinitionsDefinitionOutput) ToGetSecurityroleDefinitionsDefinitionOutput() GetSecurityroleDefinitionsDefinitionOutput {
+	return o
+}
+
+func (o GetSecurityroleDefinitionsDefinitionOutput) ToGetSecurityroleDefinitionsDefinitionOutputWithContext(ctx context.Context) GetSecurityroleDefinitionsDefinitionOutput {
+	return o
+}
+
+// The mask of allowed permissions of the Security Role Definition.
+func (o GetSecurityroleDefinitionsDefinitionOutput) AllowPermissions() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSecurityroleDefinitionsDefinition) int { return v.AllowPermissions }).(pulumi.IntOutput)
+}
+
+// The mask of the denied permissions of the Security Role Definition.
+func (o GetSecurityroleDefinitionsDefinitionOutput) DenyPermissions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetSecurityroleDefinitionsDefinition) *int { return v.DenyPermissions }).(pulumi.IntPtrOutput)
+}
+
+// The description of the Security Role Definition.
+func (o GetSecurityroleDefinitionsDefinitionOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityroleDefinitionsDefinition) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The display name of the Security Role Definition.
+func (o GetSecurityroleDefinitionsDefinitionOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityroleDefinitionsDefinition) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The identifier of the Security Role Definition.
+func (o GetSecurityroleDefinitionsDefinitionOutput) Identifier() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityroleDefinitionsDefinition) string { return v.Identifier }).(pulumi.StringOutput)
+}
+
+// The name of the Security Role Definition.
+func (o GetSecurityroleDefinitionsDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityroleDefinitionsDefinition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Name of the Scope for which Security Role Definitions will be returned.
+//
+// DataSource without specifying any arguments will return all projects.
+func (o GetSecurityroleDefinitionsDefinitionOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityroleDefinitionsDefinition) string { return v.Scope }).(pulumi.StringOutput)
+}
+
+type GetSecurityroleDefinitionsDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityroleDefinitionsDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecurityroleDefinitionsDefinition)(nil)).Elem()
+}
+
+func (o GetSecurityroleDefinitionsDefinitionArrayOutput) ToGetSecurityroleDefinitionsDefinitionArrayOutput() GetSecurityroleDefinitionsDefinitionArrayOutput {
+	return o
+}
+
+func (o GetSecurityroleDefinitionsDefinitionArrayOutput) ToGetSecurityroleDefinitionsDefinitionArrayOutputWithContext(ctx context.Context) GetSecurityroleDefinitionsDefinitionArrayOutput {
+	return o
+}
+
+func (o GetSecurityroleDefinitionsDefinitionArrayOutput) Index(i pulumi.IntInput) GetSecurityroleDefinitionsDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSecurityroleDefinitionsDefinition {
+		return vs[0].([]GetSecurityroleDefinitionsDefinition)[vs[1].(int)]
+	}).(GetSecurityroleDefinitionsDefinitionOutput)
 }
 
 type GetTeamsTeam struct {
@@ -13165,6 +13540,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionVariableArrayInput)(nil)).Elem(), BuildDefinitionVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CheckRequiredTemplateRequiredTemplateInput)(nil)).Elem(), CheckRequiredTemplateRequiredTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CheckRequiredTemplateRequiredTemplateArrayInput)(nil)).Elem(), CheckRequiredTemplateRequiredTemplateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeedFeatureInput)(nil)).Elem(), FeedFeatureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeedFeatureArrayInput)(nil)).Elem(), FeedFeatureArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GitInitializationInput)(nil)).Elem(), GitInitializationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GitInitializationPtrInput)(nil)).Elem(), GitInitializationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointArtifactoryAuthenticationBasicInput)(nil)).Elem(), ServiceEndpointArtifactoryAuthenticationBasicArgs{})
@@ -13259,6 +13636,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBuildDefinitionVariableArrayInput)(nil)).Elem(), GetBuildDefinitionVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupsGroupInput)(nil)).Elem(), GetGroupsGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupsGroupArrayInput)(nil)).Elem(), GetGroupsGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIdentityGroupsGroupInput)(nil)).Elem(), GetIdentityGroupsGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIdentityGroupsGroupArrayInput)(nil)).Elem(), GetIdentityGroupsGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIterationChildrenInput)(nil)).Elem(), GetIterationChildrenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIterationChildrenArrayInput)(nil)).Elem(), GetIterationChildrenArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolsAgentPoolInput)(nil)).Elem(), GetPoolsAgentPoolArgs{})
@@ -13267,6 +13646,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetProjectsProjectArrayInput)(nil)).Elem(), GetProjectsProjectArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoriesRepositoryInput)(nil)).Elem(), GetRepositoriesRepositoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoriesRepositoryArrayInput)(nil)).Elem(), GetRepositoriesRepositoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityroleDefinitionsDefinitionInput)(nil)).Elem(), GetSecurityroleDefinitionsDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityroleDefinitionsDefinitionArrayInput)(nil)).Elem(), GetSecurityroleDefinitionsDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamsTeamInput)(nil)).Elem(), GetTeamsTeamArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamsTeamArrayInput)(nil)).Elem(), GetTeamsTeamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersFeaturesInput)(nil)).Elem(), GetUsersFeaturesArgs{})
@@ -13335,6 +13716,8 @@ func init() {
 	pulumi.RegisterOutputType(BuildDefinitionVariableArrayOutput{})
 	pulumi.RegisterOutputType(CheckRequiredTemplateRequiredTemplateOutput{})
 	pulumi.RegisterOutputType(CheckRequiredTemplateRequiredTemplateArrayOutput{})
+	pulumi.RegisterOutputType(FeedFeatureOutput{})
+	pulumi.RegisterOutputType(FeedFeatureArrayOutput{})
 	pulumi.RegisterOutputType(GitInitializationOutput{})
 	pulumi.RegisterOutputType(GitInitializationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointArtifactoryAuthenticationBasicOutput{})
@@ -13429,6 +13812,8 @@ func init() {
 	pulumi.RegisterOutputType(GetBuildDefinitionVariableArrayOutput{})
 	pulumi.RegisterOutputType(GetGroupsGroupOutput{})
 	pulumi.RegisterOutputType(GetGroupsGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetIdentityGroupsGroupOutput{})
+	pulumi.RegisterOutputType(GetIdentityGroupsGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetIterationChildrenOutput{})
 	pulumi.RegisterOutputType(GetIterationChildrenArrayOutput{})
 	pulumi.RegisterOutputType(GetPoolsAgentPoolOutput{})
@@ -13437,6 +13822,8 @@ func init() {
 	pulumi.RegisterOutputType(GetProjectsProjectArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoriesRepositoryOutput{})
 	pulumi.RegisterOutputType(GetRepositoriesRepositoryArrayOutput{})
+	pulumi.RegisterOutputType(GetSecurityroleDefinitionsDefinitionOutput{})
+	pulumi.RegisterOutputType(GetSecurityroleDefinitionsDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(GetTeamsTeamOutput{})
 	pulumi.RegisterOutputType(GetTeamsTeamArrayOutput{})
 	pulumi.RegisterOutputType(GetUsersFeaturesOutput{})

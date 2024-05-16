@@ -17,7 +17,8 @@ class PipelineAuthorizationArgs:
                  project_id: pulumi.Input[str],
                  resource_id: pulumi.Input[str],
                  type: pulumi.Input[str],
-                 pipeline_id: Optional[pulumi.Input[int]] = None):
+                 pipeline_id: Optional[pulumi.Input[int]] = None,
+                 pipeline_project_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PipelineAuthorization resource.
         :param pulumi.Input[str] project_id: The  ID of the project. Changing this forces a new resource to be created
@@ -29,12 +30,15 @@ class PipelineAuthorizationArgs:
                Typical process for connecting to GitHub:
                **Pipeline  <----> Service Connection(`endpoint`) <----> GitHub Repository**
         :param pulumi.Input[int] pipeline_id: The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] pipeline_project_id: The ID of the project where the pipeline exists. Defaults to `project_id` if not specified. Changing this forces a new resource to be created
         """
         pulumi.set(__self__, "project_id", project_id)
         pulumi.set(__self__, "resource_id", resource_id)
         pulumi.set(__self__, "type", type)
         if pipeline_id is not None:
             pulumi.set(__self__, "pipeline_id", pipeline_id)
+        if pipeline_project_id is not None:
+            pulumi.set(__self__, "pipeline_project_id", pipeline_project_id)
 
     @property
     @pulumi.getter(name="projectId")
@@ -89,17 +93,31 @@ class PipelineAuthorizationArgs:
     def pipeline_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "pipeline_id", value)
 
+    @property
+    @pulumi.getter(name="pipelineProjectId")
+    def pipeline_project_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the project where the pipeline exists. Defaults to `project_id` if not specified. Changing this forces a new resource to be created
+        """
+        return pulumi.get(self, "pipeline_project_id")
+
+    @pipeline_project_id.setter
+    def pipeline_project_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pipeline_project_id", value)
+
 
 @pulumi.input_type
 class _PipelineAuthorizationState:
     def __init__(__self__, *,
                  pipeline_id: Optional[pulumi.Input[int]] = None,
+                 pipeline_project_id: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PipelineAuthorization resources.
         :param pulumi.Input[int] pipeline_id: The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] pipeline_project_id: The ID of the project where the pipeline exists. Defaults to `project_id` if not specified. Changing this forces a new resource to be created
         :param pulumi.Input[str] project_id: The  ID of the project. Changing this forces a new resource to be created
         :param pulumi.Input[str] resource_id: The ID of the resource to authorize. Changing this forces a new resource to be created
         :param pulumi.Input[str] type: The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
@@ -111,6 +129,8 @@ class _PipelineAuthorizationState:
         """
         if pipeline_id is not None:
             pulumi.set(__self__, "pipeline_id", pipeline_id)
+        if pipeline_project_id is not None:
+            pulumi.set(__self__, "pipeline_project_id", pipeline_project_id)
         if project_id is not None:
             pulumi.set(__self__, "project_id", project_id)
         if resource_id is not None:
@@ -129,6 +149,18 @@ class _PipelineAuthorizationState:
     @pipeline_id.setter
     def pipeline_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "pipeline_id", value)
+
+    @property
+    @pulumi.getter(name="pipelineProjectId")
+    def pipeline_project_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the project where the pipeline exists. Defaults to `project_id` if not specified. Changing this forces a new resource to be created
+        """
+        return pulumi.get(self, "pipeline_project_id")
+
+    @pipeline_project_id.setter
+    def pipeline_project_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pipeline_project_id", value)
 
     @property
     @pulumi.getter(name="projectId")
@@ -178,6 +210,7 @@ class PipelineAuthorization(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  pipeline_id: Optional[pulumi.Input[int]] = None,
+                 pipeline_project_id: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -259,6 +292,7 @@ class PipelineAuthorization(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] pipeline_id: The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] pipeline_project_id: The ID of the project where the pipeline exists. Defaults to `project_id` if not specified. Changing this forces a new resource to be created
         :param pulumi.Input[str] project_id: The  ID of the project. Changing this forces a new resource to be created
         :param pulumi.Input[str] resource_id: The ID of the resource to authorize. Changing this forces a new resource to be created
         :param pulumi.Input[str] type: The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
@@ -364,6 +398,7 @@ class PipelineAuthorization(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  pipeline_id: Optional[pulumi.Input[int]] = None,
+                 pipeline_project_id: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -377,6 +412,7 @@ class PipelineAuthorization(pulumi.CustomResource):
             __props__ = PipelineAuthorizationArgs.__new__(PipelineAuthorizationArgs)
 
             __props__.__dict__["pipeline_id"] = pipeline_id
+            __props__.__dict__["pipeline_project_id"] = pipeline_project_id
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__.__dict__["project_id"] = project_id
@@ -397,6 +433,7 @@ class PipelineAuthorization(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             pipeline_id: Optional[pulumi.Input[int]] = None,
+            pipeline_project_id: Optional[pulumi.Input[str]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
             resource_id: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'PipelineAuthorization':
@@ -408,6 +445,7 @@ class PipelineAuthorization(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] pipeline_id: The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] pipeline_project_id: The ID of the project where the pipeline exists. Defaults to `project_id` if not specified. Changing this forces a new resource to be created
         :param pulumi.Input[str] project_id: The  ID of the project. Changing this forces a new resource to be created
         :param pulumi.Input[str] resource_id: The ID of the resource to authorize. Changing this forces a new resource to be created
         :param pulumi.Input[str] type: The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
@@ -422,6 +460,7 @@ class PipelineAuthorization(pulumi.CustomResource):
         __props__ = _PipelineAuthorizationState.__new__(_PipelineAuthorizationState)
 
         __props__.__dict__["pipeline_id"] = pipeline_id
+        __props__.__dict__["pipeline_project_id"] = pipeline_project_id
         __props__.__dict__["project_id"] = project_id
         __props__.__dict__["resource_id"] = resource_id
         __props__.__dict__["type"] = type
@@ -434,6 +473,14 @@ class PipelineAuthorization(pulumi.CustomResource):
         The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "pipeline_id")
+
+    @property
+    @pulumi.getter(name="pipelineProjectId")
+    def pipeline_project_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the project where the pipeline exists. Defaults to `project_id` if not specified. Changing this forces a new resource to be created
+        """
+        return pulumi.get(self, "pipeline_project_id")
 
     @property
     @pulumi.getter(name="projectId")

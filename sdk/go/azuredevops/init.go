@@ -61,6 +61,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Environment{}
 	case "azuredevops:index/environmentResourceKubernetes:EnvironmentResourceKubernetes":
 		r = &EnvironmentResourceKubernetes{}
+	case "azuredevops:index/feed:Feed":
+		r = &Feed{}
+	case "azuredevops:index/feedPermission:FeedPermission":
+		r = &FeedPermission{}
 	case "azuredevops:index/git:Git":
 		r = &Git{}
 	case "azuredevops:index/gitPermissions:GitPermissions":
@@ -109,6 +113,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RepositoryPolicyReservedNames{}
 	case "azuredevops:index/resourceAuthorization:ResourceAuthorization":
 		r = &ResourceAuthorization{}
+	case "azuredevops:index/securityroleAssignment:SecurityroleAssignment":
+		r = &SecurityroleAssignment{}
 	case "azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory":
 		r = &ServiceEndpointArtifactory{}
 	case "azuredevops:index/serviceEndpointAws:ServiceEndpointAws":
@@ -328,6 +334,16 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azuredevops",
+		"index/feed",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/feedPermission",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
 		"index/git",
 		&module{version},
 	)
@@ -444,6 +460,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/resourceAuthorization",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/securityroleAssignment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

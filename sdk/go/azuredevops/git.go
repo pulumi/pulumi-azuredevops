@@ -76,6 +76,8 @@ type Git struct {
 
 	// The ref of the default branch. Will be used as the branch name for initialized repositories.
 	DefaultBranch pulumi.StringOutput `pulumi:"defaultBranch"`
+	// Is the repository disabled?
+	Disabled pulumi.BoolOutput `pulumi:"disabled"`
 	// An `initialization` block as documented below.
 	Initialization GitInitializationOutput `pulumi:"initialization"`
 	// True if the repository was created as a fork.
@@ -136,6 +138,8 @@ func GetGit(ctx *pulumi.Context,
 type gitState struct {
 	// The ref of the default branch. Will be used as the branch name for initialized repositories.
 	DefaultBranch *string `pulumi:"defaultBranch"`
+	// Is the repository disabled?
+	Disabled *bool `pulumi:"disabled"`
 	// An `initialization` block as documented below.
 	Initialization *GitInitialization `pulumi:"initialization"`
 	// True if the repository was created as a fork.
@@ -161,6 +165,8 @@ type gitState struct {
 type GitState struct {
 	// The ref of the default branch. Will be used as the branch name for initialized repositories.
 	DefaultBranch pulumi.StringPtrInput
+	// Is the repository disabled?
+	Disabled pulumi.BoolPtrInput
 	// An `initialization` block as documented below.
 	Initialization GitInitializationPtrInput
 	// True if the repository was created as a fork.
@@ -304,6 +310,11 @@ func (o GitOutput) ToGitOutputWithContext(ctx context.Context) GitOutput {
 // The ref of the default branch. Will be used as the branch name for initialized repositories.
 func (o GitOutput) DefaultBranch() pulumi.StringOutput {
 	return o.ApplyT(func(v *Git) pulumi.StringOutput { return v.DefaultBranch }).(pulumi.StringOutput)
+}
+
+// Is the repository disabled?
+func (o GitOutput) Disabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Git) pulumi.BoolOutput { return v.Disabled }).(pulumi.BoolOutput)
 }
 
 // An `initialization` block as documented below.

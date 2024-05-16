@@ -18,6 +18,10 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly string DefaultBranch;
         /// <summary>
+        /// Is the repository disabled?
+        /// </summary>
+        public readonly bool Disabled;
+        /// <summary>
         /// Git repository identifier.
         /// </summary>
         public readonly string Id;
@@ -54,6 +58,8 @@ namespace Pulumi.AzureDevOps.Outputs
         private GetRepositoriesRepositoryResult(
             string defaultBranch,
 
+            bool disabled,
+
             string id,
 
             string name,
@@ -71,6 +77,7 @@ namespace Pulumi.AzureDevOps.Outputs
             string webUrl)
         {
             DefaultBranch = defaultBranch;
+            Disabled = disabled;
             Id = id;
             Name = name;
             ProjectId = projectId;

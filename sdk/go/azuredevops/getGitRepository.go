@@ -73,6 +73,8 @@ type GetGitRepositoryArgs struct {
 type GetGitRepositoryResult struct {
 	// The ref of the default branch.
 	DefaultBranch string `pulumi:"defaultBranch"`
+	// Is the repository disabled?
+	Disabled bool `pulumi:"disabled"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string `pulumi:"id"`
 	IsFork bool   `pulumi:"isFork"`
@@ -135,6 +137,11 @@ func (o GetGitRepositoryResultOutput) ToGetGitRepositoryResultOutputWithContext(
 // The ref of the default branch.
 func (o GetGitRepositoryResultOutput) DefaultBranch() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGitRepositoryResult) string { return v.DefaultBranch }).(pulumi.StringOutput)
+}
+
+// Is the repository disabled?
+func (o GetGitRepositoryResultOutput) Disabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetGitRepositoryResult) bool { return v.Disabled }).(pulumi.BoolOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

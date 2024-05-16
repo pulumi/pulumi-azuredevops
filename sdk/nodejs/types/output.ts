@@ -658,6 +658,17 @@ export interface CheckRequiredTemplateRequiredTemplate {
     templatePath: string;
 }
 
+export interface FeedFeature {
+    /**
+     * Determines if Feed should be Permanently removed, Defaults to `false`
+     */
+    permanentDelete?: boolean;
+    /**
+     * Determines if Feed should be Restored during creation (if possible), Defaults to `false`
+     */
+    restore?: boolean;
+}
+
 export interface GetAreaChildren {
     /**
      * Indicator if the child Area node has child nodes
@@ -951,6 +962,14 @@ export interface GetGroupsGroup {
     url: string;
 }
 
+export interface GetIdentityGroupsGroup {
+    id: string;
+    /**
+     * This is the non-unique display name of the identity subject. To change this field, you must alter its value in the source provider.
+     */
+    name: string;
+}
+
 export interface GetIterationChildren {
     /**
      * Indicator if the child Iteration node has child nodes
@@ -1021,6 +1040,10 @@ export interface GetRepositoriesRepository {
      */
     defaultBranch: string;
     /**
+     * Is the repository disabled?
+     */
+    disabled: boolean;
+    /**
      * Git repository identifier.
      */
     id: string;
@@ -1052,6 +1075,39 @@ export interface GetRepositoriesRepository {
      * Url of the Git repository web view
      */
     webUrl: string;
+}
+
+export interface GetSecurityroleDefinitionsDefinition {
+    /**
+     * The mask of allowed permissions of the Security Role Definition.
+     */
+    allowPermissions: number;
+    /**
+     * The mask of the denied permissions of the Security Role Definition.
+     */
+    denyPermissions?: number;
+    /**
+     * The description of the Security Role Definition.
+     */
+    description: string;
+    /**
+     * The display name of the Security Role Definition.
+     */
+    displayName: string;
+    /**
+     * The identifier of the Security Role Definition.
+     */
+    identifier: string;
+    /**
+     * The name of the Security Role Definition.
+     */
+    name: string;
+    /**
+     * Name of the Scope for which Security Role Definitions will be returned.
+     *
+     * DataSource without specifying any arguments will return all projects.
+     */
+    scope: string;
 }
 
 export interface GetTeamsTeam {

@@ -21,10 +21,13 @@ class GetGitRepositoryResult:
     """
     A collection of values returned by getGitRepository.
     """
-    def __init__(__self__, default_branch=None, id=None, is_fork=None, name=None, project_id=None, remote_url=None, size=None, ssh_url=None, url=None, web_url=None):
+    def __init__(__self__, default_branch=None, disabled=None, id=None, is_fork=None, name=None, project_id=None, remote_url=None, size=None, ssh_url=None, url=None, web_url=None):
         if default_branch and not isinstance(default_branch, str):
             raise TypeError("Expected argument 'default_branch' to be a str")
         pulumi.set(__self__, "default_branch", default_branch)
+        if disabled and not isinstance(disabled, bool):
+            raise TypeError("Expected argument 'disabled' to be a bool")
+        pulumi.set(__self__, "disabled", disabled)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -60,6 +63,14 @@ class GetGitRepositoryResult:
         The ref of the default branch.
         """
         return pulumi.get(self, "default_branch")
+
+    @property
+    @pulumi.getter
+    def disabled(self) -> bool:
+        """
+        Is the repository disabled?
+        """
+        return pulumi.get(self, "disabled")
 
     @property
     @pulumi.getter
@@ -138,6 +149,7 @@ class AwaitableGetGitRepositoryResult(GetGitRepositoryResult):
             yield self
         return GetGitRepositoryResult(
             default_branch=self.default_branch,
+            disabled=self.disabled,
             id=self.id,
             is_fork=self.is_fork,
             name=self.name,
@@ -184,6 +196,7 @@ def get_git_repository(name: Optional[str] = None,
 
     return AwaitableGetGitRepositoryResult(
         default_branch=pulumi.get(__ret__, 'default_branch'),
+        disabled=pulumi.get(__ret__, 'disabled'),
         id=pulumi.get(__ret__, 'id'),
         is_fork=pulumi.get(__ret__, 'is_fork'),
         name=pulumi.get(__ret__, 'name'),
