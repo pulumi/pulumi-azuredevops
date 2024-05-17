@@ -105,6 +105,16 @@ export type EnvironmentResourceKubernetes = import("./environmentResourceKuberne
 export const EnvironmentResourceKubernetes: typeof import("./environmentResourceKubernetes").EnvironmentResourceKubernetes = null as any;
 utilities.lazyLoad(exports, ["EnvironmentResourceKubernetes"], () => require("./environmentResourceKubernetes"));
 
+export { FeedArgs, FeedState } from "./feed";
+export type Feed = import("./feed").Feed;
+export const Feed: typeof import("./feed").Feed = null as any;
+utilities.lazyLoad(exports, ["Feed"], () => require("./feed"));
+
+export { FeedPermissionArgs, FeedPermissionState } from "./feedPermission";
+export type FeedPermission = import("./feedPermission").FeedPermission;
+export const FeedPermission: typeof import("./feedPermission").FeedPermission = null as any;
+utilities.lazyLoad(exports, ["FeedPermission"], () => require("./feedPermission"));
+
 export { GetAgentQueueArgs, GetAgentQueueResult, GetAgentQueueOutputArgs } from "./getAgentQueue";
 export const getAgentQueue: typeof import("./getAgentQueue").getAgentQueue = null as any;
 export const getAgentQueueOutput: typeof import("./getAgentQueue").getAgentQueueOutput = null as any;
@@ -130,6 +140,11 @@ export const getEnvironment: typeof import("./getEnvironment").getEnvironment = 
 export const getEnvironmentOutput: typeof import("./getEnvironment").getEnvironmentOutput = null as any;
 utilities.lazyLoad(exports, ["getEnvironment","getEnvironmentOutput"], () => require("./getEnvironment"));
 
+export { GetFeedArgs, GetFeedResult, GetFeedOutputArgs } from "./getFeed";
+export const getFeed: typeof import("./getFeed").getFeed = null as any;
+export const getFeedOutput: typeof import("./getFeed").getFeedOutput = null as any;
+utilities.lazyLoad(exports, ["getFeed","getFeedOutput"], () => require("./getFeed"));
+
 export { GetGitRepositoryArgs, GetGitRepositoryResult, GetGitRepositoryOutputArgs } from "./getGitRepository";
 export const getGitRepository: typeof import("./getGitRepository").getGitRepository = null as any;
 export const getGitRepositoryOutput: typeof import("./getGitRepository").getGitRepositoryOutput = null as any;
@@ -144,6 +159,21 @@ export { GetGroupsArgs, GetGroupsResult, GetGroupsOutputArgs } from "./getGroups
 export const getGroups: typeof import("./getGroups").getGroups = null as any;
 export const getGroupsOutput: typeof import("./getGroups").getGroupsOutput = null as any;
 utilities.lazyLoad(exports, ["getGroups","getGroupsOutput"], () => require("./getGroups"));
+
+export { GetIdentityGroupArgs, GetIdentityGroupResult, GetIdentityGroupOutputArgs } from "./getIdentityGroup";
+export const getIdentityGroup: typeof import("./getIdentityGroup").getIdentityGroup = null as any;
+export const getIdentityGroupOutput: typeof import("./getIdentityGroup").getIdentityGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getIdentityGroup","getIdentityGroupOutput"], () => require("./getIdentityGroup"));
+
+export { GetIdentityGroupsArgs, GetIdentityGroupsResult, GetIdentityGroupsOutputArgs } from "./getIdentityGroups";
+export const getIdentityGroups: typeof import("./getIdentityGroups").getIdentityGroups = null as any;
+export const getIdentityGroupsOutput: typeof import("./getIdentityGroups").getIdentityGroupsOutput = null as any;
+utilities.lazyLoad(exports, ["getIdentityGroups","getIdentityGroupsOutput"], () => require("./getIdentityGroups"));
+
+export { GetIdentityUsersArgs, GetIdentityUsersResult, GetIdentityUsersOutputArgs } from "./getIdentityUsers";
+export const getIdentityUsers: typeof import("./getIdentityUsers").getIdentityUsers = null as any;
+export const getIdentityUsersOutput: typeof import("./getIdentityUsers").getIdentityUsersOutput = null as any;
+utilities.lazyLoad(exports, ["getIdentityUsers","getIdentityUsersOutput"], () => require("./getIdentityUsers"));
 
 export { GetIterationArgs, GetIterationResult, GetIterationOutputArgs } from "./getIteration";
 export const getIteration: typeof import("./getIteration").getIteration = null as any;
@@ -174,6 +204,11 @@ export { GetRepositoriesArgs, GetRepositoriesResult, GetRepositoriesOutputArgs }
 export const getRepositories: typeof import("./getRepositories").getRepositories = null as any;
 export const getRepositoriesOutput: typeof import("./getRepositories").getRepositoriesOutput = null as any;
 utilities.lazyLoad(exports, ["getRepositories","getRepositoriesOutput"], () => require("./getRepositories"));
+
+export { GetSecurityroleDefinitionsArgs, GetSecurityroleDefinitionsResult, GetSecurityroleDefinitionsOutputArgs } from "./getSecurityroleDefinitions";
+export const getSecurityroleDefinitions: typeof import("./getSecurityroleDefinitions").getSecurityroleDefinitions = null as any;
+export const getSecurityroleDefinitionsOutput: typeof import("./getSecurityroleDefinitions").getSecurityroleDefinitionsOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityroleDefinitions","getSecurityroleDefinitionsOutput"], () => require("./getSecurityroleDefinitions"));
 
 export { GetServiceEndpointAzureRMArgs, GetServiceEndpointAzureRMResult, GetServiceEndpointAzureRMOutputArgs } from "./getServiceEndpointAzureRM";
 export const getServiceEndpointAzureRM: typeof import("./getServiceEndpointAzureRM").getServiceEndpointAzureRM = null as any;
@@ -344,6 +379,11 @@ export { ResourceAuthorizationArgs, ResourceAuthorizationState } from "./resourc
 export type ResourceAuthorization = import("./resourceAuthorization").ResourceAuthorization;
 export const ResourceAuthorization: typeof import("./resourceAuthorization").ResourceAuthorization = null as any;
 utilities.lazyLoad(exports, ["ResourceAuthorization"], () => require("./resourceAuthorization"));
+
+export { SecurityroleAssignmentArgs, SecurityroleAssignmentState } from "./securityroleAssignment";
+export type SecurityroleAssignment = import("./securityroleAssignment").SecurityroleAssignment;
+export const SecurityroleAssignment: typeof import("./securityroleAssignment").SecurityroleAssignment = null as any;
+utilities.lazyLoad(exports, ["SecurityroleAssignment"], () => require("./securityroleAssignment"));
 
 export { ServiceEndpointArtifactoryArgs, ServiceEndpointArtifactoryState } from "./serviceEndpointArtifactory";
 export type ServiceEndpointArtifactory = import("./serviceEndpointArtifactory").ServiceEndpointArtifactory;
@@ -614,6 +654,10 @@ const _module = {
                 return new Environment(name, <any>undefined, { urn })
             case "azuredevops:index/environmentResourceKubernetes:EnvironmentResourceKubernetes":
                 return new EnvironmentResourceKubernetes(name, <any>undefined, { urn })
+            case "azuredevops:index/feed:Feed":
+                return new Feed(name, <any>undefined, { urn })
+            case "azuredevops:index/feedPermission:FeedPermission":
+                return new FeedPermission(name, <any>undefined, { urn })
             case "azuredevops:index/git:Git":
                 return new Git(name, <any>undefined, { urn })
             case "azuredevops:index/gitPermissions:GitPermissions":
@@ -662,6 +706,8 @@ const _module = {
                 return new RepositoryPolicyReservedNames(name, <any>undefined, { urn })
             case "azuredevops:index/resourceAuthorization:ResourceAuthorization":
                 return new ResourceAuthorization(name, <any>undefined, { urn })
+            case "azuredevops:index/securityroleAssignment:SecurityroleAssignment":
+                return new SecurityroleAssignment(name, <any>undefined, { urn })
             case "azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory":
                 return new ServiceEndpointArtifactory(name, <any>undefined, { urn })
             case "azuredevops:index/serviceEndpointAws:ServiceEndpointAws":
@@ -773,6 +819,8 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/checkRequiredTemplat
 pulumi.runtime.registerResourceModule("azuredevops", "index/elasticPool", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/environment", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/environmentResourceKubernetes", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/feed", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/feedPermission", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/git", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/gitPermissions", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/gitRepositoryBranch", _module)
@@ -797,6 +845,7 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/repositoryPolicyMaxF
 pulumi.runtime.registerResourceModule("azuredevops", "index/repositoryPolicyMaxPathLength", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/repositoryPolicyReservedNames", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/resourceAuthorization", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/securityroleAssignment", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointArtifactory", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointAws", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointAzureDevOps", _module)

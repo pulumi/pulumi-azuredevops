@@ -18,6 +18,11 @@ public final class GetGitRepositoryResult {
      */
     private String defaultBranch;
     /**
+     * @return Is the repository disabled?
+     * 
+     */
+    private Boolean disabled;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -66,6 +71,13 @@ public final class GetGitRepositoryResult {
      */
     public String defaultBranch() {
         return this.defaultBranch;
+    }
+    /**
+     * @return Is the repository disabled?
+     * 
+     */
+    public Boolean disabled() {
+        return this.disabled;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -137,6 +149,7 @@ public final class GetGitRepositoryResult {
     @CustomType.Builder
     public static final class Builder {
         private String defaultBranch;
+        private Boolean disabled;
         private String id;
         private Boolean isFork;
         private String name;
@@ -150,6 +163,7 @@ public final class GetGitRepositoryResult {
         public Builder(GetGitRepositoryResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultBranch = defaults.defaultBranch;
+    	      this.disabled = defaults.disabled;
     	      this.id = defaults.id;
     	      this.isFork = defaults.isFork;
     	      this.name = defaults.name;
@@ -167,6 +181,14 @@ public final class GetGitRepositoryResult {
               throw new MissingRequiredPropertyException("GetGitRepositoryResult", "defaultBranch");
             }
             this.defaultBranch = defaultBranch;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder disabled(Boolean disabled) {
+            if (disabled == null) {
+              throw new MissingRequiredPropertyException("GetGitRepositoryResult", "disabled");
+            }
+            this.disabled = disabled;
             return this;
         }
         @CustomType.Setter
@@ -244,6 +266,7 @@ public final class GetGitRepositoryResult {
         public GetGitRepositoryResult build() {
             final var _resultValue = new GetGitRepositoryResult();
             _resultValue.defaultBranch = defaultBranch;
+            _resultValue.disabled = disabled;
             _resultValue.id = id;
             _resultValue.isFork = isFork;
             _resultValue.name = name;

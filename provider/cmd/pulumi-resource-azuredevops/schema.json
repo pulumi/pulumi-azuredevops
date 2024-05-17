@@ -869,6 +869,19 @@
                 "templatePath"
             ]
         },
+        "azuredevops:index/FeedFeature:FeedFeature": {
+            "properties": {
+                "permanentDelete": {
+                    "type": "boolean",
+                    "description": "Determines if Feed should be Permanently removed, Defaults to `false`\n"
+                },
+                "restore": {
+                    "type": "boolean",
+                    "description": "Determines if Feed should be Restored during creation (if possible), Defaults to `false`\n"
+                }
+            },
+            "type": "object"
+        },
         "azuredevops:index/GitInitialization:GitInitialization": {
             "properties": {
                 "initType": {
@@ -2023,6 +2036,27 @@
                 }
             }
         },
+        "azuredevops:index/getIdentityGroupsGroup:getIdentityGroupsGroup": {
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "This is the non-unique display name of the identity subject. To change this field, you must alter its value in the source provider.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "name"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "azuredevops:index/getIterationChildren:getIterationChildren": {
             "properties": {
                 "hasChildren": {
@@ -2134,6 +2168,10 @@
                     "type": "string",
                     "description": "The ref of the default branch.\n"
                 },
+                "disabled": {
+                    "type": "boolean",
+                    "description": "Is the repository disabled?\n"
+                },
                 "id": {
                     "type": "string",
                     "description": "Git repository identifier.\n"
@@ -2170,6 +2208,7 @@
             "type": "object",
             "required": [
                 "defaultBranch",
+                "disabled",
                 "id",
                 "name",
                 "projectId",
@@ -2178,6 +2217,52 @@
                 "sshUrl",
                 "url",
                 "webUrl"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "azuredevops:index/getSecurityroleDefinitionsDefinition:getSecurityroleDefinitionsDefinition": {
+            "properties": {
+                "allowPermissions": {
+                    "type": "integer",
+                    "description": "The mask of allowed permissions of the Security Role Definition.\n"
+                },
+                "denyPermissions": {
+                    "type": "integer",
+                    "description": "The mask of the denied permissions of the Security Role Definition.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the Security Role Definition.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The display name of the Security Role Definition.\n"
+                },
+                "identifier": {
+                    "type": "string",
+                    "description": "The identifier of the Security Role Definition.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the Security Role Definition.\n"
+                },
+                "scope": {
+                    "type": "string",
+                    "description": "Name of the Scope for which Security Role Definitions will be returned.\n\nDataSource without specifying any arguments will return all projects.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "allowPermissions",
+                "description",
+                "displayName",
+                "identifier",
+                "name",
+                "scope"
             ],
             "language": {
                 "nodejs": {
@@ -4654,12 +4739,179 @@
                 "type": "object"
             }
         },
+        "azuredevops:index/feed:Feed": {
+            "description": "Manages creation of the Feed within Azure DevOps organization.\n\n## Example Usage\n\n### Create Feed in the scope of whole Organization\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = new azuredevops.Feed(\"example\", {name: \"releases\"});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.Feed(\"example\", name=\"releases\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new AzureDevOps.Feed(\"example\", new()\n    {\n        Name = \"releases\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := azuredevops.NewFeed(ctx, \"example\", \u0026azuredevops.FeedArgs{\n\t\t\tName: pulumi.String(\"releases\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Feed;\nimport com.pulumi.azuredevops.FeedArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Feed(\"example\", FeedArgs.builder()        \n            .name(\"releases\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: azuredevops:Feed\n    properties:\n      name: releases\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Create Feed in the scope of a Project\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = new azuredevops.Project(\"example\", {\n    name: \"Example Project\",\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n    description: \"Managed by Terraform\",\n});\nconst exampleFeed = new azuredevops.Feed(\"example\", {\n    name: \"releases\",\n    projectId: example.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.Project(\"example\",\n    name=\"Example Project\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\",\n    description=\"Managed by Terraform\")\nexample_feed = azuredevops.Feed(\"example\",\n    name=\"releases\",\n    project_id=example.id)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new AzureDevOps.Project(\"example\", new()\n    {\n        Name = \"Example Project\",\n        Visibility = \"private\",\n        VersionControl = \"Git\",\n        WorkItemTemplate = \"Agile\",\n        Description = \"Managed by Terraform\",\n    });\n\n    var exampleFeed = new AzureDevOps.Feed(\"example\", new()\n    {\n        Name = \"releases\",\n        ProjectId = example.Id,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := azuredevops.NewProject(ctx, \"example\", \u0026azuredevops.ProjectArgs{\n\t\t\tName:             pulumi.String(\"Example Project\"),\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t\tDescription:      pulumi.String(\"Managed by Terraform\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewFeed(ctx, \"example\", \u0026azuredevops.FeedArgs{\n\t\t\tName:      pulumi.String(\"releases\"),\n\t\t\tProjectId: example.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Project;\nimport com.pulumi.azuredevops.ProjectArgs;\nimport com.pulumi.azuredevops.Feed;\nimport com.pulumi.azuredevops.FeedArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Project(\"example\", ProjectArgs.builder()        \n            .name(\"Example Project\")\n            .visibility(\"private\")\n            .versionControl(\"Git\")\n            .workItemTemplate(\"Agile\")\n            .description(\"Managed by Terraform\")\n            .build());\n\n        var exampleFeed = new Feed(\"exampleFeed\", FeedArgs.builder()        \n            .name(\"releases\")\n            .projectId(example.id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: azuredevops:Project\n    properties:\n      name: Example Project\n      visibility: private\n      versionControl: Git\n      workItemTemplate: Agile\n      description: Managed by Terraform\n  exampleFeed:\n    type: azuredevops:Feed\n    name: example\n    properties:\n      name: releases\n      projectId: ${example.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Create Feed with Soft Delete\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = new azuredevops.Feed(\"example\", {\n    name: \"releases\",\n    features: [{\n        permanentDelete: false,\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.Feed(\"example\",\n    name=\"releases\",\n    features=[azuredevops.FeedFeatureArgs(\n        permanent_delete=False,\n    )])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new AzureDevOps.Feed(\"example\", new()\n    {\n        Name = \"releases\",\n        Features = new[]\n        {\n            new AzureDevOps.Inputs.FeedFeatureArgs\n            {\n                PermanentDelete = false,\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := azuredevops.NewFeed(ctx, \"example\", \u0026azuredevops.FeedArgs{\n\t\t\tName: pulumi.String(\"releases\"),\n\t\t\tFeatures: azuredevops.FeedFeatureArray{\n\t\t\t\t\u0026azuredevops.FeedFeatureArgs{\n\t\t\t\t\tPermanentDelete: pulumi.Bool(false),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Feed;\nimport com.pulumi.azuredevops.FeedArgs;\nimport com.pulumi.azuredevops.inputs.FeedFeatureArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Feed(\"example\", FeedArgs.builder()        \n            .name(\"releases\")\n            .features(FeedFeatureArgs.builder()\n                .permanentDelete(false)\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: azuredevops:Feed\n    properties:\n      name: releases\n      features:\n        - permanentDelete: false\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\n## Relevant Links\n\n- [Azure DevOps Service REST API 7.0 - Feed Management](https://learn.microsoft.com/en-us/rest/api/azure/devops/artifacts/feed-management?view=azure-devops-rest-7.0)\n",
+            "properties": {
+                "features": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/azuredevops:index/FeedFeature:FeedFeature"
+                    },
+                    "description": "A `features` blocks as documented below.\n\n\u003e **Note** *Because of ADO limitations feed name can be **reserved** for up to 15 minutes after permanent delete of the feed*\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the Feed.\n"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The ID of the Project Feed is created in. If not specified, feed will be created at the organization level.\n"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "inputProperties": {
+                "features": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/azuredevops:index/FeedFeature:FeedFeature"
+                    },
+                    "description": "A `features` blocks as documented below.\n\n\u003e **Note** *Because of ADO limitations feed name can be **reserved** for up to 15 minutes after permanent delete of the feed*\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the Feed.\n",
+                    "willReplaceOnChanges": true
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The ID of the Project Feed is created in. If not specified, feed will be created at the organization level.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Feed resources.\n",
+                "properties": {
+                    "features": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/azuredevops:index/FeedFeature:FeedFeature"
+                        },
+                        "description": "A `features` blocks as documented below.\n\n\u003e **Note** *Because of ADO limitations feed name can be **reserved** for up to 15 minutes after permanent delete of the feed*\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the Feed.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "projectId": {
+                        "type": "string",
+                        "description": "The ID of the Project Feed is created in. If not specified, feed will be created at the organization level.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "azuredevops:index/feedPermission:FeedPermission": {
+            "description": "Manages creation of the Feed Permission within Azure DevOps organization.\n\n## Example Usage\n\n### Create Feed Permission\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = new azuredevops.Project(\"example\", {name: \"Example Project\"});\nconst exampleGroup = new azuredevops.Group(\"example\", {\n    scope: example.id,\n    displayName: \"Example group\",\n    description: \"Example description\",\n});\nconst exampleFeed = new azuredevops.Feed(\"example\", {name: \"releases\"});\nconst permission = new azuredevops.FeedPermission(\"permission\", {\n    feedId: exampleFeed.id,\n    role: \"reader\",\n    identityDescriptor: exampleGroup.descriptor,\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.Project(\"example\", name=\"Example Project\")\nexample_group = azuredevops.Group(\"example\",\n    scope=example.id,\n    display_name=\"Example group\",\n    description=\"Example description\")\nexample_feed = azuredevops.Feed(\"example\", name=\"releases\")\npermission = azuredevops.FeedPermission(\"permission\",\n    feed_id=example_feed.id,\n    role=\"reader\",\n    identity_descriptor=example_group.descriptor)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new AzureDevOps.Project(\"example\", new()\n    {\n        Name = \"Example Project\",\n    });\n\n    var exampleGroup = new AzureDevOps.Group(\"example\", new()\n    {\n        Scope = example.Id,\n        DisplayName = \"Example group\",\n        Description = \"Example description\",\n    });\n\n    var exampleFeed = new AzureDevOps.Feed(\"example\", new()\n    {\n        Name = \"releases\",\n    });\n\n    var permission = new AzureDevOps.FeedPermission(\"permission\", new()\n    {\n        FeedId = exampleFeed.Id,\n        Role = \"reader\",\n        IdentityDescriptor = exampleGroup.Descriptor,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := azuredevops.NewProject(ctx, \"example\", \u0026azuredevops.ProjectArgs{\n\t\t\tName: pulumi.String(\"Example Project\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleGroup, err := azuredevops.NewGroup(ctx, \"example\", \u0026azuredevops.GroupArgs{\n\t\t\tScope:       example.ID(),\n\t\t\tDisplayName: pulumi.String(\"Example group\"),\n\t\t\tDescription: pulumi.String(\"Example description\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleFeed, err := azuredevops.NewFeed(ctx, \"example\", \u0026azuredevops.FeedArgs{\n\t\t\tName: pulumi.String(\"releases\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewFeedPermission(ctx, \"permission\", \u0026azuredevops.FeedPermissionArgs{\n\t\t\tFeedId:             exampleFeed.ID(),\n\t\t\tRole:               pulumi.String(\"reader\"),\n\t\t\tIdentityDescriptor: exampleGroup.Descriptor,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Project;\nimport com.pulumi.azuredevops.ProjectArgs;\nimport com.pulumi.azuredevops.Group;\nimport com.pulumi.azuredevops.GroupArgs;\nimport com.pulumi.azuredevops.Feed;\nimport com.pulumi.azuredevops.FeedArgs;\nimport com.pulumi.azuredevops.FeedPermission;\nimport com.pulumi.azuredevops.FeedPermissionArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Project(\"example\", ProjectArgs.builder()        \n            .name(\"Example Project\")\n            .build());\n\n        var exampleGroup = new Group(\"exampleGroup\", GroupArgs.builder()        \n            .scope(example.id())\n            .displayName(\"Example group\")\n            .description(\"Example description\")\n            .build());\n\n        var exampleFeed = new Feed(\"exampleFeed\", FeedArgs.builder()        \n            .name(\"releases\")\n            .build());\n\n        var permission = new FeedPermission(\"permission\", FeedPermissionArgs.builder()        \n            .feedId(exampleFeed.id())\n            .role(\"reader\")\n            .identityDescriptor(exampleGroup.descriptor())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: azuredevops:Project\n    properties:\n      name: Example Project\n  exampleGroup:\n    type: azuredevops:Group\n    name: example\n    properties:\n      scope: ${example.id}\n      displayName: Example group\n      description: Example description\n  exampleFeed:\n    type: azuredevops:Feed\n    name: example\n    properties:\n      name: releases\n  permission:\n    type: azuredevops:FeedPermission\n    properties:\n      feedId: ${exampleFeed.id}\n      role: reader\n      identityDescriptor: ${exampleGroup.descriptor}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\n## Relevant Links\n\n- [Azure DevOps Service REST API 7.0 - Feed Management](https://learn.microsoft.com/en-us/rest/api/azure/devops/artifacts/feed-management?view=azure-devops-rest-7.0)\n",
+            "properties": {
+                "displayName": {
+                    "type": "string",
+                    "description": "The display name of the assignment\n"
+                },
+                "feedId": {
+                    "type": "string",
+                    "description": "The ID of the Feed.\n"
+                },
+                "identityDescriptor": {
+                    "type": "string",
+                    "description": "The Descriptor of identity you want to assign a role.\n"
+                },
+                "identityId": {
+                    "type": "string",
+                    "description": "The ID of the identity.\n"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The ID of the Project Feed is created in. If not specified, feed will be created at the organization level.\n"
+                },
+                "role": {
+                    "type": "string",
+                    "description": "The role to be assigned, possible values : `reader`, `contributor`, `collaborator`, `administrator`\n"
+                }
+            },
+            "required": [
+                "feedId",
+                "identityDescriptor",
+                "identityId",
+                "role"
+            ],
+            "inputProperties": {
+                "displayName": {
+                    "type": "string",
+                    "description": "The display name of the assignment\n"
+                },
+                "feedId": {
+                    "type": "string",
+                    "description": "The ID of the Feed.\n",
+                    "willReplaceOnChanges": true
+                },
+                "identityDescriptor": {
+                    "type": "string",
+                    "description": "The Descriptor of identity you want to assign a role.\n",
+                    "willReplaceOnChanges": true
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The ID of the Project Feed is created in. If not specified, feed will be created at the organization level.\n",
+                    "willReplaceOnChanges": true
+                },
+                "role": {
+                    "type": "string",
+                    "description": "The role to be assigned, possible values : `reader`, `contributor`, `collaborator`, `administrator`\n"
+                }
+            },
+            "requiredInputs": [
+                "feedId",
+                "identityDescriptor",
+                "role"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering FeedPermission resources.\n",
+                "properties": {
+                    "displayName": {
+                        "type": "string",
+                        "description": "The display name of the assignment\n"
+                    },
+                    "feedId": {
+                        "type": "string",
+                        "description": "The ID of the Feed.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "identityDescriptor": {
+                        "type": "string",
+                        "description": "The Descriptor of identity you want to assign a role.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "identityId": {
+                        "type": "string",
+                        "description": "The ID of the identity.\n"
+                    },
+                    "projectId": {
+                        "type": "string",
+                        "description": "The ID of the Project Feed is created in. If not specified, feed will be created at the organization level.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "role": {
+                        "type": "string",
+                        "description": "The role to be assigned, possible values : `reader`, `contributor`, `collaborator`, `administrator`\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "azuredevops:index/git:Git": {
             "description": "\n\n## Import\n\nAzure DevOps Repositories can be imported using the repo name or by the repo Guid e.g.\n\n```sh\n$ pulumi import azuredevops:index/git:Git example projectName/repoName\n```\n\nor\n\n```sh\n$ pulumi import azuredevops:index/git:Git example projectName/00000000-0000-0000-0000-000000000000\n```\n\nhcl\n\nresource \"azuredevops_project\" \"example\" {\n\n  name               = \"Example Project\"\n\n  visibility         = \"private\"\n\n  version_control    = \"Git\"\n\n  work_item_template = \"Agile\"\n\n}\n\nresource \"azuredevops_git_repository\" \"example\" {\n\n  project_id     = azuredevops_project.example.id\n\n  name           = \"Example Git Repository\"\n\n  default_branch = \"refs/heads/main\"\n\n  initialization {\n\n    init_type = \"Clean\"\n\n  }\n\n  lifecycle {\n\n    ignore_changes = [\n\n      # Ignore changes to initialization to support importing existing repositories\n\n      # Given that a repo now exists, either imported into terraform state or created by terraform,\n\n      # we don't care for the configuration of initialization against the existing resource\n\n      initialization,\n\n    ]\n\n  }\n\n}\n\n",
             "properties": {
                 "defaultBranch": {
                     "type": "string",
                     "description": "The ref of the default branch. Will be used as the branch name for initialized repositories.\n"
+                },
+                "disabled": {
+                    "type": "boolean",
+                    "description": "Is the repository disabled?\n"
                 },
                 "initialization": {
                     "$ref": "#/types/azuredevops:index/GitInitialization:GitInitialization",
@@ -4704,6 +4956,7 @@
             },
             "required": [
                 "defaultBranch",
+                "disabled",
                 "initialization",
                 "isFork",
                 "name",
@@ -4747,6 +5000,10 @@
                     "defaultBranch": {
                         "type": "string",
                         "description": "The ref of the default branch. Will be used as the branch name for initialized repositories.\n"
+                    },
+                    "disabled": {
+                        "type": "boolean",
+                        "description": "Is the repository disabled?\n"
                     },
                     "initialization": {
                         "$ref": "#/types/azuredevops:index/GitInitialization:GitInitialization",
@@ -5625,6 +5882,10 @@
                     "type": "integer",
                     "description": "The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.\n"
                 },
+                "pipelineProjectId": {
+                    "type": "string",
+                    "description": "The ID of the project where the pipeline exists. Defaults to `project_id` if not specified. Changing this forces a new resource to be created\n"
+                },
                 "projectId": {
                     "type": "string",
                     "description": "The  ID of the project. Changing this forces a new resource to be created\n"
@@ -5647,6 +5908,11 @@
                 "pipelineId": {
                     "type": "integer",
                     "description": "The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.\n",
+                    "willReplaceOnChanges": true
+                },
+                "pipelineProjectId": {
+                    "type": "string",
+                    "description": "The ID of the project where the pipeline exists. Defaults to `project_id` if not specified. Changing this forces a new resource to be created\n",
                     "willReplaceOnChanges": true
                 },
                 "projectId": {
@@ -5676,6 +5942,11 @@
                     "pipelineId": {
                         "type": "integer",
                         "description": "The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "pipelineProjectId": {
+                        "type": "string",
+                        "description": "The ID of the project where the pipeline exists. Defaults to `project_id` if not specified. Changing this forces a new resource to be created\n",
                         "willReplaceOnChanges": true
                     },
                     "projectId": {
@@ -6907,6 +7178,79 @@
                     "type": "azuredevops:Security/resourceAuthorization:ResourceAuthorization"
                 }
             ]
+        },
+        "azuredevops:index/securityroleAssignment:SecurityroleAssignment": {
+            "description": "Manages assignment of security roles to various resources within Azure DevOps organization.\n\n",
+            "properties": {
+                "identityId": {
+                    "type": "string",
+                    "description": "The ID of the identity to authorize.\n"
+                },
+                "resourceId": {
+                    "type": "string",
+                    "description": "The ID of the resource on which the role is to be assigned.\n"
+                },
+                "roleName": {
+                    "type": "string",
+                    "description": "Name of the role to assign.\n"
+                },
+                "scope": {
+                    "type": "string",
+                    "description": "The scope in which this assignment should exist.\n"
+                }
+            },
+            "required": [
+                "identityId",
+                "resourceId",
+                "roleName",
+                "scope"
+            ],
+            "inputProperties": {
+                "identityId": {
+                    "type": "string",
+                    "description": "The ID of the identity to authorize.\n"
+                },
+                "resourceId": {
+                    "type": "string",
+                    "description": "The ID of the resource on which the role is to be assigned.\n"
+                },
+                "roleName": {
+                    "type": "string",
+                    "description": "Name of the role to assign.\n"
+                },
+                "scope": {
+                    "type": "string",
+                    "description": "The scope in which this assignment should exist.\n"
+                }
+            },
+            "requiredInputs": [
+                "identityId",
+                "resourceId",
+                "roleName",
+                "scope"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering SecurityroleAssignment resources.\n",
+                "properties": {
+                    "identityId": {
+                        "type": "string",
+                        "description": "The ID of the identity to authorize.\n"
+                    },
+                    "resourceId": {
+                        "type": "string",
+                        "description": "The ID of the resource on which the role is to be assigned.\n"
+                    },
+                    "roleName": {
+                        "type": "string",
+                        "description": "Name of the role to assign.\n"
+                    },
+                    "scope": {
+                        "type": "string",
+                        "description": "The scope in which this assignment should exist.\n"
+                    }
+                },
+                "type": "object"
+            }
         },
         "azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory": {
             "description": "Manages an Artifactory server endpoint within an Azure DevOps organization. Using this service endpoint requires you to first install [JFrog Artifactory Extension](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-artifactory-vsts-extension).\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = new azuredevops.Project(\"example\", {\n    name: \"Example Project\",\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n    description: \"Managed by Terraform\",\n});\nconst exampleServiceEndpointArtifactory = new azuredevops.ServiceEndpointArtifactory(\"example\", {\n    projectId: example.id,\n    serviceEndpointName: \"Example Artifactory\",\n    description: \"Managed by Terraform\",\n    url: \"https://artifactory.my.com\",\n    authenticationToken: {\n        token: \"0000000000000000000000000000000000000000\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.Project(\"example\",\n    name=\"Example Project\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\",\n    description=\"Managed by Terraform\")\nexample_service_endpoint_artifactory = azuredevops.ServiceEndpointArtifactory(\"example\",\n    project_id=example.id,\n    service_endpoint_name=\"Example Artifactory\",\n    description=\"Managed by Terraform\",\n    url=\"https://artifactory.my.com\",\n    authentication_token=azuredevops.ServiceEndpointArtifactoryAuthenticationTokenArgs(\n        token=\"0000000000000000000000000000000000000000\",\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new AzureDevOps.Project(\"example\", new()\n    {\n        Name = \"Example Project\",\n        Visibility = \"private\",\n        VersionControl = \"Git\",\n        WorkItemTemplate = \"Agile\",\n        Description = \"Managed by Terraform\",\n    });\n\n    var exampleServiceEndpointArtifactory = new AzureDevOps.ServiceEndpointArtifactory(\"example\", new()\n    {\n        ProjectId = example.Id,\n        ServiceEndpointName = \"Example Artifactory\",\n        Description = \"Managed by Terraform\",\n        Url = \"https://artifactory.my.com\",\n        AuthenticationToken = new AzureDevOps.Inputs.ServiceEndpointArtifactoryAuthenticationTokenArgs\n        {\n            Token = \"0000000000000000000000000000000000000000\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := azuredevops.NewProject(ctx, \"example\", \u0026azuredevops.ProjectArgs{\n\t\t\tName:             pulumi.String(\"Example Project\"),\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t\tDescription:      pulumi.String(\"Managed by Terraform\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewServiceEndpointArtifactory(ctx, \"example\", \u0026azuredevops.ServiceEndpointArtifactoryArgs{\n\t\t\tProjectId:           example.ID(),\n\t\t\tServiceEndpointName: pulumi.String(\"Example Artifactory\"),\n\t\t\tDescription:         pulumi.String(\"Managed by Terraform\"),\n\t\t\tUrl:                 pulumi.String(\"https://artifactory.my.com\"),\n\t\t\tAuthenticationToken: \u0026azuredevops.ServiceEndpointArtifactoryAuthenticationTokenArgs{\n\t\t\t\tToken: pulumi.String(\"0000000000000000000000000000000000000000\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Project;\nimport com.pulumi.azuredevops.ProjectArgs;\nimport com.pulumi.azuredevops.ServiceEndpointArtifactory;\nimport com.pulumi.azuredevops.ServiceEndpointArtifactoryArgs;\nimport com.pulumi.azuredevops.inputs.ServiceEndpointArtifactoryAuthenticationTokenArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Project(\"example\", ProjectArgs.builder()        \n            .name(\"Example Project\")\n            .visibility(\"private\")\n            .versionControl(\"Git\")\n            .workItemTemplate(\"Agile\")\n            .description(\"Managed by Terraform\")\n            .build());\n\n        var exampleServiceEndpointArtifactory = new ServiceEndpointArtifactory(\"exampleServiceEndpointArtifactory\", ServiceEndpointArtifactoryArgs.builder()        \n            .projectId(example.id())\n            .serviceEndpointName(\"Example Artifactory\")\n            .description(\"Managed by Terraform\")\n            .url(\"https://artifactory.my.com\")\n            .authenticationToken(ServiceEndpointArtifactoryAuthenticationTokenArgs.builder()\n                .token(\"0000000000000000000000000000000000000000\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: azuredevops:Project\n    properties:\n      name: Example Project\n      visibility: private\n      versionControl: Git\n      workItemTemplate: Agile\n      description: Managed by Terraform\n  exampleServiceEndpointArtifactory:\n    type: azuredevops:ServiceEndpointArtifactory\n    name: example\n    properties:\n      projectId: ${example.id}\n      serviceEndpointName: Example Artifactory\n      description: Managed by Terraform\n      url: https://artifactory.my.com\n      authenticationToken:\n        token: '0000000000000000000000000000000000000000'\n```\n\u003c!--End PulumiCodeChooser --\u003e\nAlternatively a username and password may be used.\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = new azuredevops.Project(\"example\", {\n    name: \"Example Project\",\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n    description: \"Managed by Terraform\",\n});\nconst exampleServiceEndpointArtifactory = new azuredevops.ServiceEndpointArtifactory(\"example\", {\n    projectId: example.id,\n    serviceEndpointName: \"Example Artifactory\",\n    description: \"Managed by Terraform\",\n    url: \"https://artifactory.my.com\",\n    authenticationBasic: {\n        username: \"username\",\n        password: \"password\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.Project(\"example\",\n    name=\"Example Project\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\",\n    description=\"Managed by Terraform\")\nexample_service_endpoint_artifactory = azuredevops.ServiceEndpointArtifactory(\"example\",\n    project_id=example.id,\n    service_endpoint_name=\"Example Artifactory\",\n    description=\"Managed by Terraform\",\n    url=\"https://artifactory.my.com\",\n    authentication_basic=azuredevops.ServiceEndpointArtifactoryAuthenticationBasicArgs(\n        username=\"username\",\n        password=\"password\",\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new AzureDevOps.Project(\"example\", new()\n    {\n        Name = \"Example Project\",\n        Visibility = \"private\",\n        VersionControl = \"Git\",\n        WorkItemTemplate = \"Agile\",\n        Description = \"Managed by Terraform\",\n    });\n\n    var exampleServiceEndpointArtifactory = new AzureDevOps.ServiceEndpointArtifactory(\"example\", new()\n    {\n        ProjectId = example.Id,\n        ServiceEndpointName = \"Example Artifactory\",\n        Description = \"Managed by Terraform\",\n        Url = \"https://artifactory.my.com\",\n        AuthenticationBasic = new AzureDevOps.Inputs.ServiceEndpointArtifactoryAuthenticationBasicArgs\n        {\n            Username = \"username\",\n            Password = \"password\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := azuredevops.NewProject(ctx, \"example\", \u0026azuredevops.ProjectArgs{\n\t\t\tName:             pulumi.String(\"Example Project\"),\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t\tDescription:      pulumi.String(\"Managed by Terraform\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewServiceEndpointArtifactory(ctx, \"example\", \u0026azuredevops.ServiceEndpointArtifactoryArgs{\n\t\t\tProjectId:           example.ID(),\n\t\t\tServiceEndpointName: pulumi.String(\"Example Artifactory\"),\n\t\t\tDescription:         pulumi.String(\"Managed by Terraform\"),\n\t\t\tUrl:                 pulumi.String(\"https://artifactory.my.com\"),\n\t\t\tAuthenticationBasic: \u0026azuredevops.ServiceEndpointArtifactoryAuthenticationBasicArgs{\n\t\t\t\tUsername: pulumi.String(\"username\"),\n\t\t\t\tPassword: pulumi.String(\"password\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Project;\nimport com.pulumi.azuredevops.ProjectArgs;\nimport com.pulumi.azuredevops.ServiceEndpointArtifactory;\nimport com.pulumi.azuredevops.ServiceEndpointArtifactoryArgs;\nimport com.pulumi.azuredevops.inputs.ServiceEndpointArtifactoryAuthenticationBasicArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Project(\"example\", ProjectArgs.builder()        \n            .name(\"Example Project\")\n            .visibility(\"private\")\n            .versionControl(\"Git\")\n            .workItemTemplate(\"Agile\")\n            .description(\"Managed by Terraform\")\n            .build());\n\n        var exampleServiceEndpointArtifactory = new ServiceEndpointArtifactory(\"exampleServiceEndpointArtifactory\", ServiceEndpointArtifactoryArgs.builder()        \n            .projectId(example.id())\n            .serviceEndpointName(\"Example Artifactory\")\n            .description(\"Managed by Terraform\")\n            .url(\"https://artifactory.my.com\")\n            .authenticationBasic(ServiceEndpointArtifactoryAuthenticationBasicArgs.builder()\n                .username(\"username\")\n                .password(\"password\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: azuredevops:Project\n    properties:\n      name: Example Project\n      visibility: private\n      versionControl: Git\n      workItemTemplate: Agile\n      description: Managed by Terraform\n  exampleServiceEndpointArtifactory:\n    type: azuredevops:ServiceEndpointArtifactory\n    name: example\n    properties:\n      projectId: ${example.id}\n      serviceEndpointName: Example Artifactory\n      description: Managed by Terraform\n      url: https://artifactory.my.com\n      authenticationBasic:\n        username: username\n        password: password\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Relevant Links\n\n* [Azure DevOps Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops\u0026tabs=yaml)\n* [Artifactory User Token](https://docs.artifactory.org/latest/user-guide/user-token/)\n\n## Import\n\nAzure DevOps Service Endpoint Artifactory can be imported using the **projectID/serviceEndpointID**, e.g.\n\n```sh\n$ pulumi import azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000\n```\n\n",
@@ -12402,6 +12746,52 @@
                 "type": "object"
             }
         },
+        "azuredevops:index/getFeed:getFeed": {
+            "description": "Use this data source to access information about existing Feed within a given project in Azure DevOps.\n\n## Example Usage\n\n### Basic Example\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = azuredevops.getFeed({\n    name: \"releases\",\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.get_feed(name=\"releases\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = AzureDevOps.GetFeed.Invoke(new()\n    {\n        Name = \"releases\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := azuredevops.LookupFeed(ctx, \u0026azuredevops.LookupFeedArgs{\n\t\t\tName: pulumi.StringRef(\"releases\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.AzuredevopsFunctions;\nimport com.pulumi.azuredevops.inputs.GetFeedArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = AzuredevopsFunctions.getFeed(GetFeedArgs.builder()\n            .name(\"releases\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: azuredevops:getFeed\n      Arguments:\n        name: releases\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Access feed within a project\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = azuredevops.getProject({\n    name: \"Example Project\",\n});\nconst exampleGetFeed = example.then(example =\u003e azuredevops.getFeed({\n    name: \"releases\",\n    projectId: example.id,\n}));\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.get_project(name=\"Example Project\")\nexample_get_feed = azuredevops.get_feed(name=\"releases\",\n    project_id=example.id)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = AzureDevOps.GetProject.Invoke(new()\n    {\n        Name = \"Example Project\",\n    });\n\n    var exampleGetFeed = AzureDevOps.GetFeed.Invoke(new()\n    {\n        Name = \"releases\",\n        ProjectId = example.Apply(getProjectResult =\u003e getProjectResult.Id),\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := azuredevops.LookupProject(ctx, \u0026azuredevops.LookupProjectArgs{\n\t\t\tName: pulumi.StringRef(\"Example Project\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.LookupFeed(ctx, \u0026azuredevops.LookupFeedArgs{\n\t\t\tName:      pulumi.StringRef(\"releases\"),\n\t\t\tProjectId: pulumi.StringRef(example.Id),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.AzuredevopsFunctions;\nimport com.pulumi.azuredevops.inputs.GetProjectArgs;\nimport com.pulumi.azuredevops.inputs.GetFeedArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()\n            .name(\"Example Project\")\n            .build());\n\n        final var exampleGetFeed = AzuredevopsFunctions.getFeed(GetFeedArgs.builder()\n            .name(\"releases\")\n            .projectId(example.applyValue(getProjectResult -\u003e getProjectResult.id()))\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: azuredevops:getProject\n      Arguments:\n        name: Example Project\n  exampleGetFeed:\n    fn::invoke:\n      Function: azuredevops:getFeed\n      Arguments:\n        name: releases\n        projectId: ${example.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\n## Relevant Links\n\n- [Azure DevOps Service REST API 7.0 - Feed - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/artifacts/feed-management/get-feed?view=azure-devops-rest-7.0)\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getFeed.\n",
+                "properties": {
+                    "feedId": {
+                        "type": "string",
+                        "description": "ID of the Feed.\n\n\u003e **Note** Only one of `name` or `feed_id` can be set at the same time.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the Feed.\n"
+                    },
+                    "projectId": {
+                        "type": "string",
+                        "description": "ID of the Project Feed is created in.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getFeed.\n",
+                "properties": {
+                    "feedId": {
+                        "description": "The ID of the Feed.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "The name of the Feed.\n",
+                        "type": "string"
+                    },
+                    "projectId": {
+                        "description": "The ID of the Project.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
         "azuredevops:index/getGitRepository:getGitRepository": {
             "description": "Use this data source to access information about a **single** (existing) Git Repository within Azure DevOps.\nTo read information about **multiple** Git Repositories use the data source `azuredevops.getRepositories`\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = azuredevops.getProject({\n    name: \"Example Project\",\n});\n// Load a specific Git repository by name\nconst example-single-repo = example.then(example =\u003e azuredevops.getGitRepository({\n    projectId: example.id,\n    name: \"Example Repository\",\n}));\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.get_project(name=\"Example Project\")\n# Load a specific Git repository by name\nexample_single_repo = azuredevops.get_git_repository(project_id=example.id,\n    name=\"Example Repository\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = AzureDevOps.GetProject.Invoke(new()\n    {\n        Name = \"Example Project\",\n    });\n\n    // Load a specific Git repository by name\n    var example_single_repo = AzureDevOps.GetGitRepository.Invoke(new()\n    {\n        ProjectId = example.Apply(getProjectResult =\u003e getProjectResult.Id),\n        Name = \"Example Repository\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := azuredevops.LookupProject(ctx, \u0026azuredevops.LookupProjectArgs{\n\t\t\tName: pulumi.StringRef(\"Example Project\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// Load a specific Git repository by name\n\t\t_, err = azuredevops.GetGitRepository(ctx, \u0026azuredevops.GetGitRepositoryArgs{\n\t\t\tProjectId: example.Id,\n\t\t\tName:      \"Example Repository\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.AzuredevopsFunctions;\nimport com.pulumi.azuredevops.inputs.GetProjectArgs;\nimport com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()\n            .name(\"Example Project\")\n            .build());\n\n        // Load a specific Git repository by name\n        final var example-single-repo = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()\n            .projectId(example.applyValue(getProjectResult -\u003e getProjectResult.id()))\n            .name(\"Example Repository\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: azuredevops:getProject\n      Arguments:\n        name: Example Project\n  # Load a specific Git repository by name\n  example-single-repo:\n    fn::invoke:\n      Function: azuredevops:getGitRepository\n      Arguments:\n        projectId: ${example.id}\n        name: Example Repository\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Relevant Links\n\n- [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)\n",
             "inputs": {
@@ -12428,6 +12818,10 @@
                     "defaultBranch": {
                         "description": "The ref of the default branch.\n",
                         "type": "string"
+                    },
+                    "disabled": {
+                        "description": "Is the repository disabled?\n",
+                        "type": "boolean"
                     },
                     "id": {
                         "description": "The provider-assigned unique ID for this managed resource.\n",
@@ -12467,6 +12861,7 @@
                 },
                 "required": [
                     "defaultBranch",
+                    "disabled",
                     "isFork",
                     "name",
                     "projectId",
@@ -12567,6 +12962,135 @@
                 },
                 "required": [
                     "groups",
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
+        "azuredevops:index/getIdentityGroup:getIdentityGroup": {
+            "description": "Use this data source to access information about an existing Group within Azure DevOps On-Premise(Azure DevOps Server).\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\n// load existing group with specific name\nconst example-project-group = azuredevops.getIdentityGroup({\n    projectId: example.id,\n    name: \"[Project-Name]\\\\Group-Name\",\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\n# load existing group with specific name\nexample_project_group = azuredevops.get_identity_group(project_id=example[\"id\"],\n    name=\"[Project-Name]\\\\Group-Name\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // load existing group with specific name\n    var example_project_group = AzureDevOps.GetIdentityGroup.Invoke(new()\n    {\n        ProjectId = example.Id,\n        Name = \"[Project-Name]\\\\Group-Name\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// load existing group with specific name\n\t\t_, err := azuredevops.GetIdentityGroup(ctx, \u0026azuredevops.GetIdentityGroupArgs{\n\t\t\tProjectId: example.Id,\n\t\t\tName:      \"[Project-Name]\\\\Group-Name\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.AzuredevopsFunctions;\nimport com.pulumi.azuredevops.inputs.GetIdentityGroupArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // load existing group with specific name\n        final var example-project-group = AzuredevopsFunctions.getIdentityGroup(GetIdentityGroupArgs.builder()\n            .projectId(example.id())\n            .name(\"[Project-Name]\\\\Group-Name\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  # load existing group with specific name\n  example-project-group:\n    fn::invoke:\n      Function: azuredevops:getIdentityGroup\n      Arguments:\n        projectId: ${example.id}\n        name: '[Project-Name]\\Group-Name'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Relevant Links\n\n- [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getIdentityGroup.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the group.\n"
+                    },
+                    "projectId": {
+                        "type": "string",
+                        "description": "The Project ID.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
+                    "projectId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getIdentityGroup.\n",
+                "properties": {
+                    "descriptor": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "This is the non-unique display name of the identity subject. To change this field, you must alter its value in the source provider.\n",
+                        "type": "string"
+                    },
+                    "projectId": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "descriptor",
+                    "name",
+                    "projectId",
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
+        "azuredevops:index/getIdentityGroups:getIdentityGroups": {
+            "description": "Use this data source to access information about existing Groups within Azure DevOps On-Premise(Azure DevOps Server).\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = azuredevops.getProject({\n    name: \"Example Project\",\n});\n// load all existing groups inside an organization\nconst example-all-groups = azuredevops.getIdentityGroups({});\n// load all existing groups inside a specific project\nconst example-project-groups = example.then(example =\u003e azuredevops.getIdentityGroups({\n    projectId: example.id,\n}));\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.get_project(name=\"Example Project\")\n# load all existing groups inside an organization\nexample_all_groups = azuredevops.get_identity_groups()\n# load all existing groups inside a specific project\nexample_project_groups = azuredevops.get_identity_groups(project_id=example.id)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = AzureDevOps.GetProject.Invoke(new()\n    {\n        Name = \"Example Project\",\n    });\n\n    // load all existing groups inside an organization\n    var example_all_groups = AzureDevOps.GetIdentityGroups.Invoke();\n\n    // load all existing groups inside a specific project\n    var example_project_groups = AzureDevOps.GetIdentityGroups.Invoke(new()\n    {\n        ProjectId = example.Apply(getProjectResult =\u003e getProjectResult.Id),\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := azuredevops.LookupProject(ctx, \u0026azuredevops.LookupProjectArgs{\n\t\t\tName: pulumi.StringRef(\"Example Project\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// load all existing groups inside an organization\n\t\t_, err = azuredevops.GetIdentityGroups(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// load all existing groups inside a specific project\n\t\t_, err = azuredevops.GetIdentityGroups(ctx, \u0026azuredevops.GetIdentityGroupsArgs{\n\t\t\tProjectId: pulumi.StringRef(example.Id),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.AzuredevopsFunctions;\nimport com.pulumi.azuredevops.inputs.GetProjectArgs;\nimport com.pulumi.azuredevops.inputs.GetIdentityGroupsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()\n            .name(\"Example Project\")\n            .build());\n\n        // load all existing groups inside an organization\n        final var example-all-groups = AzuredevopsFunctions.getIdentityGroups();\n\n        // load all existing groups inside a specific project\n        final var example-project-groups = AzuredevopsFunctions.getIdentityGroups(GetIdentityGroupsArgs.builder()\n            .projectId(example.applyValue(getProjectResult -\u003e getProjectResult.id()))\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: azuredevops:getProject\n      Arguments:\n        name: Example Project\n  # load all existing groups inside an organization\n  example-all-groups:\n    fn::invoke:\n      Function: azuredevops:getIdentityGroups\n      Arguments: {}\n  # load all existing groups inside a specific project\n  example-project-groups:\n    fn::invoke:\n      Function: azuredevops:getIdentityGroups\n      Arguments:\n        projectId: ${example.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Relevant Links\n\n- [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getIdentityGroups.\n",
+                "properties": {
+                    "projectId": {
+                        "type": "string",
+                        "description": "The Project ID. If no project ID is specified all groups of an organization will be returned\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getIdentityGroups.\n",
+                "properties": {
+                    "groups": {
+                        "description": "A set of existing groups in your Azure DevOps Organization or project with details about every single group which includes:\n",
+                        "items": {
+                            "$ref": "#/types/azuredevops:index/getIdentityGroupsGroup:getIdentityGroupsGroup"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "projectId": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "groups",
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
+        "azuredevops:index/getIdentityUsers:getIdentityUsers": {
+            "description": "Use this data source to access information about an existing users within Azure DevOps On-Premise(Azure DevOps Server).\n\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getIdentityUsers.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The PrincipalName of this identity member from the source provider.\n"
+                    },
+                    "searchFilter": {
+                        "type": "string",
+                        "description": "The type of search to perform. Default is `General`. Possible values are `AccountName`, `DisplayName`, and `MailAddress`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getIdentityUsers.\n",
+                "properties": {
+                    "descriptor": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "This is the PrincipalName of this identity member from the source provider. The source provider may change this field over time and it is not guaranteed to be immutable for the life of the identity member.\n",
+                        "type": "string"
+                    },
+                    "searchFilter": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "descriptor",
+                    "name",
                     "id"
                 ],
                 "type": "object"
@@ -12868,6 +13392,48 @@
                 },
                 "required": [
                     "repositories",
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
+        "azuredevops:index/getSecurityroleDefinitions:getSecurityroleDefinitions": {
+            "description": "Use this data source to access information about existing Security Role Definitions within a given scope in Azure DevOps.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = azuredevops.getSecurityroleDefinitions({\n    scope: \"distributedtask.environmentreferencerole\",\n});\nexport const securityroleDefinitions = exampleAazuredevopsSecurityroleDefinitions.definitions;\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.get_securityrole_definitions(scope=\"distributedtask.environmentreferencerole\")\npulumi.export(\"securityroleDefinitions\", example_aazuredevops_securityrole_definitions[\"definitions\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = AzureDevOps.GetSecurityroleDefinitions.Invoke(new()\n    {\n        Scope = \"distributedtask.environmentreferencerole\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"securityroleDefinitions\"] = exampleAazuredevopsSecurityroleDefinitions.Definitions,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := azuredevops.GetSecurityroleDefinitions(ctx, \u0026azuredevops.GetSecurityroleDefinitionsArgs{\n\t\t\tScope: \"distributedtask.environmentreferencerole\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"securityroleDefinitions\", exampleAazuredevopsSecurityroleDefinitions.Definitions)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.AzuredevopsFunctions;\nimport com.pulumi.azuredevops.inputs.GetSecurityroleDefinitionsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = AzuredevopsFunctions.getSecurityroleDefinitions(GetSecurityroleDefinitionsArgs.builder()\n            .scope(\"distributedtask.environmentreferencerole\")\n            .build());\n\n        ctx.export(\"securityroleDefinitions\", exampleAazuredevopsSecurityroleDefinitions.definitions());\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: azuredevops:getSecurityroleDefinitions\n      Arguments:\n        scope: distributedtask.environmentreferencerole\noutputs:\n  securityroleDefinitions: ${exampleAazuredevopsSecurityroleDefinitions.definitions}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Relevant Links\n\n- [Azure DevOps Service REST API 7.0 - Roledefinitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getSecurityroleDefinitions.\n",
+                "properties": {
+                    "scope": {
+                        "type": "string",
+                        "description": "Name of the Scope for which Security Role Definitions will be returned.\n\nDataSource without specifying any arguments will return all projects.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "scope"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getSecurityroleDefinitions.\n",
+                "properties": {
+                    "definitions": {
+                        "description": "A list of existing Security Role Definitions in a Scope in your Azure DevOps Organization with details about every definition which includes. A `definitions` block as defined below.\n",
+                        "items": {
+                            "$ref": "#/types/azuredevops:index/getSecurityroleDefinitionsDefinition:getSecurityroleDefinitionsDefinition"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "scope": {
+                        "description": "The scope of the Security Role Definition.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "definitions",
+                    "scope",
                     "id"
                 ],
                 "type": "object"

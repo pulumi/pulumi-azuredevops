@@ -60,6 +60,10 @@ export interface GetGitRepositoryResult {
      */
     readonly defaultBranch: string;
     /**
+     * Is the repository disabled?
+     */
+    readonly disabled: boolean;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

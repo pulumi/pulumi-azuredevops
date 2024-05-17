@@ -12,12 +12,20 @@ import com.pulumi.azuredevops.inputs.GetBuildDefinitionArgs;
 import com.pulumi.azuredevops.inputs.GetBuildDefinitionPlainArgs;
 import com.pulumi.azuredevops.inputs.GetEnvironmentArgs;
 import com.pulumi.azuredevops.inputs.GetEnvironmentPlainArgs;
+import com.pulumi.azuredevops.inputs.GetFeedArgs;
+import com.pulumi.azuredevops.inputs.GetFeedPlainArgs;
 import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
 import com.pulumi.azuredevops.inputs.GetGitRepositoryPlainArgs;
 import com.pulumi.azuredevops.inputs.GetGroupArgs;
 import com.pulumi.azuredevops.inputs.GetGroupPlainArgs;
 import com.pulumi.azuredevops.inputs.GetGroupsArgs;
 import com.pulumi.azuredevops.inputs.GetGroupsPlainArgs;
+import com.pulumi.azuredevops.inputs.GetIdentityGroupArgs;
+import com.pulumi.azuredevops.inputs.GetIdentityGroupPlainArgs;
+import com.pulumi.azuredevops.inputs.GetIdentityGroupsArgs;
+import com.pulumi.azuredevops.inputs.GetIdentityGroupsPlainArgs;
+import com.pulumi.azuredevops.inputs.GetIdentityUsersArgs;
+import com.pulumi.azuredevops.inputs.GetIdentityUsersPlainArgs;
 import com.pulumi.azuredevops.inputs.GetIterationArgs;
 import com.pulumi.azuredevops.inputs.GetIterationPlainArgs;
 import com.pulumi.azuredevops.inputs.GetPoolArgs;
@@ -28,6 +36,8 @@ import com.pulumi.azuredevops.inputs.GetProjectsArgs;
 import com.pulumi.azuredevops.inputs.GetProjectsPlainArgs;
 import com.pulumi.azuredevops.inputs.GetRepositoriesArgs;
 import com.pulumi.azuredevops.inputs.GetRepositoriesPlainArgs;
+import com.pulumi.azuredevops.inputs.GetSecurityroleDefinitionsArgs;
+import com.pulumi.azuredevops.inputs.GetSecurityroleDefinitionsPlainArgs;
 import com.pulumi.azuredevops.inputs.GetServiceEndpointAzureRMArgs;
 import com.pulumi.azuredevops.inputs.GetServiceEndpointAzureRMPlainArgs;
 import com.pulumi.azuredevops.inputs.GetServiceEndpointGithubArgs;
@@ -51,15 +61,20 @@ import com.pulumi.azuredevops.outputs.GetAreaResult;
 import com.pulumi.azuredevops.outputs.GetBuildDefinitionResult;
 import com.pulumi.azuredevops.outputs.GetClientConfigResult;
 import com.pulumi.azuredevops.outputs.GetEnvironmentResult;
+import com.pulumi.azuredevops.outputs.GetFeedResult;
 import com.pulumi.azuredevops.outputs.GetGitRepositoryResult;
 import com.pulumi.azuredevops.outputs.GetGroupResult;
 import com.pulumi.azuredevops.outputs.GetGroupsResult;
+import com.pulumi.azuredevops.outputs.GetIdentityGroupResult;
+import com.pulumi.azuredevops.outputs.GetIdentityGroupsResult;
+import com.pulumi.azuredevops.outputs.GetIdentityUsersResult;
 import com.pulumi.azuredevops.outputs.GetIterationResult;
 import com.pulumi.azuredevops.outputs.GetPoolResult;
 import com.pulumi.azuredevops.outputs.GetPoolsResult;
 import com.pulumi.azuredevops.outputs.GetProjectResult;
 import com.pulumi.azuredevops.outputs.GetProjectsResult;
 import com.pulumi.azuredevops.outputs.GetRepositoriesResult;
+import com.pulumi.azuredevops.outputs.GetSecurityroleDefinitionsResult;
 import com.pulumi.azuredevops.outputs.GetServiceEndpointAzureRMResult;
 import com.pulumi.azuredevops.outputs.GetServiceEndpointGithubResult;
 import com.pulumi.azuredevops.outputs.GetServiceendpointAzurecrResult;
@@ -1258,6 +1273,528 @@ public final class AzuredevopsFunctions {
         return Deployment.getInstance().invokeAsync("azuredevops:index/getEnvironment:getEnvironment", TypeShape.of(GetEnvironmentResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about existing Feed within a given project in Azure DevOps.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Example
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetFeedArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getFeed(GetFeedArgs.builder()
+     *             .name("releases")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Access feed within a project
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetFeedArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetFeed = AzuredevopsFunctions.getFeed(GetFeedArgs.builder()
+     *             .name("releases")
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Feed - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/artifacts/feed-management/get-feed?view=azure-devops-rest-7.0)
+     * 
+     */
+    public static Output<GetFeedResult> getFeed() {
+        return getFeed(GetFeedArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about existing Feed within a given project in Azure DevOps.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Example
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetFeedArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getFeed(GetFeedArgs.builder()
+     *             .name("releases")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Access feed within a project
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetFeedArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetFeed = AzuredevopsFunctions.getFeed(GetFeedArgs.builder()
+     *             .name("releases")
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Feed - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/artifacts/feed-management/get-feed?view=azure-devops-rest-7.0)
+     * 
+     */
+    public static CompletableFuture<GetFeedResult> getFeedPlain() {
+        return getFeedPlain(GetFeedPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about existing Feed within a given project in Azure DevOps.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Example
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetFeedArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getFeed(GetFeedArgs.builder()
+     *             .name("releases")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Access feed within a project
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetFeedArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetFeed = AzuredevopsFunctions.getFeed(GetFeedArgs.builder()
+     *             .name("releases")
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Feed - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/artifacts/feed-management/get-feed?view=azure-devops-rest-7.0)
+     * 
+     */
+    public static Output<GetFeedResult> getFeed(GetFeedArgs args) {
+        return getFeed(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about existing Feed within a given project in Azure DevOps.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Example
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetFeedArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getFeed(GetFeedArgs.builder()
+     *             .name("releases")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Access feed within a project
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetFeedArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetFeed = AzuredevopsFunctions.getFeed(GetFeedArgs.builder()
+     *             .name("releases")
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Feed - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/artifacts/feed-management/get-feed?view=azure-devops-rest-7.0)
+     * 
+     */
+    public static CompletableFuture<GetFeedResult> getFeedPlain(GetFeedPlainArgs args) {
+        return getFeedPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about existing Feed within a given project in Azure DevOps.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Example
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetFeedArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getFeed(GetFeedArgs.builder()
+     *             .name("releases")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Access feed within a project
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetFeedArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetFeed = AzuredevopsFunctions.getFeed(GetFeedArgs.builder()
+     *             .name("releases")
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Feed - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/artifacts/feed-management/get-feed?view=azure-devops-rest-7.0)
+     * 
+     */
+    public static Output<GetFeedResult> getFeed(GetFeedArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getFeed:getFeed", TypeShape.of(GetFeedResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing Feed within a given project in Azure DevOps.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Example
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetFeedArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getFeed(GetFeedArgs.builder()
+     *             .name("releases")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Access feed within a project
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetFeedArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetFeed = AzuredevopsFunctions.getFeed(GetFeedArgs.builder()
+     *             .name("releases")
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Feed - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/artifacts/feed-management/get-feed?view=azure-devops-rest-7.0)
+     * 
+     */
+    public static CompletableFuture<GetFeedResult> getFeedPlain(GetFeedPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azuredevops:index/getFeed:getFeed", TypeShape.of(GetFeedResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to access information about a **single** (existing) Git Repository within Azure DevOps.
      * To read information about **multiple** Git Repositories use the data source `azuredevops.getRepositories`
      * 
@@ -2062,6 +2599,556 @@ public final class AzuredevopsFunctions {
      */
     public static CompletableFuture<GetGroupsResult> getGroupsPlain(GetGroupsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azuredevops:index/getGroups:getGroups", TypeShape.of(GetGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Group within Azure DevOps On-Premise(Azure DevOps Server).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetIdentityGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // load existing group with specific name
+     *         final var example-project-group = AzuredevopsFunctions.getIdentityGroup(GetIdentityGroupArgs.builder()
+     *             .projectId(example.id())
+     *             .name("[Project-Name]\\Group-Name")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+     * 
+     */
+    public static Output<GetIdentityGroupResult> getIdentityGroup(GetIdentityGroupArgs args) {
+        return getIdentityGroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Group within Azure DevOps On-Premise(Azure DevOps Server).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetIdentityGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // load existing group with specific name
+     *         final var example-project-group = AzuredevopsFunctions.getIdentityGroup(GetIdentityGroupArgs.builder()
+     *             .projectId(example.id())
+     *             .name("[Project-Name]\\Group-Name")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+     * 
+     */
+    public static CompletableFuture<GetIdentityGroupResult> getIdentityGroupPlain(GetIdentityGroupPlainArgs args) {
+        return getIdentityGroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Group within Azure DevOps On-Premise(Azure DevOps Server).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetIdentityGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // load existing group with specific name
+     *         final var example-project-group = AzuredevopsFunctions.getIdentityGroup(GetIdentityGroupArgs.builder()
+     *             .projectId(example.id())
+     *             .name("[Project-Name]\\Group-Name")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+     * 
+     */
+    public static Output<GetIdentityGroupResult> getIdentityGroup(GetIdentityGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getIdentityGroup:getIdentityGroup", TypeShape.of(GetIdentityGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Group within Azure DevOps On-Premise(Azure DevOps Server).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetIdentityGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // load existing group with specific name
+     *         final var example-project-group = AzuredevopsFunctions.getIdentityGroup(GetIdentityGroupArgs.builder()
+     *             .projectId(example.id())
+     *             .name("[Project-Name]\\Group-Name")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+     * 
+     */
+    public static CompletableFuture<GetIdentityGroupResult> getIdentityGroupPlain(GetIdentityGroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azuredevops:index/getIdentityGroup:getIdentityGroup", TypeShape.of(GetIdentityGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing Groups within Azure DevOps On-Premise(Azure DevOps Server).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetIdentityGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         // load all existing groups inside an organization
+     *         final var example-all-groups = AzuredevopsFunctions.getIdentityGroups();
+     * 
+     *         // load all existing groups inside a specific project
+     *         final var example-project-groups = AzuredevopsFunctions.getIdentityGroups(GetIdentityGroupsArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+     * 
+     */
+    public static Output<GetIdentityGroupsResult> getIdentityGroups() {
+        return getIdentityGroups(GetIdentityGroupsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about existing Groups within Azure DevOps On-Premise(Azure DevOps Server).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetIdentityGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         // load all existing groups inside an organization
+     *         final var example-all-groups = AzuredevopsFunctions.getIdentityGroups();
+     * 
+     *         // load all existing groups inside a specific project
+     *         final var example-project-groups = AzuredevopsFunctions.getIdentityGroups(GetIdentityGroupsArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+     * 
+     */
+    public static CompletableFuture<GetIdentityGroupsResult> getIdentityGroupsPlain() {
+        return getIdentityGroupsPlain(GetIdentityGroupsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about existing Groups within Azure DevOps On-Premise(Azure DevOps Server).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetIdentityGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         // load all existing groups inside an organization
+     *         final var example-all-groups = AzuredevopsFunctions.getIdentityGroups();
+     * 
+     *         // load all existing groups inside a specific project
+     *         final var example-project-groups = AzuredevopsFunctions.getIdentityGroups(GetIdentityGroupsArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+     * 
+     */
+    public static Output<GetIdentityGroupsResult> getIdentityGroups(GetIdentityGroupsArgs args) {
+        return getIdentityGroups(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about existing Groups within Azure DevOps On-Premise(Azure DevOps Server).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetIdentityGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         // load all existing groups inside an organization
+     *         final var example-all-groups = AzuredevopsFunctions.getIdentityGroups();
+     * 
+     *         // load all existing groups inside a specific project
+     *         final var example-project-groups = AzuredevopsFunctions.getIdentityGroups(GetIdentityGroupsArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+     * 
+     */
+    public static CompletableFuture<GetIdentityGroupsResult> getIdentityGroupsPlain(GetIdentityGroupsPlainArgs args) {
+        return getIdentityGroupsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about existing Groups within Azure DevOps On-Premise(Azure DevOps Server).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetIdentityGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         // load all existing groups inside an organization
+     *         final var example-all-groups = AzuredevopsFunctions.getIdentityGroups();
+     * 
+     *         // load all existing groups inside a specific project
+     *         final var example-project-groups = AzuredevopsFunctions.getIdentityGroups(GetIdentityGroupsArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+     * 
+     */
+    public static Output<GetIdentityGroupsResult> getIdentityGroups(GetIdentityGroupsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getIdentityGroups:getIdentityGroups", TypeShape.of(GetIdentityGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing Groups within Azure DevOps On-Premise(Azure DevOps Server).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetIdentityGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         // load all existing groups inside an organization
+     *         final var example-all-groups = AzuredevopsFunctions.getIdentityGroups();
+     * 
+     *         // load all existing groups inside a specific project
+     *         final var example-project-groups = AzuredevopsFunctions.getIdentityGroups(GetIdentityGroupsArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+     * 
+     */
+    public static CompletableFuture<GetIdentityGroupsResult> getIdentityGroupsPlain(GetIdentityGroupsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azuredevops:index/getIdentityGroups:getIdentityGroups", TypeShape.of(GetIdentityGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing users within Azure DevOps On-Premise(Azure DevOps Server).
+     * 
+     */
+    public static Output<GetIdentityUsersResult> getIdentityUsers(GetIdentityUsersArgs args) {
+        return getIdentityUsers(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing users within Azure DevOps On-Premise(Azure DevOps Server).
+     * 
+     */
+    public static CompletableFuture<GetIdentityUsersResult> getIdentityUsersPlain(GetIdentityUsersPlainArgs args) {
+        return getIdentityUsersPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing users within Azure DevOps On-Premise(Azure DevOps Server).
+     * 
+     */
+    public static Output<GetIdentityUsersResult> getIdentityUsers(GetIdentityUsersArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getIdentityUsers:getIdentityUsers", TypeShape.of(GetIdentityUsersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing users within Azure DevOps On-Premise(Azure DevOps Server).
+     * 
+     */
+    public static CompletableFuture<GetIdentityUsersResult> getIdentityUsersPlain(GetIdentityUsersPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azuredevops:index/getIdentityUsers:getIdentityUsers", TypeShape.of(GetIdentityUsersResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Iteration (Sprint) within Azure DevOps.
@@ -3764,6 +4851,194 @@ public final class AzuredevopsFunctions {
      */
     public static CompletableFuture<GetRepositoriesResult> getRepositoriesPlain(GetRepositoriesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azuredevops:index/getRepositories:getRepositories", TypeShape.of(GetRepositoriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing Security Role Definitions within a given scope in Azure DevOps.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityroleDefinitionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getSecurityroleDefinitions(GetSecurityroleDefinitionsArgs.builder()
+     *             .scope("distributedtask.environmentreferencerole")
+     *             .build());
+     * 
+     *         ctx.export("securityroleDefinitions", exampleAazuredevopsSecurityroleDefinitions.definitions());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Roledefinitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static Output<GetSecurityroleDefinitionsResult> getSecurityroleDefinitions(GetSecurityroleDefinitionsArgs args) {
+        return getSecurityroleDefinitions(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about existing Security Role Definitions within a given scope in Azure DevOps.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityroleDefinitionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getSecurityroleDefinitions(GetSecurityroleDefinitionsArgs.builder()
+     *             .scope("distributedtask.environmentreferencerole")
+     *             .build());
+     * 
+     *         ctx.export("securityroleDefinitions", exampleAazuredevopsSecurityroleDefinitions.definitions());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Roledefinitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static CompletableFuture<GetSecurityroleDefinitionsResult> getSecurityroleDefinitionsPlain(GetSecurityroleDefinitionsPlainArgs args) {
+        return getSecurityroleDefinitionsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about existing Security Role Definitions within a given scope in Azure DevOps.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityroleDefinitionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getSecurityroleDefinitions(GetSecurityroleDefinitionsArgs.builder()
+     *             .scope("distributedtask.environmentreferencerole")
+     *             .build());
+     * 
+     *         ctx.export("securityroleDefinitions", exampleAazuredevopsSecurityroleDefinitions.definitions());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Roledefinitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static Output<GetSecurityroleDefinitionsResult> getSecurityroleDefinitions(GetSecurityroleDefinitionsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getSecurityroleDefinitions:getSecurityroleDefinitions", TypeShape.of(GetSecurityroleDefinitionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing Security Role Definitions within a given scope in Azure DevOps.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityroleDefinitionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getSecurityroleDefinitions(GetSecurityroleDefinitionsArgs.builder()
+     *             .scope("distributedtask.environmentreferencerole")
+     *             .build());
+     * 
+     *         ctx.export("securityroleDefinitions", exampleAazuredevopsSecurityroleDefinitions.definitions());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Roledefinitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static CompletableFuture<GetSecurityroleDefinitionsResult> getSecurityroleDefinitionsPlain(GetSecurityroleDefinitionsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azuredevops:index/getSecurityroleDefinitions:getSecurityroleDefinitions", TypeShape.of(GetSecurityroleDefinitionsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing AzureRM service Endpoint.

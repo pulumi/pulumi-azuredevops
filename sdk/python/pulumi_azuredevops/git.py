@@ -103,6 +103,7 @@ class GitArgs:
 class _GitState:
     def __init__(__self__, *,
                  default_branch: Optional[pulumi.Input[str]] = None,
+                 disabled: Optional[pulumi.Input[bool]] = None,
                  initialization: Optional[pulumi.Input['GitInitializationArgs']] = None,
                  is_fork: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -116,6 +117,7 @@ class _GitState:
         """
         Input properties used for looking up and filtering Git resources.
         :param pulumi.Input[str] default_branch: The ref of the default branch. Will be used as the branch name for initialized repositories.
+        :param pulumi.Input[bool] disabled: Is the repository disabled?
         :param pulumi.Input['GitInitializationArgs'] initialization: An `initialization` block as documented below.
         :param pulumi.Input[bool] is_fork: True if the repository was created as a fork.
         :param pulumi.Input[str] name: The name of the git repository.
@@ -129,6 +131,8 @@ class _GitState:
         """
         if default_branch is not None:
             pulumi.set(__self__, "default_branch", default_branch)
+        if disabled is not None:
+            pulumi.set(__self__, "disabled", disabled)
         if initialization is not None:
             pulumi.set(__self__, "initialization", initialization)
         if is_fork is not None:
@@ -161,6 +165,18 @@ class _GitState:
     @default_branch.setter
     def default_branch(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "default_branch", value)
+
+    @property
+    @pulumi.getter
+    def disabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the repository disabled?
+        """
+        return pulumi.get(self, "disabled")
+
+    @disabled.setter
+    def disabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disabled", value)
 
     @property
     @pulumi.getter
@@ -468,6 +484,7 @@ class Git(pulumi.CustomResource):
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__.__dict__["project_id"] = project_id
+            __props__.__dict__["disabled"] = None
             __props__.__dict__["is_fork"] = None
             __props__.__dict__["remote_url"] = None
             __props__.__dict__["size"] = None
@@ -485,6 +502,7 @@ class Git(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             default_branch: Optional[pulumi.Input[str]] = None,
+            disabled: Optional[pulumi.Input[bool]] = None,
             initialization: Optional[pulumi.Input[pulumi.InputType['GitInitializationArgs']]] = None,
             is_fork: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -503,6 +521,7 @@ class Git(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_branch: The ref of the default branch. Will be used as the branch name for initialized repositories.
+        :param pulumi.Input[bool] disabled: Is the repository disabled?
         :param pulumi.Input[pulumi.InputType['GitInitializationArgs']] initialization: An `initialization` block as documented below.
         :param pulumi.Input[bool] is_fork: True if the repository was created as a fork.
         :param pulumi.Input[str] name: The name of the git repository.
@@ -519,6 +538,7 @@ class Git(pulumi.CustomResource):
         __props__ = _GitState.__new__(_GitState)
 
         __props__.__dict__["default_branch"] = default_branch
+        __props__.__dict__["disabled"] = disabled
         __props__.__dict__["initialization"] = initialization
         __props__.__dict__["is_fork"] = is_fork
         __props__.__dict__["name"] = name
@@ -538,6 +558,14 @@ class Git(pulumi.CustomResource):
         The ref of the default branch. Will be used as the branch name for initialized repositories.
         """
         return pulumi.get(self, "default_branch")
+
+    @property
+    @pulumi.getter
+    def disabled(self) -> pulumi.Output[bool]:
+        """
+        Is the repository disabled?
+        """
+        return pulumi.get(self, "disabled")
 
     @property
     @pulumi.getter

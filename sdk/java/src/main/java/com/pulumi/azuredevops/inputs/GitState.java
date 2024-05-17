@@ -34,6 +34,21 @@ public final class GitState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Is the repository disabled?
+     * 
+     */
+    @Import(name="disabled")
+    private @Nullable Output<Boolean> disabled;
+
+    /**
+     * @return Is the repository disabled?
+     * 
+     */
+    public Optional<Output<Boolean>> disabled() {
+        return Optional.ofNullable(this.disabled);
+    }
+
+    /**
      * An `initialization` block as documented below.
      * 
      */
@@ -187,6 +202,7 @@ public final class GitState extends com.pulumi.resources.ResourceArgs {
 
     private GitState(GitState $) {
         this.defaultBranch = $.defaultBranch;
+        this.disabled = $.disabled;
         this.initialization = $.initialization;
         this.isFork = $.isFork;
         this.name = $.name;
@@ -236,6 +252,27 @@ public final class GitState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder defaultBranch(String defaultBranch) {
             return defaultBranch(Output.of(defaultBranch));
+        }
+
+        /**
+         * @param disabled Is the repository disabled?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disabled(@Nullable Output<Boolean> disabled) {
+            $.disabled = disabled;
+            return this;
+        }
+
+        /**
+         * @param disabled Is the repository disabled?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disabled(Boolean disabled) {
+            return disabled(Output.of(disabled));
         }
 
         /**

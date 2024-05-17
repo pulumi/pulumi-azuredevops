@@ -153,6 +153,8 @@ type PipelineAuthorization struct {
 
 	// The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
 	PipelineId pulumi.IntPtrOutput `pulumi:"pipelineId"`
+	// The ID of the project where the pipeline exists. Defaults to `projectId` if not specified. Changing this forces a new resource to be created
+	PipelineProjectId pulumi.StringPtrOutput `pulumi:"pipelineProjectId"`
 	// The  ID of the project. Changing this forces a new resource to be created
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The ID of the resource to authorize. Changing this forces a new resource to be created
@@ -207,6 +209,8 @@ func GetPipelineAuthorization(ctx *pulumi.Context,
 type pipelineAuthorizationState struct {
 	// The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
 	PipelineId *int `pulumi:"pipelineId"`
+	// The ID of the project where the pipeline exists. Defaults to `projectId` if not specified. Changing this forces a new resource to be created
+	PipelineProjectId *string `pulumi:"pipelineProjectId"`
 	// The  ID of the project. Changing this forces a new resource to be created
 	ProjectId *string `pulumi:"projectId"`
 	// The ID of the resource to authorize. Changing this forces a new resource to be created
@@ -223,6 +227,8 @@ type pipelineAuthorizationState struct {
 type PipelineAuthorizationState struct {
 	// The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
 	PipelineId pulumi.IntPtrInput
+	// The ID of the project where the pipeline exists. Defaults to `projectId` if not specified. Changing this forces a new resource to be created
+	PipelineProjectId pulumi.StringPtrInput
 	// The  ID of the project. Changing this forces a new resource to be created
 	ProjectId pulumi.StringPtrInput
 	// The ID of the resource to authorize. Changing this forces a new resource to be created
@@ -243,6 +249,8 @@ func (PipelineAuthorizationState) ElementType() reflect.Type {
 type pipelineAuthorizationArgs struct {
 	// The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
 	PipelineId *int `pulumi:"pipelineId"`
+	// The ID of the project where the pipeline exists. Defaults to `projectId` if not specified. Changing this forces a new resource to be created
+	PipelineProjectId *string `pulumi:"pipelineProjectId"`
 	// The  ID of the project. Changing this forces a new resource to be created
 	ProjectId string `pulumi:"projectId"`
 	// The ID of the resource to authorize. Changing this forces a new resource to be created
@@ -260,6 +268,8 @@ type pipelineAuthorizationArgs struct {
 type PipelineAuthorizationArgs struct {
 	// The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
 	PipelineId pulumi.IntPtrInput
+	// The ID of the project where the pipeline exists. Defaults to `projectId` if not specified. Changing this forces a new resource to be created
+	PipelineProjectId pulumi.StringPtrInput
 	// The  ID of the project. Changing this forces a new resource to be created
 	ProjectId pulumi.StringInput
 	// The ID of the resource to authorize. Changing this forces a new resource to be created
@@ -363,6 +373,11 @@ func (o PipelineAuthorizationOutput) ToPipelineAuthorizationOutputWithContext(ct
 // The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
 func (o PipelineAuthorizationOutput) PipelineId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PipelineAuthorization) pulumi.IntPtrOutput { return v.PipelineId }).(pulumi.IntPtrOutput)
+}
+
+// The ID of the project where the pipeline exists. Defaults to `projectId` if not specified. Changing this forces a new resource to be created
+func (o PipelineAuthorizationOutput) PipelineProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineAuthorization) pulumi.StringPtrOutput { return v.PipelineProjectId }).(pulumi.StringPtrOutput)
 }
 
 // The  ID of the project. Changing this forces a new resource to be created

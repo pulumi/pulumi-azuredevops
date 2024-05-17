@@ -2486,8 +2486,8 @@ github.com/microsoft/azure-devops-go-api/azuredevops v1.0.0-b5 h1:YH424zrwLTlyHS
 github.com/microsoft/azure-devops-go-api/azuredevops v1.0.0-b5/go.mod h1:PoGiBqKSQK1vIfQ+yVaFcGjDySHvym6FM1cNYnwzbrY=
 github.com/microsoft/azure-devops-go-api/azuredevops/v7 v7.1.0 h1:mmJCWLe63QvybxhW1iBmQWEaCKdc4SKgALfTNZ+OphU=
 github.com/microsoft/azure-devops-go-api/azuredevops/v7 v7.1.0/go.mod h1:mDunUZ1IUJdJIRHvFb+LPBUtxe3AYB5MI6BMXNg8194=
-github.com/microsoft/terraform-provider-azuredevops v1.0.1 h1:gikOtpzXUww9FHcsoSUG3vPMSsKIW51sR4XrBLl0pII=
-github.com/microsoft/terraform-provider-azuredevops v1.0.1/go.mod h1:HLZ8P9LGBCZIbKBpslyK8yDA/C4x7N77c7OG2YfXvIA=
+github.com/microsoft/terraform-provider-azuredevops v1.1.0 h1:gyX5iR7Zw4FW6B7qccCQEy9FuehUqCz09dzWrd0mpSc=
+github.com/microsoft/terraform-provider-azuredevops v1.1.0/go.mod h1:IaH2gx+YVIaJfJp3V/ndLZ9AWefG2gJDJkDCXpcwOVs=
 github.com/miekg/dns v1.0.14/go.mod h1:W1PPwlIAgtquWBMBEV9nkV9Cazfe8ScdGz/Lj7v3Nrg=
 github.com/miekg/dns v1.1.26/go.mod h1:bPDLeHnStXmXAq1m/Ch/hvfNHr14JKNPMBo3VZKjuso=
 github.com/miekg/dns v1.1.41/go.mod h1:p6aan82bvRIyn+zDIv9xYNUpwa73JcSh9BKwknJysuI=

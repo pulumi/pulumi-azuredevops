@@ -100,6 +100,10 @@ export class Git extends pulumi.CustomResource {
      */
     public readonly defaultBranch!: pulumi.Output<string>;
     /**
+     * Is the repository disabled?
+     */
+    public /*out*/ readonly disabled!: pulumi.Output<boolean>;
+    /**
      * An `initialization` block as documented below.
      */
     public readonly initialization!: pulumi.Output<outputs.GitInitialization>;
@@ -154,6 +158,7 @@ export class Git extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as GitState | undefined;
             resourceInputs["defaultBranch"] = state ? state.defaultBranch : undefined;
+            resourceInputs["disabled"] = state ? state.disabled : undefined;
             resourceInputs["initialization"] = state ? state.initialization : undefined;
             resourceInputs["isFork"] = state ? state.isFork : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -177,6 +182,7 @@ export class Git extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parentRepositoryId"] = args ? args.parentRepositoryId : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["disabled"] = undefined /*out*/;
             resourceInputs["isFork"] = undefined /*out*/;
             resourceInputs["remoteUrl"] = undefined /*out*/;
             resourceInputs["size"] = undefined /*out*/;
@@ -197,6 +203,10 @@ export interface GitState {
      * The ref of the default branch. Will be used as the branch name for initialized repositories.
      */
     defaultBranch?: pulumi.Input<string>;
+    /**
+     * Is the repository disabled?
+     */
+    disabled?: pulumi.Input<boolean>;
     /**
      * An `initialization` block as documented below.
      */

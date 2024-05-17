@@ -96,6 +96,20 @@ public class Git extends com.pulumi.resources.CustomResource {
         return this.defaultBranch;
     }
     /**
+     * Is the repository disabled?
+     * 
+     */
+    @Export(name="disabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> disabled;
+
+    /**
+     * @return Is the repository disabled?
+     * 
+     */
+    public Output<Boolean> disabled() {
+        return this.disabled;
+    }
+    /**
      * An `initialization` block as documented below.
      * 
      */

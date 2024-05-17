@@ -134,6 +134,10 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public readonly string DefaultBranch;
         /// <summary>
+        /// Is the repository disabled?
+        /// </summary>
+        public readonly bool Disabled;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -171,6 +175,8 @@ namespace Pulumi.AzureDevOps
         private GetGitRepositoryResult(
             string defaultBranch,
 
+            bool disabled,
+
             string id,
 
             bool isFork,
@@ -190,6 +196,7 @@ namespace Pulumi.AzureDevOps
             string webUrl)
         {
             DefaultBranch = defaultBranch;
+            Disabled = disabled;
             Id = id;
             IsFork = isFork;
             Name = name;

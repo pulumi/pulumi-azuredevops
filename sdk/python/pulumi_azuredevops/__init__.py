@@ -25,20 +25,27 @@ from .check_required_template import *
 from .elastic_pool import *
 from .environment import *
 from .environment_resource_kubernetes import *
+from .feed import *
+from .feed_permission import *
 from .get_agent_queue import *
 from .get_area import *
 from .get_build_definition import *
 from .get_client_config import *
 from .get_environment import *
+from .get_feed import *
 from .get_git_repository import *
 from .get_group import *
 from .get_groups import *
+from .get_identity_group import *
+from .get_identity_groups import *
+from .get_identity_users import *
 from .get_iteration import *
 from .get_pool import *
 from .get_pools import *
 from .get_project import *
 from .get_projects import *
 from .get_repositories import *
+from .get_securityrole_definitions import *
 from .get_service_endpoint_azure_rm import *
 from .get_service_endpoint_github import *
 from .get_serviceendpoint_azurecr import *
@@ -73,6 +80,7 @@ from .repository_policy_max_file_size import *
 from .repository_policy_max_path_length import *
 from .repository_policy_reserved_names import *
 from .resource_authorization import *
+from .securityrole_assignment import *
 from .service_endpoint_artifactory import *
 from .service_endpoint_aws import *
 from .service_endpoint_azure_dev_ops import *
@@ -291,6 +299,22 @@ _utilities.register(
  },
  {
   "pkg": "azuredevops",
+  "mod": "index/feed",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/feed:Feed": "Feed"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/feedPermission",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/feedPermission:FeedPermission": "FeedPermission"
+  }
+ },
+ {
+  "pkg": "azuredevops",
   "mod": "index/git",
   "fqn": "pulumi_azuredevops",
   "classes": {
@@ -479,6 +503,14 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/resourceAuthorization:ResourceAuthorization": "ResourceAuthorization"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/securityroleAssignment",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/securityroleAssignment:SecurityroleAssignment": "SecurityroleAssignment"
   }
  },
  {

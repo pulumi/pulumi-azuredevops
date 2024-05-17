@@ -122,6 +122,10 @@ export class PipelineAuthorization extends pulumi.CustomResource {
      */
     public readonly pipelineId!: pulumi.Output<number | undefined>;
     /**
+     * The ID of the project where the pipeline exists. Defaults to `projectId` if not specified. Changing this forces a new resource to be created
+     */
+    public readonly pipelineProjectId!: pulumi.Output<string | undefined>;
+    /**
      * The  ID of the project. Changing this forces a new resource to be created
      */
     public readonly projectId!: pulumi.Output<string>;
@@ -153,6 +157,7 @@ export class PipelineAuthorization extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as PipelineAuthorizationState | undefined;
             resourceInputs["pipelineId"] = state ? state.pipelineId : undefined;
+            resourceInputs["pipelineProjectId"] = state ? state.pipelineProjectId : undefined;
             resourceInputs["projectId"] = state ? state.projectId : undefined;
             resourceInputs["resourceId"] = state ? state.resourceId : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
@@ -168,6 +173,7 @@ export class PipelineAuthorization extends pulumi.CustomResource {
                 throw new Error("Missing required property 'type'");
             }
             resourceInputs["pipelineId"] = args ? args.pipelineId : undefined;
+            resourceInputs["pipelineProjectId"] = args ? args.pipelineProjectId : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
@@ -185,6 +191,10 @@ export interface PipelineAuthorizationState {
      * The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
      */
     pipelineId?: pulumi.Input<number>;
+    /**
+     * The ID of the project where the pipeline exists. Defaults to `projectId` if not specified. Changing this forces a new resource to be created
+     */
+    pipelineProjectId?: pulumi.Input<string>;
     /**
      * The  ID of the project. Changing this forces a new resource to be created
      */
@@ -212,6 +222,10 @@ export interface PipelineAuthorizationArgs {
      * The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
      */
     pipelineId?: pulumi.Input<number>;
+    /**
+     * The ID of the project where the pipeline exists. Defaults to `projectId` if not specified. Changing this forces a new resource to be created
+     */
+    pipelineProjectId?: pulumi.Input<string>;
     /**
      * The  ID of the project. Changing this forces a new resource to be created
      */

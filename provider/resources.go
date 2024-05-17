@@ -149,6 +149,13 @@ func Provider() tfbridge.ProviderInfo {
 			"azuredevops_projects":         {Tok: makeDataSource("getProjects")},
 			"azuredevops_git_repositories": {Tok: makeDataSource("getRepositories")},
 			"azuredevops_users":            {Tok: makeDataSource("getUsers")},
+			"azuredevops_identity_user": {
+				// Pluralizing because the data source returns multiple users and the docs file is pluralized.
+				Tok: makeDataSource("getIdentityUsers"),
+				Docs: &tfbridge.DocInfo{
+					Source: "identity_users.html.markdown",
+				},
+			},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

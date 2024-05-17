@@ -80,6 +80,12 @@ namespace Pulumi.AzureDevOps
         public Output<string> DefaultBranch { get; private set; } = null!;
 
         /// <summary>
+        /// Is the repository disabled?
+        /// </summary>
+        [Output("disabled")]
+        public Output<bool> Disabled { get; private set; } = null!;
+
+        /// <summary>
         /// An `initialization` block as documented below.
         /// </summary>
         [Output("initialization")]
@@ -228,6 +234,12 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Input("defaultBranch")]
         public Input<string>? DefaultBranch { get; set; }
+
+        /// <summary>
+        /// Is the repository disabled?
+        /// </summary>
+        [Input("disabled")]
+        public Input<bool>? Disabled { get; set; }
 
         /// <summary>
         /// An `initialization` block as documented below.

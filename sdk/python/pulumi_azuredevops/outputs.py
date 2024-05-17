@@ -40,6 +40,7 @@ __all__ = [
     'BuildDefinitionScheduleBranchFilter',
     'BuildDefinitionVariable',
     'CheckRequiredTemplateRequiredTemplate',
+    'FeedFeature',
     'GitInitialization',
     'ServiceEndpointArtifactoryAuthenticationBasic',
     'ServiceEndpointArtifactoryAuthenticationToken',
@@ -87,10 +88,12 @@ __all__ = [
     'GetBuildDefinitionScheduleBranchFilterResult',
     'GetBuildDefinitionVariableResult',
     'GetGroupsGroupResult',
+    'GetIdentityGroupsGroupResult',
     'GetIterationChildrenResult',
     'GetPoolsAgentPoolResult',
     'GetProjectsProjectResult',
     'GetRepositoriesRepositoryResult',
+    'GetSecurityroleDefinitionsDefinitionResult',
     'GetTeamsTeamResult',
     'GetUsersFeaturesResult',
     'GetUsersUserResult',
@@ -2348,6 +2351,54 @@ class CheckRequiredTemplateRequiredTemplate(dict):
 
 
 @pulumi.output_type
+class FeedFeature(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "permanentDelete":
+            suggest = "permanent_delete"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FeedFeature. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FeedFeature.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FeedFeature.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 permanent_delete: Optional[bool] = None,
+                 restore: Optional[bool] = None):
+        """
+        :param bool permanent_delete: Determines if Feed should be Permanently removed, Defaults to `false`
+        :param bool restore: Determines if Feed should be Restored during creation (if possible), Defaults to `false`
+        """
+        if permanent_delete is not None:
+            pulumi.set(__self__, "permanent_delete", permanent_delete)
+        if restore is not None:
+            pulumi.set(__self__, "restore", restore)
+
+    @property
+    @pulumi.getter(name="permanentDelete")
+    def permanent_delete(self) -> Optional[bool]:
+        """
+        Determines if Feed should be Permanently removed, Defaults to `false`
+        """
+        return pulumi.get(self, "permanent_delete")
+
+    @property
+    @pulumi.getter
+    def restore(self) -> Optional[bool]:
+        """
+        Determines if Feed should be Restored during creation (if possible), Defaults to `false`
+        """
+        return pulumi.get(self, "restore")
+
+
+@pulumi.output_type
 class GitInitialization(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -4523,6 +4574,31 @@ class GetGroupsGroupResult(dict):
 
 
 @pulumi.output_type
+class GetIdentityGroupsGroupResult(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 name: str):
+        """
+        :param str name: This is the non-unique display name of the identity subject. To change this field, you must alter its value in the source provider.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        This is the non-unique display name of the identity subject. To change this field, you must alter its value in the source provider.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class GetIterationChildrenResult(dict):
     def __init__(__self__, *,
                  has_children: bool,
@@ -4701,6 +4777,7 @@ class GetProjectsProjectResult(dict):
 class GetRepositoriesRepositoryResult(dict):
     def __init__(__self__, *,
                  default_branch: str,
+                 disabled: bool,
                  id: str,
                  name: str,
                  project_id: str,
@@ -4711,6 +4788,7 @@ class GetRepositoriesRepositoryResult(dict):
                  web_url: str):
         """
         :param str default_branch: The ref of the default branch.
+        :param bool disabled: Is the repository disabled?
         :param str id: Git repository identifier.
         :param str name: Name of the Git repository to retrieve; requires `project_id` to be specified as well
         :param str project_id: ID of project to list Git repositories
@@ -4721,6 +4799,7 @@ class GetRepositoriesRepositoryResult(dict):
         :param str web_url: Url of the Git repository web view
         """
         pulumi.set(__self__, "default_branch", default_branch)
+        pulumi.set(__self__, "disabled", disabled)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "project_id", project_id)
@@ -4737,6 +4816,14 @@ class GetRepositoriesRepositoryResult(dict):
         The ref of the default branch.
         """
         return pulumi.get(self, "default_branch")
+
+    @property
+    @pulumi.getter
+    def disabled(self) -> bool:
+        """
+        Is the repository disabled?
+        """
+        return pulumi.get(self, "disabled")
 
     @property
     @pulumi.getter
@@ -4801,6 +4888,95 @@ class GetRepositoriesRepositoryResult(dict):
         Url of the Git repository web view
         """
         return pulumi.get(self, "web_url")
+
+
+@pulumi.output_type
+class GetSecurityroleDefinitionsDefinitionResult(dict):
+    def __init__(__self__, *,
+                 allow_permissions: int,
+                 description: str,
+                 display_name: str,
+                 identifier: str,
+                 name: str,
+                 scope: str,
+                 deny_permissions: Optional[int] = None):
+        """
+        :param int allow_permissions: The mask of allowed permissions of the Security Role Definition.
+        :param str description: The description of the Security Role Definition.
+        :param str display_name: The display name of the Security Role Definition.
+        :param str identifier: The identifier of the Security Role Definition.
+        :param str name: The name of the Security Role Definition.
+        :param str scope: Name of the Scope for which Security Role Definitions will be returned.
+               
+               DataSource without specifying any arguments will return all projects.
+        :param int deny_permissions: The mask of the denied permissions of the Security Role Definition.
+        """
+        pulumi.set(__self__, "allow_permissions", allow_permissions)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "identifier", identifier)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "scope", scope)
+        if deny_permissions is not None:
+            pulumi.set(__self__, "deny_permissions", deny_permissions)
+
+    @property
+    @pulumi.getter(name="allowPermissions")
+    def allow_permissions(self) -> int:
+        """
+        The mask of allowed permissions of the Security Role Definition.
+        """
+        return pulumi.get(self, "allow_permissions")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The description of the Security Role Definition.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        """
+        The display name of the Security Role Definition.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> str:
+        """
+        The identifier of the Security Role Definition.
+        """
+        return pulumi.get(self, "identifier")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Security Role Definition.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> str:
+        """
+        Name of the Scope for which Security Role Definitions will be returned.
+
+        DataSource without specifying any arguments will return all projects.
+        """
+        return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter(name="denyPermissions")
+    def deny_permissions(self) -> Optional[int]:
+        """
+        The mask of the denied permissions of the Security Role Definition.
+        """
+        return pulumi.get(self, "deny_permissions")
 
 
 @pulumi.output_type

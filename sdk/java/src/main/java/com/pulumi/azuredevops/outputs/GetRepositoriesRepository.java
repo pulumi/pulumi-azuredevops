@@ -5,6 +5,7 @@ package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -16,6 +17,11 @@ public final class GetRepositoriesRepository {
      * 
      */
     private String defaultBranch;
+    /**
+     * @return Is the repository disabled?
+     * 
+     */
+    private Boolean disabled;
     /**
      * @return Git repository identifier.
      * 
@@ -64,6 +70,13 @@ public final class GetRepositoriesRepository {
      */
     public String defaultBranch() {
         return this.defaultBranch;
+    }
+    /**
+     * @return Is the repository disabled?
+     * 
+     */
+    public Boolean disabled() {
+        return this.disabled;
     }
     /**
      * @return Git repository identifier.
@@ -132,6 +145,7 @@ public final class GetRepositoriesRepository {
     @CustomType.Builder
     public static final class Builder {
         private String defaultBranch;
+        private Boolean disabled;
         private String id;
         private String name;
         private String projectId;
@@ -144,6 +158,7 @@ public final class GetRepositoriesRepository {
         public Builder(GetRepositoriesRepository defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultBranch = defaults.defaultBranch;
+    	      this.disabled = defaults.disabled;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.projectId = defaults.projectId;
@@ -160,6 +175,14 @@ public final class GetRepositoriesRepository {
               throw new MissingRequiredPropertyException("GetRepositoriesRepository", "defaultBranch");
             }
             this.defaultBranch = defaultBranch;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder disabled(Boolean disabled) {
+            if (disabled == null) {
+              throw new MissingRequiredPropertyException("GetRepositoriesRepository", "disabled");
+            }
+            this.disabled = disabled;
             return this;
         }
         @CustomType.Setter
@@ -229,6 +252,7 @@ public final class GetRepositoriesRepository {
         public GetRepositoriesRepository build() {
             final var _resultValue = new GetRepositoriesRepository();
             _resultValue.defaultBranch = defaultBranch;
+            _resultValue.disabled = disabled;
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.projectId = projectId;

@@ -39,6 +39,7 @@ __all__ = [
     'BuildDefinitionScheduleBranchFilterArgs',
     'BuildDefinitionVariableArgs',
     'CheckRequiredTemplateRequiredTemplateArgs',
+    'FeedFeatureArgs',
     'GitInitializationArgs',
     'ServiceEndpointArtifactoryAuthenticationBasicArgs',
     'ServiceEndpointArtifactoryAuthenticationTokenArgs',
@@ -2265,6 +2266,45 @@ class CheckRequiredTemplateRequiredTemplateArgs:
     @repository_type.setter
     def repository_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "repository_type", value)
+
+
+@pulumi.input_type
+class FeedFeatureArgs:
+    def __init__(__self__, *,
+                 permanent_delete: Optional[pulumi.Input[bool]] = None,
+                 restore: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] permanent_delete: Determines if Feed should be Permanently removed, Defaults to `false`
+        :param pulumi.Input[bool] restore: Determines if Feed should be Restored during creation (if possible), Defaults to `false`
+        """
+        if permanent_delete is not None:
+            pulumi.set(__self__, "permanent_delete", permanent_delete)
+        if restore is not None:
+            pulumi.set(__self__, "restore", restore)
+
+    @property
+    @pulumi.getter(name="permanentDelete")
+    def permanent_delete(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines if Feed should be Permanently removed, Defaults to `false`
+        """
+        return pulumi.get(self, "permanent_delete")
+
+    @permanent_delete.setter
+    def permanent_delete(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "permanent_delete", value)
+
+    @property
+    @pulumi.getter
+    def restore(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines if Feed should be Restored during creation (if possible), Defaults to `false`
+        """
+        return pulumi.get(self, "restore")
+
+    @restore.setter
+    def restore(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "restore", value)
 
 
 @pulumi.input_type

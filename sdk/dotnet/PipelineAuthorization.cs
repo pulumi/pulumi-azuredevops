@@ -135,6 +135,12 @@ namespace Pulumi.AzureDevOps
         public Output<int?> PipelineId { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the project where the pipeline exists. Defaults to `project_id` if not specified. Changing this forces a new resource to be created
+        /// </summary>
+        [Output("pipelineProjectId")]
+        public Output<string?> PipelineProjectId { get; private set; } = null!;
+
+        /// <summary>
         /// The  ID of the project. Changing this forces a new resource to be created
         /// </summary>
         [Output("projectId")]
@@ -210,6 +216,12 @@ namespace Pulumi.AzureDevOps
         public Input<int>? PipelineId { get; set; }
 
         /// <summary>
+        /// The ID of the project where the pipeline exists. Defaults to `project_id` if not specified. Changing this forces a new resource to be created
+        /// </summary>
+        [Input("pipelineProjectId")]
+        public Input<string>? PipelineProjectId { get; set; }
+
+        /// <summary>
         /// The  ID of the project. Changing this forces a new resource to be created
         /// </summary>
         [Input("projectId", required: true)]
@@ -245,6 +257,12 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Input("pipelineId")]
         public Input<int>? PipelineId { get; set; }
+
+        /// <summary>
+        /// The ID of the project where the pipeline exists. Defaults to `project_id` if not specified. Changing this forces a new resource to be created
+        /// </summary>
+        [Input("pipelineProjectId")]
+        public Input<string>? PipelineProjectId { get; set; }
 
         /// <summary>
         /// The  ID of the project. Changing this forces a new resource to be created
