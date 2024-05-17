@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .build());
  * 
- *         var exampleGit = new Git("exampleGit", GitArgs.builder()        
+ *         var exampleGit = new Git("exampleGit", GitArgs.builder()
  *             .projectId(example.id())
  *             .name("Example Repository")
  *             .initialization(GitInitializationArgs.builder()
@@ -64,12 +64,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+ *         var exampleUser = new User("exampleUser", UserArgs.builder()
  *             .principalName("mail{@literal @}email.com")
  *             .accountLicenseType("basic")
  *             .build());
  * 
- *         var exampleBranchPolicyAutoReviewers = new BranchPolicyAutoReviewers("exampleBranchPolicyAutoReviewers", BranchPolicyAutoReviewersArgs.builder()        
+ *         var exampleBranchPolicyAutoReviewers = new BranchPolicyAutoReviewers("exampleBranchPolicyAutoReviewers", BranchPolicyAutoReviewersArgs.builder()
  *             .projectId(example.id())
  *             .enabled(true)
  *             .blocking(true)

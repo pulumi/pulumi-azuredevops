@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .workItemTemplate("Agile")
  *             .versionControl("Git")
@@ -62,12 +62,12 @@ import javax.annotation.Nullable;
  *             .name("Readers")
  *             .build());
  * 
- *         var exampleTeam = new Team("exampleTeam", TeamArgs.builder()        
+ *         var exampleTeam = new Team("exampleTeam", TeamArgs.builder()
  *             .projectId(example.id())
  *             .name(example.name().applyValue(name -> String.format("%s Team 2", name)))
  *             .build());
  * 
- *         var example_team_members = new TeamMembers("example-team-members", TeamMembersArgs.builder()        
+ *         var example_team_members = new TeamMembers("example-team-members", TeamMembersArgs.builder()
  *             .projectId(exampleTeam.projectId())
  *             .teamId(exampleTeam.id())
  *             .mode("overwrite")

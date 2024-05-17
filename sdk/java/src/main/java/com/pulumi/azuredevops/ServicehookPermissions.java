@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .workItemTemplate("Agile")
  *             .versionControl("Git")
@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *             .name("Readers")
  *             .build());
  * 
- *         var example_permissions = new ServicehookPermissions("example-permissions", ServicehookPermissionsArgs.builder()        
+ *         var example_permissions = new ServicehookPermissions("example-permissions", ServicehookPermissionsArgs.builder()
  *             .projectId(example.id())
  *             .principal(example_readers.applyValue(example_readers -> example_readers.id()))
  *             .permissions(Map.ofEntries(

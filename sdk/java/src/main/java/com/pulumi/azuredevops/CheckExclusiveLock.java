@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .build());
  * 
- *         var exampleServiceEndpointGeneric = new ServiceEndpointGeneric("exampleServiceEndpointGeneric", ServiceEndpointGenericArgs.builder()        
+ *         var exampleServiceEndpointGeneric = new ServiceEndpointGeneric("exampleServiceEndpointGeneric", ServiceEndpointGenericArgs.builder()
  *             .projectId(example.id())
  *             .serverUrl("https://some-server.example.com")
  *             .username("username")
@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleCheckExclusiveLock = new CheckExclusiveLock("exampleCheckExclusiveLock", CheckExclusiveLockArgs.builder()        
+ *         var exampleCheckExclusiveLock = new CheckExclusiveLock("exampleCheckExclusiveLock", CheckExclusiveLockArgs.builder()
  *             .projectId(example.id())
  *             .targetResourceId(exampleServiceEndpointGeneric.id())
  *             .targetResourceType("endpoint")
@@ -106,16 +106,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .build());
  * 
- *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()        
+ *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()
  *             .projectId(example.id())
  *             .name("Example Environment")
  *             .build());
  * 
- *         var exampleCheckExclusiveLock = new CheckExclusiveLock("exampleCheckExclusiveLock", CheckExclusiveLockArgs.builder()        
+ *         var exampleCheckExclusiveLock = new CheckExclusiveLock("exampleCheckExclusiveLock", CheckExclusiveLockArgs.builder()
  *             .projectId(example.id())
  *             .targetResourceId(exampleEnvironment.id())
  *             .targetResourceType("environment")

@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .workItemTemplate("Agile")
  *             .versionControl("Git")
@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *             .name("Readers")
  *             .build());
  * 
- *         var example_root_permissions = new ServiceendpointPermissions("example-root-permissions", ServiceendpointPermissionsArgs.builder()        
+ *         var example_root_permissions = new ServiceendpointPermissions("example-root-permissions", ServiceendpointPermissionsArgs.builder()
  *             .projectId(example.id())
  *             .principal(example_readers.applyValue(example_readers -> example_readers.id()))
  *             .permissions(Map.ofEntries(
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *             ))
  *             .build());
  * 
- *         var exampleServiceEndpointDockerRegistry = new ServiceEndpointDockerRegistry("exampleServiceEndpointDockerRegistry", ServiceEndpointDockerRegistryArgs.builder()        
+ *         var exampleServiceEndpointDockerRegistry = new ServiceEndpointDockerRegistry("exampleServiceEndpointDockerRegistry", ServiceEndpointDockerRegistryArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example Docker Hub")
  *             .dockerUsername("username")
@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  *             .registryType("DockerHub")
  *             .build());
  * 
- *         var example_permissions = new ServiceendpointPermissions("example-permissions", ServiceendpointPermissionsArgs.builder()        
+ *         var example_permissions = new ServiceendpointPermissions("example-permissions", ServiceendpointPermissionsArgs.builder()
  *             .projectId(example.id())
  *             .principal(example_readers.applyValue(example_readers -> example_readers.id()))
  *             .serviceendpointId(exampleServiceEndpointDockerRegistry.id())

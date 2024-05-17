@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleGit = new Git("exampleGit", GitArgs.builder()        
+ *         var exampleGit = new Git("exampleGit", GitArgs.builder()
  *             .projectId(example.id())
  *             .name("Example Repository")
  *             .initialization(GitInitializationArgs.builder()
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleRepositoryPolicyReservedNames = new RepositoryPolicyReservedNames("exampleRepositoryPolicyReservedNames", RepositoryPolicyReservedNamesArgs.builder()        
+ *         var exampleRepositoryPolicyReservedNames = new RepositoryPolicyReservedNames("exampleRepositoryPolicyReservedNames", RepositoryPolicyReservedNamesArgs.builder()
  *             .projectId(example.id())
  *             .enabled(true)
  *             .blocking(true)
@@ -106,7 +106,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
@@ -114,7 +114,7 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleRepositoryPolicyReservedNames = new RepositoryPolicyReservedNames("exampleRepositoryPolicyReservedNames", RepositoryPolicyReservedNamesArgs.builder()        
+ *         var exampleRepositoryPolicyReservedNames = new RepositoryPolicyReservedNames("exampleRepositoryPolicyReservedNames", RepositoryPolicyReservedNamesArgs.builder()
  *             .projectId(example.id())
  *             .enabled(true)
  *             .blocking(true)

@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .workItemTemplate("Agile")
  *             .versionControl("Git")
@@ -67,13 +67,13 @@ import javax.annotation.Nullable;
  *             .name("Readers")
  *             .build());
  * 
- *         var exampleBuildFolder = new BuildFolder("exampleBuildFolder", BuildFolderArgs.builder()        
+ *         var exampleBuildFolder = new BuildFolder("exampleBuildFolder", BuildFolderArgs.builder()
  *             .projectId(example.id())
  *             .path("\\ExampleFolder")
  *             .description("ExampleFolder description")
  *             .build());
  * 
- *         var exampleBuildFolderPermissions = new BuildFolderPermissions("exampleBuildFolderPermissions", BuildFolderPermissionsArgs.builder()        
+ *         var exampleBuildFolderPermissions = new BuildFolderPermissions("exampleBuildFolderPermissions", BuildFolderPermissionsArgs.builder()
  *             .projectId(example.id())
  *             .path("\\ExampleFolder")
  *             .principal(example_readers.applyValue(example_readers -> example_readers.id()))
@@ -128,7 +128,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .workItemTemplate("Agile")
  *             .versionControl("Git")
@@ -141,7 +141,7 @@ import javax.annotation.Nullable;
  *             .name("Readers")
  *             .build());
  * 
- *         var exampleBuildFolderPermissions = new BuildFolderPermissions("exampleBuildFolderPermissions", BuildFolderPermissionsArgs.builder()        
+ *         var exampleBuildFolderPermissions = new BuildFolderPermissions("exampleBuildFolderPermissions", BuildFolderPermissionsArgs.builder()
  *             .projectId(example.id())
  *             .path("\\")
  *             .principal(example_readers.applyValue(example_readers -> example_readers.id()))

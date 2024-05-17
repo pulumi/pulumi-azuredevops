@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .workItemTemplate("Agile")
  *             .versionControl("Git")
@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  *             .name("Readers")
  *             .build());
  * 
- *         var project_wiq_root_permissions = new WorkItemQueryPermissions("project-wiq-root-permissions", WorkItemQueryPermissionsArgs.builder()        
+ *         var project_wiq_root_permissions = new WorkItemQueryPermissions("project-wiq-root-permissions", WorkItemQueryPermissionsArgs.builder()
  *             .projectId(example.id())
  *             .principal(example_readers.applyValue(example_readers -> example_readers.id()))
  *             .permissions(Map.ofEntries(
@@ -123,7 +123,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .workItemTemplate("Agile")
  *             .versionControl("Git")
@@ -136,7 +136,7 @@ import javax.annotation.Nullable;
  *             .name("Readers")
  *             .build());
  * 
- *         var example_permissions = new WorkItemQueryPermissions("example-permissions", WorkItemQueryPermissionsArgs.builder()        
+ *         var example_permissions = new WorkItemQueryPermissions("example-permissions", WorkItemQueryPermissionsArgs.builder()
  *             .projectId(example.id())
  *             .path("/Team")
  *             .principal(example_readers.applyValue(example_readers -> example_readers.id()))
@@ -182,7 +182,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .workItemTemplate("Agile")
  *             .versionControl("Git")
@@ -200,7 +200,7 @@ import javax.annotation.Nullable;
  *             .name("Contributors")
  *             .build());
  * 
- *         var example_project_permissions = new WorkItemQueryPermissions("example-project-permissions", WorkItemQueryPermissionsArgs.builder()        
+ *         var example_project_permissions = new WorkItemQueryPermissions("example-project-permissions", WorkItemQueryPermissionsArgs.builder()
  *             .projectId(example.id())
  *             .principal(example_readers.applyValue(example_readers -> example_readers.id()))
  *             .permissions(Map.ofEntries(
@@ -211,7 +211,7 @@ import javax.annotation.Nullable;
  *             ))
  *             .build());
  * 
- *         var example_sharedqueries_permissions = new WorkItemQueryPermissions("example-sharedqueries-permissions", WorkItemQueryPermissionsArgs.builder()        
+ *         var example_sharedqueries_permissions = new WorkItemQueryPermissions("example-sharedqueries-permissions", WorkItemQueryPermissionsArgs.builder()
  *             .projectId(example.id())
  *             .path("/")
  *             .principal(example_contributors.applyValue(example_contributors -> example_contributors.id()))
