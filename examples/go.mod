@@ -138,7 +138,7 @@ require (
 	github.com/mattn/go-runewidth v0.0.15 // indirect
 	github.com/microsoft/azure-devops-go-api/azuredevops v1.0.0-b5 // indirect
 	github.com/microsoft/azure-devops-go-api/azuredevops/v7 v7.1.0 // indirect
-	github.com/microsoft/terraform-provider-azuredevops v1.1.0 // indirect
+	github.com/microsoft/terraform-provider-azuredevops v1.1.1 // indirect
 	github.com/mitchellh/copystructure v1.2.0 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
 	github.com/mitchellh/go-ps v1.0.0 // indirect
