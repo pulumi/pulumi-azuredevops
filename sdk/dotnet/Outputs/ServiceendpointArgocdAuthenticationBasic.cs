@@ -14,11 +14,11 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class ServiceendpointArgocdAuthenticationBasic
     {
         /// <summary>
-        /// The ArgoCD password.
+        /// ArgoCD Password.
         /// </summary>
         public readonly string Password;
         /// <summary>
-        /// The ArgoCD user name.
+        /// ArgoCD Username.
         /// </summary>
         public readonly string Username;
 

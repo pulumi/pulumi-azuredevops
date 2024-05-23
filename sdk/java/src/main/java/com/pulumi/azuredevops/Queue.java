@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+ *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()
  *             .name("Example Project")
  *             .build());
  * 
@@ -62,13 +62,13 @@ import javax.annotation.Nullable;
  *             .name("example-pool")
  *             .build());
  * 
- *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()        
+ *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()
  *             .projectId(exampleProject.id())
  *             .agentPoolId(example.applyValue(getPoolResult -> getPoolResult.id()))
  *             .build());
  * 
  *         // Grant access to queue to all pipelines in the project
- *         var exampleResourceAuthorization = new ResourceAuthorization("exampleResourceAuthorization", ResourceAuthorizationArgs.builder()        
+ *         var exampleResourceAuthorization = new ResourceAuthorization("exampleResourceAuthorization", ResourceAuthorizationArgs.builder()
  *             .projectId(exampleProject.id())
  *             .resourceId(exampleQueue.id())
  *             .type("queue")
@@ -112,7 +112,7 @@ import javax.annotation.Nullable;
  *             .name("Example Project")
  *             .build());
  * 
- *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()        
+ *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()
  *             .name("example-queue")
  *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
  *             .build());

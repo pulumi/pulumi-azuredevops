@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .workItemTemplate("Agile")
  *             .versionControl("Git")
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *             .name("Readers")
  *             .build());
  * 
- *         var example_root_permissions = new AreaPermissions("example-root-permissions", AreaPermissionsArgs.builder()        
+ *         var example_root_permissions = new AreaPermissions("example-root-permissions", AreaPermissionsArgs.builder()
  *             .projectId(example.id())
  *             .principal(example_project_readers.applyValue(example_project_readers -> example_project_readers.id()))
  *             .path("/")

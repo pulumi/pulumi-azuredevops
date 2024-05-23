@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class ServiceendpointArgocdAuthenticationToken {
     /**
-     * @return The ArgoCD access token.
+     * @return Authentication Token generated through ArgoCD.
      * 
      */
     private String token;
 
     private ServiceendpointArgocdAuthenticationToken() {}
     /**
-     * @return The ArgoCD access token.
+     * @return Authentication Token generated through ArgoCD.
      * 
      */
     public String token() {

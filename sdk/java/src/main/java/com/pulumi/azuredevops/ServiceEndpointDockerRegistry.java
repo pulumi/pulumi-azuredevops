@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // dockerhub registry service connection
- *         var exampleServiceEndpointDockerRegistry = new ServiceEndpointDockerRegistry("exampleServiceEndpointDockerRegistry", ServiceEndpointDockerRegistryArgs.builder()        
+ *         var exampleServiceEndpointDockerRegistry = new ServiceEndpointDockerRegistry("exampleServiceEndpointDockerRegistry", ServiceEndpointDockerRegistryArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example Docker Hub")
  *             .dockerUsername("example")
@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // other docker registry service connection
- *         var example_other = new ServiceEndpointDockerRegistry("example-other", ServiceEndpointDockerRegistryArgs.builder()        
+ *         var example_other = new ServiceEndpointDockerRegistry("example-other", ServiceEndpointDockerRegistryArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example Docker Registry")
  *             .dockerRegistry("https://sample.azurecr.io/v1")

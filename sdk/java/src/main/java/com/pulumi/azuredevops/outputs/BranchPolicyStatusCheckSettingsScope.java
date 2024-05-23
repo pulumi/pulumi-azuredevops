@@ -11,17 +11,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BranchPolicyStatusCheckSettingsScope {
+    /**
+     * @return The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
+     * 
+     */
     private @Nullable String matchType;
+    /**
+     * @return The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
+     * 
+     */
     private @Nullable String repositoryId;
+    /**
+     * @return The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+     * 
+     */
     private @Nullable String repositoryRef;
 
     private BranchPolicyStatusCheckSettingsScope() {}
+    /**
+     * @return The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
+     * 
+     */
     public Optional<String> matchType() {
         return Optional.ofNullable(this.matchType);
     }
+    /**
+     * @return The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
+     * 
+     */
     public Optional<String> repositoryId() {
         return Optional.ofNullable(this.repositoryId);
     }
+    /**
+     * @return The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+     * 
+     */
     public Optional<String> repositoryRef() {
         return Optional.ofNullable(this.repositoryRef);
     }

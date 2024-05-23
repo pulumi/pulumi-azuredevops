@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceEndpointGitHub = new ServiceEndpointGitHub("exampleServiceEndpointGitHub", ServiceEndpointGitHubArgs.builder()        
+ *         var exampleServiceEndpointGitHub = new ServiceEndpointGitHub("exampleServiceEndpointGitHub", ServiceEndpointGitHubArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example GitHub Personal Access Token")
  *             .authPersonal(ServiceEndpointGitHubAuthPersonalArgs.builder()
@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
@@ -104,7 +104,7 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceEndpointGitHub = new ServiceEndpointGitHub("exampleServiceEndpointGitHub", ServiceEndpointGitHubArgs.builder()        
+ *         var exampleServiceEndpointGitHub = new ServiceEndpointGitHub("exampleServiceEndpointGitHub", ServiceEndpointGitHubArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example GitHub")
  *             .authOauth(ServiceEndpointGitHubAuthOauthArgs.builder()
@@ -143,7 +143,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
@@ -151,7 +151,7 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceEndpointGitHub = new ServiceEndpointGitHub("exampleServiceEndpointGitHub", ServiceEndpointGitHubArgs.builder()        
+ *         var exampleServiceEndpointGitHub = new ServiceEndpointGitHub("exampleServiceEndpointGitHub", ServiceEndpointGitHubArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example GitHub Apps: Azure Pipelines")
  *             .description("Managed by Terraform")

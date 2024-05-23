@@ -49,21 +49,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .build());
  * 
- *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
  *             .scope(example.id())
  *             .displayName("Example group")
  *             .description("Example description")
  *             .build());
  * 
- *         var exampleFeed = new Feed("exampleFeed", FeedArgs.builder()        
+ *         var exampleFeed = new Feed("exampleFeed", FeedArgs.builder()
  *             .name("releases")
  *             .build());
  * 
- *         var permission = new FeedPermission("permission", FeedPermissionArgs.builder()        
+ *         var permission = new FeedPermission("permission", FeedPermissionArgs.builder()
  *             .feedId(exampleFeed.id())
  *             .role("reader")
  *             .identityDescriptor(exampleGroup.descriptor())

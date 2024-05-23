@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .build());
  * 
@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *             .name("Contributors")
  *             .build());
  * 
- *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
  *             .scope(example.id())
  *             .displayName("Example group")
  *             .description("Example description")

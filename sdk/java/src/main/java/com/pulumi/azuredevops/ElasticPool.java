@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", ServiceEndpointAzureRMArgs.builder()        
+ *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", ServiceEndpointAzureRMArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example Azure Connection")
  *             .description("Managed by Terraform")
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *             .azurermSubscriptionName("Subscription Name")
  *             .build());
  * 
- *         var exampleElasticPool = new ElasticPool("exampleElasticPool", ElasticPoolArgs.builder()        
+ *         var exampleElasticPool = new ElasticPool("exampleElasticPool", ElasticPoolArgs.builder()
  *             .name("Example Elastic Pool")
  *             .serviceEndpointId(exampleServiceEndpointAzureRM.id())
  *             .serviceEndpointScope(example.id())

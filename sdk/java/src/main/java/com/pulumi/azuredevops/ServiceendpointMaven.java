@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceendpointMaven = new ServiceendpointMaven("exampleServiceendpointMaven", ServiceendpointMavenArgs.builder()        
+ *         var exampleServiceendpointMaven = new ServiceendpointMaven("exampleServiceendpointMaven", ServiceendpointMavenArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("maven-example")
  *             .description("Service Endpoint for 'Maven' (Managed by Terraform)")
@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
@@ -109,7 +109,7 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceendpointMaven = new ServiceendpointMaven("exampleServiceendpointMaven", ServiceendpointMavenArgs.builder()        
+ *         var exampleServiceendpointMaven = new ServiceendpointMaven("exampleServiceendpointMaven", ServiceendpointMavenArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("maven-example")
  *             .description("Service Endpoint for 'Maven' (Managed by Terraform)")

@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var project = new Project("project", ProjectArgs.builder()        
+ *         var project = new Project("project", ProjectArgs.builder()
  *             .name("Testing")
  *             .description("Testing-description")
  *             .visibility("private")
@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *             .workItemTemplate("Agile")
  *             .build());
  * 
- *         var example = new VariableGroup("example", VariableGroupArgs.builder()        
+ *         var example = new VariableGroup("example", VariableGroupArgs.builder()
  *             .projectId(project.id())
  *             .name("test")
  *             .description("Test Description")
@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  *             .name("Readers")
  *             .build());
  * 
- *         var permissions = new VariableGroupPermissions("permissions", VariableGroupPermissionsArgs.builder()        
+ *         var permissions = new VariableGroupPermissions("permissions", VariableGroupPermissionsArgs.builder()
  *             .projectId(project.id())
  *             .variableGroupId(example.id())
  *             .principal(tf_project_readers.applyValue(tf_project_readers -> tf_project_readers.id()))

@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GroupEntitlement("example", GroupEntitlementArgs.builder()        
+ *         var example = new GroupEntitlement("example", GroupEntitlementArgs.builder()
  *             .displayName("Group Name")
  *             .build());
  * 
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GroupEntitlement("example", GroupEntitlementArgs.builder()        
+ *         var example = new GroupEntitlement("example", GroupEntitlementArgs.builder()
  *             .origin("aad")
  *             .originId("00000000-0000-0000-0000-000000000000")
  *             .build());

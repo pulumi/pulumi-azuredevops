@@ -44,14 +44,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
  *             .build());
  * 
- *         var exampleBuildFolder = new BuildFolder("exampleBuildFolder", BuildFolderArgs.builder()        
+ *         var exampleBuildFolder = new BuildFolder("exampleBuildFolder", BuildFolderArgs.builder()
  *             .projectId(example.id())
  *             .path("\\ExampleFolder")
  *             .description("ExampleFolder description")

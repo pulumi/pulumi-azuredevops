@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceEndpointArtifactory = new ServiceEndpointArtifactory("exampleServiceEndpointArtifactory", ServiceEndpointArtifactoryArgs.builder()        
+ *         var exampleServiceEndpointArtifactory = new ServiceEndpointArtifactory("exampleServiceEndpointArtifactory", ServiceEndpointArtifactoryArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example Artifactory")
  *             .description("Managed by Terraform")
@@ -99,7 +99,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceEndpointArtifactory = new ServiceEndpointArtifactory("exampleServiceEndpointArtifactory", ServiceEndpointArtifactoryArgs.builder()        
+ *         var exampleServiceEndpointArtifactory = new ServiceEndpointArtifactory("exampleServiceEndpointArtifactory", ServiceEndpointArtifactoryArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example Artifactory")
  *             .description("Managed by Terraform")

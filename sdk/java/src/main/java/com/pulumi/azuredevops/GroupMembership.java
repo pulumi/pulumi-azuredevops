@@ -49,11 +49,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+ *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()
  *             .name("Example Project")
  *             .build());
  * 
- *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+ *         var exampleUser = new User("exampleUser", UserArgs.builder()
  *             .principalName("foo{@literal @}contoso.com")
  *             .build());
  * 
@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .name("Build Administrators")
  *             .build());
  * 
- *         var exampleGroupMembership = new GroupMembership("exampleGroupMembership", GroupMembershipArgs.builder()        
+ *         var exampleGroupMembership = new GroupMembership("exampleGroupMembership", GroupMembershipArgs.builder()
  *             .group(example.applyValue(getGroupResult -> getGroupResult).applyValue(example -> example.applyValue(getGroupResult -> getGroupResult.descriptor())))
  *             .members(exampleUser.descriptor())
  *             .build());
