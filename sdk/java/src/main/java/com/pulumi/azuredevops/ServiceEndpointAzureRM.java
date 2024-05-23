@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", ServiceEndpointAzureRMArgs.builder()        
+ *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", ServiceEndpointAzureRMArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example AzureRM")
  *             .description("Managed by Terraform")
@@ -112,7 +112,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
@@ -120,7 +120,7 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", ServiceEndpointAzureRMArgs.builder()        
+ *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", ServiceEndpointAzureRMArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example AzureRM")
  *             .description("Managed by Terraform")
@@ -167,14 +167,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
  *             .build());
  * 
- *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", ServiceEndpointAzureRMArgs.builder()        
+ *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", ServiceEndpointAzureRMArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example AzureRM")
  *             .serviceEndpointAuthenticationScheme("ServicePrincipal")
@@ -225,7 +225,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var serviceConnectionName = "example-federated-sc";
  * 
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
@@ -233,18 +233,18 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var identity = new ResourceGroup("identity", ResourceGroupArgs.builder()        
+ *         var identity = new ResourceGroup("identity", ResourceGroupArgs.builder()
  *             .name("identity")
  *             .location("UK South")
  *             .build());
  * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()        
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()
  *             .location(identity.location())
  *             .name("example-identity")
  *             .resourceGroupName("azurerm_resource_group.identity.name")
  *             .build());
  * 
- *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", ServiceEndpointAzureRMArgs.builder()        
+ *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", ServiceEndpointAzureRMArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName(serviceConnectionName)
  *             .description("Managed by Terraform")
@@ -257,7 +257,7 @@ import javax.annotation.Nullable;
  *             .azurermSubscriptionName("Example Subscription Name")
  *             .build());
  * 
- *         var exampleFederatedIdentityCredential = new FederatedIdentityCredential("exampleFederatedIdentityCredential", FederatedIdentityCredentialArgs.builder()        
+ *         var exampleFederatedIdentityCredential = new FederatedIdentityCredential("exampleFederatedIdentityCredential", FederatedIdentityCredentialArgs.builder()
  *             .name("example-federated-credential")
  *             .resourceGroupName(identity.name())
  *             .parentId(exampleUserAssignedIdentity.id())
@@ -299,14 +299,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
  *             .build());
  * 
- *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", ServiceEndpointAzureRMArgs.builder()        
+ *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", ServiceEndpointAzureRMArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example AzureRM")
  *             .serviceEndpointAuthenticationScheme("WorkloadIdentityFederation")
@@ -348,14 +348,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
  *             .build());
  * 
- *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", ServiceEndpointAzureRMArgs.builder()        
+ *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", ServiceEndpointAzureRMArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example AzureRM")
  *             .serviceEndpointAuthenticationScheme("ManagedServiceIdentity")

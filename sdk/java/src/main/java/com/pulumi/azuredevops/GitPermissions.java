@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .workItemTemplate("Agile")
  *             .versionControl("Git")
@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  *             .name("Readers")
  *             .build());
  * 
- *         var example_permissions = new GitPermissions("example-permissions", GitPermissionsArgs.builder()        
+ *         var example_permissions = new GitPermissions("example-permissions", GitPermissionsArgs.builder()
  *             .projectId(example.id())
  *             .principal(example_readers.applyValue(example_readers -> example_readers.id()))
  *             .permissions(Map.ofEntries(
@@ -124,7 +124,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .workItemTemplate("Agile")
  *             .versionControl("Git")
@@ -136,7 +136,7 @@ import javax.annotation.Nullable;
  *             .name("Project Collection Administrators")
  *             .build());
  * 
- *         var exampleGit = new Git("exampleGit", GitArgs.builder()        
+ *         var exampleGit = new Git("exampleGit", GitArgs.builder()
  *             .projectId(example.id())
  *             .name("Example Empty Git Repository")
  *             .initialization(GitInitializationArgs.builder()
@@ -144,7 +144,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var example_permissions = new GitPermissions("example-permissions", GitPermissionsArgs.builder()        
+ *         var example_permissions = new GitPermissions("example-permissions", GitPermissionsArgs.builder()
  *             .projectId(exampleGit.projectId())
  *             .repositoryId(exampleGit.id())
  *             .principal(example_group.id())
@@ -198,7 +198,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .workItemTemplate("Agile")
  *             .versionControl("Git")
@@ -206,7 +206,7 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleGit = new Git("exampleGit", GitArgs.builder()        
+ *         var exampleGit = new Git("exampleGit", GitArgs.builder()
  *             .projectId(example.id())
  *             .name("Example Empty Git Repository")
  *             .initialization(GitInitializationArgs.builder()
@@ -218,7 +218,7 @@ import javax.annotation.Nullable;
  *             .name("Project Collection Administrators")
  *             .build());
  * 
- *         var example_permissions = new GitPermissions("example-permissions", GitPermissionsArgs.builder()        
+ *         var example_permissions = new GitPermissions("example-permissions", GitPermissionsArgs.builder()
  *             .projectId(exampleGit.projectId())
  *             .repositoryId(exampleGit.id())
  *             .branchName("refs/heads/master")
@@ -267,7 +267,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
@@ -290,7 +290,7 @@ import javax.annotation.Nullable;
  *             .name("Project administrators")
  *             .build());
  * 
- *         var example_permissions = new GitPermissions("example-permissions", GitPermissionsArgs.builder()        
+ *         var example_permissions = new GitPermissions("example-permissions", GitPermissionsArgs.builder()
  *             .projectId(example.id())
  *             .principal(example_project_readers.applyValue(example_project_readers -> example_project_readers.id()))
  *             .permissions(Map.ofEntries(
@@ -300,7 +300,7 @@ import javax.annotation.Nullable;
  *             ))
  *             .build());
  * 
- *         var exampleGit = new Git("exampleGit", GitArgs.builder()        
+ *         var exampleGit = new Git("exampleGit", GitArgs.builder()
  *             .projectId(example.id())
  *             .name("TestRepo")
  *             .defaultBranch("refs/heads/master")
@@ -309,7 +309,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var example_repo_permissions = new GitPermissions("example-repo-permissions", GitPermissionsArgs.builder()        
+ *         var example_repo_permissions = new GitPermissions("example-repo-permissions", GitPermissionsArgs.builder()
  *             .projectId(exampleGit.projectId())
  *             .repositoryId(exampleGit.id())
  *             .principal(example_project_administrators.applyValue(example_project_administrators -> example_project_administrators.id()))
@@ -321,7 +321,7 @@ import javax.annotation.Nullable;
  *             ))
  *             .build());
  * 
- *         var example_branch_permissions = new GitPermissions("example-branch-permissions", GitPermissionsArgs.builder()        
+ *         var example_branch_permissions = new GitPermissions("example-branch-permissions", GitPermissionsArgs.builder()
  *             .projectId(exampleGit.projectId())
  *             .repositoryId(exampleGit.id())
  *             .branchName("master")

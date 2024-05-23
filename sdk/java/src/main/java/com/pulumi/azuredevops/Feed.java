@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Feed("example", FeedArgs.builder()        
+ *         var example = new Feed("example", FeedArgs.builder()
  *             .name("releases")
  *             .build());
  * 
@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleFeed = new Feed("exampleFeed", FeedArgs.builder()        
+ *         var exampleFeed = new Feed("exampleFeed", FeedArgs.builder()
  *             .name("releases")
  *             .projectId(example.id())
  *             .build());
@@ -125,7 +125,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Feed("example", FeedArgs.builder()        
+ *         var example = new Feed("example", FeedArgs.builder()
  *             .name("releases")
  *             .features(FeedFeatureArgs.builder()
  *                 .permanentDelete(false)

@@ -53,20 +53,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .build());
  * 
- *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()        
+ *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()
  *             .projectId(example.id())
  *             .name("Example Environment")
  *             .build());
  * 
- *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
  *             .displayName("some-azdo-group")
  *             .build());
  * 
- *         var exampleCheckApproval = new CheckApproval("exampleCheckApproval", CheckApprovalArgs.builder()        
+ *         var exampleCheckApproval = new CheckApproval("exampleCheckApproval", CheckApprovalArgs.builder()
  *             .projectId(example.id())
  *             .targetResourceId(exampleEnvironment.id())
  *             .targetResourceType("environment")

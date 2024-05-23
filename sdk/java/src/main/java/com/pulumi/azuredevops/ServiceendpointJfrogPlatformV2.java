@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceendpointJfrogPlatformV2 = new ServiceendpointJfrogPlatformV2("exampleServiceendpointJfrogPlatformV2", ServiceendpointJfrogPlatformV2Args.builder()        
+ *         var exampleServiceendpointJfrogPlatformV2 = new ServiceendpointJfrogPlatformV2("exampleServiceendpointJfrogPlatformV2", ServiceendpointJfrogPlatformV2Args.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example Artifactory")
  *             .description("Managed by Terraform")
@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
@@ -109,7 +109,7 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceendpointJfrogPlatformV2 = new ServiceendpointJfrogPlatformV2("exampleServiceendpointJfrogPlatformV2", ServiceendpointJfrogPlatformV2Args.builder()        
+ *         var exampleServiceendpointJfrogPlatformV2 = new ServiceendpointJfrogPlatformV2("exampleServiceendpointJfrogPlatformV2", ServiceendpointJfrogPlatformV2Args.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example Artifactory")
  *             .description("Managed by Terraform")

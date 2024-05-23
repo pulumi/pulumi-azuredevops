@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .workItemTemplate("Agile")
  *             .versionControl("Git")
@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleVariableGroup = new VariableGroup("exampleVariableGroup", VariableGroupArgs.builder()        
+ *         var exampleVariableGroup = new VariableGroup("exampleVariableGroup", VariableGroupArgs.builder()
  *             .projectId(example.id())
  *             .name("Example Variable Group")
  *             .description("Example Variable Group Description")
@@ -110,7 +110,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .workItemTemplate("Agile")
  *             .versionControl("Git")
@@ -118,7 +118,7 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", ServiceEndpointAzureRMArgs.builder()        
+ *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", ServiceEndpointAzureRMArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example AzureRM")
  *             .description("Managed by Terraform")
@@ -131,7 +131,7 @@ import javax.annotation.Nullable;
  *             .azurermSubscriptionName("Example Subscription Name")
  *             .build());
  * 
- *         var exampleVariableGroup = new VariableGroup("exampleVariableGroup", VariableGroupArgs.builder()        
+ *         var exampleVariableGroup = new VariableGroup("exampleVariableGroup", VariableGroupArgs.builder()
  *             .projectId(example.id())
  *             .name("Example Variable Group")
  *             .description("Example Variable Group Description")

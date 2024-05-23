@@ -246,8 +246,17 @@ export interface BranchPolicyStatusCheckSettings {
 }
 
 export interface BranchPolicyStatusCheckSettingsScope {
+    /**
+     * The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
+     */
     matchType?: string;
+    /**
+     * The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
+     */
     repositoryId?: string;
+    /**
+     * The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+     */
     repositoryRef?: string;
 }
 
@@ -334,6 +343,11 @@ export interface BuildDefinitionCiTriggerOverridePathFilter {
 }
 
 export interface BuildDefinitionFeature {
+    /**
+     * Trigger the pipeline to run after the creation. Defaults to `true`.
+     *
+     * > **Note** The first run(`skipFirstRun = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
+     */
     skipFirstRun?: boolean;
 }
 
@@ -1407,18 +1421,18 @@ export interface ServiceEndpointServiceFabricNone {
 
 export interface ServiceendpointArgocdAuthenticationBasic {
     /**
-     * The ArgoCD password.
+     * ArgoCD Password.
      */
     password: string;
     /**
-     * The ArgoCD user name.
+     * ArgoCD Username.
      */
     username: string;
 }
 
 export interface ServiceendpointArgocdAuthenticationToken {
     /**
-     * The ArgoCD access token.
+     * Authentication Token generated through ArgoCD.
      */
     token: string;
 }

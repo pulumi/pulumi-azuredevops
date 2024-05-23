@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceEndpointPipeline = new ServiceEndpointPipeline("exampleServiceEndpointPipeline", ServiceEndpointPipelineArgs.builder()        
+ *         var exampleServiceEndpointPipeline = new ServiceEndpointPipeline("exampleServiceEndpointPipeline", ServiceEndpointPipelineArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example Pipeline Runner")
  *             .organizationName("Organization Name")

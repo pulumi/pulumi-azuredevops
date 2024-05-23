@@ -50,11 +50,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .build());
  * 
- *         var exampleServiceEndpointGeneric = new ServiceEndpointGeneric("exampleServiceEndpointGeneric", ServiceEndpointGenericArgs.builder()        
+ *         var exampleServiceEndpointGeneric = new ServiceEndpointGeneric("exampleServiceEndpointGeneric", ServiceEndpointGenericArgs.builder()
  *             .projectId(example.id())
  *             .serverUrl("https://some-server.example.com")
  *             .username("username")
@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleCheckBranchControl = new CheckBranchControl("exampleCheckBranchControl", CheckBranchControlArgs.builder()        
+ *         var exampleCheckBranchControl = new CheckBranchControl("exampleCheckBranchControl", CheckBranchControlArgs.builder()
  *             .projectId(example.id())
  *             .displayName("Managed by Terraform")
  *             .targetResourceId(exampleServiceEndpointGeneric.id())
@@ -107,16 +107,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .build());
  * 
- *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()        
+ *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()
  *             .projectId(example.id())
  *             .name("Example Environment")
  *             .build());
  * 
- *         var exampleCheckBranchControl = new CheckBranchControl("exampleCheckBranchControl", CheckBranchControlArgs.builder()        
+ *         var exampleCheckBranchControl = new CheckBranchControl("exampleCheckBranchControl", CheckBranchControlArgs.builder()
  *             .projectId(example.id())
  *             .displayName("Managed by Terraform")
  *             .targetResourceId(exampleEnvironment.id())
@@ -161,20 +161,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .build());
  * 
- *         var examplePool = new Pool("examplePool", PoolArgs.builder()        
+ *         var examplePool = new Pool("examplePool", PoolArgs.builder()
  *             .name("example-pool")
  *             .build());
  * 
- *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()        
+ *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()
  *             .projectId(example.id())
  *             .agentPoolId(examplePool.id())
  *             .build());
  * 
- *         var exampleCheckBranchControl = new CheckBranchControl("exampleCheckBranchControl", CheckBranchControlArgs.builder()        
+ *         var exampleCheckBranchControl = new CheckBranchControl("exampleCheckBranchControl", CheckBranchControlArgs.builder()
  *             .projectId(example.id())
  *             .displayName("Managed by Terraform")
  *             .targetResourceId(exampleQueue.id())
@@ -218,11 +218,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .build());
  * 
- *         var exampleGit = new Git("exampleGit", GitArgs.builder()        
+ *         var exampleGit = new Git("exampleGit", GitArgs.builder()
  *             .projectId(example.id())
  *             .name("Example Empty Git Repository")
  *             .initialization(GitInitializationArgs.builder()
@@ -230,7 +230,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleCheckBranchControl = new CheckBranchControl("exampleCheckBranchControl", CheckBranchControlArgs.builder()        
+ *         var exampleCheckBranchControl = new CheckBranchControl("exampleCheckBranchControl", CheckBranchControlArgs.builder()
  *             .projectId(example.id())
  *             .displayName("Managed by Terraform")
  *             .targetResourceId(Output.tuple(example.id(), exampleGit.id()).applyValue(values -> {
@@ -278,11 +278,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .build());
  * 
- *         var exampleVariableGroup = new VariableGroup("exampleVariableGroup", VariableGroupArgs.builder()        
+ *         var exampleVariableGroup = new VariableGroup("exampleVariableGroup", VariableGroupArgs.builder()
  *             .projectId(example.id())
  *             .name("Example Variable Group")
  *             .description("Example Variable Group Description")
@@ -299,7 +299,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var exampleCheckBranchControl = new CheckBranchControl("exampleCheckBranchControl", CheckBranchControlArgs.builder()        
+ *         var exampleCheckBranchControl = new CheckBranchControl("exampleCheckBranchControl", CheckBranchControlArgs.builder()
  *             .projectId(example.id())
  *             .displayName("Managed by Terraform")
  *             .targetResourceId(exampleVariableGroup.id())
