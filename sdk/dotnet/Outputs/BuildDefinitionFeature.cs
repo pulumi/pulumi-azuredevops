@@ -13,6 +13,11 @@ namespace Pulumi.AzureDevOps.Outputs
     [OutputType]
     public sealed class BuildDefinitionFeature
     {
+        /// <summary>
+        /// Trigger the pipeline to run after the creation. Defaults to `true`.
+        /// 
+        /// &gt; **Note** The first run(`skip_first_run = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
+        /// </summary>
         public readonly bool? SkipFirstRun;
 
         [OutputConstructor]

@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Pool("example", PoolArgs.builder()        
+ *         var example = new Pool("example", PoolArgs.builder()
  *             .name("Example-pool")
  *             .autoProvision(false)
  *             .autoUpdate(false)

@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
@@ -63,18 +63,18 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var examplePool = new Pool("examplePool", PoolArgs.builder()        
+ *         var examplePool = new Pool("examplePool", PoolArgs.builder()
  *             .name("Example Pool")
  *             .autoProvision(false)
  *             .autoUpdate(false)
  *             .build());
  * 
- *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()        
+ *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()
  *             .projectId(example.id())
  *             .agentPoolId(examplePool.id())
  *             .build());
  * 
- *         var examplePipelineAuthorization = new PipelineAuthorization("examplePipelineAuthorization", PipelineAuthorizationArgs.builder()        
+ *         var examplePipelineAuthorization = new PipelineAuthorization("examplePipelineAuthorization", PipelineAuthorizationArgs.builder()
  *             .projectId(example.id())
  *             .resourceId(exampleQueue.id())
  *             .type("queue")
@@ -122,7 +122,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+ *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
@@ -130,13 +130,13 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var examplePool = new Pool("examplePool", PoolArgs.builder()        
+ *         var examplePool = new Pool("examplePool", PoolArgs.builder()
  *             .name("Example Pool")
  *             .autoProvision(false)
  *             .autoUpdate(false)
  *             .build());
  * 
- *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()        
+ *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()
  *             .projectId(exampleProject.id())
  *             .agentPoolId(examplePool.id())
  *             .build());
@@ -146,7 +146,7 @@ import javax.annotation.Nullable;
  *             .name("Example Project")
  *             .build());
  * 
- *         var exampleBuildDefinition = new BuildDefinition("exampleBuildDefinition", BuildDefinitionArgs.builder()        
+ *         var exampleBuildDefinition = new BuildDefinition("exampleBuildDefinition", BuildDefinitionArgs.builder()
  *             .projectId(exampleProject.id())
  *             .name("Example Pipeline")
  *             .repository(BuildDefinitionRepositoryArgs.builder()
@@ -156,7 +156,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var examplePipelineAuthorization = new PipelineAuthorization("examplePipelineAuthorization", PipelineAuthorizationArgs.builder()        
+ *         var examplePipelineAuthorization = new PipelineAuthorization("examplePipelineAuthorization", PipelineAuthorizationArgs.builder()
  *             .projectId(exampleProject.id())
  *             .resourceId(exampleQueue.id())
  *             .type("queue")

@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceendpointNuget = new ServiceendpointNuget("exampleServiceendpointNuget", ServiceendpointNugetArgs.builder()        
+ *         var exampleServiceendpointNuget = new ServiceendpointNuget("exampleServiceendpointNuget", ServiceendpointNugetArgs.builder()
  *             .projectId(example.id())
  *             .apiKey("apikey")
  *             .serviceEndpointName("Example NuGet")

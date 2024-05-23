@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceendpointGcpTerraform = new ServiceendpointGcpTerraform("exampleServiceendpointGcpTerraform", ServiceendpointGcpTerraformArgs.builder()        
+ *         var exampleServiceendpointGcpTerraform = new ServiceendpointGcpTerraform("exampleServiceendpointGcpTerraform", ServiceendpointGcpTerraformArgs.builder()
  *             .projectId(example.id())
  *             .tokenUri("https://oauth2.example.com/token")
  *             .clientEmail("gcp-sa-example{@literal @}example.iam.gserviceaccount.com")

@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var example_azure = new ServiceEndpointKubernetes("example-azure", ServiceEndpointKubernetesArgs.builder()        
+ *         var example_azure = new ServiceEndpointKubernetes("example-azure", ServiceEndpointKubernetesArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example Kubernetes")
  *             .apiserverUrl("https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io")
@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var example_kubeconfig = new ServiceEndpointKubernetes("example-kubeconfig", ServiceEndpointKubernetesArgs.builder()        
+ *         var example_kubeconfig = new ServiceEndpointKubernetes("example-kubeconfig", ServiceEndpointKubernetesArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example Kubernetes")
  *             .apiserverUrl("https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io")
@@ -108,7 +108,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var example_service_account = new ServiceEndpointKubernetes("example-service-account", ServiceEndpointKubernetesArgs.builder()        
+ *         var example_service_account = new ServiceEndpointKubernetes("example-service-account", ServiceEndpointKubernetesArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example Kubernetes")
  *             .apiserverUrl("https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io")

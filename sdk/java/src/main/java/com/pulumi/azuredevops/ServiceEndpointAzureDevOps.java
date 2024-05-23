@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceEndpointAzureDevOps = new ServiceEndpointAzureDevOps("exampleServiceEndpointAzureDevOps", ServiceEndpointAzureDevOpsArgs.builder()        
+ *         var exampleServiceEndpointAzureDevOps = new ServiceEndpointAzureDevOps("exampleServiceEndpointAzureDevOps", ServiceEndpointAzureDevOpsArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example Azure DevOps")
  *             .orgUrl("https://dev.azure.com/testorganization")

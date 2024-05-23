@@ -48,14 +48,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
  *             .build());
  * 
- *         var exampleServiceendpointArgocd = new ServiceendpointArgocd("exampleServiceendpointArgocd", ServiceendpointArgocdArgs.builder()        
+ *         var exampleServiceendpointArgocd = new ServiceendpointArgocd("exampleServiceendpointArgocd", ServiceendpointArgocdArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example ArgoCD")
  *             .description("Managed by Terraform")
@@ -98,7 +98,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
@@ -106,7 +106,7 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceendpointArgocd = new ServiceendpointArgocd("exampleServiceendpointArgocd", ServiceendpointArgocdArgs.builder()        
+ *         var exampleServiceendpointArgocd = new ServiceendpointArgocd("exampleServiceendpointArgocd", ServiceendpointArgocdArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example ArgoCD")
  *             .description("Managed by Terraform")
