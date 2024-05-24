@@ -16,7 +16,7 @@ namespace Pulumi.AzureDevOps.Inputs
         private Input<string>? _token;
 
         /// <summary>
-        /// The ArgoCD access token.
+        /// Authentication Token generated through ArgoCD.
         /// </summary>
         public Input<string>? Token
         {

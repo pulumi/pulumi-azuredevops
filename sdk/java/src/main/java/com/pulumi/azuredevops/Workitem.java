@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .workItemTemplate("Agile")
  *             .versionControl("Git")
@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleWorkitem = new Workitem("exampleWorkitem", WorkitemArgs.builder()        
+ *         var exampleWorkitem = new Workitem("exampleWorkitem", WorkitemArgs.builder()
  *             .projectId(exampleAzuredevopsProject.id())
  *             .title("Example Work Item")
  *             .type("Issue")
@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .workItemTemplate("Agile")
  *             .versionControl("Git")
@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleWorkitem = new Workitem("exampleWorkitem", WorkitemArgs.builder()        
+ *         var exampleWorkitem = new Workitem("exampleWorkitem", WorkitemArgs.builder()
  *             .projectId(exampleAzuredevopsProject.id())
  *             .title("Example Work Item")
  *             .type("Issue")

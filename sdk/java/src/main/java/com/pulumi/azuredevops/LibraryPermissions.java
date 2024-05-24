@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var project = new Project("project", ProjectArgs.builder()        
+ *         var project = new Project("project", ProjectArgs.builder()
  *             .name("Testing")
  *             .description("Testing-description")
  *             .visibility("private")
@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *             .name("Readers")
  *             .build());
  * 
- *         var permissions = new LibraryPermissions("permissions", LibraryPermissionsArgs.builder()        
+ *         var permissions = new LibraryPermissions("permissions", LibraryPermissionsArgs.builder()
  *             .projectId(project.id())
  *             .principal(tf_project_readers.applyValue(tf_project_readers -> tf_project_readers.id()))
  *             .permissions(Map.ofEntries(

@@ -962,6 +962,11 @@ class BranchPolicyStatusCheckSettingsScopeArgs:
                  match_type: Optional[pulumi.Input[str]] = None,
                  repository_id: Optional[pulumi.Input[str]] = None,
                  repository_ref: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] match_type: The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
+        :param pulumi.Input[str] repository_id: The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
+        :param pulumi.Input[str] repository_ref: The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+        """
         if match_type is not None:
             pulumi.set(__self__, "match_type", match_type)
         if repository_id is not None:
@@ -972,6 +977,9 @@ class BranchPolicyStatusCheckSettingsScopeArgs:
     @property
     @pulumi.getter(name="matchType")
     def match_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
+        """
         return pulumi.get(self, "match_type")
 
     @match_type.setter
@@ -981,6 +989,9 @@ class BranchPolicyStatusCheckSettingsScopeArgs:
     @property
     @pulumi.getter(name="repositoryId")
     def repository_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
+        """
         return pulumi.get(self, "repository_id")
 
     @repository_id.setter
@@ -990,6 +1001,9 @@ class BranchPolicyStatusCheckSettingsScopeArgs:
     @property
     @pulumi.getter(name="repositoryRef")
     def repository_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+        """
         return pulumi.get(self, "repository_ref")
 
     @repository_ref.setter
@@ -1298,12 +1312,22 @@ class BuildDefinitionCiTriggerOverridePathFilterArgs:
 class BuildDefinitionFeatureArgs:
     def __init__(__self__, *,
                  skip_first_run: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] skip_first_run: Trigger the pipeline to run after the creation. Defaults to `true`.
+               
+               > **Note** The first run(`skip_first_run = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
+        """
         if skip_first_run is not None:
             pulumi.set(__self__, "skip_first_run", skip_first_run)
 
     @property
     @pulumi.getter(name="skipFirstRun")
     def skip_first_run(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Trigger the pipeline to run after the creation. Defaults to `true`.
+
+        > **Note** The first run(`skip_first_run = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
+        """
         return pulumi.get(self, "skip_first_run")
 
     @skip_first_run.setter
@@ -3014,8 +3038,8 @@ class ServiceendpointArgocdAuthenticationBasicArgs:
                  password: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] password: The ArgoCD password.
-        :param pulumi.Input[str] username: The ArgoCD user name.
+        :param pulumi.Input[str] password: ArgoCD Password.
+        :param pulumi.Input[str] username: ArgoCD Username.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -3024,7 +3048,7 @@ class ServiceendpointArgocdAuthenticationBasicArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        The ArgoCD password.
+        ArgoCD Password.
         """
         return pulumi.get(self, "password")
 
@@ -3036,7 +3060,7 @@ class ServiceendpointArgocdAuthenticationBasicArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        The ArgoCD user name.
+        ArgoCD Username.
         """
         return pulumi.get(self, "username")
 
@@ -3050,7 +3074,7 @@ class ServiceendpointArgocdAuthenticationTokenArgs:
     def __init__(__self__, *,
                  token: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] token: The ArgoCD access token.
+        :param pulumi.Input[str] token: Authentication Token generated through ArgoCD.
         """
         pulumi.set(__self__, "token", token)
 
@@ -3058,7 +3082,7 @@ class ServiceendpointArgocdAuthenticationTokenArgs:
     @pulumi.getter
     def token(self) -> pulumi.Input[str]:
         """
-        The ArgoCD access token.
+        Authentication Token generated through ArgoCD.
         """
         return pulumi.get(self, "token")
 

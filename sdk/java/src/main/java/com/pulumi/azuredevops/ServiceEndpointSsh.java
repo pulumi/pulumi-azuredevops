@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceEndpointSsh = new ServiceEndpointSsh("exampleServiceEndpointSsh", ServiceEndpointSshArgs.builder()        
+ *         var exampleServiceEndpointSsh = new ServiceEndpointSsh("exampleServiceEndpointSsh", ServiceEndpointSshArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example SSH")
  *             .host("1.2.3.4")

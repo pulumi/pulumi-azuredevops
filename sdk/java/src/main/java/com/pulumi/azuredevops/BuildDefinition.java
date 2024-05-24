@@ -63,14 +63,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
  *             .build());
  * 
- *         var exampleGit = new Git("exampleGit", GitArgs.builder()        
+ *         var exampleGit = new Git("exampleGit", GitArgs.builder()
  *             .projectId(example.id())
  *             .name("Example Repository")
  *             .initialization(GitInitializationArgs.builder()
@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleVariableGroup = new VariableGroup("exampleVariableGroup", VariableGroupArgs.builder()        
+ *         var exampleVariableGroup = new VariableGroup("exampleVariableGroup", VariableGroupArgs.builder()
  *             .projectId(example.id())
  *             .name("Example Pipeline Variables")
  *             .description("Managed by Terraform")
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleBuildDefinition = new BuildDefinition("exampleBuildDefinition", BuildDefinitionArgs.builder()        
+ *         var exampleBuildDefinition = new BuildDefinition("exampleBuildDefinition", BuildDefinitionArgs.builder()
  *             .projectId(example.id())
  *             .name("Example Build Definition")
  *             .path("\\ExampleFolder")
@@ -168,14 +168,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
  *             .build());
  * 
- *         var exampleServiceEndpointGitHubEnterprise = new ServiceEndpointGitHubEnterprise("exampleServiceEndpointGitHubEnterprise", ServiceEndpointGitHubEnterpriseArgs.builder()        
+ *         var exampleServiceEndpointGitHubEnterprise = new ServiceEndpointGitHubEnterprise("exampleServiceEndpointGitHubEnterprise", ServiceEndpointGitHubEnterpriseArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example GitHub Enterprise")
  *             .url("https://github.contoso.com")
@@ -185,7 +185,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleBuildDefinition = new BuildDefinition("exampleBuildDefinition", BuildDefinitionArgs.builder()        
+ *         var exampleBuildDefinition = new BuildDefinition("exampleBuildDefinition", BuildDefinitionArgs.builder()
  *             .projectId(example.id())
  *             .name("Example Build Definition")
  *             .path("\\ExampleFolder")

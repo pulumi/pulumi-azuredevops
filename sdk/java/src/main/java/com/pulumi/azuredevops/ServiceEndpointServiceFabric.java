@@ -51,14 +51,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var project = new Project("project", ProjectArgs.builder()        
+ *         var project = new Project("project", ProjectArgs.builder()
  *             .name("Sample Project")
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
  *             .build());
  * 
- *         var test = new ServiceEndpointServiceFabric("test", ServiceEndpointServiceFabricArgs.builder()        
+ *         var test = new ServiceEndpointServiceFabric("test", ServiceEndpointServiceFabricArgs.builder()
  *             .projectId(project.id())
  *             .serviceEndpointName("Sample Service Fabric")
  *             .description("Managed by Terraform")
@@ -105,14 +105,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var project = new Project("project", ProjectArgs.builder()        
+ *         var project = new Project("project", ProjectArgs.builder()
  *             .name("Sample Project")
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
  *             .build());
  * 
- *         var test = new ServiceEndpointServiceFabric("test", ServiceEndpointServiceFabricArgs.builder()        
+ *         var test = new ServiceEndpointServiceFabric("test", ServiceEndpointServiceFabricArgs.builder()
  *             .projectId(project.id())
  *             .serviceEndpointName("Sample Service Fabric")
  *             .description("Managed by Terraform")

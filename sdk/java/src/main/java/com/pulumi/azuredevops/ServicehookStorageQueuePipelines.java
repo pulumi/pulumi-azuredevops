@@ -55,16 +55,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("example-project")
  *             .build());
  * 
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()        
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("servicehookexamplestacc")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
@@ -72,12 +72,12 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()        
+ *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()
  *             .name("examplequeue")
  *             .storageAccountName(exampleAccount.name())
  *             .build());
  * 
- *         var exampleServicehookStorageQueuePipelines = new ServicehookStorageQueuePipelines("exampleServicehookStorageQueuePipelines", ServicehookStorageQueuePipelinesArgs.builder()        
+ *         var exampleServicehookStorageQueuePipelines = new ServicehookStorageQueuePipelines("exampleServicehookStorageQueuePipelines", ServicehookStorageQueuePipelinesArgs.builder()
  *             .projectId(example.id())
  *             .accountName(exampleAccount.name())
  *             .accountKey(exampleAccount.primaryAccessKey())
@@ -121,7 +121,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServicehookStorageQueuePipelines("example", ServicehookStorageQueuePipelinesArgs.builder()        
+ *         var example = new ServicehookStorageQueuePipelines("example", ServicehookStorageQueuePipelinesArgs.builder()
  *             .projectId(exampleAzuredevopsProject.id())
  *             .accountName(exampleAzurermStorageAccount.name())
  *             .accountKey(exampleAzurermStorageAccount.primaryAccessKey())

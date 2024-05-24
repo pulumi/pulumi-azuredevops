@@ -122,7 +122,7 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()
      *             .name("Example Project")
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
@@ -181,7 +181,7 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()
      *             .name("Example Project")
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
@@ -240,7 +240,7 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()
      *             .name("Example Project")
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
@@ -299,7 +299,7 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()
      *             .name("Example Project")
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
@@ -358,7 +358,7 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()
      *             .name("Example Project")
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
@@ -420,7 +420,7 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()
      *             .name("Example Project")
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
@@ -482,7 +482,7 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()
      *             .name("Example Project")
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
@@ -544,7 +544,7 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()
      *             .name("Example Project")
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
@@ -1044,7 +1044,7 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()
      *             .name("Example Project")
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
@@ -1052,7 +1052,7 @@ public final class AzuredevopsFunctions {
      *             .description("Managed by Terraform")
      *             .build());
      * 
-     *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()        
+     *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()
      *             .projectId(exampleProject.id())
      *             .name("Example Environment")
      *             .description("Managed by Terraform")
@@ -1109,7 +1109,7 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()
      *             .name("Example Project")
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
@@ -1117,7 +1117,7 @@ public final class AzuredevopsFunctions {
      *             .description("Managed by Terraform")
      *             .build());
      * 
-     *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()        
+     *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()
      *             .projectId(exampleProject.id())
      *             .name("Example Environment")
      *             .description("Managed by Terraform")
@@ -1174,7 +1174,7 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()
      *             .name("Example Project")
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
@@ -1182,7 +1182,7 @@ public final class AzuredevopsFunctions {
      *             .description("Managed by Terraform")
      *             .build());
      * 
-     *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()        
+     *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()
      *             .projectId(exampleProject.id())
      *             .name("Example Environment")
      *             .description("Managed by Terraform")
@@ -1239,7 +1239,7 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()
      *             .name("Example Project")
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
@@ -1247,7 +1247,7 @@ public final class AzuredevopsFunctions {
      *             .description("Managed by Terraform")
      *             .build());
      * 
-     *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()        
+     *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()
      *             .projectId(exampleProject.id())
      *             .name("Example Environment")
      *             .description("Managed by Terraform")
@@ -3180,7 +3180,7 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Project("example", ProjectArgs.builder()        
+     *         var example = new Project("example", ProjectArgs.builder()
      *             .name("Example Project")
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
@@ -3248,7 +3248,7 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Project("example", ProjectArgs.builder()        
+     *         var example = new Project("example", ProjectArgs.builder()
      *             .name("Example Project")
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
@@ -3316,7 +3316,7 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Project("example", ProjectArgs.builder()        
+     *         var example = new Project("example", ProjectArgs.builder()
      *             .name("Example Project")
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
@@ -3384,7 +3384,7 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Project("example", ProjectArgs.builder()        
+     *         var example = new Project("example", ProjectArgs.builder()
      *             .name("Example Project")
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
@@ -6342,7 +6342,7 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()
      *             .name("Example Project")
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
@@ -6403,7 +6403,7 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()
      *             .name("Example Project")
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
@@ -6464,7 +6464,7 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()
      *             .name("Example Project")
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
@@ -6525,7 +6525,7 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()
      *             .name("Example Project")
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")

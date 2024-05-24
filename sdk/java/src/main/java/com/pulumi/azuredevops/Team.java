@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .workItemTemplate("Agile")
  *             .versionControl("Git")
@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *             .name("Readers")
  *             .build());
  * 
- *         var exampleTeam = new Team("exampleTeam", TeamArgs.builder()        
+ *         var exampleTeam = new Team("exampleTeam", TeamArgs.builder()
  *             .projectId(example.id())
  *             .name("Example Team")
  *             .administrators(example_project_contributors.applyValue(example_project_contributors -> example_project_contributors.descriptor()))

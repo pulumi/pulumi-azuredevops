@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .workItemTemplate("Agile")
  *             .versionControl("Git")
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *             .name("Readers")
  *             .build());
  * 
- *         var example_root_permissions = new IterativePermissions("example-root-permissions", IterativePermissionsArgs.builder()        
+ *         var example_root_permissions = new IterativePermissions("example-root-permissions", IterativePermissionsArgs.builder()
  *             .projectId(example.id())
  *             .principal(example_readers.applyValue(example_readers -> example_readers.id()))
  *             .permissions(Map.ofEntries(
@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  *             ))
  *             .build());
  * 
- *         var example_iteration_permissions = new IterativePermissions("example-iteration-permissions", IterativePermissionsArgs.builder()        
+ *         var example_iteration_permissions = new IterativePermissions("example-iteration-permissions", IterativePermissionsArgs.builder()
  *             .projectId(example.id())
  *             .principal(example_readers.applyValue(example_readers -> example_readers.id()))
  *             .path("Iteration 1")

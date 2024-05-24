@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceEndpointSonarCloud = new ServiceEndpointSonarCloud("exampleServiceEndpointSonarCloud", ServiceEndpointSonarCloudArgs.builder()        
+ *         var exampleServiceEndpointSonarCloud = new ServiceEndpointSonarCloud("exampleServiceEndpointSonarCloud", ServiceEndpointSonarCloudArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example SonarCloud")
  *             .token("0000000000000000000000000000000000000000")

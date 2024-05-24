@@ -15,14 +15,14 @@ public final class ServiceendpointArgocdAuthenticationBasicArgs extends com.pulu
     public static final ServiceendpointArgocdAuthenticationBasicArgs Empty = new ServiceendpointArgocdAuthenticationBasicArgs();
 
     /**
-     * The ArgoCD password.
+     * ArgoCD Password.
      * 
      */
     @Import(name="password", required=true)
     private Output<String> password;
 
     /**
-     * @return The ArgoCD password.
+     * @return ArgoCD Password.
      * 
      */
     public Output<String> password() {
@@ -30,14 +30,14 @@ public final class ServiceendpointArgocdAuthenticationBasicArgs extends com.pulu
     }
 
     /**
-     * The ArgoCD user name.
+     * ArgoCD Username.
      * 
      */
     @Import(name="username", required=true)
     private Output<String> username;
 
     /**
-     * @return The ArgoCD user name.
+     * @return ArgoCD Username.
      * 
      */
     public Output<String> username() {
@@ -70,7 +70,7 @@ public final class ServiceendpointArgocdAuthenticationBasicArgs extends com.pulu
         }
 
         /**
-         * @param password The ArgoCD password.
+         * @param password ArgoCD Password.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class ServiceendpointArgocdAuthenticationBasicArgs extends com.pulu
         }
 
         /**
-         * @param password The ArgoCD password.
+         * @param password ArgoCD Password.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class ServiceendpointArgocdAuthenticationBasicArgs extends com.pulu
         }
 
         /**
-         * @param username The ArgoCD user name.
+         * @param username ArgoCD Username.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ServiceendpointArgocdAuthenticationBasicArgs extends com.pulu
         }
 
         /**
-         * @param username The ArgoCD user name.
+         * @param username ArgoCD Username.
          * 
          * @return builder
          * 

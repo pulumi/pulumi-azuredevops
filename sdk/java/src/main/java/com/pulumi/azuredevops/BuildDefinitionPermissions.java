@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .workItemTemplate("Agile")
  *             .versionControl("Git")
@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *             .name("Readers")
  *             .build());
  * 
- *         var exampleGit = new Git("exampleGit", GitArgs.builder()        
+ *         var exampleGit = new Git("exampleGit", GitArgs.builder()
  *             .projectId(example.id())
  *             .name("Example Repository")
  *             .initialization(GitInitializationArgs.builder()
@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleBuildDefinition = new BuildDefinition("exampleBuildDefinition", BuildDefinitionArgs.builder()        
+ *         var exampleBuildDefinition = new BuildDefinition("exampleBuildDefinition", BuildDefinitionArgs.builder()
  *             .projectId(example.id())
  *             .name("Example Build Definition")
  *             .path("\\ExampleFolder")
@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleBuildDefinitionPermissions = new BuildDefinitionPermissions("exampleBuildDefinitionPermissions", BuildDefinitionPermissionsArgs.builder()        
+ *         var exampleBuildDefinitionPermissions = new BuildDefinitionPermissions("exampleBuildDefinitionPermissions", BuildDefinitionPermissionsArgs.builder()
  *             .projectId(example.id())
  *             .principal(example_readers.applyValue(example_readers -> example_readers.id()))
  *             .buildDefinitionId(exampleBuildDefinition.id())

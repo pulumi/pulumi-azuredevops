@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *             .description("Managed by Terraform")
  *             .build());
  * 
- *         var exampleServiceendpointNexus = new ServiceendpointNexus("exampleServiceendpointNexus", ServiceendpointNexusArgs.builder()        
+ *         var exampleServiceendpointNexus = new ServiceendpointNexus("exampleServiceendpointNexus", ServiceendpointNexusArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("nexus-example")
  *             .description("Service Endpoint for 'Nexus IQ' (Managed by Terraform)")

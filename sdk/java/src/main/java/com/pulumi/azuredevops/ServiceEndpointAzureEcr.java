@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
  *             .versionControl("Git")
@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // azure container registry service connection
- *         var exampleServiceEndpointAzureEcr = new ServiceEndpointAzureEcr("exampleServiceEndpointAzureEcr", ServiceEndpointAzureEcrArgs.builder()        
+ *         var exampleServiceEndpointAzureEcr = new ServiceEndpointAzureEcr("exampleServiceEndpointAzureEcr", ServiceEndpointAzureEcrArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example AzureCR")
  *             .resourceGroup("example-rg")
