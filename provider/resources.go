@@ -172,7 +172,8 @@ func Provider() tfbridge.ProviderInfo {
 			Requires: map[string]string{
 				"pulumi": ">=3.0.0,<4.0.0",
 			},
-			PyProject: struct{ Enabled bool }{true},
+			PyProject:  struct{ Enabled bool }{true},
+			InputTypes: tfbridge.PythonInputTypeClassesAndDicts,
 		},
 
 		Golang: &tfbridge.GolangInfo{
