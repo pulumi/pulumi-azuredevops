@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -138,7 +143,7 @@ class Feed(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FeedFeatureArgs']]]]] = None,
+                 features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FeedFeatureArgs', 'FeedFeatureArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -178,9 +183,9 @@ class Feed(pulumi.CustomResource):
 
         example = azuredevops.Feed("example",
             name="releases",
-            features=[azuredevops.FeedFeatureArgs(
-                permanent_delete=False,
-            )])
+            features=[{
+                "permanentDelete": False,
+            }])
         ```
 
         ## Relevant Links
@@ -189,7 +194,7 @@ class Feed(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FeedFeatureArgs']]]] features: A `features` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FeedFeatureArgs', 'FeedFeatureArgsDict']]]] features: A `features` blocks as documented below.
                
                > **Note** *Because of ADO limitations feed name can be **reserved** for up to 15 minutes after permanent delete of the feed*
         :param pulumi.Input[str] name: The name of the Feed.
@@ -237,9 +242,9 @@ class Feed(pulumi.CustomResource):
 
         example = azuredevops.Feed("example",
             name="releases",
-            features=[azuredevops.FeedFeatureArgs(
-                permanent_delete=False,
-            )])
+            features=[{
+                "permanentDelete": False,
+            }])
         ```
 
         ## Relevant Links
@@ -261,7 +266,7 @@ class Feed(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FeedFeatureArgs']]]]] = None,
+                 features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FeedFeatureArgs', 'FeedFeatureArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -286,7 +291,7 @@ class Feed(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FeedFeatureArgs']]]]] = None,
+            features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FeedFeatureArgs', 'FeedFeatureArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             project_id: Optional[pulumi.Input[str]] = None) -> 'Feed':
         """
@@ -296,7 +301,7 @@ class Feed(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FeedFeatureArgs']]]] features: A `features` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FeedFeatureArgs', 'FeedFeatureArgsDict']]]] features: A `features` blocks as documented below.
                
                > **Note** *Because of ADO limitations feed name can be **reserved** for up to 15 minutes after permanent delete of the feed*
         :param pulumi.Input[str] name: The name of the Feed.

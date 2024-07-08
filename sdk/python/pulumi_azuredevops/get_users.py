@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -112,7 +117,7 @@ class AwaitableGetUsersResult(GetUsersResult):
             users=self.users)
 
 
-def get_users(features: Optional[pulumi.InputType['GetUsersFeaturesArgs']] = None,
+def get_users(features: Optional[Union['GetUsersFeaturesArgs', 'GetUsersFeaturesArgsDict']] = None,
               origin: Optional[str] = None,
               origin_id: Optional[str] = None,
               principal_name: Optional[str] = None,
@@ -122,7 +127,7 @@ def get_users(features: Optional[pulumi.InputType['GetUsersFeaturesArgs']] = Non
     Use this data source to access information about an existing users within Azure DevOps.
 
 
-    :param pulumi.InputType['GetUsersFeaturesArgs'] features: A `features` block as defined below.
+    :param Union['GetUsersFeaturesArgs', 'GetUsersFeaturesArgsDict'] features: A `features` block as defined below.
            
            DataSource without specifying any arguments will return all users inside an organization.
            
@@ -152,7 +157,7 @@ def get_users(features: Optional[pulumi.InputType['GetUsersFeaturesArgs']] = Non
 
 
 @_utilities.lift_output_func(get_users)
-def get_users_output(features: Optional[pulumi.Input[Optional[pulumi.InputType['GetUsersFeaturesArgs']]]] = None,
+def get_users_output(features: Optional[pulumi.Input[Optional[Union['GetUsersFeaturesArgs', 'GetUsersFeaturesArgsDict']]]] = None,
                      origin: Optional[pulumi.Input[Optional[str]]] = None,
                      origin_id: Optional[pulumi.Input[Optional[str]]] = None,
                      principal_name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -162,7 +167,7 @@ def get_users_output(features: Optional[pulumi.Input[Optional[pulumi.InputType['
     Use this data source to access information about an existing users within Azure DevOps.
 
 
-    :param pulumi.InputType['GetUsersFeaturesArgs'] features: A `features` block as defined below.
+    :param Union['GetUsersFeaturesArgs', 'GetUsersFeaturesArgsDict'] features: A `features` block as defined below.
            
            DataSource without specifying any arguments will return all users inside an organization.
            

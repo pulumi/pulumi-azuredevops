@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = ['GitPermissionsArgs', 'GitPermissions']
@@ -374,9 +379,9 @@ class GitPermissions(pulumi.CustomResource):
         example_git = azuredevops.Git("example",
             project_id=example.id,
             name="Example Empty Git Repository",
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
+            initialization={
+                "initType": "Clean",
+            })
         example_permissions = azuredevops.GitPermissions("example-permissions",
             project_id=example_git.project_id,
             repository_id=example_git.id,
@@ -408,9 +413,9 @@ class GitPermissions(pulumi.CustomResource):
         example_git = azuredevops.Git("example",
             project_id=example.id,
             name="Example Empty Git Repository",
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
+            initialization={
+                "initType": "Clean",
+            })
         example_group = azuredevops.get_group(name="Project Collection Administrators")
         example_permissions = azuredevops.GitPermissions("example-permissions",
             project_id=example_git.project_id,
@@ -453,9 +458,9 @@ class GitPermissions(pulumi.CustomResource):
             project_id=example.id,
             name="TestRepo",
             default_branch="refs/heads/master",
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
+            initialization={
+                "initType": "Clean",
+            })
         example_repo_permissions = azuredevops.GitPermissions("example-repo-permissions",
             project_id=example_git.project_id,
             repository_id=example_git.id,
@@ -584,9 +589,9 @@ class GitPermissions(pulumi.CustomResource):
         example_git = azuredevops.Git("example",
             project_id=example.id,
             name="Example Empty Git Repository",
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
+            initialization={
+                "initType": "Clean",
+            })
         example_permissions = azuredevops.GitPermissions("example-permissions",
             project_id=example_git.project_id,
             repository_id=example_git.id,
@@ -618,9 +623,9 @@ class GitPermissions(pulumi.CustomResource):
         example_git = azuredevops.Git("example",
             project_id=example.id,
             name="Example Empty Git Repository",
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
+            initialization={
+                "initType": "Clean",
+            })
         example_group = azuredevops.get_group(name="Project Collection Administrators")
         example_permissions = azuredevops.GitPermissions("example-permissions",
             project_id=example_git.project_id,
@@ -663,9 +668,9 @@ class GitPermissions(pulumi.CustomResource):
             project_id=example.id,
             name="TestRepo",
             default_branch="refs/heads/master",
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
+            initialization={
+                "initType": "Clean",
+            })
         example_repo_permissions = azuredevops.GitPermissions("example-repo-permissions",
             project_id=example_git.project_id,
             repository_id=example_git.id,

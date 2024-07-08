@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -200,8 +205,8 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_oauth: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointGitHubAuthOauthArgs']]] = None,
-                 auth_personal: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointGitHubAuthPersonalArgs']]] = None,
+                 auth_oauth: Optional[pulumi.Input[Union['ServiceEndpointGitHubAuthOauthArgs', 'ServiceEndpointGitHubAuthOauthArgsDict']]] = None,
+                 auth_personal: Optional[pulumi.Input[Union['ServiceEndpointGitHubAuthPersonalArgs', 'ServiceEndpointGitHubAuthPersonalArgsDict']]] = None,
                  authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
@@ -225,9 +230,9 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
         example_service_endpoint_git_hub = azuredevops.ServiceEndpointGitHub("example",
             project_id=example.id,
             service_endpoint_name="Example GitHub Personal Access Token",
-            auth_personal=azuredevops.ServiceEndpointGitHubAuthPersonalArgs(
-                personal_access_token="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-            ))
+            auth_personal={
+                "personalAccessToken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            })
         ```
 
         ```python
@@ -243,9 +248,9 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
         example_service_endpoint_git_hub = azuredevops.ServiceEndpointGitHub("example",
             project_id=example.id,
             service_endpoint_name="Example GitHub",
-            auth_oauth=azuredevops.ServiceEndpointGitHubAuthOauthArgs(
-                oauth_configuration_id="00000000-0000-0000-0000-000000000000",
-            ))
+            auth_oauth={
+                "oauthConfigurationId": "00000000-0000-0000-0000-000000000000",
+            })
         ```
 
         ```python
@@ -278,7 +283,7 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ServiceEndpointGitHubAuthPersonalArgs']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        :param pulumi.Input[Union['ServiceEndpointGitHubAuthPersonalArgs', 'ServiceEndpointGitHubAuthPersonalArgsDict']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
@@ -306,9 +311,9 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
         example_service_endpoint_git_hub = azuredevops.ServiceEndpointGitHub("example",
             project_id=example.id,
             service_endpoint_name="Example GitHub Personal Access Token",
-            auth_personal=azuredevops.ServiceEndpointGitHubAuthPersonalArgs(
-                personal_access_token="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-            ))
+            auth_personal={
+                "personalAccessToken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            })
         ```
 
         ```python
@@ -324,9 +329,9 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
         example_service_endpoint_git_hub = azuredevops.ServiceEndpointGitHub("example",
             project_id=example.id,
             service_endpoint_name="Example GitHub",
-            auth_oauth=azuredevops.ServiceEndpointGitHubAuthOauthArgs(
-                oauth_configuration_id="00000000-0000-0000-0000-000000000000",
-            ))
+            auth_oauth={
+                "oauthConfigurationId": "00000000-0000-0000-0000-000000000000",
+            })
         ```
 
         ```python
@@ -372,8 +377,8 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_oauth: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointGitHubAuthOauthArgs']]] = None,
-                 auth_personal: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointGitHubAuthPersonalArgs']]] = None,
+                 auth_oauth: Optional[pulumi.Input[Union['ServiceEndpointGitHubAuthOauthArgs', 'ServiceEndpointGitHubAuthOauthArgsDict']]] = None,
+                 auth_personal: Optional[pulumi.Input[Union['ServiceEndpointGitHubAuthPersonalArgs', 'ServiceEndpointGitHubAuthPersonalArgsDict']]] = None,
                  authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
@@ -407,8 +412,8 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auth_oauth: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointGitHubAuthOauthArgs']]] = None,
-            auth_personal: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointGitHubAuthPersonalArgs']]] = None,
+            auth_oauth: Optional[pulumi.Input[Union['ServiceEndpointGitHubAuthOauthArgs', 'ServiceEndpointGitHubAuthOauthArgsDict']]] = None,
+            auth_personal: Optional[pulumi.Input[Union['ServiceEndpointGitHubAuthPersonalArgs', 'ServiceEndpointGitHubAuthPersonalArgsDict']]] = None,
             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
@@ -420,7 +425,7 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ServiceEndpointGitHubAuthPersonalArgs']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        :param pulumi.Input[Union['ServiceEndpointGitHubAuthPersonalArgs', 'ServiceEndpointGitHubAuthPersonalArgsDict']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """

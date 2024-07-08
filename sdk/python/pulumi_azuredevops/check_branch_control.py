@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = ['CheckBranchControlArgs', 'CheckBranchControl']
@@ -385,9 +390,9 @@ class CheckBranchControl(pulumi.CustomResource):
         example_git = azuredevops.Git("example",
             project_id=example.id,
             name="Example Empty Git Repository",
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
+            initialization={
+                "initType": "Clean",
+            })
         example_check_branch_control = azuredevops.CheckBranchControl("example",
             project_id=example.id,
             display_name="Managed by Terraform",
@@ -409,15 +414,15 @@ class CheckBranchControl(pulumi.CustomResource):
             description="Example Variable Group Description",
             allow_access=True,
             variables=[
-                azuredevops.VariableGroupVariableArgs(
-                    name="key1",
-                    value="val1",
-                ),
-                azuredevops.VariableGroupVariableArgs(
-                    name="key2",
-                    secret_value="val2",
-                    is_secret=True,
-                ),
+                {
+                    "name": "key1",
+                    "value": "val1",
+                },
+                {
+                    "name": "key2",
+                    "secretValue": "val2",
+                    "isSecret": True,
+                },
             ])
         example_check_branch_control = azuredevops.CheckBranchControl("example",
             project_id=example.id,
@@ -527,9 +532,9 @@ class CheckBranchControl(pulumi.CustomResource):
         example_git = azuredevops.Git("example",
             project_id=example.id,
             name="Example Empty Git Repository",
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
+            initialization={
+                "initType": "Clean",
+            })
         example_check_branch_control = azuredevops.CheckBranchControl("example",
             project_id=example.id,
             display_name="Managed by Terraform",
@@ -551,15 +556,15 @@ class CheckBranchControl(pulumi.CustomResource):
             description="Example Variable Group Description",
             allow_access=True,
             variables=[
-                azuredevops.VariableGroupVariableArgs(
-                    name="key1",
-                    value="val1",
-                ),
-                azuredevops.VariableGroupVariableArgs(
-                    name="key2",
-                    secret_value="val2",
-                    is_secret=True,
-                ),
+                {
+                    "name": "key1",
+                    "value": "val1",
+                },
+                {
+                    "name": "key2",
+                    "secretValue": "val2",
+                    "isSecret": True,
+                },
             ])
         example_check_branch_control = azuredevops.CheckBranchControl("example",
             project_id=example.id,

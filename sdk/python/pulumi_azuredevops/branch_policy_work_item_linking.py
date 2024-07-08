@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -163,7 +168,7 @@ class BranchPolicyWorkItemLinking(pulumi.CustomResource):
                  blocking: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[pulumi.InputType['BranchPolicyWorkItemLinkingSettingsArgs']]] = None,
+                 settings: Optional[pulumi.Input[Union['BranchPolicyWorkItemLinkingSettingsArgs', 'BranchPolicyWorkItemLinkingSettingsArgsDict']]] = None,
                  __props__=None):
         """
         Require associations between branches and a work item within Azure DevOps.
@@ -178,30 +183,30 @@ class BranchPolicyWorkItemLinking(pulumi.CustomResource):
         example_git = azuredevops.Git("example",
             project_id=example.id,
             name="Example Repository",
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
+            initialization={
+                "initType": "Clean",
+            })
         example_branch_policy_work_item_linking = azuredevops.BranchPolicyWorkItemLinking("example",
             project_id=example.id,
             enabled=True,
             blocking=True,
-            settings=azuredevops.BranchPolicyWorkItemLinkingSettingsArgs(
-                scopes=[
-                    azuredevops.BranchPolicyWorkItemLinkingSettingsScopeArgs(
-                        repository_id=example_git.id,
-                        repository_ref=example_git.default_branch,
-                        match_type="Exact",
-                    ),
-                    azuredevops.BranchPolicyWorkItemLinkingSettingsScopeArgs(
-                        repository_id=example_git.id,
-                        repository_ref="refs/heads/releases",
-                        match_type="Prefix",
-                    ),
-                    azuredevops.BranchPolicyWorkItemLinkingSettingsScopeArgs(
-                        match_type="DefaultBranch",
-                    ),
+            settings={
+                "scopes": [
+                    {
+                        "repositoryId": example_git.id,
+                        "repositoryRef": example_git.default_branch,
+                        "matchType": "Exact",
+                    },
+                    {
+                        "repositoryId": example_git.id,
+                        "repositoryRef": "refs/heads/releases",
+                        "matchType": "Prefix",
+                    },
+                    {
+                        "matchType": "DefaultBranch",
+                    },
                 ],
-            ))
+            })
         ```
 
         ## Relevant Links
@@ -221,7 +226,7 @@ class BranchPolicyWorkItemLinking(pulumi.CustomResource):
         :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
-        :param pulumi.Input[pulumi.InputType['BranchPolicyWorkItemLinkingSettingsArgs']] settings: Configuration for the policy. This block must be defined exactly once.
+        :param pulumi.Input[Union['BranchPolicyWorkItemLinkingSettingsArgs', 'BranchPolicyWorkItemLinkingSettingsArgsDict']] settings: Configuration for the policy. This block must be defined exactly once.
         """
         ...
     @overload
@@ -242,30 +247,30 @@ class BranchPolicyWorkItemLinking(pulumi.CustomResource):
         example_git = azuredevops.Git("example",
             project_id=example.id,
             name="Example Repository",
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
+            initialization={
+                "initType": "Clean",
+            })
         example_branch_policy_work_item_linking = azuredevops.BranchPolicyWorkItemLinking("example",
             project_id=example.id,
             enabled=True,
             blocking=True,
-            settings=azuredevops.BranchPolicyWorkItemLinkingSettingsArgs(
-                scopes=[
-                    azuredevops.BranchPolicyWorkItemLinkingSettingsScopeArgs(
-                        repository_id=example_git.id,
-                        repository_ref=example_git.default_branch,
-                        match_type="Exact",
-                    ),
-                    azuredevops.BranchPolicyWorkItemLinkingSettingsScopeArgs(
-                        repository_id=example_git.id,
-                        repository_ref="refs/heads/releases",
-                        match_type="Prefix",
-                    ),
-                    azuredevops.BranchPolicyWorkItemLinkingSettingsScopeArgs(
-                        match_type="DefaultBranch",
-                    ),
+            settings={
+                "scopes": [
+                    {
+                        "repositoryId": example_git.id,
+                        "repositoryRef": example_git.default_branch,
+                        "matchType": "Exact",
+                    },
+                    {
+                        "repositoryId": example_git.id,
+                        "repositoryRef": "refs/heads/releases",
+                        "matchType": "Prefix",
+                    },
+                    {
+                        "matchType": "DefaultBranch",
+                    },
                 ],
-            ))
+            })
         ```
 
         ## Relevant Links
@@ -298,7 +303,7 @@ class BranchPolicyWorkItemLinking(pulumi.CustomResource):
                  blocking: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[pulumi.InputType['BranchPolicyWorkItemLinkingSettingsArgs']]] = None,
+                 settings: Optional[pulumi.Input[Union['BranchPolicyWorkItemLinkingSettingsArgs', 'BranchPolicyWorkItemLinkingSettingsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -329,7 +334,7 @@ class BranchPolicyWorkItemLinking(pulumi.CustomResource):
             blocking: Optional[pulumi.Input[bool]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
-            settings: Optional[pulumi.Input[pulumi.InputType['BranchPolicyWorkItemLinkingSettingsArgs']]] = None) -> 'BranchPolicyWorkItemLinking':
+            settings: Optional[pulumi.Input[Union['BranchPolicyWorkItemLinkingSettingsArgs', 'BranchPolicyWorkItemLinkingSettingsArgsDict']]] = None) -> 'BranchPolicyWorkItemLinking':
         """
         Get an existing BranchPolicyWorkItemLinking resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -340,7 +345,7 @@ class BranchPolicyWorkItemLinking(pulumi.CustomResource):
         :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
-        :param pulumi.Input[pulumi.InputType['BranchPolicyWorkItemLinkingSettingsArgs']] settings: Configuration for the policy. This block must be defined exactly once.
+        :param pulumi.Input[Union['BranchPolicyWorkItemLinkingSettingsArgs', 'BranchPolicyWorkItemLinkingSettingsArgsDict']] settings: Configuration for the policy. This block must be defined exactly once.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -175,7 +180,7 @@ class CheckRequiredTemplate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
-                 required_templates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CheckRequiredTemplateRequiredTemplateArgs']]]]] = None,
+                 required_templates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CheckRequiredTemplateRequiredTemplateArgs', 'CheckRequiredTemplateRequiredTemplateArgsDict']]]]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  target_resource_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -202,12 +207,12 @@ class CheckRequiredTemplate(pulumi.CustomResource):
             project_id=example.id,
             target_resource_id=example_service_endpoint_generic.id,
             target_resource_type="endpoint",
-            required_templates=[azuredevops.CheckRequiredTemplateRequiredTemplateArgs(
-                repository_type="azuregit",
-                repository_name="project/repository",
-                repository_ref="refs/heads/main",
-                template_path="template/path.yml",
-            )])
+            required_templates=[{
+                "repositoryType": "azuregit",
+                "repositoryName": "project/repository",
+                "repositoryRef": "refs/heads/main",
+                "templatePath": "template/path.yml",
+            }])
         ```
 
         ### Protect an environment
@@ -225,16 +230,16 @@ class CheckRequiredTemplate(pulumi.CustomResource):
             target_resource_id=example_environment.id,
             target_resource_type="environment",
             required_templates=[
-                azuredevops.CheckRequiredTemplateRequiredTemplateArgs(
-                    repository_name="project/repository",
-                    repository_ref="refs/heads/main",
-                    template_path="template/path.yml",
-                ),
-                azuredevops.CheckRequiredTemplateRequiredTemplateArgs(
-                    repository_name="project/repository",
-                    repository_ref="refs/heads/main",
-                    template_path="template/alternate-path.yml",
-                ),
+                {
+                    "repositoryName": "project/repository",
+                    "repositoryRef": "refs/heads/main",
+                    "templatePath": "template/path.yml",
+                },
+                {
+                    "repositoryName": "project/repository",
+                    "repositoryRef": "refs/heads/main",
+                    "templatePath": "template/alternate-path.yml",
+                },
             ])
         ```
 
@@ -245,7 +250,7 @@ class CheckRequiredTemplate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] project_id: The project ID. Changing this forces a new Required Template Check to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CheckRequiredTemplateRequiredTemplateArgs']]]] required_templates: One or more `required_template` blocks documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CheckRequiredTemplateRequiredTemplateArgs', 'CheckRequiredTemplateRequiredTemplateArgsDict']]]] required_templates: One or more `required_template` blocks documented below.
         :param pulumi.Input[str] target_resource_id: The ID of the resource being protected by the check. Changing this forces a new Required Template Check to be created.
         :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Required Template Check to be created.
         """
@@ -278,12 +283,12 @@ class CheckRequiredTemplate(pulumi.CustomResource):
             project_id=example.id,
             target_resource_id=example_service_endpoint_generic.id,
             target_resource_type="endpoint",
-            required_templates=[azuredevops.CheckRequiredTemplateRequiredTemplateArgs(
-                repository_type="azuregit",
-                repository_name="project/repository",
-                repository_ref="refs/heads/main",
-                template_path="template/path.yml",
-            )])
+            required_templates=[{
+                "repositoryType": "azuregit",
+                "repositoryName": "project/repository",
+                "repositoryRef": "refs/heads/main",
+                "templatePath": "template/path.yml",
+            }])
         ```
 
         ### Protect an environment
@@ -301,16 +306,16 @@ class CheckRequiredTemplate(pulumi.CustomResource):
             target_resource_id=example_environment.id,
             target_resource_type="environment",
             required_templates=[
-                azuredevops.CheckRequiredTemplateRequiredTemplateArgs(
-                    repository_name="project/repository",
-                    repository_ref="refs/heads/main",
-                    template_path="template/path.yml",
-                ),
-                azuredevops.CheckRequiredTemplateRequiredTemplateArgs(
-                    repository_name="project/repository",
-                    repository_ref="refs/heads/main",
-                    template_path="template/alternate-path.yml",
-                ),
+                {
+                    "repositoryName": "project/repository",
+                    "repositoryRef": "refs/heads/main",
+                    "templatePath": "template/path.yml",
+                },
+                {
+                    "repositoryName": "project/repository",
+                    "repositoryRef": "refs/heads/main",
+                    "templatePath": "template/alternate-path.yml",
+                },
             ])
         ```
 
@@ -334,7 +339,7 @@ class CheckRequiredTemplate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
-                 required_templates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CheckRequiredTemplateRequiredTemplateArgs']]]]] = None,
+                 required_templates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CheckRequiredTemplateRequiredTemplateArgs', 'CheckRequiredTemplateRequiredTemplateArgsDict']]]]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  target_resource_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -370,7 +375,7 @@ class CheckRequiredTemplate(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             project_id: Optional[pulumi.Input[str]] = None,
-            required_templates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CheckRequiredTemplateRequiredTemplateArgs']]]]] = None,
+            required_templates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CheckRequiredTemplateRequiredTemplateArgs', 'CheckRequiredTemplateRequiredTemplateArgsDict']]]]] = None,
             target_resource_id: Optional[pulumi.Input[str]] = None,
             target_resource_type: Optional[pulumi.Input[str]] = None,
             version: Optional[pulumi.Input[int]] = None) -> 'CheckRequiredTemplate':
@@ -382,7 +387,7 @@ class CheckRequiredTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] project_id: The project ID. Changing this forces a new Required Template Check to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CheckRequiredTemplateRequiredTemplateArgs']]]] required_templates: One or more `required_template` blocks documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CheckRequiredTemplateRequiredTemplateArgs', 'CheckRequiredTemplateRequiredTemplateArgsDict']]]] required_templates: One or more `required_template` blocks documented below.
         :param pulumi.Input[str] target_resource_id: The ID of the resource being protected by the check. Changing this forces a new Required Template Check to be created.
         :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Required Template Check to be created.
         :param pulumi.Input[int] version: The version of the check.

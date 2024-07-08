@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -541,10 +546,10 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
                  azurerm_spn_tenantid: Optional[pulumi.Input[str]] = None,
                  azurerm_subscription_id: Optional[pulumi.Input[str]] = None,
                  azurerm_subscription_name: Optional[pulumi.Input[str]] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointAzureRMCredentialsArgs']]] = None,
+                 credentials: Optional[pulumi.Input[Union['ServiceEndpointAzureRMCredentialsArgs', 'ServiceEndpointAzureRMCredentialsArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[str]] = None,
-                 features: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointAzureRMFeaturesArgs']]] = None,
+                 features: Optional[pulumi.Input[Union['ServiceEndpointAzureRMFeaturesArgs', 'ServiceEndpointAzureRMFeaturesArgsDict']]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
                  service_endpoint_authentication_scheme: Optional[pulumi.Input[str]] = None,
@@ -578,10 +583,10 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             service_endpoint_name="Example AzureRM",
             description="Managed by Terraform",
             service_endpoint_authentication_scheme="ServicePrincipal",
-            credentials=azuredevops.ServiceEndpointAzureRMCredentialsArgs(
-                serviceprincipalid="00000000-0000-0000-0000-000000000000",
-                serviceprincipalkey="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-            ),
+            credentials={
+                "serviceprincipalid": "00000000-0000-0000-0000-000000000000",
+                "serviceprincipalkey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            },
             azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Example Subscription Name")
@@ -604,10 +609,10 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             service_endpoint_name="Example AzureRM",
             description="Managed by Terraform",
             service_endpoint_authentication_scheme="ServicePrincipal",
-            credentials=azuredevops.ServiceEndpointAzureRMCredentialsArgs(
-                serviceprincipalid="00000000-0000-0000-0000-000000000000",
-                serviceprincipalkey="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-            ),
+            credentials={
+                "serviceprincipalid": "00000000-0000-0000-0000-000000000000",
+                "serviceprincipalkey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            },
             azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
             azurerm_management_group_id="managementGroup",
             azurerm_management_group_name="managementGroup")
@@ -659,9 +664,9 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             service_endpoint_name=service_connection_name,
             description="Managed by Terraform",
             service_endpoint_authentication_scheme="WorkloadIdentityFederation",
-            credentials=azuredevops.ServiceEndpointAzureRMCredentialsArgs(
-                serviceprincipalid=example_user_assigned_identity.client_id,
-            ),
+            credentials={
+                "serviceprincipalid": example_user_assigned_identity.client_id,
+            },
             azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Example Subscription Name")
@@ -733,12 +738,12 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         :param pulumi.Input[str] azurerm_spn_tenantid: The Tenant ID if the service principal.
         :param pulumi.Input[str] azurerm_subscription_id: The Subscription ID of the Azure targets.
         :param pulumi.Input[str] azurerm_subscription_name: The Subscription Name of the targets.
-        :param pulumi.Input[pulumi.InputType['ServiceEndpointAzureRMCredentialsArgs']] credentials: A `credentials` block.
+        :param pulumi.Input[Union['ServiceEndpointAzureRMCredentialsArgs', 'ServiceEndpointAzureRMCredentialsArgsDict']] credentials: A `credentials` block.
         :param pulumi.Input[str] description: Service connection description.
         :param pulumi.Input[str] environment: The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
                
                > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
-        :param pulumi.Input[pulumi.InputType['ServiceEndpointAzureRMFeaturesArgs']] features: A `features` block.
+        :param pulumi.Input[Union['ServiceEndpointAzureRMFeaturesArgs', 'ServiceEndpointAzureRMFeaturesArgsDict']] features: A `features` block.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] resource_group: The resource group used for scope of automatic service endpoint.
         :param pulumi.Input[str] service_endpoint_authentication_scheme: Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
@@ -780,10 +785,10 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             service_endpoint_name="Example AzureRM",
             description="Managed by Terraform",
             service_endpoint_authentication_scheme="ServicePrincipal",
-            credentials=azuredevops.ServiceEndpointAzureRMCredentialsArgs(
-                serviceprincipalid="00000000-0000-0000-0000-000000000000",
-                serviceprincipalkey="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-            ),
+            credentials={
+                "serviceprincipalid": "00000000-0000-0000-0000-000000000000",
+                "serviceprincipalkey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            },
             azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Example Subscription Name")
@@ -806,10 +811,10 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             service_endpoint_name="Example AzureRM",
             description="Managed by Terraform",
             service_endpoint_authentication_scheme="ServicePrincipal",
-            credentials=azuredevops.ServiceEndpointAzureRMCredentialsArgs(
-                serviceprincipalid="00000000-0000-0000-0000-000000000000",
-                serviceprincipalkey="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-            ),
+            credentials={
+                "serviceprincipalid": "00000000-0000-0000-0000-000000000000",
+                "serviceprincipalkey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            },
             azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
             azurerm_management_group_id="managementGroup",
             azurerm_management_group_name="managementGroup")
@@ -861,9 +866,9 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             service_endpoint_name=service_connection_name,
             description="Managed by Terraform",
             service_endpoint_authentication_scheme="WorkloadIdentityFederation",
-            credentials=azuredevops.ServiceEndpointAzureRMCredentialsArgs(
-                serviceprincipalid=example_user_assigned_identity.client_id,
-            ),
+            credentials={
+                "serviceprincipalid": example_user_assigned_identity.client_id,
+            },
             azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Example Subscription Name")
@@ -949,10 +954,10 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
                  azurerm_spn_tenantid: Optional[pulumi.Input[str]] = None,
                  azurerm_subscription_id: Optional[pulumi.Input[str]] = None,
                  azurerm_subscription_name: Optional[pulumi.Input[str]] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointAzureRMCredentialsArgs']]] = None,
+                 credentials: Optional[pulumi.Input[Union['ServiceEndpointAzureRMCredentialsArgs', 'ServiceEndpointAzureRMCredentialsArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[str]] = None,
-                 features: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointAzureRMFeaturesArgs']]] = None,
+                 features: Optional[pulumi.Input[Union['ServiceEndpointAzureRMFeaturesArgs', 'ServiceEndpointAzureRMFeaturesArgsDict']]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
                  service_endpoint_authentication_scheme: Optional[pulumi.Input[str]] = None,
@@ -1005,10 +1010,10 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             azurerm_spn_tenantid: Optional[pulumi.Input[str]] = None,
             azurerm_subscription_id: Optional[pulumi.Input[str]] = None,
             azurerm_subscription_name: Optional[pulumi.Input[str]] = None,
-            credentials: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointAzureRMCredentialsArgs']]] = None,
+            credentials: Optional[pulumi.Input[Union['ServiceEndpointAzureRMCredentialsArgs', 'ServiceEndpointAzureRMCredentialsArgsDict']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             environment: Optional[pulumi.Input[str]] = None,
-            features: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointAzureRMFeaturesArgs']]] = None,
+            features: Optional[pulumi.Input[Union['ServiceEndpointAzureRMFeaturesArgs', 'ServiceEndpointAzureRMFeaturesArgsDict']]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
             resource_group: Optional[pulumi.Input[str]] = None,
             service_endpoint_authentication_scheme: Optional[pulumi.Input[str]] = None,
@@ -1028,12 +1033,12 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         :param pulumi.Input[str] azurerm_spn_tenantid: The Tenant ID if the service principal.
         :param pulumi.Input[str] azurerm_subscription_id: The Subscription ID of the Azure targets.
         :param pulumi.Input[str] azurerm_subscription_name: The Subscription Name of the targets.
-        :param pulumi.Input[pulumi.InputType['ServiceEndpointAzureRMCredentialsArgs']] credentials: A `credentials` block.
+        :param pulumi.Input[Union['ServiceEndpointAzureRMCredentialsArgs', 'ServiceEndpointAzureRMCredentialsArgsDict']] credentials: A `credentials` block.
         :param pulumi.Input[str] description: Service connection description.
         :param pulumi.Input[str] environment: The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
                
                > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
-        :param pulumi.Input[pulumi.InputType['ServiceEndpointAzureRMFeaturesArgs']] features: A `features` block.
+        :param pulumi.Input[Union['ServiceEndpointAzureRMFeaturesArgs', 'ServiceEndpointAzureRMFeaturesArgsDict']] features: A `features` block.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] resource_group: The resource group used for scope of automatic service endpoint.
         :param pulumi.Input[str] service_endpoint_authentication_scheme: Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.

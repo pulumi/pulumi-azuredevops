@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -305,7 +310,7 @@ class Git(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_branch: Optional[pulumi.Input[str]] = None,
-                 initialization: Optional[pulumi.Input[pulumi.InputType['GitInitializationArgs']]] = None,
+                 initialization: Optional[pulumi.Input[Union['GitInitializationArgs', 'GitInitializationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parent_repository_id: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
@@ -374,7 +379,7 @@ class Git(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_branch: The ref of the default branch. Will be used as the branch name for initialized repositories.
-        :param pulumi.Input[pulumi.InputType['GitInitializationArgs']] initialization: An `initialization` block as documented below.
+        :param pulumi.Input[Union['GitInitializationArgs', 'GitInitializationArgsDict']] initialization: An `initialization` block as documented below.
         :param pulumi.Input[str] name: The name of the git repository.
         :param pulumi.Input[str] parent_repository_id: The ID of a Git project from which a fork is to be created.
         :param pulumi.Input[str] project_id: The project ID or project name.
@@ -462,7 +467,7 @@ class Git(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_branch: Optional[pulumi.Input[str]] = None,
-                 initialization: Optional[pulumi.Input[pulumi.InputType['GitInitializationArgs']]] = None,
+                 initialization: Optional[pulumi.Input[Union['GitInitializationArgs', 'GitInitializationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parent_repository_id: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
@@ -503,7 +508,7 @@ class Git(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             default_branch: Optional[pulumi.Input[str]] = None,
             disabled: Optional[pulumi.Input[bool]] = None,
-            initialization: Optional[pulumi.Input[pulumi.InputType['GitInitializationArgs']]] = None,
+            initialization: Optional[pulumi.Input[Union['GitInitializationArgs', 'GitInitializationArgsDict']]] = None,
             is_fork: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             parent_repository_id: Optional[pulumi.Input[str]] = None,
@@ -522,7 +527,7 @@ class Git(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_branch: The ref of the default branch. Will be used as the branch name for initialized repositories.
         :param pulumi.Input[bool] disabled: Is the repository disabled?
-        :param pulumi.Input[pulumi.InputType['GitInitializationArgs']] initialization: An `initialization` block as documented below.
+        :param pulumi.Input[Union['GitInitializationArgs', 'GitInitializationArgsDict']] initialization: An `initialization` block as documented below.
         :param pulumi.Input[bool] is_fork: True if the repository was created as a fork.
         :param pulumi.Input[str] name: The name of the git repository.
         :param pulumi.Input[str] parent_repository_id: The ID of a Git project from which a fork is to be created.

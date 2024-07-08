@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = ['VariableGroupPermissionsArgs', 'VariableGroupPermissions']
@@ -250,10 +255,10 @@ class VariableGroupPermissions(pulumi.CustomResource):
             name="test",
             description="Test Description",
             allow_access=True,
-            variables=[azuredevops.VariableGroupVariableArgs(
-                name="key1",
-                value="val1",
-            )])
+            variables=[{
+                "name": "key1",
+                "value": "val1",
+            }])
         tf_project_readers = azuredevops.get_group_output(project_id=project.id,
             name="Readers")
         permissions = azuredevops.VariableGroupPermissions("permissions",
@@ -332,10 +337,10 @@ class VariableGroupPermissions(pulumi.CustomResource):
             name="test",
             description="Test Description",
             allow_access=True,
-            variables=[azuredevops.VariableGroupVariableArgs(
-                name="key1",
-                value="val1",
-            )])
+            variables=[{
+                "name": "key1",
+                "value": "val1",
+            }])
         tf_project_readers = azuredevops.get_group_output(project_id=project.id,
             name="Readers")
         permissions = azuredevops.VariableGroupPermissions("permissions",

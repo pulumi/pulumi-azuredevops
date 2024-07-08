@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -248,11 +253,11 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 azure_active_directory: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointServiceFabricAzureActiveDirectoryArgs']]] = None,
-                 certificate: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointServiceFabricCertificateArgs']]] = None,
+                 azure_active_directory: Optional[pulumi.Input[Union['ServiceEndpointServiceFabricAzureActiveDirectoryArgs', 'ServiceEndpointServiceFabricAzureActiveDirectoryArgsDict']]] = None,
+                 certificate: Optional[pulumi.Input[Union['ServiceEndpointServiceFabricCertificateArgs', 'ServiceEndpointServiceFabricCertificateArgsDict']]] = None,
                  cluster_endpoint: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 none: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointServiceFabricNoneArgs']]] = None,
+                 none: Optional[pulumi.Input[Union['ServiceEndpointServiceFabricNoneArgs', 'ServiceEndpointServiceFabricNoneArgsDict']]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  service_endpoint_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -277,12 +282,12 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
             service_endpoint_name="Sample Service Fabric",
             description="Managed by Terraform",
             cluster_endpoint="tcp://test",
-            azure_active_directory=azuredevops.ServiceEndpointServiceFabricAzureActiveDirectoryArgs(
-                server_certificate_lookup="Thumbprint",
-                server_certificate_thumbprint="0000000000000000000000000000000000000000",
-                username="username",
-                password="password",
-            ))
+            azure_active_directory={
+                "serverCertificateLookup": "Thumbprint",
+                "serverCertificateThumbprint": "0000000000000000000000000000000000000000",
+                "username": "username",
+                "password": "password",
+            })
         ```
 
         ### Windows Authentication
@@ -301,10 +306,10 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
             service_endpoint_name="Sample Service Fabric",
             description="Managed by Terraform",
             cluster_endpoint="tcp://test",
-            none=azuredevops.ServiceEndpointServiceFabricNoneArgs(
-                unsecured=False,
-                cluster_spn="HTTP/www.contoso.com",
-            ))
+            none={
+                "unsecured": False,
+                "clusterSpn": "HTTP/www.contoso.com",
+            })
         ```
 
         ## Relevant Links
@@ -352,12 +357,12 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
             service_endpoint_name="Sample Service Fabric",
             description="Managed by Terraform",
             cluster_endpoint="tcp://test",
-            azure_active_directory=azuredevops.ServiceEndpointServiceFabricAzureActiveDirectoryArgs(
-                server_certificate_lookup="Thumbprint",
-                server_certificate_thumbprint="0000000000000000000000000000000000000000",
-                username="username",
-                password="password",
-            ))
+            azure_active_directory={
+                "serverCertificateLookup": "Thumbprint",
+                "serverCertificateThumbprint": "0000000000000000000000000000000000000000",
+                "username": "username",
+                "password": "password",
+            })
         ```
 
         ### Windows Authentication
@@ -376,10 +381,10 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
             service_endpoint_name="Sample Service Fabric",
             description="Managed by Terraform",
             cluster_endpoint="tcp://test",
-            none=azuredevops.ServiceEndpointServiceFabricNoneArgs(
-                unsecured=False,
-                cluster_spn="HTTP/www.contoso.com",
-            ))
+            none={
+                "unsecured": False,
+                "clusterSpn": "HTTP/www.contoso.com",
+            })
         ```
 
         ## Relevant Links
@@ -410,11 +415,11 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 azure_active_directory: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointServiceFabricAzureActiveDirectoryArgs']]] = None,
-                 certificate: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointServiceFabricCertificateArgs']]] = None,
+                 azure_active_directory: Optional[pulumi.Input[Union['ServiceEndpointServiceFabricAzureActiveDirectoryArgs', 'ServiceEndpointServiceFabricAzureActiveDirectoryArgsDict']]] = None,
+                 certificate: Optional[pulumi.Input[Union['ServiceEndpointServiceFabricCertificateArgs', 'ServiceEndpointServiceFabricCertificateArgsDict']]] = None,
                  cluster_endpoint: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 none: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointServiceFabricNoneArgs']]] = None,
+                 none: Optional[pulumi.Input[Union['ServiceEndpointServiceFabricNoneArgs', 'ServiceEndpointServiceFabricNoneArgsDict']]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  service_endpoint_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -451,11 +456,11 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            azure_active_directory: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointServiceFabricAzureActiveDirectoryArgs']]] = None,
-            certificate: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointServiceFabricCertificateArgs']]] = None,
+            azure_active_directory: Optional[pulumi.Input[Union['ServiceEndpointServiceFabricAzureActiveDirectoryArgs', 'ServiceEndpointServiceFabricAzureActiveDirectoryArgsDict']]] = None,
+            certificate: Optional[pulumi.Input[Union['ServiceEndpointServiceFabricCertificateArgs', 'ServiceEndpointServiceFabricCertificateArgsDict']]] = None,
             cluster_endpoint: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            none: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointServiceFabricNoneArgs']]] = None,
+            none: Optional[pulumi.Input[Union['ServiceEndpointServiceFabricNoneArgs', 'ServiceEndpointServiceFabricNoneArgsDict']]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
             service_endpoint_name: Optional[pulumi.Input[str]] = None) -> 'ServiceEndpointServiceFabric':
         """

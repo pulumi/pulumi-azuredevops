@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -243,8 +248,8 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_basic: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointArtifactoryAuthenticationBasicArgs']]] = None,
-                 authentication_token: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointArtifactoryAuthenticationTokenArgs']]] = None,
+                 authentication_basic: Optional[pulumi.Input[Union['ServiceEndpointArtifactoryAuthenticationBasicArgs', 'ServiceEndpointArtifactoryAuthenticationBasicArgsDict']]] = None,
+                 authentication_token: Optional[pulumi.Input[Union['ServiceEndpointArtifactoryAuthenticationTokenArgs', 'ServiceEndpointArtifactoryAuthenticationTokenArgsDict']]] = None,
                  authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
@@ -271,9 +276,9 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
             service_endpoint_name="Example Artifactory",
             description="Managed by Terraform",
             url="https://artifactory.my.com",
-            authentication_token=azuredevops.ServiceEndpointArtifactoryAuthenticationTokenArgs(
-                token="0000000000000000000000000000000000000000",
-            ))
+            authentication_token={
+                "token": "0000000000000000000000000000000000000000",
+            })
         ```
         Alternatively a username and password may be used.
 
@@ -292,10 +297,10 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
             service_endpoint_name="Example Artifactory",
             description="Managed by Terraform",
             url="https://artifactory.my.com",
-            authentication_basic=azuredevops.ServiceEndpointArtifactoryAuthenticationBasicArgs(
-                username="username",
-                password="password",
-            ))
+            authentication_basic={
+                "username": "username",
+                "password": "password",
+            })
         ```
 
         ## Relevant Links
@@ -347,9 +352,9 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
             service_endpoint_name="Example Artifactory",
             description="Managed by Terraform",
             url="https://artifactory.my.com",
-            authentication_token=azuredevops.ServiceEndpointArtifactoryAuthenticationTokenArgs(
-                token="0000000000000000000000000000000000000000",
-            ))
+            authentication_token={
+                "token": "0000000000000000000000000000000000000000",
+            })
         ```
         Alternatively a username and password may be used.
 
@@ -368,10 +373,10 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
             service_endpoint_name="Example Artifactory",
             description="Managed by Terraform",
             url="https://artifactory.my.com",
-            authentication_basic=azuredevops.ServiceEndpointArtifactoryAuthenticationBasicArgs(
-                username="username",
-                password="password",
-            ))
+            authentication_basic={
+                "username": "username",
+                "password": "password",
+            })
         ```
 
         ## Relevant Links
@@ -402,8 +407,8 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_basic: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointArtifactoryAuthenticationBasicArgs']]] = None,
-                 authentication_token: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointArtifactoryAuthenticationTokenArgs']]] = None,
+                 authentication_basic: Optional[pulumi.Input[Union['ServiceEndpointArtifactoryAuthenticationBasicArgs', 'ServiceEndpointArtifactoryAuthenticationBasicArgsDict']]] = None,
+                 authentication_token: Optional[pulumi.Input[Union['ServiceEndpointArtifactoryAuthenticationTokenArgs', 'ServiceEndpointArtifactoryAuthenticationTokenArgsDict']]] = None,
                  authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
@@ -441,8 +446,8 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication_basic: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointArtifactoryAuthenticationBasicArgs']]] = None,
-            authentication_token: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointArtifactoryAuthenticationTokenArgs']]] = None,
+            authentication_basic: Optional[pulumi.Input[Union['ServiceEndpointArtifactoryAuthenticationBasicArgs', 'ServiceEndpointArtifactoryAuthenticationBasicArgsDict']]] = None,
+            authentication_token: Optional[pulumi.Input[Union['ServiceEndpointArtifactoryAuthenticationTokenArgs', 'ServiceEndpointArtifactoryAuthenticationTokenArgsDict']]] = None,
             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             project_id: Optional[pulumi.Input[str]] = None,

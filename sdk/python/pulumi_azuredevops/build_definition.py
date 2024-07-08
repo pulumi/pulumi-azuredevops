@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -425,17 +430,17 @@ class BuildDefinition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_pool_name: Optional[pulumi.Input[str]] = None,
-                 ci_trigger: Optional[pulumi.Input[pulumi.InputType['BuildDefinitionCiTriggerArgs']]] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildDefinitionFeatureArgs']]]]] = None,
+                 ci_trigger: Optional[pulumi.Input[Union['BuildDefinitionCiTriggerArgs', 'BuildDefinitionCiTriggerArgsDict']]] = None,
+                 features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionFeatureArgs', 'BuildDefinitionFeatureArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
-                 pull_request_trigger: Optional[pulumi.Input[pulumi.InputType['BuildDefinitionPullRequestTriggerArgs']]] = None,
+                 pull_request_trigger: Optional[pulumi.Input[Union['BuildDefinitionPullRequestTriggerArgs', 'BuildDefinitionPullRequestTriggerArgsDict']]] = None,
                  queue_status: Optional[pulumi.Input[str]] = None,
-                 repository: Optional[pulumi.Input[pulumi.InputType['BuildDefinitionRepositoryArgs']]] = None,
-                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildDefinitionScheduleArgs']]]]] = None,
+                 repository: Optional[pulumi.Input[Union['BuildDefinitionRepositoryArgs', 'BuildDefinitionRepositoryArgsDict']]] = None,
+                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionScheduleArgs', 'BuildDefinitionScheduleArgsDict']]]]] = None,
                  variable_groups: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildDefinitionVariableArgs']]]]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionVariableArgs', 'BuildDefinitionVariableArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a Build Definition within Azure DevOps.
@@ -455,59 +460,59 @@ class BuildDefinition(pulumi.CustomResource):
         example_git = azuredevops.Git("example",
             project_id=example.id,
             name="Example Repository",
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
+            initialization={
+                "initType": "Clean",
+            })
         example_variable_group = azuredevops.VariableGroup("example",
             project_id=example.id,
             name="Example Pipeline Variables",
             description="Managed by Terraform",
             allow_access=True,
-            variables=[azuredevops.VariableGroupVariableArgs(
-                name="FOO",
-                value="BAR",
-            )])
+            variables=[{
+                "name": "FOO",
+                "value": "BAR",
+            }])
         example_build_definition = azuredevops.BuildDefinition("example",
             project_id=example.id,
             name="Example Build Definition",
             path="\\\\ExampleFolder",
-            ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(
-                use_yaml=False,
-            ),
-            schedules=[azuredevops.BuildDefinitionScheduleArgs(
-                branch_filters=[azuredevops.BuildDefinitionScheduleBranchFilterArgs(
-                    includes=["master"],
-                    excludes=[
+            ci_trigger={
+                "useYaml": False,
+            },
+            schedules=[{
+                "branchFilters": [{
+                    "includes": ["master"],
+                    "excludes": [
                         "test",
                         "regression",
                     ],
-                )],
-                days_to_builds=[
+                }],
+                "daysToBuilds": [
                     "Wed",
                     "Sun",
                 ],
-                schedule_only_with_changes=True,
-                start_hours=10,
-                start_minutes=59,
-                time_zone="(UTC) Coordinated Universal Time",
-            )],
-            repository=azuredevops.BuildDefinitionRepositoryArgs(
-                repo_type="TfsGit",
-                repo_id=example_git.id,
-                branch_name=example_git.default_branch,
-                yml_path="azure-pipelines.yml",
-            ),
+                "scheduleOnlyWithChanges": True,
+                "startHours": 10,
+                "startMinutes": 59,
+                "timeZone": "(UTC) Coordinated Universal Time",
+            }],
+            repository={
+                "repoType": "TfsGit",
+                "repoId": example_git.id,
+                "branchName": example_git.default_branch,
+                "ymlPath": "azure-pipelines.yml",
+            },
             variable_groups=[example_variable_group.id],
             variables=[
-                azuredevops.BuildDefinitionVariableArgs(
-                    name="PipelineVariable",
-                    value="Go Microsoft!",
-                ),
-                azuredevops.BuildDefinitionVariableArgs(
-                    name="PipelineSecret",
-                    secret_value="ZGV2cw",
-                    is_secret=True,
-                ),
+                {
+                    "name": "PipelineVariable",
+                    "value": "Go Microsoft!",
+                },
+                {
+                    "name": "PipelineSecret",
+                    "secretValue": "ZGV2cw",
+                    "isSecret": True,
+                },
             ])
         ```
 
@@ -526,41 +531,41 @@ class BuildDefinition(pulumi.CustomResource):
             service_endpoint_name="Example GitHub Enterprise",
             url="https://github.contoso.com",
             description="Managed by Terraform",
-            auth_personal=azuredevops.ServiceEndpointGitHubEnterpriseAuthPersonalArgs(
-                personal_access_token="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-            ))
+            auth_personal={
+                "personalAccessToken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            })
         example_build_definition = azuredevops.BuildDefinition("example",
             project_id=example.id,
             name="Example Build Definition",
             path="\\\\ExampleFolder",
-            ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(
-                use_yaml=False,
-            ),
-            repository=azuredevops.BuildDefinitionRepositoryArgs(
-                repo_type="GitHubEnterprise",
-                repo_id="<GitHub Org>/<Repo Name>",
-                github_enterprise_url="https://github.company.com",
-                branch_name="master",
-                yml_path="azure-pipelines.yml",
-                service_connection_id=example_service_endpoint_git_hub_enterprise.id,
-            ),
-            schedules=[azuredevops.BuildDefinitionScheduleArgs(
-                branch_filters=[azuredevops.BuildDefinitionScheduleBranchFilterArgs(
-                    includes=["main"],
-                    excludes=[
+            ci_trigger={
+                "useYaml": False,
+            },
+            repository={
+                "repoType": "GitHubEnterprise",
+                "repoId": "<GitHub Org>/<Repo Name>",
+                "githubEnterpriseUrl": "https://github.company.com",
+                "branchName": "master",
+                "ymlPath": "azure-pipelines.yml",
+                "serviceConnectionId": example_service_endpoint_git_hub_enterprise.id,
+            },
+            schedules=[{
+                "branchFilters": [{
+                    "includes": ["main"],
+                    "excludes": [
                         "test",
                         "regression",
                     ],
-                )],
-                days_to_builds=[
+                }],
+                "daysToBuilds": [
                     "Wed",
                     "Sun",
                 ],
-                schedule_only_with_changes=True,
-                start_hours=10,
-                start_minutes=59,
-                time_zone="(UTC) Coordinated Universal Time",
-            )])
+                "scheduleOnlyWithChanges": True,
+                "startHours": 10,
+                "startMinutes": 59,
+                "timeZone": "(UTC) Coordinated Universal Time",
+            }])
         ```
 
         ## Remarks
@@ -595,16 +600,16 @@ class BuildDefinition(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agent_pool_name: The agent pool that should execute the build. Defaults to `Azure Pipelines`.
-        :param pulumi.Input[pulumi.InputType['BuildDefinitionCiTriggerArgs']] ci_trigger: Continuous Integration trigger.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildDefinitionFeatureArgs']]]] features: A `features` blocks as documented below.
+        :param pulumi.Input[Union['BuildDefinitionCiTriggerArgs', 'BuildDefinitionCiTriggerArgsDict']] ci_trigger: Continuous Integration trigger.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionFeatureArgs', 'BuildDefinitionFeatureArgsDict']]]] features: A `features` blocks as documented below.
         :param pulumi.Input[str] name: The name of the build definition.
         :param pulumi.Input[str] path: The folder path of the build definition.
         :param pulumi.Input[str] project_id: The project ID or project name.
-        :param pulumi.Input[pulumi.InputType['BuildDefinitionPullRequestTriggerArgs']] pull_request_trigger: Pull Request Integration trigger.
+        :param pulumi.Input[Union['BuildDefinitionPullRequestTriggerArgs', 'BuildDefinitionPullRequestTriggerArgsDict']] pull_request_trigger: Pull Request Integration trigger.
         :param pulumi.Input[str] queue_status: The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
-        :param pulumi.Input[pulumi.InputType['BuildDefinitionRepositoryArgs']] repository: A `repository` block as documented below.
+        :param pulumi.Input[Union['BuildDefinitionRepositoryArgs', 'BuildDefinitionRepositoryArgsDict']] repository: A `repository` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] variable_groups: A list of variable group IDs (integers) to link to the build definition.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildDefinitionVariableArgs']]]] variables: A list of `variable` blocks, as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionVariableArgs', 'BuildDefinitionVariableArgsDict']]]] variables: A list of `variable` blocks, as documented below.
         """
         ...
     @overload
@@ -630,59 +635,59 @@ class BuildDefinition(pulumi.CustomResource):
         example_git = azuredevops.Git("example",
             project_id=example.id,
             name="Example Repository",
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
+            initialization={
+                "initType": "Clean",
+            })
         example_variable_group = azuredevops.VariableGroup("example",
             project_id=example.id,
             name="Example Pipeline Variables",
             description="Managed by Terraform",
             allow_access=True,
-            variables=[azuredevops.VariableGroupVariableArgs(
-                name="FOO",
-                value="BAR",
-            )])
+            variables=[{
+                "name": "FOO",
+                "value": "BAR",
+            }])
         example_build_definition = azuredevops.BuildDefinition("example",
             project_id=example.id,
             name="Example Build Definition",
             path="\\\\ExampleFolder",
-            ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(
-                use_yaml=False,
-            ),
-            schedules=[azuredevops.BuildDefinitionScheduleArgs(
-                branch_filters=[azuredevops.BuildDefinitionScheduleBranchFilterArgs(
-                    includes=["master"],
-                    excludes=[
+            ci_trigger={
+                "useYaml": False,
+            },
+            schedules=[{
+                "branchFilters": [{
+                    "includes": ["master"],
+                    "excludes": [
                         "test",
                         "regression",
                     ],
-                )],
-                days_to_builds=[
+                }],
+                "daysToBuilds": [
                     "Wed",
                     "Sun",
                 ],
-                schedule_only_with_changes=True,
-                start_hours=10,
-                start_minutes=59,
-                time_zone="(UTC) Coordinated Universal Time",
-            )],
-            repository=azuredevops.BuildDefinitionRepositoryArgs(
-                repo_type="TfsGit",
-                repo_id=example_git.id,
-                branch_name=example_git.default_branch,
-                yml_path="azure-pipelines.yml",
-            ),
+                "scheduleOnlyWithChanges": True,
+                "startHours": 10,
+                "startMinutes": 59,
+                "timeZone": "(UTC) Coordinated Universal Time",
+            }],
+            repository={
+                "repoType": "TfsGit",
+                "repoId": example_git.id,
+                "branchName": example_git.default_branch,
+                "ymlPath": "azure-pipelines.yml",
+            },
             variable_groups=[example_variable_group.id],
             variables=[
-                azuredevops.BuildDefinitionVariableArgs(
-                    name="PipelineVariable",
-                    value="Go Microsoft!",
-                ),
-                azuredevops.BuildDefinitionVariableArgs(
-                    name="PipelineSecret",
-                    secret_value="ZGV2cw",
-                    is_secret=True,
-                ),
+                {
+                    "name": "PipelineVariable",
+                    "value": "Go Microsoft!",
+                },
+                {
+                    "name": "PipelineSecret",
+                    "secretValue": "ZGV2cw",
+                    "isSecret": True,
+                },
             ])
         ```
 
@@ -701,41 +706,41 @@ class BuildDefinition(pulumi.CustomResource):
             service_endpoint_name="Example GitHub Enterprise",
             url="https://github.contoso.com",
             description="Managed by Terraform",
-            auth_personal=azuredevops.ServiceEndpointGitHubEnterpriseAuthPersonalArgs(
-                personal_access_token="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-            ))
+            auth_personal={
+                "personalAccessToken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            })
         example_build_definition = azuredevops.BuildDefinition("example",
             project_id=example.id,
             name="Example Build Definition",
             path="\\\\ExampleFolder",
-            ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(
-                use_yaml=False,
-            ),
-            repository=azuredevops.BuildDefinitionRepositoryArgs(
-                repo_type="GitHubEnterprise",
-                repo_id="<GitHub Org>/<Repo Name>",
-                github_enterprise_url="https://github.company.com",
-                branch_name="master",
-                yml_path="azure-pipelines.yml",
-                service_connection_id=example_service_endpoint_git_hub_enterprise.id,
-            ),
-            schedules=[azuredevops.BuildDefinitionScheduleArgs(
-                branch_filters=[azuredevops.BuildDefinitionScheduleBranchFilterArgs(
-                    includes=["main"],
-                    excludes=[
+            ci_trigger={
+                "useYaml": False,
+            },
+            repository={
+                "repoType": "GitHubEnterprise",
+                "repoId": "<GitHub Org>/<Repo Name>",
+                "githubEnterpriseUrl": "https://github.company.com",
+                "branchName": "master",
+                "ymlPath": "azure-pipelines.yml",
+                "serviceConnectionId": example_service_endpoint_git_hub_enterprise.id,
+            },
+            schedules=[{
+                "branchFilters": [{
+                    "includes": ["main"],
+                    "excludes": [
                         "test",
                         "regression",
                     ],
-                )],
-                days_to_builds=[
+                }],
+                "daysToBuilds": [
                     "Wed",
                     "Sun",
                 ],
-                schedule_only_with_changes=True,
-                start_hours=10,
-                start_minutes=59,
-                time_zone="(UTC) Coordinated Universal Time",
-            )])
+                "scheduleOnlyWithChanges": True,
+                "startHours": 10,
+                "startMinutes": 59,
+                "timeZone": "(UTC) Coordinated Universal Time",
+            }])
         ```
 
         ## Remarks
@@ -783,17 +788,17 @@ class BuildDefinition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_pool_name: Optional[pulumi.Input[str]] = None,
-                 ci_trigger: Optional[pulumi.Input[pulumi.InputType['BuildDefinitionCiTriggerArgs']]] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildDefinitionFeatureArgs']]]]] = None,
+                 ci_trigger: Optional[pulumi.Input[Union['BuildDefinitionCiTriggerArgs', 'BuildDefinitionCiTriggerArgsDict']]] = None,
+                 features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionFeatureArgs', 'BuildDefinitionFeatureArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
-                 pull_request_trigger: Optional[pulumi.Input[pulumi.InputType['BuildDefinitionPullRequestTriggerArgs']]] = None,
+                 pull_request_trigger: Optional[pulumi.Input[Union['BuildDefinitionPullRequestTriggerArgs', 'BuildDefinitionPullRequestTriggerArgsDict']]] = None,
                  queue_status: Optional[pulumi.Input[str]] = None,
-                 repository: Optional[pulumi.Input[pulumi.InputType['BuildDefinitionRepositoryArgs']]] = None,
-                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildDefinitionScheduleArgs']]]]] = None,
+                 repository: Optional[pulumi.Input[Union['BuildDefinitionRepositoryArgs', 'BuildDefinitionRepositoryArgsDict']]] = None,
+                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionScheduleArgs', 'BuildDefinitionScheduleArgsDict']]]]] = None,
                  variable_groups: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildDefinitionVariableArgs']]]]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionVariableArgs', 'BuildDefinitionVariableArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -831,18 +836,18 @@ class BuildDefinition(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             agent_pool_name: Optional[pulumi.Input[str]] = None,
-            ci_trigger: Optional[pulumi.Input[pulumi.InputType['BuildDefinitionCiTriggerArgs']]] = None,
-            features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildDefinitionFeatureArgs']]]]] = None,
+            ci_trigger: Optional[pulumi.Input[Union['BuildDefinitionCiTriggerArgs', 'BuildDefinitionCiTriggerArgsDict']]] = None,
+            features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionFeatureArgs', 'BuildDefinitionFeatureArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             path: Optional[pulumi.Input[str]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
-            pull_request_trigger: Optional[pulumi.Input[pulumi.InputType['BuildDefinitionPullRequestTriggerArgs']]] = None,
+            pull_request_trigger: Optional[pulumi.Input[Union['BuildDefinitionPullRequestTriggerArgs', 'BuildDefinitionPullRequestTriggerArgsDict']]] = None,
             queue_status: Optional[pulumi.Input[str]] = None,
-            repository: Optional[pulumi.Input[pulumi.InputType['BuildDefinitionRepositoryArgs']]] = None,
+            repository: Optional[pulumi.Input[Union['BuildDefinitionRepositoryArgs', 'BuildDefinitionRepositoryArgsDict']]] = None,
             revision: Optional[pulumi.Input[int]] = None,
-            schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildDefinitionScheduleArgs']]]]] = None,
+            schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionScheduleArgs', 'BuildDefinitionScheduleArgsDict']]]]] = None,
             variable_groups: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-            variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildDefinitionVariableArgs']]]]] = None) -> 'BuildDefinition':
+            variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionVariableArgs', 'BuildDefinitionVariableArgsDict']]]]] = None) -> 'BuildDefinition':
         """
         Get an existing BuildDefinition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -851,17 +856,17 @@ class BuildDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agent_pool_name: The agent pool that should execute the build. Defaults to `Azure Pipelines`.
-        :param pulumi.Input[pulumi.InputType['BuildDefinitionCiTriggerArgs']] ci_trigger: Continuous Integration trigger.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildDefinitionFeatureArgs']]]] features: A `features` blocks as documented below.
+        :param pulumi.Input[Union['BuildDefinitionCiTriggerArgs', 'BuildDefinitionCiTriggerArgsDict']] ci_trigger: Continuous Integration trigger.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionFeatureArgs', 'BuildDefinitionFeatureArgsDict']]]] features: A `features` blocks as documented below.
         :param pulumi.Input[str] name: The name of the build definition.
         :param pulumi.Input[str] path: The folder path of the build definition.
         :param pulumi.Input[str] project_id: The project ID or project name.
-        :param pulumi.Input[pulumi.InputType['BuildDefinitionPullRequestTriggerArgs']] pull_request_trigger: Pull Request Integration trigger.
+        :param pulumi.Input[Union['BuildDefinitionPullRequestTriggerArgs', 'BuildDefinitionPullRequestTriggerArgsDict']] pull_request_trigger: Pull Request Integration trigger.
         :param pulumi.Input[str] queue_status: The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
-        :param pulumi.Input[pulumi.InputType['BuildDefinitionRepositoryArgs']] repository: A `repository` block as documented below.
+        :param pulumi.Input[Union['BuildDefinitionRepositoryArgs', 'BuildDefinitionRepositoryArgsDict']] repository: A `repository` block as documented below.
         :param pulumi.Input[int] revision: The revision of the build definition
         :param pulumi.Input[Sequence[pulumi.Input[int]]] variable_groups: A list of variable group IDs (integers) to link to the build definition.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildDefinitionVariableArgs']]]] variables: A list of `variable` blocks, as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionVariableArgs', 'BuildDefinitionVariableArgsDict']]]] variables: A list of `variable` blocks, as documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
