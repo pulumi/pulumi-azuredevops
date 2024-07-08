@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = ['EnvironmentResourceKubernetesArgs', 'EnvironmentResourceKubernetes']
@@ -283,14 +288,14 @@ class EnvironmentResourceKubernetes(pulumi.CustomResource):
             service_endpoint_name="Example Kubernetes",
             apiserver_url="https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io",
             authorization_type="AzureSubscription",
-            azure_subscriptions=[azuredevops.ServiceEndpointKubernetesAzureSubscriptionArgs(
-                subscription_id="00000000-0000-0000-0000-000000000000",
-                subscription_name="Example",
-                tenant_id="00000000-0000-0000-0000-000000000000",
-                resourcegroup_id="example-rg",
-                namespace="default",
-                cluster_name="example-aks",
-            )])
+            azure_subscriptions=[{
+                "subscriptionId": "00000000-0000-0000-0000-000000000000",
+                "subscriptionName": "Example",
+                "tenantId": "00000000-0000-0000-0000-000000000000",
+                "resourcegroupId": "example-rg",
+                "namespace": "default",
+                "clusterName": "example-aks",
+            }])
         example_environment_resource_kubernetes = azuredevops.EnvironmentResourceKubernetes("example",
             project_id=example.id,
             environment_id=example_environment.id,
@@ -351,14 +356,14 @@ class EnvironmentResourceKubernetes(pulumi.CustomResource):
             service_endpoint_name="Example Kubernetes",
             apiserver_url="https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io",
             authorization_type="AzureSubscription",
-            azure_subscriptions=[azuredevops.ServiceEndpointKubernetesAzureSubscriptionArgs(
-                subscription_id="00000000-0000-0000-0000-000000000000",
-                subscription_name="Example",
-                tenant_id="00000000-0000-0000-0000-000000000000",
-                resourcegroup_id="example-rg",
-                namespace="default",
-                cluster_name="example-aks",
-            )])
+            azure_subscriptions=[{
+                "subscriptionId": "00000000-0000-0000-0000-000000000000",
+                "subscriptionName": "Example",
+                "tenantId": "00000000-0000-0000-0000-000000000000",
+                "resourcegroupId": "example-rg",
+                "namespace": "default",
+                "clusterName": "example-aks",
+            }])
         example_environment_resource_kubernetes = azuredevops.EnvironmentResourceKubernetes("example",
             project_id=example.id,
             environment_id=example_environment.id,

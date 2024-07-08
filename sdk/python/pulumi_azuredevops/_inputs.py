@@ -4,76 +4,177 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
     'BranchPolicyAutoReviewersSettingsArgs',
+    'BranchPolicyAutoReviewersSettingsArgsDict',
     'BranchPolicyAutoReviewersSettingsScopeArgs',
+    'BranchPolicyAutoReviewersSettingsScopeArgsDict',
     'BranchPolicyBuildValidationSettingsArgs',
+    'BranchPolicyBuildValidationSettingsArgsDict',
     'BranchPolicyBuildValidationSettingsScopeArgs',
+    'BranchPolicyBuildValidationSettingsScopeArgsDict',
     'BranchPolicyCommentResolutionSettingsArgs',
+    'BranchPolicyCommentResolutionSettingsArgsDict',
     'BranchPolicyCommentResolutionSettingsScopeArgs',
+    'BranchPolicyCommentResolutionSettingsScopeArgsDict',
     'BranchPolicyMergeTypesSettingsArgs',
+    'BranchPolicyMergeTypesSettingsArgsDict',
     'BranchPolicyMergeTypesSettingsScopeArgs',
+    'BranchPolicyMergeTypesSettingsScopeArgsDict',
     'BranchPolicyMinReviewersSettingsArgs',
+    'BranchPolicyMinReviewersSettingsArgsDict',
     'BranchPolicyMinReviewersSettingsScopeArgs',
+    'BranchPolicyMinReviewersSettingsScopeArgsDict',
     'BranchPolicyStatusCheckSettingsArgs',
+    'BranchPolicyStatusCheckSettingsArgsDict',
     'BranchPolicyStatusCheckSettingsScopeArgs',
+    'BranchPolicyStatusCheckSettingsScopeArgsDict',
     'BranchPolicyWorkItemLinkingSettingsArgs',
+    'BranchPolicyWorkItemLinkingSettingsArgsDict',
     'BranchPolicyWorkItemLinkingSettingsScopeArgs',
+    'BranchPolicyWorkItemLinkingSettingsScopeArgsDict',
     'BuildDefinitionCiTriggerArgs',
+    'BuildDefinitionCiTriggerArgsDict',
     'BuildDefinitionCiTriggerOverrideArgs',
+    'BuildDefinitionCiTriggerOverrideArgsDict',
     'BuildDefinitionCiTriggerOverrideBranchFilterArgs',
+    'BuildDefinitionCiTriggerOverrideBranchFilterArgsDict',
     'BuildDefinitionCiTriggerOverridePathFilterArgs',
+    'BuildDefinitionCiTriggerOverridePathFilterArgsDict',
     'BuildDefinitionFeatureArgs',
+    'BuildDefinitionFeatureArgsDict',
     'BuildDefinitionPullRequestTriggerArgs',
+    'BuildDefinitionPullRequestTriggerArgsDict',
     'BuildDefinitionPullRequestTriggerForksArgs',
+    'BuildDefinitionPullRequestTriggerForksArgsDict',
     'BuildDefinitionPullRequestTriggerOverrideArgs',
+    'BuildDefinitionPullRequestTriggerOverrideArgsDict',
     'BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs',
+    'BuildDefinitionPullRequestTriggerOverrideBranchFilterArgsDict',
     'BuildDefinitionPullRequestTriggerOverridePathFilterArgs',
+    'BuildDefinitionPullRequestTriggerOverridePathFilterArgsDict',
     'BuildDefinitionRepositoryArgs',
+    'BuildDefinitionRepositoryArgsDict',
     'BuildDefinitionScheduleArgs',
+    'BuildDefinitionScheduleArgsDict',
     'BuildDefinitionScheduleBranchFilterArgs',
+    'BuildDefinitionScheduleBranchFilterArgsDict',
     'BuildDefinitionVariableArgs',
+    'BuildDefinitionVariableArgsDict',
     'CheckRequiredTemplateRequiredTemplateArgs',
+    'CheckRequiredTemplateRequiredTemplateArgsDict',
     'FeedFeatureArgs',
+    'FeedFeatureArgsDict',
     'GitInitializationArgs',
+    'GitInitializationArgsDict',
     'ServiceEndpointArtifactoryAuthenticationBasicArgs',
+    'ServiceEndpointArtifactoryAuthenticationBasicArgsDict',
     'ServiceEndpointArtifactoryAuthenticationTokenArgs',
+    'ServiceEndpointArtifactoryAuthenticationTokenArgsDict',
     'ServiceEndpointAzureRMCredentialsArgs',
+    'ServiceEndpointAzureRMCredentialsArgsDict',
     'ServiceEndpointAzureRMFeaturesArgs',
+    'ServiceEndpointAzureRMFeaturesArgsDict',
     'ServiceEndpointGitHubAuthOauthArgs',
+    'ServiceEndpointGitHubAuthOauthArgsDict',
     'ServiceEndpointGitHubAuthPersonalArgs',
+    'ServiceEndpointGitHubAuthPersonalArgsDict',
     'ServiceEndpointGitHubEnterpriseAuthPersonalArgs',
+    'ServiceEndpointGitHubEnterpriseAuthPersonalArgsDict',
     'ServiceEndpointKubernetesAzureSubscriptionArgs',
+    'ServiceEndpointKubernetesAzureSubscriptionArgsDict',
     'ServiceEndpointKubernetesKubeconfigArgs',
+    'ServiceEndpointKubernetesKubeconfigArgsDict',
     'ServiceEndpointKubernetesServiceAccountArgs',
+    'ServiceEndpointKubernetesServiceAccountArgsDict',
     'ServiceEndpointPipelineAuthPersonalArgs',
+    'ServiceEndpointPipelineAuthPersonalArgsDict',
     'ServiceEndpointServiceFabricAzureActiveDirectoryArgs',
+    'ServiceEndpointServiceFabricAzureActiveDirectoryArgsDict',
     'ServiceEndpointServiceFabricCertificateArgs',
+    'ServiceEndpointServiceFabricCertificateArgsDict',
     'ServiceEndpointServiceFabricNoneArgs',
+    'ServiceEndpointServiceFabricNoneArgsDict',
     'ServiceendpointArgocdAuthenticationBasicArgs',
+    'ServiceendpointArgocdAuthenticationBasicArgsDict',
     'ServiceendpointArgocdAuthenticationTokenArgs',
+    'ServiceendpointArgocdAuthenticationTokenArgsDict',
     'ServiceendpointExternaltfsAuthPersonalArgs',
+    'ServiceendpointExternaltfsAuthPersonalArgsDict',
     'ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs',
+    'ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgsDict',
     'ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs',
+    'ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgsDict',
     'ServiceendpointJfrogDistributionV2AuthenticationBasicArgs',
+    'ServiceendpointJfrogDistributionV2AuthenticationBasicArgsDict',
     'ServiceendpointJfrogDistributionV2AuthenticationTokenArgs',
+    'ServiceendpointJfrogDistributionV2AuthenticationTokenArgsDict',
     'ServiceendpointJfrogPlatformV2AuthenticationBasicArgs',
+    'ServiceendpointJfrogPlatformV2AuthenticationBasicArgsDict',
     'ServiceendpointJfrogPlatformV2AuthenticationTokenArgs',
+    'ServiceendpointJfrogPlatformV2AuthenticationTokenArgsDict',
     'ServiceendpointJfrogXrayV2AuthenticationBasicArgs',
+    'ServiceendpointJfrogXrayV2AuthenticationBasicArgsDict',
     'ServiceendpointJfrogXrayV2AuthenticationTokenArgs',
+    'ServiceendpointJfrogXrayV2AuthenticationTokenArgsDict',
     'ServiceendpointMavenAuthenticationBasicArgs',
+    'ServiceendpointMavenAuthenticationBasicArgsDict',
     'ServiceendpointMavenAuthenticationTokenArgs',
+    'ServiceendpointMavenAuthenticationTokenArgsDict',
     'ServicehookStorageQueuePipelinesRunStateChangedEventArgs',
+    'ServicehookStorageQueuePipelinesRunStateChangedEventArgsDict',
     'ServicehookStorageQueuePipelinesStageStateChangedEventArgs',
+    'ServicehookStorageQueuePipelinesStageStateChangedEventArgsDict',
     'VariableGroupKeyVaultArgs',
+    'VariableGroupKeyVaultArgsDict',
     'VariableGroupVariableArgs',
+    'VariableGroupVariableArgsDict',
     'GetUsersFeaturesArgs',
+    'GetUsersFeaturesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class BranchPolicyAutoReviewersSettingsArgsDict(TypedDict):
+        auto_reviewer_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Required reviewers ids. Supports multiples user Ids.
+        """
+        scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyAutoReviewersSettingsScopeArgsDict']]]
+        """
+        Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        """
+        message: NotRequired[pulumi.Input[str]]
+        """
+        Activity feed message, Message will appear in the activity feed of pull requests with automatically added reviewers.
+        """
+        minimum_number_of_reviewers: NotRequired[pulumi.Input[int]]
+        """
+        Minimum number of required reviewers. Defaults to `1`.
+
+        > **Note** Has to be greater than `0`. Can only be greater than `1` when attribute `auto_reviewer_ids` contains exactly one group! Only has an effect when attribute `blocking` is set to `true`.
+        """
+        path_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Filter path(s) on which the policy is applied. Supports absolute paths, wildcards and multiple paths. Example: /WebApp/Models/Data.cs, /WebApp/* or *.cs,/WebApp/Models/Data.cs;ClientApp/Models/Data.cs.
+        """
+        submitter_can_vote: NotRequired[pulumi.Input[bool]]
+        """
+        Controls whether or not the submitter's vote counts. Defaults to `false`.
+        """
+elif False:
+    BranchPolicyAutoReviewersSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BranchPolicyAutoReviewersSettingsArgs:
@@ -180,6 +281,23 @@ class BranchPolicyAutoReviewersSettingsArgs:
         pulumi.set(self, "submitter_can_vote", value)
 
 
+if not MYPY:
+    class BranchPolicyAutoReviewersSettingsScopeArgsDict(TypedDict):
+        match_type: NotRequired[pulumi.Input[str]]
+        """
+        The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
+        """
+        repository_id: NotRequired[pulumi.Input[str]]
+        """
+        The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
+        """
+        repository_ref: NotRequired[pulumi.Input[str]]
+        """
+        The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+        """
+elif False:
+    BranchPolicyAutoReviewersSettingsScopeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BranchPolicyAutoReviewersSettingsScopeArgs:
     def __init__(__self__, *,
@@ -234,6 +352,39 @@ class BranchPolicyAutoReviewersSettingsScopeArgs:
     def repository_ref(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "repository_ref", value)
 
+
+if not MYPY:
+    class BranchPolicyBuildValidationSettingsArgsDict(TypedDict):
+        build_definition_id: pulumi.Input[int]
+        """
+        The ID of the build to monitor for the policy.
+        """
+        display_name: pulumi.Input[str]
+        """
+        The display name for the policy.
+        """
+        scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyBuildValidationSettingsScopeArgsDict']]]
+        """
+        Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        """
+        filename_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+        """
+        manual_queue_only: NotRequired[pulumi.Input[bool]]
+        """
+        If set to true, the build will need to be manually queued. Defaults to `false`
+        """
+        queue_on_source_update_only: NotRequired[pulumi.Input[bool]]
+        """
+        True if the build should queue on source updates only. Defaults to `true`.
+        """
+        valid_duration: NotRequired[pulumi.Input[int]]
+        """
+        The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
+        """
+elif False:
+    BranchPolicyBuildValidationSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BranchPolicyBuildValidationSettingsArgs:
@@ -351,6 +502,23 @@ class BranchPolicyBuildValidationSettingsArgs:
         pulumi.set(self, "valid_duration", value)
 
 
+if not MYPY:
+    class BranchPolicyBuildValidationSettingsScopeArgsDict(TypedDict):
+        match_type: NotRequired[pulumi.Input[str]]
+        """
+        The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
+        """
+        repository_id: NotRequired[pulumi.Input[str]]
+        """
+        The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
+        """
+        repository_ref: NotRequired[pulumi.Input[str]]
+        """
+        The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+        """
+elif False:
+    BranchPolicyBuildValidationSettingsScopeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BranchPolicyBuildValidationSettingsScopeArgs:
     def __init__(__self__, *,
@@ -406,6 +574,15 @@ class BranchPolicyBuildValidationSettingsScopeArgs:
         pulumi.set(self, "repository_ref", value)
 
 
+if not MYPY:
+    class BranchPolicyCommentResolutionSettingsArgsDict(TypedDict):
+        scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyCommentResolutionSettingsScopeArgsDict']]]
+        """
+        Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        """
+elif False:
+    BranchPolicyCommentResolutionSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BranchPolicyCommentResolutionSettingsArgs:
     def __init__(__self__, *,
@@ -427,6 +604,23 @@ class BranchPolicyCommentResolutionSettingsArgs:
     def scopes(self, value: pulumi.Input[Sequence[pulumi.Input['BranchPolicyCommentResolutionSettingsScopeArgs']]]):
         pulumi.set(self, "scopes", value)
 
+
+if not MYPY:
+    class BranchPolicyCommentResolutionSettingsScopeArgsDict(TypedDict):
+        match_type: NotRequired[pulumi.Input[str]]
+        """
+        The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
+        """
+        repository_id: NotRequired[pulumi.Input[str]]
+        """
+        The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
+        """
+        repository_ref: NotRequired[pulumi.Input[str]]
+        """
+        The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+        """
+elif False:
+    BranchPolicyCommentResolutionSettingsScopeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BranchPolicyCommentResolutionSettingsScopeArgs:
@@ -482,6 +676,31 @@ class BranchPolicyCommentResolutionSettingsScopeArgs:
     def repository_ref(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "repository_ref", value)
 
+
+if not MYPY:
+    class BranchPolicyMergeTypesSettingsArgsDict(TypedDict):
+        scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyMergeTypesSettingsScopeArgsDict']]]
+        """
+        Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        """
+        allow_basic_no_fast_forward: NotRequired[pulumi.Input[bool]]
+        """
+        Allow basic merge with no fast forward. Defaults to `false`.
+        """
+        allow_rebase_and_fast_forward: NotRequired[pulumi.Input[bool]]
+        """
+        Allow rebase with fast forward. Defaults to `false`.
+        """
+        allow_rebase_with_merge: NotRequired[pulumi.Input[bool]]
+        """
+        Allow rebase with merge commit. Defaults to `false`.
+        """
+        allow_squash: NotRequired[pulumi.Input[bool]]
+        """
+        Allow squash merge. Defaults to `false`
+        """
+elif False:
+    BranchPolicyMergeTypesSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BranchPolicyMergeTypesSettingsArgs:
@@ -569,6 +788,23 @@ class BranchPolicyMergeTypesSettingsArgs:
         pulumi.set(self, "allow_squash", value)
 
 
+if not MYPY:
+    class BranchPolicyMergeTypesSettingsScopeArgsDict(TypedDict):
+        match_type: NotRequired[pulumi.Input[str]]
+        """
+        The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
+        """
+        repository_id: NotRequired[pulumi.Input[str]]
+        """
+        The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
+        """
+        repository_ref: NotRequired[pulumi.Input[str]]
+        """
+        The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+        """
+elif False:
+    BranchPolicyMergeTypesSettingsScopeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BranchPolicyMergeTypesSettingsScopeArgs:
     def __init__(__self__, *,
@@ -623,6 +859,45 @@ class BranchPolicyMergeTypesSettingsScopeArgs:
     def repository_ref(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "repository_ref", value)
 
+
+if not MYPY:
+    class BranchPolicyMinReviewersSettingsArgsDict(TypedDict):
+        scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyMinReviewersSettingsScopeArgsDict']]]
+        """
+        A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        """
+        allow_completion_with_rejects_or_waits: NotRequired[pulumi.Input[bool]]
+        """
+        Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
+        """
+        last_pusher_cannot_approve: NotRequired[pulumi.Input[bool]]
+        """
+        Prohibit the most recent pusher from approving their own changes. Defaults to `false`.
+        """
+        on_last_iteration_require_vote: NotRequired[pulumi.Input[bool]]
+        """
+        On last iteration require vote. Defaults to `false`.
+        """
+        on_push_reset_all_votes: NotRequired[pulumi.Input[bool]]
+        """
+        When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+
+        > **Note:** If `on_push_reset_all_votes` is `true` then `on_push_reset_approved_votes` will be set to `true`. To enable `on_push_reset_approved_votes`, you need explicitly set `on_push_reset_all_votes` `false` or not configure.
+        """
+        on_push_reset_approved_votes: NotRequired[pulumi.Input[bool]]
+        """
+        When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
+        """
+        reviewer_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of reviewers needed to approve.
+        """
+        submitter_can_vote: NotRequired[pulumi.Input[bool]]
+        """
+        Allow requesters to approve their own changes. Defaults to `false`.
+        """
+elif False:
+    BranchPolicyMinReviewersSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BranchPolicyMinReviewersSettingsArgs:
@@ -762,6 +1037,23 @@ class BranchPolicyMinReviewersSettingsArgs:
         pulumi.set(self, "submitter_can_vote", value)
 
 
+if not MYPY:
+    class BranchPolicyMinReviewersSettingsScopeArgsDict(TypedDict):
+        match_type: NotRequired[pulumi.Input[str]]
+        """
+        The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
+        """
+        repository_id: NotRequired[pulumi.Input[str]]
+        """
+        The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
+        """
+        repository_ref: NotRequired[pulumi.Input[str]]
+        """
+        The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+        """
+elif False:
+    BranchPolicyMinReviewersSettingsScopeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BranchPolicyMinReviewersSettingsScopeArgs:
     def __init__(__self__, *,
@@ -816,6 +1108,46 @@ class BranchPolicyMinReviewersSettingsScopeArgs:
     def repository_ref(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "repository_ref", value)
 
+
+if not MYPY:
+    class BranchPolicyStatusCheckSettingsArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The status name to check.
+        """
+        scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyStatusCheckSettingsScopeArgsDict']]]
+        """
+        Controls which repositories and branches the policy will be enabled for. This block must be defined
+        at least once.
+        """
+        applicability: NotRequired[pulumi.Input[str]]
+        """
+        Policy applicability. If policy `applicability` is `default`, apply unless "Not Applicable" 
+        status is posted to the pull request. If policy `applicability` is `conditional`, policy is applied only after a status
+        is posted to the pull request.
+        """
+        author_id: NotRequired[pulumi.Input[str]]
+        """
+        The authorized user can post the status.
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        The display name.
+        """
+        filename_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+        """
+        genre: NotRequired[pulumi.Input[str]]
+        """
+        The genre of the status to check (see [Microsoft Documentation](https://docs.microsoft.com/en-us/azure/devops/repos/git/pull-request-status?view=azure-devops#status-policy))
+        """
+        invalidate_on_update: NotRequired[pulumi.Input[bool]]
+        """
+        Reset status whenever there are new changes.
+        """
+elif False:
+    BranchPolicyStatusCheckSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BranchPolicyStatusCheckSettingsArgs:
@@ -956,6 +1288,23 @@ class BranchPolicyStatusCheckSettingsArgs:
         pulumi.set(self, "invalidate_on_update", value)
 
 
+if not MYPY:
+    class BranchPolicyStatusCheckSettingsScopeArgsDict(TypedDict):
+        match_type: NotRequired[pulumi.Input[str]]
+        """
+        The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
+        """
+        repository_id: NotRequired[pulumi.Input[str]]
+        """
+        The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
+        """
+        repository_ref: NotRequired[pulumi.Input[str]]
+        """
+        The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+        """
+elif False:
+    BranchPolicyStatusCheckSettingsScopeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BranchPolicyStatusCheckSettingsScopeArgs:
     def __init__(__self__, *,
@@ -1011,6 +1360,15 @@ class BranchPolicyStatusCheckSettingsScopeArgs:
         pulumi.set(self, "repository_ref", value)
 
 
+if not MYPY:
+    class BranchPolicyWorkItemLinkingSettingsArgsDict(TypedDict):
+        scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyWorkItemLinkingSettingsScopeArgsDict']]]
+        """
+        Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        """
+elif False:
+    BranchPolicyWorkItemLinkingSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BranchPolicyWorkItemLinkingSettingsArgs:
     def __init__(__self__, *,
@@ -1032,6 +1390,23 @@ class BranchPolicyWorkItemLinkingSettingsArgs:
     def scopes(self, value: pulumi.Input[Sequence[pulumi.Input['BranchPolicyWorkItemLinkingSettingsScopeArgs']]]):
         pulumi.set(self, "scopes", value)
 
+
+if not MYPY:
+    class BranchPolicyWorkItemLinkingSettingsScopeArgsDict(TypedDict):
+        match_type: NotRequired[pulumi.Input[str]]
+        """
+        The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
+        """
+        repository_id: NotRequired[pulumi.Input[str]]
+        """
+        The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
+        """
+        repository_ref: NotRequired[pulumi.Input[str]]
+        """
+        The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+        """
+elif False:
+    BranchPolicyWorkItemLinkingSettingsScopeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BranchPolicyWorkItemLinkingSettingsScopeArgs:
@@ -1088,6 +1463,19 @@ class BranchPolicyWorkItemLinkingSettingsScopeArgs:
         pulumi.set(self, "repository_ref", value)
 
 
+if not MYPY:
+    class BuildDefinitionCiTriggerArgsDict(TypedDict):
+        override: NotRequired[pulumi.Input['BuildDefinitionCiTriggerOverrideArgsDict']]
+        """
+        Override the azure-pipeline file and use a this configuration for all builds.
+        """
+        use_yaml: NotRequired[pulumi.Input[bool]]
+        """
+        Use the azure-pipeline file for the build configuration. Defaults to `false`.
+        """
+elif False:
+    BuildDefinitionCiTriggerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BuildDefinitionCiTriggerArgs:
     def __init__(__self__, *,
@@ -1126,6 +1514,35 @@ class BuildDefinitionCiTriggerArgs:
     def use_yaml(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_yaml", value)
 
+
+if not MYPY:
+    class BuildDefinitionCiTriggerOverrideArgsDict(TypedDict):
+        batch: NotRequired[pulumi.Input[bool]]
+        """
+        If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.
+        """
+        branch_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionCiTriggerOverrideBranchFilterArgsDict']]]]
+        """
+        The branches to include and exclude from the trigger.
+        """
+        max_concurrent_builds_per_branch: NotRequired[pulumi.Input[int]]
+        """
+        The number of max builds per branch. Defaults to `1`.
+        """
+        path_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionCiTriggerOverridePathFilterArgsDict']]]]
+        """
+        Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+        """
+        polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        How often the external repository is polled. Defaults to `0`.
+        """
+        polling_job_id: NotRequired[pulumi.Input[str]]
+        """
+        This is the ID of the polling job that polls the external repository. Once the build definition is saved/updated, this value is set.
+        """
+elif False:
+    BuildDefinitionCiTriggerOverrideArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BuildDefinitionCiTriggerOverrideArgs:
@@ -1230,6 +1647,19 @@ class BuildDefinitionCiTriggerOverrideArgs:
         pulumi.set(self, "polling_job_id", value)
 
 
+if not MYPY:
+    class BuildDefinitionCiTriggerOverrideBranchFilterArgsDict(TypedDict):
+        excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of branch patterns to exclude.
+        """
+        includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of branch patterns to include.
+        """
+elif False:
+    BuildDefinitionCiTriggerOverrideBranchFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BuildDefinitionCiTriggerOverrideBranchFilterArgs:
     def __init__(__self__, *,
@@ -1268,6 +1698,19 @@ class BuildDefinitionCiTriggerOverrideBranchFilterArgs:
     def includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "includes", value)
 
+
+if not MYPY:
+    class BuildDefinitionCiTriggerOverridePathFilterArgsDict(TypedDict):
+        excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of path patterns to exclude.
+        """
+        includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of path patterns to include.
+        """
+elif False:
+    BuildDefinitionCiTriggerOverridePathFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BuildDefinitionCiTriggerOverridePathFilterArgs:
@@ -1308,6 +1751,17 @@ class BuildDefinitionCiTriggerOverridePathFilterArgs:
         pulumi.set(self, "includes", value)
 
 
+if not MYPY:
+    class BuildDefinitionFeatureArgsDict(TypedDict):
+        skip_first_run: NotRequired[pulumi.Input[bool]]
+        """
+        Trigger the pipeline to run after the creation. Defaults to `true`.
+
+        > **Note** The first run(`skip_first_run = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
+        """
+elif False:
+    BuildDefinitionFeatureArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BuildDefinitionFeatureArgs:
     def __init__(__self__, *,
@@ -1334,6 +1788,25 @@ class BuildDefinitionFeatureArgs:
     def skip_first_run(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "skip_first_run", value)
 
+
+if not MYPY:
+    class BuildDefinitionPullRequestTriggerArgsDict(TypedDict):
+        forks: pulumi.Input['BuildDefinitionPullRequestTriggerForksArgsDict']
+        """
+        Set permissions for Forked repositories.
+        """
+        comment_required: NotRequired[pulumi.Input[str]]
+        initial_branch: NotRequired[pulumi.Input[str]]
+        override: NotRequired[pulumi.Input['BuildDefinitionPullRequestTriggerOverrideArgsDict']]
+        """
+        Override the azure-pipeline file and use this configuration for all builds.
+        """
+        use_yaml: NotRequired[pulumi.Input[bool]]
+        """
+        Use the azure-pipeline file for the build configuration. Defaults to `false`.
+        """
+elif False:
+    BuildDefinitionPullRequestTriggerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BuildDefinitionPullRequestTriggerArgs:
@@ -1413,6 +1886,19 @@ class BuildDefinitionPullRequestTriggerArgs:
         pulumi.set(self, "use_yaml", value)
 
 
+if not MYPY:
+    class BuildDefinitionPullRequestTriggerForksArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Build pull requests from forks of this repository.
+        """
+        share_secrets: pulumi.Input[bool]
+        """
+        Make secrets available to builds of forks.
+        """
+elif False:
+    BuildDefinitionPullRequestTriggerForksArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BuildDefinitionPullRequestTriggerForksArgs:
     def __init__(__self__, *,
@@ -1449,6 +1935,23 @@ class BuildDefinitionPullRequestTriggerForksArgs:
     def share_secrets(self, value: pulumi.Input[bool]):
         pulumi.set(self, "share_secrets", value)
 
+
+if not MYPY:
+    class BuildDefinitionPullRequestTriggerOverrideArgsDict(TypedDict):
+        auto_cancel: NotRequired[pulumi.Input[bool]]
+        """
+        . Defaults to `true`.
+        """
+        branch_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionPullRequestTriggerOverrideBranchFilterArgsDict']]]]
+        """
+        The branches to include and exclude from the trigger.
+        """
+        path_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionPullRequestTriggerOverridePathFilterArgsDict']]]]
+        """
+        Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+        """
+elif False:
+    BuildDefinitionPullRequestTriggerOverrideArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BuildDefinitionPullRequestTriggerOverrideArgs:
@@ -1505,6 +2008,19 @@ class BuildDefinitionPullRequestTriggerOverrideArgs:
         pulumi.set(self, "path_filters", value)
 
 
+if not MYPY:
+    class BuildDefinitionPullRequestTriggerOverrideBranchFilterArgsDict(TypedDict):
+        excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of branch patterns to exclude.
+        """
+        includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of branch patterns to include.
+        """
+elif False:
+    BuildDefinitionPullRequestTriggerOverrideBranchFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs:
     def __init__(__self__, *,
@@ -1544,6 +2060,19 @@ class BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs:
         pulumi.set(self, "includes", value)
 
 
+if not MYPY:
+    class BuildDefinitionPullRequestTriggerOverridePathFilterArgsDict(TypedDict):
+        excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of path patterns to exclude.
+        """
+        includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of path patterns to include.
+        """
+elif False:
+    BuildDefinitionPullRequestTriggerOverridePathFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BuildDefinitionPullRequestTriggerOverridePathFilterArgs:
     def __init__(__self__, *,
@@ -1582,6 +2111,39 @@ class BuildDefinitionPullRequestTriggerOverridePathFilterArgs:
     def includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "includes", value)
 
+
+if not MYPY:
+    class BuildDefinitionRepositoryArgsDict(TypedDict):
+        repo_id: pulumi.Input[str]
+        """
+        The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
+        """
+        repo_type: pulumi.Input[str]
+        """
+        The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+        """
+        yml_path: pulumi.Input[str]
+        """
+        The path of the Yaml file describing the build definition.
+        """
+        branch_name: NotRequired[pulumi.Input[str]]
+        """
+        The branch name for which builds are triggered. Defaults to `master`.
+        """
+        github_enterprise_url: NotRequired[pulumi.Input[str]]
+        """
+        The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`.
+        """
+        report_build_status: NotRequired[pulumi.Input[bool]]
+        """
+        Report build status. Default is true.
+        """
+        service_connection_id: NotRequired[pulumi.Input[str]]
+        """
+        The service connection ID. Used if the `repo_type` is `GitHub` or `GitHubEnterprise`.
+        """
+elif False:
+    BuildDefinitionRepositoryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BuildDefinitionRepositoryArgs:
@@ -1698,6 +2260,180 @@ class BuildDefinitionRepositoryArgs:
     def service_connection_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service_connection_id", value)
 
+
+if not MYPY:
+    class BuildDefinitionScheduleArgsDict(TypedDict):
+        days_to_builds: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
+        """
+        branch_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionScheduleBranchFilterArgsDict']]]]
+        """
+        block supports the following:
+        """
+        schedule_job_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the schedule job
+        """
+        schedule_only_with_changes: NotRequired[pulumi.Input[bool]]
+        """
+        Schedule builds if the source or pipeline has changed. Defaults to `true`.
+        """
+        start_hours: NotRequired[pulumi.Input[int]]
+        """
+        Build start hour. Defaults to `0`. Valid values: `0 ~ 23`.
+        """
+        start_minutes: NotRequired[pulumi.Input[int]]
+        """
+        Build start minute. Defaults to `0`. Valid values: `0 ~ 59`.
+        """
+        time_zone: NotRequired[pulumi.Input[str]]
+        """
+        Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Valid values: 
+        `(UTC-12:00) International Date Line West`,
+        `(UTC-11:00) Coordinated Universal Time-11`,
+        `(UTC-10:00) Aleutian Islands`,
+        `(UTC-10:00) Hawaii`,
+        `(UTC-09:30) Marquesas Islands`,
+        `(UTC-09:00) Alaska`,
+        `(UTC-09:00) Coordinated Universal Time-09`,
+        `(UTC-08:00) Baja California`,
+        `(UTC-08:00) Coordinated Universal Time-08`,
+        `(UTC-08:00) Pacific Time (US &Canada)`,
+        `(UTC-07:00) Arizona`,
+        `(UTC-07:00) Chihuahua, La Paz, Mazatlan`,
+        `(UTC-07:00) Mountain Time (US &Canada)`,
+        `(UTC-07:00) Yukon`,
+        `(UTC-06:00) Central America`,
+        `(UTC-06:00) Central Time (US &Canada)`,
+        `(UTC-06:00) Easter Island`,
+        `(UTC-06:00) Guadalajara, Mexico City, Monterrey`,
+        `(UTC-06:00) Saskatchewan`,
+        `(UTC-05:00) Bogota, Lima, Quito, Rio Branco`,
+        `(UTC-05:00) Chetumal`,
+        `(UTC-05:00) Eastern Time (US &Canada)`,
+        `(UTC-05:00) Haiti`,
+        `(UTC-05:00) Havana`,
+        `(UTC-05:00) Indiana (East)`,
+        `(UTC-05:00) Turks and Caicos`,
+        `(UTC-04:00) Asuncion`,
+        `(UTC-04:00) Atlantic Time (Canada)`,
+        `(UTC-04:00) Caracas`,
+        `(UTC-04:00) Cuiaba`,
+        `(UTC-04:00) Georgetown, La Paz, Manaus, San Juan`,
+        `(UTC-04:00) Santiago`,
+        `(UTC-03:30) Newfoundland`,
+        `(UTC-03:00) Araguaina`,
+        `(UTC-03:00) Brasilia`,
+        `(UTC-03:00) Cayenne, Fortaleza`,
+        `(UTC-03:00) City of Buenos Aires`,
+        `(UTC-03:00) Greenland`,
+        `(UTC-03:00) Montevideo`,
+        `(UTC-03:00) Punta Arenas`,
+        `(UTC-03:00) Saint Pierre and Miquelon`,
+        `(UTC-03:00) Salvador`,
+        `(UTC-02:00) Coordinated Universal Time-02`,
+        `(UTC-02:00) Mid-Atlantic - Old`,
+        `(UTC-01:00) Azores`,
+        `(UTC-01:00) Cabo Verde Is.`,
+        `(UTC) Coordinated Universal Time`,
+        `(UTC+00:00) Dublin, Edinburgh, Lisbon, London`,
+        `(UTC+00:00) Monrovia, Reykjavik`,
+        `(UTC+00:00) Sao Tome`,
+        `(UTC+01:00) Casablanca`,
+        `(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna`,
+        `(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague`,
+        `(UTC+01:00) Brussels, Copenhagen, Madrid, Paris`,
+        `(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb`,
+        `(UTC+01:00) West Central Africa`,
+        `(UTC+02:00) Amman`,
+        `(UTC+02:00) Athens, Bucharest`,
+        `(UTC+02:00) Beirut`,
+        `(UTC+02:00) Cairo`,
+        `(UTC+02:00) Chisinau`,
+        `(UTC+02:00) Damascus`,
+        `(UTC+02:00) Gaza, Hebron`,
+        `(UTC+02:00) Harare, Pretoria`,
+        `(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius`,
+        `(UTC+02:00) Jerusalem`,
+        `(UTC+02:00) Juba`,
+        `(UTC+02:00) Kaliningrad`,
+        `(UTC+02:00) Khartoum`,
+        `(UTC+02:00) Tripoli`,
+        `(UTC+02:00) Windhoek`,
+        `(UTC+03:00) Baghdad`,
+        `(UTC+03:00) Istanbul`,
+        `(UTC+03:00) Kuwait, Riyadh`,
+        `(UTC+03:00) Minsk`,
+        `(UTC+03:00) Moscow, St. Petersburg`,
+        `(UTC+03:00) Nairobi`,
+        `(UTC+03:00) Volgograd`,
+        `(UTC+03:30) Tehran`,
+        `(UTC+04:00) Abu Dhabi, Muscat`,
+        `(UTC+04:00) Astrakhan, Ulyanovsk`,
+        `(UTC+04:00) Baku`,
+        `(UTC+04:00) Izhevsk, Samara`,
+        `(UTC+04:00) Port Louis`,
+        `(UTC+04:00) Saratov`,
+        `(UTC+04:00) Tbilisi`,
+        `(UTC+04:00) Yerevan`,
+        `(UTC+04:30) Kabul`,
+        `(UTC+05:00) Ashgabat, Tashkent`,
+        `(UTC+05:00) Ekaterinburg`,
+        `(UTC+05:00) Islamabad, Karachi`,
+        `(UTC+05:00) Qyzylorda`,
+        `(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi`,
+        `(UTC+05:30) Sri Jayawardenepura`,
+        `(UTC+05:45) Kathmandu`,
+        `(UTC+06:00) Astana`,
+        `(UTC+06:00) Dhaka`,
+        `(UTC+06:00) Omsk`,
+        `(UTC+06:30) Yangon (Rangoon)`,
+        `(UTC+07:00) Bangkok, Hanoi, Jakarta`,
+        `(UTC+07:00) Barnaul, Gorno-Altaysk`,
+        `(UTC+07:00) Hovd`,
+        `(UTC+07:00) Krasnoyarsk`,
+        `(UTC+07:00) Novosibirsk`,
+        `(UTC+07:00) Tomsk`,
+        `(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi`,
+        `(UTC+08:00) Irkutsk`,
+        `(UTC+08:00) Kuala Lumpur, Singapore`,
+        `(UTC+08:00) Perth`,
+        `(UTC+08:00) Taipei`,
+        `(UTC+08:00) Ulaanbaatar`,
+        `(UTC+08:45) Eucla`,
+        `(UTC+09:00) Chita`,
+        `(UTC+09:00) Osaka, Sapporo, Tokyo`,
+        `(UTC+09:00) Pyongyang`,
+        `(UTC+09:00) Seoul`,
+        `(UTC+09:00) Yakutsk`,
+        `(UTC+09:30) Adelaide`,
+        `(UTC+09:30) Darwin`,
+        `(UTC+10:00) Brisbane`,
+        `(UTC+10:00) Canberra, Melbourne, Sydney`,
+        `(UTC+10:00) Guam, Port Moresby`,
+        `(UTC+10:00) Hobart`,
+        `(UTC+10:00) Vladivostok`,
+        `(UTC+10:30) Lord Howe Island`,
+        `(UTC+11:00) Bougainville Island`,
+        `(UTC+11:00) Chokurdakh`,
+        `(UTC+11:00) Magadan`,
+        `(UTC+11:00) Norfolk Island`,
+        `(UTC+11:00) Sakhalin`,
+        `(UTC+11:00) Solomon Is., New Caledonia`,
+        `(UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky`,
+        `(UTC+12:00) Auckland, Wellington`,
+        `(UTC+12:00) Coordinated Universal Time+12`,
+        `(UTC+12:00) Fiji`,
+        `(UTC+12:00) Petropavlovsk-Kamchatsky - Old`,
+        `(UTC+12:45) Chatham Islands`,
+        `(UTC+13:00) Coordinated Universal Time+13`,
+        `(UTC+13:00) Nuku'alofa`,
+        `(UTC+13:00) Samoa`,
+        `(UTC+14:00) Kiritimati Island`.
+        """
+elif False:
+    BuildDefinitionScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BuildDefinitionScheduleArgs:
@@ -2099,6 +2835,19 @@ class BuildDefinitionScheduleArgs:
         pulumi.set(self, "time_zone", value)
 
 
+if not MYPY:
+    class BuildDefinitionScheduleBranchFilterArgsDict(TypedDict):
+        excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of branch patterns to exclude.
+        """
+        includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of branch patterns to include.
+        """
+elif False:
+    BuildDefinitionScheduleBranchFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BuildDefinitionScheduleBranchFilterArgs:
     def __init__(__self__, *,
@@ -2137,6 +2886,31 @@ class BuildDefinitionScheduleBranchFilterArgs:
     def includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "includes", value)
 
+
+if not MYPY:
+    class BuildDefinitionVariableArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the variable.
+        """
+        allow_override: NotRequired[pulumi.Input[bool]]
+        """
+        True if the variable can be overridden. Defaults to `true`.
+        """
+        is_secret: NotRequired[pulumi.Input[bool]]
+        """
+        True if the variable is a secret. Defaults to `false`.
+        """
+        secret_value: NotRequired[pulumi.Input[str]]
+        """
+        The secret value of the variable. Used when `is_secret` set to `true`.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value of the variable.
+        """
+elif False:
+    BuildDefinitionVariableArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BuildDefinitionVariableArgs:
@@ -2224,6 +2998,27 @@ class BuildDefinitionVariableArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class CheckRequiredTemplateRequiredTemplateArgsDict(TypedDict):
+        repository_name: pulumi.Input[str]
+        """
+        The name of the repository storing the template.
+        """
+        repository_ref: pulumi.Input[str]
+        """
+        The branch in which the template will be referenced.
+        """
+        template_path: pulumi.Input[str]
+        """
+        The path to the template yaml.
+        """
+        repository_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of the repository storing the template. Valid values: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
+        """
+elif False:
+    CheckRequiredTemplateRequiredTemplateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CheckRequiredTemplateRequiredTemplateArgs:
     def __init__(__self__, *,
@@ -2292,6 +3087,19 @@ class CheckRequiredTemplateRequiredTemplateArgs:
         pulumi.set(self, "repository_type", value)
 
 
+if not MYPY:
+    class FeedFeatureArgsDict(TypedDict):
+        permanent_delete: NotRequired[pulumi.Input[bool]]
+        """
+        Determines if Feed should be Permanently removed, Defaults to `false`
+        """
+        restore: NotRequired[pulumi.Input[bool]]
+        """
+        Determines if Feed should be Restored during creation (if possible), Defaults to `false`
+        """
+elif False:
+    FeedFeatureArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FeedFeatureArgs:
     def __init__(__self__, *,
@@ -2330,6 +3138,27 @@ class FeedFeatureArgs:
     def restore(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "restore", value)
 
+
+if not MYPY:
+    class GitInitializationArgsDict(TypedDict):
+        init_type: pulumi.Input[str]
+        """
+        The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
+        """
+        service_connection_id: NotRequired[pulumi.Input[str]]
+        """
+        The id of service connection used to authenticate to a private repository for import initialization.
+        """
+        source_type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`.
+        """
+        source_url: NotRequired[pulumi.Input[str]]
+        """
+        The URL of the source repository. Used if the `init_type` is `Import`.
+        """
+elif False:
+    GitInitializationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GitInitializationArgs:
@@ -2401,6 +3230,19 @@ class GitInitializationArgs:
         pulumi.set(self, "source_url", value)
 
 
+if not MYPY:
+    class ServiceEndpointArtifactoryAuthenticationBasicArgsDict(TypedDict):
+        password: pulumi.Input[str]
+        """
+        The Artifactory password.
+        """
+        username: pulumi.Input[str]
+        """
+        The Artifactory user name.
+        """
+elif False:
+    ServiceEndpointArtifactoryAuthenticationBasicArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceEndpointArtifactoryAuthenticationBasicArgs:
     def __init__(__self__, *,
@@ -2438,6 +3280,15 @@ class ServiceEndpointArtifactoryAuthenticationBasicArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class ServiceEndpointArtifactoryAuthenticationTokenArgsDict(TypedDict):
+        token: pulumi.Input[str]
+        """
+        The Artifactory access token.
+        """
+elif False:
+    ServiceEndpointArtifactoryAuthenticationTokenArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceEndpointArtifactoryAuthenticationTokenArgs:
     def __init__(__self__, *,
@@ -2459,6 +3310,19 @@ class ServiceEndpointArtifactoryAuthenticationTokenArgs:
     def token(self, value: pulumi.Input[str]):
         pulumi.set(self, "token", value)
 
+
+if not MYPY:
+    class ServiceEndpointAzureRMCredentialsArgsDict(TypedDict):
+        serviceprincipalid: pulumi.Input[str]
+        """
+        The service principal application Id
+        """
+        serviceprincipalkey: NotRequired[pulumi.Input[str]]
+        """
+        The service principal secret. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
+        """
+elif False:
+    ServiceEndpointAzureRMCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceEndpointAzureRMCredentialsArgs:
@@ -2498,6 +3362,15 @@ class ServiceEndpointAzureRMCredentialsArgs:
         pulumi.set(self, "serviceprincipalkey", value)
 
 
+if not MYPY:
+    class ServiceEndpointAzureRMFeaturesArgsDict(TypedDict):
+        validate: NotRequired[pulumi.Input[bool]]
+        """
+        Whether or not to validate connection with Azure after create or update operations. Defaults to `false`
+        """
+elif False:
+    ServiceEndpointAzureRMFeaturesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceEndpointAzureRMFeaturesArgs:
     def __init__(__self__, *,
@@ -2521,6 +3394,12 @@ class ServiceEndpointAzureRMFeaturesArgs:
         pulumi.set(self, "validate", value)
 
 
+if not MYPY:
+    class ServiceEndpointGitHubAuthOauthArgsDict(TypedDict):
+        oauth_configuration_id: pulumi.Input[str]
+elif False:
+    ServiceEndpointGitHubAuthOauthArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceEndpointGitHubAuthOauthArgs:
     def __init__(__self__, *,
@@ -2536,6 +3415,15 @@ class ServiceEndpointGitHubAuthOauthArgs:
     def oauth_configuration_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "oauth_configuration_id", value)
 
+
+if not MYPY:
+    class ServiceEndpointGitHubAuthPersonalArgsDict(TypedDict):
+        personal_access_token: pulumi.Input[str]
+        """
+        The Personal Access Token for GitHub.
+        """
+elif False:
+    ServiceEndpointGitHubAuthPersonalArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceEndpointGitHubAuthPersonalArgs:
@@ -2559,6 +3447,15 @@ class ServiceEndpointGitHubAuthPersonalArgs:
         pulumi.set(self, "personal_access_token", value)
 
 
+if not MYPY:
+    class ServiceEndpointGitHubEnterpriseAuthPersonalArgsDict(TypedDict):
+        personal_access_token: pulumi.Input[str]
+        """
+        The Personal Access Token for GitHub.
+        """
+elif False:
+    ServiceEndpointGitHubEnterpriseAuthPersonalArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceEndpointGitHubEnterpriseAuthPersonalArgs:
     def __init__(__self__, *,
@@ -2580,6 +3477,43 @@ class ServiceEndpointGitHubEnterpriseAuthPersonalArgs:
     def personal_access_token(self, value: pulumi.Input[str]):
         pulumi.set(self, "personal_access_token", value)
 
+
+if not MYPY:
+    class ServiceEndpointKubernetesAzureSubscriptionArgsDict(TypedDict):
+        cluster_name: pulumi.Input[str]
+        """
+        The name of the Kubernetes cluster.
+        """
+        resourcegroup_id: pulumi.Input[str]
+        """
+        The resource group name, to which the Kubernetes cluster is deployed.
+        """
+        subscription_id: pulumi.Input[str]
+        """
+        The id of the Azure subscription.
+        """
+        subscription_name: pulumi.Input[str]
+        """
+        The name of the Azure subscription.
+        """
+        tenant_id: pulumi.Input[str]
+        """
+        The id of the tenant used by the subscription.
+        """
+        azure_environment: NotRequired[pulumi.Input[str]]
+        """
+        Azure environment refers to whether the public cloud offering or domestic (government) clouds are being used. Currently, only the public cloud is supported. The value must be AzureCloud. This is also the default-value.
+        """
+        cluster_admin: NotRequired[pulumi.Input[bool]]
+        """
+        Set this option to allow use cluster admin credentials.
+        """
+        namespace: NotRequired[pulumi.Input[str]]
+        """
+        The Kubernetes namespace. Default value is "default".
+        """
+elif False:
+    ServiceEndpointKubernetesAzureSubscriptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceEndpointKubernetesAzureSubscriptionArgs:
@@ -2711,6 +3645,23 @@ class ServiceEndpointKubernetesAzureSubscriptionArgs:
         pulumi.set(self, "namespace", value)
 
 
+if not MYPY:
+    class ServiceEndpointKubernetesKubeconfigArgsDict(TypedDict):
+        kube_config: pulumi.Input[str]
+        """
+        The content of the kubeconfig in yaml notation to be used to communicate with the API-Server of Kubernetes.
+        """
+        accept_untrusted_certs: NotRequired[pulumi.Input[bool]]
+        """
+        Set this option to allow clients to accept a self-signed certificate.
+        """
+        cluster_context: NotRequired[pulumi.Input[str]]
+        """
+        Context within the kubeconfig file that is to be used for identifying the cluster. Default value is the current-context set in kubeconfig.
+        """
+elif False:
+    ServiceEndpointKubernetesKubeconfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceEndpointKubernetesKubeconfigArgs:
     def __init__(__self__, *,
@@ -2765,6 +3716,19 @@ class ServiceEndpointKubernetesKubeconfigArgs:
         pulumi.set(self, "cluster_context", value)
 
 
+if not MYPY:
+    class ServiceEndpointKubernetesServiceAccountArgsDict(TypedDict):
+        ca_cert: pulumi.Input[str]
+        """
+        The certificate from a Kubernetes secret object.
+        """
+        token: pulumi.Input[str]
+        """
+        The token from a Kubernetes secret object.
+        """
+elif False:
+    ServiceEndpointKubernetesServiceAccountArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceEndpointKubernetesServiceAccountArgs:
     def __init__(__self__, *,
@@ -2802,6 +3766,15 @@ class ServiceEndpointKubernetesServiceAccountArgs:
         pulumi.set(self, "token", value)
 
 
+if not MYPY:
+    class ServiceEndpointPipelineAuthPersonalArgsDict(TypedDict):
+        personal_access_token: pulumi.Input[str]
+        """
+        The Personal Access Token for Azure DevOps Pipeline. It also can be set with AZDO_PERSONAL_ACCESS_TOKEN environment variable.
+        """
+elif False:
+    ServiceEndpointPipelineAuthPersonalArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceEndpointPipelineAuthPersonalArgs:
     def __init__(__self__, *,
@@ -2823,6 +3796,31 @@ class ServiceEndpointPipelineAuthPersonalArgs:
     def personal_access_token(self, value: pulumi.Input[str]):
         pulumi.set(self, "personal_access_token", value)
 
+
+if not MYPY:
+    class ServiceEndpointServiceFabricAzureActiveDirectoryArgsDict(TypedDict):
+        password: pulumi.Input[str]
+        """
+        Password for the Azure Active Directory account.
+        """
+        server_certificate_lookup: pulumi.Input[str]
+        """
+        Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+        """
+        username: pulumi.Input[str]
+        """
+        Specify an Azure Active Directory account.
+        """
+        server_certificate_common_name: NotRequired[pulumi.Input[str]]
+        """
+        The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
+        """
+        server_certificate_thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
+        """
+elif False:
+    ServiceEndpointServiceFabricAzureActiveDirectoryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceEndpointServiceFabricAzureActiveDirectoryArgs:
@@ -2907,6 +3905,31 @@ class ServiceEndpointServiceFabricAzureActiveDirectoryArgs:
     def server_certificate_thumbprint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "server_certificate_thumbprint", value)
 
+
+if not MYPY:
+    class ServiceEndpointServiceFabricCertificateArgsDict(TypedDict):
+        client_certificate: pulumi.Input[str]
+        """
+        Base64 encoding of the cluster's client certificate file.
+        """
+        server_certificate_lookup: pulumi.Input[str]
+        """
+        Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+        """
+        client_certificate_password: NotRequired[pulumi.Input[str]]
+        """
+        Password for the certificate.
+        """
+        server_certificate_common_name: NotRequired[pulumi.Input[str]]
+        """
+        The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
+        """
+        server_certificate_thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
+        """
+elif False:
+    ServiceEndpointServiceFabricCertificateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceEndpointServiceFabricCertificateArgs:
@@ -2993,6 +4016,19 @@ class ServiceEndpointServiceFabricCertificateArgs:
         pulumi.set(self, "server_certificate_thumbprint", value)
 
 
+if not MYPY:
+    class ServiceEndpointServiceFabricNoneArgsDict(TypedDict):
+        cluster_spn: NotRequired[pulumi.Input[str]]
+        """
+        Fully qualified domain SPN for gMSA account. This is applicable only if `unsecured` option is disabled.
+        """
+        unsecured: NotRequired[pulumi.Input[bool]]
+        """
+        Skip using windows security for authentication.
+        """
+elif False:
+    ServiceEndpointServiceFabricNoneArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceEndpointServiceFabricNoneArgs:
     def __init__(__self__, *,
@@ -3032,6 +4068,19 @@ class ServiceEndpointServiceFabricNoneArgs:
         pulumi.set(self, "unsecured", value)
 
 
+if not MYPY:
+    class ServiceendpointArgocdAuthenticationBasicArgsDict(TypedDict):
+        password: pulumi.Input[str]
+        """
+        ArgoCD Password.
+        """
+        username: pulumi.Input[str]
+        """
+        ArgoCD Username.
+        """
+elif False:
+    ServiceendpointArgocdAuthenticationBasicArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceendpointArgocdAuthenticationBasicArgs:
     def __init__(__self__, *,
@@ -3069,6 +4118,15 @@ class ServiceendpointArgocdAuthenticationBasicArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class ServiceendpointArgocdAuthenticationTokenArgsDict(TypedDict):
+        token: pulumi.Input[str]
+        """
+        Authentication Token generated through ArgoCD.
+        """
+elif False:
+    ServiceendpointArgocdAuthenticationTokenArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceendpointArgocdAuthenticationTokenArgs:
     def __init__(__self__, *,
@@ -3091,6 +4149,15 @@ class ServiceendpointArgocdAuthenticationTokenArgs:
         pulumi.set(self, "token", value)
 
 
+if not MYPY:
+    class ServiceendpointExternaltfsAuthPersonalArgsDict(TypedDict):
+        personal_access_token: pulumi.Input[str]
+        """
+        The Personal Access Token for Azure DevOps Organization.
+        """
+elif False:
+    ServiceendpointExternaltfsAuthPersonalArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceendpointExternaltfsAuthPersonalArgs:
     def __init__(__self__, *,
@@ -3112,6 +4179,19 @@ class ServiceendpointExternaltfsAuthPersonalArgs:
     def personal_access_token(self, value: pulumi.Input[str]):
         pulumi.set(self, "personal_access_token", value)
 
+
+if not MYPY:
+    class ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgsDict(TypedDict):
+        password: pulumi.Input[str]
+        """
+        Artifactory Password.
+        """
+        username: pulumi.Input[str]
+        """
+        Artifactory Username.
+        """
+elif False:
+    ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs:
@@ -3150,6 +4230,15 @@ class ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgsDict(TypedDict):
+        token: pulumi.Input[str]
+        """
+        Authentication Token generated through Artifactory.
+        """
+elif False:
+    ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs:
     def __init__(__self__, *,
@@ -3171,6 +4260,19 @@ class ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs:
     def token(self, value: pulumi.Input[str]):
         pulumi.set(self, "token", value)
 
+
+if not MYPY:
+    class ServiceendpointJfrogDistributionV2AuthenticationBasicArgsDict(TypedDict):
+        password: pulumi.Input[str]
+        """
+        Artifactory Password.
+        """
+        username: pulumi.Input[str]
+        """
+        Artifactory Username.
+        """
+elif False:
+    ServiceendpointJfrogDistributionV2AuthenticationBasicArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceendpointJfrogDistributionV2AuthenticationBasicArgs:
@@ -3209,6 +4311,15 @@ class ServiceendpointJfrogDistributionV2AuthenticationBasicArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class ServiceendpointJfrogDistributionV2AuthenticationTokenArgsDict(TypedDict):
+        token: pulumi.Input[str]
+        """
+        Authentication Token generated through Artifactory.
+        """
+elif False:
+    ServiceendpointJfrogDistributionV2AuthenticationTokenArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceendpointJfrogDistributionV2AuthenticationTokenArgs:
     def __init__(__self__, *,
@@ -3230,6 +4341,19 @@ class ServiceendpointJfrogDistributionV2AuthenticationTokenArgs:
     def token(self, value: pulumi.Input[str]):
         pulumi.set(self, "token", value)
 
+
+if not MYPY:
+    class ServiceendpointJfrogPlatformV2AuthenticationBasicArgsDict(TypedDict):
+        password: pulumi.Input[str]
+        """
+        Artifactory Password.
+        """
+        username: pulumi.Input[str]
+        """
+        Artifactory Username.
+        """
+elif False:
+    ServiceendpointJfrogPlatformV2AuthenticationBasicArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceendpointJfrogPlatformV2AuthenticationBasicArgs:
@@ -3268,6 +4392,15 @@ class ServiceendpointJfrogPlatformV2AuthenticationBasicArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class ServiceendpointJfrogPlatformV2AuthenticationTokenArgsDict(TypedDict):
+        token: pulumi.Input[str]
+        """
+        Authentication Token generated through Artifactory.
+        """
+elif False:
+    ServiceendpointJfrogPlatformV2AuthenticationTokenArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceendpointJfrogPlatformV2AuthenticationTokenArgs:
     def __init__(__self__, *,
@@ -3289,6 +4422,19 @@ class ServiceendpointJfrogPlatformV2AuthenticationTokenArgs:
     def token(self, value: pulumi.Input[str]):
         pulumi.set(self, "token", value)
 
+
+if not MYPY:
+    class ServiceendpointJfrogXrayV2AuthenticationBasicArgsDict(TypedDict):
+        password: pulumi.Input[str]
+        """
+        Artifactory Password.
+        """
+        username: pulumi.Input[str]
+        """
+        Artifactory Username.
+        """
+elif False:
+    ServiceendpointJfrogXrayV2AuthenticationBasicArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceendpointJfrogXrayV2AuthenticationBasicArgs:
@@ -3327,6 +4473,15 @@ class ServiceendpointJfrogXrayV2AuthenticationBasicArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class ServiceendpointJfrogXrayV2AuthenticationTokenArgsDict(TypedDict):
+        token: pulumi.Input[str]
+        """
+        Authentication Token generated through Artifactory.
+        """
+elif False:
+    ServiceendpointJfrogXrayV2AuthenticationTokenArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceendpointJfrogXrayV2AuthenticationTokenArgs:
     def __init__(__self__, *,
@@ -3348,6 +4503,19 @@ class ServiceendpointJfrogXrayV2AuthenticationTokenArgs:
     def token(self, value: pulumi.Input[str]):
         pulumi.set(self, "token", value)
 
+
+if not MYPY:
+    class ServiceendpointMavenAuthenticationBasicArgsDict(TypedDict):
+        password: pulumi.Input[str]
+        """
+        The password Maven Repository.
+        """
+        username: pulumi.Input[str]
+        """
+        The Username of the Maven Repository.
+        """
+elif False:
+    ServiceendpointMavenAuthenticationBasicArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceendpointMavenAuthenticationBasicArgs:
@@ -3386,6 +4554,15 @@ class ServiceendpointMavenAuthenticationBasicArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class ServiceendpointMavenAuthenticationTokenArgsDict(TypedDict):
+        token: pulumi.Input[str]
+        """
+        Authentication Token generated through maven repository.
+        """
+elif False:
+    ServiceendpointMavenAuthenticationTokenArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceendpointMavenAuthenticationTokenArgs:
     def __init__(__self__, *,
@@ -3407,6 +4584,23 @@ class ServiceendpointMavenAuthenticationTokenArgs:
     def token(self, value: pulumi.Input[str]):
         pulumi.set(self, "token", value)
 
+
+if not MYPY:
+    class ServicehookStorageQueuePipelinesRunStateChangedEventArgsDict(TypedDict):
+        pipeline_id: NotRequired[pulumi.Input[str]]
+        """
+        The pipeline ID that will generate an event. If not specified, all pipelines in the project will trigger the event.
+        """
+        run_result_filter: NotRequired[pulumi.Input[str]]
+        """
+        Which run result should generate an event. Only valid if published_event is `RunStateChanged`. If not specified, all results will trigger the event.
+        """
+        run_state_filter: NotRequired[pulumi.Input[str]]
+        """
+        Which run state should generate an event. Only valid if published_event is `RunStateChanged`. If not specified, all states will trigger the event.
+        """
+elif False:
+    ServicehookStorageQueuePipelinesRunStateChangedEventArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServicehookStorageQueuePipelinesRunStateChangedEventArgs:
@@ -3462,6 +4656,27 @@ class ServicehookStorageQueuePipelinesRunStateChangedEventArgs:
     def run_state_filter(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "run_state_filter", value)
 
+
+if not MYPY:
+    class ServicehookStorageQueuePipelinesStageStateChangedEventArgsDict(TypedDict):
+        pipeline_id: NotRequired[pulumi.Input[str]]
+        """
+        The pipeline ID that will generate an event.
+        """
+        stage_name: NotRequired[pulumi.Input[str]]
+        """
+        Which stage should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all stages will trigger the event.
+        """
+        stage_result_filter: NotRequired[pulumi.Input[str]]
+        """
+        Which stage result should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all results will trigger the event.
+        """
+        stage_state_filter: NotRequired[pulumi.Input[str]]
+        """
+        Which stage state should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all states will trigger the event.
+        """
+elif False:
+    ServicehookStorageQueuePipelinesStageStateChangedEventArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServicehookStorageQueuePipelinesStageStateChangedEventArgs:
@@ -3534,6 +4749,23 @@ class ServicehookStorageQueuePipelinesStageStateChangedEventArgs:
         pulumi.set(self, "stage_state_filter", value)
 
 
+if not MYPY:
+    class VariableGroupKeyVaultArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the Azure key vault to link secrets from as variables.
+        """
+        service_endpoint_id: pulumi.Input[str]
+        """
+        The id of the Azure subscription endpoint to access the key vault.
+        """
+        search_depth: NotRequired[pulumi.Input[int]]
+        """
+        Set the Azure Key Vault Secret search depth. Defaults to `20`.
+        """
+elif False:
+    VariableGroupKeyVaultArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VariableGroupKeyVaultArgs:
     def __init__(__self__, *,
@@ -3586,6 +4818,30 @@ class VariableGroupKeyVaultArgs:
     def search_depth(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "search_depth", value)
 
+
+if not MYPY:
+    class VariableGroupVariableArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The key value used for the variable. Must be unique within the Variable Group.
+        """
+        content_type: NotRequired[pulumi.Input[str]]
+        enabled: NotRequired[pulumi.Input[bool]]
+        expires: NotRequired[pulumi.Input[str]]
+        is_secret: NotRequired[pulumi.Input[bool]]
+        """
+        A boolean flag describing if the variable value is sensitive. Defaults to `false`.
+        """
+        secret_value: NotRequired[pulumi.Input[str]]
+        """
+        The secret value of the variable. If omitted, it will default to empty string. Used when `is_secret` set to `true`.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value of the variable. If omitted, it will default to empty string.
+        """
+elif False:
+    VariableGroupVariableArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VariableGroupVariableArgs:
@@ -3692,6 +4948,17 @@ class VariableGroupVariableArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class GetUsersFeaturesArgsDict(TypedDict):
+        concurrent_workers: NotRequired[int]
+        """
+        Number of workers to process user data concurrently.
+
+        > **Note** Setting `concurrent_workers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
+        """
+elif False:
+    GetUsersFeaturesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetUsersFeaturesArgs:

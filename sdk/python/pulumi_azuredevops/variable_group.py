@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -226,10 +231,10 @@ class VariableGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_access: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 key_vault: Optional[pulumi.Input[pulumi.InputType['VariableGroupKeyVaultArgs']]] = None,
+                 key_vault: Optional[pulumi.Input[Union['VariableGroupKeyVaultArgs', 'VariableGroupKeyVaultArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VariableGroupVariableArgs']]]]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VariableGroupVariableArgs', 'VariableGroupVariableArgsDict']]]]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -250,15 +255,15 @@ class VariableGroup(pulumi.CustomResource):
             description="Example Variable Group Description",
             allow_access=True,
             variables=[
-                azuredevops.VariableGroupVariableArgs(
-                    name="key1",
-                    value="val1",
-                ),
-                azuredevops.VariableGroupVariableArgs(
-                    name="key2",
-                    secret_value="val2",
-                    is_secret=True,
-                ),
+                {
+                    "name": "key1",
+                    "value": "val1",
+                },
+                {
+                    "name": "key2",
+                    "secretValue": "val2",
+                    "isSecret": True,
+                },
             ])
         ```
 
@@ -278,10 +283,10 @@ class VariableGroup(pulumi.CustomResource):
             project_id=example.id,
             service_endpoint_name="Example AzureRM",
             description="Managed by Terraform",
-            credentials=azuredevops.ServiceEndpointAzureRMCredentialsArgs(
-                serviceprincipalid="00000000-0000-0000-0000-000000000000",
-                serviceprincipalkey="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-            ),
+            credentials={
+                "serviceprincipalid": "00000000-0000-0000-0000-000000000000",
+                "serviceprincipalkey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            },
             azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Example Subscription Name")
@@ -290,17 +295,17 @@ class VariableGroup(pulumi.CustomResource):
             name="Example Variable Group",
             description="Example Variable Group Description",
             allow_access=True,
-            key_vault=azuredevops.VariableGroupKeyVaultArgs(
-                name="example-kv",
-                service_endpoint_id=example_service_endpoint_azure_rm.id,
-            ),
+            key_vault={
+                "name": "example-kv",
+                "serviceEndpointId": example_service_endpoint_azure_rm.id,
+            },
             variables=[
-                azuredevops.VariableGroupVariableArgs(
-                    name="key1",
-                ),
-                azuredevops.VariableGroupVariableArgs(
-                    name="key2",
-                ),
+                {
+                    "name": "key1",
+                },
+                {
+                    "name": "key2",
+                },
             ])
         ```
 
@@ -340,10 +345,10 @@ class VariableGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_access: Boolean that indicate if this variable group is shared by all pipelines of this project.
         :param pulumi.Input[str] description: The description of the Variable Group.
-        :param pulumi.Input[pulumi.InputType['VariableGroupKeyVaultArgs']] key_vault: A list of `key_vault` blocks as documented below.
+        :param pulumi.Input[Union['VariableGroupKeyVaultArgs', 'VariableGroupKeyVaultArgsDict']] key_vault: A list of `key_vault` blocks as documented below.
         :param pulumi.Input[str] name: The name of the Variable Group.
         :param pulumi.Input[str] project_id: The ID of the project.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VariableGroupVariableArgs']]]] variables: One or more `variable` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VariableGroupVariableArgs', 'VariableGroupVariableArgsDict']]]] variables: One or more `variable` blocks as documented below.
         """
         ...
     @overload
@@ -370,15 +375,15 @@ class VariableGroup(pulumi.CustomResource):
             description="Example Variable Group Description",
             allow_access=True,
             variables=[
-                azuredevops.VariableGroupVariableArgs(
-                    name="key1",
-                    value="val1",
-                ),
-                azuredevops.VariableGroupVariableArgs(
-                    name="key2",
-                    secret_value="val2",
-                    is_secret=True,
-                ),
+                {
+                    "name": "key1",
+                    "value": "val1",
+                },
+                {
+                    "name": "key2",
+                    "secretValue": "val2",
+                    "isSecret": True,
+                },
             ])
         ```
 
@@ -398,10 +403,10 @@ class VariableGroup(pulumi.CustomResource):
             project_id=example.id,
             service_endpoint_name="Example AzureRM",
             description="Managed by Terraform",
-            credentials=azuredevops.ServiceEndpointAzureRMCredentialsArgs(
-                serviceprincipalid="00000000-0000-0000-0000-000000000000",
-                serviceprincipalkey="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-            ),
+            credentials={
+                "serviceprincipalid": "00000000-0000-0000-0000-000000000000",
+                "serviceprincipalkey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            },
             azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Example Subscription Name")
@@ -410,17 +415,17 @@ class VariableGroup(pulumi.CustomResource):
             name="Example Variable Group",
             description="Example Variable Group Description",
             allow_access=True,
-            key_vault=azuredevops.VariableGroupKeyVaultArgs(
-                name="example-kv",
-                service_endpoint_id=example_service_endpoint_azure_rm.id,
-            ),
+            key_vault={
+                "name": "example-kv",
+                "serviceEndpointId": example_service_endpoint_azure_rm.id,
+            },
             variables=[
-                azuredevops.VariableGroupVariableArgs(
-                    name="key1",
-                ),
-                azuredevops.VariableGroupVariableArgs(
-                    name="key2",
-                ),
+                {
+                    "name": "key1",
+                },
+                {
+                    "name": "key2",
+                },
             ])
         ```
 
@@ -473,10 +478,10 @@ class VariableGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_access: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 key_vault: Optional[pulumi.Input[pulumi.InputType['VariableGroupKeyVaultArgs']]] = None,
+                 key_vault: Optional[pulumi.Input[Union['VariableGroupKeyVaultArgs', 'VariableGroupKeyVaultArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VariableGroupVariableArgs']]]]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VariableGroupVariableArgs', 'VariableGroupVariableArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -508,10 +513,10 @@ class VariableGroup(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             allow_access: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            key_vault: Optional[pulumi.Input[pulumi.InputType['VariableGroupKeyVaultArgs']]] = None,
+            key_vault: Optional[pulumi.Input[Union['VariableGroupKeyVaultArgs', 'VariableGroupKeyVaultArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
-            variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VariableGroupVariableArgs']]]]] = None) -> 'VariableGroup':
+            variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VariableGroupVariableArgs', 'VariableGroupVariableArgsDict']]]]] = None) -> 'VariableGroup':
         """
         Get an existing VariableGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -521,10 +526,10 @@ class VariableGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_access: Boolean that indicate if this variable group is shared by all pipelines of this project.
         :param pulumi.Input[str] description: The description of the Variable Group.
-        :param pulumi.Input[pulumi.InputType['VariableGroupKeyVaultArgs']] key_vault: A list of `key_vault` blocks as documented below.
+        :param pulumi.Input[Union['VariableGroupKeyVaultArgs', 'VariableGroupKeyVaultArgsDict']] key_vault: A list of `key_vault` blocks as documented below.
         :param pulumi.Input[str] name: The name of the Variable Group.
         :param pulumi.Input[str] project_id: The ID of the project.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VariableGroupVariableArgs']]]] variables: One or more `variable` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VariableGroupVariableArgs', 'VariableGroupVariableArgsDict']]]] variables: One or more `variable` blocks as documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

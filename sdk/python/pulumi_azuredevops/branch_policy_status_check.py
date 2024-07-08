@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -163,7 +168,7 @@ class BranchPolicyStatusCheck(pulumi.CustomResource):
                  blocking: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[pulumi.InputType['BranchPolicyStatusCheckSettingsArgs']]] = None,
+                 settings: Optional[pulumi.Input[Union['BranchPolicyStatusCheckSettingsArgs', 'BranchPolicyStatusCheckSettingsArgsDict']]] = None,
                  __props__=None):
         """
         Manages a status check branch policy within Azure DevOps.
@@ -187,9 +192,9 @@ class BranchPolicyStatusCheck(pulumi.CustomResource):
         example_git = azuredevops.Git("example",
             project_id=example.id,
             name="Example Repository",
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
+            initialization={
+                "initType": "Clean",
+            })
         example_user = azuredevops.User("example",
             principal_name="mail@email.com",
             account_license_type="basic")
@@ -197,23 +202,23 @@ class BranchPolicyStatusCheck(pulumi.CustomResource):
             project_id=example.id,
             enabled=True,
             blocking=True,
-            settings=azuredevops.BranchPolicyStatusCheckSettingsArgs(
-                name="Release",
-                author_id=example_user.id,
-                invalidate_on_update=True,
-                applicability="conditional",
-                display_name="PreCheck",
-                scopes=[
-                    azuredevops.BranchPolicyStatusCheckSettingsScopeArgs(
-                        repository_id=example_git.id,
-                        repository_ref=example_git.default_branch,
-                        match_type="Exact",
-                    ),
-                    azuredevops.BranchPolicyStatusCheckSettingsScopeArgs(
-                        match_type="DefaultBranch",
-                    ),
+            settings={
+                "name": "Release",
+                "authorId": example_user.id,
+                "invalidateOnUpdate": True,
+                "applicability": "conditional",
+                "displayName": "PreCheck",
+                "scopes": [
+                    {
+                        "repositoryId": example_git.id,
+                        "repositoryRef": example_git.default_branch,
+                        "matchType": "Exact",
+                    },
+                    {
+                        "matchType": "DefaultBranch",
+                    },
                 ],
-            ))
+            })
         ```
 
         ## Relevant Links
@@ -233,7 +238,7 @@ class BranchPolicyStatusCheck(pulumi.CustomResource):
         :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
-        :param pulumi.Input[pulumi.InputType['BranchPolicyStatusCheckSettingsArgs']] settings: Configuration for the policy. This block must be defined exactly once.
+        :param pulumi.Input[Union['BranchPolicyStatusCheckSettingsArgs', 'BranchPolicyStatusCheckSettingsArgsDict']] settings: Configuration for the policy. This block must be defined exactly once.
         """
         ...
     @overload
@@ -263,9 +268,9 @@ class BranchPolicyStatusCheck(pulumi.CustomResource):
         example_git = azuredevops.Git("example",
             project_id=example.id,
             name="Example Repository",
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
+            initialization={
+                "initType": "Clean",
+            })
         example_user = azuredevops.User("example",
             principal_name="mail@email.com",
             account_license_type="basic")
@@ -273,23 +278,23 @@ class BranchPolicyStatusCheck(pulumi.CustomResource):
             project_id=example.id,
             enabled=True,
             blocking=True,
-            settings=azuredevops.BranchPolicyStatusCheckSettingsArgs(
-                name="Release",
-                author_id=example_user.id,
-                invalidate_on_update=True,
-                applicability="conditional",
-                display_name="PreCheck",
-                scopes=[
-                    azuredevops.BranchPolicyStatusCheckSettingsScopeArgs(
-                        repository_id=example_git.id,
-                        repository_ref=example_git.default_branch,
-                        match_type="Exact",
-                    ),
-                    azuredevops.BranchPolicyStatusCheckSettingsScopeArgs(
-                        match_type="DefaultBranch",
-                    ),
+            settings={
+                "name": "Release",
+                "authorId": example_user.id,
+                "invalidateOnUpdate": True,
+                "applicability": "conditional",
+                "displayName": "PreCheck",
+                "scopes": [
+                    {
+                        "repositoryId": example_git.id,
+                        "repositoryRef": example_git.default_branch,
+                        "matchType": "Exact",
+                    },
+                    {
+                        "matchType": "DefaultBranch",
+                    },
                 ],
-            ))
+            })
         ```
 
         ## Relevant Links
@@ -322,7 +327,7 @@ class BranchPolicyStatusCheck(pulumi.CustomResource):
                  blocking: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[pulumi.InputType['BranchPolicyStatusCheckSettingsArgs']]] = None,
+                 settings: Optional[pulumi.Input[Union['BranchPolicyStatusCheckSettingsArgs', 'BranchPolicyStatusCheckSettingsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -353,7 +358,7 @@ class BranchPolicyStatusCheck(pulumi.CustomResource):
             blocking: Optional[pulumi.Input[bool]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
-            settings: Optional[pulumi.Input[pulumi.InputType['BranchPolicyStatusCheckSettingsArgs']]] = None) -> 'BranchPolicyStatusCheck':
+            settings: Optional[pulumi.Input[Union['BranchPolicyStatusCheckSettingsArgs', 'BranchPolicyStatusCheckSettingsArgsDict']]] = None) -> 'BranchPolicyStatusCheck':
         """
         Get an existing BranchPolicyStatusCheck resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -364,7 +369,7 @@ class BranchPolicyStatusCheck(pulumi.CustomResource):
         :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
-        :param pulumi.Input[pulumi.InputType['BranchPolicyStatusCheckSettingsArgs']] settings: Configuration for the policy. This block must be defined exactly once.
+        :param pulumi.Input[Union['BranchPolicyStatusCheckSettingsArgs', 'BranchPolicyStatusCheckSettingsArgsDict']] settings: Configuration for the policy. This block must be defined exactly once.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

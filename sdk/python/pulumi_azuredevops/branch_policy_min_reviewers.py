@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -163,7 +168,7 @@ class BranchPolicyMinReviewers(pulumi.CustomResource):
                  blocking: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[pulumi.InputType['BranchPolicyMinReviewersSettingsArgs']]] = None,
+                 settings: Optional[pulumi.Input[Union['BranchPolicyMinReviewersSettingsArgs', 'BranchPolicyMinReviewersSettingsArgsDict']]] = None,
                  __props__=None):
         """
         Branch policy for reviewers on pull requests. Includes the minimum number of reviewers and other conditions.
@@ -178,36 +183,36 @@ class BranchPolicyMinReviewers(pulumi.CustomResource):
         example_git = azuredevops.Git("example",
             project_id=example.id,
             name="Example Repository",
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
+            initialization={
+                "initType": "Clean",
+            })
         example_branch_policy_min_reviewers = azuredevops.BranchPolicyMinReviewers("example",
             project_id=example.id,
             enabled=True,
             blocking=True,
-            settings=azuredevops.BranchPolicyMinReviewersSettingsArgs(
-                reviewer_count=7,
-                submitter_can_vote=False,
-                last_pusher_cannot_approve=True,
-                allow_completion_with_rejects_or_waits=False,
-                on_push_reset_approved_votes=True,
-                on_last_iteration_require_vote=False,
-                scopes=[
-                    azuredevops.BranchPolicyMinReviewersSettingsScopeArgs(
-                        repository_id=example_git.id,
-                        repository_ref=example_git.default_branch,
-                        match_type="Exact",
-                    ),
-                    azuredevops.BranchPolicyMinReviewersSettingsScopeArgs(
-                        repository_id=None,
-                        repository_ref="refs/heads/releases",
-                        match_type="Prefix",
-                    ),
-                    azuredevops.BranchPolicyMinReviewersSettingsScopeArgs(
-                        match_type="DefaultBranch",
-                    ),
+            settings={
+                "reviewerCount": 7,
+                "submitterCanVote": False,
+                "lastPusherCannotApprove": True,
+                "allowCompletionWithRejectsOrWaits": False,
+                "onPushResetApprovedVotes": True,
+                "onLastIterationRequireVote": False,
+                "scopes": [
+                    {
+                        "repositoryId": example_git.id,
+                        "repositoryRef": example_git.default_branch,
+                        "matchType": "Exact",
+                    },
+                    {
+                        "repositoryId": None,
+                        "repositoryRef": "refs/heads/releases",
+                        "matchType": "Prefix",
+                    },
+                    {
+                        "matchType": "DefaultBranch",
+                    },
                 ],
-            ))
+            })
         ```
 
         ## Relevant Links
@@ -227,7 +232,7 @@ class BranchPolicyMinReviewers(pulumi.CustomResource):
         :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
-        :param pulumi.Input[pulumi.InputType['BranchPolicyMinReviewersSettingsArgs']] settings: A `settings` block as defined below.. This block must be defined exactly once.
+        :param pulumi.Input[Union['BranchPolicyMinReviewersSettingsArgs', 'BranchPolicyMinReviewersSettingsArgsDict']] settings: A `settings` block as defined below.. This block must be defined exactly once.
         """
         ...
     @overload
@@ -248,36 +253,36 @@ class BranchPolicyMinReviewers(pulumi.CustomResource):
         example_git = azuredevops.Git("example",
             project_id=example.id,
             name="Example Repository",
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
+            initialization={
+                "initType": "Clean",
+            })
         example_branch_policy_min_reviewers = azuredevops.BranchPolicyMinReviewers("example",
             project_id=example.id,
             enabled=True,
             blocking=True,
-            settings=azuredevops.BranchPolicyMinReviewersSettingsArgs(
-                reviewer_count=7,
-                submitter_can_vote=False,
-                last_pusher_cannot_approve=True,
-                allow_completion_with_rejects_or_waits=False,
-                on_push_reset_approved_votes=True,
-                on_last_iteration_require_vote=False,
-                scopes=[
-                    azuredevops.BranchPolicyMinReviewersSettingsScopeArgs(
-                        repository_id=example_git.id,
-                        repository_ref=example_git.default_branch,
-                        match_type="Exact",
-                    ),
-                    azuredevops.BranchPolicyMinReviewersSettingsScopeArgs(
-                        repository_id=None,
-                        repository_ref="refs/heads/releases",
-                        match_type="Prefix",
-                    ),
-                    azuredevops.BranchPolicyMinReviewersSettingsScopeArgs(
-                        match_type="DefaultBranch",
-                    ),
+            settings={
+                "reviewerCount": 7,
+                "submitterCanVote": False,
+                "lastPusherCannotApprove": True,
+                "allowCompletionWithRejectsOrWaits": False,
+                "onPushResetApprovedVotes": True,
+                "onLastIterationRequireVote": False,
+                "scopes": [
+                    {
+                        "repositoryId": example_git.id,
+                        "repositoryRef": example_git.default_branch,
+                        "matchType": "Exact",
+                    },
+                    {
+                        "repositoryId": None,
+                        "repositoryRef": "refs/heads/releases",
+                        "matchType": "Prefix",
+                    },
+                    {
+                        "matchType": "DefaultBranch",
+                    },
                 ],
-            ))
+            })
         ```
 
         ## Relevant Links
@@ -310,7 +315,7 @@ class BranchPolicyMinReviewers(pulumi.CustomResource):
                  blocking: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[pulumi.InputType['BranchPolicyMinReviewersSettingsArgs']]] = None,
+                 settings: Optional[pulumi.Input[Union['BranchPolicyMinReviewersSettingsArgs', 'BranchPolicyMinReviewersSettingsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -341,7 +346,7 @@ class BranchPolicyMinReviewers(pulumi.CustomResource):
             blocking: Optional[pulumi.Input[bool]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
-            settings: Optional[pulumi.Input[pulumi.InputType['BranchPolicyMinReviewersSettingsArgs']]] = None) -> 'BranchPolicyMinReviewers':
+            settings: Optional[pulumi.Input[Union['BranchPolicyMinReviewersSettingsArgs', 'BranchPolicyMinReviewersSettingsArgsDict']]] = None) -> 'BranchPolicyMinReviewers':
         """
         Get an existing BranchPolicyMinReviewers resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -352,7 +357,7 @@ class BranchPolicyMinReviewers(pulumi.CustomResource):
         :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
-        :param pulumi.Input[pulumi.InputType['BranchPolicyMinReviewersSettingsArgs']] settings: A `settings` block as defined below.. This block must be defined exactly once.
+        :param pulumi.Input[Union['BranchPolicyMinReviewersSettingsArgs', 'BranchPolicyMinReviewersSettingsArgsDict']] settings: A `settings` block as defined below.. This block must be defined exactly once.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

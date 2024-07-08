@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = ['ElasticPoolArgs', 'ElasticPool']
@@ -444,10 +449,10 @@ class ElasticPool(pulumi.CustomResource):
             service_endpoint_name="Example Azure Connection",
             description="Managed by Terraform",
             service_endpoint_authentication_scheme="ServicePrincipal",
-            credentials=azuredevops.ServiceEndpointAzureRMCredentialsArgs(
-                serviceprincipalid="00000000-0000-0000-0000-000000000000",
-                serviceprincipalkey="00000000-0000-0000-0000-000000000000",
-            ),
+            credentials={
+                "serviceprincipalid": "00000000-0000-0000-0000-000000000000",
+                "serviceprincipalkey": "00000000-0000-0000-0000-000000000000",
+            },
             azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Subscription Name")
@@ -513,10 +518,10 @@ class ElasticPool(pulumi.CustomResource):
             service_endpoint_name="Example Azure Connection",
             description="Managed by Terraform",
             service_endpoint_authentication_scheme="ServicePrincipal",
-            credentials=azuredevops.ServiceEndpointAzureRMCredentialsArgs(
-                serviceprincipalid="00000000-0000-0000-0000-000000000000",
-                serviceprincipalkey="00000000-0000-0000-0000-000000000000",
-            ),
+            credentials={
+                "serviceprincipalid": "00000000-0000-0000-0000-000000000000",
+                "serviceprincipalkey": "00000000-0000-0000-0000-000000000000",
+            },
             azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Subscription Name")

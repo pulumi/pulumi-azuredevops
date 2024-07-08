@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -206,7 +211,7 @@ class ServiceendpointExternaltfs(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_personal: Optional[pulumi.Input[pulumi.InputType['ServiceendpointExternaltfsAuthPersonalArgs']]] = None,
+                 auth_personal: Optional[pulumi.Input[Union['ServiceendpointExternaltfsAuthPersonalArgs', 'ServiceendpointExternaltfsAuthPersonalArgsDict']]] = None,
                  authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  connection_url: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -226,7 +231,7 @@ class ServiceendpointExternaltfs(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ServiceendpointExternaltfsAuthPersonalArgs']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        :param pulumi.Input[Union['ServiceendpointExternaltfsAuthPersonalArgs', 'ServiceendpointExternaltfsAuthPersonalArgsDict']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[str] connection_url: URL of the Azure DevOps organization or the TFS Project Collection to connect to.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
@@ -263,7 +268,7 @@ class ServiceendpointExternaltfs(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_personal: Optional[pulumi.Input[pulumi.InputType['ServiceendpointExternaltfsAuthPersonalArgs']]] = None,
+                 auth_personal: Optional[pulumi.Input[Union['ServiceendpointExternaltfsAuthPersonalArgs', 'ServiceendpointExternaltfsAuthPersonalArgsDict']]] = None,
                  authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  connection_url: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -302,7 +307,7 @@ class ServiceendpointExternaltfs(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auth_personal: Optional[pulumi.Input[pulumi.InputType['ServiceendpointExternaltfsAuthPersonalArgs']]] = None,
+            auth_personal: Optional[pulumi.Input[Union['ServiceendpointExternaltfsAuthPersonalArgs', 'ServiceendpointExternaltfsAuthPersonalArgsDict']]] = None,
             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             connection_url: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
@@ -315,7 +320,7 @@ class ServiceendpointExternaltfs(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ServiceendpointExternaltfsAuthPersonalArgs']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        :param pulumi.Input[Union['ServiceendpointExternaltfsAuthPersonalArgs', 'ServiceendpointExternaltfsAuthPersonalArgsDict']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[str] connection_url: URL of the Azure DevOps organization or the TFS Project Collection to connect to.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.

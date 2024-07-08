@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = ['BuildDefinitionPermissionsArgs', 'BuildDefinitionPermissions']
@@ -288,22 +293,22 @@ class BuildDefinitionPermissions(pulumi.CustomResource):
         example_git = azuredevops.Git("example",
             project_id=example.id,
             name="Example Repository",
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
+            initialization={
+                "initType": "Clean",
+            })
         example_build_definition = azuredevops.BuildDefinition("example",
             project_id=example.id,
             name="Example Build Definition",
             path="\\\\ExampleFolder",
-            ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(
-                use_yaml=True,
-            ),
-            repository=azuredevops.BuildDefinitionRepositoryArgs(
-                repo_type="TfsGit",
-                repo_id=example_git.id,
-                branch_name=example_git.default_branch,
-                yml_path="azure-pipelines.yml",
-            ))
+            ci_trigger={
+                "useYaml": True,
+            },
+            repository={
+                "repoType": "TfsGit",
+                "repoId": example_git.id,
+                "branchName": example_git.default_branch,
+                "ymlPath": "azure-pipelines.yml",
+            })
         example_build_definition_permissions = azuredevops.BuildDefinitionPermissions("example",
             project_id=example.id,
             principal=example_readers.id,
@@ -382,22 +387,22 @@ class BuildDefinitionPermissions(pulumi.CustomResource):
         example_git = azuredevops.Git("example",
             project_id=example.id,
             name="Example Repository",
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
+            initialization={
+                "initType": "Clean",
+            })
         example_build_definition = azuredevops.BuildDefinition("example",
             project_id=example.id,
             name="Example Build Definition",
             path="\\\\ExampleFolder",
-            ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(
-                use_yaml=True,
-            ),
-            repository=azuredevops.BuildDefinitionRepositoryArgs(
-                repo_type="TfsGit",
-                repo_id=example_git.id,
-                branch_name=example_git.default_branch,
-                yml_path="azure-pipelines.yml",
-            ))
+            ci_trigger={
+                "useYaml": True,
+            },
+            repository={
+                "repoType": "TfsGit",
+                "repoId": example_git.id,
+                "branchName": example_git.default_branch,
+                "ymlPath": "azure-pipelines.yml",
+            })
         example_build_definition_permissions = azuredevops.BuildDefinitionPermissions("example",
             project_id=example.id,
             principal=example_readers.id,

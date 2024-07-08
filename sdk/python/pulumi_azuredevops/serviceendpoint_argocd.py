@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -255,8 +260,8 @@ class ServiceendpointArgocd(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_basic: Optional[pulumi.Input[pulumi.InputType['ServiceendpointArgocdAuthenticationBasicArgs']]] = None,
-                 authentication_token: Optional[pulumi.Input[pulumi.InputType['ServiceendpointArgocdAuthenticationTokenArgs']]] = None,
+                 authentication_basic: Optional[pulumi.Input[Union['ServiceendpointArgocdAuthenticationBasicArgs', 'ServiceendpointArgocdAuthenticationBasicArgsDict']]] = None,
+                 authentication_token: Optional[pulumi.Input[Union['ServiceendpointArgocdAuthenticationTokenArgs', 'ServiceendpointArgocdAuthenticationTokenArgsDict']]] = None,
                  authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
@@ -282,9 +287,9 @@ class ServiceendpointArgocd(pulumi.CustomResource):
             service_endpoint_name="Example ArgoCD",
             description="Managed by Terraform",
             url="https://argocd.my.com",
-            authentication_token=azuredevops.ServiceendpointArgocdAuthenticationTokenArgs(
-                token="0000000000000000000000000000000000000000",
-            ))
+            authentication_token={
+                "token": "0000000000000000000000000000000000000000",
+            })
         ```
         Alternatively a username and password may be used.
 
@@ -303,10 +308,10 @@ class ServiceendpointArgocd(pulumi.CustomResource):
             service_endpoint_name="Example ArgoCD",
             description="Managed by Terraform",
             url="https://argocd.my.com",
-            authentication_basic=azuredevops.ServiceendpointArgocdAuthenticationBasicArgs(
-                username="username",
-                password="password",
-            ))
+            authentication_basic={
+                "username": "username",
+                "password": "password",
+            })
         ```
         ## Relevant Links
 
@@ -324,10 +329,10 @@ class ServiceendpointArgocd(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ServiceendpointArgocdAuthenticationBasicArgs']] authentication_basic: An `authentication_basic` block for the ArgoCD as documented below.
+        :param pulumi.Input[Union['ServiceendpointArgocdAuthenticationBasicArgs', 'ServiceendpointArgocdAuthenticationBasicArgsDict']] authentication_basic: An `authentication_basic` block for the ArgoCD as documented below.
                
                > **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
-        :param pulumi.Input[pulumi.InputType['ServiceendpointArgocdAuthenticationTokenArgs']] authentication_token: An `authentication_token` block for the ArgoCD as documented below.
+        :param pulumi.Input[Union['ServiceendpointArgocdAuthenticationTokenArgs', 'ServiceendpointArgocdAuthenticationTokenArgsDict']] authentication_token: An `authentication_token` block for the ArgoCD as documented below.
         :param pulumi.Input[str] description: The Service Endpoint description.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
@@ -358,9 +363,9 @@ class ServiceendpointArgocd(pulumi.CustomResource):
             service_endpoint_name="Example ArgoCD",
             description="Managed by Terraform",
             url="https://argocd.my.com",
-            authentication_token=azuredevops.ServiceendpointArgocdAuthenticationTokenArgs(
-                token="0000000000000000000000000000000000000000",
-            ))
+            authentication_token={
+                "token": "0000000000000000000000000000000000000000",
+            })
         ```
         Alternatively a username and password may be used.
 
@@ -379,10 +384,10 @@ class ServiceendpointArgocd(pulumi.CustomResource):
             service_endpoint_name="Example ArgoCD",
             description="Managed by Terraform",
             url="https://argocd.my.com",
-            authentication_basic=azuredevops.ServiceendpointArgocdAuthenticationBasicArgs(
-                username="username",
-                password="password",
-            ))
+            authentication_basic={
+                "username": "username",
+                "password": "password",
+            })
         ```
         ## Relevant Links
 
@@ -413,8 +418,8 @@ class ServiceendpointArgocd(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_basic: Optional[pulumi.Input[pulumi.InputType['ServiceendpointArgocdAuthenticationBasicArgs']]] = None,
-                 authentication_token: Optional[pulumi.Input[pulumi.InputType['ServiceendpointArgocdAuthenticationTokenArgs']]] = None,
+                 authentication_basic: Optional[pulumi.Input[Union['ServiceendpointArgocdAuthenticationBasicArgs', 'ServiceendpointArgocdAuthenticationBasicArgsDict']]] = None,
+                 authentication_token: Optional[pulumi.Input[Union['ServiceendpointArgocdAuthenticationTokenArgs', 'ServiceendpointArgocdAuthenticationTokenArgsDict']]] = None,
                  authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
@@ -452,8 +457,8 @@ class ServiceendpointArgocd(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication_basic: Optional[pulumi.Input[pulumi.InputType['ServiceendpointArgocdAuthenticationBasicArgs']]] = None,
-            authentication_token: Optional[pulumi.Input[pulumi.InputType['ServiceendpointArgocdAuthenticationTokenArgs']]] = None,
+            authentication_basic: Optional[pulumi.Input[Union['ServiceendpointArgocdAuthenticationBasicArgs', 'ServiceendpointArgocdAuthenticationBasicArgsDict']]] = None,
+            authentication_token: Optional[pulumi.Input[Union['ServiceendpointArgocdAuthenticationTokenArgs', 'ServiceendpointArgocdAuthenticationTokenArgsDict']]] = None,
             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
@@ -466,10 +471,10 @@ class ServiceendpointArgocd(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ServiceendpointArgocdAuthenticationBasicArgs']] authentication_basic: An `authentication_basic` block for the ArgoCD as documented below.
+        :param pulumi.Input[Union['ServiceendpointArgocdAuthenticationBasicArgs', 'ServiceendpointArgocdAuthenticationBasicArgsDict']] authentication_basic: An `authentication_basic` block for the ArgoCD as documented below.
                
                > **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
-        :param pulumi.Input[pulumi.InputType['ServiceendpointArgocdAuthenticationTokenArgs']] authentication_token: An `authentication_token` block for the ArgoCD as documented below.
+        :param pulumi.Input[Union['ServiceendpointArgocdAuthenticationTokenArgs', 'ServiceendpointArgocdAuthenticationTokenArgsDict']] authentication_token: An `authentication_token` block for the ArgoCD as documented below.
         :param pulumi.Input[str] description: The Service Endpoint description.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.

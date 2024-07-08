@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -163,7 +168,7 @@ class BranchPolicyMergeTypes(pulumi.CustomResource):
                  blocking: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[pulumi.InputType['BranchPolicyMergeTypesSettingsArgs']]] = None,
+                 settings: Optional[pulumi.Input[Union['BranchPolicyMergeTypesSettingsArgs', 'BranchPolicyMergeTypesSettingsArgsDict']]] = None,
                  __props__=None):
         """
         Branch policy for merge types allowed on a specified branch.
@@ -178,34 +183,34 @@ class BranchPolicyMergeTypes(pulumi.CustomResource):
         example_git = azuredevops.Git("example",
             project_id=example.id,
             name="Example Repository",
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
+            initialization={
+                "initType": "Clean",
+            })
         example_branch_policy_merge_types = azuredevops.BranchPolicyMergeTypes("example",
             project_id=example.id,
             enabled=True,
             blocking=True,
-            settings=azuredevops.BranchPolicyMergeTypesSettingsArgs(
-                allow_squash=True,
-                allow_rebase_and_fast_forward=True,
-                allow_basic_no_fast_forward=True,
-                allow_rebase_with_merge=True,
-                scopes=[
-                    azuredevops.BranchPolicyMergeTypesSettingsScopeArgs(
-                        repository_id=example_git.id,
-                        repository_ref=example_git.default_branch,
-                        match_type="Exact",
-                    ),
-                    azuredevops.BranchPolicyMergeTypesSettingsScopeArgs(
-                        repository_id=None,
-                        repository_ref="refs/heads/releases",
-                        match_type="Prefix",
-                    ),
-                    azuredevops.BranchPolicyMergeTypesSettingsScopeArgs(
-                        match_type="DefaultBranch",
-                    ),
+            settings={
+                "allowSquash": True,
+                "allowRebaseAndFastForward": True,
+                "allowBasicNoFastForward": True,
+                "allowRebaseWithMerge": True,
+                "scopes": [
+                    {
+                        "repositoryId": example_git.id,
+                        "repositoryRef": example_git.default_branch,
+                        "matchType": "Exact",
+                    },
+                    {
+                        "repositoryId": None,
+                        "repositoryRef": "refs/heads/releases",
+                        "matchType": "Prefix",
+                    },
+                    {
+                        "matchType": "DefaultBranch",
+                    },
                 ],
-            ))
+            })
         ```
 
         ## Relevant Links
@@ -225,7 +230,7 @@ class BranchPolicyMergeTypes(pulumi.CustomResource):
         :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
-        :param pulumi.Input[pulumi.InputType['BranchPolicyMergeTypesSettingsArgs']] settings: Configuration for the policy. This block must be defined exactly once.
+        :param pulumi.Input[Union['BranchPolicyMergeTypesSettingsArgs', 'BranchPolicyMergeTypesSettingsArgsDict']] settings: Configuration for the policy. This block must be defined exactly once.
         """
         ...
     @overload
@@ -246,34 +251,34 @@ class BranchPolicyMergeTypes(pulumi.CustomResource):
         example_git = azuredevops.Git("example",
             project_id=example.id,
             name="Example Repository",
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
+            initialization={
+                "initType": "Clean",
+            })
         example_branch_policy_merge_types = azuredevops.BranchPolicyMergeTypes("example",
             project_id=example.id,
             enabled=True,
             blocking=True,
-            settings=azuredevops.BranchPolicyMergeTypesSettingsArgs(
-                allow_squash=True,
-                allow_rebase_and_fast_forward=True,
-                allow_basic_no_fast_forward=True,
-                allow_rebase_with_merge=True,
-                scopes=[
-                    azuredevops.BranchPolicyMergeTypesSettingsScopeArgs(
-                        repository_id=example_git.id,
-                        repository_ref=example_git.default_branch,
-                        match_type="Exact",
-                    ),
-                    azuredevops.BranchPolicyMergeTypesSettingsScopeArgs(
-                        repository_id=None,
-                        repository_ref="refs/heads/releases",
-                        match_type="Prefix",
-                    ),
-                    azuredevops.BranchPolicyMergeTypesSettingsScopeArgs(
-                        match_type="DefaultBranch",
-                    ),
+            settings={
+                "allowSquash": True,
+                "allowRebaseAndFastForward": True,
+                "allowBasicNoFastForward": True,
+                "allowRebaseWithMerge": True,
+                "scopes": [
+                    {
+                        "repositoryId": example_git.id,
+                        "repositoryRef": example_git.default_branch,
+                        "matchType": "Exact",
+                    },
+                    {
+                        "repositoryId": None,
+                        "repositoryRef": "refs/heads/releases",
+                        "matchType": "Prefix",
+                    },
+                    {
+                        "matchType": "DefaultBranch",
+                    },
                 ],
-            ))
+            })
         ```
 
         ## Relevant Links
@@ -306,7 +311,7 @@ class BranchPolicyMergeTypes(pulumi.CustomResource):
                  blocking: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[pulumi.InputType['BranchPolicyMergeTypesSettingsArgs']]] = None,
+                 settings: Optional[pulumi.Input[Union['BranchPolicyMergeTypesSettingsArgs', 'BranchPolicyMergeTypesSettingsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -337,7 +342,7 @@ class BranchPolicyMergeTypes(pulumi.CustomResource):
             blocking: Optional[pulumi.Input[bool]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
-            settings: Optional[pulumi.Input[pulumi.InputType['BranchPolicyMergeTypesSettingsArgs']]] = None) -> 'BranchPolicyMergeTypes':
+            settings: Optional[pulumi.Input[Union['BranchPolicyMergeTypesSettingsArgs', 'BranchPolicyMergeTypesSettingsArgsDict']]] = None) -> 'BranchPolicyMergeTypes':
         """
         Get an existing BranchPolicyMergeTypes resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -348,7 +353,7 @@ class BranchPolicyMergeTypes(pulumi.CustomResource):
         :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
-        :param pulumi.Input[pulumi.InputType['BranchPolicyMergeTypesSettingsArgs']] settings: Configuration for the policy. This block must be defined exactly once.
+        :param pulumi.Input[Union['BranchPolicyMergeTypesSettingsArgs', 'BranchPolicyMergeTypesSettingsArgsDict']] settings: Configuration for the policy. This block must be defined exactly once.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

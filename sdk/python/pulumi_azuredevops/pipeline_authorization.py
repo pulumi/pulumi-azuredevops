@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = ['PipelineAuthorizationArgs', 'PipelineAuthorization']
@@ -273,11 +278,11 @@ class PipelineAuthorization(pulumi.CustomResource):
         example_build_definition = azuredevops.BuildDefinition("example",
             project_id=example_project.id,
             name="Example Pipeline",
-            repository=azuredevops.BuildDefinitionRepositoryArgs(
-                repo_type="TfsGit",
-                repo_id=example.id,
-                yml_path="azure-pipelines.yml",
-            ))
+            repository={
+                "repoType": "TfsGit",
+                "repoId": example.id,
+                "ymlPath": "azure-pipelines.yml",
+            })
         example_pipeline_authorization = azuredevops.PipelineAuthorization("example",
             project_id=example_project.id,
             resource_id=example_queue.id,
@@ -366,11 +371,11 @@ class PipelineAuthorization(pulumi.CustomResource):
         example_build_definition = azuredevops.BuildDefinition("example",
             project_id=example_project.id,
             name="Example Pipeline",
-            repository=azuredevops.BuildDefinitionRepositoryArgs(
-                repo_type="TfsGit",
-                repo_id=example.id,
-                yml_path="azure-pipelines.yml",
-            ))
+            repository={
+                "repoType": "TfsGit",
+                "repoId": example.id,
+                "ymlPath": "azure-pipelines.yml",
+            })
         example_pipeline_authorization = azuredevops.PipelineAuthorization("example",
             project_id=example_project.id,
             resource_id=example_queue.id,
