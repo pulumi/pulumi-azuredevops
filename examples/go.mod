@@ -1,12 +1,12 @@
 module github.com/pulumi/pulumi-azuredevops/examples/3
 
-go 1.21
+go 1.21.12
 
 require (
 	github.com/pulumi/pulumi-azuredevops/provider/v3 v3.0.0
 	github.com/pulumi/pulumi-terraform-bridge/testing v0.0.1
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.86.0
-	github.com/pulumi/pulumi/pkg/v3 v3.121.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.87.0
+	github.com/pulumi/pulumi/pkg/v3 v3.124.0
 )
 
 replace (
@@ -161,7 +161,7 @@ require (
 	github.com/pulumi/esc v0.9.1 // indirect
 	github.com/pulumi/inflector v0.1.1 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.8 // indirect
-	github.com/pulumi/pulumi/sdk/v3 v3.121.0 // indirect
+	github.com/pulumi/pulumi/sdk/v3 v3.124.0 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
 	github.com/rogpeppe/go-internal v1.12.0 // indirect
