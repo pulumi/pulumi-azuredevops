@@ -57,9 +57,9 @@ import (
 //			_, err = azuredevops.NewBuildFolderPermissions(ctx, "example", &azuredevops.BuildFolderPermissionsArgs{
 //				ProjectId: example.ID(),
 //				Path:      pulumi.String("\\ExampleFolder"),
-//				Principal: example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
+//				Principal: pulumi.String(example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
 //					return &example_readers.Id, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				Permissions: pulumi.StringMap{
 //					"ViewBuilds":                 pulumi.String("Allow"),
 //					"EditBuildQuality":           pulumi.String("Allow"),
@@ -115,9 +115,9 @@ import (
 //			_, err = azuredevops.NewBuildFolderPermissions(ctx, "example", &azuredevops.BuildFolderPermissionsArgs{
 //				ProjectId: example.ID(),
 //				Path:      pulumi.String("\\"),
-//				Principal: example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
+//				Principal: pulumi.String(example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
 //					return &example_readers.Id, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				Permissions: pulumi.StringMap{
 //					"RetainIndefinitely": pulumi.String("Allow"),
 //				},

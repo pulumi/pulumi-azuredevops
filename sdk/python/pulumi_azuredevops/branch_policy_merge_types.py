@@ -184,30 +184,30 @@ class BranchPolicyMergeTypes(pulumi.CustomResource):
             project_id=example.id,
             name="Example Repository",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_branch_policy_merge_types = azuredevops.BranchPolicyMergeTypes("example",
             project_id=example.id,
             enabled=True,
             blocking=True,
             settings={
-                "allowSquash": True,
-                "allowRebaseAndFastForward": True,
-                "allowBasicNoFastForward": True,
-                "allowRebaseWithMerge": True,
+                "allow_squash": True,
+                "allow_rebase_and_fast_forward": True,
+                "allow_basic_no_fast_forward": True,
+                "allow_rebase_with_merge": True,
                 "scopes": [
                     {
-                        "repositoryId": example_git.id,
-                        "repositoryRef": example_git.default_branch,
-                        "matchType": "Exact",
+                        "repository_id": example_git.id,
+                        "repository_ref": example_git.default_branch,
+                        "match_type": "Exact",
                     },
                     {
-                        "repositoryId": None,
-                        "repositoryRef": "refs/heads/releases",
-                        "matchType": "Prefix",
+                        "repository_id": None,
+                        "repository_ref": "refs/heads/releases",
+                        "match_type": "Prefix",
                     },
                     {
-                        "matchType": "DefaultBranch",
+                        "match_type": "DefaultBranch",
                     },
                 ],
             })
@@ -252,30 +252,30 @@ class BranchPolicyMergeTypes(pulumi.CustomResource):
             project_id=example.id,
             name="Example Repository",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_branch_policy_merge_types = azuredevops.BranchPolicyMergeTypes("example",
             project_id=example.id,
             enabled=True,
             blocking=True,
             settings={
-                "allowSquash": True,
-                "allowRebaseAndFastForward": True,
-                "allowBasicNoFastForward": True,
-                "allowRebaseWithMerge": True,
+                "allow_squash": True,
+                "allow_rebase_and_fast_forward": True,
+                "allow_basic_no_fast_forward": True,
+                "allow_rebase_with_merge": True,
                 "scopes": [
                     {
-                        "repositoryId": example_git.id,
-                        "repositoryRef": example_git.default_branch,
-                        "matchType": "Exact",
+                        "repository_id": example_git.id,
+                        "repository_ref": example_git.default_branch,
+                        "match_type": "Exact",
                     },
                     {
-                        "repositoryId": None,
-                        "repositoryRef": "refs/heads/releases",
-                        "matchType": "Prefix",
+                        "repository_id": None,
+                        "repository_ref": "refs/heads/releases",
+                        "match_type": "Prefix",
                     },
                     {
-                        "matchType": "DefaultBranch",
+                        "match_type": "DefaultBranch",
                     },
                 ],
             })

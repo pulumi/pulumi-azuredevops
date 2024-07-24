@@ -222,7 +222,7 @@ class RepositoryPolicyMaxFileSize(pulumi.CustomResource):
             project_id=example.id,
             name="Example Repository",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_repository_policy_max_file_size = azuredevops.RepositoryPolicyMaxFileSize("example",
             project_id=example.id,
@@ -297,7 +297,7 @@ class RepositoryPolicyMaxFileSize(pulumi.CustomResource):
             project_id=example.id,
             name="Example Repository",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_repository_policy_max_file_size = azuredevops.RepositoryPolicyMaxFileSize("example",
             project_id=example.id,

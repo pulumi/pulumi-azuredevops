@@ -294,20 +294,20 @@ class BuildDefinitionPermissions(pulumi.CustomResource):
             project_id=example.id,
             name="Example Repository",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_build_definition = azuredevops.BuildDefinition("example",
             project_id=example.id,
             name="Example Build Definition",
             path="\\\\ExampleFolder",
             ci_trigger={
-                "useYaml": True,
+                "use_yaml": True,
             },
             repository={
-                "repoType": "TfsGit",
-                "repoId": example_git.id,
-                "branchName": example_git.default_branch,
-                "ymlPath": "azure-pipelines.yml",
+                "repo_type": "TfsGit",
+                "repo_id": example_git.id,
+                "branch_name": example_git.default_branch,
+                "yml_path": "azure-pipelines.yml",
             })
         example_build_definition_permissions = azuredevops.BuildDefinitionPermissions("example",
             project_id=example.id,
@@ -388,20 +388,20 @@ class BuildDefinitionPermissions(pulumi.CustomResource):
             project_id=example.id,
             name="Example Repository",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_build_definition = azuredevops.BuildDefinition("example",
             project_id=example.id,
             name="Example Build Definition",
             path="\\\\ExampleFolder",
             ci_trigger={
-                "useYaml": True,
+                "use_yaml": True,
             },
             repository={
-                "repoType": "TfsGit",
-                "repoId": example_git.id,
-                "branchName": example_git.default_branch,
-                "ymlPath": "azure-pipelines.yml",
+                "repo_type": "TfsGit",
+                "repo_id": example_git.id,
+                "branch_name": example_git.default_branch,
+                "yml_path": "azure-pipelines.yml",
             })
         example_build_definition_permissions = azuredevops.BuildDefinitionPermissions("example",
             project_id=example.id,

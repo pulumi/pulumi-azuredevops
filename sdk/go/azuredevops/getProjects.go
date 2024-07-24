@@ -24,40 +24,22 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := azuredevops.GetProjects(ctx, &azuredevops.GetProjectsArgs{
-//				Name:  pulumi.StringRef("Example Project"),
-//				State: pulumi.StringRef("wellFormed"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			var splat0 []*string
-//			for _, val0 := range example.Projects {
-//				splat0 = append(splat0, val0.ProjectId)
-//			}
-//			ctx.Export("projectId", splat0)
-//			var splat1 []*string
-//			for _, val0 := range example.Projects {
-//				splat1 = append(splat1, val0.Name)
-//			}
-//			ctx.Export("name", splat1)
-//			var splat2 []*string
-//			for _, val0 := range example.Projects {
-//				splat2 = append(splat2, val0.ProjectUrl)
-//			}
-//			ctx.Export("projectUrl", splat2)
-//			var splat3 []*string
-//			for _, val0 := range example.Projects {
-//				splat3 = append(splat3, val0.State)
-//			}
-//			ctx.Export("state", splat3)
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := azuredevops.GetProjects(ctx, &azuredevops.GetProjectsArgs{
+// Name: pulumi.StringRef("Example Project"),
+// State: pulumi.StringRef("wellFormed"),
+// }, nil);
+// if err != nil {
+// return err
+// }
+// ctx.Export("projectId", pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:6,11-40)))
+// ctx.Export("name", pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:10,11-35)))
+// ctx.Export("projectUrl", pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:14,11-41)))
+// ctx.Export("state", pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:18,11-36)))
+// return nil
+// })
+// }
 // ```
 //
 // ## Relevant Links

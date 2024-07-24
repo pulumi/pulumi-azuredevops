@@ -184,32 +184,32 @@ class BranchPolicyMinReviewers(pulumi.CustomResource):
             project_id=example.id,
             name="Example Repository",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_branch_policy_min_reviewers = azuredevops.BranchPolicyMinReviewers("example",
             project_id=example.id,
             enabled=True,
             blocking=True,
             settings={
-                "reviewerCount": 7,
-                "submitterCanVote": False,
-                "lastPusherCannotApprove": True,
-                "allowCompletionWithRejectsOrWaits": False,
-                "onPushResetApprovedVotes": True,
-                "onLastIterationRequireVote": False,
+                "reviewer_count": 7,
+                "submitter_can_vote": False,
+                "last_pusher_cannot_approve": True,
+                "allow_completion_with_rejects_or_waits": False,
+                "on_push_reset_approved_votes": True,
+                "on_last_iteration_require_vote": False,
                 "scopes": [
                     {
-                        "repositoryId": example_git.id,
-                        "repositoryRef": example_git.default_branch,
-                        "matchType": "Exact",
+                        "repository_id": example_git.id,
+                        "repository_ref": example_git.default_branch,
+                        "match_type": "Exact",
                     },
                     {
-                        "repositoryId": None,
-                        "repositoryRef": "refs/heads/releases",
-                        "matchType": "Prefix",
+                        "repository_id": None,
+                        "repository_ref": "refs/heads/releases",
+                        "match_type": "Prefix",
                     },
                     {
-                        "matchType": "DefaultBranch",
+                        "match_type": "DefaultBranch",
                     },
                 ],
             })
@@ -254,32 +254,32 @@ class BranchPolicyMinReviewers(pulumi.CustomResource):
             project_id=example.id,
             name="Example Repository",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_branch_policy_min_reviewers = azuredevops.BranchPolicyMinReviewers("example",
             project_id=example.id,
             enabled=True,
             blocking=True,
             settings={
-                "reviewerCount": 7,
-                "submitterCanVote": False,
-                "lastPusherCannotApprove": True,
-                "allowCompletionWithRejectsOrWaits": False,
-                "onPushResetApprovedVotes": True,
-                "onLastIterationRequireVote": False,
+                "reviewer_count": 7,
+                "submitter_can_vote": False,
+                "last_pusher_cannot_approve": True,
+                "allow_completion_with_rejects_or_waits": False,
+                "on_push_reset_approved_votes": True,
+                "on_last_iteration_require_vote": False,
                 "scopes": [
                     {
-                        "repositoryId": example_git.id,
-                        "repositoryRef": example_git.default_branch,
-                        "matchType": "Exact",
+                        "repository_id": example_git.id,
+                        "repository_ref": example_git.default_branch,
+                        "match_type": "Exact",
                     },
                     {
-                        "repositoryId": None,
-                        "repositoryRef": "refs/heads/releases",
-                        "matchType": "Prefix",
+                        "repository_id": None,
+                        "repository_ref": "refs/heads/releases",
+                        "match_type": "Prefix",
                     },
                     {
-                        "matchType": "DefaultBranch",
+                        "match_type": "DefaultBranch",
                     },
                 ],
             })

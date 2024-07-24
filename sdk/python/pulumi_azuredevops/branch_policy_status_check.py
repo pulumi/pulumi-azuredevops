@@ -193,7 +193,7 @@ class BranchPolicyStatusCheck(pulumi.CustomResource):
             project_id=example.id,
             name="Example Repository",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_user = azuredevops.User("example",
             principal_name="mail@email.com",
@@ -204,18 +204,18 @@ class BranchPolicyStatusCheck(pulumi.CustomResource):
             blocking=True,
             settings={
                 "name": "Release",
-                "authorId": example_user.id,
-                "invalidateOnUpdate": True,
+                "author_id": example_user.id,
+                "invalidate_on_update": True,
                 "applicability": "conditional",
-                "displayName": "PreCheck",
+                "display_name": "PreCheck",
                 "scopes": [
                     {
-                        "repositoryId": example_git.id,
-                        "repositoryRef": example_git.default_branch,
-                        "matchType": "Exact",
+                        "repository_id": example_git.id,
+                        "repository_ref": example_git.default_branch,
+                        "match_type": "Exact",
                     },
                     {
-                        "matchType": "DefaultBranch",
+                        "match_type": "DefaultBranch",
                     },
                 ],
             })
@@ -269,7 +269,7 @@ class BranchPolicyStatusCheck(pulumi.CustomResource):
             project_id=example.id,
             name="Example Repository",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_user = azuredevops.User("example",
             principal_name="mail@email.com",
@@ -280,18 +280,18 @@ class BranchPolicyStatusCheck(pulumi.CustomResource):
             blocking=True,
             settings={
                 "name": "Release",
-                "authorId": example_user.id,
-                "invalidateOnUpdate": True,
+                "author_id": example_user.id,
+                "invalidate_on_update": True,
                 "applicability": "conditional",
-                "displayName": "PreCheck",
+                "display_name": "PreCheck",
                 "scopes": [
                     {
-                        "repositoryId": example_git.id,
-                        "repositoryRef": example_git.default_branch,
-                        "matchType": "Exact",
+                        "repository_id": example_git.id,
+                        "repository_ref": example_git.default_branch,
+                        "match_type": "Exact",
                     },
                     {
-                        "matchType": "DefaultBranch",
+                        "match_type": "DefaultBranch",
                     },
                 ],
             })

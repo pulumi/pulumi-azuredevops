@@ -338,8 +338,8 @@ class ServicehookStorageQueuePipelines(pulumi.CustomResource):
             queue_name=example_queue.name,
             visi_timeout=30,
             run_state_changed_event={
-                "runStateFilter": "Completed",
-                "runResultFilter": "Succeeded",
+                "run_state_filter": "Completed",
+                "run_result_filter": "Succeeded",
             })
         ```
 
@@ -415,8 +415,8 @@ class ServicehookStorageQueuePipelines(pulumi.CustomResource):
             queue_name=example_queue.name,
             visi_timeout=30,
             run_state_changed_event={
-                "runStateFilter": "Completed",
-                "runResultFilter": "Succeeded",
+                "run_state_filter": "Completed",
+                "run_result_filter": "Succeeded",
             })
         ```
 

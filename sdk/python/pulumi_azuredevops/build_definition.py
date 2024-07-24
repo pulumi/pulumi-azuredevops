@@ -461,7 +461,7 @@ class BuildDefinition(pulumi.CustomResource):
             project_id=example.id,
             name="Example Repository",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_variable_group = azuredevops.VariableGroup("example",
             project_id=example.id,
@@ -477,30 +477,30 @@ class BuildDefinition(pulumi.CustomResource):
             name="Example Build Definition",
             path="\\\\ExampleFolder",
             ci_trigger={
-                "useYaml": False,
+                "use_yaml": False,
             },
             schedules=[{
-                "branchFilters": [{
+                "branch_filters": [{
                     "includes": ["master"],
                     "excludes": [
                         "test",
                         "regression",
                     ],
                 }],
-                "daysToBuilds": [
+                "days_to_builds": [
                     "Wed",
                     "Sun",
                 ],
-                "scheduleOnlyWithChanges": True,
-                "startHours": 10,
-                "startMinutes": 59,
-                "timeZone": "(UTC) Coordinated Universal Time",
+                "schedule_only_with_changes": True,
+                "start_hours": 10,
+                "start_minutes": 59,
+                "time_zone": "(UTC) Coordinated Universal Time",
             }],
             repository={
-                "repoType": "TfsGit",
-                "repoId": example_git.id,
-                "branchName": example_git.default_branch,
-                "ymlPath": "azure-pipelines.yml",
+                "repo_type": "TfsGit",
+                "repo_id": example_git.id,
+                "branch_name": example_git.default_branch,
+                "yml_path": "azure-pipelines.yml",
             },
             variable_groups=[example_variable_group.id],
             variables=[
@@ -510,8 +510,8 @@ class BuildDefinition(pulumi.CustomResource):
                 },
                 {
                     "name": "PipelineSecret",
-                    "secretValue": "ZGV2cw",
-                    "isSecret": True,
+                    "secret_value": "ZGV2cw",
+                    "is_secret": True,
                 },
             ])
         ```
@@ -532,39 +532,39 @@ class BuildDefinition(pulumi.CustomResource):
             url="https://github.contoso.com",
             description="Managed by Terraform",
             auth_personal={
-                "personalAccessToken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "personal_access_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
             })
         example_build_definition = azuredevops.BuildDefinition("example",
             project_id=example.id,
             name="Example Build Definition",
             path="\\\\ExampleFolder",
             ci_trigger={
-                "useYaml": False,
+                "use_yaml": False,
             },
             repository={
-                "repoType": "GitHubEnterprise",
-                "repoId": "<GitHub Org>/<Repo Name>",
-                "githubEnterpriseUrl": "https://github.company.com",
-                "branchName": "master",
-                "ymlPath": "azure-pipelines.yml",
-                "serviceConnectionId": example_service_endpoint_git_hub_enterprise.id,
+                "repo_type": "GitHubEnterprise",
+                "repo_id": "<GitHub Org>/<Repo Name>",
+                "github_enterprise_url": "https://github.company.com",
+                "branch_name": "master",
+                "yml_path": "azure-pipelines.yml",
+                "service_connection_id": example_service_endpoint_git_hub_enterprise.id,
             },
             schedules=[{
-                "branchFilters": [{
+                "branch_filters": [{
                     "includes": ["main"],
                     "excludes": [
                         "test",
                         "regression",
                     ],
                 }],
-                "daysToBuilds": [
+                "days_to_builds": [
                     "Wed",
                     "Sun",
                 ],
-                "scheduleOnlyWithChanges": True,
-                "startHours": 10,
-                "startMinutes": 59,
-                "timeZone": "(UTC) Coordinated Universal Time",
+                "schedule_only_with_changes": True,
+                "start_hours": 10,
+                "start_minutes": 59,
+                "time_zone": "(UTC) Coordinated Universal Time",
             }])
         ```
 
@@ -636,7 +636,7 @@ class BuildDefinition(pulumi.CustomResource):
             project_id=example.id,
             name="Example Repository",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_variable_group = azuredevops.VariableGroup("example",
             project_id=example.id,
@@ -652,30 +652,30 @@ class BuildDefinition(pulumi.CustomResource):
             name="Example Build Definition",
             path="\\\\ExampleFolder",
             ci_trigger={
-                "useYaml": False,
+                "use_yaml": False,
             },
             schedules=[{
-                "branchFilters": [{
+                "branch_filters": [{
                     "includes": ["master"],
                     "excludes": [
                         "test",
                         "regression",
                     ],
                 }],
-                "daysToBuilds": [
+                "days_to_builds": [
                     "Wed",
                     "Sun",
                 ],
-                "scheduleOnlyWithChanges": True,
-                "startHours": 10,
-                "startMinutes": 59,
-                "timeZone": "(UTC) Coordinated Universal Time",
+                "schedule_only_with_changes": True,
+                "start_hours": 10,
+                "start_minutes": 59,
+                "time_zone": "(UTC) Coordinated Universal Time",
             }],
             repository={
-                "repoType": "TfsGit",
-                "repoId": example_git.id,
-                "branchName": example_git.default_branch,
-                "ymlPath": "azure-pipelines.yml",
+                "repo_type": "TfsGit",
+                "repo_id": example_git.id,
+                "branch_name": example_git.default_branch,
+                "yml_path": "azure-pipelines.yml",
             },
             variable_groups=[example_variable_group.id],
             variables=[
@@ -685,8 +685,8 @@ class BuildDefinition(pulumi.CustomResource):
                 },
                 {
                     "name": "PipelineSecret",
-                    "secretValue": "ZGV2cw",
-                    "isSecret": True,
+                    "secret_value": "ZGV2cw",
+                    "is_secret": True,
                 },
             ])
         ```
@@ -707,39 +707,39 @@ class BuildDefinition(pulumi.CustomResource):
             url="https://github.contoso.com",
             description="Managed by Terraform",
             auth_personal={
-                "personalAccessToken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "personal_access_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
             })
         example_build_definition = azuredevops.BuildDefinition("example",
             project_id=example.id,
             name="Example Build Definition",
             path="\\\\ExampleFolder",
             ci_trigger={
-                "useYaml": False,
+                "use_yaml": False,
             },
             repository={
-                "repoType": "GitHubEnterprise",
-                "repoId": "<GitHub Org>/<Repo Name>",
-                "githubEnterpriseUrl": "https://github.company.com",
-                "branchName": "master",
-                "ymlPath": "azure-pipelines.yml",
-                "serviceConnectionId": example_service_endpoint_git_hub_enterprise.id,
+                "repo_type": "GitHubEnterprise",
+                "repo_id": "<GitHub Org>/<Repo Name>",
+                "github_enterprise_url": "https://github.company.com",
+                "branch_name": "master",
+                "yml_path": "azure-pipelines.yml",
+                "service_connection_id": example_service_endpoint_git_hub_enterprise.id,
             },
             schedules=[{
-                "branchFilters": [{
+                "branch_filters": [{
                     "includes": ["main"],
                     "excludes": [
                         "test",
                         "regression",
                     ],
                 }],
-                "daysToBuilds": [
+                "days_to_builds": [
                     "Wed",
                     "Sun",
                 ],
-                "scheduleOnlyWithChanges": True,
-                "startHours": 10,
-                "startMinutes": 59,
-                "timeZone": "(UTC) Coordinated Universal Time",
+                "schedule_only_with_changes": True,
+                "start_hours": 10,
+                "start_minutes": 59,
+                "time_zone": "(UTC) Coordinated Universal Time",
             }])
         ```
 

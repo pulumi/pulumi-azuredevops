@@ -184,7 +184,7 @@ class BranchPolicyWorkItemLinking(pulumi.CustomResource):
             project_id=example.id,
             name="Example Repository",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_branch_policy_work_item_linking = azuredevops.BranchPolicyWorkItemLinking("example",
             project_id=example.id,
@@ -193,17 +193,17 @@ class BranchPolicyWorkItemLinking(pulumi.CustomResource):
             settings={
                 "scopes": [
                     {
-                        "repositoryId": example_git.id,
-                        "repositoryRef": example_git.default_branch,
-                        "matchType": "Exact",
+                        "repository_id": example_git.id,
+                        "repository_ref": example_git.default_branch,
+                        "match_type": "Exact",
                     },
                     {
-                        "repositoryId": example_git.id,
-                        "repositoryRef": "refs/heads/releases",
-                        "matchType": "Prefix",
+                        "repository_id": example_git.id,
+                        "repository_ref": "refs/heads/releases",
+                        "match_type": "Prefix",
                     },
                     {
-                        "matchType": "DefaultBranch",
+                        "match_type": "DefaultBranch",
                     },
                 ],
             })
@@ -248,7 +248,7 @@ class BranchPolicyWorkItemLinking(pulumi.CustomResource):
             project_id=example.id,
             name="Example Repository",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_branch_policy_work_item_linking = azuredevops.BranchPolicyWorkItemLinking("example",
             project_id=example.id,
@@ -257,17 +257,17 @@ class BranchPolicyWorkItemLinking(pulumi.CustomResource):
             settings={
                 "scopes": [
                     {
-                        "repositoryId": example_git.id,
-                        "repositoryRef": example_git.default_branch,
-                        "matchType": "Exact",
+                        "repository_id": example_git.id,
+                        "repository_ref": example_git.default_branch,
+                        "match_type": "Exact",
                     },
                     {
-                        "repositoryId": example_git.id,
-                        "repositoryRef": "refs/heads/releases",
-                        "matchType": "Prefix",
+                        "repository_id": example_git.id,
+                        "repository_ref": "refs/heads/releases",
+                        "match_type": "Prefix",
                     },
                     {
-                        "matchType": "DefaultBranch",
+                        "match_type": "DefaultBranch",
                     },
                 ],
             })

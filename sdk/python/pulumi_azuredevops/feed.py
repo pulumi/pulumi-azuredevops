@@ -184,7 +184,7 @@ class Feed(pulumi.CustomResource):
         example = azuredevops.Feed("example",
             name="releases",
             features=[{
-                "permanentDelete": False,
+                "permanent_delete": False,
             }])
         ```
 
@@ -243,7 +243,7 @@ class Feed(pulumi.CustomResource):
         example = azuredevops.Feed("example",
             name="releases",
             features=[{
-                "permanentDelete": False,
+                "permanent_delete": False,
             }])
         ```
 
