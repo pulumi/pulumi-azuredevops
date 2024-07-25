@@ -231,7 +231,7 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
             url="https://github.contoso.com",
             description="Managed by Terraform",
             auth_personal={
-                "personalAccessToken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "personal_access_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
             })
         ```
 
@@ -280,7 +280,7 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
             url="https://github.contoso.com",
             description="Managed by Terraform",
             auth_personal={
-                "personalAccessToken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "personal_access_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
             })
         ```
 

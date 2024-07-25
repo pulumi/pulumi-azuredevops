@@ -231,7 +231,7 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
             project_id=example.id,
             service_endpoint_name="Example GitHub Personal Access Token",
             auth_personal={
-                "personalAccessToken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "personal_access_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
             })
         ```
 
@@ -249,7 +249,7 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
             project_id=example.id,
             service_endpoint_name="Example GitHub",
             auth_oauth={
-                "oauthConfigurationId": "00000000-0000-0000-0000-000000000000",
+                "oauth_configuration_id": "00000000-0000-0000-0000-000000000000",
             })
         ```
 
@@ -312,7 +312,7 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
             project_id=example.id,
             service_endpoint_name="Example GitHub Personal Access Token",
             auth_personal={
-                "personalAccessToken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "personal_access_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
             })
         ```
 
@@ -330,7 +330,7 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
             project_id=example.id,
             service_endpoint_name="Example GitHub",
             auth_oauth={
-                "oauthConfigurationId": "00000000-0000-0000-0000-000000000000",
+                "oauth_configuration_id": "00000000-0000-0000-0000-000000000000",
             })
         ```
 

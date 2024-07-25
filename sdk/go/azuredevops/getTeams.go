@@ -24,37 +24,19 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := azuredevops.GetTeams(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			var splat0 []*string
-//			for _, val0 := range example.Teams {
-//				splat0 = append(splat0, val0.ProjectId)
-//			}
-//			ctx.Export("projectId", splat0)
-//			var splat1 []*string
-//			for _, val0 := range example.Teams {
-//				splat1 = append(splat1, val0.Name)
-//			}
-//			ctx.Export("name", splat1)
-//			var splat2 []interface{}
-//			for _, val0 := range example.Teams {
-//				splat2 = append(splat2, val0.Administrators)
-//			}
-//			ctx.Export("alladministrators", splat2)
-//			var splat3 []interface{}
-//			for _, val0 := range example.Teams {
-//				splat3 = append(splat3, val0.Members)
-//			}
-//			ctx.Export("administrators", splat3)
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := azuredevops.GetTeams(ctx, nil, nil);
+// if err != nil {
+// return err
+// }
+// ctx.Export("projectId", pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:3,11-37)))
+// ctx.Export("name", pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:7,11-32)))
+// ctx.Export("alladministrators", []interface{}(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:11,11-42)))
+// ctx.Export("administrators", []interface{}(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:15,11-35)))
+// return nil
+// })
+// }
 // ```
 //
 // ## Relevant Links

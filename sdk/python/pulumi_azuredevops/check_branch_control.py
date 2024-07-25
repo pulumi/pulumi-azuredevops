@@ -391,7 +391,7 @@ class CheckBranchControl(pulumi.CustomResource):
             project_id=example.id,
             name="Example Empty Git Repository",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_check_branch_control = azuredevops.CheckBranchControl("example",
             project_id=example.id,
@@ -420,8 +420,8 @@ class CheckBranchControl(pulumi.CustomResource):
                 },
                 {
                     "name": "key2",
-                    "secretValue": "val2",
-                    "isSecret": True,
+                    "secret_value": "val2",
+                    "is_secret": True,
                 },
             ])
         example_check_branch_control = azuredevops.CheckBranchControl("example",
@@ -533,7 +533,7 @@ class CheckBranchControl(pulumi.CustomResource):
             project_id=example.id,
             name="Example Empty Git Repository",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_check_branch_control = azuredevops.CheckBranchControl("example",
             project_id=example.id,
@@ -562,8 +562,8 @@ class CheckBranchControl(pulumi.CustomResource):
                 },
                 {
                     "name": "key2",
-                    "secretValue": "val2",
-                    "isSecret": True,
+                    "secret_value": "val2",
+                    "is_secret": True,
                 },
             ])
         example_check_branch_control = azuredevops.CheckBranchControl("example",

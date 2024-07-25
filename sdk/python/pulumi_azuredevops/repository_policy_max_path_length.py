@@ -222,7 +222,7 @@ class RepositoryPolicyMaxPathLength(pulumi.CustomResource):
             project_id=example.id,
             name="Sample Repo",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_repository_policy_max_path_length = azuredevops.RepositoryPolicyMaxPathLength("example",
             project_id=example.id,
@@ -297,7 +297,7 @@ class RepositoryPolicyMaxPathLength(pulumi.CustomResource):
             project_id=example.id,
             name="Sample Repo",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_repository_policy_max_path_length = azuredevops.RepositoryPolicyMaxPathLength("example",
             project_id=example.id,

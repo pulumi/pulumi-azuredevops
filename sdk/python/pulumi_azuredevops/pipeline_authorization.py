@@ -279,9 +279,9 @@ class PipelineAuthorization(pulumi.CustomResource):
             project_id=example_project.id,
             name="Example Pipeline",
             repository={
-                "repoType": "TfsGit",
-                "repoId": example.id,
-                "ymlPath": "azure-pipelines.yml",
+                "repo_type": "TfsGit",
+                "repo_id": example.id,
+                "yml_path": "azure-pipelines.yml",
             })
         example_pipeline_authorization = azuredevops.PipelineAuthorization("example",
             project_id=example_project.id,
@@ -372,9 +372,9 @@ class PipelineAuthorization(pulumi.CustomResource):
             project_id=example_project.id,
             name="Example Pipeline",
             repository={
-                "repoType": "TfsGit",
-                "repoId": example.id,
-                "ymlPath": "azure-pipelines.yml",
+                "repo_type": "TfsGit",
+                "repo_id": example.id,
+                "yml_path": "azure-pipelines.yml",
             })
         example_pipeline_authorization = azuredevops.PipelineAuthorization("example",
             project_id=example_project.id,

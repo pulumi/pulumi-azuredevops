@@ -51,9 +51,9 @@ import (
 //			}, nil)
 //			_, err = azuredevops.NewAreaPermissions(ctx, "example-root-permissions", &azuredevops.AreaPermissionsArgs{
 //				ProjectId: example.ID(),
-//				Principal: example_project_readers.ApplyT(func(example_project_readers azuredevops.GetGroupResult) (*string, error) {
+//				Principal: pulumi.String(example_project_readers.ApplyT(func(example_project_readers azuredevops.GetGroupResult) (*string, error) {
 //					return &example_project_readers.Id, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				Path: pulumi.String("/"),
 //				Permissions: pulumi.StringMap{
 //					"CREATE_CHILDREN": pulumi.String("Deny"),

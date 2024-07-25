@@ -236,7 +236,7 @@ class GitRepositoryBranch(pulumi.CustomResource):
             project_id=example.id,
             name="Example Git Repository",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_git_repository_branch = azuredevops.GitRepositoryBranch("example",
             repository_id=example_git.id,
@@ -280,7 +280,7 @@ class GitRepositoryBranch(pulumi.CustomResource):
             project_id=example.id,
             name="Example Git Repository",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_git_repository_branch = azuredevops.GitRepositoryBranch("example",
             repository_id=example_git.id,

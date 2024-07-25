@@ -338,12 +338,12 @@ class ServiceEndpointKubernetes(pulumi.CustomResource):
             apiserver_url="https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io",
             authorization_type="AzureSubscription",
             azure_subscriptions=[{
-                "subscriptionId": "00000000-0000-0000-0000-000000000000",
-                "subscriptionName": "Example",
-                "tenantId": "00000000-0000-0000-0000-000000000000",
-                "resourcegroupId": "example-rg",
+                "subscription_id": "00000000-0000-0000-0000-000000000000",
+                "subscription_name": "Example",
+                "tenant_id": "00000000-0000-0000-0000-000000000000",
+                "resourcegroup_id": "example-rg",
                 "namespace": "default",
-                "clusterName": "example-aks",
+                "cluster_name": "example-aks",
             }])
         example_kubeconfig = azuredevops.ServiceEndpointKubernetes("example-kubeconfig",
             project_id=example.id,
@@ -351,7 +351,7 @@ class ServiceEndpointKubernetes(pulumi.CustomResource):
             apiserver_url="https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io",
             authorization_type="Kubeconfig",
             kubeconfig={
-                "kubeConfig": \"\"\"                              apiVersion: v1
+                "kube_config": \"\"\"                              apiVersion: v1
                                       clusters:
                                       - cluster:
                                           certificate-authority: fake-ca-file
@@ -372,8 +372,8 @@ class ServiceEndpointKubernetes(pulumi.CustomResource):
                                           client-certificate: fake-cert-file
                                           client-key: fake-key-file
         \"\"\",
-                "acceptUntrustedCerts": True,
-                "clusterContext": "dev-frontend",
+                "accept_untrusted_certs": True,
+                "cluster_context": "dev-frontend",
             })
         example_service_account = azuredevops.ServiceEndpointKubernetes("example-service-account",
             project_id=example.id,
@@ -382,7 +382,7 @@ class ServiceEndpointKubernetes(pulumi.CustomResource):
             authorization_type="ServiceAccount",
             service_account={
                 "token": "000000000000000000000000",
-                "caCert": "0000000000000000000000000000000",
+                "ca_cert": "0000000000000000000000000000000",
             })
         ```
 
@@ -435,12 +435,12 @@ class ServiceEndpointKubernetes(pulumi.CustomResource):
             apiserver_url="https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io",
             authorization_type="AzureSubscription",
             azure_subscriptions=[{
-                "subscriptionId": "00000000-0000-0000-0000-000000000000",
-                "subscriptionName": "Example",
-                "tenantId": "00000000-0000-0000-0000-000000000000",
-                "resourcegroupId": "example-rg",
+                "subscription_id": "00000000-0000-0000-0000-000000000000",
+                "subscription_name": "Example",
+                "tenant_id": "00000000-0000-0000-0000-000000000000",
+                "resourcegroup_id": "example-rg",
                 "namespace": "default",
-                "clusterName": "example-aks",
+                "cluster_name": "example-aks",
             }])
         example_kubeconfig = azuredevops.ServiceEndpointKubernetes("example-kubeconfig",
             project_id=example.id,
@@ -448,7 +448,7 @@ class ServiceEndpointKubernetes(pulumi.CustomResource):
             apiserver_url="https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io",
             authorization_type="Kubeconfig",
             kubeconfig={
-                "kubeConfig": \"\"\"                              apiVersion: v1
+                "kube_config": \"\"\"                              apiVersion: v1
                                       clusters:
                                       - cluster:
                                           certificate-authority: fake-ca-file
@@ -469,8 +469,8 @@ class ServiceEndpointKubernetes(pulumi.CustomResource):
                                           client-certificate: fake-cert-file
                                           client-key: fake-key-file
         \"\"\",
-                "acceptUntrustedCerts": True,
-                "clusterContext": "dev-frontend",
+                "accept_untrusted_certs": True,
+                "cluster_context": "dev-frontend",
             })
         example_service_account = azuredevops.ServiceEndpointKubernetes("example-service-account",
             project_id=example.id,
@@ -479,7 +479,7 @@ class ServiceEndpointKubernetes(pulumi.CustomResource):
             authorization_type="ServiceAccount",
             service_account={
                 "token": "000000000000000000000000",
-                "caCert": "0000000000000000000000000000000",
+                "ca_cert": "0000000000000000000000000000000",
             })
         ```
 

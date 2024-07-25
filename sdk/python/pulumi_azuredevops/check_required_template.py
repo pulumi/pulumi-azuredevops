@@ -208,10 +208,10 @@ class CheckRequiredTemplate(pulumi.CustomResource):
             target_resource_id=example_service_endpoint_generic.id,
             target_resource_type="endpoint",
             required_templates=[{
-                "repositoryType": "azuregit",
-                "repositoryName": "project/repository",
-                "repositoryRef": "refs/heads/main",
-                "templatePath": "template/path.yml",
+                "repository_type": "azuregit",
+                "repository_name": "project/repository",
+                "repository_ref": "refs/heads/main",
+                "template_path": "template/path.yml",
             }])
         ```
 
@@ -231,14 +231,14 @@ class CheckRequiredTemplate(pulumi.CustomResource):
             target_resource_type="environment",
             required_templates=[
                 {
-                    "repositoryName": "project/repository",
-                    "repositoryRef": "refs/heads/main",
-                    "templatePath": "template/path.yml",
+                    "repository_name": "project/repository",
+                    "repository_ref": "refs/heads/main",
+                    "template_path": "template/path.yml",
                 },
                 {
-                    "repositoryName": "project/repository",
-                    "repositoryRef": "refs/heads/main",
-                    "templatePath": "template/alternate-path.yml",
+                    "repository_name": "project/repository",
+                    "repository_ref": "refs/heads/main",
+                    "template_path": "template/alternate-path.yml",
                 },
             ])
         ```
@@ -284,10 +284,10 @@ class CheckRequiredTemplate(pulumi.CustomResource):
             target_resource_id=example_service_endpoint_generic.id,
             target_resource_type="endpoint",
             required_templates=[{
-                "repositoryType": "azuregit",
-                "repositoryName": "project/repository",
-                "repositoryRef": "refs/heads/main",
-                "templatePath": "template/path.yml",
+                "repository_type": "azuregit",
+                "repository_name": "project/repository",
+                "repository_ref": "refs/heads/main",
+                "template_path": "template/path.yml",
             }])
         ```
 
@@ -307,14 +307,14 @@ class CheckRequiredTemplate(pulumi.CustomResource):
             target_resource_type="environment",
             required_templates=[
                 {
-                    "repositoryName": "project/repository",
-                    "repositoryRef": "refs/heads/main",
-                    "templatePath": "template/path.yml",
+                    "repository_name": "project/repository",
+                    "repository_ref": "refs/heads/main",
+                    "template_path": "template/path.yml",
                 },
                 {
-                    "repositoryName": "project/repository",
-                    "repositoryRef": "refs/heads/main",
-                    "templatePath": "template/alternate-path.yml",
+                    "repository_name": "project/repository",
+                    "repository_ref": "refs/heads/main",
+                    "template_path": "template/alternate-path.yml",
                 },
             ])
         ```

@@ -255,7 +255,7 @@ class GitRepositoryFile(pulumi.CustomResource):
             project_id=example.id,
             name="Example Git Repository",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_git_repository_file = azuredevops.GitRepositoryFile("example",
             repository_id=example_git.id,
@@ -318,7 +318,7 @@ class GitRepositoryFile(pulumi.CustomResource):
             project_id=example.id,
             name="Example Git Repository",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_git_repository_file = azuredevops.GitRepositoryFile("example",
             repository_id=example_git.id,

@@ -224,7 +224,7 @@ class RepositoryPolicyAuthorEmailPattern(pulumi.CustomResource):
             project_id=example.id,
             name="Example Repository",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_repository_policy_author_email_pattern = azuredevops.RepositoryPolicyAuthorEmailPattern("example",
             project_id=example.id,
@@ -305,7 +305,7 @@ class RepositoryPolicyAuthorEmailPattern(pulumi.CustomResource):
             project_id=example.id,
             name="Example Repository",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_repository_policy_author_email_pattern = azuredevops.RepositoryPolicyAuthorEmailPattern("example",
             project_id=example.id,

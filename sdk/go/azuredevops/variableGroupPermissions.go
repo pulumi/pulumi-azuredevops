@@ -60,9 +60,9 @@ import (
 //			_, err = azuredevops.NewVariableGroupPermissions(ctx, "permissions", &azuredevops.VariableGroupPermissionsArgs{
 //				ProjectId:       project.ID(),
 //				VariableGroupId: example.ID(),
-//				Principal: tf_project_readers.ApplyT(func(tf_project_readers azuredevops.GetGroupResult) (*string, error) {
+//				Principal: pulumi.String(tf_project_readers.ApplyT(func(tf_project_readers azuredevops.GetGroupResult) (*string, error) {
 //					return &tf_project_readers.Id, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				Permissions: pulumi.StringMap{
 //					"View":       pulumi.String("allow"),
 //					"Administer": pulumi.String("allow"),

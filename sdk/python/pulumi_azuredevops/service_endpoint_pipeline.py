@@ -238,7 +238,7 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
             service_endpoint_name="Example Pipeline Runner",
             organization_name="Organization Name",
             auth_personal={
-                "personalAccessToken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "personal_access_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
             },
             description="Managed by Terraform")
         ```
@@ -288,7 +288,7 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
             service_endpoint_name="Example Pipeline Runner",
             organization_name="Organization Name",
             auth_personal={
-                "personalAccessToken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "personal_access_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
             },
             description="Managed by Terraform")
         ```

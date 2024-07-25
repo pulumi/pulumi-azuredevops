@@ -220,7 +220,7 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
             project_id=example.id,
             name="Example Repository",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_repository_policy_file_path_pattern = azuredevops.RepositoryPolicyFilePathPattern("example",
             project_id=example.id,
@@ -299,7 +299,7 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
             project_id=example.id,
             name="Example Repository",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_repository_policy_file_path_pattern = azuredevops.RepositoryPolicyFilePathPattern("example",
             project_id=example.id,
