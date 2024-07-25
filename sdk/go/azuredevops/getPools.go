@@ -24,37 +24,19 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := azuredevops.GetPools(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			var splat0 []*string
-//			for _, val0 := range example.AgentPools {
-//				splat0 = append(splat0, val0.Name)
-//			}
-//			ctx.Export("agentPoolName", splat0)
-//			var splat1 []*bool
-//			for _, val0 := range example.AgentPools {
-//				splat1 = append(splat1, val0.AutoProvision)
-//			}
-//			ctx.Export("autoProvision", splat1)
-//			var splat2 []*bool
-//			for _, val0 := range example.AgentPools {
-//				splat2 = append(splat2, val0.AutoUpdate)
-//			}
-//			ctx.Export("autoUpdate", splat2)
-//			var splat3 []*string
-//			for _, val0 := range example.AgentPools {
-//				splat3 = append(splat3, val0.PoolType)
-//			}
-//			ctx.Export("poolType", splat3)
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := azuredevops.GetPools(ctx, nil, nil);
+// if err != nil {
+// return err
+// }
+// ctx.Export("agentPoolName", pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:3,11-37)))
+// ctx.Export("autoProvision", pulumi.BoolArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:7,11-46)))
+// ctx.Export("autoUpdate", pulumi.BoolArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:11,11-43)))
+// ctx.Export("poolType", pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:15,11-41)))
+// return nil
+// })
+// }
 // ```
 //
 // ## Relevant Links

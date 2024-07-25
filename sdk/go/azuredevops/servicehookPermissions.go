@@ -49,9 +49,9 @@ import (
 //			}, nil)
 //			_, err = azuredevops.NewServicehookPermissions(ctx, "example-permissions", &azuredevops.ServicehookPermissionsArgs{
 //				ProjectId: example.ID(),
-//				Principal: example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
+//				Principal: pulumi.String(example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
 //					return &example_readers.Id, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				Permissions: pulumi.StringMap{
 //					"ViewSubscriptions":   pulumi.String("allow"),
 //					"EditSubscriptions":   pulumi.String("allow"),

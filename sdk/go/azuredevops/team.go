@@ -50,14 +50,14 @@ import (
 //				ProjectId: example.ID(),
 //				Name:      pulumi.String("Example Team"),
 //				Administrators: pulumi.StringArray{
-//					example_project_contributors.ApplyT(func(example_project_contributors azuredevops.GetGroupResult) (*string, error) {
+//					pulumi.String(example_project_contributors.ApplyT(func(example_project_contributors azuredevops.GetGroupResult) (*string, error) {
 //						return &example_project_contributors.Descriptor, nil
-//					}).(pulumi.StringPtrOutput),
+//					}).(pulumi.StringPtrOutput)),
 //				},
 //				Members: pulumi.StringArray{
-//					example_project_readers.ApplyT(func(example_project_readers azuredevops.GetGroupResult) (*string, error) {
+//					pulumi.String(example_project_readers.ApplyT(func(example_project_readers azuredevops.GetGroupResult) (*string, error) {
 //						return &example_project_readers.Descriptor, nil
-//					}).(pulumi.StringPtrOutput),
+//					}).(pulumi.StringPtrOutput)),
 //				},
 //			})
 //			if err != nil {

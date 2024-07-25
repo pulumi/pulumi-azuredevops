@@ -58,9 +58,9 @@ import (
 //				TeamId:    exampleTeam.ID(),
 //				Mode:      pulumi.String("overwrite"),
 //				Members: pulumi.StringArray{
-//					example_project_readers.ApplyT(func(example_project_readers azuredevops.GetGroupResult) (*string, error) {
+//					pulumi.String(example_project_readers.ApplyT(func(example_project_readers azuredevops.GetGroupResult) (*string, error) {
 //						return &example_project_readers.Descriptor, nil
-//					}).(pulumi.StringPtrOutput),
+//					}).(pulumi.StringPtrOutput)),
 //				},
 //			})
 //			if err != nil {

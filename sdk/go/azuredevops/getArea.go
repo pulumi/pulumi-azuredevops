@@ -38,11 +38,11 @@ import (
 //				return err
 //			}
 //			_ = exampleProject.ID().ApplyT(func(id string) (azuredevops.GetAreaResult, error) {
-//				return azuredevops.GetAreaOutput(ctx, azuredevops.GetAreaOutputArgs{
+//				return azuredevops.GetAreaResult(interface{}(azuredevops.GetAreaOutput(ctx, azuredevops.GetAreaOutputArgs{
 //					ProjectId:     id,
 //					Path:          "/",
 //					FetchChildren: false,
-//				}, nil), nil
+//				}, nil))), nil
 //			}).(azuredevops.GetAreaResultOutput)
 //			return nil
 //		})

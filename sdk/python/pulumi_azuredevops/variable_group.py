@@ -261,8 +261,8 @@ class VariableGroup(pulumi.CustomResource):
                 },
                 {
                     "name": "key2",
-                    "secretValue": "val2",
-                    "isSecret": True,
+                    "secret_value": "val2",
+                    "is_secret": True,
                 },
             ])
         ```
@@ -297,7 +297,7 @@ class VariableGroup(pulumi.CustomResource):
             allow_access=True,
             key_vault={
                 "name": "example-kv",
-                "serviceEndpointId": example_service_endpoint_azure_rm.id,
+                "service_endpoint_id": example_service_endpoint_azure_rm.id,
             },
             variables=[
                 {
@@ -381,8 +381,8 @@ class VariableGroup(pulumi.CustomResource):
                 },
                 {
                     "name": "key2",
-                    "secretValue": "val2",
-                    "isSecret": True,
+                    "secret_value": "val2",
+                    "is_secret": True,
                 },
             ])
         ```
@@ -417,7 +417,7 @@ class VariableGroup(pulumi.CustomResource):
             allow_access=True,
             key_vault={
                 "name": "example-kv",
-                "serviceEndpointId": example_service_endpoint_azure_rm.id,
+                "service_endpoint_id": example_service_endpoint_azure_rm.id,
             },
             variables=[
                 {

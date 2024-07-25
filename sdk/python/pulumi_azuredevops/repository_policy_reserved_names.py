@@ -190,7 +190,7 @@ class RepositoryPolicyReservedNames(pulumi.CustomResource):
             project_id=example.id,
             name="Example Repository",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_repository_policy_reserved_names = azuredevops.RepositoryPolicyReservedNames("example",
             project_id=example.id,
@@ -262,7 +262,7 @@ class RepositoryPolicyReservedNames(pulumi.CustomResource):
             project_id=example.id,
             name="Example Repository",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_repository_policy_reserved_names = azuredevops.RepositoryPolicyReservedNames("example",
             project_id=example.id,

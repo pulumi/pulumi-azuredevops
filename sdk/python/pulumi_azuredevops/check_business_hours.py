@@ -631,7 +631,7 @@ class CheckBusinessHours(pulumi.CustomResource):
             project_id=example.id,
             name="Example Empty Git Repository",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_check_business_hours = azuredevops.CheckBusinessHours("example",
             project_id=example.id,
@@ -664,8 +664,8 @@ class CheckBusinessHours(pulumi.CustomResource):
                 },
                 {
                     "name": "key2",
-                    "secretValue": "val2",
-                    "isSecret": True,
+                    "secret_value": "val2",
+                    "is_secret": True,
                 },
             ])
         example_check_business_hours = azuredevops.CheckBusinessHours("example",
@@ -944,7 +944,7 @@ class CheckBusinessHours(pulumi.CustomResource):
             project_id=example.id,
             name="Example Empty Git Repository",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_check_business_hours = azuredevops.CheckBusinessHours("example",
             project_id=example.id,
@@ -977,8 +977,8 @@ class CheckBusinessHours(pulumi.CustomResource):
                 },
                 {
                     "name": "key2",
-                    "secretValue": "val2",
-                    "isSecret": True,
+                    "secret_value": "val2",
+                    "is_secret": True,
                 },
             ])
         example_check_business_hours = azuredevops.CheckBusinessHours("example",

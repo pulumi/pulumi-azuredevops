@@ -184,7 +184,7 @@ class BranchPolicyAutoReviewers(pulumi.CustomResource):
             project_id=example.id,
             name="Example Repository",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_user = azuredevops.User("example",
             principal_name="mail@email.com",
@@ -194,14 +194,14 @@ class BranchPolicyAutoReviewers(pulumi.CustomResource):
             enabled=True,
             blocking=True,
             settings={
-                "autoReviewerIds": [example_user.id],
-                "submitterCanVote": False,
+                "auto_reviewer_ids": [example_user.id],
+                "submitter_can_vote": False,
                 "message": "Auto reviewer",
-                "pathFilters": ["*/src/*.ts"],
+                "path_filters": ["*/src/*.ts"],
                 "scopes": [{
-                    "repositoryId": example_git.id,
-                    "repositoryRef": example_git.default_branch,
-                    "matchType": "Exact",
+                    "repository_id": example_git.id,
+                    "repository_ref": example_git.default_branch,
+                    "match_type": "Exact",
                 }],
             })
         ```
@@ -245,7 +245,7 @@ class BranchPolicyAutoReviewers(pulumi.CustomResource):
             project_id=example.id,
             name="Example Repository",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_user = azuredevops.User("example",
             principal_name="mail@email.com",
@@ -255,14 +255,14 @@ class BranchPolicyAutoReviewers(pulumi.CustomResource):
             enabled=True,
             blocking=True,
             settings={
-                "autoReviewerIds": [example_user.id],
-                "submitterCanVote": False,
+                "auto_reviewer_ids": [example_user.id],
+                "submitter_can_vote": False,
                 "message": "Auto reviewer",
-                "pathFilters": ["*/src/*.ts"],
+                "path_filters": ["*/src/*.ts"],
                 "scopes": [{
-                    "repositoryId": example_git.id,
-                    "repositoryRef": example_git.default_branch,
-                    "matchType": "Exact",
+                    "repository_id": example_git.id,
+                    "repository_ref": example_git.default_branch,
+                    "match_type": "Exact",
                 }],
             })
         ```

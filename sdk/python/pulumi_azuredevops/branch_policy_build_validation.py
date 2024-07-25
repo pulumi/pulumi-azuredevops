@@ -184,42 +184,42 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
             project_id=example.id,
             name="Example Repository",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_build_definition = azuredevops.BuildDefinition("example",
             project_id=example.id,
             name="Example Build Definition",
             repository={
-                "repoType": "TfsGit",
-                "repoId": example_git.id,
-                "ymlPath": "azure-pipelines.yml",
+                "repo_type": "TfsGit",
+                "repo_id": example_git.id,
+                "yml_path": "azure-pipelines.yml",
             })
         example_branch_policy_build_validation = azuredevops.BranchPolicyBuildValidation("example",
             project_id=example.id,
             enabled=True,
             blocking=True,
             settings={
-                "displayName": "Example build validation policy",
-                "buildDefinitionId": example_build_definition.id,
-                "validDuration": 720,
-                "filenamePatterns": [
+                "display_name": "Example build validation policy",
+                "build_definition_id": example_build_definition.id,
+                "valid_duration": 720,
+                "filename_patterns": [
                     "/WebApp/*",
                     "!/WebApp/Tests/*",
                     "*.cs",
                 ],
                 "scopes": [
                     {
-                        "repositoryId": example_git.id,
-                        "repositoryRef": example_git.default_branch,
-                        "matchType": "Exact",
+                        "repository_id": example_git.id,
+                        "repository_ref": example_git.default_branch,
+                        "match_type": "Exact",
                     },
                     {
-                        "repositoryId": example_git.id,
-                        "repositoryRef": "refs/heads/releases",
-                        "matchType": "Prefix",
+                        "repository_id": example_git.id,
+                        "repository_ref": "refs/heads/releases",
+                        "match_type": "Prefix",
                     },
                     {
-                        "matchType": "DefaultBranch",
+                        "match_type": "DefaultBranch",
                     },
                 ],
             })
@@ -264,42 +264,42 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
             project_id=example.id,
             name="Example Repository",
             initialization={
-                "initType": "Clean",
+                "init_type": "Clean",
             })
         example_build_definition = azuredevops.BuildDefinition("example",
             project_id=example.id,
             name="Example Build Definition",
             repository={
-                "repoType": "TfsGit",
-                "repoId": example_git.id,
-                "ymlPath": "azure-pipelines.yml",
+                "repo_type": "TfsGit",
+                "repo_id": example_git.id,
+                "yml_path": "azure-pipelines.yml",
             })
         example_branch_policy_build_validation = azuredevops.BranchPolicyBuildValidation("example",
             project_id=example.id,
             enabled=True,
             blocking=True,
             settings={
-                "displayName": "Example build validation policy",
-                "buildDefinitionId": example_build_definition.id,
-                "validDuration": 720,
-                "filenamePatterns": [
+                "display_name": "Example build validation policy",
+                "build_definition_id": example_build_definition.id,
+                "valid_duration": 720,
+                "filename_patterns": [
                     "/WebApp/*",
                     "!/WebApp/Tests/*",
                     "*.cs",
                 ],
                 "scopes": [
                     {
-                        "repositoryId": example_git.id,
-                        "repositoryRef": example_git.default_branch,
-                        "matchType": "Exact",
+                        "repository_id": example_git.id,
+                        "repository_ref": example_git.default_branch,
+                        "match_type": "Exact",
                     },
                     {
-                        "repositoryId": example_git.id,
-                        "repositoryRef": "refs/heads/releases",
-                        "matchType": "Prefix",
+                        "repository_id": example_git.id,
+                        "repository_ref": "refs/heads/releases",
+                        "match_type": "Prefix",
                     },
                     {
-                        "matchType": "DefaultBranch",
+                        "match_type": "DefaultBranch",
                     },
                 ],
             })

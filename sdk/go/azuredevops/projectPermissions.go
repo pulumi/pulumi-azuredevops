@@ -46,9 +46,9 @@ import (
 //			}, nil)
 //			_, err = azuredevops.NewProjectPermissions(ctx, "example-permission", &azuredevops.ProjectPermissionsArgs{
 //				ProjectId: example.ID(),
-//				Principal: example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
+//				Principal: pulumi.String(example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
 //					return &example_readers.Id, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				Permissions: pulumi.StringMap{
 //					"DELETE":              pulumi.String("Deny"),
 //					"EDIT_BUILD_STATUS":   pulumi.String("NotSet"),

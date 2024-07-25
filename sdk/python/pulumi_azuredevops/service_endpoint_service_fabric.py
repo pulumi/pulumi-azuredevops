@@ -283,8 +283,8 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
             description="Managed by Terraform",
             cluster_endpoint="tcp://test",
             azure_active_directory={
-                "serverCertificateLookup": "Thumbprint",
-                "serverCertificateThumbprint": "0000000000000000000000000000000000000000",
+                "server_certificate_lookup": "Thumbprint",
+                "server_certificate_thumbprint": "0000000000000000000000000000000000000000",
                 "username": "username",
                 "password": "password",
             })
@@ -308,7 +308,7 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
             cluster_endpoint="tcp://test",
             none={
                 "unsecured": False,
-                "clusterSpn": "HTTP/www.contoso.com",
+                "cluster_spn": "HTTP/www.contoso.com",
             })
         ```
 
@@ -358,8 +358,8 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
             description="Managed by Terraform",
             cluster_endpoint="tcp://test",
             azure_active_directory={
-                "serverCertificateLookup": "Thumbprint",
-                "serverCertificateThumbprint": "0000000000000000000000000000000000000000",
+                "server_certificate_lookup": "Thumbprint",
+                "server_certificate_thumbprint": "0000000000000000000000000000000000000000",
                 "username": "username",
                 "password": "password",
             })
@@ -383,7 +383,7 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
             cluster_endpoint="tcp://test",
             none={
                 "unsecured": False,
-                "clusterSpn": "HTTP/www.contoso.com",
+                "cluster_spn": "HTTP/www.contoso.com",
             })
         ```
 
