@@ -525,7 +525,12 @@
             },
             "azuredevops_serviceendpoint_azurecr": {
                 "current": "azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr",
-                "majorVersion": 3
+                "majorVersion": 3,
+                "fields": {
+                    "credentials": {
+                        "maxItemsOne": true
+                    }
+                }
             },
             "azuredevops_serviceendpoint_azuredevops": {
                 "current": "azuredevops:index/serviceEndpointAzureDevOps:ServiceEndpointAzureDevOps",
@@ -800,6 +805,10 @@
             },
             "azuredevops_variable_group_permissions": {
                 "current": "azuredevops:index/variableGroupPermissions:VariableGroupPermissions",
+                "majorVersion": 3
+            },
+            "azuredevops_wiki": {
+                "current": "azuredevops:index/wiki:Wiki",
                 "majorVersion": 3
             },
             "azuredevops_workitem": {
