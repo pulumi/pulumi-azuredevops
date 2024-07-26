@@ -121,7 +121,7 @@ type LookupServiceEndpointAzureRMResult struct {
 	AzurermSubscriptionName string `pulumi:"azurermSubscriptionName"`
 	// Specifies the description of the Service Endpoint.
 	Description string `pulumi:"description"`
-	// The Cloud Environment. Possible values are `AzureCloud` and `AzureChinaCloud`.
+	// The Cloud Environment. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`.
 	Environment string `pulumi:"environment"`
 	// The provider-assigned unique ID for this managed resource.
 	Id        string `pulumi:"id"`
@@ -218,7 +218,7 @@ func (o LookupServiceEndpointAzureRMResultOutput) Description() pulumi.StringOut
 	return o.ApplyT(func(v LookupServiceEndpointAzureRMResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The Cloud Environment. Possible values are `AzureCloud` and `AzureChinaCloud`.
+// The Cloud Environment. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`.
 func (o LookupServiceEndpointAzureRMResultOutput) Environment() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceEndpointAzureRMResult) string { return v.Environment }).(pulumi.StringOutput)
 }

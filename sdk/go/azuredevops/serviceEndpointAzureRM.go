@@ -338,7 +338,7 @@ type ServiceEndpointAzureRM struct {
 	Credentials ServiceEndpointAzureRMCredentialsPtrOutput `pulumi:"credentials"`
 	// Service connection description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+	// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
 	Environment pulumi.StringPtrOutput `pulumi:"environment"`
@@ -416,7 +416,7 @@ type serviceEndpointAzureRMState struct {
 	Credentials *ServiceEndpointAzureRMCredentials `pulumi:"credentials"`
 	// Service connection description.
 	Description *string `pulumi:"description"`
-	// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+	// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
 	Environment *string `pulumi:"environment"`
@@ -456,7 +456,7 @@ type ServiceEndpointAzureRMState struct {
 	Credentials ServiceEndpointAzureRMCredentialsPtrInput
 	// Service connection description.
 	Description pulumi.StringPtrInput
-	// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+	// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
 	Environment pulumi.StringPtrInput
@@ -500,7 +500,7 @@ type serviceEndpointAzureRMArgs struct {
 	Credentials *ServiceEndpointAzureRMCredentials `pulumi:"credentials"`
 	// Service connection description.
 	Description *string `pulumi:"description"`
-	// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+	// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
 	Environment *string `pulumi:"environment"`
@@ -535,7 +535,7 @@ type ServiceEndpointAzureRMArgs struct {
 	Credentials ServiceEndpointAzureRMCredentialsPtrInput
 	// Service connection description.
 	Description pulumi.StringPtrInput
-	// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+	// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
 	Environment pulumi.StringPtrInput
@@ -679,7 +679,7 @@ func (o ServiceEndpointAzureRMOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointAzureRM) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`. Changing this forces a new resource to be created.
 //
 // > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
 func (o ServiceEndpointAzureRMOutput) Environment() pulumi.StringPtrOutput {

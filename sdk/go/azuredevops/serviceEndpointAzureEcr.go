@@ -16,6 +16,8 @@ import (
 //
 // ## Example Usage
 //
+// ### Service Principal
+//
 // ```go
 // package main
 //
@@ -57,6 +59,82 @@ import (
 //
 // ```
 //
+// ### WorkloadIdentityFederation
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/armmsi"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			identity, err := core.NewResourceGroup(ctx, "identity", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("identity"),
+//				Location: pulumi.String("UK South"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
+//				Location:          identity.Location,
+//				Name:              pulumi.String("example-identity"),
+//				ResourceGroupName: pulumi.String("azurerm_resource_group.identity.name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// azure container registry service connection
+//			_, err = azuredevops.NewServiceEndpointAzureEcr(ctx, "example", &azuredevops.ServiceEndpointAzureEcrArgs{
+//				ProjectId:                           example.ID(),
+//				ResourceGroup:                       pulumi.String("Example AzureCR ResourceGroup"),
+//				ServiceEndpointName:                 pulumi.String("Example AzureCR"),
+//				ServiceEndpointAuthenticationScheme: pulumi.String("WorkloadIdentityFederation"),
+//				AzurecrSpnTenantid:                  pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				AzurecrName:                         pulumi.String("ExampleAcr"),
+//				AzurecrSubscriptionId:               pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				AzurecrSubscriptionName:             pulumi.String("subscription name"),
+//				Credentials: &azuredevops.ServiceEndpointAzureEcrCredentialsArgs{
+//					Serviceprincipalid: exampleUserAssignedIdentity.ClientId,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = armmsi.NewFederatedIdentityCredential(ctx, "example", &armmsi.FederatedIdentityCredentialArgs{
+//				Name:              pulumi.String("example-federated-credential"),
+//				ResourceGroupName: identity.Name,
+//				ParentId:          exampleUserAssignedIdentity.ID(),
+//				Audience:          pulumi.String("api://AzureADTokenExchange"),
+//				Issuer:            pulumi.Any(exampleAzuredevopsServiceendpointAzurerm.WorkloadIdentityFederationIssuer),
+//				Subject:           pulumi.Any(exampleAzuredevopsServiceendpointAzurerm.WorkloadIdentityFederationSubject),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
@@ -83,17 +161,25 @@ type ServiceEndpointAzureEcr struct {
 	// The subscription id of the Azure targets.
 	AzurecrSubscriptionId pulumi.StringOutput `pulumi:"azurecrSubscriptionId"`
 	// The subscription name of the Azure targets.
-	AzurecrSubscriptionName pulumi.StringOutput    `pulumi:"azurecrSubscriptionName"`
-	Description             pulumi.StringPtrOutput `pulumi:"description"`
+	AzurecrSubscriptionName pulumi.StringOutput `pulumi:"azurecrSubscriptionName"`
+	// A `credentials` block.
+	Credentials ServiceEndpointAzureEcrCredentialsPtrOutput `pulumi:"credentials"`
+	Description pulumi.StringPtrOutput                      `pulumi:"description"`
 	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The resource group to which the container registry belongs.
-	ResourceGroup pulumi.StringOutput `pulumi:"resourceGroup"`
+	ResourceGroup pulumi.StringPtrOutput `pulumi:"resourceGroup"`
+	// Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
+	ServiceEndpointAuthenticationScheme pulumi.StringPtrOutput `pulumi:"serviceEndpointAuthenticationScheme"`
 	// The name you will use to refer to this service connection in task inputs.
 	ServiceEndpointName pulumi.StringOutput `pulumi:"serviceEndpointName"`
 	// The service principal ID.
 	ServicePrincipalId pulumi.StringOutput `pulumi:"servicePrincipalId"`
 	SpnObjectId        pulumi.StringOutput `pulumi:"spnObjectId"`
+	// The issuer of the workload identity federation service principal.
+	WorkloadIdentityFederationIssuer pulumi.StringOutput `pulumi:"workloadIdentityFederationIssuer"`
+	// The subject of the workload identity federation service principal.
+	WorkloadIdentityFederationSubject pulumi.StringOutput `pulumi:"workloadIdentityFederationSubject"`
 }
 
 // NewServiceEndpointAzureEcr registers a new resource with the given unique name, arguments, and options.
@@ -117,9 +203,6 @@ func NewServiceEndpointAzureEcr(ctx *pulumi.Context,
 	}
 	if args.ProjectId == nil {
 		return nil, errors.New("invalid value for required argument 'ProjectId'")
-	}
-	if args.ResourceGroup == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroup'")
 	}
 	if args.ServiceEndpointName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceEndpointName'")
@@ -159,16 +242,24 @@ type serviceEndpointAzureEcrState struct {
 	AzurecrSubscriptionId *string `pulumi:"azurecrSubscriptionId"`
 	// The subscription name of the Azure targets.
 	AzurecrSubscriptionName *string `pulumi:"azurecrSubscriptionName"`
-	Description             *string `pulumi:"description"`
+	// A `credentials` block.
+	Credentials *ServiceEndpointAzureEcrCredentials `pulumi:"credentials"`
+	Description *string                             `pulumi:"description"`
 	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// The resource group to which the container registry belongs.
 	ResourceGroup *string `pulumi:"resourceGroup"`
+	// Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
+	ServiceEndpointAuthenticationScheme *string `pulumi:"serviceEndpointAuthenticationScheme"`
 	// The name you will use to refer to this service connection in task inputs.
 	ServiceEndpointName *string `pulumi:"serviceEndpointName"`
 	// The service principal ID.
 	ServicePrincipalId *string `pulumi:"servicePrincipalId"`
 	SpnObjectId        *string `pulumi:"spnObjectId"`
+	// The issuer of the workload identity federation service principal.
+	WorkloadIdentityFederationIssuer *string `pulumi:"workloadIdentityFederationIssuer"`
+	// The subject of the workload identity federation service principal.
+	WorkloadIdentityFederationSubject *string `pulumi:"workloadIdentityFederationSubject"`
 }
 
 type ServiceEndpointAzureEcrState struct {
@@ -184,16 +275,24 @@ type ServiceEndpointAzureEcrState struct {
 	AzurecrSubscriptionId pulumi.StringPtrInput
 	// The subscription name of the Azure targets.
 	AzurecrSubscriptionName pulumi.StringPtrInput
-	Description             pulumi.StringPtrInput
+	// A `credentials` block.
+	Credentials ServiceEndpointAzureEcrCredentialsPtrInput
+	Description pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// The resource group to which the container registry belongs.
 	ResourceGroup pulumi.StringPtrInput
+	// Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
+	ServiceEndpointAuthenticationScheme pulumi.StringPtrInput
 	// The name you will use to refer to this service connection in task inputs.
 	ServiceEndpointName pulumi.StringPtrInput
 	// The service principal ID.
 	ServicePrincipalId pulumi.StringPtrInput
 	SpnObjectId        pulumi.StringPtrInput
+	// The issuer of the workload identity federation service principal.
+	WorkloadIdentityFederationIssuer pulumi.StringPtrInput
+	// The subject of the workload identity federation service principal.
+	WorkloadIdentityFederationSubject pulumi.StringPtrInput
 }
 
 func (ServiceEndpointAzureEcrState) ElementType() reflect.Type {
@@ -209,12 +308,16 @@ type serviceEndpointAzureEcrArgs struct {
 	// The subscription id of the Azure targets.
 	AzurecrSubscriptionId string `pulumi:"azurecrSubscriptionId"`
 	// The subscription name of the Azure targets.
-	AzurecrSubscriptionName string  `pulumi:"azurecrSubscriptionName"`
-	Description             *string `pulumi:"description"`
+	AzurecrSubscriptionName string `pulumi:"azurecrSubscriptionName"`
+	// A `credentials` block.
+	Credentials *ServiceEndpointAzureEcrCredentials `pulumi:"credentials"`
+	Description *string                             `pulumi:"description"`
 	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// The resource group to which the container registry belongs.
-	ResourceGroup string `pulumi:"resourceGroup"`
+	ResourceGroup *string `pulumi:"resourceGroup"`
+	// Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
+	ServiceEndpointAuthenticationScheme *string `pulumi:"serviceEndpointAuthenticationScheme"`
 	// The name you will use to refer to this service connection in task inputs.
 	ServiceEndpointName string `pulumi:"serviceEndpointName"`
 }
@@ -230,11 +333,15 @@ type ServiceEndpointAzureEcrArgs struct {
 	AzurecrSubscriptionId pulumi.StringInput
 	// The subscription name of the Azure targets.
 	AzurecrSubscriptionName pulumi.StringInput
-	Description             pulumi.StringPtrInput
+	// A `credentials` block.
+	Credentials ServiceEndpointAzureEcrCredentialsPtrInput
+	Description pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// The resource group to which the container registry belongs.
-	ResourceGroup pulumi.StringInput
+	ResourceGroup pulumi.StringPtrInput
+	// Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
+	ServiceEndpointAuthenticationScheme pulumi.StringPtrInput
 	// The name you will use to refer to this service connection in task inputs.
 	ServiceEndpointName pulumi.StringInput
 }
@@ -362,6 +469,11 @@ func (o ServiceEndpointAzureEcrOutput) AzurecrSubscriptionName() pulumi.StringOu
 	return o.ApplyT(func(v *ServiceEndpointAzureEcr) pulumi.StringOutput { return v.AzurecrSubscriptionName }).(pulumi.StringOutput)
 }
 
+// A `credentials` block.
+func (o ServiceEndpointAzureEcrOutput) Credentials() ServiceEndpointAzureEcrCredentialsPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointAzureEcr) ServiceEndpointAzureEcrCredentialsPtrOutput { return v.Credentials }).(ServiceEndpointAzureEcrCredentialsPtrOutput)
+}
+
 func (o ServiceEndpointAzureEcrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointAzureEcr) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -372,8 +484,13 @@ func (o ServiceEndpointAzureEcrOutput) ProjectId() pulumi.StringOutput {
 }
 
 // The resource group to which the container registry belongs.
-func (o ServiceEndpointAzureEcrOutput) ResourceGroup() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServiceEndpointAzureEcr) pulumi.StringOutput { return v.ResourceGroup }).(pulumi.StringOutput)
+func (o ServiceEndpointAzureEcrOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointAzureEcr) pulumi.StringPtrOutput { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
+func (o ServiceEndpointAzureEcrOutput) ServiceEndpointAuthenticationScheme() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointAzureEcr) pulumi.StringPtrOutput { return v.ServiceEndpointAuthenticationScheme }).(pulumi.StringPtrOutput)
 }
 
 // The name you will use to refer to this service connection in task inputs.
@@ -388,6 +505,16 @@ func (o ServiceEndpointAzureEcrOutput) ServicePrincipalId() pulumi.StringOutput 
 
 func (o ServiceEndpointAzureEcrOutput) SpnObjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceEndpointAzureEcr) pulumi.StringOutput { return v.SpnObjectId }).(pulumi.StringOutput)
+}
+
+// The issuer of the workload identity federation service principal.
+func (o ServiceEndpointAzureEcrOutput) WorkloadIdentityFederationIssuer() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceEndpointAzureEcr) pulumi.StringOutput { return v.WorkloadIdentityFederationIssuer }).(pulumi.StringOutput)
+}
+
+// The subject of the workload identity federation service principal.
+func (o ServiceEndpointAzureEcrOutput) WorkloadIdentityFederationSubject() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceEndpointAzureEcr) pulumi.StringOutput { return v.WorkloadIdentityFederationSubject }).(pulumi.StringOutput)
 }
 
 type ServiceEndpointAzureEcrArrayOutput struct{ *pulumi.OutputState }

@@ -47,7 +47,7 @@ public final class GetServiceEndpointAzureRMResult {
      */
     private String description;
     /**
-     * @return The Cloud Environment. Possible values are `AzureCloud` and `AzureChinaCloud`.
+     * @return The Cloud Environment. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`.
      * 
      */
     private String environment;
@@ -131,7 +131,7 @@ public final class GetServiceEndpointAzureRMResult {
         return this.description;
     }
     /**
-     * @return The Cloud Environment. Possible values are `AzureCloud` and `AzureChinaCloud`.
+     * @return The Cloud Environment. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`.
      * 
      */
     public String environment() {

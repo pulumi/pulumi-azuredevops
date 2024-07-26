@@ -14,6 +14,8 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ## Example Usage
     /// 
+    /// ### Service Principal
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,6 +43,69 @@ namespace Pulumi.AzureDevOps
     ///         AzurecrName = "ExampleAcr",
     ///         AzurecrSubscriptionId = "00000000-0000-0000-0000-000000000000",
     ///         AzurecrSubscriptionName = "subscription name",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### WorkloadIdentityFederation
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new AzureDevOps.Project("example", new()
+    ///     {
+    ///         Name = "Example Project",
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var identity = new Azure.Core.ResourceGroup("identity", new()
+    ///     {
+    ///         Name = "identity",
+    ///         Location = "UK South",
+    ///     });
+    /// 
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
+    ///     {
+    ///         Location = identity.Location,
+    ///         Name = "example-identity",
+    ///         ResourceGroupName = "azurerm_resource_group.identity.name",
+    ///     });
+    /// 
+    ///     // azure container registry service connection
+    ///     var exampleServiceEndpointAzureEcr = new AzureDevOps.ServiceEndpointAzureEcr("example", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         ResourceGroup = "Example AzureCR ResourceGroup",
+    ///         ServiceEndpointName = "Example AzureCR",
+    ///         ServiceEndpointAuthenticationScheme = "WorkloadIdentityFederation",
+    ///         AzurecrSpnTenantid = "00000000-0000-0000-0000-000000000000",
+    ///         AzurecrName = "ExampleAcr",
+    ///         AzurecrSubscriptionId = "00000000-0000-0000-0000-000000000000",
+    ///         AzurecrSubscriptionName = "subscription name",
+    ///         Credentials = new AzureDevOps.Inputs.ServiceEndpointAzureEcrCredentialsArgs
+    ///         {
+    ///             Serviceprincipalid = exampleUserAssignedIdentity.ClientId,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleFederatedIdentityCredential = new Azure.ArmMsi.FederatedIdentityCredential("example", new()
+    ///     {
+    ///         Name = "example-federated-credential",
+    ///         ResourceGroupName = identity.Name,
+    ///         ParentId = exampleUserAssignedIdentity.Id,
+    ///         Audience = "api://AzureADTokenExchange",
+    ///         Issuer = exampleAzuredevopsServiceendpointAzurerm.WorkloadIdentityFederationIssuer,
+    ///         Subject = exampleAzuredevopsServiceendpointAzurerm.WorkloadIdentityFederationSubject,
     ///     });
     /// 
     /// });
@@ -98,6 +163,12 @@ namespace Pulumi.AzureDevOps
         [Output("azurecrSubscriptionName")]
         public Output<string> AzurecrSubscriptionName { get; private set; } = null!;
 
+        /// <summary>
+        /// A `credentials` block.
+        /// </summary>
+        [Output("credentials")]
+        public Output<Outputs.ServiceEndpointAzureEcrCredentials?> Credentials { get; private set; } = null!;
+
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -111,7 +182,13 @@ namespace Pulumi.AzureDevOps
         /// The resource group to which the container registry belongs.
         /// </summary>
         [Output("resourceGroup")]
-        public Output<string> ResourceGroup { get; private set; } = null!;
+        public Output<string?> ResourceGroup { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
+        /// </summary>
+        [Output("serviceEndpointAuthenticationScheme")]
+        public Output<string?> ServiceEndpointAuthenticationScheme { get; private set; } = null!;
 
         /// <summary>
         /// The name you will use to refer to this service connection in task inputs.
@@ -127,6 +204,18 @@ namespace Pulumi.AzureDevOps
 
         [Output("spnObjectId")]
         public Output<string> SpnObjectId { get; private set; } = null!;
+
+        /// <summary>
+        /// The issuer of the workload identity federation service principal.
+        /// </summary>
+        [Output("workloadIdentityFederationIssuer")]
+        public Output<string> WorkloadIdentityFederationIssuer { get; private set; } = null!;
+
+        /// <summary>
+        /// The subject of the workload identity federation service principal.
+        /// </summary>
+        [Output("workloadIdentityFederationSubject")]
+        public Output<string> WorkloadIdentityFederationSubject { get; private set; } = null!;
 
 
         /// <summary>
@@ -206,6 +295,12 @@ namespace Pulumi.AzureDevOps
         [Input("azurecrSubscriptionName", required: true)]
         public Input<string> AzurecrSubscriptionName { get; set; } = null!;
 
+        /// <summary>
+        /// A `credentials` block.
+        /// </summary>
+        [Input("credentials")]
+        public Input<Inputs.ServiceEndpointAzureEcrCredentialsArgs>? Credentials { get; set; }
+
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -218,8 +313,14 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The resource group to which the container registry belongs.
         /// </summary>
-        [Input("resourceGroup", required: true)]
-        public Input<string> ResourceGroup { get; set; } = null!;
+        [Input("resourceGroup")]
+        public Input<string>? ResourceGroup { get; set; }
+
+        /// <summary>
+        /// Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
+        /// </summary>
+        [Input("serviceEndpointAuthenticationScheme")]
+        public Input<string>? ServiceEndpointAuthenticationScheme { get; set; }
 
         /// <summary>
         /// The name you will use to refer to this service connection in task inputs.
@@ -276,6 +377,12 @@ namespace Pulumi.AzureDevOps
         [Input("azurecrSubscriptionName")]
         public Input<string>? AzurecrSubscriptionName { get; set; }
 
+        /// <summary>
+        /// A `credentials` block.
+        /// </summary>
+        [Input("credentials")]
+        public Input<Inputs.ServiceEndpointAzureEcrCredentialsGetArgs>? Credentials { get; set; }
+
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -292,6 +399,12 @@ namespace Pulumi.AzureDevOps
         public Input<string>? ResourceGroup { get; set; }
 
         /// <summary>
+        /// Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
+        /// </summary>
+        [Input("serviceEndpointAuthenticationScheme")]
+        public Input<string>? ServiceEndpointAuthenticationScheme { get; set; }
+
+        /// <summary>
         /// The name you will use to refer to this service connection in task inputs.
         /// </summary>
         [Input("serviceEndpointName")]
@@ -305,6 +418,18 @@ namespace Pulumi.AzureDevOps
 
         [Input("spnObjectId")]
         public Input<string>? SpnObjectId { get; set; }
+
+        /// <summary>
+        /// The issuer of the workload identity federation service principal.
+        /// </summary>
+        [Input("workloadIdentityFederationIssuer")]
+        public Input<string>? WorkloadIdentityFederationIssuer { get; set; }
+
+        /// <summary>
+        /// The subject of the workload identity federation service principal.
+        /// </summary>
+        [Input("workloadIdentityFederationSubject")]
+        public Input<string>? WorkloadIdentityFederationSubject { get; set; }
 
         public ServiceEndpointAzureEcrState()
         {

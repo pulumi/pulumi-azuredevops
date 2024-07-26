@@ -2,12 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
  * Manages a Azure Container Registry service endpoint within Azure DevOps.
  *
  * ## Example Usage
+ *
+ * ### Service Principal
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -29,6 +33,53 @@ import * as utilities from "./utilities";
  *     azurecrName: "ExampleAcr",
  *     azurecrSubscriptionId: "00000000-0000-0000-0000-000000000000",
  *     azurecrSubscriptionName: "subscription name",
+ * });
+ * ```
+ *
+ * ### WorkloadIdentityFederation
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
+ * });
+ * const identity = new azure.core.ResourceGroup("identity", {
+ *     name: "identity",
+ *     location: "UK South",
+ * });
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+ *     location: identity.location,
+ *     name: "example-identity",
+ *     resourceGroupName: "azurerm_resource_group.identity.name",
+ * });
+ * // azure container registry service connection
+ * const exampleServiceEndpointAzureEcr = new azuredevops.ServiceEndpointAzureEcr("example", {
+ *     projectId: example.id,
+ *     resourceGroup: "Example AzureCR ResourceGroup",
+ *     serviceEndpointName: "Example AzureCR",
+ *     serviceEndpointAuthenticationScheme: "WorkloadIdentityFederation",
+ *     azurecrSpnTenantid: "00000000-0000-0000-0000-000000000000",
+ *     azurecrName: "ExampleAcr",
+ *     azurecrSubscriptionId: "00000000-0000-0000-0000-000000000000",
+ *     azurecrSubscriptionName: "subscription name",
+ *     credentials: {
+ *         serviceprincipalid: exampleUserAssignedIdentity.clientId,
+ *     },
+ * });
+ * const exampleFederatedIdentityCredential = new azure.armmsi.FederatedIdentityCredential("example", {
+ *     name: "example-federated-credential",
+ *     resourceGroupName: identity.name,
+ *     parentId: exampleUserAssignedIdentity.id,
+ *     audience: "api://AzureADTokenExchange",
+ *     issuer: exampleAzuredevopsServiceendpointAzurerm.workloadIdentityFederationIssuer,
+ *     subject: exampleAzuredevopsServiceendpointAzurerm.workloadIdentityFederationSubject,
  * });
  * ```
  *
@@ -93,6 +144,10 @@ export class ServiceEndpointAzureEcr extends pulumi.CustomResource {
      * The subscription name of the Azure targets.
      */
     public readonly azurecrSubscriptionName!: pulumi.Output<string>;
+    /**
+     * A `credentials` block.
+     */
+    public readonly credentials!: pulumi.Output<outputs.ServiceEndpointAzureEcrCredentials | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The ID of the project.
@@ -101,7 +156,11 @@ export class ServiceEndpointAzureEcr extends pulumi.CustomResource {
     /**
      * The resource group to which the container registry belongs.
      */
-    public readonly resourceGroup!: pulumi.Output<string>;
+    public readonly resourceGroup!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
+     */
+    public readonly serviceEndpointAuthenticationScheme!: pulumi.Output<string | undefined>;
     /**
      * The name you will use to refer to this service connection in task inputs.
      */
@@ -111,6 +170,14 @@ export class ServiceEndpointAzureEcr extends pulumi.CustomResource {
      */
     public /*out*/ readonly servicePrincipalId!: pulumi.Output<string>;
     public /*out*/ readonly spnObjectId!: pulumi.Output<string>;
+    /**
+     * The issuer of the workload identity federation service principal.
+     */
+    public /*out*/ readonly workloadIdentityFederationIssuer!: pulumi.Output<string>;
+    /**
+     * The subject of the workload identity federation service principal.
+     */
+    public /*out*/ readonly workloadIdentityFederationSubject!: pulumi.Output<string>;
 
     /**
      * Create a ServiceEndpointAzureEcr resource with the given unique name, arguments, and options.
@@ -133,12 +200,16 @@ export class ServiceEndpointAzureEcr extends pulumi.CustomResource {
             resourceInputs["azurecrSpnTenantid"] = state ? state.azurecrSpnTenantid : undefined;
             resourceInputs["azurecrSubscriptionId"] = state ? state.azurecrSubscriptionId : undefined;
             resourceInputs["azurecrSubscriptionName"] = state ? state.azurecrSubscriptionName : undefined;
+            resourceInputs["credentials"] = state ? state.credentials : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["projectId"] = state ? state.projectId : undefined;
             resourceInputs["resourceGroup"] = state ? state.resourceGroup : undefined;
+            resourceInputs["serviceEndpointAuthenticationScheme"] = state ? state.serviceEndpointAuthenticationScheme : undefined;
             resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
             resourceInputs["servicePrincipalId"] = state ? state.servicePrincipalId : undefined;
             resourceInputs["spnObjectId"] = state ? state.spnObjectId : undefined;
+            resourceInputs["workloadIdentityFederationIssuer"] = state ? state.workloadIdentityFederationIssuer : undefined;
+            resourceInputs["workloadIdentityFederationSubject"] = state ? state.workloadIdentityFederationSubject : undefined;
         } else {
             const args = argsOrState as ServiceEndpointAzureEcrArgs | undefined;
             if ((!args || args.azurecrName === undefined) && !opts.urn) {
@@ -156,9 +227,6 @@ export class ServiceEndpointAzureEcr extends pulumi.CustomResource {
             if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.resourceGroup === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroup'");
-            }
             if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
@@ -167,15 +235,19 @@ export class ServiceEndpointAzureEcr extends pulumi.CustomResource {
             resourceInputs["azurecrSpnTenantid"] = args ? args.azurecrSpnTenantid : undefined;
             resourceInputs["azurecrSubscriptionId"] = args ? args.azurecrSubscriptionId : undefined;
             resourceInputs["azurecrSubscriptionName"] = args ? args.azurecrSubscriptionName : undefined;
+            resourceInputs["credentials"] = args ? args.credentials : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
+            resourceInputs["serviceEndpointAuthenticationScheme"] = args ? args.serviceEndpointAuthenticationScheme : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             resourceInputs["appObjectId"] = undefined /*out*/;
             resourceInputs["azSpnRoleAssignmentId"] = undefined /*out*/;
             resourceInputs["azSpnRolePermissions"] = undefined /*out*/;
             resourceInputs["servicePrincipalId"] = undefined /*out*/;
             resourceInputs["spnObjectId"] = undefined /*out*/;
+            resourceInputs["workloadIdentityFederationIssuer"] = undefined /*out*/;
+            resourceInputs["workloadIdentityFederationSubject"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServiceEndpointAzureEcr.__pulumiType, name, resourceInputs, opts);
@@ -206,6 +278,10 @@ export interface ServiceEndpointAzureEcrState {
      * The subscription name of the Azure targets.
      */
     azurecrSubscriptionName?: pulumi.Input<string>;
+    /**
+     * A `credentials` block.
+     */
+    credentials?: pulumi.Input<inputs.ServiceEndpointAzureEcrCredentials>;
     description?: pulumi.Input<string>;
     /**
      * The ID of the project.
@@ -216,6 +292,10 @@ export interface ServiceEndpointAzureEcrState {
      */
     resourceGroup?: pulumi.Input<string>;
     /**
+     * Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
+     */
+    serviceEndpointAuthenticationScheme?: pulumi.Input<string>;
+    /**
      * The name you will use to refer to this service connection in task inputs.
      */
     serviceEndpointName?: pulumi.Input<string>;
@@ -224,6 +304,14 @@ export interface ServiceEndpointAzureEcrState {
      */
     servicePrincipalId?: pulumi.Input<string>;
     spnObjectId?: pulumi.Input<string>;
+    /**
+     * The issuer of the workload identity federation service principal.
+     */
+    workloadIdentityFederationIssuer?: pulumi.Input<string>;
+    /**
+     * The subject of the workload identity federation service principal.
+     */
+    workloadIdentityFederationSubject?: pulumi.Input<string>;
 }
 
 /**
@@ -247,6 +335,10 @@ export interface ServiceEndpointAzureEcrArgs {
      * The subscription name of the Azure targets.
      */
     azurecrSubscriptionName: pulumi.Input<string>;
+    /**
+     * A `credentials` block.
+     */
+    credentials?: pulumi.Input<inputs.ServiceEndpointAzureEcrCredentials>;
     description?: pulumi.Input<string>;
     /**
      * The ID of the project.
@@ -255,7 +347,11 @@ export interface ServiceEndpointAzureEcrArgs {
     /**
      * The resource group to which the container registry belongs.
      */
-    resourceGroup: pulumi.Input<string>;
+    resourceGroup?: pulumi.Input<string>;
+    /**
+     * Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
+     */
+    serviceEndpointAuthenticationScheme?: pulumi.Input<string>;
     /**
      * The name you will use to refer to this service connection in task inputs.
      */

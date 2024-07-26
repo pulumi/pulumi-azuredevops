@@ -105,7 +105,7 @@ export interface GetServiceEndpointAzureRMResult {
      */
     readonly description: string;
     /**
-     * The Cloud Environment. Possible values are `AzureCloud` and `AzureChinaCloud`.
+     * The Cloud Environment. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`.
      */
     readonly environment: string;
     /**

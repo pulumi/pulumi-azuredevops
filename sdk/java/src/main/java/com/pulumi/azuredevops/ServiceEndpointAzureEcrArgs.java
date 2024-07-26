@@ -3,6 +3,7 @@
 
 package com.pulumi.azuredevops;
 
+import com.pulumi.azuredevops.inputs.ServiceEndpointAzureEcrCredentialsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -84,6 +85,21 @@ public final class ServiceEndpointAzureEcrArgs extends com.pulumi.resources.Reso
         return this.azurecrSubscriptionName;
     }
 
+    /**
+     * A `credentials` block.
+     * 
+     */
+    @Import(name="credentials")
+    private @Nullable Output<ServiceEndpointAzureEcrCredentialsArgs> credentials;
+
+    /**
+     * @return A `credentials` block.
+     * 
+     */
+    public Optional<Output<ServiceEndpointAzureEcrCredentialsArgs>> credentials() {
+        return Optional.ofNullable(this.credentials);
+    }
+
     @Import(name="description")
     private @Nullable Output<String> description;
 
@@ -110,15 +126,30 @@ public final class ServiceEndpointAzureEcrArgs extends com.pulumi.resources.Reso
      * The resource group to which the container registry belongs.
      * 
      */
-    @Import(name="resourceGroup", required=true)
-    private Output<String> resourceGroup;
+    @Import(name="resourceGroup")
+    private @Nullable Output<String> resourceGroup;
 
     /**
      * @return The resource group to which the container registry belongs.
      * 
      */
-    public Output<String> resourceGroup() {
-        return this.resourceGroup;
+    public Optional<Output<String>> resourceGroup() {
+        return Optional.ofNullable(this.resourceGroup);
+    }
+
+    /**
+     * Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
+     * 
+     */
+    @Import(name="serviceEndpointAuthenticationScheme")
+    private @Nullable Output<String> serviceEndpointAuthenticationScheme;
+
+    /**
+     * @return Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
+     * 
+     */
+    public Optional<Output<String>> serviceEndpointAuthenticationScheme() {
+        return Optional.ofNullable(this.serviceEndpointAuthenticationScheme);
     }
 
     /**
@@ -144,9 +175,11 @@ public final class ServiceEndpointAzureEcrArgs extends com.pulumi.resources.Reso
         this.azurecrSpnTenantid = $.azurecrSpnTenantid;
         this.azurecrSubscriptionId = $.azurecrSubscriptionId;
         this.azurecrSubscriptionName = $.azurecrSubscriptionName;
+        this.credentials = $.credentials;
         this.description = $.description;
         this.projectId = $.projectId;
         this.resourceGroup = $.resourceGroup;
+        this.serviceEndpointAuthenticationScheme = $.serviceEndpointAuthenticationScheme;
         this.serviceEndpointName = $.serviceEndpointName;
     }
 
@@ -261,6 +294,27 @@ public final class ServiceEndpointAzureEcrArgs extends com.pulumi.resources.Reso
             return azurecrSubscriptionName(Output.of(azurecrSubscriptionName));
         }
 
+        /**
+         * @param credentials A `credentials` block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder credentials(@Nullable Output<ServiceEndpointAzureEcrCredentialsArgs> credentials) {
+            $.credentials = credentials;
+            return this;
+        }
+
+        /**
+         * @param credentials A `credentials` block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder credentials(ServiceEndpointAzureEcrCredentialsArgs credentials) {
+            return credentials(Output.of(credentials));
+        }
+
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
@@ -297,7 +351,7 @@ public final class ServiceEndpointAzureEcrArgs extends com.pulumi.resources.Reso
          * @return builder
          * 
          */
-        public Builder resourceGroup(Output<String> resourceGroup) {
+        public Builder resourceGroup(@Nullable Output<String> resourceGroup) {
             $.resourceGroup = resourceGroup;
             return this;
         }
@@ -310,6 +364,27 @@ public final class ServiceEndpointAzureEcrArgs extends com.pulumi.resources.Reso
          */
         public Builder resourceGroup(String resourceGroup) {
             return resourceGroup(Output.of(resourceGroup));
+        }
+
+        /**
+         * @param serviceEndpointAuthenticationScheme Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceEndpointAuthenticationScheme(@Nullable Output<String> serviceEndpointAuthenticationScheme) {
+            $.serviceEndpointAuthenticationScheme = serviceEndpointAuthenticationScheme;
+            return this;
+        }
+
+        /**
+         * @param serviceEndpointAuthenticationScheme Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceEndpointAuthenticationScheme(String serviceEndpointAuthenticationScheme) {
+            return serviceEndpointAuthenticationScheme(Output.of(serviceEndpointAuthenticationScheme));
         }
 
         /**
@@ -348,9 +423,6 @@ public final class ServiceEndpointAzureEcrArgs extends com.pulumi.resources.Reso
             }
             if ($.projectId == null) {
                 throw new MissingRequiredPropertyException("ServiceEndpointAzureEcrArgs", "projectId");
-            }
-            if ($.resourceGroup == null) {
-                throw new MissingRequiredPropertyException("ServiceEndpointAzureEcrArgs", "resourceGroup");
             }
             if ($.serviceEndpointName == null) {
                 throw new MissingRequiredPropertyException("ServiceEndpointAzureEcrArgs", "serviceEndpointName");

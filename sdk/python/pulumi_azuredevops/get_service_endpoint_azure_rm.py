@@ -136,7 +136,7 @@ class GetServiceEndpointAzureRMResult:
     @pulumi.getter
     def environment(self) -> str:
         """
-        The Cloud Environment. Possible values are `AzureCloud` and `AzureChinaCloud`.
+        The Cloud Environment. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`.
         """
         return pulumi.get(self, "environment")
 

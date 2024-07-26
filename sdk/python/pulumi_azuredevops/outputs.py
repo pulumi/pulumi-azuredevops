@@ -49,6 +49,7 @@ __all__ = [
     'GitInitialization',
     'ServiceEndpointArtifactoryAuthenticationBasic',
     'ServiceEndpointArtifactoryAuthenticationToken',
+    'ServiceEndpointAzureEcrCredentials',
     'ServiceEndpointAzureRMCredentials',
     'ServiceEndpointAzureRMFeatures',
     'ServiceEndpointGitHubAuthOauth',
@@ -2549,6 +2550,24 @@ class ServiceEndpointArtifactoryAuthenticationToken(dict):
         The Artifactory access token.
         """
         return pulumi.get(self, "token")
+
+
+@pulumi.output_type
+class ServiceEndpointAzureEcrCredentials(dict):
+    def __init__(__self__, *,
+                 serviceprincipalid: str):
+        """
+        :param str serviceprincipalid: The service principal application Id
+        """
+        pulumi.set(__self__, "serviceprincipalid", serviceprincipalid)
+
+    @property
+    @pulumi.getter
+    def serviceprincipalid(self) -> str:
+        """
+        The service principal application Id
+        """
+        return pulumi.get(self, "serviceprincipalid")
 
 
 @pulumi.output_type

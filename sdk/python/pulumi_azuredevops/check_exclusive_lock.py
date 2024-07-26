@@ -228,6 +228,26 @@ class CheckExclusiveLock(pulumi.CustomResource):
             timeout=43200)
         ```
 
+        ### Protect a repository
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example", name="Example Project")
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Example Repository",
+            initialization={
+                "init_type": "Clean",
+            })
+        example_check_exclusive_lock = azuredevops.CheckExclusiveLock("example",
+            project_id=example.id,
+            target_resource_id=pulumi.Output.all(example.id, example_git.id).apply(lambda exampleId, exampleGitId: f"{example_id}.{example_git_id}"),
+            target_resource_type="repository",
+            timeout=43200)
+        ```
+
         ## Import
 
         Importing this resource is not supported.
@@ -287,6 +307,26 @@ class CheckExclusiveLock(pulumi.CustomResource):
             project_id=example.id,
             target_resource_id=example_environment.id,
             target_resource_type="environment",
+            timeout=43200)
+        ```
+
+        ### Protect a repository
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example", name="Example Project")
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Example Repository",
+            initialization={
+                "init_type": "Clean",
+            })
+        example_check_exclusive_lock = azuredevops.CheckExclusiveLock("example",
+            project_id=example.id,
+            target_resource_id=pulumi.Output.all(example.id, example_git.id).apply(lambda exampleId, exampleGitId: f"{example_id}.{example_git_id}"),
+            target_resource_type="repository",
             timeout=43200)
         ```
 
