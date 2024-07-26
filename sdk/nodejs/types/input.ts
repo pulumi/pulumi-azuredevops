@@ -738,6 +738,13 @@ export interface ServiceEndpointArtifactoryAuthenticationToken {
     token: pulumi.Input<string>;
 }
 
+export interface ServiceEndpointAzureEcrCredentials {
+    /**
+     * The service principal application Id
+     */
+    serviceprincipalid: pulumi.Input<string>;
+}
+
 export interface ServiceEndpointAzureRMCredentials {
     /**
      * The service principal application Id

@@ -137,6 +137,7 @@
         "utilities.ts",
         "variableGroup.ts",
         "variableGroupPermissions.ts",
+        "wiki.ts",
         "workItemQueryPermissions.ts",
         "workitem.ts"
     ]

@@ -122,6 +122,7 @@ from .team_members import *
 from .user import *
 from .variable_group import *
 from .variable_group_permissions import *
+from .wiki import *
 from .work_item_query_permissions import *
 from .workitem import *
 from ._inputs import *
@@ -839,6 +840,14 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/variableGroupPermissions:VariableGroupPermissions": "VariableGroupPermissions"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/wiki",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/wiki:Wiki": "Wiki"
   }
  },
  {

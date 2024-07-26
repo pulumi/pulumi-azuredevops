@@ -6,6 +6,7 @@ package com.pulumi.azuredevops;
 import com.pulumi.azuredevops.ServiceEndpointAzureEcrArgs;
 import com.pulumi.azuredevops.Utilities;
 import com.pulumi.azuredevops.inputs.ServiceEndpointAzureEcrState;
+import com.pulumi.azuredevops.outputs.ServiceEndpointAzureEcrCredentials;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -19,6 +20,8 @@ import javax.annotation.Nullable;
  * Manages a Azure Container Registry service endpoint within Azure DevOps.
  * 
  * ## Example Usage
+ * 
+ * ### Service Principal
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -62,6 +65,89 @@ import javax.annotation.Nullable;
  *             .azurecrName("ExampleAcr")
  *             .azurecrSubscriptionId("00000000-0000-0000-0000-000000000000")
  *             .azurecrSubscriptionName("subscription name")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### WorkloadIdentityFederation
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.authorization.UserAssignedIdentity;
+ * import com.pulumi.azure.authorization.UserAssignedIdentityArgs;
+ * import com.pulumi.azuredevops.ServiceEndpointAzureEcr;
+ * import com.pulumi.azuredevops.ServiceEndpointAzureEcrArgs;
+ * import com.pulumi.azuredevops.inputs.ServiceEndpointAzureEcrCredentialsArgs;
+ * import com.pulumi.azure.armmsi.FederatedIdentityCredential;
+ * import com.pulumi.azure.armmsi.FederatedIdentityCredentialArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Project("example", ProjectArgs.builder()
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .description("Managed by Terraform")
+ *             .build());
+ * 
+ *         var identity = new ResourceGroup("identity", ResourceGroupArgs.builder()
+ *             .name("identity")
+ *             .location("UK South")
+ *             .build());
+ * 
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()
+ *             .location(identity.location())
+ *             .name("example-identity")
+ *             .resourceGroupName("azurerm_resource_group.identity.name")
+ *             .build());
+ * 
+ *         // azure container registry service connection
+ *         var exampleServiceEndpointAzureEcr = new ServiceEndpointAzureEcr("exampleServiceEndpointAzureEcr", ServiceEndpointAzureEcrArgs.builder()
+ *             .projectId(example.id())
+ *             .resourceGroup("Example AzureCR ResourceGroup")
+ *             .serviceEndpointName("Example AzureCR")
+ *             .serviceEndpointAuthenticationScheme("WorkloadIdentityFederation")
+ *             .azurecrSpnTenantid("00000000-0000-0000-0000-000000000000")
+ *             .azurecrName("ExampleAcr")
+ *             .azurecrSubscriptionId("00000000-0000-0000-0000-000000000000")
+ *             .azurecrSubscriptionName("subscription name")
+ *             .credentials(ServiceEndpointAzureEcrCredentialsArgs.builder()
+ *                 .serviceprincipalid(exampleUserAssignedIdentity.clientId())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleFederatedIdentityCredential = new FederatedIdentityCredential("exampleFederatedIdentityCredential", FederatedIdentityCredentialArgs.builder()
+ *             .name("example-federated-credential")
+ *             .resourceGroupName(identity.name())
+ *             .parentId(exampleUserAssignedIdentity.id())
+ *             .audience("api://AzureADTokenExchange")
+ *             .issuer(exampleAzuredevopsServiceendpointAzurerm.workloadIdentityFederationIssuer())
+ *             .subject(exampleAzuredevopsServiceendpointAzurerm.workloadIdentityFederationSubject())
  *             .build());
  * 
  *     }
@@ -166,6 +252,20 @@ public class ServiceEndpointAzureEcr extends com.pulumi.resources.CustomResource
     public Output<String> azurecrSubscriptionName() {
         return this.azurecrSubscriptionName;
     }
+    /**
+     * A `credentials` block.
+     * 
+     */
+    @Export(name="credentials", refs={ServiceEndpointAzureEcrCredentials.class}, tree="[0]")
+    private Output</* @Nullable */ ServiceEndpointAzureEcrCredentials> credentials;
+
+    /**
+     * @return A `credentials` block.
+     * 
+     */
+    public Output<Optional<ServiceEndpointAzureEcrCredentials>> credentials() {
+        return Codegen.optional(this.credentials);
+    }
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
@@ -191,14 +291,28 @@ public class ServiceEndpointAzureEcr extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="resourceGroup", refs={String.class}, tree="[0]")
-    private Output<String> resourceGroup;
+    private Output</* @Nullable */ String> resourceGroup;
 
     /**
      * @return The resource group to which the container registry belongs.
      * 
      */
-    public Output<String> resourceGroup() {
-        return this.resourceGroup;
+    public Output<Optional<String>> resourceGroup() {
+        return Codegen.optional(this.resourceGroup);
+    }
+    /**
+     * Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
+     * 
+     */
+    @Export(name="serviceEndpointAuthenticationScheme", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> serviceEndpointAuthenticationScheme;
+
+    /**
+     * @return Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
+     * 
+     */
+    public Output<Optional<String>> serviceEndpointAuthenticationScheme() {
+        return Codegen.optional(this.serviceEndpointAuthenticationScheme);
     }
     /**
      * The name you will use to refer to this service connection in task inputs.
@@ -233,6 +347,34 @@ public class ServiceEndpointAzureEcr extends com.pulumi.resources.CustomResource
 
     public Output<String> spnObjectId() {
         return this.spnObjectId;
+    }
+    /**
+     * The issuer of the workload identity federation service principal.
+     * 
+     */
+    @Export(name="workloadIdentityFederationIssuer", refs={String.class}, tree="[0]")
+    private Output<String> workloadIdentityFederationIssuer;
+
+    /**
+     * @return The issuer of the workload identity federation service principal.
+     * 
+     */
+    public Output<String> workloadIdentityFederationIssuer() {
+        return this.workloadIdentityFederationIssuer;
+    }
+    /**
+     * The subject of the workload identity federation service principal.
+     * 
+     */
+    @Export(name="workloadIdentityFederationSubject", refs={String.class}, tree="[0]")
+    private Output<String> workloadIdentityFederationSubject;
+
+    /**
+     * @return The subject of the workload identity federation service principal.
+     * 
+     */
+    public Output<String> workloadIdentityFederationSubject() {
+        return this.workloadIdentityFederationSubject;
     }
 
     /**

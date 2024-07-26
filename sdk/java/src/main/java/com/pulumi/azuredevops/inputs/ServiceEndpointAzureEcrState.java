@@ -3,6 +3,7 @@
 
 package com.pulumi.azuredevops.inputs;
 
+import com.pulumi.azuredevops.inputs.ServiceEndpointAzureEcrCredentialsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -104,6 +105,21 @@ public final class ServiceEndpointAzureEcrState extends com.pulumi.resources.Res
         return Optional.ofNullable(this.azurecrSubscriptionName);
     }
 
+    /**
+     * A `credentials` block.
+     * 
+     */
+    @Import(name="credentials")
+    private @Nullable Output<ServiceEndpointAzureEcrCredentialsArgs> credentials;
+
+    /**
+     * @return A `credentials` block.
+     * 
+     */
+    public Optional<Output<ServiceEndpointAzureEcrCredentialsArgs>> credentials() {
+        return Optional.ofNullable(this.credentials);
+    }
+
     @Import(name="description")
     private @Nullable Output<String> description;
 
@@ -139,6 +155,21 @@ public final class ServiceEndpointAzureEcrState extends com.pulumi.resources.Res
      */
     public Optional<Output<String>> resourceGroup() {
         return Optional.ofNullable(this.resourceGroup);
+    }
+
+    /**
+     * Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
+     * 
+     */
+    @Import(name="serviceEndpointAuthenticationScheme")
+    private @Nullable Output<String> serviceEndpointAuthenticationScheme;
+
+    /**
+     * @return Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
+     * 
+     */
+    public Optional<Output<String>> serviceEndpointAuthenticationScheme() {
+        return Optional.ofNullable(this.serviceEndpointAuthenticationScheme);
     }
 
     /**
@@ -178,6 +209,36 @@ public final class ServiceEndpointAzureEcrState extends com.pulumi.resources.Res
         return Optional.ofNullable(this.spnObjectId);
     }
 
+    /**
+     * The issuer of the workload identity federation service principal.
+     * 
+     */
+    @Import(name="workloadIdentityFederationIssuer")
+    private @Nullable Output<String> workloadIdentityFederationIssuer;
+
+    /**
+     * @return The issuer of the workload identity federation service principal.
+     * 
+     */
+    public Optional<Output<String>> workloadIdentityFederationIssuer() {
+        return Optional.ofNullable(this.workloadIdentityFederationIssuer);
+    }
+
+    /**
+     * The subject of the workload identity federation service principal.
+     * 
+     */
+    @Import(name="workloadIdentityFederationSubject")
+    private @Nullable Output<String> workloadIdentityFederationSubject;
+
+    /**
+     * @return The subject of the workload identity federation service principal.
+     * 
+     */
+    public Optional<Output<String>> workloadIdentityFederationSubject() {
+        return Optional.ofNullable(this.workloadIdentityFederationSubject);
+    }
+
     private ServiceEndpointAzureEcrState() {}
 
     private ServiceEndpointAzureEcrState(ServiceEndpointAzureEcrState $) {
@@ -189,12 +250,16 @@ public final class ServiceEndpointAzureEcrState extends com.pulumi.resources.Res
         this.azurecrSpnTenantid = $.azurecrSpnTenantid;
         this.azurecrSubscriptionId = $.azurecrSubscriptionId;
         this.azurecrSubscriptionName = $.azurecrSubscriptionName;
+        this.credentials = $.credentials;
         this.description = $.description;
         this.projectId = $.projectId;
         this.resourceGroup = $.resourceGroup;
+        this.serviceEndpointAuthenticationScheme = $.serviceEndpointAuthenticationScheme;
         this.serviceEndpointName = $.serviceEndpointName;
         this.servicePrincipalId = $.servicePrincipalId;
         this.spnObjectId = $.spnObjectId;
+        this.workloadIdentityFederationIssuer = $.workloadIdentityFederationIssuer;
+        this.workloadIdentityFederationSubject = $.workloadIdentityFederationSubject;
     }
 
     public static Builder builder() {
@@ -335,6 +400,27 @@ public final class ServiceEndpointAzureEcrState extends com.pulumi.resources.Res
             return azurecrSubscriptionName(Output.of(azurecrSubscriptionName));
         }
 
+        /**
+         * @param credentials A `credentials` block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder credentials(@Nullable Output<ServiceEndpointAzureEcrCredentialsArgs> credentials) {
+            $.credentials = credentials;
+            return this;
+        }
+
+        /**
+         * @param credentials A `credentials` block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder credentials(ServiceEndpointAzureEcrCredentialsArgs credentials) {
+            return credentials(Output.of(credentials));
+        }
+
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
@@ -387,6 +473,27 @@ public final class ServiceEndpointAzureEcrState extends com.pulumi.resources.Res
         }
 
         /**
+         * @param serviceEndpointAuthenticationScheme Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceEndpointAuthenticationScheme(@Nullable Output<String> serviceEndpointAuthenticationScheme) {
+            $.serviceEndpointAuthenticationScheme = serviceEndpointAuthenticationScheme;
+            return this;
+        }
+
+        /**
+         * @param serviceEndpointAuthenticationScheme Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceEndpointAuthenticationScheme(String serviceEndpointAuthenticationScheme) {
+            return serviceEndpointAuthenticationScheme(Output.of(serviceEndpointAuthenticationScheme));
+        }
+
+        /**
          * @param serviceEndpointName The name you will use to refer to this service connection in task inputs.
          * 
          * @return builder
@@ -435,6 +542,48 @@ public final class ServiceEndpointAzureEcrState extends com.pulumi.resources.Res
 
         public Builder spnObjectId(String spnObjectId) {
             return spnObjectId(Output.of(spnObjectId));
+        }
+
+        /**
+         * @param workloadIdentityFederationIssuer The issuer of the workload identity federation service principal.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workloadIdentityFederationIssuer(@Nullable Output<String> workloadIdentityFederationIssuer) {
+            $.workloadIdentityFederationIssuer = workloadIdentityFederationIssuer;
+            return this;
+        }
+
+        /**
+         * @param workloadIdentityFederationIssuer The issuer of the workload identity federation service principal.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workloadIdentityFederationIssuer(String workloadIdentityFederationIssuer) {
+            return workloadIdentityFederationIssuer(Output.of(workloadIdentityFederationIssuer));
+        }
+
+        /**
+         * @param workloadIdentityFederationSubject The subject of the workload identity federation service principal.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workloadIdentityFederationSubject(@Nullable Output<String> workloadIdentityFederationSubject) {
+            $.workloadIdentityFederationSubject = workloadIdentityFederationSubject;
+            return this;
+        }
+
+        /**
+         * @param workloadIdentityFederationSubject The subject of the workload identity federation service principal.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workloadIdentityFederationSubject(String workloadIdentityFederationSubject) {
+            return workloadIdentityFederationSubject(Output.of(workloadIdentityFederationSubject));
         }
 
         public ServiceEndpointAzureEcrState build() {

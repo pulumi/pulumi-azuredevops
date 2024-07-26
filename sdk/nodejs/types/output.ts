@@ -1258,6 +1258,13 @@ export interface ServiceEndpointArtifactoryAuthenticationToken {
     token: string;
 }
 
+export interface ServiceEndpointAzureEcrCredentials {
+    /**
+     * The service principal application Id
+     */
+    serviceprincipalid: string;
+}
+
 export interface ServiceEndpointAzureRMCredentials {
     /**
      * The service principal application Id

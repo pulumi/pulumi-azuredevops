@@ -53,6 +53,28 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
+ * ### Protect a repository
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = new azuredevops.Project("example", {name: "Example Project"});
+ * const exampleGit = new azuredevops.Git("example", {
+ *     projectId: example.id,
+ *     name: "Example Repository",
+ *     initialization: {
+ *         initType: "Clean",
+ *     },
+ * });
+ * const exampleCheckExclusiveLock = new azuredevops.CheckExclusiveLock("example", {
+ *     projectId: example.id,
+ *     targetResourceId: pulumi.interpolate`${example.id}.${exampleGit.id}`,
+ *     targetResourceType: "repository",
+ *     timeout: 43200,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Importing this resource is not supported.

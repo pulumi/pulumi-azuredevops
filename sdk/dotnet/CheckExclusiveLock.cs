@@ -84,6 +84,47 @@ namespace Pulumi.AzureDevOps
     /// });
     /// ```
     /// 
+    /// ### Protect a repository
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new AzureDevOps.Project("example", new()
+    ///     {
+    ///         Name = "Example Project",
+    ///     });
+    /// 
+    ///     var exampleGit = new AzureDevOps.Git("example", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Example Repository",
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///         {
+    ///             InitType = "Clean",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCheckExclusiveLock = new AzureDevOps.CheckExclusiveLock("example", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         TargetResourceId = Output.Tuple(example.Id, exampleGit.Id).Apply(values =&gt;
+    ///         {
+    ///             var exampleId = values.Item1;
+    ///             var exampleGitId = values.Item2;
+    ///             return $"{exampleId}.{exampleGitId}";
+    ///         }),
+    ///         TargetResourceType = "repository",
+    ///         Timeout = 43200,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Importing this resource is not supported.

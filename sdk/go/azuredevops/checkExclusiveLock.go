@@ -106,6 +106,57 @@ import (
 //
 // ```
 //
+// ### Protect a repository
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name: pulumi.String("Example Project"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleGit, err := azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
+//				ProjectId: example.ID(),
+//				Name:      pulumi.String("Example Repository"),
+//				Initialization: &azuredevops.GitInitializationArgs{
+//					InitType: pulumi.String("Clean"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewCheckExclusiveLock(ctx, "example", &azuredevops.CheckExclusiveLockArgs{
+//				ProjectId: example.ID(),
+//				TargetResourceId: pulumi.All(example.ID(), exampleGit.ID()).ApplyT(func(_args []interface{}) (string, error) {
+//					exampleId := _args[0].(string)
+//					exampleGitId := _args[1].(string)
+//					return fmt.Sprintf("%v.%v", exampleId, exampleGitId), nil
+//				}).(pulumi.StringOutput),
+//				TargetResourceType: pulumi.String("repository"),
+//				Timeout:            pulumi.Int(43200),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Importing this resource is not supported.

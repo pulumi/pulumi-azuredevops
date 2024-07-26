@@ -590,6 +590,11 @@ export type VariableGroupPermissions = import("./variableGroupPermissions").Vari
 export const VariableGroupPermissions: typeof import("./variableGroupPermissions").VariableGroupPermissions = null as any;
 utilities.lazyLoad(exports, ["VariableGroupPermissions"], () => require("./variableGroupPermissions"));
 
+export { WikiArgs, WikiState } from "./wiki";
+export type Wiki = import("./wiki").Wiki;
+export const Wiki: typeof import("./wiki").Wiki = null as any;
+utilities.lazyLoad(exports, ["Wiki"], () => require("./wiki"));
+
 export { WorkItemQueryPermissionsArgs, WorkItemQueryPermissionsState } from "./workItemQueryPermissions";
 export type WorkItemQueryPermissions = import("./workItemQueryPermissions").WorkItemQueryPermissions;
 export const WorkItemQueryPermissions: typeof import("./workItemQueryPermissions").WorkItemQueryPermissions = null as any;
@@ -790,6 +795,8 @@ const _module = {
                 return new VariableGroup(name, <any>undefined, { urn })
             case "azuredevops:index/variableGroupPermissions:VariableGroupPermissions":
                 return new VariableGroupPermissions(name, <any>undefined, { urn })
+            case "azuredevops:index/wiki:Wiki":
+                return new Wiki(name, <any>undefined, { urn })
             case "azuredevops:index/workItemQueryPermissions:WorkItemQueryPermissions":
                 return new WorkItemQueryPermissions(name, <any>undefined, { urn })
             case "azuredevops:index/workitem:Workitem":
@@ -887,6 +894,7 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/teamMembers", _modul
 pulumi.runtime.registerResourceModule("azuredevops", "index/user", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/variableGroup", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/variableGroupPermissions", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/wiki", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/workItemQueryPermissions", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/workitem", _module)
 pulumi.runtime.registerResourcePackage("azuredevops", {

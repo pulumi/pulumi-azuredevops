@@ -232,7 +232,7 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// The Cloud Environment. Possible values are `AzureCloud` and `AzureChinaCloud`.
+        /// The Cloud Environment. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`.
         /// </summary>
         public readonly string Environment;
         /// <summary>

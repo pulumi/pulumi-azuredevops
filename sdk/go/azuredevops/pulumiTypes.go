@@ -5604,6 +5604,143 @@ func (o ServiceEndpointArtifactoryAuthenticationTokenPtrOutput) Token() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+type ServiceEndpointAzureEcrCredentials struct {
+	// The service principal application Id
+	Serviceprincipalid string `pulumi:"serviceprincipalid"`
+}
+
+// ServiceEndpointAzureEcrCredentialsInput is an input type that accepts ServiceEndpointAzureEcrCredentialsArgs and ServiceEndpointAzureEcrCredentialsOutput values.
+// You can construct a concrete instance of `ServiceEndpointAzureEcrCredentialsInput` via:
+//
+//	ServiceEndpointAzureEcrCredentialsArgs{...}
+type ServiceEndpointAzureEcrCredentialsInput interface {
+	pulumi.Input
+
+	ToServiceEndpointAzureEcrCredentialsOutput() ServiceEndpointAzureEcrCredentialsOutput
+	ToServiceEndpointAzureEcrCredentialsOutputWithContext(context.Context) ServiceEndpointAzureEcrCredentialsOutput
+}
+
+type ServiceEndpointAzureEcrCredentialsArgs struct {
+	// The service principal application Id
+	Serviceprincipalid pulumi.StringInput `pulumi:"serviceprincipalid"`
+}
+
+func (ServiceEndpointAzureEcrCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointAzureEcrCredentials)(nil)).Elem()
+}
+
+func (i ServiceEndpointAzureEcrCredentialsArgs) ToServiceEndpointAzureEcrCredentialsOutput() ServiceEndpointAzureEcrCredentialsOutput {
+	return i.ToServiceEndpointAzureEcrCredentialsOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointAzureEcrCredentialsArgs) ToServiceEndpointAzureEcrCredentialsOutputWithContext(ctx context.Context) ServiceEndpointAzureEcrCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAzureEcrCredentialsOutput)
+}
+
+func (i ServiceEndpointAzureEcrCredentialsArgs) ToServiceEndpointAzureEcrCredentialsPtrOutput() ServiceEndpointAzureEcrCredentialsPtrOutput {
+	return i.ToServiceEndpointAzureEcrCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointAzureEcrCredentialsArgs) ToServiceEndpointAzureEcrCredentialsPtrOutputWithContext(ctx context.Context) ServiceEndpointAzureEcrCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAzureEcrCredentialsOutput).ToServiceEndpointAzureEcrCredentialsPtrOutputWithContext(ctx)
+}
+
+// ServiceEndpointAzureEcrCredentialsPtrInput is an input type that accepts ServiceEndpointAzureEcrCredentialsArgs, ServiceEndpointAzureEcrCredentialsPtr and ServiceEndpointAzureEcrCredentialsPtrOutput values.
+// You can construct a concrete instance of `ServiceEndpointAzureEcrCredentialsPtrInput` via:
+//
+//	        ServiceEndpointAzureEcrCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceEndpointAzureEcrCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToServiceEndpointAzureEcrCredentialsPtrOutput() ServiceEndpointAzureEcrCredentialsPtrOutput
+	ToServiceEndpointAzureEcrCredentialsPtrOutputWithContext(context.Context) ServiceEndpointAzureEcrCredentialsPtrOutput
+}
+
+type serviceEndpointAzureEcrCredentialsPtrType ServiceEndpointAzureEcrCredentialsArgs
+
+func ServiceEndpointAzureEcrCredentialsPtr(v *ServiceEndpointAzureEcrCredentialsArgs) ServiceEndpointAzureEcrCredentialsPtrInput {
+	return (*serviceEndpointAzureEcrCredentialsPtrType)(v)
+}
+
+func (*serviceEndpointAzureEcrCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointAzureEcrCredentials)(nil)).Elem()
+}
+
+func (i *serviceEndpointAzureEcrCredentialsPtrType) ToServiceEndpointAzureEcrCredentialsPtrOutput() ServiceEndpointAzureEcrCredentialsPtrOutput {
+	return i.ToServiceEndpointAzureEcrCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceEndpointAzureEcrCredentialsPtrType) ToServiceEndpointAzureEcrCredentialsPtrOutputWithContext(ctx context.Context) ServiceEndpointAzureEcrCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAzureEcrCredentialsPtrOutput)
+}
+
+type ServiceEndpointAzureEcrCredentialsOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointAzureEcrCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointAzureEcrCredentials)(nil)).Elem()
+}
+
+func (o ServiceEndpointAzureEcrCredentialsOutput) ToServiceEndpointAzureEcrCredentialsOutput() ServiceEndpointAzureEcrCredentialsOutput {
+	return o
+}
+
+func (o ServiceEndpointAzureEcrCredentialsOutput) ToServiceEndpointAzureEcrCredentialsOutputWithContext(ctx context.Context) ServiceEndpointAzureEcrCredentialsOutput {
+	return o
+}
+
+func (o ServiceEndpointAzureEcrCredentialsOutput) ToServiceEndpointAzureEcrCredentialsPtrOutput() ServiceEndpointAzureEcrCredentialsPtrOutput {
+	return o.ToServiceEndpointAzureEcrCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceEndpointAzureEcrCredentialsOutput) ToServiceEndpointAzureEcrCredentialsPtrOutputWithContext(ctx context.Context) ServiceEndpointAzureEcrCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEndpointAzureEcrCredentials) *ServiceEndpointAzureEcrCredentials {
+		return &v
+	}).(ServiceEndpointAzureEcrCredentialsPtrOutput)
+}
+
+// The service principal application Id
+func (o ServiceEndpointAzureEcrCredentialsOutput) Serviceprincipalid() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceEndpointAzureEcrCredentials) string { return v.Serviceprincipalid }).(pulumi.StringOutput)
+}
+
+type ServiceEndpointAzureEcrCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointAzureEcrCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointAzureEcrCredentials)(nil)).Elem()
+}
+
+func (o ServiceEndpointAzureEcrCredentialsPtrOutput) ToServiceEndpointAzureEcrCredentialsPtrOutput() ServiceEndpointAzureEcrCredentialsPtrOutput {
+	return o
+}
+
+func (o ServiceEndpointAzureEcrCredentialsPtrOutput) ToServiceEndpointAzureEcrCredentialsPtrOutputWithContext(ctx context.Context) ServiceEndpointAzureEcrCredentialsPtrOutput {
+	return o
+}
+
+func (o ServiceEndpointAzureEcrCredentialsPtrOutput) Elem() ServiceEndpointAzureEcrCredentialsOutput {
+	return o.ApplyT(func(v *ServiceEndpointAzureEcrCredentials) ServiceEndpointAzureEcrCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceEndpointAzureEcrCredentials
+		return ret
+	}).(ServiceEndpointAzureEcrCredentialsOutput)
+}
+
+// The service principal application Id
+func (o ServiceEndpointAzureEcrCredentialsPtrOutput) Serviceprincipalid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointAzureEcrCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Serviceprincipalid
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServiceEndpointAzureRMCredentials struct {
 	// The service principal application Id
 	Serviceprincipalid string `pulumi:"serviceprincipalid"`
@@ -13566,6 +13703,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointArtifactoryAuthenticationBasicPtrInput)(nil)).Elem(), ServiceEndpointArtifactoryAuthenticationBasicArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointArtifactoryAuthenticationTokenInput)(nil)).Elem(), ServiceEndpointArtifactoryAuthenticationTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointArtifactoryAuthenticationTokenPtrInput)(nil)).Elem(), ServiceEndpointArtifactoryAuthenticationTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointAzureEcrCredentialsInput)(nil)).Elem(), ServiceEndpointAzureEcrCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointAzureEcrCredentialsPtrInput)(nil)).Elem(), ServiceEndpointAzureEcrCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointAzureRMCredentialsInput)(nil)).Elem(), ServiceEndpointAzureRMCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointAzureRMCredentialsPtrInput)(nil)).Elem(), ServiceEndpointAzureRMCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointAzureRMFeaturesInput)(nil)).Elem(), ServiceEndpointAzureRMFeaturesArgs{})
@@ -13742,6 +13881,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceEndpointArtifactoryAuthenticationBasicPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointArtifactoryAuthenticationTokenOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointArtifactoryAuthenticationTokenPtrOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointAzureEcrCredentialsOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointAzureEcrCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointAzureRMCredentialsOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointAzureRMCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointAzureRMFeaturesOutput{})

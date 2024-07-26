@@ -81,6 +81,8 @@ __all__ = [
     'ServiceEndpointArtifactoryAuthenticationBasicArgsDict',
     'ServiceEndpointArtifactoryAuthenticationTokenArgs',
     'ServiceEndpointArtifactoryAuthenticationTokenArgsDict',
+    'ServiceEndpointAzureEcrCredentialsArgs',
+    'ServiceEndpointAzureEcrCredentialsArgsDict',
     'ServiceEndpointAzureRMCredentialsArgs',
     'ServiceEndpointAzureRMCredentialsArgsDict',
     'ServiceEndpointAzureRMFeaturesArgs',
@@ -3309,6 +3311,37 @@ class ServiceEndpointArtifactoryAuthenticationTokenArgs:
     @token.setter
     def token(self, value: pulumi.Input[str]):
         pulumi.set(self, "token", value)
+
+
+if not MYPY:
+    class ServiceEndpointAzureEcrCredentialsArgsDict(TypedDict):
+        serviceprincipalid: pulumi.Input[str]
+        """
+        The service principal application Id
+        """
+elif False:
+    ServiceEndpointAzureEcrCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceEndpointAzureEcrCredentialsArgs:
+    def __init__(__self__, *,
+                 serviceprincipalid: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] serviceprincipalid: The service principal application Id
+        """
+        pulumi.set(__self__, "serviceprincipalid", serviceprincipalid)
+
+    @property
+    @pulumi.getter
+    def serviceprincipalid(self) -> pulumi.Input[str]:
+        """
+        The service principal application Id
+        """
+        return pulumi.get(self, "serviceprincipalid")
+
+    @serviceprincipalid.setter
+    def serviceprincipalid(self, value: pulumi.Input[str]):
+        pulumi.set(self, "serviceprincipalid", value)
 
 
 if not MYPY:

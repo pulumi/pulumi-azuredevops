@@ -128,6 +128,65 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Protect a repository
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
+ * import com.pulumi.azuredevops.Git;
+ * import com.pulumi.azuredevops.GitArgs;
+ * import com.pulumi.azuredevops.inputs.GitInitializationArgs;
+ * import com.pulumi.azuredevops.CheckExclusiveLock;
+ * import com.pulumi.azuredevops.CheckExclusiveLockArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Project("example", ProjectArgs.builder()
+ *             .name("Example Project")
+ *             .build());
+ * 
+ *         var exampleGit = new Git("exampleGit", GitArgs.builder()
+ *             .projectId(example.id())
+ *             .name("Example Repository")
+ *             .initialization(GitInitializationArgs.builder()
+ *                 .initType("Clean")
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleCheckExclusiveLock = new CheckExclusiveLock("exampleCheckExclusiveLock", CheckExclusiveLockArgs.builder()
+ *             .projectId(example.id())
+ *             .targetResourceId(Output.tuple(example.id(), exampleGit.id()).applyValue(values -> {
+ *                 var exampleId = values.t1;
+ *                 var exampleGitId = values.t2;
+ *                 return String.format("%s.%s", exampleId,exampleGitId);
+ *             }))
+ *             .targetResourceType("repository")
+ *             .timeout(43200)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Importing this resource is not supported.

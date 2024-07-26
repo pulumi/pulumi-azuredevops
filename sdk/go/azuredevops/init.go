@@ -197,6 +197,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VariableGroup{}
 	case "azuredevops:index/variableGroupPermissions:VariableGroupPermissions":
 		r = &VariableGroupPermissions{}
+	case "azuredevops:index/wiki:Wiki":
+		r = &Wiki{}
 	case "azuredevops:index/workItemQueryPermissions:WorkItemQueryPermissions":
 		r = &WorkItemQueryPermissions{}
 	case "azuredevops:index/workitem:Workitem":
@@ -670,6 +672,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/variableGroupPermissions",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/wiki",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
