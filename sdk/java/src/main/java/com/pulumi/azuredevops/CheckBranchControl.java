@@ -455,7 +455,7 @@ public class CheckBranchControl extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CheckBranchControl(String name) {
+    public CheckBranchControl(java.lang.String name) {
         this(name, CheckBranchControlArgs.Empty);
     }
     /**
@@ -463,7 +463,7 @@ public class CheckBranchControl extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CheckBranchControl(String name, CheckBranchControlArgs args) {
+    public CheckBranchControl(java.lang.String name, CheckBranchControlArgs args) {
         this(name, args, null);
     }
     /**
@@ -472,15 +472,22 @@ public class CheckBranchControl extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CheckBranchControl(String name, CheckBranchControlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/checkBranchControl:CheckBranchControl", name, args == null ? CheckBranchControlArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CheckBranchControl(java.lang.String name, CheckBranchControlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/checkBranchControl:CheckBranchControl", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CheckBranchControl(String name, Output<String> id, @Nullable CheckBranchControlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/checkBranchControl:CheckBranchControl", name, state, makeResourceOptions(options, id));
+    private CheckBranchControl(java.lang.String name, Output<java.lang.String> id, @Nullable CheckBranchControlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/checkBranchControl:CheckBranchControl", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CheckBranchControlArgs makeArgs(CheckBranchControlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CheckBranchControlArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -496,7 +503,7 @@ public class CheckBranchControl extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CheckBranchControl get(String name, Output<String> id, @Nullable CheckBranchControlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CheckBranchControl get(java.lang.String name, Output<java.lang.String> id, @Nullable CheckBranchControlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CheckBranchControl(name, id, state, options);
     }
 }

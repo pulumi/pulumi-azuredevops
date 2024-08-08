@@ -80,7 +80,7 @@ public class SecurityroleAssignment extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SecurityroleAssignment(String name) {
+    public SecurityroleAssignment(java.lang.String name) {
         this(name, SecurityroleAssignmentArgs.Empty);
     }
     /**
@@ -88,7 +88,7 @@ public class SecurityroleAssignment extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SecurityroleAssignment(String name, SecurityroleAssignmentArgs args) {
+    public SecurityroleAssignment(java.lang.String name, SecurityroleAssignmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -97,15 +97,22 @@ public class SecurityroleAssignment extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SecurityroleAssignment(String name, SecurityroleAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/securityroleAssignment:SecurityroleAssignment", name, args == null ? SecurityroleAssignmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SecurityroleAssignment(java.lang.String name, SecurityroleAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/securityroleAssignment:SecurityroleAssignment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SecurityroleAssignment(String name, Output<String> id, @Nullable SecurityroleAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/securityroleAssignment:SecurityroleAssignment", name, state, makeResourceOptions(options, id));
+    private SecurityroleAssignment(java.lang.String name, Output<java.lang.String> id, @Nullable SecurityroleAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/securityroleAssignment:SecurityroleAssignment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SecurityroleAssignmentArgs makeArgs(SecurityroleAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SecurityroleAssignmentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -121,7 +128,7 @@ public class SecurityroleAssignment extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SecurityroleAssignment get(String name, Output<String> id, @Nullable SecurityroleAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SecurityroleAssignment get(java.lang.String name, Output<java.lang.String> id, @Nullable SecurityroleAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SecurityroleAssignment(name, id, state, options);
     }
 }

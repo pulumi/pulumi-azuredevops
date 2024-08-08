@@ -172,7 +172,7 @@ public class BranchPolicyMinReviewers extends com.pulumi.resources.CustomResourc
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BranchPolicyMinReviewers(String name) {
+    public BranchPolicyMinReviewers(java.lang.String name) {
         this(name, BranchPolicyMinReviewersArgs.Empty);
     }
     /**
@@ -180,7 +180,7 @@ public class BranchPolicyMinReviewers extends com.pulumi.resources.CustomResourc
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BranchPolicyMinReviewers(String name, BranchPolicyMinReviewersArgs args) {
+    public BranchPolicyMinReviewers(java.lang.String name, BranchPolicyMinReviewersArgs args) {
         this(name, args, null);
     }
     /**
@@ -189,15 +189,22 @@ public class BranchPolicyMinReviewers extends com.pulumi.resources.CustomResourc
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BranchPolicyMinReviewers(String name, BranchPolicyMinReviewersArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/branchPolicyMinReviewers:BranchPolicyMinReviewers", name, args == null ? BranchPolicyMinReviewersArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public BranchPolicyMinReviewers(java.lang.String name, BranchPolicyMinReviewersArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/branchPolicyMinReviewers:BranchPolicyMinReviewers", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BranchPolicyMinReviewers(String name, Output<String> id, @Nullable BranchPolicyMinReviewersState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/branchPolicyMinReviewers:BranchPolicyMinReviewers", name, state, makeResourceOptions(options, id));
+    private BranchPolicyMinReviewers(java.lang.String name, Output<java.lang.String> id, @Nullable BranchPolicyMinReviewersState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/branchPolicyMinReviewers:BranchPolicyMinReviewers", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static BranchPolicyMinReviewersArgs makeArgs(BranchPolicyMinReviewersArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BranchPolicyMinReviewersArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -213,7 +220,7 @@ public class BranchPolicyMinReviewers extends com.pulumi.resources.CustomResourc
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BranchPolicyMinReviewers get(String name, Output<String> id, @Nullable BranchPolicyMinReviewersState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BranchPolicyMinReviewers get(java.lang.String name, Output<java.lang.String> id, @Nullable BranchPolicyMinReviewersState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BranchPolicyMinReviewers(name, id, state, options);
     }
 }

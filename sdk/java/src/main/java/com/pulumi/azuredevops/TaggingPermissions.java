@@ -173,7 +173,7 @@ public class TaggingPermissions extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TaggingPermissions(String name) {
+    public TaggingPermissions(java.lang.String name) {
         this(name, TaggingPermissionsArgs.Empty);
     }
     /**
@@ -181,7 +181,7 @@ public class TaggingPermissions extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TaggingPermissions(String name, TaggingPermissionsArgs args) {
+    public TaggingPermissions(java.lang.String name, TaggingPermissionsArgs args) {
         this(name, args, null);
     }
     /**
@@ -190,15 +190,22 @@ public class TaggingPermissions extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TaggingPermissions(String name, TaggingPermissionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/taggingPermissions:TaggingPermissions", name, args == null ? TaggingPermissionsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public TaggingPermissions(java.lang.String name, TaggingPermissionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/taggingPermissions:TaggingPermissions", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TaggingPermissions(String name, Output<String> id, @Nullable TaggingPermissionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/taggingPermissions:TaggingPermissions", name, state, makeResourceOptions(options, id));
+    private TaggingPermissions(java.lang.String name, Output<java.lang.String> id, @Nullable TaggingPermissionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/taggingPermissions:TaggingPermissions", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static TaggingPermissionsArgs makeArgs(TaggingPermissionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TaggingPermissionsArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -214,7 +221,7 @@ public class TaggingPermissions extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TaggingPermissions get(String name, Output<String> id, @Nullable TaggingPermissionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TaggingPermissions get(java.lang.String name, Output<java.lang.String> id, @Nullable TaggingPermissionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TaggingPermissions(name, id, state, options);
     }
 }

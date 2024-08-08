@@ -175,7 +175,7 @@ public class ServiceEndpointAzureDevOps extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServiceEndpointAzureDevOps(String name) {
+    public ServiceEndpointAzureDevOps(java.lang.String name) {
         this(name, ServiceEndpointAzureDevOpsArgs.Empty);
     }
     /**
@@ -183,7 +183,7 @@ public class ServiceEndpointAzureDevOps extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceEndpointAzureDevOps(String name, ServiceEndpointAzureDevOpsArgs args) {
+    public ServiceEndpointAzureDevOps(java.lang.String name, ServiceEndpointAzureDevOpsArgs args) {
         this(name, args, null);
     }
     /**
@@ -192,15 +192,22 @@ public class ServiceEndpointAzureDevOps extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceEndpointAzureDevOps(String name, ServiceEndpointAzureDevOpsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceEndpointAzureDevOps:ServiceEndpointAzureDevOps", name, args == null ? ServiceEndpointAzureDevOpsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServiceEndpointAzureDevOps(java.lang.String name, ServiceEndpointAzureDevOpsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceEndpointAzureDevOps:ServiceEndpointAzureDevOps", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServiceEndpointAzureDevOps(String name, Output<String> id, @Nullable ServiceEndpointAzureDevOpsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceEndpointAzureDevOps:ServiceEndpointAzureDevOps", name, state, makeResourceOptions(options, id));
+    private ServiceEndpointAzureDevOps(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceEndpointAzureDevOpsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceEndpointAzureDevOps:ServiceEndpointAzureDevOps", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServiceEndpointAzureDevOpsArgs makeArgs(ServiceEndpointAzureDevOpsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceEndpointAzureDevOpsArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -219,7 +226,7 @@ public class ServiceEndpointAzureDevOps extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServiceEndpointAzureDevOps get(String name, Output<String> id, @Nullable ServiceEndpointAzureDevOpsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServiceEndpointAzureDevOps get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceEndpointAzureDevOpsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServiceEndpointAzureDevOps(name, id, state, options);
     }
 }

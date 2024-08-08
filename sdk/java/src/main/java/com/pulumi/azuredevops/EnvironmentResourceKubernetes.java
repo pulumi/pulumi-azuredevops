@@ -211,7 +211,7 @@ public class EnvironmentResourceKubernetes extends com.pulumi.resources.CustomRe
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EnvironmentResourceKubernetes(String name) {
+    public EnvironmentResourceKubernetes(java.lang.String name) {
         this(name, EnvironmentResourceKubernetesArgs.Empty);
     }
     /**
@@ -219,7 +219,7 @@ public class EnvironmentResourceKubernetes extends com.pulumi.resources.CustomRe
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EnvironmentResourceKubernetes(String name, EnvironmentResourceKubernetesArgs args) {
+    public EnvironmentResourceKubernetes(java.lang.String name, EnvironmentResourceKubernetesArgs args) {
         this(name, args, null);
     }
     /**
@@ -228,15 +228,22 @@ public class EnvironmentResourceKubernetes extends com.pulumi.resources.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EnvironmentResourceKubernetes(String name, EnvironmentResourceKubernetesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/environmentResourceKubernetes:EnvironmentResourceKubernetes", name, args == null ? EnvironmentResourceKubernetesArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public EnvironmentResourceKubernetes(java.lang.String name, EnvironmentResourceKubernetesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/environmentResourceKubernetes:EnvironmentResourceKubernetes", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EnvironmentResourceKubernetes(String name, Output<String> id, @Nullable EnvironmentResourceKubernetesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/environmentResourceKubernetes:EnvironmentResourceKubernetes", name, state, makeResourceOptions(options, id));
+    private EnvironmentResourceKubernetes(java.lang.String name, Output<java.lang.String> id, @Nullable EnvironmentResourceKubernetesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/environmentResourceKubernetes:EnvironmentResourceKubernetes", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static EnvironmentResourceKubernetesArgs makeArgs(EnvironmentResourceKubernetesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EnvironmentResourceKubernetesArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -252,7 +259,7 @@ public class EnvironmentResourceKubernetes extends com.pulumi.resources.CustomRe
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EnvironmentResourceKubernetes get(String name, Output<String> id, @Nullable EnvironmentResourceKubernetesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EnvironmentResourceKubernetes get(java.lang.String name, Output<java.lang.String> id, @Nullable EnvironmentResourceKubernetesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EnvironmentResourceKubernetes(name, id, state, options);
     }
 }

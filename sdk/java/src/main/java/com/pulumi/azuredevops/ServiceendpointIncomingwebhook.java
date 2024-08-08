@@ -167,7 +167,7 @@ public class ServiceendpointIncomingwebhook extends com.pulumi.resources.CustomR
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServiceendpointIncomingwebhook(String name) {
+    public ServiceendpointIncomingwebhook(java.lang.String name) {
         this(name, ServiceendpointIncomingwebhookArgs.Empty);
     }
     /**
@@ -175,7 +175,7 @@ public class ServiceendpointIncomingwebhook extends com.pulumi.resources.CustomR
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceendpointIncomingwebhook(String name, ServiceendpointIncomingwebhookArgs args) {
+    public ServiceendpointIncomingwebhook(java.lang.String name, ServiceendpointIncomingwebhookArgs args) {
         this(name, args, null);
     }
     /**
@@ -184,15 +184,22 @@ public class ServiceendpointIncomingwebhook extends com.pulumi.resources.CustomR
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceendpointIncomingwebhook(String name, ServiceendpointIncomingwebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceendpointIncomingwebhook:ServiceendpointIncomingwebhook", name, args == null ? ServiceendpointIncomingwebhookArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServiceendpointIncomingwebhook(java.lang.String name, ServiceendpointIncomingwebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceendpointIncomingwebhook:ServiceendpointIncomingwebhook", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServiceendpointIncomingwebhook(String name, Output<String> id, @Nullable ServiceendpointIncomingwebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceendpointIncomingwebhook:ServiceendpointIncomingwebhook", name, state, makeResourceOptions(options, id));
+    private ServiceendpointIncomingwebhook(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceendpointIncomingwebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceendpointIncomingwebhook:ServiceendpointIncomingwebhook", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServiceendpointIncomingwebhookArgs makeArgs(ServiceendpointIncomingwebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceendpointIncomingwebhookArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -211,7 +218,7 @@ public class ServiceendpointIncomingwebhook extends com.pulumi.resources.CustomR
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServiceendpointIncomingwebhook get(String name, Output<String> id, @Nullable ServiceendpointIncomingwebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServiceendpointIncomingwebhook get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceendpointIncomingwebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServiceendpointIncomingwebhook(name, id, state, options);
     }
 }
