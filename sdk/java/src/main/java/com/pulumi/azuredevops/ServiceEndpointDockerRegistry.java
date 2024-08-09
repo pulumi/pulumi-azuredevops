@@ -40,12 +40,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *             .projectId(example.id())
  *             .serviceEndpointName("Example Docker Hub")
  *             .dockerUsername("example")
- *             .dockerEmail("email{@literal @}example.com")
+ *             .dockerEmail("email}{@literal @}{@code example.com")
  *             .dockerPassword("12345")
  *             .registryType("DockerHub")
  *             .build());
@@ -74,8 +74,8 @@ import javax.annotation.Nullable;
  *             .registryType("Others")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -211,7 +211,7 @@ public class ServiceEndpointDockerRegistry extends com.pulumi.resources.CustomRe
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServiceEndpointDockerRegistry(String name) {
+    public ServiceEndpointDockerRegistry(java.lang.String name) {
         this(name, ServiceEndpointDockerRegistryArgs.Empty);
     }
     /**
@@ -219,7 +219,7 @@ public class ServiceEndpointDockerRegistry extends com.pulumi.resources.CustomRe
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceEndpointDockerRegistry(String name, ServiceEndpointDockerRegistryArgs args) {
+    public ServiceEndpointDockerRegistry(java.lang.String name, ServiceEndpointDockerRegistryArgs args) {
         this(name, args, null);
     }
     /**
@@ -228,15 +228,22 @@ public class ServiceEndpointDockerRegistry extends com.pulumi.resources.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceEndpointDockerRegistry(String name, ServiceEndpointDockerRegistryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceEndpointDockerRegistry:ServiceEndpointDockerRegistry", name, args == null ? ServiceEndpointDockerRegistryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServiceEndpointDockerRegistry(java.lang.String name, ServiceEndpointDockerRegistryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceEndpointDockerRegistry:ServiceEndpointDockerRegistry", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServiceEndpointDockerRegistry(String name, Output<String> id, @Nullable ServiceEndpointDockerRegistryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceEndpointDockerRegistry:ServiceEndpointDockerRegistry", name, state, makeResourceOptions(options, id));
+    private ServiceEndpointDockerRegistry(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceEndpointDockerRegistryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceEndpointDockerRegistry:ServiceEndpointDockerRegistry", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServiceEndpointDockerRegistryArgs makeArgs(ServiceEndpointDockerRegistryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceEndpointDockerRegistryArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -255,7 +262,7 @@ public class ServiceEndpointDockerRegistry extends com.pulumi.resources.CustomRe
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServiceEndpointDockerRegistry get(String name, Output<String> id, @Nullable ServiceEndpointDockerRegistryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServiceEndpointDockerRegistry get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceEndpointDockerRegistryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServiceEndpointDockerRegistry(name, id, state, options);
     }
 }

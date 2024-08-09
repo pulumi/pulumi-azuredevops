@@ -151,7 +151,7 @@ public class ServiceEndpointGitHubEnterprise extends com.pulumi.resources.Custom
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServiceEndpointGitHubEnterprise(String name) {
+    public ServiceEndpointGitHubEnterprise(java.lang.String name) {
         this(name, ServiceEndpointGitHubEnterpriseArgs.Empty);
     }
     /**
@@ -159,7 +159,7 @@ public class ServiceEndpointGitHubEnterprise extends com.pulumi.resources.Custom
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceEndpointGitHubEnterprise(String name, ServiceEndpointGitHubEnterpriseArgs args) {
+    public ServiceEndpointGitHubEnterprise(java.lang.String name, ServiceEndpointGitHubEnterpriseArgs args) {
         this(name, args, null);
     }
     /**
@@ -168,15 +168,22 @@ public class ServiceEndpointGitHubEnterprise extends com.pulumi.resources.Custom
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceEndpointGitHubEnterprise(String name, ServiceEndpointGitHubEnterpriseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise", name, args == null ? ServiceEndpointGitHubEnterpriseArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServiceEndpointGitHubEnterprise(java.lang.String name, ServiceEndpointGitHubEnterpriseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServiceEndpointGitHubEnterprise(String name, Output<String> id, @Nullable ServiceEndpointGitHubEnterpriseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise", name, state, makeResourceOptions(options, id));
+    private ServiceEndpointGitHubEnterprise(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceEndpointGitHubEnterpriseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServiceEndpointGitHubEnterpriseArgs makeArgs(ServiceEndpointGitHubEnterpriseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceEndpointGitHubEnterpriseArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -192,7 +199,7 @@ public class ServiceEndpointGitHubEnterprise extends com.pulumi.resources.Custom
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServiceEndpointGitHubEnterprise get(String name, Output<String> id, @Nullable ServiceEndpointGitHubEnterpriseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServiceEndpointGitHubEnterprise get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceEndpointGitHubEnterpriseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServiceEndpointGitHubEnterprise(name, id, state, options);
     }
 }

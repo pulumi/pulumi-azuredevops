@@ -170,7 +170,7 @@ public class TeamAdministrators extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TeamAdministrators(String name) {
+    public TeamAdministrators(java.lang.String name) {
         this(name, TeamAdministratorsArgs.Empty);
     }
     /**
@@ -178,7 +178,7 @@ public class TeamAdministrators extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TeamAdministrators(String name, TeamAdministratorsArgs args) {
+    public TeamAdministrators(java.lang.String name, TeamAdministratorsArgs args) {
         this(name, args, null);
     }
     /**
@@ -187,15 +187,22 @@ public class TeamAdministrators extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TeamAdministrators(String name, TeamAdministratorsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/teamAdministrators:TeamAdministrators", name, args == null ? TeamAdministratorsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public TeamAdministrators(java.lang.String name, TeamAdministratorsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/teamAdministrators:TeamAdministrators", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TeamAdministrators(String name, Output<String> id, @Nullable TeamAdministratorsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/teamAdministrators:TeamAdministrators", name, state, makeResourceOptions(options, id));
+    private TeamAdministrators(java.lang.String name, Output<java.lang.String> id, @Nullable TeamAdministratorsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/teamAdministrators:TeamAdministrators", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static TeamAdministratorsArgs makeArgs(TeamAdministratorsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TeamAdministratorsArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -211,7 +218,7 @@ public class TeamAdministrators extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TeamAdministrators get(String name, Output<String> id, @Nullable TeamAdministratorsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TeamAdministrators get(java.lang.String name, Output<java.lang.String> id, @Nullable TeamAdministratorsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TeamAdministrators(name, id, state, options);
     }
 }

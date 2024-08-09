@@ -241,7 +241,7 @@ public class ServiceendpointJfrogXrayV2 extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServiceendpointJfrogXrayV2(String name) {
+    public ServiceendpointJfrogXrayV2(java.lang.String name) {
         this(name, ServiceendpointJfrogXrayV2Args.Empty);
     }
     /**
@@ -249,7 +249,7 @@ public class ServiceendpointJfrogXrayV2 extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceendpointJfrogXrayV2(String name, ServiceendpointJfrogXrayV2Args args) {
+    public ServiceendpointJfrogXrayV2(java.lang.String name, ServiceendpointJfrogXrayV2Args args) {
         this(name, args, null);
     }
     /**
@@ -258,15 +258,22 @@ public class ServiceendpointJfrogXrayV2 extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceendpointJfrogXrayV2(String name, ServiceendpointJfrogXrayV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceendpointJfrogXrayV2:ServiceendpointJfrogXrayV2", name, args == null ? ServiceendpointJfrogXrayV2Args.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServiceendpointJfrogXrayV2(java.lang.String name, ServiceendpointJfrogXrayV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceendpointJfrogXrayV2:ServiceendpointJfrogXrayV2", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServiceendpointJfrogXrayV2(String name, Output<String> id, @Nullable ServiceendpointJfrogXrayV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceendpointJfrogXrayV2:ServiceendpointJfrogXrayV2", name, state, makeResourceOptions(options, id));
+    private ServiceendpointJfrogXrayV2(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceendpointJfrogXrayV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceendpointJfrogXrayV2:ServiceendpointJfrogXrayV2", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServiceendpointJfrogXrayV2Args makeArgs(ServiceendpointJfrogXrayV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceendpointJfrogXrayV2Args.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -282,7 +289,7 @@ public class ServiceendpointJfrogXrayV2 extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServiceendpointJfrogXrayV2 get(String name, Output<String> id, @Nullable ServiceendpointJfrogXrayV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServiceendpointJfrogXrayV2 get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceendpointJfrogXrayV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServiceendpointJfrogXrayV2(name, id, state, options);
     }
 }
