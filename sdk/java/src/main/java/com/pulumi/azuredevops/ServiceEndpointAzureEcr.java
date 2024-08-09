@@ -381,7 +381,7 @@ public class ServiceEndpointAzureEcr extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServiceEndpointAzureEcr(String name) {
+    public ServiceEndpointAzureEcr(java.lang.String name) {
         this(name, ServiceEndpointAzureEcrArgs.Empty);
     }
     /**
@@ -389,7 +389,7 @@ public class ServiceEndpointAzureEcr extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceEndpointAzureEcr(String name, ServiceEndpointAzureEcrArgs args) {
+    public ServiceEndpointAzureEcr(java.lang.String name, ServiceEndpointAzureEcrArgs args) {
         this(name, args, null);
     }
     /**
@@ -398,15 +398,22 @@ public class ServiceEndpointAzureEcr extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceEndpointAzureEcr(String name, ServiceEndpointAzureEcrArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr", name, args == null ? ServiceEndpointAzureEcrArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServiceEndpointAzureEcr(java.lang.String name, ServiceEndpointAzureEcrArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServiceEndpointAzureEcr(String name, Output<String> id, @Nullable ServiceEndpointAzureEcrState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr", name, state, makeResourceOptions(options, id));
+    private ServiceEndpointAzureEcr(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceEndpointAzureEcrState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServiceEndpointAzureEcrArgs makeArgs(ServiceEndpointAzureEcrArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceEndpointAzureEcrArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -422,7 +429,7 @@ public class ServiceEndpointAzureEcr extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServiceEndpointAzureEcr get(String name, Output<String> id, @Nullable ServiceEndpointAzureEcrState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServiceEndpointAzureEcr get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceEndpointAzureEcrState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServiceEndpointAzureEcr(name, id, state, options);
     }
 }

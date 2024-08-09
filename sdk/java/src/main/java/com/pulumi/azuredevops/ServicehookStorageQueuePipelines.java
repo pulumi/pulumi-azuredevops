@@ -268,7 +268,7 @@ public class ServicehookStorageQueuePipelines extends com.pulumi.resources.Custo
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServicehookStorageQueuePipelines(String name) {
+    public ServicehookStorageQueuePipelines(java.lang.String name) {
         this(name, ServicehookStorageQueuePipelinesArgs.Empty);
     }
     /**
@@ -276,7 +276,7 @@ public class ServicehookStorageQueuePipelines extends com.pulumi.resources.Custo
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServicehookStorageQueuePipelines(String name, ServicehookStorageQueuePipelinesArgs args) {
+    public ServicehookStorageQueuePipelines(java.lang.String name, ServicehookStorageQueuePipelinesArgs args) {
         this(name, args, null);
     }
     /**
@@ -285,15 +285,22 @@ public class ServicehookStorageQueuePipelines extends com.pulumi.resources.Custo
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServicehookStorageQueuePipelines(String name, ServicehookStorageQueuePipelinesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/servicehookStorageQueuePipelines:ServicehookStorageQueuePipelines", name, args == null ? ServicehookStorageQueuePipelinesArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServicehookStorageQueuePipelines(java.lang.String name, ServicehookStorageQueuePipelinesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/servicehookStorageQueuePipelines:ServicehookStorageQueuePipelines", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServicehookStorageQueuePipelines(String name, Output<String> id, @Nullable ServicehookStorageQueuePipelinesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/servicehookStorageQueuePipelines:ServicehookStorageQueuePipelines", name, state, makeResourceOptions(options, id));
+    private ServicehookStorageQueuePipelines(java.lang.String name, Output<java.lang.String> id, @Nullable ServicehookStorageQueuePipelinesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/servicehookStorageQueuePipelines:ServicehookStorageQueuePipelines", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServicehookStorageQueuePipelinesArgs makeArgs(ServicehookStorageQueuePipelinesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServicehookStorageQueuePipelinesArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -312,7 +319,7 @@ public class ServicehookStorageQueuePipelines extends com.pulumi.resources.Custo
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServicehookStorageQueuePipelines get(String name, Output<String> id, @Nullable ServicehookStorageQueuePipelinesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServicehookStorageQueuePipelines get(java.lang.String name, Output<java.lang.String> id, @Nullable ServicehookStorageQueuePipelinesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServicehookStorageQueuePipelines(name, id, state, options);
     }
 }

@@ -193,7 +193,7 @@ public class ServiceEndpointGenericGit extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServiceEndpointGenericGit(String name) {
+    public ServiceEndpointGenericGit(java.lang.String name) {
         this(name, ServiceEndpointGenericGitArgs.Empty);
     }
     /**
@@ -201,7 +201,7 @@ public class ServiceEndpointGenericGit extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceEndpointGenericGit(String name, ServiceEndpointGenericGitArgs args) {
+    public ServiceEndpointGenericGit(java.lang.String name, ServiceEndpointGenericGitArgs args) {
         this(name, args, null);
     }
     /**
@@ -210,15 +210,22 @@ public class ServiceEndpointGenericGit extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceEndpointGenericGit(String name, ServiceEndpointGenericGitArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceEndpointGenericGit:ServiceEndpointGenericGit", name, args == null ? ServiceEndpointGenericGitArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServiceEndpointGenericGit(java.lang.String name, ServiceEndpointGenericGitArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceEndpointGenericGit:ServiceEndpointGenericGit", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServiceEndpointGenericGit(String name, Output<String> id, @Nullable ServiceEndpointGenericGitState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceEndpointGenericGit:ServiceEndpointGenericGit", name, state, makeResourceOptions(options, id));
+    private ServiceEndpointGenericGit(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceEndpointGenericGitState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceEndpointGenericGit:ServiceEndpointGenericGit", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServiceEndpointGenericGitArgs makeArgs(ServiceEndpointGenericGitArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceEndpointGenericGitArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -237,7 +244,7 @@ public class ServiceEndpointGenericGit extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServiceEndpointGenericGit get(String name, Output<String> id, @Nullable ServiceEndpointGenericGitState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServiceEndpointGenericGit get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceEndpointGenericGitState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServiceEndpointGenericGit(name, id, state, options);
     }
 }

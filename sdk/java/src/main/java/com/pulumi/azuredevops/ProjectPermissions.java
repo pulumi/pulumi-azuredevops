@@ -212,7 +212,7 @@ public class ProjectPermissions extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ProjectPermissions(String name) {
+    public ProjectPermissions(java.lang.String name) {
         this(name, ProjectPermissionsArgs.Empty);
     }
     /**
@@ -220,7 +220,7 @@ public class ProjectPermissions extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ProjectPermissions(String name, ProjectPermissionsArgs args) {
+    public ProjectPermissions(java.lang.String name, ProjectPermissionsArgs args) {
         this(name, args, null);
     }
     /**
@@ -229,15 +229,22 @@ public class ProjectPermissions extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ProjectPermissions(String name, ProjectPermissionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/projectPermissions:ProjectPermissions", name, args == null ? ProjectPermissionsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ProjectPermissions(java.lang.String name, ProjectPermissionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/projectPermissions:ProjectPermissions", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ProjectPermissions(String name, Output<String> id, @Nullable ProjectPermissionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/projectPermissions:ProjectPermissions", name, state, makeResourceOptions(options, id));
+    private ProjectPermissions(java.lang.String name, Output<java.lang.String> id, @Nullable ProjectPermissionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/projectPermissions:ProjectPermissions", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ProjectPermissionsArgs makeArgs(ProjectPermissionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProjectPermissionsArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -253,7 +260,7 @@ public class ProjectPermissions extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ProjectPermissions get(String name, Output<String> id, @Nullable ProjectPermissionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ProjectPermissions get(java.lang.String name, Output<java.lang.String> id, @Nullable ProjectPermissionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ProjectPermissions(name, id, state, options);
     }
 }

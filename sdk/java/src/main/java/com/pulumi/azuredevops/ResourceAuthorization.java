@@ -162,7 +162,7 @@ public class ResourceAuthorization extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ResourceAuthorization(String name) {
+    public ResourceAuthorization(java.lang.String name) {
         this(name, ResourceAuthorizationArgs.Empty);
     }
     /**
@@ -170,7 +170,7 @@ public class ResourceAuthorization extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ResourceAuthorization(String name, ResourceAuthorizationArgs args) {
+    public ResourceAuthorization(java.lang.String name, ResourceAuthorizationArgs args) {
         this(name, args, null);
     }
     /**
@@ -179,15 +179,22 @@ public class ResourceAuthorization extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ResourceAuthorization(String name, ResourceAuthorizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/resourceAuthorization:ResourceAuthorization", name, args == null ? ResourceAuthorizationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ResourceAuthorization(java.lang.String name, ResourceAuthorizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/resourceAuthorization:ResourceAuthorization", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ResourceAuthorization(String name, Output<String> id, @Nullable ResourceAuthorizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/resourceAuthorization:ResourceAuthorization", name, state, makeResourceOptions(options, id));
+    private ResourceAuthorization(java.lang.String name, Output<java.lang.String> id, @Nullable ResourceAuthorizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/resourceAuthorization:ResourceAuthorization", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ResourceAuthorizationArgs makeArgs(ResourceAuthorizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResourceAuthorizationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .aliases(List.of(
@@ -206,7 +213,7 @@ public class ResourceAuthorization extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ResourceAuthorization get(String name, Output<String> id, @Nullable ResourceAuthorizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ResourceAuthorization get(java.lang.String name, Output<java.lang.String> id, @Nullable ResourceAuthorizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ResourceAuthorization(name, id, state, options);
     }
 }

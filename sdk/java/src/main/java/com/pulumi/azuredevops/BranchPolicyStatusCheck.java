@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleUser = new User("exampleUser", UserArgs.builder()
- *             .principalName("mail{@literal @}email.com")
+ *             .principalName("mail}{@literal @}{@code email.com")
  *             .accountLicenseType("basic")
  *             .build());
  * 
@@ -99,8 +99,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -181,7 +181,7 @@ public class BranchPolicyStatusCheck extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BranchPolicyStatusCheck(String name) {
+    public BranchPolicyStatusCheck(java.lang.String name) {
         this(name, BranchPolicyStatusCheckArgs.Empty);
     }
     /**
@@ -189,7 +189,7 @@ public class BranchPolicyStatusCheck extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BranchPolicyStatusCheck(String name, BranchPolicyStatusCheckArgs args) {
+    public BranchPolicyStatusCheck(java.lang.String name, BranchPolicyStatusCheckArgs args) {
         this(name, args, null);
     }
     /**
@@ -198,15 +198,22 @@ public class BranchPolicyStatusCheck extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BranchPolicyStatusCheck(String name, BranchPolicyStatusCheckArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/branchPolicyStatusCheck:BranchPolicyStatusCheck", name, args == null ? BranchPolicyStatusCheckArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public BranchPolicyStatusCheck(java.lang.String name, BranchPolicyStatusCheckArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/branchPolicyStatusCheck:BranchPolicyStatusCheck", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BranchPolicyStatusCheck(String name, Output<String> id, @Nullable BranchPolicyStatusCheckState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/branchPolicyStatusCheck:BranchPolicyStatusCheck", name, state, makeResourceOptions(options, id));
+    private BranchPolicyStatusCheck(java.lang.String name, Output<java.lang.String> id, @Nullable BranchPolicyStatusCheckState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/branchPolicyStatusCheck:BranchPolicyStatusCheck", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static BranchPolicyStatusCheckArgs makeArgs(BranchPolicyStatusCheckArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BranchPolicyStatusCheckArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -222,7 +229,7 @@ public class BranchPolicyStatusCheck extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BranchPolicyStatusCheck get(String name, Output<String> id, @Nullable BranchPolicyStatusCheckState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BranchPolicyStatusCheck get(java.lang.String name, Output<java.lang.String> id, @Nullable BranchPolicyStatusCheckState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BranchPolicyStatusCheck(name, id, state, options);
     }
 }

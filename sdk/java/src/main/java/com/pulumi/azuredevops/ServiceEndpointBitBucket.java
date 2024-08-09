@@ -156,7 +156,7 @@ public class ServiceEndpointBitBucket extends com.pulumi.resources.CustomResourc
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServiceEndpointBitBucket(String name) {
+    public ServiceEndpointBitBucket(java.lang.String name) {
         this(name, ServiceEndpointBitBucketArgs.Empty);
     }
     /**
@@ -164,7 +164,7 @@ public class ServiceEndpointBitBucket extends com.pulumi.resources.CustomResourc
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceEndpointBitBucket(String name, ServiceEndpointBitBucketArgs args) {
+    public ServiceEndpointBitBucket(java.lang.String name, ServiceEndpointBitBucketArgs args) {
         this(name, args, null);
     }
     /**
@@ -173,15 +173,22 @@ public class ServiceEndpointBitBucket extends com.pulumi.resources.CustomResourc
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceEndpointBitBucket(String name, ServiceEndpointBitBucketArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceEndpointBitBucket:ServiceEndpointBitBucket", name, args == null ? ServiceEndpointBitBucketArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServiceEndpointBitBucket(java.lang.String name, ServiceEndpointBitBucketArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceEndpointBitBucket:ServiceEndpointBitBucket", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServiceEndpointBitBucket(String name, Output<String> id, @Nullable ServiceEndpointBitBucketState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceEndpointBitBucket:ServiceEndpointBitBucket", name, state, makeResourceOptions(options, id));
+    private ServiceEndpointBitBucket(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceEndpointBitBucketState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceEndpointBitBucket:ServiceEndpointBitBucket", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServiceEndpointBitBucketArgs makeArgs(ServiceEndpointBitBucketArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceEndpointBitBucketArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -200,7 +207,7 @@ public class ServiceEndpointBitBucket extends com.pulumi.resources.CustomResourc
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServiceEndpointBitBucket get(String name, Output<String> id, @Nullable ServiceEndpointBitBucketState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServiceEndpointBitBucket get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceEndpointBitBucketState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServiceEndpointBitBucket(name, id, state, options);
     }
 }

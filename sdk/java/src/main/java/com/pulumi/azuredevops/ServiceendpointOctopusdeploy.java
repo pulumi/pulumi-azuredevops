@@ -170,7 +170,7 @@ public class ServiceendpointOctopusdeploy extends com.pulumi.resources.CustomRes
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServiceendpointOctopusdeploy(String name) {
+    public ServiceendpointOctopusdeploy(java.lang.String name) {
         this(name, ServiceendpointOctopusdeployArgs.Empty);
     }
     /**
@@ -178,7 +178,7 @@ public class ServiceendpointOctopusdeploy extends com.pulumi.resources.CustomRes
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceendpointOctopusdeploy(String name, ServiceendpointOctopusdeployArgs args) {
+    public ServiceendpointOctopusdeploy(java.lang.String name, ServiceendpointOctopusdeployArgs args) {
         this(name, args, null);
     }
     /**
@@ -187,15 +187,22 @@ public class ServiceendpointOctopusdeploy extends com.pulumi.resources.CustomRes
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceendpointOctopusdeploy(String name, ServiceendpointOctopusdeployArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceendpointOctopusdeploy:ServiceendpointOctopusdeploy", name, args == null ? ServiceendpointOctopusdeployArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServiceendpointOctopusdeploy(java.lang.String name, ServiceendpointOctopusdeployArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceendpointOctopusdeploy:ServiceendpointOctopusdeploy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServiceendpointOctopusdeploy(String name, Output<String> id, @Nullable ServiceendpointOctopusdeployState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceendpointOctopusdeploy:ServiceendpointOctopusdeploy", name, state, makeResourceOptions(options, id));
+    private ServiceendpointOctopusdeploy(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceendpointOctopusdeployState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceendpointOctopusdeploy:ServiceendpointOctopusdeploy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServiceendpointOctopusdeployArgs makeArgs(ServiceendpointOctopusdeployArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceendpointOctopusdeployArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -211,7 +218,7 @@ public class ServiceendpointOctopusdeploy extends com.pulumi.resources.CustomRes
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServiceendpointOctopusdeploy get(String name, Output<String> id, @Nullable ServiceendpointOctopusdeployState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServiceendpointOctopusdeploy get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceendpointOctopusdeployState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServiceendpointOctopusdeploy(name, id, state, options);
     }
 }

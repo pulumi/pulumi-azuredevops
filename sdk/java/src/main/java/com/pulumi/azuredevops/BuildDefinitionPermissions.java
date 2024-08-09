@@ -237,7 +237,7 @@ public class BuildDefinitionPermissions extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BuildDefinitionPermissions(String name) {
+    public BuildDefinitionPermissions(java.lang.String name) {
         this(name, BuildDefinitionPermissionsArgs.Empty);
     }
     /**
@@ -245,7 +245,7 @@ public class BuildDefinitionPermissions extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BuildDefinitionPermissions(String name, BuildDefinitionPermissionsArgs args) {
+    public BuildDefinitionPermissions(java.lang.String name, BuildDefinitionPermissionsArgs args) {
         this(name, args, null);
     }
     /**
@@ -254,15 +254,22 @@ public class BuildDefinitionPermissions extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BuildDefinitionPermissions(String name, BuildDefinitionPermissionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/buildDefinitionPermissions:BuildDefinitionPermissions", name, args == null ? BuildDefinitionPermissionsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public BuildDefinitionPermissions(java.lang.String name, BuildDefinitionPermissionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/buildDefinitionPermissions:BuildDefinitionPermissions", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BuildDefinitionPermissions(String name, Output<String> id, @Nullable BuildDefinitionPermissionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/buildDefinitionPermissions:BuildDefinitionPermissions", name, state, makeResourceOptions(options, id));
+    private BuildDefinitionPermissions(java.lang.String name, Output<java.lang.String> id, @Nullable BuildDefinitionPermissionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/buildDefinitionPermissions:BuildDefinitionPermissions", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static BuildDefinitionPermissionsArgs makeArgs(BuildDefinitionPermissionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BuildDefinitionPermissionsArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -278,7 +285,7 @@ public class BuildDefinitionPermissions extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BuildDefinitionPermissions get(String name, Output<String> id, @Nullable BuildDefinitionPermissionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BuildDefinitionPermissions get(java.lang.String name, Output<java.lang.String> id, @Nullable BuildDefinitionPermissionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BuildDefinitionPermissions(name, id, state, options);
     }
 }

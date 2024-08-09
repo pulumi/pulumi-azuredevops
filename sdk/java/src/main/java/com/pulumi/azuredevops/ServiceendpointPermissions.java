@@ -51,12 +51,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .workItemTemplate("Agile")
@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *             .projectId(example.id())
  *             .serviceEndpointName("Example Docker Hub")
  *             .dockerUsername("username")
- *             .dockerEmail("email{@literal @}example.com")
+ *             .dockerEmail("email}{@literal @}{@code example.com")
  *             .dockerPassword("password")
  *             .registryType("DockerHub")
  *             .build());
@@ -104,8 +104,8 @@ import javax.annotation.Nullable;
  *             ))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -216,7 +216,7 @@ public class ServiceendpointPermissions extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServiceendpointPermissions(String name) {
+    public ServiceendpointPermissions(java.lang.String name) {
         this(name, ServiceendpointPermissionsArgs.Empty);
     }
     /**
@@ -224,7 +224,7 @@ public class ServiceendpointPermissions extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceendpointPermissions(String name, ServiceendpointPermissionsArgs args) {
+    public ServiceendpointPermissions(java.lang.String name, ServiceendpointPermissionsArgs args) {
         this(name, args, null);
     }
     /**
@@ -233,15 +233,22 @@ public class ServiceendpointPermissions extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceendpointPermissions(String name, ServiceendpointPermissionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceendpointPermissions:ServiceendpointPermissions", name, args == null ? ServiceendpointPermissionsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServiceendpointPermissions(java.lang.String name, ServiceendpointPermissionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceendpointPermissions:ServiceendpointPermissions", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServiceendpointPermissions(String name, Output<String> id, @Nullable ServiceendpointPermissionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceendpointPermissions:ServiceendpointPermissions", name, state, makeResourceOptions(options, id));
+    private ServiceendpointPermissions(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceendpointPermissionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceendpointPermissions:ServiceendpointPermissions", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServiceendpointPermissionsArgs makeArgs(ServiceendpointPermissionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceendpointPermissionsArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -257,7 +264,7 @@ public class ServiceendpointPermissions extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServiceendpointPermissions get(String name, Output<String> id, @Nullable ServiceendpointPermissionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServiceendpointPermissions get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceendpointPermissionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServiceendpointPermissions(name, id, state, options);
     }
 }

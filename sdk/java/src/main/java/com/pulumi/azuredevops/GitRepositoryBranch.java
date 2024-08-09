@@ -172,7 +172,7 @@ public class GitRepositoryBranch extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public GitRepositoryBranch(String name) {
+    public GitRepositoryBranch(java.lang.String name) {
         this(name, GitRepositoryBranchArgs.Empty);
     }
     /**
@@ -180,7 +180,7 @@ public class GitRepositoryBranch extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public GitRepositoryBranch(String name, GitRepositoryBranchArgs args) {
+    public GitRepositoryBranch(java.lang.String name, GitRepositoryBranchArgs args) {
         this(name, args, null);
     }
     /**
@@ -189,15 +189,22 @@ public class GitRepositoryBranch extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public GitRepositoryBranch(String name, GitRepositoryBranchArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/gitRepositoryBranch:GitRepositoryBranch", name, args == null ? GitRepositoryBranchArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public GitRepositoryBranch(java.lang.String name, GitRepositoryBranchArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/gitRepositoryBranch:GitRepositoryBranch", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private GitRepositoryBranch(String name, Output<String> id, @Nullable GitRepositoryBranchState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/gitRepositoryBranch:GitRepositoryBranch", name, state, makeResourceOptions(options, id));
+    private GitRepositoryBranch(java.lang.String name, Output<java.lang.String> id, @Nullable GitRepositoryBranchState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/gitRepositoryBranch:GitRepositoryBranch", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static GitRepositoryBranchArgs makeArgs(GitRepositoryBranchArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GitRepositoryBranchArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -213,7 +220,7 @@ public class GitRepositoryBranch extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static GitRepositoryBranch get(String name, Output<String> id, @Nullable GitRepositoryBranchState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static GitRepositoryBranch get(java.lang.String name, Output<java.lang.String> id, @Nullable GitRepositoryBranchState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new GitRepositoryBranch(name, id, state, options);
     }
 }

@@ -241,7 +241,7 @@ public class ServiceendpointJfrogPlatformV2 extends com.pulumi.resources.CustomR
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServiceendpointJfrogPlatformV2(String name) {
+    public ServiceendpointJfrogPlatformV2(java.lang.String name) {
         this(name, ServiceendpointJfrogPlatformV2Args.Empty);
     }
     /**
@@ -249,7 +249,7 @@ public class ServiceendpointJfrogPlatformV2 extends com.pulumi.resources.CustomR
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceendpointJfrogPlatformV2(String name, ServiceendpointJfrogPlatformV2Args args) {
+    public ServiceendpointJfrogPlatformV2(java.lang.String name, ServiceendpointJfrogPlatformV2Args args) {
         this(name, args, null);
     }
     /**
@@ -258,15 +258,22 @@ public class ServiceendpointJfrogPlatformV2 extends com.pulumi.resources.CustomR
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceendpointJfrogPlatformV2(String name, ServiceendpointJfrogPlatformV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceendpointJfrogPlatformV2:ServiceendpointJfrogPlatformV2", name, args == null ? ServiceendpointJfrogPlatformV2Args.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServiceendpointJfrogPlatformV2(java.lang.String name, ServiceendpointJfrogPlatformV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceendpointJfrogPlatformV2:ServiceendpointJfrogPlatformV2", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServiceendpointJfrogPlatformV2(String name, Output<String> id, @Nullable ServiceendpointJfrogPlatformV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceendpointJfrogPlatformV2:ServiceendpointJfrogPlatformV2", name, state, makeResourceOptions(options, id));
+    private ServiceendpointJfrogPlatformV2(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceendpointJfrogPlatformV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceendpointJfrogPlatformV2:ServiceendpointJfrogPlatformV2", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServiceendpointJfrogPlatformV2Args makeArgs(ServiceendpointJfrogPlatformV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceendpointJfrogPlatformV2Args.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -282,7 +289,7 @@ public class ServiceendpointJfrogPlatformV2 extends com.pulumi.resources.CustomR
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServiceendpointJfrogPlatformV2 get(String name, Output<String> id, @Nullable ServiceendpointJfrogPlatformV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServiceendpointJfrogPlatformV2 get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceendpointJfrogPlatformV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServiceendpointJfrogPlatformV2(name, id, state, options);
     }
 }

@@ -166,7 +166,7 @@ public class ServiceEndpointNpm extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServiceEndpointNpm(String name) {
+    public ServiceEndpointNpm(java.lang.String name) {
         this(name, ServiceEndpointNpmArgs.Empty);
     }
     /**
@@ -174,7 +174,7 @@ public class ServiceEndpointNpm extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceEndpointNpm(String name, ServiceEndpointNpmArgs args) {
+    public ServiceEndpointNpm(java.lang.String name, ServiceEndpointNpmArgs args) {
         this(name, args, null);
     }
     /**
@@ -183,15 +183,22 @@ public class ServiceEndpointNpm extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceEndpointNpm(String name, ServiceEndpointNpmArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceEndpointNpm:ServiceEndpointNpm", name, args == null ? ServiceEndpointNpmArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServiceEndpointNpm(java.lang.String name, ServiceEndpointNpmArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceEndpointNpm:ServiceEndpointNpm", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServiceEndpointNpm(String name, Output<String> id, @Nullable ServiceEndpointNpmState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceEndpointNpm:ServiceEndpointNpm", name, state, makeResourceOptions(options, id));
+    private ServiceEndpointNpm(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceEndpointNpmState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceEndpointNpm:ServiceEndpointNpm", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServiceEndpointNpmArgs makeArgs(ServiceEndpointNpmArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceEndpointNpmArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -210,7 +217,7 @@ public class ServiceEndpointNpm extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServiceEndpointNpm get(String name, Output<String> id, @Nullable ServiceEndpointNpmState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServiceEndpointNpm get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceEndpointNpmState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServiceEndpointNpm(name, id, state, options);
     }
 }

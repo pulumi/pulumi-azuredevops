@@ -171,7 +171,7 @@ public class FeedPermission extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FeedPermission(String name) {
+    public FeedPermission(java.lang.String name) {
         this(name, FeedPermissionArgs.Empty);
     }
     /**
@@ -179,7 +179,7 @@ public class FeedPermission extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FeedPermission(String name, FeedPermissionArgs args) {
+    public FeedPermission(java.lang.String name, FeedPermissionArgs args) {
         this(name, args, null);
     }
     /**
@@ -188,15 +188,22 @@ public class FeedPermission extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FeedPermission(String name, FeedPermissionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/feedPermission:FeedPermission", name, args == null ? FeedPermissionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public FeedPermission(java.lang.String name, FeedPermissionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/feedPermission:FeedPermission", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FeedPermission(String name, Output<String> id, @Nullable FeedPermissionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/feedPermission:FeedPermission", name, state, makeResourceOptions(options, id));
+    private FeedPermission(java.lang.String name, Output<java.lang.String> id, @Nullable FeedPermissionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/feedPermission:FeedPermission", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static FeedPermissionArgs makeArgs(FeedPermissionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FeedPermissionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -212,7 +219,7 @@ public class FeedPermission extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FeedPermission get(String name, Output<String> id, @Nullable FeedPermissionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FeedPermission get(java.lang.String name, Output<java.lang.String> id, @Nullable FeedPermissionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FeedPermission(name, id, state, options);
     }
 }

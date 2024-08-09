@@ -112,7 +112,7 @@ public class ServiceendpointExternaltfs extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServiceendpointExternaltfs(String name) {
+    public ServiceendpointExternaltfs(java.lang.String name) {
         this(name, ServiceendpointExternaltfsArgs.Empty);
     }
     /**
@@ -120,7 +120,7 @@ public class ServiceendpointExternaltfs extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceendpointExternaltfs(String name, ServiceendpointExternaltfsArgs args) {
+    public ServiceendpointExternaltfs(java.lang.String name, ServiceendpointExternaltfsArgs args) {
         this(name, args, null);
     }
     /**
@@ -129,15 +129,22 @@ public class ServiceendpointExternaltfs extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceendpointExternaltfs(String name, ServiceendpointExternaltfsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceendpointExternaltfs:ServiceendpointExternaltfs", name, args == null ? ServiceendpointExternaltfsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServiceendpointExternaltfs(java.lang.String name, ServiceendpointExternaltfsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceendpointExternaltfs:ServiceendpointExternaltfs", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServiceendpointExternaltfs(String name, Output<String> id, @Nullable ServiceendpointExternaltfsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceendpointExternaltfs:ServiceendpointExternaltfs", name, state, makeResourceOptions(options, id));
+    private ServiceendpointExternaltfs(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceendpointExternaltfsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceendpointExternaltfs:ServiceendpointExternaltfs", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServiceendpointExternaltfsArgs makeArgs(ServiceendpointExternaltfsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceendpointExternaltfsArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -153,7 +160,7 @@ public class ServiceendpointExternaltfs extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServiceendpointExternaltfs get(String name, Output<String> id, @Nullable ServiceendpointExternaltfsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServiceendpointExternaltfs get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceendpointExternaltfsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServiceendpointExternaltfs(name, id, state, options);
     }
 }
