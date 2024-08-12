@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .build());
@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleUser = new User("exampleUser", UserArgs.builder()
- *             .principalName("mail{@literal @}email.com")
+ *             .principalName("mail}{@literal @}{@code email.com")
  *             .accountLicenseType("basic")
  *             .build());
  * 
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *                 .autoReviewerIds(exampleUser.id())
  *                 .submitterCanVote(false)
  *                 .message("Auto reviewer")
- *                 .pathFilters("*{@literal /}src/*.ts")
+ *                 .pathFilters("*}&#47;{@code src/*.ts")
  *                 .scopes(BranchPolicyAutoReviewersSettingsScopeArgs.builder()
  *                     .repositoryId(exampleGit.id())
  *                     .repositoryRef(exampleGit.defaultBranch())
@@ -86,8 +86,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -168,7 +168,7 @@ public class BranchPolicyAutoReviewers extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BranchPolicyAutoReviewers(String name) {
+    public BranchPolicyAutoReviewers(java.lang.String name) {
         this(name, BranchPolicyAutoReviewersArgs.Empty);
     }
     /**
@@ -176,7 +176,7 @@ public class BranchPolicyAutoReviewers extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BranchPolicyAutoReviewers(String name, BranchPolicyAutoReviewersArgs args) {
+    public BranchPolicyAutoReviewers(java.lang.String name, BranchPolicyAutoReviewersArgs args) {
         this(name, args, null);
     }
     /**
@@ -185,15 +185,22 @@ public class BranchPolicyAutoReviewers extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BranchPolicyAutoReviewers(String name, BranchPolicyAutoReviewersArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/branchPolicyAutoReviewers:BranchPolicyAutoReviewers", name, args == null ? BranchPolicyAutoReviewersArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public BranchPolicyAutoReviewers(java.lang.String name, BranchPolicyAutoReviewersArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/branchPolicyAutoReviewers:BranchPolicyAutoReviewers", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BranchPolicyAutoReviewers(String name, Output<String> id, @Nullable BranchPolicyAutoReviewersState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/branchPolicyAutoReviewers:BranchPolicyAutoReviewers", name, state, makeResourceOptions(options, id));
+    private BranchPolicyAutoReviewers(java.lang.String name, Output<java.lang.String> id, @Nullable BranchPolicyAutoReviewersState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/branchPolicyAutoReviewers:BranchPolicyAutoReviewers", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static BranchPolicyAutoReviewersArgs makeArgs(BranchPolicyAutoReviewersArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BranchPolicyAutoReviewersArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -209,7 +216,7 @@ public class BranchPolicyAutoReviewers extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BranchPolicyAutoReviewers get(String name, Output<String> id, @Nullable BranchPolicyAutoReviewersState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BranchPolicyAutoReviewers get(java.lang.String name, Output<java.lang.String> id, @Nullable BranchPolicyAutoReviewersState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BranchPolicyAutoReviewers(name, id, state, options);
     }
 }

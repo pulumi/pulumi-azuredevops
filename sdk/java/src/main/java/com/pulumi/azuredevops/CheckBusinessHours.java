@@ -717,7 +717,7 @@ public class CheckBusinessHours extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CheckBusinessHours(String name) {
+    public CheckBusinessHours(java.lang.String name) {
         this(name, CheckBusinessHoursArgs.Empty);
     }
     /**
@@ -725,7 +725,7 @@ public class CheckBusinessHours extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CheckBusinessHours(String name, CheckBusinessHoursArgs args) {
+    public CheckBusinessHours(java.lang.String name, CheckBusinessHoursArgs args) {
         this(name, args, null);
     }
     /**
@@ -734,15 +734,22 @@ public class CheckBusinessHours extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CheckBusinessHours(String name, CheckBusinessHoursArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/checkBusinessHours:CheckBusinessHours", name, args == null ? CheckBusinessHoursArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CheckBusinessHours(java.lang.String name, CheckBusinessHoursArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/checkBusinessHours:CheckBusinessHours", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CheckBusinessHours(String name, Output<String> id, @Nullable CheckBusinessHoursState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/checkBusinessHours:CheckBusinessHours", name, state, makeResourceOptions(options, id));
+    private CheckBusinessHours(java.lang.String name, Output<java.lang.String> id, @Nullable CheckBusinessHoursState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/checkBusinessHours:CheckBusinessHours", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CheckBusinessHoursArgs makeArgs(CheckBusinessHoursArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CheckBusinessHoursArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -758,7 +765,7 @@ public class CheckBusinessHours extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CheckBusinessHours get(String name, Output<String> id, @Nullable CheckBusinessHoursState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CheckBusinessHours get(java.lang.String name, Output<java.lang.String> id, @Nullable CheckBusinessHoursState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CheckBusinessHours(name, id, state, options);
     }
 }

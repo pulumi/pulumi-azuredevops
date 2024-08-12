@@ -199,7 +199,7 @@ public class ProjectPipelineSettings extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ProjectPipelineSettings(String name) {
+    public ProjectPipelineSettings(java.lang.String name) {
         this(name, ProjectPipelineSettingsArgs.Empty);
     }
     /**
@@ -207,7 +207,7 @@ public class ProjectPipelineSettings extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ProjectPipelineSettings(String name, ProjectPipelineSettingsArgs args) {
+    public ProjectPipelineSettings(java.lang.String name, ProjectPipelineSettingsArgs args) {
         this(name, args, null);
     }
     /**
@@ -216,15 +216,22 @@ public class ProjectPipelineSettings extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ProjectPipelineSettings(String name, ProjectPipelineSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/projectPipelineSettings:ProjectPipelineSettings", name, args == null ? ProjectPipelineSettingsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ProjectPipelineSettings(java.lang.String name, ProjectPipelineSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/projectPipelineSettings:ProjectPipelineSettings", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ProjectPipelineSettings(String name, Output<String> id, @Nullable ProjectPipelineSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/projectPipelineSettings:ProjectPipelineSettings", name, state, makeResourceOptions(options, id));
+    private ProjectPipelineSettings(java.lang.String name, Output<java.lang.String> id, @Nullable ProjectPipelineSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/projectPipelineSettings:ProjectPipelineSettings", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ProjectPipelineSettingsArgs makeArgs(ProjectPipelineSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProjectPipelineSettingsArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -240,7 +247,7 @@ public class ProjectPipelineSettings extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ProjectPipelineSettings get(String name, Output<String> id, @Nullable ProjectPipelineSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ProjectPipelineSettings get(java.lang.String name, Output<java.lang.String> id, @Nullable ProjectPipelineSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ProjectPipelineSettings(name, id, state, options);
     }
 }

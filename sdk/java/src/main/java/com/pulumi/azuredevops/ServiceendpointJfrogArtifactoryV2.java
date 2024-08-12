@@ -241,7 +241,7 @@ public class ServiceendpointJfrogArtifactoryV2 extends com.pulumi.resources.Cust
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServiceendpointJfrogArtifactoryV2(String name) {
+    public ServiceendpointJfrogArtifactoryV2(java.lang.String name) {
         this(name, ServiceendpointJfrogArtifactoryV2Args.Empty);
     }
     /**
@@ -249,7 +249,7 @@ public class ServiceendpointJfrogArtifactoryV2 extends com.pulumi.resources.Cust
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceendpointJfrogArtifactoryV2(String name, ServiceendpointJfrogArtifactoryV2Args args) {
+    public ServiceendpointJfrogArtifactoryV2(java.lang.String name, ServiceendpointJfrogArtifactoryV2Args args) {
         this(name, args, null);
     }
     /**
@@ -258,15 +258,22 @@ public class ServiceendpointJfrogArtifactoryV2 extends com.pulumi.resources.Cust
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceendpointJfrogArtifactoryV2(String name, ServiceendpointJfrogArtifactoryV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceendpointJfrogArtifactoryV2:ServiceendpointJfrogArtifactoryV2", name, args == null ? ServiceendpointJfrogArtifactoryV2Args.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServiceendpointJfrogArtifactoryV2(java.lang.String name, ServiceendpointJfrogArtifactoryV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceendpointJfrogArtifactoryV2:ServiceendpointJfrogArtifactoryV2", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServiceendpointJfrogArtifactoryV2(String name, Output<String> id, @Nullable ServiceendpointJfrogArtifactoryV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceendpointJfrogArtifactoryV2:ServiceendpointJfrogArtifactoryV2", name, state, makeResourceOptions(options, id));
+    private ServiceendpointJfrogArtifactoryV2(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceendpointJfrogArtifactoryV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceendpointJfrogArtifactoryV2:ServiceendpointJfrogArtifactoryV2", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServiceendpointJfrogArtifactoryV2Args makeArgs(ServiceendpointJfrogArtifactoryV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceendpointJfrogArtifactoryV2Args.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -282,7 +289,7 @@ public class ServiceendpointJfrogArtifactoryV2 extends com.pulumi.resources.Cust
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServiceendpointJfrogArtifactoryV2 get(String name, Output<String> id, @Nullable ServiceendpointJfrogArtifactoryV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServiceendpointJfrogArtifactoryV2 get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceendpointJfrogArtifactoryV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServiceendpointJfrogArtifactoryV2(name, id, state, options);
     }
 }

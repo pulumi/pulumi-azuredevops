@@ -166,7 +166,7 @@ public class ServiceEndpointSonarQube extends com.pulumi.resources.CustomResourc
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServiceEndpointSonarQube(String name) {
+    public ServiceEndpointSonarQube(java.lang.String name) {
         this(name, ServiceEndpointSonarQubeArgs.Empty);
     }
     /**
@@ -174,7 +174,7 @@ public class ServiceEndpointSonarQube extends com.pulumi.resources.CustomResourc
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceEndpointSonarQube(String name, ServiceEndpointSonarQubeArgs args) {
+    public ServiceEndpointSonarQube(java.lang.String name, ServiceEndpointSonarQubeArgs args) {
         this(name, args, null);
     }
     /**
@@ -183,15 +183,22 @@ public class ServiceEndpointSonarQube extends com.pulumi.resources.CustomResourc
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceEndpointSonarQube(String name, ServiceEndpointSonarQubeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube", name, args == null ? ServiceEndpointSonarQubeArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServiceEndpointSonarQube(java.lang.String name, ServiceEndpointSonarQubeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServiceEndpointSonarQube(String name, Output<String> id, @Nullable ServiceEndpointSonarQubeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube", name, state, makeResourceOptions(options, id));
+    private ServiceEndpointSonarQube(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceEndpointSonarQubeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServiceEndpointSonarQubeArgs makeArgs(ServiceEndpointSonarQubeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceEndpointSonarQubeArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -210,7 +217,7 @@ public class ServiceEndpointSonarQube extends com.pulumi.resources.CustomResourc
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServiceEndpointSonarQube get(String name, Output<String> id, @Nullable ServiceEndpointSonarQubeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServiceEndpointSonarQube get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceEndpointSonarQubeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServiceEndpointSonarQube(name, id, state, options);
     }
 }
