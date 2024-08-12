@@ -182,7 +182,7 @@ public class LibraryPermissions extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LibraryPermissions(String name) {
+    public LibraryPermissions(java.lang.String name) {
         this(name, LibraryPermissionsArgs.Empty);
     }
     /**
@@ -190,7 +190,7 @@ public class LibraryPermissions extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LibraryPermissions(String name, LibraryPermissionsArgs args) {
+    public LibraryPermissions(java.lang.String name, LibraryPermissionsArgs args) {
         this(name, args, null);
     }
     /**
@@ -199,15 +199,22 @@ public class LibraryPermissions extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LibraryPermissions(String name, LibraryPermissionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/libraryPermissions:LibraryPermissions", name, args == null ? LibraryPermissionsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LibraryPermissions(java.lang.String name, LibraryPermissionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/libraryPermissions:LibraryPermissions", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LibraryPermissions(String name, Output<String> id, @Nullable LibraryPermissionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/libraryPermissions:LibraryPermissions", name, state, makeResourceOptions(options, id));
+    private LibraryPermissions(java.lang.String name, Output<java.lang.String> id, @Nullable LibraryPermissionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/libraryPermissions:LibraryPermissions", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LibraryPermissionsArgs makeArgs(LibraryPermissionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LibraryPermissionsArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -223,7 +230,7 @@ public class LibraryPermissions extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LibraryPermissions get(String name, Output<String> id, @Nullable LibraryPermissionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LibraryPermissions get(java.lang.String name, Output<java.lang.String> id, @Nullable LibraryPermissionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LibraryPermissions(name, id, state, options);
     }
 }

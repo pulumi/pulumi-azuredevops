@@ -254,7 +254,7 @@ public class Git extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Git(String name) {
+    public Git(java.lang.String name) {
         this(name, GitArgs.Empty);
     }
     /**
@@ -262,7 +262,7 @@ public class Git extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Git(String name, GitArgs args) {
+    public Git(java.lang.String name, GitArgs args) {
         this(name, args, null);
     }
     /**
@@ -271,15 +271,22 @@ public class Git extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Git(String name, GitArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/git:Git", name, args == null ? GitArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Git(java.lang.String name, GitArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/git:Git", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Git(String name, Output<String> id, @Nullable GitState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/git:Git", name, state, makeResourceOptions(options, id));
+    private Git(java.lang.String name, Output<java.lang.String> id, @Nullable GitState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/git:Git", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static GitArgs makeArgs(GitArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GitArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -295,7 +302,7 @@ public class Git extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Git get(String name, Output<String> id, @Nullable GitState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Git get(java.lang.String name, Output<java.lang.String> id, @Nullable GitState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Git(name, id, state, options);
     }
 }

@@ -209,7 +209,7 @@ public class Wiki extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Wiki(String name) {
+    public Wiki(java.lang.String name) {
         this(name, WikiArgs.Empty);
     }
     /**
@@ -217,7 +217,7 @@ public class Wiki extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Wiki(String name, WikiArgs args) {
+    public Wiki(java.lang.String name, WikiArgs args) {
         this(name, args, null);
     }
     /**
@@ -226,15 +226,22 @@ public class Wiki extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Wiki(String name, WikiArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/wiki:Wiki", name, args == null ? WikiArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Wiki(java.lang.String name, WikiArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/wiki:Wiki", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Wiki(String name, Output<String> id, @Nullable WikiState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/wiki:Wiki", name, state, makeResourceOptions(options, id));
+    private Wiki(java.lang.String name, Output<java.lang.String> id, @Nullable WikiState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/wiki:Wiki", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static WikiArgs makeArgs(WikiArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WikiArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -250,7 +257,7 @@ public class Wiki extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Wiki get(String name, Output<String> id, @Nullable WikiState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Wiki get(java.lang.String name, Output<java.lang.String> id, @Nullable WikiState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Wiki(name, id, state, options);
     }
 }

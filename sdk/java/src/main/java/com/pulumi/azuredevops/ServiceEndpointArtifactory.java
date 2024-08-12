@@ -225,7 +225,7 @@ public class ServiceEndpointArtifactory extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServiceEndpointArtifactory(String name) {
+    public ServiceEndpointArtifactory(java.lang.String name) {
         this(name, ServiceEndpointArtifactoryArgs.Empty);
     }
     /**
@@ -233,7 +233,7 @@ public class ServiceEndpointArtifactory extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceEndpointArtifactory(String name, ServiceEndpointArtifactoryArgs args) {
+    public ServiceEndpointArtifactory(java.lang.String name, ServiceEndpointArtifactoryArgs args) {
         this(name, args, null);
     }
     /**
@@ -242,15 +242,22 @@ public class ServiceEndpointArtifactory extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceEndpointArtifactory(String name, ServiceEndpointArtifactoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory", name, args == null ? ServiceEndpointArtifactoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServiceEndpointArtifactory(java.lang.String name, ServiceEndpointArtifactoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServiceEndpointArtifactory(String name, Output<String> id, @Nullable ServiceEndpointArtifactoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory", name, state, makeResourceOptions(options, id));
+    private ServiceEndpointArtifactory(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceEndpointArtifactoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServiceEndpointArtifactoryArgs makeArgs(ServiceEndpointArtifactoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceEndpointArtifactoryArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -266,7 +273,7 @@ public class ServiceEndpointArtifactory extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServiceEndpointArtifactory get(String name, Output<String> id, @Nullable ServiceEndpointArtifactoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServiceEndpointArtifactory get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceEndpointArtifactoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServiceEndpointArtifactory(name, id, state, options);
     }
 }

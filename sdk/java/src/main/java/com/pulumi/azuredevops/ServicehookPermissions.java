@@ -173,7 +173,7 @@ public class ServicehookPermissions extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServicehookPermissions(String name) {
+    public ServicehookPermissions(java.lang.String name) {
         this(name, ServicehookPermissionsArgs.Empty);
     }
     /**
@@ -181,7 +181,7 @@ public class ServicehookPermissions extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServicehookPermissions(String name, ServicehookPermissionsArgs args) {
+    public ServicehookPermissions(java.lang.String name, ServicehookPermissionsArgs args) {
         this(name, args, null);
     }
     /**
@@ -190,15 +190,22 @@ public class ServicehookPermissions extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServicehookPermissions(String name, ServicehookPermissionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/servicehookPermissions:ServicehookPermissions", name, args == null ? ServicehookPermissionsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServicehookPermissions(java.lang.String name, ServicehookPermissionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/servicehookPermissions:ServicehookPermissions", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServicehookPermissions(String name, Output<String> id, @Nullable ServicehookPermissionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/servicehookPermissions:ServicehookPermissions", name, state, makeResourceOptions(options, id));
+    private ServicehookPermissions(java.lang.String name, Output<java.lang.String> id, @Nullable ServicehookPermissionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/servicehookPermissions:ServicehookPermissions", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServicehookPermissionsArgs makeArgs(ServicehookPermissionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServicehookPermissionsArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -214,7 +221,7 @@ public class ServicehookPermissions extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServicehookPermissions get(String name, Output<String> id, @Nullable ServicehookPermissionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServicehookPermissions get(java.lang.String name, Output<java.lang.String> id, @Nullable ServicehookPermissionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServicehookPermissions(name, id, state, options);
     }
 }

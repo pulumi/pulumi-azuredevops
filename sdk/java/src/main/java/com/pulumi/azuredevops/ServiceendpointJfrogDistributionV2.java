@@ -241,7 +241,7 @@ public class ServiceendpointJfrogDistributionV2 extends com.pulumi.resources.Cus
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServiceendpointJfrogDistributionV2(String name) {
+    public ServiceendpointJfrogDistributionV2(java.lang.String name) {
         this(name, ServiceendpointJfrogDistributionV2Args.Empty);
     }
     /**
@@ -249,7 +249,7 @@ public class ServiceendpointJfrogDistributionV2 extends com.pulumi.resources.Cus
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceendpointJfrogDistributionV2(String name, ServiceendpointJfrogDistributionV2Args args) {
+    public ServiceendpointJfrogDistributionV2(java.lang.String name, ServiceendpointJfrogDistributionV2Args args) {
         this(name, args, null);
     }
     /**
@@ -258,15 +258,22 @@ public class ServiceendpointJfrogDistributionV2 extends com.pulumi.resources.Cus
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceendpointJfrogDistributionV2(String name, ServiceendpointJfrogDistributionV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceendpointJfrogDistributionV2:ServiceendpointJfrogDistributionV2", name, args == null ? ServiceendpointJfrogDistributionV2Args.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServiceendpointJfrogDistributionV2(java.lang.String name, ServiceendpointJfrogDistributionV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceendpointJfrogDistributionV2:ServiceendpointJfrogDistributionV2", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServiceendpointJfrogDistributionV2(String name, Output<String> id, @Nullable ServiceendpointJfrogDistributionV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceendpointJfrogDistributionV2:ServiceendpointJfrogDistributionV2", name, state, makeResourceOptions(options, id));
+    private ServiceendpointJfrogDistributionV2(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceendpointJfrogDistributionV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceendpointJfrogDistributionV2:ServiceendpointJfrogDistributionV2", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServiceendpointJfrogDistributionV2Args makeArgs(ServiceendpointJfrogDistributionV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceendpointJfrogDistributionV2Args.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -282,7 +289,7 @@ public class ServiceendpointJfrogDistributionV2 extends com.pulumi.resources.Cus
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServiceendpointJfrogDistributionV2 get(String name, Output<String> id, @Nullable ServiceendpointJfrogDistributionV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServiceendpointJfrogDistributionV2 get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceendpointJfrogDistributionV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServiceendpointJfrogDistributionV2(name, id, state, options);
     }
 }

@@ -255,7 +255,7 @@ public class ServiceEndpointKubernetes extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServiceEndpointKubernetes(String name) {
+    public ServiceEndpointKubernetes(java.lang.String name) {
         this(name, ServiceEndpointKubernetesArgs.Empty);
     }
     /**
@@ -263,7 +263,7 @@ public class ServiceEndpointKubernetes extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceEndpointKubernetes(String name, ServiceEndpointKubernetesArgs args) {
+    public ServiceEndpointKubernetes(java.lang.String name, ServiceEndpointKubernetesArgs args) {
         this(name, args, null);
     }
     /**
@@ -272,15 +272,22 @@ public class ServiceEndpointKubernetes extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceEndpointKubernetes(String name, ServiceEndpointKubernetesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes", name, args == null ? ServiceEndpointKubernetesArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServiceEndpointKubernetes(java.lang.String name, ServiceEndpointKubernetesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServiceEndpointKubernetes(String name, Output<String> id, @Nullable ServiceEndpointKubernetesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes", name, state, makeResourceOptions(options, id));
+    private ServiceEndpointKubernetes(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceEndpointKubernetesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServiceEndpointKubernetesArgs makeArgs(ServiceEndpointKubernetesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceEndpointKubernetesArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -296,7 +303,7 @@ public class ServiceEndpointKubernetes extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServiceEndpointKubernetes get(String name, Output<String> id, @Nullable ServiceEndpointKubernetesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServiceEndpointKubernetes get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceEndpointKubernetesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServiceEndpointKubernetes(name, id, state, options);
     }
 }

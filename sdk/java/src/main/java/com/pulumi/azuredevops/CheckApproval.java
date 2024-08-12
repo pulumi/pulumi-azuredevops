@@ -218,7 +218,7 @@ public class CheckApproval extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CheckApproval(String name) {
+    public CheckApproval(java.lang.String name) {
         this(name, CheckApprovalArgs.Empty);
     }
     /**
@@ -226,7 +226,7 @@ public class CheckApproval extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CheckApproval(String name, CheckApprovalArgs args) {
+    public CheckApproval(java.lang.String name, CheckApprovalArgs args) {
         this(name, args, null);
     }
     /**
@@ -235,15 +235,22 @@ public class CheckApproval extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CheckApproval(String name, CheckApprovalArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/checkApproval:CheckApproval", name, args == null ? CheckApprovalArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CheckApproval(java.lang.String name, CheckApprovalArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/checkApproval:CheckApproval", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CheckApproval(String name, Output<String> id, @Nullable CheckApprovalState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/checkApproval:CheckApproval", name, state, makeResourceOptions(options, id));
+    private CheckApproval(java.lang.String name, Output<java.lang.String> id, @Nullable CheckApprovalState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/checkApproval:CheckApproval", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CheckApprovalArgs makeArgs(CheckApprovalArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CheckApprovalArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -259,7 +266,7 @@ public class CheckApproval extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CheckApproval get(String name, Output<String> id, @Nullable CheckApprovalState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CheckApproval get(java.lang.String name, Output<java.lang.String> id, @Nullable CheckApprovalState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CheckApproval(name, id, state, options);
     }
 }

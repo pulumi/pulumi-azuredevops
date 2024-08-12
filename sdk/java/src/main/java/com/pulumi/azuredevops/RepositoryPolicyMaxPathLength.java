@@ -219,7 +219,7 @@ public class RepositoryPolicyMaxPathLength extends com.pulumi.resources.CustomRe
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RepositoryPolicyMaxPathLength(String name) {
+    public RepositoryPolicyMaxPathLength(java.lang.String name) {
         this(name, RepositoryPolicyMaxPathLengthArgs.Empty);
     }
     /**
@@ -227,7 +227,7 @@ public class RepositoryPolicyMaxPathLength extends com.pulumi.resources.CustomRe
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RepositoryPolicyMaxPathLength(String name, RepositoryPolicyMaxPathLengthArgs args) {
+    public RepositoryPolicyMaxPathLength(java.lang.String name, RepositoryPolicyMaxPathLengthArgs args) {
         this(name, args, null);
     }
     /**
@@ -236,15 +236,22 @@ public class RepositoryPolicyMaxPathLength extends com.pulumi.resources.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RepositoryPolicyMaxPathLength(String name, RepositoryPolicyMaxPathLengthArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/repositoryPolicyMaxPathLength:RepositoryPolicyMaxPathLength", name, args == null ? RepositoryPolicyMaxPathLengthArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public RepositoryPolicyMaxPathLength(java.lang.String name, RepositoryPolicyMaxPathLengthArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/repositoryPolicyMaxPathLength:RepositoryPolicyMaxPathLength", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RepositoryPolicyMaxPathLength(String name, Output<String> id, @Nullable RepositoryPolicyMaxPathLengthState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/repositoryPolicyMaxPathLength:RepositoryPolicyMaxPathLength", name, state, makeResourceOptions(options, id));
+    private RepositoryPolicyMaxPathLength(java.lang.String name, Output<java.lang.String> id, @Nullable RepositoryPolicyMaxPathLengthState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/repositoryPolicyMaxPathLength:RepositoryPolicyMaxPathLength", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RepositoryPolicyMaxPathLengthArgs makeArgs(RepositoryPolicyMaxPathLengthArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RepositoryPolicyMaxPathLengthArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -260,7 +267,7 @@ public class RepositoryPolicyMaxPathLength extends com.pulumi.resources.CustomRe
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RepositoryPolicyMaxPathLength get(String name, Output<String> id, @Nullable RepositoryPolicyMaxPathLengthState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RepositoryPolicyMaxPathLength get(java.lang.String name, Output<java.lang.String> id, @Nullable RepositoryPolicyMaxPathLengthState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RepositoryPolicyMaxPathLength(name, id, state, options);
     }
 }

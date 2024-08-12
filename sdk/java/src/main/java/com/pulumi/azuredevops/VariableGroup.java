@@ -279,7 +279,7 @@ public class VariableGroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VariableGroup(String name) {
+    public VariableGroup(java.lang.String name) {
         this(name, VariableGroupArgs.Empty);
     }
     /**
@@ -287,7 +287,7 @@ public class VariableGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VariableGroup(String name, VariableGroupArgs args) {
+    public VariableGroup(java.lang.String name, VariableGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -296,15 +296,22 @@ public class VariableGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VariableGroup(String name, VariableGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/variableGroup:VariableGroup", name, args == null ? VariableGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VariableGroup(java.lang.String name, VariableGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/variableGroup:VariableGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VariableGroup(String name, Output<String> id, @Nullable VariableGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azuredevops:index/variableGroup:VariableGroup", name, state, makeResourceOptions(options, id));
+    private VariableGroup(java.lang.String name, Output<java.lang.String> id, @Nullable VariableGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azuredevops:index/variableGroup:VariableGroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VariableGroupArgs makeArgs(VariableGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VariableGroupArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -320,7 +327,7 @@ public class VariableGroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VariableGroup get(String name, Output<String> id, @Nullable VariableGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VariableGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable VariableGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VariableGroup(name, id, state, options);
     }
 }
