@@ -122,7 +122,7 @@ namespace Pulumi.AzureDevOps
     public sealed class GetProjectResult
     {
         public readonly string Description;
-        public readonly ImmutableDictionary<string, object> Features;
+        public readonly ImmutableDictionary<string, string> Features;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -138,7 +138,7 @@ namespace Pulumi.AzureDevOps
         private GetProjectResult(
             string description,
 
-            ImmutableDictionary<string, object> features,
+            ImmutableDictionary<string, string> features,
 
             string id,
 
