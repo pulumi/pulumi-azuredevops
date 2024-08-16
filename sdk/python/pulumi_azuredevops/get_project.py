@@ -62,7 +62,7 @@ class GetProjectResult:
 
     @property
     @pulumi.getter
-    def features(self) -> Mapping[str, Any]:
+    def features(self) -> Mapping[str, str]:
         return pulumi.get(self, "features")
 
     @property

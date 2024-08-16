@@ -243,7 +243,11 @@ class CheckExclusiveLock(pulumi.CustomResource):
             })
         example_check_exclusive_lock = azuredevops.CheckExclusiveLock("example",
             project_id=example.id,
-            target_resource_id=pulumi.Output.all(example.id, example_git.id).apply(lambda exampleId, exampleGitId: f"{example_id}.{example_git_id}"),
+            target_resource_id=pulumi.Output.all(
+                exampleId=example.id,
+                exampleGitId=example_git.id
+        ).apply(lambda resolved_outputs: f"{resolved_outputs['exampleId']}.{resolved_outputs['exampleGitId']}")
+        ,
             target_resource_type="repository",
             timeout=43200)
         ```
@@ -325,7 +329,11 @@ class CheckExclusiveLock(pulumi.CustomResource):
             })
         example_check_exclusive_lock = azuredevops.CheckExclusiveLock("example",
             project_id=example.id,
-            target_resource_id=pulumi.Output.all(example.id, example_git.id).apply(lambda exampleId, exampleGitId: f"{example_id}.{example_git_id}"),
+            target_resource_id=pulumi.Output.all(
+                exampleId=example.id,
+                exampleGitId=example_git.id
+        ).apply(lambda resolved_outputs: f"{resolved_outputs['exampleId']}.{resolved_outputs['exampleGitId']}")
+        ,
             target_resource_type="repository",
             timeout=43200)
         ```

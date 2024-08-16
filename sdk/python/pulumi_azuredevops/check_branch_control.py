@@ -396,7 +396,11 @@ class CheckBranchControl(pulumi.CustomResource):
         example_check_branch_control = azuredevops.CheckBranchControl("example",
             project_id=example.id,
             display_name="Managed by Terraform",
-            target_resource_id=pulumi.Output.all(example.id, example_git.id).apply(lambda exampleId, exampleGitId: f"{example_id}.{example_git_id}"),
+            target_resource_id=pulumi.Output.all(
+                exampleId=example.id,
+                exampleGitId=example_git.id
+        ).apply(lambda resolved_outputs: f"{resolved_outputs['exampleId']}.{resolved_outputs['exampleGitId']}")
+        ,
             target_resource_type="repository",
             allowed_branches="refs/heads/main, refs/heads/features/*")
         ```
@@ -538,7 +542,11 @@ class CheckBranchControl(pulumi.CustomResource):
         example_check_branch_control = azuredevops.CheckBranchControl("example",
             project_id=example.id,
             display_name="Managed by Terraform",
-            target_resource_id=pulumi.Output.all(example.id, example_git.id).apply(lambda exampleId, exampleGitId: f"{example_id}.{example_git_id}"),
+            target_resource_id=pulumi.Output.all(
+                exampleId=example.id,
+                exampleGitId=example_git.id
+        ).apply(lambda resolved_outputs: f"{resolved_outputs['exampleId']}.{resolved_outputs['exampleGitId']}")
+        ,
             target_resource_type="repository",
             allowed_branches="refs/heads/main, refs/heads/features/*")
         ```

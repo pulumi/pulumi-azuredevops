@@ -114,8 +114,11 @@ def get_environment(environment_id: Optional[int] = None,
         project_id=example_project.id,
         name="Example Environment",
         description="Managed by Terraform")
-    example = pulumi.Output.all(example_project.id, example_environment.id).apply(lambda exampleProjectId, exampleEnvironmentId: azuredevops.get_environment_output(project_id=example_project_id,
-        environment_id=example_environment_id))
+    example = pulumi.Output.all(
+        exampleProjectId=example_project.id,
+        exampleEnvironmentId=example_environment.id
+    ).apply(lambda resolved_outputs: azuredevops.get_environment_output(project_id=resolved_outputs['exampleProjectId'],
+        environment_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)))
     ```
 
     ## Relevant Links
@@ -168,8 +171,11 @@ def get_environment_output(environment_id: Optional[pulumi.Input[Optional[int]]]
         project_id=example_project.id,
         name="Example Environment",
         description="Managed by Terraform")
-    example = pulumi.Output.all(example_project.id, example_environment.id).apply(lambda exampleProjectId, exampleEnvironmentId: azuredevops.get_environment_output(project_id=example_project_id,
-        environment_id=example_environment_id))
+    example = pulumi.Output.all(
+        exampleProjectId=example_project.id,
+        exampleEnvironmentId=example_environment.id
+    ).apply(lambda resolved_outputs: azuredevops.get_environment_output(project_id=resolved_outputs['exampleProjectId'],
+        environment_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)))
     ```
 
     ## Relevant Links

@@ -5,7 +5,6 @@ package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -15,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetProjectResult {
     private String description;
-    private Map<String,Object> features;
+    private Map<String,String> features;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -32,7 +31,7 @@ public final class GetProjectResult {
     public String description() {
         return this.description;
     }
-    public Map<String,Object> features() {
+    public Map<String,String> features() {
         return this.features;
     }
     /**
@@ -71,7 +70,7 @@ public final class GetProjectResult {
     @CustomType.Builder
     public static final class Builder {
         private String description;
-        private Map<String,Object> features;
+        private Map<String,String> features;
         private String id;
         private @Nullable String name;
         private String processTemplateId;
@@ -102,7 +101,7 @@ public final class GetProjectResult {
             return this;
         }
         @CustomType.Setter
-        public Builder features(Map<String,Object> features) {
+        public Builder features(Map<String,String> features) {
             if (features == null) {
               throw new MissingRequiredPropertyException("GetProjectResult", "features");
             }

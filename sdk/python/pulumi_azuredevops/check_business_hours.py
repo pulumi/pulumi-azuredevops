@@ -636,7 +636,11 @@ class CheckBusinessHours(pulumi.CustomResource):
         example_check_business_hours = azuredevops.CheckBusinessHours("example",
             project_id=example.id,
             display_name="Managed by Terraform",
-            target_resource_id=pulumi.Output.all(example.id, example_git.id).apply(lambda exampleId, exampleGitId: f"{example_id}.{example_git_id}"),
+            target_resource_id=pulumi.Output.all(
+                exampleId=example.id,
+                exampleGitId=example_git.id
+        ).apply(lambda resolved_outputs: f"{resolved_outputs['exampleId']}.{resolved_outputs['exampleGitId']}")
+        ,
             target_resource_type="repository",
             start_time="07:00",
             end_time="15:30",
@@ -949,7 +953,11 @@ class CheckBusinessHours(pulumi.CustomResource):
         example_check_business_hours = azuredevops.CheckBusinessHours("example",
             project_id=example.id,
             display_name="Managed by Terraform",
-            target_resource_id=pulumi.Output.all(example.id, example_git.id).apply(lambda exampleId, exampleGitId: f"{example_id}.{example_git_id}"),
+            target_resource_id=pulumi.Output.all(
+                exampleId=example.id,
+                exampleGitId=example_git.id
+        ).apply(lambda resolved_outputs: f"{resolved_outputs['exampleId']}.{resolved_outputs['exampleGitId']}")
+        ,
             target_resource_type="repository",
             start_time="07:00",
             end_time="15:30",
