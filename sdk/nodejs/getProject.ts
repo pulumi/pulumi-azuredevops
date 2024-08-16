@@ -52,7 +52,7 @@ export interface GetProjectArgs {
  */
 export interface GetProjectResult {
     readonly description: string;
-    readonly features: {[key: string]: any};
+    readonly features: {[key: string]: string};
     /**
      * The provider-assigned unique ID for this managed resource.
      */

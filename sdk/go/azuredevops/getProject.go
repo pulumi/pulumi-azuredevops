@@ -63,8 +63,8 @@ type LookupProjectArgs struct {
 
 // A collection of values returned by getProject.
 type LookupProjectResult struct {
-	Description string                 `pulumi:"description"`
-	Features    map[string]interface{} `pulumi:"features"`
+	Description string            `pulumi:"description"`
+	Features    map[string]string `pulumi:"features"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                string  `pulumi:"id"`
 	Name              *string `pulumi:"name"`
@@ -119,8 +119,8 @@ func (o LookupProjectResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProjectResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-func (o LookupProjectResultOutput) Features() pulumi.MapOutput {
-	return o.ApplyT(func(v LookupProjectResult) map[string]interface{} { return v.Features }).(pulumi.MapOutput)
+func (o LookupProjectResultOutput) Features() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupProjectResult) map[string]string { return v.Features }).(pulumi.StringMapOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
