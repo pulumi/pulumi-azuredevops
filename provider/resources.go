@@ -25,6 +25,7 @@ import (
 
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	tks "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfgen"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 
@@ -66,6 +67,7 @@ func Provider() tfbridge.ProviderInfo {
 		GitHubOrg:    "microsoft",
 		Version:      version.Version,
 		MetadataInfo: tfbridge.NewProviderMetadata(metadata),
+		DocRules:     &tfbridge.DocRuleInfo{EditRules: docEditRules},
 		Config: map[string]*tfbridge.SchemaInfo{
 			"org_service_url": {
 				Default: &tfbridge.DefaultInfo{
@@ -205,4 +207,21 @@ func Provider() tfbridge.ProviderInfo {
 	prov.MustApplyAutoAliases()
 
 	return prov
+}
+
+func docEditRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
+	return append(
+		defaults,
+		skipAuthenticationSection,
+	)
+}
+
+// The Authentication section contains links to internal guides.
+var skipAuthenticationSection = tfbridge.DocsEdit{
+	Path: "index.md",
+	Edit: func(_ string, content []byte) ([]byte, error) {
+		return tfgen.SkipSectionByHeaderContent(content, func(headerText string) bool {
+			return headerText == "Authentication"
+		})
+	},
 }
