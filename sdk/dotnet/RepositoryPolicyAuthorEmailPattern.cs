@@ -10,6 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps
 {
     /// <summary>
+    /// layout: "azuredevops"
+    /// page_title: "AzureDevops: azuredevops.RepositoryPolicyAuthorEmailPattern"
+    /// description: |- Manages author email pattern repository policy within Azure DevOps project.
+    /// &lt;!-- yaml: line 3: did not find expected comment or line break --&gt;
+    /// 
+    /// # azuredevops.RepositoryPolicyAuthorEmailPattern
+    /// 
     /// Manage author email pattern repository policy within Azure DevOps project.
     /// 
     /// ## Example Usage
@@ -110,7 +117,7 @@ namespace Pulumi.AzureDevOps
     public partial class RepositoryPolicyAuthorEmailPattern : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
+        /// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
         /// Email patterns prefixed with "!" are excluded. Order is important.
         /// </summary>
         [Output("authorEmailPatterns")]
@@ -190,7 +197,7 @@ namespace Pulumi.AzureDevOps
         private InputList<string>? _authorEmailPatterns;
 
         /// <summary>
-        /// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
+        /// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
         /// Email patterns prefixed with "!" are excluded. Order is important.
         /// </summary>
         public InputList<string> AuthorEmailPatterns
@@ -241,7 +248,7 @@ namespace Pulumi.AzureDevOps
         private InputList<string>? _authorEmailPatterns;
 
         /// <summary>
-        /// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
+        /// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
         /// Email patterns prefixed with "!" are excluded. Order is important.
         /// </summary>
         public InputList<string> AuthorEmailPatterns

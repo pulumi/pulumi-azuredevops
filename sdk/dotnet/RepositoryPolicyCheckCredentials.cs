@@ -10,6 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps
 {
     /// <summary>
+    /// layout: "azuredevops"
+    /// page_title: "AzureDevops: azuredevops.RepositoryPolicyCheckCredentials"
+    /// description: |- Manage a credentials check repository policy within Azure DevOps project.
+    /// &lt;!-- yaml: line 3: did not find expected comment or line break --&gt;
+    /// 
+    /// # azuredevops.RepositoryPolicyCheckCredentials
+    /// 
     /// Manage a credentials check repository policy within Azure DevOps project. Block pushes that introduce files, folders, or branch names that include platform reserved names or incompatible characters.
     /// 
     /// &gt; If both project and project policy are enabled, the project policy has high priority.

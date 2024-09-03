@@ -74,6 +74,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// });
     /// ```
+    /// 
     /// ### Set root folder permissions
     /// ```csharp
     /// using System.Collections.Generic;
@@ -135,24 +136,76 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// the permissions to assign. The following permissions are available.
-        /// 
-        /// | Permission                     | Description                           |
-        /// |--------------------------------|---------------------------------------|
-        /// | ViewBuilds                     | View builds                           |
-        /// | EditBuildQuality               | Edit build quality                    |
-        /// | RetainIndefinitely             | Retain indefinitely                   |
-        /// | DeleteBuilds                   | Delete builds                         |
-        /// | ManageBuildQualities           | Manage build qualities                |
-        /// | DestroyBuilds                  | Destroy builds                        |
-        /// | UpdateBuildInformation         | Update build information              |
-        /// | QueueBuilds                    | Queue builds                          |
-        /// | ManageBuildQueue               | Manage build queue                    |
-        /// | StopBuilds                     | Stop builds                           |
-        /// | ViewBuildDefinition            | View build pipeline                   |
-        /// | EditBuildDefinition            | Edit build pipeline                   |
-        /// | DeleteBuildDefinition          | Delete build pipeline                 |
-        /// | OverrideBuildCheckInValidation | Override check-in validation by build |
-        /// | AdministerBuildPermissions     | Administer build permissions          |
+        /// &lt;table&gt;
+        /// &lt;thead&gt;
+        /// &lt;tr&gt;
+        /// &lt;th&gt;Permission&lt;/th&gt;
+        /// &lt;th&gt;Description&lt;/th&gt;
+        /// &lt;/tr&gt;
+        /// &lt;/thead&gt;
+        /// &lt;tbody&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;ViewBuilds&lt;/td&gt;
+        /// &lt;td&gt;View builds&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;EditBuildQuality&lt;/td&gt;
+        /// &lt;td&gt;Edit build quality&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;RetainIndefinitely&lt;/td&gt;
+        /// &lt;td&gt;Retain indefinitely&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;DeleteBuilds&lt;/td&gt;
+        /// &lt;td&gt;Delete builds&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;ManageBuildQualities&lt;/td&gt;
+        /// &lt;td&gt;Manage build qualities&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;DestroyBuilds&lt;/td&gt;
+        /// &lt;td&gt;Destroy builds&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;UpdateBuildInformation&lt;/td&gt;
+        /// &lt;td&gt;Update build information&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;QueueBuilds&lt;/td&gt;
+        /// &lt;td&gt;Queue builds&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;ManageBuildQueue&lt;/td&gt;
+        /// &lt;td&gt;Manage build queue&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;StopBuilds&lt;/td&gt;
+        /// &lt;td&gt;Stop builds&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;ViewBuildDefinition&lt;/td&gt;
+        /// &lt;td&gt;View build pipeline&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;EditBuildDefinition&lt;/td&gt;
+        /// &lt;td&gt;Edit build pipeline&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;DeleteBuildDefinition&lt;/td&gt;
+        /// &lt;td&gt;Delete build pipeline&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;OverrideBuildCheckInValidation&lt;/td&gt;
+        /// &lt;td&gt;Override check-in validation by build&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;AdministerBuildPermissions&lt;/td&gt;
+        /// &lt;td&gt;Administer build permissions&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;/tbody&gt;
+        /// &lt;/table&gt;
         /// </summary>
         [Output("permissions")]
         public Output<ImmutableDictionary<string, string>> Permissions { get; private set; } = null!;
@@ -232,24 +285,76 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// the permissions to assign. The following permissions are available.
-        /// 
-        /// | Permission                     | Description                           |
-        /// |--------------------------------|---------------------------------------|
-        /// | ViewBuilds                     | View builds                           |
-        /// | EditBuildQuality               | Edit build quality                    |
-        /// | RetainIndefinitely             | Retain indefinitely                   |
-        /// | DeleteBuilds                   | Delete builds                         |
-        /// | ManageBuildQualities           | Manage build qualities                |
-        /// | DestroyBuilds                  | Destroy builds                        |
-        /// | UpdateBuildInformation         | Update build information              |
-        /// | QueueBuilds                    | Queue builds                          |
-        /// | ManageBuildQueue               | Manage build queue                    |
-        /// | StopBuilds                     | Stop builds                           |
-        /// | ViewBuildDefinition            | View build pipeline                   |
-        /// | EditBuildDefinition            | Edit build pipeline                   |
-        /// | DeleteBuildDefinition          | Delete build pipeline                 |
-        /// | OverrideBuildCheckInValidation | Override check-in validation by build |
-        /// | AdministerBuildPermissions     | Administer build permissions          |
+        /// &lt;table&gt;
+        /// &lt;thead&gt;
+        /// &lt;tr&gt;
+        /// &lt;th&gt;Permission&lt;/th&gt;
+        /// &lt;th&gt;Description&lt;/th&gt;
+        /// &lt;/tr&gt;
+        /// &lt;/thead&gt;
+        /// &lt;tbody&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;ViewBuilds&lt;/td&gt;
+        /// &lt;td&gt;View builds&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;EditBuildQuality&lt;/td&gt;
+        /// &lt;td&gt;Edit build quality&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;RetainIndefinitely&lt;/td&gt;
+        /// &lt;td&gt;Retain indefinitely&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;DeleteBuilds&lt;/td&gt;
+        /// &lt;td&gt;Delete builds&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;ManageBuildQualities&lt;/td&gt;
+        /// &lt;td&gt;Manage build qualities&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;DestroyBuilds&lt;/td&gt;
+        /// &lt;td&gt;Destroy builds&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;UpdateBuildInformation&lt;/td&gt;
+        /// &lt;td&gt;Update build information&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;QueueBuilds&lt;/td&gt;
+        /// &lt;td&gt;Queue builds&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;ManageBuildQueue&lt;/td&gt;
+        /// &lt;td&gt;Manage build queue&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;StopBuilds&lt;/td&gt;
+        /// &lt;td&gt;Stop builds&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;ViewBuildDefinition&lt;/td&gt;
+        /// &lt;td&gt;View build pipeline&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;EditBuildDefinition&lt;/td&gt;
+        /// &lt;td&gt;Edit build pipeline&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;DeleteBuildDefinition&lt;/td&gt;
+        /// &lt;td&gt;Delete build pipeline&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;OverrideBuildCheckInValidation&lt;/td&gt;
+        /// &lt;td&gt;Override check-in validation by build&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;AdministerBuildPermissions&lt;/td&gt;
+        /// &lt;td&gt;Administer build permissions&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;/tbody&gt;
+        /// &lt;/table&gt;
         /// </summary>
         public InputMap<string> Permissions
         {
@@ -294,24 +399,76 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// the permissions to assign. The following permissions are available.
-        /// 
-        /// | Permission                     | Description                           |
-        /// |--------------------------------|---------------------------------------|
-        /// | ViewBuilds                     | View builds                           |
-        /// | EditBuildQuality               | Edit build quality                    |
-        /// | RetainIndefinitely             | Retain indefinitely                   |
-        /// | DeleteBuilds                   | Delete builds                         |
-        /// | ManageBuildQualities           | Manage build qualities                |
-        /// | DestroyBuilds                  | Destroy builds                        |
-        /// | UpdateBuildInformation         | Update build information              |
-        /// | QueueBuilds                    | Queue builds                          |
-        /// | ManageBuildQueue               | Manage build queue                    |
-        /// | StopBuilds                     | Stop builds                           |
-        /// | ViewBuildDefinition            | View build pipeline                   |
-        /// | EditBuildDefinition            | Edit build pipeline                   |
-        /// | DeleteBuildDefinition          | Delete build pipeline                 |
-        /// | OverrideBuildCheckInValidation | Override check-in validation by build |
-        /// | AdministerBuildPermissions     | Administer build permissions          |
+        /// &lt;table&gt;
+        /// &lt;thead&gt;
+        /// &lt;tr&gt;
+        /// &lt;th&gt;Permission&lt;/th&gt;
+        /// &lt;th&gt;Description&lt;/th&gt;
+        /// &lt;/tr&gt;
+        /// &lt;/thead&gt;
+        /// &lt;tbody&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;ViewBuilds&lt;/td&gt;
+        /// &lt;td&gt;View builds&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;EditBuildQuality&lt;/td&gt;
+        /// &lt;td&gt;Edit build quality&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;RetainIndefinitely&lt;/td&gt;
+        /// &lt;td&gt;Retain indefinitely&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;DeleteBuilds&lt;/td&gt;
+        /// &lt;td&gt;Delete builds&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;ManageBuildQualities&lt;/td&gt;
+        /// &lt;td&gt;Manage build qualities&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;DestroyBuilds&lt;/td&gt;
+        /// &lt;td&gt;Destroy builds&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;UpdateBuildInformation&lt;/td&gt;
+        /// &lt;td&gt;Update build information&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;QueueBuilds&lt;/td&gt;
+        /// &lt;td&gt;Queue builds&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;ManageBuildQueue&lt;/td&gt;
+        /// &lt;td&gt;Manage build queue&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;StopBuilds&lt;/td&gt;
+        /// &lt;td&gt;Stop builds&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;ViewBuildDefinition&lt;/td&gt;
+        /// &lt;td&gt;View build pipeline&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;EditBuildDefinition&lt;/td&gt;
+        /// &lt;td&gt;Edit build pipeline&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;DeleteBuildDefinition&lt;/td&gt;
+        /// &lt;td&gt;Delete build pipeline&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;OverrideBuildCheckInValidation&lt;/td&gt;
+        /// &lt;td&gt;Override check-in validation by build&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;AdministerBuildPermissions&lt;/td&gt;
+        /// &lt;td&gt;Administer build permissions&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;/tbody&gt;
+        /// &lt;/table&gt;
         /// </summary>
         public InputMap<string> Permissions
         {

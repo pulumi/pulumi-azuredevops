@@ -65,13 +65,32 @@ import (
 // ## Roles
 //
 // The Azure DevOps UI uses roles to assign permissions for the Library.
-//
-// | Role          | Allowed Permissions    |
-// | ------------- | ---------------------- |
-// | Reader        | View                   |
-// | Creator       | View, Create           |
-// | User          | View, Use              |
-// | Administrator | View, Use, Administer  |
+// <table>
+// <thead>
+// <tr>
+// <th>Role</th>
+// <th>Allowed Permissions</th>
+// </tr>
+// </thead>
+// <tbody>
+// <tr>
+// <td>Reader</td>
+// <td>View</td>
+// </tr>
+// <tr>
+// <td>Creator</td>
+// <td>View, Create</td>
+// </tr>
+// <tr>
+// <td>User</td>
+// <td>View, Use</td>
+// </tr>
+// <tr>
+// <td>Administrator</td>
+// <td>View, Use, Administer</td>
+// </tr>
+// </tbody>
+// </table>
 //
 // ## Relevant Links
 //
@@ -94,15 +113,40 @@ type LibraryPermissions struct {
 	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-	//
-	// | Permission        | Description                         |
-	// | ----------------- | ----------------------------------- |
-	// | View              | View library item                   |
-	// | Administer        | Administer library item             |
-	// | Create            | Create library item                 |
-	// | ViewSecrets       | View library item secrets           |
-	// | Use               | Use library item                    |
-	// | Owner             | Owner library item                  |
+	// <table>
+	// <thead>
+	// <tr>
+	// <th>Permission</th>
+	// <th>Description</th>
+	// </tr>
+	// </thead>
+	// <tbody>
+	// <tr>
+	// <td>View</td>
+	// <td>View library item</td>
+	// </tr>
+	// <tr>
+	// <td>Administer</td>
+	// <td>Administer library item</td>
+	// </tr>
+	// <tr>
+	// <td>Create</td>
+	// <td>Create library item</td>
+	// </tr>
+	// <tr>
+	// <td>ViewSecrets</td>
+	// <td>View library item secrets</td>
+	// </tr>
+	// <tr>
+	// <td>Use</td>
+	// <td>Use library item</td>
+	// </tr>
+	// <tr>
+	// <td>Owner</td>
+	// <td>Owner library item</td>
+	// </tr>
+	// </tbody>
+	// </table>
 	Replace pulumi.BoolPtrOutput `pulumi:"replace"`
 }
 
@@ -152,15 +196,40 @@ type libraryPermissionsState struct {
 	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-	//
-	// | Permission        | Description                         |
-	// | ----------------- | ----------------------------------- |
-	// | View              | View library item                   |
-	// | Administer        | Administer library item             |
-	// | Create            | Create library item                 |
-	// | ViewSecrets       | View library item secrets           |
-	// | Use               | Use library item                    |
-	// | Owner             | Owner library item                  |
+	// <table>
+	// <thead>
+	// <tr>
+	// <th>Permission</th>
+	// <th>Description</th>
+	// </tr>
+	// </thead>
+	// <tbody>
+	// <tr>
+	// <td>View</td>
+	// <td>View library item</td>
+	// </tr>
+	// <tr>
+	// <td>Administer</td>
+	// <td>Administer library item</td>
+	// </tr>
+	// <tr>
+	// <td>Create</td>
+	// <td>Create library item</td>
+	// </tr>
+	// <tr>
+	// <td>ViewSecrets</td>
+	// <td>View library item secrets</td>
+	// </tr>
+	// <tr>
+	// <td>Use</td>
+	// <td>Use library item</td>
+	// </tr>
+	// <tr>
+	// <td>Owner</td>
+	// <td>Owner library item</td>
+	// </tr>
+	// </tbody>
+	// </table>
 	Replace *bool `pulumi:"replace"`
 }
 
@@ -172,15 +241,40 @@ type LibraryPermissionsState struct {
 	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-	//
-	// | Permission        | Description                         |
-	// | ----------------- | ----------------------------------- |
-	// | View              | View library item                   |
-	// | Administer        | Administer library item             |
-	// | Create            | Create library item                 |
-	// | ViewSecrets       | View library item secrets           |
-	// | Use               | Use library item                    |
-	// | Owner             | Owner library item                  |
+	// <table>
+	// <thead>
+	// <tr>
+	// <th>Permission</th>
+	// <th>Description</th>
+	// </tr>
+	// </thead>
+	// <tbody>
+	// <tr>
+	// <td>View</td>
+	// <td>View library item</td>
+	// </tr>
+	// <tr>
+	// <td>Administer</td>
+	// <td>Administer library item</td>
+	// </tr>
+	// <tr>
+	// <td>Create</td>
+	// <td>Create library item</td>
+	// </tr>
+	// <tr>
+	// <td>ViewSecrets</td>
+	// <td>View library item secrets</td>
+	// </tr>
+	// <tr>
+	// <td>Use</td>
+	// <td>Use library item</td>
+	// </tr>
+	// <tr>
+	// <td>Owner</td>
+	// <td>Owner library item</td>
+	// </tr>
+	// </tbody>
+	// </table>
 	Replace pulumi.BoolPtrInput
 }
 
@@ -196,15 +290,40 @@ type libraryPermissionsArgs struct {
 	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-	//
-	// | Permission        | Description                         |
-	// | ----------------- | ----------------------------------- |
-	// | View              | View library item                   |
-	// | Administer        | Administer library item             |
-	// | Create            | Create library item                 |
-	// | ViewSecrets       | View library item secrets           |
-	// | Use               | Use library item                    |
-	// | Owner             | Owner library item                  |
+	// <table>
+	// <thead>
+	// <tr>
+	// <th>Permission</th>
+	// <th>Description</th>
+	// </tr>
+	// </thead>
+	// <tbody>
+	// <tr>
+	// <td>View</td>
+	// <td>View library item</td>
+	// </tr>
+	// <tr>
+	// <td>Administer</td>
+	// <td>Administer library item</td>
+	// </tr>
+	// <tr>
+	// <td>Create</td>
+	// <td>Create library item</td>
+	// </tr>
+	// <tr>
+	// <td>ViewSecrets</td>
+	// <td>View library item secrets</td>
+	// </tr>
+	// <tr>
+	// <td>Use</td>
+	// <td>Use library item</td>
+	// </tr>
+	// <tr>
+	// <td>Owner</td>
+	// <td>Owner library item</td>
+	// </tr>
+	// </tbody>
+	// </table>
 	Replace *bool `pulumi:"replace"`
 }
 
@@ -217,15 +336,40 @@ type LibraryPermissionsArgs struct {
 	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-	//
-	// | Permission        | Description                         |
-	// | ----------------- | ----------------------------------- |
-	// | View              | View library item                   |
-	// | Administer        | Administer library item             |
-	// | Create            | Create library item                 |
-	// | ViewSecrets       | View library item secrets           |
-	// | Use               | Use library item                    |
-	// | Owner             | Owner library item                  |
+	// <table>
+	// <thead>
+	// <tr>
+	// <th>Permission</th>
+	// <th>Description</th>
+	// </tr>
+	// </thead>
+	// <tbody>
+	// <tr>
+	// <td>View</td>
+	// <td>View library item</td>
+	// </tr>
+	// <tr>
+	// <td>Administer</td>
+	// <td>Administer library item</td>
+	// </tr>
+	// <tr>
+	// <td>Create</td>
+	// <td>Create library item</td>
+	// </tr>
+	// <tr>
+	// <td>ViewSecrets</td>
+	// <td>View library item secrets</td>
+	// </tr>
+	// <tr>
+	// <td>Use</td>
+	// <td>Use library item</td>
+	// </tr>
+	// <tr>
+	// <td>Owner</td>
+	// <td>Owner library item</td>
+	// </tr>
+	// </tbody>
+	// </table>
 	Replace pulumi.BoolPtrInput
 }
 
@@ -332,15 +476,40 @@ func (o LibraryPermissionsOutput) ProjectId() pulumi.StringOutput {
 }
 
 // Replace (`true`) or merge (`false`) the permissions. Default: `true`
-//
-// | Permission        | Description                         |
-// | ----------------- | ----------------------------------- |
-// | View              | View library item                   |
-// | Administer        | Administer library item             |
-// | Create            | Create library item                 |
-// | ViewSecrets       | View library item secrets           |
-// | Use               | Use library item                    |
-// | Owner             | Owner library item                  |
+// <table>
+// <thead>
+// <tr>
+// <th>Permission</th>
+// <th>Description</th>
+// </tr>
+// </thead>
+// <tbody>
+// <tr>
+// <td>View</td>
+// <td>View library item</td>
+// </tr>
+// <tr>
+// <td>Administer</td>
+// <td>Administer library item</td>
+// </tr>
+// <tr>
+// <td>Create</td>
+// <td>Create library item</td>
+// </tr>
+// <tr>
+// <td>ViewSecrets</td>
+// <td>View library item secrets</td>
+// </tr>
+// <tr>
+// <td>Use</td>
+// <td>Use library item</td>
+// </tr>
+// <tr>
+// <td>Owner</td>
+// <td>Owner library item</td>
+// </tr>
+// </tbody>
+// </table>
 func (o LibraryPermissionsOutput) Replace() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LibraryPermissions) pulumi.BoolPtrOutput { return v.Replace }).(pulumi.BoolPtrOutput)
 }

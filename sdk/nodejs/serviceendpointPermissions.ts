@@ -118,14 +118,36 @@ export class ServiceendpointPermissions extends pulumi.CustomResource {
     public readonly projectId!: pulumi.Output<string>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     *
-     * | Permission        | Description                         |
-     * | ----------------- | ----------------------------------- |
-     * | Use               | Use service endpoint                |
-     * | Administer        | Full control over service endpoints |
-     * | Create            | Create service endpoints            |
-     * | ViewAuthorization | View authorizations                 |
-     * | ViewEndpoint      | View service endpoint properties    |
+     * <table>
+     * <thead>
+     * <tr>
+     * <th>Permission</th>
+     * <th>Description</th>
+     * </tr>
+     * </thead>
+     * <tbody>
+     * <tr>
+     * <td>Use</td>
+     * <td>Use service endpoint</td>
+     * </tr>
+     * <tr>
+     * <td>Administer</td>
+     * <td>Full control over service endpoints</td>
+     * </tr>
+     * <tr>
+     * <td>Create</td>
+     * <td>Create service endpoints</td>
+     * </tr>
+     * <tr>
+     * <td>ViewAuthorization</td>
+     * <td>View authorizations</td>
+     * </tr>
+     * <tr>
+     * <td>ViewEndpoint</td>
+     * <td>View service endpoint properties</td>
+     * </tr>
+     * </tbody>
+     * </table>
      */
     public readonly replace!: pulumi.Output<boolean | undefined>;
     /**
@@ -191,14 +213,36 @@ export interface ServiceendpointPermissionsState {
     projectId?: pulumi.Input<string>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     *
-     * | Permission        | Description                         |
-     * | ----------------- | ----------------------------------- |
-     * | Use               | Use service endpoint                |
-     * | Administer        | Full control over service endpoints |
-     * | Create            | Create service endpoints            |
-     * | ViewAuthorization | View authorizations                 |
-     * | ViewEndpoint      | View service endpoint properties    |
+     * <table>
+     * <thead>
+     * <tr>
+     * <th>Permission</th>
+     * <th>Description</th>
+     * </tr>
+     * </thead>
+     * <tbody>
+     * <tr>
+     * <td>Use</td>
+     * <td>Use service endpoint</td>
+     * </tr>
+     * <tr>
+     * <td>Administer</td>
+     * <td>Full control over service endpoints</td>
+     * </tr>
+     * <tr>
+     * <td>Create</td>
+     * <td>Create service endpoints</td>
+     * </tr>
+     * <tr>
+     * <td>ViewAuthorization</td>
+     * <td>View authorizations</td>
+     * </tr>
+     * <tr>
+     * <td>ViewEndpoint</td>
+     * <td>View service endpoint properties</td>
+     * </tr>
+     * </tbody>
+     * </table>
      */
     replace?: pulumi.Input<boolean>;
     /**
@@ -225,14 +269,36 @@ export interface ServiceendpointPermissionsArgs {
     projectId: pulumi.Input<string>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     *
-     * | Permission        | Description                         |
-     * | ----------------- | ----------------------------------- |
-     * | Use               | Use service endpoint                |
-     * | Administer        | Full control over service endpoints |
-     * | Create            | Create service endpoints            |
-     * | ViewAuthorization | View authorizations                 |
-     * | ViewEndpoint      | View service endpoint properties    |
+     * <table>
+     * <thead>
+     * <tr>
+     * <th>Permission</th>
+     * <th>Description</th>
+     * </tr>
+     * </thead>
+     * <tbody>
+     * <tr>
+     * <td>Use</td>
+     * <td>Use service endpoint</td>
+     * </tr>
+     * <tr>
+     * <td>Administer</td>
+     * <td>Full control over service endpoints</td>
+     * </tr>
+     * <tr>
+     * <td>Create</td>
+     * <td>Create service endpoints</td>
+     * </tr>
+     * <tr>
+     * <td>ViewAuthorization</td>
+     * <td>View authorizations</td>
+     * </tr>
+     * <tr>
+     * <td>ViewEndpoint</td>
+     * <td>View service endpoint properties</td>
+     * </tr>
+     * </tbody>
+     * </table>
      */
     replace?: pulumi.Input<boolean>;
     /**

@@ -5,6 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * layout: "azuredevops"
+ * page_title: "AzureDevops: azuredevops.RepositoryPolicyFilePathPattern"
+ * description: |- Manages a file path pattern repository policy within Azure DevOps project.
+ * <!-- yaml: line 3: did not find expected comment or line break -->
+ *
+ * # azuredevops.RepositoryPolicyFilePathPattern
+ *
  * Manage a file path pattern repository policy within Azure DevOps project.
  *
  * ## Example Usage

@@ -7,6 +7,13 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * layout: "azuredevops"
+ * page_title: "AzureDevops: azuredevops.BranchPolicyStatusCheck"
+ * description: |- Manages status check branch policy within Azure DevOps project.
+ * <!-- yaml: line 3: did not find expected comment or line break -->
+ *
+ * # azuredevops.BranchPolicyStatusCheck
+ *
  * Manages a status check branch policy within Azure DevOps.
  *
  * ## Example Usage

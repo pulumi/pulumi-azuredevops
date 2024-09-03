@@ -29,13 +29,32 @@ class TaggingPermissionsArgs:
         :param pulumi.Input[str] principal: The **group or user** principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions. If omitted, organization wide permissions for tagging are managed.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
-               
-               | Name               | Permission Description     |
-               | ------------------ | -------------------------- |
-               | Enumerate          | Enumerate tag definitions  |
-               | Create             | Create tag definition      |
-               | Update             | Update tag definition      |
-               | Delete             | Delete tag definition      |
+               <table>
+               <thead>
+               <tr>
+               <th>Name</th>
+               <th>Permission Description</th>
+               </tr>
+               </thead>
+               <tbody>
+               <tr>
+               <td>Enumerate</td>
+               <td>Enumerate tag definitions</td>
+               </tr>
+               <tr>
+               <td>Create</td>
+               <td>Create tag definition</td>
+               </tr>
+               <tr>
+               <td>Update</td>
+               <td>Update tag definition</td>
+               </tr>
+               <tr>
+               <td>Delete</td>
+               <td>Delete tag definition</td>
+               </tr>
+               </tbody>
+               </table>
         """
         pulumi.set(__self__, "permissions", permissions)
         pulumi.set(__self__, "principal", principal)
@@ -85,13 +104,32 @@ class TaggingPermissionsArgs:
     def replace(self) -> Optional[pulumi.Input[bool]]:
         """
         Replace (`true`) or merge (`false`) the permissions. Default: `true`
-
-        | Name               | Permission Description     |
-        | ------------------ | -------------------------- |
-        | Enumerate          | Enumerate tag definitions  |
-        | Create             | Create tag definition      |
-        | Update             | Update tag definition      |
-        | Delete             | Delete tag definition      |
+        <table>
+        <thead>
+        <tr>
+        <th>Name</th>
+        <th>Permission Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>Enumerate</td>
+        <td>Enumerate tag definitions</td>
+        </tr>
+        <tr>
+        <td>Create</td>
+        <td>Create tag definition</td>
+        </tr>
+        <tr>
+        <td>Update</td>
+        <td>Update tag definition</td>
+        </tr>
+        <tr>
+        <td>Delete</td>
+        <td>Delete tag definition</td>
+        </tr>
+        </tbody>
+        </table>
         """
         return pulumi.get(self, "replace")
 
@@ -113,13 +151,32 @@ class _TaggingPermissionsState:
         :param pulumi.Input[str] principal: The **group or user** principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions. If omitted, organization wide permissions for tagging are managed.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
-               
-               | Name               | Permission Description     |
-               | ------------------ | -------------------------- |
-               | Enumerate          | Enumerate tag definitions  |
-               | Create             | Create tag definition      |
-               | Update             | Update tag definition      |
-               | Delete             | Delete tag definition      |
+               <table>
+               <thead>
+               <tr>
+               <th>Name</th>
+               <th>Permission Description</th>
+               </tr>
+               </thead>
+               <tbody>
+               <tr>
+               <td>Enumerate</td>
+               <td>Enumerate tag definitions</td>
+               </tr>
+               <tr>
+               <td>Create</td>
+               <td>Create tag definition</td>
+               </tr>
+               <tr>
+               <td>Update</td>
+               <td>Update tag definition</td>
+               </tr>
+               <tr>
+               <td>Delete</td>
+               <td>Delete tag definition</td>
+               </tr>
+               </tbody>
+               </table>
         """
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
@@ -171,13 +228,32 @@ class _TaggingPermissionsState:
     def replace(self) -> Optional[pulumi.Input[bool]]:
         """
         Replace (`true`) or merge (`false`) the permissions. Default: `true`
-
-        | Name               | Permission Description     |
-        | ------------------ | -------------------------- |
-        | Enumerate          | Enumerate tag definitions  |
-        | Create             | Create tag definition      |
-        | Update             | Update tag definition      |
-        | Delete             | Delete tag definition      |
+        <table>
+        <thead>
+        <tr>
+        <th>Name</th>
+        <th>Permission Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>Enumerate</td>
+        <td>Enumerate tag definitions</td>
+        </tr>
+        <tr>
+        <td>Create</td>
+        <td>Create tag definition</td>
+        </tr>
+        <tr>
+        <td>Update</td>
+        <td>Update tag definition</td>
+        </tr>
+        <tr>
+        <td>Delete</td>
+        <td>Delete tag definition</td>
+        </tr>
+        </tbody>
+        </table>
         """
         return pulumi.get(self, "replace")
 
@@ -247,13 +323,32 @@ class TaggingPermissions(pulumi.CustomResource):
         :param pulumi.Input[str] principal: The **group or user** principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions. If omitted, organization wide permissions for tagging are managed.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
-               
-               | Name               | Permission Description     |
-               | ------------------ | -------------------------- |
-               | Enumerate          | Enumerate tag definitions  |
-               | Create             | Create tag definition      |
-               | Update             | Update tag definition      |
-               | Delete             | Delete tag definition      |
+               <table>
+               <thead>
+               <tr>
+               <th>Name</th>
+               <th>Permission Description</th>
+               </tr>
+               </thead>
+               <tbody>
+               <tr>
+               <td>Enumerate</td>
+               <td>Enumerate tag definitions</td>
+               </tr>
+               <tr>
+               <td>Create</td>
+               <td>Create tag definition</td>
+               </tr>
+               <tr>
+               <td>Update</td>
+               <td>Update tag definition</td>
+               </tr>
+               <tr>
+               <td>Delete</td>
+               <td>Delete tag definition</td>
+               </tr>
+               </tbody>
+               </table>
         """
         ...
     @overload
@@ -367,13 +462,32 @@ class TaggingPermissions(pulumi.CustomResource):
         :param pulumi.Input[str] principal: The **group or user** principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions. If omitted, organization wide permissions for tagging are managed.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
-               
-               | Name               | Permission Description     |
-               | ------------------ | -------------------------- |
-               | Enumerate          | Enumerate tag definitions  |
-               | Create             | Create tag definition      |
-               | Update             | Update tag definition      |
-               | Delete             | Delete tag definition      |
+               <table>
+               <thead>
+               <tr>
+               <th>Name</th>
+               <th>Permission Description</th>
+               </tr>
+               </thead>
+               <tbody>
+               <tr>
+               <td>Enumerate</td>
+               <td>Enumerate tag definitions</td>
+               </tr>
+               <tr>
+               <td>Create</td>
+               <td>Create tag definition</td>
+               </tr>
+               <tr>
+               <td>Update</td>
+               <td>Update tag definition</td>
+               </tr>
+               <tr>
+               <td>Delete</td>
+               <td>Delete tag definition</td>
+               </tr>
+               </tbody>
+               </table>
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -414,13 +528,32 @@ class TaggingPermissions(pulumi.CustomResource):
     def replace(self) -> pulumi.Output[Optional[bool]]:
         """
         Replace (`true`) or merge (`false`) the permissions. Default: `true`
-
-        | Name               | Permission Description     |
-        | ------------------ | -------------------------- |
-        | Enumerate          | Enumerate tag definitions  |
-        | Create             | Create tag definition      |
-        | Update             | Update tag definition      |
-        | Delete             | Delete tag definition      |
+        <table>
+        <thead>
+        <tr>
+        <th>Name</th>
+        <th>Permission Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>Enumerate</td>
+        <td>Enumerate tag definitions</td>
+        </tr>
+        <tr>
+        <td>Create</td>
+        <td>Create tag definition</td>
+        </tr>
+        <tr>
+        <td>Update</td>
+        <td>Update tag definition</td>
+        </tr>
+        <tr>
+        <td>Delete</td>
+        <td>Delete tag definition</td>
+        </tr>
+        </tbody>
+        </table>
         """
         return pulumi.get(self, "replace")
 

@@ -72,9 +72,9 @@ func GetIteration(ctx *pulumi.Context, args *GetIterationArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getIteration.
 type GetIterationArgs struct {
-	// Read children nodes, _Depth_: 1, _Default_: `true`
+	// Read children nodes, *Depth*: 1, *Default*: `true`
 	FetchChildren *bool `pulumi:"fetchChildren"`
-	// The path to the Iteration, _Format_: URL relative; if omitted, or value `"/"` is used, the root Iteration will be returned
+	// The path to the Iteration, *Format*: URL relative; if omitted, or value `"/"` is used, the root Iteration will be returned
 	Path *string `pulumi:"path"`
 	// The project ID.
 	ProjectId string `pulumi:"projectId"`
@@ -112,9 +112,9 @@ func GetIterationOutput(ctx *pulumi.Context, args GetIterationOutputArgs, opts .
 
 // A collection of arguments for invoking getIteration.
 type GetIterationOutputArgs struct {
-	// Read children nodes, _Depth_: 1, _Default_: `true`
+	// Read children nodes, *Depth*: 1, *Default*: `true`
 	FetchChildren pulumi.BoolPtrInput `pulumi:"fetchChildren"`
-	// The path to the Iteration, _Format_: URL relative; if omitted, or value `"/"` is used, the root Iteration will be returned
+	// The path to the Iteration, *Format*: URL relative; if omitted, or value `"/"` is used, the root Iteration will be returned
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// The project ID.
 	ProjectId pulumi.StringInput `pulumi:"projectId"`

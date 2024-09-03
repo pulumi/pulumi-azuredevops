@@ -202,6 +202,13 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
                  repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        layout: "azuredevops"
+        page_title: "AzureDevops: RepositoryPolicyFilePathPattern"
+        description: |- Manages a file path pattern repository policy within Azure DevOps project.
+        <!-- yaml: line 3: did not find expected comment or line break -->
+
+        # RepositoryPolicyFilePathPattern
+
         Manage a file path pattern repository policy within Azure DevOps project.
 
         ## Example Usage
@@ -281,6 +288,13 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
                  args: RepositoryPolicyFilePathPatternArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        layout: "azuredevops"
+        page_title: "AzureDevops: RepositoryPolicyFilePathPattern"
+        description: |- Manages a file path pattern repository policy within Azure DevOps project.
+        <!-- yaml: line 3: did not find expected comment or line break -->
+
+        # RepositoryPolicyFilePathPattern
+
         Manage a file path pattern repository policy within Azure DevOps project.
 
         ## Example Usage

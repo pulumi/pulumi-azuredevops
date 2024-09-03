@@ -95,13 +95,32 @@ export class TaggingPermissions extends pulumi.CustomResource {
     public readonly projectId!: pulumi.Output<string | undefined>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     *
-     * | Name               | Permission Description     |
-     * | ------------------ | -------------------------- |
-     * | Enumerate          | Enumerate tag definitions  |
-     * | Create             | Create tag definition      |
-     * | Update             | Update tag definition      |
-     * | Delete             | Delete tag definition      |
+     * <table>
+     * <thead>
+     * <tr>
+     * <th>Name</th>
+     * <th>Permission Description</th>
+     * </tr>
+     * </thead>
+     * <tbody>
+     * <tr>
+     * <td>Enumerate</td>
+     * <td>Enumerate tag definitions</td>
+     * </tr>
+     * <tr>
+     * <td>Create</td>
+     * <td>Create tag definition</td>
+     * </tr>
+     * <tr>
+     * <td>Update</td>
+     * <td>Update tag definition</td>
+     * </tr>
+     * <tr>
+     * <td>Delete</td>
+     * <td>Delete tag definition</td>
+     * </tr>
+     * </tbody>
+     * </table>
      */
     public readonly replace!: pulumi.Output<boolean | undefined>;
 
@@ -158,13 +177,32 @@ export interface TaggingPermissionsState {
     projectId?: pulumi.Input<string>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     *
-     * | Name               | Permission Description     |
-     * | ------------------ | -------------------------- |
-     * | Enumerate          | Enumerate tag definitions  |
-     * | Create             | Create tag definition      |
-     * | Update             | Update tag definition      |
-     * | Delete             | Delete tag definition      |
+     * <table>
+     * <thead>
+     * <tr>
+     * <th>Name</th>
+     * <th>Permission Description</th>
+     * </tr>
+     * </thead>
+     * <tbody>
+     * <tr>
+     * <td>Enumerate</td>
+     * <td>Enumerate tag definitions</td>
+     * </tr>
+     * <tr>
+     * <td>Create</td>
+     * <td>Create tag definition</td>
+     * </tr>
+     * <tr>
+     * <td>Update</td>
+     * <td>Update tag definition</td>
+     * </tr>
+     * <tr>
+     * <td>Delete</td>
+     * <td>Delete tag definition</td>
+     * </tr>
+     * </tbody>
+     * </table>
      */
     replace?: pulumi.Input<boolean>;
 }
@@ -187,13 +225,32 @@ export interface TaggingPermissionsArgs {
     projectId?: pulumi.Input<string>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     *
-     * | Name               | Permission Description     |
-     * | ------------------ | -------------------------- |
-     * | Enumerate          | Enumerate tag definitions  |
-     * | Create             | Create tag definition      |
-     * | Update             | Update tag definition      |
-     * | Delete             | Delete tag definition      |
+     * <table>
+     * <thead>
+     * <tr>
+     * <th>Name</th>
+     * <th>Permission Description</th>
+     * </tr>
+     * </thead>
+     * <tbody>
+     * <tr>
+     * <td>Enumerate</td>
+     * <td>Enumerate tag definitions</td>
+     * </tr>
+     * <tr>
+     * <td>Create</td>
+     * <td>Create tag definition</td>
+     * </tr>
+     * <tr>
+     * <td>Update</td>
+     * <td>Update tag definition</td>
+     * </tr>
+     * <tr>
+     * <td>Delete</td>
+     * <td>Delete tag definition</td>
+     * </tr>
+     * </tbody>
+     * </table>
      */
     replace?: pulumi.Input<boolean>;
 }

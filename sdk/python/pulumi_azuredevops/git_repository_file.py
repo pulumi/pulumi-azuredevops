@@ -238,6 +238,13 @@ class GitRepositoryFile(pulumi.CustomResource):
                  repository_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        layout: "azuredevops"
+        page_title: "AzureDevops: GitRepositoryFile"
+        description: |- Manage files within an Azure DevOps Git repository.
+        <!-- yaml: line 3: did not find expected comment or line break -->
+
+        # GitRepositoryFile
+
         Manage files within an Azure DevOps Git repository.
 
         ## Example Usage
@@ -301,6 +308,13 @@ class GitRepositoryFile(pulumi.CustomResource):
                  args: GitRepositoryFileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        layout: "azuredevops"
+        page_title: "AzureDevops: GitRepositoryFile"
+        description: |- Manage files within an Azure DevOps Git repository.
+        <!-- yaml: line 3: did not find expected comment or line break -->
+
+        # GitRepositoryFile
+
         Manage files within an Azure DevOps Git repository.
 
         ## Example Usage

@@ -169,13 +169,32 @@ export class WorkItemQueryPermissions extends pulumi.CustomResource {
     public readonly path!: pulumi.Output<string | undefined>;
     /**
      * the permissions to assign. The following permissions are available
-     *
-     * | Permissions              | Description                        |
-     * |--------------------------|------------------------------------|
-     * | Read                     | Read                               |
-     * | Contribute               | Contribute                         |
-     * | Delete                   | Delete                             |
-     * | ManagePermissions        | Manage Permissions                 |
+     * <table>
+     * <thead>
+     * <tr>
+     * <th>Permissions</th>
+     * <th>Description</th>
+     * </tr>
+     * </thead>
+     * <tbody>
+     * <tr>
+     * <td>Read</td>
+     * <td>Read</td>
+     * </tr>
+     * <tr>
+     * <td>Contribute</td>
+     * <td>Contribute</td>
+     * </tr>
+     * <tr>
+     * <td>Delete</td>
+     * <td>Delete</td>
+     * </tr>
+     * <tr>
+     * <td>ManagePermissions</td>
+     * <td>Manage Permissions</td>
+     * </tr>
+     * </tbody>
+     * </table>
      */
     public readonly permissions!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -241,13 +260,32 @@ export interface WorkItemQueryPermissionsState {
     path?: pulumi.Input<string>;
     /**
      * the permissions to assign. The following permissions are available
-     *
-     * | Permissions              | Description                        |
-     * |--------------------------|------------------------------------|
-     * | Read                     | Read                               |
-     * | Contribute               | Contribute                         |
-     * | Delete                   | Delete                             |
-     * | ManagePermissions        | Manage Permissions                 |
+     * <table>
+     * <thead>
+     * <tr>
+     * <th>Permissions</th>
+     * <th>Description</th>
+     * </tr>
+     * </thead>
+     * <tbody>
+     * <tr>
+     * <td>Read</td>
+     * <td>Read</td>
+     * </tr>
+     * <tr>
+     * <td>Contribute</td>
+     * <td>Contribute</td>
+     * </tr>
+     * <tr>
+     * <td>Delete</td>
+     * <td>Delete</td>
+     * </tr>
+     * <tr>
+     * <td>ManagePermissions</td>
+     * <td>Manage Permissions</td>
+     * </tr>
+     * </tbody>
+     * </table>
      */
     permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -274,13 +312,32 @@ export interface WorkItemQueryPermissionsArgs {
     path?: pulumi.Input<string>;
     /**
      * the permissions to assign. The following permissions are available
-     *
-     * | Permissions              | Description                        |
-     * |--------------------------|------------------------------------|
-     * | Read                     | Read                               |
-     * | Contribute               | Contribute                         |
-     * | Delete                   | Delete                             |
-     * | ManagePermissions        | Manage Permissions                 |
+     * <table>
+     * <thead>
+     * <tr>
+     * <th>Permissions</th>
+     * <th>Description</th>
+     * </tr>
+     * </thead>
+     * <tbody>
+     * <tr>
+     * <td>Read</td>
+     * <td>Read</td>
+     * </tr>
+     * <tr>
+     * <td>Contribute</td>
+     * <td>Contribute</td>
+     * </tr>
+     * <tr>
+     * <td>Delete</td>
+     * <td>Delete</td>
+     * </tr>
+     * <tr>
+     * <td>ManagePermissions</td>
+     * <td>Manage Permissions</td>
+     * </tr>
+     * </tbody>
+     * </table>
      */
     permissions: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

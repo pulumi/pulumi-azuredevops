@@ -5,6 +5,14 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * layout: "azuredevops"
+ * page_title: "AzureDevops: azuredevops.GroupEntitlement"
+ * description: |-
+ * Manages a group entitlement within Azure DevOps organization.
+ * <!-- yaml: line 5: could not find expected ':' -->
+ *
+ * # azuredevops.GroupEntitlement
+ *
  * Manages a group entitlement within Azure DevOps.
  *
  * ## Example Usage

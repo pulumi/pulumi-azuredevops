@@ -32,7 +32,7 @@ class CheckBranchControlArgs:
         :param pulumi.Input[str] project_id: The project ID.
         :param pulumi.Input[str] target_resource_id: The ID of the resource being protected by the check.
         :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
-        :param pulumi.Input[str] allowed_branches: The branches allowed to use the resource. Specify a comma separated list of allowed branches in `refs/heads/branch_name` format. To allow deployments from all branches, specify ` * ` . `refs/heads/features/* , refs/heads/releases/*` restricts deployments to all branches under features/ or releases/ . Defaults to `*`.
+        :param pulumi.Input[str] allowed_branches: The branches allowed to use the resource. Specify a comma separated list of allowed branches in `refs/heads/branch_name` format. To allow deployments from all branches, specify `*` . `refs/heads/features/* , refs/heads/releases/*` restricts deployments to all branches under features/ or releases/ . Defaults to `*`.
         :param pulumi.Input[str] display_name: The name of the branch control check displayed in the web UI.
         :param pulumi.Input[bool] ignore_unknown_protection_status: Allow deployment from branches for which protection status could not be obtained. Only relevant when verify_branch_protection is `true`. Defaults to `false`.
         :param pulumi.Input[int] timeout: The timeout in minutes for the branch control check. Defaults to `1440`.
@@ -92,7 +92,7 @@ class CheckBranchControlArgs:
     @pulumi.getter(name="allowedBranches")
     def allowed_branches(self) -> Optional[pulumi.Input[str]]:
         """
-        The branches allowed to use the resource. Specify a comma separated list of allowed branches in `refs/heads/branch_name` format. To allow deployments from all branches, specify ` * ` . `refs/heads/features/* , refs/heads/releases/*` restricts deployments to all branches under features/ or releases/ . Defaults to `*`.
+        The branches allowed to use the resource. Specify a comma separated list of allowed branches in `refs/heads/branch_name` format. To allow deployments from all branches, specify `*` . `refs/heads/features/* , refs/heads/releases/*` restricts deployments to all branches under features/ or releases/ . Defaults to `*`.
         """
         return pulumi.get(self, "allowed_branches")
 
@@ -163,7 +163,7 @@ class _CheckBranchControlState:
                  version: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering CheckBranchControl resources.
-        :param pulumi.Input[str] allowed_branches: The branches allowed to use the resource. Specify a comma separated list of allowed branches in `refs/heads/branch_name` format. To allow deployments from all branches, specify ` * ` . `refs/heads/features/* , refs/heads/releases/*` restricts deployments to all branches under features/ or releases/ . Defaults to `*`.
+        :param pulumi.Input[str] allowed_branches: The branches allowed to use the resource. Specify a comma separated list of allowed branches in `refs/heads/branch_name` format. To allow deployments from all branches, specify `*` . `refs/heads/features/* , refs/heads/releases/*` restricts deployments to all branches under features/ or releases/ . Defaults to `*`.
         :param pulumi.Input[str] display_name: The name of the branch control check displayed in the web UI.
         :param pulumi.Input[bool] ignore_unknown_protection_status: Allow deployment from branches for which protection status could not be obtained. Only relevant when verify_branch_protection is `true`. Defaults to `false`.
         :param pulumi.Input[str] project_id: The project ID.
@@ -196,7 +196,7 @@ class _CheckBranchControlState:
     @pulumi.getter(name="allowedBranches")
     def allowed_branches(self) -> Optional[pulumi.Input[str]]:
         """
-        The branches allowed to use the resource. Specify a comma separated list of allowed branches in `refs/heads/branch_name` format. To allow deployments from all branches, specify ` * ` . `refs/heads/features/* , refs/heads/releases/*` restricts deployments to all branches under features/ or releases/ . Defaults to `*`.
+        The branches allowed to use the resource. Specify a comma separated list of allowed branches in `refs/heads/branch_name` format. To allow deployments from all branches, specify `*` . `refs/heads/features/* , refs/heads/releases/*` restricts deployments to all branches under features/ or releases/ . Defaults to `*`.
         """
         return pulumi.get(self, "allowed_branches")
 
@@ -446,7 +446,7 @@ class CheckBranchControl(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] allowed_branches: The branches allowed to use the resource. Specify a comma separated list of allowed branches in `refs/heads/branch_name` format. To allow deployments from all branches, specify ` * ` . `refs/heads/features/* , refs/heads/releases/*` restricts deployments to all branches under features/ or releases/ . Defaults to `*`.
+        :param pulumi.Input[str] allowed_branches: The branches allowed to use the resource. Specify a comma separated list of allowed branches in `refs/heads/branch_name` format. To allow deployments from all branches, specify `*` . `refs/heads/features/* , refs/heads/releases/*` restricts deployments to all branches under features/ or releases/ . Defaults to `*`.
         :param pulumi.Input[str] display_name: The name of the branch control check displayed in the web UI.
         :param pulumi.Input[bool] ignore_unknown_protection_status: Allow deployment from branches for which protection status could not be obtained. Only relevant when verify_branch_protection is `true`. Defaults to `false`.
         :param pulumi.Input[str] project_id: The project ID.
@@ -663,7 +663,7 @@ class CheckBranchControl(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] allowed_branches: The branches allowed to use the resource. Specify a comma separated list of allowed branches in `refs/heads/branch_name` format. To allow deployments from all branches, specify ` * ` . `refs/heads/features/* , refs/heads/releases/*` restricts deployments to all branches under features/ or releases/ . Defaults to `*`.
+        :param pulumi.Input[str] allowed_branches: The branches allowed to use the resource. Specify a comma separated list of allowed branches in `refs/heads/branch_name` format. To allow deployments from all branches, specify `*` . `refs/heads/features/* , refs/heads/releases/*` restricts deployments to all branches under features/ or releases/ . Defaults to `*`.
         :param pulumi.Input[str] display_name: The name of the branch control check displayed in the web UI.
         :param pulumi.Input[bool] ignore_unknown_protection_status: Allow deployment from branches for which protection status could not be obtained. Only relevant when verify_branch_protection is `true`. Defaults to `false`.
         :param pulumi.Input[str] project_id: The project ID.
@@ -692,7 +692,7 @@ class CheckBranchControl(pulumi.CustomResource):
     @pulumi.getter(name="allowedBranches")
     def allowed_branches(self) -> pulumi.Output[Optional[str]]:
         """
-        The branches allowed to use the resource. Specify a comma separated list of allowed branches in `refs/heads/branch_name` format. To allow deployments from all branches, specify ` * ` . `refs/heads/features/* , refs/heads/releases/*` restricts deployments to all branches under features/ or releases/ . Defaults to `*`.
+        The branches allowed to use the resource. Specify a comma separated list of allowed branches in `refs/heads/branch_name` format. To allow deployments from all branches, specify `*` . `refs/heads/features/* , refs/heads/releases/*` restricts deployments to all branches under features/ or releases/ . Defaults to `*`.
         """
         return pulumi.get(self, "allowed_branches")
 

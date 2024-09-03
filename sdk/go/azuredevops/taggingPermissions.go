@@ -89,13 +89,32 @@ type TaggingPermissions struct {
 	// The ID of the project to assign the permissions. If omitted, organization wide permissions for tagging are managed.
 	ProjectId pulumi.StringPtrOutput `pulumi:"projectId"`
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-	//
-	// | Name               | Permission Description     |
-	// | ------------------ | -------------------------- |
-	// | Enumerate          | Enumerate tag definitions  |
-	// | Create             | Create tag definition      |
-	// | Update             | Update tag definition      |
-	// | Delete             | Delete tag definition      |
+	// <table>
+	// <thead>
+	// <tr>
+	// <th>Name</th>
+	// <th>Permission Description</th>
+	// </tr>
+	// </thead>
+	// <tbody>
+	// <tr>
+	// <td>Enumerate</td>
+	// <td>Enumerate tag definitions</td>
+	// </tr>
+	// <tr>
+	// <td>Create</td>
+	// <td>Create tag definition</td>
+	// </tr>
+	// <tr>
+	// <td>Update</td>
+	// <td>Update tag definition</td>
+	// </tr>
+	// <tr>
+	// <td>Delete</td>
+	// <td>Delete tag definition</td>
+	// </tr>
+	// </tbody>
+	// </table>
 	Replace pulumi.BoolPtrOutput `pulumi:"replace"`
 }
 
@@ -142,13 +161,32 @@ type taggingPermissionsState struct {
 	// The ID of the project to assign the permissions. If omitted, organization wide permissions for tagging are managed.
 	ProjectId *string `pulumi:"projectId"`
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-	//
-	// | Name               | Permission Description     |
-	// | ------------------ | -------------------------- |
-	// | Enumerate          | Enumerate tag definitions  |
-	// | Create             | Create tag definition      |
-	// | Update             | Update tag definition      |
-	// | Delete             | Delete tag definition      |
+	// <table>
+	// <thead>
+	// <tr>
+	// <th>Name</th>
+	// <th>Permission Description</th>
+	// </tr>
+	// </thead>
+	// <tbody>
+	// <tr>
+	// <td>Enumerate</td>
+	// <td>Enumerate tag definitions</td>
+	// </tr>
+	// <tr>
+	// <td>Create</td>
+	// <td>Create tag definition</td>
+	// </tr>
+	// <tr>
+	// <td>Update</td>
+	// <td>Update tag definition</td>
+	// </tr>
+	// <tr>
+	// <td>Delete</td>
+	// <td>Delete tag definition</td>
+	// </tr>
+	// </tbody>
+	// </table>
 	Replace *bool `pulumi:"replace"`
 }
 
@@ -160,13 +198,32 @@ type TaggingPermissionsState struct {
 	// The ID of the project to assign the permissions. If omitted, organization wide permissions for tagging are managed.
 	ProjectId pulumi.StringPtrInput
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-	//
-	// | Name               | Permission Description     |
-	// | ------------------ | -------------------------- |
-	// | Enumerate          | Enumerate tag definitions  |
-	// | Create             | Create tag definition      |
-	// | Update             | Update tag definition      |
-	// | Delete             | Delete tag definition      |
+	// <table>
+	// <thead>
+	// <tr>
+	// <th>Name</th>
+	// <th>Permission Description</th>
+	// </tr>
+	// </thead>
+	// <tbody>
+	// <tr>
+	// <td>Enumerate</td>
+	// <td>Enumerate tag definitions</td>
+	// </tr>
+	// <tr>
+	// <td>Create</td>
+	// <td>Create tag definition</td>
+	// </tr>
+	// <tr>
+	// <td>Update</td>
+	// <td>Update tag definition</td>
+	// </tr>
+	// <tr>
+	// <td>Delete</td>
+	// <td>Delete tag definition</td>
+	// </tr>
+	// </tbody>
+	// </table>
 	Replace pulumi.BoolPtrInput
 }
 
@@ -182,13 +239,32 @@ type taggingPermissionsArgs struct {
 	// The ID of the project to assign the permissions. If omitted, organization wide permissions for tagging are managed.
 	ProjectId *string `pulumi:"projectId"`
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-	//
-	// | Name               | Permission Description     |
-	// | ------------------ | -------------------------- |
-	// | Enumerate          | Enumerate tag definitions  |
-	// | Create             | Create tag definition      |
-	// | Update             | Update tag definition      |
-	// | Delete             | Delete tag definition      |
+	// <table>
+	// <thead>
+	// <tr>
+	// <th>Name</th>
+	// <th>Permission Description</th>
+	// </tr>
+	// </thead>
+	// <tbody>
+	// <tr>
+	// <td>Enumerate</td>
+	// <td>Enumerate tag definitions</td>
+	// </tr>
+	// <tr>
+	// <td>Create</td>
+	// <td>Create tag definition</td>
+	// </tr>
+	// <tr>
+	// <td>Update</td>
+	// <td>Update tag definition</td>
+	// </tr>
+	// <tr>
+	// <td>Delete</td>
+	// <td>Delete tag definition</td>
+	// </tr>
+	// </tbody>
+	// </table>
 	Replace *bool `pulumi:"replace"`
 }
 
@@ -201,13 +277,32 @@ type TaggingPermissionsArgs struct {
 	// The ID of the project to assign the permissions. If omitted, organization wide permissions for tagging are managed.
 	ProjectId pulumi.StringPtrInput
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-	//
-	// | Name               | Permission Description     |
-	// | ------------------ | -------------------------- |
-	// | Enumerate          | Enumerate tag definitions  |
-	// | Create             | Create tag definition      |
-	// | Update             | Update tag definition      |
-	// | Delete             | Delete tag definition      |
+	// <table>
+	// <thead>
+	// <tr>
+	// <th>Name</th>
+	// <th>Permission Description</th>
+	// </tr>
+	// </thead>
+	// <tbody>
+	// <tr>
+	// <td>Enumerate</td>
+	// <td>Enumerate tag definitions</td>
+	// </tr>
+	// <tr>
+	// <td>Create</td>
+	// <td>Create tag definition</td>
+	// </tr>
+	// <tr>
+	// <td>Update</td>
+	// <td>Update tag definition</td>
+	// </tr>
+	// <tr>
+	// <td>Delete</td>
+	// <td>Delete tag definition</td>
+	// </tr>
+	// </tbody>
+	// </table>
 	Replace pulumi.BoolPtrInput
 }
 
@@ -314,13 +409,32 @@ func (o TaggingPermissionsOutput) ProjectId() pulumi.StringPtrOutput {
 }
 
 // Replace (`true`) or merge (`false`) the permissions. Default: `true`
-//
-// | Name               | Permission Description     |
-// | ------------------ | -------------------------- |
-// | Enumerate          | Enumerate tag definitions  |
-// | Create             | Create tag definition      |
-// | Update             | Update tag definition      |
-// | Delete             | Delete tag definition      |
+// <table>
+// <thead>
+// <tr>
+// <th>Name</th>
+// <th>Permission Description</th>
+// </tr>
+// </thead>
+// <tbody>
+// <tr>
+// <td>Enumerate</td>
+// <td>Enumerate tag definitions</td>
+// </tr>
+// <tr>
+// <td>Create</td>
+// <td>Create tag definition</td>
+// </tr>
+// <tr>
+// <td>Update</td>
+// <td>Update tag definition</td>
+// </tr>
+// <tr>
+// <td>Delete</td>
+// <td>Delete tag definition</td>
+// </tr>
+// </tbody>
+// </table>
 func (o TaggingPermissionsOutput) Replace() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TaggingPermissions) pulumi.BoolPtrOutput { return v.Replace }).(pulumi.BoolPtrOutput)
 }

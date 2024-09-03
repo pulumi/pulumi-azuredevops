@@ -27,13 +27,32 @@ class WorkItemQueryPermissionsArgs:
         """
         The set of arguments for constructing a WorkItemQueryPermissions resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: the permissions to assign. The following permissions are available
-               
-               | Permissions              | Description                        |
-               |--------------------------|------------------------------------|
-               | Read                     | Read                               |
-               | Contribute               | Contribute                         |
-               | Delete                   | Delete                             |
-               | ManagePermissions        | Manage Permissions                 |
+               <table>
+               <thead>
+               <tr>
+               <th>Permissions</th>
+               <th>Description</th>
+               </tr>
+               </thead>
+               <tbody>
+               <tr>
+               <td>Read</td>
+               <td>Read</td>
+               </tr>
+               <tr>
+               <td>Contribute</td>
+               <td>Contribute</td>
+               </tr>
+               <tr>
+               <td>Delete</td>
+               <td>Delete</td>
+               </tr>
+               <tr>
+               <td>ManagePermissions</td>
+               <td>Manage Permissions</td>
+               </tr>
+               </tbody>
+               </table>
         :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[str] path: Path to a query or folder beneath `Shared Queries`
@@ -52,13 +71,32 @@ class WorkItemQueryPermissionsArgs:
     def permissions(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
         """
         the permissions to assign. The following permissions are available
-
-        | Permissions              | Description                        |
-        |--------------------------|------------------------------------|
-        | Read                     | Read                               |
-        | Contribute               | Contribute                         |
-        | Delete                   | Delete                             |
-        | ManagePermissions        | Manage Permissions                 |
+        <table>
+        <thead>
+        <tr>
+        <th>Permissions</th>
+        <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>Read</td>
+        <td>Read</td>
+        </tr>
+        <tr>
+        <td>Contribute</td>
+        <td>Contribute</td>
+        </tr>
+        <tr>
+        <td>Delete</td>
+        <td>Delete</td>
+        </tr>
+        <tr>
+        <td>ManagePermissions</td>
+        <td>Manage Permissions</td>
+        </tr>
+        </tbody>
+        </table>
         """
         return pulumi.get(self, "permissions")
 
@@ -127,13 +165,32 @@ class _WorkItemQueryPermissionsState:
         Input properties used for looking up and filtering WorkItemQueryPermissions resources.
         :param pulumi.Input[str] path: Path to a query or folder beneath `Shared Queries`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: the permissions to assign. The following permissions are available
-               
-               | Permissions              | Description                        |
-               |--------------------------|------------------------------------|
-               | Read                     | Read                               |
-               | Contribute               | Contribute                         |
-               | Delete                   | Delete                             |
-               | ManagePermissions        | Manage Permissions                 |
+               <table>
+               <thead>
+               <tr>
+               <th>Permissions</th>
+               <th>Description</th>
+               </tr>
+               </thead>
+               <tbody>
+               <tr>
+               <td>Read</td>
+               <td>Read</td>
+               </tr>
+               <tr>
+               <td>Contribute</td>
+               <td>Contribute</td>
+               </tr>
+               <tr>
+               <td>Delete</td>
+               <td>Delete</td>
+               </tr>
+               <tr>
+               <td>ManagePermissions</td>
+               <td>Manage Permissions</td>
+               </tr>
+               </tbody>
+               </table>
         :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
@@ -166,13 +223,32 @@ class _WorkItemQueryPermissionsState:
     def permissions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         the permissions to assign. The following permissions are available
-
-        | Permissions              | Description                        |
-        |--------------------------|------------------------------------|
-        | Read                     | Read                               |
-        | Contribute               | Contribute                         |
-        | Delete                   | Delete                             |
-        | ManagePermissions        | Manage Permissions                 |
+        <table>
+        <thead>
+        <tr>
+        <th>Permissions</th>
+        <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>Read</td>
+        <td>Read</td>
+        </tr>
+        <tr>
+        <td>Contribute</td>
+        <td>Contribute</td>
+        </tr>
+        <tr>
+        <td>Delete</td>
+        <td>Delete</td>
+        </tr>
+        <tr>
+        <td>ManagePermissions</td>
+        <td>Manage Permissions</td>
+        </tr>
+        </tbody>
+        </table>
         """
         return pulumi.get(self, "permissions")
 
@@ -348,13 +424,32 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] path: Path to a query or folder beneath `Shared Queries`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: the permissions to assign. The following permissions are available
-               
-               | Permissions              | Description                        |
-               |--------------------------|------------------------------------|
-               | Read                     | Read                               |
-               | Contribute               | Contribute                         |
-               | Delete                   | Delete                             |
-               | ManagePermissions        | Manage Permissions                 |
+               <table>
+               <thead>
+               <tr>
+               <th>Permissions</th>
+               <th>Description</th>
+               </tr>
+               </thead>
+               <tbody>
+               <tr>
+               <td>Read</td>
+               <td>Read</td>
+               </tr>
+               <tr>
+               <td>Contribute</td>
+               <td>Contribute</td>
+               </tr>
+               <tr>
+               <td>Delete</td>
+               <td>Delete</td>
+               </tr>
+               <tr>
+               <td>ManagePermissions</td>
+               <td>Manage Permissions</td>
+               </tr>
+               </tbody>
+               </table>
         :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
@@ -545,13 +640,32 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] path: Path to a query or folder beneath `Shared Queries`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: the permissions to assign. The following permissions are available
-               
-               | Permissions              | Description                        |
-               |--------------------------|------------------------------------|
-               | Read                     | Read                               |
-               | Contribute               | Contribute                         |
-               | Delete                   | Delete                             |
-               | ManagePermissions        | Manage Permissions                 |
+               <table>
+               <thead>
+               <tr>
+               <th>Permissions</th>
+               <th>Description</th>
+               </tr>
+               </thead>
+               <tbody>
+               <tr>
+               <td>Read</td>
+               <td>Read</td>
+               </tr>
+               <tr>
+               <td>Contribute</td>
+               <td>Contribute</td>
+               </tr>
+               <tr>
+               <td>Delete</td>
+               <td>Delete</td>
+               </tr>
+               <tr>
+               <td>ManagePermissions</td>
+               <td>Manage Permissions</td>
+               </tr>
+               </tbody>
+               </table>
         :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
@@ -580,13 +694,32 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
     def permissions(self) -> pulumi.Output[Mapping[str, str]]:
         """
         the permissions to assign. The following permissions are available
-
-        | Permissions              | Description                        |
-        |--------------------------|------------------------------------|
-        | Read                     | Read                               |
-        | Contribute               | Contribute                         |
-        | Delete                   | Delete                             |
-        | ManagePermissions        | Manage Permissions                 |
+        <table>
+        <thead>
+        <tr>
+        <th>Permissions</th>
+        <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>Read</td>
+        <td>Read</td>
+        </tr>
+        <tr>
+        <td>Contribute</td>
+        <td>Contribute</td>
+        </tr>
+        <tr>
+        <td>Delete</td>
+        <td>Delete</td>
+        </tr>
+        <tr>
+        <td>ManagePermissions</td>
+        <td>Manage Permissions</td>
+        </tr>
+        </tbody>
+        </table>
         """
         return pulumi.get(self, "permissions")
 

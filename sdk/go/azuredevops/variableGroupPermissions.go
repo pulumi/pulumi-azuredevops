@@ -81,12 +81,28 @@ import (
 // ## Roles
 //
 // The Azure DevOps UI uses roles to assign permissions for variable groups.
-//
-// | Role          | Allow Permissions      |
-// | ------------- | ---------------------- |
-// | Reader        | View                   |
-// | User          | View, Use              |
-// | Administrator | View, Use, Administer  |
+// <table>
+// <thead>
+// <tr>
+// <th>Role</th>
+// <th>Allow Permissions</th>
+// </tr>
+// </thead>
+// <tbody>
+// <tr>
+// <td>Reader</td>
+// <td>View</td>
+// </tr>
+// <tr>
+// <td>User</td>
+// <td>View, Use</td>
+// </tr>
+// <tr>
+// <td>Administrator</td>
+// <td>View, Use, Administer</td>
+// </tr>
+// </tbody>
+// </table>
 //
 // ## Relevant Links
 //
@@ -109,15 +125,40 @@ type VariableGroupPermissions struct {
 	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-	//
-	// | Permission        | Description                         |
-	// | ----------------- | ----------------------------------- |
-	// | View              | View library item                   |
-	// | Administer        | Administer library item             |
-	// | Create            | Create library item                 |
-	// | ViewSecrets       | View library item secrets           |
-	// | Use               | Use library item                    |
-	// | Owner             | Owner library item                  |
+	// <table>
+	// <thead>
+	// <tr>
+	// <th>Permission</th>
+	// <th>Description</th>
+	// </tr>
+	// </thead>
+	// <tbody>
+	// <tr>
+	// <td>View</td>
+	// <td>View library item</td>
+	// </tr>
+	// <tr>
+	// <td>Administer</td>
+	// <td>Administer library item</td>
+	// </tr>
+	// <tr>
+	// <td>Create</td>
+	// <td>Create library item</td>
+	// </tr>
+	// <tr>
+	// <td>ViewSecrets</td>
+	// <td>View library item secrets</td>
+	// </tr>
+	// <tr>
+	// <td>Use</td>
+	// <td>Use library item</td>
+	// </tr>
+	// <tr>
+	// <td>Owner</td>
+	// <td>Owner library item</td>
+	// </tr>
+	// </tbody>
+	// </table>
 	Replace pulumi.BoolPtrOutput `pulumi:"replace"`
 	// The id of the variable group to assign the permissions.
 	VariableGroupId pulumi.StringOutput `pulumi:"variableGroupId"`
@@ -172,15 +213,40 @@ type variableGroupPermissionsState struct {
 	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-	//
-	// | Permission        | Description                         |
-	// | ----------------- | ----------------------------------- |
-	// | View              | View library item                   |
-	// | Administer        | Administer library item             |
-	// | Create            | Create library item                 |
-	// | ViewSecrets       | View library item secrets           |
-	// | Use               | Use library item                    |
-	// | Owner             | Owner library item                  |
+	// <table>
+	// <thead>
+	// <tr>
+	// <th>Permission</th>
+	// <th>Description</th>
+	// </tr>
+	// </thead>
+	// <tbody>
+	// <tr>
+	// <td>View</td>
+	// <td>View library item</td>
+	// </tr>
+	// <tr>
+	// <td>Administer</td>
+	// <td>Administer library item</td>
+	// </tr>
+	// <tr>
+	// <td>Create</td>
+	// <td>Create library item</td>
+	// </tr>
+	// <tr>
+	// <td>ViewSecrets</td>
+	// <td>View library item secrets</td>
+	// </tr>
+	// <tr>
+	// <td>Use</td>
+	// <td>Use library item</td>
+	// </tr>
+	// <tr>
+	// <td>Owner</td>
+	// <td>Owner library item</td>
+	// </tr>
+	// </tbody>
+	// </table>
 	Replace *bool `pulumi:"replace"`
 	// The id of the variable group to assign the permissions.
 	VariableGroupId *string `pulumi:"variableGroupId"`
@@ -194,15 +260,40 @@ type VariableGroupPermissionsState struct {
 	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-	//
-	// | Permission        | Description                         |
-	// | ----------------- | ----------------------------------- |
-	// | View              | View library item                   |
-	// | Administer        | Administer library item             |
-	// | Create            | Create library item                 |
-	// | ViewSecrets       | View library item secrets           |
-	// | Use               | Use library item                    |
-	// | Owner             | Owner library item                  |
+	// <table>
+	// <thead>
+	// <tr>
+	// <th>Permission</th>
+	// <th>Description</th>
+	// </tr>
+	// </thead>
+	// <tbody>
+	// <tr>
+	// <td>View</td>
+	// <td>View library item</td>
+	// </tr>
+	// <tr>
+	// <td>Administer</td>
+	// <td>Administer library item</td>
+	// </tr>
+	// <tr>
+	// <td>Create</td>
+	// <td>Create library item</td>
+	// </tr>
+	// <tr>
+	// <td>ViewSecrets</td>
+	// <td>View library item secrets</td>
+	// </tr>
+	// <tr>
+	// <td>Use</td>
+	// <td>Use library item</td>
+	// </tr>
+	// <tr>
+	// <td>Owner</td>
+	// <td>Owner library item</td>
+	// </tr>
+	// </tbody>
+	// </table>
 	Replace pulumi.BoolPtrInput
 	// The id of the variable group to assign the permissions.
 	VariableGroupId pulumi.StringPtrInput
@@ -220,15 +311,40 @@ type variableGroupPermissionsArgs struct {
 	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-	//
-	// | Permission        | Description                         |
-	// | ----------------- | ----------------------------------- |
-	// | View              | View library item                   |
-	// | Administer        | Administer library item             |
-	// | Create            | Create library item                 |
-	// | ViewSecrets       | View library item secrets           |
-	// | Use               | Use library item                    |
-	// | Owner             | Owner library item                  |
+	// <table>
+	// <thead>
+	// <tr>
+	// <th>Permission</th>
+	// <th>Description</th>
+	// </tr>
+	// </thead>
+	// <tbody>
+	// <tr>
+	// <td>View</td>
+	// <td>View library item</td>
+	// </tr>
+	// <tr>
+	// <td>Administer</td>
+	// <td>Administer library item</td>
+	// </tr>
+	// <tr>
+	// <td>Create</td>
+	// <td>Create library item</td>
+	// </tr>
+	// <tr>
+	// <td>ViewSecrets</td>
+	// <td>View library item secrets</td>
+	// </tr>
+	// <tr>
+	// <td>Use</td>
+	// <td>Use library item</td>
+	// </tr>
+	// <tr>
+	// <td>Owner</td>
+	// <td>Owner library item</td>
+	// </tr>
+	// </tbody>
+	// </table>
 	Replace *bool `pulumi:"replace"`
 	// The id of the variable group to assign the permissions.
 	VariableGroupId string `pulumi:"variableGroupId"`
@@ -243,15 +359,40 @@ type VariableGroupPermissionsArgs struct {
 	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-	//
-	// | Permission        | Description                         |
-	// | ----------------- | ----------------------------------- |
-	// | View              | View library item                   |
-	// | Administer        | Administer library item             |
-	// | Create            | Create library item                 |
-	// | ViewSecrets       | View library item secrets           |
-	// | Use               | Use library item                    |
-	// | Owner             | Owner library item                  |
+	// <table>
+	// <thead>
+	// <tr>
+	// <th>Permission</th>
+	// <th>Description</th>
+	// </tr>
+	// </thead>
+	// <tbody>
+	// <tr>
+	// <td>View</td>
+	// <td>View library item</td>
+	// </tr>
+	// <tr>
+	// <td>Administer</td>
+	// <td>Administer library item</td>
+	// </tr>
+	// <tr>
+	// <td>Create</td>
+	// <td>Create library item</td>
+	// </tr>
+	// <tr>
+	// <td>ViewSecrets</td>
+	// <td>View library item secrets</td>
+	// </tr>
+	// <tr>
+	// <td>Use</td>
+	// <td>Use library item</td>
+	// </tr>
+	// <tr>
+	// <td>Owner</td>
+	// <td>Owner library item</td>
+	// </tr>
+	// </tbody>
+	// </table>
 	Replace pulumi.BoolPtrInput
 	// The id of the variable group to assign the permissions.
 	VariableGroupId pulumi.StringInput
@@ -360,15 +501,40 @@ func (o VariableGroupPermissionsOutput) ProjectId() pulumi.StringOutput {
 }
 
 // Replace (`true`) or merge (`false`) the permissions. Default: `true`
-//
-// | Permission        | Description                         |
-// | ----------------- | ----------------------------------- |
-// | View              | View library item                   |
-// | Administer        | Administer library item             |
-// | Create            | Create library item                 |
-// | ViewSecrets       | View library item secrets           |
-// | Use               | Use library item                    |
-// | Owner             | Owner library item                  |
+// <table>
+// <thead>
+// <tr>
+// <th>Permission</th>
+// <th>Description</th>
+// </tr>
+// </thead>
+// <tbody>
+// <tr>
+// <td>View</td>
+// <td>View library item</td>
+// </tr>
+// <tr>
+// <td>Administer</td>
+// <td>Administer library item</td>
+// </tr>
+// <tr>
+// <td>Create</td>
+// <td>Create library item</td>
+// </tr>
+// <tr>
+// <td>ViewSecrets</td>
+// <td>View library item secrets</td>
+// </tr>
+// <tr>
+// <td>Use</td>
+// <td>Use library item</td>
+// </tr>
+// <tr>
+// <td>Owner</td>
+// <td>Owner library item</td>
+// </tr>
+// </tbody>
+// </table>
 func (o VariableGroupPermissionsOutput) Replace() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VariableGroupPermissions) pulumi.BoolPtrOutput { return v.Replace }).(pulumi.BoolPtrOutput)
 }

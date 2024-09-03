@@ -202,6 +202,13 @@ class RepositoryPolicyMaxPathLength(pulumi.CustomResource):
                  repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        layout: "azuredevops"
+        page_title: "AzureDevops: RepositoryPolicyMaxPathLength"
+        description: |- Manages a max path length repository policy within Azure DevOps project.
+        <!-- yaml: line 3: did not find expected comment or line break -->
+
+        # RepositoryPolicyMaxPathLength
+
         Manage a max path length repository policy within Azure DevOps project.
 
         > If both project and project policy are enabled, the repository policy has high priority.
@@ -277,6 +284,13 @@ class RepositoryPolicyMaxPathLength(pulumi.CustomResource):
                  args: RepositoryPolicyMaxPathLengthArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        layout: "azuredevops"
+        page_title: "AzureDevops: RepositoryPolicyMaxPathLength"
+        description: |- Manages a max path length repository policy within Azure DevOps project.
+        <!-- yaml: line 3: did not find expected comment or line break -->
+
+        # RepositoryPolicyMaxPathLength
+
         Manage a max path length repository policy within Azure DevOps project.
 
         > If both project and project policy are enabled, the repository policy has high priority.

@@ -152,8 +152,8 @@ def get_area(fetch_children: Optional[bool] = None,
     - **Project & Team**: vso.work - Grants the ability to read work items, queries, boards, area and iterations paths, and other work item tracking related metadata. Also grants the ability to execute queries, search work items and to receive notifications about work item events via service hooks.
 
 
-    :param bool fetch_children: Read children nodes, _Depth_: 1, _Default_: `true`
-    :param str path: The path to the Area; _Format_: URL relative; if omitted, or value `"/"` is used, the root Area will be returned
+    :param bool fetch_children: Read children nodes, *Depth*: 1, *Default*: `true`
+    :param str path: The path to the Area; *Format*: URL relative; if omitted, or value `"/"` is used, the root Area will be returned
     :param str project_id: The project ID.
     """
     __args__ = dict()
@@ -207,8 +207,8 @@ def get_area_output(fetch_children: Optional[pulumi.Input[Optional[bool]]] = Non
     - **Project & Team**: vso.work - Grants the ability to read work items, queries, boards, area and iterations paths, and other work item tracking related metadata. Also grants the ability to execute queries, search work items and to receive notifications about work item events via service hooks.
 
 
-    :param bool fetch_children: Read children nodes, _Depth_: 1, _Default_: `true`
-    :param str path: The path to the Area; _Format_: URL relative; if omitted, or value `"/"` is used, the root Area will be returned
+    :param bool fetch_children: Read children nodes, *Depth*: 1, *Default*: `true`
+    :param str path: The path to the Area; *Format*: URL relative; if omitted, or value `"/"` is used, the root Area will be returned
     :param str project_id: The project ID.
     """
     ...

@@ -162,9 +162,7 @@ type PipelineAuthorization struct {
 	// The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
 	//
 	// > **Note** `repository` is for AzureDevOps repository. To authorize repository other than
-	// Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.
-	// Typical process for connecting to GitHub:
-	// **Pipeline  <----> Service Connection(`endpoint`) <----> GitHub Repository**
+	// Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.   Typical process for connecting to GitHub: **Pipeline  <----> Service Connection(`endpoint`) <----> GitHub Repository**
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -218,9 +216,7 @@ type pipelineAuthorizationState struct {
 	// The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
 	//
 	// > **Note** `repository` is for AzureDevOps repository. To authorize repository other than
-	// Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.
-	// Typical process for connecting to GitHub:
-	// **Pipeline  <----> Service Connection(`endpoint`) <----> GitHub Repository**
+	// Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.   Typical process for connecting to GitHub: **Pipeline  <----> Service Connection(`endpoint`) <----> GitHub Repository**
 	Type *string `pulumi:"type"`
 }
 
@@ -236,9 +232,7 @@ type PipelineAuthorizationState struct {
 	// The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
 	//
 	// > **Note** `repository` is for AzureDevOps repository. To authorize repository other than
-	// Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.
-	// Typical process for connecting to GitHub:
-	// **Pipeline  <----> Service Connection(`endpoint`) <----> GitHub Repository**
+	// Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.   Typical process for connecting to GitHub: **Pipeline  <----> Service Connection(`endpoint`) <----> GitHub Repository**
 	Type pulumi.StringPtrInput
 }
 
@@ -258,9 +252,7 @@ type pipelineAuthorizationArgs struct {
 	// The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
 	//
 	// > **Note** `repository` is for AzureDevOps repository. To authorize repository other than
-	// Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.
-	// Typical process for connecting to GitHub:
-	// **Pipeline  <----> Service Connection(`endpoint`) <----> GitHub Repository**
+	// Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.   Typical process for connecting to GitHub: **Pipeline  <----> Service Connection(`endpoint`) <----> GitHub Repository**
 	Type string `pulumi:"type"`
 }
 
@@ -277,9 +269,7 @@ type PipelineAuthorizationArgs struct {
 	// The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
 	//
 	// > **Note** `repository` is for AzureDevOps repository. To authorize repository other than
-	// Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.
-	// Typical process for connecting to GitHub:
-	// **Pipeline  <----> Service Connection(`endpoint`) <----> GitHub Repository**
+	// Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.   Typical process for connecting to GitHub: **Pipeline  <----> Service Connection(`endpoint`) <----> GitHub Repository**
 	Type pulumi.StringInput
 }
 
@@ -393,9 +383,7 @@ func (o PipelineAuthorizationOutput) ResourceId() pulumi.StringOutput {
 // The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
 //
 // > **Note** `repository` is for AzureDevOps repository. To authorize repository other than
-// Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.
-// Typical process for connecting to GitHub:
-// **Pipeline  <----> Service Connection(`endpoint`) <----> GitHub Repository**
+// Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.   Typical process for connecting to GitHub: **Pipeline  <----> Service Connection(`endpoint`) <----> GitHub Repository**
 func (o PipelineAuthorizationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *PipelineAuthorization) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

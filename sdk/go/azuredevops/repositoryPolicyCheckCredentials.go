@@ -12,6 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// layout: "azuredevops"
+// page_title: "AzureDevops: RepositoryPolicyCheckCredentials"
+// description: |- Manage a credentials check repository policy within Azure DevOps project.
+// <!-- yaml: line 3: did not find expected comment or line break -->
+//
+// # RepositoryPolicyCheckCredentials
+//
 // Manage a credentials check repository policy within Azure DevOps project. Block pushes that introduce files, folders, or branch names that include platform reserved names or incompatible characters.
 //
 // > If both project and project policy are enabled, the project policy has high priority.

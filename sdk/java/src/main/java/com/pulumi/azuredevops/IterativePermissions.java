@@ -168,13 +168,32 @@ public class IterativePermissions extends com.pulumi.resources.CustomResource {
     }
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     * 
-     * | Permission      | Description                    |
-     * |-----------------|--------------------------------|
-     * | GENERIC_READ    | View permissions for this node |
-     * | GENERIC_WRITE   | Edit this node                 |
-     * | CREATE_CHILDREN | Create child nodes             |
-     * | DELETE          | Delete this node               |
+     * &lt;table&gt;
+     * &lt;thead&gt;
+     * &lt;tr&gt;
+     * &lt;th&gt;Permission&lt;/th&gt;
+     * &lt;th&gt;Description&lt;/th&gt;
+     * &lt;/tr&gt;
+     * &lt;/thead&gt;
+     * &lt;tbody&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;GENERIC_READ&lt;/td&gt;
+     * &lt;td&gt;View permissions for this node&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;GENERIC_WRITE&lt;/td&gt;
+     * &lt;td&gt;Edit this node&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;CREATE_CHILDREN&lt;/td&gt;
+     * &lt;td&gt;Create child nodes&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;DELETE&lt;/td&gt;
+     * &lt;td&gt;Delete this node&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;/tbody&gt;
+     * &lt;/table&gt;
      * 
      */
     @Export(name="replace", refs={Boolean.class}, tree="[0]")
@@ -182,13 +201,32 @@ public class IterativePermissions extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     * 
-     * | Permission      | Description                    |
-     * |-----------------|--------------------------------|
-     * | GENERIC_READ    | View permissions for this node |
-     * | GENERIC_WRITE   | Edit this node                 |
-     * | CREATE_CHILDREN | Create child nodes             |
-     * | DELETE          | Delete this node               |
+     * &lt;table&gt;
+     * &lt;thead&gt;
+     * &lt;tr&gt;
+     * &lt;th&gt;Permission&lt;/th&gt;
+     * &lt;th&gt;Description&lt;/th&gt;
+     * &lt;/tr&gt;
+     * &lt;/thead&gt;
+     * &lt;tbody&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;GENERIC_READ&lt;/td&gt;
+     * &lt;td&gt;View permissions for this node&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;GENERIC_WRITE&lt;/td&gt;
+     * &lt;td&gt;Edit this node&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;CREATE_CHILDREN&lt;/td&gt;
+     * &lt;td&gt;Create child nodes&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;DELETE&lt;/td&gt;
+     * &lt;td&gt;Delete this node&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;/tbody&gt;
+     * &lt;/table&gt;
      * 
      */
     public Output<Optional<Boolean>> replace() {

@@ -80,18 +80,52 @@ public final class AreaPermissionsArgs extends com.pulumi.resources.ResourceArgs
 
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`.
-     * 
-     * | Permission             | Description                          |
-     * |------------------------|--------------------------------------|
-     * | GENERIC_READ           | View permissions for this node       |
-     * | GENERIC_WRITE          | Edit this node                       |
-     * | CREATE_CHILDREN        | Create child nodes                   |
-     * | DELETE                 | Delete this node                     |
-     * | WORK_ITEM_READ         | View work items in this node         |
-     * | WORK_ITEM_WRITE        | Edit work items in this node         |
-     * | MANAGE_TEST_PLANS      | Manage test plans                    |
-     * | MANAGE_TEST_SUITES     | Manage test suites                   |
-     * | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
+     * &lt;table&gt;
+     * &lt;thead&gt;
+     * &lt;tr&gt;
+     * &lt;th&gt;Permission&lt;/th&gt;
+     * &lt;th&gt;Description&lt;/th&gt;
+     * &lt;/tr&gt;
+     * &lt;/thead&gt;
+     * &lt;tbody&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;GENERIC_READ&lt;/td&gt;
+     * &lt;td&gt;View permissions for this node&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;GENERIC_WRITE&lt;/td&gt;
+     * &lt;td&gt;Edit this node&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;CREATE_CHILDREN&lt;/td&gt;
+     * &lt;td&gt;Create child nodes&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;DELETE&lt;/td&gt;
+     * &lt;td&gt;Delete this node&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;WORK_ITEM_READ&lt;/td&gt;
+     * &lt;td&gt;View work items in this node&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;WORK_ITEM_WRITE&lt;/td&gt;
+     * &lt;td&gt;Edit work items in this node&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;MANAGE_TEST_PLANS&lt;/td&gt;
+     * &lt;td&gt;Manage test plans&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;MANAGE_TEST_SUITES&lt;/td&gt;
+     * &lt;td&gt;Manage test suites&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;WORK_ITEM_SAVE_COMMENT&lt;/td&gt;
+     * &lt;td&gt;Edit work item comments in this node&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;/tbody&gt;
+     * &lt;/table&gt;
      * 
      */
     @Import(name="replace")
@@ -99,18 +133,52 @@ public final class AreaPermissionsArgs extends com.pulumi.resources.ResourceArgs
 
     /**
      * @return Replace (`true`) or merge (`false`) the permissions. Default: `true`.
-     * 
-     * | Permission             | Description                          |
-     * |------------------------|--------------------------------------|
-     * | GENERIC_READ           | View permissions for this node       |
-     * | GENERIC_WRITE          | Edit this node                       |
-     * | CREATE_CHILDREN        | Create child nodes                   |
-     * | DELETE                 | Delete this node                     |
-     * | WORK_ITEM_READ         | View work items in this node         |
-     * | WORK_ITEM_WRITE        | Edit work items in this node         |
-     * | MANAGE_TEST_PLANS      | Manage test plans                    |
-     * | MANAGE_TEST_SUITES     | Manage test suites                   |
-     * | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
+     * &lt;table&gt;
+     * &lt;thead&gt;
+     * &lt;tr&gt;
+     * &lt;th&gt;Permission&lt;/th&gt;
+     * &lt;th&gt;Description&lt;/th&gt;
+     * &lt;/tr&gt;
+     * &lt;/thead&gt;
+     * &lt;tbody&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;GENERIC_READ&lt;/td&gt;
+     * &lt;td&gt;View permissions for this node&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;GENERIC_WRITE&lt;/td&gt;
+     * &lt;td&gt;Edit this node&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;CREATE_CHILDREN&lt;/td&gt;
+     * &lt;td&gt;Create child nodes&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;DELETE&lt;/td&gt;
+     * &lt;td&gt;Delete this node&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;WORK_ITEM_READ&lt;/td&gt;
+     * &lt;td&gt;View work items in this node&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;WORK_ITEM_WRITE&lt;/td&gt;
+     * &lt;td&gt;Edit work items in this node&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;MANAGE_TEST_PLANS&lt;/td&gt;
+     * &lt;td&gt;Manage test plans&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;MANAGE_TEST_SUITES&lt;/td&gt;
+     * &lt;td&gt;Manage test suites&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;WORK_ITEM_SAVE_COMMENT&lt;/td&gt;
+     * &lt;td&gt;Edit work item comments in this node&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;/tbody&gt;
+     * &lt;/table&gt;
      * 
      */
     public Optional<Output<Boolean>> replace() {
@@ -231,18 +299,52 @@ public final class AreaPermissionsArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param replace Replace (`true`) or merge (`false`) the permissions. Default: `true`.
-         * 
-         * | Permission             | Description                          |
-         * |------------------------|--------------------------------------|
-         * | GENERIC_READ           | View permissions for this node       |
-         * | GENERIC_WRITE          | Edit this node                       |
-         * | CREATE_CHILDREN        | Create child nodes                   |
-         * | DELETE                 | Delete this node                     |
-         * | WORK_ITEM_READ         | View work items in this node         |
-         * | WORK_ITEM_WRITE        | Edit work items in this node         |
-         * | MANAGE_TEST_PLANS      | Manage test plans                    |
-         * | MANAGE_TEST_SUITES     | Manage test suites                   |
-         * | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
+         * &lt;table&gt;
+         * &lt;thead&gt;
+         * &lt;tr&gt;
+         * &lt;th&gt;Permission&lt;/th&gt;
+         * &lt;th&gt;Description&lt;/th&gt;
+         * &lt;/tr&gt;
+         * &lt;/thead&gt;
+         * &lt;tbody&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;GENERIC_READ&lt;/td&gt;
+         * &lt;td&gt;View permissions for this node&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;GENERIC_WRITE&lt;/td&gt;
+         * &lt;td&gt;Edit this node&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;CREATE_CHILDREN&lt;/td&gt;
+         * &lt;td&gt;Create child nodes&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;DELETE&lt;/td&gt;
+         * &lt;td&gt;Delete this node&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;WORK_ITEM_READ&lt;/td&gt;
+         * &lt;td&gt;View work items in this node&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;WORK_ITEM_WRITE&lt;/td&gt;
+         * &lt;td&gt;Edit work items in this node&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;MANAGE_TEST_PLANS&lt;/td&gt;
+         * &lt;td&gt;Manage test plans&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;MANAGE_TEST_SUITES&lt;/td&gt;
+         * &lt;td&gt;Manage test suites&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;WORK_ITEM_SAVE_COMMENT&lt;/td&gt;
+         * &lt;td&gt;Edit work item comments in this node&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;/tbody&gt;
+         * &lt;/table&gt;
          * 
          * @return builder
          * 
@@ -254,18 +356,52 @@ public final class AreaPermissionsArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param replace Replace (`true`) or merge (`false`) the permissions. Default: `true`.
-         * 
-         * | Permission             | Description                          |
-         * |------------------------|--------------------------------------|
-         * | GENERIC_READ           | View permissions for this node       |
-         * | GENERIC_WRITE          | Edit this node                       |
-         * | CREATE_CHILDREN        | Create child nodes                   |
-         * | DELETE                 | Delete this node                     |
-         * | WORK_ITEM_READ         | View work items in this node         |
-         * | WORK_ITEM_WRITE        | Edit work items in this node         |
-         * | MANAGE_TEST_PLANS      | Manage test plans                    |
-         * | MANAGE_TEST_SUITES     | Manage test suites                   |
-         * | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
+         * &lt;table&gt;
+         * &lt;thead&gt;
+         * &lt;tr&gt;
+         * &lt;th&gt;Permission&lt;/th&gt;
+         * &lt;th&gt;Description&lt;/th&gt;
+         * &lt;/tr&gt;
+         * &lt;/thead&gt;
+         * &lt;tbody&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;GENERIC_READ&lt;/td&gt;
+         * &lt;td&gt;View permissions for this node&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;GENERIC_WRITE&lt;/td&gt;
+         * &lt;td&gt;Edit this node&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;CREATE_CHILDREN&lt;/td&gt;
+         * &lt;td&gt;Create child nodes&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;DELETE&lt;/td&gt;
+         * &lt;td&gt;Delete this node&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;WORK_ITEM_READ&lt;/td&gt;
+         * &lt;td&gt;View work items in this node&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;WORK_ITEM_WRITE&lt;/td&gt;
+         * &lt;td&gt;Edit work items in this node&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;MANAGE_TEST_PLANS&lt;/td&gt;
+         * &lt;td&gt;Manage test plans&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;MANAGE_TEST_SUITES&lt;/td&gt;
+         * &lt;td&gt;Manage test suites&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;WORK_ITEM_SAVE_COMMENT&lt;/td&gt;
+         * &lt;td&gt;Edit work item comments in this node&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;/tbody&gt;
+         * &lt;/table&gt;
          * 
          * @return builder
          * 

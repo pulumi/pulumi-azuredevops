@@ -57,11 +57,11 @@ export function getIteration(args: GetIterationArgs, opts?: pulumi.InvokeOptions
  */
 export interface GetIterationArgs {
     /**
-     * Read children nodes, _Depth_: 1, _Default_: `true`
+     * Read children nodes, *Depth*: 1, *Default*: `true`
      */
     fetchChildren?: boolean;
     /**
-     * The path to the Iteration, _Format_: URL relative; if omitted, or value `"/"` is used, the root Iteration will be returned
+     * The path to the Iteration, *Format*: URL relative; if omitted, or value `"/"` is used, the root Iteration will be returned
      */
     path?: string;
     /**
@@ -145,11 +145,11 @@ export function getIterationOutput(args: GetIterationOutputArgs, opts?: pulumi.I
  */
 export interface GetIterationOutputArgs {
     /**
-     * Read children nodes, _Depth_: 1, _Default_: `true`
+     * Read children nodes, *Depth*: 1, *Default*: `true`
      */
     fetchChildren?: pulumi.Input<boolean>;
     /**
-     * The path to the Iteration, _Format_: URL relative; if omitted, or value `"/"` is used, the root Iteration will be returned
+     * The path to the Iteration, *Format*: URL relative; if omitted, or value `"/"` is used, the root Iteration will be returned
      */
     path?: pulumi.Input<string>;
     /**

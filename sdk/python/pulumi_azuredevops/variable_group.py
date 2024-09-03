@@ -339,7 +339,7 @@ class VariableGroup(pulumi.CustomResource):
         $ pulumi import azuredevops:index/variableGroup:VariableGroup example 00000000-0000-0000-0000-000000000000/0
         ```
 
-        _Note that for secret variables, the import command retrieve blank value in the tfstate._
+        *Note that for secret variables, the import command retrieve blank value in the tfstate.*
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -459,7 +459,7 @@ class VariableGroup(pulumi.CustomResource):
         $ pulumi import azuredevops:index/variableGroup:VariableGroup example 00000000-0000-0000-0000-000000000000/0
         ```
 
-        _Note that for secret variables, the import command retrieve blank value in the tfstate._
+        *Note that for secret variables, the import command retrieve blank value in the tfstate.*
 
         :param str resource_name: The name of the resource.
         :param VariableGroupArgs args: The arguments to use to populate this resource's properties.

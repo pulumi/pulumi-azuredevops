@@ -94,18 +94,52 @@ type AreaPermissions struct {
 	// The ID of the project to assign the permissions.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`.
-	//
-	// | Permission             | Description                          |
-	// |------------------------|--------------------------------------|
-	// | GENERIC_READ           | View permissions for this node       |
-	// | GENERIC_WRITE          | Edit this node                       |
-	// | CREATE_CHILDREN        | Create child nodes                   |
-	// | DELETE                 | Delete this node                     |
-	// | WORK_ITEM_READ         | View work items in this node         |
-	// | WORK_ITEM_WRITE        | Edit work items in this node         |
-	// | MANAGE_TEST_PLANS      | Manage test plans                    |
-	// | MANAGE_TEST_SUITES     | Manage test suites                   |
-	// | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
+	// <table>
+	// <thead>
+	// <tr>
+	// <th>Permission</th>
+	// <th>Description</th>
+	// </tr>
+	// </thead>
+	// <tbody>
+	// <tr>
+	// <td>GENERIC_READ</td>
+	// <td>View permissions for this node</td>
+	// </tr>
+	// <tr>
+	// <td>GENERIC_WRITE</td>
+	// <td>Edit this node</td>
+	// </tr>
+	// <tr>
+	// <td>CREATE_CHILDREN</td>
+	// <td>Create child nodes</td>
+	// </tr>
+	// <tr>
+	// <td>DELETE</td>
+	// <td>Delete this node</td>
+	// </tr>
+	// <tr>
+	// <td>WORK_ITEM_READ</td>
+	// <td>View work items in this node</td>
+	// </tr>
+	// <tr>
+	// <td>WORK_ITEM_WRITE</td>
+	// <td>Edit work items in this node</td>
+	// </tr>
+	// <tr>
+	// <td>MANAGE_TEST_PLANS</td>
+	// <td>Manage test plans</td>
+	// </tr>
+	// <tr>
+	// <td>MANAGE_TEST_SUITES</td>
+	// <td>Manage test suites</td>
+	// </tr>
+	// <tr>
+	// <td>WORK_ITEM_SAVE_COMMENT</td>
+	// <td>Edit work item comments in this node</td>
+	// </tr>
+	// </tbody>
+	// </table>
 	Replace pulumi.BoolPtrOutput `pulumi:"replace"`
 }
 
@@ -157,18 +191,52 @@ type areaPermissionsState struct {
 	// The ID of the project to assign the permissions.
 	ProjectId *string `pulumi:"projectId"`
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`.
-	//
-	// | Permission             | Description                          |
-	// |------------------------|--------------------------------------|
-	// | GENERIC_READ           | View permissions for this node       |
-	// | GENERIC_WRITE          | Edit this node                       |
-	// | CREATE_CHILDREN        | Create child nodes                   |
-	// | DELETE                 | Delete this node                     |
-	// | WORK_ITEM_READ         | View work items in this node         |
-	// | WORK_ITEM_WRITE        | Edit work items in this node         |
-	// | MANAGE_TEST_PLANS      | Manage test plans                    |
-	// | MANAGE_TEST_SUITES     | Manage test suites                   |
-	// | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
+	// <table>
+	// <thead>
+	// <tr>
+	// <th>Permission</th>
+	// <th>Description</th>
+	// </tr>
+	// </thead>
+	// <tbody>
+	// <tr>
+	// <td>GENERIC_READ</td>
+	// <td>View permissions for this node</td>
+	// </tr>
+	// <tr>
+	// <td>GENERIC_WRITE</td>
+	// <td>Edit this node</td>
+	// </tr>
+	// <tr>
+	// <td>CREATE_CHILDREN</td>
+	// <td>Create child nodes</td>
+	// </tr>
+	// <tr>
+	// <td>DELETE</td>
+	// <td>Delete this node</td>
+	// </tr>
+	// <tr>
+	// <td>WORK_ITEM_READ</td>
+	// <td>View work items in this node</td>
+	// </tr>
+	// <tr>
+	// <td>WORK_ITEM_WRITE</td>
+	// <td>Edit work items in this node</td>
+	// </tr>
+	// <tr>
+	// <td>MANAGE_TEST_PLANS</td>
+	// <td>Manage test plans</td>
+	// </tr>
+	// <tr>
+	// <td>MANAGE_TEST_SUITES</td>
+	// <td>Manage test suites</td>
+	// </tr>
+	// <tr>
+	// <td>WORK_ITEM_SAVE_COMMENT</td>
+	// <td>Edit work item comments in this node</td>
+	// </tr>
+	// </tbody>
+	// </table>
 	Replace *bool `pulumi:"replace"`
 }
 
@@ -182,18 +250,52 @@ type AreaPermissionsState struct {
 	// The ID of the project to assign the permissions.
 	ProjectId pulumi.StringPtrInput
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`.
-	//
-	// | Permission             | Description                          |
-	// |------------------------|--------------------------------------|
-	// | GENERIC_READ           | View permissions for this node       |
-	// | GENERIC_WRITE          | Edit this node                       |
-	// | CREATE_CHILDREN        | Create child nodes                   |
-	// | DELETE                 | Delete this node                     |
-	// | WORK_ITEM_READ         | View work items in this node         |
-	// | WORK_ITEM_WRITE        | Edit work items in this node         |
-	// | MANAGE_TEST_PLANS      | Manage test plans                    |
-	// | MANAGE_TEST_SUITES     | Manage test suites                   |
-	// | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
+	// <table>
+	// <thead>
+	// <tr>
+	// <th>Permission</th>
+	// <th>Description</th>
+	// </tr>
+	// </thead>
+	// <tbody>
+	// <tr>
+	// <td>GENERIC_READ</td>
+	// <td>View permissions for this node</td>
+	// </tr>
+	// <tr>
+	// <td>GENERIC_WRITE</td>
+	// <td>Edit this node</td>
+	// </tr>
+	// <tr>
+	// <td>CREATE_CHILDREN</td>
+	// <td>Create child nodes</td>
+	// </tr>
+	// <tr>
+	// <td>DELETE</td>
+	// <td>Delete this node</td>
+	// </tr>
+	// <tr>
+	// <td>WORK_ITEM_READ</td>
+	// <td>View work items in this node</td>
+	// </tr>
+	// <tr>
+	// <td>WORK_ITEM_WRITE</td>
+	// <td>Edit work items in this node</td>
+	// </tr>
+	// <tr>
+	// <td>MANAGE_TEST_PLANS</td>
+	// <td>Manage test plans</td>
+	// </tr>
+	// <tr>
+	// <td>MANAGE_TEST_SUITES</td>
+	// <td>Manage test suites</td>
+	// </tr>
+	// <tr>
+	// <td>WORK_ITEM_SAVE_COMMENT</td>
+	// <td>Edit work item comments in this node</td>
+	// </tr>
+	// </tbody>
+	// </table>
 	Replace pulumi.BoolPtrInput
 }
 
@@ -211,18 +313,52 @@ type areaPermissionsArgs struct {
 	// The ID of the project to assign the permissions.
 	ProjectId string `pulumi:"projectId"`
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`.
-	//
-	// | Permission             | Description                          |
-	// |------------------------|--------------------------------------|
-	// | GENERIC_READ           | View permissions for this node       |
-	// | GENERIC_WRITE          | Edit this node                       |
-	// | CREATE_CHILDREN        | Create child nodes                   |
-	// | DELETE                 | Delete this node                     |
-	// | WORK_ITEM_READ         | View work items in this node         |
-	// | WORK_ITEM_WRITE        | Edit work items in this node         |
-	// | MANAGE_TEST_PLANS      | Manage test plans                    |
-	// | MANAGE_TEST_SUITES     | Manage test suites                   |
-	// | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
+	// <table>
+	// <thead>
+	// <tr>
+	// <th>Permission</th>
+	// <th>Description</th>
+	// </tr>
+	// </thead>
+	// <tbody>
+	// <tr>
+	// <td>GENERIC_READ</td>
+	// <td>View permissions for this node</td>
+	// </tr>
+	// <tr>
+	// <td>GENERIC_WRITE</td>
+	// <td>Edit this node</td>
+	// </tr>
+	// <tr>
+	// <td>CREATE_CHILDREN</td>
+	// <td>Create child nodes</td>
+	// </tr>
+	// <tr>
+	// <td>DELETE</td>
+	// <td>Delete this node</td>
+	// </tr>
+	// <tr>
+	// <td>WORK_ITEM_READ</td>
+	// <td>View work items in this node</td>
+	// </tr>
+	// <tr>
+	// <td>WORK_ITEM_WRITE</td>
+	// <td>Edit work items in this node</td>
+	// </tr>
+	// <tr>
+	// <td>MANAGE_TEST_PLANS</td>
+	// <td>Manage test plans</td>
+	// </tr>
+	// <tr>
+	// <td>MANAGE_TEST_SUITES</td>
+	// <td>Manage test suites</td>
+	// </tr>
+	// <tr>
+	// <td>WORK_ITEM_SAVE_COMMENT</td>
+	// <td>Edit work item comments in this node</td>
+	// </tr>
+	// </tbody>
+	// </table>
 	Replace *bool `pulumi:"replace"`
 }
 
@@ -237,18 +373,52 @@ type AreaPermissionsArgs struct {
 	// The ID of the project to assign the permissions.
 	ProjectId pulumi.StringInput
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`.
-	//
-	// | Permission             | Description                          |
-	// |------------------------|--------------------------------------|
-	// | GENERIC_READ           | View permissions for this node       |
-	// | GENERIC_WRITE          | Edit this node                       |
-	// | CREATE_CHILDREN        | Create child nodes                   |
-	// | DELETE                 | Delete this node                     |
-	// | WORK_ITEM_READ         | View work items in this node         |
-	// | WORK_ITEM_WRITE        | Edit work items in this node         |
-	// | MANAGE_TEST_PLANS      | Manage test plans                    |
-	// | MANAGE_TEST_SUITES     | Manage test suites                   |
-	// | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
+	// <table>
+	// <thead>
+	// <tr>
+	// <th>Permission</th>
+	// <th>Description</th>
+	// </tr>
+	// </thead>
+	// <tbody>
+	// <tr>
+	// <td>GENERIC_READ</td>
+	// <td>View permissions for this node</td>
+	// </tr>
+	// <tr>
+	// <td>GENERIC_WRITE</td>
+	// <td>Edit this node</td>
+	// </tr>
+	// <tr>
+	// <td>CREATE_CHILDREN</td>
+	// <td>Create child nodes</td>
+	// </tr>
+	// <tr>
+	// <td>DELETE</td>
+	// <td>Delete this node</td>
+	// </tr>
+	// <tr>
+	// <td>WORK_ITEM_READ</td>
+	// <td>View work items in this node</td>
+	// </tr>
+	// <tr>
+	// <td>WORK_ITEM_WRITE</td>
+	// <td>Edit work items in this node</td>
+	// </tr>
+	// <tr>
+	// <td>MANAGE_TEST_PLANS</td>
+	// <td>Manage test plans</td>
+	// </tr>
+	// <tr>
+	// <td>MANAGE_TEST_SUITES</td>
+	// <td>Manage test suites</td>
+	// </tr>
+	// <tr>
+	// <td>WORK_ITEM_SAVE_COMMENT</td>
+	// <td>Edit work item comments in this node</td>
+	// </tr>
+	// </tbody>
+	// </table>
 	Replace pulumi.BoolPtrInput
 }
 
@@ -360,18 +530,52 @@ func (o AreaPermissionsOutput) ProjectId() pulumi.StringOutput {
 }
 
 // Replace (`true`) or merge (`false`) the permissions. Default: `true`.
-//
-// | Permission             | Description                          |
-// |------------------------|--------------------------------------|
-// | GENERIC_READ           | View permissions for this node       |
-// | GENERIC_WRITE          | Edit this node                       |
-// | CREATE_CHILDREN        | Create child nodes                   |
-// | DELETE                 | Delete this node                     |
-// | WORK_ITEM_READ         | View work items in this node         |
-// | WORK_ITEM_WRITE        | Edit work items in this node         |
-// | MANAGE_TEST_PLANS      | Manage test plans                    |
-// | MANAGE_TEST_SUITES     | Manage test suites                   |
-// | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
+// <table>
+// <thead>
+// <tr>
+// <th>Permission</th>
+// <th>Description</th>
+// </tr>
+// </thead>
+// <tbody>
+// <tr>
+// <td>GENERIC_READ</td>
+// <td>View permissions for this node</td>
+// </tr>
+// <tr>
+// <td>GENERIC_WRITE</td>
+// <td>Edit this node</td>
+// </tr>
+// <tr>
+// <td>CREATE_CHILDREN</td>
+// <td>Create child nodes</td>
+// </tr>
+// <tr>
+// <td>DELETE</td>
+// <td>Delete this node</td>
+// </tr>
+// <tr>
+// <td>WORK_ITEM_READ</td>
+// <td>View work items in this node</td>
+// </tr>
+// <tr>
+// <td>WORK_ITEM_WRITE</td>
+// <td>Edit work items in this node</td>
+// </tr>
+// <tr>
+// <td>MANAGE_TEST_PLANS</td>
+// <td>Manage test plans</td>
+// </tr>
+// <tr>
+// <td>MANAGE_TEST_SUITES</td>
+// <td>Manage test suites</td>
+// </tr>
+// <tr>
+// <td>WORK_ITEM_SAVE_COMMENT</td>
+// <td>Edit work item comments in this node</td>
+// </tr>
+// </tbody>
+// </table>
 func (o AreaPermissionsOutput) Replace() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AreaPermissions) pulumi.BoolPtrOutput { return v.Replace }).(pulumi.BoolPtrOutput)
 }

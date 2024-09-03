@@ -231,33 +231,87 @@ export class GitPermissions extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the branch to assign the permissions. 
+     * The name of the branch to assign the permissions.
      *
      * > **Note** to assign permissions to a branch, the `repositoryId` must be set as well.
      */
     public readonly branchName!: pulumi.Output<string | undefined>;
     /**
      * the permissions to assign. The follwing permissions are available
-     *
-     *
-     * | Permissions             | Description                                            |
-     * |-------------------------|--------------------------------------------------------|
-     * | Administer              | Administer                                             |
-     * | GenericRead             | Read                                                   |
-     * | GenericContribute       | Contribute                                             |
-     * | ForcePush               | Force push (rewrite history, delete branches and tags) |
-     * | CreateBranch            | Create branch                                          |
-     * | CreateTag               | Create tag                                             |
-     * | ManageNote              | Manage notes                                           |
-     * | PolicyExempt            | Bypass policies when pushing                           |
-     * | CreateRepository        | Create repository                                      |
-     * | DeleteRepository        | Delete repository                                      |
-     * | RenameRepository        | Rename repository                                      |
-     * | EditPolicies            | Edit policies                                          |
-     * | RemoveOthersLocks       | Remove others' locks                                   |
-     * | ManagePermissions       | Manage permissions                                     |
-     * | PullRequestContribute   | Contribute to pull requests                            |
-     * | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
+     * <table>
+     * <thead>
+     * <tr>
+     * <th>Permissions</th>
+     * <th>Description</th>
+     * </tr>
+     * </thead>
+     * <tbody>
+     * <tr>
+     * <td>Administer</td>
+     * <td>Administer</td>
+     * </tr>
+     * <tr>
+     * <td>GenericRead</td>
+     * <td>Read</td>
+     * </tr>
+     * <tr>
+     * <td>GenericContribute</td>
+     * <td>Contribute</td>
+     * </tr>
+     * <tr>
+     * <td>ForcePush</td>
+     * <td>Force push (rewrite history, delete branches and tags)</td>
+     * </tr>
+     * <tr>
+     * <td>CreateBranch</td>
+     * <td>Create branch</td>
+     * </tr>
+     * <tr>
+     * <td>CreateTag</td>
+     * <td>Create tag</td>
+     * </tr>
+     * <tr>
+     * <td>ManageNote</td>
+     * <td>Manage notes</td>
+     * </tr>
+     * <tr>
+     * <td>PolicyExempt</td>
+     * <td>Bypass policies when pushing</td>
+     * </tr>
+     * <tr>
+     * <td>CreateRepository</td>
+     * <td>Create repository</td>
+     * </tr>
+     * <tr>
+     * <td>DeleteRepository</td>
+     * <td>Delete repository</td>
+     * </tr>
+     * <tr>
+     * <td>RenameRepository</td>
+     * <td>Rename repository</td>
+     * </tr>
+     * <tr>
+     * <td>EditPolicies</td>
+     * <td>Edit policies</td>
+     * </tr>
+     * <tr>
+     * <td>RemoveOthersLocks</td>
+     * <td>Remove others' locks</td>
+     * </tr>
+     * <tr>
+     * <td>ManagePermissions</td>
+     * <td>Manage permissions</td>
+     * </tr>
+     * <tr>
+     * <td>PullRequestContribute</td>
+     * <td>Contribute to pull requests</td>
+     * </tr>
+     * <tr>
+     * <td>PullRequestBypassPolicy</td>
+     * <td>Bypass policies when completing pull requests</td>
+     * </tr>
+     * </tbody>
+     * </table>
      */
     public readonly permissions!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -324,33 +378,87 @@ export class GitPermissions extends pulumi.CustomResource {
  */
 export interface GitPermissionsState {
     /**
-     * The name of the branch to assign the permissions. 
+     * The name of the branch to assign the permissions.
      *
      * > **Note** to assign permissions to a branch, the `repositoryId` must be set as well.
      */
     branchName?: pulumi.Input<string>;
     /**
      * the permissions to assign. The follwing permissions are available
-     *
-     *
-     * | Permissions             | Description                                            |
-     * |-------------------------|--------------------------------------------------------|
-     * | Administer              | Administer                                             |
-     * | GenericRead             | Read                                                   |
-     * | GenericContribute       | Contribute                                             |
-     * | ForcePush               | Force push (rewrite history, delete branches and tags) |
-     * | CreateBranch            | Create branch                                          |
-     * | CreateTag               | Create tag                                             |
-     * | ManageNote              | Manage notes                                           |
-     * | PolicyExempt            | Bypass policies when pushing                           |
-     * | CreateRepository        | Create repository                                      |
-     * | DeleteRepository        | Delete repository                                      |
-     * | RenameRepository        | Rename repository                                      |
-     * | EditPolicies            | Edit policies                                          |
-     * | RemoveOthersLocks       | Remove others' locks                                   |
-     * | ManagePermissions       | Manage permissions                                     |
-     * | PullRequestContribute   | Contribute to pull requests                            |
-     * | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
+     * <table>
+     * <thead>
+     * <tr>
+     * <th>Permissions</th>
+     * <th>Description</th>
+     * </tr>
+     * </thead>
+     * <tbody>
+     * <tr>
+     * <td>Administer</td>
+     * <td>Administer</td>
+     * </tr>
+     * <tr>
+     * <td>GenericRead</td>
+     * <td>Read</td>
+     * </tr>
+     * <tr>
+     * <td>GenericContribute</td>
+     * <td>Contribute</td>
+     * </tr>
+     * <tr>
+     * <td>ForcePush</td>
+     * <td>Force push (rewrite history, delete branches and tags)</td>
+     * </tr>
+     * <tr>
+     * <td>CreateBranch</td>
+     * <td>Create branch</td>
+     * </tr>
+     * <tr>
+     * <td>CreateTag</td>
+     * <td>Create tag</td>
+     * </tr>
+     * <tr>
+     * <td>ManageNote</td>
+     * <td>Manage notes</td>
+     * </tr>
+     * <tr>
+     * <td>PolicyExempt</td>
+     * <td>Bypass policies when pushing</td>
+     * </tr>
+     * <tr>
+     * <td>CreateRepository</td>
+     * <td>Create repository</td>
+     * </tr>
+     * <tr>
+     * <td>DeleteRepository</td>
+     * <td>Delete repository</td>
+     * </tr>
+     * <tr>
+     * <td>RenameRepository</td>
+     * <td>Rename repository</td>
+     * </tr>
+     * <tr>
+     * <td>EditPolicies</td>
+     * <td>Edit policies</td>
+     * </tr>
+     * <tr>
+     * <td>RemoveOthersLocks</td>
+     * <td>Remove others' locks</td>
+     * </tr>
+     * <tr>
+     * <td>ManagePermissions</td>
+     * <td>Manage permissions</td>
+     * </tr>
+     * <tr>
+     * <td>PullRequestContribute</td>
+     * <td>Contribute to pull requests</td>
+     * </tr>
+     * <tr>
+     * <td>PullRequestBypassPolicy</td>
+     * <td>Bypass policies when completing pull requests</td>
+     * </tr>
+     * </tbody>
+     * </table>
      */
     permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -376,33 +484,87 @@ export interface GitPermissionsState {
  */
 export interface GitPermissionsArgs {
     /**
-     * The name of the branch to assign the permissions. 
+     * The name of the branch to assign the permissions.
      *
      * > **Note** to assign permissions to a branch, the `repositoryId` must be set as well.
      */
     branchName?: pulumi.Input<string>;
     /**
      * the permissions to assign. The follwing permissions are available
-     *
-     *
-     * | Permissions             | Description                                            |
-     * |-------------------------|--------------------------------------------------------|
-     * | Administer              | Administer                                             |
-     * | GenericRead             | Read                                                   |
-     * | GenericContribute       | Contribute                                             |
-     * | ForcePush               | Force push (rewrite history, delete branches and tags) |
-     * | CreateBranch            | Create branch                                          |
-     * | CreateTag               | Create tag                                             |
-     * | ManageNote              | Manage notes                                           |
-     * | PolicyExempt            | Bypass policies when pushing                           |
-     * | CreateRepository        | Create repository                                      |
-     * | DeleteRepository        | Delete repository                                      |
-     * | RenameRepository        | Rename repository                                      |
-     * | EditPolicies            | Edit policies                                          |
-     * | RemoveOthersLocks       | Remove others' locks                                   |
-     * | ManagePermissions       | Manage permissions                                     |
-     * | PullRequestContribute   | Contribute to pull requests                            |
-     * | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
+     * <table>
+     * <thead>
+     * <tr>
+     * <th>Permissions</th>
+     * <th>Description</th>
+     * </tr>
+     * </thead>
+     * <tbody>
+     * <tr>
+     * <td>Administer</td>
+     * <td>Administer</td>
+     * </tr>
+     * <tr>
+     * <td>GenericRead</td>
+     * <td>Read</td>
+     * </tr>
+     * <tr>
+     * <td>GenericContribute</td>
+     * <td>Contribute</td>
+     * </tr>
+     * <tr>
+     * <td>ForcePush</td>
+     * <td>Force push (rewrite history, delete branches and tags)</td>
+     * </tr>
+     * <tr>
+     * <td>CreateBranch</td>
+     * <td>Create branch</td>
+     * </tr>
+     * <tr>
+     * <td>CreateTag</td>
+     * <td>Create tag</td>
+     * </tr>
+     * <tr>
+     * <td>ManageNote</td>
+     * <td>Manage notes</td>
+     * </tr>
+     * <tr>
+     * <td>PolicyExempt</td>
+     * <td>Bypass policies when pushing</td>
+     * </tr>
+     * <tr>
+     * <td>CreateRepository</td>
+     * <td>Create repository</td>
+     * </tr>
+     * <tr>
+     * <td>DeleteRepository</td>
+     * <td>Delete repository</td>
+     * </tr>
+     * <tr>
+     * <td>RenameRepository</td>
+     * <td>Rename repository</td>
+     * </tr>
+     * <tr>
+     * <td>EditPolicies</td>
+     * <td>Edit policies</td>
+     * </tr>
+     * <tr>
+     * <td>RemoveOthersLocks</td>
+     * <td>Remove others' locks</td>
+     * </tr>
+     * <tr>
+     * <td>ManagePermissions</td>
+     * <td>Manage permissions</td>
+     * </tr>
+     * <tr>
+     * <td>PullRequestContribute</td>
+     * <td>Contribute to pull requests</td>
+     * </tr>
+     * <tr>
+     * <td>PullRequestBypassPolicy</td>
+     * <td>Bypass policies when completing pull requests</td>
+     * </tr>
+     * </tbody>
+     * </table>
      */
     permissions: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

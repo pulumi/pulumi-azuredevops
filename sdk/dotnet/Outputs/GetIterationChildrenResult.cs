@@ -26,7 +26,7 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The path to the Iteration, _Format_: URL relative; if omitted, or value `"/"` is used, the root Iteration will be returned
+        /// The path to the Iteration, *Format*: URL relative; if omitted, or value `"/"` is used, the root Iteration will be returned
         /// </summary>
         public readonly string Path;
         /// <summary>

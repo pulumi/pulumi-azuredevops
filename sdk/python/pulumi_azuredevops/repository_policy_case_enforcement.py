@@ -202,6 +202,13 @@ class RepositoryPolicyCaseEnforcement(pulumi.CustomResource):
                  repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        layout: "azuredevops"
+        page_title: "AzureDevops: RepositoryPolicyCaseEnforcement"
+        description: |- Manages a case enforcement repository policy within Azure DevOps project.
+        <!-- yaml: line 3: did not find expected comment or line break -->
+
+        # RepositoryPolicyCaseEnforcement
+
         Manages a case enforcement repository policy within Azure DevOps project.
 
         > If both project and project policy are enabled, the project policy has high priority.
@@ -277,6 +284,13 @@ class RepositoryPolicyCaseEnforcement(pulumi.CustomResource):
                  args: RepositoryPolicyCaseEnforcementArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        layout: "azuredevops"
+        page_title: "AzureDevops: RepositoryPolicyCaseEnforcement"
+        description: |- Manages a case enforcement repository policy within Azure DevOps project.
+        <!-- yaml: line 3: did not find expected comment or line break -->
+
+        # RepositoryPolicyCaseEnforcement
+
         Manages a case enforcement repository policy within Azure DevOps project.
 
         > If both project and project policy are enabled, the project policy has high priority.

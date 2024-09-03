@@ -18,14 +18,14 @@ public final class GetIterationArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetIterationArgs Empty = new GetIterationArgs();
 
     /**
-     * Read children nodes, _Depth_: 1, _Default_: `true`
+     * Read children nodes, *Depth*: 1, *Default*: `true`
      * 
      */
     @Import(name="fetchChildren")
     private @Nullable Output<Boolean> fetchChildren;
 
     /**
-     * @return Read children nodes, _Depth_: 1, _Default_: `true`
+     * @return Read children nodes, *Depth*: 1, *Default*: `true`
      * 
      */
     public Optional<Output<Boolean>> fetchChildren() {
@@ -33,14 +33,14 @@ public final class GetIterationArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The path to the Iteration, _Format_: URL relative; if omitted, or value `&#34;/&#34;` is used, the root Iteration will be returned
+     * The path to the Iteration, *Format*: URL relative; if omitted, or value `&#34;/&#34;` is used, the root Iteration will be returned
      * 
      */
     @Import(name="path")
     private @Nullable Output<String> path;
 
     /**
-     * @return The path to the Iteration, _Format_: URL relative; if omitted, or value `&#34;/&#34;` is used, the root Iteration will be returned
+     * @return The path to the Iteration, *Format*: URL relative; if omitted, or value `&#34;/&#34;` is used, the root Iteration will be returned
      * 
      */
     public Optional<Output<String>> path() {
@@ -89,7 +89,7 @@ public final class GetIterationArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param fetchChildren Read children nodes, _Depth_: 1, _Default_: `true`
+         * @param fetchChildren Read children nodes, *Depth*: 1, *Default*: `true`
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class GetIterationArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param fetchChildren Read children nodes, _Depth_: 1, _Default_: `true`
+         * @param fetchChildren Read children nodes, *Depth*: 1, *Default*: `true`
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class GetIterationArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param path The path to the Iteration, _Format_: URL relative; if omitted, or value `&#34;/&#34;` is used, the root Iteration will be returned
+         * @param path The path to the Iteration, *Format*: URL relative; if omitted, or value `&#34;/&#34;` is used, the root Iteration will be returned
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class GetIterationArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param path The path to the Iteration, _Format_: URL relative; if omitted, or value `&#34;/&#34;` is used, the root Iteration will be returned
+         * @param path The path to the Iteration, *Format*: URL relative; if omitted, or value `&#34;/&#34;` is used, the root Iteration will be returned
          * 
          * @return builder
          * 

@@ -142,13 +142,32 @@ public class ServicehookPermissions extends com.pulumi.resources.CustomResource 
     }
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     * 
-     * | Name               | Permission Description   |
-     * | ------------------ | ------------------------ |
-     * | ViewSubscriptions  | View Subscriptions       |
-     * | EditSubscriptions  | Edit Subscription        |
-     * | DeleteSubscriptions| Delete Subscriptions     |
-     * | PublishEvents      | Publish Events           |
+     * &lt;table&gt;
+     * &lt;thead&gt;
+     * &lt;tr&gt;
+     * &lt;th&gt;Name&lt;/th&gt;
+     * &lt;th&gt;Permission Description&lt;/th&gt;
+     * &lt;/tr&gt;
+     * &lt;/thead&gt;
+     * &lt;tbody&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;ViewSubscriptions&lt;/td&gt;
+     * &lt;td&gt;View Subscriptions&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;EditSubscriptions&lt;/td&gt;
+     * &lt;td&gt;Edit Subscription&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;DeleteSubscriptions&lt;/td&gt;
+     * &lt;td&gt;Delete Subscriptions&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;PublishEvents&lt;/td&gt;
+     * &lt;td&gt;Publish Events&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;/tbody&gt;
+     * &lt;/table&gt;
      * 
      */
     @Export(name="replace", refs={Boolean.class}, tree="[0]")
@@ -156,13 +175,32 @@ public class ServicehookPermissions extends com.pulumi.resources.CustomResource 
 
     /**
      * @return Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     * 
-     * | Name               | Permission Description   |
-     * | ------------------ | ------------------------ |
-     * | ViewSubscriptions  | View Subscriptions       |
-     * | EditSubscriptions  | Edit Subscription        |
-     * | DeleteSubscriptions| Delete Subscriptions     |
-     * | PublishEvents      | Publish Events           |
+     * &lt;table&gt;
+     * &lt;thead&gt;
+     * &lt;tr&gt;
+     * &lt;th&gt;Name&lt;/th&gt;
+     * &lt;th&gt;Permission Description&lt;/th&gt;
+     * &lt;/tr&gt;
+     * &lt;/thead&gt;
+     * &lt;tbody&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;ViewSubscriptions&lt;/td&gt;
+     * &lt;td&gt;View Subscriptions&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;EditSubscriptions&lt;/td&gt;
+     * &lt;td&gt;Edit Subscription&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;DeleteSubscriptions&lt;/td&gt;
+     * &lt;td&gt;Delete Subscriptions&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;PublishEvents&lt;/td&gt;
+     * &lt;td&gt;Publish Events&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;/tbody&gt;
+     * &lt;/table&gt;
      * 
      */
     public Output<Optional<Boolean>> replace() {

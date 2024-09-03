@@ -95,12 +95,28 @@ import javax.annotation.Nullable;
  * ## Roles
  * 
  * The Azure DevOps UI uses roles to assign permissions for variable groups.
- * 
- * | Role          | Allow Permissions      |
- * | ------------- | ---------------------- |
- * | Reader        | View                   |
- * | User          | View, Use              |
- * | Administrator | View, Use, Administer  |
+ * &lt;table&gt;
+ * &lt;thead&gt;
+ * &lt;tr&gt;
+ * &lt;th&gt;Role&lt;/th&gt;
+ * &lt;th&gt;Allow Permissions&lt;/th&gt;
+ * &lt;/tr&gt;
+ * &lt;/thead&gt;
+ * &lt;tbody&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;Reader&lt;/td&gt;
+ * &lt;td&gt;View&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;User&lt;/td&gt;
+ * &lt;td&gt;View, Use&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;Administrator&lt;/td&gt;
+ * &lt;td&gt;View, Use, Administer&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;/tbody&gt;
+ * &lt;/table&gt;
  * 
  * ## Relevant Links
  * 
@@ -161,15 +177,40 @@ public class VariableGroupPermissions extends com.pulumi.resources.CustomResourc
     }
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     * 
-     * | Permission        | Description                         |
-     * | ----------------- | ----------------------------------- |
-     * | View              | View library item                   |
-     * | Administer        | Administer library item             |
-     * | Create            | Create library item                 |
-     * | ViewSecrets       | View library item secrets           |
-     * | Use               | Use library item                    |
-     * | Owner             | Owner library item                  |
+     * &lt;table&gt;
+     * &lt;thead&gt;
+     * &lt;tr&gt;
+     * &lt;th&gt;Permission&lt;/th&gt;
+     * &lt;th&gt;Description&lt;/th&gt;
+     * &lt;/tr&gt;
+     * &lt;/thead&gt;
+     * &lt;tbody&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;View&lt;/td&gt;
+     * &lt;td&gt;View library item&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;Administer&lt;/td&gt;
+     * &lt;td&gt;Administer library item&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;Create&lt;/td&gt;
+     * &lt;td&gt;Create library item&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;ViewSecrets&lt;/td&gt;
+     * &lt;td&gt;View library item secrets&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;Use&lt;/td&gt;
+     * &lt;td&gt;Use library item&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;Owner&lt;/td&gt;
+     * &lt;td&gt;Owner library item&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;/tbody&gt;
+     * &lt;/table&gt;
      * 
      */
     @Export(name="replace", refs={Boolean.class}, tree="[0]")
@@ -177,15 +218,40 @@ public class VariableGroupPermissions extends com.pulumi.resources.CustomResourc
 
     /**
      * @return Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     * 
-     * | Permission        | Description                         |
-     * | ----------------- | ----------------------------------- |
-     * | View              | View library item                   |
-     * | Administer        | Administer library item             |
-     * | Create            | Create library item                 |
-     * | ViewSecrets       | View library item secrets           |
-     * | Use               | Use library item                    |
-     * | Owner             | Owner library item                  |
+     * &lt;table&gt;
+     * &lt;thead&gt;
+     * &lt;tr&gt;
+     * &lt;th&gt;Permission&lt;/th&gt;
+     * &lt;th&gt;Description&lt;/th&gt;
+     * &lt;/tr&gt;
+     * &lt;/thead&gt;
+     * &lt;tbody&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;View&lt;/td&gt;
+     * &lt;td&gt;View library item&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;Administer&lt;/td&gt;
+     * &lt;td&gt;Administer library item&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;Create&lt;/td&gt;
+     * &lt;td&gt;Create library item&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;ViewSecrets&lt;/td&gt;
+     * &lt;td&gt;View library item secrets&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;Use&lt;/td&gt;
+     * &lt;td&gt;Use library item&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;Owner&lt;/td&gt;
+     * &lt;td&gt;Owner library item&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;/tbody&gt;
+     * &lt;/table&gt;
      * 
      */
     public Output<Optional<Boolean>> replace() {

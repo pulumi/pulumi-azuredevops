@@ -49,12 +49,28 @@ import * as utilities from "./utilities";
  * ## Roles
  *
  * The Azure DevOps UI uses roles to assign permissions for variable groups.
- *
- * | Role          | Allow Permissions      |
- * | ------------- | ---------------------- |
- * | Reader        | View                   |
- * | User          | View, Use              |
- * | Administrator | View, Use, Administer  |
+ * <table>
+ * <thead>
+ * <tr>
+ * <th>Role</th>
+ * <th>Allow Permissions</th>
+ * </tr>
+ * </thead>
+ * <tbody>
+ * <tr>
+ * <td>Reader</td>
+ * <td>View</td>
+ * </tr>
+ * <tr>
+ * <td>User</td>
+ * <td>View, Use</td>
+ * </tr>
+ * <tr>
+ * <td>Administrator</td>
+ * <td>View, Use, Administer</td>
+ * </tr>
+ * </tbody>
+ * </table>
  *
  * ## Relevant Links
  *
@@ -110,15 +126,40 @@ export class VariableGroupPermissions extends pulumi.CustomResource {
     public readonly projectId!: pulumi.Output<string>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     *
-     * | Permission        | Description                         |
-     * | ----------------- | ----------------------------------- |
-     * | View              | View library item                   |
-     * | Administer        | Administer library item             |
-     * | Create            | Create library item                 |
-     * | ViewSecrets       | View library item secrets           |
-     * | Use               | Use library item                    |
-     * | Owner             | Owner library item                  |
+     * <table>
+     * <thead>
+     * <tr>
+     * <th>Permission</th>
+     * <th>Description</th>
+     * </tr>
+     * </thead>
+     * <tbody>
+     * <tr>
+     * <td>View</td>
+     * <td>View library item</td>
+     * </tr>
+     * <tr>
+     * <td>Administer</td>
+     * <td>Administer library item</td>
+     * </tr>
+     * <tr>
+     * <td>Create</td>
+     * <td>Create library item</td>
+     * </tr>
+     * <tr>
+     * <td>ViewSecrets</td>
+     * <td>View library item secrets</td>
+     * </tr>
+     * <tr>
+     * <td>Use</td>
+     * <td>Use library item</td>
+     * </tr>
+     * <tr>
+     * <td>Owner</td>
+     * <td>Owner library item</td>
+     * </tr>
+     * </tbody>
+     * </table>
      */
     public readonly replace!: pulumi.Output<boolean | undefined>;
     /**
@@ -187,15 +228,40 @@ export interface VariableGroupPermissionsState {
     projectId?: pulumi.Input<string>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     *
-     * | Permission        | Description                         |
-     * | ----------------- | ----------------------------------- |
-     * | View              | View library item                   |
-     * | Administer        | Administer library item             |
-     * | Create            | Create library item                 |
-     * | ViewSecrets       | View library item secrets           |
-     * | Use               | Use library item                    |
-     * | Owner             | Owner library item                  |
+     * <table>
+     * <thead>
+     * <tr>
+     * <th>Permission</th>
+     * <th>Description</th>
+     * </tr>
+     * </thead>
+     * <tbody>
+     * <tr>
+     * <td>View</td>
+     * <td>View library item</td>
+     * </tr>
+     * <tr>
+     * <td>Administer</td>
+     * <td>Administer library item</td>
+     * </tr>
+     * <tr>
+     * <td>Create</td>
+     * <td>Create library item</td>
+     * </tr>
+     * <tr>
+     * <td>ViewSecrets</td>
+     * <td>View library item secrets</td>
+     * </tr>
+     * <tr>
+     * <td>Use</td>
+     * <td>Use library item</td>
+     * </tr>
+     * <tr>
+     * <td>Owner</td>
+     * <td>Owner library item</td>
+     * </tr>
+     * </tbody>
+     * </table>
      */
     replace?: pulumi.Input<boolean>;
     /**
@@ -222,15 +288,40 @@ export interface VariableGroupPermissionsArgs {
     projectId: pulumi.Input<string>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     *
-     * | Permission        | Description                         |
-     * | ----------------- | ----------------------------------- |
-     * | View              | View library item                   |
-     * | Administer        | Administer library item             |
-     * | Create            | Create library item                 |
-     * | ViewSecrets       | View library item secrets           |
-     * | Use               | Use library item                    |
-     * | Owner             | Owner library item                  |
+     * <table>
+     * <thead>
+     * <tr>
+     * <th>Permission</th>
+     * <th>Description</th>
+     * </tr>
+     * </thead>
+     * <tbody>
+     * <tr>
+     * <td>View</td>
+     * <td>View library item</td>
+     * </tr>
+     * <tr>
+     * <td>Administer</td>
+     * <td>Administer library item</td>
+     * </tr>
+     * <tr>
+     * <td>Create</td>
+     * <td>Create library item</td>
+     * </tr>
+     * <tr>
+     * <td>ViewSecrets</td>
+     * <td>View library item secrets</td>
+     * </tr>
+     * <tr>
+     * <td>Use</td>
+     * <td>Use library item</td>
+     * </tr>
+     * <tr>
+     * <td>Owner</td>
+     * <td>Owner library item</td>
+     * </tr>
+     * </tbody>
+     * </table>
      */
     replace?: pulumi.Input<boolean>;
     /**

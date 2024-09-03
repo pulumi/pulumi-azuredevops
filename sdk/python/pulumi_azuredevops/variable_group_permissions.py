@@ -31,15 +31,40 @@ class VariableGroupPermissionsArgs:
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] variable_group_id: The id of the variable group to assign the permissions.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
-               
-               | Permission        | Description                         |
-               | ----------------- | ----------------------------------- |
-               | View              | View library item                   |
-               | Administer        | Administer library item             |
-               | Create            | Create library item                 |
-               | ViewSecrets       | View library item secrets           |
-               | Use               | Use library item                    |
-               | Owner             | Owner library item                  |
+               <table>
+               <thead>
+               <tr>
+               <th>Permission</th>
+               <th>Description</th>
+               </tr>
+               </thead>
+               <tbody>
+               <tr>
+               <td>View</td>
+               <td>View library item</td>
+               </tr>
+               <tr>
+               <td>Administer</td>
+               <td>Administer library item</td>
+               </tr>
+               <tr>
+               <td>Create</td>
+               <td>Create library item</td>
+               </tr>
+               <tr>
+               <td>ViewSecrets</td>
+               <td>View library item secrets</td>
+               </tr>
+               <tr>
+               <td>Use</td>
+               <td>Use library item</td>
+               </tr>
+               <tr>
+               <td>Owner</td>
+               <td>Owner library item</td>
+               </tr>
+               </tbody>
+               </table>
         """
         pulumi.set(__self__, "permissions", permissions)
         pulumi.set(__self__, "principal", principal)
@@ -101,15 +126,40 @@ class VariableGroupPermissionsArgs:
     def replace(self) -> Optional[pulumi.Input[bool]]:
         """
         Replace (`true`) or merge (`false`) the permissions. Default: `true`
-
-        | Permission        | Description                         |
-        | ----------------- | ----------------------------------- |
-        | View              | View library item                   |
-        | Administer        | Administer library item             |
-        | Create            | Create library item                 |
-        | ViewSecrets       | View library item secrets           |
-        | Use               | Use library item                    |
-        | Owner             | Owner library item                  |
+        <table>
+        <thead>
+        <tr>
+        <th>Permission</th>
+        <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>View</td>
+        <td>View library item</td>
+        </tr>
+        <tr>
+        <td>Administer</td>
+        <td>Administer library item</td>
+        </tr>
+        <tr>
+        <td>Create</td>
+        <td>Create library item</td>
+        </tr>
+        <tr>
+        <td>ViewSecrets</td>
+        <td>View library item secrets</td>
+        </tr>
+        <tr>
+        <td>Use</td>
+        <td>Use library item</td>
+        </tr>
+        <tr>
+        <td>Owner</td>
+        <td>Owner library item</td>
+        </tr>
+        </tbody>
+        </table>
         """
         return pulumi.get(self, "replace")
 
@@ -132,15 +182,40 @@ class _VariableGroupPermissionsState:
         :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
-               
-               | Permission        | Description                         |
-               | ----------------- | ----------------------------------- |
-               | View              | View library item                   |
-               | Administer        | Administer library item             |
-               | Create            | Create library item                 |
-               | ViewSecrets       | View library item secrets           |
-               | Use               | Use library item                    |
-               | Owner             | Owner library item                  |
+               <table>
+               <thead>
+               <tr>
+               <th>Permission</th>
+               <th>Description</th>
+               </tr>
+               </thead>
+               <tbody>
+               <tr>
+               <td>View</td>
+               <td>View library item</td>
+               </tr>
+               <tr>
+               <td>Administer</td>
+               <td>Administer library item</td>
+               </tr>
+               <tr>
+               <td>Create</td>
+               <td>Create library item</td>
+               </tr>
+               <tr>
+               <td>ViewSecrets</td>
+               <td>View library item secrets</td>
+               </tr>
+               <tr>
+               <td>Use</td>
+               <td>Use library item</td>
+               </tr>
+               <tr>
+               <td>Owner</td>
+               <td>Owner library item</td>
+               </tr>
+               </tbody>
+               </table>
         :param pulumi.Input[str] variable_group_id: The id of the variable group to assign the permissions.
         """
         if permissions is not None:
@@ -195,15 +270,40 @@ class _VariableGroupPermissionsState:
     def replace(self) -> Optional[pulumi.Input[bool]]:
         """
         Replace (`true`) or merge (`false`) the permissions. Default: `true`
-
-        | Permission        | Description                         |
-        | ----------------- | ----------------------------------- |
-        | View              | View library item                   |
-        | Administer        | Administer library item             |
-        | Create            | Create library item                 |
-        | ViewSecrets       | View library item secrets           |
-        | Use               | Use library item                    |
-        | Owner             | Owner library item                  |
+        <table>
+        <thead>
+        <tr>
+        <th>Permission</th>
+        <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>View</td>
+        <td>View library item</td>
+        </tr>
+        <tr>
+        <td>Administer</td>
+        <td>Administer library item</td>
+        </tr>
+        <tr>
+        <td>Create</td>
+        <td>Create library item</td>
+        </tr>
+        <tr>
+        <td>ViewSecrets</td>
+        <td>View library item secrets</td>
+        </tr>
+        <tr>
+        <td>Use</td>
+        <td>Use library item</td>
+        </tr>
+        <tr>
+        <td>Owner</td>
+        <td>Owner library item</td>
+        </tr>
+        </tbody>
+        </table>
         """
         return pulumi.get(self, "replace")
 
@@ -275,12 +375,28 @@ class VariableGroupPermissions(pulumi.CustomResource):
         ## Roles
 
         The Azure DevOps UI uses roles to assign permissions for variable groups.
-
-        | Role          | Allow Permissions      |
-        | ------------- | ---------------------- |
-        | Reader        | View                   |
-        | User          | View, Use              |
-        | Administrator | View, Use, Administer  |
+        <table>
+        <thead>
+        <tr>
+        <th>Role</th>
+        <th>Allow Permissions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>Reader</td>
+        <td>View</td>
+        </tr>
+        <tr>
+        <td>User</td>
+        <td>View, Use</td>
+        </tr>
+        <tr>
+        <td>Administrator</td>
+        <td>View, Use, Administer</td>
+        </tr>
+        </tbody>
+        </table>
 
         ## Relevant Links
 
@@ -300,15 +416,40 @@ class VariableGroupPermissions(pulumi.CustomResource):
         :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
-               
-               | Permission        | Description                         |
-               | ----------------- | ----------------------------------- |
-               | View              | View library item                   |
-               | Administer        | Administer library item             |
-               | Create            | Create library item                 |
-               | ViewSecrets       | View library item secrets           |
-               | Use               | Use library item                    |
-               | Owner             | Owner library item                  |
+               <table>
+               <thead>
+               <tr>
+               <th>Permission</th>
+               <th>Description</th>
+               </tr>
+               </thead>
+               <tbody>
+               <tr>
+               <td>View</td>
+               <td>View library item</td>
+               </tr>
+               <tr>
+               <td>Administer</td>
+               <td>Administer library item</td>
+               </tr>
+               <tr>
+               <td>Create</td>
+               <td>Create library item</td>
+               </tr>
+               <tr>
+               <td>ViewSecrets</td>
+               <td>View library item secrets</td>
+               </tr>
+               <tr>
+               <td>Use</td>
+               <td>Use library item</td>
+               </tr>
+               <tr>
+               <td>Owner</td>
+               <td>Owner library item</td>
+               </tr>
+               </tbody>
+               </table>
         :param pulumi.Input[str] variable_group_id: The id of the variable group to assign the permissions.
         """
         ...
@@ -357,12 +498,28 @@ class VariableGroupPermissions(pulumi.CustomResource):
         ## Roles
 
         The Azure DevOps UI uses roles to assign permissions for variable groups.
-
-        | Role          | Allow Permissions      |
-        | ------------- | ---------------------- |
-        | Reader        | View                   |
-        | User          | View, Use              |
-        | Administrator | View, Use, Administer  |
+        <table>
+        <thead>
+        <tr>
+        <th>Role</th>
+        <th>Allow Permissions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>Reader</td>
+        <td>View</td>
+        </tr>
+        <tr>
+        <td>User</td>
+        <td>View, Use</td>
+        </tr>
+        <tr>
+        <td>Administrator</td>
+        <td>View, Use, Administer</td>
+        </tr>
+        </tbody>
+        </table>
 
         ## Relevant Links
 
@@ -444,15 +601,40 @@ class VariableGroupPermissions(pulumi.CustomResource):
         :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
-               
-               | Permission        | Description                         |
-               | ----------------- | ----------------------------------- |
-               | View              | View library item                   |
-               | Administer        | Administer library item             |
-               | Create            | Create library item                 |
-               | ViewSecrets       | View library item secrets           |
-               | Use               | Use library item                    |
-               | Owner             | Owner library item                  |
+               <table>
+               <thead>
+               <tr>
+               <th>Permission</th>
+               <th>Description</th>
+               </tr>
+               </thead>
+               <tbody>
+               <tr>
+               <td>View</td>
+               <td>View library item</td>
+               </tr>
+               <tr>
+               <td>Administer</td>
+               <td>Administer library item</td>
+               </tr>
+               <tr>
+               <td>Create</td>
+               <td>Create library item</td>
+               </tr>
+               <tr>
+               <td>ViewSecrets</td>
+               <td>View library item secrets</td>
+               </tr>
+               <tr>
+               <td>Use</td>
+               <td>Use library item</td>
+               </tr>
+               <tr>
+               <td>Owner</td>
+               <td>Owner library item</td>
+               </tr>
+               </tbody>
+               </table>
         :param pulumi.Input[str] variable_group_id: The id of the variable group to assign the permissions.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -495,15 +677,40 @@ class VariableGroupPermissions(pulumi.CustomResource):
     def replace(self) -> pulumi.Output[Optional[bool]]:
         """
         Replace (`true`) or merge (`false`) the permissions. Default: `true`
-
-        | Permission        | Description                         |
-        | ----------------- | ----------------------------------- |
-        | View              | View library item                   |
-        | Administer        | Administer library item             |
-        | Create            | Create library item                 |
-        | ViewSecrets       | View library item secrets           |
-        | Use               | Use library item                    |
-        | Owner             | Owner library item                  |
+        <table>
+        <thead>
+        <tr>
+        <th>Permission</th>
+        <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>View</td>
+        <td>View library item</td>
+        </tr>
+        <tr>
+        <td>Administer</td>
+        <td>Administer library item</td>
+        </tr>
+        <tr>
+        <td>Create</td>
+        <td>Create library item</td>
+        </tr>
+        <tr>
+        <td>ViewSecrets</td>
+        <td>View library item secrets</td>
+        </tr>
+        <tr>
+        <td>Use</td>
+        <td>Use library item</td>
+        </tr>
+        <tr>
+        <td>Owner</td>
+        <td>Owner library item</td>
+        </tr>
+        </tbody>
+        </table>
         """
         return pulumi.get(self, "replace")
 

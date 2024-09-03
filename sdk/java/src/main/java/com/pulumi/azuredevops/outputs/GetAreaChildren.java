@@ -27,7 +27,7 @@ public final class GetAreaChildren {
      */
     private String name;
     /**
-     * @return The path to the Area; _Format_: URL relative; if omitted, or value `&#34;/&#34;` is used, the root Area will be returned
+     * @return The path to the Area; *Format*: URL relative; if omitted, or value `&#34;/&#34;` is used, the root Area will be returned
      * 
      */
     private String path;
@@ -60,7 +60,7 @@ public final class GetAreaChildren {
         return this.name;
     }
     /**
-     * @return The path to the Area; _Format_: URL relative; if omitted, or value `&#34;/&#34;` is used, the root Area will be returned
+     * @return The path to the Area; *Format*: URL relative; if omitted, or value `&#34;/&#34;` is used, the root Area will be returned
      * 
      */
     public String path() {

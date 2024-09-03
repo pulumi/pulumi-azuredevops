@@ -12,6 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// layout: "azuredevops"
+// page_title: "AzureDevops: RepositoryPolicyFilePathPattern"
+// description: |- Manages a file path pattern repository policy within Azure DevOps project.
+// <!-- yaml: line 3: did not find expected comment or line break -->
+//
+// # RepositoryPolicyFilePathPattern
+//
 // Manage a file path pattern repository policy within Azure DevOps project.
 //
 // ## Example Usage

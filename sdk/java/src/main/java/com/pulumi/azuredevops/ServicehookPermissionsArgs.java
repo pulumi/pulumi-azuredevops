@@ -65,13 +65,32 @@ public final class ServicehookPermissionsArgs extends com.pulumi.resources.Resou
 
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     * 
-     * | Name               | Permission Description   |
-     * | ------------------ | ------------------------ |
-     * | ViewSubscriptions  | View Subscriptions       |
-     * | EditSubscriptions  | Edit Subscription        |
-     * | DeleteSubscriptions| Delete Subscriptions     |
-     * | PublishEvents      | Publish Events           |
+     * &lt;table&gt;
+     * &lt;thead&gt;
+     * &lt;tr&gt;
+     * &lt;th&gt;Name&lt;/th&gt;
+     * &lt;th&gt;Permission Description&lt;/th&gt;
+     * &lt;/tr&gt;
+     * &lt;/thead&gt;
+     * &lt;tbody&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;ViewSubscriptions&lt;/td&gt;
+     * &lt;td&gt;View Subscriptions&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;EditSubscriptions&lt;/td&gt;
+     * &lt;td&gt;Edit Subscription&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;DeleteSubscriptions&lt;/td&gt;
+     * &lt;td&gt;Delete Subscriptions&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;PublishEvents&lt;/td&gt;
+     * &lt;td&gt;Publish Events&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;/tbody&gt;
+     * &lt;/table&gt;
      * 
      */
     @Import(name="replace")
@@ -79,13 +98,32 @@ public final class ServicehookPermissionsArgs extends com.pulumi.resources.Resou
 
     /**
      * @return Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     * 
-     * | Name               | Permission Description   |
-     * | ------------------ | ------------------------ |
-     * | ViewSubscriptions  | View Subscriptions       |
-     * | EditSubscriptions  | Edit Subscription        |
-     * | DeleteSubscriptions| Delete Subscriptions     |
-     * | PublishEvents      | Publish Events           |
+     * &lt;table&gt;
+     * &lt;thead&gt;
+     * &lt;tr&gt;
+     * &lt;th&gt;Name&lt;/th&gt;
+     * &lt;th&gt;Permission Description&lt;/th&gt;
+     * &lt;/tr&gt;
+     * &lt;/thead&gt;
+     * &lt;tbody&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;ViewSubscriptions&lt;/td&gt;
+     * &lt;td&gt;View Subscriptions&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;EditSubscriptions&lt;/td&gt;
+     * &lt;td&gt;Edit Subscription&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;DeleteSubscriptions&lt;/td&gt;
+     * &lt;td&gt;Delete Subscriptions&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;PublishEvents&lt;/td&gt;
+     * &lt;td&gt;Publish Events&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;/tbody&gt;
+     * &lt;/table&gt;
      * 
      */
     public Optional<Output<Boolean>> replace() {
@@ -184,13 +222,32 @@ public final class ServicehookPermissionsArgs extends com.pulumi.resources.Resou
 
         /**
          * @param replace Replace (`true`) or merge (`false`) the permissions. Default: `true`
-         * 
-         * | Name               | Permission Description   |
-         * | ------------------ | ------------------------ |
-         * | ViewSubscriptions  | View Subscriptions       |
-         * | EditSubscriptions  | Edit Subscription        |
-         * | DeleteSubscriptions| Delete Subscriptions     |
-         * | PublishEvents      | Publish Events           |
+         * &lt;table&gt;
+         * &lt;thead&gt;
+         * &lt;tr&gt;
+         * &lt;th&gt;Name&lt;/th&gt;
+         * &lt;th&gt;Permission Description&lt;/th&gt;
+         * &lt;/tr&gt;
+         * &lt;/thead&gt;
+         * &lt;tbody&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;ViewSubscriptions&lt;/td&gt;
+         * &lt;td&gt;View Subscriptions&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;EditSubscriptions&lt;/td&gt;
+         * &lt;td&gt;Edit Subscription&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;DeleteSubscriptions&lt;/td&gt;
+         * &lt;td&gt;Delete Subscriptions&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;PublishEvents&lt;/td&gt;
+         * &lt;td&gt;Publish Events&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;/tbody&gt;
+         * &lt;/table&gt;
          * 
          * @return builder
          * 
@@ -202,13 +259,32 @@ public final class ServicehookPermissionsArgs extends com.pulumi.resources.Resou
 
         /**
          * @param replace Replace (`true`) or merge (`false`) the permissions. Default: `true`
-         * 
-         * | Name               | Permission Description   |
-         * | ------------------ | ------------------------ |
-         * | ViewSubscriptions  | View Subscriptions       |
-         * | EditSubscriptions  | Edit Subscription        |
-         * | DeleteSubscriptions| Delete Subscriptions     |
-         * | PublishEvents      | Publish Events           |
+         * &lt;table&gt;
+         * &lt;thead&gt;
+         * &lt;tr&gt;
+         * &lt;th&gt;Name&lt;/th&gt;
+         * &lt;th&gt;Permission Description&lt;/th&gt;
+         * &lt;/tr&gt;
+         * &lt;/thead&gt;
+         * &lt;tbody&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;ViewSubscriptions&lt;/td&gt;
+         * &lt;td&gt;View Subscriptions&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;EditSubscriptions&lt;/td&gt;
+         * &lt;td&gt;Edit Subscription&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;DeleteSubscriptions&lt;/td&gt;
+         * &lt;td&gt;Delete Subscriptions&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;PublishEvents&lt;/td&gt;
+         * &lt;td&gt;Publish Events&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;/tbody&gt;
+         * &lt;/table&gt;
          * 
          * @return builder
          * 

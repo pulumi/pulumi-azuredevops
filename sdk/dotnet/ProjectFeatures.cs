@@ -64,11 +64,9 @@ namespace Pulumi.AzureDevOps
     public partial class ProjectFeatures : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Defines the status (`enabled`, `disabled`) of the project features.  
-        /// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+        /// Defines the status (`enabled`, `disabled`) of the project features.Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
         /// 
-        /// &gt; **NOTE:**
-        /// &gt; It's possible to define project features both within the `azuredevops.ProjectFeatures` resource and
+        /// &gt; **NOTE:**It's possible to define project features both within the `azuredevops.ProjectFeatures` resource and
         /// &gt; via the `features` block by using the `azuredevops.Project` resource.
         /// &gt; However it's not possible to use both methods to manage features, since there'll be conflicts.
         /// </summary>
@@ -128,11 +126,9 @@ namespace Pulumi.AzureDevOps
         private InputMap<string>? _features;
 
         /// <summary>
-        /// Defines the status (`enabled`, `disabled`) of the project features.  
-        /// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+        /// Defines the status (`enabled`, `disabled`) of the project features.Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
         /// 
-        /// &gt; **NOTE:**
-        /// &gt; It's possible to define project features both within the `azuredevops.ProjectFeatures` resource and
+        /// &gt; **NOTE:**It's possible to define project features both within the `azuredevops.ProjectFeatures` resource and
         /// &gt; via the `features` block by using the `azuredevops.Project` resource.
         /// &gt; However it's not possible to use both methods to manage features, since there'll be conflicts.
         /// </summary>
@@ -157,11 +153,9 @@ namespace Pulumi.AzureDevOps
         private InputMap<string>? _features;
 
         /// <summary>
-        /// Defines the status (`enabled`, `disabled`) of the project features.  
-        /// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+        /// Defines the status (`enabled`, `disabled`) of the project features.Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
         /// 
-        /// &gt; **NOTE:**
-        /// &gt; It's possible to define project features both within the `azuredevops.ProjectFeatures` resource and
+        /// &gt; **NOTE:**It's possible to define project features both within the `azuredevops.ProjectFeatures` resource and
         /// &gt; via the `features` block by using the `azuredevops.Project` resource.
         /// &gt; However it's not possible to use both methods to manage features, since there'll be conflicts.
         /// </summary>

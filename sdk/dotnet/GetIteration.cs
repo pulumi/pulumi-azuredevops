@@ -116,13 +116,13 @@ namespace Pulumi.AzureDevOps
     public sealed class GetIterationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Read children nodes, _Depth_: 1, _Default_: `true`
+        /// Read children nodes, *Depth*: 1, *Default*: `true`
         /// </summary>
         [Input("fetchChildren")]
         public bool? FetchChildren { get; set; }
 
         /// <summary>
-        /// The path to the Iteration, _Format_: URL relative; if omitted, or value `"/"` is used, the root Iteration will be returned
+        /// The path to the Iteration, *Format*: URL relative; if omitted, or value `"/"` is used, the root Iteration will be returned
         /// </summary>
         [Input("path")]
         public string? Path { get; set; }
@@ -142,13 +142,13 @@ namespace Pulumi.AzureDevOps
     public sealed class GetIterationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Read children nodes, _Depth_: 1, _Default_: `true`
+        /// Read children nodes, *Depth*: 1, *Default*: `true`
         /// </summary>
         [Input("fetchChildren")]
         public Input<bool>? FetchChildren { get; set; }
 
         /// <summary>
-        /// The path to the Iteration, _Format_: URL relative; if omitted, or value `"/"` is used, the root Iteration will be returned
+        /// The path to the Iteration, *Format*: URL relative; if omitted, or value `"/"` is used, the root Iteration will be returned
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }

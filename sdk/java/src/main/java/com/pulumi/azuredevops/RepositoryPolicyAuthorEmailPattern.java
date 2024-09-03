@@ -17,6 +17,13 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * layout: &#34;azuredevops&#34;
+ * page_title: &#34;AzureDevops: azuredevops.RepositoryPolicyAuthorEmailPattern&#34;
+ * description: |- Manages author email pattern repository policy within Azure DevOps project.
+ * &lt;!-- yaml: line 3: did not find expected comment or line break --&gt;
+ * 
+ * # azuredevops.RepositoryPolicyAuthorEmailPattern
+ * 
  * Manage author email pattern repository policy within Azure DevOps project.
  * 
  * ## Example Usage

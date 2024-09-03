@@ -12,6 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// layout: "azuredevops"
+// page_title: "AzureDevops: GitRepositoryFile"
+// description: |- Manage files within an Azure DevOps Git repository.
+// <!-- yaml: line 3: did not find expected comment or line break -->
+//
+// # GitRepositoryFile
+//
 // Manage files within an Azure DevOps Git repository.
 //
 // ## Example Usage

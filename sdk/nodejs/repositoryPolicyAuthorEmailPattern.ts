@@ -5,6 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * layout: "azuredevops"
+ * page_title: "AzureDevops: azuredevops.RepositoryPolicyAuthorEmailPattern"
+ * description: |- Manages author email pattern repository policy within Azure DevOps project.
+ * <!-- yaml: line 3: did not find expected comment or line break -->
+ *
+ * # azuredevops.RepositoryPolicyAuthorEmailPattern
+ *
  * Manage author email pattern repository policy within Azure DevOps project.
  *
  * ## Example Usage
@@ -104,7 +111,7 @@ export class RepositoryPolicyAuthorEmailPattern extends pulumi.CustomResource {
     }
 
     /**
-     * Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
+     * Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
      * Email patterns prefixed with "!" are excluded. Order is important.
      */
     public readonly authorEmailPatterns!: pulumi.Output<string[]>;
@@ -167,7 +174,7 @@ export class RepositoryPolicyAuthorEmailPattern extends pulumi.CustomResource {
  */
 export interface RepositoryPolicyAuthorEmailPatternState {
     /**
-     * Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
+     * Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
      * Email patterns prefixed with "!" are excluded. Order is important.
      */
     authorEmailPatterns?: pulumi.Input<pulumi.Input<string>[]>;
@@ -194,7 +201,7 @@ export interface RepositoryPolicyAuthorEmailPatternState {
  */
 export interface RepositoryPolicyAuthorEmailPatternArgs {
     /**
-     * Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
+     * Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
      * Email patterns prefixed with "!" are excluded. Order is important.
      */
     authorEmailPatterns: pulumi.Input<pulumi.Input<string>[]>;

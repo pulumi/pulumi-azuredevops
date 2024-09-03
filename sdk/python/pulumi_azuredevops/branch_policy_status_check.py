@@ -171,6 +171,13 @@ class BranchPolicyStatusCheck(pulumi.CustomResource):
                  settings: Optional[pulumi.Input[Union['BranchPolicyStatusCheckSettingsArgs', 'BranchPolicyStatusCheckSettingsArgsDict']]] = None,
                  __props__=None):
         """
+        layout: "azuredevops"
+        page_title: "AzureDevops: BranchPolicyStatusCheck"
+        description: |- Manages status check branch policy within Azure DevOps project.
+        <!-- yaml: line 3: did not find expected comment or line break -->
+
+        # BranchPolicyStatusCheck
+
         Manages a status check branch policy within Azure DevOps.
 
         ## Example Usage
@@ -247,6 +254,13 @@ class BranchPolicyStatusCheck(pulumi.CustomResource):
                  args: BranchPolicyStatusCheckArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        layout: "azuredevops"
+        page_title: "AzureDevops: BranchPolicyStatusCheck"
+        description: |- Manages status check branch policy within Azure DevOps project.
+        <!-- yaml: line 3: did not find expected comment or line break -->
+
+        # BranchPolicyStatusCheck
+
         Manages a status check branch policy within Azure DevOps.
 
         ## Example Usage

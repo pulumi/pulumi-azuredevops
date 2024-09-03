@@ -93,13 +93,32 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-        /// 
-        /// | Name               | Permission Description   |
-        /// | ------------------ | ------------------------ |
-        /// | ViewSubscriptions  | View Subscriptions       |
-        /// | EditSubscriptions  | Edit Subscription        |
-        /// | DeleteSubscriptions| Delete Subscriptions     |
-        /// | PublishEvents      | Publish Events           |
+        /// &lt;table&gt;
+        /// &lt;thead&gt;
+        /// &lt;tr&gt;
+        /// &lt;th&gt;Name&lt;/th&gt;
+        /// &lt;th&gt;Permission Description&lt;/th&gt;
+        /// &lt;/tr&gt;
+        /// &lt;/thead&gt;
+        /// &lt;tbody&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;ViewSubscriptions&lt;/td&gt;
+        /// &lt;td&gt;View Subscriptions&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;EditSubscriptions&lt;/td&gt;
+        /// &lt;td&gt;Edit Subscription&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;DeleteSubscriptions&lt;/td&gt;
+        /// &lt;td&gt;Delete Subscriptions&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;PublishEvents&lt;/td&gt;
+        /// &lt;td&gt;Publish Events&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;/tbody&gt;
+        /// &lt;/table&gt;
         /// </summary>
         [Output("replace")]
         public Output<bool?> Replace { get; private set; } = null!;
@@ -176,13 +195,32 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-        /// 
-        /// | Name               | Permission Description   |
-        /// | ------------------ | ------------------------ |
-        /// | ViewSubscriptions  | View Subscriptions       |
-        /// | EditSubscriptions  | Edit Subscription        |
-        /// | DeleteSubscriptions| Delete Subscriptions     |
-        /// | PublishEvents      | Publish Events           |
+        /// &lt;table&gt;
+        /// &lt;thead&gt;
+        /// &lt;tr&gt;
+        /// &lt;th&gt;Name&lt;/th&gt;
+        /// &lt;th&gt;Permission Description&lt;/th&gt;
+        /// &lt;/tr&gt;
+        /// &lt;/thead&gt;
+        /// &lt;tbody&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;ViewSubscriptions&lt;/td&gt;
+        /// &lt;td&gt;View Subscriptions&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;EditSubscriptions&lt;/td&gt;
+        /// &lt;td&gt;Edit Subscription&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;DeleteSubscriptions&lt;/td&gt;
+        /// &lt;td&gt;Delete Subscriptions&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;PublishEvents&lt;/td&gt;
+        /// &lt;td&gt;Publish Events&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;/tbody&gt;
+        /// &lt;/table&gt;
         /// </summary>
         [Input("replace")]
         public Input<bool>? Replace { get; set; }
@@ -221,13 +259,32 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-        /// 
-        /// | Name               | Permission Description   |
-        /// | ------------------ | ------------------------ |
-        /// | ViewSubscriptions  | View Subscriptions       |
-        /// | EditSubscriptions  | Edit Subscription        |
-        /// | DeleteSubscriptions| Delete Subscriptions     |
-        /// | PublishEvents      | Publish Events           |
+        /// &lt;table&gt;
+        /// &lt;thead&gt;
+        /// &lt;tr&gt;
+        /// &lt;th&gt;Name&lt;/th&gt;
+        /// &lt;th&gt;Permission Description&lt;/th&gt;
+        /// &lt;/tr&gt;
+        /// &lt;/thead&gt;
+        /// &lt;tbody&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;ViewSubscriptions&lt;/td&gt;
+        /// &lt;td&gt;View Subscriptions&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;EditSubscriptions&lt;/td&gt;
+        /// &lt;td&gt;Edit Subscription&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;DeleteSubscriptions&lt;/td&gt;
+        /// &lt;td&gt;Delete Subscriptions&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;PublishEvents&lt;/td&gt;
+        /// &lt;td&gt;Publish Events&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;/tbody&gt;
+        /// &lt;/table&gt;
         /// </summary>
         [Input("replace")]
         public Input<bool>? Replace { get; set; }

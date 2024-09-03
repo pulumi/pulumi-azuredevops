@@ -64,13 +64,32 @@ public final class TaggingPermissionsState extends com.pulumi.resources.Resource
 
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     * 
-     * | Name               | Permission Description     |
-     * | ------------------ | -------------------------- |
-     * | Enumerate          | Enumerate tag definitions  |
-     * | Create             | Create tag definition      |
-     * | Update             | Update tag definition      |
-     * | Delete             | Delete tag definition      |
+     * &lt;table&gt;
+     * &lt;thead&gt;
+     * &lt;tr&gt;
+     * &lt;th&gt;Name&lt;/th&gt;
+     * &lt;th&gt;Permission Description&lt;/th&gt;
+     * &lt;/tr&gt;
+     * &lt;/thead&gt;
+     * &lt;tbody&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;Enumerate&lt;/td&gt;
+     * &lt;td&gt;Enumerate tag definitions&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;Create&lt;/td&gt;
+     * &lt;td&gt;Create tag definition&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;Update&lt;/td&gt;
+     * &lt;td&gt;Update tag definition&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;Delete&lt;/td&gt;
+     * &lt;td&gt;Delete tag definition&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;/tbody&gt;
+     * &lt;/table&gt;
      * 
      */
     @Import(name="replace")
@@ -78,13 +97,32 @@ public final class TaggingPermissionsState extends com.pulumi.resources.Resource
 
     /**
      * @return Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     * 
-     * | Name               | Permission Description     |
-     * | ------------------ | -------------------------- |
-     * | Enumerate          | Enumerate tag definitions  |
-     * | Create             | Create tag definition      |
-     * | Update             | Update tag definition      |
-     * | Delete             | Delete tag definition      |
+     * &lt;table&gt;
+     * &lt;thead&gt;
+     * &lt;tr&gt;
+     * &lt;th&gt;Name&lt;/th&gt;
+     * &lt;th&gt;Permission Description&lt;/th&gt;
+     * &lt;/tr&gt;
+     * &lt;/thead&gt;
+     * &lt;tbody&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;Enumerate&lt;/td&gt;
+     * &lt;td&gt;Enumerate tag definitions&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;Create&lt;/td&gt;
+     * &lt;td&gt;Create tag definition&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;Update&lt;/td&gt;
+     * &lt;td&gt;Update tag definition&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;Delete&lt;/td&gt;
+     * &lt;td&gt;Delete tag definition&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;/tbody&gt;
+     * &lt;/table&gt;
      * 
      */
     public Optional<Output<Boolean>> replace() {
@@ -183,13 +221,32 @@ public final class TaggingPermissionsState extends com.pulumi.resources.Resource
 
         /**
          * @param replace Replace (`true`) or merge (`false`) the permissions. Default: `true`
-         * 
-         * | Name               | Permission Description     |
-         * | ------------------ | -------------------------- |
-         * | Enumerate          | Enumerate tag definitions  |
-         * | Create             | Create tag definition      |
-         * | Update             | Update tag definition      |
-         * | Delete             | Delete tag definition      |
+         * &lt;table&gt;
+         * &lt;thead&gt;
+         * &lt;tr&gt;
+         * &lt;th&gt;Name&lt;/th&gt;
+         * &lt;th&gt;Permission Description&lt;/th&gt;
+         * &lt;/tr&gt;
+         * &lt;/thead&gt;
+         * &lt;tbody&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;Enumerate&lt;/td&gt;
+         * &lt;td&gt;Enumerate tag definitions&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;Create&lt;/td&gt;
+         * &lt;td&gt;Create tag definition&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;Update&lt;/td&gt;
+         * &lt;td&gt;Update tag definition&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;Delete&lt;/td&gt;
+         * &lt;td&gt;Delete tag definition&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;/tbody&gt;
+         * &lt;/table&gt;
          * 
          * @return builder
          * 
@@ -201,13 +258,32 @@ public final class TaggingPermissionsState extends com.pulumi.resources.Resource
 
         /**
          * @param replace Replace (`true`) or merge (`false`) the permissions. Default: `true`
-         * 
-         * | Name               | Permission Description     |
-         * | ------------------ | -------------------------- |
-         * | Enumerate          | Enumerate tag definitions  |
-         * | Create             | Create tag definition      |
-         * | Update             | Update tag definition      |
-         * | Delete             | Delete tag definition      |
+         * &lt;table&gt;
+         * &lt;thead&gt;
+         * &lt;tr&gt;
+         * &lt;th&gt;Name&lt;/th&gt;
+         * &lt;th&gt;Permission Description&lt;/th&gt;
+         * &lt;/tr&gt;
+         * &lt;/thead&gt;
+         * &lt;tbody&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;Enumerate&lt;/td&gt;
+         * &lt;td&gt;Enumerate tag definitions&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;Create&lt;/td&gt;
+         * &lt;td&gt;Create tag definition&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;Update&lt;/td&gt;
+         * &lt;td&gt;Update tag definition&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;tr&gt;
+         * &lt;td&gt;Delete&lt;/td&gt;
+         * &lt;td&gt;Delete tag definition&lt;/td&gt;
+         * &lt;/tr&gt;
+         * &lt;/tbody&gt;
+         * &lt;/table&gt;
          * 
          * @return builder
          * 

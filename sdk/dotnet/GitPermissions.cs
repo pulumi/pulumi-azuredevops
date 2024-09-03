@@ -278,7 +278,7 @@ namespace Pulumi.AzureDevOps
     public partial class GitPermissions : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the branch to assign the permissions. 
+        /// The name of the branch to assign the permissions.
         /// 
         /// &gt; **Note** to assign permissions to a branch, the `repository_id` must be set as well.
         /// </summary>
@@ -287,26 +287,80 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// the permissions to assign. The follwing permissions are available
-        /// 
-        /// 
-        /// | Permissions             | Description                                            |
-        /// |-------------------------|--------------------------------------------------------|
-        /// | Administer              | Administer                                             |
-        /// | GenericRead             | Read                                                   |
-        /// | GenericContribute       | Contribute                                             |
-        /// | ForcePush               | Force push (rewrite history, delete branches and tags) |
-        /// | CreateBranch            | Create branch                                          |
-        /// | CreateTag               | Create tag                                             |
-        /// | ManageNote              | Manage notes                                           |
-        /// | PolicyExempt            | Bypass policies when pushing                           |
-        /// | CreateRepository        | Create repository                                      |
-        /// | DeleteRepository        | Delete repository                                      |
-        /// | RenameRepository        | Rename repository                                      |
-        /// | EditPolicies            | Edit policies                                          |
-        /// | RemoveOthersLocks       | Remove others' locks                                   |
-        /// | ManagePermissions       | Manage permissions                                     |
-        /// | PullRequestContribute   | Contribute to pull requests                            |
-        /// | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
+        /// &lt;table&gt;
+        /// &lt;thead&gt;
+        /// &lt;tr&gt;
+        /// &lt;th&gt;Permissions&lt;/th&gt;
+        /// &lt;th&gt;Description&lt;/th&gt;
+        /// &lt;/tr&gt;
+        /// &lt;/thead&gt;
+        /// &lt;tbody&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;Administer&lt;/td&gt;
+        /// &lt;td&gt;Administer&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;GenericRead&lt;/td&gt;
+        /// &lt;td&gt;Read&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;GenericContribute&lt;/td&gt;
+        /// &lt;td&gt;Contribute&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;ForcePush&lt;/td&gt;
+        /// &lt;td&gt;Force push (rewrite history, delete branches and tags)&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;CreateBranch&lt;/td&gt;
+        /// &lt;td&gt;Create branch&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;CreateTag&lt;/td&gt;
+        /// &lt;td&gt;Create tag&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;ManageNote&lt;/td&gt;
+        /// &lt;td&gt;Manage notes&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;PolicyExempt&lt;/td&gt;
+        /// &lt;td&gt;Bypass policies when pushing&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;CreateRepository&lt;/td&gt;
+        /// &lt;td&gt;Create repository&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;DeleteRepository&lt;/td&gt;
+        /// &lt;td&gt;Delete repository&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;RenameRepository&lt;/td&gt;
+        /// &lt;td&gt;Rename repository&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;EditPolicies&lt;/td&gt;
+        /// &lt;td&gt;Edit policies&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;RemoveOthersLocks&lt;/td&gt;
+        /// &lt;td&gt;Remove others' locks&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;ManagePermissions&lt;/td&gt;
+        /// &lt;td&gt;Manage permissions&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;PullRequestContribute&lt;/td&gt;
+        /// &lt;td&gt;Contribute to pull requests&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;PullRequestBypassPolicy&lt;/td&gt;
+        /// &lt;td&gt;Bypass policies when completing pull requests&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;/tbody&gt;
+        /// &lt;/table&gt;
         /// </summary>
         [Output("permissions")]
         public Output<ImmutableDictionary<string, string>> Permissions { get; private set; } = null!;
@@ -382,7 +436,7 @@ namespace Pulumi.AzureDevOps
     public sealed class GitPermissionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the branch to assign the permissions. 
+        /// The name of the branch to assign the permissions.
         /// 
         /// &gt; **Note** to assign permissions to a branch, the `repository_id` must be set as well.
         /// </summary>
@@ -394,26 +448,80 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// the permissions to assign. The follwing permissions are available
-        /// 
-        /// 
-        /// | Permissions             | Description                                            |
-        /// |-------------------------|--------------------------------------------------------|
-        /// | Administer              | Administer                                             |
-        /// | GenericRead             | Read                                                   |
-        /// | GenericContribute       | Contribute                                             |
-        /// | ForcePush               | Force push (rewrite history, delete branches and tags) |
-        /// | CreateBranch            | Create branch                                          |
-        /// | CreateTag               | Create tag                                             |
-        /// | ManageNote              | Manage notes                                           |
-        /// | PolicyExempt            | Bypass policies when pushing                           |
-        /// | CreateRepository        | Create repository                                      |
-        /// | DeleteRepository        | Delete repository                                      |
-        /// | RenameRepository        | Rename repository                                      |
-        /// | EditPolicies            | Edit policies                                          |
-        /// | RemoveOthersLocks       | Remove others' locks                                   |
-        /// | ManagePermissions       | Manage permissions                                     |
-        /// | PullRequestContribute   | Contribute to pull requests                            |
-        /// | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
+        /// &lt;table&gt;
+        /// &lt;thead&gt;
+        /// &lt;tr&gt;
+        /// &lt;th&gt;Permissions&lt;/th&gt;
+        /// &lt;th&gt;Description&lt;/th&gt;
+        /// &lt;/tr&gt;
+        /// &lt;/thead&gt;
+        /// &lt;tbody&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;Administer&lt;/td&gt;
+        /// &lt;td&gt;Administer&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;GenericRead&lt;/td&gt;
+        /// &lt;td&gt;Read&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;GenericContribute&lt;/td&gt;
+        /// &lt;td&gt;Contribute&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;ForcePush&lt;/td&gt;
+        /// &lt;td&gt;Force push (rewrite history, delete branches and tags)&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;CreateBranch&lt;/td&gt;
+        /// &lt;td&gt;Create branch&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;CreateTag&lt;/td&gt;
+        /// &lt;td&gt;Create tag&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;ManageNote&lt;/td&gt;
+        /// &lt;td&gt;Manage notes&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;PolicyExempt&lt;/td&gt;
+        /// &lt;td&gt;Bypass policies when pushing&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;CreateRepository&lt;/td&gt;
+        /// &lt;td&gt;Create repository&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;DeleteRepository&lt;/td&gt;
+        /// &lt;td&gt;Delete repository&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;RenameRepository&lt;/td&gt;
+        /// &lt;td&gt;Rename repository&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;EditPolicies&lt;/td&gt;
+        /// &lt;td&gt;Edit policies&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;RemoveOthersLocks&lt;/td&gt;
+        /// &lt;td&gt;Remove others' locks&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;ManagePermissions&lt;/td&gt;
+        /// &lt;td&gt;Manage permissions&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;PullRequestContribute&lt;/td&gt;
+        /// &lt;td&gt;Contribute to pull requests&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;PullRequestBypassPolicy&lt;/td&gt;
+        /// &lt;td&gt;Bypass policies when completing pull requests&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;/tbody&gt;
+        /// &lt;/table&gt;
         /// </summary>
         public InputMap<string> Permissions
         {
@@ -454,7 +562,7 @@ namespace Pulumi.AzureDevOps
     public sealed class GitPermissionsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the branch to assign the permissions. 
+        /// The name of the branch to assign the permissions.
         /// 
         /// &gt; **Note** to assign permissions to a branch, the `repository_id` must be set as well.
         /// </summary>
@@ -466,26 +574,80 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// the permissions to assign. The follwing permissions are available
-        /// 
-        /// 
-        /// | Permissions             | Description                                            |
-        /// |-------------------------|--------------------------------------------------------|
-        /// | Administer              | Administer                                             |
-        /// | GenericRead             | Read                                                   |
-        /// | GenericContribute       | Contribute                                             |
-        /// | ForcePush               | Force push (rewrite history, delete branches and tags) |
-        /// | CreateBranch            | Create branch                                          |
-        /// | CreateTag               | Create tag                                             |
-        /// | ManageNote              | Manage notes                                           |
-        /// | PolicyExempt            | Bypass policies when pushing                           |
-        /// | CreateRepository        | Create repository                                      |
-        /// | DeleteRepository        | Delete repository                                      |
-        /// | RenameRepository        | Rename repository                                      |
-        /// | EditPolicies            | Edit policies                                          |
-        /// | RemoveOthersLocks       | Remove others' locks                                   |
-        /// | ManagePermissions       | Manage permissions                                     |
-        /// | PullRequestContribute   | Contribute to pull requests                            |
-        /// | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
+        /// &lt;table&gt;
+        /// &lt;thead&gt;
+        /// &lt;tr&gt;
+        /// &lt;th&gt;Permissions&lt;/th&gt;
+        /// &lt;th&gt;Description&lt;/th&gt;
+        /// &lt;/tr&gt;
+        /// &lt;/thead&gt;
+        /// &lt;tbody&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;Administer&lt;/td&gt;
+        /// &lt;td&gt;Administer&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;GenericRead&lt;/td&gt;
+        /// &lt;td&gt;Read&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;GenericContribute&lt;/td&gt;
+        /// &lt;td&gt;Contribute&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;ForcePush&lt;/td&gt;
+        /// &lt;td&gt;Force push (rewrite history, delete branches and tags)&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;CreateBranch&lt;/td&gt;
+        /// &lt;td&gt;Create branch&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;CreateTag&lt;/td&gt;
+        /// &lt;td&gt;Create tag&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;ManageNote&lt;/td&gt;
+        /// &lt;td&gt;Manage notes&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;PolicyExempt&lt;/td&gt;
+        /// &lt;td&gt;Bypass policies when pushing&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;CreateRepository&lt;/td&gt;
+        /// &lt;td&gt;Create repository&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;DeleteRepository&lt;/td&gt;
+        /// &lt;td&gt;Delete repository&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;RenameRepository&lt;/td&gt;
+        /// &lt;td&gt;Rename repository&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;EditPolicies&lt;/td&gt;
+        /// &lt;td&gt;Edit policies&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;RemoveOthersLocks&lt;/td&gt;
+        /// &lt;td&gt;Remove others' locks&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;ManagePermissions&lt;/td&gt;
+        /// &lt;td&gt;Manage permissions&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;PullRequestContribute&lt;/td&gt;
+        /// &lt;td&gt;Contribute to pull requests&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;PullRequestBypassPolicy&lt;/td&gt;
+        /// &lt;td&gt;Bypass policies when completing pull requests&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;/tbody&gt;
+        /// &lt;/table&gt;
         /// </summary>
         public InputMap<string> Permissions
         {

@@ -121,14 +121,36 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-        /// 
-        /// | Permission        | Description                         |
-        /// | ----------------- | ----------------------------------- |
-        /// | Use               | Use service endpoint                |
-        /// | Administer        | Full control over service endpoints |
-        /// | Create            | Create service endpoints            |
-        /// | ViewAuthorization | View authorizations                 |
-        /// | ViewEndpoint      | View service endpoint properties    |
+        /// &lt;table&gt;
+        /// &lt;thead&gt;
+        /// &lt;tr&gt;
+        /// &lt;th&gt;Permission&lt;/th&gt;
+        /// &lt;th&gt;Description&lt;/th&gt;
+        /// &lt;/tr&gt;
+        /// &lt;/thead&gt;
+        /// &lt;tbody&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;Use&lt;/td&gt;
+        /// &lt;td&gt;Use service endpoint&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;Administer&lt;/td&gt;
+        /// &lt;td&gt;Full control over service endpoints&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;Create&lt;/td&gt;
+        /// &lt;td&gt;Create service endpoints&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;ViewAuthorization&lt;/td&gt;
+        /// &lt;td&gt;View authorizations&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;ViewEndpoint&lt;/td&gt;
+        /// &lt;td&gt;View service endpoint properties&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;/tbody&gt;
+        /// &lt;/table&gt;
         /// </summary>
         [Output("replace")]
         public Output<bool?> Replace { get; private set; } = null!;
@@ -211,14 +233,36 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-        /// 
-        /// | Permission        | Description                         |
-        /// | ----------------- | ----------------------------------- |
-        /// | Use               | Use service endpoint                |
-        /// | Administer        | Full control over service endpoints |
-        /// | Create            | Create service endpoints            |
-        /// | ViewAuthorization | View authorizations                 |
-        /// | ViewEndpoint      | View service endpoint properties    |
+        /// &lt;table&gt;
+        /// &lt;thead&gt;
+        /// &lt;tr&gt;
+        /// &lt;th&gt;Permission&lt;/th&gt;
+        /// &lt;th&gt;Description&lt;/th&gt;
+        /// &lt;/tr&gt;
+        /// &lt;/thead&gt;
+        /// &lt;tbody&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;Use&lt;/td&gt;
+        /// &lt;td&gt;Use service endpoint&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;Administer&lt;/td&gt;
+        /// &lt;td&gt;Full control over service endpoints&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;Create&lt;/td&gt;
+        /// &lt;td&gt;Create service endpoints&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;ViewAuthorization&lt;/td&gt;
+        /// &lt;td&gt;View authorizations&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;ViewEndpoint&lt;/td&gt;
+        /// &lt;td&gt;View service endpoint properties&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;/tbody&gt;
+        /// &lt;/table&gt;
         /// </summary>
         [Input("replace")]
         public Input<bool>? Replace { get; set; }
@@ -263,14 +307,36 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-        /// 
-        /// | Permission        | Description                         |
-        /// | ----------------- | ----------------------------------- |
-        /// | Use               | Use service endpoint                |
-        /// | Administer        | Full control over service endpoints |
-        /// | Create            | Create service endpoints            |
-        /// | ViewAuthorization | View authorizations                 |
-        /// | ViewEndpoint      | View service endpoint properties    |
+        /// &lt;table&gt;
+        /// &lt;thead&gt;
+        /// &lt;tr&gt;
+        /// &lt;th&gt;Permission&lt;/th&gt;
+        /// &lt;th&gt;Description&lt;/th&gt;
+        /// &lt;/tr&gt;
+        /// &lt;/thead&gt;
+        /// &lt;tbody&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;Use&lt;/td&gt;
+        /// &lt;td&gt;Use service endpoint&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;Administer&lt;/td&gt;
+        /// &lt;td&gt;Full control over service endpoints&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;Create&lt;/td&gt;
+        /// &lt;td&gt;Create service endpoints&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;ViewAuthorization&lt;/td&gt;
+        /// &lt;td&gt;View authorizations&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;tr&gt;
+        /// &lt;td&gt;ViewEndpoint&lt;/td&gt;
+        /// &lt;td&gt;View service endpoint properties&lt;/td&gt;
+        /// &lt;/tr&gt;
+        /// &lt;/tbody&gt;
+        /// &lt;/table&gt;
         /// </summary>
         [Input("replace")]
         public Input<bool>? Replace { get; set; }

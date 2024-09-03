@@ -14,7 +14,7 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class BranchPolicyStatusCheckSettings
     {
         /// <summary>
-        /// Policy applicability. If policy `applicability` is `default`, apply unless "Not Applicable" 
+        /// Policy applicability. If policy `applicability` is `default`, apply unless "Not Applicable"
         /// status is posted to the pull request. If policy `applicability` is `conditional`, policy is applied only after a status
         /// is posted to the pull request.
         /// </summary>

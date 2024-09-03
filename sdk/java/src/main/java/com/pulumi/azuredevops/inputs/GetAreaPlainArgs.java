@@ -17,14 +17,14 @@ public final class GetAreaPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetAreaPlainArgs Empty = new GetAreaPlainArgs();
 
     /**
-     * Read children nodes, _Depth_: 1, _Default_: `true`
+     * Read children nodes, *Depth*: 1, *Default*: `true`
      * 
      */
     @Import(name="fetchChildren")
     private @Nullable Boolean fetchChildren;
 
     /**
-     * @return Read children nodes, _Depth_: 1, _Default_: `true`
+     * @return Read children nodes, *Depth*: 1, *Default*: `true`
      * 
      */
     public Optional<Boolean> fetchChildren() {
@@ -32,14 +32,14 @@ public final class GetAreaPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The path to the Area; _Format_: URL relative; if omitted, or value `&#34;/&#34;` is used, the root Area will be returned
+     * The path to the Area; *Format*: URL relative; if omitted, or value `&#34;/&#34;` is used, the root Area will be returned
      * 
      */
     @Import(name="path")
     private @Nullable String path;
 
     /**
-     * @return The path to the Area; _Format_: URL relative; if omitted, or value `&#34;/&#34;` is used, the root Area will be returned
+     * @return The path to the Area; *Format*: URL relative; if omitted, or value `&#34;/&#34;` is used, the root Area will be returned
      * 
      */
     public Optional<String> path() {
@@ -88,7 +88,7 @@ public final class GetAreaPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param fetchChildren Read children nodes, _Depth_: 1, _Default_: `true`
+         * @param fetchChildren Read children nodes, *Depth*: 1, *Default*: `true`
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class GetAreaPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param path The path to the Area; _Format_: URL relative; if omitted, or value `&#34;/&#34;` is used, the root Area will be returned
+         * @param path The path to the Area; *Format*: URL relative; if omitted, or value `&#34;/&#34;` is used, the root Area will be returned
          * 
          * @return builder
          * 

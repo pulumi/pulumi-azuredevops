@@ -258,13 +258,32 @@ public class WorkItemQueryPermissions extends com.pulumi.resources.CustomResourc
     }
     /**
      * the permissions to assign. The following permissions are available
-     * 
-     * | Permissions              | Description                        |
-     * |--------------------------|------------------------------------|
-     * | Read                     | Read                               |
-     * | Contribute               | Contribute                         |
-     * | Delete                   | Delete                             |
-     * | ManagePermissions        | Manage Permissions                 |
+     * &lt;table&gt;
+     * &lt;thead&gt;
+     * &lt;tr&gt;
+     * &lt;th&gt;Permissions&lt;/th&gt;
+     * &lt;th&gt;Description&lt;/th&gt;
+     * &lt;/tr&gt;
+     * &lt;/thead&gt;
+     * &lt;tbody&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;Read&lt;/td&gt;
+     * &lt;td&gt;Read&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;Contribute&lt;/td&gt;
+     * &lt;td&gt;Contribute&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;Delete&lt;/td&gt;
+     * &lt;td&gt;Delete&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;ManagePermissions&lt;/td&gt;
+     * &lt;td&gt;Manage Permissions&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;/tbody&gt;
+     * &lt;/table&gt;
      * 
      */
     @Export(name="permissions", refs={Map.class,String.class}, tree="[0,1,1]")
@@ -272,13 +291,32 @@ public class WorkItemQueryPermissions extends com.pulumi.resources.CustomResourc
 
     /**
      * @return the permissions to assign. The following permissions are available
-     * 
-     * | Permissions              | Description                        |
-     * |--------------------------|------------------------------------|
-     * | Read                     | Read                               |
-     * | Contribute               | Contribute                         |
-     * | Delete                   | Delete                             |
-     * | ManagePermissions        | Manage Permissions                 |
+     * &lt;table&gt;
+     * &lt;thead&gt;
+     * &lt;tr&gt;
+     * &lt;th&gt;Permissions&lt;/th&gt;
+     * &lt;th&gt;Description&lt;/th&gt;
+     * &lt;/tr&gt;
+     * &lt;/thead&gt;
+     * &lt;tbody&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;Read&lt;/td&gt;
+     * &lt;td&gt;Read&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;Contribute&lt;/td&gt;
+     * &lt;td&gt;Contribute&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;Delete&lt;/td&gt;
+     * &lt;td&gt;Delete&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td&gt;ManagePermissions&lt;/td&gt;
+     * &lt;td&gt;Manage Permissions&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;/tbody&gt;
+     * &lt;/table&gt;
      * 
      */
     public Output<Map<String,String>> permissions() {

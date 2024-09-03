@@ -12,6 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// layout: "azuredevops"
+// page_title: "AzureDevops: RepositoryPolicyAuthorEmailPattern"
+// description: |- Manages author email pattern repository policy within Azure DevOps project.
+// <!-- yaml: line 3: did not find expected comment or line break -->
+//
+// # RepositoryPolicyAuthorEmailPattern
+//
 // Manage author email pattern repository policy within Azure DevOps project.
 //
 // ## Example Usage

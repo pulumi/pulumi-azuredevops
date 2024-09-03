@@ -244,6 +244,14 @@ class GroupEntitlement(pulumi.CustomResource):
                  origin_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        layout: "azuredevops"
+        page_title: "AzureDevops: GroupEntitlement"
+        description: |-
+        Manages a group entitlement within Azure DevOps organization.
+        <!-- yaml: line 5: could not find expected ':' -->
+
+        # GroupEntitlement
+
         Manages a group entitlement within Azure DevOps.
 
         ## Example Usage
@@ -302,6 +310,14 @@ class GroupEntitlement(pulumi.CustomResource):
                  args: Optional[GroupEntitlementArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        layout: "azuredevops"
+        page_title: "AzureDevops: GroupEntitlement"
+        description: |-
+        Manages a group entitlement within Azure DevOps organization.
+        <!-- yaml: line 5: could not find expected ':' -->
+
+        # GroupEntitlement
+
         Manages a group entitlement within Azure DevOps.
 
         ## Example Usage
