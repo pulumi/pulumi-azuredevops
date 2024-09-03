@@ -81,12 +81,12 @@ public final class IterativePermissionsArgs extends com.pulumi.resources.Resourc
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      * 
-     * | Permission      | Description                    |
-     * |-----------------|--------------------------------|
-     * | GENERIC_READ    | View permissions for this node |
-     * | GENERIC_WRITE   | Edit this node                 |
-     * | CREATE_CHILDREN | Create child nodes             |
-     * | DELETE          | Delete this node               |
+     * | Permission |        Description        |
+     * |------------|---------------------------|
+     * | GENERIC_   | View permissions for this |
+     * | GENERIC_   | Edit this                 |
+     * | CREATE_    | Create child              |
+     * | DELETE     | Delete this               |
      * 
      */
     @Import(name="replace")
@@ -95,12 +95,12 @@ public final class IterativePermissionsArgs extends com.pulumi.resources.Resourc
     /**
      * @return Replace (`true`) or merge (`false`) the permissions. Default: `true`
      * 
-     * | Permission      | Description                    |
-     * |-----------------|--------------------------------|
-     * | GENERIC_READ    | View permissions for this node |
-     * | GENERIC_WRITE   | Edit this node                 |
-     * | CREATE_CHILDREN | Create child nodes             |
-     * | DELETE          | Delete this node               |
+     * | Permission |        Description        |
+     * |------------|---------------------------|
+     * | GENERIC_   | View permissions for this |
+     * | GENERIC_   | Edit this                 |
+     * | CREATE_    | Create child              |
+     * | DELETE     | Delete this               |
      * 
      */
     public Optional<Output<Boolean>> replace() {
@@ -222,12 +222,12 @@ public final class IterativePermissionsArgs extends com.pulumi.resources.Resourc
         /**
          * @param replace Replace (`true`) or merge (`false`) the permissions. Default: `true`
          * 
-         * | Permission      | Description                    |
-         * |-----------------|--------------------------------|
-         * | GENERIC_READ    | View permissions for this node |
-         * | GENERIC_WRITE   | Edit this node                 |
-         * | CREATE_CHILDREN | Create child nodes             |
-         * | DELETE          | Delete this node               |
+         * | Permission |        Description        |
+         * |------------|---------------------------|
+         * | GENERIC_   | View permissions for this |
+         * | GENERIC_   | Edit this                 |
+         * | CREATE_    | Create child              |
+         * | DELETE     | Delete this               |
          * 
          * @return builder
          * 
@@ -240,12 +240,12 @@ public final class IterativePermissionsArgs extends com.pulumi.resources.Resourc
         /**
          * @param replace Replace (`true`) or merge (`false`) the permissions. Default: `true`
          * 
-         * | Permission      | Description                    |
-         * |-----------------|--------------------------------|
-         * | GENERIC_READ    | View permissions for this node |
-         * | GENERIC_WRITE   | Edit this node                 |
-         * | CREATE_CHILDREN | Create child nodes             |
-         * | DELETE          | Delete this node               |
+         * | Permission |        Description        |
+         * |------------|---------------------------|
+         * | GENERIC_   | View permissions for this |
+         * | GENERIC_   | Edit this                 |
+         * | CREATE_    | Create child              |
+         * | DELETE     | Delete this               |
          * 
          * @return builder
          * 

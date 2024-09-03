@@ -338,18 +338,6 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ## Relevant Links
- * 
- * * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
- * 
- * ## PAT Permissions Required
- * 
- * - **Project &amp; Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
- * 
- * ## Import
- * 
- * The resource does not support import.
- * 
  */
 @ResourceType(type="azuredevops:index/gitPermissions:GitPermissions")
 public class GitPermissions extends com.pulumi.resources.CustomResource {
@@ -374,24 +362,24 @@ public class GitPermissions extends com.pulumi.resources.CustomResource {
     /**
      * the permissions to assign. The follwing permissions are available
      * 
-     * | Permissions             | Description                                            |
-     * |-------------------------|--------------------------------------------------------|
-     * | Administer              | Administer                                             |
-     * | GenericRead             | Read                                                   |
-     * | GenericContribute       | Contribute                                             |
-     * | ForcePush               | Force push (rewrite history, delete branches and tags) |
-     * | CreateBranch            | Create branch                                          |
-     * | CreateTag               | Create tag                                             |
-     * | ManageNote              | Manage notes                                           |
-     * | PolicyExempt            | Bypass policies when pushing                           |
-     * | CreateRepository        | Create repository                                      |
-     * | DeleteRepository        | Delete repository                                      |
-     * | RenameRepository        | Rename repository                                      |
-     * | EditPolicies            | Edit policies                                          |
-     * | RemoveOthersLocks       | Remove others&#39; locks                                   |
-     * | ManagePermissions       | Manage permissions                                     |
-     * | PullRequestContribute   | Contribute to pull requests                            |
-     * | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
+     * |       Permissions       |                   Description                    |
+     * |-------------------------|--------------------------------------------------|
+     * | Administer              | Administer                                       |
+     * | GenericRead             | Read                                             |
+     * | GenericContribute       | Contribute                                       |
+     * | ForcePush               | Force push (rewrite history, delete branches and |
+     * | CreateBranch            | Create                                           |
+     * | CreateTag               | Create                                           |
+     * | ManageNote              | Manage                                           |
+     * | PolicyExempt            | Bypass policies when                             |
+     * | CreateRepository        | Create                                           |
+     * | DeleteRepository        | Delete                                           |
+     * | RenameRepository        | Rename                                           |
+     * | EditPolicies            | Edit                                             |
+     * | RemoveOthersLocks       | Remove others&#39;                                   |
+     * | ManagePermissions       | Manage                                           |
+     * | PullRequestContribute   | Contribute to pull                               |
+     * | PullRequestBypassPolicy | Bypass policies when completing pull             |
      * 
      */
     @Export(name="permissions", refs={Map.class,String.class}, tree="[0,1,1]")
@@ -400,24 +388,24 @@ public class GitPermissions extends com.pulumi.resources.CustomResource {
     /**
      * @return the permissions to assign. The follwing permissions are available
      * 
-     * | Permissions             | Description                                            |
-     * |-------------------------|--------------------------------------------------------|
-     * | Administer              | Administer                                             |
-     * | GenericRead             | Read                                                   |
-     * | GenericContribute       | Contribute                                             |
-     * | ForcePush               | Force push (rewrite history, delete branches and tags) |
-     * | CreateBranch            | Create branch                                          |
-     * | CreateTag               | Create tag                                             |
-     * | ManageNote              | Manage notes                                           |
-     * | PolicyExempt            | Bypass policies when pushing                           |
-     * | CreateRepository        | Create repository                                      |
-     * | DeleteRepository        | Delete repository                                      |
-     * | RenameRepository        | Rename repository                                      |
-     * | EditPolicies            | Edit policies                                          |
-     * | RemoveOthersLocks       | Remove others&#39; locks                                   |
-     * | ManagePermissions       | Manage permissions                                     |
-     * | PullRequestContribute   | Contribute to pull requests                            |
-     * | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
+     * |       Permissions       |                   Description                    |
+     * |-------------------------|--------------------------------------------------|
+     * | Administer              | Administer                                       |
+     * | GenericRead             | Read                                             |
+     * | GenericContribute       | Contribute                                       |
+     * | ForcePush               | Force push (rewrite history, delete branches and |
+     * | CreateBranch            | Create                                           |
+     * | CreateTag               | Create                                           |
+     * | ManageNote              | Manage                                           |
+     * | PolicyExempt            | Bypass policies when                             |
+     * | CreateRepository        | Create                                           |
+     * | DeleteRepository        | Delete                                           |
+     * | RenameRepository        | Rename                                           |
+     * | EditPolicies            | Edit                                             |
+     * | RemoveOthersLocks       | Remove others&#39;                                   |
+     * | ManagePermissions       | Manage                                           |
+     * | PullRequestContribute   | Contribute to pull                               |
+     * | PullRequestBypassPolicy | Bypass policies when completing pull             |
      * 
      */
     public Output<Map<String,String>> permissions() {

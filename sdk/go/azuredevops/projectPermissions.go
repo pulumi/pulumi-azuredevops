@@ -64,50 +64,38 @@ import (
 //	}
 //
 // ```
-//
-// ## Relevant Links
-//
-// * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
-//
-// ## PAT Permissions Required
-//
-// - **Project & Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
-//
-// ## Import
-//
-// The resource does not support import.
 type ProjectPermissions struct {
 	pulumi.CustomResourceState
 
 	// the permissions to assign. The following permissions are available
 	//
-	// | Permission                   | Description                                  |
-	// |------------------------------|----------------------------------------------|
-	// | GENERIC_READ                 | View project-level information               |
-	// | GENERIC_WRITE                | Edit project-level information               |
-	// | DELETE                       | Delete team project                          |
-	// | PUBLISH_TEST_RESULTS         | Create test runs                             |
-	// | ADMINISTER_BUILD             | Administer a build                           |
-	// | START_BUILD                  | Start a build                                |
-	// | EDIT_BUILD_STATUS            | Edit build quality                           |
-	// | UPDATE_BUILD                 | Write to build operational store             |
-	// | DELETE_TEST_RESULTS          | Delete test runs                             |
-	// | VIEW_TEST_RESULTS            | View test runs                               |
-	// | MANAGE_TEST_ENVIRONMENTS     | Manage test environments                     |
-	// | MANAGE_TEST_CONFIGURATIONS   | Manage test configurations                   |
-	// | WORK_ITEM_DELETE             | Delete and restore work items                |
-	// | WORK_ITEM_MOVE               | Move work items out of this project          |
-	// | WORK_ITEM_PERMANENTLY_DELETE | Permanently delete work items                |
-	// | RENAME                       | Rename team project                          |
-	// | MANAGE_PROPERTIES            | Manage project properties                    |
-	// | MANAGE_SYSTEM_PROPERTIES     | Manage system project properties             |
-	// | BYPASS_PROPERTY_CACHE        | Bypass project property cache                |
-	// | BYPASS_RULES                 | Bypass rules on work item updates            |
-	// | SUPPRESS_NOTIFICATIONS       | Suppress notifications for work item updates |
-	// | UPDATE_VISIBILITY            | Update project visibility                    |
-	// | CHANGE_PROCESS               | Change process of team project.              |
-	// | AGILETOOLS_BACKLOG           | Agile backlog management.                    |
-	// | AGILETOOLS_PLANS             | Agile plans.                                 |
+	// | Permission  |             Description              |
+	// |-------------|--------------------------------------|
+	// | GENERIC_    | View project-level                   |
+	// | GENERIC_    | Edit project-level                   |
+	// | DELETE      | Delete team                          |
+	// | PUBLISH_    | Create test                          |
+	// | ADMINISTER_ | Administer a                         |
+	// | START_      | Start a                              |
+	// | EDIT_       | Edit build                           |
+	// | UPDATE_     | Write to build operational           |
+	// | DELETE_     | Delete test                          |
+	// | VIEW_       | View test                            |
+	// | MANAGE_     | Manage test                          |
+	// | MANAGE_     | Manage test                          |
+	// | WORK_       | Delete and restore work              |
+	// | WORK_       | Move work items out of this          |
+	// | WORK_       | Permanently delete work              |
+	// | RENAME      | Rename team                          |
+	// | MANAGE_     | Manage project                       |
+	// | MANAGE_     | Manage system project                |
+	// | BYPASS_     | Bypass project property              |
+	// | BYPASS_     | Bypass rules on work item            |
+	// | SUPPRESS_   | Suppress notifications for work item |
+	// | UPDATE_     | Update project                       |
+	// | CHANGE_     | Change process of team               |
+	// | AGILETOOLS_ | Agile backlog                        |
+	// | AGILETOOLS_ | Agile                                |
 	Permissions pulumi.StringMapOutput `pulumi:"permissions"`
 	// The **group** principal to assign the permissions.
 	Principal pulumi.StringOutput `pulumi:"principal"`
@@ -158,33 +146,33 @@ func GetProjectPermissions(ctx *pulumi.Context,
 type projectPermissionsState struct {
 	// the permissions to assign. The following permissions are available
 	//
-	// | Permission                   | Description                                  |
-	// |------------------------------|----------------------------------------------|
-	// | GENERIC_READ                 | View project-level information               |
-	// | GENERIC_WRITE                | Edit project-level information               |
-	// | DELETE                       | Delete team project                          |
-	// | PUBLISH_TEST_RESULTS         | Create test runs                             |
-	// | ADMINISTER_BUILD             | Administer a build                           |
-	// | START_BUILD                  | Start a build                                |
-	// | EDIT_BUILD_STATUS            | Edit build quality                           |
-	// | UPDATE_BUILD                 | Write to build operational store             |
-	// | DELETE_TEST_RESULTS          | Delete test runs                             |
-	// | VIEW_TEST_RESULTS            | View test runs                               |
-	// | MANAGE_TEST_ENVIRONMENTS     | Manage test environments                     |
-	// | MANAGE_TEST_CONFIGURATIONS   | Manage test configurations                   |
-	// | WORK_ITEM_DELETE             | Delete and restore work items                |
-	// | WORK_ITEM_MOVE               | Move work items out of this project          |
-	// | WORK_ITEM_PERMANENTLY_DELETE | Permanently delete work items                |
-	// | RENAME                       | Rename team project                          |
-	// | MANAGE_PROPERTIES            | Manage project properties                    |
-	// | MANAGE_SYSTEM_PROPERTIES     | Manage system project properties             |
-	// | BYPASS_PROPERTY_CACHE        | Bypass project property cache                |
-	// | BYPASS_RULES                 | Bypass rules on work item updates            |
-	// | SUPPRESS_NOTIFICATIONS       | Suppress notifications for work item updates |
-	// | UPDATE_VISIBILITY            | Update project visibility                    |
-	// | CHANGE_PROCESS               | Change process of team project.              |
-	// | AGILETOOLS_BACKLOG           | Agile backlog management.                    |
-	// | AGILETOOLS_PLANS             | Agile plans.                                 |
+	// | Permission  |             Description              |
+	// |-------------|--------------------------------------|
+	// | GENERIC_    | View project-level                   |
+	// | GENERIC_    | Edit project-level                   |
+	// | DELETE      | Delete team                          |
+	// | PUBLISH_    | Create test                          |
+	// | ADMINISTER_ | Administer a                         |
+	// | START_      | Start a                              |
+	// | EDIT_       | Edit build                           |
+	// | UPDATE_     | Write to build operational           |
+	// | DELETE_     | Delete test                          |
+	// | VIEW_       | View test                            |
+	// | MANAGE_     | Manage test                          |
+	// | MANAGE_     | Manage test                          |
+	// | WORK_       | Delete and restore work              |
+	// | WORK_       | Move work items out of this          |
+	// | WORK_       | Permanently delete work              |
+	// | RENAME      | Rename team                          |
+	// | MANAGE_     | Manage project                       |
+	// | MANAGE_     | Manage system project                |
+	// | BYPASS_     | Bypass project property              |
+	// | BYPASS_     | Bypass rules on work item            |
+	// | SUPPRESS_   | Suppress notifications for work item |
+	// | UPDATE_     | Update project                       |
+	// | CHANGE_     | Change process of team               |
+	// | AGILETOOLS_ | Agile backlog                        |
+	// | AGILETOOLS_ | Agile                                |
 	Permissions map[string]string `pulumi:"permissions"`
 	// The **group** principal to assign the permissions.
 	Principal *string `pulumi:"principal"`
@@ -197,33 +185,33 @@ type projectPermissionsState struct {
 type ProjectPermissionsState struct {
 	// the permissions to assign. The following permissions are available
 	//
-	// | Permission                   | Description                                  |
-	// |------------------------------|----------------------------------------------|
-	// | GENERIC_READ                 | View project-level information               |
-	// | GENERIC_WRITE                | Edit project-level information               |
-	// | DELETE                       | Delete team project                          |
-	// | PUBLISH_TEST_RESULTS         | Create test runs                             |
-	// | ADMINISTER_BUILD             | Administer a build                           |
-	// | START_BUILD                  | Start a build                                |
-	// | EDIT_BUILD_STATUS            | Edit build quality                           |
-	// | UPDATE_BUILD                 | Write to build operational store             |
-	// | DELETE_TEST_RESULTS          | Delete test runs                             |
-	// | VIEW_TEST_RESULTS            | View test runs                               |
-	// | MANAGE_TEST_ENVIRONMENTS     | Manage test environments                     |
-	// | MANAGE_TEST_CONFIGURATIONS   | Manage test configurations                   |
-	// | WORK_ITEM_DELETE             | Delete and restore work items                |
-	// | WORK_ITEM_MOVE               | Move work items out of this project          |
-	// | WORK_ITEM_PERMANENTLY_DELETE | Permanently delete work items                |
-	// | RENAME                       | Rename team project                          |
-	// | MANAGE_PROPERTIES            | Manage project properties                    |
-	// | MANAGE_SYSTEM_PROPERTIES     | Manage system project properties             |
-	// | BYPASS_PROPERTY_CACHE        | Bypass project property cache                |
-	// | BYPASS_RULES                 | Bypass rules on work item updates            |
-	// | SUPPRESS_NOTIFICATIONS       | Suppress notifications for work item updates |
-	// | UPDATE_VISIBILITY            | Update project visibility                    |
-	// | CHANGE_PROCESS               | Change process of team project.              |
-	// | AGILETOOLS_BACKLOG           | Agile backlog management.                    |
-	// | AGILETOOLS_PLANS             | Agile plans.                                 |
+	// | Permission  |             Description              |
+	// |-------------|--------------------------------------|
+	// | GENERIC_    | View project-level                   |
+	// | GENERIC_    | Edit project-level                   |
+	// | DELETE      | Delete team                          |
+	// | PUBLISH_    | Create test                          |
+	// | ADMINISTER_ | Administer a                         |
+	// | START_      | Start a                              |
+	// | EDIT_       | Edit build                           |
+	// | UPDATE_     | Write to build operational           |
+	// | DELETE_     | Delete test                          |
+	// | VIEW_       | View test                            |
+	// | MANAGE_     | Manage test                          |
+	// | MANAGE_     | Manage test                          |
+	// | WORK_       | Delete and restore work              |
+	// | WORK_       | Move work items out of this          |
+	// | WORK_       | Permanently delete work              |
+	// | RENAME      | Rename team                          |
+	// | MANAGE_     | Manage project                       |
+	// | MANAGE_     | Manage system project                |
+	// | BYPASS_     | Bypass project property              |
+	// | BYPASS_     | Bypass rules on work item            |
+	// | SUPPRESS_   | Suppress notifications for work item |
+	// | UPDATE_     | Update project                       |
+	// | CHANGE_     | Change process of team               |
+	// | AGILETOOLS_ | Agile backlog                        |
+	// | AGILETOOLS_ | Agile                                |
 	Permissions pulumi.StringMapInput
 	// The **group** principal to assign the permissions.
 	Principal pulumi.StringPtrInput
@@ -240,33 +228,33 @@ func (ProjectPermissionsState) ElementType() reflect.Type {
 type projectPermissionsArgs struct {
 	// the permissions to assign. The following permissions are available
 	//
-	// | Permission                   | Description                                  |
-	// |------------------------------|----------------------------------------------|
-	// | GENERIC_READ                 | View project-level information               |
-	// | GENERIC_WRITE                | Edit project-level information               |
-	// | DELETE                       | Delete team project                          |
-	// | PUBLISH_TEST_RESULTS         | Create test runs                             |
-	// | ADMINISTER_BUILD             | Administer a build                           |
-	// | START_BUILD                  | Start a build                                |
-	// | EDIT_BUILD_STATUS            | Edit build quality                           |
-	// | UPDATE_BUILD                 | Write to build operational store             |
-	// | DELETE_TEST_RESULTS          | Delete test runs                             |
-	// | VIEW_TEST_RESULTS            | View test runs                               |
-	// | MANAGE_TEST_ENVIRONMENTS     | Manage test environments                     |
-	// | MANAGE_TEST_CONFIGURATIONS   | Manage test configurations                   |
-	// | WORK_ITEM_DELETE             | Delete and restore work items                |
-	// | WORK_ITEM_MOVE               | Move work items out of this project          |
-	// | WORK_ITEM_PERMANENTLY_DELETE | Permanently delete work items                |
-	// | RENAME                       | Rename team project                          |
-	// | MANAGE_PROPERTIES            | Manage project properties                    |
-	// | MANAGE_SYSTEM_PROPERTIES     | Manage system project properties             |
-	// | BYPASS_PROPERTY_CACHE        | Bypass project property cache                |
-	// | BYPASS_RULES                 | Bypass rules on work item updates            |
-	// | SUPPRESS_NOTIFICATIONS       | Suppress notifications for work item updates |
-	// | UPDATE_VISIBILITY            | Update project visibility                    |
-	// | CHANGE_PROCESS               | Change process of team project.              |
-	// | AGILETOOLS_BACKLOG           | Agile backlog management.                    |
-	// | AGILETOOLS_PLANS             | Agile plans.                                 |
+	// | Permission  |             Description              |
+	// |-------------|--------------------------------------|
+	// | GENERIC_    | View project-level                   |
+	// | GENERIC_    | Edit project-level                   |
+	// | DELETE      | Delete team                          |
+	// | PUBLISH_    | Create test                          |
+	// | ADMINISTER_ | Administer a                         |
+	// | START_      | Start a                              |
+	// | EDIT_       | Edit build                           |
+	// | UPDATE_     | Write to build operational           |
+	// | DELETE_     | Delete test                          |
+	// | VIEW_       | View test                            |
+	// | MANAGE_     | Manage test                          |
+	// | MANAGE_     | Manage test                          |
+	// | WORK_       | Delete and restore work              |
+	// | WORK_       | Move work items out of this          |
+	// | WORK_       | Permanently delete work              |
+	// | RENAME      | Rename team                          |
+	// | MANAGE_     | Manage project                       |
+	// | MANAGE_     | Manage system project                |
+	// | BYPASS_     | Bypass project property              |
+	// | BYPASS_     | Bypass rules on work item            |
+	// | SUPPRESS_   | Suppress notifications for work item |
+	// | UPDATE_     | Update project                       |
+	// | CHANGE_     | Change process of team               |
+	// | AGILETOOLS_ | Agile backlog                        |
+	// | AGILETOOLS_ | Agile                                |
 	Permissions map[string]string `pulumi:"permissions"`
 	// The **group** principal to assign the permissions.
 	Principal string `pulumi:"principal"`
@@ -280,33 +268,33 @@ type projectPermissionsArgs struct {
 type ProjectPermissionsArgs struct {
 	// the permissions to assign. The following permissions are available
 	//
-	// | Permission                   | Description                                  |
-	// |------------------------------|----------------------------------------------|
-	// | GENERIC_READ                 | View project-level information               |
-	// | GENERIC_WRITE                | Edit project-level information               |
-	// | DELETE                       | Delete team project                          |
-	// | PUBLISH_TEST_RESULTS         | Create test runs                             |
-	// | ADMINISTER_BUILD             | Administer a build                           |
-	// | START_BUILD                  | Start a build                                |
-	// | EDIT_BUILD_STATUS            | Edit build quality                           |
-	// | UPDATE_BUILD                 | Write to build operational store             |
-	// | DELETE_TEST_RESULTS          | Delete test runs                             |
-	// | VIEW_TEST_RESULTS            | View test runs                               |
-	// | MANAGE_TEST_ENVIRONMENTS     | Manage test environments                     |
-	// | MANAGE_TEST_CONFIGURATIONS   | Manage test configurations                   |
-	// | WORK_ITEM_DELETE             | Delete and restore work items                |
-	// | WORK_ITEM_MOVE               | Move work items out of this project          |
-	// | WORK_ITEM_PERMANENTLY_DELETE | Permanently delete work items                |
-	// | RENAME                       | Rename team project                          |
-	// | MANAGE_PROPERTIES            | Manage project properties                    |
-	// | MANAGE_SYSTEM_PROPERTIES     | Manage system project properties             |
-	// | BYPASS_PROPERTY_CACHE        | Bypass project property cache                |
-	// | BYPASS_RULES                 | Bypass rules on work item updates            |
-	// | SUPPRESS_NOTIFICATIONS       | Suppress notifications for work item updates |
-	// | UPDATE_VISIBILITY            | Update project visibility                    |
-	// | CHANGE_PROCESS               | Change process of team project.              |
-	// | AGILETOOLS_BACKLOG           | Agile backlog management.                    |
-	// | AGILETOOLS_PLANS             | Agile plans.                                 |
+	// | Permission  |             Description              |
+	// |-------------|--------------------------------------|
+	// | GENERIC_    | View project-level                   |
+	// | GENERIC_    | Edit project-level                   |
+	// | DELETE      | Delete team                          |
+	// | PUBLISH_    | Create test                          |
+	// | ADMINISTER_ | Administer a                         |
+	// | START_      | Start a                              |
+	// | EDIT_       | Edit build                           |
+	// | UPDATE_     | Write to build operational           |
+	// | DELETE_     | Delete test                          |
+	// | VIEW_       | View test                            |
+	// | MANAGE_     | Manage test                          |
+	// | MANAGE_     | Manage test                          |
+	// | WORK_       | Delete and restore work              |
+	// | WORK_       | Move work items out of this          |
+	// | WORK_       | Permanently delete work              |
+	// | RENAME      | Rename team                          |
+	// | MANAGE_     | Manage project                       |
+	// | MANAGE_     | Manage system project                |
+	// | BYPASS_     | Bypass project property              |
+	// | BYPASS_     | Bypass rules on work item            |
+	// | SUPPRESS_   | Suppress notifications for work item |
+	// | UPDATE_     | Update project                       |
+	// | CHANGE_     | Change process of team               |
+	// | AGILETOOLS_ | Agile backlog                        |
+	// | AGILETOOLS_ | Agile                                |
 	Permissions pulumi.StringMapInput
 	// The **group** principal to assign the permissions.
 	Principal pulumi.StringInput
@@ -405,33 +393,33 @@ func (o ProjectPermissionsOutput) ToProjectPermissionsOutputWithContext(ctx cont
 
 // the permissions to assign. The following permissions are available
 //
-// | Permission                   | Description                                  |
-// |------------------------------|----------------------------------------------|
-// | GENERIC_READ                 | View project-level information               |
-// | GENERIC_WRITE                | Edit project-level information               |
-// | DELETE                       | Delete team project                          |
-// | PUBLISH_TEST_RESULTS         | Create test runs                             |
-// | ADMINISTER_BUILD             | Administer a build                           |
-// | START_BUILD                  | Start a build                                |
-// | EDIT_BUILD_STATUS            | Edit build quality                           |
-// | UPDATE_BUILD                 | Write to build operational store             |
-// | DELETE_TEST_RESULTS          | Delete test runs                             |
-// | VIEW_TEST_RESULTS            | View test runs                               |
-// | MANAGE_TEST_ENVIRONMENTS     | Manage test environments                     |
-// | MANAGE_TEST_CONFIGURATIONS   | Manage test configurations                   |
-// | WORK_ITEM_DELETE             | Delete and restore work items                |
-// | WORK_ITEM_MOVE               | Move work items out of this project          |
-// | WORK_ITEM_PERMANENTLY_DELETE | Permanently delete work items                |
-// | RENAME                       | Rename team project                          |
-// | MANAGE_PROPERTIES            | Manage project properties                    |
-// | MANAGE_SYSTEM_PROPERTIES     | Manage system project properties             |
-// | BYPASS_PROPERTY_CACHE        | Bypass project property cache                |
-// | BYPASS_RULES                 | Bypass rules on work item updates            |
-// | SUPPRESS_NOTIFICATIONS       | Suppress notifications for work item updates |
-// | UPDATE_VISIBILITY            | Update project visibility                    |
-// | CHANGE_PROCESS               | Change process of team project.              |
-// | AGILETOOLS_BACKLOG           | Agile backlog management.                    |
-// | AGILETOOLS_PLANS             | Agile plans.                                 |
+// | Permission  |             Description              |
+// |-------------|--------------------------------------|
+// | GENERIC_    | View project-level                   |
+// | GENERIC_    | Edit project-level                   |
+// | DELETE      | Delete team                          |
+// | PUBLISH_    | Create test                          |
+// | ADMINISTER_ | Administer a                         |
+// | START_      | Start a                              |
+// | EDIT_       | Edit build                           |
+// | UPDATE_     | Write to build operational           |
+// | DELETE_     | Delete test                          |
+// | VIEW_       | View test                            |
+// | MANAGE_     | Manage test                          |
+// | MANAGE_     | Manage test                          |
+// | WORK_       | Delete and restore work              |
+// | WORK_       | Move work items out of this          |
+// | WORK_       | Permanently delete work              |
+// | RENAME      | Rename team                          |
+// | MANAGE_     | Manage project                       |
+// | MANAGE_     | Manage system project                |
+// | BYPASS_     | Bypass project property              |
+// | BYPASS_     | Bypass rules on work item            |
+// | SUPPRESS_   | Suppress notifications for work item |
+// | UPDATE_     | Update project                       |
+// | CHANGE_     | Change process of team               |
+// | AGILETOOLS_ | Agile backlog                        |
+// | AGILETOOLS_ | Agile                                |
 func (o ProjectPermissionsOutput) Permissions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ProjectPermissions) pulumi.StringMapOutput { return v.Permissions }).(pulumi.StringMapOutput)
 }

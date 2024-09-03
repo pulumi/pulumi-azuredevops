@@ -10,6 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps
 {
     /// <summary>
+    /// layout: "azuredevops"
+    /// page_title: "AzureDevops: azuredevops.GitRepositoryFile"
+    /// description: |- Manage files within an Azure DevOps Git repository.
+    /// &lt;!-- yaml: line 3: did not find expected comment or line break --&gt;
+    /// 
+    /// # azuredevops.GitRepositoryFile
+    /// 
     /// Manage files within an Azure DevOps Git repository.
     /// 
     /// ## Example Usage

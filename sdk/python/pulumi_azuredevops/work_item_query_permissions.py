@@ -28,12 +28,12 @@ class WorkItemQueryPermissionsArgs:
         The set of arguments for constructing a WorkItemQueryPermissions resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: the permissions to assign. The following permissions are available
                
-               | Permissions              | Description                        |
-               |--------------------------|------------------------------------|
-               | Read                     | Read                               |
-               | Contribute               | Contribute                         |
-               | Delete                   | Delete                             |
-               | ManagePermissions        | Manage Permissions                 |
+               |    Permissions    | Description |
+               |-------------------|-------------|
+               | Read              | Read        |
+               | Contribute        | Contribute  |
+               | Delete            | Delete      |
+               | ManagePermissions | Manage      |
         :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[str] path: Path to a query or folder beneath `Shared Queries`
@@ -53,12 +53,12 @@ class WorkItemQueryPermissionsArgs:
         """
         the permissions to assign. The following permissions are available
 
-        | Permissions              | Description                        |
-        |--------------------------|------------------------------------|
-        | Read                     | Read                               |
-        | Contribute               | Contribute                         |
-        | Delete                   | Delete                             |
-        | ManagePermissions        | Manage Permissions                 |
+        |    Permissions    | Description |
+        |-------------------|-------------|
+        | Read              | Read        |
+        | Contribute        | Contribute  |
+        | Delete            | Delete      |
+        | ManagePermissions | Manage      |
         """
         return pulumi.get(self, "permissions")
 
@@ -128,12 +128,12 @@ class _WorkItemQueryPermissionsState:
         :param pulumi.Input[str] path: Path to a query or folder beneath `Shared Queries`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: the permissions to assign. The following permissions are available
                
-               | Permissions              | Description                        |
-               |--------------------------|------------------------------------|
-               | Read                     | Read                               |
-               | Contribute               | Contribute                         |
-               | Delete                   | Delete                             |
-               | ManagePermissions        | Manage Permissions                 |
+               |    Permissions    | Description |
+               |-------------------|-------------|
+               | Read              | Read        |
+               | Contribute        | Contribute  |
+               | Delete            | Delete      |
+               | ManagePermissions | Manage      |
         :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
@@ -167,12 +167,12 @@ class _WorkItemQueryPermissionsState:
         """
         the permissions to assign. The following permissions are available
 
-        | Permissions              | Description                        |
-        |--------------------------|------------------------------------|
-        | Read                     | Read                               |
-        | Contribute               | Contribute                         |
-        | Delete                   | Delete                             |
-        | ManagePermissions        | Manage Permissions                 |
+        |    Permissions    | Description |
+        |-------------------|-------------|
+        | Read              | Read        |
+        | Contribute        | Contribute  |
+        | Delete            | Delete      |
+        | ManagePermissions | Manage      |
         """
         return pulumi.get(self, "permissions")
 
@@ -332,29 +332,17 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
             })
         ```
 
-        ## Relevant Links
-
-        * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
-
-        ## PAT Permissions Required
-
-        - **Project & Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
-
-        ## Import
-
-        The resource does not support import.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] path: Path to a query or folder beneath `Shared Queries`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: the permissions to assign. The following permissions are available
                
-               | Permissions              | Description                        |
-               |--------------------------|------------------------------------|
-               | Read                     | Read                               |
-               | Contribute               | Contribute                         |
-               | Delete                   | Delete                             |
-               | ManagePermissions        | Manage Permissions                 |
+               |    Permissions    | Description |
+               |-------------------|-------------|
+               | Read              | Read        |
+               | Contribute        | Contribute  |
+               | Delete            | Delete      |
+               | ManagePermissions | Manage      |
         :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
@@ -469,18 +457,6 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
             })
         ```
 
-        ## Relevant Links
-
-        * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
-
-        ## PAT Permissions Required
-
-        - **Project & Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
-
-        ## Import
-
-        The resource does not support import.
-
         :param str resource_name: The name of the resource.
         :param WorkItemQueryPermissionsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -546,12 +522,12 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
         :param pulumi.Input[str] path: Path to a query or folder beneath `Shared Queries`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: the permissions to assign. The following permissions are available
                
-               | Permissions              | Description                        |
-               |--------------------------|------------------------------------|
-               | Read                     | Read                               |
-               | Contribute               | Contribute                         |
-               | Delete                   | Delete                             |
-               | ManagePermissions        | Manage Permissions                 |
+               |    Permissions    | Description |
+               |-------------------|-------------|
+               | Read              | Read        |
+               | Contribute        | Contribute  |
+               | Delete            | Delete      |
+               | ManagePermissions | Manage      |
         :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
@@ -581,12 +557,12 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
         """
         the permissions to assign. The following permissions are available
 
-        | Permissions              | Description                        |
-        |--------------------------|------------------------------------|
-        | Read                     | Read                               |
-        | Contribute               | Contribute                         |
-        | Delete                   | Delete                             |
-        | ManagePermissions        | Manage Permissions                 |
+        |    Permissions    | Description |
+        |-------------------|-------------|
+        | Read              | Read        |
+        | Contribute        | Contribute  |
+        | Delete            | Delete      |
+        | ManagePermissions | Manage      |
         """
         return pulumi.get(self, "permissions")
 

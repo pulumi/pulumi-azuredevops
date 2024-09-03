@@ -17,6 +17,13 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * layout: &#34;azuredevops&#34;
+ * page_title: &#34;AzureDevops: azuredevops.RepositoryPolicyFilePathPattern&#34;
+ * description: |- Manages a file path pattern repository policy within Azure DevOps project.
+ * &lt;!-- yaml: line 3: did not find expected comment or line break --&gt;
+ * 
+ * # azuredevops.RepositoryPolicyFilePathPattern
+ * 
  * Manage a file path pattern repository policy within Azure DevOps project.
  * 
  * ## Example Usage

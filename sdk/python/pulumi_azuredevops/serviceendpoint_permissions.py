@@ -31,13 +31,13 @@ class ServiceendpointPermissionsArgs:
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
                
-               | Permission        | Description                         |
-               | ----------------- | ----------------------------------- |
-               | Use               | Use service endpoint                |
-               | Administer        | Full control over service endpoints |
-               | Create            | Create service endpoints            |
-               | ViewAuthorization | View authorizations                 |
-               | ViewEndpoint      | View service endpoint properties    |
+               |    Permission     |        Description        |
+               |-------------------|---------------------------|
+               | Use               | Use service               |
+               | Administer        | Full control over service |
+               | Create            | Create service            |
+               | ViewAuthorization | View                      |
+               | ViewEndpoint      | View service endpoint     |
         :param pulumi.Input[str] serviceendpoint_id: The id of the service endpoint to assign the permissions.
         """
         pulumi.set(__self__, "permissions", permissions)
@@ -90,13 +90,13 @@ class ServiceendpointPermissionsArgs:
         """
         Replace (`true`) or merge (`false`) the permissions. Default: `true`
 
-        | Permission        | Description                         |
-        | ----------------- | ----------------------------------- |
-        | Use               | Use service endpoint                |
-        | Administer        | Full control over service endpoints |
-        | Create            | Create service endpoints            |
-        | ViewAuthorization | View authorizations                 |
-        | ViewEndpoint      | View service endpoint properties    |
+        |    Permission     |        Description        |
+        |-------------------|---------------------------|
+        | Use               | Use service               |
+        | Administer        | Full control over service |
+        | Create            | Create service            |
+        | ViewAuthorization | View                      |
+        | ViewEndpoint      | View service endpoint     |
         """
         return pulumi.get(self, "replace")
 
@@ -132,13 +132,13 @@ class _ServiceendpointPermissionsState:
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
                
-               | Permission        | Description                         |
-               | ----------------- | ----------------------------------- |
-               | Use               | Use service endpoint                |
-               | Administer        | Full control over service endpoints |
-               | Create            | Create service endpoints            |
-               | ViewAuthorization | View authorizations                 |
-               | ViewEndpoint      | View service endpoint properties    |
+               |    Permission     |        Description        |
+               |-------------------|---------------------------|
+               | Use               | Use service               |
+               | Administer        | Full control over service |
+               | Create            | Create service            |
+               | ViewAuthorization | View                      |
+               | ViewEndpoint      | View service endpoint     |
         :param pulumi.Input[str] serviceendpoint_id: The id of the service endpoint to assign the permissions.
         """
         if permissions is not None:
@@ -194,13 +194,13 @@ class _ServiceendpointPermissionsState:
         """
         Replace (`true`) or merge (`false`) the permissions. Default: `true`
 
-        | Permission        | Description                         |
-        | ----------------- | ----------------------------------- |
-        | Use               | Use service endpoint                |
-        | Administer        | Full control over service endpoints |
-        | Create            | Create service endpoints            |
-        | ViewAuthorization | View authorizations                 |
-        | ViewEndpoint      | View service endpoint properties    |
+        |    Permission     |        Description        |
+        |-------------------|---------------------------|
+        | Use               | Use service               |
+        | Administer        | Full control over service |
+        | Create            | Create service            |
+        | ViewAuthorization | View                      |
+        | ViewEndpoint      | View service endpoint     |
         """
         return pulumi.get(self, "replace")
 
@@ -286,18 +286,6 @@ class ServiceendpointPermissions(pulumi.CustomResource):
             })
         ```
 
-        ## Relevant Links
-
-        * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
-
-        ## PAT Permissions Required
-
-        - **Project & Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
-
-        ## Import
-
-        The resource does not support import.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: the permissions to assign. The following permissions are available.
@@ -305,13 +293,13 @@ class ServiceendpointPermissions(pulumi.CustomResource):
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
                
-               | Permission        | Description                         |
-               | ----------------- | ----------------------------------- |
-               | Use               | Use service endpoint                |
-               | Administer        | Full control over service endpoints |
-               | Create            | Create service endpoints            |
-               | ViewAuthorization | View authorizations                 |
-               | ViewEndpoint      | View service endpoint properties    |
+               |    Permission     |        Description        |
+               |-------------------|---------------------------|
+               | Use               | Use service               |
+               | Administer        | Full control over service |
+               | Create            | Create service            |
+               | ViewAuthorization | View                      |
+               | ViewEndpoint      | View service endpoint     |
         :param pulumi.Input[str] serviceendpoint_id: The id of the service endpoint to assign the permissions.
         """
         ...
@@ -373,18 +361,6 @@ class ServiceendpointPermissions(pulumi.CustomResource):
                 "ViewEndpoint": "allow",
             })
         ```
-
-        ## Relevant Links
-
-        * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
-
-        ## PAT Permissions Required
-
-        - **Project & Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
-
-        ## Import
-
-        The resource does not support import.
 
         :param str resource_name: The name of the resource.
         :param ServiceendpointPermissionsArgs args: The arguments to use to populate this resource's properties.
@@ -453,13 +429,13 @@ class ServiceendpointPermissions(pulumi.CustomResource):
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
                
-               | Permission        | Description                         |
-               | ----------------- | ----------------------------------- |
-               | Use               | Use service endpoint                |
-               | Administer        | Full control over service endpoints |
-               | Create            | Create service endpoints            |
-               | ViewAuthorization | View authorizations                 |
-               | ViewEndpoint      | View service endpoint properties    |
+               |    Permission     |        Description        |
+               |-------------------|---------------------------|
+               | Use               | Use service               |
+               | Administer        | Full control over service |
+               | Create            | Create service            |
+               | ViewAuthorization | View                      |
+               | ViewEndpoint      | View service endpoint     |
         :param pulumi.Input[str] serviceendpoint_id: The id of the service endpoint to assign the permissions.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -503,13 +479,13 @@ class ServiceendpointPermissions(pulumi.CustomResource):
         """
         Replace (`true`) or merge (`false`) the permissions. Default: `true`
 
-        | Permission        | Description                         |
-        | ----------------- | ----------------------------------- |
-        | Use               | Use service endpoint                |
-        | Administer        | Full control over service endpoints |
-        | Create            | Create service endpoints            |
-        | ViewAuthorization | View authorizations                 |
-        | ViewEndpoint      | View service endpoint properties    |
+        |    Permission     |        Description        |
+        |-------------------|---------------------------|
+        | Use               | Use service               |
+        | Administer        | Full control over service |
+        | Create            | Create service            |
+        | ViewAuthorization | View                      |
+        | ViewEndpoint      | View service endpoint     |
         """
         return pulumi.get(self, "replace")
 

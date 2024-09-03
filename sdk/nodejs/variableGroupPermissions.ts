@@ -50,23 +50,11 @@ import * as utilities from "./utilities";
  *
  * The Azure DevOps UI uses roles to assign permissions for variable groups.
  *
- * | Role          | Allow Permissions      |
- * | ------------- | ---------------------- |
- * | Reader        | View                   |
- * | User          | View, Use              |
- * | Administrator | View, Use, Administer  |
- *
- * ## Relevant Links
- *
- * * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
- *
- * ## PAT Permissions Required
- *
- * - **Project & Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
- *
- * ## Import
- *
- * The resource does not support import.
+ * |     Role      |   Allow    |
+ * |---------------|------------|
+ * | Reader        | View       |
+ * | User          | View,      |
+ * | Administrator | View, Use, |
  */
 export class VariableGroupPermissions extends pulumi.CustomResource {
     /**
@@ -96,34 +84,10 @@ export class VariableGroupPermissions extends pulumi.CustomResource {
         return obj['__pulumiType'] === VariableGroupPermissions.__pulumiType;
     }
 
-    /**
-     * the permissions to assign. The following permissions are available.
-     */
     public readonly permissions!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The **group** principal to assign the permissions.
-     */
     public readonly principal!: pulumi.Output<string>;
-    /**
-     * The ID of the project.
-     */
     public readonly projectId!: pulumi.Output<string>;
-    /**
-     * Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     *
-     * | Permission        | Description                         |
-     * | ----------------- | ----------------------------------- |
-     * | View              | View library item                   |
-     * | Administer        | Administer library item             |
-     * | Create            | Create library item                 |
-     * | ViewSecrets       | View library item secrets           |
-     * | Use               | Use library item                    |
-     * | Owner             | Owner library item                  |
-     */
     public readonly replace!: pulumi.Output<boolean | undefined>;
-    /**
-     * The id of the variable group to assign the permissions.
-     */
     public readonly variableGroupId!: pulumi.Output<string>;
 
     /**
@@ -173,34 +137,10 @@ export class VariableGroupPermissions extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VariableGroupPermissions resources.
  */
 export interface VariableGroupPermissionsState {
-    /**
-     * the permissions to assign. The following permissions are available.
-     */
     permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The **group** principal to assign the permissions.
-     */
     principal?: pulumi.Input<string>;
-    /**
-     * The ID of the project.
-     */
     projectId?: pulumi.Input<string>;
-    /**
-     * Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     *
-     * | Permission        | Description                         |
-     * | ----------------- | ----------------------------------- |
-     * | View              | View library item                   |
-     * | Administer        | Administer library item             |
-     * | Create            | Create library item                 |
-     * | ViewSecrets       | View library item secrets           |
-     * | Use               | Use library item                    |
-     * | Owner             | Owner library item                  |
-     */
     replace?: pulumi.Input<boolean>;
-    /**
-     * The id of the variable group to assign the permissions.
-     */
     variableGroupId?: pulumi.Input<string>;
 }
 
@@ -208,33 +148,9 @@ export interface VariableGroupPermissionsState {
  * The set of arguments for constructing a VariableGroupPermissions resource.
  */
 export interface VariableGroupPermissionsArgs {
-    /**
-     * the permissions to assign. The following permissions are available.
-     */
     permissions: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The **group** principal to assign the permissions.
-     */
     principal: pulumi.Input<string>;
-    /**
-     * The ID of the project.
-     */
     projectId: pulumi.Input<string>;
-    /**
-     * Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     *
-     * | Permission        | Description                         |
-     * | ----------------- | ----------------------------------- |
-     * | View              | View library item                   |
-     * | Administer        | Administer library item             |
-     * | Create            | Create library item                 |
-     * | ViewSecrets       | View library item secrets           |
-     * | Use               | Use library item                    |
-     * | Owner             | Owner library item                  |
-     */
     replace?: pulumi.Input<boolean>;
-    /**
-     * The id of the variable group to assign the permissions.
-     */
     variableGroupId: pulumi.Input<string>;
 }

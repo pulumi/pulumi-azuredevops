@@ -74,6 +74,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// });
     /// ```
+    /// 
     /// ### Set root folder permissions
     /// ```csharp
     /// using System.Collections.Generic;
@@ -111,18 +112,6 @@ namespace Pulumi.AzureDevOps
     /// 
     /// });
     /// ```
-    /// 
-    /// ## Relevant Links
-    /// 
-    /// * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
-    /// 
-    /// ## PAT Permissions Required
-    /// 
-    /// - **Project &amp; Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
-    /// 
-    /// ## Import
-    /// 
-    /// The resource does not support import.
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/buildFolderPermissions:BuildFolderPermissions")]
     public partial class BuildFolderPermissions : global::Pulumi.CustomResource
@@ -136,23 +125,23 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// the permissions to assign. The following permissions are available.
         /// 
-        /// | Permission                     | Description                           |
-        /// |--------------------------------|---------------------------------------|
-        /// | ViewBuilds                     | View builds                           |
-        /// | EditBuildQuality               | Edit build quality                    |
-        /// | RetainIndefinitely             | Retain indefinitely                   |
-        /// | DeleteBuilds                   | Delete builds                         |
-        /// | ManageBuildQualities           | Manage build qualities                |
-        /// | DestroyBuilds                  | Destroy builds                        |
-        /// | UpdateBuildInformation         | Update build information              |
-        /// | QueueBuilds                    | Queue builds                          |
-        /// | ManageBuildQueue               | Manage build queue                    |
-        /// | StopBuilds                     | Stop builds                           |
-        /// | ViewBuildDefinition            | View build pipeline                   |
-        /// | EditBuildDefinition            | Edit build pipeline                   |
-        /// | DeleteBuildDefinition          | Delete build pipeline                 |
-        /// | OverrideBuildCheckInValidation | Override check-in validation by build |
-        /// | AdministerBuildPermissions     | Administer build permissions          |
+        /// |           Permission           |           Description           |
+        /// |--------------------------------|---------------------------------|
+        /// | ViewBuilds                     | View                            |
+        /// | EditBuildQuality               | Edit build                      |
+        /// | RetainIndefinitely             | Retain                          |
+        /// | DeleteBuilds                   | Delete                          |
+        /// | ManageBuildQualities           | Manage build                    |
+        /// | DestroyBuilds                  | Destroy                         |
+        /// | UpdateBuildInformation         | Update build                    |
+        /// | QueueBuilds                    | Queue                           |
+        /// | ManageBuildQueue               | Manage build                    |
+        /// | StopBuilds                     | Stop                            |
+        /// | ViewBuildDefinition            | View build                      |
+        /// | EditBuildDefinition            | Edit build                      |
+        /// | DeleteBuildDefinition          | Delete build                    |
+        /// | OverrideBuildCheckInValidation | Override check-in validation by |
+        /// | AdministerBuildPermissions     | Administer build                |
         /// </summary>
         [Output("permissions")]
         public Output<ImmutableDictionary<string, string>> Permissions { get; private set; } = null!;
@@ -233,23 +222,23 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// the permissions to assign. The following permissions are available.
         /// 
-        /// | Permission                     | Description                           |
-        /// |--------------------------------|---------------------------------------|
-        /// | ViewBuilds                     | View builds                           |
-        /// | EditBuildQuality               | Edit build quality                    |
-        /// | RetainIndefinitely             | Retain indefinitely                   |
-        /// | DeleteBuilds                   | Delete builds                         |
-        /// | ManageBuildQualities           | Manage build qualities                |
-        /// | DestroyBuilds                  | Destroy builds                        |
-        /// | UpdateBuildInformation         | Update build information              |
-        /// | QueueBuilds                    | Queue builds                          |
-        /// | ManageBuildQueue               | Manage build queue                    |
-        /// | StopBuilds                     | Stop builds                           |
-        /// | ViewBuildDefinition            | View build pipeline                   |
-        /// | EditBuildDefinition            | Edit build pipeline                   |
-        /// | DeleteBuildDefinition          | Delete build pipeline                 |
-        /// | OverrideBuildCheckInValidation | Override check-in validation by build |
-        /// | AdministerBuildPermissions     | Administer build permissions          |
+        /// |           Permission           |           Description           |
+        /// |--------------------------------|---------------------------------|
+        /// | ViewBuilds                     | View                            |
+        /// | EditBuildQuality               | Edit build                      |
+        /// | RetainIndefinitely             | Retain                          |
+        /// | DeleteBuilds                   | Delete                          |
+        /// | ManageBuildQualities           | Manage build                    |
+        /// | DestroyBuilds                  | Destroy                         |
+        /// | UpdateBuildInformation         | Update build                    |
+        /// | QueueBuilds                    | Queue                           |
+        /// | ManageBuildQueue               | Manage build                    |
+        /// | StopBuilds                     | Stop                            |
+        /// | ViewBuildDefinition            | View build                      |
+        /// | EditBuildDefinition            | Edit build                      |
+        /// | DeleteBuildDefinition          | Delete build                    |
+        /// | OverrideBuildCheckInValidation | Override check-in validation by |
+        /// | AdministerBuildPermissions     | Administer build                |
         /// </summary>
         public InputMap<string> Permissions
         {
@@ -295,23 +284,23 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// the permissions to assign. The following permissions are available.
         /// 
-        /// | Permission                     | Description                           |
-        /// |--------------------------------|---------------------------------------|
-        /// | ViewBuilds                     | View builds                           |
-        /// | EditBuildQuality               | Edit build quality                    |
-        /// | RetainIndefinitely             | Retain indefinitely                   |
-        /// | DeleteBuilds                   | Delete builds                         |
-        /// | ManageBuildQualities           | Manage build qualities                |
-        /// | DestroyBuilds                  | Destroy builds                        |
-        /// | UpdateBuildInformation         | Update build information              |
-        /// | QueueBuilds                    | Queue builds                          |
-        /// | ManageBuildQueue               | Manage build queue                    |
-        /// | StopBuilds                     | Stop builds                           |
-        /// | ViewBuildDefinition            | View build pipeline                   |
-        /// | EditBuildDefinition            | Edit build pipeline                   |
-        /// | DeleteBuildDefinition          | Delete build pipeline                 |
-        /// | OverrideBuildCheckInValidation | Override check-in validation by build |
-        /// | AdministerBuildPermissions     | Administer build permissions          |
+        /// |           Permission           |           Description           |
+        /// |--------------------------------|---------------------------------|
+        /// | ViewBuilds                     | View                            |
+        /// | EditBuildQuality               | Edit build                      |
+        /// | RetainIndefinitely             | Retain                          |
+        /// | DeleteBuilds                   | Delete                          |
+        /// | ManageBuildQualities           | Manage build                    |
+        /// | DestroyBuilds                  | Destroy                         |
+        /// | UpdateBuildInformation         | Update build                    |
+        /// | QueueBuilds                    | Queue                           |
+        /// | ManageBuildQueue               | Manage build                    |
+        /// | StopBuilds                     | Stop                            |
+        /// | ViewBuildDefinition            | View build                      |
+        /// | EditBuildDefinition            | Edit build                      |
+        /// | DeleteBuildDefinition          | Delete build                    |
+        /// | OverrideBuildCheckInValidation | Override check-in validation by |
+        /// | AdministerBuildPermissions     | Administer build                |
         /// </summary>
         public InputMap<string> Permissions
         {

@@ -51,18 +51,6 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- *
- * ## Relevant Links
- *
- * * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
- *
- * ## PAT Permissions Required
- *
- * - **Project & Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
- *
- * ## Import
- *
- * The resource does not support import.
  */
 export class IterativePermissions extends pulumi.CustomResource {
     /**
@@ -111,12 +99,12 @@ export class IterativePermissions extends pulumi.CustomResource {
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      *
-     * | Permission      | Description                    |
-     * |-----------------|--------------------------------|
-     * | GENERIC_READ    | View permissions for this node |
-     * | GENERIC_WRITE   | Edit this node                 |
-     * | CREATE_CHILDREN | Create child nodes             |
-     * | DELETE          | Delete this node               |
+     * | Permission |        Description        |
+     * |------------|---------------------------|
+     * | GENERIC_   | View permissions for this |
+     * | GENERIC_   | Edit this                 |
+     * | CREATE_    | Create child              |
+     * | DELETE     | Delete this               |
      */
     public readonly replace!: pulumi.Output<boolean | undefined>;
 
@@ -183,12 +171,12 @@ export interface IterativePermissionsState {
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      *
-     * | Permission      | Description                    |
-     * |-----------------|--------------------------------|
-     * | GENERIC_READ    | View permissions for this node |
-     * | GENERIC_WRITE   | Edit this node                 |
-     * | CREATE_CHILDREN | Create child nodes             |
-     * | DELETE          | Delete this node               |
+     * | Permission |        Description        |
+     * |------------|---------------------------|
+     * | GENERIC_   | View permissions for this |
+     * | GENERIC_   | Edit this                 |
+     * | CREATE_    | Create child              |
+     * | DELETE     | Delete this               |
      */
     replace?: pulumi.Input<boolean>;
 }
@@ -216,12 +204,12 @@ export interface IterativePermissionsArgs {
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      *
-     * | Permission      | Description                    |
-     * |-----------------|--------------------------------|
-     * | GENERIC_READ    | View permissions for this node |
-     * | GENERIC_WRITE   | Edit this node                 |
-     * | CREATE_CHILDREN | Create child nodes             |
-     * | DELETE          | Delete this node               |
+     * | Permission |        Description        |
+     * |------------|---------------------------|
+     * | GENERIC_   | View permissions for this |
+     * | GENERIC_   | Edit this                 |
+     * | CREATE_    | Create child              |
+     * | DELETE     | Delete this               |
      */
     replace?: pulumi.Input<boolean>;
 }

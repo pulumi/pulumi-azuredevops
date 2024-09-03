@@ -11,6 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// layout: "azuredevops"
+// page_title: "AzureDevops: GroupEntitlement"
+// description: |-
+// Manages a group entitlement within Azure DevOps organization.
+// <!-- yaml: line 5: could not find expected ':' -->
+//
+// # GroupEntitlement
+//
 // Manages a group entitlement within Azure DevOps.
 //
 // ## Example Usage

@@ -111,18 +111,6 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ## Relevant Links
- * 
- * * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
- * 
- * ## PAT Permissions Required
- * 
- * - **Project &amp; Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
- * 
- * ## Import
- * 
- * The resource does not support import.
- * 
  */
 @ResourceType(type="azuredevops:index/buildDefinitionPermissions:BuildDefinitionPermissions")
 public class BuildDefinitionPermissions extends com.pulumi.resources.CustomResource {
@@ -143,23 +131,23 @@ public class BuildDefinitionPermissions extends com.pulumi.resources.CustomResou
     /**
      * the permissions to assign. The following permissions are available.
      * 
-     * | Permission                     | Description                           |
-     * |--------------------------------|---------------------------------------|
-     * | ViewBuilds                     | View builds                           |
-     * | EditBuildQuality               | Edit build quality                    |
-     * | RetainIndefinitely             | Retain indefinitely                   |
-     * | DeleteBuilds                   | Delete builds                         |
-     * | ManageBuildQualities           | Manage build qualities                |
-     * | DestroyBuilds                  | Destroy builds                        |
-     * | UpdateBuildInformation         | Update build information              |
-     * | QueueBuilds                    | Queue builds                          |
-     * | ManageBuildQueue               | Manage build queue                    |
-     * | StopBuilds                     | Stop builds                           |
-     * | ViewBuildDefinition            | View build pipeline                   |
-     * | EditBuildDefinition            | Edit build pipeline                   |
-     * | DeleteBuildDefinition          | Delete build pipeline                 |
-     * | OverrideBuildCheckInValidation | Override check-in validation by build |
-     * | AdministerBuildPermissions     | Administer build permissions          |
+     * |           Permission           |           Description           |
+     * |--------------------------------|---------------------------------|
+     * | ViewBuilds                     | View                            |
+     * | EditBuildQuality               | Edit build                      |
+     * | RetainIndefinitely             | Retain                          |
+     * | DeleteBuilds                   | Delete                          |
+     * | ManageBuildQualities           | Manage build                    |
+     * | DestroyBuilds                  | Destroy                         |
+     * | UpdateBuildInformation         | Update build                    |
+     * | QueueBuilds                    | Queue                           |
+     * | ManageBuildQueue               | Manage build                    |
+     * | StopBuilds                     | Stop                            |
+     * | ViewBuildDefinition            | View build                      |
+     * | EditBuildDefinition            | Edit build                      |
+     * | DeleteBuildDefinition          | Delete build                    |
+     * | OverrideBuildCheckInValidation | Override check-in validation by |
+     * | AdministerBuildPermissions     | Administer build                |
      * 
      */
     @Export(name="permissions", refs={Map.class,String.class}, tree="[0,1,1]")
@@ -168,23 +156,23 @@ public class BuildDefinitionPermissions extends com.pulumi.resources.CustomResou
     /**
      * @return the permissions to assign. The following permissions are available.
      * 
-     * | Permission                     | Description                           |
-     * |--------------------------------|---------------------------------------|
-     * | ViewBuilds                     | View builds                           |
-     * | EditBuildQuality               | Edit build quality                    |
-     * | RetainIndefinitely             | Retain indefinitely                   |
-     * | DeleteBuilds                   | Delete builds                         |
-     * | ManageBuildQualities           | Manage build qualities                |
-     * | DestroyBuilds                  | Destroy builds                        |
-     * | UpdateBuildInformation         | Update build information              |
-     * | QueueBuilds                    | Queue builds                          |
-     * | ManageBuildQueue               | Manage build queue                    |
-     * | StopBuilds                     | Stop builds                           |
-     * | ViewBuildDefinition            | View build pipeline                   |
-     * | EditBuildDefinition            | Edit build pipeline                   |
-     * | DeleteBuildDefinition          | Delete build pipeline                 |
-     * | OverrideBuildCheckInValidation | Override check-in validation by build |
-     * | AdministerBuildPermissions     | Administer build permissions          |
+     * |           Permission           |           Description           |
+     * |--------------------------------|---------------------------------|
+     * | ViewBuilds                     | View                            |
+     * | EditBuildQuality               | Edit build                      |
+     * | RetainIndefinitely             | Retain                          |
+     * | DeleteBuilds                   | Delete                          |
+     * | ManageBuildQualities           | Manage build                    |
+     * | DestroyBuilds                  | Destroy                         |
+     * | UpdateBuildInformation         | Update build                    |
+     * | QueueBuilds                    | Queue                           |
+     * | ManageBuildQueue               | Manage build                    |
+     * | StopBuilds                     | Stop                            |
+     * | ViewBuildDefinition            | View build                      |
+     * | EditBuildDefinition            | Edit build                      |
+     * | DeleteBuildDefinition          | Delete build                    |
+     * | OverrideBuildCheckInValidation | Override check-in validation by |
+     * | AdministerBuildPermissions     | Administer build                |
      * 
      */
     public Output<Map<String,String>> permissions() {

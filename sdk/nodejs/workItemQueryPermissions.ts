@@ -122,18 +122,6 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- *
- * ## Relevant Links
- *
- * * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
- *
- * ## PAT Permissions Required
- *
- * - **Project & Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
- *
- * ## Import
- *
- * The resource does not support import.
  */
 export class WorkItemQueryPermissions extends pulumi.CustomResource {
     /**
@@ -170,12 +158,12 @@ export class WorkItemQueryPermissions extends pulumi.CustomResource {
     /**
      * the permissions to assign. The following permissions are available
      *
-     * | Permissions              | Description                        |
-     * |--------------------------|------------------------------------|
-     * | Read                     | Read                               |
-     * | Contribute               | Contribute                         |
-     * | Delete                   | Delete                             |
-     * | ManagePermissions        | Manage Permissions                 |
+     * |    Permissions    | Description |
+     * |-------------------|-------------|
+     * | Read              | Read        |
+     * | Contribute        | Contribute  |
+     * | Delete            | Delete      |
+     * | ManagePermissions | Manage      |
      */
     public readonly permissions!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -242,12 +230,12 @@ export interface WorkItemQueryPermissionsState {
     /**
      * the permissions to assign. The following permissions are available
      *
-     * | Permissions              | Description                        |
-     * |--------------------------|------------------------------------|
-     * | Read                     | Read                               |
-     * | Contribute               | Contribute                         |
-     * | Delete                   | Delete                             |
-     * | ManagePermissions        | Manage Permissions                 |
+     * |    Permissions    | Description |
+     * |-------------------|-------------|
+     * | Read              | Read        |
+     * | Contribute        | Contribute  |
+     * | Delete            | Delete      |
+     * | ManagePermissions | Manage      |
      */
     permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -275,12 +263,12 @@ export interface WorkItemQueryPermissionsArgs {
     /**
      * the permissions to assign. The following permissions are available
      *
-     * | Permissions              | Description                        |
-     * |--------------------------|------------------------------------|
-     * | Read                     | Read                               |
-     * | Contribute               | Contribute                         |
-     * | Delete                   | Delete                             |
-     * | ManagePermissions        | Manage Permissions                 |
+     * |    Permissions    | Description |
+     * |-------------------|-------------|
+     * | Read              | Read        |
+     * | Contribute        | Contribute  |
+     * | Delete            | Delete      |
+     * | ManagePermissions | Manage      |
      */
     permissions: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

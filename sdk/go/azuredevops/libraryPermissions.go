@@ -66,44 +66,19 @@ import (
 //
 // The Azure DevOps UI uses roles to assign permissions for the Library.
 //
-// | Role          | Allowed Permissions    |
-// | ------------- | ---------------------- |
-// | Reader        | View                   |
-// | Creator       | View, Create           |
-// | User          | View, Use              |
-// | Administrator | View, Use, Administer  |
-//
-// ## Relevant Links
-//
-// * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
-//
-// ## PAT Permissions Required
-//
-// - **Project & Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
-//
-// ## Import
-//
-// The resource does not support import.
+// |     Role      |  Allowed   |
+// |---------------|------------|
+// | Reader        | View       |
+// | Creator       | View,      |
+// | User          | View,      |
+// | Administrator | View, Use, |
 type LibraryPermissions struct {
 	pulumi.CustomResourceState
 
-	// the permissions to assign. The following permissions are available.
 	Permissions pulumi.StringMapOutput `pulumi:"permissions"`
-	// The **group** principal to assign the permissions.
-	Principal pulumi.StringOutput `pulumi:"principal"`
-	// The ID of the project.
-	ProjectId pulumi.StringOutput `pulumi:"projectId"`
-	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-	//
-	// | Permission        | Description                         |
-	// | ----------------- | ----------------------------------- |
-	// | View              | View library item                   |
-	// | Administer        | Administer library item             |
-	// | Create            | Create library item                 |
-	// | ViewSecrets       | View library item secrets           |
-	// | Use               | Use library item                    |
-	// | Owner             | Owner library item                  |
-	Replace pulumi.BoolPtrOutput `pulumi:"replace"`
+	Principal   pulumi.StringOutput    `pulumi:"principal"`
+	ProjectId   pulumi.StringOutput    `pulumi:"projectId"`
+	Replace     pulumi.BoolPtrOutput   `pulumi:"replace"`
 }
 
 // NewLibraryPermissions registers a new resource with the given unique name, arguments, and options.
@@ -145,43 +120,17 @@ func GetLibraryPermissions(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LibraryPermissions resources.
 type libraryPermissionsState struct {
-	// the permissions to assign. The following permissions are available.
 	Permissions map[string]string `pulumi:"permissions"`
-	// The **group** principal to assign the permissions.
-	Principal *string `pulumi:"principal"`
-	// The ID of the project.
-	ProjectId *string `pulumi:"projectId"`
-	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-	//
-	// | Permission        | Description                         |
-	// | ----------------- | ----------------------------------- |
-	// | View              | View library item                   |
-	// | Administer        | Administer library item             |
-	// | Create            | Create library item                 |
-	// | ViewSecrets       | View library item secrets           |
-	// | Use               | Use library item                    |
-	// | Owner             | Owner library item                  |
-	Replace *bool `pulumi:"replace"`
+	Principal   *string           `pulumi:"principal"`
+	ProjectId   *string           `pulumi:"projectId"`
+	Replace     *bool             `pulumi:"replace"`
 }
 
 type LibraryPermissionsState struct {
-	// the permissions to assign. The following permissions are available.
 	Permissions pulumi.StringMapInput
-	// The **group** principal to assign the permissions.
-	Principal pulumi.StringPtrInput
-	// The ID of the project.
-	ProjectId pulumi.StringPtrInput
-	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-	//
-	// | Permission        | Description                         |
-	// | ----------------- | ----------------------------------- |
-	// | View              | View library item                   |
-	// | Administer        | Administer library item             |
-	// | Create            | Create library item                 |
-	// | ViewSecrets       | View library item secrets           |
-	// | Use               | Use library item                    |
-	// | Owner             | Owner library item                  |
-	Replace pulumi.BoolPtrInput
+	Principal   pulumi.StringPtrInput
+	ProjectId   pulumi.StringPtrInput
+	Replace     pulumi.BoolPtrInput
 }
 
 func (LibraryPermissionsState) ElementType() reflect.Type {
@@ -189,44 +138,18 @@ func (LibraryPermissionsState) ElementType() reflect.Type {
 }
 
 type libraryPermissionsArgs struct {
-	// the permissions to assign. The following permissions are available.
 	Permissions map[string]string `pulumi:"permissions"`
-	// The **group** principal to assign the permissions.
-	Principal string `pulumi:"principal"`
-	// The ID of the project.
-	ProjectId string `pulumi:"projectId"`
-	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-	//
-	// | Permission        | Description                         |
-	// | ----------------- | ----------------------------------- |
-	// | View              | View library item                   |
-	// | Administer        | Administer library item             |
-	// | Create            | Create library item                 |
-	// | ViewSecrets       | View library item secrets           |
-	// | Use               | Use library item                    |
-	// | Owner             | Owner library item                  |
-	Replace *bool `pulumi:"replace"`
+	Principal   string            `pulumi:"principal"`
+	ProjectId   string            `pulumi:"projectId"`
+	Replace     *bool             `pulumi:"replace"`
 }
 
 // The set of arguments for constructing a LibraryPermissions resource.
 type LibraryPermissionsArgs struct {
-	// the permissions to assign. The following permissions are available.
 	Permissions pulumi.StringMapInput
-	// The **group** principal to assign the permissions.
-	Principal pulumi.StringInput
-	// The ID of the project.
-	ProjectId pulumi.StringInput
-	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-	//
-	// | Permission        | Description                         |
-	// | ----------------- | ----------------------------------- |
-	// | View              | View library item                   |
-	// | Administer        | Administer library item             |
-	// | Create            | Create library item                 |
-	// | ViewSecrets       | View library item secrets           |
-	// | Use               | Use library item                    |
-	// | Owner             | Owner library item                  |
-	Replace pulumi.BoolPtrInput
+	Principal   pulumi.StringInput
+	ProjectId   pulumi.StringInput
+	Replace     pulumi.BoolPtrInput
 }
 
 func (LibraryPermissionsArgs) ElementType() reflect.Type {
@@ -316,31 +239,18 @@ func (o LibraryPermissionsOutput) ToLibraryPermissionsOutputWithContext(ctx cont
 	return o
 }
 
-// the permissions to assign. The following permissions are available.
 func (o LibraryPermissionsOutput) Permissions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LibraryPermissions) pulumi.StringMapOutput { return v.Permissions }).(pulumi.StringMapOutput)
 }
 
-// The **group** principal to assign the permissions.
 func (o LibraryPermissionsOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v *LibraryPermissions) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
 }
 
-// The ID of the project.
 func (o LibraryPermissionsOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LibraryPermissions) pulumi.StringOutput { return v.ProjectId }).(pulumi.StringOutput)
 }
 
-// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-//
-// | Permission        | Description                         |
-// | ----------------- | ----------------------------------- |
-// | View              | View library item                   |
-// | Administer        | Administer library item             |
-// | Create            | Create library item                 |
-// | ViewSecrets       | View library item secrets           |
-// | Use               | Use library item                    |
-// | Owner             | Owner library item                  |
 func (o LibraryPermissionsOutput) Replace() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LibraryPermissions) pulumi.BoolPtrOutput { return v.Replace }).(pulumi.BoolPtrOutput)
 }

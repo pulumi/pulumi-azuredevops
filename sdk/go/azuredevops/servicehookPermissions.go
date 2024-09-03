@@ -67,18 +67,6 @@ import (
 //	}
 //
 // ```
-//
-// ## Relevant Links
-//
-// * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
-//
-// ## PAT Permissions Required
-//
-// - **Project & Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
-//
-// ## Import
-//
-// The resource does not support import.
 type ServicehookPermissions struct {
 	pulumi.CustomResourceState
 
@@ -90,12 +78,12 @@ type ServicehookPermissions struct {
 	ProjectId pulumi.StringPtrOutput `pulumi:"projectId"`
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
 	//
-	// | Name               | Permission Description   |
-	// | ------------------ | ------------------------ |
-	// | ViewSubscriptions  | View Subscriptions       |
-	// | EditSubscriptions  | Edit Subscription        |
-	// | DeleteSubscriptions| Delete Subscriptions     |
-	// | PublishEvents      | Publish Events           |
+	// |        Name         | Permission |
+	// |---------------------|------------|
+	// | ViewSubscriptions   | View       |
+	// | EditSubscriptions   | Edit       |
+	// | DeleteSubscriptions | Delete     |
+	// | PublishEvents       | Publish    |
 	Replace pulumi.BoolPtrOutput `pulumi:"replace"`
 }
 
@@ -143,12 +131,12 @@ type servicehookPermissionsState struct {
 	ProjectId *string `pulumi:"projectId"`
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
 	//
-	// | Name               | Permission Description   |
-	// | ------------------ | ------------------------ |
-	// | ViewSubscriptions  | View Subscriptions       |
-	// | EditSubscriptions  | Edit Subscription        |
-	// | DeleteSubscriptions| Delete Subscriptions     |
-	// | PublishEvents      | Publish Events           |
+	// |        Name         | Permission |
+	// |---------------------|------------|
+	// | ViewSubscriptions   | View       |
+	// | EditSubscriptions   | Edit       |
+	// | DeleteSubscriptions | Delete     |
+	// | PublishEvents       | Publish    |
 	Replace *bool `pulumi:"replace"`
 }
 
@@ -161,12 +149,12 @@ type ServicehookPermissionsState struct {
 	ProjectId pulumi.StringPtrInput
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
 	//
-	// | Name               | Permission Description   |
-	// | ------------------ | ------------------------ |
-	// | ViewSubscriptions  | View Subscriptions       |
-	// | EditSubscriptions  | Edit Subscription        |
-	// | DeleteSubscriptions| Delete Subscriptions     |
-	// | PublishEvents      | Publish Events           |
+	// |        Name         | Permission |
+	// |---------------------|------------|
+	// | ViewSubscriptions   | View       |
+	// | EditSubscriptions   | Edit       |
+	// | DeleteSubscriptions | Delete     |
+	// | PublishEvents       | Publish    |
 	Replace pulumi.BoolPtrInput
 }
 
@@ -183,12 +171,12 @@ type servicehookPermissionsArgs struct {
 	ProjectId *string `pulumi:"projectId"`
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
 	//
-	// | Name               | Permission Description   |
-	// | ------------------ | ------------------------ |
-	// | ViewSubscriptions  | View Subscriptions       |
-	// | EditSubscriptions  | Edit Subscription        |
-	// | DeleteSubscriptions| Delete Subscriptions     |
-	// | PublishEvents      | Publish Events           |
+	// |        Name         | Permission |
+	// |---------------------|------------|
+	// | ViewSubscriptions   | View       |
+	// | EditSubscriptions   | Edit       |
+	// | DeleteSubscriptions | Delete     |
+	// | PublishEvents       | Publish    |
 	Replace *bool `pulumi:"replace"`
 }
 
@@ -202,12 +190,12 @@ type ServicehookPermissionsArgs struct {
 	ProjectId pulumi.StringPtrInput
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
 	//
-	// | Name               | Permission Description   |
-	// | ------------------ | ------------------------ |
-	// | ViewSubscriptions  | View Subscriptions       |
-	// | EditSubscriptions  | Edit Subscription        |
-	// | DeleteSubscriptions| Delete Subscriptions     |
-	// | PublishEvents      | Publish Events           |
+	// |        Name         | Permission |
+	// |---------------------|------------|
+	// | ViewSubscriptions   | View       |
+	// | EditSubscriptions   | Edit       |
+	// | DeleteSubscriptions | Delete     |
+	// | PublishEvents       | Publish    |
 	Replace pulumi.BoolPtrInput
 }
 
@@ -315,12 +303,12 @@ func (o ServicehookPermissionsOutput) ProjectId() pulumi.StringPtrOutput {
 
 // Replace (`true`) or merge (`false`) the permissions. Default: `true`
 //
-// | Name               | Permission Description   |
-// | ------------------ | ------------------------ |
-// | ViewSubscriptions  | View Subscriptions       |
-// | EditSubscriptions  | Edit Subscription        |
-// | DeleteSubscriptions| Delete Subscriptions     |
-// | PublishEvents      | Publish Events           |
+// |        Name         | Permission |
+// |---------------------|------------|
+// | ViewSubscriptions   | View       |
+// | EditSubscriptions   | Edit       |
+// | DeleteSubscriptions | Delete     |
+// | PublishEvents       | Publish    |
 func (o ServicehookPermissionsOutput) Replace() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServicehookPermissions) pulumi.BoolPtrOutput { return v.Replace }).(pulumi.BoolPtrOutput)
 }

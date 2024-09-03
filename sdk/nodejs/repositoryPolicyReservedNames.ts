@@ -5,6 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * layout: "azuredevops"
+ * page_title: "AzureDevops: azuredevops.RepositoryPolicyReservedNames"
+ * description: |- Manage a reserved names repository policy within Azure DevOps project.
+ * <!-- yaml: line 3: did not find expected comment or line break -->
+ *
+ * # azuredevops.RepositoryPolicyReservedNames
+ *
  * Manage a reserved names repository policy within Azure DevOps project. Block pushes that introduce files, folders, or branch names that include platform reserved names or incompatible characters.
  *
  * > If both project and project policy are enabled, the project policy has high priority.

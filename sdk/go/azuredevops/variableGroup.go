@@ -158,7 +158,7 @@ import (
 // $ pulumi import azuredevops:index/variableGroup:VariableGroup example 00000000-0000-0000-0000-000000000000/0
 // ```
 //
-// _Note that for secret variables, the import command retrieve blank value in the tfstate._
+// *Note that for secret variables, the import command retrieve blank value in the tfstate.*
 type VariableGroup struct {
 	pulumi.CustomResourceState
 

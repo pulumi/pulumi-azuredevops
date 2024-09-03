@@ -10,6 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps
 {
     /// <summary>
+    /// layout: "azuredevops"
+    /// page_title: "AzureDevops: azuredevops.GroupEntitlement"
+    /// description: |-
+    /// Manages a group entitlement within Azure DevOps organization.
+    /// &lt;!-- yaml: line 5: could not find expected ':' --&gt;
+    /// 
+    /// # azuredevops.GroupEntitlement
+    /// 
     /// Manages a group entitlement within Azure DevOps.
     /// 
     /// ## Example Usage

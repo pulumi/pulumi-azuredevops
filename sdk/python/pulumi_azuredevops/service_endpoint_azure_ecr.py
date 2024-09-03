@@ -480,6 +480,11 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
         """
         Manages a Azure Container Registry service endpoint within Azure DevOps.
 
+        ## Relevant Links
+
+        - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
+        - [Azure Container Registry REST API](https://docs.microsoft.com/en-us/rest/api/containerregistry/)
+
         ## Example Usage
 
         ### Service Principal
@@ -546,11 +551,6 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
             issuer=example_azuredevops_serviceendpoint_azurerm["workloadIdentityFederationIssuer"],
             subject=example_azuredevops_serviceendpoint_azurerm["workloadIdentityFederationSubject"])
         ```
-
-        ## Relevant Links
-
-        - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
-        - [Azure Container Registry REST API](https://docs.microsoft.com/en-us/rest/api/containerregistry/)
 
         ## Import
 
@@ -581,6 +581,11 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
         """
         Manages a Azure Container Registry service endpoint within Azure DevOps.
 
+        ## Relevant Links
+
+        - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
+        - [Azure Container Registry REST API](https://docs.microsoft.com/en-us/rest/api/containerregistry/)
+
         ## Example Usage
 
         ### Service Principal
@@ -647,11 +652,6 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
             issuer=example_azuredevops_serviceendpoint_azurerm["workloadIdentityFederationIssuer"],
             subject=example_azuredevops_serviceendpoint_azurerm["workloadIdentityFederationSubject"])
         ```
-
-        ## Relevant Links
-
-        - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
-        - [Azure Container Registry REST API](https://docs.microsoft.com/en-us/rest/api/containerregistry/)
 
         ## Import
 

@@ -40,18 +40,6 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- *
- * ## Relevant Links
- *
- * * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
- *
- * ## PAT Permissions Required
- *
- * - **Project & Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
- *
- * ## Import
- *
- * The resource does not support import.
  */
 export class TaggingPermissions extends pulumi.CustomResource {
     /**
@@ -96,12 +84,12 @@ export class TaggingPermissions extends pulumi.CustomResource {
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      *
-     * | Name               | Permission Description     |
-     * | ------------------ | -------------------------- |
-     * | Enumerate          | Enumerate tag definitions  |
-     * | Create             | Create tag definition      |
-     * | Update             | Update tag definition      |
-     * | Delete             | Delete tag definition      |
+     * |   Name    |  Permission   |
+     * |-----------|---------------|
+     * | Enumerate | Enumerate tag |
+     * | Create    | Create tag    |
+     * | Update    | Update tag    |
+     * | Delete    | Delete tag    |
      */
     public readonly replace!: pulumi.Output<boolean | undefined>;
 
@@ -159,12 +147,12 @@ export interface TaggingPermissionsState {
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      *
-     * | Name               | Permission Description     |
-     * | ------------------ | -------------------------- |
-     * | Enumerate          | Enumerate tag definitions  |
-     * | Create             | Create tag definition      |
-     * | Update             | Update tag definition      |
-     * | Delete             | Delete tag definition      |
+     * |   Name    |  Permission   |
+     * |-----------|---------------|
+     * | Enumerate | Enumerate tag |
+     * | Create    | Create tag    |
+     * | Update    | Update tag    |
+     * | Delete    | Delete tag    |
      */
     replace?: pulumi.Input<boolean>;
 }
@@ -188,12 +176,12 @@ export interface TaggingPermissionsArgs {
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      *
-     * | Name               | Permission Description     |
-     * | ------------------ | -------------------------- |
-     * | Enumerate          | Enumerate tag definitions  |
-     * | Create             | Create tag definition      |
-     * | Update             | Update tag definition      |
-     * | Delete             | Delete tag definition      |
+     * |   Name    |  Permission   |
+     * |-----------|---------------|
+     * | Enumerate | Enumerate tag |
+     * | Create    | Create tag    |
+     * | Update    | Update tag    |
+     * | Delete    | Delete tag    |
      */
     replace?: pulumi.Input<boolean>;
 }

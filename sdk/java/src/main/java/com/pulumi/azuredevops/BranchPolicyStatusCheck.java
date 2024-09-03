@@ -17,6 +17,13 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * layout: &#34;azuredevops&#34;
+ * page_title: &#34;AzureDevops: azuredevops.BranchPolicyStatusCheck&#34;
+ * description: |- Manages status check branch policy within Azure DevOps project.
+ * &lt;!-- yaml: line 3: did not find expected comment or line break --&gt;
+ * 
+ * # azuredevops.BranchPolicyStatusCheck
+ * 
  * Manages a status check branch policy within Azure DevOps.
  * 
  * ## Example Usage

@@ -16,6 +16,13 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * layout: &#34;azuredevops&#34;
+ * page_title: &#34;AzureDevops: azuredevops.GitRepositoryFile&#34;
+ * description: |- Manage files within an Azure DevOps Git repository.
+ * &lt;!-- yaml: line 3: did not find expected comment or line break --&gt;
+ * 
+ * # azuredevops.GitRepositoryFile
+ * 
  * Manage files within an Azure DevOps Git repository.
  * 
  * ## Example Usage

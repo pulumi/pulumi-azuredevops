@@ -10,6 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps
 {
     /// <summary>
+    /// layout: "azuredevops"
+    /// page_title: "AzureDevops: azuredevops.RepositoryPolicyFilePathPattern"
+    /// description: |- Manages a file path pattern repository policy within Azure DevOps project.
+    /// &lt;!-- yaml: line 3: did not find expected comment or line break --&gt;
+    /// 
+    /// # azuredevops.RepositoryPolicyFilePathPattern
+    /// 
     /// Manage a file path pattern repository policy within Azure DevOps project.
     /// 
     /// ## Example Usage

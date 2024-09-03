@@ -15,6 +15,14 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * layout: &#34;azuredevops&#34;
+ * page_title: &#34;AzureDevops: azuredevops.GroupEntitlement&#34;
+ * description: |-
+ * Manages a group entitlement within Azure DevOps organization.
+ * &lt;!-- yaml: line 5: could not find expected &#39;:&#39; --&gt;
+ * 
+ * # azuredevops.GroupEntitlement
+ * 
  * Manages a group entitlement within Azure DevOps.
  * 
  * ## Example Usage

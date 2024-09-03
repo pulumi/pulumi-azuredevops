@@ -36,12 +36,12 @@ public final class WorkItemQueryPermissionsArgs extends com.pulumi.resources.Res
     /**
      * the permissions to assign. The following permissions are available
      * 
-     * | Permissions              | Description                        |
-     * |--------------------------|------------------------------------|
-     * | Read                     | Read                               |
-     * | Contribute               | Contribute                         |
-     * | Delete                   | Delete                             |
-     * | ManagePermissions        | Manage Permissions                 |
+     * |    Permissions    | Description |
+     * |-------------------|-------------|
+     * | Read              | Read        |
+     * | Contribute        | Contribute  |
+     * | Delete            | Delete      |
+     * | ManagePermissions | Manage      |
      * 
      */
     @Import(name="permissions", required=true)
@@ -50,12 +50,12 @@ public final class WorkItemQueryPermissionsArgs extends com.pulumi.resources.Res
     /**
      * @return the permissions to assign. The following permissions are available
      * 
-     * | Permissions              | Description                        |
-     * |--------------------------|------------------------------------|
-     * | Read                     | Read                               |
-     * | Contribute               | Contribute                         |
-     * | Delete                   | Delete                             |
-     * | ManagePermissions        | Manage Permissions                 |
+     * |    Permissions    | Description |
+     * |-------------------|-------------|
+     * | Read              | Read        |
+     * | Contribute        | Contribute  |
+     * | Delete            | Delete      |
+     * | ManagePermissions | Manage      |
      * 
      */
     public Output<Map<String,String>> permissions() {
@@ -159,12 +159,12 @@ public final class WorkItemQueryPermissionsArgs extends com.pulumi.resources.Res
         /**
          * @param permissions the permissions to assign. The following permissions are available
          * 
-         * | Permissions              | Description                        |
-         * |--------------------------|------------------------------------|
-         * | Read                     | Read                               |
-         * | Contribute               | Contribute                         |
-         * | Delete                   | Delete                             |
-         * | ManagePermissions        | Manage Permissions                 |
+         * |    Permissions    | Description |
+         * |-------------------|-------------|
+         * | Read              | Read        |
+         * | Contribute        | Contribute  |
+         * | Delete            | Delete      |
+         * | ManagePermissions | Manage      |
          * 
          * @return builder
          * 
@@ -177,12 +177,12 @@ public final class WorkItemQueryPermissionsArgs extends com.pulumi.resources.Res
         /**
          * @param permissions the permissions to assign. The following permissions are available
          * 
-         * | Permissions              | Description                        |
-         * |--------------------------|------------------------------------|
-         * | Read                     | Read                               |
-         * | Contribute               | Contribute                         |
-         * | Delete                   | Delete                             |
-         * | ManagePermissions        | Manage Permissions                 |
+         * |    Permissions    | Description |
+         * |-------------------|-------------|
+         * | Read              | Read        |
+         * | Contribute        | Contribute  |
+         * | Delete            | Delete      |
+         * | ManagePermissions | Manage      |
          * 
          * @return builder
          * 

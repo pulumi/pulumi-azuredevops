@@ -71,18 +71,6 @@ namespace Pulumi.AzureDevOps
     /// 
     /// });
     /// ```
-    /// 
-    /// ## Relevant Links
-    /// 
-    /// * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
-    /// 
-    /// ## PAT Permissions Required
-    /// 
-    /// - **Project &amp; Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
-    /// 
-    /// ## Import
-    /// 
-    /// The resource does not support import.
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/iterativePermissions:IterativePermissions")]
     public partial class IterativePermissions : global::Pulumi.CustomResource
@@ -114,12 +102,12 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
         /// 
-        /// | Permission      | Description                    |
-        /// |-----------------|--------------------------------|
-        /// | GENERIC_READ    | View permissions for this node |
-        /// | GENERIC_WRITE   | Edit this node                 |
-        /// | CREATE_CHILDREN | Create child nodes             |
-        /// | DELETE          | Delete this node               |
+        /// | Permission |        Description        |
+        /// |------------|---------------------------|
+        /// | GENERIC_   | View permissions for this |
+        /// | GENERIC_   | Edit this                 |
+        /// | CREATE_    | Create child              |
+        /// | DELETE     | Delete this               |
         /// </summary>
         [Output("replace")]
         public Output<bool?> Replace { get; private set; } = null!;
@@ -203,12 +191,12 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
         /// 
-        /// | Permission      | Description                    |
-        /// |-----------------|--------------------------------|
-        /// | GENERIC_READ    | View permissions for this node |
-        /// | GENERIC_WRITE   | Edit this node                 |
-        /// | CREATE_CHILDREN | Create child nodes             |
-        /// | DELETE          | Delete this node               |
+        /// | Permission |        Description        |
+        /// |------------|---------------------------|
+        /// | GENERIC_   | View permissions for this |
+        /// | GENERIC_   | Edit this                 |
+        /// | CREATE_    | Create child              |
+        /// | DELETE     | Delete this               |
         /// </summary>
         [Input("replace")]
         public Input<bool>? Replace { get; set; }
@@ -254,12 +242,12 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
         /// 
-        /// | Permission      | Description                    |
-        /// |-----------------|--------------------------------|
-        /// | GENERIC_READ    | View permissions for this node |
-        /// | GENERIC_WRITE   | Edit this node                 |
-        /// | CREATE_CHILDREN | Create child nodes             |
-        /// | DELETE          | Delete this node               |
+        /// | Permission |        Description        |
+        /// |------------|---------------------------|
+        /// | GENERIC_   | View permissions for this |
+        /// | GENERIC_   | Edit this                 |
+        /// | CREATE_    | Create child              |
+        /// | DELETE     | Delete this               |
         /// </summary>
         [Input("replace")]
         public Input<bool>? Replace { get; set; }

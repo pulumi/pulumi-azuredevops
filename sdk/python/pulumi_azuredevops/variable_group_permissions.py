@@ -26,20 +26,6 @@ class VariableGroupPermissionsArgs:
                  replace: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a VariableGroupPermissions resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: the permissions to assign. The following permissions are available.
-        :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
-        :param pulumi.Input[str] project_id: The ID of the project.
-        :param pulumi.Input[str] variable_group_id: The id of the variable group to assign the permissions.
-        :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
-               
-               | Permission        | Description                         |
-               | ----------------- | ----------------------------------- |
-               | View              | View library item                   |
-               | Administer        | Administer library item             |
-               | Create            | Create library item                 |
-               | ViewSecrets       | View library item secrets           |
-               | Use               | Use library item                    |
-               | Owner             | Owner library item                  |
         """
         pulumi.set(__self__, "permissions", permissions)
         pulumi.set(__self__, "principal", principal)
@@ -51,9 +37,6 @@ class VariableGroupPermissionsArgs:
     @property
     @pulumi.getter
     def permissions(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
-        """
-        the permissions to assign. The following permissions are available.
-        """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
@@ -63,9 +46,6 @@ class VariableGroupPermissionsArgs:
     @property
     @pulumi.getter
     def principal(self) -> pulumi.Input[str]:
-        """
-        The **group** principal to assign the permissions.
-        """
         return pulumi.get(self, "principal")
 
     @principal.setter
@@ -75,9 +55,6 @@ class VariableGroupPermissionsArgs:
     @property
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the project.
-        """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
@@ -87,9 +64,6 @@ class VariableGroupPermissionsArgs:
     @property
     @pulumi.getter(name="variableGroupId")
     def variable_group_id(self) -> pulumi.Input[str]:
-        """
-        The id of the variable group to assign the permissions.
-        """
         return pulumi.get(self, "variable_group_id")
 
     @variable_group_id.setter
@@ -99,18 +73,6 @@ class VariableGroupPermissionsArgs:
     @property
     @pulumi.getter
     def replace(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Replace (`true`) or merge (`false`) the permissions. Default: `true`
-
-        | Permission        | Description                         |
-        | ----------------- | ----------------------------------- |
-        | View              | View library item                   |
-        | Administer        | Administer library item             |
-        | Create            | Create library item                 |
-        | ViewSecrets       | View library item secrets           |
-        | Use               | Use library item                    |
-        | Owner             | Owner library item                  |
-        """
         return pulumi.get(self, "replace")
 
     @replace.setter
@@ -128,20 +90,6 @@ class _VariableGroupPermissionsState:
                  variable_group_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering VariableGroupPermissions resources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: the permissions to assign. The following permissions are available.
-        :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
-        :param pulumi.Input[str] project_id: The ID of the project.
-        :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
-               
-               | Permission        | Description                         |
-               | ----------------- | ----------------------------------- |
-               | View              | View library item                   |
-               | Administer        | Administer library item             |
-               | Create            | Create library item                 |
-               | ViewSecrets       | View library item secrets           |
-               | Use               | Use library item                    |
-               | Owner             | Owner library item                  |
-        :param pulumi.Input[str] variable_group_id: The id of the variable group to assign the permissions.
         """
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
@@ -157,9 +105,6 @@ class _VariableGroupPermissionsState:
     @property
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        the permissions to assign. The following permissions are available.
-        """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
@@ -169,9 +114,6 @@ class _VariableGroupPermissionsState:
     @property
     @pulumi.getter
     def principal(self) -> Optional[pulumi.Input[str]]:
-        """
-        The **group** principal to assign the permissions.
-        """
         return pulumi.get(self, "principal")
 
     @principal.setter
@@ -181,9 +123,6 @@ class _VariableGroupPermissionsState:
     @property
     @pulumi.getter(name="projectId")
     def project_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the project.
-        """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
@@ -193,18 +132,6 @@ class _VariableGroupPermissionsState:
     @property
     @pulumi.getter
     def replace(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Replace (`true`) or merge (`false`) the permissions. Default: `true`
-
-        | Permission        | Description                         |
-        | ----------------- | ----------------------------------- |
-        | View              | View library item                   |
-        | Administer        | Administer library item             |
-        | Create            | Create library item                 |
-        | ViewSecrets       | View library item secrets           |
-        | Use               | Use library item                    |
-        | Owner             | Owner library item                  |
-        """
         return pulumi.get(self, "replace")
 
     @replace.setter
@@ -214,9 +141,6 @@ class _VariableGroupPermissionsState:
     @property
     @pulumi.getter(name="variableGroupId")
     def variable_group_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The id of the variable group to assign the permissions.
-        """
         return pulumi.get(self, "variable_group_id")
 
     @variable_group_id.setter
@@ -276,40 +200,14 @@ class VariableGroupPermissions(pulumi.CustomResource):
 
         The Azure DevOps UI uses roles to assign permissions for variable groups.
 
-        | Role          | Allow Permissions      |
-        | ------------- | ---------------------- |
-        | Reader        | View                   |
-        | User          | View, Use              |
-        | Administrator | View, Use, Administer  |
-
-        ## Relevant Links
-
-        * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
-
-        ## PAT Permissions Required
-
-        - **Project & Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
-
-        ## Import
-
-        The resource does not support import.
+        |     Role      |   Allow    |
+        |---------------|------------|
+        | Reader        | View       |
+        | User          | View,      |
+        | Administrator | View, Use, |
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: the permissions to assign. The following permissions are available.
-        :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
-        :param pulumi.Input[str] project_id: The ID of the project.
-        :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
-               
-               | Permission        | Description                         |
-               | ----------------- | ----------------------------------- |
-               | View              | View library item                   |
-               | Administer        | Administer library item             |
-               | Create            | Create library item                 |
-               | ViewSecrets       | View library item secrets           |
-               | Use               | Use library item                    |
-               | Owner             | Owner library item                  |
-        :param pulumi.Input[str] variable_group_id: The id of the variable group to assign the permissions.
         """
         ...
     @overload
@@ -358,23 +256,11 @@ class VariableGroupPermissions(pulumi.CustomResource):
 
         The Azure DevOps UI uses roles to assign permissions for variable groups.
 
-        | Role          | Allow Permissions      |
-        | ------------- | ---------------------- |
-        | Reader        | View                   |
-        | User          | View, Use              |
-        | Administrator | View, Use, Administer  |
-
-        ## Relevant Links
-
-        * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
-
-        ## PAT Permissions Required
-
-        - **Project & Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
-
-        ## Import
-
-        The resource does not support import.
+        |     Role      |   Allow    |
+        |---------------|------------|
+        | Reader        | View       |
+        | User          | View,      |
+        | Administrator | View, Use, |
 
         :param str resource_name: The name of the resource.
         :param VariableGroupPermissionsArgs args: The arguments to use to populate this resource's properties.
@@ -440,20 +326,6 @@ class VariableGroupPermissions(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: the permissions to assign. The following permissions are available.
-        :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
-        :param pulumi.Input[str] project_id: The ID of the project.
-        :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
-               
-               | Permission        | Description                         |
-               | ----------------- | ----------------------------------- |
-               | View              | View library item                   |
-               | Administer        | Administer library item             |
-               | Create            | Create library item                 |
-               | ViewSecrets       | View library item secrets           |
-               | Use               | Use library item                    |
-               | Owner             | Owner library item                  |
-        :param pulumi.Input[str] variable_group_id: The id of the variable group to assign the permissions.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -469,49 +341,25 @@ class VariableGroupPermissions(pulumi.CustomResource):
     @property
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        the permissions to assign. The following permissions are available.
-        """
         return pulumi.get(self, "permissions")
 
     @property
     @pulumi.getter
     def principal(self) -> pulumi.Output[str]:
-        """
-        The **group** principal to assign the permissions.
-        """
         return pulumi.get(self, "principal")
 
     @property
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the project.
-        """
         return pulumi.get(self, "project_id")
 
     @property
     @pulumi.getter
     def replace(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Replace (`true`) or merge (`false`) the permissions. Default: `true`
-
-        | Permission        | Description                         |
-        | ----------------- | ----------------------------------- |
-        | View              | View library item                   |
-        | Administer        | Administer library item             |
-        | Create            | Create library item                 |
-        | ViewSecrets       | View library item secrets           |
-        | Use               | Use library item                    |
-        | Owner             | Owner library item                  |
-        """
         return pulumi.get(self, "replace")
 
     @property
     @pulumi.getter(name="variableGroupId")
     def variable_group_id(self) -> pulumi.Output[str]:
-        """
-        The id of the variable group to assign the permissions.
-        """
         return pulumi.get(self, "variable_group_id")
 

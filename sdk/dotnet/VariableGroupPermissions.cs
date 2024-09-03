@@ -73,63 +73,27 @@ namespace Pulumi.AzureDevOps
     /// 
     /// The Azure DevOps UI uses roles to assign permissions for variable groups.
     /// 
-    /// | Role          | Allow Permissions      |
-    /// | ------------- | ---------------------- |
-    /// | Reader        | View                   |
-    /// | User          | View, Use              |
-    /// | Administrator | View, Use, Administer  |
-    /// 
-    /// ## Relevant Links
-    /// 
-    /// * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
-    /// 
-    /// ## PAT Permissions Required
-    /// 
-    /// - **Project &amp; Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
-    /// 
-    /// ## Import
-    /// 
-    /// The resource does not support import.
+    /// |     Role      |   Allow    |
+    /// |---------------|------------|
+    /// | Reader        | View       |
+    /// | User          | View,      |
+    /// | Administrator | View, Use, |
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/variableGroupPermissions:VariableGroupPermissions")]
     public partial class VariableGroupPermissions : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// the permissions to assign. The following permissions are available.
-        /// </summary>
         [Output("permissions")]
         public Output<ImmutableDictionary<string, string>> Permissions { get; private set; } = null!;
 
-        /// <summary>
-        /// The **group** principal to assign the permissions.
-        /// </summary>
         [Output("principal")]
         public Output<string> Principal { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the project.
-        /// </summary>
         [Output("projectId")]
         public Output<string> ProjectId { get; private set; } = null!;
 
-        /// <summary>
-        /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-        /// 
-        /// | Permission        | Description                         |
-        /// | ----------------- | ----------------------------------- |
-        /// | View              | View library item                   |
-        /// | Administer        | Administer library item             |
-        /// | Create            | Create library item                 |
-        /// | ViewSecrets       | View library item secrets           |
-        /// | Use               | Use library item                    |
-        /// | Owner             | Owner library item                  |
-        /// </summary>
         [Output("replace")]
         public Output<bool?> Replace { get; private set; } = null!;
 
-        /// <summary>
-        /// The id of the variable group to assign the permissions.
-        /// </summary>
         [Output("variableGroupId")]
         public Output<string> VariableGroupId { get; private set; } = null!;
 
@@ -181,46 +145,21 @@ namespace Pulumi.AzureDevOps
     {
         [Input("permissions", required: true)]
         private InputMap<string>? _permissions;
-
-        /// <summary>
-        /// the permissions to assign. The following permissions are available.
-        /// </summary>
         public InputMap<string> Permissions
         {
             get => _permissions ?? (_permissions = new InputMap<string>());
             set => _permissions = value;
         }
 
-        /// <summary>
-        /// The **group** principal to assign the permissions.
-        /// </summary>
         [Input("principal", required: true)]
         public Input<string> Principal { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of the project.
-        /// </summary>
         [Input("projectId", required: true)]
         public Input<string> ProjectId { get; set; } = null!;
 
-        /// <summary>
-        /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-        /// 
-        /// | Permission        | Description                         |
-        /// | ----------------- | ----------------------------------- |
-        /// | View              | View library item                   |
-        /// | Administer        | Administer library item             |
-        /// | Create            | Create library item                 |
-        /// | ViewSecrets       | View library item secrets           |
-        /// | Use               | Use library item                    |
-        /// | Owner             | Owner library item                  |
-        /// </summary>
         [Input("replace")]
         public Input<bool>? Replace { get; set; }
 
-        /// <summary>
-        /// The id of the variable group to assign the permissions.
-        /// </summary>
         [Input("variableGroupId", required: true)]
         public Input<string> VariableGroupId { get; set; } = null!;
 
@@ -234,46 +173,21 @@ namespace Pulumi.AzureDevOps
     {
         [Input("permissions")]
         private InputMap<string>? _permissions;
-
-        /// <summary>
-        /// the permissions to assign. The following permissions are available.
-        /// </summary>
         public InputMap<string> Permissions
         {
             get => _permissions ?? (_permissions = new InputMap<string>());
             set => _permissions = value;
         }
 
-        /// <summary>
-        /// The **group** principal to assign the permissions.
-        /// </summary>
         [Input("principal")]
         public Input<string>? Principal { get; set; }
 
-        /// <summary>
-        /// The ID of the project.
-        /// </summary>
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }
 
-        /// <summary>
-        /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-        /// 
-        /// | Permission        | Description                         |
-        /// | ----------------- | ----------------------------------- |
-        /// | View              | View library item                   |
-        /// | Administer        | Administer library item             |
-        /// | Create            | Create library item                 |
-        /// | ViewSecrets       | View library item secrets           |
-        /// | Use               | Use library item                    |
-        /// | Owner             | Owner library item                  |
-        /// </summary>
         [Input("replace")]
         public Input<bool>? Replace { get; set; }
 
-        /// <summary>
-        /// The id of the variable group to assign the permissions.
-        /// </summary>
         [Input("variableGroupId")]
         public Input<string>? VariableGroupId { get; set; }
 

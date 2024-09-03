@@ -10,6 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps
 {
     /// <summary>
+    /// layout: "azuredevops"
+    /// page_title: "AzureDevops: azuredevops.BranchPolicyStatusCheck"
+    /// description: |- Manages status check branch policy within Azure DevOps project.
+    /// &lt;!-- yaml: line 3: did not find expected comment or line break --&gt;
+    /// 
+    /// # azuredevops.BranchPolicyStatusCheck
+    /// 
     /// Manages a status check branch policy within Azure DevOps.
     /// 
     /// ## Example Usage

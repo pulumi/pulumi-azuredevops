@@ -26,7 +26,7 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The path to the Area; _Format_: URL relative; if omitted, or value `"/"` is used, the root Area will be returned
+        /// The path to the Area; *Format*: URL relative; if omitted, or value `"/"` is used, the root Area will be returned
         /// </summary>
         public readonly string Path;
         /// <summary>

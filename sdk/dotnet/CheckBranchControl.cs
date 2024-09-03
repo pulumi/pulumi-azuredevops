@@ -226,7 +226,7 @@ namespace Pulumi.AzureDevOps
     public partial class CheckBranchControl : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The branches allowed to use the resource. Specify a comma separated list of allowed branches in `refs/heads/branch_name` format. To allow deployments from all branches, specify ` * ` . `refs/heads/features/* , refs/heads/releases/*` restricts deployments to all branches under features/ or releases/ . Defaults to `*`.
+        /// The branches allowed to use the resource. Specify a comma separated list of allowed branches in `refs/heads/branch_name` format. To allow deployments from all branches, specify `*` . `refs/heads/features/* , refs/heads/releases/*` restricts deployments to all branches under features/ or releases/ . Defaults to `*`.
         /// </summary>
         [Output("allowedBranches")]
         public Output<string?> AllowedBranches { get; private set; } = null!;
@@ -326,7 +326,7 @@ namespace Pulumi.AzureDevOps
     public sealed class CheckBranchControlArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The branches allowed to use the resource. Specify a comma separated list of allowed branches in `refs/heads/branch_name` format. To allow deployments from all branches, specify ` * ` . `refs/heads/features/* , refs/heads/releases/*` restricts deployments to all branches under features/ or releases/ . Defaults to `*`.
+        /// The branches allowed to use the resource. Specify a comma separated list of allowed branches in `refs/heads/branch_name` format. To allow deployments from all branches, specify `*` . `refs/heads/features/* , refs/heads/releases/*` restricts deployments to all branches under features/ or releases/ . Defaults to `*`.
         /// </summary>
         [Input("allowedBranches")]
         public Input<string>? AllowedBranches { get; set; }
@@ -382,7 +382,7 @@ namespace Pulumi.AzureDevOps
     public sealed class CheckBranchControlState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The branches allowed to use the resource. Specify a comma separated list of allowed branches in `refs/heads/branch_name` format. To allow deployments from all branches, specify ` * ` . `refs/heads/features/* , refs/heads/releases/*` restricts deployments to all branches under features/ or releases/ . Defaults to `*`.
+        /// The branches allowed to use the resource. Specify a comma separated list of allowed branches in `refs/heads/branch_name` format. To allow deployments from all branches, specify `*` . `refs/heads/features/* , refs/heads/releases/*` restricts deployments to all branches under features/ or releases/ . Defaults to `*`.
         /// </summary>
         [Input("allowedBranches")]
         public Input<string>? AllowedBranches { get; set; }

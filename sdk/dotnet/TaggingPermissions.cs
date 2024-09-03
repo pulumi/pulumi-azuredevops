@@ -57,18 +57,6 @@ namespace Pulumi.AzureDevOps
     /// 
     /// });
     /// ```
-    /// 
-    /// ## Relevant Links
-    /// 
-    /// * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
-    /// 
-    /// ## PAT Permissions Required
-    /// 
-    /// - **Project &amp; Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
-    /// 
-    /// ## Import
-    /// 
-    /// The resource does not support import.
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/taggingPermissions:TaggingPermissions")]
     public partial class TaggingPermissions : global::Pulumi.CustomResource
@@ -94,12 +82,12 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
         /// 
-        /// | Name               | Permission Description     |
-        /// | ------------------ | -------------------------- |
-        /// | Enumerate          | Enumerate tag definitions  |
-        /// | Create             | Create tag definition      |
-        /// | Update             | Update tag definition      |
-        /// | Delete             | Delete tag definition      |
+        /// |   Name    |  Permission   |
+        /// |-----------|---------------|
+        /// | Enumerate | Enumerate tag |
+        /// | Create    | Create tag    |
+        /// | Update    | Update tag    |
+        /// | Delete    | Delete tag    |
         /// </summary>
         [Output("replace")]
         public Output<bool?> Replace { get; private set; } = null!;
@@ -177,12 +165,12 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
         /// 
-        /// | Name               | Permission Description     |
-        /// | ------------------ | -------------------------- |
-        /// | Enumerate          | Enumerate tag definitions  |
-        /// | Create             | Create tag definition      |
-        /// | Update             | Update tag definition      |
-        /// | Delete             | Delete tag definition      |
+        /// |   Name    |  Permission   |
+        /// |-----------|---------------|
+        /// | Enumerate | Enumerate tag |
+        /// | Create    | Create tag    |
+        /// | Update    | Update tag    |
+        /// | Delete    | Delete tag    |
         /// </summary>
         [Input("replace")]
         public Input<bool>? Replace { get; set; }
@@ -222,12 +210,12 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
         /// 
-        /// | Name               | Permission Description     |
-        /// | ------------------ | -------------------------- |
-        /// | Enumerate          | Enumerate tag definitions  |
-        /// | Create             | Create tag definition      |
-        /// | Update             | Update tag definition      |
-        /// | Delete             | Delete tag definition      |
+        /// |   Name    |  Permission   |
+        /// |-----------|---------------|
+        /// | Enumerate | Enumerate tag |
+        /// | Create    | Create tag    |
+        /// | Update    | Update tag    |
+        /// | Delete    | Delete tag    |
         /// </summary>
         [Input("replace")]
         public Input<bool>? Replace { get; set; }

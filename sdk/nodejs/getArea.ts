@@ -52,11 +52,11 @@ export function getArea(args: GetAreaArgs, opts?: pulumi.InvokeOptions): Promise
  */
 export interface GetAreaArgs {
     /**
-     * Read children nodes, _Depth_: 1, _Default_: `true`
+     * Read children nodes, *Depth*: 1, *Default*: `true`
      */
     fetchChildren?: boolean;
     /**
-     * The path to the Area; _Format_: URL relative; if omitted, or value `"/"` is used, the root Area will be returned
+     * The path to the Area; *Format*: URL relative; if omitted, or value `"/"` is used, the root Area will be returned
      */
     path?: string;
     /**
@@ -135,11 +135,11 @@ export function getAreaOutput(args: GetAreaOutputArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetAreaOutputArgs {
     /**
-     * Read children nodes, _Depth_: 1, _Default_: `true`
+     * Read children nodes, *Depth*: 1, *Default*: `true`
      */
     fetchChildren?: pulumi.Input<boolean>;
     /**
-     * The path to the Area; _Format_: URL relative; if omitted, or value `"/"` is used, the root Area will be returned
+     * The path to the Area; *Format*: URL relative; if omitted, or value `"/"` is used, the root Area will be returned
      */
     path?: pulumi.Input<string>;
     /**

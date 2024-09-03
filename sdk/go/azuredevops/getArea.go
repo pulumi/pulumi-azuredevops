@@ -69,9 +69,9 @@ func GetArea(ctx *pulumi.Context, args *GetAreaArgs, opts ...pulumi.InvokeOption
 
 // A collection of arguments for invoking getArea.
 type GetAreaArgs struct {
-	// Read children nodes, _Depth_: 1, _Default_: `true`
+	// Read children nodes, *Depth*: 1, *Default*: `true`
 	FetchChildren *bool `pulumi:"fetchChildren"`
-	// The path to the Area; _Format_: URL relative; if omitted, or value `"/"` is used, the root Area will be returned
+	// The path to the Area; *Format*: URL relative; if omitted, or value `"/"` is used, the root Area will be returned
 	Path *string `pulumi:"path"`
 	// The project ID.
 	ProjectId string `pulumi:"projectId"`
@@ -109,9 +109,9 @@ func GetAreaOutput(ctx *pulumi.Context, args GetAreaOutputArgs, opts ...pulumi.I
 
 // A collection of arguments for invoking getArea.
 type GetAreaOutputArgs struct {
-	// Read children nodes, _Depth_: 1, _Default_: `true`
+	// Read children nodes, *Depth*: 1, *Default*: `true`
 	FetchChildren pulumi.BoolPtrInput `pulumi:"fetchChildren"`
-	// The path to the Area; _Format_: URL relative; if omitted, or value `"/"` is used, the root Area will be returned
+	// The path to the Area; *Format*: URL relative; if omitted, or value `"/"` is used, the root Area will be returned
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// The project ID.
 	ProjectId pulumi.StringInput `pulumi:"projectId"`

@@ -63,18 +63,6 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- *
- * ## Relevant Links
- *
- * * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
- *
- * ## PAT Permissions Required
- *
- * - **Project & Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
- *
- * ## Import
- *
- * The resource does not support import.
  */
 export class ServiceendpointPermissions extends pulumi.CustomResource {
     /**
@@ -119,13 +107,13 @@ export class ServiceendpointPermissions extends pulumi.CustomResource {
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      *
-     * | Permission        | Description                         |
-     * | ----------------- | ----------------------------------- |
-     * | Use               | Use service endpoint                |
-     * | Administer        | Full control over service endpoints |
-     * | Create            | Create service endpoints            |
-     * | ViewAuthorization | View authorizations                 |
-     * | ViewEndpoint      | View service endpoint properties    |
+     * |    Permission     |        Description        |
+     * |-------------------|---------------------------|
+     * | Use               | Use service               |
+     * | Administer        | Full control over service |
+     * | Create            | Create service            |
+     * | ViewAuthorization | View                      |
+     * | ViewEndpoint      | View service endpoint     |
      */
     public readonly replace!: pulumi.Output<boolean | undefined>;
     /**
@@ -192,13 +180,13 @@ export interface ServiceendpointPermissionsState {
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      *
-     * | Permission        | Description                         |
-     * | ----------------- | ----------------------------------- |
-     * | Use               | Use service endpoint                |
-     * | Administer        | Full control over service endpoints |
-     * | Create            | Create service endpoints            |
-     * | ViewAuthorization | View authorizations                 |
-     * | ViewEndpoint      | View service endpoint properties    |
+     * |    Permission     |        Description        |
+     * |-------------------|---------------------------|
+     * | Use               | Use service               |
+     * | Administer        | Full control over service |
+     * | Create            | Create service            |
+     * | ViewAuthorization | View                      |
+     * | ViewEndpoint      | View service endpoint     |
      */
     replace?: pulumi.Input<boolean>;
     /**
@@ -226,13 +214,13 @@ export interface ServiceendpointPermissionsArgs {
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      *
-     * | Permission        | Description                         |
-     * | ----------------- | ----------------------------------- |
-     * | Use               | Use service endpoint                |
-     * | Administer        | Full control over service endpoints |
-     * | Create            | Create service endpoints            |
-     * | ViewAuthorization | View authorizations                 |
-     * | ViewEndpoint      | View service endpoint properties    |
+     * |    Permission     |        Description        |
+     * |-------------------|---------------------------|
+     * | Use               | Use service               |
+     * | Administer        | Full control over service |
+     * | Create            | Create service            |
+     * | ViewAuthorization | View                      |
+     * | ViewEndpoint      | View service endpoint     |
      */
     replace?: pulumi.Input<boolean>;
     /**

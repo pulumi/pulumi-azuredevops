@@ -66,13 +66,13 @@ public final class ServiceendpointPermissionsArgs extends com.pulumi.resources.R
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      * 
-     * | Permission        | Description                         |
-     * | ----------------- | ----------------------------------- |
-     * | Use               | Use service endpoint                |
-     * | Administer        | Full control over service endpoints |
-     * | Create            | Create service endpoints            |
-     * | ViewAuthorization | View authorizations                 |
-     * | ViewEndpoint      | View service endpoint properties    |
+     * |    Permission     |        Description        |
+     * |-------------------|---------------------------|
+     * | Use               | Use service               |
+     * | Administer        | Full control over service |
+     * | Create            | Create service            |
+     * | ViewAuthorization | View                      |
+     * | ViewEndpoint      | View service endpoint     |
      * 
      */
     @Import(name="replace")
@@ -81,13 +81,13 @@ public final class ServiceendpointPermissionsArgs extends com.pulumi.resources.R
     /**
      * @return Replace (`true`) or merge (`false`) the permissions. Default: `true`
      * 
-     * | Permission        | Description                         |
-     * | ----------------- | ----------------------------------- |
-     * | Use               | Use service endpoint                |
-     * | Administer        | Full control over service endpoints |
-     * | Create            | Create service endpoints            |
-     * | ViewAuthorization | View authorizations                 |
-     * | ViewEndpoint      | View service endpoint properties    |
+     * |    Permission     |        Description        |
+     * |-------------------|---------------------------|
+     * | Use               | Use service               |
+     * | Administer        | Full control over service |
+     * | Create            | Create service            |
+     * | ViewAuthorization | View                      |
+     * | ViewEndpoint      | View service endpoint     |
      * 
      */
     public Optional<Output<Boolean>> replace() {
@@ -203,13 +203,13 @@ public final class ServiceendpointPermissionsArgs extends com.pulumi.resources.R
         /**
          * @param replace Replace (`true`) or merge (`false`) the permissions. Default: `true`
          * 
-         * | Permission        | Description                         |
-         * | ----------------- | ----------------------------------- |
-         * | Use               | Use service endpoint                |
-         * | Administer        | Full control over service endpoints |
-         * | Create            | Create service endpoints            |
-         * | ViewAuthorization | View authorizations                 |
-         * | ViewEndpoint      | View service endpoint properties    |
+         * |    Permission     |        Description        |
+         * |-------------------|---------------------------|
+         * | Use               | Use service               |
+         * | Administer        | Full control over service |
+         * | Create            | Create service            |
+         * | ViewAuthorization | View                      |
+         * | ViewEndpoint      | View service endpoint     |
          * 
          * @return builder
          * 
@@ -222,13 +222,13 @@ public final class ServiceendpointPermissionsArgs extends com.pulumi.resources.R
         /**
          * @param replace Replace (`true`) or merge (`false`) the permissions. Default: `true`
          * 
-         * | Permission        | Description                         |
-         * | ----------------- | ----------------------------------- |
-         * | Use               | Use service endpoint                |
-         * | Administer        | Full control over service endpoints |
-         * | Create            | Create service endpoints            |
-         * | ViewAuthorization | View authorizations                 |
-         * | ViewEndpoint      | View service endpoint properties    |
+         * |    Permission     |        Description        |
+         * |-------------------|---------------------------|
+         * | Use               | Use service               |
+         * | Administer        | Full control over service |
+         * | Create            | Create service            |
+         * | ViewAuthorization | View                      |
+         * | ViewEndpoint      | View service endpoint     |
          * 
          * @return builder
          * 

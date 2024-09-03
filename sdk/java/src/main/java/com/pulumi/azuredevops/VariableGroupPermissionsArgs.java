@@ -18,95 +18,37 @@ public final class VariableGroupPermissionsArgs extends com.pulumi.resources.Res
 
     public static final VariableGroupPermissionsArgs Empty = new VariableGroupPermissionsArgs();
 
-    /**
-     * the permissions to assign. The following permissions are available.
-     * 
-     */
     @Import(name="permissions", required=true)
     private Output<Map<String,String>> permissions;
 
-    /**
-     * @return the permissions to assign. The following permissions are available.
-     * 
-     */
     public Output<Map<String,String>> permissions() {
         return this.permissions;
     }
 
-    /**
-     * The **group** principal to assign the permissions.
-     * 
-     */
     @Import(name="principal", required=true)
     private Output<String> principal;
 
-    /**
-     * @return The **group** principal to assign the permissions.
-     * 
-     */
     public Output<String> principal() {
         return this.principal;
     }
 
-    /**
-     * The ID of the project.
-     * 
-     */
     @Import(name="projectId", required=true)
     private Output<String> projectId;
 
-    /**
-     * @return The ID of the project.
-     * 
-     */
     public Output<String> projectId() {
         return this.projectId;
     }
 
-    /**
-     * Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     * 
-     * | Permission        | Description                         |
-     * | ----------------- | ----------------------------------- |
-     * | View              | View library item                   |
-     * | Administer        | Administer library item             |
-     * | Create            | Create library item                 |
-     * | ViewSecrets       | View library item secrets           |
-     * | Use               | Use library item                    |
-     * | Owner             | Owner library item                  |
-     * 
-     */
     @Import(name="replace")
     private @Nullable Output<Boolean> replace;
 
-    /**
-     * @return Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     * 
-     * | Permission        | Description                         |
-     * | ----------------- | ----------------------------------- |
-     * | View              | View library item                   |
-     * | Administer        | Administer library item             |
-     * | Create            | Create library item                 |
-     * | ViewSecrets       | View library item secrets           |
-     * | Use               | Use library item                    |
-     * | Owner             | Owner library item                  |
-     * 
-     */
     public Optional<Output<Boolean>> replace() {
         return Optional.ofNullable(this.replace);
     }
 
-    /**
-     * The id of the variable group to assign the permissions.
-     * 
-     */
     @Import(name="variableGroupId", required=true)
     private Output<String> variableGroupId;
 
-    /**
-     * @return The id of the variable group to assign the permissions.
-     * 
-     */
     public Output<String> variableGroupId() {
         return this.variableGroupId;
     }
@@ -139,125 +81,47 @@ public final class VariableGroupPermissionsArgs extends com.pulumi.resources.Res
             $ = new VariableGroupPermissionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param permissions the permissions to assign. The following permissions are available.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissions(Output<Map<String,String>> permissions) {
             $.permissions = permissions;
             return this;
         }
 
-        /**
-         * @param permissions the permissions to assign. The following permissions are available.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissions(Map<String,String> permissions) {
             return permissions(Output.of(permissions));
         }
 
-        /**
-         * @param principal The **group** principal to assign the permissions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principal(Output<String> principal) {
             $.principal = principal;
             return this;
         }
 
-        /**
-         * @param principal The **group** principal to assign the permissions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principal(String principal) {
             return principal(Output.of(principal));
         }
 
-        /**
-         * @param projectId The ID of the project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder projectId(Output<String> projectId) {
             $.projectId = projectId;
             return this;
         }
 
-        /**
-         * @param projectId The ID of the project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder projectId(String projectId) {
             return projectId(Output.of(projectId));
         }
 
-        /**
-         * @param replace Replace (`true`) or merge (`false`) the permissions. Default: `true`
-         * 
-         * | Permission        | Description                         |
-         * | ----------------- | ----------------------------------- |
-         * | View              | View library item                   |
-         * | Administer        | Administer library item             |
-         * | Create            | Create library item                 |
-         * | ViewSecrets       | View library item secrets           |
-         * | Use               | Use library item                    |
-         * | Owner             | Owner library item                  |
-         * 
-         * @return builder
-         * 
-         */
         public Builder replace(@Nullable Output<Boolean> replace) {
             $.replace = replace;
             return this;
         }
 
-        /**
-         * @param replace Replace (`true`) or merge (`false`) the permissions. Default: `true`
-         * 
-         * | Permission        | Description                         |
-         * | ----------------- | ----------------------------------- |
-         * | View              | View library item                   |
-         * | Administer        | Administer library item             |
-         * | Create            | Create library item                 |
-         * | ViewSecrets       | View library item secrets           |
-         * | Use               | Use library item                    |
-         * | Owner             | Owner library item                  |
-         * 
-         * @return builder
-         * 
-         */
         public Builder replace(Boolean replace) {
             return replace(Output.of(replace));
         }
 
-        /**
-         * @param variableGroupId The id of the variable group to assign the permissions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder variableGroupId(Output<String> variableGroupId) {
             $.variableGroupId = variableGroupId;
             return this;
         }
 
-        /**
-         * @param variableGroupId The id of the variable group to assign the permissions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder variableGroupId(String variableGroupId) {
             return variableGroupId(Output.of(variableGroupId));
         }

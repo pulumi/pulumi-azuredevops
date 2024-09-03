@@ -189,18 +189,6 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- *
- * ## Relevant Links
- *
- * * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
- *
- * ## PAT Permissions Required
- *
- * - **Project & Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
- *
- * ## Import
- *
- * The resource does not support import.
  */
 export class GitPermissions extends pulumi.CustomResource {
     /**
@@ -231,7 +219,7 @@ export class GitPermissions extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the branch to assign the permissions. 
+     * The name of the branch to assign the permissions.
      *
      * > **Note** to assign permissions to a branch, the `repositoryId` must be set as well.
      */
@@ -239,25 +227,24 @@ export class GitPermissions extends pulumi.CustomResource {
     /**
      * the permissions to assign. The follwing permissions are available
      *
-     *
-     * | Permissions             | Description                                            |
-     * |-------------------------|--------------------------------------------------------|
-     * | Administer              | Administer                                             |
-     * | GenericRead             | Read                                                   |
-     * | GenericContribute       | Contribute                                             |
-     * | ForcePush               | Force push (rewrite history, delete branches and tags) |
-     * | CreateBranch            | Create branch                                          |
-     * | CreateTag               | Create tag                                             |
-     * | ManageNote              | Manage notes                                           |
-     * | PolicyExempt            | Bypass policies when pushing                           |
-     * | CreateRepository        | Create repository                                      |
-     * | DeleteRepository        | Delete repository                                      |
-     * | RenameRepository        | Rename repository                                      |
-     * | EditPolicies            | Edit policies                                          |
-     * | RemoveOthersLocks       | Remove others' locks                                   |
-     * | ManagePermissions       | Manage permissions                                     |
-     * | PullRequestContribute   | Contribute to pull requests                            |
-     * | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
+     * |       Permissions       |                   Description                    |
+     * |-------------------------|--------------------------------------------------|
+     * | Administer              | Administer                                       |
+     * | GenericRead             | Read                                             |
+     * | GenericContribute       | Contribute                                       |
+     * | ForcePush               | Force push (rewrite history, delete branches and |
+     * | CreateBranch            | Create                                           |
+     * | CreateTag               | Create                                           |
+     * | ManageNote              | Manage                                           |
+     * | PolicyExempt            | Bypass policies when                             |
+     * | CreateRepository        | Create                                           |
+     * | DeleteRepository        | Delete                                           |
+     * | RenameRepository        | Rename                                           |
+     * | EditPolicies            | Edit                                             |
+     * | RemoveOthersLocks       | Remove others'                                   |
+     * | ManagePermissions       | Manage                                           |
+     * | PullRequestContribute   | Contribute to pull                               |
+     * | PullRequestBypassPolicy | Bypass policies when completing pull             |
      */
     public readonly permissions!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -324,7 +311,7 @@ export class GitPermissions extends pulumi.CustomResource {
  */
 export interface GitPermissionsState {
     /**
-     * The name of the branch to assign the permissions. 
+     * The name of the branch to assign the permissions.
      *
      * > **Note** to assign permissions to a branch, the `repositoryId` must be set as well.
      */
@@ -332,25 +319,24 @@ export interface GitPermissionsState {
     /**
      * the permissions to assign. The follwing permissions are available
      *
-     *
-     * | Permissions             | Description                                            |
-     * |-------------------------|--------------------------------------------------------|
-     * | Administer              | Administer                                             |
-     * | GenericRead             | Read                                                   |
-     * | GenericContribute       | Contribute                                             |
-     * | ForcePush               | Force push (rewrite history, delete branches and tags) |
-     * | CreateBranch            | Create branch                                          |
-     * | CreateTag               | Create tag                                             |
-     * | ManageNote              | Manage notes                                           |
-     * | PolicyExempt            | Bypass policies when pushing                           |
-     * | CreateRepository        | Create repository                                      |
-     * | DeleteRepository        | Delete repository                                      |
-     * | RenameRepository        | Rename repository                                      |
-     * | EditPolicies            | Edit policies                                          |
-     * | RemoveOthersLocks       | Remove others' locks                                   |
-     * | ManagePermissions       | Manage permissions                                     |
-     * | PullRequestContribute   | Contribute to pull requests                            |
-     * | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
+     * |       Permissions       |                   Description                    |
+     * |-------------------------|--------------------------------------------------|
+     * | Administer              | Administer                                       |
+     * | GenericRead             | Read                                             |
+     * | GenericContribute       | Contribute                                       |
+     * | ForcePush               | Force push (rewrite history, delete branches and |
+     * | CreateBranch            | Create                                           |
+     * | CreateTag               | Create                                           |
+     * | ManageNote              | Manage                                           |
+     * | PolicyExempt            | Bypass policies when                             |
+     * | CreateRepository        | Create                                           |
+     * | DeleteRepository        | Delete                                           |
+     * | RenameRepository        | Rename                                           |
+     * | EditPolicies            | Edit                                             |
+     * | RemoveOthersLocks       | Remove others'                                   |
+     * | ManagePermissions       | Manage                                           |
+     * | PullRequestContribute   | Contribute to pull                               |
+     * | PullRequestBypassPolicy | Bypass policies when completing pull             |
      */
     permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -376,7 +362,7 @@ export interface GitPermissionsState {
  */
 export interface GitPermissionsArgs {
     /**
-     * The name of the branch to assign the permissions. 
+     * The name of the branch to assign the permissions.
      *
      * > **Note** to assign permissions to a branch, the `repositoryId` must be set as well.
      */
@@ -384,25 +370,24 @@ export interface GitPermissionsArgs {
     /**
      * the permissions to assign. The follwing permissions are available
      *
-     *
-     * | Permissions             | Description                                            |
-     * |-------------------------|--------------------------------------------------------|
-     * | Administer              | Administer                                             |
-     * | GenericRead             | Read                                                   |
-     * | GenericContribute       | Contribute                                             |
-     * | ForcePush               | Force push (rewrite history, delete branches and tags) |
-     * | CreateBranch            | Create branch                                          |
-     * | CreateTag               | Create tag                                             |
-     * | ManageNote              | Manage notes                                           |
-     * | PolicyExempt            | Bypass policies when pushing                           |
-     * | CreateRepository        | Create repository                                      |
-     * | DeleteRepository        | Delete repository                                      |
-     * | RenameRepository        | Rename repository                                      |
-     * | EditPolicies            | Edit policies                                          |
-     * | RemoveOthersLocks       | Remove others' locks                                   |
-     * | ManagePermissions       | Manage permissions                                     |
-     * | PullRequestContribute   | Contribute to pull requests                            |
-     * | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
+     * |       Permissions       |                   Description                    |
+     * |-------------------------|--------------------------------------------------|
+     * | Administer              | Administer                                       |
+     * | GenericRead             | Read                                             |
+     * | GenericContribute       | Contribute                                       |
+     * | ForcePush               | Force push (rewrite history, delete branches and |
+     * | CreateBranch            | Create                                           |
+     * | CreateTag               | Create                                           |
+     * | ManageNote              | Manage                                           |
+     * | PolicyExempt            | Bypass policies when                             |
+     * | CreateRepository        | Create                                           |
+     * | DeleteRepository        | Delete                                           |
+     * | RenameRepository        | Rename                                           |
+     * | EditPolicies            | Edit                                             |
+     * | RemoveOthersLocks       | Remove others'                                   |
+     * | ManagePermissions       | Manage                                           |
+     * | PullRequestContribute   | Contribute to pull                               |
+     * | PullRequestBypassPolicy | Bypass policies when completing pull             |
      */
     permissions: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

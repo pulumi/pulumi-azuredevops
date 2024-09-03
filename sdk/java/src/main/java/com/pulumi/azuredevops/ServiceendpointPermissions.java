@@ -110,18 +110,6 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ## Relevant Links
- * 
- * * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
- * 
- * ## PAT Permissions Required
- * 
- * - **Project &amp; Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
- * 
- * ## Import
- * 
- * The resource does not support import.
- * 
  */
 @ResourceType(type="azuredevops:index/serviceendpointPermissions:ServiceendpointPermissions")
 public class ServiceendpointPermissions extends com.pulumi.resources.CustomResource {
@@ -170,13 +158,13 @@ public class ServiceendpointPermissions extends com.pulumi.resources.CustomResou
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      * 
-     * | Permission        | Description                         |
-     * | ----------------- | ----------------------------------- |
-     * | Use               | Use service endpoint                |
-     * | Administer        | Full control over service endpoints |
-     * | Create            | Create service endpoints            |
-     * | ViewAuthorization | View authorizations                 |
-     * | ViewEndpoint      | View service endpoint properties    |
+     * |    Permission     |        Description        |
+     * |-------------------|---------------------------|
+     * | Use               | Use service               |
+     * | Administer        | Full control over service |
+     * | Create            | Create service            |
+     * | ViewAuthorization | View                      |
+     * | ViewEndpoint      | View service endpoint     |
      * 
      */
     @Export(name="replace", refs={Boolean.class}, tree="[0]")
@@ -185,13 +173,13 @@ public class ServiceendpointPermissions extends com.pulumi.resources.CustomResou
     /**
      * @return Replace (`true`) or merge (`false`) the permissions. Default: `true`
      * 
-     * | Permission        | Description                         |
-     * | ----------------- | ----------------------------------- |
-     * | Use               | Use service endpoint                |
-     * | Administer        | Full control over service endpoints |
-     * | Create            | Create service endpoints            |
-     * | ViewAuthorization | View authorizations                 |
-     * | ViewEndpoint      | View service endpoint properties    |
+     * |    Permission     |        Description        |
+     * |-------------------|---------------------------|
+     * | Use               | Use service               |
+     * | Administer        | Full control over service |
+     * | Create            | Create service            |
+     * | ViewAuthorization | View                      |
+     * | ViewEndpoint      | View service endpoint     |
      * 
      */
     public Output<Optional<Boolean>> replace() {

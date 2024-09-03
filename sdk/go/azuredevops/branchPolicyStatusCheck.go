@@ -12,6 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// layout: "azuredevops"
+// page_title: "AzureDevops: BranchPolicyStatusCheck"
+// description: |- Manages status check branch policy within Azure DevOps project.
+// <!-- yaml: line 3: did not find expected comment or line break -->
+//
+// # BranchPolicyStatusCheck
+//
 // Manages a status check branch policy within Azure DevOps.
 //
 // ## Example Usage

@@ -5,6 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * layout: "azuredevops"
+ * page_title: "AzureDevops: azuredevops.GitRepositoryFile"
+ * description: |- Manage files within an Azure DevOps Git repository.
+ * <!-- yaml: line 3: did not find expected comment or line break -->
+ *
+ * # azuredevops.GitRepositoryFile
+ *
  * Manage files within an Azure DevOps Git repository.
  *
  * ## Example Usage

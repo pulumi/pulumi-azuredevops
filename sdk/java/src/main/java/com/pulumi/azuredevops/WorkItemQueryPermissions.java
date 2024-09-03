@@ -227,18 +227,6 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ## Relevant Links
- * 
- * * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
- * 
- * ## PAT Permissions Required
- * 
- * - **Project &amp; Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
- * 
- * ## Import
- * 
- * The resource does not support import.
- * 
  */
 @ResourceType(type="azuredevops:index/workItemQueryPermissions:WorkItemQueryPermissions")
 public class WorkItemQueryPermissions extends com.pulumi.resources.CustomResource {
@@ -259,12 +247,12 @@ public class WorkItemQueryPermissions extends com.pulumi.resources.CustomResourc
     /**
      * the permissions to assign. The following permissions are available
      * 
-     * | Permissions              | Description                        |
-     * |--------------------------|------------------------------------|
-     * | Read                     | Read                               |
-     * | Contribute               | Contribute                         |
-     * | Delete                   | Delete                             |
-     * | ManagePermissions        | Manage Permissions                 |
+     * |    Permissions    | Description |
+     * |-------------------|-------------|
+     * | Read              | Read        |
+     * | Contribute        | Contribute  |
+     * | Delete            | Delete      |
+     * | ManagePermissions | Manage      |
      * 
      */
     @Export(name="permissions", refs={Map.class,String.class}, tree="[0,1,1]")
@@ -273,12 +261,12 @@ public class WorkItemQueryPermissions extends com.pulumi.resources.CustomResourc
     /**
      * @return the permissions to assign. The following permissions are available
      * 
-     * | Permissions              | Description                        |
-     * |--------------------------|------------------------------------|
-     * | Read                     | Read                               |
-     * | Contribute               | Contribute                         |
-     * | Delete                   | Delete                             |
-     * | ManagePermissions        | Manage Permissions                 |
+     * |    Permissions    | Description |
+     * |-------------------|-------------|
+     * | Read              | Read        |
+     * | Contribute        | Contribute  |
+     * | Delete            | Delete      |
+     * | ManagePermissions | Manage      |
      * 
      */
     public Output<Map<String,String>> permissions() {

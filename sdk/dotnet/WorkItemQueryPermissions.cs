@@ -168,18 +168,6 @@ namespace Pulumi.AzureDevOps
     /// 
     /// });
     /// ```
-    /// 
-    /// ## Relevant Links
-    /// 
-    /// * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
-    /// 
-    /// ## PAT Permissions Required
-    /// 
-    /// - **Project &amp; Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
-    /// 
-    /// ## Import
-    /// 
-    /// The resource does not support import.
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/workItemQueryPermissions:WorkItemQueryPermissions")]
     public partial class WorkItemQueryPermissions : global::Pulumi.CustomResource
@@ -193,12 +181,12 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// the permissions to assign. The following permissions are available
         /// 
-        /// | Permissions              | Description                        |
-        /// |--------------------------|------------------------------------|
-        /// | Read                     | Read                               |
-        /// | Contribute               | Contribute                         |
-        /// | Delete                   | Delete                             |
-        /// | ManagePermissions        | Manage Permissions                 |
+        /// |    Permissions    | Description |
+        /// |-------------------|-------------|
+        /// | Read              | Read        |
+        /// | Contribute        | Contribute  |
+        /// | Delete            | Delete      |
+        /// | ManagePermissions | Manage      |
         /// </summary>
         [Output("permissions")]
         public Output<ImmutableDictionary<string, string>> Permissions { get; private set; } = null!;
@@ -279,12 +267,12 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// the permissions to assign. The following permissions are available
         /// 
-        /// | Permissions              | Description                        |
-        /// |--------------------------|------------------------------------|
-        /// | Read                     | Read                               |
-        /// | Contribute               | Contribute                         |
-        /// | Delete                   | Delete                             |
-        /// | ManagePermissions        | Manage Permissions                 |
+        /// |    Permissions    | Description |
+        /// |-------------------|-------------|
+        /// | Read              | Read        |
+        /// | Contribute        | Contribute  |
+        /// | Delete            | Delete      |
+        /// | ManagePermissions | Manage      |
         /// </summary>
         public InputMap<string> Permissions
         {
@@ -330,12 +318,12 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// the permissions to assign. The following permissions are available
         /// 
-        /// | Permissions              | Description                        |
-        /// |--------------------------|------------------------------------|
-        /// | Read                     | Read                               |
-        /// | Contribute               | Contribute                         |
-        /// | Delete                   | Delete                             |
-        /// | ManagePermissions        | Manage Permissions                 |
+        /// |    Permissions    | Description |
+        /// |-------------------|-------------|
+        /// | Read              | Read        |
+        /// | Contribute        | Contribute  |
+        /// | Delete            | Delete      |
+        /// | ManagePermissions | Manage      |
         /// </summary>
         public InputMap<string> Permissions
         {

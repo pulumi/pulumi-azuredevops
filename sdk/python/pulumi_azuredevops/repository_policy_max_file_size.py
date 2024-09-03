@@ -202,6 +202,13 @@ class RepositoryPolicyMaxFileSize(pulumi.CustomResource):
                  repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        layout: "azuredevops"
+        page_title: "AzureDevops: RepositoryPolicyMaxFileSize"
+        description: |- Manages a max file size repository policy within Azure DevOps project.
+        <!-- yaml: line 3: did not find expected comment or line break -->
+
+        # RepositoryPolicyMaxFileSize
+
         Manage a max file size repository policy within Azure DevOps project.
 
         > If both project and project policy are enabled, the repository policy has high priority.
@@ -277,6 +284,13 @@ class RepositoryPolicyMaxFileSize(pulumi.CustomResource):
                  args: RepositoryPolicyMaxFileSizeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        layout: "azuredevops"
+        page_title: "AzureDevops: RepositoryPolicyMaxFileSize"
+        description: |- Manages a max file size repository policy within Azure DevOps project.
+        <!-- yaml: line 3: did not find expected comment or line break -->
+
+        # RepositoryPolicyMaxFileSize
+
         Manage a max file size repository policy within Azure DevOps project.
 
         > If both project and project policy are enabled, the repository policy has high priority.

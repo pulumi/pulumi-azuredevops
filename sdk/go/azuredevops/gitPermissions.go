@@ -297,18 +297,6 @@ import (
 //	}
 //
 // ```
-//
-// ## Relevant Links
-//
-// * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
-//
-// ## PAT Permissions Required
-//
-// - **Project & Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
-//
-// ## Import
-//
-// The resource does not support import.
 type GitPermissions struct {
 	pulumi.CustomResourceState
 
@@ -318,24 +306,24 @@ type GitPermissions struct {
 	BranchName pulumi.StringPtrOutput `pulumi:"branchName"`
 	// the permissions to assign. The follwing permissions are available
 	//
-	// | Permissions             | Description                                            |
-	// |-------------------------|--------------------------------------------------------|
-	// | Administer              | Administer                                             |
-	// | GenericRead             | Read                                                   |
-	// | GenericContribute       | Contribute                                             |
-	// | ForcePush               | Force push (rewrite history, delete branches and tags) |
-	// | CreateBranch            | Create branch                                          |
-	// | CreateTag               | Create tag                                             |
-	// | ManageNote              | Manage notes                                           |
-	// | PolicyExempt            | Bypass policies when pushing                           |
-	// | CreateRepository        | Create repository                                      |
-	// | DeleteRepository        | Delete repository                                      |
-	// | RenameRepository        | Rename repository                                      |
-	// | EditPolicies            | Edit policies                                          |
-	// | RemoveOthersLocks       | Remove others' locks                                   |
-	// | ManagePermissions       | Manage permissions                                     |
-	// | PullRequestContribute   | Contribute to pull requests                            |
-	// | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
+	// |       Permissions       |                   Description                    |
+	// |-------------------------|--------------------------------------------------|
+	// | Administer              | Administer                                       |
+	// | GenericRead             | Read                                             |
+	// | GenericContribute       | Contribute                                       |
+	// | ForcePush               | Force push (rewrite history, delete branches and |
+	// | CreateBranch            | Create                                           |
+	// | CreateTag               | Create                                           |
+	// | ManageNote              | Manage                                           |
+	// | PolicyExempt            | Bypass policies when                             |
+	// | CreateRepository        | Create                                           |
+	// | DeleteRepository        | Delete                                           |
+	// | RenameRepository        | Rename                                           |
+	// | EditPolicies            | Edit                                             |
+	// | RemoveOthersLocks       | Remove others'                                   |
+	// | ManagePermissions       | Manage                                           |
+	// | PullRequestContribute   | Contribute to pull                               |
+	// | PullRequestBypassPolicy | Bypass policies when completing pull             |
 	Permissions pulumi.StringMapOutput `pulumi:"permissions"`
 	// The **group** principal to assign the permissions.
 	Principal pulumi.StringOutput `pulumi:"principal"`
@@ -392,24 +380,24 @@ type gitPermissionsState struct {
 	BranchName *string `pulumi:"branchName"`
 	// the permissions to assign. The follwing permissions are available
 	//
-	// | Permissions             | Description                                            |
-	// |-------------------------|--------------------------------------------------------|
-	// | Administer              | Administer                                             |
-	// | GenericRead             | Read                                                   |
-	// | GenericContribute       | Contribute                                             |
-	// | ForcePush               | Force push (rewrite history, delete branches and tags) |
-	// | CreateBranch            | Create branch                                          |
-	// | CreateTag               | Create tag                                             |
-	// | ManageNote              | Manage notes                                           |
-	// | PolicyExempt            | Bypass policies when pushing                           |
-	// | CreateRepository        | Create repository                                      |
-	// | DeleteRepository        | Delete repository                                      |
-	// | RenameRepository        | Rename repository                                      |
-	// | EditPolicies            | Edit policies                                          |
-	// | RemoveOthersLocks       | Remove others' locks                                   |
-	// | ManagePermissions       | Manage permissions                                     |
-	// | PullRequestContribute   | Contribute to pull requests                            |
-	// | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
+	// |       Permissions       |                   Description                    |
+	// |-------------------------|--------------------------------------------------|
+	// | Administer              | Administer                                       |
+	// | GenericRead             | Read                                             |
+	// | GenericContribute       | Contribute                                       |
+	// | ForcePush               | Force push (rewrite history, delete branches and |
+	// | CreateBranch            | Create                                           |
+	// | CreateTag               | Create                                           |
+	// | ManageNote              | Manage                                           |
+	// | PolicyExempt            | Bypass policies when                             |
+	// | CreateRepository        | Create                                           |
+	// | DeleteRepository        | Delete                                           |
+	// | RenameRepository        | Rename                                           |
+	// | EditPolicies            | Edit                                             |
+	// | RemoveOthersLocks       | Remove others'                                   |
+	// | ManagePermissions       | Manage                                           |
+	// | PullRequestContribute   | Contribute to pull                               |
+	// | PullRequestBypassPolicy | Bypass policies when completing pull             |
 	Permissions map[string]string `pulumi:"permissions"`
 	// The **group** principal to assign the permissions.
 	Principal *string `pulumi:"principal"`
@@ -428,24 +416,24 @@ type GitPermissionsState struct {
 	BranchName pulumi.StringPtrInput
 	// the permissions to assign. The follwing permissions are available
 	//
-	// | Permissions             | Description                                            |
-	// |-------------------------|--------------------------------------------------------|
-	// | Administer              | Administer                                             |
-	// | GenericRead             | Read                                                   |
-	// | GenericContribute       | Contribute                                             |
-	// | ForcePush               | Force push (rewrite history, delete branches and tags) |
-	// | CreateBranch            | Create branch                                          |
-	// | CreateTag               | Create tag                                             |
-	// | ManageNote              | Manage notes                                           |
-	// | PolicyExempt            | Bypass policies when pushing                           |
-	// | CreateRepository        | Create repository                                      |
-	// | DeleteRepository        | Delete repository                                      |
-	// | RenameRepository        | Rename repository                                      |
-	// | EditPolicies            | Edit policies                                          |
-	// | RemoveOthersLocks       | Remove others' locks                                   |
-	// | ManagePermissions       | Manage permissions                                     |
-	// | PullRequestContribute   | Contribute to pull requests                            |
-	// | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
+	// |       Permissions       |                   Description                    |
+	// |-------------------------|--------------------------------------------------|
+	// | Administer              | Administer                                       |
+	// | GenericRead             | Read                                             |
+	// | GenericContribute       | Contribute                                       |
+	// | ForcePush               | Force push (rewrite history, delete branches and |
+	// | CreateBranch            | Create                                           |
+	// | CreateTag               | Create                                           |
+	// | ManageNote              | Manage                                           |
+	// | PolicyExempt            | Bypass policies when                             |
+	// | CreateRepository        | Create                                           |
+	// | DeleteRepository        | Delete                                           |
+	// | RenameRepository        | Rename                                           |
+	// | EditPolicies            | Edit                                             |
+	// | RemoveOthersLocks       | Remove others'                                   |
+	// | ManagePermissions       | Manage                                           |
+	// | PullRequestContribute   | Contribute to pull                               |
+	// | PullRequestBypassPolicy | Bypass policies when completing pull             |
 	Permissions pulumi.StringMapInput
 	// The **group** principal to assign the permissions.
 	Principal pulumi.StringPtrInput
@@ -468,24 +456,24 @@ type gitPermissionsArgs struct {
 	BranchName *string `pulumi:"branchName"`
 	// the permissions to assign. The follwing permissions are available
 	//
-	// | Permissions             | Description                                            |
-	// |-------------------------|--------------------------------------------------------|
-	// | Administer              | Administer                                             |
-	// | GenericRead             | Read                                                   |
-	// | GenericContribute       | Contribute                                             |
-	// | ForcePush               | Force push (rewrite history, delete branches and tags) |
-	// | CreateBranch            | Create branch                                          |
-	// | CreateTag               | Create tag                                             |
-	// | ManageNote              | Manage notes                                           |
-	// | PolicyExempt            | Bypass policies when pushing                           |
-	// | CreateRepository        | Create repository                                      |
-	// | DeleteRepository        | Delete repository                                      |
-	// | RenameRepository        | Rename repository                                      |
-	// | EditPolicies            | Edit policies                                          |
-	// | RemoveOthersLocks       | Remove others' locks                                   |
-	// | ManagePermissions       | Manage permissions                                     |
-	// | PullRequestContribute   | Contribute to pull requests                            |
-	// | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
+	// |       Permissions       |                   Description                    |
+	// |-------------------------|--------------------------------------------------|
+	// | Administer              | Administer                                       |
+	// | GenericRead             | Read                                             |
+	// | GenericContribute       | Contribute                                       |
+	// | ForcePush               | Force push (rewrite history, delete branches and |
+	// | CreateBranch            | Create                                           |
+	// | CreateTag               | Create                                           |
+	// | ManageNote              | Manage                                           |
+	// | PolicyExempt            | Bypass policies when                             |
+	// | CreateRepository        | Create                                           |
+	// | DeleteRepository        | Delete                                           |
+	// | RenameRepository        | Rename                                           |
+	// | EditPolicies            | Edit                                             |
+	// | RemoveOthersLocks       | Remove others'                                   |
+	// | ManagePermissions       | Manage                                           |
+	// | PullRequestContribute   | Contribute to pull                               |
+	// | PullRequestBypassPolicy | Bypass policies when completing pull             |
 	Permissions map[string]string `pulumi:"permissions"`
 	// The **group** principal to assign the permissions.
 	Principal string `pulumi:"principal"`
@@ -505,24 +493,24 @@ type GitPermissionsArgs struct {
 	BranchName pulumi.StringPtrInput
 	// the permissions to assign. The follwing permissions are available
 	//
-	// | Permissions             | Description                                            |
-	// |-------------------------|--------------------------------------------------------|
-	// | Administer              | Administer                                             |
-	// | GenericRead             | Read                                                   |
-	// | GenericContribute       | Contribute                                             |
-	// | ForcePush               | Force push (rewrite history, delete branches and tags) |
-	// | CreateBranch            | Create branch                                          |
-	// | CreateTag               | Create tag                                             |
-	// | ManageNote              | Manage notes                                           |
-	// | PolicyExempt            | Bypass policies when pushing                           |
-	// | CreateRepository        | Create repository                                      |
-	// | DeleteRepository        | Delete repository                                      |
-	// | RenameRepository        | Rename repository                                      |
-	// | EditPolicies            | Edit policies                                          |
-	// | RemoveOthersLocks       | Remove others' locks                                   |
-	// | ManagePermissions       | Manage permissions                                     |
-	// | PullRequestContribute   | Contribute to pull requests                            |
-	// | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
+	// |       Permissions       |                   Description                    |
+	// |-------------------------|--------------------------------------------------|
+	// | Administer              | Administer                                       |
+	// | GenericRead             | Read                                             |
+	// | GenericContribute       | Contribute                                       |
+	// | ForcePush               | Force push (rewrite history, delete branches and |
+	// | CreateBranch            | Create                                           |
+	// | CreateTag               | Create                                           |
+	// | ManageNote              | Manage                                           |
+	// | PolicyExempt            | Bypass policies when                             |
+	// | CreateRepository        | Create                                           |
+	// | DeleteRepository        | Delete                                           |
+	// | RenameRepository        | Rename                                           |
+	// | EditPolicies            | Edit                                             |
+	// | RemoveOthersLocks       | Remove others'                                   |
+	// | ManagePermissions       | Manage                                           |
+	// | PullRequestContribute   | Contribute to pull                               |
+	// | PullRequestBypassPolicy | Bypass policies when completing pull             |
 	Permissions pulumi.StringMapInput
 	// The **group** principal to assign the permissions.
 	Principal pulumi.StringInput
@@ -630,24 +618,24 @@ func (o GitPermissionsOutput) BranchName() pulumi.StringPtrOutput {
 
 // the permissions to assign. The follwing permissions are available
 //
-// | Permissions             | Description                                            |
-// |-------------------------|--------------------------------------------------------|
-// | Administer              | Administer                                             |
-// | GenericRead             | Read                                                   |
-// | GenericContribute       | Contribute                                             |
-// | ForcePush               | Force push (rewrite history, delete branches and tags) |
-// | CreateBranch            | Create branch                                          |
-// | CreateTag               | Create tag                                             |
-// | ManageNote              | Manage notes                                           |
-// | PolicyExempt            | Bypass policies when pushing                           |
-// | CreateRepository        | Create repository                                      |
-// | DeleteRepository        | Delete repository                                      |
-// | RenameRepository        | Rename repository                                      |
-// | EditPolicies            | Edit policies                                          |
-// | RemoveOthersLocks       | Remove others' locks                                   |
-// | ManagePermissions       | Manage permissions                                     |
-// | PullRequestContribute   | Contribute to pull requests                            |
-// | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
+// |       Permissions       |                   Description                    |
+// |-------------------------|--------------------------------------------------|
+// | Administer              | Administer                                       |
+// | GenericRead             | Read                                             |
+// | GenericContribute       | Contribute                                       |
+// | ForcePush               | Force push (rewrite history, delete branches and |
+// | CreateBranch            | Create                                           |
+// | CreateTag               | Create                                           |
+// | ManageNote              | Manage                                           |
+// | PolicyExempt            | Bypass policies when                             |
+// | CreateRepository        | Create                                           |
+// | DeleteRepository        | Delete                                           |
+// | RenameRepository        | Rename                                           |
+// | EditPolicies            | Edit                                             |
+// | RemoveOthersLocks       | Remove others'                                   |
+// | ManagePermissions       | Manage                                           |
+// | PullRequestContribute   | Contribute to pull                               |
+// | PullRequestBypassPolicy | Bypass policies when completing pull             |
 func (o GitPermissionsOutput) Permissions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *GitPermissions) pulumi.StringMapOutput { return v.Permissions }).(pulumi.StringMapOutput)
 }

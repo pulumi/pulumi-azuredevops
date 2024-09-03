@@ -32,8 +32,7 @@ class ProjectPipelineSettingsArgs:
         :param pulumi.Input[bool] enforce_job_scope: Limit job authorization scope to current project for non-release pipelines.
         :param pulumi.Input[bool] enforce_job_scope_for_release: Limit job authorization scope to current project for release pipelines.
                
-               > **NOTE:**
-               > The settings at the organization will override settings specified on the project.
+               > **NOTE:**The settings at the organization will override settings specified on the project.
                > For example, if `enforce_job_scope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
                > In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
         :param pulumi.Input[bool] enforce_referenced_repo_scoped_token: Protect access to repositories in YAML pipelines.
@@ -85,8 +84,7 @@ class ProjectPipelineSettingsArgs:
         """
         Limit job authorization scope to current project for release pipelines.
 
-        > **NOTE:**
-        > The settings at the organization will override settings specified on the project.
+        > **NOTE:**The settings at the organization will override settings specified on the project.
         > For example, if `enforce_job_scope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
         > In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
         """
@@ -160,8 +158,7 @@ class _ProjectPipelineSettingsState:
         :param pulumi.Input[bool] enforce_job_scope: Limit job authorization scope to current project for non-release pipelines.
         :param pulumi.Input[bool] enforce_job_scope_for_release: Limit job authorization scope to current project for release pipelines.
                
-               > **NOTE:**
-               > The settings at the organization will override settings specified on the project.
+               > **NOTE:**The settings at the organization will override settings specified on the project.
                > For example, if `enforce_job_scope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
                > In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
         :param pulumi.Input[bool] enforce_referenced_repo_scoped_token: Protect access to repositories in YAML pipelines.
@@ -203,8 +200,7 @@ class _ProjectPipelineSettingsState:
         """
         Limit job authorization scope to current project for release pipelines.
 
-        > **NOTE:**
-        > The settings at the organization will override settings specified on the project.
+        > **NOTE:**The settings at the organization will override settings specified on the project.
         > For example, if `enforce_job_scope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
         > In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
         """
@@ -333,8 +329,7 @@ class ProjectPipelineSettings(pulumi.CustomResource):
         :param pulumi.Input[bool] enforce_job_scope: Limit job authorization scope to current project for non-release pipelines.
         :param pulumi.Input[bool] enforce_job_scope_for_release: Limit job authorization scope to current project for release pipelines.
                
-               > **NOTE:**
-               > The settings at the organization will override settings specified on the project.
+               > **NOTE:**The settings at the organization will override settings specified on the project.
                > For example, if `enforce_job_scope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
                > In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
         :param pulumi.Input[bool] enforce_referenced_repo_scoped_token: Protect access to repositories in YAML pipelines.
@@ -456,8 +451,7 @@ class ProjectPipelineSettings(pulumi.CustomResource):
         :param pulumi.Input[bool] enforce_job_scope: Limit job authorization scope to current project for non-release pipelines.
         :param pulumi.Input[bool] enforce_job_scope_for_release: Limit job authorization scope to current project for release pipelines.
                
-               > **NOTE:**
-               > The settings at the organization will override settings specified on the project.
+               > **NOTE:**The settings at the organization will override settings specified on the project.
                > For example, if `enforce_job_scope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
                > In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
         :param pulumi.Input[bool] enforce_referenced_repo_scoped_token: Protect access to repositories in YAML pipelines.
@@ -493,8 +487,7 @@ class ProjectPipelineSettings(pulumi.CustomResource):
         """
         Limit job authorization scope to current project for release pipelines.
 
-        > **NOTE:**
-        > The settings at the organization will override settings specified on the project.
+        > **NOTE:**The settings at the organization will override settings specified on the project.
         > For example, if `enforce_job_scope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
         > In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
         """

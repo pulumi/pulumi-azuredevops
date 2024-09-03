@@ -95,18 +95,6 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ## Relevant Links
- * 
- * * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
- * 
- * ## PAT Permissions Required
- * 
- * - **Project &amp; Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
- * 
- * ## Import
- * 
- * The resource does not support import.
- * 
  */
 @ResourceType(type="azuredevops:index/iterativePermissions:IterativePermissions")
 public class IterativePermissions extends com.pulumi.resources.CustomResource {
@@ -169,12 +157,12 @@ public class IterativePermissions extends com.pulumi.resources.CustomResource {
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      * 
-     * | Permission      | Description                    |
-     * |-----------------|--------------------------------|
-     * | GENERIC_READ    | View permissions for this node |
-     * | GENERIC_WRITE   | Edit this node                 |
-     * | CREATE_CHILDREN | Create child nodes             |
-     * | DELETE          | Delete this node               |
+     * | Permission |        Description        |
+     * |------------|---------------------------|
+     * | GENERIC_   | View permissions for this |
+     * | GENERIC_   | Edit this                 |
+     * | CREATE_    | Create child              |
+     * | DELETE     | Delete this               |
      * 
      */
     @Export(name="replace", refs={Boolean.class}, tree="[0]")
@@ -183,12 +171,12 @@ public class IterativePermissions extends com.pulumi.resources.CustomResource {
     /**
      * @return Replace (`true`) or merge (`false`) the permissions. Default: `true`
      * 
-     * | Permission      | Description                    |
-     * |-----------------|--------------------------------|
-     * | GENERIC_READ    | View permissions for this node |
-     * | GENERIC_WRITE   | Edit this node                 |
-     * | CREATE_CHILDREN | Create child nodes             |
-     * | DELETE          | Delete this node               |
+     * | Permission |        Description        |
+     * |------------|---------------------------|
+     * | GENERIC_   | View permissions for this |
+     * | GENERIC_   | Edit this                 |
+     * | CREATE_    | Create child              |
+     * | DELETE     | Delete this               |
      * 
      */
     public Output<Optional<Boolean>> replace() {

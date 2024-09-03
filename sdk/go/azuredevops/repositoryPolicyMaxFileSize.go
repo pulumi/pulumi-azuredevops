@@ -12,6 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// layout: "azuredevops"
+// page_title: "AzureDevops: RepositoryPolicyMaxFileSize"
+// description: |- Manages a max file size repository policy within Azure DevOps project.
+// <!-- yaml: line 3: did not find expected comment or line break -->
+//
+// # RepositoryPolicyMaxFileSize
+//
 // Manage a max file size repository policy within Azure DevOps project.
 //
 // > If both project and project policy are enabled, the repository policy has high priority.

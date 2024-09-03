@@ -81,99 +81,37 @@ import javax.annotation.Nullable;
  * 
  * The Azure DevOps UI uses roles to assign permissions for the Library.
  * 
- * | Role          | Allowed Permissions    |
- * | ------------- | ---------------------- |
- * | Reader        | View                   |
- * | Creator       | View, Create           |
- * | User          | View, Use              |
- * | Administrator | View, Use, Administer  |
- * 
- * ## Relevant Links
- * 
- * * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
- * 
- * ## PAT Permissions Required
- * 
- * - **Project &amp; Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
- * 
- * ## Import
- * 
- * The resource does not support import.
+ * |     Role      |  Allowed   |
+ * |---------------|------------|
+ * | Reader        | View       |
+ * | Creator       | View,      |
+ * | User          | View,      |
+ * | Administrator | View, Use, |
  * 
  */
 @ResourceType(type="azuredevops:index/libraryPermissions:LibraryPermissions")
 public class LibraryPermissions extends com.pulumi.resources.CustomResource {
-    /**
-     * the permissions to assign. The following permissions are available.
-     * 
-     */
     @Export(name="permissions", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> permissions;
 
-    /**
-     * @return the permissions to assign. The following permissions are available.
-     * 
-     */
     public Output<Map<String,String>> permissions() {
         return this.permissions;
     }
-    /**
-     * The **group** principal to assign the permissions.
-     * 
-     */
     @Export(name="principal", refs={String.class}, tree="[0]")
     private Output<String> principal;
 
-    /**
-     * @return The **group** principal to assign the permissions.
-     * 
-     */
     public Output<String> principal() {
         return this.principal;
     }
-    /**
-     * The ID of the project.
-     * 
-     */
     @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
-    /**
-     * @return The ID of the project.
-     * 
-     */
     public Output<String> projectId() {
         return this.projectId;
     }
-    /**
-     * Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     * 
-     * | Permission        | Description                         |
-     * | ----------------- | ----------------------------------- |
-     * | View              | View library item                   |
-     * | Administer        | Administer library item             |
-     * | Create            | Create library item                 |
-     * | ViewSecrets       | View library item secrets           |
-     * | Use               | Use library item                    |
-     * | Owner             | Owner library item                  |
-     * 
-     */
     @Export(name="replace", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> replace;
 
-    /**
-     * @return Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     * 
-     * | Permission        | Description                         |
-     * | ----------------- | ----------------------------------- |
-     * | View              | View library item                   |
-     * | Administer        | Administer library item             |
-     * | Create            | Create library item                 |
-     * | ViewSecrets       | View library item secrets           |
-     * | Use               | Use library item                    |
-     * | Owner             | Owner library item                  |
-     * 
-     */
     public Output<Optional<Boolean>> replace() {
         return Codegen.optional(this.replace);
     }

@@ -32,12 +32,12 @@ class IterativePermissionsArgs:
         :param pulumi.Input[str] path: The name of the branch to assign the permissions.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
                
-               | Permission      | Description                    |
-               |-----------------|--------------------------------|
-               | GENERIC_READ    | View permissions for this node |
-               | GENERIC_WRITE   | Edit this node                 |
-               | CREATE_CHILDREN | Create child nodes             |
-               | DELETE          | Delete this node               |
+               | Permission |        Description        |
+               |------------|---------------------------|
+               | GENERIC_   | View permissions for this |
+               | GENERIC_   | Edit this                 |
+               | CREATE_    | Create child              |
+               | DELETE     | Delete this               |
         """
         pulumi.set(__self__, "permissions", permissions)
         pulumi.set(__self__, "principal", principal)
@@ -101,12 +101,12 @@ class IterativePermissionsArgs:
         """
         Replace (`true`) or merge (`false`) the permissions. Default: `true`
 
-        | Permission      | Description                    |
-        |-----------------|--------------------------------|
-        | GENERIC_READ    | View permissions for this node |
-        | GENERIC_WRITE   | Edit this node                 |
-        | CREATE_CHILDREN | Create child nodes             |
-        | DELETE          | Delete this node               |
+        | Permission |        Description        |
+        |------------|---------------------------|
+        | GENERIC_   | View permissions for this |
+        | GENERIC_   | Edit this                 |
+        | CREATE_    | Create child              |
+        | DELETE     | Delete this               |
         """
         return pulumi.get(self, "replace")
 
@@ -131,12 +131,12 @@ class _IterativePermissionsState:
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
                
-               | Permission      | Description                    |
-               |-----------------|--------------------------------|
-               | GENERIC_READ    | View permissions for this node |
-               | GENERIC_WRITE   | Edit this node                 |
-               | CREATE_CHILDREN | Create child nodes             |
-               | DELETE          | Delete this node               |
+               | Permission |        Description        |
+               |------------|---------------------------|
+               | GENERIC_   | View permissions for this |
+               | GENERIC_   | Edit this                 |
+               | CREATE_    | Create child              |
+               | DELETE     | Delete this               |
         """
         if path is not None:
             pulumi.set(__self__, "path", path)
@@ -203,12 +203,12 @@ class _IterativePermissionsState:
         """
         Replace (`true`) or merge (`false`) the permissions. Default: `true`
 
-        | Permission      | Description                    |
-        |-----------------|--------------------------------|
-        | GENERIC_READ    | View permissions for this node |
-        | GENERIC_WRITE   | Edit this node                 |
-        | CREATE_CHILDREN | Create child nodes             |
-        | DELETE          | Delete this node               |
+        | Permission |        Description        |
+        |------------|---------------------------|
+        | GENERIC_   | View permissions for this |
+        | GENERIC_   | Edit this                 |
+        | CREATE_    | Create child              |
+        | DELETE     | Delete this               |
         """
         return pulumi.get(self, "replace")
 
@@ -271,18 +271,6 @@ class IterativePermissions(pulumi.CustomResource):
             })
         ```
 
-        ## Relevant Links
-
-        * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
-
-        ## PAT Permissions Required
-
-        - **Project & Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
-
-        ## Import
-
-        The resource does not support import.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] path: The name of the branch to assign the permissions.
@@ -291,12 +279,12 @@ class IterativePermissions(pulumi.CustomResource):
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
                
-               | Permission      | Description                    |
-               |-----------------|--------------------------------|
-               | GENERIC_READ    | View permissions for this node |
-               | GENERIC_WRITE   | Edit this node                 |
-               | CREATE_CHILDREN | Create child nodes             |
-               | DELETE          | Delete this node               |
+               | Permission |        Description        |
+               |------------|---------------------------|
+               | GENERIC_   | View permissions for this |
+               | GENERIC_   | Edit this                 |
+               | CREATE_    | Create child              |
+               | DELETE     | Delete this               |
         """
         ...
     @overload
@@ -346,18 +334,6 @@ class IterativePermissions(pulumi.CustomResource):
                 "DELETE": "Allow",
             })
         ```
-
-        ## Relevant Links
-
-        * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
-
-        ## PAT Permissions Required
-
-        - **Project & Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
-
-        ## Import
-
-        The resource does not support import.
 
         :param str resource_name: The name of the resource.
         :param IterativePermissionsArgs args: The arguments to use to populate this resource's properties.
@@ -427,12 +403,12 @@ class IterativePermissions(pulumi.CustomResource):
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
                
-               | Permission      | Description                    |
-               |-----------------|--------------------------------|
-               | GENERIC_READ    | View permissions for this node |
-               | GENERIC_WRITE   | Edit this node                 |
-               | CREATE_CHILDREN | Create child nodes             |
-               | DELETE          | Delete this node               |
+               | Permission |        Description        |
+               |------------|---------------------------|
+               | GENERIC_   | View permissions for this |
+               | GENERIC_   | Edit this                 |
+               | CREATE_    | Create child              |
+               | DELETE     | Delete this               |
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -483,12 +459,12 @@ class IterativePermissions(pulumi.CustomResource):
         """
         Replace (`true`) or merge (`false`) the permissions. Default: `true`
 
-        | Permission      | Description                    |
-        |-----------------|--------------------------------|
-        | GENERIC_READ    | View permissions for this node |
-        | GENERIC_WRITE   | Edit this node                 |
-        | CREATE_CHILDREN | Create child nodes             |
-        | DELETE          | Delete this node               |
+        | Permission |        Description        |
+        |------------|---------------------------|
+        | GENERIC_   | View permissions for this |
+        | GENERIC_   | Edit this                 |
+        | CREATE_    | Create child              |
+        | DELETE     | Delete this               |
         """
         return pulumi.get(self, "replace")
 

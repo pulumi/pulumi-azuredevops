@@ -30,12 +30,12 @@ class TaggingPermissionsArgs:
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions. If omitted, organization wide permissions for tagging are managed.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
                
-               | Name               | Permission Description     |
-               | ------------------ | -------------------------- |
-               | Enumerate          | Enumerate tag definitions  |
-               | Create             | Create tag definition      |
-               | Update             | Update tag definition      |
-               | Delete             | Delete tag definition      |
+               |   Name    |  Permission   |
+               |-----------|---------------|
+               | Enumerate | Enumerate tag |
+               | Create    | Create tag    |
+               | Update    | Update tag    |
+               | Delete    | Delete tag    |
         """
         pulumi.set(__self__, "permissions", permissions)
         pulumi.set(__self__, "principal", principal)
@@ -86,12 +86,12 @@ class TaggingPermissionsArgs:
         """
         Replace (`true`) or merge (`false`) the permissions. Default: `true`
 
-        | Name               | Permission Description     |
-        | ------------------ | -------------------------- |
-        | Enumerate          | Enumerate tag definitions  |
-        | Create             | Create tag definition      |
-        | Update             | Update tag definition      |
-        | Delete             | Delete tag definition      |
+        |   Name    |  Permission   |
+        |-----------|---------------|
+        | Enumerate | Enumerate tag |
+        | Create    | Create tag    |
+        | Update    | Update tag    |
+        | Delete    | Delete tag    |
         """
         return pulumi.get(self, "replace")
 
@@ -114,12 +114,12 @@ class _TaggingPermissionsState:
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions. If omitted, organization wide permissions for tagging are managed.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
                
-               | Name               | Permission Description     |
-               | ------------------ | -------------------------- |
-               | Enumerate          | Enumerate tag definitions  |
-               | Create             | Create tag definition      |
-               | Update             | Update tag definition      |
-               | Delete             | Delete tag definition      |
+               |   Name    |  Permission   |
+               |-----------|---------------|
+               | Enumerate | Enumerate tag |
+               | Create    | Create tag    |
+               | Update    | Update tag    |
+               | Delete    | Delete tag    |
         """
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
@@ -172,12 +172,12 @@ class _TaggingPermissionsState:
         """
         Replace (`true`) or merge (`false`) the permissions. Default: `true`
 
-        | Name               | Permission Description     |
-        | ------------------ | -------------------------- |
-        | Enumerate          | Enumerate tag definitions  |
-        | Create             | Create tag definition      |
-        | Update             | Update tag definition      |
-        | Delete             | Delete tag definition      |
+        |   Name    |  Permission   |
+        |-----------|---------------|
+        | Enumerate | Enumerate tag |
+        | Create    | Create tag    |
+        | Update    | Update tag    |
+        | Delete    | Delete tag    |
         """
         return pulumi.get(self, "replace")
 
@@ -229,18 +229,6 @@ class TaggingPermissions(pulumi.CustomResource):
             })
         ```
 
-        ## Relevant Links
-
-        * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
-
-        ## PAT Permissions Required
-
-        - **Project & Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
-
-        ## Import
-
-        The resource does not support import.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: the permissions to assign. The following permissions are available.
@@ -248,12 +236,12 @@ class TaggingPermissions(pulumi.CustomResource):
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions. If omitted, organization wide permissions for tagging are managed.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
                
-               | Name               | Permission Description     |
-               | ------------------ | -------------------------- |
-               | Enumerate          | Enumerate tag definitions  |
-               | Create             | Create tag definition      |
-               | Update             | Update tag definition      |
-               | Delete             | Delete tag definition      |
+               |   Name    |  Permission   |
+               |-----------|---------------|
+               | Enumerate | Enumerate tag |
+               | Create    | Create tag    |
+               | Update    | Update tag    |
+               | Delete    | Delete tag    |
         """
         ...
     @overload
@@ -293,18 +281,6 @@ class TaggingPermissions(pulumi.CustomResource):
                 "Delete": "allow",
             })
         ```
-
-        ## Relevant Links
-
-        * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
-
-        ## PAT Permissions Required
-
-        - **Project & Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
-
-        ## Import
-
-        The resource does not support import.
 
         :param str resource_name: The name of the resource.
         :param TaggingPermissionsArgs args: The arguments to use to populate this resource's properties.
@@ -368,12 +344,12 @@ class TaggingPermissions(pulumi.CustomResource):
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions. If omitted, organization wide permissions for tagging are managed.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
                
-               | Name               | Permission Description     |
-               | ------------------ | -------------------------- |
-               | Enumerate          | Enumerate tag definitions  |
-               | Create             | Create tag definition      |
-               | Update             | Update tag definition      |
-               | Delete             | Delete tag definition      |
+               |   Name    |  Permission   |
+               |-----------|---------------|
+               | Enumerate | Enumerate tag |
+               | Create    | Create tag    |
+               | Update    | Update tag    |
+               | Delete    | Delete tag    |
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -415,12 +391,12 @@ class TaggingPermissions(pulumi.CustomResource):
         """
         Replace (`true`) or merge (`false`) the permissions. Default: `true`
 
-        | Name               | Permission Description     |
-        | ------------------ | -------------------------- |
-        | Enumerate          | Enumerate tag definitions  |
-        | Create             | Create tag definition      |
-        | Update             | Update tag definition      |
-        | Delete             | Delete tag definition      |
+        |   Name    |  Permission   |
+        |-----------|---------------|
+        | Enumerate | Enumerate tag |
+        | Create    | Create tag    |
+        | Update    | Update tag    |
+        | Delete    | Delete tag    |
         """
         return pulumi.get(self, "replace")
 

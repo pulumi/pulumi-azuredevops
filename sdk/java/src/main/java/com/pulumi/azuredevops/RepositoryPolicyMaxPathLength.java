@@ -18,6 +18,13 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * layout: &#34;azuredevops&#34;
+ * page_title: &#34;AzureDevops: azuredevops.RepositoryPolicyMaxPathLength&#34;
+ * description: |- Manages a max path length repository policy within Azure DevOps project.
+ * &lt;!-- yaml: line 3: did not find expected comment or line break --&gt;
+ * 
+ * # azuredevops.RepositoryPolicyMaxPathLength
+ * 
  * Manage a max path length repository policy within Azure DevOps project.
  * 
  * &gt; If both project and project policy are enabled, the repository policy has high priority.

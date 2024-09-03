@@ -126,7 +126,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// URL of the Artifactory server to connect with.
         /// 
-        /// _Note: URL should not end in a slash character._
+        /// *Note: URL should not end in a slash character.*
         /// * either `authentication_token` or `authentication_basic` (one is required)
         /// </summary>
         [Output("url")]
@@ -213,7 +213,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// URL of the Artifactory server to connect with.
         /// 
-        /// _Note: URL should not end in a slash character._
+        /// *Note: URL should not end in a slash character.*
         /// * either `authentication_token` or `authentication_basic` (one is required)
         /// </summary>
         [Input("url", required: true)]
@@ -262,7 +262,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// URL of the Artifactory server to connect with.
         /// 
-        /// _Note: URL should not end in a slash character._
+        /// *Note: URL should not end in a slash character.*
         /// * either `authentication_token` or `authentication_basic` (one is required)
         /// </summary>
         [Input("url")]

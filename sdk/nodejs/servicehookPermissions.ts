@@ -40,18 +40,6 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- *
- * ## Relevant Links
- *
- * * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
- *
- * ## PAT Permissions Required
- *
- * - **Project & Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
- *
- * ## Import
- *
- * The resource does not support import.
  */
 export class ServicehookPermissions extends pulumi.CustomResource {
     /**
@@ -96,12 +84,12 @@ export class ServicehookPermissions extends pulumi.CustomResource {
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      *
-     * | Name               | Permission Description   |
-     * | ------------------ | ------------------------ |
-     * | ViewSubscriptions  | View Subscriptions       |
-     * | EditSubscriptions  | Edit Subscription        |
-     * | DeleteSubscriptions| Delete Subscriptions     |
-     * | PublishEvents      | Publish Events           |
+     * |        Name         | Permission |
+     * |---------------------|------------|
+     * | ViewSubscriptions   | View       |
+     * | EditSubscriptions   | Edit       |
+     * | DeleteSubscriptions | Delete     |
+     * | PublishEvents       | Publish    |
      */
     public readonly replace!: pulumi.Output<boolean | undefined>;
 
@@ -159,12 +147,12 @@ export interface ServicehookPermissionsState {
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      *
-     * | Name               | Permission Description   |
-     * | ------------------ | ------------------------ |
-     * | ViewSubscriptions  | View Subscriptions       |
-     * | EditSubscriptions  | Edit Subscription        |
-     * | DeleteSubscriptions| Delete Subscriptions     |
-     * | PublishEvents      | Publish Events           |
+     * |        Name         | Permission |
+     * |---------------------|------------|
+     * | ViewSubscriptions   | View       |
+     * | EditSubscriptions   | Edit       |
+     * | DeleteSubscriptions | Delete     |
+     * | PublishEvents       | Publish    |
      */
     replace?: pulumi.Input<boolean>;
 }
@@ -188,12 +176,12 @@ export interface ServicehookPermissionsArgs {
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      *
-     * | Name               | Permission Description   |
-     * | ------------------ | ------------------------ |
-     * | ViewSubscriptions  | View Subscriptions       |
-     * | EditSubscriptions  | Edit Subscription        |
-     * | DeleteSubscriptions| Delete Subscriptions     |
-     * | PublishEvents      | Publish Events           |
+     * |        Name         | Permission |
+     * |---------------------|------------|
+     * | ViewSubscriptions   | View       |
+     * | EditSubscriptions   | Edit       |
+     * | DeleteSubscriptions | Delete     |
+     * | PublishEvents       | Publish    |
      */
     replace?: pulumi.Input<boolean>;
 }

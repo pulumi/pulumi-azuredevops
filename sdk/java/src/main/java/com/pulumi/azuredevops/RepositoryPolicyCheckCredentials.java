@@ -17,6 +17,13 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * layout: &#34;azuredevops&#34;
+ * page_title: &#34;AzureDevops: azuredevops.RepositoryPolicyCheckCredentials&#34;
+ * description: |- Manage a credentials check repository policy within Azure DevOps project.
+ * &lt;!-- yaml: line 3: did not find expected comment or line break --&gt;
+ * 
+ * # azuredevops.RepositoryPolicyCheckCredentials
+ * 
  * Manage a credentials check repository policy within Azure DevOps project. Block pushes that introduce files, folders, or branch names that include platform reserved names or incompatible characters.
  * 
  * &gt; If both project and project policy are enabled, the project policy has high priority.

@@ -5,6 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * layout: "azuredevops"
+ * page_title: "AzureDevops: azuredevops.RepositoryPolicyCaseEnforcement"
+ * description: |- Manages a case enforcement repository policy within Azure DevOps project.
+ * <!-- yaml: line 3: did not find expected comment or line break -->
+ *
+ * # azuredevops.RepositoryPolicyCaseEnforcement
+ *
  * Manages a case enforcement repository policy within Azure DevOps project.
  *
  * > If both project and project policy are enabled, the project policy has high priority.
