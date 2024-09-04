@@ -1,6 +1,8 @@
 module github.com/pulumi/pulumi-azuredevops/provider/v3
 
-go 1.21.12
+go 1.22
+
+toolchain go1.22.6
 
 replace (
 	github.com/hashicorp/go-getter v1.5.0 => github.com/hashicorp/go-getter v1.4.0
@@ -8,7 +10,7 @@ replace (
 )
 
 require (
-	github.com/microsoft/terraform-provider-azuredevops v1.2.0
+	github.com/microsoft/terraform-provider-azuredevops v1.3.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.89.1
 	github.com/pulumi/pulumi/sdk/v3 v3.129.0
 )

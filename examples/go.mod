@@ -1,6 +1,8 @@
 module github.com/pulumi/pulumi-azuredevops/examples/3
 
-go 1.21.12
+go 1.22
+
+toolchain go1.22.6
 
 require (
 	github.com/pulumi/pulumi-azuredevops/provider/v3 v3.0.0
@@ -148,7 +150,7 @@ require (
 	github.com/mattn/go-runewidth v0.0.15 // indirect
 	github.com/microsoft/azure-devops-go-api/azuredevops v1.0.0-b5 // indirect
 	github.com/microsoft/azure-devops-go-api/azuredevops/v7 v7.1.0 // indirect
-	github.com/microsoft/terraform-provider-azuredevops v1.2.0 // indirect
+	github.com/microsoft/terraform-provider-azuredevops v1.3.0 // indirect
 	github.com/mitchellh/cli v1.1.5 // indirect
 	github.com/mitchellh/copystructure v1.2.0 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
