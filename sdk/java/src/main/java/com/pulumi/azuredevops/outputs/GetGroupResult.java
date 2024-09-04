@@ -18,6 +18,11 @@ public final class GetGroupResult {
      */
     private String descriptor;
     /**
+     * @return The ID of the group.
+     * 
+     */
+    private String groupId;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -42,6 +47,13 @@ public final class GetGroupResult {
      */
     public String descriptor() {
         return this.descriptor;
+    }
+    /**
+     * @return The ID of the group.
+     * 
+     */
+    public String groupId() {
+        return this.groupId;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -81,6 +93,7 @@ public final class GetGroupResult {
     @CustomType.Builder
     public static final class Builder {
         private String descriptor;
+        private String groupId;
         private String id;
         private String name;
         private String origin;
@@ -90,6 +103,7 @@ public final class GetGroupResult {
         public Builder(GetGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.descriptor = defaults.descriptor;
+    	      this.groupId = defaults.groupId;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.origin = defaults.origin;
@@ -103,6 +117,14 @@ public final class GetGroupResult {
               throw new MissingRequiredPropertyException("GetGroupResult", "descriptor");
             }
             this.descriptor = descriptor;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder groupId(String groupId) {
+            if (groupId == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "groupId");
+            }
+            this.groupId = groupId;
             return this;
         }
         @CustomType.Setter
@@ -146,6 +168,7 @@ public final class GetGroupResult {
         public GetGroupResult build() {
             final var _resultValue = new GetGroupResult();
             _resultValue.descriptor = descriptor;
+            _resultValue.groupId = groupId;
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.origin = origin;

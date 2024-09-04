@@ -89,6 +89,8 @@ type Group struct {
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// This represents the name of the container of origin for a graph member.
 	Domain pulumi.StringOutput `pulumi:"domain"`
+	// The ID of the Group.
+	GroupId pulumi.StringOutput `pulumi:"groupId"`
 	// The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `originId` and `displayName` arguments cannot be used simultaneously with `mail`.
 	Mail pulumi.StringOutput `pulumi:"mail"`
 	// > NOTE: It's possible to define group members both within the `Group` resource via the members block and by using the `GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
@@ -145,6 +147,8 @@ type groupState struct {
 	DisplayName *string `pulumi:"displayName"`
 	// This represents the name of the container of origin for a graph member.
 	Domain *string `pulumi:"domain"`
+	// The ID of the Group.
+	GroupId *string `pulumi:"groupId"`
 	// The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `originId` and `displayName` arguments cannot be used simultaneously with `mail`.
 	Mail *string `pulumi:"mail"`
 	// > NOTE: It's possible to define group members both within the `Group` resource via the members block and by using the `GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
@@ -172,6 +176,8 @@ type GroupState struct {
 	DisplayName pulumi.StringPtrInput
 	// This represents the name of the container of origin for a graph member.
 	Domain pulumi.StringPtrInput
+	// The ID of the Group.
+	GroupId pulumi.StringPtrInput
 	// The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `originId` and `displayName` arguments cannot be used simultaneously with `mail`.
 	Mail pulumi.StringPtrInput
 	// > NOTE: It's possible to define group members both within the `Group` resource via the members block and by using the `GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
@@ -330,6 +336,11 @@ func (o GroupOutput) DisplayName() pulumi.StringOutput {
 // This represents the name of the container of origin for a graph member.
 func (o GroupOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Domain }).(pulumi.StringOutput)
+}
+
+// The ID of the Group.
+func (o GroupOutput) GroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.GroupId }).(pulumi.StringOutput)
 }
 
 // The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `originId` and `displayName` arguments cannot be used simultaneously with `mail`.

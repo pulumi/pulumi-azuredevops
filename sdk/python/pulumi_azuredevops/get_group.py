@@ -26,10 +26,13 @@ class GetGroupResult:
     """
     A collection of values returned by getGroup.
     """
-    def __init__(__self__, descriptor=None, id=None, name=None, origin=None, origin_id=None, project_id=None):
+    def __init__(__self__, descriptor=None, group_id=None, id=None, name=None, origin=None, origin_id=None, project_id=None):
         if descriptor and not isinstance(descriptor, str):
             raise TypeError("Expected argument 'descriptor' to be a str")
         pulumi.set(__self__, "descriptor", descriptor)
+        if group_id and not isinstance(group_id, str):
+            raise TypeError("Expected argument 'group_id' to be a str")
+        pulumi.set(__self__, "group_id", group_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -53,6 +56,14 @@ class GetGroupResult:
         The Descriptor is the primary way to reference the graph subject. This field will uniquely identify the same graph subject across both Accounts and Organizations.
         """
         return pulumi.get(self, "descriptor")
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> str:
+        """
+        The ID of the group.
+        """
+        return pulumi.get(self, "group_id")
 
     @property
     @pulumi.getter
@@ -96,6 +107,7 @@ class AwaitableGetGroupResult(GetGroupResult):
             yield self
         return GetGroupResult(
             descriptor=self.descriptor,
+            group_id=self.group_id,
             id=self.id,
             name=self.name,
             origin=self.origin,
@@ -146,6 +158,7 @@ def get_group(name: Optional[str] = None,
 
     return AwaitableGetGroupResult(
         descriptor=pulumi.get(__ret__, 'descriptor'),
+        group_id=pulumi.get(__ret__, 'group_id'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         origin=pulumi.get(__ret__, 'origin'),

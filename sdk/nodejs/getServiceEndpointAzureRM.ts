@@ -124,6 +124,10 @@ export interface GetServiceEndpointAzureRMResult {
     readonly serviceEndpointId: string;
     readonly serviceEndpointName: string;
     /**
+     * The Application(Client) ID of the Service Principal.
+     */
+    readonly servicePrincipalId: string;
+    /**
      * The issuer if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/f66a4bc2-08ad-4ec0-a25e-e769d6b3b294`, where the GUID is the Organization ID of your Azure DevOps Organisation.
      */
     readonly workloadIdentityFederationIssuer: string;

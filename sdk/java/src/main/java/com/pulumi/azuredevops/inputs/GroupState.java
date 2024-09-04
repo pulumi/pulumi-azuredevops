@@ -77,6 +77,21 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ID of the Group.
+     * 
+     */
+    @Import(name="groupId")
+    private @Nullable Output<String> groupId;
+
+    /**
+     * @return The ID of the Group.
+     * 
+     */
+    public Optional<Output<String>> groupId() {
+        return Optional.ofNullable(this.groupId);
+    }
+
+    /**
      * The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `origin_id` and `display_name` arguments cannot be used simultaneously with `mail`.
      * 
      */
@@ -203,6 +218,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         this.descriptor = $.descriptor;
         this.displayName = $.displayName;
         this.domain = $.domain;
+        this.groupId = $.groupId;
         this.mail = $.mail;
         this.members = $.members;
         this.origin = $.origin;
@@ -313,6 +329,27 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder domain(String domain) {
             return domain(Output.of(domain));
+        }
+
+        /**
+         * @param groupId The ID of the Group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder groupId(@Nullable Output<String> groupId) {
+            $.groupId = groupId;
+            return this;
+        }
+
+        /**
+         * @param groupId The ID of the Group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder groupId(String groupId) {
+            return groupId(Output.of(groupId));
         }
 
         /**

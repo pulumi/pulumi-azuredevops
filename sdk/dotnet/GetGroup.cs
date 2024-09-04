@@ -164,6 +164,10 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public readonly string Descriptor;
         /// <summary>
+        /// The ID of the group.
+        /// </summary>
+        public readonly string GroupId;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -182,6 +186,8 @@ namespace Pulumi.AzureDevOps
         private GetGroupResult(
             string descriptor,
 
+            string groupId,
+
             string id,
 
             string name,
@@ -193,6 +199,7 @@ namespace Pulumi.AzureDevOps
             string? projectId)
         {
             Descriptor = descriptor;
+            GroupId = groupId;
             Id = id;
             Name = name;
             Origin = origin;

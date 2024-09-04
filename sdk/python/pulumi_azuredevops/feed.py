@@ -192,6 +192,20 @@ class Feed(pulumi.CustomResource):
 
         - [Azure DevOps Service REST API 7.0 - Feed Management](https://learn.microsoft.com/en-us/rest/api/azure/devops/artifacts/feed-management?view=azure-devops-rest-7.0)
 
+        ## Import
+
+        Azure DevOps Feed can be imported using the Project ID and Feed ID or Feed ID e.g.:
+
+        ```sh
+        $ pulumi import azuredevops:index/feed:Feed example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+        ```
+
+        or
+
+        ```sh
+        $ pulumi import azuredevops:index/feed:Feed example 00000000-0000-0000-0000-000000000000
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FeedFeatureArgs', 'FeedFeatureArgsDict']]]] features: A `features` blocks as documented below.
@@ -250,6 +264,20 @@ class Feed(pulumi.CustomResource):
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Feed Management](https://learn.microsoft.com/en-us/rest/api/azure/devops/artifacts/feed-management?view=azure-devops-rest-7.0)
+
+        ## Import
+
+        Azure DevOps Feed can be imported using the Project ID and Feed ID or Feed ID e.g.:
+
+        ```sh
+        $ pulumi import azuredevops:index/feed:Feed example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+        ```
+
+        or
+
+        ```sh
+        $ pulumi import azuredevops:index/feed:Feed example 00000000-0000-0000-0000-000000000000
+        ```
 
         :param str resource_name: The name of the resource.
         :param FeedArgs args: The arguments to use to populate this resource's properties.

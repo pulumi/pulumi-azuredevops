@@ -70,6 +70,10 @@ export interface GetGroupResult {
      */
     readonly descriptor: string;
     /**
+     * The ID of the group.
+     */
+    readonly groupId: string;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
