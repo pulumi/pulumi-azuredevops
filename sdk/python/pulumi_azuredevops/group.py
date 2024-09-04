@@ -127,6 +127,7 @@ class _GroupState:
                  descriptor: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
+                 group_id: Optional[pulumi.Input[str]] = None,
                  mail: Optional[pulumi.Input[str]] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  origin: Optional[pulumi.Input[str]] = None,
@@ -141,6 +142,7 @@ class _GroupState:
         :param pulumi.Input[str] descriptor: The identity (subject) descriptor of the Group.
         :param pulumi.Input[str] display_name: The name of a new Azure DevOps group that is not backed by an external provider. The `origin_id` and `mail` arguments cannot be used simultaneously with `display_name`.
         :param pulumi.Input[str] domain: This represents the name of the container of origin for a graph member.
+        :param pulumi.Input[str] group_id: The ID of the Group.
         :param pulumi.Input[str] mail: The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `origin_id` and `display_name` arguments cannot be used simultaneously with `mail`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] members: > NOTE: It's possible to define group members both within the `Group` resource via the members block and by using the `GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
         :param pulumi.Input[str] origin: The type of source provider for the origin identifier (ex:AD, AAD, MSA)
@@ -158,6 +160,8 @@ class _GroupState:
             pulumi.set(__self__, "display_name", display_name)
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
         if mail is not None:
             pulumi.set(__self__, "mail", mail)
         if members is not None:
@@ -222,6 +226,18 @@ class _GroupState:
     @domain.setter
     def domain(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Group.
+        """
+        return pulumi.get(self, "group_id")
+
+    @group_id.setter
+    def group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_id", value)
 
     @property
     @pulumi.getter
@@ -465,6 +481,7 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["scope"] = scope
             __props__.__dict__["descriptor"] = None
             __props__.__dict__["domain"] = None
+            __props__.__dict__["group_id"] = None
             __props__.__dict__["origin"] = None
             __props__.__dict__["principal_name"] = None
             __props__.__dict__["subject_kind"] = None
@@ -483,6 +500,7 @@ class Group(pulumi.CustomResource):
             descriptor: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
             domain: Optional[pulumi.Input[str]] = None,
+            group_id: Optional[pulumi.Input[str]] = None,
             mail: Optional[pulumi.Input[str]] = None,
             members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             origin: Optional[pulumi.Input[str]] = None,
@@ -502,6 +520,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] descriptor: The identity (subject) descriptor of the Group.
         :param pulumi.Input[str] display_name: The name of a new Azure DevOps group that is not backed by an external provider. The `origin_id` and `mail` arguments cannot be used simultaneously with `display_name`.
         :param pulumi.Input[str] domain: This represents the name of the container of origin for a graph member.
+        :param pulumi.Input[str] group_id: The ID of the Group.
         :param pulumi.Input[str] mail: The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `origin_id` and `display_name` arguments cannot be used simultaneously with `mail`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] members: > NOTE: It's possible to define group members both within the `Group` resource via the members block and by using the `GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
         :param pulumi.Input[str] origin: The type of source provider for the origin identifier (ex:AD, AAD, MSA)
@@ -519,6 +538,7 @@ class Group(pulumi.CustomResource):
         __props__.__dict__["descriptor"] = descriptor
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["domain"] = domain
+        __props__.__dict__["group_id"] = group_id
         __props__.__dict__["mail"] = mail
         __props__.__dict__["members"] = members
         __props__.__dict__["origin"] = origin
@@ -560,6 +580,14 @@ class Group(pulumi.CustomResource):
         This represents the name of the container of origin for a graph member.
         """
         return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Group.
+        """
+        return pulumi.get(self, "group_id")
 
     @property
     @pulumi.getter

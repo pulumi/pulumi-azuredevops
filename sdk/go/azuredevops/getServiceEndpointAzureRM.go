@@ -132,6 +132,8 @@ type LookupServiceEndpointAzureRMResult struct {
 	ServiceEndpointAuthenticationScheme string `pulumi:"serviceEndpointAuthenticationScheme"`
 	ServiceEndpointId                   string `pulumi:"serviceEndpointId"`
 	ServiceEndpointName                 string `pulumi:"serviceEndpointName"`
+	// The Application(Client) ID of the Service Principal.
+	ServicePrincipalId string `pulumi:"servicePrincipalId"`
 	// The issuer if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/f66a4bc2-08ad-4ec0-a25e-e769d6b3b294`, where the GUID is the Organization ID of your Azure DevOps Organisation.
 	WorkloadIdentityFederationIssuer string `pulumi:"workloadIdentityFederationIssuer"`
 	// The subject if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `sc://my-organisation/my-project/my-service-connection-name`.
@@ -248,6 +250,11 @@ func (o LookupServiceEndpointAzureRMResultOutput) ServiceEndpointId() pulumi.Str
 
 func (o LookupServiceEndpointAzureRMResultOutput) ServiceEndpointName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceEndpointAzureRMResult) string { return v.ServiceEndpointName }).(pulumi.StringOutput)
+}
+
+// The Application(Client) ID of the Service Principal.
+func (o LookupServiceEndpointAzureRMResultOutput) ServicePrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceEndpointAzureRMResult) string { return v.ServicePrincipalId }).(pulumi.StringOutput)
 }
 
 // The issuer if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/f66a4bc2-08ad-4ec0-a25e-e769d6b3b294`, where the GUID is the Organization ID of your Azure DevOps Organisation.

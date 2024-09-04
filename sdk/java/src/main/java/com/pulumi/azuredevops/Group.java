@@ -152,6 +152,20 @@ public class Group extends com.pulumi.resources.CustomResource {
         return this.domain;
     }
     /**
+     * The ID of the Group.
+     * 
+     */
+    @Export(name="groupId", refs={String.class}, tree="[0]")
+    private Output<String> groupId;
+
+    /**
+     * @return The ID of the Group.
+     * 
+     */
+    public Output<String> groupId() {
+        return this.groupId;
+    }
+    /**
      * The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `origin_id` and `display_name` arguments cannot be used simultaneously with `mail`.
      * 
      */

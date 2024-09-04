@@ -94,6 +94,10 @@ export class Group extends pulumi.CustomResource {
      */
     public /*out*/ readonly domain!: pulumi.Output<string>;
     /**
+     * The ID of the Group.
+     */
+    public /*out*/ readonly groupId!: pulumi.Output<string>;
+    /**
      * The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `originId` and `displayName` arguments cannot be used simultaneously with `mail`.
      */
     public readonly mail!: pulumi.Output<string>;
@@ -143,6 +147,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["descriptor"] = state ? state.descriptor : undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
             resourceInputs["domain"] = state ? state.domain : undefined;
+            resourceInputs["groupId"] = state ? state.groupId : undefined;
             resourceInputs["mail"] = state ? state.mail : undefined;
             resourceInputs["members"] = state ? state.members : undefined;
             resourceInputs["origin"] = state ? state.origin : undefined;
@@ -161,6 +166,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["descriptor"] = undefined /*out*/;
             resourceInputs["domain"] = undefined /*out*/;
+            resourceInputs["groupId"] = undefined /*out*/;
             resourceInputs["origin"] = undefined /*out*/;
             resourceInputs["principalName"] = undefined /*out*/;
             resourceInputs["subjectKind"] = undefined /*out*/;
@@ -191,6 +197,10 @@ export interface GroupState {
      * This represents the name of the container of origin for a graph member.
      */
     domain?: pulumi.Input<string>;
+    /**
+     * The ID of the Group.
+     */
+    groupId?: pulumi.Input<string>;
     /**
      * The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `originId` and `displayName` arguments cannot be used simultaneously with `mail`.
      */

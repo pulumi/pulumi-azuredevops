@@ -86,6 +86,8 @@ type LookupGroupArgs struct {
 type LookupGroupResult struct {
 	// The Descriptor is the primary way to reference the graph subject. This field will uniquely identify the same graph subject across both Accounts and Organizations.
 	Descriptor string `pulumi:"descriptor"`
+	// The ID of the group.
+	GroupId string `pulumi:"groupId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
@@ -139,6 +141,11 @@ func (o LookupGroupResultOutput) ToLookupGroupResultOutputWithContext(ctx contex
 // The Descriptor is the primary way to reference the graph subject. This field will uniquely identify the same graph subject across both Accounts and Organizations.
 func (o LookupGroupResultOutput) Descriptor() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.Descriptor }).(pulumi.StringOutput)
+}
+
+// The ID of the group.
+func (o LookupGroupResultOutput) GroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGroupResult) string { return v.GroupId }).(pulumi.StringOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

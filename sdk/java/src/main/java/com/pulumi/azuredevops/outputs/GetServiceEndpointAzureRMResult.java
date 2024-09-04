@@ -70,6 +70,11 @@ public final class GetServiceEndpointAzureRMResult {
     private String serviceEndpointId;
     private String serviceEndpointName;
     /**
+     * @return The Application(Client) ID of the Service Principal.
+     * 
+     */
+    private String servicePrincipalId;
+    /**
      * @return The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/f66a4bc2-08ad-4ec0-a25e-e769d6b3b294`, where the GUID is the Organization ID of your Azure DevOps Organisation.
      * 
      */
@@ -168,6 +173,13 @@ public final class GetServiceEndpointAzureRMResult {
         return this.serviceEndpointName;
     }
     /**
+     * @return The Application(Client) ID of the Service Principal.
+     * 
+     */
+    public String servicePrincipalId() {
+        return this.servicePrincipalId;
+    }
+    /**
      * @return The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/f66a4bc2-08ad-4ec0-a25e-e769d6b3b294`, where the GUID is the Organization ID of your Azure DevOps Organisation.
      * 
      */
@@ -205,6 +217,7 @@ public final class GetServiceEndpointAzureRMResult {
         private String serviceEndpointAuthenticationScheme;
         private String serviceEndpointId;
         private String serviceEndpointName;
+        private String servicePrincipalId;
         private String workloadIdentityFederationIssuer;
         private String workloadIdentityFederationSubject;
         public Builder() {}
@@ -224,6 +237,7 @@ public final class GetServiceEndpointAzureRMResult {
     	      this.serviceEndpointAuthenticationScheme = defaults.serviceEndpointAuthenticationScheme;
     	      this.serviceEndpointId = defaults.serviceEndpointId;
     	      this.serviceEndpointName = defaults.serviceEndpointName;
+    	      this.servicePrincipalId = defaults.servicePrincipalId;
     	      this.workloadIdentityFederationIssuer = defaults.workloadIdentityFederationIssuer;
     	      this.workloadIdentityFederationSubject = defaults.workloadIdentityFederationSubject;
         }
@@ -341,6 +355,14 @@ public final class GetServiceEndpointAzureRMResult {
             return this;
         }
         @CustomType.Setter
+        public Builder servicePrincipalId(String servicePrincipalId) {
+            if (servicePrincipalId == null) {
+              throw new MissingRequiredPropertyException("GetServiceEndpointAzureRMResult", "servicePrincipalId");
+            }
+            this.servicePrincipalId = servicePrincipalId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder workloadIdentityFederationIssuer(String workloadIdentityFederationIssuer) {
             if (workloadIdentityFederationIssuer == null) {
               throw new MissingRequiredPropertyException("GetServiceEndpointAzureRMResult", "workloadIdentityFederationIssuer");
@@ -372,6 +394,7 @@ public final class GetServiceEndpointAzureRMResult {
             _resultValue.serviceEndpointAuthenticationScheme = serviceEndpointAuthenticationScheme;
             _resultValue.serviceEndpointId = serviceEndpointId;
             _resultValue.serviceEndpointName = serviceEndpointName;
+            _resultValue.servicePrincipalId = servicePrincipalId;
             _resultValue.workloadIdentityFederationIssuer = workloadIdentityFederationIssuer;
             _resultValue.workloadIdentityFederationSubject = workloadIdentityFederationSubject;
             return _resultValue;

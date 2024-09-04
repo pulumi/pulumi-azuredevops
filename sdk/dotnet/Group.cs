@@ -98,6 +98,12 @@ namespace Pulumi.AzureDevOps
         public Output<string> Domain { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the Group.
+        /// </summary>
+        [Output("groupId")]
+        public Output<string> GroupId { get; private set; } = null!;
+
+        /// <summary>
         /// The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `origin_id` and `display_name` arguments cannot be used simultaneously with `mail`.
         /// </summary>
         [Output("mail")]
@@ -264,6 +270,12 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
+
+        /// <summary>
+        /// The ID of the Group.
+        /// </summary>
+        [Input("groupId")]
+        public Input<string>? GroupId { get; set; }
 
         /// <summary>
         /// The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `origin_id` and `display_name` arguments cannot be used simultaneously with `mail`.
