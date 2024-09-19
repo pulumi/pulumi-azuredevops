@@ -74,14 +74,20 @@ type GetIdentityGroupResult struct {
 
 func GetIdentityGroupOutput(ctx *pulumi.Context, args GetIdentityGroupOutputArgs, opts ...pulumi.InvokeOption) GetIdentityGroupResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetIdentityGroupResult, error) {
+		ApplyT(func(v interface{}) (GetIdentityGroupResultOutput, error) {
 			args := v.(GetIdentityGroupArgs)
-			r, err := GetIdentityGroup(ctx, &args, opts...)
-			var s GetIdentityGroupResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetIdentityGroupResult
+			secret, err := ctx.InvokePackageRaw("azuredevops:index/getIdentityGroup:getIdentityGroup", args, &rv, "", opts...)
+			if err != nil {
+				return GetIdentityGroupResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetIdentityGroupResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetIdentityGroupResultOutput), nil
+			}
+			return output, nil
 		}).(GetIdentityGroupResultOutput)
 }
 

@@ -39,7 +39,6 @@ import * as utilities from "./utilities";
  */
 export function getFeed(args?: GetFeedArgs, opts?: pulumi.InvokeOptions): Promise<GetFeedResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azuredevops:index/getFeed:getFeed", {
         "feedId": args.feedId,
@@ -123,7 +122,13 @@ export interface GetFeedResult {
  * - [Azure DevOps Service REST API 7.0 - Feed - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/artifacts/feed-management/get-feed?view=azure-devops-rest-7.0)
  */
 export function getFeedOutput(args?: GetFeedOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFeedResult> {
-    return pulumi.output(args).apply((a: any) => getFeed(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azuredevops:index/getFeed:getFeed", {
+        "feedId": args.feedId,
+        "name": args.name,
+        "projectId": args.projectId,
+    }, opts);
 }
 
 /**

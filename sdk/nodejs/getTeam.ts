@@ -35,7 +35,6 @@ import * as utilities from "./utilities";
  * - **vso.project**:	Grants the ability to read projects and teams.
  */
 export function getTeam(args: GetTeamArgs, opts?: pulumi.InvokeOptions): Promise<GetTeamResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azuredevops:index/getTeam:getTeam", {
         "name": args.name,
@@ -121,7 +120,12 @@ export interface GetTeamResult {
  * - **vso.project**:	Grants the ability to read projects and teams.
  */
 export function getTeamOutput(args: GetTeamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTeamResult> {
-    return pulumi.output(args).apply((a: any) => getTeam(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azuredevops:index/getTeam:getTeam", {
+        "name": args.name,
+        "projectId": args.projectId,
+        "top": args.top,
+    }, opts);
 }
 
 /**

@@ -32,7 +32,6 @@ import * as utilities from "./utilities";
  * - [Azure DevOps Service REST API 7.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-7.0)
  */
 export function getVariableGroup(args: GetVariableGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetVariableGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azuredevops:index/getVariableGroup:getVariableGroup", {
         "name": args.name,
@@ -110,7 +109,11 @@ export interface GetVariableGroupResult {
  * - [Azure DevOps Service REST API 7.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-7.0)
  */
 export function getVariableGroupOutput(args: GetVariableGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariableGroupResult> {
-    return pulumi.output(args).apply((a: any) => getVariableGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azuredevops:index/getVariableGroup:getVariableGroup", {
+        "name": args.name,
+        "projectId": args.projectId,
+    }, opts);
 }
 
 /**

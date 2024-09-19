@@ -111,14 +111,20 @@ type LookupFeedResult struct {
 
 func LookupFeedOutput(ctx *pulumi.Context, args LookupFeedOutputArgs, opts ...pulumi.InvokeOption) LookupFeedResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFeedResult, error) {
+		ApplyT(func(v interface{}) (LookupFeedResultOutput, error) {
 			args := v.(LookupFeedArgs)
-			r, err := LookupFeed(ctx, &args, opts...)
-			var s LookupFeedResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFeedResult
+			secret, err := ctx.InvokePackageRaw("azuredevops:index/getFeed:getFeed", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFeedResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFeedResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFeedResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFeedResultOutput)
 }
 

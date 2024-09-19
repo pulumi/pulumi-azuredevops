@@ -89,14 +89,20 @@ type LookupVariableGroupResult struct {
 
 func LookupVariableGroupOutput(ctx *pulumi.Context, args LookupVariableGroupOutputArgs, opts ...pulumi.InvokeOption) LookupVariableGroupResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupVariableGroupResult, error) {
+		ApplyT(func(v interface{}) (LookupVariableGroupResultOutput, error) {
 			args := v.(LookupVariableGroupArgs)
-			r, err := LookupVariableGroup(ctx, &args, opts...)
-			var s LookupVariableGroupResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupVariableGroupResult
+			secret, err := ctx.InvokePackageRaw("azuredevops:index/getVariableGroup:getVariableGroup", args, &rv, "", opts...)
+			if err != nil {
+				return LookupVariableGroupResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupVariableGroupResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupVariableGroupResultOutput), nil
+			}
+			return output, nil
 		}).(LookupVariableGroupResultOutput)
 }
 

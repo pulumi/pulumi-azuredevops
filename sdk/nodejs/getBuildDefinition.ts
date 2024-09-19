@@ -26,7 +26,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getBuildDefinition(args: GetBuildDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildDefinitionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azuredevops:index/getBuildDefinition:getBuildDefinition", {
         "name": args.name,
@@ -124,7 +123,12 @@ export interface GetBuildDefinitionResult {
  * ```
  */
 export function getBuildDefinitionOutput(args: GetBuildDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildDefinitionResult> {
-    return pulumi.output(args).apply((a: any) => getBuildDefinition(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azuredevops:index/getBuildDefinition:getBuildDefinition", {
+        "name": args.name,
+        "path": args.path,
+        "projectId": args.projectId,
+    }, opts);
 }
 
 /**

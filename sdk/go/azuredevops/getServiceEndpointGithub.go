@@ -120,14 +120,20 @@ type GetServiceEndpointGithubResult struct {
 
 func GetServiceEndpointGithubOutput(ctx *pulumi.Context, args GetServiceEndpointGithubOutputArgs, opts ...pulumi.InvokeOption) GetServiceEndpointGithubResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetServiceEndpointGithubResult, error) {
+		ApplyT(func(v interface{}) (GetServiceEndpointGithubResultOutput, error) {
 			args := v.(GetServiceEndpointGithubArgs)
-			r, err := GetServiceEndpointGithub(ctx, &args, opts...)
-			var s GetServiceEndpointGithubResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetServiceEndpointGithubResult
+			secret, err := ctx.InvokePackageRaw("azuredevops:index/getServiceEndpointGithub:getServiceEndpointGithub", args, &rv, "", opts...)
+			if err != nil {
+				return GetServiceEndpointGithubResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetServiceEndpointGithubResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetServiceEndpointGithubResultOutput), nil
+			}
+			return output, nil
 		}).(GetServiceEndpointGithubResultOutput)
 }
 

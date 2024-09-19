@@ -31,7 +31,6 @@ import * as utilities from "./utilities";
  */
 export function getProjects(args?: GetProjectsArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azuredevops:index/getProjects:getProjects", {
         "name": args.name,
@@ -100,7 +99,12 @@ export interface GetProjectsResult {
  * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
  */
 export function getProjectsOutput(args?: GetProjectsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectsResult> {
-    return pulumi.output(args).apply((a: any) => getProjects(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azuredevops:index/getProjects:getProjects", {
+        "name": args.name,
+        "state": args.state,
+    }, opts);
 }
 
 /**

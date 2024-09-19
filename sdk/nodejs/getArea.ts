@@ -38,7 +38,6 @@ import * as utilities from "./utilities";
  * - **Project & Team**: vso.work - Grants the ability to read work items, queries, boards, area and iterations paths, and other work item tracking related metadata. Also grants the ability to execute queries, search work items and to receive notifications about work item events via service hooks.
  */
 export function getArea(args: GetAreaArgs, opts?: pulumi.InvokeOptions): Promise<GetAreaResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azuredevops:index/getArea:getArea", {
         "fetchChildren": args.fetchChildren,
@@ -127,7 +126,12 @@ export interface GetAreaResult {
  * - **Project & Team**: vso.work - Grants the ability to read work items, queries, boards, area and iterations paths, and other work item tracking related metadata. Also grants the ability to execute queries, search work items and to receive notifications about work item events via service hooks.
  */
 export function getAreaOutput(args: GetAreaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAreaResult> {
-    return pulumi.output(args).apply((a: any) => getArea(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azuredevops:index/getArea:getArea", {
+        "fetchChildren": args.fetchChildren,
+        "path": args.path,
+        "projectId": args.projectId,
+    }, opts);
 }
 
 /**
