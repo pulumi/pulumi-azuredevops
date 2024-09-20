@@ -78,14 +78,20 @@ type GetTeamsResult struct {
 
 func GetTeamsOutput(ctx *pulumi.Context, args GetTeamsOutputArgs, opts ...pulumi.InvokeOption) GetTeamsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetTeamsResult, error) {
+		ApplyT(func(v interface{}) (GetTeamsResultOutput, error) {
 			args := v.(GetTeamsArgs)
-			r, err := GetTeams(ctx, &args, opts...)
-			var s GetTeamsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetTeamsResult
+			secret, err := ctx.InvokePackageRaw("azuredevops:index/getTeams:getTeams", args, &rv, "", opts...)
+			if err != nil {
+				return GetTeamsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetTeamsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetTeamsResultOutput), nil
+			}
+			return output, nil
 		}).(GetTeamsResultOutput)
 }
 

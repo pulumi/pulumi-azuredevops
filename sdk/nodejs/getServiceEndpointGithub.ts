@@ -42,7 +42,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getServiceEndpointGithub(args: GetServiceEndpointGithubArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceEndpointGithubResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azuredevops:index/getServiceEndpointGithub:getServiceEndpointGithub", {
         "projectId": args.projectId,
@@ -130,7 +129,12 @@ export interface GetServiceEndpointGithubResult {
  * ```
  */
 export function getServiceEndpointGithubOutput(args: GetServiceEndpointGithubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceEndpointGithubResult> {
-    return pulumi.output(args).apply((a: any) => getServiceEndpointGithub(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azuredevops:index/getServiceEndpointGithub:getServiceEndpointGithub", {
+        "projectId": args.projectId,
+        "serviceEndpointId": args.serviceEndpointId,
+        "serviceEndpointName": args.serviceEndpointName,
+    }, opts);
 }
 
 /**

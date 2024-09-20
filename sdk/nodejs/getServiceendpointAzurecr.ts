@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getServiceendpointAzurecr(args: GetServiceendpointAzurecrArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceendpointAzurecrResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azuredevops:index/getServiceendpointAzurecr:getServiceendpointAzurecr", {
         "projectId": args.projectId,
@@ -127,7 +126,12 @@ export interface GetServiceendpointAzurecrResult {
  * ```
  */
 export function getServiceendpointAzurecrOutput(args: GetServiceendpointAzurecrOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceendpointAzurecrResult> {
-    return pulumi.output(args).apply((a: any) => getServiceendpointAzurecr(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azuredevops:index/getServiceendpointAzurecr:getServiceendpointAzurecr", {
+        "projectId": args.projectId,
+        "serviceEndpointId": args.serviceEndpointId,
+        "serviceEndpointName": args.serviceEndpointName,
+    }, opts);
 }
 
 /**

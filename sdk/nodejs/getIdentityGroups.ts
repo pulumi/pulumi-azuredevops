@@ -32,7 +32,6 @@ import * as utilities from "./utilities";
  */
 export function getIdentityGroups(args?: GetIdentityGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetIdentityGroupsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azuredevops:index/getIdentityGroups:getIdentityGroups", {
         "projectId": args.projectId,
@@ -88,7 +87,11 @@ export interface GetIdentityGroupsResult {
  * - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
  */
 export function getIdentityGroupsOutput(args?: GetIdentityGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityGroupsResult> {
-    return pulumi.output(args).apply((a: any) => getIdentityGroups(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azuredevops:index/getIdentityGroups:getIdentityGroups", {
+        "projectId": args.projectId,
+    }, opts);
 }
 
 /**

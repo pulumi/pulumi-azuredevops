@@ -96,14 +96,20 @@ type LookupBuildDefinitionResult struct {
 
 func LookupBuildDefinitionOutput(ctx *pulumi.Context, args LookupBuildDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupBuildDefinitionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupBuildDefinitionResult, error) {
+		ApplyT(func(v interface{}) (LookupBuildDefinitionResultOutput, error) {
 			args := v.(LookupBuildDefinitionArgs)
-			r, err := LookupBuildDefinition(ctx, &args, opts...)
-			var s LookupBuildDefinitionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupBuildDefinitionResult
+			secret, err := ctx.InvokePackageRaw("azuredevops:index/getBuildDefinition:getBuildDefinition", args, &rv, "", opts...)
+			if err != nil {
+				return LookupBuildDefinitionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupBuildDefinitionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupBuildDefinitionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupBuildDefinitionResultOutput)
 }
 

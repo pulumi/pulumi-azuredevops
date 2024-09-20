@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getServiceendpointSonarcloud(args: GetServiceendpointSonarcloudArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceendpointSonarcloudResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azuredevops:index/getServiceendpointSonarcloud:getServiceendpointSonarcloud", {
         "projectId": args.projectId,
@@ -87,7 +86,12 @@ export interface GetServiceendpointSonarcloudResult {
  * ```
  */
 export function getServiceendpointSonarcloudOutput(args: GetServiceendpointSonarcloudOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceendpointSonarcloudResult> {
-    return pulumi.output(args).apply((a: any) => getServiceendpointSonarcloud(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azuredevops:index/getServiceendpointSonarcloud:getServiceendpointSonarcloud", {
+        "projectId": args.projectId,
+        "serviceEndpointId": args.serviceEndpointId,
+        "serviceEndpointName": args.serviceEndpointName,
+    }, opts);
 }
 
 /**

@@ -73,14 +73,20 @@ type GetSecurityroleDefinitionsResult struct {
 
 func GetSecurityroleDefinitionsOutput(ctx *pulumi.Context, args GetSecurityroleDefinitionsOutputArgs, opts ...pulumi.InvokeOption) GetSecurityroleDefinitionsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetSecurityroleDefinitionsResult, error) {
+		ApplyT(func(v interface{}) (GetSecurityroleDefinitionsResultOutput, error) {
 			args := v.(GetSecurityroleDefinitionsArgs)
-			r, err := GetSecurityroleDefinitions(ctx, &args, opts...)
-			var s GetSecurityroleDefinitionsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetSecurityroleDefinitionsResult
+			secret, err := ctx.InvokePackageRaw("azuredevops:index/getSecurityroleDefinitions:getSecurityroleDefinitions", args, &rv, "", opts...)
+			if err != nil {
+				return GetSecurityroleDefinitionsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetSecurityroleDefinitionsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetSecurityroleDefinitionsResultOutput), nil
+			}
+			return output, nil
 		}).(GetSecurityroleDefinitionsResultOutput)
 }
 

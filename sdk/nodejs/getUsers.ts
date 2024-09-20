@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  */
 export function getUsers(args?: GetUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetUsersResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azuredevops:index/getUsers:getUsers", {
         "features": args.features,
@@ -83,7 +82,15 @@ export interface GetUsersResult {
  * Use this data source to access information about an existing users within Azure DevOps.
  */
 export function getUsersOutput(args?: GetUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUsersResult> {
-    return pulumi.output(args).apply((a: any) => getUsers(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azuredevops:index/getUsers:getUsers", {
+        "features": args.features,
+        "origin": args.origin,
+        "originId": args.originId,
+        "principalName": args.principalName,
+        "subjectTypes": args.subjectTypes,
+    }, opts);
 }
 
 /**

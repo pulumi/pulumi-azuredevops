@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getServiceendpointNpm(args: GetServiceendpointNpmArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceendpointNpmResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azuredevops:index/getServiceendpointNpm:getServiceendpointNpm", {
         "projectId": args.projectId,
@@ -91,7 +90,12 @@ export interface GetServiceendpointNpmResult {
  * ```
  */
 export function getServiceendpointNpmOutput(args: GetServiceendpointNpmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceendpointNpmResult> {
-    return pulumi.output(args).apply((a: any) => getServiceendpointNpm(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azuredevops:index/getServiceendpointNpm:getServiceendpointNpm", {
+        "projectId": args.projectId,
+        "serviceEndpointId": args.serviceEndpointId,
+        "serviceEndpointName": args.serviceEndpointName,
+    }, opts);
 }
 
 /**

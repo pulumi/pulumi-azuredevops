@@ -8,7 +8,6 @@ import * as utilities from "./utilities";
  * Use this data source to access information about an existing users within Azure DevOps On-Premise(Azure DevOps Server).
  */
 export function getIdentityUsers(args: GetIdentityUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetIdentityUsersResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azuredevops:index/getIdentityUsers:getIdentityUsers", {
         "name": args.name,
@@ -49,7 +48,11 @@ export interface GetIdentityUsersResult {
  * Use this data source to access information about an existing users within Azure DevOps On-Premise(Azure DevOps Server).
  */
 export function getIdentityUsersOutput(args: GetIdentityUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityUsersResult> {
-    return pulumi.output(args).apply((a: any) => getIdentityUsers(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azuredevops:index/getIdentityUsers:getIdentityUsers", {
+        "name": args.name,
+        "searchFilter": args.searchFilter,
+    }, opts);
 }
 
 /**

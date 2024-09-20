@@ -29,7 +29,6 @@ import * as utilities from "./utilities";
  * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
  */
 export function getGitRepository(args: GetGitRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetGitRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azuredevops:index/getGitRepository:getGitRepository", {
         "name": args.name,
@@ -122,7 +121,11 @@ export interface GetGitRepositoryResult {
  * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
  */
 export function getGitRepositoryOutput(args: GetGitRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGitRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getGitRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azuredevops:index/getGitRepository:getGitRepository", {
+        "name": args.name,
+        "projectId": args.projectId,
+    }, opts);
 }
 
 /**
