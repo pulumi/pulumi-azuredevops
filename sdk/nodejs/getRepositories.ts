@@ -37,7 +37,6 @@ import * as utilities from "./utilities";
  */
 export function getRepositories(args?: GetRepositoriesArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoriesResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azuredevops:index/getRepositories:getRepositories", {
         "includeHidden": args.includeHidden,
@@ -116,7 +115,13 @@ export interface GetRepositoriesResult {
  * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
  */
 export function getRepositoriesOutput(args?: GetRepositoriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoriesResult> {
-    return pulumi.output(args).apply((a: any) => getRepositories(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azuredevops:index/getRepositories:getRepositories", {
+        "includeHidden": args.includeHidden,
+        "name": args.name,
+        "projectId": args.projectId,
+    }, opts);
 }
 
 /**

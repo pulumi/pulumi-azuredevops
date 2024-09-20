@@ -33,7 +33,6 @@ import * as utilities from "./utilities";
  * - [Azure DevOps Service REST API 7.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-7.0)
  */
 export function getAgentQueue(args: GetAgentQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentQueueResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azuredevops:index/getAgentQueue:getAgentQueue", {
         "name": args.name,
@@ -105,7 +104,11 @@ export interface GetAgentQueueResult {
  * - [Azure DevOps Service REST API 7.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-7.0)
  */
 export function getAgentQueueOutput(args: GetAgentQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentQueueResult> {
-    return pulumi.output(args).apply((a: any) => getAgentQueue(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azuredevops:index/getAgentQueue:getAgentQueue", {
+        "name": args.name,
+        "projectId": args.projectId,
+    }, opts);
 }
 
 /**

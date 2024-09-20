@@ -77,14 +77,20 @@ type GetServiceendpointSonarcloudResult struct {
 
 func GetServiceendpointSonarcloudOutput(ctx *pulumi.Context, args GetServiceendpointSonarcloudOutputArgs, opts ...pulumi.InvokeOption) GetServiceendpointSonarcloudResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetServiceendpointSonarcloudResult, error) {
+		ApplyT(func(v interface{}) (GetServiceendpointSonarcloudResultOutput, error) {
 			args := v.(GetServiceendpointSonarcloudArgs)
-			r, err := GetServiceendpointSonarcloud(ctx, &args, opts...)
-			var s GetServiceendpointSonarcloudResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetServiceendpointSonarcloudResult
+			secret, err := ctx.InvokePackageRaw("azuredevops:index/getServiceendpointSonarcloud:getServiceendpointSonarcloud", args, &rv, "", opts...)
+			if err != nil {
+				return GetServiceendpointSonarcloudResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetServiceendpointSonarcloudResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetServiceendpointSonarcloudResultOutput), nil
+			}
+			return output, nil
 		}).(GetServiceendpointSonarcloudResultOutput)
 }
 

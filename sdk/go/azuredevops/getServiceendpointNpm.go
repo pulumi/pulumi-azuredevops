@@ -79,14 +79,20 @@ type GetServiceendpointNpmResult struct {
 
 func GetServiceendpointNpmOutput(ctx *pulumi.Context, args GetServiceendpointNpmOutputArgs, opts ...pulumi.InvokeOption) GetServiceendpointNpmResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetServiceendpointNpmResult, error) {
+		ApplyT(func(v interface{}) (GetServiceendpointNpmResultOutput, error) {
 			args := v.(GetServiceendpointNpmArgs)
-			r, err := GetServiceendpointNpm(ctx, &args, opts...)
-			var s GetServiceendpointNpmResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetServiceendpointNpmResult
+			secret, err := ctx.InvokePackageRaw("azuredevops:index/getServiceendpointNpm:getServiceendpointNpm", args, &rv, "", opts...)
+			if err != nil {
+				return GetServiceendpointNpmResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetServiceendpointNpmResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetServiceendpointNpmResultOutput), nil
+			}
+			return output, nil
 		}).(GetServiceendpointNpmResultOutput)
 }
 

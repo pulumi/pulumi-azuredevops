@@ -99,14 +99,20 @@ type GetIterationResult struct {
 
 func GetIterationOutput(ctx *pulumi.Context, args GetIterationOutputArgs, opts ...pulumi.InvokeOption) GetIterationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetIterationResult, error) {
+		ApplyT(func(v interface{}) (GetIterationResultOutput, error) {
 			args := v.(GetIterationArgs)
-			r, err := GetIteration(ctx, &args, opts...)
-			var s GetIterationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetIterationResult
+			secret, err := ctx.InvokePackageRaw("azuredevops:index/getIteration:getIteration", args, &rv, "", opts...)
+			if err != nil {
+				return GetIterationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetIterationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetIterationResultOutput), nil
+			}
+			return output, nil
 		}).(GetIterationResultOutput)
 }
 

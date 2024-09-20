@@ -142,14 +142,20 @@ type LookupServiceEndpointAzureRMResult struct {
 
 func LookupServiceEndpointAzureRMOutput(ctx *pulumi.Context, args LookupServiceEndpointAzureRMOutputArgs, opts ...pulumi.InvokeOption) LookupServiceEndpointAzureRMResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupServiceEndpointAzureRMResult, error) {
+		ApplyT(func(v interface{}) (LookupServiceEndpointAzureRMResultOutput, error) {
 			args := v.(LookupServiceEndpointAzureRMArgs)
-			r, err := LookupServiceEndpointAzureRM(ctx, &args, opts...)
-			var s LookupServiceEndpointAzureRMResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupServiceEndpointAzureRMResult
+			secret, err := ctx.InvokePackageRaw("azuredevops:index/getServiceEndpointAzureRM:getServiceEndpointAzureRM", args, &rv, "", opts...)
+			if err != nil {
+				return LookupServiceEndpointAzureRMResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupServiceEndpointAzureRMResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupServiceEndpointAzureRMResultOutput), nil
+			}
+			return output, nil
 		}).(LookupServiceEndpointAzureRMResultOutput)
 }
 
