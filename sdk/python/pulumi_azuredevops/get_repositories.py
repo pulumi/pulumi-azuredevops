@@ -140,9 +140,6 @@ def get_repositories(include_hidden: Optional[bool] = None,
         name=pulumi.get(__ret__, 'name'),
         project_id=pulumi.get(__ret__, 'project_id'),
         repositories=pulumi.get(__ret__, 'repositories'))
-
-
-@_utilities.lift_output_func(get_repositories)
 def get_repositories_output(include_hidden: Optional[pulumi.Input[Optional[bool]]] = None,
                             name: Optional[pulumi.Input[Optional[str]]] = None,
                             project_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -175,4 +172,15 @@ def get_repositories_output(include_hidden: Optional[pulumi.Input[Optional[bool]
     :param str name: Name of the Git repository to retrieve; requires `project_id` to be specified as well
     :param str project_id: ID of project to list Git repositories
     """
-    ...
+    __args__ = dict()
+    __args__['includeHidden'] = include_hidden
+    __args__['name'] = name
+    __args__['projectId'] = project_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getRepositories:getRepositories', __args__, opts=opts, typ=GetRepositoriesResult)
+    return __ret__.apply(lambda __response__: GetRepositoriesResult(
+        id=pulumi.get(__response__, 'id'),
+        include_hidden=pulumi.get(__response__, 'include_hidden'),
+        name=pulumi.get(__response__, 'name'),
+        project_id=pulumi.get(__response__, 'project_id'),
+        repositories=pulumi.get(__response__, 'repositories')))

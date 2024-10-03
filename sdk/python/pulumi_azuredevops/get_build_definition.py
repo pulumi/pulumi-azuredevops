@@ -233,9 +233,6 @@ def get_build_definition(name: Optional[str] = None,
         schedules=pulumi.get(__ret__, 'schedules'),
         variable_groups=pulumi.get(__ret__, 'variable_groups'),
         variables=pulumi.get(__ret__, 'variables'))
-
-
-@_utilities.lift_output_func(get_build_definition)
 def get_build_definition_output(name: Optional[pulumi.Input[str]] = None,
                                 path: Optional[pulumi.Input[Optional[str]]] = None,
                                 project_id: Optional[pulumi.Input[str]] = None,
@@ -260,4 +257,23 @@ def get_build_definition_output(name: Optional[pulumi.Input[str]] = None,
     :param str path: The path of the build definition. Default to `\\`.
     :param str project_id: The ID of the project.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['path'] = path
+    __args__['projectId'] = project_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getBuildDefinition:getBuildDefinition', __args__, opts=opts, typ=GetBuildDefinitionResult)
+    return __ret__.apply(lambda __response__: GetBuildDefinitionResult(
+        agent_pool_name=pulumi.get(__response__, 'agent_pool_name'),
+        ci_triggers=pulumi.get(__response__, 'ci_triggers'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        path=pulumi.get(__response__, 'path'),
+        project_id=pulumi.get(__response__, 'project_id'),
+        pull_request_triggers=pulumi.get(__response__, 'pull_request_triggers'),
+        queue_status=pulumi.get(__response__, 'queue_status'),
+        repositories=pulumi.get(__response__, 'repositories'),
+        revision=pulumi.get(__response__, 'revision'),
+        schedules=pulumi.get(__response__, 'schedules'),
+        variable_groups=pulumi.get(__response__, 'variable_groups'),
+        variables=pulumi.get(__response__, 'variables')))

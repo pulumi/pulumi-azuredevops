@@ -152,9 +152,6 @@ def get_serviceendpoint_npm(project_id: Optional[str] = None,
         service_endpoint_id=pulumi.get(__ret__, 'service_endpoint_id'),
         service_endpoint_name=pulumi.get(__ret__, 'service_endpoint_name'),
         url=pulumi.get(__ret__, 'url'))
-
-
-@_utilities.lift_output_func(get_serviceendpoint_npm)
 def get_serviceendpoint_npm_output(project_id: Optional[pulumi.Input[str]] = None,
                                    service_endpoint_id: Optional[pulumi.Input[Optional[str]]] = None,
                                    service_endpoint_name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -180,4 +177,17 @@ def get_serviceendpoint_npm_output(project_id: Optional[pulumi.Input[str]] = Non
            
            > **NOTE:** One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
     """
-    ...
+    __args__ = dict()
+    __args__['projectId'] = project_id
+    __args__['serviceEndpointId'] = service_endpoint_id
+    __args__['serviceEndpointName'] = service_endpoint_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getServiceendpointNpm:getServiceendpointNpm', __args__, opts=opts, typ=GetServiceendpointNpmResult)
+    return __ret__.apply(lambda __response__: GetServiceendpointNpmResult(
+        authorization=pulumi.get(__response__, 'authorization'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        project_id=pulumi.get(__response__, 'project_id'),
+        service_endpoint_id=pulumi.get(__response__, 'service_endpoint_id'),
+        service_endpoint_name=pulumi.get(__response__, 'service_endpoint_name'),
+        url=pulumi.get(__response__, 'url')))

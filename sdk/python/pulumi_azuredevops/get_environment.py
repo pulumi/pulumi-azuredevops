@@ -145,9 +145,6 @@ def get_environment(environment_id: Optional[int] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         project_id=pulumi.get(__ret__, 'project_id'))
-
-
-@_utilities.lift_output_func(get_environment)
 def get_environment_output(environment_id: Optional[pulumi.Input[Optional[int]]] = None,
                            name: Optional[pulumi.Input[Optional[str]]] = None,
                            project_id: Optional[pulumi.Input[str]] = None,
@@ -189,4 +186,15 @@ def get_environment_output(environment_id: Optional[pulumi.Input[Optional[int]]]
            > **NOTE:** One of either `environment_id` or `name` must be specified.
     :param str project_id: The ID of the project.
     """
-    ...
+    __args__ = dict()
+    __args__['environmentId'] = environment_id
+    __args__['name'] = name
+    __args__['projectId'] = project_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getEnvironment:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult)
+    return __ret__.apply(lambda __response__: GetEnvironmentResult(
+        description=pulumi.get(__response__, 'description'),
+        environment_id=pulumi.get(__response__, 'environment_id'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        project_id=pulumi.get(__response__, 'project_id')))

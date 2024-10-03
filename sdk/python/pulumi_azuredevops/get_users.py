@@ -154,9 +154,6 @@ def get_users(features: Optional[Union['GetUsersFeaturesArgs', 'GetUsersFeatures
         principal_name=pulumi.get(__ret__, 'principal_name'),
         subject_types=pulumi.get(__ret__, 'subject_types'),
         users=pulumi.get(__ret__, 'users'))
-
-
-@_utilities.lift_output_func(get_users)
 def get_users_output(features: Optional[pulumi.Input[Optional[Union['GetUsersFeaturesArgs', 'GetUsersFeaturesArgsDict']]]] = None,
                      origin: Optional[pulumi.Input[Optional[str]]] = None,
                      origin_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -177,4 +174,19 @@ def get_users_output(features: Optional[pulumi.Input[Optional[Union['GetUsersFea
     :param str principal_name: The PrincipalName of this graph member from the source provider.
     :param Sequence[str] subject_types: A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
     """
-    ...
+    __args__ = dict()
+    __args__['features'] = features
+    __args__['origin'] = origin
+    __args__['originId'] = origin_id
+    __args__['principalName'] = principal_name
+    __args__['subjectTypes'] = subject_types
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getUsers:getUsers', __args__, opts=opts, typ=GetUsersResult)
+    return __ret__.apply(lambda __response__: GetUsersResult(
+        features=pulumi.get(__response__, 'features'),
+        id=pulumi.get(__response__, 'id'),
+        origin=pulumi.get(__response__, 'origin'),
+        origin_id=pulumi.get(__response__, 'origin_id'),
+        principal_name=pulumi.get(__response__, 'principal_name'),
+        subject_types=pulumi.get(__response__, 'subject_types'),
+        users=pulumi.get(__response__, 'users')))
