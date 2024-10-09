@@ -126,9 +126,6 @@ def get_teams(project_id: Optional[str] = None,
         project_id=pulumi.get(__ret__, 'project_id'),
         teams=pulumi.get(__ret__, 'teams'),
         top=pulumi.get(__ret__, 'top'))
-
-
-@_utilities.lift_output_func(get_teams)
 def get_teams_output(project_id: Optional[pulumi.Input[Optional[str]]] = None,
                      top: Optional[pulumi.Input[Optional[int]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTeamsResult]:
@@ -160,4 +157,13 @@ def get_teams_output(project_id: Optional[pulumi.Input[Optional[str]]] = None,
     :param str project_id: The Project ID. If no project ID all teams of the organization will be returned.
     :param int top: The maximum number of teams to return. Defaults to `100`.
     """
-    ...
+    __args__ = dict()
+    __args__['projectId'] = project_id
+    __args__['top'] = top
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getTeams:getTeams', __args__, opts=opts, typ=GetTeamsResult)
+    return __ret__.apply(lambda __response__: GetTeamsResult(
+        id=pulumi.get(__response__, 'id'),
+        project_id=pulumi.get(__response__, 'project_id'),
+        teams=pulumi.get(__response__, 'teams'),
+        top=pulumi.get(__response__, 'top')))

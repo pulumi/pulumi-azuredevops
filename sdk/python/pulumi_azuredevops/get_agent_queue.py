@@ -128,9 +128,6 @@ def get_agent_queue(name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         project_id=pulumi.get(__ret__, 'project_id'))
-
-
-@_utilities.lift_output_func(get_agent_queue)
 def get_agent_queue_output(name: Optional[pulumi.Input[str]] = None,
                            project_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAgentQueueResult]:
@@ -163,4 +160,13 @@ def get_agent_queue_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the Agent Queue.
     :param str project_id: The Project Id.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['projectId'] = project_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getAgentQueue:getAgentQueue', __args__, opts=opts, typ=GetAgentQueueResult)
+    return __ret__.apply(lambda __response__: GetAgentQueueResult(
+        agent_pool_id=pulumi.get(__response__, 'agent_pool_id'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        project_id=pulumi.get(__response__, 'project_id')))

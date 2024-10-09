@@ -107,9 +107,6 @@ def get_securityrole_definitions(scope: Optional[str] = None,
         definitions=pulumi.get(__ret__, 'definitions'),
         id=pulumi.get(__ret__, 'id'),
         scope=pulumi.get(__ret__, 'scope'))
-
-
-@_utilities.lift_output_func(get_securityrole_definitions)
 def get_securityrole_definitions_output(scope: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityroleDefinitionsResult]:
     """
@@ -134,4 +131,11 @@ def get_securityrole_definitions_output(scope: Optional[pulumi.Input[str]] = Non
            
            DataSource without specifying any arguments will return all projects.
     """
-    ...
+    __args__ = dict()
+    __args__['scope'] = scope
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getSecurityroleDefinitions:getSecurityroleDefinitions', __args__, opts=opts, typ=GetSecurityroleDefinitionsResult)
+    return __ret__.apply(lambda __response__: GetSecurityroleDefinitionsResult(
+        definitions=pulumi.get(__response__, 'definitions'),
+        id=pulumi.get(__response__, 'id'),
+        scope=pulumi.get(__response__, 'scope')))

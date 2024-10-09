@@ -26,7 +26,8 @@ import (
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// example, err := azuredevops.GetPools(ctx, nil, nil);
+// example, err := azuredevops.GetPools(ctx, map[string]interface{}{
+// }, nil);
 // if err != nil {
 // return err
 // }

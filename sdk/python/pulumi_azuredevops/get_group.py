@@ -164,9 +164,6 @@ def get_group(name: Optional[str] = None,
         origin=pulumi.get(__ret__, 'origin'),
         origin_id=pulumi.get(__ret__, 'origin_id'),
         project_id=pulumi.get(__ret__, 'project_id'))
-
-
-@_utilities.lift_output_func(get_group)
 def get_group_output(name: Optional[pulumi.Input[str]] = None,
                      project_id: Optional[pulumi.Input[Optional[str]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
@@ -202,4 +199,16 @@ def get_group_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The Group Name.
     :param str project_id: The Project ID. If no project ID is specified the project collection groups will be searched.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['projectId'] = project_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getGroup:getGroup', __args__, opts=opts, typ=GetGroupResult)
+    return __ret__.apply(lambda __response__: GetGroupResult(
+        descriptor=pulumi.get(__response__, 'descriptor'),
+        group_id=pulumi.get(__response__, 'group_id'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        origin=pulumi.get(__response__, 'origin'),
+        origin_id=pulumi.get(__response__, 'origin_id'),
+        project_id=pulumi.get(__response__, 'project_id')))

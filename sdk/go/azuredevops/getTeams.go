@@ -26,7 +26,8 @@ import (
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// example, err := azuredevops.GetTeams(ctx, nil, nil);
+// example, err := azuredevops.GetTeams(ctx, &azuredevops.GetTeamsArgs{
+// }, nil);
 // if err != nil {
 // return err
 // }

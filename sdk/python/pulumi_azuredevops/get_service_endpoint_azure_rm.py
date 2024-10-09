@@ -298,9 +298,6 @@ def get_service_endpoint_azure_rm(project_id: Optional[str] = None,
         service_principal_id=pulumi.get(__ret__, 'service_principal_id'),
         workload_identity_federation_issuer=pulumi.get(__ret__, 'workload_identity_federation_issuer'),
         workload_identity_federation_subject=pulumi.get(__ret__, 'workload_identity_federation_subject'))
-
-
-@_utilities.lift_output_func(get_service_endpoint_azure_rm)
 def get_service_endpoint_azure_rm_output(project_id: Optional[pulumi.Input[str]] = None,
                                          service_endpoint_id: Optional[pulumi.Input[Optional[str]]] = None,
                                          service_endpoint_name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -342,4 +339,27 @@ def get_service_endpoint_azure_rm_output(project_id: Optional[pulumi.Input[str]]
            > **NOTE:** One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
            > **NOTE:** When supplying `service_endpoint_name`, take care to ensure that this is a unique name.
     """
-    ...
+    __args__ = dict()
+    __args__['projectId'] = project_id
+    __args__['serviceEndpointId'] = service_endpoint_id
+    __args__['serviceEndpointName'] = service_endpoint_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getServiceEndpointAzureRM:getServiceEndpointAzureRM', __args__, opts=opts, typ=GetServiceEndpointAzureRMResult)
+    return __ret__.apply(lambda __response__: GetServiceEndpointAzureRMResult(
+        authorization=pulumi.get(__response__, 'authorization'),
+        azurerm_management_group_id=pulumi.get(__response__, 'azurerm_management_group_id'),
+        azurerm_management_group_name=pulumi.get(__response__, 'azurerm_management_group_name'),
+        azurerm_spn_tenantid=pulumi.get(__response__, 'azurerm_spn_tenantid'),
+        azurerm_subscription_id=pulumi.get(__response__, 'azurerm_subscription_id'),
+        azurerm_subscription_name=pulumi.get(__response__, 'azurerm_subscription_name'),
+        description=pulumi.get(__response__, 'description'),
+        environment=pulumi.get(__response__, 'environment'),
+        id=pulumi.get(__response__, 'id'),
+        project_id=pulumi.get(__response__, 'project_id'),
+        resource_group=pulumi.get(__response__, 'resource_group'),
+        service_endpoint_authentication_scheme=pulumi.get(__response__, 'service_endpoint_authentication_scheme'),
+        service_endpoint_id=pulumi.get(__response__, 'service_endpoint_id'),
+        service_endpoint_name=pulumi.get(__response__, 'service_endpoint_name'),
+        service_principal_id=pulumi.get(__response__, 'service_principal_id'),
+        workload_identity_federation_issuer=pulumi.get(__response__, 'workload_identity_federation_issuer'),
+        workload_identity_federation_subject=pulumi.get(__response__, 'workload_identity_federation_subject')))

@@ -100,7 +100,7 @@ import (
 //				AccountKey:           pulumi.Any(exampleAzurermStorageAccount.PrimaryAccessKey),
 //				QueueName:            pulumi.Any(exampleAzurermStorageQueue.Name),
 //				VisiTimeout:          pulumi.Int(30),
-//				RunStateChangedEvent: nil,
+//				RunStateChangedEvent: &azuredevops.ServicehookStorageQueuePipelinesRunStateChangedEventArgs{},
 //			})
 //			if err != nil {
 //				return err
