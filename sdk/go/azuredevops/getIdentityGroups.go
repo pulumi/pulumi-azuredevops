@@ -34,7 +34,7 @@ import (
 //				return err
 //			}
 //			// load all existing groups inside an organization
-//			_, err = azuredevops.GetIdentityGroups(ctx, nil, nil)
+//			_, err = azuredevops.GetIdentityGroups(ctx, &azuredevops.GetIdentityGroupsArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

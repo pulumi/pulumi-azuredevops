@@ -211,9 +211,6 @@ def get_git_repository(name: Optional[str] = None,
         ssh_url=pulumi.get(__ret__, 'ssh_url'),
         url=pulumi.get(__ret__, 'url'),
         web_url=pulumi.get(__ret__, 'web_url'))
-
-
-@_utilities.lift_output_func(get_git_repository)
 def get_git_repository_output(name: Optional[pulumi.Input[str]] = None,
                               project_id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGitRepositoryResult]:
@@ -241,4 +238,20 @@ def get_git_repository_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the Git repository to retrieve
     :param str project_id: ID of project to list Git repositories
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['projectId'] = project_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getGitRepository:getGitRepository', __args__, opts=opts, typ=GetGitRepositoryResult)
+    return __ret__.apply(lambda __response__: GetGitRepositoryResult(
+        default_branch=pulumi.get(__response__, 'default_branch'),
+        disabled=pulumi.get(__response__, 'disabled'),
+        id=pulumi.get(__response__, 'id'),
+        is_fork=pulumi.get(__response__, 'is_fork'),
+        name=pulumi.get(__response__, 'name'),
+        project_id=pulumi.get(__response__, 'project_id'),
+        remote_url=pulumi.get(__response__, 'remote_url'),
+        size=pulumi.get(__response__, 'size'),
+        ssh_url=pulumi.get(__response__, 'ssh_url'),
+        url=pulumi.get(__response__, 'url'),
+        web_url=pulumi.get(__response__, 'web_url')))

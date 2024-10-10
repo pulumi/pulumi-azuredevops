@@ -174,9 +174,6 @@ def get_iteration(fetch_children: Optional[bool] = None,
         name=pulumi.get(__ret__, 'name'),
         path=pulumi.get(__ret__, 'path'),
         project_id=pulumi.get(__ret__, 'project_id'))
-
-
-@_utilities.lift_output_func(get_iteration)
 def get_iteration_output(fetch_children: Optional[pulumi.Input[Optional[bool]]] = None,
                          path: Optional[pulumi.Input[Optional[str]]] = None,
                          project_id: Optional[pulumi.Input[str]] = None,
@@ -217,4 +214,17 @@ def get_iteration_output(fetch_children: Optional[pulumi.Input[Optional[bool]]] 
     :param str path: The path to the Iteration, _Format_: URL relative; if omitted, or value `"/"` is used, the root Iteration will be returned
     :param str project_id: The project ID.
     """
-    ...
+    __args__ = dict()
+    __args__['fetchChildren'] = fetch_children
+    __args__['path'] = path
+    __args__['projectId'] = project_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getIteration:getIteration', __args__, opts=opts, typ=GetIterationResult)
+    return __ret__.apply(lambda __response__: GetIterationResult(
+        childrens=pulumi.get(__response__, 'childrens'),
+        fetch_children=pulumi.get(__response__, 'fetch_children'),
+        has_children=pulumi.get(__response__, 'has_children'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        path=pulumi.get(__response__, 'path'),
+        project_id=pulumi.get(__response__, 'project_id')))
