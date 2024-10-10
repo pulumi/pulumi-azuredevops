@@ -100,9 +100,6 @@ def get_identity_users(name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         search_filter=pulumi.get(__ret__, 'search_filter'))
-
-
-@_utilities.lift_output_func(get_identity_users)
 def get_identity_users_output(name: Optional[pulumi.Input[str]] = None,
                               search_filter: Optional[pulumi.Input[Optional[str]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdentityUsersResult]:
@@ -113,4 +110,13 @@ def get_identity_users_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The PrincipalName of this identity member from the source provider.
     :param str search_filter: The type of search to perform. Default is `General`. Possible values are `AccountName`, `DisplayName`, and `MailAddress`.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['searchFilter'] = search_filter
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getIdentityUsers:getIdentityUsers', __args__, opts=opts, typ=GetIdentityUsersResult)
+    return __ret__.apply(lambda __response__: GetIdentityUsersResult(
+        descriptor=pulumi.get(__response__, 'descriptor'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        search_filter=pulumi.get(__response__, 'search_filter')))

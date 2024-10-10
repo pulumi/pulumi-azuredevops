@@ -269,9 +269,6 @@ def get_serviceendpoint_azurecr(project_id: Optional[str] = None,
         service_endpoint_name=pulumi.get(__ret__, 'service_endpoint_name'),
         service_principal_id=pulumi.get(__ret__, 'service_principal_id'),
         spn_object_id=pulumi.get(__ret__, 'spn_object_id'))
-
-
-@_utilities.lift_output_func(get_serviceendpoint_azurecr)
 def get_serviceendpoint_azurecr_output(project_id: Optional[pulumi.Input[str]] = None,
                                        service_endpoint_id: Optional[pulumi.Input[Optional[str]]] = None,
                                        service_endpoint_name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -297,4 +294,26 @@ def get_serviceendpoint_azurecr_output(project_id: Optional[pulumi.Input[str]] =
            
            > **NOTE:** One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
     """
-    ...
+    __args__ = dict()
+    __args__['projectId'] = project_id
+    __args__['serviceEndpointId'] = service_endpoint_id
+    __args__['serviceEndpointName'] = service_endpoint_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getServiceendpointAzurecr:getServiceendpointAzurecr', __args__, opts=opts, typ=GetServiceendpointAzurecrResult)
+    return __ret__.apply(lambda __response__: GetServiceendpointAzurecrResult(
+        app_object_id=pulumi.get(__response__, 'app_object_id'),
+        authorization=pulumi.get(__response__, 'authorization'),
+        az_spn_role_assignment_id=pulumi.get(__response__, 'az_spn_role_assignment_id'),
+        az_spn_role_permissions=pulumi.get(__response__, 'az_spn_role_permissions'),
+        azurecr_name=pulumi.get(__response__, 'azurecr_name'),
+        azurecr_spn_tenantid=pulumi.get(__response__, 'azurecr_spn_tenantid'),
+        azurecr_subscription_id=pulumi.get(__response__, 'azurecr_subscription_id'),
+        azurecr_subscription_name=pulumi.get(__response__, 'azurecr_subscription_name'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        project_id=pulumi.get(__response__, 'project_id'),
+        resource_group=pulumi.get(__response__, 'resource_group'),
+        service_endpoint_id=pulumi.get(__response__, 'service_endpoint_id'),
+        service_endpoint_name=pulumi.get(__response__, 'service_endpoint_name'),
+        service_principal_id=pulumi.get(__response__, 'service_principal_id'),
+        spn_object_id=pulumi.get(__response__, 'spn_object_id')))

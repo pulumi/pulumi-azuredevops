@@ -161,9 +161,6 @@ def get_variable_group(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         project_id=pulumi.get(__ret__, 'project_id'),
         variables=pulumi.get(__ret__, 'variables'))
-
-
-@_utilities.lift_output_func(get_variable_group)
 def get_variable_group_output(name: Optional[pulumi.Input[str]] = None,
                               project_id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVariableGroupResult]:
@@ -192,4 +189,16 @@ def get_variable_group_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the Variable Group to retrieve.
     :param str project_id: The project ID.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['projectId'] = project_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getVariableGroup:getVariableGroup', __args__, opts=opts, typ=GetVariableGroupResult)
+    return __ret__.apply(lambda __response__: GetVariableGroupResult(
+        allow_access=pulumi.get(__response__, 'allow_access'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        key_vaults=pulumi.get(__response__, 'key_vaults'),
+        name=pulumi.get(__response__, 'name'),
+        project_id=pulumi.get(__response__, 'project_id'),
+        variables=pulumi.get(__response__, 'variables')))

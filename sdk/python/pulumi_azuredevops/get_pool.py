@@ -121,9 +121,6 @@ def get_pool(name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         pool_type=pulumi.get(__ret__, 'pool_type'))
-
-
-@_utilities.lift_output_func(get_pool)
 def get_pool_output(name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPoolResult]:
     """
@@ -149,4 +146,13 @@ def get_pool_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: Name of the Agent Pool.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getPool:getPool', __args__, opts=opts, typ=GetPoolResult)
+    return __ret__.apply(lambda __response__: GetPoolResult(
+        auto_provision=pulumi.get(__response__, 'auto_provision'),
+        auto_update=pulumi.get(__response__, 'auto_update'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        pool_type=pulumi.get(__response__, 'pool_type')))

@@ -105,9 +105,6 @@ def get_groups(project_id: Optional[str] = None,
         groups=pulumi.get(__ret__, 'groups'),
         id=pulumi.get(__ret__, 'id'),
         project_id=pulumi.get(__ret__, 'project_id'))
-
-
-@_utilities.lift_output_func(get_groups)
 def get_groups_output(project_id: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupsResult]:
     """
@@ -133,4 +130,11 @@ def get_groups_output(project_id: Optional[pulumi.Input[Optional[str]]] = None,
 
     :param str project_id: The Project ID. If no project ID is specified all groups of an organization will be returned
     """
-    ...
+    __args__ = dict()
+    __args__['projectId'] = project_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getGroups:getGroups', __args__, opts=opts, typ=GetGroupsResult)
+    return __ret__.apply(lambda __response__: GetGroupsResult(
+        groups=pulumi.get(__response__, 'groups'),
+        id=pulumi.get(__response__, 'id'),
+        project_id=pulumi.get(__response__, 'project_id')))

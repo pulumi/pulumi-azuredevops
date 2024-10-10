@@ -135,9 +135,6 @@ def get_feed(feed_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         project_id=pulumi.get(__ret__, 'project_id'))
-
-
-@_utilities.lift_output_func(get_feed)
 def get_feed_output(feed_id: Optional[pulumi.Input[Optional[str]]] = None,
                     name: Optional[pulumi.Input[Optional[str]]] = None,
                     project_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -176,4 +173,14 @@ def get_feed_output(feed_id: Optional[pulumi.Input[Optional[str]]] = None,
     :param str name: Name of the Feed.
     :param str project_id: ID of the Project Feed is created in.
     """
-    ...
+    __args__ = dict()
+    __args__['feedId'] = feed_id
+    __args__['name'] = name
+    __args__['projectId'] = project_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getFeed:getFeed', __args__, opts=opts, typ=GetFeedResult)
+    return __ret__.apply(lambda __response__: GetFeedResult(
+        feed_id=pulumi.get(__response__, 'feed_id'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        project_id=pulumi.get(__response__, 'project_id')))

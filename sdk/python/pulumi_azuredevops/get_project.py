@@ -161,9 +161,6 @@ def get_project(name: Optional[str] = None,
         version_control=pulumi.get(__ret__, 'version_control'),
         visibility=pulumi.get(__ret__, 'visibility'),
         work_item_template=pulumi.get(__ret__, 'work_item_template'))
-
-
-@_utilities.lift_output_func(get_project)
 def get_project_output(name: Optional[pulumi.Input[Optional[str]]] = None,
                        project_id: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
@@ -188,4 +185,18 @@ def get_project_output(name: Optional[pulumi.Input[Optional[str]]] = None,
     :param str name: Name of the Project.
     :param str project_id: ID of the Project.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['projectId'] = project_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getProject:getProject', __args__, opts=opts, typ=GetProjectResult)
+    return __ret__.apply(lambda __response__: GetProjectResult(
+        description=pulumi.get(__response__, 'description'),
+        features=pulumi.get(__response__, 'features'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        process_template_id=pulumi.get(__response__, 'process_template_id'),
+        project_id=pulumi.get(__response__, 'project_id'),
+        version_control=pulumi.get(__response__, 'version_control'),
+        visibility=pulumi.get(__response__, 'visibility'),
+        work_item_template=pulumi.get(__response__, 'work_item_template')))
