@@ -17,3 +17,4 @@ plugins:
   - name: azure
     version: "5.66.1"
 pulumiConvert: 1
+registryDocs: true
