@@ -213,7 +213,7 @@ func docEditRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 
 // The Authentication section contains links to internal guides.
 var skipAuthenticationSection = tfbridge.DocsEdit{
-	Path: "index.md",
+	Path: "index.html.markdown",
 	Edit: func(_ string, content []byte) ([]byte, error) {
 		return tfgen.SkipSectionByHeaderContent(content, func(headerText string) bool {
 			return headerText == "Authentication"
