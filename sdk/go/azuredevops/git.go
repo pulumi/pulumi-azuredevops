@@ -25,59 +25,13 @@ import (
 // ```sh
 // $ pulumi import azuredevops:index/git:Git example projectName/00000000-0000-0000-0000-000000000000
 // ```
-//
-// hcl
-//
-// resource "azuredevops_project" "example" {
-//
-//	name               = "Example Project"
-//
-//	visibility         = "private"
-//
-//	version_control    = "Git"
-//
-//	work_item_template = "Agile"
-//
-// }
-//
-// resource "azuredevops_git_repository" "example" {
-//
-//	project_id     = azuredevops_project.example.id
-//
-//	name           = "Example Git Repository"
-//
-//	default_branch = "refs/heads/main"
-//
-//	initialization {
-//
-//	  init_type = "Clean"
-//
-//	}
-//
-//	lifecycle {
-//
-//	  ignore_changes = [
-//
-//	    # Ignore changes to initialization to support importing existing repositories
-//
-//	    # Given that a repo now exists, either imported into terraform state or created by terraform,
-//
-//	    # we don't care for the configuration of initialization against the existing resource
-//
-//	    initialization,
-//
-//	  ]
-//
-//	}
-//
-// }
 type Git struct {
 	pulumi.CustomResourceState
 
 	// The ref of the default branch. Will be used as the branch name for initialized repositories.
 	DefaultBranch pulumi.StringOutput `pulumi:"defaultBranch"`
-	// Is the repository disabled?
-	Disabled pulumi.BoolOutput `pulumi:"disabled"`
+	// The ability to disable or enable the repository. Defaults to `false`.
+	Disabled pulumi.BoolPtrOutput `pulumi:"disabled"`
 	// An `initialization` block as documented below.
 	Initialization GitInitializationOutput `pulumi:"initialization"`
 	// True if the repository was created as a fork.
@@ -138,7 +92,7 @@ func GetGit(ctx *pulumi.Context,
 type gitState struct {
 	// The ref of the default branch. Will be used as the branch name for initialized repositories.
 	DefaultBranch *string `pulumi:"defaultBranch"`
-	// Is the repository disabled?
+	// The ability to disable or enable the repository. Defaults to `false`.
 	Disabled *bool `pulumi:"disabled"`
 	// An `initialization` block as documented below.
 	Initialization *GitInitialization `pulumi:"initialization"`
@@ -165,7 +119,7 @@ type gitState struct {
 type GitState struct {
 	// The ref of the default branch. Will be used as the branch name for initialized repositories.
 	DefaultBranch pulumi.StringPtrInput
-	// Is the repository disabled?
+	// The ability to disable or enable the repository. Defaults to `false`.
 	Disabled pulumi.BoolPtrInput
 	// An `initialization` block as documented below.
 	Initialization GitInitializationPtrInput
@@ -196,6 +150,8 @@ func (GitState) ElementType() reflect.Type {
 type gitArgs struct {
 	// The ref of the default branch. Will be used as the branch name for initialized repositories.
 	DefaultBranch *string `pulumi:"defaultBranch"`
+	// The ability to disable or enable the repository. Defaults to `false`.
+	Disabled *bool `pulumi:"disabled"`
 	// An `initialization` block as documented below.
 	Initialization GitInitialization `pulumi:"initialization"`
 	// The name of the git repository.
@@ -210,6 +166,8 @@ type gitArgs struct {
 type GitArgs struct {
 	// The ref of the default branch. Will be used as the branch name for initialized repositories.
 	DefaultBranch pulumi.StringPtrInput
+	// The ability to disable or enable the repository. Defaults to `false`.
+	Disabled pulumi.BoolPtrInput
 	// An `initialization` block as documented below.
 	Initialization GitInitializationInput
 	// The name of the git repository.
@@ -312,9 +270,9 @@ func (o GitOutput) DefaultBranch() pulumi.StringOutput {
 	return o.ApplyT(func(v *Git) pulumi.StringOutput { return v.DefaultBranch }).(pulumi.StringOutput)
 }
 
-// Is the repository disabled?
-func (o GitOutput) Disabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Git) pulumi.BoolOutput { return v.Disabled }).(pulumi.BoolOutput)
+// The ability to disable or enable the repository. Defaults to `false`.
+func (o GitOutput) Disabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Git) pulumi.BoolPtrOutput { return v.Disabled }).(pulumi.BoolPtrOutput)
 }
 
 // An `initialization` block as documented below.

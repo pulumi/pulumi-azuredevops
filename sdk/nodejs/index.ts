@@ -225,6 +225,11 @@ export const getServiceendpointAzurecr: typeof import("./getServiceendpointAzure
 export const getServiceendpointAzurecrOutput: typeof import("./getServiceendpointAzurecr").getServiceendpointAzurecrOutput = null as any;
 utilities.lazyLoad(exports, ["getServiceendpointAzurecr","getServiceendpointAzurecrOutput"], () => require("./getServiceendpointAzurecr"));
 
+export { GetServiceendpointBitbucketArgs, GetServiceendpointBitbucketResult, GetServiceendpointBitbucketOutputArgs } from "./getServiceendpointBitbucket";
+export const getServiceendpointBitbucket: typeof import("./getServiceendpointBitbucket").getServiceendpointBitbucket = null as any;
+export const getServiceendpointBitbucketOutput: typeof import("./getServiceendpointBitbucket").getServiceendpointBitbucketOutput = null as any;
+utilities.lazyLoad(exports, ["getServiceendpointBitbucket","getServiceendpointBitbucketOutput"], () => require("./getServiceendpointBitbucket"));
+
 export { GetServiceendpointNpmArgs, GetServiceendpointNpmResult, GetServiceendpointNpmOutputArgs } from "./getServiceendpointNpm";
 export const getServiceendpointNpm: typeof import("./getServiceendpointNpm").getServiceendpointNpm = null as any;
 export const getServiceendpointNpmOutput: typeof import("./getServiceendpointNpm").getServiceendpointNpmOutput = null as any;
@@ -595,6 +600,11 @@ export type Wiki = import("./wiki").Wiki;
 export const Wiki: typeof import("./wiki").Wiki = null as any;
 utilities.lazyLoad(exports, ["Wiki"], () => require("./wiki"));
 
+export { WikiPageArgs, WikiPageState } from "./wikiPage";
+export type WikiPage = import("./wikiPage").WikiPage;
+export const WikiPage: typeof import("./wikiPage").WikiPage = null as any;
+utilities.lazyLoad(exports, ["WikiPage"], () => require("./wikiPage"));
+
 export { WorkItemQueryPermissionsArgs, WorkItemQueryPermissionsState } from "./workItemQueryPermissions";
 export type WorkItemQueryPermissions = import("./workItemQueryPermissions").WorkItemQueryPermissions;
 export const WorkItemQueryPermissions: typeof import("./workItemQueryPermissions").WorkItemQueryPermissions = null as any;
@@ -797,6 +807,8 @@ const _module = {
                 return new VariableGroupPermissions(name, <any>undefined, { urn })
             case "azuredevops:index/wiki:Wiki":
                 return new Wiki(name, <any>undefined, { urn })
+            case "azuredevops:index/wikiPage:WikiPage":
+                return new WikiPage(name, <any>undefined, { urn })
             case "azuredevops:index/workItemQueryPermissions:WorkItemQueryPermissions":
                 return new WorkItemQueryPermissions(name, <any>undefined, { urn })
             case "azuredevops:index/workitem:Workitem":
@@ -895,6 +907,7 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/user", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/variableGroup", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/variableGroupPermissions", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/wiki", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/wikiPage", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/workItemQueryPermissions", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/workitem", _module)
 pulumi.runtime.registerResourcePackage("azuredevops", {

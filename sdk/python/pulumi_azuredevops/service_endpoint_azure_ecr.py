@@ -524,7 +524,7 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
         example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
             location=identity.location,
             name="example-identity",
-            resource_group_name="azurerm_resource_group.identity.name")
+            resource_group_name=identity.name)
         # azure container registry service connection
         example_service_endpoint_azure_ecr = azuredevops.ServiceEndpointAzureEcr("example",
             project_id=example.id,
@@ -543,8 +543,8 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
             resource_group_name=identity.name,
             parent_id=example_user_assigned_identity.id,
             audience="api://AzureADTokenExchange",
-            issuer=example_azuredevops_serviceendpoint_azurerm["workloadIdentityFederationIssuer"],
-            subject=example_azuredevops_serviceendpoint_azurerm["workloadIdentityFederationSubject"])
+            issuer=example_service_endpoint_azure_ecr.workload_identity_federation_issuer,
+            subject=example_service_endpoint_azure_ecr.workload_identity_federation_subject)
         ```
 
         ## Relevant Links
@@ -625,7 +625,7 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
         example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
             location=identity.location,
             name="example-identity",
-            resource_group_name="azurerm_resource_group.identity.name")
+            resource_group_name=identity.name)
         # azure container registry service connection
         example_service_endpoint_azure_ecr = azuredevops.ServiceEndpointAzureEcr("example",
             project_id=example.id,
@@ -644,8 +644,8 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
             resource_group_name=identity.name,
             parent_id=example_user_assigned_identity.id,
             audience="api://AzureADTokenExchange",
-            issuer=example_azuredevops_serviceendpoint_azurerm["workloadIdentityFederationIssuer"],
-            subject=example_azuredevops_serviceendpoint_azurerm["workloadIdentityFederationSubject"])
+            issuer=example_service_endpoint_azure_ecr.workload_identity_federation_issuer,
+            subject=example_service_endpoint_azure_ecr.workload_identity_federation_subject)
         ```
 
         ## Relevant Links

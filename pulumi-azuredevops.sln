@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sdk", "sdk", "{107FDFA8-5F8F-43D1-80E1-E623376EC7A4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pulumi.AzureDevOps", "sdk\dotnet\Pulumi.AzureDevOps.csproj", "{37BFA729-70EF-4C95-8812-9C7A6EBE7A63}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{37BFA729-70EF-4C95-8812-9C7A6EBE7A63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37BFA729-70EF-4C95-8812-9C7A6EBE7A63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37BFA729-70EF-4C95-8812-9C7A6EBE7A63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37BFA729-70EF-4C95-8812-9C7A6EBE7A63}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{37BFA729-70EF-4C95-8812-9C7A6EBE7A63} = {107FDFA8-5F8F-43D1-80E1-E623376EC7A4}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A6DD77D0-5180-4942-8943-DAAA9F53ADA7}
+	EndGlobalSection
+EndGlobal

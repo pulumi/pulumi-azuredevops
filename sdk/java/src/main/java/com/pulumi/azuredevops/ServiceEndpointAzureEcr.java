@@ -123,7 +123,7 @@ import javax.annotation.Nullable;
  *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()
  *             .location(identity.location())
  *             .name("example-identity")
- *             .resourceGroupName("azurerm_resource_group.identity.name")
+ *             .resourceGroupName(identity.name())
  *             .build());
  * 
  *         // azure container registry service connection
@@ -146,8 +146,8 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(identity.name())
  *             .parentId(exampleUserAssignedIdentity.id())
  *             .audience("api://AzureADTokenExchange")
- *             .issuer(exampleAzuredevopsServiceendpointAzurerm.workloadIdentityFederationIssuer())
- *             .subject(exampleAzuredevopsServiceendpointAzurerm.workloadIdentityFederationSubject())
+ *             .issuer(exampleServiceEndpointAzureEcr.workloadIdentityFederationIssuer())
+ *             .subject(exampleServiceEndpointAzureEcr.workloadIdentityFederationSubject())
  *             .build());
  * 
  *     }

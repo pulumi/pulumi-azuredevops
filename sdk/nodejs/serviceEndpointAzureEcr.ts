@@ -57,7 +57,7 @@ import * as utilities from "./utilities";
  * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
  *     location: identity.location,
  *     name: "example-identity",
- *     resourceGroupName: "azurerm_resource_group.identity.name",
+ *     resourceGroupName: identity.name,
  * });
  * // azure container registry service connection
  * const exampleServiceEndpointAzureEcr = new azuredevops.ServiceEndpointAzureEcr("example", {
@@ -78,8 +78,8 @@ import * as utilities from "./utilities";
  *     resourceGroupName: identity.name,
  *     parentId: exampleUserAssignedIdentity.id,
  *     audience: "api://AzureADTokenExchange",
- *     issuer: exampleAzuredevopsServiceendpointAzurerm.workloadIdentityFederationIssuer,
- *     subject: exampleAzuredevopsServiceendpointAzurerm.workloadIdentityFederationSubject,
+ *     issuer: exampleServiceEndpointAzureEcr.workloadIdentityFederationIssuer,
+ *     subject: exampleServiceEndpointAzureEcr.workloadIdentityFederationSubject,
  * });
  * ```
  *

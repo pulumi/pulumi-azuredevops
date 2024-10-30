@@ -78,7 +78,7 @@ namespace Pulumi.AzureDevOps
     ///     {
     ///         Location = identity.Location,
     ///         Name = "example-identity",
-    ///         ResourceGroupName = "azurerm_resource_group.identity.name",
+    ///         ResourceGroupName = identity.Name,
     ///     });
     /// 
     ///     // azure container registry service connection
@@ -104,8 +104,8 @@ namespace Pulumi.AzureDevOps
     ///         ResourceGroupName = identity.Name,
     ///         ParentId = exampleUserAssignedIdentity.Id,
     ///         Audience = "api://AzureADTokenExchange",
-    ///         Issuer = exampleAzuredevopsServiceendpointAzurerm.WorkloadIdentityFederationIssuer,
-    ///         Subject = exampleAzuredevopsServiceendpointAzurerm.WorkloadIdentityFederationSubject,
+    ///         Issuer = exampleServiceEndpointAzureEcr.WorkloadIdentityFederationIssuer,
+    ///         Subject = exampleServiceEndpointAzureEcr.WorkloadIdentityFederationSubject,
     ///     });
     /// 
     /// });

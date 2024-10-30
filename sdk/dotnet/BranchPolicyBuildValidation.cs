@@ -58,6 +58,7 @@ namespace Pulumi.AzureDevOps
     ///         {
     ///             DisplayName = "Example build validation policy",
     ///             BuildDefinitionId = exampleBuildDefinition.Id,
+    ///             QueueOnSourceUpdateOnly = true,
     ///             ValidDuration = 720,
     ///             FilenamePatterns = new[]
     ///             {

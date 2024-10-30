@@ -23,52 +23,6 @@ namespace Pulumi.AzureDevOps
     /// ```sh
     /// $ pulumi import azuredevops:index/git:Git example projectName/00000000-0000-0000-0000-000000000000
     /// ```
-    /// 
-    /// hcl
-    /// 
-    /// resource "azuredevops_project" "example" {
-    /// 
-    ///   name               = "Example Project"
-    /// 
-    ///   visibility         = "private"
-    /// 
-    ///   version_control    = "Git"
-    /// 
-    ///   work_item_template = "Agile"
-    /// 
-    /// }
-    /// 
-    /// resource "azuredevops_git_repository" "example" {
-    /// 
-    ///   project_id     = azuredevops_project.example.id
-    /// 
-    ///   name           = "Example Git Repository"
-    /// 
-    ///   default_branch = "refs/heads/main"
-    /// 
-    ///   initialization {
-    /// 
-    ///     init_type = "Clean"
-    /// 
-    ///   }
-    /// 
-    ///   lifecycle {
-    /// 
-    ///     ignore_changes = [
-    ///     
-    ///       # Ignore changes to initialization to support importing existing repositories
-    ///     
-    ///       # Given that a repo now exists, either imported into terraform state or created by terraform,
-    ///     
-    ///       # we don't care for the configuration of initialization against the existing resource
-    ///     
-    ///       initialization,
-    ///     
-    ///     ]
-    /// 
-    ///   }
-    /// 
-    /// }
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/git:Git")]
     public partial class Git : global::Pulumi.CustomResource
@@ -80,10 +34,10 @@ namespace Pulumi.AzureDevOps
         public Output<string> DefaultBranch { get; private set; } = null!;
 
         /// <summary>
-        /// Is the repository disabled?
+        /// The ability to disable or enable the repository. Defaults to `false`.
         /// </summary>
         [Output("disabled")]
-        public Output<bool> Disabled { get; private set; } = null!;
+        public Output<bool?> Disabled { get; private set; } = null!;
 
         /// <summary>
         /// An `initialization` block as documented below.
@@ -198,6 +152,12 @@ namespace Pulumi.AzureDevOps
         public Input<string>? DefaultBranch { get; set; }
 
         /// <summary>
+        /// The ability to disable or enable the repository. Defaults to `false`.
+        /// </summary>
+        [Input("disabled")]
+        public Input<bool>? Disabled { get; set; }
+
+        /// <summary>
         /// An `initialization` block as documented below.
         /// </summary>
         [Input("initialization", required: true)]
@@ -236,7 +196,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? DefaultBranch { get; set; }
 
         /// <summary>
-        /// Is the repository disabled?
+        /// The ability to disable or enable the repository. Defaults to `false`.
         /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }

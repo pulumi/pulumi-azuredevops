@@ -115,7 +115,7 @@ namespace Pulumi.AzureDevOps
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Block pushes that contain new or updated files larger than this limit. Available values is: `1, 2, 5, 10, 100, 200` (MB).
+        /// Block pushes that contain new or updated files larger than this limit. Available values is: `1, 2, 5, 10, 50, 100, 200` (MB).
         /// </summary>
         [Output("maxFileSize")]
         public Output<int> MaxFileSize { get; private set; } = null!;
@@ -191,7 +191,7 @@ namespace Pulumi.AzureDevOps
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Block pushes that contain new or updated files larger than this limit. Available values is: `1, 2, 5, 10, 100, 200` (MB).
+        /// Block pushes that contain new or updated files larger than this limit. Available values is: `1, 2, 5, 10, 50, 100, 200` (MB).
         /// </summary>
         [Input("maxFileSize", required: true)]
         public Input<int> MaxFileSize { get; set; } = null!;
@@ -235,7 +235,7 @@ namespace Pulumi.AzureDevOps
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Block pushes that contain new or updated files larger than this limit. Available values is: `1, 2, 5, 10, 100, 200` (MB).
+        /// Block pushes that contain new or updated files larger than this limit. Available values is: `1, 2, 5, 10, 50, 100, 200` (MB).
         /// </summary>
         [Input("maxFileSize")]
         public Input<int>? MaxFileSize { get; set; }

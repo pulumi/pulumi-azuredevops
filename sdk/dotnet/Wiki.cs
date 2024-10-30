@@ -102,8 +102,6 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// The type of the wiki. Possible values are `codeWiki`, `projectWiki`.
-        /// 
-        /// &gt; **NOTE:** Project type wiki(`projectWiki`) can only be deleted together with the project.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -189,8 +187,6 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// The type of the wiki. Possible values are `codeWiki`, `projectWiki`.
-        /// 
-        /// &gt; **NOTE:** Project type wiki(`projectWiki`) can only be deleted together with the project.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -238,8 +234,6 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// The type of the wiki. Possible values are `codeWiki`, `projectWiki`.
-        /// 
-        /// &gt; **NOTE:** Project type wiki(`projectWiki`) can only be deleted together with the project.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

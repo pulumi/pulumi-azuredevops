@@ -201,6 +201,7 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
             settings={
                 "display_name": "Example build validation policy",
                 "build_definition_id": example_build_definition.id,
+                "queue_on_source_update_only": True,
                 "valid_duration": 720,
                 "filename_patterns": [
                     "/WebApp/*",
@@ -281,6 +282,7 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
             settings={
                 "display_name": "Example build validation policy",
                 "build_definition_id": example_build_definition.id,
+                "queue_on_source_update_only": True,
                 "valid_duration": 720,
                 "filename_patterns": [
                     "/WebApp/*",

@@ -28,8 +28,6 @@ class WikiArgs:
         """
         The set of arguments for constructing a Wiki resource.
         :param pulumi.Input[str] type: The type of the wiki. Possible values are `codeWiki`, `projectWiki`.
-               
-               > **NOTE:** Project type wiki(`projectWiki`) can only be deleted together with the project.
         :param pulumi.Input[str] name: The name of the Wiki.
         :param pulumi.Input[str] project_id: The ID of the Project.
         :param pulumi.Input[str] repository_id: The ID of the repository.
@@ -52,8 +50,6 @@ class WikiArgs:
     def type(self) -> pulumi.Input[str]:
         """
         The type of the wiki. Possible values are `codeWiki`, `projectWiki`.
-
-        > **NOTE:** Project type wiki(`projectWiki`) can only be deleted together with the project.
         """
         return pulumi.get(self, "type")
 
@@ -137,8 +133,6 @@ class _WikiState:
         :param pulumi.Input[str] remote_url: The remote web url to the wiki.
         :param pulumi.Input[str] repository_id: The ID of the repository.
         :param pulumi.Input[str] type: The type of the wiki. Possible values are `codeWiki`, `projectWiki`.
-               
-               > **NOTE:** Project type wiki(`projectWiki`) can only be deleted together with the project.
         :param pulumi.Input[str] url: The REST url for this wiki.
         :param pulumi.Input[str] version: Version of the wiki.
         """
@@ -221,8 +215,6 @@ class _WikiState:
     def type(self) -> Optional[pulumi.Input[str]]:
         """
         The type of the wiki. Possible values are `codeWiki`, `projectWiki`.
-
-        > **NOTE:** Project type wiki(`projectWiki`) can only be deleted together with the project.
         """
         return pulumi.get(self, "type")
 
@@ -316,8 +308,6 @@ class Wiki(pulumi.CustomResource):
         :param pulumi.Input[str] project_id: The ID of the Project.
         :param pulumi.Input[str] repository_id: The ID of the repository.
         :param pulumi.Input[str] type: The type of the wiki. Possible values are `codeWiki`, `projectWiki`.
-               
-               > **NOTE:** Project type wiki(`projectWiki`) can only be deleted together with the project.
         :param pulumi.Input[str] version: Version of the wiki.
         """
         ...
@@ -439,8 +429,6 @@ class Wiki(pulumi.CustomResource):
         :param pulumi.Input[str] remote_url: The remote web url to the wiki.
         :param pulumi.Input[str] repository_id: The ID of the repository.
         :param pulumi.Input[str] type: The type of the wiki. Possible values are `codeWiki`, `projectWiki`.
-               
-               > **NOTE:** Project type wiki(`projectWiki`) can only be deleted together with the project.
         :param pulumi.Input[str] url: The REST url for this wiki.
         :param pulumi.Input[str] version: Version of the wiki.
         """
@@ -500,8 +488,6 @@ class Wiki(pulumi.CustomResource):
     def type(self) -> pulumi.Output[str]:
         """
         The type of the wiki. Possible values are `codeWiki`, `projectWiki`.
-
-        > **NOTE:** Project type wiki(`projectWiki`) can only be deleted together with the project.
         """
         return pulumi.get(self, "type")
 

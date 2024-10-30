@@ -32,52 +32,6 @@ import javax.annotation.Nullable;
  * $ pulumi import azuredevops:index/git:Git example projectName/00000000-0000-0000-0000-000000000000
  * ```
  * 
- * hcl
- * 
- * resource &#34;azuredevops_project&#34; &#34;example&#34; {
- * 
- *   name               = &#34;Example Project&#34;
- * 
- *   visibility         = &#34;private&#34;
- * 
- *   version_control    = &#34;Git&#34;
- * 
- *   work_item_template = &#34;Agile&#34;
- * 
- * }
- * 
- * resource &#34;azuredevops_git_repository&#34; &#34;example&#34; {
- * 
- *   project_id     = azuredevops_project.example.id
- * 
- *   name           = &#34;Example Git Repository&#34;
- * 
- *   default_branch = &#34;refs/heads/main&#34;
- * 
- *   initialization {
- * 
- *     init_type = &#34;Clean&#34;
- * 
- *   }
- * 
- *   lifecycle {
- * 
- *     ignore_changes = [
- *     
- *       # Ignore changes to initialization to support importing existing repositories
- *     
- *       # Given that a repo now exists, either imported into terraform state or created by terraform,
- *     
- *       # we don&#39;t care for the configuration of initialization against the existing resource
- *     
- *       initialization,
- *     
- *     ]
- * 
- *   }
- * 
- * }
- * 
  */
 @ResourceType(type="azuredevops:index/git:Git")
 public class Git extends com.pulumi.resources.CustomResource {
@@ -96,18 +50,18 @@ public class Git extends com.pulumi.resources.CustomResource {
         return this.defaultBranch;
     }
     /**
-     * Is the repository disabled?
+     * The ability to disable or enable the repository. Defaults to `false`.
      * 
      */
     @Export(name="disabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> disabled;
+    private Output</* @Nullable */ Boolean> disabled;
 
     /**
-     * @return Is the repository disabled?
+     * @return The ability to disable or enable the repository. Defaults to `false`.
      * 
      */
-    public Output<Boolean> disabled() {
-        return this.disabled;
+    public Output<Optional<Boolean>> disabled() {
+        return Codegen.optional(this.disabled);
     }
     /**
      * An `initialization` block as documented below.

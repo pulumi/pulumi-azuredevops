@@ -384,6 +384,11 @@ if not MYPY:
         valid_duration: NotRequired[pulumi.Input[int]]
         """
         The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
+
+        > **Note** Combine `valid_duration` and `queue_on_source_update_only` to set the build expiration.
+        1.  Expire immediately when branch is updated: `valid_duration=0` and `queue_on_source_update_only=false`
+        2.  Expire after a period of time : `valid_duration=360` and `queue_on_source_update_only=true`
+        3.  Never expire: `valid_duration=0` and `queue_on_source_update_only=true`
         """
 elif False:
     BranchPolicyBuildValidationSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -406,6 +411,11 @@ class BranchPolicyBuildValidationSettingsArgs:
         :param pulumi.Input[bool] manual_queue_only: If set to true, the build will need to be manually queued. Defaults to `false`
         :param pulumi.Input[bool] queue_on_source_update_only: True if the build should queue on source updates only. Defaults to `true`.
         :param pulumi.Input[int] valid_duration: The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
+               
+               > **Note** Combine `valid_duration` and `queue_on_source_update_only` to set the build expiration.
+               1.  Expire immediately when branch is updated: `valid_duration=0` and `queue_on_source_update_only=false`
+               2.  Expire after a period of time : `valid_duration=360` and `queue_on_source_update_only=true`
+               3.  Never expire: `valid_duration=0` and `queue_on_source_update_only=true`
         """
         pulumi.set(__self__, "build_definition_id", build_definition_id)
         pulumi.set(__self__, "display_name", display_name)
@@ -496,6 +506,11 @@ class BranchPolicyBuildValidationSettingsArgs:
     def valid_duration(self) -> Optional[pulumi.Input[int]]:
         """
         The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
+
+        > **Note** Combine `valid_duration` and `queue_on_source_update_only` to set the build expiration.
+        1.  Expire immediately when branch is updated: `valid_duration=0` and `queue_on_source_update_only=false`
+        2.  Expire after a period of time : `valid_duration=360` and `queue_on_source_update_only=true`
+        3.  Never expire: `valid_duration=0` and `queue_on_source_update_only=true`
         """
         return pulumi.get(self, "valid_duration")
 

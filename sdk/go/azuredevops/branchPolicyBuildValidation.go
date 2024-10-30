@@ -61,9 +61,10 @@ import (
 //				Enabled:   pulumi.Bool(true),
 //				Blocking:  pulumi.Bool(true),
 //				Settings: &azuredevops.BranchPolicyBuildValidationSettingsArgs{
-//					DisplayName:       pulumi.String("Example build validation policy"),
-//					BuildDefinitionId: exampleBuildDefinition.ID(),
-//					ValidDuration:     pulumi.Int(720),
+//					DisplayName:             pulumi.String("Example build validation policy"),
+//					BuildDefinitionId:       exampleBuildDefinition.ID(),
+//					QueueOnSourceUpdateOnly: pulumi.Bool(true),
+//					ValidDuration:           pulumi.Int(720),
 //					FilenamePatterns: pulumi.StringArray{
 //						pulumi.String("/WebApp/*"),
 //						pulumi.String("!/WebApp/Tests/*"),

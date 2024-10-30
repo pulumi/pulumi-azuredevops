@@ -113,12 +113,22 @@ public final class BranchPolicyBuildValidationSettingsArgs extends com.pulumi.re
     /**
      * The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
      * 
+     * &gt; **Note** Combine `valid_duration` and `queue_on_source_update_only` to set the build expiration.
+     * 1.  Expire immediately when branch is updated: `valid_duration=0` and `queue_on_source_update_only=false`
+     * 2.  Expire after a period of time : `valid_duration=360` and `queue_on_source_update_only=true`
+     * 3.  Never expire: `valid_duration=0` and `queue_on_source_update_only=true`
+     * 
      */
     @Import(name="validDuration")
     private @Nullable Output<Integer> validDuration;
 
     /**
      * @return The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
+     * 
+     * &gt; **Note** Combine `valid_duration` and `queue_on_source_update_only` to set the build expiration.
+     * 1.  Expire immediately when branch is updated: `valid_duration=0` and `queue_on_source_update_only=false`
+     * 2.  Expire after a period of time : `valid_duration=360` and `queue_on_source_update_only=true`
+     * 3.  Never expire: `valid_duration=0` and `queue_on_source_update_only=true`
      * 
      */
     public Optional<Output<Integer>> validDuration() {
@@ -304,6 +314,11 @@ public final class BranchPolicyBuildValidationSettingsArgs extends com.pulumi.re
         /**
          * @param validDuration The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
          * 
+         * &gt; **Note** Combine `valid_duration` and `queue_on_source_update_only` to set the build expiration.
+         * 1.  Expire immediately when branch is updated: `valid_duration=0` and `queue_on_source_update_only=false`
+         * 2.  Expire after a period of time : `valid_duration=360` and `queue_on_source_update_only=true`
+         * 3.  Never expire: `valid_duration=0` and `queue_on_source_update_only=true`
+         * 
          * @return builder
          * 
          */
@@ -314,6 +329,11 @@ public final class BranchPolicyBuildValidationSettingsArgs extends com.pulumi.re
 
         /**
          * @param validDuration The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
+         * 
+         * &gt; **Note** Combine `valid_duration` and `queue_on_source_update_only` to set the build expiration.
+         * 1.  Expire immediately when branch is updated: `valid_duration=0` and `queue_on_source_update_only=false`
+         * 2.  Expire after a period of time : `valid_duration=360` and `queue_on_source_update_only=true`
+         * 3.  Never expire: `valid_duration=0` and `queue_on_source_update_only=true`
          * 
          * @return builder
          * 

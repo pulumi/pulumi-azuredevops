@@ -36,23 +36,25 @@ public final class BuildDefinitionPermissionsArgs extends com.pulumi.resources.R
     /**
      * the permissions to assign. The following permissions are available.
      * 
-     * | Permission                     | Description                           |
-     * |--------------------------------|---------------------------------------|
-     * | ViewBuilds                     | View builds                           |
-     * | EditBuildQuality               | Edit build quality                    |
-     * | RetainIndefinitely             | Retain indefinitely                   |
-     * | DeleteBuilds                   | Delete builds                         |
-     * | ManageBuildQualities           | Manage build qualities                |
-     * | DestroyBuilds                  | Destroy builds                        |
-     * | UpdateBuildInformation         | Update build information              |
-     * | QueueBuilds                    | Queue builds                          |
-     * | ManageBuildQueue               | Manage build queue                    |
-     * | StopBuilds                     | Stop builds                           |
-     * | ViewBuildDefinition            | View build pipeline                   |
-     * | EditBuildDefinition            | Edit build pipeline                   |
-     * | DeleteBuildDefinition          | Delete build pipeline                 |
-     * | OverrideBuildCheckInValidation | Override check-in validation by build |
-     * | AdministerBuildPermissions     | Administer build permissions          |
+     * | Permission                               | Description                           |
+     * |------------------------------------------|---------------------------------------|
+     * | ViewBuilds                               | View builds                           |
+     * | EditBuildQuality                         | Edit build quality                    |
+     * | RetainIndefinitely                       | Retain indefinitely                   |
+     * | DeleteBuilds                             | Delete builds                         |
+     * | ManageBuildQualities                     | Manage build qualities                |
+     * | DestroyBuilds                            | Destroy builds                        |
+     * | UpdateBuildInformation                   | Update build information              |
+     * | QueueBuilds                              | Queue builds                          |
+     * | ManageBuildQueue                         | Manage build queue                    |
+     * | StopBuilds                               | Stop builds                           |
+     * | ViewBuildDefinition                      | View build pipeline                   |
+     * | EditBuildDefinition                      | Edit build pipeline                   |
+     * | DeleteBuildDefinition                    | Delete build pipeline                 |
+     * | OverrideBuildCheckInValidation           | Override check-in validation by build |
+     * | AdministerBuildPermissions               | Administer build permissions          |
+     * | CreateBuildDefinition                    | Create build pipeline                 |
+     * | EditPipelineQueueConfigurationPermission | Edit queue build configuration        |
      * 
      */
     @Import(name="permissions", required=true)
@@ -61,23 +63,25 @@ public final class BuildDefinitionPermissionsArgs extends com.pulumi.resources.R
     /**
      * @return the permissions to assign. The following permissions are available.
      * 
-     * | Permission                     | Description                           |
-     * |--------------------------------|---------------------------------------|
-     * | ViewBuilds                     | View builds                           |
-     * | EditBuildQuality               | Edit build quality                    |
-     * | RetainIndefinitely             | Retain indefinitely                   |
-     * | DeleteBuilds                   | Delete builds                         |
-     * | ManageBuildQualities           | Manage build qualities                |
-     * | DestroyBuilds                  | Destroy builds                        |
-     * | UpdateBuildInformation         | Update build information              |
-     * | QueueBuilds                    | Queue builds                          |
-     * | ManageBuildQueue               | Manage build queue                    |
-     * | StopBuilds                     | Stop builds                           |
-     * | ViewBuildDefinition            | View build pipeline                   |
-     * | EditBuildDefinition            | Edit build pipeline                   |
-     * | DeleteBuildDefinition          | Delete build pipeline                 |
-     * | OverrideBuildCheckInValidation | Override check-in validation by build |
-     * | AdministerBuildPermissions     | Administer build permissions          |
+     * | Permission                               | Description                           |
+     * |------------------------------------------|---------------------------------------|
+     * | ViewBuilds                               | View builds                           |
+     * | EditBuildQuality                         | Edit build quality                    |
+     * | RetainIndefinitely                       | Retain indefinitely                   |
+     * | DeleteBuilds                             | Delete builds                         |
+     * | ManageBuildQualities                     | Manage build qualities                |
+     * | DestroyBuilds                            | Destroy builds                        |
+     * | UpdateBuildInformation                   | Update build information              |
+     * | QueueBuilds                              | Queue builds                          |
+     * | ManageBuildQueue                         | Manage build queue                    |
+     * | StopBuilds                               | Stop builds                           |
+     * | ViewBuildDefinition                      | View build pipeline                   |
+     * | EditBuildDefinition                      | Edit build pipeline                   |
+     * | DeleteBuildDefinition                    | Delete build pipeline                 |
+     * | OverrideBuildCheckInValidation           | Override check-in validation by build |
+     * | AdministerBuildPermissions               | Administer build permissions          |
+     * | CreateBuildDefinition                    | Create build pipeline                 |
+     * | EditPipelineQueueConfigurationPermission | Edit queue build configuration        |
      * 
      */
     public Output<Map<String,String>> permissions() {
@@ -181,23 +185,25 @@ public final class BuildDefinitionPermissionsArgs extends com.pulumi.resources.R
         /**
          * @param permissions the permissions to assign. The following permissions are available.
          * 
-         * | Permission                     | Description                           |
-         * |--------------------------------|---------------------------------------|
-         * | ViewBuilds                     | View builds                           |
-         * | EditBuildQuality               | Edit build quality                    |
-         * | RetainIndefinitely             | Retain indefinitely                   |
-         * | DeleteBuilds                   | Delete builds                         |
-         * | ManageBuildQualities           | Manage build qualities                |
-         * | DestroyBuilds                  | Destroy builds                        |
-         * | UpdateBuildInformation         | Update build information              |
-         * | QueueBuilds                    | Queue builds                          |
-         * | ManageBuildQueue               | Manage build queue                    |
-         * | StopBuilds                     | Stop builds                           |
-         * | ViewBuildDefinition            | View build pipeline                   |
-         * | EditBuildDefinition            | Edit build pipeline                   |
-         * | DeleteBuildDefinition          | Delete build pipeline                 |
-         * | OverrideBuildCheckInValidation | Override check-in validation by build |
-         * | AdministerBuildPermissions     | Administer build permissions          |
+         * | Permission                               | Description                           |
+         * |------------------------------------------|---------------------------------------|
+         * | ViewBuilds                               | View builds                           |
+         * | EditBuildQuality                         | Edit build quality                    |
+         * | RetainIndefinitely                       | Retain indefinitely                   |
+         * | DeleteBuilds                             | Delete builds                         |
+         * | ManageBuildQualities                     | Manage build qualities                |
+         * | DestroyBuilds                            | Destroy builds                        |
+         * | UpdateBuildInformation                   | Update build information              |
+         * | QueueBuilds                              | Queue builds                          |
+         * | ManageBuildQueue                         | Manage build queue                    |
+         * | StopBuilds                               | Stop builds                           |
+         * | ViewBuildDefinition                      | View build pipeline                   |
+         * | EditBuildDefinition                      | Edit build pipeline                   |
+         * | DeleteBuildDefinition                    | Delete build pipeline                 |
+         * | OverrideBuildCheckInValidation           | Override check-in validation by build |
+         * | AdministerBuildPermissions               | Administer build permissions          |
+         * | CreateBuildDefinition                    | Create build pipeline                 |
+         * | EditPipelineQueueConfigurationPermission | Edit queue build configuration        |
          * 
          * @return builder
          * 
@@ -210,23 +216,25 @@ public final class BuildDefinitionPermissionsArgs extends com.pulumi.resources.R
         /**
          * @param permissions the permissions to assign. The following permissions are available.
          * 
-         * | Permission                     | Description                           |
-         * |--------------------------------|---------------------------------------|
-         * | ViewBuilds                     | View builds                           |
-         * | EditBuildQuality               | Edit build quality                    |
-         * | RetainIndefinitely             | Retain indefinitely                   |
-         * | DeleteBuilds                   | Delete builds                         |
-         * | ManageBuildQualities           | Manage build qualities                |
-         * | DestroyBuilds                  | Destroy builds                        |
-         * | UpdateBuildInformation         | Update build information              |
-         * | QueueBuilds                    | Queue builds                          |
-         * | ManageBuildQueue               | Manage build queue                    |
-         * | StopBuilds                     | Stop builds                           |
-         * | ViewBuildDefinition            | View build pipeline                   |
-         * | EditBuildDefinition            | Edit build pipeline                   |
-         * | DeleteBuildDefinition          | Delete build pipeline                 |
-         * | OverrideBuildCheckInValidation | Override check-in validation by build |
-         * | AdministerBuildPermissions     | Administer build permissions          |
+         * | Permission                               | Description                           |
+         * |------------------------------------------|---------------------------------------|
+         * | ViewBuilds                               | View builds                           |
+         * | EditBuildQuality                         | Edit build quality                    |
+         * | RetainIndefinitely                       | Retain indefinitely                   |
+         * | DeleteBuilds                             | Delete builds                         |
+         * | ManageBuildQualities                     | Manage build qualities                |
+         * | DestroyBuilds                            | Destroy builds                        |
+         * | UpdateBuildInformation                   | Update build information              |
+         * | QueueBuilds                              | Queue builds                          |
+         * | ManageBuildQueue                         | Manage build queue                    |
+         * | StopBuilds                               | Stop builds                           |
+         * | ViewBuildDefinition                      | View build pipeline                   |
+         * | EditBuildDefinition                      | Edit build pipeline                   |
+         * | DeleteBuildDefinition                    | Delete build pipeline                 |
+         * | OverrideBuildCheckInValidation           | Override check-in validation by build |
+         * | AdministerBuildPermissions               | Administer build permissions          |
+         * | CreateBuildDefinition                    | Create build pipeline                 |
+         * | EditPipelineQueueConfigurationPermission | Edit queue build configuration        |
          * 
          * @return builder
          * 

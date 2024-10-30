@@ -107,7 +107,7 @@ export class RepositoryPolicyMaxFileSize extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Block pushes that contain new or updated files larger than this limit. Available values is: `1, 2, 5, 10, 100, 200` (MB).
+     * Block pushes that contain new or updated files larger than this limit. Available values is: `1, 2, 5, 10, 50, 100, 200` (MB).
      */
     public readonly maxFileSize!: pulumi.Output<number>;
     /**
@@ -169,7 +169,7 @@ export interface RepositoryPolicyMaxFileSizeState {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Block pushes that contain new or updated files larger than this limit. Available values is: `1, 2, 5, 10, 100, 200` (MB).
+     * Block pushes that contain new or updated files larger than this limit. Available values is: `1, 2, 5, 10, 50, 100, 200` (MB).
      */
     maxFileSize?: pulumi.Input<number>;
     /**
@@ -195,7 +195,7 @@ export interface RepositoryPolicyMaxFileSizeArgs {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Block pushes that contain new or updated files larger than this limit. Available values is: `1, 2, 5, 10, 100, 200` (MB).
+     * Block pushes that contain new or updated files larger than this limit. Available values is: `1, 2, 5, 10, 50, 100, 200` (MB).
      */
     maxFileSize: pulumi.Input<number>;
     /**
