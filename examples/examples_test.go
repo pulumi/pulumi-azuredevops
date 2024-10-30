@@ -62,8 +62,10 @@ func TestServiceConnectionIdDefaultDoesNotConflict(t *testing.T) {
 			"response": {
 				"inputs": {
 					"__defaults": [
+						"disabled",
 						"name"
 					],
+					"disabled": false,
 					"initialization": {
 						"__defaults": [
 							"serviceConnectionId"
