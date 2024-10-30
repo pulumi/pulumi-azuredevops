@@ -49,6 +49,7 @@ from .get_securityrole_definitions import *
 from .get_service_endpoint_azure_rm import *
 from .get_service_endpoint_github import *
 from .get_serviceendpoint_azurecr import *
+from .get_serviceendpoint_bitbucket import *
 from .get_serviceendpoint_npm import *
 from .get_serviceendpoint_sonarcloud import *
 from .get_team import *
@@ -123,6 +124,7 @@ from .user import *
 from .variable_group import *
 from .variable_group_permissions import *
 from .wiki import *
+from .wiki_page import *
 from .work_item_query_permissions import *
 from .workitem import *
 from ._inputs import *
@@ -848,6 +850,14 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/wiki:Wiki": "Wiki"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/wikiPage",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/wikiPage:WikiPage": "WikiPage"
   }
  },
  {

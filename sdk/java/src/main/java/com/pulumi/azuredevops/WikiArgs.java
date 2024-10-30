@@ -71,16 +71,12 @@ public final class WikiArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The type of the wiki. Possible values are `codeWiki`, `projectWiki`.
      * 
-     * &gt; **NOTE:** Project type wiki(`projectWiki`) can only be deleted together with the project.
-     * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
      * @return The type of the wiki. Possible values are `codeWiki`, `projectWiki`.
-     * 
-     * &gt; **NOTE:** Project type wiki(`projectWiki`) can only be deleted together with the project.
      * 
      */
     public Output<String> type() {
@@ -206,8 +202,6 @@ public final class WikiArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param type The type of the wiki. Possible values are `codeWiki`, `projectWiki`.
          * 
-         * &gt; **NOTE:** Project type wiki(`projectWiki`) can only be deleted together with the project.
-         * 
          * @return builder
          * 
          */
@@ -218,8 +212,6 @@ public final class WikiArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param type The type of the wiki. Possible values are `codeWiki`, `projectWiki`.
-         * 
-         * &gt; **NOTE:** Project type wiki(`projectWiki`) can only be deleted together with the project.
          * 
          * @return builder
          * 

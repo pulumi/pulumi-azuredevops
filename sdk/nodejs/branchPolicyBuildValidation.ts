@@ -39,6 +39,7 @@ import * as utilities from "./utilities";
  *     settings: {
  *         displayName: "Example build validation policy",
  *         buildDefinitionId: exampleBuildDefinition.id,
+ *         queueOnSourceUpdateOnly: true,
  *         validDuration: 720,
  *         filenamePatterns: [
  *             "/WebApp/*",

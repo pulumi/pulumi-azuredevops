@@ -84,6 +84,7 @@ import javax.annotation.Nullable;
  *             .settings(BranchPolicyBuildValidationSettingsArgs.builder()
  *                 .displayName("Example build validation policy")
  *                 .buildDefinitionId(exampleBuildDefinition.id())
+ *                 .queueOnSourceUpdateOnly(true)
  *                 .validDuration(720)
  *                 .filenamePatterns(                
  *                     "/WebApp/*",

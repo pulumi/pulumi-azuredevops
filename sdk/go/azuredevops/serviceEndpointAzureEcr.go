@@ -96,13 +96,13 @@ import (
 //			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
 //				Location:          identity.Location,
 //				Name:              pulumi.String("example-identity"),
-//				ResourceGroupName: pulumi.String("azurerm_resource_group.identity.name"),
+//				ResourceGroupName: identity.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			// azure container registry service connection
-//			_, err = azuredevops.NewServiceEndpointAzureEcr(ctx, "example", &azuredevops.ServiceEndpointAzureEcrArgs{
+//			exampleServiceEndpointAzureEcr, err := azuredevops.NewServiceEndpointAzureEcr(ctx, "example", &azuredevops.ServiceEndpointAzureEcrArgs{
 //				ProjectId:                           example.ID(),
 //				ResourceGroup:                       pulumi.String("Example AzureCR ResourceGroup"),
 //				ServiceEndpointName:                 pulumi.String("Example AzureCR"),
@@ -123,8 +123,8 @@ import (
 //				ResourceGroupName: identity.Name,
 //				ParentId:          exampleUserAssignedIdentity.ID(),
 //				Audience:          pulumi.String("api://AzureADTokenExchange"),
-//				Issuer:            pulumi.Any(exampleAzuredevopsServiceendpointAzurerm.WorkloadIdentityFederationIssuer),
-//				Subject:           pulumi.Any(exampleAzuredevopsServiceendpointAzurerm.WorkloadIdentityFederationSubject),
+//				Issuer:            exampleServiceEndpointAzureEcr.WorkloadIdentityFederationIssuer,
+//				Subject:           exampleServiceEndpointAzureEcr.WorkloadIdentityFederationSubject,
 //			})
 //			if err != nil {
 //				return err

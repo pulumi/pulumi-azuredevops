@@ -49,14 +49,14 @@ public final class RepositoryPolicyMaxFileSizeState extends com.pulumi.resources
     }
 
     /**
-     * Block pushes that contain new or updated files larger than this limit. Available values is: `1, 2, 5, 10, 100, 200` (MB).
+     * Block pushes that contain new or updated files larger than this limit. Available values is: `1, 2, 5, 10, 50, 100, 200` (MB).
      * 
      */
     @Import(name="maxFileSize")
     private @Nullable Output<Integer> maxFileSize;
 
     /**
-     * @return Block pushes that contain new or updated files larger than this limit. Available values is: `1, 2, 5, 10, 100, 200` (MB).
+     * @return Block pushes that contain new or updated files larger than this limit. Available values is: `1, 2, 5, 10, 50, 100, 200` (MB).
      * 
      */
     public Optional<Output<Integer>> maxFileSize() {
@@ -164,7 +164,7 @@ public final class RepositoryPolicyMaxFileSizeState extends com.pulumi.resources
         }
 
         /**
-         * @param maxFileSize Block pushes that contain new or updated files larger than this limit. Available values is: `1, 2, 5, 10, 100, 200` (MB).
+         * @param maxFileSize Block pushes that contain new or updated files larger than this limit. Available values is: `1, 2, 5, 10, 50, 100, 200` (MB).
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class RepositoryPolicyMaxFileSizeState extends com.pulumi.resources
         }
 
         /**
-         * @param maxFileSize Block pushes that contain new or updated files larger than this limit. Available values is: `1, 2, 5, 10, 100, 200` (MB).
+         * @param maxFileSize Block pushes that contain new or updated files larger than this limit. Available values is: `1, 2, 5, 10, 50, 100, 200` (MB).
          * 
          * @return builder
          * 

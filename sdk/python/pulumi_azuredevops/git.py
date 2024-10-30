@@ -24,6 +24,7 @@ class GitArgs:
                  initialization: pulumi.Input['GitInitializationArgs'],
                  project_id: pulumi.Input[str],
                  default_branch: Optional[pulumi.Input[str]] = None,
+                 disabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parent_repository_id: Optional[pulumi.Input[str]] = None):
         """
@@ -31,6 +32,7 @@ class GitArgs:
         :param pulumi.Input['GitInitializationArgs'] initialization: An `initialization` block as documented below.
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input[str] default_branch: The ref of the default branch. Will be used as the branch name for initialized repositories.
+        :param pulumi.Input[bool] disabled: The ability to disable or enable the repository. Defaults to `false`.
         :param pulumi.Input[str] name: The name of the git repository.
         :param pulumi.Input[str] parent_repository_id: The ID of a Git project from which a fork is to be created.
         """
@@ -38,6 +40,8 @@ class GitArgs:
         pulumi.set(__self__, "project_id", project_id)
         if default_branch is not None:
             pulumi.set(__self__, "default_branch", default_branch)
+        if disabled is not None:
+            pulumi.set(__self__, "disabled", disabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if parent_repository_id is not None:
@@ -78,6 +82,18 @@ class GitArgs:
     @default_branch.setter
     def default_branch(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "default_branch", value)
+
+    @property
+    @pulumi.getter
+    def disabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The ability to disable or enable the repository. Defaults to `false`.
+        """
+        return pulumi.get(self, "disabled")
+
+    @disabled.setter
+    def disabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disabled", value)
 
     @property
     @pulumi.getter
@@ -122,7 +138,7 @@ class _GitState:
         """
         Input properties used for looking up and filtering Git resources.
         :param pulumi.Input[str] default_branch: The ref of the default branch. Will be used as the branch name for initialized repositories.
-        :param pulumi.Input[bool] disabled: Is the repository disabled?
+        :param pulumi.Input[bool] disabled: The ability to disable or enable the repository. Defaults to `false`.
         :param pulumi.Input['GitInitializationArgs'] initialization: An `initialization` block as documented below.
         :param pulumi.Input[bool] is_fork: True if the repository was created as a fork.
         :param pulumi.Input[str] name: The name of the git repository.
@@ -175,7 +191,7 @@ class _GitState:
     @pulumi.getter
     def disabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is the repository disabled?
+        The ability to disable or enable the repository. Defaults to `false`.
         """
         return pulumi.get(self, "disabled")
 
@@ -310,6 +326,7 @@ class Git(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_branch: Optional[pulumi.Input[str]] = None,
+                 disabled: Optional[pulumi.Input[bool]] = None,
                  initialization: Optional[pulumi.Input[Union['GitInitializationArgs', 'GitInitializationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parent_repository_id: Optional[pulumi.Input[str]] = None,
@@ -330,55 +347,10 @@ class Git(pulumi.CustomResource):
         $ pulumi import azuredevops:index/git:Git example projectName/00000000-0000-0000-0000-000000000000
         ```
 
-        hcl
-
-        resource "azuredevops_project" "example" {
-
-          name               = "Example Project"
-
-          visibility         = "private"
-
-          version_control    = "Git"
-
-          work_item_template = "Agile"
-
-        }
-
-        resource "azuredevops_git_repository" "example" {
-
-          project_id     = azuredevops_project.example.id
-
-          name           = "Example Git Repository"
-
-          default_branch = "refs/heads/main"
-
-          initialization {
-
-            init_type = "Clean"
-
-          }
-
-          lifecycle {
-
-            ignore_changes = [
-            
-              # Ignore changes to initialization to support importing existing repositories
-            
-              # Given that a repo now exists, either imported into terraform state or created by terraform,
-            
-              # we don't care for the configuration of initialization against the existing resource
-            
-              initialization,
-            
-            ]
-
-          }
-
-        }
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_branch: The ref of the default branch. Will be used as the branch name for initialized repositories.
+        :param pulumi.Input[bool] disabled: The ability to disable or enable the repository. Defaults to `false`.
         :param pulumi.Input[Union['GitInitializationArgs', 'GitInitializationArgsDict']] initialization: An `initialization` block as documented below.
         :param pulumi.Input[str] name: The name of the git repository.
         :param pulumi.Input[str] parent_repository_id: The ID of a Git project from which a fork is to be created.
@@ -405,52 +377,6 @@ class Git(pulumi.CustomResource):
         $ pulumi import azuredevops:index/git:Git example projectName/00000000-0000-0000-0000-000000000000
         ```
 
-        hcl
-
-        resource "azuredevops_project" "example" {
-
-          name               = "Example Project"
-
-          visibility         = "private"
-
-          version_control    = "Git"
-
-          work_item_template = "Agile"
-
-        }
-
-        resource "azuredevops_git_repository" "example" {
-
-          project_id     = azuredevops_project.example.id
-
-          name           = "Example Git Repository"
-
-          default_branch = "refs/heads/main"
-
-          initialization {
-
-            init_type = "Clean"
-
-          }
-
-          lifecycle {
-
-            ignore_changes = [
-            
-              # Ignore changes to initialization to support importing existing repositories
-            
-              # Given that a repo now exists, either imported into terraform state or created by terraform,
-            
-              # we don't care for the configuration of initialization against the existing resource
-            
-              initialization,
-            
-            ]
-
-          }
-
-        }
-
         :param str resource_name: The name of the resource.
         :param GitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -467,6 +393,7 @@ class Git(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_branch: Optional[pulumi.Input[str]] = None,
+                 disabled: Optional[pulumi.Input[bool]] = None,
                  initialization: Optional[pulumi.Input[Union['GitInitializationArgs', 'GitInitializationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parent_repository_id: Optional[pulumi.Input[str]] = None,
@@ -481,6 +408,7 @@ class Git(pulumi.CustomResource):
             __props__ = GitArgs.__new__(GitArgs)
 
             __props__.__dict__["default_branch"] = default_branch
+            __props__.__dict__["disabled"] = disabled
             if initialization is None and not opts.urn:
                 raise TypeError("Missing required property 'initialization'")
             __props__.__dict__["initialization"] = initialization
@@ -489,7 +417,6 @@ class Git(pulumi.CustomResource):
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__.__dict__["project_id"] = project_id
-            __props__.__dict__["disabled"] = None
             __props__.__dict__["is_fork"] = None
             __props__.__dict__["remote_url"] = None
             __props__.__dict__["size"] = None
@@ -526,7 +453,7 @@ class Git(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_branch: The ref of the default branch. Will be used as the branch name for initialized repositories.
-        :param pulumi.Input[bool] disabled: Is the repository disabled?
+        :param pulumi.Input[bool] disabled: The ability to disable or enable the repository. Defaults to `false`.
         :param pulumi.Input[Union['GitInitializationArgs', 'GitInitializationArgsDict']] initialization: An `initialization` block as documented below.
         :param pulumi.Input[bool] is_fork: True if the repository was created as a fork.
         :param pulumi.Input[str] name: The name of the git repository.
@@ -566,9 +493,9 @@ class Git(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def disabled(self) -> pulumi.Output[bool]:
+    def disabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is the repository disabled?
+        The ability to disable or enable the repository. Defaults to `false`.
         """
         return pulumi.get(self, "disabled")
 

@@ -59,6 +59,7 @@
         "getServiceEndpointAzureRM.ts",
         "getServiceEndpointGithub.ts",
         "getServiceendpointAzurecr.ts",
+        "getServiceendpointBitbucket.ts",
         "getServiceendpointNpm.ts",
         "getServiceendpointSonarcloud.ts",
         "getTeam.ts",
@@ -138,6 +139,7 @@
         "variableGroup.ts",
         "variableGroupPermissions.ts",
         "wiki.ts",
+        "wikiPage.ts",
         "workItemQueryPermissions.ts",
         "workitem.ts"
     ]

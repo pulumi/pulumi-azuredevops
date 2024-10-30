@@ -382,6 +382,11 @@ type BranchPolicyBuildValidationSettings struct {
 	// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 	Scopes []BranchPolicyBuildValidationSettingsScope `pulumi:"scopes"`
 	// The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
+	//
+	// > **Note** Combine `validDuration` and `queueOnSourceUpdateOnly` to set the build expiration.
+	// 1.  Expire immediately when branch is updated: `valid_duration=0` and `queue_on_source_update_only=false`
+	// 2.  Expire after a period of time : `valid_duration=360` and `queue_on_source_update_only=true`
+	// 3.  Never expire: `valid_duration=0` and `queue_on_source_update_only=true`
 	ValidDuration *int `pulumi:"validDuration"`
 }
 
@@ -410,6 +415,11 @@ type BranchPolicyBuildValidationSettingsArgs struct {
 	// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 	Scopes BranchPolicyBuildValidationSettingsScopeArrayInput `pulumi:"scopes"`
 	// The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
+	//
+	// > **Note** Combine `validDuration` and `queueOnSourceUpdateOnly` to set the build expiration.
+	// 1.  Expire immediately when branch is updated: `valid_duration=0` and `queue_on_source_update_only=false`
+	// 2.  Expire after a period of time : `valid_duration=360` and `queue_on_source_update_only=true`
+	// 3.  Never expire: `valid_duration=0` and `queue_on_source_update_only=true`
 	ValidDuration pulumi.IntPtrInput `pulumi:"validDuration"`
 }
 
@@ -523,6 +533,11 @@ func (o BranchPolicyBuildValidationSettingsOutput) Scopes() BranchPolicyBuildVal
 }
 
 // The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
+//
+// > **Note** Combine `validDuration` and `queueOnSourceUpdateOnly` to set the build expiration.
+// 1.  Expire immediately when branch is updated: `valid_duration=0` and `queue_on_source_update_only=false`
+// 2.  Expire after a period of time : `valid_duration=360` and `queue_on_source_update_only=true`
+// 3.  Never expire: `valid_duration=0` and `queue_on_source_update_only=true`
 func (o BranchPolicyBuildValidationSettingsOutput) ValidDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BranchPolicyBuildValidationSettings) *int { return v.ValidDuration }).(pulumi.IntPtrOutput)
 }
@@ -612,6 +627,11 @@ func (o BranchPolicyBuildValidationSettingsPtrOutput) Scopes() BranchPolicyBuild
 }
 
 // The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
+//
+// > **Note** Combine `validDuration` and `queueOnSourceUpdateOnly` to set the build expiration.
+// 1.  Expire immediately when branch is updated: `valid_duration=0` and `queue_on_source_update_only=false`
+// 2.  Expire after a period of time : `valid_duration=360` and `queue_on_source_update_only=true`
+// 3.  Never expire: `valid_duration=0` and `queue_on_source_update_only=true`
 func (o BranchPolicyBuildValidationSettingsPtrOutput) ValidDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BranchPolicyBuildValidationSettings) *int {
 		if v == nil {

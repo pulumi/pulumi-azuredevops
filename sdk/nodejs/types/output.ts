@@ -76,6 +76,11 @@ export interface BranchPolicyBuildValidationSettings {
     scopes: outputs.BranchPolicyBuildValidationSettingsScope[];
     /**
      * The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
+     *
+     * > **Note** Combine `validDuration` and `queueOnSourceUpdateOnly` to set the build expiration.
+     * 1.  Expire immediately when branch is updated: `valid_duration=0` and `queue_on_source_update_only=false`
+     * 2.  Expire after a period of time : `valid_duration=360` and `queue_on_source_update_only=true`
+     * 3.  Never expire: `valid_duration=0` and `queue_on_source_update_only=true`
      */
     validDuration?: number;
 }

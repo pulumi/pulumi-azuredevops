@@ -98,8 +98,6 @@ export class Wiki extends pulumi.CustomResource {
     public readonly repositoryId!: pulumi.Output<string>;
     /**
      * The type of the wiki. Possible values are `codeWiki`, `projectWiki`.
-     *
-     * > **NOTE:** Project type wiki(`projectWiki`) can only be deleted together with the project.
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -174,8 +172,6 @@ export interface WikiState {
     repositoryId?: pulumi.Input<string>;
     /**
      * The type of the wiki. Possible values are `codeWiki`, `projectWiki`.
-     *
-     * > **NOTE:** Project type wiki(`projectWiki`) can only be deleted together with the project.
      */
     type?: pulumi.Input<string>;
     /**
@@ -207,8 +203,6 @@ export interface WikiArgs {
     repositoryId?: pulumi.Input<string>;
     /**
      * The type of the wiki. Possible values are `codeWiki`, `projectWiki`.
-     *
-     * > **NOTE:** Project type wiki(`projectWiki`) can only be deleted together with the project.
      */
     type: pulumi.Input<string>;
     /**

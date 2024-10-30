@@ -7,6 +7,7 @@ import com.pulumi.azuredevops.inputs.GitInitializationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -30,6 +31,21 @@ public final class GitArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> defaultBranch() {
         return Optional.ofNullable(this.defaultBranch);
+    }
+
+    /**
+     * The ability to disable or enable the repository. Defaults to `false`.
+     * 
+     */
+    @Import(name="disabled")
+    private @Nullable Output<Boolean> disabled;
+
+    /**
+     * @return The ability to disable or enable the repository. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> disabled() {
+        return Optional.ofNullable(this.disabled);
     }
 
     /**
@@ -96,6 +112,7 @@ public final class GitArgs extends com.pulumi.resources.ResourceArgs {
 
     private GitArgs(GitArgs $) {
         this.defaultBranch = $.defaultBranch;
+        this.disabled = $.disabled;
         this.initialization = $.initialization;
         this.name = $.name;
         this.parentRepositoryId = $.parentRepositoryId;
@@ -139,6 +156,27 @@ public final class GitArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder defaultBranch(String defaultBranch) {
             return defaultBranch(Output.of(defaultBranch));
+        }
+
+        /**
+         * @param disabled The ability to disable or enable the repository. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disabled(@Nullable Output<Boolean> disabled) {
+            $.disabled = disabled;
+            return this;
+        }
+
+        /**
+         * @param disabled The ability to disable or enable the repository. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disabled(Boolean disabled) {
+            return disabled(Output.of(disabled));
         }
 
         /**

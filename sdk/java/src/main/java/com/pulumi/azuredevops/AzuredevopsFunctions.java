@@ -44,6 +44,8 @@ import com.pulumi.azuredevops.inputs.GetServiceEndpointGithubArgs;
 import com.pulumi.azuredevops.inputs.GetServiceEndpointGithubPlainArgs;
 import com.pulumi.azuredevops.inputs.GetServiceendpointAzurecrArgs;
 import com.pulumi.azuredevops.inputs.GetServiceendpointAzurecrPlainArgs;
+import com.pulumi.azuredevops.inputs.GetServiceendpointBitbucketArgs;
+import com.pulumi.azuredevops.inputs.GetServiceendpointBitbucketPlainArgs;
 import com.pulumi.azuredevops.inputs.GetServiceendpointNpmArgs;
 import com.pulumi.azuredevops.inputs.GetServiceendpointNpmPlainArgs;
 import com.pulumi.azuredevops.inputs.GetServiceendpointSonarcloudArgs;
@@ -78,6 +80,7 @@ import com.pulumi.azuredevops.outputs.GetSecurityroleDefinitionsResult;
 import com.pulumi.azuredevops.outputs.GetServiceEndpointAzureRMResult;
 import com.pulumi.azuredevops.outputs.GetServiceEndpointGithubResult;
 import com.pulumi.azuredevops.outputs.GetServiceendpointAzurecrResult;
+import com.pulumi.azuredevops.outputs.GetServiceendpointBitbucketResult;
 import com.pulumi.azuredevops.outputs.GetServiceendpointNpmResult;
 import com.pulumi.azuredevops.outputs.GetServiceendpointSonarcloudResult;
 import com.pulumi.azuredevops.outputs.GetTeamResult;
@@ -5959,6 +5962,394 @@ public final class AzuredevopsFunctions {
      */
     public static CompletableFuture<GetServiceendpointAzurecrResult> getServiceendpointAzurecrPlain(GetServiceendpointAzurecrPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azuredevops:index/getServiceendpointAzurecr:getServiceendpointAzurecr", TypeShape.of(GetServiceendpointAzurecrResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Bitbucket service Endpoint.
+     * 
+     * ## Example Usage
+     * 
+     * ### By Service Endpoint ID
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointBitbucketArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetServiceendpointBitbucket = AzuredevopsFunctions.getServiceendpointBitbucket(GetServiceendpointBitbucketArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *         ctx.export("serviceEndpointName", exampleGetServiceendpointBitbucket.applyValue(getServiceendpointBitbucketResult -> getServiceendpointBitbucketResult.serviceEndpointName()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### By Service Endpoint Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointBitbucketArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetServiceendpointBitbucket = AzuredevopsFunctions.getServiceendpointBitbucket(GetServiceendpointBitbucketArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .serviceEndpointName("Example")
+     *             .build());
+     * 
+     *         ctx.export("serviceEndpointId", exampleGetServiceendpointBitbucket.applyValue(getServiceendpointBitbucketResult -> getServiceendpointBitbucketResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## PAT Permissions Required
+     * 
+     * - **vso.serviceendpoint**: Grants the ability to read service endpoints.
+     * 
+     */
+    public static Output<GetServiceendpointBitbucketResult> getServiceendpointBitbucket(GetServiceendpointBitbucketArgs args) {
+        return getServiceendpointBitbucket(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Bitbucket service Endpoint.
+     * 
+     * ## Example Usage
+     * 
+     * ### By Service Endpoint ID
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointBitbucketArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetServiceendpointBitbucket = AzuredevopsFunctions.getServiceendpointBitbucket(GetServiceendpointBitbucketArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *         ctx.export("serviceEndpointName", exampleGetServiceendpointBitbucket.applyValue(getServiceendpointBitbucketResult -> getServiceendpointBitbucketResult.serviceEndpointName()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### By Service Endpoint Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointBitbucketArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetServiceendpointBitbucket = AzuredevopsFunctions.getServiceendpointBitbucket(GetServiceendpointBitbucketArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .serviceEndpointName("Example")
+     *             .build());
+     * 
+     *         ctx.export("serviceEndpointId", exampleGetServiceendpointBitbucket.applyValue(getServiceendpointBitbucketResult -> getServiceendpointBitbucketResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## PAT Permissions Required
+     * 
+     * - **vso.serviceendpoint**: Grants the ability to read service endpoints.
+     * 
+     */
+    public static CompletableFuture<GetServiceendpointBitbucketResult> getServiceendpointBitbucketPlain(GetServiceendpointBitbucketPlainArgs args) {
+        return getServiceendpointBitbucketPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Bitbucket service Endpoint.
+     * 
+     * ## Example Usage
+     * 
+     * ### By Service Endpoint ID
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointBitbucketArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetServiceendpointBitbucket = AzuredevopsFunctions.getServiceendpointBitbucket(GetServiceendpointBitbucketArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *         ctx.export("serviceEndpointName", exampleGetServiceendpointBitbucket.applyValue(getServiceendpointBitbucketResult -> getServiceendpointBitbucketResult.serviceEndpointName()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### By Service Endpoint Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointBitbucketArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetServiceendpointBitbucket = AzuredevopsFunctions.getServiceendpointBitbucket(GetServiceendpointBitbucketArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .serviceEndpointName("Example")
+     *             .build());
+     * 
+     *         ctx.export("serviceEndpointId", exampleGetServiceendpointBitbucket.applyValue(getServiceendpointBitbucketResult -> getServiceendpointBitbucketResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## PAT Permissions Required
+     * 
+     * - **vso.serviceendpoint**: Grants the ability to read service endpoints.
+     * 
+     */
+    public static Output<GetServiceendpointBitbucketResult> getServiceendpointBitbucket(GetServiceendpointBitbucketArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getServiceendpointBitbucket:getServiceendpointBitbucket", TypeShape.of(GetServiceendpointBitbucketResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Bitbucket service Endpoint.
+     * 
+     * ## Example Usage
+     * 
+     * ### By Service Endpoint ID
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointBitbucketArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetServiceendpointBitbucket = AzuredevopsFunctions.getServiceendpointBitbucket(GetServiceendpointBitbucketArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *         ctx.export("serviceEndpointName", exampleGetServiceendpointBitbucket.applyValue(getServiceendpointBitbucketResult -> getServiceendpointBitbucketResult.serviceEndpointName()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### By Service Endpoint Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointBitbucketArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetServiceendpointBitbucket = AzuredevopsFunctions.getServiceendpointBitbucket(GetServiceendpointBitbucketArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .serviceEndpointName("Example")
+     *             .build());
+     * 
+     *         ctx.export("serviceEndpointId", exampleGetServiceendpointBitbucket.applyValue(getServiceendpointBitbucketResult -> getServiceendpointBitbucketResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## PAT Permissions Required
+     * 
+     * - **vso.serviceendpoint**: Grants the ability to read service endpoints.
+     * 
+     */
+    public static CompletableFuture<GetServiceendpointBitbucketResult> getServiceendpointBitbucketPlain(GetServiceendpointBitbucketPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azuredevops:index/getServiceendpointBitbucket:getServiceendpointBitbucket", TypeShape.of(GetServiceendpointBitbucketResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing NPM Service Endpoint.

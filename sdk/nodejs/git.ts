@@ -20,52 +20,6 @@ import * as utilities from "./utilities";
  * ```sh
  * $ pulumi import azuredevops:index/git:Git example projectName/00000000-0000-0000-0000-000000000000
  * ```
- *
- * hcl
- *
- * resource "azuredevops_project" "example" {
- *
- *   name               = "Example Project"
- *
- *   visibility         = "private"
- *
- *   version_control    = "Git"
- *
- *   work_item_template = "Agile"
- *
- * }
- *
- * resource "azuredevops_git_repository" "example" {
- *
- *   project_id     = azuredevops_project.example.id
- *
- *   name           = "Example Git Repository"
- *
- *   default_branch = "refs/heads/main"
- *
- *   initialization {
- *
- *     init_type = "Clean"
- *
- *   }
- *
- *   lifecycle {
- *
- *     ignore_changes = [
- *     
- *       # Ignore changes to initialization to support importing existing repositories
- *     
- *       # Given that a repo now exists, either imported into terraform state or created by terraform,
- *     
- *       # we don't care for the configuration of initialization against the existing resource
- *     
- *       initialization,
- *     
- *     ]
- *
- *   }
- *
- * }
  */
 export class Git extends pulumi.CustomResource {
     /**
@@ -100,9 +54,9 @@ export class Git extends pulumi.CustomResource {
      */
     public readonly defaultBranch!: pulumi.Output<string>;
     /**
-     * Is the repository disabled?
+     * The ability to disable or enable the repository. Defaults to `false`.
      */
-    public /*out*/ readonly disabled!: pulumi.Output<boolean>;
+    public readonly disabled!: pulumi.Output<boolean | undefined>;
     /**
      * An `initialization` block as documented below.
      */
@@ -178,11 +132,11 @@ export class Git extends pulumi.CustomResource {
                 throw new Error("Missing required property 'projectId'");
             }
             resourceInputs["defaultBranch"] = args ? args.defaultBranch : undefined;
+            resourceInputs["disabled"] = args ? args.disabled : undefined;
             resourceInputs["initialization"] = args ? args.initialization : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parentRepositoryId"] = args ? args.parentRepositoryId : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["disabled"] = undefined /*out*/;
             resourceInputs["isFork"] = undefined /*out*/;
             resourceInputs["remoteUrl"] = undefined /*out*/;
             resourceInputs["size"] = undefined /*out*/;
@@ -204,7 +158,7 @@ export interface GitState {
      */
     defaultBranch?: pulumi.Input<string>;
     /**
-     * Is the repository disabled?
+     * The ability to disable or enable the repository. Defaults to `false`.
      */
     disabled?: pulumi.Input<boolean>;
     /**
@@ -257,6 +211,10 @@ export interface GitArgs {
      * The ref of the default branch. Will be used as the branch name for initialized repositories.
      */
     defaultBranch?: pulumi.Input<string>;
+    /**
+     * The ability to disable or enable the repository. Defaults to `false`.
+     */
+    disabled?: pulumi.Input<boolean>;
     /**
      * An `initialization` block as documented below.
      */

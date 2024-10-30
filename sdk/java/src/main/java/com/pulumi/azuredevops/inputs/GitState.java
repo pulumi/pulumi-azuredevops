@@ -34,14 +34,14 @@ public final class GitState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Is the repository disabled?
+     * The ability to disable or enable the repository. Defaults to `false`.
      * 
      */
     @Import(name="disabled")
     private @Nullable Output<Boolean> disabled;
 
     /**
-     * @return Is the repository disabled?
+     * @return The ability to disable or enable the repository. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> disabled() {
@@ -255,7 +255,7 @@ public final class GitState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param disabled Is the repository disabled?
+         * @param disabled The ability to disable or enable the repository. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class GitState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param disabled Is the repository disabled?
+         * @param disabled The ability to disable or enable the repository. Defaults to `false`.
          * 
          * @return builder
          * 

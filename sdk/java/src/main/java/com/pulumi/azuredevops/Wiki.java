@@ -161,16 +161,12 @@ public class Wiki extends com.pulumi.resources.CustomResource {
     /**
      * The type of the wiki. Possible values are `codeWiki`, `projectWiki`.
      * 
-     * &gt; **NOTE:** Project type wiki(`projectWiki`) can only be deleted together with the project.
-     * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
      * @return The type of the wiki. Possible values are `codeWiki`, `projectWiki`.
-     * 
-     * &gt; **NOTE:** Project type wiki(`projectWiki`) can only be deleted together with the project.
      * 
      */
     public Output<String> type() {

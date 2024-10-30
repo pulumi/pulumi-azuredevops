@@ -94,8 +94,6 @@ type Wiki struct {
 	// The ID of the repository.
 	RepositoryId pulumi.StringOutput `pulumi:"repositoryId"`
 	// The type of the wiki. Possible values are `codeWiki`, `projectWiki`.
-	//
-	// > **NOTE:** Project type wiki(`projectWiki`) can only be deleted together with the project.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The REST url for this wiki.
 	Url pulumi.StringOutput `pulumi:"url"`
@@ -146,8 +144,6 @@ type wikiState struct {
 	// The ID of the repository.
 	RepositoryId *string `pulumi:"repositoryId"`
 	// The type of the wiki. Possible values are `codeWiki`, `projectWiki`.
-	//
-	// > **NOTE:** Project type wiki(`projectWiki`) can only be deleted together with the project.
 	Type *string `pulumi:"type"`
 	// The REST url for this wiki.
 	Url *string `pulumi:"url"`
@@ -166,8 +162,6 @@ type WikiState struct {
 	// The ID of the repository.
 	RepositoryId pulumi.StringPtrInput
 	// The type of the wiki. Possible values are `codeWiki`, `projectWiki`.
-	//
-	// > **NOTE:** Project type wiki(`projectWiki`) can only be deleted together with the project.
 	Type pulumi.StringPtrInput
 	// The REST url for this wiki.
 	Url pulumi.StringPtrInput
@@ -188,8 +182,6 @@ type wikiArgs struct {
 	// The ID of the repository.
 	RepositoryId *string `pulumi:"repositoryId"`
 	// The type of the wiki. Possible values are `codeWiki`, `projectWiki`.
-	//
-	// > **NOTE:** Project type wiki(`projectWiki`) can only be deleted together with the project.
 	Type string `pulumi:"type"`
 	// Version of the wiki.
 	Version *string `pulumi:"version"`
@@ -205,8 +197,6 @@ type WikiArgs struct {
 	// The ID of the repository.
 	RepositoryId pulumi.StringPtrInput
 	// The type of the wiki. Possible values are `codeWiki`, `projectWiki`.
-	//
-	// > **NOTE:** Project type wiki(`projectWiki`) can only be deleted together with the project.
 	Type pulumi.StringInput
 	// Version of the wiki.
 	Version pulumi.StringPtrInput
@@ -324,8 +314,6 @@ func (o WikiOutput) RepositoryId() pulumi.StringOutput {
 }
 
 // The type of the wiki. Possible values are `codeWiki`, `projectWiki`.
-//
-// > **NOTE:** Project type wiki(`projectWiki`) can only be deleted together with the project.
 func (o WikiOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Wiki) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
