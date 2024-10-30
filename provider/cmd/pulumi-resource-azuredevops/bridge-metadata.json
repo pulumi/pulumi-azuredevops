@@ -811,6 +811,10 @@
                 "current": "azuredevops:index/wiki:Wiki",
                 "majorVersion": 3
             },
+            "azuredevops_wiki_page": {
+                "current": "azuredevops:index/wikiPage:WikiPage",
+                "majorVersion": 3
+            },
             "azuredevops_workitem": {
                 "current": "azuredevops:index/workitem:Workitem",
                 "majorVersion": 3,
@@ -1065,6 +1069,10 @@
             },
             "azuredevops_serviceendpoint_azurerm": {
                 "current": "azuredevops:index/getServiceEndpointAzureRM:getServiceEndpointAzureRM",
+                "majorVersion": 3
+            },
+            "azuredevops_serviceendpoint_bitbucket": {
+                "current": "azuredevops:index/getServiceendpointBitbucket:getServiceendpointBitbucket",
                 "majorVersion": 3
             },
             "azuredevops_serviceendpoint_github": {

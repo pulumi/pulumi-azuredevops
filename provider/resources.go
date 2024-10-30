@@ -82,7 +82,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azuredevops_build_definition":            {Tok: makeResource("BuildDefinition")},
 			"azuredevops_environment_resource_kubernetes": {
 				Docs: &tfbridge.DocInfo{
-					Source: "kubernetes_resource.html.markdown",
+					Source: "environment_kubernetes_resource.html.markdown",
 				},
 			},
 			"azuredevops_git_repository":   {Tok: makeResource("Git")},
