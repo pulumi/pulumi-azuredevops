@@ -59,6 +59,7 @@ func Provider() tfbridge.ProviderInfo {
 	prov := tfbridge.ProviderInfo{
 		P:            p,
 		Name:         "azuredevops",
+		DisplayName:  "Azure DevOps",
 		Description:  "A Pulumi package for creating and managing Azure DevOps.",
 		Keywords:     []string{"pulumi", "azuredevops"},
 		License:      "Apache-2.0",
