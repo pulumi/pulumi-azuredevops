@@ -1,5 +1,6 @@
 {
     "name": "azuredevops",
+    "displayName": "Azure DevOps",
     "description": "A Pulumi package for creating and managing Azure DevOps.",
     "keywords": [
         "pulumi",
