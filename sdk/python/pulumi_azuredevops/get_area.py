@@ -137,7 +137,7 @@ def get_area(fetch_children: Optional[bool] = None,
         work_item_template="Agile",
         version_control="Git",
         visibility="private",
-        description="Managed by Terraform")
+        description="Managed by Pulumi")
     example = example_project.id.apply(lambda id: azuredevops.get_area_output(project_id=id,
         path="/",
         fetch_children=False))
@@ -189,7 +189,7 @@ def get_area_output(fetch_children: Optional[pulumi.Input[Optional[bool]]] = Non
         work_item_template="Agile",
         version_control="Git",
         visibility="private",
-        description="Managed by Terraform")
+        description="Managed by Pulumi")
     example = example_project.id.apply(lambda id: azuredevops.get_area_output(project_id=id,
         path="/",
         fetch_children=False))

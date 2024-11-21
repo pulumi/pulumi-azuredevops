@@ -28,7 +28,7 @@ namespace Pulumi.AzureDevOps
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///     });
     /// 
     ///     var exampleServiceEndpointGitHubEnterprise = new AzureDevOps.ServiceEndpointGitHubEnterprise("example", new()
@@ -36,7 +36,7 @@ namespace Pulumi.AzureDevOps
     ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example GitHub Enterprise",
     ///         Url = "https://github.contoso.com",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///         AuthPersonal = new AzureDevOps.Inputs.ServiceEndpointGitHubEnterpriseAuthPersonalArgs
     ///         {
     ///             PersonalAccessToken = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",

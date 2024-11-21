@@ -295,7 +295,7 @@ class ProjectPermissions(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_readers = azuredevops.get_group_output(project_id=example.id,
             name="Readers")
         example_permission = azuredevops.ProjectPermissions("example-permission",
@@ -378,7 +378,7 @@ class ProjectPermissions(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_readers = azuredevops.get_group_output(project_id=example.id,
             name="Readers")
         example_permission = azuredevops.ProjectPermissions("example-permission",

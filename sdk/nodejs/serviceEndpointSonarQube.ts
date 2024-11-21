@@ -18,14 +18,14 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleServiceEndpointSonarQube = new azuredevops.ServiceEndpointSonarQube("example", {
  *     projectId: example.id,
  *     serviceEndpointName: "Example SonarQube",
  *     url: "https://sonarqube.my.com",
  *     token: "0000000000000000000000000000000000000000",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * ```
  *

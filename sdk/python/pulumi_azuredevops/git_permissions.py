@@ -346,7 +346,7 @@ class GitPermissions(pulumi.CustomResource):
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_readers = azuredevops.get_group_output(project_id=example.id,
             name="Readers")
         example_permissions = azuredevops.GitPermissions("example-permissions",
@@ -374,7 +374,7 @@ class GitPermissions(pulumi.CustomResource):
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_group = azuredevops.get_group(name="Project Collection Administrators")
         example_git = azuredevops.Git("example",
             project_id=example.id,
@@ -409,7 +409,7 @@ class GitPermissions(pulumi.CustomResource):
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_git = azuredevops.Git("example",
             project_id=example.id,
             name="Example Empty Git Repository",
@@ -439,7 +439,7 @@ class GitPermissions(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_project_readers = azuredevops.get_group_output(project_id=example.id,
             name="Readers")
         example_project_contributors = azuredevops.get_group_output(project_id=example.id,
@@ -556,7 +556,7 @@ class GitPermissions(pulumi.CustomResource):
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_readers = azuredevops.get_group_output(project_id=example.id,
             name="Readers")
         example_permissions = azuredevops.GitPermissions("example-permissions",
@@ -584,7 +584,7 @@ class GitPermissions(pulumi.CustomResource):
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_group = azuredevops.get_group(name="Project Collection Administrators")
         example_git = azuredevops.Git("example",
             project_id=example.id,
@@ -619,7 +619,7 @@ class GitPermissions(pulumi.CustomResource):
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_git = azuredevops.Git("example",
             project_id=example.id,
             name="Example Empty Git Repository",
@@ -649,7 +649,7 @@ class GitPermissions(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_project_readers = azuredevops.get_group_output(project_id=example.id,
             name="Readers")
         example_project_contributors = azuredevops.get_group_output(project_id=example.id,

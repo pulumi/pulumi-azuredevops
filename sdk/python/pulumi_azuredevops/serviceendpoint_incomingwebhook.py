@@ -264,14 +264,14 @@ class ServiceendpointIncomingwebhook(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_serviceendpoint_incomingwebhook = azuredevops.ServiceendpointIncomingwebhook("example",
             project_id=example.id,
             webhook_name="example_webhook",
             secret="secret",
             http_header="X-Hub-Signature",
             service_endpoint_name="Example IncomingWebhook",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         ```
 
         ## Import
@@ -310,14 +310,14 @@ class ServiceendpointIncomingwebhook(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_serviceendpoint_incomingwebhook = azuredevops.ServiceendpointIncomingwebhook("example",
             project_id=example.id,
             webhook_name="example_webhook",
             secret="secret",
             http_header="X-Hub-Signature",
             service_endpoint_name="Example IncomingWebhook",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         ```
 
         ## Import

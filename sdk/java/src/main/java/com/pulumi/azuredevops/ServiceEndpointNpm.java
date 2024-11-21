@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleServiceEndpointNpm = new ServiceEndpointNpm("exampleServiceEndpointNpm", ServiceEndpointNpmArgs.builder()
@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *             .serviceEndpointName("Example npm")
  *             .url("https://registry.npmjs.org")
  *             .accessToken("00000000-0000-0000-0000-000000000000")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *     }

@@ -37,7 +37,7 @@ import (
 //				WorkItemTemplate: pulumi.String("Agile"),
 //				VersionControl:   pulumi.String("Git"),
 //				Visibility:       pulumi.String("private"),
-//				Description:      pulumi.String("Managed by Terraform"),
+//				Description:      pulumi.String("Managed by Pulumi"),
 //			})
 //			if err != nil {
 //				return err
@@ -103,7 +103,7 @@ import (
 //				WorkItemTemplate: pulumi.String("Agile"),
 //				VersionControl:   pulumi.String("Git"),
 //				Visibility:       pulumi.String("private"),
-//				Description:      pulumi.String("Managed by Terraform"),
+//				Description:      pulumi.String("Managed by Pulumi"),
 //			})
 //			if err != nil {
 //				return err

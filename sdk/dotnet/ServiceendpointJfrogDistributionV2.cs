@@ -30,14 +30,14 @@ namespace Pulumi.AzureDevOps
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///     });
     /// 
     ///     var exampleServiceendpointJfrogDistributionV2 = new AzureDevOps.ServiceendpointJfrogDistributionV2("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example JFrog Distribution V2",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///         Url = "https://artifactory.my.com",
     ///         AuthenticationToken = new AzureDevOps.Inputs.ServiceendpointJfrogDistributionV2AuthenticationTokenArgs
     ///         {
@@ -63,14 +63,14 @@ namespace Pulumi.AzureDevOps
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///     });
     /// 
     ///     var exampleServiceendpointJfrogDistributionV2 = new AzureDevOps.ServiceendpointJfrogDistributionV2("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example JFrog Distribution V2",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///         Url = "https://artifactory.my.com",
     ///         AuthenticationBasic = new AzureDevOps.Inputs.ServiceendpointJfrogDistributionV2AuthenticationBasicArgs
     ///         {

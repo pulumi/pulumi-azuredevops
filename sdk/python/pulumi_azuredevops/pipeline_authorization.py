@@ -240,7 +240,7 @@ class PipelineAuthorization(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_pool = azuredevops.Pool("example",
             name="Example Pool",
             auto_provision=False,
@@ -265,7 +265,7 @@ class PipelineAuthorization(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_pool = azuredevops.Pool("example",
             name="Example Pool",
             auto_provision=False,
@@ -333,7 +333,7 @@ class PipelineAuthorization(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_pool = azuredevops.Pool("example",
             name="Example Pool",
             auto_provision=False,
@@ -358,7 +358,7 @@ class PipelineAuthorization(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_pool = azuredevops.Pool("example",
             name="Example Pool",
             auto_provision=False,

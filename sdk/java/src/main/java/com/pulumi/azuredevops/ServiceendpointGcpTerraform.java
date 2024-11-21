@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleServiceendpointGcpTerraform = new ServiceendpointGcpTerraform("exampleServiceendpointGcpTerraform", ServiceendpointGcpTerraformArgs.builder()
@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *             .privateKey("0000000000000000000000000000000000000")
  *             .serviceEndpointName("Example GCP Terraform extension")
  *             .gcpProjectId("Example GCP Project")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *     }}{@code

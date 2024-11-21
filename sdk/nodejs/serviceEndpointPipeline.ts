@@ -20,7 +20,7 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleServiceEndpointPipeline = new azuredevops.ServiceEndpointPipeline("example", {
  *     projectId: example.id,
@@ -29,7 +29,7 @@ import * as utilities from "./utilities";
  *     authPersonal: {
  *         personalAccessToken: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
  *     },
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * ```
  *

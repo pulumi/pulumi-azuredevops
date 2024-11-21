@@ -362,7 +362,7 @@ class ServiceEndpointAws(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_service_endpoint_aws = azuredevops.ServiceEndpointAws("example",
             project_id=example.id,
             service_endpoint_name="Example AWS",
@@ -415,7 +415,7 @@ class ServiceEndpointAws(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_service_endpoint_aws = azuredevops.ServiceEndpointAws("example",
             project_id=example.id,
             service_endpoint_name="Example AWS",

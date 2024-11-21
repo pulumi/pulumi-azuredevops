@@ -18,14 +18,14 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleServiceEndpointBitBucket = new azuredevops.ServiceEndpointBitBucket("example", {
  *     projectId: example.id,
  *     username: "username",
  *     password: "password",
  *     serviceEndpointName: "Example Bitbucket",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * ```
  *

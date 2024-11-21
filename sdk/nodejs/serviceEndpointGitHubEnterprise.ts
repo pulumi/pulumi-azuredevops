@@ -20,13 +20,13 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleServiceEndpointGitHubEnterprise = new azuredevops.ServiceEndpointGitHubEnterprise("example", {
  *     projectId: example.id,
  *     serviceEndpointName: "Example GitHub Enterprise",
  *     url: "https://github.contoso.com",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  *     authPersonal: {
  *         personalAccessToken: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
  *     },

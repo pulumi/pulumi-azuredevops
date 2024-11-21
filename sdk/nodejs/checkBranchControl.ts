@@ -22,11 +22,11 @@ import * as utilities from "./utilities";
  *     username: "username",
  *     password: "password",
  *     serviceEndpointName: "Example Generic",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleCheckBranchControl = new azuredevops.CheckBranchControl("example", {
  *     projectId: example.id,
- *     displayName: "Managed by Terraform",
+ *     displayName: "Managed by Pulumi",
  *     targetResourceId: exampleServiceEndpointGeneric.id,
  *     targetResourceType: "endpoint",
  *     allowedBranches: "refs/heads/main, refs/heads/features/*",
@@ -47,7 +47,7 @@ import * as utilities from "./utilities";
  * });
  * const exampleCheckBranchControl = new azuredevops.CheckBranchControl("example", {
  *     projectId: example.id,
- *     displayName: "Managed by Terraform",
+ *     displayName: "Managed by Pulumi",
  *     targetResourceId: exampleEnvironment.id,
  *     targetResourceType: "environment",
  *     allowedBranches: "refs/heads/main, refs/heads/features/*",
@@ -68,7 +68,7 @@ import * as utilities from "./utilities";
  * });
  * const exampleCheckBranchControl = new azuredevops.CheckBranchControl("example", {
  *     projectId: example.id,
- *     displayName: "Managed by Terraform",
+ *     displayName: "Managed by Pulumi",
  *     targetResourceId: exampleQueue.id,
  *     targetResourceType: "queue",
  *     allowedBranches: "refs/heads/main, refs/heads/features/*",
@@ -91,7 +91,7 @@ import * as utilities from "./utilities";
  * });
  * const exampleCheckBranchControl = new azuredevops.CheckBranchControl("example", {
  *     projectId: example.id,
- *     displayName: "Managed by Terraform",
+ *     displayName: "Managed by Pulumi",
  *     targetResourceId: pulumi.interpolate`${example.id}.${exampleGit.id}`,
  *     targetResourceType: "repository",
  *     allowedBranches: "refs/heads/main, refs/heads/features/*",
@@ -124,7 +124,7 @@ import * as utilities from "./utilities";
  * });
  * const exampleCheckBranchControl = new azuredevops.CheckBranchControl("example", {
  *     projectId: example.id,
- *     displayName: "Managed by Terraform",
+ *     displayName: "Managed by Pulumi",
  *     targetResourceId: exampleVariableGroup.id,
  *     targetResourceType: "variablegroup",
  *     allowedBranches: "refs/heads/main, refs/heads/features/*",

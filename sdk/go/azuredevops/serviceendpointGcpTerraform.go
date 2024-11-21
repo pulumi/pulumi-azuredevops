@@ -31,7 +31,7 @@ import (
 //				Visibility:       pulumi.String("private"),
 //				VersionControl:   pulumi.String("Git"),
 //				WorkItemTemplate: pulumi.String("Agile"),
-//				Description:      pulumi.String("Managed by Terraform"),
+//				Description:      pulumi.String("Managed by Pulumi"),
 //			})
 //			if err != nil {
 //				return err
@@ -43,7 +43,7 @@ import (
 //				PrivateKey:          pulumi.String("0000000000000000000000000000000000000"),
 //				ServiceEndpointName: pulumi.String("Example GCP Terraform extension"),
 //				GcpProjectId:        pulumi.String("Example GCP Project"),
-//				Description:         pulumi.String("Managed by Terraform"),
+//				Description:         pulumi.String("Managed by Pulumi"),
 //			})
 //			if err != nil {
 //				return err

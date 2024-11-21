@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleVariableGroup = new azuredevops.VariableGroup("example", {
  *     projectId: example.id,
@@ -50,12 +50,12 @@ import * as utilities from "./utilities";
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("example", {
  *     projectId: example.id,
  *     serviceEndpointName: "Example AzureRM",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  *     credentials: {
  *         serviceprincipalid: "00000000-0000-0000-0000-000000000000",
  *         serviceprincipalkey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",

@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleServiceendpointIncomingwebhook = new ServiceendpointIncomingwebhook("exampleServiceendpointIncomingwebhook", ServiceendpointIncomingwebhookArgs.builder()
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .secret("secret")
  *             .httpHeader("X-Hub-Signature")
  *             .serviceEndpointName("Example IncomingWebhook")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *     }

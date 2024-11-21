@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleServiceEndpointSsh = new ServiceEndpointSsh("exampleServiceEndpointSsh", ServiceEndpointSshArgs.builder()
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .serviceEndpointName("Example SSH")
  *             .host("1.2.3.4")
  *             .username("username")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *     }

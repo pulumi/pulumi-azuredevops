@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *             .workItemTemplate("Agile")
  *             .versionControl("Git")
  *             .visibility("private")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         final var example-readers = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
@@ -129,7 +129,7 @@ import javax.annotation.Nullable;
  *             .workItemTemplate("Agile")
  *             .versionControl("Git")
  *             .visibility("private")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         final var example-group = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
@@ -203,7 +203,7 @@ import javax.annotation.Nullable;
  *             .workItemTemplate("Agile")
  *             .versionControl("Git")
  *             .visibility("private")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleGit = new Git("exampleGit", GitArgs.builder()
@@ -272,7 +272,7 @@ import javax.annotation.Nullable;
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         final var example-project-readers = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()

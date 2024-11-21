@@ -35,7 +35,7 @@ import (
 //				Visibility:       pulumi.String("private"),
 //				VersionControl:   pulumi.String("Git"),
 //				WorkItemTemplate: pulumi.String("Agile"),
-//				Description:      pulumi.String("Managed by Terraform"),
+//				Description:      pulumi.String("Managed by Pulumi"),
 //			})
 //			if err != nil {
 //				return err
@@ -43,7 +43,7 @@ import (
 //			_, err = azuredevops.NewServiceendpointJfrogArtifactoryV2(ctx, "example", &azuredevops.ServiceendpointJfrogArtifactoryV2Args{
 //				ProjectId:           example.ID(),
 //				ServiceEndpointName: pulumi.String("Example JFrog Artifactory V2"),
-//				Description:         pulumi.String("Managed by Terraform"),
+//				Description:         pulumi.String("Managed by Pulumi"),
 //				Url:                 pulumi.String("https://artifactory.my.com"),
 //				AuthenticationToken: &azuredevops.ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs{
 //					Token: pulumi.String("0000000000000000000000000000000000000000"),
@@ -76,7 +76,7 @@ import (
 //				Visibility:       pulumi.String("private"),
 //				VersionControl:   pulumi.String("Git"),
 //				WorkItemTemplate: pulumi.String("Agile"),
-//				Description:      pulumi.String("Managed by Terraform"),
+//				Description:      pulumi.String("Managed by Pulumi"),
 //			})
 //			if err != nil {
 //				return err
@@ -84,7 +84,7 @@ import (
 //			_, err = azuredevops.NewServiceendpointJfrogArtifactoryV2(ctx, "example", &azuredevops.ServiceendpointJfrogArtifactoryV2Args{
 //				ProjectId:           example.ID(),
 //				ServiceEndpointName: pulumi.String("Example JFrog Artifactory V2"),
-//				Description:         pulumi.String("Managed by Terraform"),
+//				Description:         pulumi.String("Managed by Pulumi"),
 //				Url:                 pulumi.String("https://artifactory.my.com"),
 //				AuthenticationBasic: &azuredevops.ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs{
 //					Username: pulumi.String("username"),

@@ -24,7 +24,7 @@ import * as utilities from "./utilities";
  *         testplans: "disabled",
  *         artifacts: "disabled",
  *     },
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleGit = new azuredevops.Git("example", {
  *     projectId: example.id,

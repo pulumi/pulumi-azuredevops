@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .workItemTemplate("Agile")
  *             .versionControl("Git")
  *             .visibility("private")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()

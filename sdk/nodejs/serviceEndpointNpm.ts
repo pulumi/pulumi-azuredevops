@@ -18,14 +18,14 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleServiceEndpointNpm = new azuredevops.ServiceEndpointNpm("example", {
  *     projectId: example.id,
  *     serviceEndpointName: "Example npm",
  *     url: "https://registry.npmjs.org",
  *     accessToken: "00000000-0000-0000-0000-000000000000",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * ```
  *

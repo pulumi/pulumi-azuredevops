@@ -29,7 +29,7 @@ import * as utilities from "./utilities";
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const example-readers = azuredevops.getGroupOutput({
  *     projectId: example.id,
@@ -61,7 +61,7 @@ import * as utilities from "./utilities";
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const example-group = azuredevops.getGroup({
  *     name: "Project Collection Administrators",
@@ -101,7 +101,7 @@ import * as utilities from "./utilities";
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleGit = new azuredevops.Git("example", {
  *     projectId: example.id,
@@ -136,7 +136,7 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const example-project-readers = azuredevops.getGroupOutput({
  *     projectId: example.id,

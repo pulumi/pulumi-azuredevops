@@ -132,7 +132,7 @@ class ProjectFeatures(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_features = azuredevops.ProjectFeatures("example-features",
             project_id=example.id,
             features={
@@ -187,7 +187,7 @@ class ProjectFeatures(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_features = azuredevops.ProjectFeatures("example-features",
             project_id=example.id,
             features={

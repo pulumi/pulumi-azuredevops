@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *             .workItemTemplate("Agile")
  *             .versionControl("Git")
  *             .visibility("private")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         final var example-project-contributors = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()

@@ -270,7 +270,7 @@ class Wiki(pulumi.CustomResource):
 
         example = azuredevops.Project("example",
             name="Example Project",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_git = azuredevops.Git("example",
             project_id=example.id,
             name="Example Repository",
@@ -327,7 +327,7 @@ class Wiki(pulumi.CustomResource):
 
         example = azuredevops.Project("example",
             name="Example Project",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_git = azuredevops.Git("example",
             project_id=example.id,
             name="Example Repository",

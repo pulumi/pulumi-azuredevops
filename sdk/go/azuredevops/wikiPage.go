@@ -30,7 +30,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
 //				Name:        pulumi.String("Example Project"),
-//				Description: pulumi.String("Managed by Terraform"),
+//				Description: pulumi.String("Managed by Pulumi"),
 //			})
 //			if err != nil {
 //				return err

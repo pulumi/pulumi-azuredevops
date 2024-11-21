@@ -45,7 +45,7 @@ namespace Pulumi.AzureDevOps
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Pipeline Variables",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///         AllowAccess = true,
     ///         Variables = new[]
     ///         {
@@ -148,7 +148,7 @@ namespace Pulumi.AzureDevOps
     ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example GitHub Enterprise",
     ///         Url = "https://github.contoso.com",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///         AuthPersonal = new AzureDevOps.Inputs.ServiceEndpointGitHubEnterpriseAuthPersonalArgs
     ///         {
     ///             PersonalAccessToken = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",

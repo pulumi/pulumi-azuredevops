@@ -22,7 +22,7 @@ import * as utilities from "./utilities";
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const example-readers = azuredevops.getGroupOutput({
  *     projectId: example.id,
@@ -65,7 +65,7 @@ import * as utilities from "./utilities";
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const example-readers = azuredevops.getGroupOutput({
  *     projectId: example.id,

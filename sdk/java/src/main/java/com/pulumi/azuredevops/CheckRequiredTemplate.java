@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *             .username("username")
  *             .password("password")
  *             .serviceEndpointName("Example Generic")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleCheckRequiredTemplate = new CheckRequiredTemplate("exampleCheckRequiredTemplate", CheckRequiredTemplateArgs.builder()

@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const example_features = new azuredevops.ProjectFeatures("example-features", {
  *     projectId: example.id,

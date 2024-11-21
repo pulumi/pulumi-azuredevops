@@ -263,7 +263,7 @@ class ServiceendpointNexus(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_serviceendpoint_nexus = azuredevops.ServiceendpointNexus("example",
             project_id=example.id,
             service_endpoint_name="nexus-example",
@@ -310,7 +310,7 @@ class ServiceendpointNexus(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_serviceendpoint_nexus = azuredevops.ServiceendpointNexus("example",
             project_id=example.id,
             service_endpoint_name="nexus-example",

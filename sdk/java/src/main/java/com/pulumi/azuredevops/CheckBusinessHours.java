@@ -60,12 +60,12 @@ import javax.annotation.Nullable;
  *             .username("username")
  *             .password("password")
  *             .serviceEndpointName("Example Generic")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleCheckBusinessHours = new CheckBusinessHours("exampleCheckBusinessHours", CheckBusinessHoursArgs.builder()
  *             .projectId(example.id())
- *             .displayName("Managed by Terraform")
+ *             .displayName("Managed by Pulumi")
  *             .targetResourceId(exampleServiceEndpointGeneric.id())
  *             .targetResourceType("endpoint")
  *             .startTime("07:00")
@@ -122,7 +122,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCheckBusinessHours = new CheckBusinessHours("exampleCheckBusinessHours", CheckBusinessHoursArgs.builder()
  *             .projectId(example.id())
- *             .displayName("Managed by Terraform")
+ *             .displayName("Managed by Pulumi")
  *             .targetResourceId(exampleEnvironment.id())
  *             .targetResourceType("environment")
  *             .startTime("07:00")
@@ -184,7 +184,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCheckBusinessHours = new CheckBusinessHours("exampleCheckBusinessHours", CheckBusinessHoursArgs.builder()
  *             .projectId(example.id())
- *             .displayName("Managed by Terraform")
+ *             .displayName("Managed by Pulumi")
  *             .targetResourceId(exampleQueue.id())
  *             .targetResourceType("queue")
  *             .startTime("07:00")
@@ -244,7 +244,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCheckBusinessHours = new CheckBusinessHours("exampleCheckBusinessHours", CheckBusinessHoursArgs.builder()
  *             .projectId(example.id())
- *             .displayName("Managed by Terraform")
+ *             .displayName("Managed by Pulumi")
  *             .targetResourceId(Output.tuple(example.id(), exampleGit.id()).applyValue(values -> {
  *                 var exampleId = values.t1;
  *                 var exampleGitId = values.t2;
@@ -317,7 +317,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCheckBusinessHours = new CheckBusinessHours("exampleCheckBusinessHours", CheckBusinessHoursArgs.builder()
  *             .projectId(example.id())
- *             .displayName("Managed by Terraform")
+ *             .displayName("Managed by Pulumi")
  *             .targetResourceId(exampleVariableGroup.id())
  *             .targetResourceType("variablegroup")
  *             .startTime("07:00")

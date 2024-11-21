@@ -52,14 +52,14 @@ import javax.annotation.Nullable;
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleServiceEndpointGitHubEnterprise = new ServiceEndpointGitHubEnterprise("exampleServiceEndpointGitHubEnterprise", ServiceEndpointGitHubEnterpriseArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example GitHub Enterprise")
  *             .url("https://github.contoso.com")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .authPersonal(ServiceEndpointGitHubEnterpriseAuthPersonalArgs.builder()
  *                 .personalAccessToken("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
  *                 .build())

@@ -26,7 +26,7 @@ namespace Pulumi.AzureDevOps
     ///         WorkItemTemplate = "Agile",
     ///         VersionControl = "Git",
     ///         Visibility = "private",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///     });
     /// 
     ///     var exampleVariableGroup = new AzureDevOps.VariableGroup("example", new()
@@ -70,14 +70,14 @@ namespace Pulumi.AzureDevOps
     ///         WorkItemTemplate = "Agile",
     ///         VersionControl = "Git",
     ///         Visibility = "private",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///     });
     /// 
     ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example AzureRM",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///         Credentials = new AzureDevOps.Inputs.ServiceEndpointAzureRMCredentialsArgs
     ///         {
     ///             Serviceprincipalid = "00000000-0000-0000-0000-000000000000",

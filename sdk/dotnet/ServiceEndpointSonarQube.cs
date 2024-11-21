@@ -28,7 +28,7 @@ namespace Pulumi.AzureDevOps
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///     });
     /// 
     ///     var exampleServiceEndpointSonarQube = new AzureDevOps.ServiceEndpointSonarQube("example", new()
@@ -37,7 +37,7 @@ namespace Pulumi.AzureDevOps
     ///         ServiceEndpointName = "Example SonarQube",
     ///         Url = "https://sonarqube.my.com",
     ///         Token = "0000000000000000000000000000000000000000",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///     });
     /// 
     /// });

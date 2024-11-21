@@ -22,7 +22,7 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * // azure container registry service connection
  * const exampleServiceEndpointAzureEcr = new azuredevops.ServiceEndpointAzureEcr("example", {
@@ -48,7 +48,7 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const identity = new azure.core.ResourceGroup("identity", {
  *     name: "identity",

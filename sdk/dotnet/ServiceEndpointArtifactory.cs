@@ -28,14 +28,14 @@ namespace Pulumi.AzureDevOps
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///     });
     /// 
     ///     var exampleServiceEndpointArtifactory = new AzureDevOps.ServiceEndpointArtifactory("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example Artifactory",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///         Url = "https://artifactory.my.com",
     ///         AuthenticationToken = new AzureDevOps.Inputs.ServiceEndpointArtifactoryAuthenticationTokenArgs
     ///         {
@@ -61,14 +61,14 @@ namespace Pulumi.AzureDevOps
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///     });
     /// 
     ///     var exampleServiceEndpointArtifactory = new AzureDevOps.ServiceEndpointArtifactory("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example Artifactory",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///         Url = "https://artifactory.my.com",
     ///         AuthenticationBasic = new AzureDevOps.Inputs.ServiceEndpointArtifactoryAuthenticationBasicArgs
     ///         {

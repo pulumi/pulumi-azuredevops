@@ -34,7 +34,7 @@ namespace Pulumi.AzureDevOps
     ///     {
     ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example ArgoCD",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///         Url = "https://argocd.my.com",
     ///         AuthenticationToken = new AzureDevOps.Inputs.ServiceendpointArgocdAuthenticationTokenArgs
     ///         {
@@ -60,14 +60,14 @@ namespace Pulumi.AzureDevOps
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///     });
     /// 
     ///     var exampleServiceendpointArgocd = new AzureDevOps.ServiceendpointArgocd("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example ArgoCD",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///         Url = "https://argocd.my.com",
     ///         AuthenticationBasic = new AzureDevOps.Inputs.ServiceendpointArgocdAuthenticationBasicArgs
     ///         {

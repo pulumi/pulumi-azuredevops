@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  *
  * const example = new azuredevops.Project("example", {
  *     name: "Example Project",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleWiki = new azuredevops.Wiki("example", {
  *     name: "Example project wiki ",

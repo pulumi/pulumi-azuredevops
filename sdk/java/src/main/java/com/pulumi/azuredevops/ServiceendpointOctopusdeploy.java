@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleServiceendpointOctopusdeploy = new ServiceendpointOctopusdeploy("exampleServiceendpointOctopusdeploy", ServiceendpointOctopusdeployArgs.builder()
@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *             .url("https://octopus.com")
  *             .apiKey("000000000000000000000000000000000000")
  *             .serviceEndpointName("Example Octopus Deploy")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *     }

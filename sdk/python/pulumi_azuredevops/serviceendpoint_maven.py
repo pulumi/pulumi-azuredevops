@@ -298,7 +298,7 @@ class ServiceendpointMaven(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_serviceendpoint_maven = azuredevops.ServiceendpointMaven("example",
             project_id=example.id,
             service_endpoint_name="maven-example",
@@ -321,7 +321,7 @@ class ServiceendpointMaven(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_serviceendpoint_maven = azuredevops.ServiceendpointMaven("example",
             project_id=example.id,
             service_endpoint_name="maven-example",
@@ -371,7 +371,7 @@ class ServiceendpointMaven(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_serviceendpoint_maven = azuredevops.ServiceendpointMaven("example",
             project_id=example.id,
             service_endpoint_name="maven-example",
@@ -394,7 +394,7 @@ class ServiceendpointMaven(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_serviceendpoint_maven = azuredevops.ServiceendpointMaven("example",
             project_id=example.id,
             service_endpoint_name="maven-example",

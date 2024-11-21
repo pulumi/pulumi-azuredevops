@@ -28,7 +28,7 @@ namespace Pulumi.AzureDevOps
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///     });
     /// 
     ///     var exampleServiceEndpointNpm = new AzureDevOps.ServiceEndpointNpm("example", new()
@@ -37,7 +37,7 @@ namespace Pulumi.AzureDevOps
     ///         ServiceEndpointName = "Example npm",
     ///         Url = "https://registry.npmjs.org",
     ///         AccessToken = "00000000-0000-0000-0000-000000000000",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///     });
     /// 
     /// });

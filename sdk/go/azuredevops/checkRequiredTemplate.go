@@ -42,7 +42,7 @@ import (
 //				Username:            pulumi.String("username"),
 //				Password:            pulumi.String("password"),
 //				ServiceEndpointName: pulumi.String("Example Generic"),
-//				Description:         pulumi.String("Managed by Terraform"),
+//				Description:         pulumi.String("Managed by Pulumi"),
 //			})
 //			if err != nil {
 //				return err

@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const example = azuredevops.getTeamOutput({
  *     projectId: exampleProject.id,
@@ -103,7 +103,7 @@ export interface GetTeamResult {
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const example = azuredevops.getTeamOutput({
  *     projectId: exampleProject.id,

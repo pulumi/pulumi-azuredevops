@@ -37,7 +37,7 @@ import (
 //				Visibility:       pulumi.String("private"),
 //				VersionControl:   pulumi.String("Git"),
 //				WorkItemTemplate: pulumi.String("Agile"),
-//				Description:      pulumi.String("Managed by Terraform"),
+//				Description:      pulumi.String("Managed by Pulumi"),
 //			})
 //			if err != nil {
 //				return err
@@ -48,7 +48,7 @@ import (
 //				OrgUrl:              pulumi.String("https://dev.azure.com/testorganization"),
 //				ReleaseApiUrl:       pulumi.String("https://vsrm.dev.azure.com/testorganization"),
 //				PersonalAccessToken: pulumi.String("0000000000000000000000000000000000000000000000000000"),
-//				Description:         pulumi.String("Managed by Terraform"),
+//				Description:         pulumi.String("Managed by Pulumi"),
 //			})
 //			if err != nil {
 //				return err

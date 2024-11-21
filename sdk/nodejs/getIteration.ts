@@ -20,7 +20,7 @@ import * as utilities from "./utilities";
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const example-root-iteration = azuredevops.getIterationOutput({
  *     projectId: example.id,
@@ -113,7 +113,7 @@ export interface GetIterationResult {
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const example-root-iteration = azuredevops.getIterationOutput({
  *     projectId: example.id,

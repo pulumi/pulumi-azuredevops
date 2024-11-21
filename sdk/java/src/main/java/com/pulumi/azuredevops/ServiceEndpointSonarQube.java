@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleServiceEndpointSonarQube = new ServiceEndpointSonarQube("exampleServiceEndpointSonarQube", ServiceEndpointSonarQubeArgs.builder()
@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *             .serviceEndpointName("Example SonarQube")
  *             .url("https://sonarqube.my.com")
  *             .token("0000000000000000000000000000000000000000")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *     }

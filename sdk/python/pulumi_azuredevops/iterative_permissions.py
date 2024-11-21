@@ -249,7 +249,7 @@ class IterativePermissions(pulumi.CustomResource):
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_readers = azuredevops.get_group_output(project_id=example.id,
             name="Readers")
         example_root_permissions = azuredevops.IterativePermissions("example-root-permissions",
@@ -325,7 +325,7 @@ class IterativePermissions(pulumi.CustomResource):
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_readers = azuredevops.get_group_output(project_id=example.id,
             name="Readers")
         example_root_permissions = azuredevops.IterativePermissions("example-root-permissions",

@@ -315,7 +315,7 @@ class Workitem(pulumi.CustomResource):
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_workitem = azuredevops.Workitem("example",
             project_id=example_azuredevops_project["id"],
             title="Example Work Item",
@@ -335,7 +335,7 @@ class Workitem(pulumi.CustomResource):
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_workitem = azuredevops.Workitem("example",
             project_id=example_azuredevops_project["id"],
             title="Example Work Item",
@@ -384,7 +384,7 @@ class Workitem(pulumi.CustomResource):
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_workitem = azuredevops.Workitem("example",
             project_id=example_azuredevops_project["id"],
             title="Example Work Item",
@@ -404,7 +404,7 @@ class Workitem(pulumi.CustomResource):
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_workitem = azuredevops.Workitem("example",
             project_id=example_azuredevops_project["id"],
             title="Example Work Item",

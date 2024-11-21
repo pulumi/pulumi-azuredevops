@@ -33,7 +33,7 @@ import (
 //				Visibility:       pulumi.String("private"),
 //				VersionControl:   pulumi.String("Git"),
 //				WorkItemTemplate: pulumi.String("Agile"),
-//				Description:      pulumi.String("Managed by Terraform"),
+//				Description:      pulumi.String("Managed by Pulumi"),
 //			})
 //			if err != nil {
 //				return err
@@ -43,7 +43,7 @@ import (
 //				Url:                 pulumi.String("https://octopus.com"),
 //				ApiKey:              pulumi.String("000000000000000000000000000000000000"),
 //				ServiceEndpointName: pulumi.String("Example Octopus Deploy"),
-//				Description:         pulumi.String("Managed by Terraform"),
+//				Description:         pulumi.String("Managed by Pulumi"),
 //			})
 //			if err != nil {
 //				return err

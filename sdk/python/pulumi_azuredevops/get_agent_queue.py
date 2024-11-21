@@ -102,7 +102,7 @@ def get_agent_queue(name: Optional[str] = None,
         work_item_template="Agile",
         version_control="Git",
         visibility="private",
-        description="Managed by Terraform")
+        description="Managed by Pulumi")
     example = azuredevops.get_agent_queue_output(project_id=example_project.id,
         name="Example Agent Queue")
     pulumi.export("name", example.name)
@@ -145,7 +145,7 @@ def get_agent_queue_output(name: Optional[pulumi.Input[str]] = None,
         work_item_template="Agile",
         version_control="Git",
         visibility="private",
-        description="Managed by Terraform")
+        description="Managed by Pulumi")
     example = azuredevops.get_agent_queue_output(project_id=example_project.id,
         name="Example Agent Queue")
     pulumi.export("name", example.name)

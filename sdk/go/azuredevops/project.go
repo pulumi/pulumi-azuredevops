@@ -32,7 +32,7 @@ import (
 //				Visibility:       pulumi.String("private"),
 //				VersionControl:   pulumi.String("Git"),
 //				WorkItemTemplate: pulumi.String("Agile"),
-//				Description:      pulumi.String("Managed by Terraform"),
+//				Description:      pulumi.String("Managed by Pulumi"),
 //				Features: pulumi.StringMap{
 //					"testplans": pulumi.String("disabled"),
 //					"artifacts": pulumi.String("disabled"),

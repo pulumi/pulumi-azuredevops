@@ -217,7 +217,7 @@ class RepositoryPolicyMaxPathLength(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_git = azuredevops.Git("example",
             project_id=example.id,
             name="Sample Repo",
@@ -242,7 +242,7 @@ class RepositoryPolicyMaxPathLength(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_repository_policy_max_path_length = azuredevops.RepositoryPolicyMaxPathLength("example",
             project_id=example.id,
             enabled=True,
@@ -292,7 +292,7 @@ class RepositoryPolicyMaxPathLength(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_git = azuredevops.Git("example",
             project_id=example.id,
             name="Sample Repo",
@@ -317,7 +317,7 @@ class RepositoryPolicyMaxPathLength(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_repository_policy_max_path_length = azuredevops.RepositoryPolicyMaxPathLength("example",
             project_id=example.id,
             enabled=True,
