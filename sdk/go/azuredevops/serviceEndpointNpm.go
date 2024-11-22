@@ -33,7 +33,7 @@ import (
 //				Visibility:       pulumi.String("private"),
 //				VersionControl:   pulumi.String("Git"),
 //				WorkItemTemplate: pulumi.String("Agile"),
-//				Description:      pulumi.String("Managed by Terraform"),
+//				Description:      pulumi.String("Managed by Pulumi"),
 //			})
 //			if err != nil {
 //				return err
@@ -43,7 +43,7 @@ import (
 //				ServiceEndpointName: pulumi.String("Example npm"),
 //				Url:                 pulumi.String("https://registry.npmjs.org"),
 //				AccessToken:         pulumi.String("00000000-0000-0000-0000-000000000000"),
-//				Description:         pulumi.String("Managed by Terraform"),
+//				Description:         pulumi.String("Managed by Pulumi"),
 //			})
 //			if err != nil {
 //				return err

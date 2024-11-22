@@ -142,7 +142,7 @@ def get_team(name: Optional[str] = None,
         work_item_template="Agile",
         version_control="Git",
         visibility="private",
-        description="Managed by Terraform")
+        description="Managed by Pulumi")
     example = azuredevops.get_team_output(project_id=example_project.id,
         name="Example Project Team")
     ```
@@ -194,7 +194,7 @@ def get_team_output(name: Optional[pulumi.Input[str]] = None,
         work_item_template="Agile",
         version_control="Git",
         visibility="private",
-        description="Managed by Terraform")
+        description="Managed by Pulumi")
     example = azuredevops.get_team_output(project_id=example_project.id,
         name="Example Project Team")
     ```

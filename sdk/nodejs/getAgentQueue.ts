@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const example = azuredevops.getAgentQueueOutput({
  *     projectId: exampleProject.id,
@@ -89,7 +89,7 @@ export interface GetAgentQueueResult {
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const example = azuredevops.getAgentQueueOutput({
  *     projectId: exampleProject.id,

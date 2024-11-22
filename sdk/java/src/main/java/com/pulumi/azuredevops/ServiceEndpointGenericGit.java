@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleServiceEndpointGenericGit = new ServiceEndpointGenericGit("exampleServiceEndpointGenericGit", ServiceEndpointGenericGitArgs.builder()
@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .username("username")
  *             .password("password")
  *             .serviceEndpointName("Example Generic Git")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *     }

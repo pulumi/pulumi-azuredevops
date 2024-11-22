@@ -32,7 +32,7 @@ import * as utilities from "./utilities";
  * const exampleVariableGroup = new azuredevops.VariableGroup("example", {
  *     projectId: example.id,
  *     name: "Example Pipeline Variables",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  *     allowAccess: true,
  *     variables: [{
  *         name: "FOO",
@@ -99,7 +99,7 @@ import * as utilities from "./utilities";
  *     projectId: example.id,
  *     serviceEndpointName: "Example GitHub Enterprise",
  *     url: "https://github.contoso.com",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  *     authPersonal: {
  *         personalAccessToken: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
  *     },

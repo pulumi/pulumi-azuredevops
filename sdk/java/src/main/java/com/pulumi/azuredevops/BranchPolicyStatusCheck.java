@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *                 Map.entry("testplans", "disabled"),
  *                 Map.entry("artifacts", "disabled")
  *             ))
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleGit = new Git("exampleGit", GitArgs.builder()

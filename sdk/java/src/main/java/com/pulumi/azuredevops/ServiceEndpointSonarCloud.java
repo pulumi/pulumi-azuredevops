@@ -51,14 +51,14 @@ import javax.annotation.Nullable;
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleServiceEndpointSonarCloud = new ServiceEndpointSonarCloud("exampleServiceEndpointSonarCloud", ServiceEndpointSonarCloudArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example SonarCloud")
  *             .token("0000000000000000000000000000000000000000")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *     }

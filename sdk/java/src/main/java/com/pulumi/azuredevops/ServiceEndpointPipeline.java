@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleServiceEndpointPipeline = new ServiceEndpointPipeline("exampleServiceEndpointPipeline", ServiceEndpointPipelineArgs.builder()
@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .authPersonal(ServiceEndpointPipelineAuthPersonalArgs.builder()
  *                 .personalAccessToken("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
  *                 .build())
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *     }

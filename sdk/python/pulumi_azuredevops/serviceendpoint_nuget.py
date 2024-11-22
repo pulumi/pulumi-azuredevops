@@ -338,12 +338,12 @@ class ServiceendpointNuget(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_serviceendpoint_nuget = azuredevops.ServiceendpointNuget("example",
             project_id=example.id,
             api_key="apikey",
             service_endpoint_name="Example NuGet",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         ```
 
         ## Relevant Links
@@ -390,12 +390,12 @@ class ServiceendpointNuget(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_serviceendpoint_nuget = azuredevops.ServiceendpointNuget("example",
             project_id=example.id,
             api_key="apikey",
             service_endpoint_name="Example NuGet",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         ```
 
         ## Relevant Links

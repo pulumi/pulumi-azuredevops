@@ -36,14 +36,14 @@ namespace Pulumi.AzureDevOps
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///     });
     /// 
     ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example AzureRM",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///         ServiceEndpointAuthenticationScheme = "ServicePrincipal",
     ///         Credentials = new AzureDevOps.Inputs.ServiceEndpointAzureRMCredentialsArgs
     ///         {
@@ -74,14 +74,14 @@ namespace Pulumi.AzureDevOps
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///     });
     /// 
     ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example AzureRM",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///         ServiceEndpointAuthenticationScheme = "ServicePrincipal",
     ///         Credentials = new AzureDevOps.Inputs.ServiceEndpointAzureRMCredentialsArgs
     ///         {
@@ -146,7 +146,7 @@ namespace Pulumi.AzureDevOps
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///     });
     /// 
     ///     var identity = new Azure.Core.ResourceGroup("identity", new()
@@ -166,7 +166,7 @@ namespace Pulumi.AzureDevOps
     ///     {
     ///         ProjectId = example.Id,
     ///         ServiceEndpointName = serviceConnectionName,
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///         ServiceEndpointAuthenticationScheme = "WorkloadIdentityFederation",
     ///         Credentials = new AzureDevOps.Inputs.ServiceEndpointAzureRMCredentialsArgs
     ///         {

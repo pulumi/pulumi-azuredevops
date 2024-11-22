@@ -232,7 +232,7 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_service_endpoint_pipeline = azuredevops.ServiceEndpointPipeline("example",
             project_id=example.id,
             service_endpoint_name="Example Pipeline Runner",
@@ -240,7 +240,7 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
             auth_personal={
                 "personal_access_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
             },
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         ```
 
         ## Relevant Links
@@ -282,7 +282,7 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_service_endpoint_pipeline = azuredevops.ServiceEndpointPipeline("example",
             project_id=example.id,
             service_endpoint_name="Example Pipeline Runner",
@@ -290,7 +290,7 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
             auth_personal={
                 "personal_access_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
             },
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         ```
 
         ## Relevant Links

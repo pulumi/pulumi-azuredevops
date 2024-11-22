@@ -36,13 +36,13 @@ namespace Pulumi.AzureDevOps
     ///         Username = "username",
     ///         Password = "password",
     ///         ServiceEndpointName = "Example Generic",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///     });
     /// 
     ///     var exampleCheckBranchControl = new AzureDevOps.CheckBranchControl("example", new()
     ///     {
     ///         ProjectId = example.Id,
-    ///         DisplayName = "Managed by Terraform",
+    ///         DisplayName = "Managed by Pulumi",
     ///         TargetResourceId = exampleServiceEndpointGeneric.Id,
     ///         TargetResourceType = "endpoint",
     ///         AllowedBranches = "refs/heads/main, refs/heads/features/*",
@@ -76,7 +76,7 @@ namespace Pulumi.AzureDevOps
     ///     var exampleCheckBranchControl = new AzureDevOps.CheckBranchControl("example", new()
     ///     {
     ///         ProjectId = example.Id,
-    ///         DisplayName = "Managed by Terraform",
+    ///         DisplayName = "Managed by Pulumi",
     ///         TargetResourceId = exampleEnvironment.Id,
     ///         TargetResourceType = "environment",
     ///         AllowedBranches = "refs/heads/main, refs/heads/features/*",
@@ -114,7 +114,7 @@ namespace Pulumi.AzureDevOps
     ///     var exampleCheckBranchControl = new AzureDevOps.CheckBranchControl("example", new()
     ///     {
     ///         ProjectId = example.Id,
-    ///         DisplayName = "Managed by Terraform",
+    ///         DisplayName = "Managed by Pulumi",
     ///         TargetResourceId = exampleQueue.Id,
     ///         TargetResourceType = "queue",
     ///         AllowedBranches = "refs/heads/main, refs/heads/features/*",
@@ -151,7 +151,7 @@ namespace Pulumi.AzureDevOps
     ///     var exampleCheckBranchControl = new AzureDevOps.CheckBranchControl("example", new()
     ///     {
     ///         ProjectId = example.Id,
-    ///         DisplayName = "Managed by Terraform",
+    ///         DisplayName = "Managed by Pulumi",
     ///         TargetResourceId = Output.Tuple(example.Id, exampleGit.Id).Apply(values =&gt;
     ///         {
     ///             var exampleId = values.Item1;
@@ -205,7 +205,7 @@ namespace Pulumi.AzureDevOps
     ///     var exampleCheckBranchControl = new AzureDevOps.CheckBranchControl("example", new()
     ///     {
     ///         ProjectId = example.Id,
-    ///         DisplayName = "Managed by Terraform",
+    ///         DisplayName = "Managed by Pulumi",
     ///         TargetResourceId = exampleVariableGroup.Id,
     ///         TargetResourceType = "variablegroup",
     ///         AllowedBranches = "refs/heads/main, refs/heads/features/*",

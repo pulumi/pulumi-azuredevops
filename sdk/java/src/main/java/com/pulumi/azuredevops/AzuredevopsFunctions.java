@@ -130,7 +130,7 @@ public final class AzuredevopsFunctions {
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
      *             .visibility("private")
-     *             .description("Managed by Terraform")
+     *             .description("Managed by Pulumi")
      *             .build());
      * 
      *         final var example = AzuredevopsFunctions.getAgentQueue(GetAgentQueueArgs.builder()
@@ -189,7 +189,7 @@ public final class AzuredevopsFunctions {
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
      *             .visibility("private")
-     *             .description("Managed by Terraform")
+     *             .description("Managed by Pulumi")
      *             .build());
      * 
      *         final var example = AzuredevopsFunctions.getAgentQueue(GetAgentQueueArgs.builder()
@@ -248,7 +248,7 @@ public final class AzuredevopsFunctions {
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
      *             .visibility("private")
-     *             .description("Managed by Terraform")
+     *             .description("Managed by Pulumi")
      *             .build());
      * 
      *         final var example = AzuredevopsFunctions.getAgentQueue(GetAgentQueueArgs.builder()
@@ -307,7 +307,7 @@ public final class AzuredevopsFunctions {
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
      *             .visibility("private")
-     *             .description("Managed by Terraform")
+     *             .description("Managed by Pulumi")
      *             .build());
      * 
      *         final var example = AzuredevopsFunctions.getAgentQueue(GetAgentQueueArgs.builder()
@@ -366,7 +366,7 @@ public final class AzuredevopsFunctions {
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
      *             .visibility("private")
-     *             .description("Managed by Terraform")
+     *             .description("Managed by Pulumi")
      *             .build());
      * 
      *         final var example = AzuredevopsFunctions.getArea(GetAreaArgs.builder()
@@ -428,7 +428,7 @@ public final class AzuredevopsFunctions {
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
      *             .visibility("private")
-     *             .description("Managed by Terraform")
+     *             .description("Managed by Pulumi")
      *             .build());
      * 
      *         final var example = AzuredevopsFunctions.getArea(GetAreaArgs.builder()
@@ -490,7 +490,7 @@ public final class AzuredevopsFunctions {
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
      *             .visibility("private")
-     *             .description("Managed by Terraform")
+     *             .description("Managed by Pulumi")
      *             .build());
      * 
      *         final var example = AzuredevopsFunctions.getArea(GetAreaArgs.builder()
@@ -552,7 +552,7 @@ public final class AzuredevopsFunctions {
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
      *             .visibility("private")
-     *             .description("Managed by Terraform")
+     *             .description("Managed by Pulumi")
      *             .build());
      * 
      *         final var example = AzuredevopsFunctions.getArea(GetAreaArgs.builder()
@@ -1052,13 +1052,13 @@ public final class AzuredevopsFunctions {
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
      *             .visibility("private")
-     *             .description("Managed by Terraform")
+     *             .description("Managed by Pulumi")
      *             .build());
      * 
      *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()
      *             .projectId(exampleProject.id())
      *             .name("Example Environment")
-     *             .description("Managed by Terraform")
+     *             .description("Managed by Pulumi")
      *             .build());
      * 
      *         final var example = AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()
@@ -1117,13 +1117,13 @@ public final class AzuredevopsFunctions {
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
      *             .visibility("private")
-     *             .description("Managed by Terraform")
+     *             .description("Managed by Pulumi")
      *             .build());
      * 
      *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()
      *             .projectId(exampleProject.id())
      *             .name("Example Environment")
-     *             .description("Managed by Terraform")
+     *             .description("Managed by Pulumi")
      *             .build());
      * 
      *         final var example = AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()
@@ -1182,13 +1182,13 @@ public final class AzuredevopsFunctions {
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
      *             .visibility("private")
-     *             .description("Managed by Terraform")
+     *             .description("Managed by Pulumi")
      *             .build());
      * 
      *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()
      *             .projectId(exampleProject.id())
      *             .name("Example Environment")
-     *             .description("Managed by Terraform")
+     *             .description("Managed by Pulumi")
      *             .build());
      * 
      *         final var example = AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()
@@ -1247,13 +1247,13 @@ public final class AzuredevopsFunctions {
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
      *             .visibility("private")
-     *             .description("Managed by Terraform")
+     *             .description("Managed by Pulumi")
      *             .build());
      * 
      *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()
      *             .projectId(exampleProject.id())
      *             .name("Example Environment")
-     *             .description("Managed by Terraform")
+     *             .description("Managed by Pulumi")
      *             .build());
      * 
      *         final var example = AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()
@@ -3188,7 +3188,7 @@ public final class AzuredevopsFunctions {
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
      *             .visibility("private")
-     *             .description("Managed by Terraform")
+     *             .description("Managed by Pulumi")
      *             .build());
      * 
      *         final var example-root-iteration = AzuredevopsFunctions.getIteration(GetIterationArgs.builder()
@@ -3256,7 +3256,7 @@ public final class AzuredevopsFunctions {
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
      *             .visibility("private")
-     *             .description("Managed by Terraform")
+     *             .description("Managed by Pulumi")
      *             .build());
      * 
      *         final var example-root-iteration = AzuredevopsFunctions.getIteration(GetIterationArgs.builder()
@@ -3324,7 +3324,7 @@ public final class AzuredevopsFunctions {
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
      *             .visibility("private")
-     *             .description("Managed by Terraform")
+     *             .description("Managed by Pulumi")
      *             .build());
      * 
      *         final var example-root-iteration = AzuredevopsFunctions.getIteration(GetIterationArgs.builder()
@@ -3392,7 +3392,7 @@ public final class AzuredevopsFunctions {
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
      *             .visibility("private")
-     *             .description("Managed by Terraform")
+     *             .description("Managed by Pulumi")
      *             .build());
      * 
      *         final var example-root-iteration = AzuredevopsFunctions.getIteration(GetIterationArgs.builder()
@@ -6738,7 +6738,7 @@ public final class AzuredevopsFunctions {
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
      *             .visibility("private")
-     *             .description("Managed by Terraform")
+     *             .description("Managed by Pulumi")
      *             .build());
      * 
      *         final var example = AzuredevopsFunctions.getTeam(GetTeamArgs.builder()
@@ -6799,7 +6799,7 @@ public final class AzuredevopsFunctions {
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
      *             .visibility("private")
-     *             .description("Managed by Terraform")
+     *             .description("Managed by Pulumi")
      *             .build());
      * 
      *         final var example = AzuredevopsFunctions.getTeam(GetTeamArgs.builder()
@@ -6860,7 +6860,7 @@ public final class AzuredevopsFunctions {
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
      *             .visibility("private")
-     *             .description("Managed by Terraform")
+     *             .description("Managed by Pulumi")
      *             .build());
      * 
      *         final var example = AzuredevopsFunctions.getTeam(GetTeamArgs.builder()
@@ -6921,7 +6921,7 @@ public final class AzuredevopsFunctions {
      *             .workItemTemplate("Agile")
      *             .versionControl("Git")
      *             .visibility("private")
-     *             .description("Managed by Terraform")
+     *             .description("Managed by Pulumi")
      *             .build());
      * 
      *         final var example = AzuredevopsFunctions.getTeam(GetTeamArgs.builder()

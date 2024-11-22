@@ -24,7 +24,7 @@ import * as utilities from "./utilities";
  *     username: "username",
  *     password: "password",
  *     serviceEndpointName: "Example Generic",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleCheckExclusiveLock = new azuredevops.CheckExclusiveLock("example", {
  *     projectId: example.id,

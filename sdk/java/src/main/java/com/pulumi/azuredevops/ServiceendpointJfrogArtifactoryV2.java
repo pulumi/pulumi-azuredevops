@@ -55,13 +55,13 @@ import javax.annotation.Nullable;
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleServiceendpointJfrogArtifactoryV2 = new ServiceendpointJfrogArtifactoryV2("exampleServiceendpointJfrogArtifactoryV2", ServiceendpointJfrogArtifactoryV2Args.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example JFrog Artifactory V2")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .url("https://artifactory.my.com")
  *             .authenticationToken(ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs.builder()
  *                 .token("0000000000000000000000000000000000000000")
@@ -106,13 +106,13 @@ import javax.annotation.Nullable;
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleServiceendpointJfrogArtifactoryV2 = new ServiceendpointJfrogArtifactoryV2("exampleServiceendpointJfrogArtifactoryV2", ServiceendpointJfrogArtifactoryV2Args.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example JFrog Artifactory V2")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .url("https://artifactory.my.com")
  *             .authenticationBasic(ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs.builder()
  *                 .username("username")

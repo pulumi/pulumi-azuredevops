@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleServiceEndpointAws = new azuredevops.ServiceEndpointAws("example", {
  *     projectId: example.id,

@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var example_azure = new ServiceEndpointKubernetes("example-azure", ServiceEndpointKubernetesArgs.builder()

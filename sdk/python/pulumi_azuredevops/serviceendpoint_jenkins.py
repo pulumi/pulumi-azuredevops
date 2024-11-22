@@ -295,7 +295,7 @@ class ServiceendpointJenkins(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_serviceendpoint_jenkins = azuredevops.ServiceendpointJenkins("example",
             project_id=example.id,
             service_endpoint_name="jenkins-example",
@@ -343,7 +343,7 @@ class ServiceendpointJenkins(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_serviceendpoint_jenkins = azuredevops.ServiceendpointJenkins("example",
             project_id=example.id,
             service_endpoint_name="jenkins-example",

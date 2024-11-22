@@ -28,7 +28,7 @@ namespace Pulumi.AzureDevOps
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///     });
     /// 
     ///     var exampleServiceendpointIncomingwebhook = new AzureDevOps.ServiceendpointIncomingwebhook("example", new()
@@ -38,7 +38,7 @@ namespace Pulumi.AzureDevOps
     ///         Secret = "secret",
     ///         HttpHeader = "X-Hub-Signature",
     ///         ServiceEndpointName = "Example IncomingWebhook",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///     });
     /// 
     /// });

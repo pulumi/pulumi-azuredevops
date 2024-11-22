@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * // dockerhub registry service connection
  * const exampleServiceEndpointDockerRegistry = new azuredevops.ServiceEndpointDockerRegistry("example", {

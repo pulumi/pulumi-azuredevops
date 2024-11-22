@@ -22,12 +22,12 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleServiceendpointJfrogDistributionV2 = new azuredevops.ServiceendpointJfrogDistributionV2("example", {
  *     projectId: example.id,
  *     serviceEndpointName: "Example JFrog Distribution V2",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  *     url: "https://artifactory.my.com",
  *     authenticationToken: {
  *         token: "0000000000000000000000000000000000000000",
@@ -45,12 +45,12 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleServiceendpointJfrogDistributionV2 = new azuredevops.ServiceendpointJfrogDistributionV2("example", {
  *     projectId: example.id,
  *     serviceEndpointName: "Example JFrog Distribution V2",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  *     url: "https://artifactory.my.com",
  *     authenticationBasic: {
  *         username: "username",

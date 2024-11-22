@@ -28,7 +28,7 @@ namespace Pulumi.AzureDevOps
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///     });
     /// 
     ///     var exampleServiceEndpointPipeline = new AzureDevOps.ServiceEndpointPipeline("example", new()
@@ -40,7 +40,7 @@ namespace Pulumi.AzureDevOps
     ///         {
     ///             PersonalAccessToken = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
     ///         },
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///     });
     /// 
     /// });

@@ -28,7 +28,7 @@ namespace Pulumi.AzureDevOps
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///     });
     /// 
     ///     var exampleServiceendpointOctopusdeploy = new AzureDevOps.ServiceendpointOctopusdeploy("example", new()
@@ -37,7 +37,7 @@ namespace Pulumi.AzureDevOps
     ///         Url = "https://octopus.com",
     ///         ApiKey = "000000000000000000000000000000000000",
     ///         ServiceEndpointName = "Example Octopus Deploy",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///     });
     /// 
     /// });

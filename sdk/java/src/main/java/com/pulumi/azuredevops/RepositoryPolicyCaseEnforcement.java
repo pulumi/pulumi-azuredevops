@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleGit = new Git("exampleGit", GitArgs.builder()
@@ -112,7 +112,7 @@ import javax.annotation.Nullable;
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleRepositoryPolicyCaseEnforcement = new RepositoryPolicyCaseEnforcement("exampleRepositoryPolicyCaseEnforcement", RepositoryPolicyCaseEnforcementArgs.builder()

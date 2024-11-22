@@ -170,7 +170,7 @@ class Feed(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_feed = azuredevops.Feed("example",
             name="releases",
             project_id=example.id)
@@ -243,7 +243,7 @@ class Feed(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_feed = azuredevops.Feed("example",
             name="releases",
             project_id=example.id)

@@ -28,7 +28,7 @@ namespace Pulumi.AzureDevOps
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///     });
     /// 
     ///     var exampleServiceEndpointBitBucket = new AzureDevOps.ServiceEndpointBitBucket("example", new()
@@ -37,7 +37,7 @@ namespace Pulumi.AzureDevOps
     ///         Username = "username",
     ///         Password = "password",
     ///         ServiceEndpointName = "Example Bitbucket",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///     });
     /// 
     /// });

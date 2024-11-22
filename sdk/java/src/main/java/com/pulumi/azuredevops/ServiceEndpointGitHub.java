@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleServiceEndpointGitHub = new ServiceEndpointGitHub("exampleServiceEndpointGitHub", ServiceEndpointGitHubArgs.builder()
@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleServiceEndpointGitHub = new ServiceEndpointGitHub("exampleServiceEndpointGitHub", ServiceEndpointGitHubArgs.builder()
@@ -148,13 +148,13 @@ import javax.annotation.Nullable;
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleServiceEndpointGitHub = new ServiceEndpointGitHub("exampleServiceEndpointGitHub", ServiceEndpointGitHubArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example GitHub Apps: Azure Pipelines")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *     }

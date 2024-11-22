@@ -20,7 +20,7 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleServiceEndpointGitHub = new azuredevops.ServiceEndpointGitHub("example", {
  *     projectId: example.id,
@@ -40,7 +40,7 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleServiceEndpointGitHub = new azuredevops.ServiceEndpointGitHub("example", {
  *     projectId: example.id,
@@ -60,12 +60,12 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleServiceEndpointGitHub = new azuredevops.ServiceEndpointGitHub("example", {
  *     projectId: example.id,
  *     serviceEndpointName: "Example GitHub Apps: Azure Pipelines",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * ```
  *

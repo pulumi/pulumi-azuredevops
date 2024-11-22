@@ -26,7 +26,7 @@ namespace Pulumi.AzureDevOps
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///     });
     /// 
     ///     var exampleServiceendpointGcpTerraform = new AzureDevOps.ServiceendpointGcpTerraform("example", new()
@@ -37,7 +37,7 @@ namespace Pulumi.AzureDevOps
     ///         PrivateKey = "0000000000000000000000000000000000000",
     ///         ServiceEndpointName = "Example GCP Terraform extension",
     ///         GcpProjectId = "Example GCP Project",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///     });
     /// 
     /// });

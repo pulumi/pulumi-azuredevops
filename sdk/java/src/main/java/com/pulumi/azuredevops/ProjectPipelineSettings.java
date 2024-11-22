@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleProjectPipelineSettings = new ProjectPipelineSettings("exampleProjectPipelineSettings", ProjectPipelineSettingsArgs.builder()

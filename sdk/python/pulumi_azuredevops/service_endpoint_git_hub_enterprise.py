@@ -224,12 +224,12 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_service_endpoint_git_hub_enterprise = azuredevops.ServiceEndpointGitHubEnterprise("example",
             project_id=example.id,
             service_endpoint_name="Example GitHub Enterprise",
             url="https://github.contoso.com",
-            description="Managed by Terraform",
+            description="Managed by Pulumi",
             auth_personal={
                 "personal_access_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
             })
@@ -273,12 +273,12 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_service_endpoint_git_hub_enterprise = azuredevops.ServiceEndpointGitHubEnterprise("example",
             project_id=example.id,
             service_endpoint_name="Example GitHub Enterprise",
             url="https://github.contoso.com",
-            description="Managed by Terraform",
+            description="Managed by Pulumi",
             auth_personal={
                 "personal_access_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
             })

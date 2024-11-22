@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *             .username("username")
  *             .password("password")
  *             .serviceEndpointName("Example Generic")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleCheckExclusiveLock = new CheckExclusiveLock("exampleCheckExclusiveLock", CheckExclusiveLockArgs.builder()

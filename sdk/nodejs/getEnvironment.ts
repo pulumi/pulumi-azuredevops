@@ -18,12 +18,12 @@ import * as utilities from "./utilities";
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleEnvironment = new azuredevops.Environment("example", {
  *     projectId: exampleProject.id,
  *     name: "Example Environment",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const example = pulumi.all([exampleProject.id, exampleEnvironment.id]).apply(([exampleProjectId, exampleEnvironmentId]) => azuredevops.getEnvironmentOutput({
  *     projectId: exampleProjectId,
@@ -97,12 +97,12 @@ export interface GetEnvironmentResult {
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleEnvironment = new azuredevops.Environment("example", {
  *     projectId: exampleProject.id,
  *     name: "Example Environment",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const example = pulumi.all([exampleProject.id, exampleEnvironment.id]).apply(([exampleProjectId, exampleEnvironmentId]) => azuredevops.getEnvironmentOutput({
  *     projectId: exampleProjectId,

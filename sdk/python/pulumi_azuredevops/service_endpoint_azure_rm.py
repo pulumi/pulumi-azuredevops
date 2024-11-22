@@ -577,11 +577,11 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("example",
             project_id=example.id,
             service_endpoint_name="Example AzureRM",
-            description="Managed by Terraform",
+            description="Managed by Pulumi",
             service_endpoint_authentication_scheme="ServicePrincipal",
             credentials={
                 "serviceprincipalid": "00000000-0000-0000-0000-000000000000",
@@ -603,11 +603,11 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("example",
             project_id=example.id,
             service_endpoint_name="Example AzureRM",
-            description="Managed by Terraform",
+            description="Managed by Pulumi",
             service_endpoint_authentication_scheme="ServicePrincipal",
             credentials={
                 "serviceprincipalid": "00000000-0000-0000-0000-000000000000",
@@ -651,7 +651,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         identity = azure.core.ResourceGroup("identity",
             name="identity",
             location="UK South")
@@ -662,7 +662,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("example",
             project_id=example.id,
             service_endpoint_name=service_connection_name,
-            description="Managed by Terraform",
+            description="Managed by Pulumi",
             service_endpoint_authentication_scheme="WorkloadIdentityFederation",
             credentials={
                 "serviceprincipalid": example_user_assigned_identity.client_id,
@@ -779,11 +779,11 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("example",
             project_id=example.id,
             service_endpoint_name="Example AzureRM",
-            description="Managed by Terraform",
+            description="Managed by Pulumi",
             service_endpoint_authentication_scheme="ServicePrincipal",
             credentials={
                 "serviceprincipalid": "00000000-0000-0000-0000-000000000000",
@@ -805,11 +805,11 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("example",
             project_id=example.id,
             service_endpoint_name="Example AzureRM",
-            description="Managed by Terraform",
+            description="Managed by Pulumi",
             service_endpoint_authentication_scheme="ServicePrincipal",
             credentials={
                 "serviceprincipalid": "00000000-0000-0000-0000-000000000000",
@@ -853,7 +853,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         identity = azure.core.ResourceGroup("identity",
             name="identity",
             location="UK South")
@@ -864,7 +864,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("example",
             project_id=example.id,
             service_endpoint_name=service_connection_name,
-            description="Managed by Terraform",
+            description="Managed by Pulumi",
             service_endpoint_authentication_scheme="WorkloadIdentityFederation",
             credentials={
                 "serviceprincipalid": example_user_assigned_identity.client_id,

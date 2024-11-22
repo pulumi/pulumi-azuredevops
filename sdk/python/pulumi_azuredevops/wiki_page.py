@@ -202,7 +202,7 @@ class WikiPage(pulumi.CustomResource):
 
         example = azuredevops.Project("example",
             name="Example Project",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_wiki = azuredevops.Wiki("example",
             name="Example project wiki ",
             project_id=example.id,
@@ -242,7 +242,7 @@ class WikiPage(pulumi.CustomResource):
 
         example = azuredevops.Project("example",
             name="Example Project",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_wiki = azuredevops.Wiki("example",
             name="Example project wiki ",
             project_id=example.id,

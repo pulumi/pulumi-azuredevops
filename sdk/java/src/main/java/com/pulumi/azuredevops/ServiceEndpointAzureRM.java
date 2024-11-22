@@ -61,13 +61,13 @@ import javax.annotation.Nullable;
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", ServiceEndpointAzureRMArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example AzureRM")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .serviceEndpointAuthenticationScheme("ServicePrincipal")
  *             .credentials(ServiceEndpointAzureRMCredentialsArgs.builder()
  *                 .serviceprincipalid("00000000-0000-0000-0000-000000000000")
@@ -117,13 +117,13 @@ import javax.annotation.Nullable;
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", ServiceEndpointAzureRMArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example AzureRM")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .serviceEndpointAuthenticationScheme("ServicePrincipal")
  *             .credentials(ServiceEndpointAzureRMCredentialsArgs.builder()
  *                 .serviceprincipalid("00000000-0000-0000-0000-000000000000")
@@ -230,7 +230,7 @@ import javax.annotation.Nullable;
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var identity = new ResourceGroup("identity", ResourceGroupArgs.builder()
@@ -247,7 +247,7 @@ import javax.annotation.Nullable;
  *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", ServiceEndpointAzureRMArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName(serviceConnectionName)
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .serviceEndpointAuthenticationScheme("WorkloadIdentityFederation")
  *             .credentials(ServiceEndpointAzureRMCredentialsArgs.builder()
  *                 .serviceprincipalid(exampleUserAssignedIdentity.clientId())

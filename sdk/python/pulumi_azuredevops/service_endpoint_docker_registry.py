@@ -329,7 +329,7 @@ class ServiceEndpointDockerRegistry(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         # dockerhub registry service connection
         example_service_endpoint_docker_registry = azuredevops.ServiceEndpointDockerRegistry("example",
             project_id=example.id,
@@ -391,7 +391,7 @@ class ServiceEndpointDockerRegistry(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         # dockerhub registry service connection
         example_service_endpoint_docker_registry = azuredevops.ServiceEndpointDockerRegistry("example",
             project_id=example.id,

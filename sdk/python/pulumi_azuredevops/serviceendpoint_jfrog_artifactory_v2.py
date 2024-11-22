@@ -284,11 +284,11 @@ class ServiceendpointJfrogArtifactoryV2(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_serviceendpoint_jfrog_artifactory_v2 = azuredevops.ServiceendpointJfrogArtifactoryV2("example",
             project_id=example.id,
             service_endpoint_name="Example JFrog Artifactory V2",
-            description="Managed by Terraform",
+            description="Managed by Pulumi",
             url="https://artifactory.my.com",
             authentication_token={
                 "token": "0000000000000000000000000000000000000000",
@@ -305,11 +305,11 @@ class ServiceendpointJfrogArtifactoryV2(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_serviceendpoint_jfrog_artifactory_v2 = azuredevops.ServiceendpointJfrogArtifactoryV2("example",
             project_id=example.id,
             service_endpoint_name="Example JFrog Artifactory V2",
-            description="Managed by Terraform",
+            description="Managed by Pulumi",
             url="https://artifactory.my.com",
             authentication_basic={
                 "username": "username",
@@ -363,11 +363,11 @@ class ServiceendpointJfrogArtifactoryV2(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_serviceendpoint_jfrog_artifactory_v2 = azuredevops.ServiceendpointJfrogArtifactoryV2("example",
             project_id=example.id,
             service_endpoint_name="Example JFrog Artifactory V2",
-            description="Managed by Terraform",
+            description="Managed by Pulumi",
             url="https://artifactory.my.com",
             authentication_token={
                 "token": "0000000000000000000000000000000000000000",
@@ -384,11 +384,11 @@ class ServiceendpointJfrogArtifactoryV2(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_serviceendpoint_jfrog_artifactory_v2 = azuredevops.ServiceendpointJfrogArtifactoryV2("example",
             project_id=example.id,
             service_endpoint_name="Example JFrog Artifactory V2",
-            description="Managed by Terraform",
+            description="Managed by Pulumi",
             url="https://artifactory.my.com",
             authentication_basic={
                 "username": "username",

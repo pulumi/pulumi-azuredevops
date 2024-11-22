@@ -33,7 +33,7 @@ namespace Pulumi.AzureDevOps
     ///             { "testplans", "disabled" },
     ///             { "artifacts", "disabled" },
     ///         },
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///     });
     /// 
     ///     var exampleGit = new AzureDevOps.Git("example", new()

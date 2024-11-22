@@ -280,7 +280,7 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
         test = azuredevops.ServiceEndpointServiceFabric("test",
             project_id=project.id,
             service_endpoint_name="Sample Service Fabric",
-            description="Managed by Terraform",
+            description="Managed by Pulumi",
             cluster_endpoint="tcp://test",
             azure_active_directory={
                 "server_certificate_lookup": "Thumbprint",
@@ -304,7 +304,7 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
         test = azuredevops.ServiceEndpointServiceFabric("test",
             project_id=project.id,
             service_endpoint_name="Sample Service Fabric",
-            description="Managed by Terraform",
+            description="Managed by Pulumi",
             cluster_endpoint="tcp://test",
             none={
                 "unsecured": False,
@@ -355,7 +355,7 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
         test = azuredevops.ServiceEndpointServiceFabric("test",
             project_id=project.id,
             service_endpoint_name="Sample Service Fabric",
-            description="Managed by Terraform",
+            description="Managed by Pulumi",
             cluster_endpoint="tcp://test",
             azure_active_directory={
                 "server_certificate_lookup": "Thumbprint",
@@ -379,7 +379,7 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
         test = azuredevops.ServiceEndpointServiceFabric("test",
             project_id=project.id,
             service_endpoint_name="Sample Service Fabric",
-            description="Managed by Terraform",
+            description="Managed by Pulumi",
             cluster_endpoint="tcp://test",
             none={
                 "unsecured": False,

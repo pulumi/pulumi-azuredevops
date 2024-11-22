@@ -290,7 +290,7 @@ class Project(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform",
+            description="Managed by Pulumi",
             features={
                 "testplans": "disabled",
                 "artifacts": "disabled",
@@ -354,7 +354,7 @@ class Project(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform",
+            description="Managed by Pulumi",
             features={
                 "testplans": "disabled",
                 "artifacts": "disabled",

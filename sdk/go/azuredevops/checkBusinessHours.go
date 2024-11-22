@@ -42,14 +42,14 @@ import (
 //				Username:            pulumi.String("username"),
 //				Password:            pulumi.String("password"),
 //				ServiceEndpointName: pulumi.String("Example Generic"),
-//				Description:         pulumi.String("Managed by Terraform"),
+//				Description:         pulumi.String("Managed by Pulumi"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = azuredevops.NewCheckBusinessHours(ctx, "example", &azuredevops.CheckBusinessHoursArgs{
 //				ProjectId:          example.ID(),
-//				DisplayName:        pulumi.String("Managed by Terraform"),
+//				DisplayName:        pulumi.String("Managed by Pulumi"),
 //				TargetResourceId:   exampleServiceEndpointGeneric.ID(),
 //				TargetResourceType: pulumi.String("endpoint"),
 //				StartTime:          pulumi.String("07:00"),
@@ -97,7 +97,7 @@ import (
 //			}
 //			_, err = azuredevops.NewCheckBusinessHours(ctx, "example", &azuredevops.CheckBusinessHoursArgs{
 //				ProjectId:          example.ID(),
-//				DisplayName:        pulumi.String("Managed by Terraform"),
+//				DisplayName:        pulumi.String("Managed by Pulumi"),
 //				TargetResourceId:   exampleEnvironment.ID(),
 //				TargetResourceType: pulumi.String("environment"),
 //				StartTime:          pulumi.String("07:00"),
@@ -150,7 +150,7 @@ import (
 //			}
 //			_, err = azuredevops.NewCheckBusinessHours(ctx, "example", &azuredevops.CheckBusinessHoursArgs{
 //				ProjectId:          example.ID(),
-//				DisplayName:        pulumi.String("Managed by Terraform"),
+//				DisplayName:        pulumi.String("Managed by Pulumi"),
 //				TargetResourceId:   exampleQueue.ID(),
 //				TargetResourceType: pulumi.String("queue"),
 //				StartTime:          pulumi.String("07:00"),
@@ -202,7 +202,7 @@ import (
 //			}
 //			_, err = azuredevops.NewCheckBusinessHours(ctx, "example", &azuredevops.CheckBusinessHoursArgs{
 //				ProjectId:   example.ID(),
-//				DisplayName: pulumi.String("Managed by Terraform"),
+//				DisplayName: pulumi.String("Managed by Pulumi"),
 //				TargetResourceId: pulumi.All(example.ID(), exampleGit.ID()).ApplyT(func(_args []interface{}) (string, error) {
 //					exampleId := _args[0].(string)
 //					exampleGitId := _args[1].(string)
@@ -266,7 +266,7 @@ import (
 //			}
 //			_, err = azuredevops.NewCheckBusinessHours(ctx, "example", &azuredevops.CheckBusinessHoursArgs{
 //				ProjectId:          example.ID(),
-//				DisplayName:        pulumi.String("Managed by Terraform"),
+//				DisplayName:        pulumi.String("Managed by Pulumi"),
 //				TargetResourceId:   exampleVariableGroup.ID(),
 //				TargetResourceType: pulumi.String("variablegroup"),
 //				StartTime:          pulumi.String("07:00"),

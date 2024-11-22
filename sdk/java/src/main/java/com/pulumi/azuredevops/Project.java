@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .features(Map.ofEntries(
  *                 Map.entry("testplans", "disabled"),
  *                 Map.entry("artifacts", "disabled")

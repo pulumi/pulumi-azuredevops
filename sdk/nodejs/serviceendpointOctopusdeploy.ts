@@ -18,14 +18,14 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleServiceendpointOctopusdeploy = new azuredevops.ServiceendpointOctopusdeploy("example", {
  *     projectId: example.id,
  *     url: "https://octopus.com",
  *     apiKey: "000000000000000000000000000000000000",
  *     serviceEndpointName: "Example Octopus Deploy",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * ```
  *

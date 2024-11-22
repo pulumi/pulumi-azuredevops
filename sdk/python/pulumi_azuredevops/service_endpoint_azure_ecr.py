@@ -493,7 +493,7 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         # azure container registry service connection
         example_service_endpoint_azure_ecr = azuredevops.ServiceEndpointAzureEcr("example",
             project_id=example.id,
@@ -517,7 +517,7 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         identity = azure.core.ResourceGroup("identity",
             name="identity",
             location="UK South")
@@ -594,7 +594,7 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         # azure container registry service connection
         example_service_endpoint_azure_ecr = azuredevops.ServiceEndpointAzureEcr("example",
             project_id=example.id,
@@ -618,7 +618,7 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         identity = azure.core.ResourceGroup("identity",
             name="identity",
             location="UK South")

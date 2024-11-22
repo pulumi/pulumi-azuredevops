@@ -19,7 +19,7 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleServiceendpointNexus = new azuredevops.ServiceendpointNexus("example", {
  *     projectId: example.id,

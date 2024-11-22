@@ -36,7 +36,7 @@ namespace Pulumi.AzureDevOps
     ///     {
     ///         ProjectId = project.Id,
     ///         ServiceEndpointName = "Sample Service Fabric",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///         ClusterEndpoint = "tcp://test",
     ///         AzureActiveDirectory = new AzureDevOps.Inputs.ServiceEndpointServiceFabricAzureActiveDirectoryArgs
     ///         {
@@ -72,7 +72,7 @@ namespace Pulumi.AzureDevOps
     ///     {
     ///         ProjectId = project.Id,
     ///         ServiceEndpointName = "Sample Service Fabric",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///         ClusterEndpoint = "tcp://test",
     ///         None = new AzureDevOps.Inputs.ServiceEndpointServiceFabricNoneArgs
     ///         {

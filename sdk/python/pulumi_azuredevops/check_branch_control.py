@@ -333,10 +333,10 @@ class CheckBranchControl(pulumi.CustomResource):
             username="username",
             password="password",
             service_endpoint_name="Example Generic",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_check_branch_control = azuredevops.CheckBranchControl("example",
             project_id=example.id,
-            display_name="Managed by Terraform",
+            display_name="Managed by Pulumi",
             target_resource_id=example_service_endpoint_generic.id,
             target_resource_type="endpoint",
             allowed_branches="refs/heads/main, refs/heads/features/*",
@@ -355,7 +355,7 @@ class CheckBranchControl(pulumi.CustomResource):
             name="Example Environment")
         example_check_branch_control = azuredevops.CheckBranchControl("example",
             project_id=example.id,
-            display_name="Managed by Terraform",
+            display_name="Managed by Pulumi",
             target_resource_id=example_environment.id,
             target_resource_type="environment",
             allowed_branches="refs/heads/main, refs/heads/features/*")
@@ -374,7 +374,7 @@ class CheckBranchControl(pulumi.CustomResource):
             agent_pool_id=example_pool.id)
         example_check_branch_control = azuredevops.CheckBranchControl("example",
             project_id=example.id,
-            display_name="Managed by Terraform",
+            display_name="Managed by Pulumi",
             target_resource_id=example_queue.id,
             target_resource_type="queue",
             allowed_branches="refs/heads/main, refs/heads/features/*")
@@ -395,7 +395,7 @@ class CheckBranchControl(pulumi.CustomResource):
             })
         example_check_branch_control = azuredevops.CheckBranchControl("example",
             project_id=example.id,
-            display_name="Managed by Terraform",
+            display_name="Managed by Pulumi",
             target_resource_id=pulumi.Output.all(
                 exampleId=example.id,
                 exampleGitId=example_git.id
@@ -430,7 +430,7 @@ class CheckBranchControl(pulumi.CustomResource):
             ])
         example_check_branch_control = azuredevops.CheckBranchControl("example",
             project_id=example.id,
-            display_name="Managed by Terraform",
+            display_name="Managed by Pulumi",
             target_resource_id=example_variable_group.id,
             target_resource_type="variablegroup",
             allowed_branches="refs/heads/main, refs/heads/features/*")
@@ -479,10 +479,10 @@ class CheckBranchControl(pulumi.CustomResource):
             username="username",
             password="password",
             service_endpoint_name="Example Generic",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_check_branch_control = azuredevops.CheckBranchControl("example",
             project_id=example.id,
-            display_name="Managed by Terraform",
+            display_name="Managed by Pulumi",
             target_resource_id=example_service_endpoint_generic.id,
             target_resource_type="endpoint",
             allowed_branches="refs/heads/main, refs/heads/features/*",
@@ -501,7 +501,7 @@ class CheckBranchControl(pulumi.CustomResource):
             name="Example Environment")
         example_check_branch_control = azuredevops.CheckBranchControl("example",
             project_id=example.id,
-            display_name="Managed by Terraform",
+            display_name="Managed by Pulumi",
             target_resource_id=example_environment.id,
             target_resource_type="environment",
             allowed_branches="refs/heads/main, refs/heads/features/*")
@@ -520,7 +520,7 @@ class CheckBranchControl(pulumi.CustomResource):
             agent_pool_id=example_pool.id)
         example_check_branch_control = azuredevops.CheckBranchControl("example",
             project_id=example.id,
-            display_name="Managed by Terraform",
+            display_name="Managed by Pulumi",
             target_resource_id=example_queue.id,
             target_resource_type="queue",
             allowed_branches="refs/heads/main, refs/heads/features/*")
@@ -541,7 +541,7 @@ class CheckBranchControl(pulumi.CustomResource):
             })
         example_check_branch_control = azuredevops.CheckBranchControl("example",
             project_id=example.id,
-            display_name="Managed by Terraform",
+            display_name="Managed by Pulumi",
             target_resource_id=pulumi.Output.all(
                 exampleId=example.id,
                 exampleGitId=example_git.id
@@ -576,7 +576,7 @@ class CheckBranchControl(pulumi.CustomResource):
             ])
         example_check_branch_control = azuredevops.CheckBranchControl("example",
             project_id=example.id,
-            display_name="Managed by Terraform",
+            display_name="Managed by Pulumi",
             target_resource_id=example_variable_group.id,
             target_resource_type="variablegroup",
             allowed_branches="refs/heads/main, refs/heads/features/*")

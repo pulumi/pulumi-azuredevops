@@ -33,7 +33,7 @@ import (
 //				Visibility:       pulumi.String("private"),
 //				VersionControl:   pulumi.String("Git"),
 //				WorkItemTemplate: pulumi.String("Agile"),
-//				Description:      pulumi.String("Managed by Terraform"),
+//				Description:      pulumi.String("Managed by Pulumi"),
 //			})
 //			if err != nil {
 //				return err
@@ -44,7 +44,7 @@ import (
 //				Secret:              pulumi.String("secret"),
 //				HttpHeader:          pulumi.String("X-Hub-Signature"),
 //				ServiceEndpointName: pulumi.String("Example IncomingWebhook"),
-//				Description:         pulumi.String("Managed by Terraform"),
+//				Description:         pulumi.String("Managed by Pulumi"),
 //			})
 //			if err != nil {
 //				return err

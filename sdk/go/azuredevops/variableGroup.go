@@ -31,7 +31,7 @@ import (
 //				WorkItemTemplate: pulumi.String("Agile"),
 //				VersionControl:   pulumi.String("Git"),
 //				Visibility:       pulumi.String("private"),
-//				Description:      pulumi.String("Managed by Terraform"),
+//				Description:      pulumi.String("Managed by Pulumi"),
 //			})
 //			if err != nil {
 //				return err
@@ -81,7 +81,7 @@ import (
 //				WorkItemTemplate: pulumi.String("Agile"),
 //				VersionControl:   pulumi.String("Git"),
 //				Visibility:       pulumi.String("private"),
-//				Description:      pulumi.String("Managed by Terraform"),
+//				Description:      pulumi.String("Managed by Pulumi"),
 //			})
 //			if err != nil {
 //				return err
@@ -89,7 +89,7 @@ import (
 //			exampleServiceEndpointAzureRM, err := azuredevops.NewServiceEndpointAzureRM(ctx, "example", &azuredevops.ServiceEndpointAzureRMArgs{
 //				ProjectId:           example.ID(),
 //				ServiceEndpointName: pulumi.String("Example AzureRM"),
-//				Description:         pulumi.String("Managed by Terraform"),
+//				Description:         pulumi.String("Managed by Pulumi"),
 //				Credentials: &azuredevops.ServiceEndpointAzureRMCredentialsArgs{
 //					Serviceprincipalid:  pulumi.String("00000000-0000-0000-0000-000000000000"),
 //					Serviceprincipalkey: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
