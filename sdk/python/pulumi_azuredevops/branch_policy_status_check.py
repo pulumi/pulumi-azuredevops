@@ -188,7 +188,7 @@ class BranchPolicyStatusCheck(pulumi.CustomResource):
                 "testplans": "disabled",
                 "artifacts": "disabled",
             },
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_git = azuredevops.Git("example",
             project_id=example.id,
             name="Example Repository",
@@ -264,7 +264,7 @@ class BranchPolicyStatusCheck(pulumi.CustomResource):
                 "testplans": "disabled",
                 "artifacts": "disabled",
             },
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_git = azuredevops.Git("example",
             project_id=example.id,
             name="Example Repository",

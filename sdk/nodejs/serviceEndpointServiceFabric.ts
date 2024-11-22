@@ -26,7 +26,7 @@ import * as utilities from "./utilities";
  * const test = new azuredevops.ServiceEndpointServiceFabric("test", {
  *     projectId: project.id,
  *     serviceEndpointName: "Sample Service Fabric",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  *     clusterEndpoint: "tcp://test",
  *     azureActiveDirectory: {
  *         serverCertificateLookup: "Thumbprint",
@@ -52,7 +52,7 @@ import * as utilities from "./utilities";
  * const test = new azuredevops.ServiceEndpointServiceFabric("test", {
  *     projectId: project.id,
  *     serviceEndpointName: "Sample Service Fabric",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  *     clusterEndpoint: "tcp://test",
  *     none: {
  *         unsecured: false,

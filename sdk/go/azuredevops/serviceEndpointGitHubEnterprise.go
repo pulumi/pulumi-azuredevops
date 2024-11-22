@@ -33,7 +33,7 @@ import (
 //				Visibility:       pulumi.String("private"),
 //				VersionControl:   pulumi.String("Git"),
 //				WorkItemTemplate: pulumi.String("Agile"),
-//				Description:      pulumi.String("Managed by Terraform"),
+//				Description:      pulumi.String("Managed by Pulumi"),
 //			})
 //			if err != nil {
 //				return err
@@ -42,7 +42,7 @@ import (
 //				ProjectId:           example.ID(),
 //				ServiceEndpointName: pulumi.String("Example GitHub Enterprise"),
 //				Url:                 pulumi.String("https://github.contoso.com"),
-//				Description:         pulumi.String("Managed by Terraform"),
+//				Description:         pulumi.String("Managed by Pulumi"),
 //				AuthPersonal: &azuredevops.ServiceEndpointGitHubEnterpriseAuthPersonalArgs{
 //					PersonalAccessToken: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
 //				},

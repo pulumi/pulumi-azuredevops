@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleProjectPipelineSettings = new azuredevops.ProjectPipelineSettings("example", {
  *     projectId: example.id,

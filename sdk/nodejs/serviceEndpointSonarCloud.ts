@@ -18,13 +18,13 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleServiceEndpointSonarCloud = new azuredevops.ServiceEndpointSonarCloud("example", {
  *     projectId: example.id,
  *     serviceEndpointName: "Example SonarCloud",
  *     token: "0000000000000000000000000000000000000000",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * ```
  *

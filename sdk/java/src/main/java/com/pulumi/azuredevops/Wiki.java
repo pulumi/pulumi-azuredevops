@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleGit = new Git("exampleGit", GitArgs.builder()

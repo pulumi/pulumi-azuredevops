@@ -22,11 +22,11 @@ import * as utilities from "./utilities";
  *     username: "username",
  *     password: "password",
  *     serviceEndpointName: "Example Generic",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleCheckBusinessHours = new azuredevops.CheckBusinessHours("example", {
  *     projectId: example.id,
- *     displayName: "Managed by Terraform",
+ *     displayName: "Managed by Pulumi",
  *     targetResourceId: exampleServiceEndpointGeneric.id,
  *     targetResourceType: "endpoint",
  *     startTime: "07:00",
@@ -51,7 +51,7 @@ import * as utilities from "./utilities";
  * });
  * const exampleCheckBusinessHours = new azuredevops.CheckBusinessHours("example", {
  *     projectId: example.id,
- *     displayName: "Managed by Terraform",
+ *     displayName: "Managed by Pulumi",
  *     targetResourceId: exampleEnvironment.id,
  *     targetResourceType: "environment",
  *     startTime: "07:00",
@@ -76,7 +76,7 @@ import * as utilities from "./utilities";
  * });
  * const exampleCheckBusinessHours = new azuredevops.CheckBusinessHours("example", {
  *     projectId: example.id,
- *     displayName: "Managed by Terraform",
+ *     displayName: "Managed by Pulumi",
  *     targetResourceId: exampleQueue.id,
  *     targetResourceType: "queue",
  *     startTime: "07:00",
@@ -103,7 +103,7 @@ import * as utilities from "./utilities";
  * });
  * const exampleCheckBusinessHours = new azuredevops.CheckBusinessHours("example", {
  *     projectId: example.id,
- *     displayName: "Managed by Terraform",
+ *     displayName: "Managed by Pulumi",
  *     targetResourceId: pulumi.interpolate`${example.id}.${exampleGit.id}`,
  *     targetResourceType: "repository",
  *     startTime: "07:00",
@@ -140,7 +140,7 @@ import * as utilities from "./utilities";
  * });
  * const exampleCheckBusinessHours = new azuredevops.CheckBusinessHours("example", {
  *     projectId: example.id,
- *     displayName: "Managed by Terraform",
+ *     displayName: "Managed by Pulumi",
  *     targetResourceId: exampleVariableGroup.id,
  *     targetResourceType: "variablegroup",
  *     startTime: "07:00",

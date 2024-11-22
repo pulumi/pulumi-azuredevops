@@ -215,7 +215,7 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_git = azuredevops.Git("example",
             project_id=example.id,
             name="Example Repository",
@@ -243,7 +243,7 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         examplep = azuredevops.RepositoryPolicyFilePathPattern("examplep",
             project_id=example.id,
             enabled=True,
@@ -294,7 +294,7 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_git = azuredevops.Git("example",
             project_id=example.id,
             name="Example Repository",
@@ -322,7 +322,7 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         examplep = azuredevops.RepositoryPolicyFilePathPattern("examplep",
             project_id=example.id,
             enabled=True,

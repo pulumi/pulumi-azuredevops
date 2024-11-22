@@ -37,7 +37,7 @@ import (
 //					"testplans": pulumi.String("disabled"),
 //					"artifacts": pulumi.String("disabled"),
 //				},
-//				Description: pulumi.String("Managed by Terraform"),
+//				Description: pulumi.String("Managed by Pulumi"),
 //			})
 //			if err != nil {
 //				return err

@@ -466,7 +466,7 @@ class BuildDefinition(pulumi.CustomResource):
         example_variable_group = azuredevops.VariableGroup("example",
             project_id=example.id,
             name="Example Pipeline Variables",
-            description="Managed by Terraform",
+            description="Managed by Pulumi",
             allow_access=True,
             variables=[{
                 "name": "FOO",
@@ -530,7 +530,7 @@ class BuildDefinition(pulumi.CustomResource):
             project_id=example.id,
             service_endpoint_name="Example GitHub Enterprise",
             url="https://github.contoso.com",
-            description="Managed by Terraform",
+            description="Managed by Pulumi",
             auth_personal={
                 "personal_access_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
             })
@@ -641,7 +641,7 @@ class BuildDefinition(pulumi.CustomResource):
         example_variable_group = azuredevops.VariableGroup("example",
             project_id=example.id,
             name="Example Pipeline Variables",
-            description="Managed by Terraform",
+            description="Managed by Pulumi",
             allow_access=True,
             variables=[{
                 "name": "FOO",
@@ -705,7 +705,7 @@ class BuildDefinition(pulumi.CustomResource):
             project_id=example.id,
             service_endpoint_name="Example GitHub Enterprise",
             url="https://github.contoso.com",
-            description="Managed by Terraform",
+            description="Managed by Pulumi",
             auth_personal={
                 "personal_access_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
             })

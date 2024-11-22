@@ -215,7 +215,7 @@ class ServicehookPermissions(pulumi.CustomResource):
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_readers = azuredevops.get_group_output(project_id=example.id,
             name="Readers")
         example_permissions = azuredevops.ServicehookPermissions("example-permissions",
@@ -280,7 +280,7 @@ class ServicehookPermissions(pulumi.CustomResource):
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_readers = azuredevops.get_group_output(project_id=example.id,
             name="Readers")
         example_permissions = azuredevops.ServicehookPermissions("example-permissions",

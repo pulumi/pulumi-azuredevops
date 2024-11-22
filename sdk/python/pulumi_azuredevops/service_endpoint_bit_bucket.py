@@ -230,13 +230,13 @@ class ServiceEndpointBitBucket(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_service_endpoint_bit_bucket = azuredevops.ServiceEndpointBitBucket("example",
             project_id=example.id,
             username="username",
             password="password",
             service_endpoint_name="Example Bitbucket",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         ```
 
         ## Relevant Links
@@ -278,13 +278,13 @@ class ServiceEndpointBitBucket(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_service_endpoint_bit_bucket = azuredevops.ServiceEndpointBitBucket("example",
             project_id=example.id,
             username="username",
             password="password",
             service_endpoint_name="Example Bitbucket",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         ```
 
         ## Relevant Links

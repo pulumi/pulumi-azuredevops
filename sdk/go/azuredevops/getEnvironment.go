@@ -32,7 +32,7 @@ import (
 //				WorkItemTemplate: pulumi.String("Agile"),
 //				VersionControl:   pulumi.String("Git"),
 //				Visibility:       pulumi.String("private"),
-//				Description:      pulumi.String("Managed by Terraform"),
+//				Description:      pulumi.String("Managed by Pulumi"),
 //			})
 //			if err != nil {
 //				return err
@@ -40,7 +40,7 @@ import (
 //			exampleEnvironment, err := azuredevops.NewEnvironment(ctx, "example", &azuredevops.EnvironmentArgs{
 //				ProjectId:   exampleProject.ID(),
 //				Name:        pulumi.String("Example Environment"),
-//				Description: pulumi.String("Managed by Terraform"),
+//				Description: pulumi.String("Managed by Pulumi"),
 //			})
 //			if err != nil {
 //				return err

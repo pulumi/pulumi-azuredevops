@@ -18,13 +18,13 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleServiceendpointNuget = new azuredevops.ServiceendpointNuget("example", {
  *     projectId: example.id,
  *     apiKey: "apikey",
  *     serviceEndpointName: "Example NuGet",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * ```
  *

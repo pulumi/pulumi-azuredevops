@@ -20,7 +20,7 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleServiceendpointMaven = new azuredevops.ServiceendpointMaven("example", {
  *     projectId: example.id,
@@ -45,7 +45,7 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleServiceendpointMaven = new azuredevops.ServiceendpointMaven("example", {
  *     projectId: example.id,

@@ -18,14 +18,14 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleServiceEndpointSsh = new azuredevops.ServiceEndpointSsh("example", {
  *     projectId: example.id,
  *     serviceEndpointName: "Example SSH",
  *     host: "1.2.3.4",
  *     username: "username",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * ```
  *

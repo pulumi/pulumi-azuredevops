@@ -51,7 +51,7 @@ import (
 //			exampleVariableGroup, err := azuredevops.NewVariableGroup(ctx, "example", &azuredevops.VariableGroupArgs{
 //				ProjectId:   example.ID(),
 //				Name:        pulumi.String("Example Pipeline Variables"),
-//				Description: pulumi.String("Managed by Terraform"),
+//				Description: pulumi.String("Managed by Pulumi"),
 //				AllowAccess: pulumi.Bool(true),
 //				Variables: azuredevops.VariableGroupVariableArray{
 //					&azuredevops.VariableGroupVariableArgs{
@@ -149,7 +149,7 @@ import (
 //				ProjectId:           example.ID(),
 //				ServiceEndpointName: pulumi.String("Example GitHub Enterprise"),
 //				Url:                 pulumi.String("https://github.contoso.com"),
-//				Description:         pulumi.String("Managed by Terraform"),
+//				Description:         pulumi.String("Managed by Pulumi"),
 //				AuthPersonal: &azuredevops.ServiceEndpointGitHubEnterpriseAuthPersonalArgs{
 //					PersonalAccessToken: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
 //				},

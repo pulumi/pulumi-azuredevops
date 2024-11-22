@@ -33,7 +33,7 @@ import (
 //				Visibility:       pulumi.String("private"),
 //				VersionControl:   pulumi.String("Git"),
 //				WorkItemTemplate: pulumi.String("Agile"),
-//				Description:      pulumi.String("Managed by Terraform"),
+//				Description:      pulumi.String("Managed by Pulumi"),
 //			})
 //			if err != nil {
 //				return err
@@ -45,7 +45,7 @@ import (
 //				AuthPersonal: &azuredevops.ServiceEndpointPipelineAuthPersonalArgs{
 //					PersonalAccessToken: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
 //				},
-//				Description: pulumi.String("Managed by Terraform"),
+//				Description: pulumi.String("Managed by Pulumi"),
 //			})
 //			if err != nil {
 //				return err

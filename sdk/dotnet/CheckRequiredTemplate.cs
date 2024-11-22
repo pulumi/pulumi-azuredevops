@@ -36,7 +36,7 @@ namespace Pulumi.AzureDevOps
     ///         Username = "username",
     ///         Password = "password",
     ///         ServiceEndpointName = "Example Generic",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///     });
     /// 
     ///     var exampleCheckRequiredTemplate = new AzureDevOps.CheckRequiredTemplate("example", new()

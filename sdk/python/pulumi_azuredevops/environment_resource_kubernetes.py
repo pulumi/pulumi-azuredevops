@@ -279,7 +279,7 @@ class EnvironmentResourceKubernetes(pulumi.CustomResource):
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_environment = azuredevops.Environment("example",
             project_id=example.id,
             name="Example Environment")
@@ -347,7 +347,7 @@ class EnvironmentResourceKubernetes(pulumi.CustomResource):
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_environment = azuredevops.Environment("example",
             project_id=example.id,
             name="Example Environment")

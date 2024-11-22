@@ -20,7 +20,7 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const example_azure = new azuredevops.ServiceEndpointKubernetes("example-azure", {
  *     projectId: example.id,

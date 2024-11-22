@@ -40,7 +40,7 @@ import (
 //			_, err = azuredevops.NewServiceendpointArgocd(ctx, "example", &azuredevops.ServiceendpointArgocdArgs{
 //				ProjectId:           example.ID(),
 //				ServiceEndpointName: pulumi.String("Example ArgoCD"),
-//				Description:         pulumi.String("Managed by Terraform"),
+//				Description:         pulumi.String("Managed by Pulumi"),
 //				Url:                 pulumi.String("https://argocd.my.com"),
 //				AuthenticationToken: &azuredevops.ServiceendpointArgocdAuthenticationTokenArgs{
 //					Token: pulumi.String("0000000000000000000000000000000000000000"),
@@ -73,7 +73,7 @@ import (
 //				Visibility:       pulumi.String("private"),
 //				VersionControl:   pulumi.String("Git"),
 //				WorkItemTemplate: pulumi.String("Agile"),
-//				Description:      pulumi.String("Managed by Terraform"),
+//				Description:      pulumi.String("Managed by Pulumi"),
 //			})
 //			if err != nil {
 //				return err
@@ -81,7 +81,7 @@ import (
 //			_, err = azuredevops.NewServiceendpointArgocd(ctx, "example", &azuredevops.ServiceendpointArgocdArgs{
 //				ProjectId:           example.ID(),
 //				ServiceEndpointName: pulumi.String("Example ArgoCD"),
-//				Description:         pulumi.String("Managed by Terraform"),
+//				Description:         pulumi.String("Managed by Pulumi"),
 //				Url:                 pulumi.String("https://argocd.my.com"),
 //				AuthenticationBasic: &azuredevops.ServiceendpointArgocdAuthenticationBasicArgs{
 //					Username: pulumi.String("username"),

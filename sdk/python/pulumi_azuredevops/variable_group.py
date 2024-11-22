@@ -248,7 +248,7 @@ class VariableGroup(pulumi.CustomResource):
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_variable_group = azuredevops.VariableGroup("example",
             project_id=example.id,
             name="Example Variable Group",
@@ -278,11 +278,11 @@ class VariableGroup(pulumi.CustomResource):
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("example",
             project_id=example.id,
             service_endpoint_name="Example AzureRM",
-            description="Managed by Terraform",
+            description="Managed by Pulumi",
             credentials={
                 "serviceprincipalid": "00000000-0000-0000-0000-000000000000",
                 "serviceprincipalkey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
@@ -368,7 +368,7 @@ class VariableGroup(pulumi.CustomResource):
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_variable_group = azuredevops.VariableGroup("example",
             project_id=example.id,
             name="Example Variable Group",
@@ -398,11 +398,11 @@ class VariableGroup(pulumi.CustomResource):
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("example",
             project_id=example.id,
             service_endpoint_name="Example AzureRM",
-            description="Managed by Terraform",
+            description="Managed by Pulumi",
             credentials={
                 "serviceprincipalid": "00000000-0000-0000-0000-000000000000",
                 "serviceprincipalkey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",

@@ -302,7 +302,7 @@ class ProjectPipelineSettings(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_project_pipeline_settings = azuredevops.ProjectPipelineSettings("example",
             project_id=example.id,
             enforce_job_scope=True,
@@ -363,7 +363,7 @@ class ProjectPipelineSettings(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_project_pipeline_settings = azuredevops.ProjectPipelineSettings("example",
             project_id=example.id,
             enforce_job_scope=True,

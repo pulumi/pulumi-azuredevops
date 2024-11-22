@@ -60,12 +60,12 @@ import javax.annotation.Nullable;
  *             .username("username")
  *             .password("password")
  *             .serviceEndpointName("Example Generic")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleCheckBranchControl = new CheckBranchControl("exampleCheckBranchControl", CheckBranchControlArgs.builder()
  *             .projectId(example.id())
- *             .displayName("Managed by Terraform")
+ *             .displayName("Managed by Pulumi")
  *             .targetResourceId(exampleServiceEndpointGeneric.id())
  *             .targetResourceType("endpoint")
  *             .allowedBranches("refs/heads/main, refs/heads/features/*")
@@ -118,7 +118,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCheckBranchControl = new CheckBranchControl("exampleCheckBranchControl", CheckBranchControlArgs.builder()
  *             .projectId(example.id())
- *             .displayName("Managed by Terraform")
+ *             .displayName("Managed by Pulumi")
  *             .targetResourceId(exampleEnvironment.id())
  *             .targetResourceType("environment")
  *             .allowedBranches("refs/heads/main, refs/heads/features/*")
@@ -176,7 +176,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCheckBranchControl = new CheckBranchControl("exampleCheckBranchControl", CheckBranchControlArgs.builder()
  *             .projectId(example.id())
- *             .displayName("Managed by Terraform")
+ *             .displayName("Managed by Pulumi")
  *             .targetResourceId(exampleQueue.id())
  *             .targetResourceType("queue")
  *             .allowedBranches("refs/heads/main, refs/heads/features/*")
@@ -232,7 +232,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCheckBranchControl = new CheckBranchControl("exampleCheckBranchControl", CheckBranchControlArgs.builder()
  *             .projectId(example.id())
- *             .displayName("Managed by Terraform")
+ *             .displayName("Managed by Pulumi")
  *             .targetResourceId(Output.tuple(example.id(), exampleGit.id()).applyValue(values -> {
  *                 var exampleId = values.t1;
  *                 var exampleGitId = values.t2;
@@ -301,7 +301,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCheckBranchControl = new CheckBranchControl("exampleCheckBranchControl", CheckBranchControlArgs.builder()
  *             .projectId(example.id())
- *             .displayName("Managed by Terraform")
+ *             .displayName("Managed by Pulumi")
  *             .targetResourceId(exampleVariableGroup.id())
  *             .targetResourceType("variablegroup")
  *             .allowedBranches("refs/heads/main, refs/heads/features/*")

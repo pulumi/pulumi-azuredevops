@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleServiceEndpointBitBucket = new ServiceEndpointBitBucket("exampleServiceEndpointBitBucket", ServiceEndpointBitBucketArgs.builder()
@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *             .username("username")
  *             .password("password")
  *             .serviceEndpointName("example-bitbucket")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleResourceAuthorization = new ResourceAuthorization("exampleResourceAuthorization", ResourceAuthorizationArgs.builder()

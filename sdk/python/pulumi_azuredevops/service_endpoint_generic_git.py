@@ -306,14 +306,14 @@ class ServiceEndpointGenericGit(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_service_endpoint_generic_git = azuredevops.ServiceEndpointGenericGit("example",
             project_id=example.id,
             repository_url="https://dev.azure.com/org/project/_git/repository",
             username="username",
             password="password",
             service_endpoint_name="Example Generic Git",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         ```
 
         ## Relevant Links
@@ -362,14 +362,14 @@ class ServiceEndpointGenericGit(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_service_endpoint_generic_git = azuredevops.ServiceEndpointGenericGit("example",
             project_id=example.id,
             repository_url="https://dev.azure.com/org/project/_git/repository",
             username="username",
             password="password",
             service_endpoint_name="Example Generic Git",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         ```
 
         ## Relevant Links

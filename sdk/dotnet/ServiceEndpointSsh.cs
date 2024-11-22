@@ -28,7 +28,7 @@ namespace Pulumi.AzureDevOps
     ///         Visibility = "private",
     ///         VersionControl = "Git",
     ///         WorkItemTemplate = "Agile",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///     });
     /// 
     ///     var exampleServiceEndpointSsh = new AzureDevOps.ServiceEndpointSsh("example", new()
@@ -37,7 +37,7 @@ namespace Pulumi.AzureDevOps
     ///         ServiceEndpointName = "Example SSH",
     ///         Host = "1.2.3.4",
     ///         Username = "username",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///     });
     /// 
     /// });

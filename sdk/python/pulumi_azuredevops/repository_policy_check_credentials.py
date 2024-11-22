@@ -185,7 +185,7 @@ class RepositoryPolicyCheckCredentials(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_git = azuredevops.Git("example",
             project_id=example.id,
             name="Example Repository",
@@ -209,7 +209,7 @@ class RepositoryPolicyCheckCredentials(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_repository_policy_check_credentials = azuredevops.RepositoryPolicyCheckCredentials("example",
             project_id=example.id,
             enabled=True,
@@ -257,7 +257,7 @@ class RepositoryPolicyCheckCredentials(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_git = azuredevops.Git("example",
             project_id=example.id,
             name="Example Repository",
@@ -281,7 +281,7 @@ class RepositoryPolicyCheckCredentials(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_repository_policy_check_credentials = azuredevops.RepositoryPolicyCheckCredentials("example",
             project_id=example.id,
             enabled=True,

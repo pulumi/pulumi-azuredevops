@@ -42,7 +42,7 @@ import (
 //			_, err = azuredevops.NewServiceEndpointServiceFabric(ctx, "test", &azuredevops.ServiceEndpointServiceFabricArgs{
 //				ProjectId:           project.ID(),
 //				ServiceEndpointName: pulumi.String("Sample Service Fabric"),
-//				Description:         pulumi.String("Managed by Terraform"),
+//				Description:         pulumi.String("Managed by Pulumi"),
 //				ClusterEndpoint:     pulumi.String("tcp://test"),
 //				AzureActiveDirectory: &azuredevops.ServiceEndpointServiceFabricAzureActiveDirectoryArgs{
 //					ServerCertificateLookup:     pulumi.String("Thumbprint"),
@@ -86,7 +86,7 @@ import (
 //			_, err = azuredevops.NewServiceEndpointServiceFabric(ctx, "test", &azuredevops.ServiceEndpointServiceFabricArgs{
 //				ProjectId:           project.ID(),
 //				ServiceEndpointName: pulumi.String("Sample Service Fabric"),
-//				Description:         pulumi.String("Managed by Terraform"),
+//				Description:         pulumi.String("Managed by Pulumi"),
 //				ClusterEndpoint:     pulumi.String("tcp://test"),
 //				None: &azuredevops.ServiceEndpointServiceFabricNoneArgs{
 //					Unsecured:  pulumi.Bool(false),

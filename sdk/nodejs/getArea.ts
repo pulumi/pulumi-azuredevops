@@ -20,7 +20,7 @@ import * as utilities from "./utilities";
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const example = exampleProject.id.apply(id => azuredevops.getAreaOutput({
  *     projectId: id,
@@ -108,7 +108,7 @@ export interface GetAreaResult {
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const example = exampleProject.id.apply(id => azuredevops.getAreaOutput({
  *     projectId: id,

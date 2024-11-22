@@ -20,7 +20,7 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleGit = new azuredevops.Git("example", {
  *     projectId: example.id,
@@ -48,7 +48,7 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleRepositoryPolicyMaxFileSize = new azuredevops.RepositoryPolicyMaxFileSize("example", {
  *     projectId: example.id,

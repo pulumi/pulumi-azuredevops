@@ -561,10 +561,10 @@ class CheckBusinessHours(pulumi.CustomResource):
             username="username",
             password="password",
             service_endpoint_name="Example Generic",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_check_business_hours = azuredevops.CheckBusinessHours("example",
             project_id=example.id,
-            display_name="Managed by Terraform",
+            display_name="Managed by Pulumi",
             target_resource_id=example_service_endpoint_generic.id,
             target_resource_type="endpoint",
             start_time="07:00",
@@ -587,7 +587,7 @@ class CheckBusinessHours(pulumi.CustomResource):
             name="Example Environment")
         example_check_business_hours = azuredevops.CheckBusinessHours("example",
             project_id=example.id,
-            display_name="Managed by Terraform",
+            display_name="Managed by Pulumi",
             target_resource_id=example_environment.id,
             target_resource_type="environment",
             start_time="07:00",
@@ -610,7 +610,7 @@ class CheckBusinessHours(pulumi.CustomResource):
             agent_pool_id=example_pool.id)
         example_check_business_hours = azuredevops.CheckBusinessHours("example",
             project_id=example.id,
-            display_name="Managed by Terraform",
+            display_name="Managed by Pulumi",
             target_resource_id=example_queue.id,
             target_resource_type="queue",
             start_time="07:00",
@@ -635,7 +635,7 @@ class CheckBusinessHours(pulumi.CustomResource):
             })
         example_check_business_hours = azuredevops.CheckBusinessHours("example",
             project_id=example.id,
-            display_name="Managed by Terraform",
+            display_name="Managed by Pulumi",
             target_resource_id=pulumi.Output.all(
                 exampleId=example.id,
                 exampleGitId=example_git.id
@@ -674,7 +674,7 @@ class CheckBusinessHours(pulumi.CustomResource):
             ])
         example_check_business_hours = azuredevops.CheckBusinessHours("example",
             project_id=example.id,
-            display_name="Managed by Terraform",
+            display_name="Managed by Pulumi",
             target_resource_id=example_variable_group.id,
             target_resource_type="variablegroup",
             start_time="07:00",
@@ -878,10 +878,10 @@ class CheckBusinessHours(pulumi.CustomResource):
             username="username",
             password="password",
             service_endpoint_name="Example Generic",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_check_business_hours = azuredevops.CheckBusinessHours("example",
             project_id=example.id,
-            display_name="Managed by Terraform",
+            display_name="Managed by Pulumi",
             target_resource_id=example_service_endpoint_generic.id,
             target_resource_type="endpoint",
             start_time="07:00",
@@ -904,7 +904,7 @@ class CheckBusinessHours(pulumi.CustomResource):
             name="Example Environment")
         example_check_business_hours = azuredevops.CheckBusinessHours("example",
             project_id=example.id,
-            display_name="Managed by Terraform",
+            display_name="Managed by Pulumi",
             target_resource_id=example_environment.id,
             target_resource_type="environment",
             start_time="07:00",
@@ -927,7 +927,7 @@ class CheckBusinessHours(pulumi.CustomResource):
             agent_pool_id=example_pool.id)
         example_check_business_hours = azuredevops.CheckBusinessHours("example",
             project_id=example.id,
-            display_name="Managed by Terraform",
+            display_name="Managed by Pulumi",
             target_resource_id=example_queue.id,
             target_resource_type="queue",
             start_time="07:00",
@@ -952,7 +952,7 @@ class CheckBusinessHours(pulumi.CustomResource):
             })
         example_check_business_hours = azuredevops.CheckBusinessHours("example",
             project_id=example.id,
-            display_name="Managed by Terraform",
+            display_name="Managed by Pulumi",
             target_resource_id=pulumi.Output.all(
                 exampleId=example.id,
                 exampleGitId=example_git.id
@@ -991,7 +991,7 @@ class CheckBusinessHours(pulumi.CustomResource):
             ])
         example_check_business_hours = azuredevops.CheckBusinessHours("example",
             project_id=example.id,
-            display_name="Managed by Terraform",
+            display_name="Managed by Pulumi",
             target_resource_id=example_variable_group.id,
             target_resource_type="variablegroup",
             start_time="07:00",

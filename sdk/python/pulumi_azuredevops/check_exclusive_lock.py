@@ -203,7 +203,7 @@ class CheckExclusiveLock(pulumi.CustomResource):
             username="username",
             password="password",
             service_endpoint_name="Example Generic",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_check_exclusive_lock = azuredevops.CheckExclusiveLock("example",
             project_id=example.id,
             target_resource_id=example_service_endpoint_generic.id,
@@ -289,7 +289,7 @@ class CheckExclusiveLock(pulumi.CustomResource):
             username="username",
             password="password",
             service_endpoint_name="Example Generic",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_check_exclusive_lock = azuredevops.CheckExclusiveLock("example",
             project_id=example.id,
             target_resource_id=example_service_endpoint_generic.id,

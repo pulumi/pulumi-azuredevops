@@ -19,7 +19,7 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleServiceEndpointGenericGit = new azuredevops.ServiceEndpointGenericGit("example", {
  *     projectId: example.id,
@@ -27,7 +27,7 @@ import * as utilities from "./utilities";
  *     username: "username",
  *     password: "password",
  *     serviceEndpointName: "Example Generic Git",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * ```
  *

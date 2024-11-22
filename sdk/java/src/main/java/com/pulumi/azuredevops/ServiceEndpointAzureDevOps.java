@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleServiceEndpointAzureDevOps = new ServiceEndpointAzureDevOps("exampleServiceEndpointAzureDevOps", ServiceEndpointAzureDevOpsArgs.builder()
@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *             .orgUrl("https://dev.azure.com/testorganization")
  *             .releaseApiUrl("https://vsrm.dev.azure.com/testorganization")
  *             .personalAccessToken("0000000000000000000000000000000000000000000000000000")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *     }

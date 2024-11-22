@@ -22,7 +22,7 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleServiceEndpointAzureDevOps = new azuredevops.ServiceEndpointAzureDevOps("example", {
  *     projectId: example.id,
@@ -30,7 +30,7 @@ import * as utilities from "./utilities";
  *     orgUrl: "https://dev.azure.com/testorganization",
  *     releaseApiUrl: "https://vsrm.dev.azure.com/testorganization",
  *     personalAccessToken: "0000000000000000000000000000000000000000000000000000",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * ```
  *

@@ -137,7 +137,7 @@ def get_iteration(fetch_children: Optional[bool] = None,
         work_item_template="Agile",
         version_control="Git",
         visibility="private",
-        description="Managed by Terraform")
+        description="Managed by Pulumi")
     example_root_iteration = azuredevops.get_iteration_output(project_id=example.id,
         path="/",
         fetch_children=True)
@@ -192,7 +192,7 @@ def get_iteration_output(fetch_children: Optional[pulumi.Input[Optional[bool]]] 
         work_item_template="Agile",
         version_control="Git",
         visibility="private",
-        description="Managed by Terraform")
+        description="Managed by Pulumi")
     example_root_iteration = azuredevops.get_iteration_output(project_id=example.id,
         path="/",
         fetch_children=True)

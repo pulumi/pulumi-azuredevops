@@ -51,14 +51,14 @@ import javax.annotation.Nullable;
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleServiceendpointNuget = new ServiceendpointNuget("exampleServiceendpointNuget", ServiceendpointNugetArgs.builder()
  *             .projectId(example.id())
  *             .apiKey("apikey")
  *             .serviceEndpointName("Example NuGet")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *     }

@@ -272,7 +272,7 @@ class Team(pulumi.CustomResource):
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_project_contributors = azuredevops.get_group_output(project_id=example.id,
             name="Contributors")
         example_project_readers = azuredevops.get_group_output(project_id=example.id,
@@ -338,7 +338,7 @@ class Team(pulumi.CustomResource):
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_project_contributors = azuredevops.get_group_output(project_id=example.id,
             name="Contributors")
         example_project_readers = azuredevops.get_group_output(project_id=example.id,

@@ -30,14 +30,14 @@ namespace Pulumi.AzureDevOps
         ///         WorkItemTemplate = "Agile",
         ///         VersionControl = "Git",
         ///         Visibility = "private",
-        ///         Description = "Managed by Terraform",
+        ///         Description = "Managed by Pulumi",
         ///     });
         /// 
         ///     var exampleEnvironment = new AzureDevOps.Environment("example", new()
         ///     {
         ///         ProjectId = exampleProject.Id,
         ///         Name = "Example Environment",
-        ///         Description = "Managed by Terraform",
+        ///         Description = "Managed by Pulumi",
         ///     });
         /// 
         ///     var example = AzureDevOps.GetEnvironment.Invoke(new()
@@ -75,14 +75,14 @@ namespace Pulumi.AzureDevOps
         ///         WorkItemTemplate = "Agile",
         ///         VersionControl = "Git",
         ///         Visibility = "private",
-        ///         Description = "Managed by Terraform",
+        ///         Description = "Managed by Pulumi",
         ///     });
         /// 
         ///     var exampleEnvironment = new AzureDevOps.Environment("example", new()
         ///     {
         ///         ProjectId = exampleProject.Id,
         ///         Name = "Example Environment",
-        ///         Description = "Managed by Terraform",
+        ///         Description = "Managed by Pulumi",
         ///     });
         /// 
         ///     var example = AzureDevOps.GetEnvironment.Invoke(new()

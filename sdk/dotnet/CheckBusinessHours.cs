@@ -36,13 +36,13 @@ namespace Pulumi.AzureDevOps
     ///         Username = "username",
     ///         Password = "password",
     ///         ServiceEndpointName = "Example Generic",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///     });
     /// 
     ///     var exampleCheckBusinessHours = new AzureDevOps.CheckBusinessHours("example", new()
     ///     {
     ///         ProjectId = example.Id,
-    ///         DisplayName = "Managed by Terraform",
+    ///         DisplayName = "Managed by Pulumi",
     ///         TargetResourceId = exampleServiceEndpointGeneric.Id,
     ///         TargetResourceType = "endpoint",
     ///         StartTime = "07:00",
@@ -80,7 +80,7 @@ namespace Pulumi.AzureDevOps
     ///     var exampleCheckBusinessHours = new AzureDevOps.CheckBusinessHours("example", new()
     ///     {
     ///         ProjectId = example.Id,
-    ///         DisplayName = "Managed by Terraform",
+    ///         DisplayName = "Managed by Pulumi",
     ///         TargetResourceId = exampleEnvironment.Id,
     ///         TargetResourceType = "environment",
     ///         StartTime = "07:00",
@@ -122,7 +122,7 @@ namespace Pulumi.AzureDevOps
     ///     var exampleCheckBusinessHours = new AzureDevOps.CheckBusinessHours("example", new()
     ///     {
     ///         ProjectId = example.Id,
-    ///         DisplayName = "Managed by Terraform",
+    ///         DisplayName = "Managed by Pulumi",
     ///         TargetResourceId = exampleQueue.Id,
     ///         TargetResourceType = "queue",
     ///         StartTime = "07:00",
@@ -163,7 +163,7 @@ namespace Pulumi.AzureDevOps
     ///     var exampleCheckBusinessHours = new AzureDevOps.CheckBusinessHours("example", new()
     ///     {
     ///         ProjectId = example.Id,
-    ///         DisplayName = "Managed by Terraform",
+    ///         DisplayName = "Managed by Pulumi",
     ///         TargetResourceId = Output.Tuple(example.Id, exampleGit.Id).Apply(values =&gt;
     ///         {
     ///             var exampleId = values.Item1;
@@ -221,7 +221,7 @@ namespace Pulumi.AzureDevOps
     ///     var exampleCheckBusinessHours = new AzureDevOps.CheckBusinessHours("example", new()
     ///     {
     ///         ProjectId = example.Id,
-    ///         DisplayName = "Managed by Terraform",
+    ///         DisplayName = "Managed by Pulumi",
     ///         TargetResourceId = exampleVariableGroup.Id,
     ///         TargetResourceType = "variablegroup",
     ///         StartTime = "07:00",

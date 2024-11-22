@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *             .workItemTemplate("Agile")
  *             .versionControl("Git")
  *             .visibility("private")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleWorkitem = new Workitem("exampleWorkitem", WorkitemArgs.builder()
@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  *             .workItemTemplate("Agile")
  *             .versionControl("Git")
  *             .visibility("private")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleWorkitem = new Workitem("exampleWorkitem", WorkitemArgs.builder()

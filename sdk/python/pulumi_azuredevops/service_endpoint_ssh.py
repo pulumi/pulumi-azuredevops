@@ -329,13 +329,13 @@ class ServiceEndpointSsh(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_service_endpoint_ssh = azuredevops.ServiceEndpointSsh("example",
             project_id=example.id,
             service_endpoint_name="Example SSH",
             host="1.2.3.4",
             username="username",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         ```
 
         ## Relevant Links
@@ -382,13 +382,13 @@ class ServiceEndpointSsh(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_service_endpoint_ssh = azuredevops.ServiceEndpointSsh("example",
             project_id=example.id,
             service_endpoint_name="Example SSH",
             host="1.2.3.4",
             username="username",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         ```
 
         ## Relevant Links

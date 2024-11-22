@@ -20,7 +20,7 @@ import * as utilities from "./utilities";
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleWorkitem = new azuredevops.Workitem("example", {
  *     projectId: exampleAzuredevopsProject.id,
@@ -42,7 +42,7 @@ import * as utilities from "./utilities";
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleWorkitem = new azuredevops.Workitem("example", {
  *     projectId: exampleAzuredevopsProject.id,

@@ -28,12 +28,12 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("example", {
  *     projectId: example.id,
  *     serviceEndpointName: "Example AzureRM",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  *     serviceEndpointAuthenticationScheme: "ServicePrincipal",
  *     credentials: {
  *         serviceprincipalid: "00000000-0000-0000-0000-000000000000",
@@ -56,12 +56,12 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("example", {
  *     projectId: example.id,
  *     serviceEndpointName: "Example AzureRM",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  *     serviceEndpointAuthenticationScheme: "ServicePrincipal",
  *     credentials: {
  *         serviceprincipalid: "00000000-0000-0000-0000-000000000000",
@@ -108,7 +108,7 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const identity = new azure.core.ResourceGroup("identity", {
  *     name: "identity",
@@ -122,7 +122,7 @@ import * as utilities from "./utilities";
  * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("example", {
  *     projectId: example.id,
  *     serviceEndpointName: serviceConnectionName,
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  *     serviceEndpointAuthenticationScheme: "WorkloadIdentityFederation",
  *     credentials: {
  *         serviceprincipalid: exampleUserAssignedIdentity.clientId,

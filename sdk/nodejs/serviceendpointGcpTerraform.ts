@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * const exampleServiceendpointGcpTerraform = new azuredevops.ServiceendpointGcpTerraform("example", {
  *     projectId: example.id,
@@ -25,7 +25,7 @@ import * as utilities from "./utilities";
  *     privateKey: "0000000000000000000000000000000000000",
  *     serviceEndpointName: "Example GCP Terraform extension",
  *     gcpProjectId: "Example GCP Project",
- *     description: "Managed by Terraform",
+ *     description: "Managed by Pulumi",
  * });
  * ```
  *

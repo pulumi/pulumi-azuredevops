@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleServiceendpointMaven = new ServiceendpointMaven("exampleServiceendpointMaven", ServiceendpointMavenArgs.builder()
@@ -106,7 +106,7 @@ import javax.annotation.Nullable;
  *             .visibility("private")
  *             .versionControl("Git")
  *             .workItemTemplate("Agile")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleServiceendpointMaven = new ServiceendpointMaven("exampleServiceendpointMaven", ServiceendpointMavenArgs.builder()

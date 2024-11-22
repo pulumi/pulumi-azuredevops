@@ -265,14 +265,14 @@ class ServiceEndpointGeneric(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_service_endpoint_generic = azuredevops.ServiceEndpointGeneric("example",
             project_id=example.id,
             server_url="https://some-server.example.com",
             username="username",
             password="password",
             service_endpoint_name="Example Generic",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         ```
 
         ## Relevant Links
@@ -318,14 +318,14 @@ class ServiceEndpointGeneric(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_service_endpoint_generic = azuredevops.ServiceEndpointGeneric("example",
             project_id=example.id,
             server_url="https://some-server.example.com",
             username="username",
             password="password",
             service_endpoint_name="Example Generic",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         ```
 
         ## Relevant Links

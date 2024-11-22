@@ -30,7 +30,7 @@ namespace Pulumi.AzureDevOps
         ///         WorkItemTemplate = "Agile",
         ///         VersionControl = "Git",
         ///         Visibility = "private",
-        ///         Description = "Managed by Terraform",
+        ///         Description = "Managed by Pulumi",
         ///     });
         /// 
         ///     var example_root_iteration = AzureDevOps.GetIteration.Invoke(new()
@@ -80,7 +80,7 @@ namespace Pulumi.AzureDevOps
         ///         WorkItemTemplate = "Agile",
         ///         VersionControl = "Git",
         ///         Visibility = "private",
-        ///         Description = "Managed by Terraform",
+        ///         Description = "Managed by Pulumi",
         ///     });
         /// 
         ///     var example_root_iteration = AzureDevOps.GetIteration.Invoke(new()

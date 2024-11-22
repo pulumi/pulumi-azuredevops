@@ -226,7 +226,7 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_service_endpoint_git_hub = azuredevops.ServiceEndpointGitHub("example",
             project_id=example.id,
             service_endpoint_name="Example GitHub Personal Access Token",
@@ -244,7 +244,7 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_service_endpoint_git_hub = azuredevops.ServiceEndpointGitHub("example",
             project_id=example.id,
             service_endpoint_name="Example GitHub",
@@ -262,11 +262,11 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_service_endpoint_git_hub = azuredevops.ServiceEndpointGitHub("example",
             project_id=example.id,
             service_endpoint_name="Example GitHub Apps: Azure Pipelines",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         ```
 
         ## Relevant Links
@@ -307,7 +307,7 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_service_endpoint_git_hub = azuredevops.ServiceEndpointGitHub("example",
             project_id=example.id,
             service_endpoint_name="Example GitHub Personal Access Token",
@@ -325,7 +325,7 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_service_endpoint_git_hub = azuredevops.ServiceEndpointGitHub("example",
             project_id=example.id,
             service_endpoint_name="Example GitHub",
@@ -343,11 +343,11 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         example_service_endpoint_git_hub = azuredevops.ServiceEndpointGitHub("example",
             project_id=example.id,
             service_endpoint_name="Example GitHub Apps: Azure Pipelines",
-            description="Managed by Terraform")
+            description="Managed by Pulumi")
         ```
 
         ## Relevant Links

@@ -25,7 +25,7 @@ namespace Pulumi.AzureDevOps
     ///     var example = new AzureDevOps.Project("example", new()
     ///     {
     ///         Name = "Example Project",
-    ///         Description = "Managed by Terraform",
+    ///         Description = "Managed by Pulumi",
     ///     });
     /// 
     ///     var exampleGit = new AzureDevOps.Git("example", new()

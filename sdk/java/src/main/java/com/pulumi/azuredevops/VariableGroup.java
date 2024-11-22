@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *             .workItemTemplate("Agile")
  *             .versionControl("Git")
  *             .visibility("private")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleVariableGroup = new VariableGroup("exampleVariableGroup", VariableGroupArgs.builder()
@@ -115,13 +115,13 @@ import javax.annotation.Nullable;
  *             .workItemTemplate("Agile")
  *             .versionControl("Git")
  *             .visibility("private")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .build());
  * 
  *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", ServiceEndpointAzureRMArgs.builder()
  *             .projectId(example.id())
  *             .serviceEndpointName("Example AzureRM")
- *             .description("Managed by Terraform")
+ *             .description("Managed by Pulumi")
  *             .credentials(ServiceEndpointAzureRMCredentialsArgs.builder()
  *                 .serviceprincipalid("00000000-0000-0000-0000-000000000000")
  *                 .serviceprincipalkey("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
