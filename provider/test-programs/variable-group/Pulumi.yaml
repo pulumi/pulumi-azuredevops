@@ -1,0 +1,16 @@
+name: variable-group
+runtime: yaml
+
+resources:
+  exampleProject:
+    type: azuredevops:index/project:Project
+  exampleInsights:
+    type: azuredevops:index/variableGroup:VariableGroup
+    properties:
+      projectId: ${exampleProject.id}
+      name: variablegroupname
+      description: my description
+      allowAccess: false
+      variables:
+        - name: key1
+          value: val1
