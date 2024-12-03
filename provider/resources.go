@@ -57,18 +57,19 @@ func Provider() tfbridge.ProviderInfo {
 	}
 
 	prov := tfbridge.ProviderInfo{
-		P:            p,
-		Name:         "azuredevops",
-		DisplayName:  "Azure DevOps",
-		Description:  "A Pulumi package for creating and managing Azure DevOps.",
-		Keywords:     []string{"pulumi", "azuredevops"},
-		License:      "Apache-2.0",
-		Homepage:     "https://pulumi.io",
-		Repository:   "https://github.com/pulumi/pulumi-azuredevops",
-		GitHubOrg:    "microsoft",
-		Version:      version.Version,
-		MetadataInfo: tfbridge.NewProviderMetadata(metadata),
-		DocRules:     &tfbridge.DocRuleInfo{EditRules: docEditRules},
+		P:                p,
+		Name:             "azuredevops",
+		DisplayName:      "Azure DevOps",
+		Description:      "A Pulumi package for creating and managing Azure DevOps.",
+		Keywords:         []string{"pulumi", "azuredevops"},
+		License:          "Apache-2.0",
+		Homepage:         "https://pulumi.io",
+		Repository:       "https://github.com/pulumi/pulumi-azuredevops",
+		GitHubOrg:        "microsoft",
+		UpstreamRepoPath: "./upstream",
+		Version:          version.Version,
+		MetadataInfo:     tfbridge.NewProviderMetadata(metadata),
+		DocRules:         &tfbridge.DocRuleInfo{EditRules: docEditRules},
 		Config: map[string]*tfbridge.SchemaInfo{
 			"org_service_url": {
 				Default: &tfbridge.DefaultInfo{
