@@ -86,7 +86,7 @@ export interface GetIdentityGroupsResult {
  *
  * - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
  */
-export function getIdentityGroupsOutput(args?: GetIdentityGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityGroupsResult> {
+export function getIdentityGroupsOutput(args?: GetIdentityGroupsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIdentityGroupsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azuredevops:index/getIdentityGroups:getIdentityGroups", {

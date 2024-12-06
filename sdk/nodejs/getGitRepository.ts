@@ -120,7 +120,7 @@ export interface GetGitRepositoryResult {
  *
  * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
  */
-export function getGitRepositoryOutput(args: GetGitRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGitRepositoryResult> {
+export function getGitRepositoryOutput(args: GetGitRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGitRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azuredevops:index/getGitRepository:getGitRepository", {
         "name": args.name,

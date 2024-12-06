@@ -129,7 +129,7 @@ def get_projects(name: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'))
 def get_projects_output(name: Optional[pulumi.Input[Optional[str]]] = None,
                         state: Optional[pulumi.Input[Optional[str]]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectsResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectsResult]:
     """
     Use this data source to access information about existing Projects within Azure DevOps.
 
@@ -160,7 +160,7 @@ def get_projects_output(name: Optional[pulumi.Input[Optional[str]]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['state'] = state
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getProjects:getProjects', __args__, opts=opts, typ=GetProjectsResult)
     return __ret__.apply(lambda __response__: GetProjectsResult(
         id=pulumi.get(__response__, 'id'),

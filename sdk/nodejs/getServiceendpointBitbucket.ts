@@ -136,7 +136,7 @@ export interface GetServiceendpointBitbucketResult {
  *
  * - **vso.serviceendpoint**: Grants the ability to read service endpoints.
  */
-export function getServiceendpointBitbucketOutput(args: GetServiceendpointBitbucketOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceendpointBitbucketResult> {
+export function getServiceendpointBitbucketOutput(args: GetServiceendpointBitbucketOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceendpointBitbucketResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azuredevops:index/getServiceendpointBitbucket:getServiceendpointBitbucket", {
         "projectId": args.projectId,

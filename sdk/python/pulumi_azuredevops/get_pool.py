@@ -122,7 +122,7 @@ def get_pool(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         pool_type=pulumi.get(__ret__, 'pool_type'))
 def get_pool_output(name: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPoolResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPoolResult]:
     """
     Use this data source to access information about an existing Agent Pool within Azure DevOps.
 
@@ -148,7 +148,7 @@ def get_pool_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getPool:getPool', __args__, opts=opts, typ=GetPoolResult)
     return __ret__.apply(lambda __response__: GetPoolResult(
         auto_provision=pulumi.get(__response__, 'auto_provision'),
