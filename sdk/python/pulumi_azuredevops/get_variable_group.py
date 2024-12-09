@@ -163,7 +163,7 @@ def get_variable_group(name: Optional[str] = None,
         variables=pulumi.get(__ret__, 'variables'))
 def get_variable_group_output(name: Optional[pulumi.Input[str]] = None,
                               project_id: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVariableGroupResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVariableGroupResult]:
     """
     Use this data source to access information about existing Variable Groups within Azure DevOps.
 
@@ -192,7 +192,7 @@ def get_variable_group_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['projectId'] = project_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getVariableGroup:getVariableGroup', __args__, opts=opts, typ=GetVariableGroupResult)
     return __ret__.apply(lambda __response__: GetVariableGroupResult(
         allow_access=pulumi.get(__response__, 'allow_access'),

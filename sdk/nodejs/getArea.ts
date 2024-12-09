@@ -125,7 +125,7 @@ export interface GetAreaResult {
  *
  * - **Project & Team**: vso.work - Grants the ability to read work items, queries, boards, area and iterations paths, and other work item tracking related metadata. Also grants the ability to execute queries, search work items and to receive notifications about work item events via service hooks.
  */
-export function getAreaOutput(args: GetAreaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAreaResult> {
+export function getAreaOutput(args: GetAreaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAreaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azuredevops:index/getArea:getArea", {
         "fetchChildren": args.fetchChildren,

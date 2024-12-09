@@ -128,7 +128,7 @@ def get_teams(project_id: Optional[str] = None,
         top=pulumi.get(__ret__, 'top'))
 def get_teams_output(project_id: Optional[pulumi.Input[Optional[str]]] = None,
                      top: Optional[pulumi.Input[Optional[int]]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTeamsResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTeamsResult]:
     """
     Use this data source to access information about existing Teams in a Project or globally within an Azure DevOps organization
 
@@ -160,7 +160,7 @@ def get_teams_output(project_id: Optional[pulumi.Input[Optional[str]]] = None,
     __args__ = dict()
     __args__['projectId'] = project_id
     __args__['top'] = top
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getTeams:getTeams', __args__, opts=opts, typ=GetTeamsResult)
     return __ret__.apply(lambda __response__: GetTeamsResult(
         id=pulumi.get(__response__, 'id'),

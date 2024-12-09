@@ -159,7 +159,7 @@ def get_users_output(features: Optional[pulumi.Input[Optional[Union['GetUsersFea
                      origin_id: Optional[pulumi.Input[Optional[str]]] = None,
                      principal_name: Optional[pulumi.Input[Optional[str]]] = None,
                      subject_types: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUsersResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUsersResult]:
     """
     Use this data source to access information about an existing users within Azure DevOps.
 
@@ -180,7 +180,7 @@ def get_users_output(features: Optional[pulumi.Input[Optional[Union['GetUsersFea
     __args__['originId'] = origin_id
     __args__['principalName'] = principal_name
     __args__['subjectTypes'] = subject_types
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getUsers:getUsers', __args__, opts=opts, typ=GetUsersResult)
     return __ret__.apply(lambda __response__: GetUsersResult(
         features=pulumi.get(__response__, 'features'),
