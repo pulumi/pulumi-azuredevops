@@ -125,7 +125,7 @@ export interface GetServiceendpointAzurecrResult {
  * export const serviceEndpointId = example.then(example => example.id);
  * ```
  */
-export function getServiceendpointAzurecrOutput(args: GetServiceendpointAzurecrOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceendpointAzurecrResult> {
+export function getServiceendpointAzurecrOutput(args: GetServiceendpointAzurecrOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceendpointAzurecrResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azuredevops:index/getServiceendpointAzurecr:getServiceendpointAzurecr", {
         "projectId": args.projectId,

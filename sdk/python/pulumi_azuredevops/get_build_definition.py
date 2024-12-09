@@ -236,7 +236,7 @@ def get_build_definition(name: Optional[str] = None,
 def get_build_definition_output(name: Optional[pulumi.Input[str]] = None,
                                 path: Optional[pulumi.Input[Optional[str]]] = None,
                                 project_id: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBuildDefinitionResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBuildDefinitionResult]:
     """
     Use this data source to access information about an existing Build Definition.
 
@@ -261,7 +261,7 @@ def get_build_definition_output(name: Optional[pulumi.Input[str]] = None,
     __args__['name'] = name
     __args__['path'] = path
     __args__['projectId'] = project_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getBuildDefinition:getBuildDefinition', __args__, opts=opts, typ=GetBuildDefinitionResult)
     return __ret__.apply(lambda __response__: GetBuildDefinitionResult(
         agent_pool_name=pulumi.get(__response__, 'agent_pool_name'),

@@ -89,7 +89,7 @@ export interface GetServiceendpointNpmResult {
  * export const serviceEndpointId = example.then(example => example.id);
  * ```
  */
-export function getServiceendpointNpmOutput(args: GetServiceendpointNpmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceendpointNpmResult> {
+export function getServiceendpointNpmOutput(args: GetServiceendpointNpmOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceendpointNpmResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azuredevops:index/getServiceendpointNpm:getServiceendpointNpm", {
         "projectId": args.projectId,

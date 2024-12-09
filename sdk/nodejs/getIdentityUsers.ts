@@ -47,7 +47,7 @@ export interface GetIdentityUsersResult {
 /**
  * Use this data source to access information about an existing users within Azure DevOps On-Premise(Azure DevOps Server).
  */
-export function getIdentityUsersOutput(args: GetIdentityUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityUsersResult> {
+export function getIdentityUsersOutput(args: GetIdentityUsersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIdentityUsersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azuredevops:index/getIdentityUsers:getIdentityUsers", {
         "name": args.name,

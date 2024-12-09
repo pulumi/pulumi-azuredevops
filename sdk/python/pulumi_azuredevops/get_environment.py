@@ -148,7 +148,7 @@ def get_environment(environment_id: Optional[int] = None,
 def get_environment_output(environment_id: Optional[pulumi.Input[Optional[int]]] = None,
                            name: Optional[pulumi.Input[Optional[str]]] = None,
                            project_id: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     Use this data source to access information about an Environment.
 
@@ -190,7 +190,7 @@ def get_environment_output(environment_id: Optional[pulumi.Input[Optional[int]]]
     __args__['environmentId'] = environment_id
     __args__['name'] = name
     __args__['projectId'] = project_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getEnvironment:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult)
     return __ret__.apply(lambda __response__: GetEnvironmentResult(
         description=pulumi.get(__response__, 'description'),

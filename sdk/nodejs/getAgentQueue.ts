@@ -103,7 +103,7 @@ export interface GetAgentQueueResult {
  *
  * - [Azure DevOps Service REST API 7.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-7.0)
  */
-export function getAgentQueueOutput(args: GetAgentQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentQueueResult> {
+export function getAgentQueueOutput(args: GetAgentQueueOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAgentQueueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azuredevops:index/getAgentQueue:getAgentQueue", {
         "name": args.name,
