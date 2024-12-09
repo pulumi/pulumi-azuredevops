@@ -85,7 +85,7 @@ export interface GetServiceendpointSonarcloudResult {
  * export const serviceEndpointId = example.then(example => example.id);
  * ```
  */
-export function getServiceendpointSonarcloudOutput(args: GetServiceendpointSonarcloudOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceendpointSonarcloudResult> {
+export function getServiceendpointSonarcloudOutput(args: GetServiceendpointSonarcloudOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceendpointSonarcloudResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azuredevops:index/getServiceendpointSonarcloud:getServiceendpointSonarcloud", {
         "projectId": args.projectId,

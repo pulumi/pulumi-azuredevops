@@ -65,7 +65,7 @@ export interface GetPoolsResult {
  *
  * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
  */
-export function getPoolsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolsResult> {
+export function getPoolsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPoolsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azuredevops:index/getPools:getPools", {
     }, opts);

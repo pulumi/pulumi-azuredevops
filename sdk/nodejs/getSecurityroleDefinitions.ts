@@ -80,7 +80,7 @@ export interface GetSecurityroleDefinitionsResult {
  *
  * - [Azure DevOps Service REST API 7.0 - Roledefinitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)
  */
-export function getSecurityroleDefinitionsOutput(args: GetSecurityroleDefinitionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityroleDefinitionsResult> {
+export function getSecurityroleDefinitionsOutput(args: GetSecurityroleDefinitionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityroleDefinitionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azuredevops:index/getSecurityroleDefinitions:getSecurityroleDefinitions", {
         "scope": args.scope,

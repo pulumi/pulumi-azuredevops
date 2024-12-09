@@ -135,7 +135,7 @@ export interface GetIterationResult {
  *
  * - **Project & Team**: vso.work - Grants the ability to read work items, queries, boards, area and iterations paths, and other work item tracking related metadata. Also grants the ability to execute queries, search work items and to receive notifications about work item events via service hooks.
  */
-export function getIterationOutput(args: GetIterationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIterationResult> {
+export function getIterationOutput(args: GetIterationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIterationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azuredevops:index/getIteration:getIteration", {
         "fetchChildren": args.fetchChildren,

@@ -130,7 +130,7 @@ def get_agent_queue(name: Optional[str] = None,
         project_id=pulumi.get(__ret__, 'project_id'))
 def get_agent_queue_output(name: Optional[pulumi.Input[str]] = None,
                            project_id: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAgentQueueResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAgentQueueResult]:
     """
     Use this data source to access information about an existing Agent Queue within Azure DevOps.
 
@@ -163,7 +163,7 @@ def get_agent_queue_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['projectId'] = project_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getAgentQueue:getAgentQueue', __args__, opts=opts, typ=GetAgentQueueResult)
     return __ret__.apply(lambda __response__: GetAgentQueueResult(
         agent_pool_id=pulumi.get(__response__, 'agent_pool_id'),
