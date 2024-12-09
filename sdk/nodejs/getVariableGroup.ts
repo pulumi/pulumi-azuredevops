@@ -108,7 +108,7 @@ export interface GetVariableGroupResult {
  *
  * - [Azure DevOps Service REST API 7.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-7.0)
  */
-export function getVariableGroupOutput(args: GetVariableGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariableGroupResult> {
+export function getVariableGroupOutput(args: GetVariableGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVariableGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azuredevops:index/getVariableGroup:getVariableGroup", {
         "name": args.name,

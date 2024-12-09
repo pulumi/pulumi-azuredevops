@@ -122,7 +122,7 @@ export interface GetBuildDefinitionResult {
  * export const id = exampleGetBuildDefinition.then(exampleGetBuildDefinition => exampleGetBuildDefinition.id);
  * ```
  */
-export function getBuildDefinitionOutput(args: GetBuildDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildDefinitionResult> {
+export function getBuildDefinitionOutput(args: GetBuildDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBuildDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azuredevops:index/getBuildDefinition:getBuildDefinition", {
         "name": args.name,

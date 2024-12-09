@@ -174,7 +174,7 @@ def get_area(fetch_children: Optional[bool] = None,
 def get_area_output(fetch_children: Optional[pulumi.Input[Optional[bool]]] = None,
                     path: Optional[pulumi.Input[Optional[str]]] = None,
                     project_id: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAreaResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAreaResult]:
     """
     Use this data source to access information about an existing Area (Component) within Azure DevOps.
 
@@ -212,7 +212,7 @@ def get_area_output(fetch_children: Optional[pulumi.Input[Optional[bool]]] = Non
     __args__['fetchChildren'] = fetch_children
     __args__['path'] = path
     __args__['projectId'] = project_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getArea:getArea', __args__, opts=opts, typ=GetAreaResult)
     return __ret__.apply(lambda __response__: GetAreaResult(
         childrens=pulumi.get(__response__, 'childrens'),

@@ -96,7 +96,7 @@ export interface GetTeamsResult {
  *
  * - **vso.project**:	Grants the ability to read projects and teams.
  */
-export function getTeamsOutput(args?: GetTeamsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTeamsResult> {
+export function getTeamsOutput(args?: GetTeamsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTeamsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azuredevops:index/getTeams:getTeams", {

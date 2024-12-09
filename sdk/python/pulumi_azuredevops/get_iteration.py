@@ -177,7 +177,7 @@ def get_iteration(fetch_children: Optional[bool] = None,
 def get_iteration_output(fetch_children: Optional[pulumi.Input[Optional[bool]]] = None,
                          path: Optional[pulumi.Input[Optional[str]]] = None,
                          project_id: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIterationResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIterationResult]:
     """
     Use this data source to access information about an existing Iteration (Sprint) within Azure DevOps.
 
@@ -218,7 +218,7 @@ def get_iteration_output(fetch_children: Optional[pulumi.Input[Optional[bool]]] 
     __args__['fetchChildren'] = fetch_children
     __args__['path'] = path
     __args__['projectId'] = project_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getIteration:getIteration', __args__, opts=opts, typ=GetIterationResult)
     return __ret__.apply(lambda __response__: GetIterationResult(
         childrens=pulumi.get(__response__, 'childrens'),
