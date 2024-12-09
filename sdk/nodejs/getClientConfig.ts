@@ -46,7 +46,7 @@ export interface GetClientConfigResult {
  * export const orgUrl = example.then(example => example.organizationUrl);
  * ```
  */
-export function getClientConfigOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetClientConfigResult> {
+export function getClientConfigOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClientConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azuredevops:index/getClientConfig:getClientConfig", {
     }, opts);

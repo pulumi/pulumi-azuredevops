@@ -213,7 +213,7 @@ def get_git_repository(name: Optional[str] = None,
         web_url=pulumi.get(__ret__, 'web_url'))
 def get_git_repository_output(name: Optional[pulumi.Input[str]] = None,
                               project_id: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGitRepositoryResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGitRepositoryResult]:
     """
     Use this data source to access information about a **single** (existing) Git Repository within Azure DevOps.
     To read information about **multiple** Git Repositories use the data source `get_repositories`
@@ -241,7 +241,7 @@ def get_git_repository_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['projectId'] = project_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getGitRepository:getGitRepository', __args__, opts=opts, typ=GetGitRepositoryResult)
     return __ret__.apply(lambda __response__: GetGitRepositoryResult(
         default_branch=pulumi.get(__response__, 'default_branch'),

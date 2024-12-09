@@ -121,7 +121,7 @@ export interface GetFeedResult {
  *
  * - [Azure DevOps Service REST API 7.0 - Feed - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/artifacts/feed-management/get-feed?view=azure-devops-rest-7.0)
  */
-export function getFeedOutput(args?: GetFeedOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFeedResult> {
+export function getFeedOutput(args?: GetFeedOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFeedResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azuredevops:index/getFeed:getFeed", {

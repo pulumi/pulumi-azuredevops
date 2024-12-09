@@ -79,7 +79,7 @@ def get_client_config(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableG
     return AwaitableGetClientConfigResult(
         id=pulumi.get(__ret__, 'id'),
         organization_url=pulumi.get(__ret__, 'organization_url'))
-def get_client_config_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClientConfigResult]:
+def get_client_config_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClientConfigResult]:
     """
     Use this data source to access information about the Azure DevOps organization configured for the provider.
 
@@ -94,7 +94,7 @@ def get_client_config_output(opts: Optional[pulumi.InvokeOptions] = None) -> pul
     ```
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getClientConfig:getClientConfig', __args__, opts=opts, typ=GetClientConfigResult)
     return __ret__.apply(lambda __response__: GetClientConfigResult(
         id=pulumi.get(__response__, 'id'),

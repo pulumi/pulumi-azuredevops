@@ -128,7 +128,7 @@ export interface GetServiceEndpointGithubResult {
  * export const serviceEndpointId = serviceendpoint.then(serviceendpoint => serviceendpoint.id);
  * ```
  */
-export function getServiceEndpointGithubOutput(args: GetServiceEndpointGithubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceEndpointGithubResult> {
+export function getServiceEndpointGithubOutput(args: GetServiceEndpointGithubOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceEndpointGithubResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azuredevops:index/getServiceEndpointGithub:getServiceEndpointGithub", {
         "projectId": args.projectId,

@@ -90,7 +90,7 @@ def get_pools(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPoolsR
     return AwaitableGetPoolsResult(
         agent_pools=pulumi.get(__ret__, 'agent_pools'),
         id=pulumi.get(__ret__, 'id'))
-def get_pools_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPoolsResult]:
+def get_pools_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPoolsResult]:
     """
     Use this data source to access information about existing Agent Pools within Azure DevOps.
 
@@ -112,7 +112,7 @@ def get_pools_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Outp
     - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getPools:getPools', __args__, opts=opts, typ=GetPoolsResult)
     return __ret__.apply(lambda __response__: GetPoolsResult(
         agent_pools=pulumi.get(__response__, 'agent_pools'),
