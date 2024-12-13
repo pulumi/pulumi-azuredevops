@@ -100,6 +100,51 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public static Output<GetEnvironmentResult> Invoke(GetEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentResult>("azuredevops:index/getEnvironment:getEnvironment", args ?? new GetEnvironmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an Environment.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleProject = new AzureDevOps.Project("example", new()
+        ///     {
+        ///         Name = "Example Project",
+        ///         WorkItemTemplate = "Agile",
+        ///         VersionControl = "Git",
+        ///         Visibility = "private",
+        ///         Description = "Managed by Pulumi",
+        ///     });
+        /// 
+        ///     var exampleEnvironment = new AzureDevOps.Environment("example", new()
+        ///     {
+        ///         ProjectId = exampleProject.Id,
+        ///         Name = "Example Environment",
+        ///         Description = "Managed by Pulumi",
+        ///     });
+        /// 
+        ///     var example = AzureDevOps.GetEnvironment.Invoke(new()
+        ///     {
+        ///         ProjectId = exampleProject.Id,
+        ///         EnvironmentId = exampleEnvironment.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ## Relevant Links
+        /// 
+        /// * [Azure DevOps Service REST API 7.0 - Environments](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments?view=azure-devops-rest-7.0)
+        /// </summary>
+        public static Output<GetEnvironmentResult> Invoke(GetEnvironmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentResult>("azuredevops:index/getEnvironment:getEnvironment", args ?? new GetEnvironmentInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -96,6 +96,49 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public static Output<GetAgentQueueResult> Invoke(GetAgentQueueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAgentQueueResult>("azuredevops:index/getAgentQueue:getAgentQueue", args ?? new GetAgentQueueInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Agent Queue within Azure DevOps.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleProject = new AzureDevOps.Project("example", new()
+        ///     {
+        ///         Name = "Example Project",
+        ///         WorkItemTemplate = "Agile",
+        ///         VersionControl = "Git",
+        ///         Visibility = "private",
+        ///         Description = "Managed by Pulumi",
+        ///     });
+        /// 
+        ///     var example = AzureDevOps.GetAgentQueue.Invoke(new()
+        ///     {
+        ///         ProjectId = exampleProject.Id,
+        ///         Name = "Example Agent Queue",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["name"] = example.Apply(getAgentQueueResult =&gt; getAgentQueueResult.Name),
+        ///         ["poolId"] = example.Apply(getAgentQueueResult =&gt; getAgentQueueResult.AgentPoolId),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ## Relevant Links
+        /// 
+        /// - [Azure DevOps Service REST API 7.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-7.0)
+        /// </summary>
+        public static Output<GetAgentQueueResult> Invoke(GetAgentQueueInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAgentQueueResult>("azuredevops:index/getAgentQueue:getAgentQueue", args ?? new GetAgentQueueInvokeArgs(), options.WithDefaults());
     }
 
 

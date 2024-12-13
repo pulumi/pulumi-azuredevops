@@ -87,21 +87,11 @@ type GetAgentQueueResult struct {
 }
 
 func GetAgentQueueOutput(ctx *pulumi.Context, args GetAgentQueueOutputArgs, opts ...pulumi.InvokeOption) GetAgentQueueResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetAgentQueueResultOutput, error) {
 			args := v.(GetAgentQueueArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetAgentQueueResult
-			secret, err := ctx.InvokePackageRaw("azuredevops:index/getAgentQueue:getAgentQueue", args, &rv, "", opts...)
-			if err != nil {
-				return GetAgentQueueResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetAgentQueueResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetAgentQueueResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azuredevops:index/getAgentQueue:getAgentQueue", args, GetAgentQueueResultOutput{}, options).(GetAgentQueueResultOutput), nil
 		}).(GetAgentQueueResultOutput)
 }
 

@@ -146,6 +146,74 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public static Output<GetServiceendpointBitbucketResult> Invoke(GetServiceendpointBitbucketInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceendpointBitbucketResult>("azuredevops:index/getServiceendpointBitbucket:getServiceendpointBitbucket", args ?? new GetServiceendpointBitbucketInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Bitbucket service Endpoint.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### By Service Endpoint ID
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     {
+        ///         Name = "Example Project",
+        ///     });
+        /// 
+        ///     var exampleGetServiceendpointBitbucket = AzureDevOps.GetServiceendpointBitbucket.Invoke(new()
+        ///     {
+        ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///         ServiceEndpointId = "00000000-0000-0000-0000-000000000000",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["serviceEndpointName"] = exampleGetServiceendpointBitbucket.Apply(getServiceendpointBitbucketResult =&gt; getServiceendpointBitbucketResult.ServiceEndpointName),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### By Service Endpoint Name
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     {
+        ///         Name = "Example Project",
+        ///     });
+        /// 
+        ///     var exampleGetServiceendpointBitbucket = AzureDevOps.GetServiceendpointBitbucket.Invoke(new()
+        ///     {
+        ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///         ServiceEndpointName = "Example",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["serviceEndpointId"] = exampleGetServiceendpointBitbucket.Apply(getServiceendpointBitbucketResult =&gt; getServiceendpointBitbucketResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ## PAT Permissions Required
+        /// 
+        /// - **vso.serviceendpoint**: Grants the ability to read service endpoints.
+        /// </summary>
+        public static Output<GetServiceendpointBitbucketResult> Invoke(GetServiceendpointBitbucketInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceendpointBitbucketResult>("azuredevops:index/getServiceendpointBitbucket:getServiceendpointBitbucket", args ?? new GetServiceendpointBitbucketInvokeArgs(), options.WithDefaults());
     }
 
 

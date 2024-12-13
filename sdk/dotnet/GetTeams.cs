@@ -82,6 +82,42 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public static Output<GetTeamsResult> Invoke(GetTeamsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTeamsResult>("azuredevops:index/getTeams:getTeams", args ?? new GetTeamsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about existing Teams in a Project or globally within an Azure DevOps organization
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = AzureDevOps.GetTeams.Invoke();
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["projectId"] = example.Apply(getTeamsResult =&gt; getTeamsResult.Teams).Select(__item =&gt; __item.ProjectId).ToList(),
+        ///         ["name"] = example.Apply(getTeamsResult =&gt; getTeamsResult.Teams).Select(__item =&gt; __item.Name).ToList(),
+        ///         ["alladministrators"] = example.Apply(getTeamsResult =&gt; getTeamsResult.Teams).Select(__item =&gt; __item.Administrators).ToList(),
+        ///         ["administrators"] = example.Apply(getTeamsResult =&gt; getTeamsResult.Teams).Select(__item =&gt; __item.Members).ToList(),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ## Relevant Links
+        /// 
+        /// - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)
+        /// 
+        /// ## PAT Permissions Required
+        /// 
+        /// - **vso.project**:	Grants the ability to read projects and teams.
+        /// </summary>
+        public static Output<GetTeamsResult> Invoke(GetTeamsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTeamsResult>("azuredevops:index/getTeams:getTeams", args ?? new GetTeamsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -74,6 +74,38 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public static Output<GetSecurityroleDefinitionsResult> Invoke(GetSecurityroleDefinitionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityroleDefinitionsResult>("azuredevops:index/getSecurityroleDefinitions:getSecurityroleDefinitions", args ?? new GetSecurityroleDefinitionsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about existing Security Role Definitions within a given scope in Azure DevOps.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = AzureDevOps.GetSecurityroleDefinitions.Invoke(new()
+        ///     {
+        ///         Scope = "distributedtask.environmentreferencerole",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["securityroleDefinitions"] = exampleAazuredevopsSecurityroleDefinitions.Definitions,
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ## Relevant Links
+        /// 
+        /// - [Azure DevOps Service REST API 7.0 - Roledefinitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)
+        /// </summary>
+        public static Output<GetSecurityroleDefinitionsResult> Invoke(GetSecurityroleDefinitionsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecurityroleDefinitionsResult>("azuredevops:index/getSecurityroleDefinitions:getSecurityroleDefinitions", args ?? new GetSecurityroleDefinitionsInvokeArgs(), options.WithDefaults());
     }
 
 

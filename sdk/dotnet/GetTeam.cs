@@ -94,6 +94,48 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public static Output<GetTeamResult> Invoke(GetTeamInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTeamResult>("azuredevops:index/getTeam:getTeam", args ?? new GetTeamInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Team in a Project within Azure DevOps.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleProject = new AzureDevOps.Project("example", new()
+        ///     {
+        ///         Name = "Example Project",
+        ///         WorkItemTemplate = "Agile",
+        ///         VersionControl = "Git",
+        ///         Visibility = "private",
+        ///         Description = "Managed by Pulumi",
+        ///     });
+        /// 
+        ///     var example = AzureDevOps.GetTeam.Invoke(new()
+        ///     {
+        ///         ProjectId = exampleProject.Id,
+        ///         Name = "Example Project Team",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ## Relevant Links
+        /// 
+        /// - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)
+        /// 
+        /// ## PAT Permissions Required
+        /// 
+        /// - **vso.project**:	Grants the ability to read projects and teams.
+        /// </summary>
+        public static Output<GetTeamResult> Invoke(GetTeamInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTeamResult>("azuredevops:index/getTeam:getTeam", args ?? new GetTeamInvokeArgs(), options.WithDefaults());
     }
 
 

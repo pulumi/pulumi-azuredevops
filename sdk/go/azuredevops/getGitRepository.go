@@ -95,21 +95,11 @@ type GetGitRepositoryResult struct {
 }
 
 func GetGitRepositoryOutput(ctx *pulumi.Context, args GetGitRepositoryOutputArgs, opts ...pulumi.InvokeOption) GetGitRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetGitRepositoryResultOutput, error) {
 			args := v.(GetGitRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetGitRepositoryResult
-			secret, err := ctx.InvokePackageRaw("azuredevops:index/getGitRepository:getGitRepository", args, &rv, "", opts...)
-			if err != nil {
-				return GetGitRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetGitRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetGitRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azuredevops:index/getGitRepository:getGitRepository", args, GetGitRepositoryResultOutput{}, options).(GetGitRepositoryResultOutput), nil
 		}).(GetGitRepositoryResultOutput)
 }
 

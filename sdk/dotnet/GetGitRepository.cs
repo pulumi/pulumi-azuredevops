@@ -82,6 +82,42 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public static Output<GetGitRepositoryResult> Invoke(GetGitRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGitRepositoryResult>("azuredevops:index/getGitRepository:getGitRepository", args ?? new GetGitRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about a **single** (existing) Git Repository within Azure DevOps.
+        /// To read information about **multiple** Git Repositories use the data source `azuredevops.getRepositories`
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     {
+        ///         Name = "Example Project",
+        ///     });
+        /// 
+        ///     // Load a specific Git repository by name
+        ///     var example_single_repo = AzureDevOps.GetGitRepository.Invoke(new()
+        ///     {
+        ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///         Name = "Example Repository",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ## Relevant Links
+        /// 
+        /// - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
+        /// </summary>
+        public static Output<GetGitRepositoryResult> Invoke(GetGitRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGitRepositoryResult>("azuredevops:index/getGitRepository:getGitRepository", args ?? new GetGitRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 
