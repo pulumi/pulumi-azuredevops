@@ -22,6 +22,12 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public static Output<GetIdentityUsersResult> Invoke(GetIdentityUsersInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIdentityUsersResult>("azuredevops:index/getIdentityUsers:getIdentityUsers", args ?? new GetIdentityUsersInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing users within Azure DevOps On-Premise(Azure DevOps Server).
+        /// </summary>
+        public static Output<GetIdentityUsersResult> Invoke(GetIdentityUsersInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIdentityUsersResult>("azuredevops:index/getIdentityUsers:getIdentityUsers", args ?? new GetIdentityUsersInvokeArgs(), options.WithDefaults());
     }
 
 

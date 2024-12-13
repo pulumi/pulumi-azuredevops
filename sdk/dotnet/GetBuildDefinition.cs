@@ -78,6 +78,40 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public static Output<GetBuildDefinitionResult> Invoke(GetBuildDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBuildDefinitionResult>("azuredevops:index/getBuildDefinition:getBuildDefinition", args ?? new GetBuildDefinitionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Build Definition.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     {
+        ///         Name = "Example Project",
+        ///     });
+        /// 
+        ///     var exampleGetBuildDefinition = AzureDevOps.GetBuildDefinition.Invoke(new()
+        ///     {
+        ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///         Name = "existing",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = exampleGetBuildDefinition.Apply(getBuildDefinitionResult =&gt; getBuildDefinitionResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetBuildDefinitionResult> Invoke(GetBuildDefinitionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBuildDefinitionResult>("azuredevops:index/getBuildDefinition:getBuildDefinition", args ?? new GetBuildDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

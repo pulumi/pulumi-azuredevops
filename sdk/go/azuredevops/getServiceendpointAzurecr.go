@@ -96,21 +96,11 @@ type GetServiceendpointAzurecrResult struct {
 }
 
 func GetServiceendpointAzurecrOutput(ctx *pulumi.Context, args GetServiceendpointAzurecrOutputArgs, opts ...pulumi.InvokeOption) GetServiceendpointAzurecrResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetServiceendpointAzurecrResultOutput, error) {
 			args := v.(GetServiceendpointAzurecrArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetServiceendpointAzurecrResult
-			secret, err := ctx.InvokePackageRaw("azuredevops:index/getServiceendpointAzurecr:getServiceendpointAzurecr", args, &rv, "", opts...)
-			if err != nil {
-				return GetServiceendpointAzurecrResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetServiceendpointAzurecrResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetServiceendpointAzurecrResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azuredevops:index/getServiceendpointAzurecr:getServiceendpointAzurecr", args, GetServiceendpointAzurecrResultOutput{}, options).(GetServiceendpointAzurecrResultOutput), nil
 		}).(GetServiceendpointAzurecrResultOutput)
 }
 

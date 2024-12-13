@@ -95,21 +95,11 @@ type GetAreaResult struct {
 }
 
 func GetAreaOutput(ctx *pulumi.Context, args GetAreaOutputArgs, opts ...pulumi.InvokeOption) GetAreaResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetAreaResultOutput, error) {
 			args := v.(GetAreaArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetAreaResult
-			secret, err := ctx.InvokePackageRaw("azuredevops:index/getArea:getArea", args, &rv, "", opts...)
-			if err != nil {
-				return GetAreaResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetAreaResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetAreaResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azuredevops:index/getArea:getArea", args, GetAreaResultOutput{}, options).(GetAreaResultOutput), nil
 		}).(GetAreaResultOutput)
 }
 

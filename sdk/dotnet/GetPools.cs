@@ -74,6 +74,38 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public static Output<GetPoolsResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPoolsResult>("azuredevops:index/getPools:getPools", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about existing Agent Pools within Azure DevOps.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = AzureDevOps.GetPools.Invoke();
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["agentPoolName"] = example.Apply(getPoolsResult =&gt; getPoolsResult.AgentPools).Select(__item =&gt; __item.Name).ToList(),
+        ///         ["autoProvision"] = example.Apply(getPoolsResult =&gt; getPoolsResult.AgentPools).Select(__item =&gt; __item.AutoProvision).ToList(),
+        ///         ["autoUpdate"] = example.Apply(getPoolsResult =&gt; getPoolsResult.AgentPools).Select(__item =&gt; __item.AutoUpdate).ToList(),
+        ///         ["poolType"] = example.Apply(getPoolsResult =&gt; getPoolsResult.AgentPools).Select(__item =&gt; __item.PoolType).ToList(),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ## Relevant Links
+        /// 
+        /// - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
+        /// </summary>
+        public static Output<GetPoolsResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPoolsResult>("azuredevops:index/getPools:getPools", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

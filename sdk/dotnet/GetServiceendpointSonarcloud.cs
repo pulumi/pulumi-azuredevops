@@ -68,6 +68,35 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public static Output<GetServiceendpointSonarcloudResult> Invoke(GetServiceendpointSonarcloudInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceendpointSonarcloudResult>("azuredevops:index/getServiceendpointSonarcloud:getServiceendpointSonarcloud", args ?? new GetServiceendpointSonarcloudInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Sonar Cloud Service Endpoint.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = AzureDevOps.GetServiceendpointSonarcloud.Invoke(new()
+        ///     {
+        ///         ProjectId = exampleAzuredevopsProject.Id,
+        ///         ServiceEndpointName = "Example Sonar Cloud",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["serviceEndpointId"] = example.Apply(getServiceendpointSonarcloudResult =&gt; getServiceendpointSonarcloudResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetServiceendpointSonarcloudResult> Invoke(GetServiceendpointSonarcloudInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceendpointSonarcloudResult>("azuredevops:index/getServiceendpointSonarcloud:getServiceendpointSonarcloud", args ?? new GetServiceendpointSonarcloudInvokeArgs(), options.WithDefaults());
     }
 
 

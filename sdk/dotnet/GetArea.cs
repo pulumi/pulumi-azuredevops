@@ -96,6 +96,49 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public static Output<GetAreaResult> Invoke(GetAreaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAreaResult>("azuredevops:index/getArea:getArea", args ?? new GetAreaInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Area (Component) within Azure DevOps.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleProject = new AzureDevOps.Project("example", new()
+        ///     {
+        ///         Name = "Example Project",
+        ///         WorkItemTemplate = "Agile",
+        ///         VersionControl = "Git",
+        ///         Visibility = "private",
+        ///         Description = "Managed by Pulumi",
+        ///     });
+        /// 
+        ///     var example = AzureDevOps.GetArea.Invoke(new()
+        ///     {
+        ///         ProjectId = exampleProject.Id,
+        ///         Path = "/",
+        ///         FetchChildren = false,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ## Relevant Links
+        /// 
+        /// - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/create-or-update?view=azure-devops-rest-7.0)
+        /// 
+        /// ## PAT Permissions Required
+        /// 
+        /// - **Project &amp; Team**: vso.work - Grants the ability to read work items, queries, boards, area and iterations paths, and other work item tracking related metadata. Also grants the ability to execute queries, search work items and to receive notifications about work item events via service hooks.
+        /// </summary>
+        public static Output<GetAreaResult> Invoke(GetAreaInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAreaResult>("azuredevops:index/getArea:getArea", args ?? new GetAreaInvokeArgs(), options.WithDefaults());
     }
 
 

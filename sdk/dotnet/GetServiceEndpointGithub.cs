@@ -138,6 +138,70 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public static Output<GetServiceEndpointGithubResult> Invoke(GetServiceEndpointGithubInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceEndpointGithubResult>("azuredevops:index/getServiceEndpointGithub:getServiceEndpointGithub", args ?? new GetServiceEndpointGithubInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing GitHub service Endpoint.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### By Service Endpoint ID
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var sample = AzureDevOps.GetProject.Invoke(new()
+        ///     {
+        ///         Name = "Sample Project",
+        ///     });
+        /// 
+        ///     var serviceendpoint = AzureDevOps.GetServiceEndpointGithub.Invoke(new()
+        ///     {
+        ///         ProjectId = sample.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///         ServiceEndpointId = "00000000-0000-0000-0000-000000000000",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["serviceEndpointName"] = serviceendpoint.Apply(getServiceEndpointGithubResult =&gt; getServiceEndpointGithubResult.ServiceEndpointName),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### By Service Endpoint Name
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var sample = AzureDevOps.GetProject.Invoke(new()
+        ///     {
+        ///         Name = "Sample Project",
+        ///     });
+        /// 
+        ///     var serviceendpoint = AzureDevOps.GetServiceEndpointGithub.Invoke(new()
+        ///     {
+        ///         ProjectId = sample.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///         ServiceEndpointName = "Example-Service-Endpoint",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["serviceEndpointId"] = serviceendpoint.Apply(getServiceEndpointGithubResult =&gt; getServiceEndpointGithubResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetServiceEndpointGithubResult> Invoke(GetServiceEndpointGithubInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceEndpointGithubResult>("azuredevops:index/getServiceEndpointGithub:getServiceEndpointGithub", args ?? new GetServiceEndpointGithubInvokeArgs(), options.WithDefaults());
     }
 
 

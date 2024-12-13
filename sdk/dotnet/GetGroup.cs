@@ -112,6 +112,57 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("azuredevops:index/getGroup:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Group within Azure DevOps
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     {
+        ///         Name = "Example Project",
+        ///     });
+        /// 
+        ///     var exampleGetGroup = AzureDevOps.GetGroup.Invoke(new()
+        ///     {
+        ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///         Name = "Example Group",
+        ///     });
+        /// 
+        ///     var example_collection_group = AzureDevOps.GetGroup.Invoke(new()
+        ///     {
+        ///         Name = "Project Collection Administrators",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["groupId"] = exampleGetGroup.Apply(getGroupResult =&gt; getGroupResult.Id),
+        ///         ["groupDescriptor"] = exampleGetGroup.Apply(getGroupResult =&gt; getGroupResult.Descriptor),
+        ///         ["collectionGroupId"] = exampleGetGroup.Apply(getGroupResult =&gt; getGroupResult.Id),
+        ///         ["collectionGroupDescriptor"] = exampleGetGroup.Apply(getGroupResult =&gt; getGroupResult.Descriptor),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ## Relevant Links
+        /// 
+        /// - [Azure DevOps Service REST API 7.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-7.0)
+        /// 
+        /// ## PAT Permissions Required
+        /// 
+        /// - **Graph**: Read
+        /// - **Work Items**: Read
+        /// </summary>
+        public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("azuredevops:index/getGroup:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -123,21 +123,11 @@ type GetServiceendpointBitbucketResult struct {
 }
 
 func GetServiceendpointBitbucketOutput(ctx *pulumi.Context, args GetServiceendpointBitbucketOutputArgs, opts ...pulumi.InvokeOption) GetServiceendpointBitbucketResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetServiceendpointBitbucketResultOutput, error) {
 			args := v.(GetServiceendpointBitbucketArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetServiceendpointBitbucketResult
-			secret, err := ctx.InvokePackageRaw("azuredevops:index/getServiceendpointBitbucket:getServiceendpointBitbucket", args, &rv, "", opts...)
-			if err != nil {
-				return GetServiceendpointBitbucketResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetServiceendpointBitbucketResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetServiceendpointBitbucketResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azuredevops:index/getServiceendpointBitbucket:getServiceendpointBitbucket", args, GetServiceendpointBitbucketResultOutput{}, options).(GetServiceendpointBitbucketResultOutput), nil
 		}).(GetServiceendpointBitbucketResultOutput)
 }
 
