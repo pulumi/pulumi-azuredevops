@@ -116,6 +116,59 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public static Output<GetFeedResult> Invoke(GetFeedInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFeedResult>("azuredevops:index/getFeed:getFeed", args ?? new GetFeedInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about existing Feed within a given project in Azure DevOps.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Example
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = AzureDevOps.GetFeed.Invoke(new()
+        ///     {
+        ///         Name = "releases",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Access feed within a project
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     {
+        ///         Name = "Example Project",
+        ///     });
+        /// 
+        ///     var exampleGetFeed = AzureDevOps.GetFeed.Invoke(new()
+        ///     {
+        ///         Name = "releases",
+        ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// 
+        /// ## Relevant Links
+        /// 
+        /// - [Azure DevOps Service REST API 7.0 - Feed - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/artifacts/feed-management/get-feed?view=azure-devops-rest-7.0)
+        /// </summary>
+        public static Output<GetFeedResult> Invoke(GetFeedInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFeedResult>("azuredevops:index/getFeed:getFeed", args ?? new GetFeedInvokeArgs(), options.WithDefaults());
     }
 
 

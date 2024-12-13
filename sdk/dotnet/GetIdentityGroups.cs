@@ -84,6 +84,43 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public static Output<GetIdentityGroupsResult> Invoke(GetIdentityGroupsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIdentityGroupsResult>("azuredevops:index/getIdentityGroups:getIdentityGroups", args ?? new GetIdentityGroupsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about existing Groups within Azure DevOps On-Premise(Azure DevOps Server).
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     {
+        ///         Name = "Example Project",
+        ///     });
+        /// 
+        ///     // load all existing groups inside an organization
+        ///     var example_all_groups = AzureDevOps.GetIdentityGroups.Invoke();
+        /// 
+        ///     // load all existing groups inside a specific project
+        ///     var example_project_groups = AzureDevOps.GetIdentityGroups.Invoke(new()
+        ///     {
+        ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ## Relevant Links
+        /// 
+        /// - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+        /// </summary>
+        public static Output<GetIdentityGroupsResult> Invoke(GetIdentityGroupsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIdentityGroupsResult>("azuredevops:index/getIdentityGroups:getIdentityGroups", args ?? new GetIdentityGroupsInvokeArgs(), options.WithDefaults());
     }
 
 

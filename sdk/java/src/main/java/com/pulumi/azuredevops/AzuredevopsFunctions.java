@@ -91,6 +91,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
@@ -270,6 +271,65 @@ public final class AzuredevopsFunctions {
      * 
      */
     public static Output<GetAgentQueueResult> getAgentQueue(GetAgentQueueArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getAgentQueue:getAgentQueue", TypeShape.of(GetAgentQueueResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Agent Queue within Azure DevOps.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.Project;
+     * import com.pulumi.azuredevops.ProjectArgs;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetAgentQueueArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()
+     *             .name("Example Project")
+     *             .workItemTemplate("Agile")
+     *             .versionControl("Git")
+     *             .visibility("private")
+     *             .description("Managed by Pulumi")
+     *             .build());
+     * 
+     *         final var example = AzuredevopsFunctions.getAgentQueue(GetAgentQueueArgs.builder()
+     *             .projectId(exampleProject.id())
+     *             .name("Example Agent Queue")
+     *             .build());
+     * 
+     *         ctx.export("name", example.applyValue(getAgentQueueResult -> getAgentQueueResult).applyValue(example -> example.applyValue(getAgentQueueResult -> getAgentQueueResult.name())));
+     *         ctx.export("poolId", example.applyValue(getAgentQueueResult -> getAgentQueueResult).applyValue(example -> example.applyValue(getAgentQueueResult -> getAgentQueueResult.agentPoolId())));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-7.0)
+     * 
+     */
+    public static Output<GetAgentQueueResult> getAgentQueue(GetAgentQueueArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azuredevops:index/getAgentQueue:getAgentQueue", TypeShape.of(GetAgentQueueResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -576,6 +636,68 @@ public final class AzuredevopsFunctions {
      * - **Project &amp; Team**: vso.work - Grants the ability to read work items, queries, boards, area and iterations paths, and other work item tracking related metadata. Also grants the ability to execute queries, search work items and to receive notifications about work item events via service hooks.
      * 
      */
+    public static Output<GetAreaResult> getArea(GetAreaArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getArea:getArea", TypeShape.of(GetAreaResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Area (Component) within Azure DevOps.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.Project;
+     * import com.pulumi.azuredevops.ProjectArgs;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetAreaArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()
+     *             .name("Example Project")
+     *             .workItemTemplate("Agile")
+     *             .versionControl("Git")
+     *             .visibility("private")
+     *             .description("Managed by Pulumi")
+     *             .build());
+     * 
+     *         final var example = AzuredevopsFunctions.getArea(GetAreaArgs.builder()
+     *             .projectId(exampleProject.id())
+     *             .path("/")
+     *             .fetchChildren("false")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/create-or-update?view=azure-devops-rest-7.0)
+     * 
+     * ## PAT Permissions Required
+     * 
+     * - **Project &amp; Team**: vso.work - Grants the ability to read work items, queries, boards, area and iterations paths, and other work item tracking related metadata. Also grants the ability to execute queries, search work items and to receive notifications about work item events via service hooks.
+     * 
+     */
     public static CompletableFuture<GetAreaResult> getAreaPlain(GetAreaPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azuredevops:index/getArea:getArea", TypeShape.of(GetAreaResult.class), args, Utilities.withVersion(options));
     }
@@ -724,6 +846,55 @@ public final class AzuredevopsFunctions {
      * 
      */
     public static Output<GetBuildDefinitionResult> getBuildDefinition(GetBuildDefinitionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getBuildDefinition:getBuildDefinition", TypeShape.of(GetBuildDefinitionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Build Definition.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetBuildDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetBuildDefinition = AzuredevopsFunctions.getBuildDefinition(GetBuildDefinitionArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .name("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", exampleGetBuildDefinition.applyValue(getBuildDefinitionResult -> getBuildDefinitionResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetBuildDefinitionResult> getBuildDefinition(GetBuildDefinitionArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azuredevops:index/getBuildDefinition:getBuildDefinition", TypeShape.of(GetBuildDefinitionResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1012,6 +1183,46 @@ public final class AzuredevopsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetClientConfigResult> getClientConfig(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getClientConfig:getClientConfig", TypeShape.of(GetClientConfigResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about the Azure DevOps organization configured for the provider.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getClientConfig();
+     * 
+     *         ctx.export("orgUrl", example.applyValue(getClientConfigResult -> getClientConfigResult.organizationUrl()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetClientConfigResult> getClientConfigPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azuredevops:index/getClientConfig:getClientConfig", TypeShape.of(GetClientConfigResult.class), args, Utilities.withVersion(options));
     }
@@ -1208,6 +1419,71 @@ public final class AzuredevopsFunctions {
      * 
      */
     public static Output<GetEnvironmentResult> getEnvironment(GetEnvironmentArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getEnvironment:getEnvironment", TypeShape.of(GetEnvironmentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an Environment.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.Project;
+     * import com.pulumi.azuredevops.ProjectArgs;
+     * import com.pulumi.azuredevops.Environment;
+     * import com.pulumi.azuredevops.EnvironmentArgs;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()
+     *             .name("Example Project")
+     *             .workItemTemplate("Agile")
+     *             .versionControl("Git")
+     *             .visibility("private")
+     *             .description("Managed by Pulumi")
+     *             .build());
+     * 
+     *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()
+     *             .projectId(exampleProject.id())
+     *             .name("Example Environment")
+     *             .description("Managed by Pulumi")
+     *             .build());
+     * 
+     *         final var example = AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *             .projectId(exampleProject.id())
+     *             .environmentId(exampleEnvironment.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * * [Azure DevOps Service REST API 7.0 - Environments](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments?view=azure-devops-rest-7.0)
+     * 
+     */
+    public static Output<GetEnvironmentResult> getEnvironment(GetEnvironmentArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azuredevops:index/getEnvironment:getEnvironment", TypeShape.of(GetEnvironmentResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1794,6 +2070,93 @@ public final class AzuredevopsFunctions {
      * - [Azure DevOps Service REST API 7.0 - Feed - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/artifacts/feed-management/get-feed?view=azure-devops-rest-7.0)
      * 
      */
+    public static Output<GetFeedResult> getFeed(GetFeedArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getFeed:getFeed", TypeShape.of(GetFeedResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing Feed within a given project in Azure DevOps.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Example
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetFeedArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getFeed(GetFeedArgs.builder()
+     *             .name("releases")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Access feed within a project
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetFeedArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetFeed = AzuredevopsFunctions.getFeed(GetFeedArgs.builder()
+     *             .name("releases")
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Feed - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/artifacts/feed-management/get-feed?view=azure-devops-rest-7.0)
+     * 
+     */
     public static CompletableFuture<GetFeedResult> getFeedPlain(GetFeedPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azuredevops:index/getFeed:getFeed", TypeShape.of(GetFeedResult.class), args, Utilities.withVersion(options));
     }
@@ -1957,6 +2320,60 @@ public final class AzuredevopsFunctions {
      * 
      */
     public static Output<GetGitRepositoryResult> getGitRepository(GetGitRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getGitRepository:getGitRepository", TypeShape.of(GetGitRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about a **single** (existing) Git Repository within Azure DevOps.
+     * To read information about **multiple** Git Repositories use the data source `azuredevops.getRepositories`
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         // Load a specific Git repository by name
+     *         final var example-single-repo = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .name("Example Repository")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
+     * 
+     */
+    public static Output<GetGitRepositoryResult> getGitRepository(GetGitRepositoryArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azuredevops:index/getGitRepository:getGitRepository", TypeShape.of(GetGitRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2206,6 +2623,71 @@ public final class AzuredevopsFunctions {
      * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Group within Azure DevOps
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetGroup = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .name("Example Group")
+     *             .build());
+     * 
+     *         ctx.export("groupId", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.id()));
+     *         ctx.export("groupDescriptor", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.descriptor()));
+     *         final var example-collection-group = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
+     *             .name("Project Collection Administrators")
+     *             .build());
+     * 
+     *         ctx.export("collectionGroupId", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.id()));
+     *         ctx.export("collectionGroupDescriptor", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.descriptor()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-7.0)
+     * 
+     * ## PAT Permissions Required
+     * 
+     * - **Graph**: Read
+     * - **Work Items**: Read
+     * 
+     */
+    public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azuredevops:index/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2600,6 +3082,61 @@ public final class AzuredevopsFunctions {
      * - [Azure DevOps Service REST API 7.0 - Groups - List](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-7.0)
      * 
      */
+    public static Output<GetGroupsResult> getGroups(GetGroupsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getGroups:getGroups", TypeShape.of(GetGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing Groups within Azure DevOps
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         // load all existing groups inside an organization
+     *         final var example-all-groups = AzuredevopsFunctions.getGroups();
+     * 
+     *         // load all existing groups inside a specific project
+     *         final var example-project-groups = AzuredevopsFunctions.getGroups(GetGroupsArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Groups - List](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-7.0)
+     * 
+     */
     public static CompletableFuture<GetGroupsResult> getGroupsPlain(GetGroupsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azuredevops:index/getGroups:getGroups", TypeShape.of(GetGroupsResult.class), args, Utilities.withVersion(options));
     }
@@ -2745,6 +3282,54 @@ public final class AzuredevopsFunctions {
      * 
      */
     public static Output<GetIdentityGroupResult> getIdentityGroup(GetIdentityGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getIdentityGroup:getIdentityGroup", TypeShape.of(GetIdentityGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Group within Azure DevOps On-Premise(Azure DevOps Server).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetIdentityGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // load existing group with specific name
+     *         final var example-project-group = AzuredevopsFunctions.getIdentityGroup(GetIdentityGroupArgs.builder()
+     *             .projectId(example.id())
+     *             .name("[Project-Name]\\Group-Name")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+     * 
+     */
+    public static Output<GetIdentityGroupResult> getIdentityGroup(GetIdentityGroupArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azuredevops:index/getIdentityGroup:getIdentityGroup", TypeShape.of(GetIdentityGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -3122,6 +3707,61 @@ public final class AzuredevopsFunctions {
      * - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
      * 
      */
+    public static Output<GetIdentityGroupsResult> getIdentityGroups(GetIdentityGroupsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getIdentityGroups:getIdentityGroups", TypeShape.of(GetIdentityGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing Groups within Azure DevOps On-Premise(Azure DevOps Server).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetIdentityGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         // load all existing groups inside an organization
+     *         final var example-all-groups = AzuredevopsFunctions.getIdentityGroups();
+     * 
+     *         // load all existing groups inside a specific project
+     *         final var example-project-groups = AzuredevopsFunctions.getIdentityGroups(GetIdentityGroupsArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+     * 
+     */
     public static CompletableFuture<GetIdentityGroupsResult> getIdentityGroupsPlain(GetIdentityGroupsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azuredevops:index/getIdentityGroups:getIdentityGroups", TypeShape.of(GetIdentityGroupsResult.class), args, Utilities.withVersion(options));
     }
@@ -3144,6 +3784,13 @@ public final class AzuredevopsFunctions {
      * 
      */
     public static Output<GetIdentityUsersResult> getIdentityUsers(GetIdentityUsersArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getIdentityUsers:getIdentityUsers", TypeShape.of(GetIdentityUsersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing users within Azure DevOps On-Premise(Azure DevOps Server).
+     * 
+     */
+    public static Output<GetIdentityUsersResult> getIdentityUsers(GetIdentityUsersArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azuredevops:index/getIdentityUsers:getIdentityUsers", TypeShape.of(GetIdentityUsersResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -3422,6 +4069,74 @@ public final class AzuredevopsFunctions {
      * - **Project &amp; Team**: vso.work - Grants the ability to read work items, queries, boards, area and iterations paths, and other work item tracking related metadata. Also grants the ability to execute queries, search work items and to receive notifications about work item events via service hooks.
      * 
      */
+    public static Output<GetIterationResult> getIteration(GetIterationArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getIteration:getIteration", TypeShape.of(GetIterationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Iteration (Sprint) within Azure DevOps.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.Project;
+     * import com.pulumi.azuredevops.ProjectArgs;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetIterationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new Project("example", ProjectArgs.builder()
+     *             .name("Example Project")
+     *             .workItemTemplate("Agile")
+     *             .versionControl("Git")
+     *             .visibility("private")
+     *             .description("Managed by Pulumi")
+     *             .build());
+     * 
+     *         final var example-root-iteration = AzuredevopsFunctions.getIteration(GetIterationArgs.builder()
+     *             .projectId(example.id())
+     *             .path("/")
+     *             .fetchChildren(true)
+     *             .build());
+     * 
+     *         final var example-child-iteration = AzuredevopsFunctions.getIteration(GetIterationArgs.builder()
+     *             .projectId(example.id())
+     *             .path("/Iteration 1")
+     *             .fetchChildren(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/get-classification-nodes?view=azure-devops-rest-7.0)
+     * 
+     * ## PAT Permissions Required
+     * 
+     * - **Project &amp; Team**: vso.work - Grants the ability to read work items, queries, boards, area and iterations paths, and other work item tracking related metadata. Also grants the ability to execute queries, search work items and to receive notifications about work item events via service hooks.
+     * 
+     */
     public static CompletableFuture<GetIterationResult> getIterationPlain(GetIterationPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azuredevops:index/getIteration:getIteration", TypeShape.of(GetIterationResult.class), args, Utilities.withVersion(options));
     }
@@ -3573,6 +4288,56 @@ public final class AzuredevopsFunctions {
      * 
      */
     public static Output<GetPoolResult> getPool(GetPoolArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getPool:getPool", TypeShape.of(GetPoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Agent Pool within Azure DevOps.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetPoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getPool(GetPoolArgs.builder()
+     *             .name("Example Agent Pool")
+     *             .build());
+     * 
+     *         ctx.export("name", example.applyValue(getPoolResult -> getPoolResult.name()));
+     *         ctx.export("poolType", example.applyValue(getPoolResult -> getPoolResult.poolType()));
+     *         ctx.export("autoProvision", example.applyValue(getPoolResult -> getPoolResult.autoProvision()));
+     *         ctx.export("autoUpdate", example.applyValue(getPoolResult -> getPoolResult.autoUpdate()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
+     * 
+     */
+    public static Output<GetPoolResult> getPool(GetPoolArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azuredevops:index/getPool:getPool", TypeShape.of(GetPoolResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -3904,6 +4669,53 @@ public final class AzuredevopsFunctions {
      * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
      * 
      */
+    public static Output<GetPoolsResult> getPools(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getPools:getPools", TypeShape.of(GetPoolsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing Agent Pools within Azure DevOps.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getPools();
+     * 
+     *         ctx.export("agentPoolName", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("autoProvision", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.autoProvision()).collect(toList()));
+     *         ctx.export("autoUpdate", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.autoUpdate()).collect(toList()));
+     *         ctx.export("poolType", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.poolType()).collect(toList()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
+     * 
+     */
     public static CompletableFuture<GetPoolsResult> getPoolsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azuredevops:index/getPools:getPools", TypeShape.of(GetPoolsResult.class), args, Utilities.withVersion(options));
     }
@@ -4140,6 +4952,53 @@ public final class AzuredevopsFunctions {
      * 
      */
     public static Output<GetProjectResult> getProject(GetProjectArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getProject:getProject", TypeShape.of(GetProjectResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Project within Azure DevOps.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         ctx.export("project", example.applyValue(getProjectResult -> getProjectResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
+     * 
+     */
+    public static Output<GetProjectResult> getProject(GetProjectArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azuredevops:index/getProject:getProject", TypeShape.of(GetProjectResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -4442,6 +5301,57 @@ public final class AzuredevopsFunctions {
      * 
      */
     public static Output<GetProjectsResult> getProjects(GetProjectsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getProjects:getProjects", TypeShape.of(GetProjectsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing Projects within Azure DevOps.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProjects(GetProjectsArgs.builder()
+     *             .name("Example Project")
+     *             .state("wellFormed")
+     *             .build());
+     * 
+     *         ctx.export("projectId", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.projectId()).collect(toList()));
+     *         ctx.export("name", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("projectUrl", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.projectUrl()).collect(toList()));
+     *         ctx.export("state", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.state()).collect(toList()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
+     * 
+     */
+    public static Output<GetProjectsResult> getProjects(GetProjectsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azuredevops:index/getProjects:getProjects", TypeShape.of(GetProjectsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -4852,6 +5762,66 @@ public final class AzuredevopsFunctions {
      * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
      * 
      */
+    public static Output<GetRepositoriesResult> getRepositories(GetRepositoriesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getRepositories:getRepositories", TypeShape.of(GetRepositoriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about **multiple** existing Git Repositories within Azure DevOps.
+     * To read informations about a **single** Git Repository use the data source `azuredevops.Git`
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetRepositoriesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         // Load all Git repositories of a project, which are accessible for the current user
+     *         final var example-all-repos = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .includeHidden(true)
+     *             .build());
+     * 
+     *         // Load a specific Git repository by name
+     *         final var example-single-repo = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .name("Example Repository")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
+     * 
+     */
     public static CompletableFuture<GetRepositoriesResult> getRepositoriesPlain(GetRepositoriesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azuredevops:index/getRepositories:getRepositories", TypeShape.of(GetRepositoriesResult.class), args, Utilities.withVersion(options));
     }
@@ -4994,6 +5964,53 @@ public final class AzuredevopsFunctions {
      * 
      */
     public static Output<GetSecurityroleDefinitionsResult> getSecurityroleDefinitions(GetSecurityroleDefinitionsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getSecurityroleDefinitions:getSecurityroleDefinitions", TypeShape.of(GetSecurityroleDefinitionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing Security Role Definitions within a given scope in Azure DevOps.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityroleDefinitionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getSecurityroleDefinitions(GetSecurityroleDefinitionsArgs.builder()
+     *             .scope("distributedtask.environmentreferencerole")
+     *             .build());
+     * 
+     *         ctx.export("securityroleDefinitions", exampleAazuredevopsSecurityroleDefinitions.definitions());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Roledefinitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static Output<GetSecurityroleDefinitionsResult> getSecurityroleDefinitions(GetSecurityroleDefinitionsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azuredevops:index/getSecurityroleDefinitions:getSecurityroleDefinitions", TypeShape.of(GetSecurityroleDefinitionsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -5320,6 +6337,99 @@ public final class AzuredevopsFunctions {
      * 
      */
     public static Output<GetServiceEndpointAzureRMResult> getServiceEndpointAzureRM(GetServiceEndpointAzureRMArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getServiceEndpointAzureRM:getServiceEndpointAzureRM", TypeShape.of(GetServiceEndpointAzureRMResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing AzureRM service Endpoint.
+     * 
+     * ## Example Usage
+     * 
+     * ### By Service Endpoint ID
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetServiceEndpointAzureRMArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var sample = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Sample Project")
+     *             .build());
+     * 
+     *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointAzureRM(GetServiceEndpointAzureRMArgs.builder()
+     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *         ctx.export("serviceEndpointName", serviceendpoint.applyValue(getServiceEndpointAzureRMResult -> getServiceEndpointAzureRMResult.serviceEndpointName()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### By Service Endpoint Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetServiceEndpointAzureRMArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var sample = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Sample Project")
+     *             .build());
+     * 
+     *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointAzureRM(GetServiceEndpointAzureRMArgs.builder()
+     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .serviceEndpointName("Example-Service-Endpoint")
+     *             .build());
+     * 
+     *         ctx.export("serviceEndpointId", serviceendpoint.applyValue(getServiceEndpointAzureRMResult -> getServiceEndpointAzureRMResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetServiceEndpointAzureRMResult> getServiceEndpointAzureRM(GetServiceEndpointAzureRMArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azuredevops:index/getServiceEndpointAzureRM:getServiceEndpointAzureRM", TypeShape.of(GetServiceEndpointAzureRMResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -5784,6 +6894,99 @@ public final class AzuredevopsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetServiceEndpointGithubResult> getServiceEndpointGithub(GetServiceEndpointGithubArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getServiceEndpointGithub:getServiceEndpointGithub", TypeShape.of(GetServiceEndpointGithubResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing GitHub service Endpoint.
+     * 
+     * ## Example Usage
+     * 
+     * ### By Service Endpoint ID
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetServiceEndpointGithubArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var sample = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Sample Project")
+     *             .build());
+     * 
+     *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointGithub(GetServiceEndpointGithubArgs.builder()
+     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *         ctx.export("serviceEndpointName", serviceendpoint.applyValue(getServiceEndpointGithubResult -> getServiceEndpointGithubResult.serviceEndpointName()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### By Service Endpoint Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetServiceEndpointGithubArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var sample = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Sample Project")
+     *             .build());
+     * 
+     *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointGithub(GetServiceEndpointGithubArgs.builder()
+     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .serviceEndpointName("Example-Service-Endpoint")
+     *             .build());
+     * 
+     *         ctx.export("serviceEndpointId", serviceendpoint.applyValue(getServiceEndpointGithubResult -> getServiceEndpointGithubResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetServiceEndpointGithubResult> getServiceEndpointGithubPlain(GetServiceEndpointGithubPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azuredevops:index/getServiceEndpointGithub:getServiceEndpointGithub", TypeShape.of(GetServiceEndpointGithubResult.class), args, Utilities.withVersion(options));
     }
@@ -5917,6 +7120,50 @@ public final class AzuredevopsFunctions {
      * 
      */
     public static Output<GetServiceendpointAzurecrResult> getServiceendpointAzurecr(GetServiceendpointAzurecrArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getServiceendpointAzurecr:getServiceendpointAzurecr", TypeShape.of(GetServiceendpointAzurecrResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Azure Container Registry Service Endpoint.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointAzurecrArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getServiceendpointAzurecr(GetServiceendpointAzurecrArgs.builder()
+     *             .projectId(exampleAzuredevopsProject.id())
+     *             .serviceEndpointName("Example Azure Container Registry")
+     *             .build());
+     * 
+     *         ctx.export("serviceEndpointId", example.applyValue(getServiceendpointAzurecrResult -> getServiceendpointAzurecrResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetServiceendpointAzurecrResult> getServiceendpointAzurecr(GetServiceendpointAzurecrArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azuredevops:index/getServiceendpointAzurecr:getServiceendpointAzurecr", TypeShape.of(GetServiceendpointAzurecrResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -6348,6 +7595,103 @@ public final class AzuredevopsFunctions {
      * - **vso.serviceendpoint**: Grants the ability to read service endpoints.
      * 
      */
+    public static Output<GetServiceendpointBitbucketResult> getServiceendpointBitbucket(GetServiceendpointBitbucketArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getServiceendpointBitbucket:getServiceendpointBitbucket", TypeShape.of(GetServiceendpointBitbucketResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Bitbucket service Endpoint.
+     * 
+     * ## Example Usage
+     * 
+     * ### By Service Endpoint ID
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointBitbucketArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetServiceendpointBitbucket = AzuredevopsFunctions.getServiceendpointBitbucket(GetServiceendpointBitbucketArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *         ctx.export("serviceEndpointName", exampleGetServiceendpointBitbucket.applyValue(getServiceendpointBitbucketResult -> getServiceendpointBitbucketResult.serviceEndpointName()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### By Service Endpoint Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointBitbucketArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetServiceendpointBitbucket = AzuredevopsFunctions.getServiceendpointBitbucket(GetServiceendpointBitbucketArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .serviceEndpointName("Example")
+     *             .build());
+     * 
+     *         ctx.export("serviceEndpointId", exampleGetServiceendpointBitbucket.applyValue(getServiceendpointBitbucketResult -> getServiceendpointBitbucketResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## PAT Permissions Required
+     * 
+     * - **vso.serviceendpoint**: Grants the ability to read service endpoints.
+     * 
+     */
     public static CompletableFuture<GetServiceendpointBitbucketResult> getServiceendpointBitbucketPlain(GetServiceendpointBitbucketPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azuredevops:index/getServiceendpointBitbucket:getServiceendpointBitbucket", TypeShape.of(GetServiceendpointBitbucketResult.class), args, Utilities.withVersion(options));
     }
@@ -6524,6 +7868,50 @@ public final class AzuredevopsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetServiceendpointNpmResult> getServiceendpointNpm(GetServiceendpointNpmArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getServiceendpointNpm:getServiceendpointNpm", TypeShape.of(GetServiceendpointNpmResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing NPM Service Endpoint.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointNpmArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getServiceendpointNpm(GetServiceendpointNpmArgs.builder()
+     *             .projectId(exampleAzuredevopsProject.id())
+     *             .serviceEndpointName("Example npm")
+     *             .build());
+     * 
+     *         ctx.export("serviceEndpointId", example.applyValue(getServiceendpointNpmResult -> getServiceendpointNpmResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetServiceendpointNpmResult> getServiceendpointNpmPlain(GetServiceendpointNpmPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azuredevops:index/getServiceendpointNpm:getServiceendpointNpm", TypeShape.of(GetServiceendpointNpmResult.class), args, Utilities.withVersion(options));
     }
@@ -6657,6 +8045,50 @@ public final class AzuredevopsFunctions {
      * 
      */
     public static Output<GetServiceendpointSonarcloudResult> getServiceendpointSonarcloud(GetServiceendpointSonarcloudArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getServiceendpointSonarcloud:getServiceendpointSonarcloud", TypeShape.of(GetServiceendpointSonarcloudResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Sonar Cloud Service Endpoint.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointSonarcloudArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getServiceendpointSonarcloud(GetServiceendpointSonarcloudArgs.builder()
+     *             .projectId(exampleAzuredevopsProject.id())
+     *             .serviceEndpointName("Example Sonar Cloud")
+     *             .build());
+     * 
+     *         ctx.export("serviceEndpointId", example.applyValue(getServiceendpointSonarcloudResult -> getServiceendpointSonarcloudResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetServiceendpointSonarcloudResult> getServiceendpointSonarcloud(GetServiceendpointSonarcloudArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azuredevops:index/getServiceendpointSonarcloud:getServiceendpointSonarcloud", TypeShape.of(GetServiceendpointSonarcloudResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -6884,6 +8316,67 @@ public final class AzuredevopsFunctions {
      * 
      */
     public static Output<GetTeamResult> getTeam(GetTeamArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getTeam:getTeam", TypeShape.of(GetTeamResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Team in a Project within Azure DevOps.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.Project;
+     * import com.pulumi.azuredevops.ProjectArgs;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetTeamArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()
+     *             .name("Example Project")
+     *             .workItemTemplate("Agile")
+     *             .versionControl("Git")
+     *             .visibility("private")
+     *             .description("Managed by Pulumi")
+     *             .build());
+     * 
+     *         final var example = AzuredevopsFunctions.getTeam(GetTeamArgs.builder()
+     *             .projectId(exampleProject.id())
+     *             .name("Example Project Team")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)
+     * 
+     * ## PAT Permissions Required
+     * 
+     * - **vso.project**:	Grants the ability to read projects and teams.
+     * 
+     */
+    public static Output<GetTeamResult> getTeam(GetTeamArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azuredevops:index/getTeam:getTeam", TypeShape.of(GetTeamResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -7256,6 +8749,58 @@ public final class AzuredevopsFunctions {
      * - **vso.project**:	Grants the ability to read projects and teams.
      * 
      */
+    public static Output<GetTeamsResult> getTeams(GetTeamsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getTeams:getTeams", TypeShape.of(GetTeamsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing Teams in a Project or globally within an Azure DevOps organization
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetTeamsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getTeams();
+     * 
+     *         ctx.export("projectId", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.projectId()).collect(toList()));
+     *         ctx.export("name", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("alladministrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.administrators()).collect(toList()));
+     *         ctx.export("administrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.members()).collect(toList()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)
+     * 
+     * ## PAT Permissions Required
+     * 
+     * - **vso.project**:	Grants the ability to read projects and teams.
+     * 
+     */
     public static CompletableFuture<GetTeamsResult> getTeamsPlain(GetTeamsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azuredevops:index/getTeams:getTeams", TypeShape.of(GetTeamsResult.class), args, Utilities.withVersion(options));
     }
@@ -7292,6 +8837,13 @@ public final class AzuredevopsFunctions {
      * 
      */
     public static Output<GetUsersResult> getUsers(GetUsersArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing users within Azure DevOps.
+     * 
+     */
+    public static Output<GetUsersResult> getUsers(GetUsersArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azuredevops:index/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -7464,6 +9016,61 @@ public final class AzuredevopsFunctions {
      * 
      */
     public static Output<GetVariableGroupResult> getVariableGroup(GetVariableGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getVariableGroup:getVariableGroup", TypeShape.of(GetVariableGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing Variable Groups within Azure DevOps.
+     * 
+     * &gt; **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&amp;tabs=yaml%2Cbatch#secret-variables)
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetVariableGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetVariableGroup = AzuredevopsFunctions.getVariableGroup(GetVariableGroupArgs.builder()
+     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .name("Example Variable Group")
+     *             .build());
+     * 
+     *         ctx.export("id", exampleGetVariableGroup.applyValue(getVariableGroupResult -> getVariableGroupResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-7.0)
+     * 
+     */
+    public static Output<GetVariableGroupResult> getVariableGroup(GetVariableGroupArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azuredevops:index/getVariableGroup:getVariableGroup", TypeShape.of(GetVariableGroupResult.class), args, Utilities.withVersion(options));
     }
     /**

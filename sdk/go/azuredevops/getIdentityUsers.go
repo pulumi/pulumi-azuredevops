@@ -41,21 +41,11 @@ type GetIdentityUsersResult struct {
 }
 
 func GetIdentityUsersOutput(ctx *pulumi.Context, args GetIdentityUsersOutputArgs, opts ...pulumi.InvokeOption) GetIdentityUsersResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetIdentityUsersResultOutput, error) {
 			args := v.(GetIdentityUsersArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetIdentityUsersResult
-			secret, err := ctx.InvokePackageRaw("azuredevops:index/getIdentityUsers:getIdentityUsers", args, &rv, "", opts...)
-			if err != nil {
-				return GetIdentityUsersResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetIdentityUsersResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetIdentityUsersResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azuredevops:index/getIdentityUsers:getIdentityUsers", args, GetIdentityUsersResultOutput{}, options).(GetIdentityUsersResultOutput), nil
 		}).(GetIdentityUsersResultOutput)
 }
 
