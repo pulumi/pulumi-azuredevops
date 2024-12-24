@@ -76,35 +76,35 @@ export interface GetServiceEndpointAzureRMArgs {
  */
 export interface GetServiceEndpointAzureRMResult {
     /**
-     * Specifies the Authorization Scheme Map.
+     * The Authorization Scheme Map.
      */
     readonly authorization: {[key: string]: string};
     /**
-     * Specified the Management Group ID of the Service Endpoint is target, if available.
+     * The Management Group ID of the Service Endpoint is target, if available.
      */
     readonly azurermManagementGroupId: string;
     /**
-     * Specified the Management Group Name of the Service Endpoint target, if available.
+     * The Management Group Name of the Service Endpoint target, if available.
      */
     readonly azurermManagementGroupName: string;
     /**
-     * Specifies the Tenant ID of the Azure targets.
+     * The Tenant ID of the Azure targets.
      */
     readonly azurermSpnTenantid: string;
     /**
-     * Specifies the Subscription ID of the Service Endpoint target, if available.
+     * The Subscription ID of the Service Endpoint target, if available.
      */
     readonly azurermSubscriptionId: string;
     /**
-     * Specifies the Subscription Name of the Service Endpoint target, if available.
+     * The Subscription Name of the Service Endpoint target, if available.
      */
     readonly azurermSubscriptionName: string;
     /**
-     * Specifies the description of the Service Endpoint.
+     * The description of the Service Endpoint.
      */
     readonly description: string;
     /**
-     * The Cloud Environment. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`.
+     * The Cloud Environment.
      */
     readonly environment: string;
     /**
@@ -113,11 +113,15 @@ export interface GetServiceEndpointAzureRMResult {
     readonly id: string;
     readonly projectId: string;
     /**
-     * Specifies the Resource Group of the Service Endpoint target, if available.
+     * The Resource Group of the Service Endpoint target, if available.
      */
     readonly resourceGroup: string;
     /**
-     * Specifies the authentication scheme of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`.
+     * The server URL of the service Endpoint.
+     */
+    readonly serverUrl: string;
+    /**
+     * The authentication scheme of Azure Resource Management Endpoint
      */
     readonly serviceEndpointAuthenticationScheme: string;
     readonly serviceEndpointId: string;
@@ -127,11 +131,11 @@ export interface GetServiceEndpointAzureRMResult {
      */
     readonly servicePrincipalId: string;
     /**
-     * The issuer if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/f66a4bc2-08ad-4ec0-a25e-e769d6b3b294`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+     * The issuer if `of the Workload Identity Federation Subject
      */
     readonly workloadIdentityFederationIssuer: string;
     /**
-     * The subject if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `sc://my-organisation/my-project/my-service-connection-name`.
+     * The subject of the Workload Identity Federation Subject.
      */
     readonly workloadIdentityFederationSubject: string;
 }

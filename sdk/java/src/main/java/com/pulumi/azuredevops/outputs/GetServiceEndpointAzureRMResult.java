@@ -12,42 +12,42 @@ import java.util.Objects;
 @CustomType
 public final class GetServiceEndpointAzureRMResult {
     /**
-     * @return Specifies the Authorization Scheme Map.
+     * @return The Authorization Scheme Map.
      * 
      */
     private Map<String,String> authorization;
     /**
-     * @return Specified the Management Group ID of the Service Endpoint is target, if available.
+     * @return The Management Group ID of the Service Endpoint is target, if available.
      * 
      */
     private String azurermManagementGroupId;
     /**
-     * @return Specified the Management Group Name of the Service Endpoint target, if available.
+     * @return The Management Group Name of the Service Endpoint target, if available.
      * 
      */
     private String azurermManagementGroupName;
     /**
-     * @return Specifies the Tenant ID of the Azure targets.
+     * @return The Tenant ID of the Azure targets.
      * 
      */
     private String azurermSpnTenantid;
     /**
-     * @return Specifies the Subscription ID of the Service Endpoint target, if available.
+     * @return The Subscription ID of the Service Endpoint target, if available.
      * 
      */
     private String azurermSubscriptionId;
     /**
-     * @return Specifies the Subscription Name of the Service Endpoint target, if available.
+     * @return The Subscription Name of the Service Endpoint target, if available.
      * 
      */
     private String azurermSubscriptionName;
     /**
-     * @return Specifies the description of the Service Endpoint.
+     * @return The description of the Service Endpoint.
      * 
      */
     private String description;
     /**
-     * @return The Cloud Environment. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`.
+     * @return The Cloud Environment.
      * 
      */
     private String environment;
@@ -58,12 +58,17 @@ public final class GetServiceEndpointAzureRMResult {
     private String id;
     private String projectId;
     /**
-     * @return Specifies the Resource Group of the Service Endpoint target, if available.
+     * @return The Resource Group of the Service Endpoint target, if available.
      * 
      */
     private String resourceGroup;
     /**
-     * @return Specifies the authentication scheme of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`.
+     * @return The server URL of the service Endpoint.
+     * 
+     */
+    private String serverUrl;
+    /**
+     * @return The authentication scheme of Azure Resource Management Endpoint
      * 
      */
     private String serviceEndpointAuthenticationScheme;
@@ -75,68 +80,68 @@ public final class GetServiceEndpointAzureRMResult {
      */
     private String servicePrincipalId;
     /**
-     * @return The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/f66a4bc2-08ad-4ec0-a25e-e769d6b3b294`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+     * @return The issuer if `of the Workload Identity Federation Subject
      * 
      */
     private String workloadIdentityFederationIssuer;
     /**
-     * @return The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://my-organisation/my-project/my-service-connection-name`.
+     * @return The subject of the Workload Identity Federation Subject.
      * 
      */
     private String workloadIdentityFederationSubject;
 
     private GetServiceEndpointAzureRMResult() {}
     /**
-     * @return Specifies the Authorization Scheme Map.
+     * @return The Authorization Scheme Map.
      * 
      */
     public Map<String,String> authorization() {
         return this.authorization;
     }
     /**
-     * @return Specified the Management Group ID of the Service Endpoint is target, if available.
+     * @return The Management Group ID of the Service Endpoint is target, if available.
      * 
      */
     public String azurermManagementGroupId() {
         return this.azurermManagementGroupId;
     }
     /**
-     * @return Specified the Management Group Name of the Service Endpoint target, if available.
+     * @return The Management Group Name of the Service Endpoint target, if available.
      * 
      */
     public String azurermManagementGroupName() {
         return this.azurermManagementGroupName;
     }
     /**
-     * @return Specifies the Tenant ID of the Azure targets.
+     * @return The Tenant ID of the Azure targets.
      * 
      */
     public String azurermSpnTenantid() {
         return this.azurermSpnTenantid;
     }
     /**
-     * @return Specifies the Subscription ID of the Service Endpoint target, if available.
+     * @return The Subscription ID of the Service Endpoint target, if available.
      * 
      */
     public String azurermSubscriptionId() {
         return this.azurermSubscriptionId;
     }
     /**
-     * @return Specifies the Subscription Name of the Service Endpoint target, if available.
+     * @return The Subscription Name of the Service Endpoint target, if available.
      * 
      */
     public String azurermSubscriptionName() {
         return this.azurermSubscriptionName;
     }
     /**
-     * @return Specifies the description of the Service Endpoint.
+     * @return The description of the Service Endpoint.
      * 
      */
     public String description() {
         return this.description;
     }
     /**
-     * @return The Cloud Environment. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`.
+     * @return The Cloud Environment.
      * 
      */
     public String environment() {
@@ -153,14 +158,21 @@ public final class GetServiceEndpointAzureRMResult {
         return this.projectId;
     }
     /**
-     * @return Specifies the Resource Group of the Service Endpoint target, if available.
+     * @return The Resource Group of the Service Endpoint target, if available.
      * 
      */
     public String resourceGroup() {
         return this.resourceGroup;
     }
     /**
-     * @return Specifies the authentication scheme of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`.
+     * @return The server URL of the service Endpoint.
+     * 
+     */
+    public String serverUrl() {
+        return this.serverUrl;
+    }
+    /**
+     * @return The authentication scheme of Azure Resource Management Endpoint
      * 
      */
     public String serviceEndpointAuthenticationScheme() {
@@ -180,14 +192,14 @@ public final class GetServiceEndpointAzureRMResult {
         return this.servicePrincipalId;
     }
     /**
-     * @return The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/f66a4bc2-08ad-4ec0-a25e-e769d6b3b294`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+     * @return The issuer if `of the Workload Identity Federation Subject
      * 
      */
     public String workloadIdentityFederationIssuer() {
         return this.workloadIdentityFederationIssuer;
     }
     /**
-     * @return The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://my-organisation/my-project/my-service-connection-name`.
+     * @return The subject of the Workload Identity Federation Subject.
      * 
      */
     public String workloadIdentityFederationSubject() {
@@ -214,6 +226,7 @@ public final class GetServiceEndpointAzureRMResult {
         private String id;
         private String projectId;
         private String resourceGroup;
+        private String serverUrl;
         private String serviceEndpointAuthenticationScheme;
         private String serviceEndpointId;
         private String serviceEndpointName;
@@ -234,6 +247,7 @@ public final class GetServiceEndpointAzureRMResult {
     	      this.id = defaults.id;
     	      this.projectId = defaults.projectId;
     	      this.resourceGroup = defaults.resourceGroup;
+    	      this.serverUrl = defaults.serverUrl;
     	      this.serviceEndpointAuthenticationScheme = defaults.serviceEndpointAuthenticationScheme;
     	      this.serviceEndpointId = defaults.serviceEndpointId;
     	      this.serviceEndpointName = defaults.serviceEndpointName;
@@ -331,6 +345,14 @@ public final class GetServiceEndpointAzureRMResult {
             return this;
         }
         @CustomType.Setter
+        public Builder serverUrl(String serverUrl) {
+            if (serverUrl == null) {
+              throw new MissingRequiredPropertyException("GetServiceEndpointAzureRMResult", "serverUrl");
+            }
+            this.serverUrl = serverUrl;
+            return this;
+        }
+        @CustomType.Setter
         public Builder serviceEndpointAuthenticationScheme(String serviceEndpointAuthenticationScheme) {
             if (serviceEndpointAuthenticationScheme == null) {
               throw new MissingRequiredPropertyException("GetServiceEndpointAzureRMResult", "serviceEndpointAuthenticationScheme");
@@ -391,6 +413,7 @@ public final class GetServiceEndpointAzureRMResult {
             _resultValue.id = id;
             _resultValue.projectId = projectId;
             _resultValue.resourceGroup = resourceGroup;
+            _resultValue.serverUrl = serverUrl;
             _resultValue.serviceEndpointAuthenticationScheme = serviceEndpointAuthenticationScheme;
             _resultValue.serviceEndpointId = serviceEndpointId;
             _resultValue.serviceEndpointName = serviceEndpointName;

@@ -20,7 +20,7 @@ public final class BuildDefinitionSchedule {
      * @return block supports the following:
      * 
      */
-    private @Nullable List<BuildDefinitionScheduleBranchFilter> branchFilters;
+    private List<BuildDefinitionScheduleBranchFilter> branchFilters;
     /**
      * @return When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
      * 
@@ -199,7 +199,7 @@ public final class BuildDefinitionSchedule {
      * 
      */
     public List<BuildDefinitionScheduleBranchFilter> branchFilters() {
-        return this.branchFilters == null ? List.of() : this.branchFilters;
+        return this.branchFilters;
     }
     /**
      * @return When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
@@ -394,7 +394,7 @@ public final class BuildDefinitionSchedule {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<BuildDefinitionScheduleBranchFilter> branchFilters;
+        private List<BuildDefinitionScheduleBranchFilter> branchFilters;
         private List<String> daysToBuilds;
         private @Nullable String scheduleJobId;
         private @Nullable Boolean scheduleOnlyWithChanges;
@@ -414,8 +414,10 @@ public final class BuildDefinitionSchedule {
         }
 
         @CustomType.Setter
-        public Builder branchFilters(@Nullable List<BuildDefinitionScheduleBranchFilter> branchFilters) {
-
+        public Builder branchFilters(List<BuildDefinitionScheduleBranchFilter> branchFilters) {
+            if (branchFilters == null) {
+              throw new MissingRequiredPropertyException("BuildDefinitionSchedule", "branchFilters");
+            }
             this.branchFilters = branchFilters;
             return this;
         }

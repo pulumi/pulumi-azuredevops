@@ -19,31 +19,33 @@ __all__ = ['ServiceEndpointAwsArgs', 'ServiceEndpointAws']
 @pulumi.input_type
 class ServiceEndpointAwsArgs:
     def __init__(__self__, *,
-                 access_key_id: pulumi.Input[str],
                  project_id: pulumi.Input[str],
-                 secret_access_key: pulumi.Input[str],
                  service_endpoint_name: pulumi.Input[str],
+                 access_key_id: Optional[pulumi.Input[str]] = None,
                  authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  external_id: Optional[pulumi.Input[str]] = None,
                  role_session_name: Optional[pulumi.Input[str]] = None,
                  role_to_assume: Optional[pulumi.Input[str]] = None,
-                 session_token: Optional[pulumi.Input[str]] = None):
+                 secret_access_key: Optional[pulumi.Input[str]] = None,
+                 session_token: Optional[pulumi.Input[str]] = None,
+                 use_oidc: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a ServiceEndpointAws resource.
-        :param pulumi.Input[str] access_key_id: The AWS access key ID for signing programmatic requests.
         :param pulumi.Input[str] project_id: The ID of the project.
-        :param pulumi.Input[str] secret_access_key: The AWS secret access key for signing programmatic requests.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
+        :param pulumi.Input[str] access_key_id: The AWS access key ID for signing programmatic requests.
         :param pulumi.Input[str] external_id: A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
         :param pulumi.Input[str] role_session_name: Optional identifier for the assumed role session.
         :param pulumi.Input[str] role_to_assume: The Amazon Resource Name (ARN) of the role to assume.
+        :param pulumi.Input[str] secret_access_key: The AWS secret access key for signing programmatic requests.
         :param pulumi.Input[str] session_token: The AWS session token for signing programmatic requests.
+        :param pulumi.Input[bool] use_oidc: Enable this to attempt getting credentials with OIDC token from Azure Devops.
         """
-        pulumi.set(__self__, "access_key_id", access_key_id)
         pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "secret_access_key", secret_access_key)
         pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+        if access_key_id is not None:
+            pulumi.set(__self__, "access_key_id", access_key_id)
         if authorization is not None:
             pulumi.set(__self__, "authorization", authorization)
         if description is not None:
@@ -54,20 +56,12 @@ class ServiceEndpointAwsArgs:
             pulumi.set(__self__, "role_session_name", role_session_name)
         if role_to_assume is not None:
             pulumi.set(__self__, "role_to_assume", role_to_assume)
+        if secret_access_key is not None:
+            pulumi.set(__self__, "secret_access_key", secret_access_key)
         if session_token is not None:
             pulumi.set(__self__, "session_token", session_token)
-
-    @property
-    @pulumi.getter(name="accessKeyId")
-    def access_key_id(self) -> pulumi.Input[str]:
-        """
-        The AWS access key ID for signing programmatic requests.
-        """
-        return pulumi.get(self, "access_key_id")
-
-    @access_key_id.setter
-    def access_key_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "access_key_id", value)
+        if use_oidc is not None:
+            pulumi.set(__self__, "use_oidc", use_oidc)
 
     @property
     @pulumi.getter(name="projectId")
@@ -82,18 +76,6 @@ class ServiceEndpointAwsArgs:
         pulumi.set(self, "project_id", value)
 
     @property
-    @pulumi.getter(name="secretAccessKey")
-    def secret_access_key(self) -> pulumi.Input[str]:
-        """
-        The AWS secret access key for signing programmatic requests.
-        """
-        return pulumi.get(self, "secret_access_key")
-
-    @secret_access_key.setter
-    def secret_access_key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "secret_access_key", value)
-
-    @property
     @pulumi.getter(name="serviceEndpointName")
     def service_endpoint_name(self) -> pulumi.Input[str]:
         """
@@ -104,6 +86,18 @@ class ServiceEndpointAwsArgs:
     @service_endpoint_name.setter
     def service_endpoint_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "service_endpoint_name", value)
+
+    @property
+    @pulumi.getter(name="accessKeyId")
+    def access_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS access key ID for signing programmatic requests.
+        """
+        return pulumi.get(self, "access_key_id")
+
+    @access_key_id.setter
+    def access_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_key_id", value)
 
     @property
     @pulumi.getter
@@ -160,6 +154,18 @@ class ServiceEndpointAwsArgs:
         pulumi.set(self, "role_to_assume", value)
 
     @property
+    @pulumi.getter(name="secretAccessKey")
+    def secret_access_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS secret access key for signing programmatic requests.
+        """
+        return pulumi.get(self, "secret_access_key")
+
+    @secret_access_key.setter
+    def secret_access_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_access_key", value)
+
+    @property
     @pulumi.getter(name="sessionToken")
     def session_token(self) -> Optional[pulumi.Input[str]]:
         """
@@ -170,6 +176,18 @@ class ServiceEndpointAwsArgs:
     @session_token.setter
     def session_token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "session_token", value)
+
+    @property
+    @pulumi.getter(name="useOidc")
+    def use_oidc(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable this to attempt getting credentials with OIDC token from Azure Devops.
+        """
+        return pulumi.get(self, "use_oidc")
+
+    @use_oidc.setter
+    def use_oidc(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_oidc", value)
 
 
 @pulumi.input_type
@@ -184,7 +202,8 @@ class _ServiceEndpointAwsState:
                  role_to_assume: Optional[pulumi.Input[str]] = None,
                  secret_access_key: Optional[pulumi.Input[str]] = None,
                  service_endpoint_name: Optional[pulumi.Input[str]] = None,
-                 session_token: Optional[pulumi.Input[str]] = None):
+                 session_token: Optional[pulumi.Input[str]] = None,
+                 use_oidc: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering ServiceEndpointAws resources.
         :param pulumi.Input[str] access_key_id: The AWS access key ID for signing programmatic requests.
@@ -195,6 +214,7 @@ class _ServiceEndpointAwsState:
         :param pulumi.Input[str] secret_access_key: The AWS secret access key for signing programmatic requests.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] session_token: The AWS session token for signing programmatic requests.
+        :param pulumi.Input[bool] use_oidc: Enable this to attempt getting credentials with OIDC token from Azure Devops.
         """
         if access_key_id is not None:
             pulumi.set(__self__, "access_key_id", access_key_id)
@@ -216,6 +236,8 @@ class _ServiceEndpointAwsState:
             pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
         if session_token is not None:
             pulumi.set(__self__, "session_token", session_token)
+        if use_oidc is not None:
+            pulumi.set(__self__, "use_oidc", use_oidc)
 
     @property
     @pulumi.getter(name="accessKeyId")
@@ -331,6 +353,18 @@ class _ServiceEndpointAwsState:
     def session_token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "session_token", value)
 
+    @property
+    @pulumi.getter(name="useOidc")
+    def use_oidc(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable this to attempt getting credentials with OIDC token from Azure Devops.
+        """
+        return pulumi.get(self, "use_oidc")
+
+    @use_oidc.setter
+    def use_oidc(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_oidc", value)
+
 
 class ServiceEndpointAws(pulumi.CustomResource):
     @overload
@@ -347,6 +381,7 @@ class ServiceEndpointAws(pulumi.CustomResource):
                  secret_access_key: Optional[pulumi.Input[str]] = None,
                  service_endpoint_name: Optional[pulumi.Input[str]] = None,
                  session_token: Optional[pulumi.Input[str]] = None,
+                 use_oidc: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Manages a AWS service endpoint within Azure DevOps. Using this service endpoint requires you to first install [AWS Toolkit for Azure DevOps](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-vsts-tools).
@@ -394,6 +429,7 @@ class ServiceEndpointAws(pulumi.CustomResource):
         :param pulumi.Input[str] secret_access_key: The AWS secret access key for signing programmatic requests.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] session_token: The AWS session token for signing programmatic requests.
+        :param pulumi.Input[bool] use_oidc: Enable this to attempt getting credentials with OIDC token from Azure Devops.
         """
         ...
     @overload
@@ -462,6 +498,7 @@ class ServiceEndpointAws(pulumi.CustomResource):
                  secret_access_key: Optional[pulumi.Input[str]] = None,
                  service_endpoint_name: Optional[pulumi.Input[str]] = None,
                  session_token: Optional[pulumi.Input[str]] = None,
+                 use_oidc: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -471,8 +508,6 @@ class ServiceEndpointAws(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceEndpointAwsArgs.__new__(ServiceEndpointAwsArgs)
 
-            if access_key_id is None and not opts.urn:
-                raise TypeError("Missing required property 'access_key_id'")
             __props__.__dict__["access_key_id"] = access_key_id
             __props__.__dict__["authorization"] = authorization
             __props__.__dict__["description"] = description
@@ -482,13 +517,12 @@ class ServiceEndpointAws(pulumi.CustomResource):
             __props__.__dict__["project_id"] = project_id
             __props__.__dict__["role_session_name"] = role_session_name
             __props__.__dict__["role_to_assume"] = role_to_assume
-            if secret_access_key is None and not opts.urn:
-                raise TypeError("Missing required property 'secret_access_key'")
             __props__.__dict__["secret_access_key"] = None if secret_access_key is None else pulumi.Output.secret(secret_access_key)
             if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")
             __props__.__dict__["service_endpoint_name"] = service_endpoint_name
             __props__.__dict__["session_token"] = None if session_token is None else pulumi.Output.secret(session_token)
+            __props__.__dict__["use_oidc"] = use_oidc
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["secretAccessKey", "sessionToken"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceEndpointAws, __self__).__init__(
@@ -510,7 +544,8 @@ class ServiceEndpointAws(pulumi.CustomResource):
             role_to_assume: Optional[pulumi.Input[str]] = None,
             secret_access_key: Optional[pulumi.Input[str]] = None,
             service_endpoint_name: Optional[pulumi.Input[str]] = None,
-            session_token: Optional[pulumi.Input[str]] = None) -> 'ServiceEndpointAws':
+            session_token: Optional[pulumi.Input[str]] = None,
+            use_oidc: Optional[pulumi.Input[bool]] = None) -> 'ServiceEndpointAws':
         """
         Get an existing ServiceEndpointAws resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -526,6 +561,7 @@ class ServiceEndpointAws(pulumi.CustomResource):
         :param pulumi.Input[str] secret_access_key: The AWS secret access key for signing programmatic requests.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] session_token: The AWS session token for signing programmatic requests.
+        :param pulumi.Input[bool] use_oidc: Enable this to attempt getting credentials with OIDC token from Azure Devops.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -541,11 +577,12 @@ class ServiceEndpointAws(pulumi.CustomResource):
         __props__.__dict__["secret_access_key"] = secret_access_key
         __props__.__dict__["service_endpoint_name"] = service_endpoint_name
         __props__.__dict__["session_token"] = session_token
+        __props__.__dict__["use_oidc"] = use_oidc
         return ServiceEndpointAws(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="accessKeyId")
-    def access_key_id(self) -> pulumi.Output[str]:
+    def access_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS access key ID for signing programmatic requests.
         """
@@ -595,7 +632,7 @@ class ServiceEndpointAws(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secretAccessKey")
-    def secret_access_key(self) -> pulumi.Output[str]:
+    def secret_access_key(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS secret access key for signing programmatic requests.
         """
@@ -616,4 +653,12 @@ class ServiceEndpointAws(pulumi.CustomResource):
         The AWS session token for signing programmatic requests.
         """
         return pulumi.get(self, "session_token")
+
+    @property
+    @pulumi.getter(name="useOidc")
+    def use_oidc(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable this to attempt getting credentials with OIDC token from Azure Devops.
+        """
+        return pulumi.get(self, "use_oidc")
 

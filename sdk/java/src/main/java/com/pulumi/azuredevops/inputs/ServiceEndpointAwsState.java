@@ -5,6 +5,7 @@ package com.pulumi.azuredevops.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -150,6 +151,21 @@ public final class ServiceEndpointAwsState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.sessionToken);
     }
 
+    /**
+     * Enable this to attempt getting credentials with OIDC token from Azure Devops.
+     * 
+     */
+    @Import(name="useOidc")
+    private @Nullable Output<Boolean> useOidc;
+
+    /**
+     * @return Enable this to attempt getting credentials with OIDC token from Azure Devops.
+     * 
+     */
+    public Optional<Output<Boolean>> useOidc() {
+        return Optional.ofNullable(this.useOidc);
+    }
+
     private ServiceEndpointAwsState() {}
 
     private ServiceEndpointAwsState(ServiceEndpointAwsState $) {
@@ -163,6 +179,7 @@ public final class ServiceEndpointAwsState extends com.pulumi.resources.Resource
         this.secretAccessKey = $.secretAccessKey;
         this.serviceEndpointName = $.serviceEndpointName;
         this.sessionToken = $.sessionToken;
+        this.useOidc = $.useOidc;
     }
 
     public static Builder builder() {
@@ -367,6 +384,27 @@ public final class ServiceEndpointAwsState extends com.pulumi.resources.Resource
          */
         public Builder sessionToken(String sessionToken) {
             return sessionToken(Output.of(sessionToken));
+        }
+
+        /**
+         * @param useOidc Enable this to attempt getting credentials with OIDC token from Azure Devops.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useOidc(@Nullable Output<Boolean> useOidc) {
+            $.useOidc = useOidc;
+            return this;
+        }
+
+        /**
+         * @param useOidc Enable this to attempt getting credentials with OIDC token from Azure Devops.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useOidc(Boolean useOidc) {
+            return useOidc(Output.of(useOidc));
         }
 
         public ServiceEndpointAwsState build() {

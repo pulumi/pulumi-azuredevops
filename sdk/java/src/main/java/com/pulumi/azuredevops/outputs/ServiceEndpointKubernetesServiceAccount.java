@@ -5,11 +5,19 @@ package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceEndpointKubernetesServiceAccount {
+    /**
+     * @return Set this option to allow clients to accept a self-signed certificate. Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean acceptUntrustedCerts;
     /**
      * @return The certificate from a Kubernetes secret object.
      * 
@@ -22,6 +30,13 @@ public final class ServiceEndpointKubernetesServiceAccount {
     private String token;
 
     private ServiceEndpointKubernetesServiceAccount() {}
+    /**
+     * @return Set this option to allow clients to accept a self-signed certificate. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> acceptUntrustedCerts() {
+        return Optional.ofNullable(this.acceptUntrustedCerts);
+    }
     /**
      * @return The certificate from a Kubernetes secret object.
      * 
@@ -46,15 +61,23 @@ public final class ServiceEndpointKubernetesServiceAccount {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean acceptUntrustedCerts;
         private String caCert;
         private String token;
         public Builder() {}
         public Builder(ServiceEndpointKubernetesServiceAccount defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.acceptUntrustedCerts = defaults.acceptUntrustedCerts;
     	      this.caCert = defaults.caCert;
     	      this.token = defaults.token;
         }
 
+        @CustomType.Setter
+        public Builder acceptUntrustedCerts(@Nullable Boolean acceptUntrustedCerts) {
+
+            this.acceptUntrustedCerts = acceptUntrustedCerts;
+            return this;
+        }
         @CustomType.Setter
         public Builder caCert(String caCert) {
             if (caCert == null) {
@@ -73,6 +96,7 @@ public final class ServiceEndpointKubernetesServiceAccount {
         }
         public ServiceEndpointKubernetesServiceAccount build() {
             final var _resultValue = new ServiceEndpointKubernetesServiceAccount();
+            _resultValue.acceptUntrustedCerts = acceptUntrustedCerts;
             _resultValue.caCert = caCert;
             _resultValue.token = token;
             return _resultValue;

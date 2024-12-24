@@ -18,7 +18,7 @@ type SecurityroleAssignment struct {
 
 	// The ID of the identity to authorize.
 	IdentityId pulumi.StringOutput `pulumi:"identityId"`
-	// The ID of the resource on which the role is to be assigned.
+	// The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 	// Name of the role to assign.
 	RoleName pulumi.StringOutput `pulumi:"roleName"`
@@ -70,7 +70,7 @@ func GetSecurityroleAssignment(ctx *pulumi.Context,
 type securityroleAssignmentState struct {
 	// The ID of the identity to authorize.
 	IdentityId *string `pulumi:"identityId"`
-	// The ID of the resource on which the role is to be assigned.
+	// The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
 	ResourceId *string `pulumi:"resourceId"`
 	// Name of the role to assign.
 	RoleName *string `pulumi:"roleName"`
@@ -81,7 +81,7 @@ type securityroleAssignmentState struct {
 type SecurityroleAssignmentState struct {
 	// The ID of the identity to authorize.
 	IdentityId pulumi.StringPtrInput
-	// The ID of the resource on which the role is to be assigned.
+	// The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
 	ResourceId pulumi.StringPtrInput
 	// Name of the role to assign.
 	RoleName pulumi.StringPtrInput
@@ -96,7 +96,7 @@ func (SecurityroleAssignmentState) ElementType() reflect.Type {
 type securityroleAssignmentArgs struct {
 	// The ID of the identity to authorize.
 	IdentityId string `pulumi:"identityId"`
-	// The ID of the resource on which the role is to be assigned.
+	// The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
 	ResourceId string `pulumi:"resourceId"`
 	// Name of the role to assign.
 	RoleName string `pulumi:"roleName"`
@@ -108,7 +108,7 @@ type securityroleAssignmentArgs struct {
 type SecurityroleAssignmentArgs struct {
 	// The ID of the identity to authorize.
 	IdentityId pulumi.StringInput
-	// The ID of the resource on which the role is to be assigned.
+	// The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
 	ResourceId pulumi.StringInput
 	// Name of the role to assign.
 	RoleName pulumi.StringInput
@@ -208,7 +208,7 @@ func (o SecurityroleAssignmentOutput) IdentityId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityroleAssignment) pulumi.StringOutput { return v.IdentityId }).(pulumi.StringOutput)
 }
 
-// The ID of the resource on which the role is to be assigned.
+// The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
 func (o SecurityroleAssignmentOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityroleAssignment) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }

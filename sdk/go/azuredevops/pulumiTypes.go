@@ -2382,6 +2382,220 @@ func (o BranchPolicyWorkItemLinkingSettingsScopeArrayOutput) Index(i pulumi.IntI
 	}).(BranchPolicyWorkItemLinkingSettingsScopeOutput)
 }
 
+type BuildDefinitionBuildCompletionTrigger struct {
+	// The branches to include and exclude from the trigger. A `branchFilter` block as documented below.
+	BranchFilters []BuildDefinitionBuildCompletionTriggerBranchFilter `pulumi:"branchFilters"`
+	// The ID of the build pipeline will be triggered.
+	BuildDefinitionId int `pulumi:"buildDefinitionId"`
+}
+
+// BuildDefinitionBuildCompletionTriggerInput is an input type that accepts BuildDefinitionBuildCompletionTriggerArgs and BuildDefinitionBuildCompletionTriggerOutput values.
+// You can construct a concrete instance of `BuildDefinitionBuildCompletionTriggerInput` via:
+//
+//	BuildDefinitionBuildCompletionTriggerArgs{...}
+type BuildDefinitionBuildCompletionTriggerInput interface {
+	pulumi.Input
+
+	ToBuildDefinitionBuildCompletionTriggerOutput() BuildDefinitionBuildCompletionTriggerOutput
+	ToBuildDefinitionBuildCompletionTriggerOutputWithContext(context.Context) BuildDefinitionBuildCompletionTriggerOutput
+}
+
+type BuildDefinitionBuildCompletionTriggerArgs struct {
+	// The branches to include and exclude from the trigger. A `branchFilter` block as documented below.
+	BranchFilters BuildDefinitionBuildCompletionTriggerBranchFilterArrayInput `pulumi:"branchFilters"`
+	// The ID of the build pipeline will be triggered.
+	BuildDefinitionId pulumi.IntInput `pulumi:"buildDefinitionId"`
+}
+
+func (BuildDefinitionBuildCompletionTriggerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildDefinitionBuildCompletionTrigger)(nil)).Elem()
+}
+
+func (i BuildDefinitionBuildCompletionTriggerArgs) ToBuildDefinitionBuildCompletionTriggerOutput() BuildDefinitionBuildCompletionTriggerOutput {
+	return i.ToBuildDefinitionBuildCompletionTriggerOutputWithContext(context.Background())
+}
+
+func (i BuildDefinitionBuildCompletionTriggerArgs) ToBuildDefinitionBuildCompletionTriggerOutputWithContext(ctx context.Context) BuildDefinitionBuildCompletionTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionBuildCompletionTriggerOutput)
+}
+
+// BuildDefinitionBuildCompletionTriggerArrayInput is an input type that accepts BuildDefinitionBuildCompletionTriggerArray and BuildDefinitionBuildCompletionTriggerArrayOutput values.
+// You can construct a concrete instance of `BuildDefinitionBuildCompletionTriggerArrayInput` via:
+//
+//	BuildDefinitionBuildCompletionTriggerArray{ BuildDefinitionBuildCompletionTriggerArgs{...} }
+type BuildDefinitionBuildCompletionTriggerArrayInput interface {
+	pulumi.Input
+
+	ToBuildDefinitionBuildCompletionTriggerArrayOutput() BuildDefinitionBuildCompletionTriggerArrayOutput
+	ToBuildDefinitionBuildCompletionTriggerArrayOutputWithContext(context.Context) BuildDefinitionBuildCompletionTriggerArrayOutput
+}
+
+type BuildDefinitionBuildCompletionTriggerArray []BuildDefinitionBuildCompletionTriggerInput
+
+func (BuildDefinitionBuildCompletionTriggerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BuildDefinitionBuildCompletionTrigger)(nil)).Elem()
+}
+
+func (i BuildDefinitionBuildCompletionTriggerArray) ToBuildDefinitionBuildCompletionTriggerArrayOutput() BuildDefinitionBuildCompletionTriggerArrayOutput {
+	return i.ToBuildDefinitionBuildCompletionTriggerArrayOutputWithContext(context.Background())
+}
+
+func (i BuildDefinitionBuildCompletionTriggerArray) ToBuildDefinitionBuildCompletionTriggerArrayOutputWithContext(ctx context.Context) BuildDefinitionBuildCompletionTriggerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionBuildCompletionTriggerArrayOutput)
+}
+
+type BuildDefinitionBuildCompletionTriggerOutput struct{ *pulumi.OutputState }
+
+func (BuildDefinitionBuildCompletionTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildDefinitionBuildCompletionTrigger)(nil)).Elem()
+}
+
+func (o BuildDefinitionBuildCompletionTriggerOutput) ToBuildDefinitionBuildCompletionTriggerOutput() BuildDefinitionBuildCompletionTriggerOutput {
+	return o
+}
+
+func (o BuildDefinitionBuildCompletionTriggerOutput) ToBuildDefinitionBuildCompletionTriggerOutputWithContext(ctx context.Context) BuildDefinitionBuildCompletionTriggerOutput {
+	return o
+}
+
+// The branches to include and exclude from the trigger. A `branchFilter` block as documented below.
+func (o BuildDefinitionBuildCompletionTriggerOutput) BranchFilters() BuildDefinitionBuildCompletionTriggerBranchFilterArrayOutput {
+	return o.ApplyT(func(v BuildDefinitionBuildCompletionTrigger) []BuildDefinitionBuildCompletionTriggerBranchFilter {
+		return v.BranchFilters
+	}).(BuildDefinitionBuildCompletionTriggerBranchFilterArrayOutput)
+}
+
+// The ID of the build pipeline will be triggered.
+func (o BuildDefinitionBuildCompletionTriggerOutput) BuildDefinitionId() pulumi.IntOutput {
+	return o.ApplyT(func(v BuildDefinitionBuildCompletionTrigger) int { return v.BuildDefinitionId }).(pulumi.IntOutput)
+}
+
+type BuildDefinitionBuildCompletionTriggerArrayOutput struct{ *pulumi.OutputState }
+
+func (BuildDefinitionBuildCompletionTriggerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BuildDefinitionBuildCompletionTrigger)(nil)).Elem()
+}
+
+func (o BuildDefinitionBuildCompletionTriggerArrayOutput) ToBuildDefinitionBuildCompletionTriggerArrayOutput() BuildDefinitionBuildCompletionTriggerArrayOutput {
+	return o
+}
+
+func (o BuildDefinitionBuildCompletionTriggerArrayOutput) ToBuildDefinitionBuildCompletionTriggerArrayOutputWithContext(ctx context.Context) BuildDefinitionBuildCompletionTriggerArrayOutput {
+	return o
+}
+
+func (o BuildDefinitionBuildCompletionTriggerArrayOutput) Index(i pulumi.IntInput) BuildDefinitionBuildCompletionTriggerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BuildDefinitionBuildCompletionTrigger {
+		return vs[0].([]BuildDefinitionBuildCompletionTrigger)[vs[1].(int)]
+	}).(BuildDefinitionBuildCompletionTriggerOutput)
+}
+
+type BuildDefinitionBuildCompletionTriggerBranchFilter struct {
+	// List of branch patterns to exclude.
+	Excludes []string `pulumi:"excludes"`
+	// List of branch patterns to include.
+	Includes []string `pulumi:"includes"`
+}
+
+// BuildDefinitionBuildCompletionTriggerBranchFilterInput is an input type that accepts BuildDefinitionBuildCompletionTriggerBranchFilterArgs and BuildDefinitionBuildCompletionTriggerBranchFilterOutput values.
+// You can construct a concrete instance of `BuildDefinitionBuildCompletionTriggerBranchFilterInput` via:
+//
+//	BuildDefinitionBuildCompletionTriggerBranchFilterArgs{...}
+type BuildDefinitionBuildCompletionTriggerBranchFilterInput interface {
+	pulumi.Input
+
+	ToBuildDefinitionBuildCompletionTriggerBranchFilterOutput() BuildDefinitionBuildCompletionTriggerBranchFilterOutput
+	ToBuildDefinitionBuildCompletionTriggerBranchFilterOutputWithContext(context.Context) BuildDefinitionBuildCompletionTriggerBranchFilterOutput
+}
+
+type BuildDefinitionBuildCompletionTriggerBranchFilterArgs struct {
+	// List of branch patterns to exclude.
+	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
+	// List of branch patterns to include.
+	Includes pulumi.StringArrayInput `pulumi:"includes"`
+}
+
+func (BuildDefinitionBuildCompletionTriggerBranchFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildDefinitionBuildCompletionTriggerBranchFilter)(nil)).Elem()
+}
+
+func (i BuildDefinitionBuildCompletionTriggerBranchFilterArgs) ToBuildDefinitionBuildCompletionTriggerBranchFilterOutput() BuildDefinitionBuildCompletionTriggerBranchFilterOutput {
+	return i.ToBuildDefinitionBuildCompletionTriggerBranchFilterOutputWithContext(context.Background())
+}
+
+func (i BuildDefinitionBuildCompletionTriggerBranchFilterArgs) ToBuildDefinitionBuildCompletionTriggerBranchFilterOutputWithContext(ctx context.Context) BuildDefinitionBuildCompletionTriggerBranchFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionBuildCompletionTriggerBranchFilterOutput)
+}
+
+// BuildDefinitionBuildCompletionTriggerBranchFilterArrayInput is an input type that accepts BuildDefinitionBuildCompletionTriggerBranchFilterArray and BuildDefinitionBuildCompletionTriggerBranchFilterArrayOutput values.
+// You can construct a concrete instance of `BuildDefinitionBuildCompletionTriggerBranchFilterArrayInput` via:
+//
+//	BuildDefinitionBuildCompletionTriggerBranchFilterArray{ BuildDefinitionBuildCompletionTriggerBranchFilterArgs{...} }
+type BuildDefinitionBuildCompletionTriggerBranchFilterArrayInput interface {
+	pulumi.Input
+
+	ToBuildDefinitionBuildCompletionTriggerBranchFilterArrayOutput() BuildDefinitionBuildCompletionTriggerBranchFilterArrayOutput
+	ToBuildDefinitionBuildCompletionTriggerBranchFilterArrayOutputWithContext(context.Context) BuildDefinitionBuildCompletionTriggerBranchFilterArrayOutput
+}
+
+type BuildDefinitionBuildCompletionTriggerBranchFilterArray []BuildDefinitionBuildCompletionTriggerBranchFilterInput
+
+func (BuildDefinitionBuildCompletionTriggerBranchFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BuildDefinitionBuildCompletionTriggerBranchFilter)(nil)).Elem()
+}
+
+func (i BuildDefinitionBuildCompletionTriggerBranchFilterArray) ToBuildDefinitionBuildCompletionTriggerBranchFilterArrayOutput() BuildDefinitionBuildCompletionTriggerBranchFilterArrayOutput {
+	return i.ToBuildDefinitionBuildCompletionTriggerBranchFilterArrayOutputWithContext(context.Background())
+}
+
+func (i BuildDefinitionBuildCompletionTriggerBranchFilterArray) ToBuildDefinitionBuildCompletionTriggerBranchFilterArrayOutputWithContext(ctx context.Context) BuildDefinitionBuildCompletionTriggerBranchFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionBuildCompletionTriggerBranchFilterArrayOutput)
+}
+
+type BuildDefinitionBuildCompletionTriggerBranchFilterOutput struct{ *pulumi.OutputState }
+
+func (BuildDefinitionBuildCompletionTriggerBranchFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildDefinitionBuildCompletionTriggerBranchFilter)(nil)).Elem()
+}
+
+func (o BuildDefinitionBuildCompletionTriggerBranchFilterOutput) ToBuildDefinitionBuildCompletionTriggerBranchFilterOutput() BuildDefinitionBuildCompletionTriggerBranchFilterOutput {
+	return o
+}
+
+func (o BuildDefinitionBuildCompletionTriggerBranchFilterOutput) ToBuildDefinitionBuildCompletionTriggerBranchFilterOutputWithContext(ctx context.Context) BuildDefinitionBuildCompletionTriggerBranchFilterOutput {
+	return o
+}
+
+// List of branch patterns to exclude.
+func (o BuildDefinitionBuildCompletionTriggerBranchFilterOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BuildDefinitionBuildCompletionTriggerBranchFilter) []string { return v.Excludes }).(pulumi.StringArrayOutput)
+}
+
+// List of branch patterns to include.
+func (o BuildDefinitionBuildCompletionTriggerBranchFilterOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BuildDefinitionBuildCompletionTriggerBranchFilter) []string { return v.Includes }).(pulumi.StringArrayOutput)
+}
+
+type BuildDefinitionBuildCompletionTriggerBranchFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (BuildDefinitionBuildCompletionTriggerBranchFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BuildDefinitionBuildCompletionTriggerBranchFilter)(nil)).Elem()
+}
+
+func (o BuildDefinitionBuildCompletionTriggerBranchFilterArrayOutput) ToBuildDefinitionBuildCompletionTriggerBranchFilterArrayOutput() BuildDefinitionBuildCompletionTriggerBranchFilterArrayOutput {
+	return o
+}
+
+func (o BuildDefinitionBuildCompletionTriggerBranchFilterArrayOutput) ToBuildDefinitionBuildCompletionTriggerBranchFilterArrayOutputWithContext(ctx context.Context) BuildDefinitionBuildCompletionTriggerBranchFilterArrayOutput {
+	return o
+}
+
+func (o BuildDefinitionBuildCompletionTriggerBranchFilterArrayOutput) Index(i pulumi.IntInput) BuildDefinitionBuildCompletionTriggerBranchFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BuildDefinitionBuildCompletionTriggerBranchFilter {
+		return vs[0].([]BuildDefinitionBuildCompletionTriggerBranchFilter)[vs[1].(int)]
+	}).(BuildDefinitionBuildCompletionTriggerBranchFilterOutput)
+}
+
 type BuildDefinitionCiTrigger struct {
 	// Override the azure-pipeline file and use a this configuration for all builds.
 	Override *BuildDefinitionCiTriggerOverride `pulumi:"override"`
@@ -2541,7 +2755,7 @@ func (o BuildDefinitionCiTriggerPtrOutput) UseYaml() pulumi.BoolPtrOutput {
 type BuildDefinitionCiTriggerOverride struct {
 	// If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.
 	Batch *bool `pulumi:"batch"`
-	// The branches to include and exclude from the trigger.
+	// The branches to include and exclude from the trigger. A `branchFilter` block as documented below.
 	BranchFilters []BuildDefinitionCiTriggerOverrideBranchFilter `pulumi:"branchFilters"`
 	// The number of max builds per branch. Defaults to `1`.
 	MaxConcurrentBuildsPerBranch *int `pulumi:"maxConcurrentBuildsPerBranch"`
@@ -2567,7 +2781,7 @@ type BuildDefinitionCiTriggerOverrideInput interface {
 type BuildDefinitionCiTriggerOverrideArgs struct {
 	// If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.
 	Batch pulumi.BoolPtrInput `pulumi:"batch"`
-	// The branches to include and exclude from the trigger.
+	// The branches to include and exclude from the trigger. A `branchFilter` block as documented below.
 	BranchFilters BuildDefinitionCiTriggerOverrideBranchFilterArrayInput `pulumi:"branchFilters"`
 	// The number of max builds per branch. Defaults to `1`.
 	MaxConcurrentBuildsPerBranch pulumi.IntPtrInput `pulumi:"maxConcurrentBuildsPerBranch"`
@@ -2661,7 +2875,7 @@ func (o BuildDefinitionCiTriggerOverrideOutput) Batch() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionCiTriggerOverride) *bool { return v.Batch }).(pulumi.BoolPtrOutput)
 }
 
-// The branches to include and exclude from the trigger.
+// The branches to include and exclude from the trigger. A `branchFilter` block as documented below.
 func (o BuildDefinitionCiTriggerOverrideOutput) BranchFilters() BuildDefinitionCiTriggerOverrideBranchFilterArrayOutput {
 	return o.ApplyT(func(v BuildDefinitionCiTriggerOverride) []BuildDefinitionCiTriggerOverrideBranchFilter {
 		return v.BranchFilters
@@ -2724,7 +2938,7 @@ func (o BuildDefinitionCiTriggerOverridePtrOutput) Batch() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The branches to include and exclude from the trigger.
+// The branches to include and exclude from the trigger. A `branchFilter` block as documented below.
 func (o BuildDefinitionCiTriggerOverridePtrOutput) BranchFilters() BuildDefinitionCiTriggerOverrideBranchFilterArrayOutput {
 	return o.ApplyT(func(v *BuildDefinitionCiTriggerOverride) []BuildDefinitionCiTriggerOverrideBranchFilter {
 		if v == nil {
@@ -3455,7 +3669,7 @@ func (o BuildDefinitionPullRequestTriggerForksPtrOutput) ShareSecrets() pulumi.B
 type BuildDefinitionPullRequestTriggerOverride struct {
 	// . Defaults to `true`.
 	AutoCancel *bool `pulumi:"autoCancel"`
-	// The branches to include and exclude from the trigger.
+	// The branches to include and exclude from the trigger. A `branchFilter` block as documented below.
 	BranchFilters []BuildDefinitionPullRequestTriggerOverrideBranchFilter `pulumi:"branchFilters"`
 	// Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
 	PathFilters []BuildDefinitionPullRequestTriggerOverridePathFilter `pulumi:"pathFilters"`
@@ -3475,7 +3689,7 @@ type BuildDefinitionPullRequestTriggerOverrideInput interface {
 type BuildDefinitionPullRequestTriggerOverrideArgs struct {
 	// . Defaults to `true`.
 	AutoCancel pulumi.BoolPtrInput `pulumi:"autoCancel"`
-	// The branches to include and exclude from the trigger.
+	// The branches to include and exclude from the trigger. A `branchFilter` block as documented below.
 	BranchFilters BuildDefinitionPullRequestTriggerOverrideBranchFilterArrayInput `pulumi:"branchFilters"`
 	// Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
 	PathFilters BuildDefinitionPullRequestTriggerOverridePathFilterArrayInput `pulumi:"pathFilters"`
@@ -3563,7 +3777,7 @@ func (o BuildDefinitionPullRequestTriggerOverrideOutput) AutoCancel() pulumi.Boo
 	return o.ApplyT(func(v BuildDefinitionPullRequestTriggerOverride) *bool { return v.AutoCancel }).(pulumi.BoolPtrOutput)
 }
 
-// The branches to include and exclude from the trigger.
+// The branches to include and exclude from the trigger. A `branchFilter` block as documented below.
 func (o BuildDefinitionPullRequestTriggerOverrideOutput) BranchFilters() BuildDefinitionPullRequestTriggerOverrideBranchFilterArrayOutput {
 	return o.ApplyT(func(v BuildDefinitionPullRequestTriggerOverride) []BuildDefinitionPullRequestTriggerOverrideBranchFilter {
 		return v.BranchFilters
@@ -3611,7 +3825,7 @@ func (o BuildDefinitionPullRequestTriggerOverridePtrOutput) AutoCancel() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The branches to include and exclude from the trigger.
+// The branches to include and exclude from the trigger. A `branchFilter` block as documented below.
 func (o BuildDefinitionPullRequestTriggerOverridePtrOutput) BranchFilters() BuildDefinitionPullRequestTriggerOverrideBranchFilterArrayOutput {
 	return o.ApplyT(func(v *BuildDefinitionPullRequestTriggerOverride) []BuildDefinitionPullRequestTriggerOverrideBranchFilter {
 		if v == nil {
@@ -5140,12 +5354,19 @@ func (o FeedFeatureArrayOutput) Index(i pulumi.IntInput) FeedFeatureOutput {
 type GitInitialization struct {
 	// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
 	InitType string `pulumi:"initType"`
-	// The id of service connection used to authenticate to a private repository for import initialization.
+	// The password used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`.
+	//
+	// ~>**Note**
+	// At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
+	Password *string `pulumi:"password"`
+	// The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
 	ServiceConnectionId *string `pulumi:"serviceConnectionId"`
 	// Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`.
 	SourceType *string `pulumi:"sourceType"`
 	// The URL of the source repository. Used if the `initType` is `Import`.
 	SourceUrl *string `pulumi:"sourceUrl"`
+	// The username used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`.
+	Username *string `pulumi:"username"`
 }
 
 // GitInitializationInput is an input type that accepts GitInitializationArgs and GitInitializationOutput values.
@@ -5162,12 +5383,19 @@ type GitInitializationInput interface {
 type GitInitializationArgs struct {
 	// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
 	InitType pulumi.StringInput `pulumi:"initType"`
-	// The id of service connection used to authenticate to a private repository for import initialization.
+	// The password used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`.
+	//
+	// ~>**Note**
+	// At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
 	ServiceConnectionId pulumi.StringPtrInput `pulumi:"serviceConnectionId"`
 	// Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`.
 	SourceType pulumi.StringPtrInput `pulumi:"sourceType"`
 	// The URL of the source repository. Used if the `initType` is `Import`.
 	SourceUrl pulumi.StringPtrInput `pulumi:"sourceUrl"`
+	// The username used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`.
+	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
 func (GitInitializationArgs) ElementType() reflect.Type {
@@ -5252,7 +5480,15 @@ func (o GitInitializationOutput) InitType() pulumi.StringOutput {
 	return o.ApplyT(func(v GitInitialization) string { return v.InitType }).(pulumi.StringOutput)
 }
 
-// The id of service connection used to authenticate to a private repository for import initialization.
+// The password used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`.
+//
+// ~>**Note**
+// At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
+func (o GitInitializationOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitInitialization) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
 func (o GitInitializationOutput) ServiceConnectionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GitInitialization) *string { return v.ServiceConnectionId }).(pulumi.StringPtrOutput)
 }
@@ -5265,6 +5501,11 @@ func (o GitInitializationOutput) SourceType() pulumi.StringPtrOutput {
 // The URL of the source repository. Used if the `initType` is `Import`.
 func (o GitInitializationOutput) SourceUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GitInitialization) *string { return v.SourceUrl }).(pulumi.StringPtrOutput)
+}
+
+// The username used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`.
+func (o GitInitializationOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitInitialization) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
 type GitInitializationPtrOutput struct{ *pulumi.OutputState }
@@ -5301,7 +5542,20 @@ func (o GitInitializationPtrOutput) InitType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The id of service connection used to authenticate to a private repository for import initialization.
+// The password used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`.
+//
+// ~>**Note**
+// At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
+func (o GitInitializationPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GitInitialization) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
 func (o GitInitializationPtrOutput) ServiceConnectionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GitInitialization) *string {
 		if v == nil {
@@ -5328,6 +5582,16 @@ func (o GitInitializationPtrOutput) SourceUrl() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.SourceUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The username used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`.
+func (o GitInitializationPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GitInitialization) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Username
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5762,7 +6026,9 @@ func (o ServiceEndpointAzureEcrCredentialsPtrOutput) Serviceprincipalid() pulumi
 }
 
 type ServiceEndpointAzureRMCredentials struct {
-	// The service principal application Id
+	// The service principal certificate. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
+	Serviceprincipalcertificate *string `pulumi:"serviceprincipalcertificate"`
+	// The service principal application ID
 	Serviceprincipalid string `pulumi:"serviceprincipalid"`
 	// The service principal secret. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
 	Serviceprincipalkey *string `pulumi:"serviceprincipalkey"`
@@ -5780,7 +6046,9 @@ type ServiceEndpointAzureRMCredentialsInput interface {
 }
 
 type ServiceEndpointAzureRMCredentialsArgs struct {
-	// The service principal application Id
+	// The service principal certificate. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
+	Serviceprincipalcertificate pulumi.StringPtrInput `pulumi:"serviceprincipalcertificate"`
+	// The service principal application ID
 	Serviceprincipalid pulumi.StringInput `pulumi:"serviceprincipalid"`
 	// The service principal secret. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
 	Serviceprincipalkey pulumi.StringPtrInput `pulumi:"serviceprincipalkey"`
@@ -5863,7 +6131,12 @@ func (o ServiceEndpointAzureRMCredentialsOutput) ToServiceEndpointAzureRMCredent
 	}).(ServiceEndpointAzureRMCredentialsPtrOutput)
 }
 
-// The service principal application Id
+// The service principal certificate. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
+func (o ServiceEndpointAzureRMCredentialsOutput) Serviceprincipalcertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointAzureRMCredentials) *string { return v.Serviceprincipalcertificate }).(pulumi.StringPtrOutput)
+}
+
+// The service principal application ID
 func (o ServiceEndpointAzureRMCredentialsOutput) Serviceprincipalid() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceEndpointAzureRMCredentials) string { return v.Serviceprincipalid }).(pulumi.StringOutput)
 }
@@ -5897,7 +6170,17 @@ func (o ServiceEndpointAzureRMCredentialsPtrOutput) Elem() ServiceEndpointAzureR
 	}).(ServiceEndpointAzureRMCredentialsOutput)
 }
 
-// The service principal application Id
+// The service principal certificate. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
+func (o ServiceEndpointAzureRMCredentialsPtrOutput) Serviceprincipalcertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointAzureRMCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Serviceprincipalcertificate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The service principal application ID
 func (o ServiceEndpointAzureRMCredentialsPtrOutput) Serviceprincipalid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointAzureRMCredentials) *string {
 		if v == nil {
@@ -6797,6 +7080,8 @@ func (o ServiceEndpointKubernetesKubeconfigPtrOutput) KubeConfig() pulumi.String
 }
 
 type ServiceEndpointKubernetesServiceAccount struct {
+	// Set this option to allow clients to accept a self-signed certificate. Defaults to `false`.
+	AcceptUntrustedCerts *bool `pulumi:"acceptUntrustedCerts"`
 	// The certificate from a Kubernetes secret object.
 	CaCert string `pulumi:"caCert"`
 	// The token from a Kubernetes secret object.
@@ -6815,6 +7100,8 @@ type ServiceEndpointKubernetesServiceAccountInput interface {
 }
 
 type ServiceEndpointKubernetesServiceAccountArgs struct {
+	// Set this option to allow clients to accept a self-signed certificate. Defaults to `false`.
+	AcceptUntrustedCerts pulumi.BoolPtrInput `pulumi:"acceptUntrustedCerts"`
 	// The certificate from a Kubernetes secret object.
 	CaCert pulumi.StringInput `pulumi:"caCert"`
 	// The token from a Kubernetes secret object.
@@ -6898,6 +7185,11 @@ func (o ServiceEndpointKubernetesServiceAccountOutput) ToServiceEndpointKubernet
 	}).(ServiceEndpointKubernetesServiceAccountPtrOutput)
 }
 
+// Set this option to allow clients to accept a self-signed certificate. Defaults to `false`.
+func (o ServiceEndpointKubernetesServiceAccountOutput) AcceptUntrustedCerts() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointKubernetesServiceAccount) *bool { return v.AcceptUntrustedCerts }).(pulumi.BoolPtrOutput)
+}
+
 // The certificate from a Kubernetes secret object.
 func (o ServiceEndpointKubernetesServiceAccountOutput) CaCert() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceEndpointKubernetesServiceAccount) string { return v.CaCert }).(pulumi.StringOutput)
@@ -6930,6 +7222,16 @@ func (o ServiceEndpointKubernetesServiceAccountPtrOutput) Elem() ServiceEndpoint
 		var ret ServiceEndpointKubernetesServiceAccount
 		return ret
 	}).(ServiceEndpointKubernetesServiceAccountOutput)
+}
+
+// Set this option to allow clients to accept a self-signed certificate. Defaults to `false`.
+func (o ServiceEndpointKubernetesServiceAccountPtrOutput) AcceptUntrustedCerts() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointKubernetesServiceAccount) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AcceptUntrustedCerts
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The certificate from a Kubernetes secret object.
@@ -9559,6 +9861,299 @@ func (o ServiceendpointMavenAuthenticationTokenPtrOutput) Elem() Serviceendpoint
 // Authentication Token generated through maven repository.
 func (o ServiceendpointMavenAuthenticationTokenPtrOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointMavenAuthenticationToken) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Token
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceendpointVisualstudiomarketplaceAuthenticationBasic struct {
+	// The password of the marketplace.
+	Password string `pulumi:"password"`
+	// The username of the marketplace.
+	Username string `pulumi:"username"`
+}
+
+// ServiceendpointVisualstudiomarketplaceAuthenticationBasicInput is an input type that accepts ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs and ServiceendpointVisualstudiomarketplaceAuthenticationBasicOutput values.
+// You can construct a concrete instance of `ServiceendpointVisualstudiomarketplaceAuthenticationBasicInput` via:
+//
+//	ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs{...}
+type ServiceendpointVisualstudiomarketplaceAuthenticationBasicInput interface {
+	pulumi.Input
+
+	ToServiceendpointVisualstudiomarketplaceAuthenticationBasicOutput() ServiceendpointVisualstudiomarketplaceAuthenticationBasicOutput
+	ToServiceendpointVisualstudiomarketplaceAuthenticationBasicOutputWithContext(context.Context) ServiceendpointVisualstudiomarketplaceAuthenticationBasicOutput
+}
+
+type ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs struct {
+	// The password of the marketplace.
+	Password pulumi.StringInput `pulumi:"password"`
+	// The username of the marketplace.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointVisualstudiomarketplaceAuthenticationBasic)(nil)).Elem()
+}
+
+func (i ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs) ToServiceendpointVisualstudiomarketplaceAuthenticationBasicOutput() ServiceendpointVisualstudiomarketplaceAuthenticationBasicOutput {
+	return i.ToServiceendpointVisualstudiomarketplaceAuthenticationBasicOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs) ToServiceendpointVisualstudiomarketplaceAuthenticationBasicOutputWithContext(ctx context.Context) ServiceendpointVisualstudiomarketplaceAuthenticationBasicOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointVisualstudiomarketplaceAuthenticationBasicOutput)
+}
+
+func (i ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs) ToServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutput() ServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutput {
+	return i.ToServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs) ToServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutputWithContext(ctx context.Context) ServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointVisualstudiomarketplaceAuthenticationBasicOutput).ToServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutputWithContext(ctx)
+}
+
+// ServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrInput is an input type that accepts ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs, ServiceendpointVisualstudiomarketplaceAuthenticationBasicPtr and ServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutput values.
+// You can construct a concrete instance of `ServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrInput` via:
+//
+//	        ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrInput interface {
+	pulumi.Input
+
+	ToServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutput() ServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutput
+	ToServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutputWithContext(context.Context) ServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutput
+}
+
+type serviceendpointVisualstudiomarketplaceAuthenticationBasicPtrType ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs
+
+func ServiceendpointVisualstudiomarketplaceAuthenticationBasicPtr(v *ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs) ServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrInput {
+	return (*serviceendpointVisualstudiomarketplaceAuthenticationBasicPtrType)(v)
+}
+
+func (*serviceendpointVisualstudiomarketplaceAuthenticationBasicPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointVisualstudiomarketplaceAuthenticationBasic)(nil)).Elem()
+}
+
+func (i *serviceendpointVisualstudiomarketplaceAuthenticationBasicPtrType) ToServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutput() ServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutput {
+	return i.ToServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceendpointVisualstudiomarketplaceAuthenticationBasicPtrType) ToServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutputWithContext(ctx context.Context) ServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutput)
+}
+
+type ServiceendpointVisualstudiomarketplaceAuthenticationBasicOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointVisualstudiomarketplaceAuthenticationBasicOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointVisualstudiomarketplaceAuthenticationBasic)(nil)).Elem()
+}
+
+func (o ServiceendpointVisualstudiomarketplaceAuthenticationBasicOutput) ToServiceendpointVisualstudiomarketplaceAuthenticationBasicOutput() ServiceendpointVisualstudiomarketplaceAuthenticationBasicOutput {
+	return o
+}
+
+func (o ServiceendpointVisualstudiomarketplaceAuthenticationBasicOutput) ToServiceendpointVisualstudiomarketplaceAuthenticationBasicOutputWithContext(ctx context.Context) ServiceendpointVisualstudiomarketplaceAuthenticationBasicOutput {
+	return o
+}
+
+func (o ServiceendpointVisualstudiomarketplaceAuthenticationBasicOutput) ToServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutput() ServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutput {
+	return o.ToServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceendpointVisualstudiomarketplaceAuthenticationBasicOutput) ToServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutputWithContext(ctx context.Context) ServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceendpointVisualstudiomarketplaceAuthenticationBasic) *ServiceendpointVisualstudiomarketplaceAuthenticationBasic {
+		return &v
+	}).(ServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutput)
+}
+
+// The password of the marketplace.
+func (o ServiceendpointVisualstudiomarketplaceAuthenticationBasicOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceendpointVisualstudiomarketplaceAuthenticationBasic) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// The username of the marketplace.
+func (o ServiceendpointVisualstudiomarketplaceAuthenticationBasicOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceendpointVisualstudiomarketplaceAuthenticationBasic) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type ServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointVisualstudiomarketplaceAuthenticationBasic)(nil)).Elem()
+}
+
+func (o ServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutput) ToServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutput() ServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutput {
+	return o
+}
+
+func (o ServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutput) ToServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutputWithContext(ctx context.Context) ServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutput {
+	return o
+}
+
+func (o ServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutput) Elem() ServiceendpointVisualstudiomarketplaceAuthenticationBasicOutput {
+	return o.ApplyT(func(v *ServiceendpointVisualstudiomarketplaceAuthenticationBasic) ServiceendpointVisualstudiomarketplaceAuthenticationBasic {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceendpointVisualstudiomarketplaceAuthenticationBasic
+		return ret
+	}).(ServiceendpointVisualstudiomarketplaceAuthenticationBasicOutput)
+}
+
+// The password of the marketplace.
+func (o ServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceendpointVisualstudiomarketplaceAuthenticationBasic) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// The username of the marketplace.
+func (o ServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceendpointVisualstudiomarketplaceAuthenticationBasic) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceendpointVisualstudiomarketplaceAuthenticationToken struct {
+	// The Personal Access Token.
+	Token string `pulumi:"token"`
+}
+
+// ServiceendpointVisualstudiomarketplaceAuthenticationTokenInput is an input type that accepts ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs and ServiceendpointVisualstudiomarketplaceAuthenticationTokenOutput values.
+// You can construct a concrete instance of `ServiceendpointVisualstudiomarketplaceAuthenticationTokenInput` via:
+//
+//	ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs{...}
+type ServiceendpointVisualstudiomarketplaceAuthenticationTokenInput interface {
+	pulumi.Input
+
+	ToServiceendpointVisualstudiomarketplaceAuthenticationTokenOutput() ServiceendpointVisualstudiomarketplaceAuthenticationTokenOutput
+	ToServiceendpointVisualstudiomarketplaceAuthenticationTokenOutputWithContext(context.Context) ServiceendpointVisualstudiomarketplaceAuthenticationTokenOutput
+}
+
+type ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs struct {
+	// The Personal Access Token.
+	Token pulumi.StringInput `pulumi:"token"`
+}
+
+func (ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointVisualstudiomarketplaceAuthenticationToken)(nil)).Elem()
+}
+
+func (i ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs) ToServiceendpointVisualstudiomarketplaceAuthenticationTokenOutput() ServiceendpointVisualstudiomarketplaceAuthenticationTokenOutput {
+	return i.ToServiceendpointVisualstudiomarketplaceAuthenticationTokenOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs) ToServiceendpointVisualstudiomarketplaceAuthenticationTokenOutputWithContext(ctx context.Context) ServiceendpointVisualstudiomarketplaceAuthenticationTokenOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointVisualstudiomarketplaceAuthenticationTokenOutput)
+}
+
+func (i ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs) ToServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutput() ServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutput {
+	return i.ToServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs) ToServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutputWithContext(ctx context.Context) ServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointVisualstudiomarketplaceAuthenticationTokenOutput).ToServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutputWithContext(ctx)
+}
+
+// ServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrInput is an input type that accepts ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs, ServiceendpointVisualstudiomarketplaceAuthenticationTokenPtr and ServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutput values.
+// You can construct a concrete instance of `ServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrInput` via:
+//
+//	        ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrInput interface {
+	pulumi.Input
+
+	ToServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutput() ServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutput
+	ToServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutputWithContext(context.Context) ServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutput
+}
+
+type serviceendpointVisualstudiomarketplaceAuthenticationTokenPtrType ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs
+
+func ServiceendpointVisualstudiomarketplaceAuthenticationTokenPtr(v *ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs) ServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrInput {
+	return (*serviceendpointVisualstudiomarketplaceAuthenticationTokenPtrType)(v)
+}
+
+func (*serviceendpointVisualstudiomarketplaceAuthenticationTokenPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointVisualstudiomarketplaceAuthenticationToken)(nil)).Elem()
+}
+
+func (i *serviceendpointVisualstudiomarketplaceAuthenticationTokenPtrType) ToServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutput() ServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutput {
+	return i.ToServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceendpointVisualstudiomarketplaceAuthenticationTokenPtrType) ToServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutputWithContext(ctx context.Context) ServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutput)
+}
+
+type ServiceendpointVisualstudiomarketplaceAuthenticationTokenOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointVisualstudiomarketplaceAuthenticationTokenOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointVisualstudiomarketplaceAuthenticationToken)(nil)).Elem()
+}
+
+func (o ServiceendpointVisualstudiomarketplaceAuthenticationTokenOutput) ToServiceendpointVisualstudiomarketplaceAuthenticationTokenOutput() ServiceendpointVisualstudiomarketplaceAuthenticationTokenOutput {
+	return o
+}
+
+func (o ServiceendpointVisualstudiomarketplaceAuthenticationTokenOutput) ToServiceendpointVisualstudiomarketplaceAuthenticationTokenOutputWithContext(ctx context.Context) ServiceendpointVisualstudiomarketplaceAuthenticationTokenOutput {
+	return o
+}
+
+func (o ServiceendpointVisualstudiomarketplaceAuthenticationTokenOutput) ToServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutput() ServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutput {
+	return o.ToServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceendpointVisualstudiomarketplaceAuthenticationTokenOutput) ToServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutputWithContext(ctx context.Context) ServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceendpointVisualstudiomarketplaceAuthenticationToken) *ServiceendpointVisualstudiomarketplaceAuthenticationToken {
+		return &v
+	}).(ServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutput)
+}
+
+// The Personal Access Token.
+func (o ServiceendpointVisualstudiomarketplaceAuthenticationTokenOutput) Token() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceendpointVisualstudiomarketplaceAuthenticationToken) string { return v.Token }).(pulumi.StringOutput)
+}
+
+type ServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointVisualstudiomarketplaceAuthenticationToken)(nil)).Elem()
+}
+
+func (o ServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutput) ToServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutput() ServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutput {
+	return o
+}
+
+func (o ServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutput) ToServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutputWithContext(ctx context.Context) ServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutput {
+	return o
+}
+
+func (o ServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutput) Elem() ServiceendpointVisualstudiomarketplaceAuthenticationTokenOutput {
+	return o.ApplyT(func(v *ServiceendpointVisualstudiomarketplaceAuthenticationToken) ServiceendpointVisualstudiomarketplaceAuthenticationToken {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceendpointVisualstudiomarketplaceAuthenticationToken
+		return ret
+	}).(ServiceendpointVisualstudiomarketplaceAuthenticationTokenOutput)
+}
+
+// The Personal Access Token.
+func (o ServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceendpointVisualstudiomarketplaceAuthenticationToken) *string {
 		if v == nil {
 			return nil
 		}
@@ -13685,6 +14280,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyWorkItemLinkingSettingsPtrInput)(nil)).Elem(), BranchPolicyWorkItemLinkingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyWorkItemLinkingSettingsScopeInput)(nil)).Elem(), BranchPolicyWorkItemLinkingSettingsScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyWorkItemLinkingSettingsScopeArrayInput)(nil)).Elem(), BranchPolicyWorkItemLinkingSettingsScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionBuildCompletionTriggerInput)(nil)).Elem(), BuildDefinitionBuildCompletionTriggerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionBuildCompletionTriggerArrayInput)(nil)).Elem(), BuildDefinitionBuildCompletionTriggerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionBuildCompletionTriggerBranchFilterInput)(nil)).Elem(), BuildDefinitionBuildCompletionTriggerBranchFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionBuildCompletionTriggerBranchFilterArrayInput)(nil)).Elem(), BuildDefinitionBuildCompletionTriggerBranchFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionCiTriggerInput)(nil)).Elem(), BuildDefinitionCiTriggerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionCiTriggerPtrInput)(nil)).Elem(), BuildDefinitionCiTriggerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionCiTriggerOverrideInput)(nil)).Elem(), BuildDefinitionCiTriggerOverrideArgs{})
@@ -13775,6 +14374,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointMavenAuthenticationBasicPtrInput)(nil)).Elem(), ServiceendpointMavenAuthenticationBasicArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointMavenAuthenticationTokenInput)(nil)).Elem(), ServiceendpointMavenAuthenticationTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointMavenAuthenticationTokenPtrInput)(nil)).Elem(), ServiceendpointMavenAuthenticationTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointVisualstudiomarketplaceAuthenticationBasicInput)(nil)).Elem(), ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrInput)(nil)).Elem(), ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointVisualstudiomarketplaceAuthenticationTokenInput)(nil)).Elem(), ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrInput)(nil)).Elem(), ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookStorageQueuePipelinesRunStateChangedEventInput)(nil)).Elem(), ServicehookStorageQueuePipelinesRunStateChangedEventArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookStorageQueuePipelinesRunStateChangedEventPtrInput)(nil)).Elem(), ServicehookStorageQueuePipelinesRunStateChangedEventArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookStorageQueuePipelinesStageStateChangedEventInput)(nil)).Elem(), ServicehookStorageQueuePipelinesStageStateChangedEventArgs{})
@@ -13863,6 +14466,10 @@ func init() {
 	pulumi.RegisterOutputType(BranchPolicyWorkItemLinkingSettingsPtrOutput{})
 	pulumi.RegisterOutputType(BranchPolicyWorkItemLinkingSettingsScopeOutput{})
 	pulumi.RegisterOutputType(BranchPolicyWorkItemLinkingSettingsScopeArrayOutput{})
+	pulumi.RegisterOutputType(BuildDefinitionBuildCompletionTriggerOutput{})
+	pulumi.RegisterOutputType(BuildDefinitionBuildCompletionTriggerArrayOutput{})
+	pulumi.RegisterOutputType(BuildDefinitionBuildCompletionTriggerBranchFilterOutput{})
+	pulumi.RegisterOutputType(BuildDefinitionBuildCompletionTriggerBranchFilterArrayOutput{})
 	pulumi.RegisterOutputType(BuildDefinitionCiTriggerOutput{})
 	pulumi.RegisterOutputType(BuildDefinitionCiTriggerPtrOutput{})
 	pulumi.RegisterOutputType(BuildDefinitionCiTriggerOverrideOutput{})
@@ -13953,6 +14560,10 @@ func init() {
 	pulumi.RegisterOutputType(ServiceendpointMavenAuthenticationBasicPtrOutput{})
 	pulumi.RegisterOutputType(ServiceendpointMavenAuthenticationTokenOutput{})
 	pulumi.RegisterOutputType(ServiceendpointMavenAuthenticationTokenPtrOutput{})
+	pulumi.RegisterOutputType(ServiceendpointVisualstudiomarketplaceAuthenticationBasicOutput{})
+	pulumi.RegisterOutputType(ServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutput{})
+	pulumi.RegisterOutputType(ServiceendpointVisualstudiomarketplaceAuthenticationTokenOutput{})
+	pulumi.RegisterOutputType(ServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutput{})
 	pulumi.RegisterOutputType(ServicehookStorageQueuePipelinesRunStateChangedEventOutput{})
 	pulumi.RegisterOutputType(ServicehookStorageQueuePipelinesRunStateChangedEventPtrOutput{})
 	pulumi.RegisterOutputType(ServicehookStorageQueuePipelinesStageStateChangedEventOutput{})

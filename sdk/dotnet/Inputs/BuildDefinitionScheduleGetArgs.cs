@@ -12,7 +12,7 @@ namespace Pulumi.AzureDevOps.Inputs
 
     public sealed class BuildDefinitionScheduleGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("branchFilters")]
+        [Input("branchFilters", required: true)]
         private InputList<Inputs.BuildDefinitionScheduleBranchFilterGetArgs>? _branchFilters;
 
         /// <summary>

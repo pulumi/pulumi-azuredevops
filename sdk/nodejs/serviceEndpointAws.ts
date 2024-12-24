@@ -73,7 +73,7 @@ export class ServiceEndpointAws extends pulumi.CustomResource {
     /**
      * The AWS access key ID for signing programmatic requests.
      */
-    public readonly accessKeyId!: pulumi.Output<string>;
+    public readonly accessKeyId!: pulumi.Output<string | undefined>;
     public readonly authorization!: pulumi.Output<{[key: string]: string}>;
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -95,7 +95,7 @@ export class ServiceEndpointAws extends pulumi.CustomResource {
     /**
      * The AWS secret access key for signing programmatic requests.
      */
-    public readonly secretAccessKey!: pulumi.Output<string>;
+    public readonly secretAccessKey!: pulumi.Output<string | undefined>;
     /**
      * The Service Endpoint name.
      */
@@ -104,6 +104,10 @@ export class ServiceEndpointAws extends pulumi.CustomResource {
      * The AWS session token for signing programmatic requests.
      */
     public readonly sessionToken!: pulumi.Output<string | undefined>;
+    /**
+     * Enable this to attempt getting credentials with OIDC token from Azure Devops.
+     */
+    public readonly useOidc!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a ServiceEndpointAws resource with the given unique name, arguments, and options.
@@ -128,16 +132,11 @@ export class ServiceEndpointAws extends pulumi.CustomResource {
             resourceInputs["secretAccessKey"] = state ? state.secretAccessKey : undefined;
             resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
             resourceInputs["sessionToken"] = state ? state.sessionToken : undefined;
+            resourceInputs["useOidc"] = state ? state.useOidc : undefined;
         } else {
             const args = argsOrState as ServiceEndpointAwsArgs | undefined;
-            if ((!args || args.accessKeyId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'accessKeyId'");
-            }
             if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
-            }
-            if ((!args || args.secretAccessKey === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'secretAccessKey'");
             }
             if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
@@ -152,6 +151,7 @@ export class ServiceEndpointAws extends pulumi.CustomResource {
             resourceInputs["secretAccessKey"] = args?.secretAccessKey ? pulumi.secret(args.secretAccessKey) : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             resourceInputs["sessionToken"] = args?.sessionToken ? pulumi.secret(args.sessionToken) : undefined;
+            resourceInputs["useOidc"] = args ? args.useOidc : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["secretAccessKey", "sessionToken"] };
@@ -198,6 +198,10 @@ export interface ServiceEndpointAwsState {
      * The AWS session token for signing programmatic requests.
      */
     sessionToken?: pulumi.Input<string>;
+    /**
+     * Enable this to attempt getting credentials with OIDC token from Azure Devops.
+     */
+    useOidc?: pulumi.Input<boolean>;
 }
 
 /**
@@ -207,7 +211,7 @@ export interface ServiceEndpointAwsArgs {
     /**
      * The AWS access key ID for signing programmatic requests.
      */
-    accessKeyId: pulumi.Input<string>;
+    accessKeyId?: pulumi.Input<string>;
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     description?: pulumi.Input<string>;
     /**
@@ -229,7 +233,7 @@ export interface ServiceEndpointAwsArgs {
     /**
      * The AWS secret access key for signing programmatic requests.
      */
-    secretAccessKey: pulumi.Input<string>;
+    secretAccessKey?: pulumi.Input<string>;
     /**
      * The Service Endpoint name.
      */
@@ -238,4 +242,8 @@ export interface ServiceEndpointAwsArgs {
      * The AWS session token for signing programmatic requests.
      */
     sessionToken?: pulumi.Input<string>;
+    /**
+     * Enable this to attempt getting credentials with OIDC token from Azure Devops.
+     */
+    useOidc?: pulumi.Input<boolean>;
 }

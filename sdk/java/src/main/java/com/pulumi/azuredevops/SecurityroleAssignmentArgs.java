@@ -30,14 +30,14 @@ public final class SecurityroleAssignmentArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The ID of the resource on which the role is to be assigned.
+     * The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceId", required=true)
     private Output<String> resourceId;
 
     /**
-     * @return The ID of the resource on which the role is to be assigned.
+     * @return The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceId() {
@@ -123,7 +123,7 @@ public final class SecurityroleAssignmentArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceId The ID of the resource on which the role is to be assigned.
+         * @param resourceId The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class SecurityroleAssignmentArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceId The ID of the resource on which the role is to be assigned.
+         * @param resourceId The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

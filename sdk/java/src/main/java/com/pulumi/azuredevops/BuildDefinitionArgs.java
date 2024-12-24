@@ -3,6 +3,7 @@
 
 package com.pulumi.azuredevops;
 
+import com.pulumi.azuredevops.inputs.BuildDefinitionBuildCompletionTriggerArgs;
 import com.pulumi.azuredevops.inputs.BuildDefinitionCiTriggerArgs;
 import com.pulumi.azuredevops.inputs.BuildDefinitionFeatureArgs;
 import com.pulumi.azuredevops.inputs.BuildDefinitionPullRequestTriggerArgs;
@@ -40,14 +41,29 @@ public final class BuildDefinitionArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Continuous Integration trigger.
+     * A `build_completion_trigger` block as documented below.
+     * 
+     */
+    @Import(name="buildCompletionTriggers")
+    private @Nullable Output<List<BuildDefinitionBuildCompletionTriggerArgs>> buildCompletionTriggers;
+
+    /**
+     * @return A `build_completion_trigger` block as documented below.
+     * 
+     */
+    public Optional<Output<List<BuildDefinitionBuildCompletionTriggerArgs>>> buildCompletionTriggers() {
+        return Optional.ofNullable(this.buildCompletionTriggers);
+    }
+
+    /**
+     * A `ci_trigger` block as documented below.
      * 
      */
     @Import(name="ciTrigger")
     private @Nullable Output<BuildDefinitionCiTriggerArgs> ciTrigger;
 
     /**
-     * @return Continuous Integration trigger.
+     * @return A `ci_trigger` block as documented below.
      * 
      */
     public Optional<Output<BuildDefinitionCiTriggerArgs>> ciTrigger() {
@@ -115,14 +131,14 @@ public final class BuildDefinitionArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Pull Request Integration trigger.
+     * A `pull_request_trigger` block as documented below.
      * 
      */
     @Import(name="pullRequestTrigger")
     private @Nullable Output<BuildDefinitionPullRequestTriggerArgs> pullRequestTrigger;
 
     /**
-     * @return Pull Request Integration trigger.
+     * @return A `pull_request_trigger` block as documented below.
      * 
      */
     public Optional<Output<BuildDefinitionPullRequestTriggerArgs>> pullRequestTrigger() {
@@ -200,6 +216,7 @@ public final class BuildDefinitionArgs extends com.pulumi.resources.ResourceArgs
 
     private BuildDefinitionArgs(BuildDefinitionArgs $) {
         this.agentPoolName = $.agentPoolName;
+        this.buildCompletionTriggers = $.buildCompletionTriggers;
         this.ciTrigger = $.ciTrigger;
         this.features = $.features;
         this.name = $.name;
@@ -253,7 +270,38 @@ public final class BuildDefinitionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ciTrigger Continuous Integration trigger.
+         * @param buildCompletionTriggers A `build_completion_trigger` block as documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buildCompletionTriggers(@Nullable Output<List<BuildDefinitionBuildCompletionTriggerArgs>> buildCompletionTriggers) {
+            $.buildCompletionTriggers = buildCompletionTriggers;
+            return this;
+        }
+
+        /**
+         * @param buildCompletionTriggers A `build_completion_trigger` block as documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buildCompletionTriggers(List<BuildDefinitionBuildCompletionTriggerArgs> buildCompletionTriggers) {
+            return buildCompletionTriggers(Output.of(buildCompletionTriggers));
+        }
+
+        /**
+         * @param buildCompletionTriggers A `build_completion_trigger` block as documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buildCompletionTriggers(BuildDefinitionBuildCompletionTriggerArgs... buildCompletionTriggers) {
+            return buildCompletionTriggers(List.of(buildCompletionTriggers));
+        }
+
+        /**
+         * @param ciTrigger A `ci_trigger` block as documented below.
          * 
          * @return builder
          * 
@@ -264,7 +312,7 @@ public final class BuildDefinitionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ciTrigger Continuous Integration trigger.
+         * @param ciTrigger A `ci_trigger` block as documented below.
          * 
          * @return builder
          * 
@@ -368,7 +416,7 @@ public final class BuildDefinitionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param pullRequestTrigger Pull Request Integration trigger.
+         * @param pullRequestTrigger A `pull_request_trigger` block as documented below.
          * 
          * @return builder
          * 
@@ -379,7 +427,7 @@ public final class BuildDefinitionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param pullRequestTrigger Pull Request Integration trigger.
+         * @param pullRequestTrigger A `pull_request_trigger` block as documented below.
          * 
          * @return builder
          * 

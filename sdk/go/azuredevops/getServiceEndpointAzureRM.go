@@ -107,36 +107,38 @@ type LookupServiceEndpointAzureRMArgs struct {
 
 // A collection of values returned by getServiceEndpointAzureRM.
 type LookupServiceEndpointAzureRMResult struct {
-	// Specifies the Authorization Scheme Map.
+	// The Authorization Scheme Map.
 	Authorization map[string]string `pulumi:"authorization"`
-	// Specified the Management Group ID of the Service Endpoint is target, if available.
+	// The Management Group ID of the Service Endpoint is target, if available.
 	AzurermManagementGroupId string `pulumi:"azurermManagementGroupId"`
-	// Specified the Management Group Name of the Service Endpoint target, if available.
+	// The Management Group Name of the Service Endpoint target, if available.
 	AzurermManagementGroupName string `pulumi:"azurermManagementGroupName"`
-	// Specifies the Tenant ID of the Azure targets.
+	// The Tenant ID of the Azure targets.
 	AzurermSpnTenantid string `pulumi:"azurermSpnTenantid"`
-	// Specifies the Subscription ID of the Service Endpoint target, if available.
+	// The Subscription ID of the Service Endpoint target, if available.
 	AzurermSubscriptionId string `pulumi:"azurermSubscriptionId"`
-	// Specifies the Subscription Name of the Service Endpoint target, if available.
+	// The Subscription Name of the Service Endpoint target, if available.
 	AzurermSubscriptionName string `pulumi:"azurermSubscriptionName"`
-	// Specifies the description of the Service Endpoint.
+	// The description of the Service Endpoint.
 	Description string `pulumi:"description"`
-	// The Cloud Environment. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`.
+	// The Cloud Environment.
 	Environment string `pulumi:"environment"`
 	// The provider-assigned unique ID for this managed resource.
 	Id        string `pulumi:"id"`
 	ProjectId string `pulumi:"projectId"`
-	// Specifies the Resource Group of the Service Endpoint target, if available.
+	// The Resource Group of the Service Endpoint target, if available.
 	ResourceGroup string `pulumi:"resourceGroup"`
-	// Specifies the authentication scheme of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`.
+	// The server URL of the service Endpoint.
+	ServerUrl string `pulumi:"serverUrl"`
+	// The authentication scheme of Azure Resource Management Endpoint
 	ServiceEndpointAuthenticationScheme string `pulumi:"serviceEndpointAuthenticationScheme"`
 	ServiceEndpointId                   string `pulumi:"serviceEndpointId"`
 	ServiceEndpointName                 string `pulumi:"serviceEndpointName"`
 	// The Application(Client) ID of the Service Principal.
 	ServicePrincipalId string `pulumi:"servicePrincipalId"`
-	// The issuer if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/f66a4bc2-08ad-4ec0-a25e-e769d6b3b294`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+	// The issuer if `of the Workload Identity Federation Subject
 	WorkloadIdentityFederationIssuer string `pulumi:"workloadIdentityFederationIssuer"`
-	// The subject if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `sc://my-organisation/my-project/my-service-connection-name`.
+	// The subject of the Workload Identity Federation Subject.
 	WorkloadIdentityFederationSubject string `pulumi:"workloadIdentityFederationSubject"`
 }
 
@@ -181,42 +183,42 @@ func (o LookupServiceEndpointAzureRMResultOutput) ToLookupServiceEndpointAzureRM
 	return o
 }
 
-// Specifies the Authorization Scheme Map.
+// The Authorization Scheme Map.
 func (o LookupServiceEndpointAzureRMResultOutput) Authorization() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupServiceEndpointAzureRMResult) map[string]string { return v.Authorization }).(pulumi.StringMapOutput)
 }
 
-// Specified the Management Group ID of the Service Endpoint is target, if available.
+// The Management Group ID of the Service Endpoint is target, if available.
 func (o LookupServiceEndpointAzureRMResultOutput) AzurermManagementGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceEndpointAzureRMResult) string { return v.AzurermManagementGroupId }).(pulumi.StringOutput)
 }
 
-// Specified the Management Group Name of the Service Endpoint target, if available.
+// The Management Group Name of the Service Endpoint target, if available.
 func (o LookupServiceEndpointAzureRMResultOutput) AzurermManagementGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceEndpointAzureRMResult) string { return v.AzurermManagementGroupName }).(pulumi.StringOutput)
 }
 
-// Specifies the Tenant ID of the Azure targets.
+// The Tenant ID of the Azure targets.
 func (o LookupServiceEndpointAzureRMResultOutput) AzurermSpnTenantid() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceEndpointAzureRMResult) string { return v.AzurermSpnTenantid }).(pulumi.StringOutput)
 }
 
-// Specifies the Subscription ID of the Service Endpoint target, if available.
+// The Subscription ID of the Service Endpoint target, if available.
 func (o LookupServiceEndpointAzureRMResultOutput) AzurermSubscriptionId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceEndpointAzureRMResult) string { return v.AzurermSubscriptionId }).(pulumi.StringOutput)
 }
 
-// Specifies the Subscription Name of the Service Endpoint target, if available.
+// The Subscription Name of the Service Endpoint target, if available.
 func (o LookupServiceEndpointAzureRMResultOutput) AzurermSubscriptionName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceEndpointAzureRMResult) string { return v.AzurermSubscriptionName }).(pulumi.StringOutput)
 }
 
-// Specifies the description of the Service Endpoint.
+// The description of the Service Endpoint.
 func (o LookupServiceEndpointAzureRMResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceEndpointAzureRMResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The Cloud Environment. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`.
+// The Cloud Environment.
 func (o LookupServiceEndpointAzureRMResultOutput) Environment() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceEndpointAzureRMResult) string { return v.Environment }).(pulumi.StringOutput)
 }
@@ -230,12 +232,17 @@ func (o LookupServiceEndpointAzureRMResultOutput) ProjectId() pulumi.StringOutpu
 	return o.ApplyT(func(v LookupServiceEndpointAzureRMResult) string { return v.ProjectId }).(pulumi.StringOutput)
 }
 
-// Specifies the Resource Group of the Service Endpoint target, if available.
+// The Resource Group of the Service Endpoint target, if available.
 func (o LookupServiceEndpointAzureRMResultOutput) ResourceGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceEndpointAzureRMResult) string { return v.ResourceGroup }).(pulumi.StringOutput)
 }
 
-// Specifies the authentication scheme of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`.
+// The server URL of the service Endpoint.
+func (o LookupServiceEndpointAzureRMResultOutput) ServerUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceEndpointAzureRMResult) string { return v.ServerUrl }).(pulumi.StringOutput)
+}
+
+// The authentication scheme of Azure Resource Management Endpoint
 func (o LookupServiceEndpointAzureRMResultOutput) ServiceEndpointAuthenticationScheme() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceEndpointAzureRMResult) string { return v.ServiceEndpointAuthenticationScheme }).(pulumi.StringOutput)
 }
@@ -253,12 +260,12 @@ func (o LookupServiceEndpointAzureRMResultOutput) ServicePrincipalId() pulumi.St
 	return o.ApplyT(func(v LookupServiceEndpointAzureRMResult) string { return v.ServicePrincipalId }).(pulumi.StringOutput)
 }
 
-// The issuer if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/f66a4bc2-08ad-4ec0-a25e-e769d6b3b294`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+// The issuer if `of the Workload Identity Federation Subject
 func (o LookupServiceEndpointAzureRMResultOutput) WorkloadIdentityFederationIssuer() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceEndpointAzureRMResult) string { return v.WorkloadIdentityFederationIssuer }).(pulumi.StringOutput)
 }
 
-// The subject if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `sc://my-organisation/my-project/my-service-connection-name`.
+// The subject of the Workload Identity Federation Subject.
 func (o LookupServiceEndpointAzureRMResultOutput) WorkloadIdentityFederationSubject() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceEndpointAzureRMResult) string { return v.WorkloadIdentityFederationSubject }).(pulumi.StringOutput)
 }

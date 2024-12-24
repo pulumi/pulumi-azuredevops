@@ -12,8 +12,24 @@ namespace Pulumi.AzureDevOps.Inputs
 
     public sealed class ServiceEndpointAzureRMCredentialsGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("serviceprincipalcertificate")]
+        private Input<string>? _serviceprincipalcertificate;
+
         /// <summary>
-        /// The service principal application Id
+        /// The service principal certificate. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
+        /// </summary>
+        public Input<string>? Serviceprincipalcertificate
+        {
+            get => _serviceprincipalcertificate;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _serviceprincipalcertificate = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// The service principal application ID
         /// </summary>
         [Input("serviceprincipalid", required: true)]
         public Input<string> Serviceprincipalid { get; set; } = null!;

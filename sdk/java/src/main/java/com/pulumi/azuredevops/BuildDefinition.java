@@ -6,6 +6,7 @@ package com.pulumi.azuredevops;
 import com.pulumi.azuredevops.BuildDefinitionArgs;
 import com.pulumi.azuredevops.Utilities;
 import com.pulumi.azuredevops.inputs.BuildDefinitionState;
+import com.pulumi.azuredevops.outputs.BuildDefinitionBuildCompletionTrigger;
 import com.pulumi.azuredevops.outputs.BuildDefinitionCiTrigger;
 import com.pulumi.azuredevops.outputs.BuildDefinitionFeature;
 import com.pulumi.azuredevops.outputs.BuildDefinitionPullRequestTrigger;
@@ -27,7 +28,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### Tfs
+ * ### Azure DevOps
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
@@ -223,6 +224,132 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Build Completion Trigger
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azuredevops.BuildDefinition;
+ * import com.pulumi.azuredevops.BuildDefinitionArgs;
+ * import com.pulumi.azuredevops.inputs.BuildDefinitionCiTriggerArgs;
+ * import com.pulumi.azuredevops.inputs.BuildDefinitionRepositoryArgs;
+ * import com.pulumi.azuredevops.inputs.BuildDefinitionBuildCompletionTriggerArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new BuildDefinition("example", BuildDefinitionArgs.builder()
+ *             .projectId(exampleAzuredevopsProject.id())
+ *             .name("Example Build Definition")
+ *             .path("\\ExampleFolder")
+ *             .ciTrigger(BuildDefinitionCiTriggerArgs.builder()
+ *                 .useYaml(false)
+ *                 .build())
+ *             .repository(BuildDefinitionRepositoryArgs.builder()
+ *                 .repoType("GitHubEnterprise")
+ *                 .repoId("<GitHub Org>/<Repo Name>")
+ *                 .githubEnterpriseUrl("https://github.company.com")
+ *                 .branchName("main")
+ *                 .ymlPath("azure-pipelines.yml")
+ *                 .serviceConnectionId(exampleAzuredevopsServiceendpointGithubEnterprise.id())
+ *                 .build())
+ *             .buildCompletionTriggers(BuildDefinitionBuildCompletionTriggerArgs.builder()
+ *                 .buildDefinitionId(10)
+ *                 .branchFilters(BuildDefinitionBuildCompletionTriggerBranchFilterArgs.builder()
+ *                     .includes("main")
+ *                     .excludes("test")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Pull Request Trigger
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azuredevops.AzuredevopsFunctions;
+ * import com.pulumi.azuredevops.inputs.GetServiceEndpointGithubArgs;
+ * import com.pulumi.azuredevops.BuildDefinition;
+ * import com.pulumi.azuredevops.BuildDefinitionArgs;
+ * import com.pulumi.azuredevops.inputs.BuildDefinitionCiTriggerArgs;
+ * import com.pulumi.azuredevops.inputs.BuildDefinitionRepositoryArgs;
+ * import com.pulumi.azuredevops.inputs.BuildDefinitionPullRequestTriggerArgs;
+ * import com.pulumi.azuredevops.inputs.BuildDefinitionPullRequestTriggerOverrideArgs;
+ * import com.pulumi.azuredevops.inputs.BuildDefinitionPullRequestTriggerForksArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var example = AzuredevopsFunctions.getServiceEndpointGithub(GetServiceEndpointGithubArgs.builder()
+ *             .projectId(exampleAzuredevopsProject.id())
+ *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
+ *             .build());
+ * 
+ *         var exampleBuildDefinition = new BuildDefinition("exampleBuildDefinition", BuildDefinitionArgs.builder()
+ *             .projectId(exampleAzuredevopsProject2.id())
+ *             .name("Example Build Definition")
+ *             .path("\\ExampleFolder")
+ *             .ciTrigger(BuildDefinitionCiTriggerArgs.builder()
+ *                 .useYaml(false)
+ *                 .build())
+ *             .repository(BuildDefinitionRepositoryArgs.builder()
+ *                 .repoType("GitHub")
+ *                 .repoId("<GitHub Org>/<Repo Name>")
+ *                 .branchName("main")
+ *                 .ymlPath("azure-pipelines.yml")
+ *                 .serviceConnectionId(example.applyValue(getServiceEndpointGithubResult -> getServiceEndpointGithubResult.id()))
+ *                 .build())
+ *             .pullRequestTrigger(BuildDefinitionPullRequestTriggerArgs.builder()
+ *                 .override(BuildDefinitionPullRequestTriggerOverrideArgs.builder()
+ *                     .branchFilters(BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs.builder()
+ *                         .includes("main")
+ *                         .build())
+ *                     .build())
+ *                 .forks(BuildDefinitionPullRequestTriggerForksArgs.builder()
+ *                     .enabled(false)
+ *                     .shareSecrets(false)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Remarks
  * 
  * The path attribute can not end in `\` unless the path is the root value of `\`.
@@ -270,14 +397,28 @@ public class BuildDefinition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.agentPoolName);
     }
     /**
-     * Continuous Integration trigger.
+     * A `build_completion_trigger` block as documented below.
+     * 
+     */
+    @Export(name="buildCompletionTriggers", refs={List.class,BuildDefinitionBuildCompletionTrigger.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<BuildDefinitionBuildCompletionTrigger>> buildCompletionTriggers;
+
+    /**
+     * @return A `build_completion_trigger` block as documented below.
+     * 
+     */
+    public Output<Optional<List<BuildDefinitionBuildCompletionTrigger>>> buildCompletionTriggers() {
+        return Codegen.optional(this.buildCompletionTriggers);
+    }
+    /**
+     * A `ci_trigger` block as documented below.
      * 
      */
     @Export(name="ciTrigger", refs={BuildDefinitionCiTrigger.class}, tree="[0]")
     private Output</* @Nullable */ BuildDefinitionCiTrigger> ciTrigger;
 
     /**
-     * @return Continuous Integration trigger.
+     * @return A `ci_trigger` block as documented below.
      * 
      */
     public Output<Optional<BuildDefinitionCiTrigger>> ciTrigger() {
@@ -340,14 +481,14 @@ public class BuildDefinition extends com.pulumi.resources.CustomResource {
         return this.projectId;
     }
     /**
-     * Pull Request Integration trigger.
+     * A `pull_request_trigger` block as documented below.
      * 
      */
     @Export(name="pullRequestTrigger", refs={BuildDefinitionPullRequestTrigger.class}, tree="[0]")
     private Output</* @Nullable */ BuildDefinitionPullRequestTrigger> pullRequestTrigger;
 
     /**
-     * @return Pull Request Integration trigger.
+     * @return A `pull_request_trigger` block as documented below.
      * 
      */
     public Output<Optional<BuildDefinitionPullRequestTrigger>> pullRequestTrigger() {

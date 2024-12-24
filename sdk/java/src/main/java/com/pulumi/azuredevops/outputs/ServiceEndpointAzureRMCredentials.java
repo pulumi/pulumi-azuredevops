@@ -13,7 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceEndpointAzureRMCredentials {
     /**
-     * @return The service principal application Id
+     * @return The service principal certificate. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
+     * 
+     */
+    private @Nullable String serviceprincipalcertificate;
+    /**
+     * @return The service principal application ID
      * 
      */
     private String serviceprincipalid;
@@ -25,7 +30,14 @@ public final class ServiceEndpointAzureRMCredentials {
 
     private ServiceEndpointAzureRMCredentials() {}
     /**
-     * @return The service principal application Id
+     * @return The service principal certificate. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
+     * 
+     */
+    public Optional<String> serviceprincipalcertificate() {
+        return Optional.ofNullable(this.serviceprincipalcertificate);
+    }
+    /**
+     * @return The service principal application ID
      * 
      */
     public String serviceprincipalid() {
@@ -48,15 +60,23 @@ public final class ServiceEndpointAzureRMCredentials {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String serviceprincipalcertificate;
         private String serviceprincipalid;
         private @Nullable String serviceprincipalkey;
         public Builder() {}
         public Builder(ServiceEndpointAzureRMCredentials defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.serviceprincipalcertificate = defaults.serviceprincipalcertificate;
     	      this.serviceprincipalid = defaults.serviceprincipalid;
     	      this.serviceprincipalkey = defaults.serviceprincipalkey;
         }
 
+        @CustomType.Setter
+        public Builder serviceprincipalcertificate(@Nullable String serviceprincipalcertificate) {
+
+            this.serviceprincipalcertificate = serviceprincipalcertificate;
+            return this;
+        }
         @CustomType.Setter
         public Builder serviceprincipalid(String serviceprincipalid) {
             if (serviceprincipalid == null) {
@@ -73,6 +93,7 @@ public final class ServiceEndpointAzureRMCredentials {
         }
         public ServiceEndpointAzureRMCredentials build() {
             final var _resultValue = new ServiceEndpointAzureRMCredentials();
+            _resultValue.serviceprincipalcertificate = serviceprincipalcertificate;
             _resultValue.serviceprincipalid = serviceprincipalid;
             _resultValue.serviceprincipalkey = serviceprincipalkey;
             return _resultValue;

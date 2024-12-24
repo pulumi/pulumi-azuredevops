@@ -93,6 +93,7 @@ from .service_endpoint_generic import *
 from .service_endpoint_generic_git import *
 from .service_endpoint_git_hub import *
 from .service_endpoint_git_hub_enterprise import *
+from .service_endpoint_git_lab import *
 from .service_endpoint_kubernetes import *
 from .service_endpoint_npm import *
 from .service_endpoint_pipeline import *
@@ -101,6 +102,8 @@ from .service_endpoint_sonar_cloud import *
 from .service_endpoint_sonar_qube import *
 from .service_endpoint_ssh import *
 from .serviceendpoint_argocd import *
+from .serviceendpoint_azure_service_bus import *
+from .serviceendpoint_dynamics_lifecycle_services import *
 from .serviceendpoint_externaltfs import *
 from .serviceendpoint_gcp_terraform import *
 from .serviceendpoint_incomingwebhook import *
@@ -114,6 +117,8 @@ from .serviceendpoint_nexus import *
 from .serviceendpoint_nuget import *
 from .serviceendpoint_octopusdeploy import *
 from .serviceendpoint_permissions import *
+from .serviceendpoint_snyk import *
+from .serviceendpoint_visualstudiomarketplace import *
 from .servicehook_permissions import *
 from .servicehook_storage_queue_pipelines import *
 from .tagging_permissions import *
@@ -606,6 +611,14 @@ _utilities.register(
  },
  {
   "pkg": "azuredevops",
+  "mod": "index/serviceEndpointGitLab",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/serviceEndpointGitLab:ServiceEndpointGitLab": "ServiceEndpointGitLab"
+  }
+ },
+ {
+  "pkg": "azuredevops",
   "mod": "index/serviceEndpointKubernetes",
   "fqn": "pulumi_azuredevops",
   "classes": {
@@ -666,6 +679,22 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/serviceendpointArgocd:ServiceendpointArgocd": "ServiceendpointArgocd"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/serviceendpointAzureServiceBus",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/serviceendpointAzureServiceBus:ServiceendpointAzureServiceBus": "ServiceendpointAzureServiceBus"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/serviceendpointDynamicsLifecycleServices",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/serviceendpointDynamicsLifecycleServices:ServiceendpointDynamicsLifecycleServices": "ServiceendpointDynamicsLifecycleServices"
   }
  },
  {
@@ -770,6 +799,22 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/serviceendpointPermissions:ServiceendpointPermissions": "ServiceendpointPermissions"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/serviceendpointSnyk",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/serviceendpointSnyk:ServiceendpointSnyk": "ServiceendpointSnyk"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/serviceendpointVisualstudiomarketplace",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/serviceendpointVisualstudiomarketplace:ServiceendpointVisualstudiomarketplace": "ServiceendpointVisualstudiomarketplace"
   }
  },
  {

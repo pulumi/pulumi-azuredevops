@@ -10,6 +10,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -89,14 +90,14 @@ public class ServiceEndpointAws extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="accessKeyId", refs={String.class}, tree="[0]")
-    private Output<String> accessKeyId;
+    private Output</* @Nullable */ String> accessKeyId;
 
     /**
      * @return The AWS access key ID for signing programmatic requests.
      * 
      */
-    public Output<String> accessKeyId() {
-        return this.accessKeyId;
+    public Output<Optional<String>> accessKeyId() {
+        return Codegen.optional(this.accessKeyId);
     }
     @Export(name="authorization", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> authorization;
@@ -171,14 +172,14 @@ public class ServiceEndpointAws extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="secretAccessKey", refs={String.class}, tree="[0]")
-    private Output<String> secretAccessKey;
+    private Output</* @Nullable */ String> secretAccessKey;
 
     /**
      * @return The AWS secret access key for signing programmatic requests.
      * 
      */
-    public Output<String> secretAccessKey() {
-        return this.secretAccessKey;
+    public Output<Optional<String>> secretAccessKey() {
+        return Codegen.optional(this.secretAccessKey);
     }
     /**
      * The Service Endpoint name.
@@ -207,6 +208,20 @@ public class ServiceEndpointAws extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> sessionToken() {
         return Codegen.optional(this.sessionToken);
+    }
+    /**
+     * Enable this to attempt getting credentials with OIDC token from Azure Devops.
+     * 
+     */
+    @Export(name="useOidc", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> useOidc;
+
+    /**
+     * @return Enable this to attempt getting credentials with OIDC token from Azure Devops.
+     * 
+     */
+    public Output<Optional<Boolean>> useOidc() {
+        return Codegen.optional(this.useOidc);
     }
 
     /**

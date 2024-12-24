@@ -34,10 +34,11 @@ class ServiceEndpointAzureRMArgs:
                  environment: Optional[pulumi.Input[str]] = None,
                  features: Optional[pulumi.Input['ServiceEndpointAzureRMFeaturesArgs']] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
+                 server_url: Optional[pulumi.Input[str]] = None,
                  service_endpoint_authentication_scheme: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServiceEndpointAzureRM resource.
-        :param pulumi.Input[str] azurerm_spn_tenantid: The Tenant ID if the service principal.
+        :param pulumi.Input[str] azurerm_spn_tenantid: The Tenant ID of the service principal.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint Name.
         :param pulumi.Input[str] azurerm_management_group_id: The Management group ID of the Azure targets.
@@ -46,11 +47,12 @@ class ServiceEndpointAzureRMArgs:
         :param pulumi.Input[str] azurerm_subscription_name: The Subscription Name of the targets.
         :param pulumi.Input['ServiceEndpointAzureRMCredentialsArgs'] credentials: A `credentials` block.
         :param pulumi.Input[str] description: Service connection description.
-        :param pulumi.Input[str] environment: The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`. Changing this forces a new resource to be created.
-               
-               > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+        :param pulumi.Input[str] environment: The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud` and `AzureStack`. Changing this forces a new resource to be created.
         :param pulumi.Input['ServiceEndpointAzureRMFeaturesArgs'] features: A `features` block.
         :param pulumi.Input[str] resource_group: The resource group used for scope of automatic service endpoint.
+        :param pulumi.Input[str] server_url: The server URL of the service endpoint. Changing this forces a new resource to be created.
+               
+               > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
         :param pulumi.Input[str] service_endpoint_authentication_scheme: Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
                
                > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
@@ -78,6 +80,8 @@ class ServiceEndpointAzureRMArgs:
             pulumi.set(__self__, "features", features)
         if resource_group is not None:
             pulumi.set(__self__, "resource_group", resource_group)
+        if server_url is not None:
+            pulumi.set(__self__, "server_url", server_url)
         if service_endpoint_authentication_scheme is not None:
             pulumi.set(__self__, "service_endpoint_authentication_scheme", service_endpoint_authentication_scheme)
 
@@ -85,7 +89,7 @@ class ServiceEndpointAzureRMArgs:
     @pulumi.getter(name="azurermSpnTenantid")
     def azurerm_spn_tenantid(self) -> pulumi.Input[str]:
         """
-        The Tenant ID if the service principal.
+        The Tenant ID of the service principal.
         """
         return pulumi.get(self, "azurerm_spn_tenantid")
 
@@ -202,9 +206,7 @@ class ServiceEndpointAzureRMArgs:
     @pulumi.getter
     def environment(self) -> Optional[pulumi.Input[str]]:
         """
-        The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`. Changing this forces a new resource to be created.
-
-        > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+        The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud` and `AzureStack`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "environment")
 
@@ -237,6 +239,20 @@ class ServiceEndpointAzureRMArgs:
         pulumi.set(self, "resource_group", value)
 
     @property
+    @pulumi.getter(name="serverUrl")
+    def server_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The server URL of the service endpoint. Changing this forces a new resource to be created.
+
+        > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+        """
+        return pulumi.get(self, "server_url")
+
+    @server_url.setter
+    def server_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_url", value)
+
+    @property
     @pulumi.getter(name="serviceEndpointAuthenticationScheme")
     def service_endpoint_authentication_scheme(self) -> Optional[pulumi.Input[str]]:
         """
@@ -266,6 +282,7 @@ class _ServiceEndpointAzureRMState:
                  features: Optional[pulumi.Input['ServiceEndpointAzureRMFeaturesArgs']] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
+                 server_url: Optional[pulumi.Input[str]] = None,
                  service_endpoint_authentication_scheme: Optional[pulumi.Input[str]] = None,
                  service_endpoint_name: Optional[pulumi.Input[str]] = None,
                  service_principal_id: Optional[pulumi.Input[str]] = None,
@@ -275,17 +292,18 @@ class _ServiceEndpointAzureRMState:
         Input properties used for looking up and filtering ServiceEndpointAzureRM resources.
         :param pulumi.Input[str] azurerm_management_group_id: The Management group ID of the Azure targets.
         :param pulumi.Input[str] azurerm_management_group_name: The Management group Name of the targets.
-        :param pulumi.Input[str] azurerm_spn_tenantid: The Tenant ID if the service principal.
+        :param pulumi.Input[str] azurerm_spn_tenantid: The Tenant ID of the service principal.
         :param pulumi.Input[str] azurerm_subscription_id: The Subscription ID of the Azure targets.
         :param pulumi.Input[str] azurerm_subscription_name: The Subscription Name of the targets.
         :param pulumi.Input['ServiceEndpointAzureRMCredentialsArgs'] credentials: A `credentials` block.
         :param pulumi.Input[str] description: Service connection description.
-        :param pulumi.Input[str] environment: The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`. Changing this forces a new resource to be created.
-               
-               > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+        :param pulumi.Input[str] environment: The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud` and `AzureStack`. Changing this forces a new resource to be created.
         :param pulumi.Input['ServiceEndpointAzureRMFeaturesArgs'] features: A `features` block.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] resource_group: The resource group used for scope of automatic service endpoint.
+        :param pulumi.Input[str] server_url: The server URL of the service endpoint. Changing this forces a new resource to be created.
+               
+               > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
         :param pulumi.Input[str] service_endpoint_authentication_scheme: Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
                
                > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
@@ -318,6 +336,8 @@ class _ServiceEndpointAzureRMState:
             pulumi.set(__self__, "project_id", project_id)
         if resource_group is not None:
             pulumi.set(__self__, "resource_group", resource_group)
+        if server_url is not None:
+            pulumi.set(__self__, "server_url", server_url)
         if service_endpoint_authentication_scheme is not None:
             pulumi.set(__self__, "service_endpoint_authentication_scheme", service_endpoint_authentication_scheme)
         if service_endpoint_name is not None:
@@ -366,7 +386,7 @@ class _ServiceEndpointAzureRMState:
     @pulumi.getter(name="azurermSpnTenantid")
     def azurerm_spn_tenantid(self) -> Optional[pulumi.Input[str]]:
         """
-        The Tenant ID if the service principal.
+        The Tenant ID of the service principal.
         """
         return pulumi.get(self, "azurerm_spn_tenantid")
 
@@ -426,9 +446,7 @@ class _ServiceEndpointAzureRMState:
     @pulumi.getter
     def environment(self) -> Optional[pulumi.Input[str]]:
         """
-        The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`. Changing this forces a new resource to be created.
-
-        > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+        The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud` and `AzureStack`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "environment")
 
@@ -471,6 +489,20 @@ class _ServiceEndpointAzureRMState:
     @resource_group.setter
     def resource_group(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_group", value)
+
+    @property
+    @pulumi.getter(name="serverUrl")
+    def server_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The server URL of the service endpoint. Changing this forces a new resource to be created.
+
+        > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+        """
+        return pulumi.get(self, "server_url")
+
+    @server_url.setter
+    def server_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_url", value)
 
     @property
     @pulumi.getter(name="serviceEndpointAuthenticationScheme")
@@ -552,6 +584,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
                  features: Optional[pulumi.Input[Union['ServiceEndpointAzureRMFeaturesArgs', 'ServiceEndpointAzureRMFeaturesArgsDict']]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
+                 server_url: Optional[pulumi.Input[str]] = None,
                  service_endpoint_authentication_scheme: Optional[pulumi.Input[str]] = None,
                  service_endpoint_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -735,17 +768,18 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] azurerm_management_group_id: The Management group ID of the Azure targets.
         :param pulumi.Input[str] azurerm_management_group_name: The Management group Name of the targets.
-        :param pulumi.Input[str] azurerm_spn_tenantid: The Tenant ID if the service principal.
+        :param pulumi.Input[str] azurerm_spn_tenantid: The Tenant ID of the service principal.
         :param pulumi.Input[str] azurerm_subscription_id: The Subscription ID of the Azure targets.
         :param pulumi.Input[str] azurerm_subscription_name: The Subscription Name of the targets.
         :param pulumi.Input[Union['ServiceEndpointAzureRMCredentialsArgs', 'ServiceEndpointAzureRMCredentialsArgsDict']] credentials: A `credentials` block.
         :param pulumi.Input[str] description: Service connection description.
-        :param pulumi.Input[str] environment: The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`. Changing this forces a new resource to be created.
-               
-               > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+        :param pulumi.Input[str] environment: The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud` and `AzureStack`. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['ServiceEndpointAzureRMFeaturesArgs', 'ServiceEndpointAzureRMFeaturesArgsDict']] features: A `features` block.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] resource_group: The resource group used for scope of automatic service endpoint.
+        :param pulumi.Input[str] server_url: The server URL of the service endpoint. Changing this forces a new resource to be created.
+               
+               > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
         :param pulumi.Input[str] service_endpoint_authentication_scheme: Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
                
                > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
@@ -960,6 +994,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
                  features: Optional[pulumi.Input[Union['ServiceEndpointAzureRMFeaturesArgs', 'ServiceEndpointAzureRMFeaturesArgsDict']]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
+                 server_url: Optional[pulumi.Input[str]] = None,
                  service_endpoint_authentication_scheme: Optional[pulumi.Input[str]] = None,
                  service_endpoint_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -987,6 +1022,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
                 raise TypeError("Missing required property 'project_id'")
             __props__.__dict__["project_id"] = project_id
             __props__.__dict__["resource_group"] = resource_group
+            __props__.__dict__["server_url"] = server_url
             __props__.__dict__["service_endpoint_authentication_scheme"] = service_endpoint_authentication_scheme
             if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")
@@ -1016,6 +1052,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             features: Optional[pulumi.Input[Union['ServiceEndpointAzureRMFeaturesArgs', 'ServiceEndpointAzureRMFeaturesArgsDict']]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
             resource_group: Optional[pulumi.Input[str]] = None,
+            server_url: Optional[pulumi.Input[str]] = None,
             service_endpoint_authentication_scheme: Optional[pulumi.Input[str]] = None,
             service_endpoint_name: Optional[pulumi.Input[str]] = None,
             service_principal_id: Optional[pulumi.Input[str]] = None,
@@ -1030,17 +1067,18 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] azurerm_management_group_id: The Management group ID of the Azure targets.
         :param pulumi.Input[str] azurerm_management_group_name: The Management group Name of the targets.
-        :param pulumi.Input[str] azurerm_spn_tenantid: The Tenant ID if the service principal.
+        :param pulumi.Input[str] azurerm_spn_tenantid: The Tenant ID of the service principal.
         :param pulumi.Input[str] azurerm_subscription_id: The Subscription ID of the Azure targets.
         :param pulumi.Input[str] azurerm_subscription_name: The Subscription Name of the targets.
         :param pulumi.Input[Union['ServiceEndpointAzureRMCredentialsArgs', 'ServiceEndpointAzureRMCredentialsArgsDict']] credentials: A `credentials` block.
         :param pulumi.Input[str] description: Service connection description.
-        :param pulumi.Input[str] environment: The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`. Changing this forces a new resource to be created.
-               
-               > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+        :param pulumi.Input[str] environment: The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud` and `AzureStack`. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['ServiceEndpointAzureRMFeaturesArgs', 'ServiceEndpointAzureRMFeaturesArgsDict']] features: A `features` block.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] resource_group: The resource group used for scope of automatic service endpoint.
+        :param pulumi.Input[str] server_url: The server URL of the service endpoint. Changing this forces a new resource to be created.
+               
+               > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
         :param pulumi.Input[str] service_endpoint_authentication_scheme: Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
                
                > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
@@ -1065,6 +1103,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         __props__.__dict__["features"] = features
         __props__.__dict__["project_id"] = project_id
         __props__.__dict__["resource_group"] = resource_group
+        __props__.__dict__["server_url"] = server_url
         __props__.__dict__["service_endpoint_authentication_scheme"] = service_endpoint_authentication_scheme
         __props__.__dict__["service_endpoint_name"] = service_endpoint_name
         __props__.__dict__["service_principal_id"] = service_principal_id
@@ -1097,7 +1136,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
     @pulumi.getter(name="azurermSpnTenantid")
     def azurerm_spn_tenantid(self) -> pulumi.Output[str]:
         """
-        The Tenant ID if the service principal.
+        The Tenant ID of the service principal.
         """
         return pulumi.get(self, "azurerm_spn_tenantid")
 
@@ -1137,9 +1176,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
     @pulumi.getter
     def environment(self) -> pulumi.Output[Optional[str]]:
         """
-        The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`. Changing this forces a new resource to be created.
-
-        > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+        The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud` and `AzureStack`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "environment")
 
@@ -1166,6 +1203,16 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         The resource group used for scope of automatic service endpoint.
         """
         return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter(name="serverUrl")
+    def server_url(self) -> pulumi.Output[str]:
+        """
+        The server URL of the service endpoint. Changing this forces a new resource to be created.
+
+        > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+        """
+        return pulumi.get(self, "server_url")
 
     @property
     @pulumi.getter(name="serviceEndpointAuthenticationScheme")

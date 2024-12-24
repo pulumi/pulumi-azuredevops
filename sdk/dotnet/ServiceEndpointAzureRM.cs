@@ -283,7 +283,7 @@ namespace Pulumi.AzureDevOps
         public Output<string?> AzurermManagementGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The Tenant ID if the service principal.
+        /// The Tenant ID of the service principal.
         /// </summary>
         [Output("azurermSpnTenantid")]
         public Output<string> AzurermSpnTenantid { get; private set; } = null!;
@@ -313,9 +313,7 @@ namespace Pulumi.AzureDevOps
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+        /// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud` and `AzureStack`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("environment")]
         public Output<string?> Environment { get; private set; } = null!;
@@ -337,6 +335,14 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Output("resourceGroup")]
         public Output<string?> ResourceGroup { get; private set; } = null!;
+
+        /// <summary>
+        /// The server URL of the service endpoint. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+        /// </summary>
+        [Output("serverUrl")]
+        public Output<string> ServerUrl { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
@@ -437,7 +443,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? AzurermManagementGroupName { get; set; }
 
         /// <summary>
-        /// The Tenant ID if the service principal.
+        /// The Tenant ID of the service principal.
         /// </summary>
         [Input("azurermSpnTenantid", required: true)]
         public Input<string> AzurermSpnTenantid { get; set; } = null!;
@@ -467,9 +473,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+        /// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud` and `AzureStack`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("environment")]
         public Input<string>? Environment { get; set; }
@@ -491,6 +495,14 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Input("resourceGroup")]
         public Input<string>? ResourceGroup { get; set; }
+
+        /// <summary>
+        /// The server URL of the service endpoint. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+        /// </summary>
+        [Input("serverUrl")]
+        public Input<string>? ServerUrl { get; set; }
 
         /// <summary>
         /// Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
@@ -535,7 +547,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? AzurermManagementGroupName { get; set; }
 
         /// <summary>
-        /// The Tenant ID if the service principal.
+        /// The Tenant ID of the service principal.
         /// </summary>
         [Input("azurermSpnTenantid")]
         public Input<string>? AzurermSpnTenantid { get; set; }
@@ -565,9 +577,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+        /// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud` and `AzureStack`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("environment")]
         public Input<string>? Environment { get; set; }
@@ -589,6 +599,14 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Input("resourceGroup")]
         public Input<string>? ResourceGroup { get; set; }
+
+        /// <summary>
+        /// The server URL of the service endpoint. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+        /// </summary>
+        [Input("serverUrl")]
+        public Input<string>? ServerUrl { get; set; }
 
         /// <summary>
         /// Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.

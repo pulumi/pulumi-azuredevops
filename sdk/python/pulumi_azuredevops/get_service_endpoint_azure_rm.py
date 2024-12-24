@@ -26,7 +26,7 @@ class GetServiceEndpointAzureRMResult:
     """
     A collection of values returned by getServiceEndpointAzureRM.
     """
-    def __init__(__self__, authorization=None, azurerm_management_group_id=None, azurerm_management_group_name=None, azurerm_spn_tenantid=None, azurerm_subscription_id=None, azurerm_subscription_name=None, description=None, environment=None, id=None, project_id=None, resource_group=None, service_endpoint_authentication_scheme=None, service_endpoint_id=None, service_endpoint_name=None, service_principal_id=None, workload_identity_federation_issuer=None, workload_identity_federation_subject=None):
+    def __init__(__self__, authorization=None, azurerm_management_group_id=None, azurerm_management_group_name=None, azurerm_spn_tenantid=None, azurerm_subscription_id=None, azurerm_subscription_name=None, description=None, environment=None, id=None, project_id=None, resource_group=None, server_url=None, service_endpoint_authentication_scheme=None, service_endpoint_id=None, service_endpoint_name=None, service_principal_id=None, workload_identity_federation_issuer=None, workload_identity_federation_subject=None):
         if authorization and not isinstance(authorization, dict):
             raise TypeError("Expected argument 'authorization' to be a dict")
         pulumi.set(__self__, "authorization", authorization)
@@ -60,6 +60,9 @@ class GetServiceEndpointAzureRMResult:
         if resource_group and not isinstance(resource_group, str):
             raise TypeError("Expected argument 'resource_group' to be a str")
         pulumi.set(__self__, "resource_group", resource_group)
+        if server_url and not isinstance(server_url, str):
+            raise TypeError("Expected argument 'server_url' to be a str")
+        pulumi.set(__self__, "server_url", server_url)
         if service_endpoint_authentication_scheme and not isinstance(service_endpoint_authentication_scheme, str):
             raise TypeError("Expected argument 'service_endpoint_authentication_scheme' to be a str")
         pulumi.set(__self__, "service_endpoint_authentication_scheme", service_endpoint_authentication_scheme)
@@ -83,7 +86,7 @@ class GetServiceEndpointAzureRMResult:
     @pulumi.getter
     def authorization(self) -> Mapping[str, str]:
         """
-        Specifies the Authorization Scheme Map.
+        The Authorization Scheme Map.
         """
         return pulumi.get(self, "authorization")
 
@@ -91,7 +94,7 @@ class GetServiceEndpointAzureRMResult:
     @pulumi.getter(name="azurermManagementGroupId")
     def azurerm_management_group_id(self) -> str:
         """
-        Specified the Management Group ID of the Service Endpoint is target, if available.
+        The Management Group ID of the Service Endpoint is target, if available.
         """
         return pulumi.get(self, "azurerm_management_group_id")
 
@@ -99,7 +102,7 @@ class GetServiceEndpointAzureRMResult:
     @pulumi.getter(name="azurermManagementGroupName")
     def azurerm_management_group_name(self) -> str:
         """
-        Specified the Management Group Name of the Service Endpoint target, if available.
+        The Management Group Name of the Service Endpoint target, if available.
         """
         return pulumi.get(self, "azurerm_management_group_name")
 
@@ -107,7 +110,7 @@ class GetServiceEndpointAzureRMResult:
     @pulumi.getter(name="azurermSpnTenantid")
     def azurerm_spn_tenantid(self) -> str:
         """
-        Specifies the Tenant ID of the Azure targets.
+        The Tenant ID of the Azure targets.
         """
         return pulumi.get(self, "azurerm_spn_tenantid")
 
@@ -115,7 +118,7 @@ class GetServiceEndpointAzureRMResult:
     @pulumi.getter(name="azurermSubscriptionId")
     def azurerm_subscription_id(self) -> str:
         """
-        Specifies the Subscription ID of the Service Endpoint target, if available.
+        The Subscription ID of the Service Endpoint target, if available.
         """
         return pulumi.get(self, "azurerm_subscription_id")
 
@@ -123,7 +126,7 @@ class GetServiceEndpointAzureRMResult:
     @pulumi.getter(name="azurermSubscriptionName")
     def azurerm_subscription_name(self) -> str:
         """
-        Specifies the Subscription Name of the Service Endpoint target, if available.
+        The Subscription Name of the Service Endpoint target, if available.
         """
         return pulumi.get(self, "azurerm_subscription_name")
 
@@ -131,7 +134,7 @@ class GetServiceEndpointAzureRMResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        Specifies the description of the Service Endpoint.
+        The description of the Service Endpoint.
         """
         return pulumi.get(self, "description")
 
@@ -139,7 +142,7 @@ class GetServiceEndpointAzureRMResult:
     @pulumi.getter
     def environment(self) -> str:
         """
-        The Cloud Environment. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`.
+        The Cloud Environment.
         """
         return pulumi.get(self, "environment")
 
@@ -160,15 +163,23 @@ class GetServiceEndpointAzureRMResult:
     @pulumi.getter(name="resourceGroup")
     def resource_group(self) -> str:
         """
-        Specifies the Resource Group of the Service Endpoint target, if available.
+        The Resource Group of the Service Endpoint target, if available.
         """
         return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter(name="serverUrl")
+    def server_url(self) -> str:
+        """
+        The server URL of the service Endpoint.
+        """
+        return pulumi.get(self, "server_url")
 
     @property
     @pulumi.getter(name="serviceEndpointAuthenticationScheme")
     def service_endpoint_authentication_scheme(self) -> str:
         """
-        Specifies the authentication scheme of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`.
+        The authentication scheme of Azure Resource Management Endpoint
         """
         return pulumi.get(self, "service_endpoint_authentication_scheme")
 
@@ -194,7 +205,7 @@ class GetServiceEndpointAzureRMResult:
     @pulumi.getter(name="workloadIdentityFederationIssuer")
     def workload_identity_federation_issuer(self) -> str:
         """
-        The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/f66a4bc2-08ad-4ec0-a25e-e769d6b3b294`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+        The issuer if `of the Workload Identity Federation Subject
         """
         return pulumi.get(self, "workload_identity_federation_issuer")
 
@@ -202,7 +213,7 @@ class GetServiceEndpointAzureRMResult:
     @pulumi.getter(name="workloadIdentityFederationSubject")
     def workload_identity_federation_subject(self) -> str:
         """
-        The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://my-organisation/my-project/my-service-connection-name`.
+        The subject of the Workload Identity Federation Subject.
         """
         return pulumi.get(self, "workload_identity_federation_subject")
 
@@ -224,6 +235,7 @@ class AwaitableGetServiceEndpointAzureRMResult(GetServiceEndpointAzureRMResult):
             id=self.id,
             project_id=self.project_id,
             resource_group=self.resource_group,
+            server_url=self.server_url,
             service_endpoint_authentication_scheme=self.service_endpoint_authentication_scheme,
             service_endpoint_id=self.service_endpoint_id,
             service_endpoint_name=self.service_endpoint_name,
@@ -292,6 +304,7 @@ def get_service_endpoint_azure_rm(project_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         project_id=pulumi.get(__ret__, 'project_id'),
         resource_group=pulumi.get(__ret__, 'resource_group'),
+        server_url=pulumi.get(__ret__, 'server_url'),
         service_endpoint_authentication_scheme=pulumi.get(__ret__, 'service_endpoint_authentication_scheme'),
         service_endpoint_id=pulumi.get(__ret__, 'service_endpoint_id'),
         service_endpoint_name=pulumi.get(__ret__, 'service_endpoint_name'),
@@ -357,6 +370,7 @@ def get_service_endpoint_azure_rm_output(project_id: Optional[pulumi.Input[str]]
         id=pulumi.get(__response__, 'id'),
         project_id=pulumi.get(__response__, 'project_id'),
         resource_group=pulumi.get(__response__, 'resource_group'),
+        server_url=pulumi.get(__response__, 'server_url'),
         service_endpoint_authentication_scheme=pulumi.get(__response__, 'service_endpoint_authentication_scheme'),
         service_endpoint_id=pulumi.get(__response__, 'service_endpoint_id'),
         service_endpoint_name=pulumi.get(__response__, 'service_endpoint_name'),

@@ -445,6 +445,11 @@ export type ServiceEndpointGitHubEnterprise = import("./serviceEndpointGitHubEnt
 export const ServiceEndpointGitHubEnterprise: typeof import("./serviceEndpointGitHubEnterprise").ServiceEndpointGitHubEnterprise = null as any;
 utilities.lazyLoad(exports, ["ServiceEndpointGitHubEnterprise"], () => require("./serviceEndpointGitHubEnterprise"));
 
+export { ServiceEndpointGitLabArgs, ServiceEndpointGitLabState } from "./serviceEndpointGitLab";
+export type ServiceEndpointGitLab = import("./serviceEndpointGitLab").ServiceEndpointGitLab;
+export const ServiceEndpointGitLab: typeof import("./serviceEndpointGitLab").ServiceEndpointGitLab = null as any;
+utilities.lazyLoad(exports, ["ServiceEndpointGitLab"], () => require("./serviceEndpointGitLab"));
+
 export { ServiceEndpointKubernetesArgs, ServiceEndpointKubernetesState } from "./serviceEndpointKubernetes";
 export type ServiceEndpointKubernetes = import("./serviceEndpointKubernetes").ServiceEndpointKubernetes;
 export const ServiceEndpointKubernetes: typeof import("./serviceEndpointKubernetes").ServiceEndpointKubernetes = null as any;
@@ -484,6 +489,16 @@ export { ServiceendpointArgocdArgs, ServiceendpointArgocdState } from "./service
 export type ServiceendpointArgocd = import("./serviceendpointArgocd").ServiceendpointArgocd;
 export const ServiceendpointArgocd: typeof import("./serviceendpointArgocd").ServiceendpointArgocd = null as any;
 utilities.lazyLoad(exports, ["ServiceendpointArgocd"], () => require("./serviceendpointArgocd"));
+
+export { ServiceendpointAzureServiceBusArgs, ServiceendpointAzureServiceBusState } from "./serviceendpointAzureServiceBus";
+export type ServiceendpointAzureServiceBus = import("./serviceendpointAzureServiceBus").ServiceendpointAzureServiceBus;
+export const ServiceendpointAzureServiceBus: typeof import("./serviceendpointAzureServiceBus").ServiceendpointAzureServiceBus = null as any;
+utilities.lazyLoad(exports, ["ServiceendpointAzureServiceBus"], () => require("./serviceendpointAzureServiceBus"));
+
+export { ServiceendpointDynamicsLifecycleServicesArgs, ServiceendpointDynamicsLifecycleServicesState } from "./serviceendpointDynamicsLifecycleServices";
+export type ServiceendpointDynamicsLifecycleServices = import("./serviceendpointDynamicsLifecycleServices").ServiceendpointDynamicsLifecycleServices;
+export const ServiceendpointDynamicsLifecycleServices: typeof import("./serviceendpointDynamicsLifecycleServices").ServiceendpointDynamicsLifecycleServices = null as any;
+utilities.lazyLoad(exports, ["ServiceendpointDynamicsLifecycleServices"], () => require("./serviceendpointDynamicsLifecycleServices"));
 
 export { ServiceendpointExternaltfsArgs, ServiceendpointExternaltfsState } from "./serviceendpointExternaltfs";
 export type ServiceendpointExternaltfs = import("./serviceendpointExternaltfs").ServiceendpointExternaltfs;
@@ -549,6 +564,16 @@ export { ServiceendpointPermissionsArgs, ServiceendpointPermissionsState } from 
 export type ServiceendpointPermissions = import("./serviceendpointPermissions").ServiceendpointPermissions;
 export const ServiceendpointPermissions: typeof import("./serviceendpointPermissions").ServiceendpointPermissions = null as any;
 utilities.lazyLoad(exports, ["ServiceendpointPermissions"], () => require("./serviceendpointPermissions"));
+
+export { ServiceendpointSnykArgs, ServiceendpointSnykState } from "./serviceendpointSnyk";
+export type ServiceendpointSnyk = import("./serviceendpointSnyk").ServiceendpointSnyk;
+export const ServiceendpointSnyk: typeof import("./serviceendpointSnyk").ServiceendpointSnyk = null as any;
+utilities.lazyLoad(exports, ["ServiceendpointSnyk"], () => require("./serviceendpointSnyk"));
+
+export { ServiceendpointVisualstudiomarketplaceArgs, ServiceendpointVisualstudiomarketplaceState } from "./serviceendpointVisualstudiomarketplace";
+export type ServiceendpointVisualstudiomarketplace = import("./serviceendpointVisualstudiomarketplace").ServiceendpointVisualstudiomarketplace;
+export const ServiceendpointVisualstudiomarketplace: typeof import("./serviceendpointVisualstudiomarketplace").ServiceendpointVisualstudiomarketplace = null as any;
+utilities.lazyLoad(exports, ["ServiceendpointVisualstudiomarketplace"], () => require("./serviceendpointVisualstudiomarketplace"));
 
 export { ServicehookPermissionsArgs, ServicehookPermissionsState } from "./servicehookPermissions";
 export type ServicehookPermissions = import("./servicehookPermissions").ServicehookPermissions;
@@ -745,6 +770,8 @@ const _module = {
                 return new ServiceEndpointGitHub(name, <any>undefined, { urn })
             case "azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise":
                 return new ServiceEndpointGitHubEnterprise(name, <any>undefined, { urn })
+            case "azuredevops:index/serviceEndpointGitLab:ServiceEndpointGitLab":
+                return new ServiceEndpointGitLab(name, <any>undefined, { urn })
             case "azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes":
                 return new ServiceEndpointKubernetes(name, <any>undefined, { urn })
             case "azuredevops:index/serviceEndpointNpm:ServiceEndpointNpm":
@@ -761,6 +788,10 @@ const _module = {
                 return new ServiceEndpointSsh(name, <any>undefined, { urn })
             case "azuredevops:index/serviceendpointArgocd:ServiceendpointArgocd":
                 return new ServiceendpointArgocd(name, <any>undefined, { urn })
+            case "azuredevops:index/serviceendpointAzureServiceBus:ServiceendpointAzureServiceBus":
+                return new ServiceendpointAzureServiceBus(name, <any>undefined, { urn })
+            case "azuredevops:index/serviceendpointDynamicsLifecycleServices:ServiceendpointDynamicsLifecycleServices":
+                return new ServiceendpointDynamicsLifecycleServices(name, <any>undefined, { urn })
             case "azuredevops:index/serviceendpointExternaltfs:ServiceendpointExternaltfs":
                 return new ServiceendpointExternaltfs(name, <any>undefined, { urn })
             case "azuredevops:index/serviceendpointGcpTerraform:ServiceendpointGcpTerraform":
@@ -787,6 +818,10 @@ const _module = {
                 return new ServiceendpointOctopusdeploy(name, <any>undefined, { urn })
             case "azuredevops:index/serviceendpointPermissions:ServiceendpointPermissions":
                 return new ServiceendpointPermissions(name, <any>undefined, { urn })
+            case "azuredevops:index/serviceendpointSnyk:ServiceendpointSnyk":
+                return new ServiceendpointSnyk(name, <any>undefined, { urn })
+            case "azuredevops:index/serviceendpointVisualstudiomarketplace:ServiceendpointVisualstudiomarketplace":
+                return new ServiceendpointVisualstudiomarketplace(name, <any>undefined, { urn })
             case "azuredevops:index/servicehookPermissions:ServicehookPermissions":
                 return new ServicehookPermissions(name, <any>undefined, { urn })
             case "azuredevops:index/servicehookStorageQueuePipelines:ServicehookStorageQueuePipelines":
@@ -876,6 +911,7 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointGener
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointGenericGit", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointGitHub", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointGitHubEnterprise", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointGitLab", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointKubernetes", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointNpm", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointPipeline", _module)
@@ -884,6 +920,8 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointSonar
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointSonarQube", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointSsh", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointArgocd", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointAzureServiceBus", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointDynamicsLifecycleServices", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointExternaltfs", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointGcpTerraform", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointIncomingwebhook", _module)
@@ -897,6 +935,8 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointNexus
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointNuget", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointOctopusdeploy", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointPermissions", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointSnyk", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointVisualstudiomarketplace", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/servicehookPermissions", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/servicehookStorageQueuePipelines", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/taggingPermissions", _module)

@@ -34,14 +34,14 @@ public class SecurityroleAssignment extends com.pulumi.resources.CustomResource 
         return this.identityId;
     }
     /**
-     * The ID of the resource on which the role is to be assigned.
+     * The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
     /**
-     * @return The ID of the resource on which the role is to be assigned.
+     * @return The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceId() {

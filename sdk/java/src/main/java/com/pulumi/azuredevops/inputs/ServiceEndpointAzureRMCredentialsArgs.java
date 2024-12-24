@@ -17,14 +17,29 @@ public final class ServiceEndpointAzureRMCredentialsArgs extends com.pulumi.reso
     public static final ServiceEndpointAzureRMCredentialsArgs Empty = new ServiceEndpointAzureRMCredentialsArgs();
 
     /**
-     * The service principal application Id
+     * The service principal certificate. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
+     * 
+     */
+    @Import(name="serviceprincipalcertificate")
+    private @Nullable Output<String> serviceprincipalcertificate;
+
+    /**
+     * @return The service principal certificate. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
+     * 
+     */
+    public Optional<Output<String>> serviceprincipalcertificate() {
+        return Optional.ofNullable(this.serviceprincipalcertificate);
+    }
+
+    /**
+     * The service principal application ID
      * 
      */
     @Import(name="serviceprincipalid", required=true)
     private Output<String> serviceprincipalid;
 
     /**
-     * @return The service principal application Id
+     * @return The service principal application ID
      * 
      */
     public Output<String> serviceprincipalid() {
@@ -49,6 +64,7 @@ public final class ServiceEndpointAzureRMCredentialsArgs extends com.pulumi.reso
     private ServiceEndpointAzureRMCredentialsArgs() {}
 
     private ServiceEndpointAzureRMCredentialsArgs(ServiceEndpointAzureRMCredentialsArgs $) {
+        this.serviceprincipalcertificate = $.serviceprincipalcertificate;
         this.serviceprincipalid = $.serviceprincipalid;
         this.serviceprincipalkey = $.serviceprincipalkey;
     }
@@ -72,7 +88,28 @@ public final class ServiceEndpointAzureRMCredentialsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param serviceprincipalid The service principal application Id
+         * @param serviceprincipalcertificate The service principal certificate. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceprincipalcertificate(@Nullable Output<String> serviceprincipalcertificate) {
+            $.serviceprincipalcertificate = serviceprincipalcertificate;
+            return this;
+        }
+
+        /**
+         * @param serviceprincipalcertificate The service principal certificate. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceprincipalcertificate(String serviceprincipalcertificate) {
+            return serviceprincipalcertificate(Output.of(serviceprincipalcertificate));
+        }
+
+        /**
+         * @param serviceprincipalid The service principal application ID
          * 
          * @return builder
          * 
@@ -83,7 +120,7 @@ public final class ServiceEndpointAzureRMCredentialsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param serviceprincipalid The service principal application Id
+         * @param serviceprincipalid The service principal application ID
          * 
          * @return builder
          * 

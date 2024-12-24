@@ -237,7 +237,7 @@ export class GitPermissions extends pulumi.CustomResource {
      */
     public readonly branchName!: pulumi.Output<string | undefined>;
     /**
-     * the permissions to assign. The follwing permissions are available
+     * the permissions to assign. The following permissions are available
      *
      *
      * | Permissions             | Description                                            |
@@ -330,7 +330,7 @@ export interface GitPermissionsState {
      */
     branchName?: pulumi.Input<string>;
     /**
-     * the permissions to assign. The follwing permissions are available
+     * the permissions to assign. The following permissions are available
      *
      *
      * | Permissions             | Description                                            |
@@ -382,7 +382,7 @@ export interface GitPermissionsArgs {
      */
     branchName?: pulumi.Input<string>;
     /**
-     * the permissions to assign. The follwing permissions are available
+     * the permissions to assign. The following permissions are available
      *
      *
      * | Permissions             | Description                                            |

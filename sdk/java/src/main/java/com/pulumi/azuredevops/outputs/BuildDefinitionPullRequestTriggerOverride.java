@@ -6,6 +6,7 @@ package com.pulumi.azuredevops.outputs;
 import com.pulumi.azuredevops.outputs.BuildDefinitionPullRequestTriggerOverrideBranchFilter;
 import com.pulumi.azuredevops.outputs.BuildDefinitionPullRequestTriggerOverridePathFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
@@ -20,10 +21,10 @@ public final class BuildDefinitionPullRequestTriggerOverride {
      */
     private @Nullable Boolean autoCancel;
     /**
-     * @return The branches to include and exclude from the trigger.
+     * @return The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
      * 
      */
-    private @Nullable List<BuildDefinitionPullRequestTriggerOverrideBranchFilter> branchFilters;
+    private List<BuildDefinitionPullRequestTriggerOverrideBranchFilter> branchFilters;
     /**
      * @return Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
      * 
@@ -39,11 +40,11 @@ public final class BuildDefinitionPullRequestTriggerOverride {
         return Optional.ofNullable(this.autoCancel);
     }
     /**
-     * @return The branches to include and exclude from the trigger.
+     * @return The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
      * 
      */
     public List<BuildDefinitionPullRequestTriggerOverrideBranchFilter> branchFilters() {
-        return this.branchFilters == null ? List.of() : this.branchFilters;
+        return this.branchFilters;
     }
     /**
      * @return Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
@@ -63,7 +64,7 @@ public final class BuildDefinitionPullRequestTriggerOverride {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean autoCancel;
-        private @Nullable List<BuildDefinitionPullRequestTriggerOverrideBranchFilter> branchFilters;
+        private List<BuildDefinitionPullRequestTriggerOverrideBranchFilter> branchFilters;
         private @Nullable List<BuildDefinitionPullRequestTriggerOverridePathFilter> pathFilters;
         public Builder() {}
         public Builder(BuildDefinitionPullRequestTriggerOverride defaults) {
@@ -80,8 +81,10 @@ public final class BuildDefinitionPullRequestTriggerOverride {
             return this;
         }
         @CustomType.Setter
-        public Builder branchFilters(@Nullable List<BuildDefinitionPullRequestTriggerOverrideBranchFilter> branchFilters) {
-
+        public Builder branchFilters(List<BuildDefinitionPullRequestTriggerOverrideBranchFilter> branchFilters) {
+            if (branchFilters == null) {
+              throw new MissingRequiredPropertyException("BuildDefinitionPullRequestTriggerOverride", "branchFilters");
+            }
             this.branchFilters = branchFilters;
             return this;
         }

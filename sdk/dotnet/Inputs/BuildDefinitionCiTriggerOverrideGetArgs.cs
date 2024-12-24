@@ -18,11 +18,11 @@ namespace Pulumi.AzureDevOps.Inputs
         [Input("batch")]
         public Input<bool>? Batch { get; set; }
 
-        [Input("branchFilters")]
+        [Input("branchFilters", required: true)]
         private InputList<Inputs.BuildDefinitionCiTriggerOverrideBranchFilterGetArgs>? _branchFilters;
 
         /// <summary>
-        /// The branches to include and exclude from the trigger.
+        /// The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
         /// </summary>
         public InputList<Inputs.BuildDefinitionCiTriggerOverrideBranchFilterGetArgs> BranchFilters
         {

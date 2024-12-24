@@ -420,14 +420,14 @@ public class ServiceEndpointAzureRM extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.azurermManagementGroupName);
     }
     /**
-     * The Tenant ID if the service principal.
+     * The Tenant ID of the service principal.
      * 
      */
     @Export(name="azurermSpnTenantid", refs={String.class}, tree="[0]")
     private Output<String> azurermSpnTenantid;
 
     /**
-     * @return The Tenant ID if the service principal.
+     * @return The Tenant ID of the service principal.
      * 
      */
     public Output<String> azurermSpnTenantid() {
@@ -490,18 +490,14 @@ public class ServiceEndpointAzureRM extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.description);
     }
     /**
-     * The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`. Changing this forces a new resource to be created.
-     * 
-     * &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+     * The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud` and `AzureStack`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="environment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> environment;
 
     /**
-     * @return The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`. Changing this forces a new resource to be created.
-     * 
-     * &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+     * @return The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud` and `AzureStack`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> environment() {
@@ -548,6 +544,24 @@ public class ServiceEndpointAzureRM extends com.pulumi.resources.CustomResource 
      */
     public Output<Optional<String>> resourceGroup() {
         return Codegen.optional(this.resourceGroup);
+    }
+    /**
+     * The server URL of the service endpoint. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+     * 
+     */
+    @Export(name="serverUrl", refs={String.class}, tree="[0]")
+    private Output<String> serverUrl;
+
+    /**
+     * @return The server URL of the service endpoint. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+     * 
+     */
+    public Output<String> serverUrl() {
+        return this.serverUrl;
     }
     /**
      * Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.

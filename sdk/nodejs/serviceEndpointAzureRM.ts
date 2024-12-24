@@ -235,7 +235,7 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
      */
     public readonly azurermManagementGroupName!: pulumi.Output<string | undefined>;
     /**
-     * The Tenant ID if the service principal.
+     * The Tenant ID of the service principal.
      */
     public readonly azurermSpnTenantid!: pulumi.Output<string>;
     /**
@@ -255,9 +255,7 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`. Changing this forces a new resource to be created.
-     *
-     * > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
+     * The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud` and `AzureStack`. Changing this forces a new resource to be created.
      */
     public readonly environment!: pulumi.Output<string | undefined>;
     /**
@@ -272,6 +270,12 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
      * The resource group used for scope of automatic service endpoint.
      */
     public readonly resourceGroup!: pulumi.Output<string | undefined>;
+    /**
+     * The server URL of the service endpoint. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
+     */
+    public readonly serverUrl!: pulumi.Output<string>;
     /**
      * Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
      *
@@ -320,6 +324,7 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
             resourceInputs["features"] = state ? state.features : undefined;
             resourceInputs["projectId"] = state ? state.projectId : undefined;
             resourceInputs["resourceGroup"] = state ? state.resourceGroup : undefined;
+            resourceInputs["serverUrl"] = state ? state.serverUrl : undefined;
             resourceInputs["serviceEndpointAuthenticationScheme"] = state ? state.serviceEndpointAuthenticationScheme : undefined;
             resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
             resourceInputs["servicePrincipalId"] = state ? state.servicePrincipalId : undefined;
@@ -348,6 +353,7 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
             resourceInputs["features"] = args ? args.features : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
+            resourceInputs["serverUrl"] = args ? args.serverUrl : undefined;
             resourceInputs["serviceEndpointAuthenticationScheme"] = args ? args.serviceEndpointAuthenticationScheme : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             resourceInputs["servicePrincipalId"] = undefined /*out*/;
@@ -373,7 +379,7 @@ export interface ServiceEndpointAzureRMState {
      */
     azurermManagementGroupName?: pulumi.Input<string>;
     /**
-     * The Tenant ID if the service principal.
+     * The Tenant ID of the service principal.
      */
     azurermSpnTenantid?: pulumi.Input<string>;
     /**
@@ -393,9 +399,7 @@ export interface ServiceEndpointAzureRMState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`. Changing this forces a new resource to be created.
-     *
-     * > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
+     * The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud` and `AzureStack`. Changing this forces a new resource to be created.
      */
     environment?: pulumi.Input<string>;
     /**
@@ -410,6 +414,12 @@ export interface ServiceEndpointAzureRMState {
      * The resource group used for scope of automatic service endpoint.
      */
     resourceGroup?: pulumi.Input<string>;
+    /**
+     * The server URL of the service endpoint. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
+     */
+    serverUrl?: pulumi.Input<string>;
     /**
      * Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
      *
@@ -448,7 +458,7 @@ export interface ServiceEndpointAzureRMArgs {
      */
     azurermManagementGroupName?: pulumi.Input<string>;
     /**
-     * The Tenant ID if the service principal.
+     * The Tenant ID of the service principal.
      */
     azurermSpnTenantid: pulumi.Input<string>;
     /**
@@ -468,9 +478,7 @@ export interface ServiceEndpointAzureRMArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`. Changing this forces a new resource to be created.
-     *
-     * > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
+     * The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud` and `AzureStack`. Changing this forces a new resource to be created.
      */
     environment?: pulumi.Input<string>;
     /**
@@ -485,6 +493,12 @@ export interface ServiceEndpointAzureRMArgs {
      * The resource group used for scope of automatic service endpoint.
      */
     resourceGroup?: pulumi.Input<string>;
+    /**
+     * The server URL of the service endpoint. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
+     */
+    serverUrl?: pulumi.Input<string>;
     /**
      * Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
      *
