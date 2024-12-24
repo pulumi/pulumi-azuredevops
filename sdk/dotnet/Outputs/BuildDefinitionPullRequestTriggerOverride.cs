@@ -18,7 +18,7 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly bool? AutoCancel;
         /// <summary>
-        /// The branches to include and exclude from the trigger.
+        /// The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.BuildDefinitionPullRequestTriggerOverrideBranchFilter> BranchFilters;
         /// <summary>

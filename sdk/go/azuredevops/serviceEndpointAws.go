@@ -70,7 +70,7 @@ type ServiceEndpointAws struct {
 	pulumi.CustomResourceState
 
 	// The AWS access key ID for signing programmatic requests.
-	AccessKeyId   pulumi.StringOutput    `pulumi:"accessKeyId"`
+	AccessKeyId   pulumi.StringPtrOutput `pulumi:"accessKeyId"`
 	Authorization pulumi.StringMapOutput `pulumi:"authorization"`
 	Description   pulumi.StringPtrOutput `pulumi:"description"`
 	// A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
@@ -82,11 +82,13 @@ type ServiceEndpointAws struct {
 	// The Amazon Resource Name (ARN) of the role to assume.
 	RoleToAssume pulumi.StringPtrOutput `pulumi:"roleToAssume"`
 	// The AWS secret access key for signing programmatic requests.
-	SecretAccessKey pulumi.StringOutput `pulumi:"secretAccessKey"`
+	SecretAccessKey pulumi.StringPtrOutput `pulumi:"secretAccessKey"`
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringOutput `pulumi:"serviceEndpointName"`
 	// The AWS session token for signing programmatic requests.
 	SessionToken pulumi.StringPtrOutput `pulumi:"sessionToken"`
+	// Enable this to attempt getting credentials with OIDC token from Azure Devops.
+	UseOidc pulumi.BoolPtrOutput `pulumi:"useOidc"`
 }
 
 // NewServiceEndpointAws registers a new resource with the given unique name, arguments, and options.
@@ -96,20 +98,14 @@ func NewServiceEndpointAws(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AccessKeyId == nil {
-		return nil, errors.New("invalid value for required argument 'AccessKeyId'")
-	}
 	if args.ProjectId == nil {
 		return nil, errors.New("invalid value for required argument 'ProjectId'")
-	}
-	if args.SecretAccessKey == nil {
-		return nil, errors.New("invalid value for required argument 'SecretAccessKey'")
 	}
 	if args.ServiceEndpointName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceEndpointName'")
 	}
 	if args.SecretAccessKey != nil {
-		args.SecretAccessKey = pulumi.ToSecret(args.SecretAccessKey).(pulumi.StringInput)
+		args.SecretAccessKey = pulumi.ToSecret(args.SecretAccessKey).(pulumi.StringPtrInput)
 	}
 	if args.SessionToken != nil {
 		args.SessionToken = pulumi.ToSecret(args.SessionToken).(pulumi.StringPtrInput)
@@ -160,6 +156,8 @@ type serviceEndpointAwsState struct {
 	ServiceEndpointName *string `pulumi:"serviceEndpointName"`
 	// The AWS session token for signing programmatic requests.
 	SessionToken *string `pulumi:"sessionToken"`
+	// Enable this to attempt getting credentials with OIDC token from Azure Devops.
+	UseOidc *bool `pulumi:"useOidc"`
 }
 
 type ServiceEndpointAwsState struct {
@@ -181,6 +179,8 @@ type ServiceEndpointAwsState struct {
 	ServiceEndpointName pulumi.StringPtrInput
 	// The AWS session token for signing programmatic requests.
 	SessionToken pulumi.StringPtrInput
+	// Enable this to attempt getting credentials with OIDC token from Azure Devops.
+	UseOidc pulumi.BoolPtrInput
 }
 
 func (ServiceEndpointAwsState) ElementType() reflect.Type {
@@ -189,7 +189,7 @@ func (ServiceEndpointAwsState) ElementType() reflect.Type {
 
 type serviceEndpointAwsArgs struct {
 	// The AWS access key ID for signing programmatic requests.
-	AccessKeyId   string            `pulumi:"accessKeyId"`
+	AccessKeyId   *string           `pulumi:"accessKeyId"`
 	Authorization map[string]string `pulumi:"authorization"`
 	Description   *string           `pulumi:"description"`
 	// A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
@@ -201,17 +201,19 @@ type serviceEndpointAwsArgs struct {
 	// The Amazon Resource Name (ARN) of the role to assume.
 	RoleToAssume *string `pulumi:"roleToAssume"`
 	// The AWS secret access key for signing programmatic requests.
-	SecretAccessKey string `pulumi:"secretAccessKey"`
+	SecretAccessKey *string `pulumi:"secretAccessKey"`
 	// The Service Endpoint name.
 	ServiceEndpointName string `pulumi:"serviceEndpointName"`
 	// The AWS session token for signing programmatic requests.
 	SessionToken *string `pulumi:"sessionToken"`
+	// Enable this to attempt getting credentials with OIDC token from Azure Devops.
+	UseOidc *bool `pulumi:"useOidc"`
 }
 
 // The set of arguments for constructing a ServiceEndpointAws resource.
 type ServiceEndpointAwsArgs struct {
 	// The AWS access key ID for signing programmatic requests.
-	AccessKeyId   pulumi.StringInput
+	AccessKeyId   pulumi.StringPtrInput
 	Authorization pulumi.StringMapInput
 	Description   pulumi.StringPtrInput
 	// A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
@@ -223,11 +225,13 @@ type ServiceEndpointAwsArgs struct {
 	// The Amazon Resource Name (ARN) of the role to assume.
 	RoleToAssume pulumi.StringPtrInput
 	// The AWS secret access key for signing programmatic requests.
-	SecretAccessKey pulumi.StringInput
+	SecretAccessKey pulumi.StringPtrInput
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringInput
 	// The AWS session token for signing programmatic requests.
 	SessionToken pulumi.StringPtrInput
+	// Enable this to attempt getting credentials with OIDC token from Azure Devops.
+	UseOidc pulumi.BoolPtrInput
 }
 
 func (ServiceEndpointAwsArgs) ElementType() reflect.Type {
@@ -318,8 +322,8 @@ func (o ServiceEndpointAwsOutput) ToServiceEndpointAwsOutputWithContext(ctx cont
 }
 
 // The AWS access key ID for signing programmatic requests.
-func (o ServiceEndpointAwsOutput) AccessKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServiceEndpointAws) pulumi.StringOutput { return v.AccessKeyId }).(pulumi.StringOutput)
+func (o ServiceEndpointAwsOutput) AccessKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointAws) pulumi.StringPtrOutput { return v.AccessKeyId }).(pulumi.StringPtrOutput)
 }
 
 func (o ServiceEndpointAwsOutput) Authorization() pulumi.StringMapOutput {
@@ -351,8 +355,8 @@ func (o ServiceEndpointAwsOutput) RoleToAssume() pulumi.StringPtrOutput {
 }
 
 // The AWS secret access key for signing programmatic requests.
-func (o ServiceEndpointAwsOutput) SecretAccessKey() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServiceEndpointAws) pulumi.StringOutput { return v.SecretAccessKey }).(pulumi.StringOutput)
+func (o ServiceEndpointAwsOutput) SecretAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointAws) pulumi.StringPtrOutput { return v.SecretAccessKey }).(pulumi.StringPtrOutput)
 }
 
 // The Service Endpoint name.
@@ -363,6 +367,11 @@ func (o ServiceEndpointAwsOutput) ServiceEndpointName() pulumi.StringOutput {
 // The AWS session token for signing programmatic requests.
 func (o ServiceEndpointAwsOutput) SessionToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointAws) pulumi.StringPtrOutput { return v.SessionToken }).(pulumi.StringPtrOutput)
+}
+
+// Enable this to attempt getting credentials with OIDC token from Azure Devops.
+func (o ServiceEndpointAwsOutput) UseOidc() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointAws) pulumi.BoolPtrOutput { return v.UseOidc }).(pulumi.BoolPtrOutput)
 }
 
 type ServiceEndpointAwsArrayOutput struct{ *pulumi.OutputState }

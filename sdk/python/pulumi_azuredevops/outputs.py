@@ -30,6 +30,8 @@ __all__ = [
     'BranchPolicyStatusCheckSettingsScope',
     'BranchPolicyWorkItemLinkingSettings',
     'BranchPolicyWorkItemLinkingSettingsScope',
+    'BuildDefinitionBuildCompletionTrigger',
+    'BuildDefinitionBuildCompletionTriggerBranchFilter',
     'BuildDefinitionCiTrigger',
     'BuildDefinitionCiTriggerOverride',
     'BuildDefinitionCiTriggerOverrideBranchFilter',
@@ -75,6 +77,8 @@ __all__ = [
     'ServiceendpointJfrogXrayV2AuthenticationToken',
     'ServiceendpointMavenAuthenticationBasic',
     'ServiceendpointMavenAuthenticationToken',
+    'ServiceendpointVisualstudiomarketplaceAuthenticationBasic',
+    'ServiceendpointVisualstudiomarketplaceAuthenticationToken',
     'ServicehookStorageQueuePipelinesRunStateChangedEvent',
     'ServicehookStorageQueuePipelinesStageStateChangedEvent',
     'VariableGroupKeyVault',
@@ -1175,6 +1179,85 @@ class BranchPolicyWorkItemLinkingSettingsScope(dict):
 
 
 @pulumi.output_type
+class BuildDefinitionBuildCompletionTrigger(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "branchFilters":
+            suggest = "branch_filters"
+        elif key == "buildDefinitionId":
+            suggest = "build_definition_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BuildDefinitionBuildCompletionTrigger. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BuildDefinitionBuildCompletionTrigger.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BuildDefinitionBuildCompletionTrigger.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 branch_filters: Sequence['outputs.BuildDefinitionBuildCompletionTriggerBranchFilter'],
+                 build_definition_id: int):
+        """
+        :param Sequence['BuildDefinitionBuildCompletionTriggerBranchFilterArgs'] branch_filters: The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
+        :param int build_definition_id: The ID of the build pipeline will be triggered.
+        """
+        pulumi.set(__self__, "branch_filters", branch_filters)
+        pulumi.set(__self__, "build_definition_id", build_definition_id)
+
+    @property
+    @pulumi.getter(name="branchFilters")
+    def branch_filters(self) -> Sequence['outputs.BuildDefinitionBuildCompletionTriggerBranchFilter']:
+        """
+        The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
+        """
+        return pulumi.get(self, "branch_filters")
+
+    @property
+    @pulumi.getter(name="buildDefinitionId")
+    def build_definition_id(self) -> int:
+        """
+        The ID of the build pipeline will be triggered.
+        """
+        return pulumi.get(self, "build_definition_id")
+
+
+@pulumi.output_type
+class BuildDefinitionBuildCompletionTriggerBranchFilter(dict):
+    def __init__(__self__, *,
+                 excludes: Optional[Sequence[str]] = None,
+                 includes: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] excludes: List of branch patterns to exclude.
+        :param Sequence[str] includes: List of branch patterns to include.
+        """
+        if excludes is not None:
+            pulumi.set(__self__, "excludes", excludes)
+        if includes is not None:
+            pulumi.set(__self__, "includes", includes)
+
+    @property
+    @pulumi.getter
+    def excludes(self) -> Optional[Sequence[str]]:
+        """
+        List of branch patterns to exclude.
+        """
+        return pulumi.get(self, "excludes")
+
+    @property
+    @pulumi.getter
+    def includes(self) -> Optional[Sequence[str]]:
+        """
+        List of branch patterns to include.
+        """
+        return pulumi.get(self, "includes")
+
+
+@pulumi.output_type
 class BuildDefinitionCiTrigger(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1250,24 +1333,23 @@ class BuildDefinitionCiTriggerOverride(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 branch_filters: Sequence['outputs.BuildDefinitionCiTriggerOverrideBranchFilter'],
                  batch: Optional[bool] = None,
-                 branch_filters: Optional[Sequence['outputs.BuildDefinitionCiTriggerOverrideBranchFilter']] = None,
                  max_concurrent_builds_per_branch: Optional[int] = None,
                  path_filters: Optional[Sequence['outputs.BuildDefinitionCiTriggerOverridePathFilter']] = None,
                  polling_interval: Optional[int] = None,
                  polling_job_id: Optional[str] = None):
         """
+        :param Sequence['BuildDefinitionCiTriggerOverrideBranchFilterArgs'] branch_filters: The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
         :param bool batch: If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.
-        :param Sequence['BuildDefinitionCiTriggerOverrideBranchFilterArgs'] branch_filters: The branches to include and exclude from the trigger.
         :param int max_concurrent_builds_per_branch: The number of max builds per branch. Defaults to `1`.
         :param Sequence['BuildDefinitionCiTriggerOverridePathFilterArgs'] path_filters: Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
         :param int polling_interval: How often the external repository is polled. Defaults to `0`.
         :param str polling_job_id: This is the ID of the polling job that polls the external repository. Once the build definition is saved/updated, this value is set.
         """
+        pulumi.set(__self__, "branch_filters", branch_filters)
         if batch is not None:
             pulumi.set(__self__, "batch", batch)
-        if branch_filters is not None:
-            pulumi.set(__self__, "branch_filters", branch_filters)
         if max_concurrent_builds_per_branch is not None:
             pulumi.set(__self__, "max_concurrent_builds_per_branch", max_concurrent_builds_per_branch)
         if path_filters is not None:
@@ -1278,20 +1360,20 @@ class BuildDefinitionCiTriggerOverride(dict):
             pulumi.set(__self__, "polling_job_id", polling_job_id)
 
     @property
+    @pulumi.getter(name="branchFilters")
+    def branch_filters(self) -> Sequence['outputs.BuildDefinitionCiTriggerOverrideBranchFilter']:
+        """
+        The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
+        """
+        return pulumi.get(self, "branch_filters")
+
+    @property
     @pulumi.getter
     def batch(self) -> Optional[bool]:
         """
         If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.
         """
         return pulumi.get(self, "batch")
-
-    @property
-    @pulumi.getter(name="branchFilters")
-    def branch_filters(self) -> Optional[Sequence['outputs.BuildDefinitionCiTriggerOverrideBranchFilter']]:
-        """
-        The branches to include and exclude from the trigger.
-        """
-        return pulumi.get(self, "branch_filters")
 
     @property
     @pulumi.getter(name="maxConcurrentBuildsPerBranch")
@@ -1558,10 +1640,10 @@ class BuildDefinitionPullRequestTriggerOverride(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "autoCancel":
-            suggest = "auto_cancel"
-        elif key == "branchFilters":
+        if key == "branchFilters":
             suggest = "branch_filters"
+        elif key == "autoCancel":
+            suggest = "auto_cancel"
         elif key == "pathFilters":
             suggest = "path_filters"
 
@@ -1577,20 +1659,27 @@ class BuildDefinitionPullRequestTriggerOverride(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 branch_filters: Sequence['outputs.BuildDefinitionPullRequestTriggerOverrideBranchFilter'],
                  auto_cancel: Optional[bool] = None,
-                 branch_filters: Optional[Sequence['outputs.BuildDefinitionPullRequestTriggerOverrideBranchFilter']] = None,
                  path_filters: Optional[Sequence['outputs.BuildDefinitionPullRequestTriggerOverridePathFilter']] = None):
         """
+        :param Sequence['BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs'] branch_filters: The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
         :param bool auto_cancel: . Defaults to `true`.
-        :param Sequence['BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs'] branch_filters: The branches to include and exclude from the trigger.
         :param Sequence['BuildDefinitionPullRequestTriggerOverridePathFilterArgs'] path_filters: Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
         """
+        pulumi.set(__self__, "branch_filters", branch_filters)
         if auto_cancel is not None:
             pulumi.set(__self__, "auto_cancel", auto_cancel)
-        if branch_filters is not None:
-            pulumi.set(__self__, "branch_filters", branch_filters)
         if path_filters is not None:
             pulumi.set(__self__, "path_filters", path_filters)
+
+    @property
+    @pulumi.getter(name="branchFilters")
+    def branch_filters(self) -> Sequence['outputs.BuildDefinitionPullRequestTriggerOverrideBranchFilter']:
+        """
+        The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
+        """
+        return pulumi.get(self, "branch_filters")
 
     @property
     @pulumi.getter(name="autoCancel")
@@ -1599,14 +1688,6 @@ class BuildDefinitionPullRequestTriggerOverride(dict):
         . Defaults to `true`.
         """
         return pulumi.get(self, "auto_cancel")
-
-    @property
-    @pulumi.getter(name="branchFilters")
-    def branch_filters(self) -> Optional[Sequence['outputs.BuildDefinitionPullRequestTriggerOverrideBranchFilter']]:
-        """
-        The branches to include and exclude from the trigger.
-        """
-        return pulumi.get(self, "branch_filters")
 
     @property
     @pulumi.getter(name="pathFilters")
@@ -1801,10 +1882,10 @@ class BuildDefinitionSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "daysToBuilds":
-            suggest = "days_to_builds"
-        elif key == "branchFilters":
+        if key == "branchFilters":
             suggest = "branch_filters"
+        elif key == "daysToBuilds":
+            suggest = "days_to_builds"
         elif key == "scheduleJobId":
             suggest = "schedule_job_id"
         elif key == "scheduleOnlyWithChanges":
@@ -1828,16 +1909,16 @@ class BuildDefinitionSchedule(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 branch_filters: Sequence['outputs.BuildDefinitionScheduleBranchFilter'],
                  days_to_builds: Sequence[str],
-                 branch_filters: Optional[Sequence['outputs.BuildDefinitionScheduleBranchFilter']] = None,
                  schedule_job_id: Optional[str] = None,
                  schedule_only_with_changes: Optional[bool] = None,
                  start_hours: Optional[int] = None,
                  start_minutes: Optional[int] = None,
                  time_zone: Optional[str] = None):
         """
-        :param Sequence[str] days_to_builds: When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
         :param Sequence['BuildDefinitionScheduleBranchFilterArgs'] branch_filters: block supports the following:
+        :param Sequence[str] days_to_builds: When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
         :param str schedule_job_id: The ID of the schedule job
         :param bool schedule_only_with_changes: Schedule builds if the source or pipeline has changed. Defaults to `true`.
         :param int start_hours: Build start hour. Defaults to `0`. Valid values: `0 ~ 23`.
@@ -1985,9 +2066,8 @@ class BuildDefinitionSchedule(dict):
                `(UTC+13:00) Samoa`,
                `(UTC+14:00) Kiritimati Island`.
         """
+        pulumi.set(__self__, "branch_filters", branch_filters)
         pulumi.set(__self__, "days_to_builds", days_to_builds)
-        if branch_filters is not None:
-            pulumi.set(__self__, "branch_filters", branch_filters)
         if schedule_job_id is not None:
             pulumi.set(__self__, "schedule_job_id", schedule_job_id)
         if schedule_only_with_changes is not None:
@@ -2000,20 +2080,20 @@ class BuildDefinitionSchedule(dict):
             pulumi.set(__self__, "time_zone", time_zone)
 
     @property
+    @pulumi.getter(name="branchFilters")
+    def branch_filters(self) -> Sequence['outputs.BuildDefinitionScheduleBranchFilter']:
+        """
+        block supports the following:
+        """
+        return pulumi.get(self, "branch_filters")
+
+    @property
     @pulumi.getter(name="daysToBuilds")
     def days_to_builds(self) -> Sequence[str]:
         """
         When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
         """
         return pulumi.get(self, "days_to_builds")
-
-    @property
-    @pulumi.getter(name="branchFilters")
-    def branch_filters(self) -> Optional[Sequence['outputs.BuildDefinitionScheduleBranchFilter']]:
-        """
-        block supports the following:
-        """
-        return pulumi.get(self, "branch_filters")
 
     @property
     @pulumi.getter(name="scheduleJobId")
@@ -2465,22 +2545,33 @@ class GitInitialization(dict):
 
     def __init__(__self__, *,
                  init_type: str,
+                 password: Optional[str] = None,
                  service_connection_id: Optional[str] = None,
                  source_type: Optional[str] = None,
-                 source_url: Optional[str] = None):
+                 source_url: Optional[str] = None,
+                 username: Optional[str] = None):
         """
         :param str init_type: The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
-        :param str service_connection_id: The id of service connection used to authenticate to a private repository for import initialization.
+        :param str password: The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
+               
+               ~>**Note**
+               At least `service_connection_id` or `username/password` needs to be set to import private repository.
+        :param str service_connection_id: The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
         :param str source_type: Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`.
         :param str source_url: The URL of the source repository. Used if the `init_type` is `Import`.
+        :param str username: The username used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
         """
         pulumi.set(__self__, "init_type", init_type)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
         if service_connection_id is not None:
             pulumi.set(__self__, "service_connection_id", service_connection_id)
         if source_type is not None:
             pulumi.set(__self__, "source_type", source_type)
         if source_url is not None:
             pulumi.set(__self__, "source_url", source_url)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter(name="initType")
@@ -2491,10 +2582,21 @@ class GitInitialization(dict):
         return pulumi.get(self, "init_type")
 
     @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
+
+        ~>**Note**
+        At least `service_connection_id` or `username/password` needs to be set to import private repository.
+        """
+        return pulumi.get(self, "password")
+
+    @property
     @pulumi.getter(name="serviceConnectionId")
     def service_connection_id(self) -> Optional[str]:
         """
-        The id of service connection used to authenticate to a private repository for import initialization.
+        The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
         """
         return pulumi.get(self, "service_connection_id")
 
@@ -2513,6 +2615,14 @@ class GitInitialization(dict):
         The URL of the source repository. Used if the `init_type` is `Import`.
         """
         return pulumi.get(self, "source_url")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        """
+        The username used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
+        """
+        return pulumi.get(self, "username")
 
 
 @pulumi.output_type
@@ -2584,12 +2694,16 @@ class ServiceEndpointAzureEcrCredentials(dict):
 class ServiceEndpointAzureRMCredentials(dict):
     def __init__(__self__, *,
                  serviceprincipalid: str,
+                 serviceprincipalcertificate: Optional[str] = None,
                  serviceprincipalkey: Optional[str] = None):
         """
-        :param str serviceprincipalid: The service principal application Id
+        :param str serviceprincipalid: The service principal application ID
+        :param str serviceprincipalcertificate: The service principal certificate. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
         :param str serviceprincipalkey: The service principal secret. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
         """
         pulumi.set(__self__, "serviceprincipalid", serviceprincipalid)
+        if serviceprincipalcertificate is not None:
+            pulumi.set(__self__, "serviceprincipalcertificate", serviceprincipalcertificate)
         if serviceprincipalkey is not None:
             pulumi.set(__self__, "serviceprincipalkey", serviceprincipalkey)
 
@@ -2597,9 +2711,17 @@ class ServiceEndpointAzureRMCredentials(dict):
     @pulumi.getter
     def serviceprincipalid(self) -> str:
         """
-        The service principal application Id
+        The service principal application ID
         """
         return pulumi.get(self, "serviceprincipalid")
+
+    @property
+    @pulumi.getter
+    def serviceprincipalcertificate(self) -> Optional[str]:
+        """
+        The service principal certificate. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
+        """
+        return pulumi.get(self, "serviceprincipalcertificate")
 
     @property
     @pulumi.getter
@@ -2925,6 +3047,8 @@ class ServiceEndpointKubernetesServiceAccount(dict):
         suggest = None
         if key == "caCert":
             suggest = "ca_cert"
+        elif key == "acceptUntrustedCerts":
+            suggest = "accept_untrusted_certs"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ServiceEndpointKubernetesServiceAccount. Access the value via the '{suggest}' property getter instead.")
@@ -2939,13 +3063,17 @@ class ServiceEndpointKubernetesServiceAccount(dict):
 
     def __init__(__self__, *,
                  ca_cert: str,
-                 token: str):
+                 token: str,
+                 accept_untrusted_certs: Optional[bool] = None):
         """
         :param str ca_cert: The certificate from a Kubernetes secret object.
         :param str token: The token from a Kubernetes secret object.
+        :param bool accept_untrusted_certs: Set this option to allow clients to accept a self-signed certificate. Defaults to `false`.
         """
         pulumi.set(__self__, "ca_cert", ca_cert)
         pulumi.set(__self__, "token", token)
+        if accept_untrusted_certs is not None:
+            pulumi.set(__self__, "accept_untrusted_certs", accept_untrusted_certs)
 
     @property
     @pulumi.getter(name="caCert")
@@ -2962,6 +3090,14 @@ class ServiceEndpointKubernetesServiceAccount(dict):
         The token from a Kubernetes secret object.
         """
         return pulumi.get(self, "token")
+
+    @property
+    @pulumi.getter(name="acceptUntrustedCerts")
+    def accept_untrusted_certs(self) -> Optional[bool]:
+        """
+        Set this option to allow clients to accept a self-signed certificate. Defaults to `false`.
+        """
+        return pulumi.get(self, "accept_untrusted_certs")
 
 
 @pulumi.output_type
@@ -3535,6 +3671,53 @@ class ServiceendpointMavenAuthenticationToken(dict):
     def token(self) -> str:
         """
         Authentication Token generated through maven repository.
+        """
+        return pulumi.get(self, "token")
+
+
+@pulumi.output_type
+class ServiceendpointVisualstudiomarketplaceAuthenticationBasic(dict):
+    def __init__(__self__, *,
+                 password: str,
+                 username: str):
+        """
+        :param str password: The password of the marketplace.
+        :param str username: The username of the marketplace.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        The password of the marketplace.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        The username of the marketplace.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class ServiceendpointVisualstudiomarketplaceAuthenticationToken(dict):
+    def __init__(__self__, *,
+                 token: str):
+        """
+        :param str token: The Personal Access Token.
+        """
+        pulumi.set(__self__, "token", token)
+
+    @property
+    @pulumi.getter
+    def token(self) -> str:
+        """
+        The Personal Access Token.
         """
         return pulumi.get(self, "token")
 

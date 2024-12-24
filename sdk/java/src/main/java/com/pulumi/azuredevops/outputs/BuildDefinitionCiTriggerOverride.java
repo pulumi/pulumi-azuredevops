@@ -6,6 +6,7 @@ package com.pulumi.azuredevops.outputs;
 import com.pulumi.azuredevops.outputs.BuildDefinitionCiTriggerOverrideBranchFilter;
 import com.pulumi.azuredevops.outputs.BuildDefinitionCiTriggerOverridePathFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -22,10 +23,10 @@ public final class BuildDefinitionCiTriggerOverride {
      */
     private @Nullable Boolean batch;
     /**
-     * @return The branches to include and exclude from the trigger.
+     * @return The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
      * 
      */
-    private @Nullable List<BuildDefinitionCiTriggerOverrideBranchFilter> branchFilters;
+    private List<BuildDefinitionCiTriggerOverrideBranchFilter> branchFilters;
     /**
      * @return The number of max builds per branch. Defaults to `1`.
      * 
@@ -56,11 +57,11 @@ public final class BuildDefinitionCiTriggerOverride {
         return Optional.ofNullable(this.batch);
     }
     /**
-     * @return The branches to include and exclude from the trigger.
+     * @return The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
      * 
      */
     public List<BuildDefinitionCiTriggerOverrideBranchFilter> branchFilters() {
-        return this.branchFilters == null ? List.of() : this.branchFilters;
+        return this.branchFilters;
     }
     /**
      * @return The number of max builds per branch. Defaults to `1`.
@@ -101,7 +102,7 @@ public final class BuildDefinitionCiTriggerOverride {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean batch;
-        private @Nullable List<BuildDefinitionCiTriggerOverrideBranchFilter> branchFilters;
+        private List<BuildDefinitionCiTriggerOverrideBranchFilter> branchFilters;
         private @Nullable Integer maxConcurrentBuildsPerBranch;
         private @Nullable List<BuildDefinitionCiTriggerOverridePathFilter> pathFilters;
         private @Nullable Integer pollingInterval;
@@ -124,8 +125,10 @@ public final class BuildDefinitionCiTriggerOverride {
             return this;
         }
         @CustomType.Setter
-        public Builder branchFilters(@Nullable List<BuildDefinitionCiTriggerOverrideBranchFilter> branchFilters) {
-
+        public Builder branchFilters(List<BuildDefinitionCiTriggerOverrideBranchFilter> branchFilters) {
+            if (branchFilters == null) {
+              throw new MissingRequiredPropertyException("BuildDefinitionCiTriggerOverride", "branchFilters");
+            }
             this.branchFilters = branchFilters;
             return this;
         }

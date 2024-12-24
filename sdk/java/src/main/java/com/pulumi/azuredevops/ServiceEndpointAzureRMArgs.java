@@ -57,14 +57,14 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The Tenant ID if the service principal.
+     * The Tenant ID of the service principal.
      * 
      */
     @Import(name="azurermSpnTenantid", required=true)
     private Output<String> azurermSpnTenantid;
 
     /**
-     * @return The Tenant ID if the service principal.
+     * @return The Tenant ID of the service principal.
      * 
      */
     public Output<String> azurermSpnTenantid() {
@@ -132,18 +132,14 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`. Changing this forces a new resource to be created.
-     * 
-     * &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+     * The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud` and `AzureStack`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="environment")
     private @Nullable Output<String> environment;
 
     /**
-     * @return The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`. Changing this forces a new resource to be created.
-     * 
-     * &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+     * @return The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud` and `AzureStack`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> environment() {
@@ -196,6 +192,25 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * The server URL of the service endpoint. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+     * 
+     */
+    @Import(name="serverUrl")
+    private @Nullable Output<String> serverUrl;
+
+    /**
+     * @return The server URL of the service endpoint. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+     * 
+     */
+    public Optional<Output<String>> serverUrl() {
+        return Optional.ofNullable(this.serverUrl);
+    }
+
+    /**
      * Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
      * 
      * &gt; **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
@@ -244,6 +259,7 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
         this.features = $.features;
         this.projectId = $.projectId;
         this.resourceGroup = $.resourceGroup;
+        this.serverUrl = $.serverUrl;
         this.serviceEndpointAuthenticationScheme = $.serviceEndpointAuthenticationScheme;
         this.serviceEndpointName = $.serviceEndpointName;
     }
@@ -318,7 +334,7 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param azurermSpnTenantid The Tenant ID if the service principal.
+         * @param azurermSpnTenantid The Tenant ID of the service principal.
          * 
          * @return builder
          * 
@@ -329,7 +345,7 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param azurermSpnTenantid The Tenant ID if the service principal.
+         * @param azurermSpnTenantid The Tenant ID of the service principal.
          * 
          * @return builder
          * 
@@ -423,9 +439,7 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param environment The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`. Changing this forces a new resource to be created.
-         * 
-         * &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+         * @param environment The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud` and `AzureStack`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -436,9 +450,7 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param environment The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`. Changing this forces a new resource to be created.
-         * 
-         * &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+         * @param environment The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud` and `AzureStack`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -508,6 +520,31 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
          */
         public Builder resourceGroup(String resourceGroup) {
             return resourceGroup(Output.of(resourceGroup));
+        }
+
+        /**
+         * @param serverUrl The server URL of the service endpoint. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serverUrl(@Nullable Output<String> serverUrl) {
+            $.serverUrl = serverUrl;
+            return this;
+        }
+
+        /**
+         * @param serverUrl The server URL of the service endpoint. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serverUrl(String serverUrl) {
+            return serverUrl(Output.of(serverUrl));
         }
 
         /**

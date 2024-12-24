@@ -63,7 +63,7 @@ namespace Pulumi.AzureDevOps
         /// The AWS access key ID for signing programmatic requests.
         /// </summary>
         [Output("accessKeyId")]
-        public Output<string> AccessKeyId { get; private set; } = null!;
+        public Output<string?> AccessKeyId { get; private set; } = null!;
 
         [Output("authorization")]
         public Output<ImmutableDictionary<string, string>> Authorization { get; private set; } = null!;
@@ -99,7 +99,7 @@ namespace Pulumi.AzureDevOps
         /// The AWS secret access key for signing programmatic requests.
         /// </summary>
         [Output("secretAccessKey")]
-        public Output<string> SecretAccessKey { get; private set; } = null!;
+        public Output<string?> SecretAccessKey { get; private set; } = null!;
 
         /// <summary>
         /// The Service Endpoint name.
@@ -112,6 +112,12 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Output("sessionToken")]
         public Output<string?> SessionToken { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable this to attempt getting credentials with OIDC token from Azure Devops.
+        /// </summary>
+        [Output("useOidc")]
+        public Output<bool?> UseOidc { get; private set; } = null!;
 
 
         /// <summary>
@@ -167,8 +173,8 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The AWS access key ID for signing programmatic requests.
         /// </summary>
-        [Input("accessKeyId", required: true)]
-        public Input<string> AccessKeyId { get; set; } = null!;
+        [Input("accessKeyId")]
+        public Input<string>? AccessKeyId { get; set; }
 
         [Input("authorization")]
         private InputMap<string>? _authorization;
@@ -205,7 +211,7 @@ namespace Pulumi.AzureDevOps
         [Input("roleToAssume")]
         public Input<string>? RoleToAssume { get; set; }
 
-        [Input("secretAccessKey", required: true)]
+        [Input("secretAccessKey")]
         private Input<string>? _secretAccessKey;
 
         /// <summary>
@@ -242,6 +248,12 @@ namespace Pulumi.AzureDevOps
                 _sessionToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// Enable this to attempt getting credentials with OIDC token from Azure Devops.
+        /// </summary>
+        [Input("useOidc")]
+        public Input<bool>? UseOidc { get; set; }
 
         public ServiceEndpointAwsArgs()
         {
@@ -329,6 +341,12 @@ namespace Pulumi.AzureDevOps
                 _sessionToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// Enable this to attempt getting credentials with OIDC token from Azure Devops.
+        /// </summary>
+        [Input("useOidc")]
+        public Input<bool>? UseOidc { get; set; }
 
         public ServiceEndpointAwsState()
         {

@@ -26,7 +26,7 @@ class SecurityroleAssignmentArgs:
         """
         The set of arguments for constructing a SecurityroleAssignment resource.
         :param pulumi.Input[str] identity_id: The ID of the identity to authorize.
-        :param pulumi.Input[str] resource_id: The ID of the resource on which the role is to be assigned.
+        :param pulumi.Input[str] resource_id: The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
         :param pulumi.Input[str] role_name: Name of the role to assign.
         :param pulumi.Input[str] scope: The scope in which this assignment should exist.
         """
@@ -51,7 +51,7 @@ class SecurityroleAssignmentArgs:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Input[str]:
         """
-        The ID of the resource on which the role is to be assigned.
+        The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_id")
 
@@ -94,7 +94,7 @@ class _SecurityroleAssignmentState:
         """
         Input properties used for looking up and filtering SecurityroleAssignment resources.
         :param pulumi.Input[str] identity_id: The ID of the identity to authorize.
-        :param pulumi.Input[str] resource_id: The ID of the resource on which the role is to be assigned.
+        :param pulumi.Input[str] resource_id: The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
         :param pulumi.Input[str] role_name: Name of the role to assign.
         :param pulumi.Input[str] scope: The scope in which this assignment should exist.
         """
@@ -123,7 +123,7 @@ class _SecurityroleAssignmentState:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the resource on which the role is to be assigned.
+        The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_id")
 
@@ -172,7 +172,7 @@ class SecurityroleAssignment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] identity_id: The ID of the identity to authorize.
-        :param pulumi.Input[str] resource_id: The ID of the resource on which the role is to be assigned.
+        :param pulumi.Input[str] resource_id: The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
         :param pulumi.Input[str] role_name: Name of the role to assign.
         :param pulumi.Input[str] scope: The scope in which this assignment should exist.
         """
@@ -247,7 +247,7 @@ class SecurityroleAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] identity_id: The ID of the identity to authorize.
-        :param pulumi.Input[str] resource_id: The ID of the resource on which the role is to be assigned.
+        :param pulumi.Input[str] resource_id: The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
         :param pulumi.Input[str] role_name: Name of the role to assign.
         :param pulumi.Input[str] scope: The scope in which this assignment should exist.
         """
@@ -273,7 +273,7 @@ class SecurityroleAssignment(pulumi.CustomResource):
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[str]:
         """
-        The ID of the resource on which the role is to be assigned.
+        The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_id")
 

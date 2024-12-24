@@ -22,7 +22,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> IdentityId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the resource on which the role is to be assigned.
+        /// The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.AzureDevOps
         public Input<string> IdentityId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the resource on which the role is to be assigned.
+        /// The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? IdentityId { get; set; }
 
         /// <summary>
-        /// The ID of the resource on which the role is to be assigned.
+        /// The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }

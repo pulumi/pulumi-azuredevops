@@ -148,6 +148,26 @@
                 "current": "azuredevops:index/buildDefinition:BuildDefinition",
                 "majorVersion": 3,
                 "fields": {
+                    "build_completion_trigger": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "branch_filter": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "exclude": {
+                                                "maxItemsOne": false
+                                            },
+                                            "include": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
                     "ci_trigger": {
                         "maxItemsOne": true,
                         "elem": {
@@ -523,6 +543,10 @@
                 "current": "azuredevops:index/serviceEndpointAws:ServiceEndpointAws",
                 "majorVersion": 3
             },
+            "azuredevops_serviceendpoint_azure_service_bus": {
+                "current": "azuredevops:index/serviceendpointAzureServiceBus:ServiceendpointAzureServiceBus",
+                "majorVersion": 3
+            },
             "azuredevops_serviceendpoint_azurecr": {
                 "current": "azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr",
                 "majorVersion": 3,
@@ -554,6 +578,10 @@
             },
             "azuredevops_serviceendpoint_dockerregistry": {
                 "current": "azuredevops:index/serviceEndpointDockerRegistry:ServiceEndpointDockerRegistry",
+                "majorVersion": 3
+            },
+            "azuredevops_serviceendpoint_dynamics_lifecycle_services": {
+                "current": "azuredevops:index/serviceendpointDynamicsLifecycleServices:ServiceendpointDynamicsLifecycleServices",
                 "majorVersion": 3
             },
             "azuredevops_serviceendpoint_externaltfs": {
@@ -597,6 +625,10 @@
                         "maxItemsOne": true
                     }
                 }
+            },
+            "azuredevops_serviceendpoint_gitlab": {
+                "current": "azuredevops:index/serviceEndpointGitLab:ServiceEndpointGitLab",
+                "majorVersion": 3
             },
             "azuredevops_serviceendpoint_incomingwebhook": {
                 "current": "azuredevops:index/serviceendpointIncomingwebhook:ServiceendpointIncomingwebhook",
@@ -725,6 +757,10 @@
                     }
                 }
             },
+            "azuredevops_serviceendpoint_snyk": {
+                "current": "azuredevops:index/serviceendpointSnyk:ServiceendpointSnyk",
+                "majorVersion": 3
+            },
             "azuredevops_serviceendpoint_sonarcloud": {
                 "current": "azuredevops:index/serviceEndpointSonarCloud:ServiceEndpointSonarCloud",
                 "majorVersion": 3
@@ -736,6 +772,18 @@
             "azuredevops_serviceendpoint_ssh": {
                 "current": "azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh",
                 "majorVersion": 3
+            },
+            "azuredevops_serviceendpoint_visualstudiomarketplace": {
+                "current": "azuredevops:index/serviceendpointVisualstudiomarketplace:ServiceendpointVisualstudiomarketplace",
+                "majorVersion": 3,
+                "fields": {
+                    "authentication_basic": {
+                        "maxItemsOne": true
+                    },
+                    "authentication_token": {
+                        "maxItemsOne": true
+                    }
+                }
             },
             "azuredevops_servicehook_permissions": {
                 "current": "azuredevops:index/servicehookPermissions:ServicehookPermissions",

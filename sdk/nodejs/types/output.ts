@@ -287,6 +287,28 @@ export interface BranchPolicyWorkItemLinkingSettingsScope {
     repositoryRef?: string;
 }
 
+export interface BuildDefinitionBuildCompletionTrigger {
+    /**
+     * The branches to include and exclude from the trigger. A `branchFilter` block as documented below.
+     */
+    branchFilters: outputs.BuildDefinitionBuildCompletionTriggerBranchFilter[];
+    /**
+     * The ID of the build pipeline will be triggered.
+     */
+    buildDefinitionId: number;
+}
+
+export interface BuildDefinitionBuildCompletionTriggerBranchFilter {
+    /**
+     * List of branch patterns to exclude.
+     */
+    excludes?: string[];
+    /**
+     * List of branch patterns to include.
+     */
+    includes?: string[];
+}
+
 export interface BuildDefinitionCiTrigger {
     /**
      * Override the azure-pipeline file and use a this configuration for all builds.
@@ -304,9 +326,9 @@ export interface BuildDefinitionCiTriggerOverride {
      */
     batch?: boolean;
     /**
-     * The branches to include and exclude from the trigger.
+     * The branches to include and exclude from the trigger. A `branchFilter` block as documented below.
      */
-    branchFilters?: outputs.BuildDefinitionCiTriggerOverrideBranchFilter[];
+    branchFilters: outputs.BuildDefinitionCiTriggerOverrideBranchFilter[];
     /**
      * The number of max builds per branch. Defaults to `1`.
      */
@@ -390,9 +412,9 @@ export interface BuildDefinitionPullRequestTriggerOverride {
      */
     autoCancel?: boolean;
     /**
-     * The branches to include and exclude from the trigger.
+     * The branches to include and exclude from the trigger. A `branchFilter` block as documented below.
      */
-    branchFilters?: outputs.BuildDefinitionPullRequestTriggerOverrideBranchFilter[];
+    branchFilters: outputs.BuildDefinitionPullRequestTriggerOverrideBranchFilter[];
     /**
      * Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
      */
@@ -456,7 +478,7 @@ export interface BuildDefinitionSchedule {
     /**
      * block supports the following:
      */
-    branchFilters?: outputs.BuildDefinitionScheduleBranchFilter[];
+    branchFilters: outputs.BuildDefinitionScheduleBranchFilter[];
     /**
      * When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
      */
@@ -1232,7 +1254,14 @@ export interface GitInitialization {
      */
     initType: string;
     /**
-     * The id of service connection used to authenticate to a private repository for import initialization.
+     * The password used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`.
+     *
+     * ~>**Note**
+     * At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
+     */
+    password?: string;
+    /**
+     * The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
      */
     serviceConnectionId?: string;
     /**
@@ -1243,6 +1272,10 @@ export interface GitInitialization {
      * The URL of the source repository. Used if the `initType` is `Import`.
      */
     sourceUrl?: string;
+    /**
+     * The username used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`.
+     */
+    username?: string;
 }
 
 export interface ServiceEndpointArtifactoryAuthenticationBasic {
@@ -1272,7 +1305,11 @@ export interface ServiceEndpointAzureEcrCredentials {
 
 export interface ServiceEndpointAzureRMCredentials {
     /**
-     * The service principal application Id
+     * The service principal certificate. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
+     */
+    serviceprincipalcertificate?: string;
+    /**
+     * The service principal application ID
      */
     serviceprincipalid: string;
     /**
@@ -1357,6 +1394,10 @@ export interface ServiceEndpointKubernetesKubeconfig {
 }
 
 export interface ServiceEndpointKubernetesServiceAccount {
+    /**
+     * Set this option to allow clients to accept a self-signed certificate. Defaults to `false`.
+     */
+    acceptUntrustedCerts?: boolean;
     /**
      * The certificate from a Kubernetes secret object.
      */
@@ -1542,6 +1583,24 @@ export interface ServiceendpointMavenAuthenticationBasic {
 export interface ServiceendpointMavenAuthenticationToken {
     /**
      * Authentication Token generated through maven repository.
+     */
+    token: string;
+}
+
+export interface ServiceendpointVisualstudiomarketplaceAuthenticationBasic {
+    /**
+     * The password of the marketplace.
+     */
+    password: string;
+    /**
+     * The username of the marketplace.
+     */
+    username: string;
+}
+
+export interface ServiceendpointVisualstudiomarketplaceAuthenticationToken {
+    /**
+     * The Personal Access Token.
      */
     token: string;
 }

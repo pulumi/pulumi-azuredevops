@@ -11,7 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * ### Tfs
+ * ### Azure DevOps
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -139,6 +139,73 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
+ * ### Build Completion Trigger
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = new azuredevops.BuildDefinition("example", {
+ *     projectId: exampleAzuredevopsProject.id,
+ *     name: "Example Build Definition",
+ *     path: "\\ExampleFolder",
+ *     ciTrigger: {
+ *         useYaml: false,
+ *     },
+ *     repository: {
+ *         repoType: "GitHubEnterprise",
+ *         repoId: "<GitHub Org>/<Repo Name>",
+ *         githubEnterpriseUrl: "https://github.company.com",
+ *         branchName: "main",
+ *         ymlPath: "azure-pipelines.yml",
+ *         serviceConnectionId: exampleAzuredevopsServiceendpointGithubEnterprise.id,
+ *     },
+ *     buildCompletionTriggers: [{
+ *         buildDefinitionId: 10,
+ *         branchFilters: [{
+ *             includes: ["main"],
+ *             excludes: ["test"],
+ *         }],
+ *     }],
+ * });
+ * ```
+ *
+ * ### Pull Request Trigger
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = azuredevops.getServiceEndpointGithub({
+ *     projectId: exampleAzuredevopsProject.id,
+ *     serviceEndpointId: "00000000-0000-0000-0000-000000000000",
+ * });
+ * const exampleBuildDefinition = new azuredevops.BuildDefinition("example", {
+ *     projectId: exampleAzuredevopsProject2.id,
+ *     name: "Example Build Definition",
+ *     path: "\\ExampleFolder",
+ *     ciTrigger: {
+ *         useYaml: false,
+ *     },
+ *     repository: {
+ *         repoType: "GitHub",
+ *         repoId: "<GitHub Org>/<Repo Name>",
+ *         branchName: "main",
+ *         ymlPath: "azure-pipelines.yml",
+ *         serviceConnectionId: example.then(example => example.id),
+ *     },
+ *     pullRequestTrigger: {
+ *         override: {
+ *             branchFilters: [{
+ *                 includes: ["main"],
+ *             }],
+ *         },
+ *         forks: {
+ *             enabled: false,
+ *             shareSecrets: false,
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Remarks
  *
  * The path attribute can not end in `\` unless the path is the root value of `\`.
@@ -201,7 +268,11 @@ export class BuildDefinition extends pulumi.CustomResource {
      */
     public readonly agentPoolName!: pulumi.Output<string | undefined>;
     /**
-     * Continuous Integration trigger.
+     * A `buildCompletionTrigger` block as documented below.
+     */
+    public readonly buildCompletionTriggers!: pulumi.Output<outputs.BuildDefinitionBuildCompletionTrigger[] | undefined>;
+    /**
+     * A `ciTrigger` block as documented below.
      */
     public readonly ciTrigger!: pulumi.Output<outputs.BuildDefinitionCiTrigger | undefined>;
     /**
@@ -221,7 +292,7 @@ export class BuildDefinition extends pulumi.CustomResource {
      */
     public readonly projectId!: pulumi.Output<string>;
     /**
-     * Pull Request Integration trigger.
+     * A `pullRequestTrigger` block as documented below.
      */
     public readonly pullRequestTrigger!: pulumi.Output<outputs.BuildDefinitionPullRequestTrigger | undefined>;
     /**
@@ -260,6 +331,7 @@ export class BuildDefinition extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as BuildDefinitionState | undefined;
             resourceInputs["agentPoolName"] = state ? state.agentPoolName : undefined;
+            resourceInputs["buildCompletionTriggers"] = state ? state.buildCompletionTriggers : undefined;
             resourceInputs["ciTrigger"] = state ? state.ciTrigger : undefined;
             resourceInputs["features"] = state ? state.features : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -281,6 +353,7 @@ export class BuildDefinition extends pulumi.CustomResource {
                 throw new Error("Missing required property 'repository'");
             }
             resourceInputs["agentPoolName"] = args ? args.agentPoolName : undefined;
+            resourceInputs["buildCompletionTriggers"] = args ? args.buildCompletionTriggers : undefined;
             resourceInputs["ciTrigger"] = args ? args.ciTrigger : undefined;
             resourceInputs["features"] = args ? args.features : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -308,7 +381,11 @@ export interface BuildDefinitionState {
      */
     agentPoolName?: pulumi.Input<string>;
     /**
-     * Continuous Integration trigger.
+     * A `buildCompletionTrigger` block as documented below.
+     */
+    buildCompletionTriggers?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionBuildCompletionTrigger>[]>;
+    /**
+     * A `ciTrigger` block as documented below.
      */
     ciTrigger?: pulumi.Input<inputs.BuildDefinitionCiTrigger>;
     /**
@@ -328,7 +405,7 @@ export interface BuildDefinitionState {
      */
     projectId?: pulumi.Input<string>;
     /**
-     * Pull Request Integration trigger.
+     * A `pullRequestTrigger` block as documented below.
      */
     pullRequestTrigger?: pulumi.Input<inputs.BuildDefinitionPullRequestTrigger>;
     /**
@@ -363,7 +440,11 @@ export interface BuildDefinitionArgs {
      */
     agentPoolName?: pulumi.Input<string>;
     /**
-     * Continuous Integration trigger.
+     * A `buildCompletionTrigger` block as documented below.
+     */
+    buildCompletionTriggers?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionBuildCompletionTrigger>[]>;
+    /**
+     * A `ciTrigger` block as documented below.
      */
     ciTrigger?: pulumi.Input<inputs.BuildDefinitionCiTrigger>;
     /**
@@ -383,7 +464,7 @@ export interface BuildDefinitionArgs {
      */
     projectId: pulumi.Input<string>;
     /**
-     * Pull Request Integration trigger.
+     * A `pullRequestTrigger` block as documented below.
      */
     pullRequestTrigger?: pulumi.Input<inputs.BuildDefinitionPullRequestTrigger>;
     /**

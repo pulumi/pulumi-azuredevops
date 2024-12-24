@@ -18,7 +18,15 @@ public final class GitInitialization {
      */
     private String initType;
     /**
-     * @return The id of service connection used to authenticate to a private repository for import initialization.
+     * @return The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
+     * 
+     * ~&gt;**Note**
+     * At least `service_connection_id` or `username/password` needs to be set to import private repository.
+     * 
+     */
+    private @Nullable String password;
+    /**
+     * @return The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
      * 
      */
     private @Nullable String serviceConnectionId;
@@ -32,6 +40,11 @@ public final class GitInitialization {
      * 
      */
     private @Nullable String sourceUrl;
+    /**
+     * @return The username used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
+     * 
+     */
+    private @Nullable String username;
 
     private GitInitialization() {}
     /**
@@ -42,7 +55,17 @@ public final class GitInitialization {
         return this.initType;
     }
     /**
-     * @return The id of service connection used to authenticate to a private repository for import initialization.
+     * @return The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
+     * 
+     * ~&gt;**Note**
+     * At least `service_connection_id` or `username/password` needs to be set to import private repository.
+     * 
+     */
+    public Optional<String> password() {
+        return Optional.ofNullable(this.password);
+    }
+    /**
+     * @return The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
      * 
      */
     public Optional<String> serviceConnectionId() {
@@ -62,6 +85,13 @@ public final class GitInitialization {
     public Optional<String> sourceUrl() {
         return Optional.ofNullable(this.sourceUrl);
     }
+    /**
+     * @return The username used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
+     * 
+     */
+    public Optional<String> username() {
+        return Optional.ofNullable(this.username);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -73,16 +103,20 @@ public final class GitInitialization {
     @CustomType.Builder
     public static final class Builder {
         private String initType;
+        private @Nullable String password;
         private @Nullable String serviceConnectionId;
         private @Nullable String sourceType;
         private @Nullable String sourceUrl;
+        private @Nullable String username;
         public Builder() {}
         public Builder(GitInitialization defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.initType = defaults.initType;
+    	      this.password = defaults.password;
     	      this.serviceConnectionId = defaults.serviceConnectionId;
     	      this.sourceType = defaults.sourceType;
     	      this.sourceUrl = defaults.sourceUrl;
+    	      this.username = defaults.username;
         }
 
         @CustomType.Setter
@@ -91,6 +125,12 @@ public final class GitInitialization {
               throw new MissingRequiredPropertyException("GitInitialization", "initType");
             }
             this.initType = initType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder password(@Nullable String password) {
+
+            this.password = password;
             return this;
         }
         @CustomType.Setter
@@ -111,12 +151,20 @@ public final class GitInitialization {
             this.sourceUrl = sourceUrl;
             return this;
         }
+        @CustomType.Setter
+        public Builder username(@Nullable String username) {
+
+            this.username = username;
+            return this;
+        }
         public GitInitialization build() {
             final var _resultValue = new GitInitialization();
             _resultValue.initType = initType;
+            _resultValue.password = password;
             _resultValue.serviceConnectionId = serviceConnectionId;
             _resultValue.sourceType = sourceType;
             _resultValue.sourceUrl = sourceUrl;
+            _resultValue.username = username;
             return _resultValue;
         }
     }

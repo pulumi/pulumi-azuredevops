@@ -24,6 +24,7 @@ class BuildDefinitionArgs:
                  project_id: pulumi.Input[str],
                  repository: pulumi.Input['BuildDefinitionRepositoryArgs'],
                  agent_pool_name: Optional[pulumi.Input[str]] = None,
+                 build_completion_triggers: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionBuildCompletionTriggerArgs']]]] = None,
                  ci_trigger: Optional[pulumi.Input['BuildDefinitionCiTriggerArgs']] = None,
                  features: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionFeatureArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -38,11 +39,12 @@ class BuildDefinitionArgs:
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input['BuildDefinitionRepositoryArgs'] repository: A `repository` block as documented below.
         :param pulumi.Input[str] agent_pool_name: The agent pool that should execute the build. Defaults to `Azure Pipelines`.
-        :param pulumi.Input['BuildDefinitionCiTriggerArgs'] ci_trigger: Continuous Integration trigger.
+        :param pulumi.Input[Sequence[pulumi.Input['BuildDefinitionBuildCompletionTriggerArgs']]] build_completion_triggers: A `build_completion_trigger` block as documented below.
+        :param pulumi.Input['BuildDefinitionCiTriggerArgs'] ci_trigger: A `ci_trigger` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input['BuildDefinitionFeatureArgs']]] features: A `features` blocks as documented below.
         :param pulumi.Input[str] name: The name of the build definition.
         :param pulumi.Input[str] path: The folder path of the build definition.
-        :param pulumi.Input['BuildDefinitionPullRequestTriggerArgs'] pull_request_trigger: Pull Request Integration trigger.
+        :param pulumi.Input['BuildDefinitionPullRequestTriggerArgs'] pull_request_trigger: A `pull_request_trigger` block as documented below.
         :param pulumi.Input[str] queue_status: The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] variable_groups: A list of variable group IDs (integers) to link to the build definition.
         :param pulumi.Input[Sequence[pulumi.Input['BuildDefinitionVariableArgs']]] variables: A list of `variable` blocks, as documented below.
@@ -51,6 +53,8 @@ class BuildDefinitionArgs:
         pulumi.set(__self__, "repository", repository)
         if agent_pool_name is not None:
             pulumi.set(__self__, "agent_pool_name", agent_pool_name)
+        if build_completion_triggers is not None:
+            pulumi.set(__self__, "build_completion_triggers", build_completion_triggers)
         if ci_trigger is not None:
             pulumi.set(__self__, "ci_trigger", ci_trigger)
         if features is not None:
@@ -107,10 +111,22 @@ class BuildDefinitionArgs:
         pulumi.set(self, "agent_pool_name", value)
 
     @property
+    @pulumi.getter(name="buildCompletionTriggers")
+    def build_completion_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionBuildCompletionTriggerArgs']]]]:
+        """
+        A `build_completion_trigger` block as documented below.
+        """
+        return pulumi.get(self, "build_completion_triggers")
+
+    @build_completion_triggers.setter
+    def build_completion_triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionBuildCompletionTriggerArgs']]]]):
+        pulumi.set(self, "build_completion_triggers", value)
+
+    @property
     @pulumi.getter(name="ciTrigger")
     def ci_trigger(self) -> Optional[pulumi.Input['BuildDefinitionCiTriggerArgs']]:
         """
-        Continuous Integration trigger.
+        A `ci_trigger` block as documented below.
         """
         return pulumi.get(self, "ci_trigger")
 
@@ -158,7 +174,7 @@ class BuildDefinitionArgs:
     @pulumi.getter(name="pullRequestTrigger")
     def pull_request_trigger(self) -> Optional[pulumi.Input['BuildDefinitionPullRequestTriggerArgs']]:
         """
-        Pull Request Integration trigger.
+        A `pull_request_trigger` block as documented below.
         """
         return pulumi.get(self, "pull_request_trigger")
 
@@ -216,6 +232,7 @@ class BuildDefinitionArgs:
 class _BuildDefinitionState:
     def __init__(__self__, *,
                  agent_pool_name: Optional[pulumi.Input[str]] = None,
+                 build_completion_triggers: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionBuildCompletionTriggerArgs']]]] = None,
                  ci_trigger: Optional[pulumi.Input['BuildDefinitionCiTriggerArgs']] = None,
                  features: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionFeatureArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -231,12 +248,13 @@ class _BuildDefinitionState:
         """
         Input properties used for looking up and filtering BuildDefinition resources.
         :param pulumi.Input[str] agent_pool_name: The agent pool that should execute the build. Defaults to `Azure Pipelines`.
-        :param pulumi.Input['BuildDefinitionCiTriggerArgs'] ci_trigger: Continuous Integration trigger.
+        :param pulumi.Input[Sequence[pulumi.Input['BuildDefinitionBuildCompletionTriggerArgs']]] build_completion_triggers: A `build_completion_trigger` block as documented below.
+        :param pulumi.Input['BuildDefinitionCiTriggerArgs'] ci_trigger: A `ci_trigger` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input['BuildDefinitionFeatureArgs']]] features: A `features` blocks as documented below.
         :param pulumi.Input[str] name: The name of the build definition.
         :param pulumi.Input[str] path: The folder path of the build definition.
         :param pulumi.Input[str] project_id: The project ID or project name.
-        :param pulumi.Input['BuildDefinitionPullRequestTriggerArgs'] pull_request_trigger: Pull Request Integration trigger.
+        :param pulumi.Input['BuildDefinitionPullRequestTriggerArgs'] pull_request_trigger: A `pull_request_trigger` block as documented below.
         :param pulumi.Input[str] queue_status: The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
         :param pulumi.Input['BuildDefinitionRepositoryArgs'] repository: A `repository` block as documented below.
         :param pulumi.Input[int] revision: The revision of the build definition
@@ -245,6 +263,8 @@ class _BuildDefinitionState:
         """
         if agent_pool_name is not None:
             pulumi.set(__self__, "agent_pool_name", agent_pool_name)
+        if build_completion_triggers is not None:
+            pulumi.set(__self__, "build_completion_triggers", build_completion_triggers)
         if ci_trigger is not None:
             pulumi.set(__self__, "ci_trigger", ci_trigger)
         if features is not None:
@@ -283,10 +303,22 @@ class _BuildDefinitionState:
         pulumi.set(self, "agent_pool_name", value)
 
     @property
+    @pulumi.getter(name="buildCompletionTriggers")
+    def build_completion_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionBuildCompletionTriggerArgs']]]]:
+        """
+        A `build_completion_trigger` block as documented below.
+        """
+        return pulumi.get(self, "build_completion_triggers")
+
+    @build_completion_triggers.setter
+    def build_completion_triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionBuildCompletionTriggerArgs']]]]):
+        pulumi.set(self, "build_completion_triggers", value)
+
+    @property
     @pulumi.getter(name="ciTrigger")
     def ci_trigger(self) -> Optional[pulumi.Input['BuildDefinitionCiTriggerArgs']]:
         """
-        Continuous Integration trigger.
+        A `ci_trigger` block as documented below.
         """
         return pulumi.get(self, "ci_trigger")
 
@@ -346,7 +378,7 @@ class _BuildDefinitionState:
     @pulumi.getter(name="pullRequestTrigger")
     def pull_request_trigger(self) -> Optional[pulumi.Input['BuildDefinitionPullRequestTriggerArgs']]:
         """
-        Pull Request Integration trigger.
+        A `pull_request_trigger` block as documented below.
         """
         return pulumi.get(self, "pull_request_trigger")
 
@@ -430,6 +462,7 @@ class BuildDefinition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_pool_name: Optional[pulumi.Input[str]] = None,
+                 build_completion_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionBuildCompletionTriggerArgs', 'BuildDefinitionBuildCompletionTriggerArgsDict']]]]] = None,
                  ci_trigger: Optional[pulumi.Input[Union['BuildDefinitionCiTriggerArgs', 'BuildDefinitionCiTriggerArgsDict']]] = None,
                  features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionFeatureArgs', 'BuildDefinitionFeatureArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -447,7 +480,7 @@ class BuildDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Tfs
+        ### Azure DevOps
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -566,6 +599,69 @@ class BuildDefinition(pulumi.CustomResource):
                 "start_minutes": 59,
                 "time_zone": "(UTC) Coordinated Universal Time",
             }])
+        ```
+
+        ### Build Completion Trigger
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.BuildDefinition("example",
+            project_id=example_azuredevops_project["id"],
+            name="Example Build Definition",
+            path="\\\\ExampleFolder",
+            ci_trigger={
+                "use_yaml": False,
+            },
+            repository={
+                "repo_type": "GitHubEnterprise",
+                "repo_id": "<GitHub Org>/<Repo Name>",
+                "github_enterprise_url": "https://github.company.com",
+                "branch_name": "main",
+                "yml_path": "azure-pipelines.yml",
+                "service_connection_id": example_azuredevops_serviceendpoint_github_enterprise["id"],
+            },
+            build_completion_triggers=[{
+                "build_definition_id": 10,
+                "branch_filters": [{
+                    "includes": ["main"],
+                    "excludes": ["test"],
+                }],
+            }])
+        ```
+
+        ### Pull Request Trigger
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.get_service_endpoint_github(project_id=example_azuredevops_project["id"],
+            service_endpoint_id="00000000-0000-0000-0000-000000000000")
+        example_build_definition = azuredevops.BuildDefinition("example",
+            project_id=example_azuredevops_project2["id"],
+            name="Example Build Definition",
+            path="\\\\ExampleFolder",
+            ci_trigger={
+                "use_yaml": False,
+            },
+            repository={
+                "repo_type": "GitHub",
+                "repo_id": "<GitHub Org>/<Repo Name>",
+                "branch_name": "main",
+                "yml_path": "azure-pipelines.yml",
+                "service_connection_id": example.id,
+            },
+            pull_request_trigger={
+                "override": {
+                    "branch_filters": [{
+                        "includes": ["main"],
+                    }],
+                },
+                "forks": {
+                    "enabled": False,
+                    "share_secrets": False,
+                },
+            })
         ```
 
         ## Remarks
@@ -600,12 +696,13 @@ class BuildDefinition(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agent_pool_name: The agent pool that should execute the build. Defaults to `Azure Pipelines`.
-        :param pulumi.Input[Union['BuildDefinitionCiTriggerArgs', 'BuildDefinitionCiTriggerArgsDict']] ci_trigger: Continuous Integration trigger.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionBuildCompletionTriggerArgs', 'BuildDefinitionBuildCompletionTriggerArgsDict']]]] build_completion_triggers: A `build_completion_trigger` block as documented below.
+        :param pulumi.Input[Union['BuildDefinitionCiTriggerArgs', 'BuildDefinitionCiTriggerArgsDict']] ci_trigger: A `ci_trigger` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionFeatureArgs', 'BuildDefinitionFeatureArgsDict']]]] features: A `features` blocks as documented below.
         :param pulumi.Input[str] name: The name of the build definition.
         :param pulumi.Input[str] path: The folder path of the build definition.
         :param pulumi.Input[str] project_id: The project ID or project name.
-        :param pulumi.Input[Union['BuildDefinitionPullRequestTriggerArgs', 'BuildDefinitionPullRequestTriggerArgsDict']] pull_request_trigger: Pull Request Integration trigger.
+        :param pulumi.Input[Union['BuildDefinitionPullRequestTriggerArgs', 'BuildDefinitionPullRequestTriggerArgsDict']] pull_request_trigger: A `pull_request_trigger` block as documented below.
         :param pulumi.Input[str] queue_status: The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
         :param pulumi.Input[Union['BuildDefinitionRepositoryArgs', 'BuildDefinitionRepositoryArgsDict']] repository: A `repository` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] variable_groups: A list of variable group IDs (integers) to link to the build definition.
@@ -622,7 +719,7 @@ class BuildDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Tfs
+        ### Azure DevOps
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -741,6 +838,69 @@ class BuildDefinition(pulumi.CustomResource):
                 "start_minutes": 59,
                 "time_zone": "(UTC) Coordinated Universal Time",
             }])
+        ```
+
+        ### Build Completion Trigger
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.BuildDefinition("example",
+            project_id=example_azuredevops_project["id"],
+            name="Example Build Definition",
+            path="\\\\ExampleFolder",
+            ci_trigger={
+                "use_yaml": False,
+            },
+            repository={
+                "repo_type": "GitHubEnterprise",
+                "repo_id": "<GitHub Org>/<Repo Name>",
+                "github_enterprise_url": "https://github.company.com",
+                "branch_name": "main",
+                "yml_path": "azure-pipelines.yml",
+                "service_connection_id": example_azuredevops_serviceendpoint_github_enterprise["id"],
+            },
+            build_completion_triggers=[{
+                "build_definition_id": 10,
+                "branch_filters": [{
+                    "includes": ["main"],
+                    "excludes": ["test"],
+                }],
+            }])
+        ```
+
+        ### Pull Request Trigger
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.get_service_endpoint_github(project_id=example_azuredevops_project["id"],
+            service_endpoint_id="00000000-0000-0000-0000-000000000000")
+        example_build_definition = azuredevops.BuildDefinition("example",
+            project_id=example_azuredevops_project2["id"],
+            name="Example Build Definition",
+            path="\\\\ExampleFolder",
+            ci_trigger={
+                "use_yaml": False,
+            },
+            repository={
+                "repo_type": "GitHub",
+                "repo_id": "<GitHub Org>/<Repo Name>",
+                "branch_name": "main",
+                "yml_path": "azure-pipelines.yml",
+                "service_connection_id": example.id,
+            },
+            pull_request_trigger={
+                "override": {
+                    "branch_filters": [{
+                        "includes": ["main"],
+                    }],
+                },
+                "forks": {
+                    "enabled": False,
+                    "share_secrets": False,
+                },
+            })
         ```
 
         ## Remarks
@@ -788,6 +948,7 @@ class BuildDefinition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_pool_name: Optional[pulumi.Input[str]] = None,
+                 build_completion_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionBuildCompletionTriggerArgs', 'BuildDefinitionBuildCompletionTriggerArgsDict']]]]] = None,
                  ci_trigger: Optional[pulumi.Input[Union['BuildDefinitionCiTriggerArgs', 'BuildDefinitionCiTriggerArgsDict']]] = None,
                  features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionFeatureArgs', 'BuildDefinitionFeatureArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -809,6 +970,7 @@ class BuildDefinition(pulumi.CustomResource):
             __props__ = BuildDefinitionArgs.__new__(BuildDefinitionArgs)
 
             __props__.__dict__["agent_pool_name"] = agent_pool_name
+            __props__.__dict__["build_completion_triggers"] = build_completion_triggers
             __props__.__dict__["ci_trigger"] = ci_trigger
             __props__.__dict__["features"] = features
             __props__.__dict__["name"] = name
@@ -836,6 +998,7 @@ class BuildDefinition(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             agent_pool_name: Optional[pulumi.Input[str]] = None,
+            build_completion_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionBuildCompletionTriggerArgs', 'BuildDefinitionBuildCompletionTriggerArgsDict']]]]] = None,
             ci_trigger: Optional[pulumi.Input[Union['BuildDefinitionCiTriggerArgs', 'BuildDefinitionCiTriggerArgsDict']]] = None,
             features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionFeatureArgs', 'BuildDefinitionFeatureArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -856,12 +1019,13 @@ class BuildDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agent_pool_name: The agent pool that should execute the build. Defaults to `Azure Pipelines`.
-        :param pulumi.Input[Union['BuildDefinitionCiTriggerArgs', 'BuildDefinitionCiTriggerArgsDict']] ci_trigger: Continuous Integration trigger.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionBuildCompletionTriggerArgs', 'BuildDefinitionBuildCompletionTriggerArgsDict']]]] build_completion_triggers: A `build_completion_trigger` block as documented below.
+        :param pulumi.Input[Union['BuildDefinitionCiTriggerArgs', 'BuildDefinitionCiTriggerArgsDict']] ci_trigger: A `ci_trigger` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionFeatureArgs', 'BuildDefinitionFeatureArgsDict']]]] features: A `features` blocks as documented below.
         :param pulumi.Input[str] name: The name of the build definition.
         :param pulumi.Input[str] path: The folder path of the build definition.
         :param pulumi.Input[str] project_id: The project ID or project name.
-        :param pulumi.Input[Union['BuildDefinitionPullRequestTriggerArgs', 'BuildDefinitionPullRequestTriggerArgsDict']] pull_request_trigger: Pull Request Integration trigger.
+        :param pulumi.Input[Union['BuildDefinitionPullRequestTriggerArgs', 'BuildDefinitionPullRequestTriggerArgsDict']] pull_request_trigger: A `pull_request_trigger` block as documented below.
         :param pulumi.Input[str] queue_status: The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
         :param pulumi.Input[Union['BuildDefinitionRepositoryArgs', 'BuildDefinitionRepositoryArgsDict']] repository: A `repository` block as documented below.
         :param pulumi.Input[int] revision: The revision of the build definition
@@ -873,6 +1037,7 @@ class BuildDefinition(pulumi.CustomResource):
         __props__ = _BuildDefinitionState.__new__(_BuildDefinitionState)
 
         __props__.__dict__["agent_pool_name"] = agent_pool_name
+        __props__.__dict__["build_completion_triggers"] = build_completion_triggers
         __props__.__dict__["ci_trigger"] = ci_trigger
         __props__.__dict__["features"] = features
         __props__.__dict__["name"] = name
@@ -896,10 +1061,18 @@ class BuildDefinition(pulumi.CustomResource):
         return pulumi.get(self, "agent_pool_name")
 
     @property
+    @pulumi.getter(name="buildCompletionTriggers")
+    def build_completion_triggers(self) -> pulumi.Output[Optional[Sequence['outputs.BuildDefinitionBuildCompletionTrigger']]]:
+        """
+        A `build_completion_trigger` block as documented below.
+        """
+        return pulumi.get(self, "build_completion_triggers")
+
+    @property
     @pulumi.getter(name="ciTrigger")
     def ci_trigger(self) -> pulumi.Output[Optional['outputs.BuildDefinitionCiTrigger']]:
         """
-        Continuous Integration trigger.
+        A `ci_trigger` block as documented below.
         """
         return pulumi.get(self, "ci_trigger")
 
@@ -939,7 +1112,7 @@ class BuildDefinition(pulumi.CustomResource):
     @pulumi.getter(name="pullRequestTrigger")
     def pull_request_trigger(self) -> pulumi.Output[Optional['outputs.BuildDefinitionPullRequestTrigger']]:
         """
-        Pull Request Integration trigger.
+        A `pull_request_trigger` block as documented below.
         """
         return pulumi.get(self, "pull_request_trigger")
 

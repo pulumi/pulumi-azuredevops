@@ -24,15 +24,15 @@ public final class BuildDefinitionScheduleArgs extends com.pulumi.resources.Reso
      * block supports the following:
      * 
      */
-    @Import(name="branchFilters")
-    private @Nullable Output<List<BuildDefinitionScheduleBranchFilterArgs>> branchFilters;
+    @Import(name="branchFilters", required=true)
+    private Output<List<BuildDefinitionScheduleBranchFilterArgs>> branchFilters;
 
     /**
      * @return block supports the following:
      * 
      */
-    public Optional<Output<List<BuildDefinitionScheduleBranchFilterArgs>>> branchFilters() {
-        return Optional.ofNullable(this.branchFilters);
+    public Output<List<BuildDefinitionScheduleBranchFilterArgs>> branchFilters() {
+        return this.branchFilters;
     }
 
     /**
@@ -443,7 +443,7 @@ public final class BuildDefinitionScheduleArgs extends com.pulumi.resources.Reso
          * @return builder
          * 
          */
-        public Builder branchFilters(@Nullable Output<List<BuildDefinitionScheduleBranchFilterArgs>> branchFilters) {
+        public Builder branchFilters(Output<List<BuildDefinitionScheduleBranchFilterArgs>> branchFilters) {
             $.branchFilters = branchFilters;
             return this;
         }
@@ -887,6 +887,9 @@ public final class BuildDefinitionScheduleArgs extends com.pulumi.resources.Reso
         }
 
         public BuildDefinitionScheduleArgs build() {
+            if ($.branchFilters == null) {
+                throw new MissingRequiredPropertyException("BuildDefinitionScheduleArgs", "branchFilters");
+            }
             if ($.daysToBuilds == null) {
                 throw new MissingRequiredPropertyException("BuildDefinitionScheduleArgs", "daysToBuilds");
             }

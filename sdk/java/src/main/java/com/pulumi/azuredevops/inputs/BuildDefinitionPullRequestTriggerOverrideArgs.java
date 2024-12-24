@@ -7,6 +7,7 @@ import com.pulumi.azuredevops.inputs.BuildDefinitionPullRequestTriggerOverrideBr
 import com.pulumi.azuredevops.inputs.BuildDefinitionPullRequestTriggerOverridePathFilterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
@@ -34,18 +35,18 @@ public final class BuildDefinitionPullRequestTriggerOverrideArgs extends com.pul
     }
 
     /**
-     * The branches to include and exclude from the trigger.
+     * The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
      * 
      */
-    @Import(name="branchFilters")
-    private @Nullable Output<List<BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs>> branchFilters;
+    @Import(name="branchFilters", required=true)
+    private Output<List<BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs>> branchFilters;
 
     /**
-     * @return The branches to include and exclude from the trigger.
+     * @return The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
      * 
      */
-    public Optional<Output<List<BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs>>> branchFilters() {
-        return Optional.ofNullable(this.branchFilters);
+    public Output<List<BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs>> branchFilters() {
+        return this.branchFilters;
     }
 
     /**
@@ -111,18 +112,18 @@ public final class BuildDefinitionPullRequestTriggerOverrideArgs extends com.pul
         }
 
         /**
-         * @param branchFilters The branches to include and exclude from the trigger.
+         * @param branchFilters The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
          * 
          * @return builder
          * 
          */
-        public Builder branchFilters(@Nullable Output<List<BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs>> branchFilters) {
+        public Builder branchFilters(Output<List<BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs>> branchFilters) {
             $.branchFilters = branchFilters;
             return this;
         }
 
         /**
-         * @param branchFilters The branches to include and exclude from the trigger.
+         * @param branchFilters The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
          * 
          * @return builder
          * 
@@ -132,7 +133,7 @@ public final class BuildDefinitionPullRequestTriggerOverrideArgs extends com.pul
         }
 
         /**
-         * @param branchFilters The branches to include and exclude from the trigger.
+         * @param branchFilters The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
          * 
          * @return builder
          * 
@@ -173,6 +174,9 @@ public final class BuildDefinitionPullRequestTriggerOverrideArgs extends com.pul
         }
 
         public BuildDefinitionPullRequestTriggerOverrideArgs build() {
+            if ($.branchFilters == null) {
+                throw new MissingRequiredPropertyException("BuildDefinitionPullRequestTriggerOverrideArgs", "branchFilters");
+            }
             return $;
         }
     }

@@ -372,7 +372,7 @@ public class GitPermissions extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.branchName);
     }
     /**
-     * the permissions to assign. The follwing permissions are available
+     * the permissions to assign. The following permissions are available
      * 
      * | Permissions             | Description                                            |
      * |-------------------------|--------------------------------------------------------|
@@ -398,7 +398,7 @@ public class GitPermissions extends com.pulumi.resources.CustomResource {
     private Output<Map<String,String>> permissions;
 
     /**
-     * @return the permissions to assign. The follwing permissions are available
+     * @return the permissions to assign. The following permissions are available
      * 
      * | Permissions             | Description                                            |
      * |-------------------------|--------------------------------------------------------|

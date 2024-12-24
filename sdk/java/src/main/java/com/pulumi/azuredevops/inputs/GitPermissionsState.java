@@ -37,7 +37,7 @@ public final class GitPermissionsState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * the permissions to assign. The follwing permissions are available
+     * the permissions to assign. The following permissions are available
      * 
      * | Permissions             | Description                                            |
      * |-------------------------|--------------------------------------------------------|
@@ -63,7 +63,7 @@ public final class GitPermissionsState extends com.pulumi.resources.ResourceArgs
     private @Nullable Output<Map<String,String>> permissions;
 
     /**
-     * @return the permissions to assign. The follwing permissions are available
+     * @return the permissions to assign. The following permissions are available
      * 
      * | Permissions             | Description                                            |
      * |-------------------------|--------------------------------------------------------|
@@ -204,7 +204,7 @@ public final class GitPermissionsState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param permissions the permissions to assign. The follwing permissions are available
+         * @param permissions the permissions to assign. The following permissions are available
          * 
          * | Permissions             | Description                                            |
          * |-------------------------|--------------------------------------------------------|
@@ -234,7 +234,7 @@ public final class GitPermissionsState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param permissions the permissions to assign. The follwing permissions are available
+         * @param permissions the permissions to assign. The following permissions are available
          * 
          * | Permissions             | Description                                            |
          * |-------------------------|--------------------------------------------------------|

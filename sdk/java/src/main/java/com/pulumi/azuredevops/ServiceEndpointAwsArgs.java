@@ -6,6 +6,7 @@ package com.pulumi.azuredevops;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -21,15 +22,15 @@ public final class ServiceEndpointAwsArgs extends com.pulumi.resources.ResourceA
      * The AWS access key ID for signing programmatic requests.
      * 
      */
-    @Import(name="accessKeyId", required=true)
-    private Output<String> accessKeyId;
+    @Import(name="accessKeyId")
+    private @Nullable Output<String> accessKeyId;
 
     /**
      * @return The AWS access key ID for signing programmatic requests.
      * 
      */
-    public Output<String> accessKeyId() {
-        return this.accessKeyId;
+    public Optional<Output<String>> accessKeyId() {
+        return Optional.ofNullable(this.accessKeyId);
     }
 
     @Import(name="authorization")
@@ -110,15 +111,15 @@ public final class ServiceEndpointAwsArgs extends com.pulumi.resources.ResourceA
      * The AWS secret access key for signing programmatic requests.
      * 
      */
-    @Import(name="secretAccessKey", required=true)
-    private Output<String> secretAccessKey;
+    @Import(name="secretAccessKey")
+    private @Nullable Output<String> secretAccessKey;
 
     /**
      * @return The AWS secret access key for signing programmatic requests.
      * 
      */
-    public Output<String> secretAccessKey() {
-        return this.secretAccessKey;
+    public Optional<Output<String>> secretAccessKey() {
+        return Optional.ofNullable(this.secretAccessKey);
     }
 
     /**
@@ -151,6 +152,21 @@ public final class ServiceEndpointAwsArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.sessionToken);
     }
 
+    /**
+     * Enable this to attempt getting credentials with OIDC token from Azure Devops.
+     * 
+     */
+    @Import(name="useOidc")
+    private @Nullable Output<Boolean> useOidc;
+
+    /**
+     * @return Enable this to attempt getting credentials with OIDC token from Azure Devops.
+     * 
+     */
+    public Optional<Output<Boolean>> useOidc() {
+        return Optional.ofNullable(this.useOidc);
+    }
+
     private ServiceEndpointAwsArgs() {}
 
     private ServiceEndpointAwsArgs(ServiceEndpointAwsArgs $) {
@@ -164,6 +180,7 @@ public final class ServiceEndpointAwsArgs extends com.pulumi.resources.ResourceA
         this.secretAccessKey = $.secretAccessKey;
         this.serviceEndpointName = $.serviceEndpointName;
         this.sessionToken = $.sessionToken;
+        this.useOidc = $.useOidc;
     }
 
     public static Builder builder() {
@@ -190,7 +207,7 @@ public final class ServiceEndpointAwsArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder accessKeyId(Output<String> accessKeyId) {
+        public Builder accessKeyId(@Nullable Output<String> accessKeyId) {
             $.accessKeyId = accessKeyId;
             return this;
         }
@@ -313,7 +330,7 @@ public final class ServiceEndpointAwsArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder secretAccessKey(Output<String> secretAccessKey) {
+        public Builder secretAccessKey(@Nullable Output<String> secretAccessKey) {
             $.secretAccessKey = secretAccessKey;
             return this;
         }
@@ -370,15 +387,30 @@ public final class ServiceEndpointAwsArgs extends com.pulumi.resources.ResourceA
             return sessionToken(Output.of(sessionToken));
         }
 
+        /**
+         * @param useOidc Enable this to attempt getting credentials with OIDC token from Azure Devops.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useOidc(@Nullable Output<Boolean> useOidc) {
+            $.useOidc = useOidc;
+            return this;
+        }
+
+        /**
+         * @param useOidc Enable this to attempt getting credentials with OIDC token from Azure Devops.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useOidc(Boolean useOidc) {
+            return useOidc(Output.of(useOidc));
+        }
+
         public ServiceEndpointAwsArgs build() {
-            if ($.accessKeyId == null) {
-                throw new MissingRequiredPropertyException("ServiceEndpointAwsArgs", "accessKeyId");
-            }
             if ($.projectId == null) {
                 throw new MissingRequiredPropertyException("ServiceEndpointAwsArgs", "projectId");
-            }
-            if ($.secretAccessKey == null) {
-                throw new MissingRequiredPropertyException("ServiceEndpointAwsArgs", "secretAccessKey");
             }
             if ($.serviceEndpointName == null) {
                 throw new MissingRequiredPropertyException("ServiceEndpointAwsArgs", "serviceEndpointName");

@@ -40,7 +40,7 @@ export class SecurityroleAssignment extends pulumi.CustomResource {
      */
     public readonly identityId!: pulumi.Output<string>;
     /**
-     * The ID of the resource on which the role is to be assigned.
+     * The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
      */
     public readonly resourceId!: pulumi.Output<string>;
     /**
@@ -102,7 +102,7 @@ export interface SecurityroleAssignmentState {
      */
     identityId?: pulumi.Input<string>;
     /**
-     * The ID of the resource on which the role is to be assigned.
+     * The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
      */
     resourceId?: pulumi.Input<string>;
     /**
@@ -124,7 +124,7 @@ export interface SecurityroleAssignmentArgs {
      */
     identityId: pulumi.Input<string>;
     /**
-     * The ID of the resource on which the role is to be assigned.
+     * The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
      */
     resourceId: pulumi.Input<string>;
     /**

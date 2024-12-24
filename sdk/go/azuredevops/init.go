@@ -137,6 +137,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServiceEndpointGitHub{}
 	case "azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise":
 		r = &ServiceEndpointGitHubEnterprise{}
+	case "azuredevops:index/serviceEndpointGitLab:ServiceEndpointGitLab":
+		r = &ServiceEndpointGitLab{}
 	case "azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes":
 		r = &ServiceEndpointKubernetes{}
 	case "azuredevops:index/serviceEndpointNpm:ServiceEndpointNpm":
@@ -153,6 +155,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServiceEndpointSsh{}
 	case "azuredevops:index/serviceendpointArgocd:ServiceendpointArgocd":
 		r = &ServiceendpointArgocd{}
+	case "azuredevops:index/serviceendpointAzureServiceBus:ServiceendpointAzureServiceBus":
+		r = &ServiceendpointAzureServiceBus{}
+	case "azuredevops:index/serviceendpointDynamicsLifecycleServices:ServiceendpointDynamicsLifecycleServices":
+		r = &ServiceendpointDynamicsLifecycleServices{}
 	case "azuredevops:index/serviceendpointExternaltfs:ServiceendpointExternaltfs":
 		r = &ServiceendpointExternaltfs{}
 	case "azuredevops:index/serviceendpointGcpTerraform:ServiceendpointGcpTerraform":
@@ -179,6 +185,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServiceendpointOctopusdeploy{}
 	case "azuredevops:index/serviceendpointPermissions:ServiceendpointPermissions":
 		r = &ServiceendpointPermissions{}
+	case "azuredevops:index/serviceendpointSnyk:ServiceendpointSnyk":
+		r = &ServiceendpointSnyk{}
+	case "azuredevops:index/serviceendpointVisualstudiomarketplace:ServiceendpointVisualstudiomarketplace":
+		r = &ServiceendpointVisualstudiomarketplace{}
 	case "azuredevops:index/servicehookPermissions:ServicehookPermissions":
 		r = &ServicehookPermissions{}
 	case "azuredevops:index/servicehookStorageQueuePipelines:ServicehookStorageQueuePipelines":
@@ -528,6 +538,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azuredevops",
+		"index/serviceEndpointGitLab",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
 		"index/serviceEndpointKubernetes",
 		&module{version},
 	)
@@ -564,6 +579,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/serviceendpointArgocd",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/serviceendpointAzureServiceBus",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/serviceendpointDynamicsLifecycleServices",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -629,6 +654,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/serviceendpointPermissions",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/serviceendpointSnyk",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/serviceendpointVisualstudiomarketplace",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

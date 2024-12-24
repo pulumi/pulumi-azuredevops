@@ -268,35 +268,35 @@ namespace Pulumi.AzureDevOps
     public sealed class GetServiceEndpointAzureRMResult
     {
         /// <summary>
-        /// Specifies the Authorization Scheme Map.
+        /// The Authorization Scheme Map.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Authorization;
         /// <summary>
-        /// Specified the Management Group ID of the Service Endpoint is target, if available.
+        /// The Management Group ID of the Service Endpoint is target, if available.
         /// </summary>
         public readonly string AzurermManagementGroupId;
         /// <summary>
-        /// Specified the Management Group Name of the Service Endpoint target, if available.
+        /// The Management Group Name of the Service Endpoint target, if available.
         /// </summary>
         public readonly string AzurermManagementGroupName;
         /// <summary>
-        /// Specifies the Tenant ID of the Azure targets.
+        /// The Tenant ID of the Azure targets.
         /// </summary>
         public readonly string AzurermSpnTenantid;
         /// <summary>
-        /// Specifies the Subscription ID of the Service Endpoint target, if available.
+        /// The Subscription ID of the Service Endpoint target, if available.
         /// </summary>
         public readonly string AzurermSubscriptionId;
         /// <summary>
-        /// Specifies the Subscription Name of the Service Endpoint target, if available.
+        /// The Subscription Name of the Service Endpoint target, if available.
         /// </summary>
         public readonly string AzurermSubscriptionName;
         /// <summary>
-        /// Specifies the description of the Service Endpoint.
+        /// The description of the Service Endpoint.
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// The Cloud Environment. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, and `AzureGermanCloud`.
+        /// The Cloud Environment.
         /// </summary>
         public readonly string Environment;
         /// <summary>
@@ -305,11 +305,15 @@ namespace Pulumi.AzureDevOps
         public readonly string Id;
         public readonly string ProjectId;
         /// <summary>
-        /// Specifies the Resource Group of the Service Endpoint target, if available.
+        /// The Resource Group of the Service Endpoint target, if available.
         /// </summary>
         public readonly string ResourceGroup;
         /// <summary>
-        /// Specifies the authentication scheme of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`.
+        /// The server URL of the service Endpoint.
+        /// </summary>
+        public readonly string ServerUrl;
+        /// <summary>
+        /// The authentication scheme of Azure Resource Management Endpoint
         /// </summary>
         public readonly string ServiceEndpointAuthenticationScheme;
         public readonly string ServiceEndpointId;
@@ -319,11 +323,11 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public readonly string ServicePrincipalId;
         /// <summary>
-        /// The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/f66a4bc2-08ad-4ec0-a25e-e769d6b3b294`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+        /// The issuer if `of the Workload Identity Federation Subject
         /// </summary>
         public readonly string WorkloadIdentityFederationIssuer;
         /// <summary>
-        /// The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://my-organisation/my-project/my-service-connection-name`.
+        /// The subject of the Workload Identity Federation Subject.
         /// </summary>
         public readonly string WorkloadIdentityFederationSubject;
 
@@ -351,6 +355,8 @@ namespace Pulumi.AzureDevOps
 
             string resourceGroup,
 
+            string serverUrl,
+
             string serviceEndpointAuthenticationScheme,
 
             string serviceEndpointId,
@@ -374,6 +380,7 @@ namespace Pulumi.AzureDevOps
             Id = id;
             ProjectId = projectId;
             ResourceGroup = resourceGroup;
+            ServerUrl = serverUrl;
             ServiceEndpointAuthenticationScheme = serviceEndpointAuthenticationScheme;
             ServiceEndpointId = serviceEndpointId;
             ServiceEndpointName = serviceEndpointName;

@@ -14,6 +14,10 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class ServiceEndpointKubernetesServiceAccount
     {
         /// <summary>
+        /// Set this option to allow clients to accept a self-signed certificate. Defaults to `false`.
+        /// </summary>
+        public readonly bool? AcceptUntrustedCerts;
+        /// <summary>
         /// The certificate from a Kubernetes secret object.
         /// </summary>
         public readonly string CaCert;
@@ -24,10 +28,13 @@ namespace Pulumi.AzureDevOps.Outputs
 
         [OutputConstructor]
         private ServiceEndpointKubernetesServiceAccount(
+            bool? acceptUntrustedCerts,
+
             string caCert,
 
             string token)
         {
+            AcceptUntrustedCerts = acceptUntrustedCerts;
             CaCert = caCert;
             Token = token;
         }

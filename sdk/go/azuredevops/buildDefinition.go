@@ -16,7 +16,7 @@ import (
 //
 // ## Example Usage
 //
-// ### Tfs
+// ### Azure DevOps
 // ```go
 // package main
 //
@@ -205,6 +205,118 @@ import (
 //
 // ```
 //
+// ### Build Completion Trigger
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := azuredevops.NewBuildDefinition(ctx, "example", &azuredevops.BuildDefinitionArgs{
+//				ProjectId: pulumi.Any(exampleAzuredevopsProject.Id),
+//				Name:      pulumi.String("Example Build Definition"),
+//				Path:      pulumi.String("\\ExampleFolder"),
+//				CiTrigger: &azuredevops.BuildDefinitionCiTriggerArgs{
+//					UseYaml: pulumi.Bool(false),
+//				},
+//				Repository: &azuredevops.BuildDefinitionRepositoryArgs{
+//					RepoType:            pulumi.String("GitHubEnterprise"),
+//					RepoId:              pulumi.String("<GitHub Org>/<Repo Name>"),
+//					GithubEnterpriseUrl: pulumi.String("https://github.company.com"),
+//					BranchName:          pulumi.String("main"),
+//					YmlPath:             pulumi.String("azure-pipelines.yml"),
+//					ServiceConnectionId: pulumi.Any(exampleAzuredevopsServiceendpointGithubEnterprise.Id),
+//				},
+//				BuildCompletionTriggers: azuredevops.BuildDefinitionBuildCompletionTriggerArray{
+//					&azuredevops.BuildDefinitionBuildCompletionTriggerArgs{
+//						BuildDefinitionId: pulumi.Int(10),
+//						BranchFilters: azuredevops.BuildDefinitionBuildCompletionTriggerBranchFilterArray{
+//							&azuredevops.BuildDefinitionBuildCompletionTriggerBranchFilterArgs{
+//								Includes: pulumi.StringArray{
+//									pulumi.String("main"),
+//								},
+//								Excludes: pulumi.StringArray{
+//									pulumi.String("test"),
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Pull Request Trigger
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.GetServiceEndpointGithub(ctx, &azuredevops.GetServiceEndpointGithubArgs{
+//				ProjectId:         exampleAzuredevopsProject.Id,
+//				ServiceEndpointId: pulumi.StringRef("00000000-0000-0000-0000-000000000000"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewBuildDefinition(ctx, "example", &azuredevops.BuildDefinitionArgs{
+//				ProjectId: pulumi.Any(exampleAzuredevopsProject2.Id),
+//				Name:      pulumi.String("Example Build Definition"),
+//				Path:      pulumi.String("\\ExampleFolder"),
+//				CiTrigger: &azuredevops.BuildDefinitionCiTriggerArgs{
+//					UseYaml: pulumi.Bool(false),
+//				},
+//				Repository: &azuredevops.BuildDefinitionRepositoryArgs{
+//					RepoType:            pulumi.String("GitHub"),
+//					RepoId:              pulumi.String("<GitHub Org>/<Repo Name>"),
+//					BranchName:          pulumi.String("main"),
+//					YmlPath:             pulumi.String("azure-pipelines.yml"),
+//					ServiceConnectionId: pulumi.String(example.Id),
+//				},
+//				PullRequestTrigger: &azuredevops.BuildDefinitionPullRequestTriggerArgs{
+//					Override: &azuredevops.BuildDefinitionPullRequestTriggerOverrideArgs{
+//						BranchFilters: azuredevops.BuildDefinitionPullRequestTriggerOverrideBranchFilterArray{
+//							&azuredevops.BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs{
+//								Includes: pulumi.StringArray{
+//									pulumi.String("main"),
+//								},
+//							},
+//						},
+//					},
+//					Forks: &azuredevops.BuildDefinitionPullRequestTriggerForksArgs{
+//						Enabled:      pulumi.Bool(false),
+//						ShareSecrets: pulumi.Bool(false),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Remarks
 //
 // The path attribute can not end in `\` unless the path is the root value of `\`.
@@ -238,7 +350,9 @@ type BuildDefinition struct {
 
 	// The agent pool that should execute the build. Defaults to `Azure Pipelines`.
 	AgentPoolName pulumi.StringPtrOutput `pulumi:"agentPoolName"`
-	// Continuous Integration trigger.
+	// A `buildCompletionTrigger` block as documented below.
+	BuildCompletionTriggers BuildDefinitionBuildCompletionTriggerArrayOutput `pulumi:"buildCompletionTriggers"`
+	// A `ciTrigger` block as documented below.
 	CiTrigger BuildDefinitionCiTriggerPtrOutput `pulumi:"ciTrigger"`
 	// A `features` blocks as documented below.
 	Features BuildDefinitionFeatureArrayOutput `pulumi:"features"`
@@ -248,7 +362,7 @@ type BuildDefinition struct {
 	Path pulumi.StringPtrOutput `pulumi:"path"`
 	// The project ID or project name.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
-	// Pull Request Integration trigger.
+	// A `pullRequestTrigger` block as documented below.
 	PullRequestTrigger BuildDefinitionPullRequestTriggerPtrOutput `pulumi:"pullRequestTrigger"`
 	// The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
 	QueueStatus pulumi.StringPtrOutput `pulumi:"queueStatus"`
@@ -301,7 +415,9 @@ func GetBuildDefinition(ctx *pulumi.Context,
 type buildDefinitionState struct {
 	// The agent pool that should execute the build. Defaults to `Azure Pipelines`.
 	AgentPoolName *string `pulumi:"agentPoolName"`
-	// Continuous Integration trigger.
+	// A `buildCompletionTrigger` block as documented below.
+	BuildCompletionTriggers []BuildDefinitionBuildCompletionTrigger `pulumi:"buildCompletionTriggers"`
+	// A `ciTrigger` block as documented below.
 	CiTrigger *BuildDefinitionCiTrigger `pulumi:"ciTrigger"`
 	// A `features` blocks as documented below.
 	Features []BuildDefinitionFeature `pulumi:"features"`
@@ -311,7 +427,7 @@ type buildDefinitionState struct {
 	Path *string `pulumi:"path"`
 	// The project ID or project name.
 	ProjectId *string `pulumi:"projectId"`
-	// Pull Request Integration trigger.
+	// A `pullRequestTrigger` block as documented below.
 	PullRequestTrigger *BuildDefinitionPullRequestTrigger `pulumi:"pullRequestTrigger"`
 	// The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
 	QueueStatus *string `pulumi:"queueStatus"`
@@ -329,7 +445,9 @@ type buildDefinitionState struct {
 type BuildDefinitionState struct {
 	// The agent pool that should execute the build. Defaults to `Azure Pipelines`.
 	AgentPoolName pulumi.StringPtrInput
-	// Continuous Integration trigger.
+	// A `buildCompletionTrigger` block as documented below.
+	BuildCompletionTriggers BuildDefinitionBuildCompletionTriggerArrayInput
+	// A `ciTrigger` block as documented below.
 	CiTrigger BuildDefinitionCiTriggerPtrInput
 	// A `features` blocks as documented below.
 	Features BuildDefinitionFeatureArrayInput
@@ -339,7 +457,7 @@ type BuildDefinitionState struct {
 	Path pulumi.StringPtrInput
 	// The project ID or project name.
 	ProjectId pulumi.StringPtrInput
-	// Pull Request Integration trigger.
+	// A `pullRequestTrigger` block as documented below.
 	PullRequestTrigger BuildDefinitionPullRequestTriggerPtrInput
 	// The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
 	QueueStatus pulumi.StringPtrInput
@@ -361,7 +479,9 @@ func (BuildDefinitionState) ElementType() reflect.Type {
 type buildDefinitionArgs struct {
 	// The agent pool that should execute the build. Defaults to `Azure Pipelines`.
 	AgentPoolName *string `pulumi:"agentPoolName"`
-	// Continuous Integration trigger.
+	// A `buildCompletionTrigger` block as documented below.
+	BuildCompletionTriggers []BuildDefinitionBuildCompletionTrigger `pulumi:"buildCompletionTriggers"`
+	// A `ciTrigger` block as documented below.
 	CiTrigger *BuildDefinitionCiTrigger `pulumi:"ciTrigger"`
 	// A `features` blocks as documented below.
 	Features []BuildDefinitionFeature `pulumi:"features"`
@@ -371,7 +491,7 @@ type buildDefinitionArgs struct {
 	Path *string `pulumi:"path"`
 	// The project ID or project name.
 	ProjectId string `pulumi:"projectId"`
-	// Pull Request Integration trigger.
+	// A `pullRequestTrigger` block as documented below.
 	PullRequestTrigger *BuildDefinitionPullRequestTrigger `pulumi:"pullRequestTrigger"`
 	// The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
 	QueueStatus *string `pulumi:"queueStatus"`
@@ -388,7 +508,9 @@ type buildDefinitionArgs struct {
 type BuildDefinitionArgs struct {
 	// The agent pool that should execute the build. Defaults to `Azure Pipelines`.
 	AgentPoolName pulumi.StringPtrInput
-	// Continuous Integration trigger.
+	// A `buildCompletionTrigger` block as documented below.
+	BuildCompletionTriggers BuildDefinitionBuildCompletionTriggerArrayInput
+	// A `ciTrigger` block as documented below.
 	CiTrigger BuildDefinitionCiTriggerPtrInput
 	// A `features` blocks as documented below.
 	Features BuildDefinitionFeatureArrayInput
@@ -398,7 +520,7 @@ type BuildDefinitionArgs struct {
 	Path pulumi.StringPtrInput
 	// The project ID or project name.
 	ProjectId pulumi.StringInput
-	// Pull Request Integration trigger.
+	// A `pullRequestTrigger` block as documented below.
 	PullRequestTrigger BuildDefinitionPullRequestTriggerPtrInput
 	// The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
 	QueueStatus pulumi.StringPtrInput
@@ -503,7 +625,14 @@ func (o BuildDefinitionOutput) AgentPoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BuildDefinition) pulumi.StringPtrOutput { return v.AgentPoolName }).(pulumi.StringPtrOutput)
 }
 
-// Continuous Integration trigger.
+// A `buildCompletionTrigger` block as documented below.
+func (o BuildDefinitionOutput) BuildCompletionTriggers() BuildDefinitionBuildCompletionTriggerArrayOutput {
+	return o.ApplyT(func(v *BuildDefinition) BuildDefinitionBuildCompletionTriggerArrayOutput {
+		return v.BuildCompletionTriggers
+	}).(BuildDefinitionBuildCompletionTriggerArrayOutput)
+}
+
+// A `ciTrigger` block as documented below.
 func (o BuildDefinitionOutput) CiTrigger() BuildDefinitionCiTriggerPtrOutput {
 	return o.ApplyT(func(v *BuildDefinition) BuildDefinitionCiTriggerPtrOutput { return v.CiTrigger }).(BuildDefinitionCiTriggerPtrOutput)
 }
@@ -528,7 +657,7 @@ func (o BuildDefinitionOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BuildDefinition) pulumi.StringOutput { return v.ProjectId }).(pulumi.StringOutput)
 }
 
-// Pull Request Integration trigger.
+// A `pullRequestTrigger` block as documented below.
 func (o BuildDefinitionOutput) PullRequestTrigger() BuildDefinitionPullRequestTriggerPtrOutput {
 	return o.ApplyT(func(v *BuildDefinition) BuildDefinitionPullRequestTriggerPtrOutput { return v.PullRequestTrigger }).(BuildDefinitionPullRequestTriggerPtrOutput)
 }

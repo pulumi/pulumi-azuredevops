@@ -50,7 +50,17 @@ import (
 //
 // ## Import
 //
-// The resources allows the import via the UUID of a user entitlement or by using the principal name of a user owning an entitlement.
+// This resource allows importing by the UUID of a user entitlement or by using the principal name of a user who owns the entitlement.
+//
+// ```sh
+// $ pulumi import azuredevops:index/user:User example "00000000-0000-0000-0000-000000000000"
+// ```
+//
+// or
+//
+// ```sh
+// $ pulumi import azuredevops:index/user:User example "example@example.com"
+// ```
 type User struct {
 	pulumi.CustomResourceState
 

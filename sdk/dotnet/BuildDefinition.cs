@@ -14,7 +14,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ## Example Usage
     /// 
-    /// ### Tfs
+    /// ### Azure DevOps
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -208,6 +208,117 @@ namespace Pulumi.AzureDevOps
     /// });
     /// ```
     /// 
+    /// ### Build Completion Trigger
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new AzureDevOps.BuildDefinition("example", new()
+    ///     {
+    ///         ProjectId = exampleAzuredevopsProject.Id,
+    ///         Name = "Example Build Definition",
+    ///         Path = "\\ExampleFolder",
+    ///         CiTrigger = new AzureDevOps.Inputs.BuildDefinitionCiTriggerArgs
+    ///         {
+    ///             UseYaml = false,
+    ///         },
+    ///         Repository = new AzureDevOps.Inputs.BuildDefinitionRepositoryArgs
+    ///         {
+    ///             RepoType = "GitHubEnterprise",
+    ///             RepoId = "&lt;GitHub Org&gt;/&lt;Repo Name&gt;",
+    ///             GithubEnterpriseUrl = "https://github.company.com",
+    ///             BranchName = "main",
+    ///             YmlPath = "azure-pipelines.yml",
+    ///             ServiceConnectionId = exampleAzuredevopsServiceendpointGithubEnterprise.Id,
+    ///         },
+    ///         BuildCompletionTriggers = new[]
+    ///         {
+    ///             new AzureDevOps.Inputs.BuildDefinitionBuildCompletionTriggerArgs
+    ///             {
+    ///                 BuildDefinitionId = 10,
+    ///                 BranchFilters = new[]
+    ///                 {
+    ///                     new AzureDevOps.Inputs.BuildDefinitionBuildCompletionTriggerBranchFilterArgs
+    ///                     {
+    ///                         Includes = new[]
+    ///                         {
+    ///                             "main",
+    ///                         },
+    ///                         Excludes = new[]
+    ///                         {
+    ///                             "test",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Pull Request Trigger
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = AzureDevOps.GetServiceEndpointGithub.Invoke(new()
+    ///     {
+    ///         ProjectId = exampleAzuredevopsProject.Id,
+    ///         ServiceEndpointId = "00000000-0000-0000-0000-000000000000",
+    ///     });
+    /// 
+    ///     var exampleBuildDefinition = new AzureDevOps.BuildDefinition("example", new()
+    ///     {
+    ///         ProjectId = exampleAzuredevopsProject2.Id,
+    ///         Name = "Example Build Definition",
+    ///         Path = "\\ExampleFolder",
+    ///         CiTrigger = new AzureDevOps.Inputs.BuildDefinitionCiTriggerArgs
+    ///         {
+    ///             UseYaml = false,
+    ///         },
+    ///         Repository = new AzureDevOps.Inputs.BuildDefinitionRepositoryArgs
+    ///         {
+    ///             RepoType = "GitHub",
+    ///             RepoId = "&lt;GitHub Org&gt;/&lt;Repo Name&gt;",
+    ///             BranchName = "main",
+    ///             YmlPath = "azure-pipelines.yml",
+    ///             ServiceConnectionId = example.Apply(getServiceEndpointGithubResult =&gt; getServiceEndpointGithubResult.Id),
+    ///         },
+    ///         PullRequestTrigger = new AzureDevOps.Inputs.BuildDefinitionPullRequestTriggerArgs
+    ///         {
+    ///             Override = new AzureDevOps.Inputs.BuildDefinitionPullRequestTriggerOverrideArgs
+    ///             {
+    ///                 BranchFilters = new[]
+    ///                 {
+    ///                     new AzureDevOps.Inputs.BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs
+    ///                     {
+    ///                         Includes = new[]
+    ///                         {
+    ///                             "main",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Forks = new AzureDevOps.Inputs.BuildDefinitionPullRequestTriggerForksArgs
+    ///             {
+    ///                 Enabled = false,
+    ///                 ShareSecrets = false,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Remarks
     /// 
     /// The path attribute can not end in `\` unless the path is the root value of `\`.
@@ -247,7 +358,13 @@ namespace Pulumi.AzureDevOps
         public Output<string?> AgentPoolName { get; private set; } = null!;
 
         /// <summary>
-        /// Continuous Integration trigger.
+        /// A `build_completion_trigger` block as documented below.
+        /// </summary>
+        [Output("buildCompletionTriggers")]
+        public Output<ImmutableArray<Outputs.BuildDefinitionBuildCompletionTrigger>> BuildCompletionTriggers { get; private set; } = null!;
+
+        /// <summary>
+        /// A `ci_trigger` block as documented below.
         /// </summary>
         [Output("ciTrigger")]
         public Output<Outputs.BuildDefinitionCiTrigger?> CiTrigger { get; private set; } = null!;
@@ -277,7 +394,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> ProjectId { get; private set; } = null!;
 
         /// <summary>
-        /// Pull Request Integration trigger.
+        /// A `pull_request_trigger` block as documented below.
         /// </summary>
         [Output("pullRequestTrigger")]
         public Output<Outputs.BuildDefinitionPullRequestTrigger?> PullRequestTrigger { get; private set; } = null!;
@@ -367,8 +484,20 @@ namespace Pulumi.AzureDevOps
         [Input("agentPoolName")]
         public Input<string>? AgentPoolName { get; set; }
 
+        [Input("buildCompletionTriggers")]
+        private InputList<Inputs.BuildDefinitionBuildCompletionTriggerArgs>? _buildCompletionTriggers;
+
         /// <summary>
-        /// Continuous Integration trigger.
+        /// A `build_completion_trigger` block as documented below.
+        /// </summary>
+        public InputList<Inputs.BuildDefinitionBuildCompletionTriggerArgs> BuildCompletionTriggers
+        {
+            get => _buildCompletionTriggers ?? (_buildCompletionTriggers = new InputList<Inputs.BuildDefinitionBuildCompletionTriggerArgs>());
+            set => _buildCompletionTriggers = value;
+        }
+
+        /// <summary>
+        /// A `ci_trigger` block as documented below.
         /// </summary>
         [Input("ciTrigger")]
         public Input<Inputs.BuildDefinitionCiTriggerArgs>? CiTrigger { get; set; }
@@ -404,7 +533,7 @@ namespace Pulumi.AzureDevOps
         public Input<string> ProjectId { get; set; } = null!;
 
         /// <summary>
-        /// Pull Request Integration trigger.
+        /// A `pull_request_trigger` block as documented below.
         /// </summary>
         [Input("pullRequestTrigger")]
         public Input<Inputs.BuildDefinitionPullRequestTriggerArgs>? PullRequestTrigger { get; set; }
@@ -467,8 +596,20 @@ namespace Pulumi.AzureDevOps
         [Input("agentPoolName")]
         public Input<string>? AgentPoolName { get; set; }
 
+        [Input("buildCompletionTriggers")]
+        private InputList<Inputs.BuildDefinitionBuildCompletionTriggerGetArgs>? _buildCompletionTriggers;
+
         /// <summary>
-        /// Continuous Integration trigger.
+        /// A `build_completion_trigger` block as documented below.
+        /// </summary>
+        public InputList<Inputs.BuildDefinitionBuildCompletionTriggerGetArgs> BuildCompletionTriggers
+        {
+            get => _buildCompletionTriggers ?? (_buildCompletionTriggers = new InputList<Inputs.BuildDefinitionBuildCompletionTriggerGetArgs>());
+            set => _buildCompletionTriggers = value;
+        }
+
+        /// <summary>
+        /// A `ci_trigger` block as documented below.
         /// </summary>
         [Input("ciTrigger")]
         public Input<Inputs.BuildDefinitionCiTriggerGetArgs>? CiTrigger { get; set; }
@@ -504,7 +645,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? ProjectId { get; set; }
 
         /// <summary>
-        /// Pull Request Integration trigger.
+        /// A `pull_request_trigger` block as documented below.
         /// </summary>
         [Input("pullRequestTrigger")]
         public Input<Inputs.BuildDefinitionPullRequestTriggerGetArgs>? PullRequestTrigger { get; set; }

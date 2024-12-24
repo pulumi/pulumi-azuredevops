@@ -286,7 +286,7 @@ namespace Pulumi.AzureDevOps
         public Output<string?> BranchName { get; private set; } = null!;
 
         /// <summary>
-        /// the permissions to assign. The follwing permissions are available
+        /// the permissions to assign. The following permissions are available
         /// 
         /// 
         /// | Permissions             | Description                                            |
@@ -393,7 +393,7 @@ namespace Pulumi.AzureDevOps
         private InputMap<string>? _permissions;
 
         /// <summary>
-        /// the permissions to assign. The follwing permissions are available
+        /// the permissions to assign. The following permissions are available
         /// 
         /// 
         /// | Permissions             | Description                                            |
@@ -465,7 +465,7 @@ namespace Pulumi.AzureDevOps
         private InputMap<string>? _permissions;
 
         /// <summary>
-        /// the permissions to assign. The follwing permissions are available
+        /// the permissions to assign. The following permissions are available
         /// 
         /// 
         /// | Permissions             | Description                                            |

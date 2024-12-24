@@ -32,14 +32,35 @@ public final class GitInitializationArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The id of service connection used to authenticate to a private repository for import initialization.
+     * The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
+     * 
+     * ~&gt;**Note**
+     * At least `service_connection_id` or `username/password` needs to be set to import private repository.
+     * 
+     */
+    @Import(name="password")
+    private @Nullable Output<String> password;
+
+    /**
+     * @return The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
+     * 
+     * ~&gt;**Note**
+     * At least `service_connection_id` or `username/password` needs to be set to import private repository.
+     * 
+     */
+    public Optional<Output<String>> password() {
+        return Optional.ofNullable(this.password);
+    }
+
+    /**
+     * The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
      * 
      */
     @Import(name="serviceConnectionId")
     private @Nullable Output<String> serviceConnectionId;
 
     /**
-     * @return The id of service connection used to authenticate to a private repository for import initialization.
+     * @return The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
      * 
      */
     public Optional<Output<String>> serviceConnectionId() {
@@ -76,13 +97,30 @@ public final class GitInitializationArgs extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.sourceUrl);
     }
 
+    /**
+     * The username used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
+     * 
+     */
+    @Import(name="username")
+    private @Nullable Output<String> username;
+
+    /**
+     * @return The username used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
+     * 
+     */
+    public Optional<Output<String>> username() {
+        return Optional.ofNullable(this.username);
+    }
+
     private GitInitializationArgs() {}
 
     private GitInitializationArgs(GitInitializationArgs $) {
         this.initType = $.initType;
+        this.password = $.password;
         this.serviceConnectionId = $.serviceConnectionId;
         this.sourceType = $.sourceType;
         this.sourceUrl = $.sourceUrl;
+        this.username = $.username;
     }
 
     public static Builder builder() {
@@ -125,7 +163,34 @@ public final class GitInitializationArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param serviceConnectionId The id of service connection used to authenticate to a private repository for import initialization.
+         * @param password The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
+         * 
+         * ~&gt;**Note**
+         * At least `service_connection_id` or `username/password` needs to be set to import private repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder password(@Nullable Output<String> password) {
+            $.password = password;
+            return this;
+        }
+
+        /**
+         * @param password The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
+         * 
+         * ~&gt;**Note**
+         * At least `service_connection_id` or `username/password` needs to be set to import private repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder password(String password) {
+            return password(Output.of(password));
+        }
+
+        /**
+         * @param serviceConnectionId The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
          * 
          * @return builder
          * 
@@ -136,7 +201,7 @@ public final class GitInitializationArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param serviceConnectionId The id of service connection used to authenticate to a private repository for import initialization.
+         * @param serviceConnectionId The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
          * 
          * @return builder
          * 
@@ -185,6 +250,27 @@ public final class GitInitializationArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder sourceUrl(String sourceUrl) {
             return sourceUrl(Output.of(sourceUrl));
+        }
+
+        /**
+         * @param username The username used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder username(@Nullable Output<String> username) {
+            $.username = username;
+            return this;
+        }
+
+        /**
+         * @param username The username used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder username(String username) {
+            return username(Output.of(username));
         }
 
         public GitInitializationArgs build() {

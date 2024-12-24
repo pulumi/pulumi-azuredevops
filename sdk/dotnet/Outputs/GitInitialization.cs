@@ -18,7 +18,14 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly string InitType;
         /// <summary>
-        /// The id of service connection used to authenticate to a private repository for import initialization.
+        /// The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
+        /// 
+        /// ~&gt;**Note**
+        /// At least `service_connection_id` or `username/password` needs to be set to import private repository.
+        /// </summary>
+        public readonly string? Password;
+        /// <summary>
+        /// The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
         /// </summary>
         public readonly string? ServiceConnectionId;
         /// <summary>
@@ -29,21 +36,31 @@ namespace Pulumi.AzureDevOps.Outputs
         /// The URL of the source repository. Used if the `init_type` is `Import`.
         /// </summary>
         public readonly string? SourceUrl;
+        /// <summary>
+        /// The username used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
+        /// </summary>
+        public readonly string? Username;
 
         [OutputConstructor]
         private GitInitialization(
             string initType,
 
+            string? password,
+
             string? serviceConnectionId,
 
             string? sourceType,
 
-            string? sourceUrl)
+            string? sourceUrl,
+
+            string? username)
         {
             InitType = initType;
+            Password = password;
             ServiceConnectionId = serviceConnectionId;
             SourceType = sourceType;
             SourceUrl = sourceUrl;
+            Username = username;
         }
     }
 }
