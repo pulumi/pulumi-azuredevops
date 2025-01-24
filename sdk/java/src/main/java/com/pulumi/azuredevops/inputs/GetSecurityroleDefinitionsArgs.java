@@ -17,7 +17,7 @@ public final class GetSecurityroleDefinitionsArgs extends com.pulumi.resources.I
     /**
      * Name of the Scope for which Security Role Definitions will be returned.
      * 
-     * DataSource without specifying any arguments will return all projects.
+     * &gt; **NOTE:** DataSource without specifying any arguments will return all projects.
      * 
      */
     @Import(name="scope", required=true)
@@ -26,7 +26,7 @@ public final class GetSecurityroleDefinitionsArgs extends com.pulumi.resources.I
     /**
      * @return Name of the Scope for which Security Role Definitions will be returned.
      * 
-     * DataSource without specifying any arguments will return all projects.
+     * &gt; **NOTE:** DataSource without specifying any arguments will return all projects.
      * 
      */
     public Output<String> scope() {
@@ -60,7 +60,7 @@ public final class GetSecurityroleDefinitionsArgs extends com.pulumi.resources.I
         /**
          * @param scope Name of the Scope for which Security Role Definitions will be returned.
          * 
-         * DataSource without specifying any arguments will return all projects.
+         * &gt; **NOTE:** DataSource without specifying any arguments will return all projects.
          * 
          * @return builder
          * 
@@ -73,7 +73,7 @@ public final class GetSecurityroleDefinitionsArgs extends com.pulumi.resources.I
         /**
          * @param scope Name of the Scope for which Security Role Definitions will be returned.
          * 
-         * DataSource without specifying any arguments will return all projects.
+         * &gt; **NOTE:** DataSource without specifying any arguments will return all projects.
          * 
          * @return builder
          * 

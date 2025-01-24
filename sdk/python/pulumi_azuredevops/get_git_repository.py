@@ -73,7 +73,7 @@ class GetGitRepositoryResult:
     @pulumi.getter
     def disabled(self) -> bool:
         """
-        Is the repository disabled?
+        Indicates whether the repository is disabled.
         """
         return pulumi.get(self, "disabled")
 
@@ -94,7 +94,7 @@ class GetGitRepositoryResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Git repository name.
+        The name of the Git repository.
         """
         return pulumi.get(self, "name")
 
@@ -134,7 +134,7 @@ class GetGitRepositoryResult:
     @pulumi.getter
     def url(self) -> str:
         """
-        Details REST API endpoint for the Git Repository.
+        The details REST API endpoint for the Git Repository.
         """
         return pulumi.get(self, "url")
 
@@ -142,7 +142,7 @@ class GetGitRepositoryResult:
     @pulumi.getter(name="webUrl")
     def web_url(self) -> str:
         """
-        Url of the Git repository web view
+        The Url of the Git repository web view
         """
         return pulumi.get(self, "web_url")
 
@@ -190,8 +190,8 @@ def get_git_repository(name: Optional[str] = None,
     - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
 
 
-    :param str name: Name of the Git repository to retrieve
-    :param str project_id: ID of project to list Git repositories
+    :param str name: The Name of the Git repository to retrieve
+    :param str project_id: The ID of project to list Git repositories
     """
     __args__ = dict()
     __args__['name'] = name
@@ -235,8 +235,8 @@ def get_git_repository_output(name: Optional[pulumi.Input[str]] = None,
     - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
 
 
-    :param str name: Name of the Git repository to retrieve
-    :param str project_id: ID of project to list Git repositories
+    :param str name: The Name of the Git repository to retrieve
+    :param str project_id: The ID of project to list Git repositories
     """
     __args__ = dict()
     __args__['name'] = name

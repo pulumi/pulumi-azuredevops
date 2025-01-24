@@ -14,7 +14,7 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class ServiceendpointJfrogDistributionV2AuthenticationToken
     {
         /// <summary>
-        /// Authentication Token generated through Artifactory.
+        /// The Authentication Token generated through Artifactory.
         /// </summary>
         public readonly string Token;
 

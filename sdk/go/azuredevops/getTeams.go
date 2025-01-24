@@ -69,10 +69,9 @@ type GetTeamsArgs struct {
 type GetTeamsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Project identifier.
-	// - `id - Team identifier
+	// The ID of the Project.
 	ProjectId *string `pulumi:"projectId"`
-	// A list of existing projects in your Azure DevOps Organization with details about every project which includes:
+	// A list of `teams` blocks as documented below. A list of existing projects in your Azure DevOps Organization with details about every project which includes:
 	Teams []GetTeamsTeam `pulumi:"teams"`
 	Top   *int           `pulumi:"top"`
 }
@@ -118,13 +117,12 @@ func (o GetTeamsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTeamsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Project identifier.
-// - `id - Team identifier
+// The ID of the Project.
 func (o GetTeamsResultOutput) ProjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTeamsResult) *string { return v.ProjectId }).(pulumi.StringPtrOutput)
 }
 
-// A list of existing projects in your Azure DevOps Organization with details about every project which includes:
+// A list of `teams` blocks as documented below. A list of existing projects in your Azure DevOps Organization with details about every project which includes:
 func (o GetTeamsResultOutput) Teams() GetTeamsTeamArrayOutput {
 	return o.ApplyT(func(v GetTeamsResult) []GetTeamsTeam { return v.Teams }).(GetTeamsTeamArrayOutput)
 }

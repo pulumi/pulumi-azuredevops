@@ -29,6 +29,7 @@ class ServiceEndpointGitHubEnterpriseArgs:
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServiceEndpointGitHubEnterprise resource.
+        :param pulumi.Input['ServiceEndpointGitHubEnterpriseAuthPersonalArgs'] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] url: GitHub Enterprise Server Url.
@@ -45,6 +46,9 @@ class ServiceEndpointGitHubEnterpriseArgs:
     @property
     @pulumi.getter(name="authPersonal")
     def auth_personal(self) -> pulumi.Input['ServiceEndpointGitHubEnterpriseAuthPersonalArgs']:
+        """
+        An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        """
         return pulumi.get(self, "auth_personal")
 
     @auth_personal.setter
@@ -117,6 +121,7 @@ class _ServiceEndpointGitHubEnterpriseState:
                  url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ServiceEndpointGitHubEnterprise resources.
+        :param pulumi.Input['ServiceEndpointGitHubEnterpriseAuthPersonalArgs'] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] url: GitHub Enterprise Server Url.
@@ -137,6 +142,9 @@ class _ServiceEndpointGitHubEnterpriseState:
     @property
     @pulumi.getter(name="authPersonal")
     def auth_personal(self) -> Optional[pulumi.Input['ServiceEndpointGitHubEnterpriseAuthPersonalArgs']]:
+        """
+        An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        """
         return pulumi.get(self, "auth_personal")
 
     @auth_personal.setter
@@ -241,7 +249,7 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
 
         ## Import
 
-        Azure DevOps Service Endpoint GitHub Enterprise Server can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+        Azure DevOps GitHub Enterprise Server Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
         $ pulumi import azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -249,6 +257,7 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['ServiceEndpointGitHubEnterpriseAuthPersonalArgs', 'ServiceEndpointGitHubEnterpriseAuthPersonalArgsDict']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] url: GitHub Enterprise Server Url.
@@ -290,7 +299,7 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
 
         ## Import
 
-        Azure DevOps Service Endpoint GitHub Enterprise Server can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+        Azure DevOps GitHub Enterprise Server Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
         $ pulumi import azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -363,6 +372,7 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['ServiceEndpointGitHubEnterpriseAuthPersonalArgs', 'ServiceEndpointGitHubEnterpriseAuthPersonalArgsDict']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] url: GitHub Enterprise Server Url.
@@ -382,6 +392,9 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
     @property
     @pulumi.getter(name="authPersonal")
     def auth_personal(self) -> pulumi.Output['outputs.ServiceEndpointGitHubEnterpriseAuthPersonal']:
+        """
+        An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        """
         return pulumi.get(self, "auth_personal")
 
     @property

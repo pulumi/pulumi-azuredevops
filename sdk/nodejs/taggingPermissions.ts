@@ -83,6 +83,13 @@ export class TaggingPermissions extends pulumi.CustomResource {
 
     /**
      * the permissions to assign. The following permissions are available.
+     *
+     * | Name      | Permission Description    |
+     * |-----------|---------------------------|
+     * | Enumerate | Enumerate tag definitions |
+     * | Create    | Create tag definition     |
+     * | Update    | Update tag definition     |
+     * | Delete    | Delete tag definition     |
      */
     public readonly permissions!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -95,13 +102,6 @@ export class TaggingPermissions extends pulumi.CustomResource {
     public readonly projectId!: pulumi.Output<string | undefined>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     *
-     * | Name               | Permission Description     |
-     * | ------------------ | -------------------------- |
-     * | Enumerate          | Enumerate tag definitions  |
-     * | Create             | Create tag definition      |
-     * | Update             | Update tag definition      |
-     * | Delete             | Delete tag definition      |
      */
     public readonly replace!: pulumi.Output<boolean | undefined>;
 
@@ -146,6 +146,13 @@ export class TaggingPermissions extends pulumi.CustomResource {
 export interface TaggingPermissionsState {
     /**
      * the permissions to assign. The following permissions are available.
+     *
+     * | Name      | Permission Description    |
+     * |-----------|---------------------------|
+     * | Enumerate | Enumerate tag definitions |
+     * | Create    | Create tag definition     |
+     * | Update    | Update tag definition     |
+     * | Delete    | Delete tag definition     |
      */
     permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -158,13 +165,6 @@ export interface TaggingPermissionsState {
     projectId?: pulumi.Input<string>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     *
-     * | Name               | Permission Description     |
-     * | ------------------ | -------------------------- |
-     * | Enumerate          | Enumerate tag definitions  |
-     * | Create             | Create tag definition      |
-     * | Update             | Update tag definition      |
-     * | Delete             | Delete tag definition      |
      */
     replace?: pulumi.Input<boolean>;
 }
@@ -175,6 +175,13 @@ export interface TaggingPermissionsState {
 export interface TaggingPermissionsArgs {
     /**
      * the permissions to assign. The following permissions are available.
+     *
+     * | Name      | Permission Description    |
+     * |-----------|---------------------------|
+     * | Enumerate | Enumerate tag definitions |
+     * | Create    | Create tag definition     |
+     * | Update    | Update tag definition     |
+     * | Delete    | Delete tag definition     |
      */
     permissions: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -187,13 +194,6 @@ export interface TaggingPermissionsArgs {
     projectId?: pulumi.Input<string>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     *
-     * | Name               | Permission Description     |
-     * | ------------------ | -------------------------- |
-     * | Enumerate          | Enumerate tag definitions  |
-     * | Create             | Create tag definition      |
-     * | Update             | Update tag definition      |
-     * | Delete             | Delete tag definition      |
      */
     replace?: pulumi.Input<boolean>;
 }

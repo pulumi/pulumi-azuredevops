@@ -26,16 +26,16 @@ class ServicehookPermissionsArgs:
         """
         The set of arguments for constructing a ServicehookPermissions resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: the permissions to assign. The following permissions are available.
+               
+               | Name                | Permission Description |
+               |---------------------|------------------------|
+               | ViewSubscriptions   | View Subscriptions     |
+               | EditSubscriptions   | Edit Subscription      |
+               | DeleteSubscriptions | Delete Subscriptions   |
+               | PublishEvents       | Publish Events         |
         :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
-               
-               | Name               | Permission Description   |
-               | ------------------ | ------------------------ |
-               | ViewSubscriptions  | View Subscriptions       |
-               | EditSubscriptions  | Edit Subscription        |
-               | DeleteSubscriptions| Delete Subscriptions     |
-               | PublishEvents      | Publish Events           |
         """
         pulumi.set(__self__, "permissions", permissions)
         pulumi.set(__self__, "principal", principal)
@@ -49,6 +49,13 @@ class ServicehookPermissionsArgs:
     def permissions(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
         """
         the permissions to assign. The following permissions are available.
+
+        | Name                | Permission Description |
+        |---------------------|------------------------|
+        | ViewSubscriptions   | View Subscriptions     |
+        | EditSubscriptions   | Edit Subscription      |
+        | DeleteSubscriptions | Delete Subscriptions   |
+        | PublishEvents       | Publish Events         |
         """
         return pulumi.get(self, "permissions")
 
@@ -85,13 +92,6 @@ class ServicehookPermissionsArgs:
     def replace(self) -> Optional[pulumi.Input[bool]]:
         """
         Replace (`true`) or merge (`false`) the permissions. Default: `true`
-
-        | Name               | Permission Description   |
-        | ------------------ | ------------------------ |
-        | ViewSubscriptions  | View Subscriptions       |
-        | EditSubscriptions  | Edit Subscription        |
-        | DeleteSubscriptions| Delete Subscriptions     |
-        | PublishEvents      | Publish Events           |
         """
         return pulumi.get(self, "replace")
 
@@ -110,16 +110,16 @@ class _ServicehookPermissionsState:
         """
         Input properties used for looking up and filtering ServicehookPermissions resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: the permissions to assign. The following permissions are available.
+               
+               | Name                | Permission Description |
+               |---------------------|------------------------|
+               | ViewSubscriptions   | View Subscriptions     |
+               | EditSubscriptions   | Edit Subscription      |
+               | DeleteSubscriptions | Delete Subscriptions   |
+               | PublishEvents       | Publish Events         |
         :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
-               
-               | Name               | Permission Description   |
-               | ------------------ | ------------------------ |
-               | ViewSubscriptions  | View Subscriptions       |
-               | EditSubscriptions  | Edit Subscription        |
-               | DeleteSubscriptions| Delete Subscriptions     |
-               | PublishEvents      | Publish Events           |
         """
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
@@ -135,6 +135,13 @@ class _ServicehookPermissionsState:
     def permissions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         the permissions to assign. The following permissions are available.
+
+        | Name                | Permission Description |
+        |---------------------|------------------------|
+        | ViewSubscriptions   | View Subscriptions     |
+        | EditSubscriptions   | Edit Subscription      |
+        | DeleteSubscriptions | Delete Subscriptions   |
+        | PublishEvents       | Publish Events         |
         """
         return pulumi.get(self, "permissions")
 
@@ -171,13 +178,6 @@ class _ServicehookPermissionsState:
     def replace(self) -> Optional[pulumi.Input[bool]]:
         """
         Replace (`true`) or merge (`false`) the permissions. Default: `true`
-
-        | Name               | Permission Description   |
-        | ------------------ | ------------------------ |
-        | ViewSubscriptions  | View Subscriptions       |
-        | EditSubscriptions  | Edit Subscription        |
-        | DeleteSubscriptions| Delete Subscriptions     |
-        | PublishEvents      | Publish Events           |
         """
         return pulumi.get(self, "replace")
 
@@ -197,7 +197,7 @@ class ServicehookPermissions(pulumi.CustomResource):
                  replace: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Manages permissions for service hooks
+        Manages permissions for Service Hook permissions.
 
         ## Permission levels
 
@@ -244,16 +244,16 @@ class ServicehookPermissions(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: the permissions to assign. The following permissions are available.
+               
+               | Name                | Permission Description |
+               |---------------------|------------------------|
+               | ViewSubscriptions   | View Subscriptions     |
+               | EditSubscriptions   | Edit Subscription      |
+               | DeleteSubscriptions | Delete Subscriptions   |
+               | PublishEvents       | Publish Events         |
         :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
-               
-               | Name               | Permission Description   |
-               | ------------------ | ------------------------ |
-               | ViewSubscriptions  | View Subscriptions       |
-               | EditSubscriptions  | Edit Subscription        |
-               | DeleteSubscriptions| Delete Subscriptions     |
-               | PublishEvents      | Publish Events           |
         """
         ...
     @overload
@@ -262,7 +262,7 @@ class ServicehookPermissions(pulumi.CustomResource):
                  args: ServicehookPermissionsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages permissions for service hooks
+        Manages permissions for Service Hook permissions.
 
         ## Permission levels
 
@@ -364,16 +364,16 @@ class ServicehookPermissions(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: the permissions to assign. The following permissions are available.
+               
+               | Name                | Permission Description |
+               |---------------------|------------------------|
+               | ViewSubscriptions   | View Subscriptions     |
+               | EditSubscriptions   | Edit Subscription      |
+               | DeleteSubscriptions | Delete Subscriptions   |
+               | PublishEvents       | Publish Events         |
         :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
-               
-               | Name               | Permission Description   |
-               | ------------------ | ------------------------ |
-               | ViewSubscriptions  | View Subscriptions       |
-               | EditSubscriptions  | Edit Subscription        |
-               | DeleteSubscriptions| Delete Subscriptions     |
-               | PublishEvents      | Publish Events           |
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -390,6 +390,13 @@ class ServicehookPermissions(pulumi.CustomResource):
     def permissions(self) -> pulumi.Output[Mapping[str, str]]:
         """
         the permissions to assign. The following permissions are available.
+
+        | Name                | Permission Description |
+        |---------------------|------------------------|
+        | ViewSubscriptions   | View Subscriptions     |
+        | EditSubscriptions   | Edit Subscription      |
+        | DeleteSubscriptions | Delete Subscriptions   |
+        | PublishEvents       | Publish Events         |
         """
         return pulumi.get(self, "permissions")
 
@@ -414,13 +421,6 @@ class ServicehookPermissions(pulumi.CustomResource):
     def replace(self) -> pulumi.Output[Optional[bool]]:
         """
         Replace (`true`) or merge (`false`) the permissions. Default: `true`
-
-        | Name               | Permission Description   |
-        | ------------------ | ------------------------ |
-        | ViewSubscriptions  | View Subscriptions       |
-        | EditSubscriptions  | Edit Subscription        |
-        | DeleteSubscriptions| Delete Subscriptions     |
-        | PublishEvents      | Publish Events           |
         """
         return pulumi.get(self, "replace")
 

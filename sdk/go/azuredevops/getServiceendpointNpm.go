@@ -64,16 +64,16 @@ type GetServiceendpointNpmArgs struct {
 
 // A collection of values returned by getServiceendpointNpm.
 type GetServiceendpointNpmResult struct {
-	// Specifies the Authorization Scheme Map.
+	// The Authorization scheme.
 	Authorization map[string]string `pulumi:"authorization"`
-	// Specifies the description of the Service Endpoint.
+	// The description of the Service Endpoint.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                  string `pulumi:"id"`
 	ProjectId           string `pulumi:"projectId"`
 	ServiceEndpointId   string `pulumi:"serviceEndpointId"`
 	ServiceEndpointName string `pulumi:"serviceEndpointName"`
-	// Specifies the URL of the npm registry to connect with.
+	// The URL of the NPM registry to connect with.
 	Url string `pulumi:"url"`
 }
 
@@ -117,12 +117,12 @@ func (o GetServiceendpointNpmResultOutput) ToGetServiceendpointNpmResultOutputWi
 	return o
 }
 
-// Specifies the Authorization Scheme Map.
+// The Authorization scheme.
 func (o GetServiceendpointNpmResultOutput) Authorization() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetServiceendpointNpmResult) map[string]string { return v.Authorization }).(pulumi.StringMapOutput)
 }
 
-// Specifies the description of the Service Endpoint.
+// The description of the Service Endpoint.
 func (o GetServiceendpointNpmResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceendpointNpmResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -144,7 +144,7 @@ func (o GetServiceendpointNpmResultOutput) ServiceEndpointName() pulumi.StringOu
 	return o.ApplyT(func(v GetServiceendpointNpmResult) string { return v.ServiceEndpointName }).(pulumi.StringOutput)
 }
 
-// Specifies the URL of the npm registry to connect with.
+// The URL of the NPM registry to connect with.
 func (o GetServiceendpointNpmResultOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceendpointNpmResult) string { return v.Url }).(pulumi.StringOutput)
 }

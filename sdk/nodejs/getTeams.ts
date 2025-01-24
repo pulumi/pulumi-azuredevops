@@ -62,12 +62,11 @@ export interface GetTeamsResult {
      */
     readonly id: string;
     /**
-     * Project identifier.
-     * - `id - Team identifier
+     * The ID of the Project.
      */
     readonly projectId?: string;
     /**
-     * A list of existing projects in your Azure DevOps Organization with details about every project which includes:
+     * A list of `teams` blocks as documented below. A list of existing projects in your Azure DevOps Organization with details about every project which includes:
      */
     readonly teams: outputs.GetTeamsTeam[];
     readonly top?: number;

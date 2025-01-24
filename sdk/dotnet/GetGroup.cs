@@ -169,13 +169,13 @@ namespace Pulumi.AzureDevOps
     public sealed class GetGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Group Name.
+        /// The Name of the Group.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The Project ID. If no project ID is specified the project collection groups will be searched.
+        /// The ID of the Project. If `project_id` is not specified the project collection groups will be searched.
         /// </summary>
         [Input("projectId")]
         public string? ProjectId { get; set; }
@@ -189,13 +189,13 @@ namespace Pulumi.AzureDevOps
     public sealed class GetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Group Name.
+        /// The Name of the Group.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The Project ID. If no project ID is specified the project collection groups will be searched.
+        /// The ID of the Project. If `project_id` is not specified the project collection groups will be searched.
         /// </summary>
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }

@@ -20,7 +20,7 @@ public final class GetTeamResult {
      */
     private List<String> administrators;
     /**
-     * @return Team description.
+     * @return The description of the team.
      * 
      */
     private String description;
@@ -41,6 +41,12 @@ public final class GetTeamResult {
     private List<String> members;
     private String name;
     private String projectId;
+    /**
+     * @deprecated
+     * This property is deprecated and will be removed in the feature
+     * 
+     */
+    @Deprecated /* This property is deprecated and will be removed in the feature */
     private @Nullable Integer top;
 
     private GetTeamResult() {}
@@ -52,7 +58,7 @@ public final class GetTeamResult {
         return this.administrators;
     }
     /**
-     * @return Team description.
+     * @return The description of the team.
      * 
      */
     public String description() {
@@ -85,6 +91,12 @@ public final class GetTeamResult {
     public String projectId() {
         return this.projectId;
     }
+    /**
+     * @deprecated
+     * This property is deprecated and will be removed in the feature
+     * 
+     */
+    @Deprecated /* This property is deprecated and will be removed in the feature */
     public Optional<Integer> top() {
         return Optional.ofNullable(this.top);
     }

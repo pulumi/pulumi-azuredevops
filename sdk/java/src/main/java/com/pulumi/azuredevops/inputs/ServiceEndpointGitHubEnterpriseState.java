@@ -17,9 +17,17 @@ public final class ServiceEndpointGitHubEnterpriseState extends com.pulumi.resou
 
     public static final ServiceEndpointGitHubEnterpriseState Empty = new ServiceEndpointGitHubEnterpriseState();
 
+    /**
+     * An `auth_personal` block as documented below. Allows connecting using a personal access token.
+     * 
+     */
     @Import(name="authPersonal")
     private @Nullable Output<ServiceEndpointGitHubEnterpriseAuthPersonalArgs> authPersonal;
 
+    /**
+     * @return An `auth_personal` block as documented below. Allows connecting using a personal access token.
+     * 
+     */
     public Optional<Output<ServiceEndpointGitHubEnterpriseAuthPersonalArgs>> authPersonal() {
         return Optional.ofNullable(this.authPersonal);
     }
@@ -112,11 +120,23 @@ public final class ServiceEndpointGitHubEnterpriseState extends com.pulumi.resou
             $ = new ServiceEndpointGitHubEnterpriseState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param authPersonal An `auth_personal` block as documented below. Allows connecting using a personal access token.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authPersonal(@Nullable Output<ServiceEndpointGitHubEnterpriseAuthPersonalArgs> authPersonal) {
             $.authPersonal = authPersonal;
             return this;
         }
 
+        /**
+         * @param authPersonal An `auth_personal` block as documented below. Allows connecting using a personal access token.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authPersonal(ServiceEndpointGitHubEnterpriseAuthPersonalArgs authPersonal) {
             return authPersonal(Output.of(authPersonal));
         }

@@ -54,7 +54,7 @@ class ProjectPermissionsArgs:
                | CHANGE_PROCESS               | Change process of team project.              |
                | AGILETOOLS_BACKLOG           | Agile backlog management.                    |
                | AGILETOOLS_PLANS             | Agile plans.                                 |
-        :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
+        :param pulumi.Input[str] principal: The `group` principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
         """
@@ -108,7 +108,7 @@ class ProjectPermissionsArgs:
     @pulumi.getter
     def principal(self) -> pulumi.Input[str]:
         """
-        The **group** principal to assign the permissions.
+        The `group` principal to assign the permissions.
         """
         return pulumi.get(self, "principal")
 
@@ -179,7 +179,7 @@ class _ProjectPermissionsState:
                | CHANGE_PROCESS               | Change process of team project.              |
                | AGILETOOLS_BACKLOG           | Agile backlog management.                    |
                | AGILETOOLS_PLANS             | Agile plans.                                 |
-        :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
+        :param pulumi.Input[str] principal: The `group` principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
         """
@@ -236,7 +236,7 @@ class _ProjectPermissionsState:
     @pulumi.getter
     def principal(self) -> Optional[pulumi.Input[str]]:
         """
-        The **group** principal to assign the permissions.
+        The `group` principal to assign the permissions.
         """
         return pulumi.get(self, "principal")
 
@@ -352,7 +352,7 @@ class ProjectPermissions(pulumi.CustomResource):
                | CHANGE_PROCESS               | Change process of team project.              |
                | AGILETOOLS_BACKLOG           | Agile backlog management.                    |
                | AGILETOOLS_PLANS             | Agile plans.                                 |
-        :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
+        :param pulumi.Input[str] principal: The `group` principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
         """
@@ -492,7 +492,7 @@ class ProjectPermissions(pulumi.CustomResource):
                | CHANGE_PROCESS               | Change process of team project.              |
                | AGILETOOLS_BACKLOG           | Agile backlog management.                    |
                | AGILETOOLS_PLANS             | Agile plans.                                 |
-        :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
+        :param pulumi.Input[str] principal: The `group` principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
         """
@@ -546,7 +546,7 @@ class ProjectPermissions(pulumi.CustomResource):
     @pulumi.getter
     def principal(self) -> pulumi.Output[str]:
         """
-        The **group** principal to assign the permissions.
+        The `group` principal to assign the permissions.
         """
         return pulumi.get(self, "principal")
 

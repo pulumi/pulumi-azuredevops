@@ -66,13 +66,13 @@ func GetGroups(ctx *pulumi.Context, args *GetGroupsArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getGroups.
 type GetGroupsArgs struct {
-	// The Project ID. If no project ID is specified all groups of an organization will be returned
+	// The ID of the Project. If no project ID is specified all groups of an organization will be returned
 	ProjectId *string `pulumi:"projectId"`
 }
 
 // A collection of values returned by getGroups.
 type GetGroupsResult struct {
-	// A set of existing groups in your Azure DevOps Organization or project with details about every single group which includes:
+	// A `groups` blocks as documented below. A set of existing groups in your Azure DevOps Organization or project with details about every single group which includes:
 	Groups []GetGroupsGroup `pulumi:"groups"`
 	// The provider-assigned unique ID for this managed resource.
 	Id        string  `pulumi:"id"`
@@ -90,7 +90,7 @@ func GetGroupsOutput(ctx *pulumi.Context, args GetGroupsOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getGroups.
 type GetGroupsOutputArgs struct {
-	// The Project ID. If no project ID is specified all groups of an organization will be returned
+	// The ID of the Project. If no project ID is specified all groups of an organization will be returned
 	ProjectId pulumi.StringPtrInput `pulumi:"projectId"`
 }
 
@@ -113,7 +113,7 @@ func (o GetGroupsResultOutput) ToGetGroupsResultOutputWithContext(ctx context.Co
 	return o
 }
 
-// A set of existing groups in your Azure DevOps Organization or project with details about every single group which includes:
+// A `groups` blocks as documented below. A set of existing groups in your Azure DevOps Organization or project with details about every single group which includes:
 func (o GetGroupsResultOutput) Groups() GetGroupsGroupArrayOutput {
 	return o.ApplyT(func(v GetGroupsResult) []GetGroupsGroup { return v.Groups }).(GetGroupsGroupArrayOutput)
 }

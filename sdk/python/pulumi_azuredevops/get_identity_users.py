@@ -43,6 +43,9 @@ class GetIdentityUsersResult:
     @property
     @pulumi.getter
     def descriptor(self) -> str:
+        """
+        The descriptor of the user.
+        """
         return pulumi.get(self, "descriptor")
 
     @property
@@ -56,9 +59,6 @@ class GetIdentityUsersResult:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        This is the PrincipalName of this identity member from the source provider. The source provider may change this field over time and it is not guaranteed to be immutable for the life of the identity member.
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -87,7 +87,7 @@ def get_identity_users(name: Optional[str] = None,
 
 
     :param str name: The PrincipalName of this identity member from the source provider.
-    :param str search_filter: The type of search to perform. Default is `General`. Possible values are `AccountName`, `DisplayName`, and `MailAddress`.
+    :param str search_filter: The type of search to perform. Possible values are: `AccountName`, `DisplayName`, and `MailAddress`. Default is `General`.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -108,7 +108,7 @@ def get_identity_users_output(name: Optional[pulumi.Input[str]] = None,
 
 
     :param str name: The PrincipalName of this identity member from the source provider.
-    :param str search_filter: The type of search to perform. Default is `General`. Possible values are `AccountName`, `DisplayName`, and `MailAddress`.
+    :param str search_filter: The type of search to perform. Possible values are: `AccountName`, `DisplayName`, and `MailAddress`. Default is `General`.
     """
     __args__ = dict()
     __args__['name'] = name

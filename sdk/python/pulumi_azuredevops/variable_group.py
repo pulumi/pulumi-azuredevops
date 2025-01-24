@@ -239,6 +239,7 @@ class VariableGroup(pulumi.CustomResource):
         """
         ## Example Usage
 
+        ### Basic usage
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -267,7 +268,7 @@ class VariableGroup(pulumi.CustomResource):
             ])
         ```
 
-        ### With AzureRM Key Vault
+        ### Link to AzureRM Key Vault
 
         ```python
         import pulumi
@@ -359,6 +360,7 @@ class VariableGroup(pulumi.CustomResource):
         """
         ## Example Usage
 
+        ### Basic usage
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -387,7 +389,7 @@ class VariableGroup(pulumi.CustomResource):
             ])
         ```
 
-        ### With AzureRM Key Vault
+        ### Link to AzureRM Key Vault
 
         ```python
         import pulumi

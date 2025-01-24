@@ -157,7 +157,7 @@ namespace Pulumi.AzureDevOps
     public sealed class GetIdentityGroupsResult
     {
         /// <summary>
-        /// A set of existing groups in your Azure DevOps Organization or project with details about every single group which includes:
+        /// A `groups` blocks as documented below. A set of existing groups in your Azure DevOps Organization or project with details about every single group.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetIdentityGroupsGroupResult> Groups;
         /// <summary>

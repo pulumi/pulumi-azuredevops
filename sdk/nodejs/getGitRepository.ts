@@ -41,11 +41,11 @@ export function getGitRepository(args: GetGitRepositoryArgs, opts?: pulumi.Invok
  */
 export interface GetGitRepositoryArgs {
     /**
-     * Name of the Git repository to retrieve
+     * The Name of the Git repository to retrieve
      */
     name: string;
     /**
-     * ID of project to list Git repositories
+     * The ID of project to list Git repositories
      */
     projectId: string;
 }
@@ -59,7 +59,7 @@ export interface GetGitRepositoryResult {
      */
     readonly defaultBranch: string;
     /**
-     * Is the repository disabled?
+     * Indicates whether the repository is disabled.
      */
     readonly disabled: boolean;
     /**
@@ -68,7 +68,7 @@ export interface GetGitRepositoryResult {
     readonly id: string;
     readonly isFork: boolean;
     /**
-     * Git repository name.
+     * The name of the Git repository.
      */
     readonly name: string;
     /**
@@ -88,11 +88,11 @@ export interface GetGitRepositoryResult {
      */
     readonly sshUrl: string;
     /**
-     * Details REST API endpoint for the Git Repository.
+     * The details REST API endpoint for the Git Repository.
      */
     readonly url: string;
     /**
-     * Url of the Git repository web view
+     * The Url of the Git repository web view
      */
     readonly webUrl: string;
 }
@@ -133,11 +133,11 @@ export function getGitRepositoryOutput(args: GetGitRepositoryOutputArgs, opts?: 
  */
 export interface GetGitRepositoryOutputArgs {
     /**
-     * Name of the Git repository to retrieve
+     * The Name of the Git repository to retrieve
      */
     name: pulumi.Input<string>;
     /**
-     * ID of project to list Git repositories
+     * The ID of project to list Git repositories
      */
     projectId: pulumi.Input<string>;
 }

@@ -83,19 +83,19 @@ type TaggingPermissions struct {
 	pulumi.CustomResourceState
 
 	// the permissions to assign. The following permissions are available.
+	//
+	// | Name      | Permission Description    |
+	// |-----------|---------------------------|
+	// | Enumerate | Enumerate tag definitions |
+	// | Create    | Create tag definition     |
+	// | Update    | Update tag definition     |
+	// | Delete    | Delete tag definition     |
 	Permissions pulumi.StringMapOutput `pulumi:"permissions"`
 	// The **group or user** principal to assign the permissions.
 	Principal pulumi.StringOutput `pulumi:"principal"`
 	// The ID of the project to assign the permissions. If omitted, organization wide permissions for tagging are managed.
 	ProjectId pulumi.StringPtrOutput `pulumi:"projectId"`
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-	//
-	// | Name               | Permission Description     |
-	// | ------------------ | -------------------------- |
-	// | Enumerate          | Enumerate tag definitions  |
-	// | Create             | Create tag definition      |
-	// | Update             | Update tag definition      |
-	// | Delete             | Delete tag definition      |
 	Replace pulumi.BoolPtrOutput `pulumi:"replace"`
 }
 
@@ -136,37 +136,37 @@ func GetTaggingPermissions(ctx *pulumi.Context,
 // Input properties used for looking up and filtering TaggingPermissions resources.
 type taggingPermissionsState struct {
 	// the permissions to assign. The following permissions are available.
+	//
+	// | Name      | Permission Description    |
+	// |-----------|---------------------------|
+	// | Enumerate | Enumerate tag definitions |
+	// | Create    | Create tag definition     |
+	// | Update    | Update tag definition     |
+	// | Delete    | Delete tag definition     |
 	Permissions map[string]string `pulumi:"permissions"`
 	// The **group or user** principal to assign the permissions.
 	Principal *string `pulumi:"principal"`
 	// The ID of the project to assign the permissions. If omitted, organization wide permissions for tagging are managed.
 	ProjectId *string `pulumi:"projectId"`
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-	//
-	// | Name               | Permission Description     |
-	// | ------------------ | -------------------------- |
-	// | Enumerate          | Enumerate tag definitions  |
-	// | Create             | Create tag definition      |
-	// | Update             | Update tag definition      |
-	// | Delete             | Delete tag definition      |
 	Replace *bool `pulumi:"replace"`
 }
 
 type TaggingPermissionsState struct {
 	// the permissions to assign. The following permissions are available.
+	//
+	// | Name      | Permission Description    |
+	// |-----------|---------------------------|
+	// | Enumerate | Enumerate tag definitions |
+	// | Create    | Create tag definition     |
+	// | Update    | Update tag definition     |
+	// | Delete    | Delete tag definition     |
 	Permissions pulumi.StringMapInput
 	// The **group or user** principal to assign the permissions.
 	Principal pulumi.StringPtrInput
 	// The ID of the project to assign the permissions. If omitted, organization wide permissions for tagging are managed.
 	ProjectId pulumi.StringPtrInput
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-	//
-	// | Name               | Permission Description     |
-	// | ------------------ | -------------------------- |
-	// | Enumerate          | Enumerate tag definitions  |
-	// | Create             | Create tag definition      |
-	// | Update             | Update tag definition      |
-	// | Delete             | Delete tag definition      |
 	Replace pulumi.BoolPtrInput
 }
 
@@ -176,38 +176,38 @@ func (TaggingPermissionsState) ElementType() reflect.Type {
 
 type taggingPermissionsArgs struct {
 	// the permissions to assign. The following permissions are available.
+	//
+	// | Name      | Permission Description    |
+	// |-----------|---------------------------|
+	// | Enumerate | Enumerate tag definitions |
+	// | Create    | Create tag definition     |
+	// | Update    | Update tag definition     |
+	// | Delete    | Delete tag definition     |
 	Permissions map[string]string `pulumi:"permissions"`
 	// The **group or user** principal to assign the permissions.
 	Principal string `pulumi:"principal"`
 	// The ID of the project to assign the permissions. If omitted, organization wide permissions for tagging are managed.
 	ProjectId *string `pulumi:"projectId"`
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-	//
-	// | Name               | Permission Description     |
-	// | ------------------ | -------------------------- |
-	// | Enumerate          | Enumerate tag definitions  |
-	// | Create             | Create tag definition      |
-	// | Update             | Update tag definition      |
-	// | Delete             | Delete tag definition      |
 	Replace *bool `pulumi:"replace"`
 }
 
 // The set of arguments for constructing a TaggingPermissions resource.
 type TaggingPermissionsArgs struct {
 	// the permissions to assign. The following permissions are available.
+	//
+	// | Name      | Permission Description    |
+	// |-----------|---------------------------|
+	// | Enumerate | Enumerate tag definitions |
+	// | Create    | Create tag definition     |
+	// | Update    | Update tag definition     |
+	// | Delete    | Delete tag definition     |
 	Permissions pulumi.StringMapInput
 	// The **group or user** principal to assign the permissions.
 	Principal pulumi.StringInput
 	// The ID of the project to assign the permissions. If omitted, organization wide permissions for tagging are managed.
 	ProjectId pulumi.StringPtrInput
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-	//
-	// | Name               | Permission Description     |
-	// | ------------------ | -------------------------- |
-	// | Enumerate          | Enumerate tag definitions  |
-	// | Create             | Create tag definition      |
-	// | Update             | Update tag definition      |
-	// | Delete             | Delete tag definition      |
 	Replace pulumi.BoolPtrInput
 }
 
@@ -299,6 +299,13 @@ func (o TaggingPermissionsOutput) ToTaggingPermissionsOutputWithContext(ctx cont
 }
 
 // the permissions to assign. The following permissions are available.
+//
+// | Name      | Permission Description    |
+// |-----------|---------------------------|
+// | Enumerate | Enumerate tag definitions |
+// | Create    | Create tag definition     |
+// | Update    | Update tag definition     |
+// | Delete    | Delete tag definition     |
 func (o TaggingPermissionsOutput) Permissions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TaggingPermissions) pulumi.StringMapOutput { return v.Permissions }).(pulumi.StringMapOutput)
 }
@@ -314,13 +321,6 @@ func (o TaggingPermissionsOutput) ProjectId() pulumi.StringPtrOutput {
 }
 
 // Replace (`true`) or merge (`false`) the permissions. Default: `true`
-//
-// | Name               | Permission Description     |
-// | ------------------ | -------------------------- |
-// | Enumerate          | Enumerate tag definitions  |
-// | Create             | Create tag definition      |
-// | Update             | Update tag definition      |
-// | Delete             | Delete tag definition      |
 func (o TaggingPermissionsOutput) Replace() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TaggingPermissions) pulumi.BoolPtrOutput { return v.Replace }).(pulumi.BoolPtrOutput)
 }

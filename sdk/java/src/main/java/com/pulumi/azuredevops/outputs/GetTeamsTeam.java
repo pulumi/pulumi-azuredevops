@@ -21,6 +21,10 @@ public final class GetTeamsTeam {
      * 
      */
     private String description;
+    /**
+     * @return The ID of the Team.
+     * 
+     */
     private String id;
     /**
      * @return List of subject descriptors for `members` of the team.
@@ -28,7 +32,7 @@ public final class GetTeamsTeam {
      */
     private List<String> members;
     /**
-     * @return Team name.
+     * @return The name of the team.
      * 
      */
     private String name;
@@ -53,6 +57,10 @@ public final class GetTeamsTeam {
     public String description() {
         return this.description;
     }
+    /**
+     * @return The ID of the Team.
+     * 
+     */
     public String id() {
         return this.id;
     }
@@ -64,7 +72,7 @@ public final class GetTeamsTeam {
         return this.members;
     }
     /**
-     * @return Team name.
+     * @return The name of the team.
      * 
      */
     public String name() {

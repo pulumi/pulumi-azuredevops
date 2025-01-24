@@ -86,14 +86,14 @@ public final class ServiceEndpointAzureEcrArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `credentials` block.
+     * A `credentials` block as defined below.
      * 
      */
     @Import(name="credentials")
     private @Nullable Output<ServiceEndpointAzureEcrCredentialsArgs> credentials;
 
     /**
-     * @return A `credentials` block.
+     * @return A `credentials` block as defined below.
      * 
      */
     public Optional<Output<ServiceEndpointAzureEcrCredentialsArgs>> credentials() {
@@ -295,7 +295,7 @@ public final class ServiceEndpointAzureEcrArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param credentials A `credentials` block.
+         * @param credentials A `credentials` block as defined below.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class ServiceEndpointAzureEcrArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param credentials A `credentials` block.
+         * @param credentials A `credentials` block as defined below.
          * 
          * @return builder
          * 

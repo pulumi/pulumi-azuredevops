@@ -17,7 +17,7 @@ public final class GetServiceendpointAzurecrResult {
      */
     private String appObjectId;
     /**
-     * @return Specifies the Authorization Scheme Map.
+     * @return The Authorization scheme.
      * 
      */
     private Map<String,String> authorization;
@@ -89,7 +89,7 @@ public final class GetServiceendpointAzurecrResult {
         return this.appObjectId;
     }
     /**
-     * @return Specifies the Authorization Scheme Map.
+     * @return The Authorization scheme.
      * 
      */
     public Map<String,String> authorization() {

@@ -145,6 +145,8 @@ namespace Pulumi.AzureDevOps
     public sealed class GetRepositoriesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Defaults to `false`.
+        /// 
         /// DataSource without specifying any arguments will return all Git repositories of an organization.
         /// </summary>
         [Input("includeHidden")]
@@ -171,6 +173,8 @@ namespace Pulumi.AzureDevOps
     public sealed class GetRepositoriesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Defaults to `false`.
+        /// 
         /// DataSource without specifying any arguments will return all Git repositories of an organization.
         /// </summary>
         [Input("includeHidden")]
@@ -212,7 +216,7 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public readonly string? ProjectId;
         /// <summary>
-        /// A list of existing projects in your Azure DevOps Organization with details about every project which includes:
+        /// A `repositories` blocks as documented below. A list of existing projects in your Azure DevOps Organization with details about every project.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRepositoriesRepositoryResult> Repositories;
 

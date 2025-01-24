@@ -116,7 +116,7 @@ type BranchPolicyBuildValidation struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The ID of the project in which the policy will be created.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
-	// Configuration for the policy. This block must be defined exactly once.
+	// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
 	Settings BranchPolicyBuildValidationSettingsOutput `pulumi:"settings"`
 }
 
@@ -168,7 +168,7 @@ type branchPolicyBuildValidationState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The ID of the project in which the policy will be created.
 	ProjectId *string `pulumi:"projectId"`
-	// Configuration for the policy. This block must be defined exactly once.
+	// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
 	Settings *BranchPolicyBuildValidationSettings `pulumi:"settings"`
 }
 
@@ -179,7 +179,7 @@ type BranchPolicyBuildValidationState struct {
 	Enabled pulumi.BoolPtrInput
 	// The ID of the project in which the policy will be created.
 	ProjectId pulumi.StringPtrInput
-	// Configuration for the policy. This block must be defined exactly once.
+	// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
 	Settings BranchPolicyBuildValidationSettingsPtrInput
 }
 
@@ -194,7 +194,7 @@ type branchPolicyBuildValidationArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The ID of the project in which the policy will be created.
 	ProjectId string `pulumi:"projectId"`
-	// Configuration for the policy. This block must be defined exactly once.
+	// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
 	Settings BranchPolicyBuildValidationSettings `pulumi:"settings"`
 }
 
@@ -206,7 +206,7 @@ type BranchPolicyBuildValidationArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// The ID of the project in which the policy will be created.
 	ProjectId pulumi.StringInput
-	// Configuration for the policy. This block must be defined exactly once.
+	// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
 	Settings BranchPolicyBuildValidationSettingsInput
 }
 
@@ -312,7 +312,7 @@ func (o BranchPolicyBuildValidationOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BranchPolicyBuildValidation) pulumi.StringOutput { return v.ProjectId }).(pulumi.StringOutput)
 }
 
-// Configuration for the policy. This block must be defined exactly once.
+// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
 func (o BranchPolicyBuildValidationOutput) Settings() BranchPolicyBuildValidationSettingsOutput {
 	return o.ApplyT(func(v *BranchPolicyBuildValidation) BranchPolicyBuildValidationSettingsOutput { return v.Settings }).(BranchPolicyBuildValidationSettingsOutput)
 }

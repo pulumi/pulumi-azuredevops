@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Artifactory server endpoint within an Azure DevOps organization. Using this service endpoint requires you to first install [JFrog Artifactory Extension](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-artifactory-vsts-extension).
+// Manages an JFrog Artifactory server endpoint within an Azure DevOps organization. Using this service endpoint requires you to first install [JFrog Artifactory Extension](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-artifactory-vsts-extension).
 //
 // ## Example Usage
 //
@@ -105,7 +105,7 @@ import (
 //
 // ## Import
 //
-// Azure DevOps Service Endpoint Artifactory can be imported using the **projectID/serviceEndpointID**, e.g.
+// Azure DevOps JFrog Artifactory Service Endpoint can be imported using the **projectID/serviceEndpointID**, e.g.
 //
 // ```sh
 // $ pulumi import azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -114,6 +114,7 @@ type ServiceEndpointArtifactory struct {
 	pulumi.CustomResourceState
 
 	AuthenticationBasic ServiceEndpointArtifactoryAuthenticationBasicPtrOutput `pulumi:"authenticationBasic"`
+	// A `authenticationBasic` block as defined below.
 	AuthenticationToken ServiceEndpointArtifactoryAuthenticationTokenPtrOutput `pulumi:"authenticationToken"`
 	Authorization       pulumi.StringMapOutput                                 `pulumi:"authorization"`
 	// The Service Endpoint description.
@@ -124,8 +125,7 @@ type ServiceEndpointArtifactory struct {
 	ServiceEndpointName pulumi.StringOutput `pulumi:"serviceEndpointName"`
 	// URL of the Artifactory server to connect with.
 	//
-	// _Note: URL should not end in a slash character._
-	// * either `authenticationToken` or `authenticationBasic` (one is required)
+	// _**Note: URL should not end in a slash character.**_
 	Url pulumi.StringOutput `pulumi:"url"`
 }
 
@@ -169,6 +169,7 @@ func GetServiceEndpointArtifactory(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ServiceEndpointArtifactory resources.
 type serviceEndpointArtifactoryState struct {
 	AuthenticationBasic *ServiceEndpointArtifactoryAuthenticationBasic `pulumi:"authenticationBasic"`
+	// A `authenticationBasic` block as defined below.
 	AuthenticationToken *ServiceEndpointArtifactoryAuthenticationToken `pulumi:"authenticationToken"`
 	Authorization       map[string]string                              `pulumi:"authorization"`
 	// The Service Endpoint description.
@@ -179,13 +180,13 @@ type serviceEndpointArtifactoryState struct {
 	ServiceEndpointName *string `pulumi:"serviceEndpointName"`
 	// URL of the Artifactory server to connect with.
 	//
-	// _Note: URL should not end in a slash character._
-	// * either `authenticationToken` or `authenticationBasic` (one is required)
+	// _**Note: URL should not end in a slash character.**_
 	Url *string `pulumi:"url"`
 }
 
 type ServiceEndpointArtifactoryState struct {
 	AuthenticationBasic ServiceEndpointArtifactoryAuthenticationBasicPtrInput
+	// A `authenticationBasic` block as defined below.
 	AuthenticationToken ServiceEndpointArtifactoryAuthenticationTokenPtrInput
 	Authorization       pulumi.StringMapInput
 	// The Service Endpoint description.
@@ -196,8 +197,7 @@ type ServiceEndpointArtifactoryState struct {
 	ServiceEndpointName pulumi.StringPtrInput
 	// URL of the Artifactory server to connect with.
 	//
-	// _Note: URL should not end in a slash character._
-	// * either `authenticationToken` or `authenticationBasic` (one is required)
+	// _**Note: URL should not end in a slash character.**_
 	Url pulumi.StringPtrInput
 }
 
@@ -207,6 +207,7 @@ func (ServiceEndpointArtifactoryState) ElementType() reflect.Type {
 
 type serviceEndpointArtifactoryArgs struct {
 	AuthenticationBasic *ServiceEndpointArtifactoryAuthenticationBasic `pulumi:"authenticationBasic"`
+	// A `authenticationBasic` block as defined below.
 	AuthenticationToken *ServiceEndpointArtifactoryAuthenticationToken `pulumi:"authenticationToken"`
 	Authorization       map[string]string                              `pulumi:"authorization"`
 	// The Service Endpoint description.
@@ -217,14 +218,14 @@ type serviceEndpointArtifactoryArgs struct {
 	ServiceEndpointName string `pulumi:"serviceEndpointName"`
 	// URL of the Artifactory server to connect with.
 	//
-	// _Note: URL should not end in a slash character._
-	// * either `authenticationToken` or `authenticationBasic` (one is required)
+	// _**Note: URL should not end in a slash character.**_
 	Url string `pulumi:"url"`
 }
 
 // The set of arguments for constructing a ServiceEndpointArtifactory resource.
 type ServiceEndpointArtifactoryArgs struct {
 	AuthenticationBasic ServiceEndpointArtifactoryAuthenticationBasicPtrInput
+	// A `authenticationBasic` block as defined below.
 	AuthenticationToken ServiceEndpointArtifactoryAuthenticationTokenPtrInput
 	Authorization       pulumi.StringMapInput
 	// The Service Endpoint description.
@@ -235,8 +236,7 @@ type ServiceEndpointArtifactoryArgs struct {
 	ServiceEndpointName pulumi.StringInput
 	// URL of the Artifactory server to connect with.
 	//
-	// _Note: URL should not end in a slash character._
-	// * either `authenticationToken` or `authenticationBasic` (one is required)
+	// _**Note: URL should not end in a slash character.**_
 	Url pulumi.StringInput
 }
 
@@ -333,6 +333,7 @@ func (o ServiceEndpointArtifactoryOutput) AuthenticationBasic() ServiceEndpointA
 	}).(ServiceEndpointArtifactoryAuthenticationBasicPtrOutput)
 }
 
+// A `authenticationBasic` block as defined below.
 func (o ServiceEndpointArtifactoryOutput) AuthenticationToken() ServiceEndpointArtifactoryAuthenticationTokenPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointArtifactory) ServiceEndpointArtifactoryAuthenticationTokenPtrOutput {
 		return v.AuthenticationToken
@@ -360,8 +361,7 @@ func (o ServiceEndpointArtifactoryOutput) ServiceEndpointName() pulumi.StringOut
 
 // URL of the Artifactory server to connect with.
 //
-// _Note: URL should not end in a slash character._
-// * either `authenticationToken` or `authenticationBasic` (one is required)
+// _**Note: URL should not end in a slash character.**_
 func (o ServiceEndpointArtifactoryOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceEndpointArtifactory) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }

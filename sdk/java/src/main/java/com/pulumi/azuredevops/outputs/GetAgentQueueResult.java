@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetAgentQueueResult {
     /**
-     * @return Agent pool identifier to which the agent queue belongs.
+     * @return The ID of the Agent pool to which the agent queue belongs.
      * 
      */
     private Integer agentPoolId;
@@ -27,14 +27,14 @@ public final class GetAgentQueueResult {
      */
     private String name;
     /**
-     * @return Project identifier to which the agent queue belongs.
+     * @return The ID of the Project to which the agent queue belongs.
      * 
      */
     private String projectId;
 
     private GetAgentQueueResult() {}
     /**
-     * @return Agent pool identifier to which the agent queue belongs.
+     * @return The ID of the Agent pool to which the agent queue belongs.
      * 
      */
     public Integer agentPoolId() {
@@ -55,7 +55,7 @@ public final class GetAgentQueueResult {
         return this.name;
     }
     /**
-     * @return Project identifier to which the agent queue belongs.
+     * @return The ID of the Project to which the agent queue belongs.
      * 
      */
     public String projectId() {

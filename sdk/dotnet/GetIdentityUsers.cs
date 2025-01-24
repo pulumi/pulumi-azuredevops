@@ -40,7 +40,7 @@ namespace Pulumi.AzureDevOps
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The type of search to perform. Default is `General`. Possible values are `AccountName`, `DisplayName`, and `MailAddress`.
+        /// The type of search to perform. Possible values are: `AccountName`, `DisplayName`, and `MailAddress`. Default is `General`.
         /// </summary>
         [Input("searchFilter")]
         public string? SearchFilter { get; set; }
@@ -60,7 +60,7 @@ namespace Pulumi.AzureDevOps
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The type of search to perform. Default is `General`. Possible values are `AccountName`, `DisplayName`, and `MailAddress`.
+        /// The type of search to perform. Possible values are: `AccountName`, `DisplayName`, and `MailAddress`. Default is `General`.
         /// </summary>
         [Input("searchFilter")]
         public Input<string>? SearchFilter { get; set; }
@@ -75,14 +75,14 @@ namespace Pulumi.AzureDevOps
     [OutputType]
     public sealed class GetIdentityUsersResult
     {
+        /// <summary>
+        /// The descriptor of the user.
+        /// </summary>
         public readonly string Descriptor;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// This is the PrincipalName of this identity member from the source provider. The source provider may change this field over time and it is not guaranteed to be immutable for the life of the identity member.
-        /// </summary>
         public readonly string Name;
         public readonly string? SearchFilter;
 

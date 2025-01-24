@@ -26,16 +26,16 @@ func GetIdentityUsers(ctx *pulumi.Context, args *GetIdentityUsersArgs, opts ...p
 type GetIdentityUsersArgs struct {
 	// The PrincipalName of this identity member from the source provider.
 	Name string `pulumi:"name"`
-	// The type of search to perform. Default is `General`. Possible values are `AccountName`, `DisplayName`, and `MailAddress`.
+	// The type of search to perform. Possible values are: `AccountName`, `DisplayName`, and `MailAddress`. Default is `General`.
 	SearchFilter *string `pulumi:"searchFilter"`
 }
 
 // A collection of values returned by getIdentityUsers.
 type GetIdentityUsersResult struct {
+	// The descriptor of the user.
 	Descriptor string `pulumi:"descriptor"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// This is the PrincipalName of this identity member from the source provider. The source provider may change this field over time and it is not guaranteed to be immutable for the life of the identity member.
+	Id           string  `pulumi:"id"`
 	Name         string  `pulumi:"name"`
 	SearchFilter *string `pulumi:"searchFilter"`
 }
@@ -53,7 +53,7 @@ func GetIdentityUsersOutput(ctx *pulumi.Context, args GetIdentityUsersOutputArgs
 type GetIdentityUsersOutputArgs struct {
 	// The PrincipalName of this identity member from the source provider.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The type of search to perform. Default is `General`. Possible values are `AccountName`, `DisplayName`, and `MailAddress`.
+	// The type of search to perform. Possible values are: `AccountName`, `DisplayName`, and `MailAddress`. Default is `General`.
 	SearchFilter pulumi.StringPtrInput `pulumi:"searchFilter"`
 }
 
@@ -76,6 +76,7 @@ func (o GetIdentityUsersResultOutput) ToGetIdentityUsersResultOutputWithContext(
 	return o
 }
 
+// The descriptor of the user.
 func (o GetIdentityUsersResultOutput) Descriptor() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIdentityUsersResult) string { return v.Descriptor }).(pulumi.StringOutput)
 }
@@ -85,7 +86,6 @@ func (o GetIdentityUsersResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIdentityUsersResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// This is the PrincipalName of this identity member from the source provider. The source provider may change this field over time and it is not guaranteed to be immutable for the life of the identity member.
 func (o GetIdentityUsersResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIdentityUsersResult) string { return v.Name }).(pulumi.StringOutput)
 }

@@ -15,14 +15,14 @@ public final class GetGitRepositoryArgs extends com.pulumi.resources.InvokeArgs 
     public static final GetGitRepositoryArgs Empty = new GetGitRepositoryArgs();
 
     /**
-     * Name of the Git repository to retrieve
+     * The Name of the Git repository to retrieve
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the Git repository to retrieve
+     * @return The Name of the Git repository to retrieve
      * 
      */
     public Output<String> name() {
@@ -30,14 +30,14 @@ public final class GetGitRepositoryArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * ID of project to list Git repositories
+     * The ID of project to list Git repositories
      * 
      */
     @Import(name="projectId", required=true)
     private Output<String> projectId;
 
     /**
-     * @return ID of project to list Git repositories
+     * @return The ID of project to list Git repositories
      * 
      */
     public Output<String> projectId() {
@@ -70,7 +70,7 @@ public final class GetGitRepositoryArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param name Name of the Git repository to retrieve
+         * @param name The Name of the Git repository to retrieve
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class GetGitRepositoryArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param name Name of the Git repository to retrieve
+         * @param name The Name of the Git repository to retrieve
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class GetGitRepositoryArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param projectId ID of project to list Git repositories
+         * @param projectId The ID of project to list Git repositories
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class GetGitRepositoryArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param projectId ID of project to list Git repositories
+         * @param projectId The ID of project to list Git repositories
          * 
          * @return builder
          * 

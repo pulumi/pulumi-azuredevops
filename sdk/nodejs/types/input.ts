@@ -25,7 +25,7 @@ export interface BranchPolicyAutoReviewersSettings {
      */
     pathFilters?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+     * A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
      */
     scopes: pulumi.Input<pulumi.Input<inputs.BranchPolicyAutoReviewersSettingsScope>[]>;
     /**
@@ -71,7 +71,7 @@ export interface BranchPolicyBuildValidationSettings {
      */
     queueOnSourceUpdateOnly?: pulumi.Input<boolean>;
     /**
-     * Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+     * A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
      */
     scopes: pulumi.Input<pulumi.Input<inputs.BranchPolicyBuildValidationSettingsScope>[]>;
     /**
@@ -102,7 +102,7 @@ export interface BranchPolicyBuildValidationSettingsScope {
 
 export interface BranchPolicyCommentResolutionSettings {
     /**
-     * Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+     * A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
      */
     scopes: pulumi.Input<pulumi.Input<inputs.BranchPolicyCommentResolutionSettingsScope>[]>;
 }
@@ -140,7 +140,7 @@ export interface BranchPolicyMergeTypesSettings {
      */
     allowSquash?: pulumi.Input<boolean>;
     /**
-     * Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+     * A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
      */
     scopes: pulumi.Input<pulumi.Input<inputs.BranchPolicyMergeTypesSettingsScope>[]>;
 }
@@ -214,9 +214,9 @@ export interface BranchPolicyMinReviewersSettingsScope {
 
 export interface BranchPolicyStatusCheckSettings {
     /**
-     * Policy applicability. If policy `applicability` is `default`, apply unless "Not Applicable" 
-     * status is posted to the pull request. If policy `applicability` is `conditional`, policy is applied only after a status
-     * is posted to the pull request.
+     * Policy applicability. If policy `applicability=default`, apply unless "Not Applicable"
+     * status is posted to the pull request. If policy `applicability=conditional`, policy is applied only after a status
+     * is posted to the pull request. Possible values `default`, `conditional`. Defaults to `default`.
      */
     applicability?: pulumi.Input<string>;
     /**
@@ -228,7 +228,10 @@ export interface BranchPolicyStatusCheckSettings {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+     * If a path filter is set, the policy will only apply when files which match the filter are changed. Not setting this field means that the policy is always applied.
+     *
+     * ~>**NOTE** 1. Specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`.
+     * <br> 2. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
      */
     filenamePatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -244,8 +247,7 @@ export interface BranchPolicyStatusCheckSettings {
      */
     name: pulumi.Input<string>;
     /**
-     * Controls which repositories and branches the policy will be enabled for. This block must be defined
-     * at least once.
+     * A `scope` block as defined below.
      */
     scopes: pulumi.Input<pulumi.Input<inputs.BranchPolicyStatusCheckSettingsScope>[]>;
 }
@@ -256,18 +258,18 @@ export interface BranchPolicyStatusCheckSettingsScope {
      */
     matchType?: pulumi.Input<string>;
     /**
-     * The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
+     * The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type=DefaultBranch`, this should not be defined.
      */
     repositoryId?: pulumi.Input<string>;
     /**
-     * The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+     * The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `match_type=Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type=Prefix`, this should be a ref path such as `refs/heads/releases`.
      */
     repositoryRef?: pulumi.Input<string>;
 }
 
 export interface BranchPolicyWorkItemLinkingSettings {
     /**
-     * Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+     * A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
      */
     scopes: pulumi.Input<pulumi.Input<inputs.BranchPolicyWorkItemLinkingSettingsScope>[]>;
 }
@@ -457,7 +459,7 @@ export interface BuildDefinitionRepository {
      */
     repoId: pulumi.Input<string>;
     /**
-     * The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+     * The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
      */
     repoType: pulumi.Input<string>;
     /**
@@ -476,11 +478,11 @@ export interface BuildDefinitionRepository {
 
 export interface BuildDefinitionSchedule {
     /**
-     * block supports the following:
+     * A `branchFilter` block as defined below.
      */
     branchFilters: pulumi.Input<pulumi.Input<inputs.BuildDefinitionScheduleBranchFilter>[]>;
     /**
-     * When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
+     * When to build. Possible values are: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
      */
     daysToBuilds: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -492,15 +494,15 @@ export interface BuildDefinitionSchedule {
      */
     scheduleOnlyWithChanges?: pulumi.Input<boolean>;
     /**
-     * Build start hour. Defaults to `0`. Valid values: `0 ~ 23`.
+     * Build start hour. Possible values are: `0 ~ 23`. Defaults to `0`.
      */
     startHours?: pulumi.Input<number>;
     /**
-     * Build start minute. Defaults to `0`. Valid values: `0 ~ 59`.
+     * Build start minute. Possible values are: `0 ~ 59`. Defaults to `0`.
      */
     startMinutes?: pulumi.Input<number>;
     /**
-     * Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Valid values: 
+     * Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Possible values are:
      * `(UTC-12:00) International Date Line West`,
      * `(UTC-11:00) Coordinated Universal Time-11`,
      * `(UTC-10:00) Aleutian Islands`,
@@ -690,7 +692,7 @@ export interface CheckRequiredTemplateRequiredTemplate {
      */
     repositoryRef: pulumi.Input<string>;
     /**
-     * The type of the repository storing the template. Valid values: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
+     * The type of the repository storing the template. Possible values are: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
      */
     repositoryType?: pulumi.Input<string>;
     /**
@@ -736,8 +738,7 @@ export interface GitInitialization {
     /**
      * The password used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`.
      *
-     * ~>**Note**
-     * At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
+     * ~>**Note** At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
      */
     password?: pulumi.Input<string>;
     /**
@@ -760,25 +761,25 @@ export interface GitInitialization {
 
 export interface ServiceEndpointArtifactoryAuthenticationBasic {
     /**
-     * The Artifactory password.
+     * The Password of the Artifactory.
      */
     password: pulumi.Input<string>;
     /**
-     * The Artifactory user name.
+     * The Username of the Artifactory.
      */
     username: pulumi.Input<string>;
 }
 
 export interface ServiceEndpointArtifactoryAuthenticationToken {
     /**
-     * The Artifactory access token.
+     * Authentication Token generated through Artifactory.
      */
     token: pulumi.Input<string>;
 }
 
 export interface ServiceEndpointAzureEcrCredentials {
     /**
-     * The service principal application Id
+     * The ID of the Service Principal Application.
      */
     serviceprincipalid: pulumi.Input<string>;
 }
@@ -905,7 +906,7 @@ export interface ServiceEndpointServiceFabricAzureActiveDirectory {
      */
     serverCertificateCommonName?: pulumi.Input<string>;
     /**
-     * Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+     * Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
      */
     serverCertificateLookup: pulumi.Input<string>;
     /**
@@ -932,7 +933,7 @@ export interface ServiceEndpointServiceFabricCertificate {
      */
     serverCertificateCommonName?: pulumi.Input<string>;
     /**
-     * Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+     * Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
      */
     serverCertificateLookup: pulumi.Input<string>;
     /**
@@ -954,11 +955,11 @@ export interface ServiceEndpointServiceFabricNone {
 
 export interface ServiceendpointArgocdAuthenticationBasic {
     /**
-     * ArgoCD Password.
+     * The Password of the ArgoCD.
      */
     password: pulumi.Input<string>;
     /**
-     * ArgoCD Username.
+     * The Username of the ArgoCD.
      */
     username: pulumi.Input<string>;
 }
@@ -979,11 +980,11 @@ export interface ServiceendpointExternaltfsAuthPersonal {
 
 export interface ServiceendpointJfrogArtifactoryV2AuthenticationBasic {
     /**
-     * Artifactory Password.
+     * The Password of the Artifactory.
      */
     password: pulumi.Input<string>;
     /**
-     * Artifactory Username.
+     * The Username of the Artifactory.
      */
     username: pulumi.Input<string>;
 }
@@ -997,29 +998,29 @@ export interface ServiceendpointJfrogArtifactoryV2AuthenticationToken {
 
 export interface ServiceendpointJfrogDistributionV2AuthenticationBasic {
     /**
-     * Artifactory Password.
+     * The Password of the Artifactory.
      */
     password: pulumi.Input<string>;
     /**
-     * Artifactory Username.
+     * The Username of the Artifactory.
      */
     username: pulumi.Input<string>;
 }
 
 export interface ServiceendpointJfrogDistributionV2AuthenticationToken {
     /**
-     * Authentication Token generated through Artifactory.
+     * The Authentication Token generated through Artifactory.
      */
     token: pulumi.Input<string>;
 }
 
 export interface ServiceendpointJfrogPlatformV2AuthenticationBasic {
     /**
-     * Artifactory Password.
+     * The Password of the Artifactory.
      */
     password: pulumi.Input<string>;
     /**
-     * Artifactory Username.
+     * The Username of the  Artifactory.
      */
     username: pulumi.Input<string>;
 }
@@ -1033,11 +1034,11 @@ export interface ServiceendpointJfrogPlatformV2AuthenticationToken {
 
 export interface ServiceendpointJfrogXrayV2AuthenticationBasic {
     /**
-     * Artifactory Password.
+     * The Password of the Artifactory.
      */
     password: pulumi.Input<string>;
     /**
-     * Artifactory Username.
+     * The Username of the  Artifactory.
      */
     username: pulumi.Input<string>;
 }

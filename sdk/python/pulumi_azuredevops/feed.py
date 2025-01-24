@@ -148,7 +148,7 @@ class Feed(pulumi.CustomResource):
                  project_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages creation of the Feed within Azure DevOps organization.
+        Manages Feed within Azure DevOps organization.
 
         ## Example Usage
 
@@ -157,7 +157,7 @@ class Feed(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example = azuredevops.Feed("example", name="releases")
+        example = azuredevops.Feed("example", name="examplefeed")
         ```
 
         ### Create Feed in the scope of a Project
@@ -172,7 +172,7 @@ class Feed(pulumi.CustomResource):
             work_item_template="Agile",
             description="Managed by Pulumi")
         example_feed = azuredevops.Feed("example",
-            name="releases",
+            name="examplefeed",
             project_id=example.id)
         ```
 
@@ -182,7 +182,7 @@ class Feed(pulumi.CustomResource):
         import pulumi_azuredevops as azuredevops
 
         example = azuredevops.Feed("example",
-            name="releases",
+            name="examplefeed",
             features=[{
                 "permanent_delete": False,
             }])
@@ -221,7 +221,7 @@ class Feed(pulumi.CustomResource):
                  args: Optional[FeedArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages creation of the Feed within Azure DevOps organization.
+        Manages Feed within Azure DevOps organization.
 
         ## Example Usage
 
@@ -230,7 +230,7 @@ class Feed(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example = azuredevops.Feed("example", name="releases")
+        example = azuredevops.Feed("example", name="examplefeed")
         ```
 
         ### Create Feed in the scope of a Project
@@ -245,7 +245,7 @@ class Feed(pulumi.CustomResource):
             work_item_template="Agile",
             description="Managed by Pulumi")
         example_feed = azuredevops.Feed("example",
-            name="releases",
+            name="examplefeed",
             project_id=example.id)
         ```
 
@@ -255,7 +255,7 @@ class Feed(pulumi.CustomResource):
         import pulumi_azuredevops as azuredevops
 
         example = azuredevops.Feed("example",
-            name="releases",
+            name="examplefeed",
             features=[{
                 "permanent_delete": False,
             }])

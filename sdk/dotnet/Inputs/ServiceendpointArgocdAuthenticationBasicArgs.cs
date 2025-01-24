@@ -16,7 +16,7 @@ namespace Pulumi.AzureDevOps.Inputs
         private Input<string>? _password;
 
         /// <summary>
-        /// ArgoCD Password.
+        /// The Password of the ArgoCD.
         /// </summary>
         public Input<string>? Password
         {
@@ -32,7 +32,7 @@ namespace Pulumi.AzureDevOps.Inputs
         private Input<string>? _username;
 
         /// <summary>
-        /// ArgoCD Username.
+        /// The Username of the ArgoCD.
         /// </summary>
         public Input<string>? Username
         {

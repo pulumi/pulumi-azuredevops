@@ -107,7 +107,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ## Import
     /// 
-    /// Azure DevOps Service Endpoint Kubernetes can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+    /// Azure DevOps Kubernetes Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
     /// 
     /// ```sh
     /// $ pulumi import azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -132,7 +132,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> AuthorizationType { get; private set; } = null!;
 
         /// <summary>
-        /// A `azure_subscription` block defined blow.
+        /// An `azure_subscription` block as defined below.
         /// </summary>
         [Output("azureSubscriptions")]
         public Output<ImmutableArray<Outputs.ServiceEndpointKubernetesAzureSubscription>> AzureSubscriptions { get; private set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.AzureDevOps
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A `kubeconfig` block defined blow.
+        /// A `kubeconfig` block as defined below.
         /// </summary>
         [Output("kubeconfig")]
         public Output<Outputs.ServiceEndpointKubernetesKubeconfig?> Kubeconfig { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> ProjectId { get; private set; } = null!;
 
         /// <summary>
-        /// A `service_account` block defined blow.
+        /// A `service_account` block as defined below.
         /// </summary>
         [Output("serviceAccount")]
         public Output<Outputs.ServiceEndpointKubernetesServiceAccount?> ServiceAccount { get; private set; } = null!;
@@ -234,7 +234,7 @@ namespace Pulumi.AzureDevOps
         private InputList<Inputs.ServiceEndpointKubernetesAzureSubscriptionArgs>? _azureSubscriptions;
 
         /// <summary>
-        /// A `azure_subscription` block defined blow.
+        /// An `azure_subscription` block as defined below.
         /// </summary>
         public InputList<Inputs.ServiceEndpointKubernetesAzureSubscriptionArgs> AzureSubscriptions
         {
@@ -246,7 +246,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A `kubeconfig` block defined blow.
+        /// A `kubeconfig` block as defined below.
         /// </summary>
         [Input("kubeconfig")]
         public Input<Inputs.ServiceEndpointKubernetesKubeconfigArgs>? Kubeconfig { get; set; }
@@ -258,7 +258,7 @@ namespace Pulumi.AzureDevOps
         public Input<string> ProjectId { get; set; } = null!;
 
         /// <summary>
-        /// A `service_account` block defined blow.
+        /// A `service_account` block as defined below.
         /// </summary>
         [Input("serviceAccount")]
         public Input<Inputs.ServiceEndpointKubernetesServiceAccountArgs>? ServiceAccount { get; set; }
@@ -301,7 +301,7 @@ namespace Pulumi.AzureDevOps
         private InputList<Inputs.ServiceEndpointKubernetesAzureSubscriptionGetArgs>? _azureSubscriptions;
 
         /// <summary>
-        /// A `azure_subscription` block defined blow.
+        /// An `azure_subscription` block as defined below.
         /// </summary>
         public InputList<Inputs.ServiceEndpointKubernetesAzureSubscriptionGetArgs> AzureSubscriptions
         {
@@ -313,7 +313,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A `kubeconfig` block defined blow.
+        /// A `kubeconfig` block as defined below.
         /// </summary>
         [Input("kubeconfig")]
         public Input<Inputs.ServiceEndpointKubernetesKubeconfigGetArgs>? Kubeconfig { get; set; }
@@ -325,7 +325,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? ProjectId { get; set; }
 
         /// <summary>
-        /// A `service_account` block defined blow.
+        /// A `service_account` block as defined below.
         /// </summary>
         [Input("serviceAccount")]
         public Input<Inputs.ServiceEndpointKubernetesServiceAccountGetArgs>? ServiceAccount { get; set; }

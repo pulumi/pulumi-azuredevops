@@ -12,6 +12,7 @@ namespace Pulumi.AzureDevOps
     /// <summary>
     /// ## Example Usage
     /// 
+    /// ### Basic usage
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,7 +55,7 @@ namespace Pulumi.AzureDevOps
     /// });
     /// ```
     /// 
-    /// ### With AzureRM Key Vault
+    /// ### Link to AzureRM Key Vault
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

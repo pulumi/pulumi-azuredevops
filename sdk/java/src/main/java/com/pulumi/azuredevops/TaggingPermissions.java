@@ -101,12 +101,26 @@ public class TaggingPermissions extends com.pulumi.resources.CustomResource {
     /**
      * the permissions to assign. The following permissions are available.
      * 
+     * | Name      | Permission Description    |
+     * |-----------|---------------------------|
+     * | Enumerate | Enumerate tag definitions |
+     * | Create    | Create tag definition     |
+     * | Update    | Update tag definition     |
+     * | Delete    | Delete tag definition     |
+     * 
      */
     @Export(name="permissions", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> permissions;
 
     /**
      * @return the permissions to assign. The following permissions are available.
+     * 
+     * | Name      | Permission Description    |
+     * |-----------|---------------------------|
+     * | Enumerate | Enumerate tag definitions |
+     * | Create    | Create tag definition     |
+     * | Update    | Update tag definition     |
+     * | Delete    | Delete tag definition     |
      * 
      */
     public Output<Map<String,String>> permissions() {
@@ -143,26 +157,12 @@ public class TaggingPermissions extends com.pulumi.resources.CustomResource {
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      * 
-     * | Name               | Permission Description     |
-     * | ------------------ | -------------------------- |
-     * | Enumerate          | Enumerate tag definitions  |
-     * | Create             | Create tag definition      |
-     * | Update             | Update tag definition      |
-     * | Delete             | Delete tag definition      |
-     * 
      */
     @Export(name="replace", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> replace;
 
     /**
      * @return Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     * 
-     * | Name               | Permission Description     |
-     * | ------------------ | -------------------------- |
-     * | Enumerate          | Enumerate tag definitions  |
-     * | Create             | Create tag definition      |
-     * | Update             | Update tag definition      |
-     * | Delete             | Delete tag definition      |
      * 
      */
     public Output<Optional<Boolean>> replace() {

@@ -26,9 +26,9 @@ class GroupEntitlementArgs:
                  origin_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a GroupEntitlement resource.
-        :param pulumi.Input[str] account_license_type: Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+        :param pulumi.Input[str] account_license_type: Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
         :param pulumi.Input[str] display_name: The display name is the name used in Azure DevOps UI. Cannot be set together with `origin_id` and `origin`.
-        :param pulumi.Input[str] licensing_source: The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+        :param pulumi.Input[str] licensing_source: The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
                
                > **NOTE:** A existing group in Azure AD can only be referenced by the combination of `origin_id` and `origin`.
         :param pulumi.Input[str] origin: The type of source provider for the origin identifier.
@@ -49,7 +49,7 @@ class GroupEntitlementArgs:
     @pulumi.getter(name="accountLicenseType")
     def account_license_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+        Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
         """
         return pulumi.get(self, "account_license_type")
 
@@ -73,7 +73,7 @@ class GroupEntitlementArgs:
     @pulumi.getter(name="licensingSource")
     def licensing_source(self) -> Optional[pulumi.Input[str]]:
         """
-        The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+        The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
 
         > **NOTE:** A existing group in Azure AD can only be referenced by the combination of `origin_id` and `origin`.
         """
@@ -120,10 +120,10 @@ class _GroupEntitlementState:
                  principal_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering GroupEntitlement resources.
-        :param pulumi.Input[str] account_license_type: Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+        :param pulumi.Input[str] account_license_type: Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
         :param pulumi.Input[str] descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the group graph subject.
         :param pulumi.Input[str] display_name: The display name is the name used in Azure DevOps UI. Cannot be set together with `origin_id` and `origin`.
-        :param pulumi.Input[str] licensing_source: The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+        :param pulumi.Input[str] licensing_source: The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
                
                > **NOTE:** A existing group in Azure AD can only be referenced by the combination of `origin_id` and `origin`.
         :param pulumi.Input[str] origin: The type of source provider for the origin identifier.
@@ -149,7 +149,7 @@ class _GroupEntitlementState:
     @pulumi.getter(name="accountLicenseType")
     def account_license_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+        Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
         """
         return pulumi.get(self, "account_license_type")
 
@@ -185,7 +185,7 @@ class _GroupEntitlementState:
     @pulumi.getter(name="licensingSource")
     def licensing_source(self) -> Optional[pulumi.Input[str]]:
         """
-        The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+        The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
 
         > **NOTE:** A existing group in Azure AD can only be referenced by the combination of `origin_id` and `origin`.
         """
@@ -277,9 +277,7 @@ class GroupEntitlement(pulumi.CustomResource):
 
         ## Import
 
-        The resource allows the import via the ID of a group entitlement, which is a
-
-        UUID.
+        The resource allows the import via the ID of a group entitlement, which is a UUID.
 
         ```sh
         $ pulumi import azuredevops:index/groupEntitlement:GroupEntitlement example 00000000-0000-0000-0000-000000000000
@@ -287,9 +285,9 @@ class GroupEntitlement(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_license_type: Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+        :param pulumi.Input[str] account_license_type: Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
         :param pulumi.Input[str] display_name: The display name is the name used in Azure DevOps UI. Cannot be set together with `origin_id` and `origin`.
-        :param pulumi.Input[str] licensing_source: The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+        :param pulumi.Input[str] licensing_source: The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
                
                > **NOTE:** A existing group in Azure AD can only be referenced by the combination of `origin_id` and `origin`.
         :param pulumi.Input[str] origin: The type of source provider for the origin identifier.
@@ -335,9 +333,7 @@ class GroupEntitlement(pulumi.CustomResource):
 
         ## Import
 
-        The resource allows the import via the ID of a group entitlement, which is a
-
-        UUID.
+        The resource allows the import via the ID of a group entitlement, which is a UUID.
 
         ```sh
         $ pulumi import azuredevops:index/groupEntitlement:GroupEntitlement example 00000000-0000-0000-0000-000000000000
@@ -403,10 +399,10 @@ class GroupEntitlement(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_license_type: Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+        :param pulumi.Input[str] account_license_type: Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
         :param pulumi.Input[str] descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the group graph subject.
         :param pulumi.Input[str] display_name: The display name is the name used in Azure DevOps UI. Cannot be set together with `origin_id` and `origin`.
-        :param pulumi.Input[str] licensing_source: The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+        :param pulumi.Input[str] licensing_source: The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
                
                > **NOTE:** A existing group in Azure AD can only be referenced by the combination of `origin_id` and `origin`.
         :param pulumi.Input[str] origin: The type of source provider for the origin identifier.
@@ -430,7 +426,7 @@ class GroupEntitlement(pulumi.CustomResource):
     @pulumi.getter(name="accountLicenseType")
     def account_license_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+        Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
         """
         return pulumi.get(self, "account_license_type")
 
@@ -454,7 +450,7 @@ class GroupEntitlement(pulumi.CustomResource):
     @pulumi.getter(name="licensingSource")
     def licensing_source(self) -> pulumi.Output[Optional[str]]:
         """
-        The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+        The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
 
         > **NOTE:** A existing group in Azure AD can only be referenced by the combination of `origin_id` and `origin`.
         """

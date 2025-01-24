@@ -154,14 +154,14 @@ public final class CheckBusinessHoursArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+     * The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
      * 
      */
     @Import(name="targetResourceType", required=true)
     private Output<String> targetResourceType;
 
     /**
-     * @return The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+     * @return The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
      * 
      */
     public Output<String> targetResourceType() {
@@ -471,7 +471,7 @@ public final class CheckBusinessHoursArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param targetResourceType The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+         * @param targetResourceType The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
          * 
          * @return builder
          * 
@@ -482,7 +482,7 @@ public final class CheckBusinessHoursArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param targetResourceType The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+         * @param targetResourceType The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
          * 
          * @return builder
          * 

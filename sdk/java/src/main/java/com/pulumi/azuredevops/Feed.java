@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages creation of the Feed within Azure DevOps organization.
+ * Manages Feed within Azure DevOps organization.
  * 
  * ## Example Usage
  * 
@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Feed("example", FeedArgs.builder()
- *             .name("releases")
+ *             .name("examplefeed")
  *             .build());
  * 
  *     }
@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFeed = new Feed("exampleFeed", FeedArgs.builder()
- *             .name("releases")
+ *             .name("examplefeed")
  *             .projectId(example.id())
  *             .build());
  * 
@@ -126,7 +126,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Feed("example", FeedArgs.builder()
- *             .name("releases")
+ *             .name("examplefeed")
  *             .features(FeedFeatureArgs.builder()
  *                 .permanentDelete(false)
  *                 .build())

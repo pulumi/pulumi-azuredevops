@@ -58,6 +58,9 @@ class GetProjectResult:
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        The description of the project.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -76,11 +79,17 @@ class GetProjectResult:
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name of the project.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="processTemplateId")
     def process_template_id(self) -> str:
+        """
+        The process template ID for the project.
+        """
         return pulumi.get(self, "process_template_id")
 
     @property
@@ -91,16 +100,25 @@ class GetProjectResult:
     @property
     @pulumi.getter(name="versionControl")
     def version_control(self) -> str:
+        """
+        The version control of the project.
+        """
         return pulumi.get(self, "version_control")
 
     @property
     @pulumi.getter
     def visibility(self) -> str:
+        """
+        The visibility of the project.
+        """
         return pulumi.get(self, "visibility")
 
     @property
     @pulumi.getter(name="workItemTemplate")
     def work_item_template(self) -> str:
+        """
+        The work item template for the project.
+        """
         return pulumi.get(self, "work_item_template")
 
 
@@ -141,9 +159,16 @@ def get_project(name: Optional[str] = None,
 
     - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
 
+    ## PAT Permissions Required
+
+    - **Project & Team**: Read
+    - **Work Items**: Read
+
 
     :param str name: Name of the Project.
     :param str project_id: ID of the Project.
+           
+           > **NOTE:** One of either `project_id` or `name` must be specified.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -181,9 +206,16 @@ def get_project_output(name: Optional[pulumi.Input[Optional[str]]] = None,
 
     - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
 
+    ## PAT Permissions Required
+
+    - **Project & Team**: Read
+    - **Work Items**: Read
+
 
     :param str name: Name of the Project.
     :param str project_id: ID of the Project.
+           
+           > **NOTE:** One of either `project_id` or `name` must be specified.
     """
     __args__ = dict()
     __args__['name'] = name

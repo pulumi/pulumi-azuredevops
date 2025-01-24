@@ -51,11 +51,11 @@ export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetGroupArgs {
     /**
-     * The Group Name.
+     * The Name of the Group.
      */
     name: string;
     /**
-     * The Project ID. If no project ID is specified the project collection groups will be searched.
+     * The ID of the Project. If `projectId` is not specified the project collection groups will be searched.
      */
     projectId?: string;
 }
@@ -134,11 +134,11 @@ export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOut
  */
 export interface GetGroupOutputArgs {
     /**
-     * The Group Name.
+     * The Name of the Group.
      */
     name: pulumi.Input<string>;
     /**
-     * The Project ID. If no project ID is specified the project collection groups will be searched.
+     * The ID of the Project. If `projectId` is not specified the project collection groups will be searched.
      */
     projectId?: pulumi.Input<string>;
 }

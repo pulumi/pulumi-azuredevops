@@ -59,7 +59,7 @@ import (
 //				RepositoryId: exampleGit.ID(),
 //				Version:      pulumi.String("main"),
 //				Type:         pulumi.String("codeWiki"),
-//				Mappedpath:   pulumi.String("/"),
+//				MappedPath:   pulumi.String("/"),
 //			})
 //			if err != nil {
 //				return err
@@ -84,6 +84,7 @@ import (
 type Wiki struct {
 	pulumi.CustomResourceState
 
+	// Folder path inside repository which is shown as Wiki.
 	MappedPath pulumi.StringOutput `pulumi:"mappedPath"`
 	// The name of the Wiki.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -134,6 +135,7 @@ func GetWiki(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Wiki resources.
 type wikiState struct {
+	// Folder path inside repository which is shown as Wiki.
 	MappedPath *string `pulumi:"mappedPath"`
 	// The name of the Wiki.
 	Name *string `pulumi:"name"`
@@ -152,6 +154,7 @@ type wikiState struct {
 }
 
 type WikiState struct {
+	// Folder path inside repository which is shown as Wiki.
 	MappedPath pulumi.StringPtrInput
 	// The name of the Wiki.
 	Name pulumi.StringPtrInput
@@ -174,6 +177,7 @@ func (WikiState) ElementType() reflect.Type {
 }
 
 type wikiArgs struct {
+	// Folder path inside repository which is shown as Wiki.
 	MappedPath *string `pulumi:"mappedPath"`
 	// The name of the Wiki.
 	Name *string `pulumi:"name"`
@@ -189,6 +193,7 @@ type wikiArgs struct {
 
 // The set of arguments for constructing a Wiki resource.
 type WikiArgs struct {
+	// Folder path inside repository which is shown as Wiki.
 	MappedPath pulumi.StringPtrInput
 	// The name of the Wiki.
 	Name pulumi.StringPtrInput
@@ -289,6 +294,7 @@ func (o WikiOutput) ToWikiOutputWithContext(ctx context.Context) WikiOutput {
 	return o
 }
 
+// Folder path inside repository which is shown as Wiki.
 func (o WikiOutput) MappedPath() pulumi.StringOutput {
 	return o.ApplyT(func(v *Wiki) pulumi.StringOutput { return v.MappedPath }).(pulumi.StringOutput)
 }

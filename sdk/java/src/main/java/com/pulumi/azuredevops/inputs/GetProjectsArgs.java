@@ -33,7 +33,7 @@ public final class GetProjectsArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
      * 
-     * DataSource without specifying any arguments will return all projects.
+     * &gt; **NOTE:** DataSource without specifying any arguments will return all projects.
      * 
      */
     @Import(name="state")
@@ -42,7 +42,7 @@ public final class GetProjectsArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
      * 
-     * DataSource without specifying any arguments will return all projects.
+     * &gt; **NOTE:** DataSource without specifying any arguments will return all projects.
      * 
      */
     public Optional<Output<String>> state() {
@@ -98,7 +98,7 @@ public final class GetProjectsArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param state State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
          * 
-         * DataSource without specifying any arguments will return all projects.
+         * &gt; **NOTE:** DataSource without specifying any arguments will return all projects.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class GetProjectsArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param state State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
          * 
-         * DataSource without specifying any arguments will return all projects.
+         * &gt; **NOTE:** DataSource without specifying any arguments will return all projects.
          * 
          * @return builder
          * 

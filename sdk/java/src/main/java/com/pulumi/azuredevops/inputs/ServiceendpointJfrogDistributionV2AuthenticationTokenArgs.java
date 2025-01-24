@@ -15,14 +15,14 @@ public final class ServiceendpointJfrogDistributionV2AuthenticationTokenArgs ext
     public static final ServiceendpointJfrogDistributionV2AuthenticationTokenArgs Empty = new ServiceendpointJfrogDistributionV2AuthenticationTokenArgs();
 
     /**
-     * Authentication Token generated through Artifactory.
+     * The Authentication Token generated through Artifactory.
      * 
      */
     @Import(name="token", required=true)
     private Output<String> token;
 
     /**
-     * @return Authentication Token generated through Artifactory.
+     * @return The Authentication Token generated through Artifactory.
      * 
      */
     public Output<String> token() {
@@ -54,7 +54,7 @@ public final class ServiceendpointJfrogDistributionV2AuthenticationTokenArgs ext
         }
 
         /**
-         * @param token Authentication Token generated through Artifactory.
+         * @param token The Authentication Token generated through Artifactory.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ServiceendpointJfrogDistributionV2AuthenticationTokenArgs ext
         }
 
         /**
-         * @param token Authentication Token generated through Artifactory.
+         * @param token The Authentication Token generated through Artifactory.
          * 
          * @return builder
          * 

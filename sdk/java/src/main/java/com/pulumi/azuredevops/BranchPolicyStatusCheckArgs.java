@@ -64,14 +64,14 @@ public final class BranchPolicyStatusCheckArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Configuration for the policy. This block must be defined exactly once.
+     * A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
      * 
      */
     @Import(name="settings", required=true)
     private Output<BranchPolicyStatusCheckSettingsArgs> settings;
 
     /**
-     * @return Configuration for the policy. This block must be defined exactly once.
+     * @return A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
      * 
      */
     public Output<BranchPolicyStatusCheckSettingsArgs> settings() {
@@ -169,7 +169,7 @@ public final class BranchPolicyStatusCheckArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param settings Configuration for the policy. This block must be defined exactly once.
+         * @param settings A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class BranchPolicyStatusCheckArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param settings Configuration for the policy. This block must be defined exactly once.
+         * @param settings A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
          * 
          * @return builder
          * 

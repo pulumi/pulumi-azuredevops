@@ -18,7 +18,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a JFrog Distribution V2 server endpoint within an Azure DevOps organization.
+ * Manages a JFrog Distribution V2 service endpoint within an Azure DevOps organization.
  * 
  * &gt; **Note:** Using this service endpoint requires you to first install [JFrog Extension](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-azure-devops-extension).
  * 
@@ -133,7 +133,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Azure DevOps Service Endpoint JFrog Distribution V2 can be imported using the **projectID/serviceEndpointID**, e.g.
+ * Azure DevOps JFrog Distribution V2 Service Endpoint can be imported using the **projectID/serviceEndpointID**, e.g.
  * 
  * ```sh
  * $ pulumi import azuredevops:index/serviceendpointJfrogDistributionV2:ServiceendpointJfrogDistributionV2 example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -143,28 +143,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="azuredevops:index/serviceendpointJfrogDistributionV2:ServiceendpointJfrogDistributionV2")
 public class ServiceendpointJfrogDistributionV2 extends com.pulumi.resources.CustomResource {
     /**
-     * A `authentication_basic` block as documented below.
+     * An `authentication_basic` block as documented below.
      * 
      */
     @Export(name="authenticationBasic", refs={ServiceendpointJfrogDistributionV2AuthenticationBasic.class}, tree="[0]")
     private Output</* @Nullable */ ServiceendpointJfrogDistributionV2AuthenticationBasic> authenticationBasic;
 
     /**
-     * @return A `authentication_basic` block as documented below.
+     * @return An `authentication_basic` block as documented below.
      * 
      */
     public Output<Optional<ServiceendpointJfrogDistributionV2AuthenticationBasic>> authenticationBasic() {
         return Codegen.optional(this.authenticationBasic);
     }
     /**
-     * A `authentication_token` block as documented below.
+     * An `authentication_token` block as documented below.
      * 
      */
     @Export(name="authenticationToken", refs={ServiceendpointJfrogDistributionV2AuthenticationToken.class}, tree="[0]")
     private Output</* @Nullable */ ServiceendpointJfrogDistributionV2AuthenticationToken> authenticationToken;
 
     /**
-     * @return A `authentication_token` block as documented below.
+     * @return An `authentication_token` block as documented below.
      * 
      */
     public Output<Optional<ServiceendpointJfrogDistributionV2AuthenticationToken>> authenticationToken() {

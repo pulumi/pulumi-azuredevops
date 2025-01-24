@@ -27,29 +27,45 @@ public final class ServiceEndpointServiceFabricArgs extends com.pulumi.resources
         return Optional.ofNullable(this.authorization);
     }
 
+    /**
+     * An `azure_active_directory` block as documented below.
+     * 
+     */
     @Import(name="azureActiveDirectory")
     private @Nullable Output<ServiceEndpointServiceFabricAzureActiveDirectoryArgs> azureActiveDirectory;
 
+    /**
+     * @return An `azure_active_directory` block as documented below.
+     * 
+     */
     public Optional<Output<ServiceEndpointServiceFabricAzureActiveDirectoryArgs>> azureActiveDirectory() {
         return Optional.ofNullable(this.azureActiveDirectory);
     }
 
+    /**
+     * A `certificate` block as documented below.
+     * 
+     */
     @Import(name="certificate")
     private @Nullable Output<ServiceEndpointServiceFabricCertificateArgs> certificate;
 
+    /**
+     * @return A `certificate` block as documented below.
+     * 
+     */
     public Optional<Output<ServiceEndpointServiceFabricCertificateArgs>> certificate() {
         return Optional.ofNullable(this.certificate);
     }
 
     /**
-     * Client connection endpoint for the cluster. Prefix the value with &#39;tcp://&#39;;. This value overrides the publish profile.
+     * Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
      * 
      */
     @Import(name="clusterEndpoint", required=true)
     private Output<String> clusterEndpoint;
 
     /**
-     * @return Client connection endpoint for the cluster. Prefix the value with &#39;tcp://&#39;;. This value overrides the publish profile.
+     * @return Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
      * 
      */
     public Output<String> clusterEndpoint() {
@@ -63,9 +79,17 @@ public final class ServiceEndpointServiceFabricArgs extends com.pulumi.resources
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * A `none` block as documented below.
+     * 
+     */
     @Import(name="none")
     private @Nullable Output<ServiceEndpointServiceFabricNoneArgs> none;
 
+    /**
+     * @return A `none` block as documented below.
+     * 
+     */
     public Optional<Output<ServiceEndpointServiceFabricNoneArgs>> none() {
         return Optional.ofNullable(this.none);
     }
@@ -140,26 +164,50 @@ public final class ServiceEndpointServiceFabricArgs extends com.pulumi.resources
             return authorization(Output.of(authorization));
         }
 
+        /**
+         * @param azureActiveDirectory An `azure_active_directory` block as documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder azureActiveDirectory(@Nullable Output<ServiceEndpointServiceFabricAzureActiveDirectoryArgs> azureActiveDirectory) {
             $.azureActiveDirectory = azureActiveDirectory;
             return this;
         }
 
+        /**
+         * @param azureActiveDirectory An `azure_active_directory` block as documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder azureActiveDirectory(ServiceEndpointServiceFabricAzureActiveDirectoryArgs azureActiveDirectory) {
             return azureActiveDirectory(Output.of(azureActiveDirectory));
         }
 
+        /**
+         * @param certificate A `certificate` block as documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificate(@Nullable Output<ServiceEndpointServiceFabricCertificateArgs> certificate) {
             $.certificate = certificate;
             return this;
         }
 
+        /**
+         * @param certificate A `certificate` block as documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificate(ServiceEndpointServiceFabricCertificateArgs certificate) {
             return certificate(Output.of(certificate));
         }
 
         /**
-         * @param clusterEndpoint Client connection endpoint for the cluster. Prefix the value with &#39;tcp://&#39;;. This value overrides the publish profile.
+         * @param clusterEndpoint Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
          * 
          * @return builder
          * 
@@ -170,7 +218,7 @@ public final class ServiceEndpointServiceFabricArgs extends com.pulumi.resources
         }
 
         /**
-         * @param clusterEndpoint Client connection endpoint for the cluster. Prefix the value with &#39;tcp://&#39;;. This value overrides the publish profile.
+         * @param clusterEndpoint Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
          * 
          * @return builder
          * 
@@ -188,11 +236,23 @@ public final class ServiceEndpointServiceFabricArgs extends com.pulumi.resources
             return description(Output.of(description));
         }
 
+        /**
+         * @param none A `none` block as documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder none(@Nullable Output<ServiceEndpointServiceFabricNoneArgs> none) {
             $.none = none;
             return this;
         }
 
+        /**
+         * @param none A `none` block as documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder none(ServiceEndpointServiceFabricNoneArgs none) {
             return none(Output.of(none));
         }

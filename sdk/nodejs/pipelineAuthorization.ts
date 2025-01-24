@@ -134,7 +134,7 @@ export class PipelineAuthorization extends pulumi.CustomResource {
      */
     public readonly resourceId!: pulumi.Output<string>;
     /**
-     * The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
+     * The type of the resource to authorize. Possible values are: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
      *
      * > **Note** `repository` is for AzureDevOps repository. To authorize repository other than
      * Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.
@@ -204,7 +204,7 @@ export interface PipelineAuthorizationState {
      */
     resourceId?: pulumi.Input<string>;
     /**
-     * The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
+     * The type of the resource to authorize. Possible values are: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
      *
      * > **Note** `repository` is for AzureDevOps repository. To authorize repository other than
      * Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.
@@ -235,7 +235,7 @@ export interface PipelineAuthorizationArgs {
      */
     resourceId: pulumi.Input<string>;
     /**
-     * The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
+     * The type of the resource to authorize. Possible values are: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
      *
      * > **Note** `repository` is for AzureDevOps repository. To authorize repository other than
      * Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.

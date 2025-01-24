@@ -135,7 +135,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Azure DevOps Service Endpoint Service Fabric can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+ * Azure DevOps Service Fabric Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
  * 
  * ```sh
  * $ pulumi import azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -150,27 +150,43 @@ public class ServiceEndpointServiceFabric extends com.pulumi.resources.CustomRes
     public Output<Map<String,String>> authorization() {
         return this.authorization;
     }
+    /**
+     * An `azure_active_directory` block as documented below.
+     * 
+     */
     @Export(name="azureActiveDirectory", refs={ServiceEndpointServiceFabricAzureActiveDirectory.class}, tree="[0]")
     private Output</* @Nullable */ ServiceEndpointServiceFabricAzureActiveDirectory> azureActiveDirectory;
 
+    /**
+     * @return An `azure_active_directory` block as documented below.
+     * 
+     */
     public Output<Optional<ServiceEndpointServiceFabricAzureActiveDirectory>> azureActiveDirectory() {
         return Codegen.optional(this.azureActiveDirectory);
     }
+    /**
+     * A `certificate` block as documented below.
+     * 
+     */
     @Export(name="certificate", refs={ServiceEndpointServiceFabricCertificate.class}, tree="[0]")
     private Output</* @Nullable */ ServiceEndpointServiceFabricCertificate> certificate;
 
+    /**
+     * @return A `certificate` block as documented below.
+     * 
+     */
     public Output<Optional<ServiceEndpointServiceFabricCertificate>> certificate() {
         return Codegen.optional(this.certificate);
     }
     /**
-     * Client connection endpoint for the cluster. Prefix the value with &#39;tcp://&#39;;. This value overrides the publish profile.
+     * Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
      * 
      */
     @Export(name="clusterEndpoint", refs={String.class}, tree="[0]")
     private Output<String> clusterEndpoint;
 
     /**
-     * @return Client connection endpoint for the cluster. Prefix the value with &#39;tcp://&#39;;. This value overrides the publish profile.
+     * @return Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
      * 
      */
     public Output<String> clusterEndpoint() {
@@ -182,9 +198,17 @@ public class ServiceEndpointServiceFabric extends com.pulumi.resources.CustomRes
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * A `none` block as documented below.
+     * 
+     */
     @Export(name="none", refs={ServiceEndpointServiceFabricNone.class}, tree="[0]")
     private Output</* @Nullable */ ServiceEndpointServiceFabricNone> none;
 
+    /**
+     * @return A `none` block as documented below.
+     * 
+     */
     public Output<Optional<ServiceEndpointServiceFabricNone>> none() {
         return Codegen.optional(this.none);
     }

@@ -53,8 +53,7 @@ class GetTeamsResult:
     @pulumi.getter(name="projectId")
     def project_id(self) -> Optional[str]:
         """
-        Project identifier.
-        - `id - Team identifier
+        The ID of the Project.
         """
         return pulumi.get(self, "project_id")
 
@@ -62,7 +61,7 @@ class GetTeamsResult:
     @pulumi.getter
     def teams(self) -> Sequence['outputs.GetTeamsTeamResult']:
         """
-        A list of existing projects in your Azure DevOps Organization with details about every project which includes:
+        A list of `teams` blocks as documented below. A list of existing projects in your Azure DevOps Organization with details about every project which includes:
         """
         return pulumi.get(self, "teams")
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps
 {
     /// <summary>
-    /// Manages a generic service endpoint within Azure DevOps, which can be used to authenticate to any external git service
+    /// Manages an Other Git service endpoint within Azure DevOps, which can be used to authenticate to any external git service
     /// using basic authentication via a username and password. This is mostly useful for importing private git repositories.
     /// 
     /// ## Example Usage
@@ -51,9 +51,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ## Import
     /// 
-    /// Azure DevOps Service Endpoint Generic Git can be imported using **projectID/serviceEndpointID** or
-    /// 
-    /// **projectName/serviceEndpointID**
+    /// Azure DevOps Other Git Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
     /// 
     /// ```sh
     /// $ pulumi import azuredevops:index/serviceEndpointGenericGit:ServiceEndpointGenericGit example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000

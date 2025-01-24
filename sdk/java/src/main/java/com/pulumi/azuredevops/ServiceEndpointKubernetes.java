@@ -131,7 +131,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Azure DevOps Service Endpoint Kubernetes can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+ * Azure DevOps Kubernetes Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
  * 
  * ```sh
  * $ pulumi import azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -175,14 +175,14 @@ public class ServiceEndpointKubernetes extends com.pulumi.resources.CustomResour
         return this.authorizationType;
     }
     /**
-     * A `azure_subscription` block defined blow.
+     * An `azure_subscription` block as defined below.
      * 
      */
     @Export(name="azureSubscriptions", refs={List.class,ServiceEndpointKubernetesAzureSubscription.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ServiceEndpointKubernetesAzureSubscription>> azureSubscriptions;
 
     /**
-     * @return A `azure_subscription` block defined blow.
+     * @return An `azure_subscription` block as defined below.
      * 
      */
     public Output<Optional<List<ServiceEndpointKubernetesAzureSubscription>>> azureSubscriptions() {
@@ -195,14 +195,14 @@ public class ServiceEndpointKubernetes extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.description);
     }
     /**
-     * A `kubeconfig` block defined blow.
+     * A `kubeconfig` block as defined below.
      * 
      */
     @Export(name="kubeconfig", refs={ServiceEndpointKubernetesKubeconfig.class}, tree="[0]")
     private Output</* @Nullable */ ServiceEndpointKubernetesKubeconfig> kubeconfig;
 
     /**
-     * @return A `kubeconfig` block defined blow.
+     * @return A `kubeconfig` block as defined below.
      * 
      */
     public Output<Optional<ServiceEndpointKubernetesKubeconfig>> kubeconfig() {
@@ -223,14 +223,14 @@ public class ServiceEndpointKubernetes extends com.pulumi.resources.CustomResour
         return this.projectId;
     }
     /**
-     * A `service_account` block defined blow.
+     * A `service_account` block as defined below.
      * 
      */
     @Export(name="serviceAccount", refs={ServiceEndpointKubernetesServiceAccount.class}, tree="[0]")
     private Output</* @Nullable */ ServiceEndpointKubernetesServiceAccount> serviceAccount;
 
     /**
-     * @return A `service_account` block defined blow.
+     * @return A `service_account` block as defined below.
      * 
      */
     public Output<Optional<ServiceEndpointKubernetesServiceAccount>> serviceAccount() {

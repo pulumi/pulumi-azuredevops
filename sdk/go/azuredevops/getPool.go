@@ -45,7 +45,7 @@ import (
 //
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
+// - [Azure DevOps Service REST API 7.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.1)
 func LookupPool(ctx *pulumi.Context, args *LookupPoolArgs, opts ...pulumi.InvokeOption) (*LookupPoolResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPoolResult
@@ -64,11 +64,15 @@ type LookupPoolArgs struct {
 
 // A collection of values returned by getPool.
 type LookupPoolResult struct {
+	// Specifies whether a queue should be automatically provisioned for each project collection.
 	AutoProvision bool `pulumi:"autoProvision"`
-	AutoUpdate    bool `pulumi:"autoUpdate"`
+	// Specifies whether or not agents within the pool should be automatically updated.
+	AutoUpdate bool `pulumi:"autoUpdate"`
 	// The provider-assigned unique ID for this managed resource.
-	Id       string `pulumi:"id"`
-	Name     string `pulumi:"name"`
+	Id string `pulumi:"id"`
+	// The name of the agent pool
+	Name string `pulumi:"name"`
+	// Specifies whether the agent pool type is Automation or Deployment.
 	PoolType string `pulumi:"poolType"`
 }
 
@@ -106,10 +110,12 @@ func (o LookupPoolResultOutput) ToLookupPoolResultOutputWithContext(ctx context.
 	return o
 }
 
+// Specifies whether a queue should be automatically provisioned for each project collection.
 func (o LookupPoolResultOutput) AutoProvision() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupPoolResult) bool { return v.AutoProvision }).(pulumi.BoolOutput)
 }
 
+// Specifies whether or not agents within the pool should be automatically updated.
 func (o LookupPoolResultOutput) AutoUpdate() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupPoolResult) bool { return v.AutoUpdate }).(pulumi.BoolOutput)
 }
@@ -119,10 +125,12 @@ func (o LookupPoolResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPoolResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The name of the agent pool
 func (o LookupPoolResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPoolResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Specifies whether the agent pool type is Automation or Deployment.
 func (o LookupPoolResultOutput) PoolType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPoolResult) string { return v.PoolType }).(pulumi.StringOutput)
 }

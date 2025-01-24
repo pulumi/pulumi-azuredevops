@@ -26,8 +26,9 @@ class RepositoryPolicyAuthorEmailPatternArgs:
                  repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a RepositoryPolicyAuthorEmailPattern resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] author_email_patterns: Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
-               Email patterns prefixed with "!" are excluded. Order is important.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] author_email_patterns: Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
+               
+               ~>**NOTE:** Email patterns prefixed with `!` are excluded. Order is important.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
         :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
@@ -46,8 +47,9 @@ class RepositoryPolicyAuthorEmailPatternArgs:
     @pulumi.getter(name="authorEmailPatterns")
     def author_email_patterns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
-        Email patterns prefixed with "!" are excluded. Order is important.
+        Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
+
+        ~>**NOTE:** Email patterns prefixed with `!` are excluded. Order is important.
         """
         return pulumi.get(self, "author_email_patterns")
 
@@ -114,8 +116,9 @@ class _RepositoryPolicyAuthorEmailPatternState:
                  repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering RepositoryPolicyAuthorEmailPattern resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] author_email_patterns: Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
-               Email patterns prefixed with "!" are excluded. Order is important.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] author_email_patterns: Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
+               
+               ~>**NOTE:** Email patterns prefixed with `!` are excluded. Order is important.
         :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
@@ -136,8 +139,9 @@ class _RepositoryPolicyAuthorEmailPatternState:
     @pulumi.getter(name="authorEmailPatterns")
     def author_email_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
-        Email patterns prefixed with "!" are excluded. Order is important.
+        Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
+
+        ~>**NOTE:** Email patterns prefixed with `!` are excluded. Order is important.
         """
         return pulumi.get(self, "author_email_patterns")
 
@@ -273,8 +277,9 @@ class RepositoryPolicyAuthorEmailPattern(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] author_email_patterns: Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
-               Email patterns prefixed with "!" are excluded. Order is important.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] author_email_patterns: Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
+               
+               ~>**NOTE:** Email patterns prefixed with `!` are excluded. Order is important.
         :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
@@ -412,8 +417,9 @@ class RepositoryPolicyAuthorEmailPattern(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] author_email_patterns: Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
-               Email patterns prefixed with "!" are excluded. Order is important.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] author_email_patterns: Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
+               
+               ~>**NOTE:** Email patterns prefixed with `!` are excluded. Order is important.
         :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
@@ -434,8 +440,9 @@ class RepositoryPolicyAuthorEmailPattern(pulumi.CustomResource):
     @pulumi.getter(name="authorEmailPatterns")
     def author_email_patterns(self) -> pulumi.Output[Sequence[str]]:
         """
-        Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
-        Email patterns prefixed with "!" are excluded. Order is important.
+        Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
+
+        ~>**NOTE:** Email patterns prefixed with `!` are excluded. Order is important.
         """
         return pulumi.get(self, "author_email_patterns")
 

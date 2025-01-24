@@ -25,7 +25,7 @@ export interface BranchPolicyAutoReviewersSettings {
      */
     pathFilters?: string[];
     /**
-     * Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+     * A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
      */
     scopes: outputs.BranchPolicyAutoReviewersSettingsScope[];
     /**
@@ -71,7 +71,7 @@ export interface BranchPolicyBuildValidationSettings {
      */
     queueOnSourceUpdateOnly?: boolean;
     /**
-     * Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+     * A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
      */
     scopes: outputs.BranchPolicyBuildValidationSettingsScope[];
     /**
@@ -102,7 +102,7 @@ export interface BranchPolicyBuildValidationSettingsScope {
 
 export interface BranchPolicyCommentResolutionSettings {
     /**
-     * Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+     * A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
      */
     scopes: outputs.BranchPolicyCommentResolutionSettingsScope[];
 }
@@ -140,7 +140,7 @@ export interface BranchPolicyMergeTypesSettings {
      */
     allowSquash?: boolean;
     /**
-     * Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+     * A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
      */
     scopes: outputs.BranchPolicyMergeTypesSettingsScope[];
 }
@@ -214,9 +214,9 @@ export interface BranchPolicyMinReviewersSettingsScope {
 
 export interface BranchPolicyStatusCheckSettings {
     /**
-     * Policy applicability. If policy `applicability` is `default`, apply unless "Not Applicable" 
-     * status is posted to the pull request. If policy `applicability` is `conditional`, policy is applied only after a status
-     * is posted to the pull request.
+     * Policy applicability. If policy `applicability=default`, apply unless "Not Applicable"
+     * status is posted to the pull request. If policy `applicability=conditional`, policy is applied only after a status
+     * is posted to the pull request. Possible values `default`, `conditional`. Defaults to `default`.
      */
     applicability?: string;
     /**
@@ -228,7 +228,10 @@ export interface BranchPolicyStatusCheckSettings {
      */
     displayName?: string;
     /**
-     * If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+     * If a path filter is set, the policy will only apply when files which match the filter are changed. Not setting this field means that the policy is always applied.
+     *
+     * ~>**NOTE** 1. Specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`.
+     * <br> 2. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
      */
     filenamePatterns?: string[];
     /**
@@ -244,8 +247,7 @@ export interface BranchPolicyStatusCheckSettings {
      */
     name: string;
     /**
-     * Controls which repositories and branches the policy will be enabled for. This block must be defined
-     * at least once.
+     * A `scope` block as defined below.
      */
     scopes: outputs.BranchPolicyStatusCheckSettingsScope[];
 }
@@ -256,18 +258,18 @@ export interface BranchPolicyStatusCheckSettingsScope {
      */
     matchType?: string;
     /**
-     * The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
+     * The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type=DefaultBranch`, this should not be defined.
      */
     repositoryId?: string;
     /**
-     * The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+     * The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `match_type=Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type=Prefix`, this should be a ref path such as `refs/heads/releases`.
      */
     repositoryRef?: string;
 }
 
 export interface BranchPolicyWorkItemLinkingSettings {
     /**
-     * Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+     * A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
      */
     scopes: outputs.BranchPolicyWorkItemLinkingSettingsScope[];
 }
@@ -457,7 +459,7 @@ export interface BuildDefinitionRepository {
      */
     repoId: string;
     /**
-     * The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+     * The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
      */
     repoType: string;
     /**
@@ -476,11 +478,11 @@ export interface BuildDefinitionRepository {
 
 export interface BuildDefinitionSchedule {
     /**
-     * block supports the following:
+     * A `branchFilter` block as defined below.
      */
     branchFilters: outputs.BuildDefinitionScheduleBranchFilter[];
     /**
-     * When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
+     * When to build. Possible values are: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
      */
     daysToBuilds: string[];
     /**
@@ -492,15 +494,15 @@ export interface BuildDefinitionSchedule {
      */
     scheduleOnlyWithChanges?: boolean;
     /**
-     * Build start hour. Defaults to `0`. Valid values: `0 ~ 23`.
+     * Build start hour. Possible values are: `0 ~ 23`. Defaults to `0`.
      */
     startHours?: number;
     /**
-     * Build start minute. Defaults to `0`. Valid values: `0 ~ 59`.
+     * Build start minute. Possible values are: `0 ~ 59`. Defaults to `0`.
      */
     startMinutes?: number;
     /**
-     * Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Valid values: 
+     * Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Possible values are:
      * `(UTC-12:00) International Date Line West`,
      * `(UTC-11:00) Coordinated Universal Time-11`,
      * `(UTC-10:00) Aleutian Islands`,
@@ -690,7 +692,7 @@ export interface CheckRequiredTemplateRequiredTemplate {
      */
     repositoryRef: string;
     /**
-     * The type of the repository storing the template. Valid values: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
+     * The type of the repository storing the template. Possible values are: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
      */
     repositoryType?: string;
     /**
@@ -716,7 +718,7 @@ export interface GetAreaChildren {
      */
     hasChildren: boolean;
     /**
-     * The id of the child Area node
+     * The ID of the child Area node
      */
     id: string;
     /**
@@ -758,7 +760,7 @@ export interface GetBuildDefinitionCiTriggerOverride {
      */
     maxConcurrentBuildsPerBranch: number;
     /**
-     * block supports the following:
+     * The file paths to include or exclude. A `pathFilter` block as defined above.
      */
     pathFilters: outputs.GetBuildDefinitionCiTriggerOverridePathFilter[];
     /**
@@ -837,7 +839,7 @@ export interface GetBuildDefinitionPullRequestTriggerOverride {
      */
     branchFilters: outputs.GetBuildDefinitionPullRequestTriggerOverrideBranchFilter[];
     /**
-     * block supports the following:
+     * The file paths to include or exclude. A `pathFilter` block as defined above.
      */
     pathFilters: outputs.GetBuildDefinitionPullRequestTriggerOverridePathFilter[];
 }
@@ -978,7 +980,7 @@ export interface GetGroupsGroup {
      */
     domain: string;
     /**
-     * The group ID.
+     * The ID of the group.
      */
     id: string;
     /**
@@ -1004,9 +1006,16 @@ export interface GetGroupsGroup {
 }
 
 export interface GetIdentityGroupsGroup {
+    /**
+     * The descriptor of the Identity Group.
+     */
+    descriptor: string;
+    /**
+     * The ID of the Identity Group.
+     */
     id: string;
     /**
-     * This is the non-unique display name of the identity subject. To change this field, you must alter its value in the source provider.
+     * This is the non-unique display name of the identity subject.
      */
     name: string;
 }
@@ -1017,7 +1026,7 @@ export interface GetIterationChildren {
      */
     hasChildren: boolean;
     /**
-     * The id of the child Iteration node
+     * The ID of the child Iteration node
      */
     id: string;
     /**
@@ -1043,9 +1052,12 @@ export interface GetPoolsAgentPool {
      * Specifies whether or not agents within the pool should be automatically updated.
      */
     autoUpdate: boolean;
+    /**
+     * The ID of the agent pool.
+     */
     id: number;
     /**
-     * The name of the agent pool
+     * The name of the agent pool.
      */
     name: string;
     /**
@@ -1064,13 +1076,13 @@ export interface GetProjectsProject {
      */
     projectId: string;
     /**
-     * Url to the full version of the object.
+     * The Url to the full version of the object.
      */
     projectUrl: string;
     /**
      * State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
      *
-     * DataSource without specifying any arguments will return all projects.
+     * > **NOTE:** DataSource without specifying any arguments will return all projects.
      */
     state: string;
 }
@@ -1146,7 +1158,7 @@ export interface GetSecurityroleDefinitionsDefinition {
     /**
      * Name of the Scope for which Security Role Definitions will be returned.
      *
-     * DataSource without specifying any arguments will return all projects.
+     * > **NOTE:** DataSource without specifying any arguments will return all projects.
      */
     scope: string;
 }
@@ -1160,13 +1172,16 @@ export interface GetTeamsTeam {
      * Team description.
      */
     description: string;
+    /**
+     * The ID of the Team.
+     */
     id: string;
     /**
      * List of subject descriptors for `members` of the team.
      */
     members: string[];
     /**
-     * Team name.
+     * The name of the team.
      */
     name: string;
     /**
@@ -1194,7 +1209,7 @@ export interface GetUsersUser {
      */
     displayName: string;
     /**
-     * The user ID.
+     * The ID of the User.
      */
     id: string;
     /**
@@ -1203,6 +1218,7 @@ export interface GetUsersUser {
     mailAddress: string;
     /**
      * The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+     * <pre>List of possible origins
      */
     origin: string;
     /**
@@ -1256,8 +1272,7 @@ export interface GitInitialization {
     /**
      * The password used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`.
      *
-     * ~>**Note**
-     * At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
+     * ~>**Note** At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
      */
     password?: string;
     /**
@@ -1280,25 +1295,25 @@ export interface GitInitialization {
 
 export interface ServiceEndpointArtifactoryAuthenticationBasic {
     /**
-     * The Artifactory password.
+     * The Password of the Artifactory.
      */
     password: string;
     /**
-     * The Artifactory user name.
+     * The Username of the Artifactory.
      */
     username: string;
 }
 
 export interface ServiceEndpointArtifactoryAuthenticationToken {
     /**
-     * The Artifactory access token.
+     * Authentication Token generated through Artifactory.
      */
     token: string;
 }
 
 export interface ServiceEndpointAzureEcrCredentials {
     /**
-     * The service principal application Id
+     * The ID of the Service Principal Application.
      */
     serviceprincipalid: string;
 }
@@ -1425,7 +1440,7 @@ export interface ServiceEndpointServiceFabricAzureActiveDirectory {
      */
     serverCertificateCommonName?: string;
     /**
-     * Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+     * Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
      */
     serverCertificateLookup: string;
     /**
@@ -1452,7 +1467,7 @@ export interface ServiceEndpointServiceFabricCertificate {
      */
     serverCertificateCommonName?: string;
     /**
-     * Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+     * Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
      */
     serverCertificateLookup: string;
     /**
@@ -1474,11 +1489,11 @@ export interface ServiceEndpointServiceFabricNone {
 
 export interface ServiceendpointArgocdAuthenticationBasic {
     /**
-     * ArgoCD Password.
+     * The Password of the ArgoCD.
      */
     password: string;
     /**
-     * ArgoCD Username.
+     * The Username of the ArgoCD.
      */
     username: string;
 }
@@ -1499,11 +1514,11 @@ export interface ServiceendpointExternaltfsAuthPersonal {
 
 export interface ServiceendpointJfrogArtifactoryV2AuthenticationBasic {
     /**
-     * Artifactory Password.
+     * The Password of the Artifactory.
      */
     password: string;
     /**
-     * Artifactory Username.
+     * The Username of the Artifactory.
      */
     username: string;
 }
@@ -1517,29 +1532,29 @@ export interface ServiceendpointJfrogArtifactoryV2AuthenticationToken {
 
 export interface ServiceendpointJfrogDistributionV2AuthenticationBasic {
     /**
-     * Artifactory Password.
+     * The Password of the Artifactory.
      */
     password: string;
     /**
-     * Artifactory Username.
+     * The Username of the Artifactory.
      */
     username: string;
 }
 
 export interface ServiceendpointJfrogDistributionV2AuthenticationToken {
     /**
-     * Authentication Token generated through Artifactory.
+     * The Authentication Token generated through Artifactory.
      */
     token: string;
 }
 
 export interface ServiceendpointJfrogPlatformV2AuthenticationBasic {
     /**
-     * Artifactory Password.
+     * The Password of the Artifactory.
      */
     password: string;
     /**
-     * Artifactory Username.
+     * The Username of the  Artifactory.
      */
     username: string;
 }
@@ -1553,11 +1568,11 @@ export interface ServiceendpointJfrogPlatformV2AuthenticationToken {
 
 export interface ServiceendpointJfrogXrayV2AuthenticationBasic {
     /**
-     * Artifactory Password.
+     * The Password of the Artifactory.
      */
     password: string;
     /**
-     * Artifactory Username.
+     * The Username of the  Artifactory.
      */
     username: string;
 }

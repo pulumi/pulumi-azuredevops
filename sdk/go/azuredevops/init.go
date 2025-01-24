@@ -55,6 +55,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CheckExclusiveLock{}
 	case "azuredevops:index/checkRequiredTemplate:CheckRequiredTemplate":
 		r = &CheckRequiredTemplate{}
+	case "azuredevops:index/checkRestApi:CheckRestApi":
+		r = &CheckRestApi{}
 	case "azuredevops:index/elasticPool:ElasticPool":
 		r = &ElasticPool{}
 	case "azuredevops:index/environment:Environment":
@@ -65,6 +67,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Feed{}
 	case "azuredevops:index/feedPermission:FeedPermission":
 		r = &FeedPermission{}
+	case "azuredevops:index/feedRetentionPolicy:FeedRetentionPolicy":
+		r = &FeedRetentionPolicy{}
 	case "azuredevops:index/git:Git":
 		r = &Git{}
 	case "azuredevops:index/gitPermissions:GitPermissions":
@@ -95,6 +99,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ProjectPermissions{}
 	case "azuredevops:index/projectPipelineSettings:ProjectPipelineSettings":
 		r = &ProjectPipelineSettings{}
+	case "azuredevops:index/projectTags:ProjectTags":
+		r = &ProjectTags{}
 	case "azuredevops:index/queue:Queue":
 		r = &Queue{}
 	case "azuredevops:index/repositoryPolicyAuthorEmailPattern:RepositoryPolicyAuthorEmailPattern":
@@ -153,10 +159,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServiceEndpointSonarQube{}
 	case "azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh":
 		r = &ServiceEndpointSsh{}
+	case "azuredevops:index/servicePrincipalEntitlement:ServicePrincipalEntitlement":
+		r = &ServicePrincipalEntitlement{}
 	case "azuredevops:index/serviceendpointArgocd:ServiceendpointArgocd":
 		r = &ServiceendpointArgocd{}
 	case "azuredevops:index/serviceendpointAzureServiceBus:ServiceendpointAzureServiceBus":
 		r = &ServiceendpointAzureServiceBus{}
+	case "azuredevops:index/serviceendpointCheckmarxOne:ServiceendpointCheckmarxOne":
+		r = &ServiceendpointCheckmarxOne{}
+	case "azuredevops:index/serviceendpointCheckmarxSast:ServiceendpointCheckmarxSast":
+		r = &ServiceendpointCheckmarxSast{}
+	case "azuredevops:index/serviceendpointCheckmarxSca:ServiceendpointCheckmarxSca":
+		r = &ServiceendpointCheckmarxSca{}
 	case "azuredevops:index/serviceendpointDynamicsLifecycleServices:ServiceendpointDynamicsLifecycleServices":
 		r = &ServiceendpointDynamicsLifecycleServices{}
 	case "azuredevops:index/serviceendpointExternaltfs:ServiceendpointExternaltfs":
@@ -333,6 +347,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azuredevops",
+		"index/checkRestApi",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
 		"index/elasticPool",
 		&module{version},
 	)
@@ -354,6 +373,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/feedPermission",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/feedRetentionPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -429,6 +453,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/projectPipelineSettings",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/projectTags",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -578,12 +607,32 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azuredevops",
+		"index/servicePrincipalEntitlement",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
 		"index/serviceendpointArgocd",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/serviceendpointAzureServiceBus",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/serviceendpointCheckmarxOne",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/serviceendpointCheckmarxSast",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/serviceendpointCheckmarxSca",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

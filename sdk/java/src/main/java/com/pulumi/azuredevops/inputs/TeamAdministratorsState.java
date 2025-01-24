@@ -17,9 +17,9 @@ public final class TeamAdministratorsState extends com.pulumi.resources.Resource
     public static final TeamAdministratorsState Empty = new TeamAdministratorsState();
 
     /**
-     * List of subject descriptors to define adminitrators of the team.
+     * List of subject descriptors to define administrators of the team.
      * 
-     * &gt; NOTE: It&#39;s possible to define team administrators both within the
+     * &gt; **NOTE** It&#39;s possible to define team administrators both within the
      * `azuredevops.Team` resource via the `administrators` block and by using the
      * `azuredevops.TeamAdministrators` resource. However it&#39;s not possible to use
      * both methods to manage team administrators, since there&#39;ll be conflicts.
@@ -29,9 +29,9 @@ public final class TeamAdministratorsState extends com.pulumi.resources.Resource
     private @Nullable Output<List<String>> administrators;
 
     /**
-     * @return List of subject descriptors to define adminitrators of the team.
+     * @return List of subject descriptors to define administrators of the team.
      * 
-     * &gt; NOTE: It&#39;s possible to define team administrators both within the
+     * &gt; **NOTE** It&#39;s possible to define team administrators both within the
      * `azuredevops.Team` resource via the `administrators` block and by using the
      * `azuredevops.TeamAdministrators` resource. However it&#39;s not possible to use
      * both methods to manage team administrators, since there&#39;ll be conflicts.
@@ -42,18 +42,20 @@ public final class TeamAdministratorsState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The mode how the resource manages team administrators.
-     * - `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team
-     * - `mode == overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
+     * The mode how the resource manages team administrators. Possible values: `add`, `overwrite`. Defaults to `add`.
+     * 
+     * &gt; **NOTE:** 1. `mode = add`: the resource will ensure that all specified administrators will be part of the referenced team
+     * &lt;br&gt; 2. `mode = overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
      * 
      */
     @Import(name="mode")
     private @Nullable Output<String> mode;
 
     /**
-     * @return The mode how the resource manages team administrators.
-     * - `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team
-     * - `mode == overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
+     * @return The mode how the resource manages team administrators. Possible values: `add`, `overwrite`. Defaults to `add`.
+     * 
+     * &gt; **NOTE:** 1. `mode = add`: the resource will ensure that all specified administrators will be part of the referenced team
+     * &lt;br&gt; 2. `mode = overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
      * 
      */
     public Optional<Output<String>> mode() {
@@ -118,9 +120,9 @@ public final class TeamAdministratorsState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param administrators List of subject descriptors to define adminitrators of the team.
+         * @param administrators List of subject descriptors to define administrators of the team.
          * 
-         * &gt; NOTE: It&#39;s possible to define team administrators both within the
+         * &gt; **NOTE** It&#39;s possible to define team administrators both within the
          * `azuredevops.Team` resource via the `administrators` block and by using the
          * `azuredevops.TeamAdministrators` resource. However it&#39;s not possible to use
          * both methods to manage team administrators, since there&#39;ll be conflicts.
@@ -134,9 +136,9 @@ public final class TeamAdministratorsState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param administrators List of subject descriptors to define adminitrators of the team.
+         * @param administrators List of subject descriptors to define administrators of the team.
          * 
-         * &gt; NOTE: It&#39;s possible to define team administrators both within the
+         * &gt; **NOTE** It&#39;s possible to define team administrators both within the
          * `azuredevops.Team` resource via the `administrators` block and by using the
          * `azuredevops.TeamAdministrators` resource. However it&#39;s not possible to use
          * both methods to manage team administrators, since there&#39;ll be conflicts.
@@ -149,9 +151,9 @@ public final class TeamAdministratorsState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param administrators List of subject descriptors to define adminitrators of the team.
+         * @param administrators List of subject descriptors to define administrators of the team.
          * 
-         * &gt; NOTE: It&#39;s possible to define team administrators both within the
+         * &gt; **NOTE** It&#39;s possible to define team administrators both within the
          * `azuredevops.Team` resource via the `administrators` block and by using the
          * `azuredevops.TeamAdministrators` resource. However it&#39;s not possible to use
          * both methods to manage team administrators, since there&#39;ll be conflicts.
@@ -164,9 +166,10 @@ public final class TeamAdministratorsState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param mode The mode how the resource manages team administrators.
-         * - `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team
-         * - `mode == overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
+         * @param mode The mode how the resource manages team administrators. Possible values: `add`, `overwrite`. Defaults to `add`.
+         * 
+         * &gt; **NOTE:** 1. `mode = add`: the resource will ensure that all specified administrators will be part of the referenced team
+         * &lt;br&gt; 2. `mode = overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
          * 
          * @return builder
          * 
@@ -177,9 +180,10 @@ public final class TeamAdministratorsState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param mode The mode how the resource manages team administrators.
-         * - `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team
-         * - `mode == overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
+         * @param mode The mode how the resource manages team administrators. Possible values: `add`, `overwrite`. Defaults to `add`.
+         * 
+         * &gt; **NOTE:** 1. `mode = add`: the resource will ensure that all specified administrators will be part of the referenced team
+         * &lt;br&gt; 2. `mode = overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
          * 
          * @return builder
          * 

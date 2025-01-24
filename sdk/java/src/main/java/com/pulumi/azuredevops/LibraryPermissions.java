@@ -81,12 +81,12 @@ import javax.annotation.Nullable;
  * 
  * The Azure DevOps UI uses roles to assign permissions for the Library.
  * 
- * | Role          | Allowed Permissions    |
- * | ------------- | ---------------------- |
- * | Reader        | View                   |
- * | Creator       | View, Create           |
- * | User          | View, Use              |
- * | Administrator | View, Use, Administer  |
+ * | Role          | Allowed Permissions   |
+ * |---------------|-----------------------|
+ * | Reader        | View                  |
+ * | Creator       | View, Create          |
+ * | User          | View, Use             |
+ * | Administrator | View, Use, Administer |
  * 
  * ## Relevant Links
  * 
@@ -106,12 +106,30 @@ public class LibraryPermissions extends com.pulumi.resources.CustomResource {
     /**
      * the permissions to assign. The following permissions are available.
      * 
+     * | Permission  | Description               |
+     * |-------------|---------------------------|
+     * | View        | View library item         |
+     * | Administer  | Administer library item   |
+     * | Create      | Create library item       |
+     * | ViewSecrets | View library item secrets |
+     * | Use         | Use library item          |
+     * | Owner       | Owner library item        |
+     * 
      */
     @Export(name="permissions", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> permissions;
 
     /**
      * @return the permissions to assign. The following permissions are available.
+     * 
+     * | Permission  | Description               |
+     * |-------------|---------------------------|
+     * | View        | View library item         |
+     * | Administer  | Administer library item   |
+     * | Create      | Create library item       |
+     * | ViewSecrets | View library item secrets |
+     * | Use         | Use library item          |
+     * | Owner       | Owner library item        |
      * 
      */
     public Output<Map<String,String>> permissions() {
@@ -148,30 +166,12 @@ public class LibraryPermissions extends com.pulumi.resources.CustomResource {
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      * 
-     * | Permission        | Description                         |
-     * | ----------------- | ----------------------------------- |
-     * | View              | View library item                   |
-     * | Administer        | Administer library item             |
-     * | Create            | Create library item                 |
-     * | ViewSecrets       | View library item secrets           |
-     * | Use               | Use library item                    |
-     * | Owner             | Owner library item                  |
-     * 
      */
     @Export(name="replace", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> replace;
 
     /**
      * @return Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     * 
-     * | Permission        | Description                         |
-     * | ----------------- | ----------------------------------- |
-     * | View              | View library item                   |
-     * | Administer        | Administer library item             |
-     * | Create            | Create library item                 |
-     * | ViewSecrets       | View library item secrets           |
-     * | Use               | Use library item                    |
-     * | Owner             | Owner library item                  |
      * 
      */
     public Output<Optional<Boolean>> replace() {

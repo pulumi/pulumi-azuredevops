@@ -11,8 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * ### With Token
- *
+ * ### Authorize with token
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -35,7 +34,7 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
- * ### With Username And Password
+ * ### Authorize with username and password
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

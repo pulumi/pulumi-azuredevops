@@ -16,6 +16,8 @@ public final class GetRepositoriesPlainArgs extends com.pulumi.resources.InvokeA
     public static final GetRepositoriesPlainArgs Empty = new GetRepositoriesPlainArgs();
 
     /**
+     * Defaults to `false`.
+     * 
      * DataSource without specifying any arguments will return all Git repositories of an organization.
      * 
      */
@@ -23,7 +25,9 @@ public final class GetRepositoriesPlainArgs extends com.pulumi.resources.InvokeA
     private @Nullable Boolean includeHidden;
 
     /**
-     * @return DataSource without specifying any arguments will return all Git repositories of an organization.
+     * @return Defaults to `false`.
+     * 
+     * DataSource without specifying any arguments will return all Git repositories of an organization.
      * 
      */
     public Optional<Boolean> includeHidden() {
@@ -87,7 +91,9 @@ public final class GetRepositoriesPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param includeHidden DataSource without specifying any arguments will return all Git repositories of an organization.
+         * @param includeHidden Defaults to `false`.
+         * 
+         * DataSource without specifying any arguments will return all Git repositories of an organization.
          * 
          * @return builder
          * 

@@ -30,8 +30,7 @@ class GitRepositoryFileArgs:
         :param pulumi.Input[str] content: The file content.
         :param pulumi.Input[str] file: The path of the file to manage.
         :param pulumi.Input[str] repository_id: The ID of the Git repository.
-        :param pulumi.Input[str] branch: Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it
-               does not already exist.
+        :param pulumi.Input[str] branch: Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
         :param pulumi.Input[str] commit_message: Commit message when adding or updating the managed file.
         :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files (defaults to `false`).
         """
@@ -85,8 +84,7 @@ class GitRepositoryFileArgs:
     @pulumi.getter
     def branch(self) -> Optional[pulumi.Input[str]]:
         """
-        Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it
-        does not already exist.
+        Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
         """
         return pulumi.get(self, "branch")
 
@@ -130,8 +128,7 @@ class _GitRepositoryFileState:
                  repository_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering GitRepositoryFile resources.
-        :param pulumi.Input[str] branch: Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it
-               does not already exist.
+        :param pulumi.Input[str] branch: Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
         :param pulumi.Input[str] commit_message: Commit message when adding or updating the managed file.
         :param pulumi.Input[str] content: The file content.
         :param pulumi.Input[str] file: The path of the file to manage.
@@ -155,8 +152,7 @@ class _GitRepositoryFileState:
     @pulumi.getter
     def branch(self) -> Optional[pulumi.Input[str]]:
         """
-        Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it
-        does not already exist.
+        Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
         """
         return pulumi.get(self, "branch")
 
@@ -286,8 +282,7 @@ class GitRepositoryFile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] branch: Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it
-               does not already exist.
+        :param pulumi.Input[str] branch: Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
         :param pulumi.Input[str] commit_message: Commit message when adding or updating the managed file.
         :param pulumi.Input[str] content: The file content.
         :param pulumi.Input[str] file: The path of the file to manage.
@@ -412,8 +407,7 @@ class GitRepositoryFile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] branch: Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it
-               does not already exist.
+        :param pulumi.Input[str] branch: Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
         :param pulumi.Input[str] commit_message: Commit message when adding or updating the managed file.
         :param pulumi.Input[str] content: The file content.
         :param pulumi.Input[str] file: The path of the file to manage.
@@ -436,8 +430,7 @@ class GitRepositoryFile(pulumi.CustomResource):
     @pulumi.getter
     def branch(self) -> pulumi.Output[Optional[str]]:
         """
-        Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it
-        does not already exist.
+        Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
         """
         return pulumi.get(self, "branch")
 

@@ -22,7 +22,7 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
-        /// The user ID.
+        /// The ID of the User.
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -31,6 +31,7 @@ namespace Pulumi.AzureDevOps.Outputs
         public readonly string MailAddress;
         /// <summary>
         /// The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+        /// &lt;pre&gt;List of possible origins
         /// </summary>
         public readonly string Origin;
         /// <summary>

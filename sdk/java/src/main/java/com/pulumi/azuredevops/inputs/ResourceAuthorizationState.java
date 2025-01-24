@@ -18,14 +18,14 @@ public final class ResourceAuthorizationState extends com.pulumi.resources.Resou
     public static final ResourceAuthorizationState Empty = new ResourceAuthorizationState();
 
     /**
-     * Set to true to allow public access in the project. Type: boolean.
+     * Set to true to allow public access in the project.
      * 
      */
     @Import(name="authorized")
     private @Nullable Output<Boolean> authorized;
 
     /**
-     * @return Set to true to allow public access in the project. Type: boolean.
+     * @return Set to true to allow public access in the project.
      * 
      */
     public Optional<Output<Boolean>> authorized() {
@@ -33,14 +33,14 @@ public final class ResourceAuthorizationState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The ID of the build definition to authorize. Type: string.
+     * The ID of the build definition to authorize.
      * 
      */
     @Import(name="definitionId")
     private @Nullable Output<Integer> definitionId;
 
     /**
-     * @return The ID of the build definition to authorize. Type: string.
+     * @return The ID of the build definition to authorize.
      * 
      */
     public Optional<Output<Integer>> definitionId() {
@@ -48,14 +48,14 @@ public final class ResourceAuthorizationState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The project ID or project name. Type: string.
+     * The project ID or project name.
      * 
      */
     @Import(name="projectId")
     private @Nullable Output<String> projectId;
 
     /**
-     * @return The project ID or project name. Type: string.
+     * @return The project ID or project name.
      * 
      */
     public Optional<Output<String>> projectId() {
@@ -63,14 +63,14 @@ public final class ResourceAuthorizationState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The ID of the resource to authorize. Type: string.
+     * The ID of the resource to authorize.
      * 
      */
     @Import(name="resourceId")
     private @Nullable Output<String> resourceId;
 
     /**
-     * @return The ID of the resource to authorize. Type: string.
+     * @return The ID of the resource to authorize.
      * 
      */
     public Optional<Output<String>> resourceId() {
@@ -78,14 +78,14 @@ public final class ResourceAuthorizationState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
+     * The type of the resource to authorize. Possible values: `endpoint`, `queue`, `variablegroup`. Defaults to value: `endpoint`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
+     * @return The type of the resource to authorize. Possible values: `endpoint`, `queue`, `variablegroup`. Defaults to value: `endpoint`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -121,7 +121,7 @@ public final class ResourceAuthorizationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param authorized Set to true to allow public access in the project. Type: boolean.
+         * @param authorized Set to true to allow public access in the project.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class ResourceAuthorizationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param authorized Set to true to allow public access in the project. Type: boolean.
+         * @param authorized Set to true to allow public access in the project.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class ResourceAuthorizationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param definitionId The ID of the build definition to authorize. Type: string.
+         * @param definitionId The ID of the build definition to authorize.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class ResourceAuthorizationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param definitionId The ID of the build definition to authorize. Type: string.
+         * @param definitionId The ID of the build definition to authorize.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class ResourceAuthorizationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param projectId The project ID or project name. Type: string.
+         * @param projectId The project ID or project name.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class ResourceAuthorizationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param projectId The project ID or project name. Type: string.
+         * @param projectId The project ID or project name.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class ResourceAuthorizationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceId The ID of the resource to authorize. Type: string.
+         * @param resourceId The ID of the resource to authorize.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class ResourceAuthorizationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceId The ID of the resource to authorize. Type: string.
+         * @param resourceId The ID of the resource to authorize.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class ResourceAuthorizationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
+         * @param type The type of the resource to authorize. Possible values: `endpoint`, `queue`, `variablegroup`. Defaults to value: `endpoint`.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class ResourceAuthorizationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
+         * @param type The type of the resource to authorize. Possible values: `endpoint`, `queue`, `variablegroup`. Defaults to value: `endpoint`.
          * 
          * @return builder
          * 

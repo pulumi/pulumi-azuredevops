@@ -34,8 +34,7 @@ public final class ProjectPipelineSettingsState extends com.pulumi.resources.Res
     /**
      * Limit job authorization scope to current project for release pipelines.
      * 
-     * &gt; **NOTE:**
-     * The settings at the organization will override settings specified on the project.
+     * &gt; **NOTE:** The settings at the organization will override settings specified on the project.
      * For example, if `enforce_job_scope` is true at the organization, the `azuredevops.ProjectPipelineSettings` resource cannot set it to false.
      * In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
      * 
@@ -46,8 +45,7 @@ public final class ProjectPipelineSettingsState extends com.pulumi.resources.Res
     /**
      * @return Limit job authorization scope to current project for release pipelines.
      * 
-     * &gt; **NOTE:**
-     * The settings at the organization will override settings specified on the project.
+     * &gt; **NOTE:** The settings at the organization will override settings specified on the project.
      * For example, if `enforce_job_scope` is true at the organization, the `azuredevops.ProjectPipelineSettings` resource cannot set it to false.
      * In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
      * 
@@ -87,14 +85,14 @@ public final class ProjectPipelineSettingsState extends com.pulumi.resources.Res
     }
 
     /**
-     * The `id` of the project for which the project pipeline settings will be managed.
+     * The ID of the project for which the project pipeline settings will be managed.
      * 
      */
     @Import(name="projectId")
     private @Nullable Output<String> projectId;
 
     /**
-     * @return The `id` of the project for which the project pipeline settings will be managed.
+     * @return The ID of the project for which the project pipeline settings will be managed.
      * 
      */
     public Optional<Output<String>> projectId() {
@@ -185,8 +183,7 @@ public final class ProjectPipelineSettingsState extends com.pulumi.resources.Res
         /**
          * @param enforceJobScopeForRelease Limit job authorization scope to current project for release pipelines.
          * 
-         * &gt; **NOTE:**
-         * The settings at the organization will override settings specified on the project.
+         * &gt; **NOTE:** The settings at the organization will override settings specified on the project.
          * For example, if `enforce_job_scope` is true at the organization, the `azuredevops.ProjectPipelineSettings` resource cannot set it to false.
          * In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
          * 
@@ -201,8 +198,7 @@ public final class ProjectPipelineSettingsState extends com.pulumi.resources.Res
         /**
          * @param enforceJobScopeForRelease Limit job authorization scope to current project for release pipelines.
          * 
-         * &gt; **NOTE:**
-         * The settings at the organization will override settings specified on the project.
+         * &gt; **NOTE:** The settings at the organization will override settings specified on the project.
          * For example, if `enforce_job_scope` is true at the organization, the `azuredevops.ProjectPipelineSettings` resource cannot set it to false.
          * In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
          * 
@@ -256,7 +252,7 @@ public final class ProjectPipelineSettingsState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param projectId The `id` of the project for which the project pipeline settings will be managed.
+         * @param projectId The ID of the project for which the project pipeline settings will be managed.
          * 
          * @return builder
          * 
@@ -267,7 +263,7 @@ public final class ProjectPipelineSettingsState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param projectId The `id` of the project for which the project pipeline settings will be managed.
+         * @param projectId The ID of the project for which the project pipeline settings will be managed.
          * 
          * @return builder
          * 

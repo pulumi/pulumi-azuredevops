@@ -14,14 +14,14 @@ public final class GetGitRepositoryPlainArgs extends com.pulumi.resources.Invoke
     public static final GetGitRepositoryPlainArgs Empty = new GetGitRepositoryPlainArgs();
 
     /**
-     * Name of the Git repository to retrieve
+     * The Name of the Git repository to retrieve
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return Name of the Git repository to retrieve
+     * @return The Name of the Git repository to retrieve
      * 
      */
     public String name() {
@@ -29,14 +29,14 @@ public final class GetGitRepositoryPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * ID of project to list Git repositories
+     * The ID of project to list Git repositories
      * 
      */
     @Import(name="projectId", required=true)
     private String projectId;
 
     /**
-     * @return ID of project to list Git repositories
+     * @return The ID of project to list Git repositories
      * 
      */
     public String projectId() {
@@ -69,7 +69,7 @@ public final class GetGitRepositoryPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param name Name of the Git repository to retrieve
+         * @param name The Name of the Git repository to retrieve
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class GetGitRepositoryPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param projectId ID of project to list Git repositories
+         * @param projectId The ID of project to list Git repositories
          * 
          * @return builder
          * 

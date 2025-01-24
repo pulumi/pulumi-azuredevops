@@ -43,6 +43,11 @@ import (
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
+//
+// ## PAT Permissions Required
+//
+// - **Project & Team**: Read
+// - **Work Items**: Read
 func LookupProject(ctx *pulumi.Context, args *LookupProjectArgs, opts ...pulumi.InvokeOption) (*LookupProjectResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupProjectResult
@@ -58,21 +63,29 @@ type LookupProjectArgs struct {
 	// Name of the Project.
 	Name *string `pulumi:"name"`
 	// ID of the Project.
+	//
+	// > **NOTE:** One of either `projectId` or `name` must be specified.
 	ProjectId *string `pulumi:"projectId"`
 }
 
 // A collection of values returned by getProject.
 type LookupProjectResult struct {
+	// The description of the project.
 	Description string            `pulumi:"description"`
 	Features    map[string]string `pulumi:"features"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                string  `pulumi:"id"`
-	Name              *string `pulumi:"name"`
+	Id string `pulumi:"id"`
+	// The name of the project.
+	Name *string `pulumi:"name"`
+	// The process template ID for the project.
 	ProcessTemplateId string  `pulumi:"processTemplateId"`
 	ProjectId         *string `pulumi:"projectId"`
-	VersionControl    string  `pulumi:"versionControl"`
-	Visibility        string  `pulumi:"visibility"`
-	WorkItemTemplate  string  `pulumi:"workItemTemplate"`
+	// The version control of the project.
+	VersionControl string `pulumi:"versionControl"`
+	// The visibility of the project.
+	Visibility string `pulumi:"visibility"`
+	// The work item template for the project.
+	WorkItemTemplate string `pulumi:"workItemTemplate"`
 }
 
 func LookupProjectOutput(ctx *pulumi.Context, args LookupProjectOutputArgs, opts ...pulumi.InvokeOption) LookupProjectResultOutput {
@@ -89,6 +102,8 @@ type LookupProjectOutputArgs struct {
 	// Name of the Project.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// ID of the Project.
+	//
+	// > **NOTE:** One of either `projectId` or `name` must be specified.
 	ProjectId pulumi.StringPtrInput `pulumi:"projectId"`
 }
 
@@ -111,6 +126,7 @@ func (o LookupProjectResultOutput) ToLookupProjectResultOutputWithContext(ctx co
 	return o
 }
 
+// The description of the project.
 func (o LookupProjectResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProjectResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -124,10 +140,12 @@ func (o LookupProjectResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProjectResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The name of the project.
 func (o LookupProjectResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProjectResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The process template ID for the project.
 func (o LookupProjectResultOutput) ProcessTemplateId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProjectResult) string { return v.ProcessTemplateId }).(pulumi.StringOutput)
 }
@@ -136,14 +154,17 @@ func (o LookupProjectResultOutput) ProjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProjectResult) *string { return v.ProjectId }).(pulumi.StringPtrOutput)
 }
 
+// The version control of the project.
 func (o LookupProjectResultOutput) VersionControl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProjectResult) string { return v.VersionControl }).(pulumi.StringOutput)
 }
 
+// The visibility of the project.
 func (o LookupProjectResultOutput) Visibility() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProjectResult) string { return v.Visibility }).(pulumi.StringOutput)
 }
 
+// The work item template for the project.
 func (o LookupProjectResultOutput) WorkItemTemplate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProjectResult) string { return v.WorkItemTemplate }).(pulumi.StringOutput)
 }

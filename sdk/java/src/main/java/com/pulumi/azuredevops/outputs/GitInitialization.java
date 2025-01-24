@@ -20,8 +20,7 @@ public final class GitInitialization {
     /**
      * @return The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
      * 
-     * ~&gt;**Note**
-     * At least `service_connection_id` or `username/password` needs to be set to import private repository.
+     * ~&gt;**Note** At least `service_connection_id` or `username/password` needs to be set to import private repository.
      * 
      */
     private @Nullable String password;
@@ -57,8 +56,7 @@ public final class GitInitialization {
     /**
      * @return The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
      * 
-     * ~&gt;**Note**
-     * At least `service_connection_id` or `username/password` needs to be set to import private repository.
+     * ~&gt;**Note** At least `service_connection_id` or `username/password` needs to be set to import private repository.
      * 
      */
     public Optional<String> password() {

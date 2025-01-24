@@ -32,12 +32,16 @@ public final class GetProjectPlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * ID of the Project.
      * 
+     * &gt; **NOTE:** One of either `project_id` or `name` must be specified.
+     * 
      */
     @Import(name="projectId")
     private @Nullable String projectId;
 
     /**
      * @return ID of the Project.
+     * 
+     * &gt; **NOTE:** One of either `project_id` or `name` must be specified.
      * 
      */
     public Optional<String> projectId() {
@@ -82,6 +86,8 @@ public final class GetProjectPlainArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param projectId ID of the Project.
+         * 
+         * &gt; **NOTE:** One of either `project_id` or `name` must be specified.
          * 
          * @return builder
          * 

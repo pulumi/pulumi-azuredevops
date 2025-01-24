@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class ServiceendpointArgocdAuthenticationBasic {
     /**
-     * @return ArgoCD Password.
+     * @return The Password of the ArgoCD.
      * 
      */
     private String password;
     /**
-     * @return ArgoCD Username.
+     * @return The Username of the ArgoCD.
      * 
      */
     private String username;
 
     private ServiceendpointArgocdAuthenticationBasic() {}
     /**
-     * @return ArgoCD Password.
+     * @return The Password of the ArgoCD.
      * 
      */
     public String password() {
         return this.password;
     }
     /**
-     * @return ArgoCD Username.
+     * @return The Username of the ArgoCD.
      * 
      */
     public String username() {

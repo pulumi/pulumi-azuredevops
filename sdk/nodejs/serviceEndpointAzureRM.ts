@@ -7,7 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Manages Manual or Automatic AzureRM service endpoint within Azure DevOps.
+ * Manages Manual or Automatic Azure Resource Manager service endpoint within Azure DevOps.
  *
  * ## Requirements (Manual AzureRM Service Endpoint)
  *
@@ -191,7 +191,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Azure DevOps Service Endpoint Azure Resource Manage can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+ * Azure DevOps Azure Resource Manager Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
  *
  * ```sh
  * $ pulumi import azuredevops:index/serviceEndpointAzureRM:ServiceEndpointAzureRM example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -247,7 +247,7 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
      */
     public readonly azurermSubscriptionName!: pulumi.Output<string | undefined>;
     /**
-     * A `credentials` block.
+     * A `credentials` block as defined below.
      */
     public readonly credentials!: pulumi.Output<outputs.ServiceEndpointAzureRMCredentials | undefined>;
     /**
@@ -259,7 +259,7 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
      */
     public readonly environment!: pulumi.Output<string | undefined>;
     /**
-     * A `features` block.
+     * A `features` block as defined below.
      */
     public readonly features!: pulumi.Output<outputs.ServiceEndpointAzureRMFeatures | undefined>;
     /**
@@ -277,7 +277,7 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
      */
     public readonly serverUrl!: pulumi.Output<string>;
     /**
-     * Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+     * Specifies the type of Azure Resource Manager Service Endpoint. Possible values are `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
      *
      * > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
      */
@@ -391,7 +391,7 @@ export interface ServiceEndpointAzureRMState {
      */
     azurermSubscriptionName?: pulumi.Input<string>;
     /**
-     * A `credentials` block.
+     * A `credentials` block as defined below.
      */
     credentials?: pulumi.Input<inputs.ServiceEndpointAzureRMCredentials>;
     /**
@@ -403,7 +403,7 @@ export interface ServiceEndpointAzureRMState {
      */
     environment?: pulumi.Input<string>;
     /**
-     * A `features` block.
+     * A `features` block as defined below.
      */
     features?: pulumi.Input<inputs.ServiceEndpointAzureRMFeatures>;
     /**
@@ -421,7 +421,7 @@ export interface ServiceEndpointAzureRMState {
      */
     serverUrl?: pulumi.Input<string>;
     /**
-     * Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+     * Specifies the type of Azure Resource Manager Service Endpoint. Possible values are `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
      *
      * > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
      */
@@ -470,7 +470,7 @@ export interface ServiceEndpointAzureRMArgs {
      */
     azurermSubscriptionName?: pulumi.Input<string>;
     /**
-     * A `credentials` block.
+     * A `credentials` block as defined below.
      */
     credentials?: pulumi.Input<inputs.ServiceEndpointAzureRMCredentials>;
     /**
@@ -482,7 +482,7 @@ export interface ServiceEndpointAzureRMArgs {
      */
     environment?: pulumi.Input<string>;
     /**
-     * A `features` block.
+     * A `features` block as defined below.
      */
     features?: pulumi.Input<inputs.ServiceEndpointAzureRMFeatures>;
     /**
@@ -500,7 +500,7 @@ export interface ServiceEndpointAzureRMArgs {
      */
     serverUrl?: pulumi.Input<string>;
     /**
-     * Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+     * Specifies the type of Azure Resource Manager Service Endpoint. Possible values are `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
      *
      * > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
      */

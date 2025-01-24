@@ -14,8 +14,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ## Example Usage
     /// 
-    /// ### Service Principal
-    /// 
+    /// ### Authorize with Service Principal
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,7 +47,7 @@ namespace Pulumi.AzureDevOps
     /// });
     /// ```
     /// 
-    /// ### WorkloadIdentityFederation
+    /// ### Authorize with WorkloadIdentityFederation
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -118,7 +117,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ## Import
     /// 
-    /// Azure DevOps Service Endpoint Azure Container Registry can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+    /// Azure DevOps Azure Container Registry Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
     /// 
     /// ```sh
     /// $ pulumi import azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -164,7 +163,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> AzurecrSubscriptionName { get; private set; } = null!;
 
         /// <summary>
-        /// A `credentials` block.
+        /// A `credentials` block as defined below.
         /// </summary>
         [Output("credentials")]
         public Output<Outputs.ServiceEndpointAzureEcrCredentials?> Credentials { get; private set; } = null!;
@@ -296,7 +295,7 @@ namespace Pulumi.AzureDevOps
         public Input<string> AzurecrSubscriptionName { get; set; } = null!;
 
         /// <summary>
-        /// A `credentials` block.
+        /// A `credentials` block as defined below.
         /// </summary>
         [Input("credentials")]
         public Input<Inputs.ServiceEndpointAzureEcrCredentialsArgs>? Credentials { get; set; }
@@ -378,7 +377,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? AzurecrSubscriptionName { get; set; }
 
         /// <summary>
-        /// A `credentials` block.
+        /// A `credentials` block as defined below.
         /// </summary>
         [Input("credentials")]
         public Input<Inputs.ServiceEndpointAzureEcrCredentialsGetArgs>? Credentials { get; set; }

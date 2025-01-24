@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class ServiceendpointJfrogDistributionV2AuthenticationToken {
     /**
-     * @return Authentication Token generated through Artifactory.
+     * @return The Authentication Token generated through Artifactory.
      * 
      */
     private String token;
 
     private ServiceendpointJfrogDistributionV2AuthenticationToken() {}
     /**
-     * @return Authentication Token generated through Artifactory.
+     * @return The Authentication Token generated through Artifactory.
      * 
      */
     public String token() {

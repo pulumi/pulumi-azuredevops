@@ -25,17 +25,18 @@ class TeamAdministratorsArgs:
                  mode: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TeamAdministrators resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] administrators: List of subject descriptors to define adminitrators of the team.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] administrators: List of subject descriptors to define administrators of the team.
                
-               > NOTE: It's possible to define team administrators both within the
-               > `Team` resource via the `administrators` block and by using the
-               > `TeamAdministrators` resource. However it's not possible to use
-               > both methods to manage team administrators, since there'll be conflicts.
+               > **NOTE** It's possible to define team administrators both within the
+               `Team` resource via the `administrators` block and by using the
+               `TeamAdministrators` resource. However it's not possible to use
+               both methods to manage team administrators, since there'll be conflicts.
         :param pulumi.Input[str] project_id: The Project ID.
         :param pulumi.Input[str] team_id: The ID of the Team.
-        :param pulumi.Input[str] mode: The mode how the resource manages team administrators.
-               - `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team
-               - `mode == overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
+        :param pulumi.Input[str] mode: The mode how the resource manages team administrators. Possible values: `add`, `overwrite`. Defaults to `add`.
+               
+               > **NOTE:** 1. `mode = add`: the resource will ensure that all specified administrators will be part of the referenced team
+               <br> 2. `mode = overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
         """
         pulumi.set(__self__, "administrators", administrators)
         pulumi.set(__self__, "project_id", project_id)
@@ -47,12 +48,12 @@ class TeamAdministratorsArgs:
     @pulumi.getter
     def administrators(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        List of subject descriptors to define adminitrators of the team.
+        List of subject descriptors to define administrators of the team.
 
-        > NOTE: It's possible to define team administrators both within the
-        > `Team` resource via the `administrators` block and by using the
-        > `TeamAdministrators` resource. However it's not possible to use
-        > both methods to manage team administrators, since there'll be conflicts.
+        > **NOTE** It's possible to define team administrators both within the
+        `Team` resource via the `administrators` block and by using the
+        `TeamAdministrators` resource. However it's not possible to use
+        both methods to manage team administrators, since there'll be conflicts.
         """
         return pulumi.get(self, "administrators")
 
@@ -88,9 +89,10 @@ class TeamAdministratorsArgs:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The mode how the resource manages team administrators.
-        - `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team
-        - `mode == overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
+        The mode how the resource manages team administrators. Possible values: `add`, `overwrite`. Defaults to `add`.
+
+        > **NOTE:** 1. `mode = add`: the resource will ensure that all specified administrators will be part of the referenced team
+        <br> 2. `mode = overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
         """
         return pulumi.get(self, "mode")
 
@@ -108,15 +110,16 @@ class _TeamAdministratorsState:
                  team_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering TeamAdministrators resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] administrators: List of subject descriptors to define adminitrators of the team.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] administrators: List of subject descriptors to define administrators of the team.
                
-               > NOTE: It's possible to define team administrators both within the
-               > `Team` resource via the `administrators` block and by using the
-               > `TeamAdministrators` resource. However it's not possible to use
-               > both methods to manage team administrators, since there'll be conflicts.
-        :param pulumi.Input[str] mode: The mode how the resource manages team administrators.
-               - `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team
-               - `mode == overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
+               > **NOTE** It's possible to define team administrators both within the
+               `Team` resource via the `administrators` block and by using the
+               `TeamAdministrators` resource. However it's not possible to use
+               both methods to manage team administrators, since there'll be conflicts.
+        :param pulumi.Input[str] mode: The mode how the resource manages team administrators. Possible values: `add`, `overwrite`. Defaults to `add`.
+               
+               > **NOTE:** 1. `mode = add`: the resource will ensure that all specified administrators will be part of the referenced team
+               <br> 2. `mode = overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
         :param pulumi.Input[str] project_id: The Project ID.
         :param pulumi.Input[str] team_id: The ID of the Team.
         """
@@ -133,12 +136,12 @@ class _TeamAdministratorsState:
     @pulumi.getter
     def administrators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of subject descriptors to define adminitrators of the team.
+        List of subject descriptors to define administrators of the team.
 
-        > NOTE: It's possible to define team administrators both within the
-        > `Team` resource via the `administrators` block and by using the
-        > `TeamAdministrators` resource. However it's not possible to use
-        > both methods to manage team administrators, since there'll be conflicts.
+        > **NOTE** It's possible to define team administrators both within the
+        `Team` resource via the `administrators` block and by using the
+        `TeamAdministrators` resource. However it's not possible to use
+        both methods to manage team administrators, since there'll be conflicts.
         """
         return pulumi.get(self, "administrators")
 
@@ -150,9 +153,10 @@ class _TeamAdministratorsState:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The mode how the resource manages team administrators.
-        - `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team
-        - `mode == overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
+        The mode how the resource manages team administrators. Possible values: `add`, `overwrite`. Defaults to `add`.
+
+        > **NOTE:** 1. `mode = add`: the resource will ensure that all specified administrators will be part of the referenced team
+        <br> 2. `mode = overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
         """
         return pulumi.get(self, "mode")
 
@@ -196,6 +200,16 @@ class TeamAdministrators(pulumi.CustomResource):
                  team_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## *---
+
+        layout: "azuredevops"
+        page_title: "AzureDevops: TeamAdministrators"
+        description: |-
+          Manages administrators of a team within a project in a Azure DevOps organization.
+        ---
+
+        # TeamAdministrators
+
         Manages administrators of a team within a project in a Azure DevOps organization.
 
         ## Example Usage
@@ -236,15 +250,16 @@ class TeamAdministrators(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] administrators: List of subject descriptors to define adminitrators of the team.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] administrators: List of subject descriptors to define administrators of the team.
                
-               > NOTE: It's possible to define team administrators both within the
-               > `Team` resource via the `administrators` block and by using the
-               > `TeamAdministrators` resource. However it's not possible to use
-               > both methods to manage team administrators, since there'll be conflicts.
-        :param pulumi.Input[str] mode: The mode how the resource manages team administrators.
-               - `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team
-               - `mode == overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
+               > **NOTE** It's possible to define team administrators both within the
+               `Team` resource via the `administrators` block and by using the
+               `TeamAdministrators` resource. However it's not possible to use
+               both methods to manage team administrators, since there'll be conflicts.
+        :param pulumi.Input[str] mode: The mode how the resource manages team administrators. Possible values: `add`, `overwrite`. Defaults to `add`.
+               
+               > **NOTE:** 1. `mode = add`: the resource will ensure that all specified administrators will be part of the referenced team
+               <br> 2. `mode = overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
         :param pulumi.Input[str] project_id: The Project ID.
         :param pulumi.Input[str] team_id: The ID of the Team.
         """
@@ -255,6 +270,16 @@ class TeamAdministrators(pulumi.CustomResource):
                  args: TeamAdministratorsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## *---
+
+        layout: "azuredevops"
+        page_title: "AzureDevops: TeamAdministrators"
+        description: |-
+          Manages administrators of a team within a project in a Azure DevOps organization.
+        ---
+
+        # TeamAdministrators
+
         Manages administrators of a team within a project in a Azure DevOps organization.
 
         ## Example Usage
@@ -352,15 +377,16 @@ class TeamAdministrators(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] administrators: List of subject descriptors to define adminitrators of the team.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] administrators: List of subject descriptors to define administrators of the team.
                
-               > NOTE: It's possible to define team administrators both within the
-               > `Team` resource via the `administrators` block and by using the
-               > `TeamAdministrators` resource. However it's not possible to use
-               > both methods to manage team administrators, since there'll be conflicts.
-        :param pulumi.Input[str] mode: The mode how the resource manages team administrators.
-               - `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team
-               - `mode == overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
+               > **NOTE** It's possible to define team administrators both within the
+               `Team` resource via the `administrators` block and by using the
+               `TeamAdministrators` resource. However it's not possible to use
+               both methods to manage team administrators, since there'll be conflicts.
+        :param pulumi.Input[str] mode: The mode how the resource manages team administrators. Possible values: `add`, `overwrite`. Defaults to `add`.
+               
+               > **NOTE:** 1. `mode = add`: the resource will ensure that all specified administrators will be part of the referenced team
+               <br> 2. `mode = overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
         :param pulumi.Input[str] project_id: The Project ID.
         :param pulumi.Input[str] team_id: The ID of the Team.
         """
@@ -378,12 +404,12 @@ class TeamAdministrators(pulumi.CustomResource):
     @pulumi.getter
     def administrators(self) -> pulumi.Output[Sequence[str]]:
         """
-        List of subject descriptors to define adminitrators of the team.
+        List of subject descriptors to define administrators of the team.
 
-        > NOTE: It's possible to define team administrators both within the
-        > `Team` resource via the `administrators` block and by using the
-        > `TeamAdministrators` resource. However it's not possible to use
-        > both methods to manage team administrators, since there'll be conflicts.
+        > **NOTE** It's possible to define team administrators both within the
+        `Team` resource via the `administrators` block and by using the
+        `TeamAdministrators` resource. However it's not possible to use
+        both methods to manage team administrators, since there'll be conflicts.
         """
         return pulumi.get(self, "administrators")
 
@@ -391,9 +417,10 @@ class TeamAdministrators(pulumi.CustomResource):
     @pulumi.getter
     def mode(self) -> pulumi.Output[Optional[str]]:
         """
-        The mode how the resource manages team administrators.
-        - `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team
-        - `mode == overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
+        The mode how the resource manages team administrators. Possible values: `add`, `overwrite`. Defaults to `add`.
+
+        > **NOTE:** 1. `mode = add`: the resource will ensure that all specified administrators will be part of the referenced team
+        <br> 2. `mode = overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
         """
         return pulumi.get(self, "mode")
 

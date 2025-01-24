@@ -100,16 +100,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azuredevops:index/gitRepositoryFile:GitRepositoryFile")
 public class GitRepositoryFile extends com.pulumi.resources.CustomResource {
     /**
-     * Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it
-     * does not already exist.
+     * Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
      * 
      */
     @Export(name="branch", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> branch;
 
     /**
-     * @return Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it
-     * does not already exist.
+     * @return Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
      * 
      */
     public Output<Optional<String>> branch() {

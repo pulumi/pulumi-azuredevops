@@ -50,7 +50,7 @@ class GetServiceendpointSonarcloudResult:
     @pulumi.getter
     def authorization(self) -> Mapping[str, str]:
         """
-        Specifies the Authorization Scheme Map.
+        The Authorization scheme.
         """
         return pulumi.get(self, "authorization")
 
@@ -58,7 +58,7 @@ class GetServiceendpointSonarcloudResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        Specifies the description of the Service Endpoint.
+        The description of the Service Endpoint.
         """
         return pulumi.get(self, "description")
 

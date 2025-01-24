@@ -42,7 +42,7 @@ import (
 //
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
+// - [Azure DevOps Service REST API 7.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.1)
 func GetPools(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetPoolsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPoolsResult
@@ -55,7 +55,7 @@ func GetPools(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetPoolsResult
 
 // A collection of values returned by getPools.
 type GetPoolsResult struct {
-	// A list of existing agent pools in your Azure DevOps Organization with the following details about every agent pool:
+	// An `agentPools` blocks as documented below. A list of existing agent pools in your Azure DevOps Organization with the following details about every agent pool:
 	AgentPools []GetPoolsAgentPool `pulumi:"agentPools"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -83,7 +83,7 @@ func (o GetPoolsResultOutput) ToGetPoolsResultOutputWithContext(ctx context.Cont
 	return o
 }
 
-// A list of existing agent pools in your Azure DevOps Organization with the following details about every agent pool:
+// An `agentPools` blocks as documented below. A list of existing agent pools in your Azure DevOps Organization with the following details about every agent pool:
 func (o GetPoolsResultOutput) AgentPools() GetPoolsAgentPoolArrayOutput {
 	return o.ApplyT(func(v GetPoolsResult) []GetPoolsAgentPool { return v.AgentPools }).(GetPoolsAgentPoolArrayOutput)
 }

@@ -48,16 +48,24 @@ public final class GetTeamArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The maximum number of teams to return. Defaults to `100`.
+     * The maximum number of teams to return. Defaults to `100`. This property is deprecated and will be removed in the feature
+     * 
+     * @deprecated
+     * This property is deprecated and will be removed in the feature
      * 
      */
+    @Deprecated /* This property is deprecated and will be removed in the feature */
     @Import(name="top")
     private @Nullable Output<Integer> top;
 
     /**
-     * @return The maximum number of teams to return. Defaults to `100`.
+     * @return The maximum number of teams to return. Defaults to `100`. This property is deprecated and will be removed in the feature
+     * 
+     * @deprecated
+     * This property is deprecated and will be removed in the feature
      * 
      */
+    @Deprecated /* This property is deprecated and will be removed in the feature */
     public Optional<Output<Integer>> top() {
         return Optional.ofNullable(this.top);
     }
@@ -131,22 +139,30 @@ public final class GetTeamArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param top The maximum number of teams to return. Defaults to `100`.
+         * @param top The maximum number of teams to return. Defaults to `100`. This property is deprecated and will be removed in the feature
          * 
          * @return builder
          * 
+         * @deprecated
+         * This property is deprecated and will be removed in the feature
+         * 
          */
+        @Deprecated /* This property is deprecated and will be removed in the feature */
         public Builder top(@Nullable Output<Integer> top) {
             $.top = top;
             return this;
         }
 
         /**
-         * @param top The maximum number of teams to return. Defaults to `100`.
+         * @param top The maximum number of teams to return. Defaults to `100`. This property is deprecated and will be removed in the feature
          * 
          * @return builder
          * 
+         * @deprecated
+         * This property is deprecated and will be removed in the feature
+         * 
          */
+        @Deprecated /* This property is deprecated and will be removed in the feature */
         public Builder top(Integer top) {
             return top(Output.of(top));
         }

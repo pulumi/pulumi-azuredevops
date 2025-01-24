@@ -15,14 +15,14 @@ public final class GetGroupsPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetGroupsPlainArgs Empty = new GetGroupsPlainArgs();
 
     /**
-     * The Project ID. If no project ID is specified all groups of an organization will be returned
+     * The ID of the Project. If no project ID is specified all groups of an organization will be returned
      * 
      */
     @Import(name="projectId")
     private @Nullable String projectId;
 
     /**
-     * @return The Project ID. If no project ID is specified all groups of an organization will be returned
+     * @return The ID of the Project. If no project ID is specified all groups of an organization will be returned
      * 
      */
     public Optional<String> projectId() {
@@ -54,7 +54,7 @@ public final class GetGroupsPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param projectId The Project ID. If no project ID is specified all groups of an organization will be returned
+         * @param projectId The ID of the Project. If no project ID is specified all groups of an organization will be returned
          * 
          * @return builder
          * 

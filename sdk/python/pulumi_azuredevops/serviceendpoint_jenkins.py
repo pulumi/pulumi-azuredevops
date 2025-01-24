@@ -308,7 +308,7 @@ class ServiceendpointJenkins(pulumi.CustomResource):
 
         ## Import
 
-        Service Connection Jenkins can be imported using the `projectId/id` or or `projectName/id`, e.g.
+        Azure DevOps Jenkins Service Endpoint can be imported using the `projectId/id` or `projectName/id`, e.g.
 
         ```sh
         $ pulumi import azuredevops:index/serviceendpointJenkins:ServiceendpointJenkins example projectName/00000000-0000-0000-0000-000000000000
@@ -356,7 +356,7 @@ class ServiceendpointJenkins(pulumi.CustomResource):
 
         ## Import
 
-        Service Connection Jenkins can be imported using the `projectId/id` or or `projectName/id`, e.g.
+        Azure DevOps Jenkins Service Endpoint can be imported using the `projectId/id` or `projectName/id`, e.g.
 
         ```sh
         $ pulumi import azuredevops:index/serviceendpointJenkins:ServiceendpointJenkins example projectName/00000000-0000-0000-0000-000000000000

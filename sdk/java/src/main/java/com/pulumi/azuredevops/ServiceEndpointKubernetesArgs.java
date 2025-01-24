@@ -59,14 +59,14 @@ public final class ServiceEndpointKubernetesArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * A `azure_subscription` block defined blow.
+     * An `azure_subscription` block as defined below.
      * 
      */
     @Import(name="azureSubscriptions")
     private @Nullable Output<List<ServiceEndpointKubernetesAzureSubscriptionArgs>> azureSubscriptions;
 
     /**
-     * @return A `azure_subscription` block defined blow.
+     * @return An `azure_subscription` block as defined below.
      * 
      */
     public Optional<Output<List<ServiceEndpointKubernetesAzureSubscriptionArgs>>> azureSubscriptions() {
@@ -81,14 +81,14 @@ public final class ServiceEndpointKubernetesArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * A `kubeconfig` block defined blow.
+     * A `kubeconfig` block as defined below.
      * 
      */
     @Import(name="kubeconfig")
     private @Nullable Output<ServiceEndpointKubernetesKubeconfigArgs> kubeconfig;
 
     /**
-     * @return A `kubeconfig` block defined blow.
+     * @return A `kubeconfig` block as defined below.
      * 
      */
     public Optional<Output<ServiceEndpointKubernetesKubeconfigArgs>> kubeconfig() {
@@ -111,14 +111,14 @@ public final class ServiceEndpointKubernetesArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * A `service_account` block defined blow.
+     * A `service_account` block as defined below.
      * 
      */
     @Import(name="serviceAccount")
     private @Nullable Output<ServiceEndpointKubernetesServiceAccountArgs> serviceAccount;
 
     /**
-     * @return A `service_account` block defined blow.
+     * @return A `service_account` block as defined below.
      * 
      */
     public Optional<Output<ServiceEndpointKubernetesServiceAccountArgs>> serviceAccount() {
@@ -224,7 +224,7 @@ public final class ServiceEndpointKubernetesArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param azureSubscriptions A `azure_subscription` block defined blow.
+         * @param azureSubscriptions An `azure_subscription` block as defined below.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class ServiceEndpointKubernetesArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param azureSubscriptions A `azure_subscription` block defined blow.
+         * @param azureSubscriptions An `azure_subscription` block as defined below.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class ServiceEndpointKubernetesArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param azureSubscriptions A `azure_subscription` block defined blow.
+         * @param azureSubscriptions An `azure_subscription` block as defined below.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class ServiceEndpointKubernetesArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param kubeconfig A `kubeconfig` block defined blow.
+         * @param kubeconfig A `kubeconfig` block as defined below.
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class ServiceEndpointKubernetesArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param kubeconfig A `kubeconfig` block defined blow.
+         * @param kubeconfig A `kubeconfig` block as defined below.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class ServiceEndpointKubernetesArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param serviceAccount A `service_account` block defined blow.
+         * @param serviceAccount A `service_account` block as defined below.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class ServiceEndpointKubernetesArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param serviceAccount A `service_account` block defined blow.
+         * @param serviceAccount A `service_account` block as defined below.
          * 
          * @return builder
          * 

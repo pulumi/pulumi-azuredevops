@@ -77,9 +77,7 @@ import (
 //
 // ## Import
 //
-// # The resource allows the import via the ID of a group entitlement, which is a
-//
-// UUID.
+// The resource allows the import via the ID of a group entitlement, which is a UUID.
 //
 // ```sh
 // $ pulumi import azuredevops:index/groupEntitlement:GroupEntitlement example 00000000-0000-0000-0000-000000000000
@@ -87,13 +85,13 @@ import (
 type GroupEntitlement struct {
 	pulumi.CustomResourceState
 
-	// Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+	// Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
 	AccountLicenseType pulumi.StringPtrOutput `pulumi:"accountLicenseType"`
 	// The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the group graph subject.
 	Descriptor pulumi.StringOutput `pulumi:"descriptor"`
 	// The display name is the name used in Azure DevOps UI. Cannot be set together with `originId` and `origin`.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+	// The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
 	//
 	// > **NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
 	LicensingSource pulumi.StringPtrOutput `pulumi:"licensingSource"`
@@ -135,13 +133,13 @@ func GetGroupEntitlement(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GroupEntitlement resources.
 type groupEntitlementState struct {
-	// Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+	// Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
 	AccountLicenseType *string `pulumi:"accountLicenseType"`
 	// The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the group graph subject.
 	Descriptor *string `pulumi:"descriptor"`
 	// The display name is the name used in Azure DevOps UI. Cannot be set together with `originId` and `origin`.
 	DisplayName *string `pulumi:"displayName"`
-	// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+	// The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
 	//
 	// > **NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
 	LicensingSource *string `pulumi:"licensingSource"`
@@ -154,13 +152,13 @@ type groupEntitlementState struct {
 }
 
 type GroupEntitlementState struct {
-	// Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+	// Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
 	AccountLicenseType pulumi.StringPtrInput
 	// The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the group graph subject.
 	Descriptor pulumi.StringPtrInput
 	// The display name is the name used in Azure DevOps UI. Cannot be set together with `originId` and `origin`.
 	DisplayName pulumi.StringPtrInput
-	// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+	// The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
 	//
 	// > **NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
 	LicensingSource pulumi.StringPtrInput
@@ -177,11 +175,11 @@ func (GroupEntitlementState) ElementType() reflect.Type {
 }
 
 type groupEntitlementArgs struct {
-	// Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+	// Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
 	AccountLicenseType *string `pulumi:"accountLicenseType"`
 	// The display name is the name used in Azure DevOps UI. Cannot be set together with `originId` and `origin`.
 	DisplayName *string `pulumi:"displayName"`
-	// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+	// The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
 	//
 	// > **NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
 	LicensingSource *string `pulumi:"licensingSource"`
@@ -193,11 +191,11 @@ type groupEntitlementArgs struct {
 
 // The set of arguments for constructing a GroupEntitlement resource.
 type GroupEntitlementArgs struct {
-	// Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+	// Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
 	AccountLicenseType pulumi.StringPtrInput
 	// The display name is the name used in Azure DevOps UI. Cannot be set together with `originId` and `origin`.
 	DisplayName pulumi.StringPtrInput
-	// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+	// The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
 	//
 	// > **NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
 	LicensingSource pulumi.StringPtrInput
@@ -294,7 +292,7 @@ func (o GroupEntitlementOutput) ToGroupEntitlementOutputWithContext(ctx context.
 	return o
 }
 
-// Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+// Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
 func (o GroupEntitlementOutput) AccountLicenseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupEntitlement) pulumi.StringPtrOutput { return v.AccountLicenseType }).(pulumi.StringPtrOutput)
 }
@@ -309,7 +307,7 @@ func (o GroupEntitlementOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupEntitlement) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+// The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
 //
 // > **NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
 func (o GroupEntitlementOutput) LicensingSource() pulumi.StringPtrOutput {

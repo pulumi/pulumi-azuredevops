@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps
 {
     /// <summary>
-    /// Manages permissions for service hooks
+    /// Manages permissions for Service Hook permissions.
     /// 
     /// ## Permission levels
     /// 
@@ -75,6 +75,13 @@ namespace Pulumi.AzureDevOps
     {
         /// <summary>
         /// the permissions to assign. The following permissions are available.
+        /// 
+        /// | Name                | Permission Description |
+        /// |---------------------|------------------------|
+        /// | ViewSubscriptions   | View Subscriptions     |
+        /// | EditSubscriptions   | Edit Subscription      |
+        /// | DeleteSubscriptions | Delete Subscriptions   |
+        /// | PublishEvents       | Publish Events         |
         /// </summary>
         [Output("permissions")]
         public Output<ImmutableDictionary<string, string>> Permissions { get; private set; } = null!;
@@ -93,13 +100,6 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-        /// 
-        /// | Name               | Permission Description   |
-        /// | ------------------ | ------------------------ |
-        /// | ViewSubscriptions  | View Subscriptions       |
-        /// | EditSubscriptions  | Edit Subscription        |
-        /// | DeleteSubscriptions| Delete Subscriptions     |
-        /// | PublishEvents      | Publish Events           |
         /// </summary>
         [Output("replace")]
         public Output<bool?> Replace { get; private set; } = null!;
@@ -155,6 +155,13 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// the permissions to assign. The following permissions are available.
+        /// 
+        /// | Name                | Permission Description |
+        /// |---------------------|------------------------|
+        /// | ViewSubscriptions   | View Subscriptions     |
+        /// | EditSubscriptions   | Edit Subscription      |
+        /// | DeleteSubscriptions | Delete Subscriptions   |
+        /// | PublishEvents       | Publish Events         |
         /// </summary>
         public InputMap<string> Permissions
         {
@@ -176,13 +183,6 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-        /// 
-        /// | Name               | Permission Description   |
-        /// | ------------------ | ------------------------ |
-        /// | ViewSubscriptions  | View Subscriptions       |
-        /// | EditSubscriptions  | Edit Subscription        |
-        /// | DeleteSubscriptions| Delete Subscriptions     |
-        /// | PublishEvents      | Publish Events           |
         /// </summary>
         [Input("replace")]
         public Input<bool>? Replace { get; set; }
@@ -200,6 +200,13 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// the permissions to assign. The following permissions are available.
+        /// 
+        /// | Name                | Permission Description |
+        /// |---------------------|------------------------|
+        /// | ViewSubscriptions   | View Subscriptions     |
+        /// | EditSubscriptions   | Edit Subscription      |
+        /// | DeleteSubscriptions | Delete Subscriptions   |
+        /// | PublishEvents       | Publish Events         |
         /// </summary>
         public InputMap<string> Permissions
         {
@@ -221,13 +228,6 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-        /// 
-        /// | Name               | Permission Description   |
-        /// | ------------------ | ------------------------ |
-        /// | ViewSubscriptions  | View Subscriptions       |
-        /// | EditSubscriptions  | Edit Subscription        |
-        /// | DeleteSubscriptions| Delete Subscriptions     |
-        /// | PublishEvents      | Publish Events           |
         /// </summary>
         [Input("replace")]
         public Input<bool>? Replace { get; set; }

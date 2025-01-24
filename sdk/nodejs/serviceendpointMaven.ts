@@ -62,7 +62,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Service Connection Maven can be imported using the `projectId/id` or or `projectName/id`, e.g.
+ * Azure DevOps Maven Service Connection can be imported using the `projectId/id` or `projectName/id`, e.g.
  *
  * ```sh
  * $ pulumi import azuredevops:index/serviceendpointMaven:ServiceendpointMaven example projectName/00000000-0000-0000-0000-000000000000

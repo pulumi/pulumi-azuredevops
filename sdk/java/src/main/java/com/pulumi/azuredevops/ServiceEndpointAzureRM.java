@@ -18,7 +18,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages Manual or Automatic AzureRM service endpoint within Azure DevOps.
+ * Manages Manual or Automatic Azure Resource Manager service endpoint within Azure DevOps.
  * 
  * ## Requirements (Manual AzureRM Service Endpoint)
  * 
@@ -376,7 +376,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Azure DevOps Service Endpoint Azure Resource Manage can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+ * Azure DevOps Azure Resource Manager Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
  * 
  * ```sh
  * $ pulumi import azuredevops:index/serviceEndpointAzureRM:ServiceEndpointAzureRM example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -462,14 +462,14 @@ public class ServiceEndpointAzureRM extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.azurermSubscriptionName);
     }
     /**
-     * A `credentials` block.
+     * A `credentials` block as defined below.
      * 
      */
     @Export(name="credentials", refs={ServiceEndpointAzureRMCredentials.class}, tree="[0]")
     private Output</* @Nullable */ ServiceEndpointAzureRMCredentials> credentials;
 
     /**
-     * @return A `credentials` block.
+     * @return A `credentials` block as defined below.
      * 
      */
     public Output<Optional<ServiceEndpointAzureRMCredentials>> credentials() {
@@ -504,14 +504,14 @@ public class ServiceEndpointAzureRM extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.environment);
     }
     /**
-     * A `features` block.
+     * A `features` block as defined below.
      * 
      */
     @Export(name="features", refs={ServiceEndpointAzureRMFeatures.class}, tree="[0]")
     private Output</* @Nullable */ ServiceEndpointAzureRMFeatures> features;
 
     /**
-     * @return A `features` block.
+     * @return A `features` block as defined below.
      * 
      */
     public Output<Optional<ServiceEndpointAzureRMFeatures>> features() {
@@ -564,7 +564,7 @@ public class ServiceEndpointAzureRM extends com.pulumi.resources.CustomResource 
         return this.serverUrl;
     }
     /**
-     * Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+     * Specifies the type of Azure Resource Manager Service Endpoint. Possible values are `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
      * 
      * &gt; **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
      * 
@@ -573,7 +573,7 @@ public class ServiceEndpointAzureRM extends com.pulumi.resources.CustomResource 
     private Output</* @Nullable */ String> serviceEndpointAuthenticationScheme;
 
     /**
-     * @return Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+     * @return Specifies the type of Azure Resource Manager Service Endpoint. Possible values are `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
      * 
      * &gt; **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
      * 

@@ -18,6 +18,7 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The Description of the Project.
+     * *
      * 
      */
     @Import(name="description")
@@ -25,6 +26,7 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The Description of the Project.
+     * *
      * 
      */
     public Optional<Output<String>> description() {
@@ -32,11 +34,17 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Defines the status (`enabled`, `disabled`) of the project features.
-     * Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+     * Defines the status (`enabled`, `disabled`) of the project features. Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
      * 
-     * &gt; **NOTE:**
-     * It&#39;s possible to define project features both within the `azuredevops.ProjectFeatures` resource and
+     * | Features     | Possible Values   |
+     * |--------------|-------------------|
+     * | boards       | enabled, disabled |
+     * | repositories | enabled, disabled |
+     * | pipelines    | enabled, disabled |
+     * | testplans    | enabled, disabled |
+     * | artifacts    | enabled, disabled |
+     * 
+     * &gt; **NOTE:** It&#39;s possible to define project features both within the `azuredevops.ProjectFeatures` resource and
      * via the `features` block by using the `azuredevops.Project` resource.
      * However it&#39;s not possible to use both methods to manage features, since there&#39;ll be conflicts.
      * 
@@ -45,11 +53,17 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Map<String,String>> features;
 
     /**
-     * @return Defines the status (`enabled`, `disabled`) of the project features.
-     * Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+     * @return Defines the status (`enabled`, `disabled`) of the project features. Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
      * 
-     * &gt; **NOTE:**
-     * It&#39;s possible to define project features both within the `azuredevops.ProjectFeatures` resource and
+     * | Features     | Possible Values   |
+     * |--------------|-------------------|
+     * | boards       | enabled, disabled |
+     * | repositories | enabled, disabled |
+     * | pipelines    | enabled, disabled |
+     * | testplans    | enabled, disabled |
+     * | artifacts    | enabled, disabled |
+     * 
+     * &gt; **NOTE:** It&#39;s possible to define project features both within the `azuredevops.ProjectFeatures` resource and
      * via the `features` block by using the `azuredevops.Project` resource.
      * However it&#39;s not possible to use both methods to manage features, since there&#39;ll be conflicts.
      * 
@@ -74,14 +88,14 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
+     * Specifies the version control system. Possbile values are: `Git` or `Tfvc`. Defaults to `Git`.
      * 
      */
     @Import(name="versionControl")
     private @Nullable Output<String> versionControl;
 
     /**
-     * @return Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
+     * @return Specifies the version control system. Possbile values are: `Git` or `Tfvc`. Defaults to `Git`.
      * 
      */
     public Optional<Output<String>> versionControl() {
@@ -89,14 +103,14 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
+     * Specifies the visibility of the Project. Possible values are: `private` or `public`. Defaults to `private`.
      * 
      */
     @Import(name="visibility")
     private @Nullable Output<String> visibility;
 
     /**
-     * @return Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
+     * @return Specifies the visibility of the Project. Possible values are: `private` or `public`. Defaults to `private`.
      * 
      */
     public Optional<Output<String>> visibility() {
@@ -104,14 +118,14 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
+     * Specifies the work item template. Possible values are: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
      * 
      */
     @Import(name="workItemTemplate")
     private @Nullable Output<String> workItemTemplate;
 
     /**
-     * @return Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
+     * @return Specifies the work item template. Possible values are: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
      * 
      */
     public Optional<Output<String>> workItemTemplate() {
@@ -149,6 +163,7 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param description The Description of the Project.
+         * *
          * 
          * @return builder
          * 
@@ -160,6 +175,7 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param description The Description of the Project.
+         * *
          * 
          * @return builder
          * 
@@ -169,11 +185,17 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param features Defines the status (`enabled`, `disabled`) of the project features.
-         * Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+         * @param features Defines the status (`enabled`, `disabled`) of the project features. Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
          * 
-         * &gt; **NOTE:**
-         * It&#39;s possible to define project features both within the `azuredevops.ProjectFeatures` resource and
+         * | Features     | Possible Values   |
+         * |--------------|-------------------|
+         * | boards       | enabled, disabled |
+         * | repositories | enabled, disabled |
+         * | pipelines    | enabled, disabled |
+         * | testplans    | enabled, disabled |
+         * | artifacts    | enabled, disabled |
+         * 
+         * &gt; **NOTE:** It&#39;s possible to define project features both within the `azuredevops.ProjectFeatures` resource and
          * via the `features` block by using the `azuredevops.Project` resource.
          * However it&#39;s not possible to use both methods to manage features, since there&#39;ll be conflicts.
          * 
@@ -186,11 +208,17 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param features Defines the status (`enabled`, `disabled`) of the project features.
-         * Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+         * @param features Defines the status (`enabled`, `disabled`) of the project features. Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
          * 
-         * &gt; **NOTE:**
-         * It&#39;s possible to define project features both within the `azuredevops.ProjectFeatures` resource and
+         * | Features     | Possible Values   |
+         * |--------------|-------------------|
+         * | boards       | enabled, disabled |
+         * | repositories | enabled, disabled |
+         * | pipelines    | enabled, disabled |
+         * | testplans    | enabled, disabled |
+         * | artifacts    | enabled, disabled |
+         * 
+         * &gt; **NOTE:** It&#39;s possible to define project features both within the `azuredevops.ProjectFeatures` resource and
          * via the `features` block by using the `azuredevops.Project` resource.
          * However it&#39;s not possible to use both methods to manage features, since there&#39;ll be conflicts.
          * 
@@ -223,7 +251,7 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param versionControl Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
+         * @param versionControl Specifies the version control system. Possbile values are: `Git` or `Tfvc`. Defaults to `Git`.
          * 
          * @return builder
          * 
@@ -234,7 +262,7 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param versionControl Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
+         * @param versionControl Specifies the version control system. Possbile values are: `Git` or `Tfvc`. Defaults to `Git`.
          * 
          * @return builder
          * 
@@ -244,7 +272,7 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param visibility Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
+         * @param visibility Specifies the visibility of the Project. Possible values are: `private` or `public`. Defaults to `private`.
          * 
          * @return builder
          * 
@@ -255,7 +283,7 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param visibility Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
+         * @param visibility Specifies the visibility of the Project. Possible values are: `private` or `public`. Defaults to `private`.
          * 
          * @return builder
          * 
@@ -265,7 +293,7 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workItemTemplate Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
+         * @param workItemTemplate Specifies the work item template. Possible values are: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
          * 
          * @return builder
          * 
@@ -276,7 +304,7 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workItemTemplate Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
+         * @param workItemTemplate Specifies the work item template. Possible values are: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
          * 
          * @return builder
          * 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps
 {
     /// <summary>
-    /// Manages an Artifactory server endpoint within an Azure DevOps organization. Using this service endpoint requires you to first install [JFrog Artifactory Extension](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-artifactory-vsts-extension).
+    /// Manages an JFrog Artifactory server endpoint within an Azure DevOps organization. Using this service endpoint requires you to first install [JFrog Artifactory Extension](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-artifactory-vsts-extension).
     /// 
     /// ## Example Usage
     /// 
@@ -87,7 +87,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ## Import
     /// 
-    /// Azure DevOps Service Endpoint Artifactory can be imported using the **projectID/serviceEndpointID**, e.g.
+    /// Azure DevOps JFrog Artifactory Service Endpoint can be imported using the **projectID/serviceEndpointID**, e.g.
     /// 
     /// ```sh
     /// $ pulumi import azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -99,6 +99,9 @@ namespace Pulumi.AzureDevOps
         [Output("authenticationBasic")]
         public Output<Outputs.ServiceEndpointArtifactoryAuthenticationBasic?> AuthenticationBasic { get; private set; } = null!;
 
+        /// <summary>
+        /// A `authentication_basic` block as defined below.
+        /// </summary>
         [Output("authenticationToken")]
         public Output<Outputs.ServiceEndpointArtifactoryAuthenticationToken?> AuthenticationToken { get; private set; } = null!;
 
@@ -126,8 +129,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// URL of the Artifactory server to connect with.
         /// 
-        /// _Note: URL should not end in a slash character._
-        /// * either `authentication_token` or `authentication_basic` (one is required)
+        /// _**Note: URL should not end in a slash character.**_
         /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
@@ -181,6 +183,9 @@ namespace Pulumi.AzureDevOps
         [Input("authenticationBasic")]
         public Input<Inputs.ServiceEndpointArtifactoryAuthenticationBasicArgs>? AuthenticationBasic { get; set; }
 
+        /// <summary>
+        /// A `authentication_basic` block as defined below.
+        /// </summary>
         [Input("authenticationToken")]
         public Input<Inputs.ServiceEndpointArtifactoryAuthenticationTokenArgs>? AuthenticationToken { get; set; }
 
@@ -213,8 +218,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// URL of the Artifactory server to connect with.
         /// 
-        /// _Note: URL should not end in a slash character._
-        /// * either `authentication_token` or `authentication_basic` (one is required)
+        /// _**Note: URL should not end in a slash character.**_
         /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
@@ -230,6 +234,9 @@ namespace Pulumi.AzureDevOps
         [Input("authenticationBasic")]
         public Input<Inputs.ServiceEndpointArtifactoryAuthenticationBasicGetArgs>? AuthenticationBasic { get; set; }
 
+        /// <summary>
+        /// A `authentication_basic` block as defined below.
+        /// </summary>
         [Input("authenticationToken")]
         public Input<Inputs.ServiceEndpointArtifactoryAuthenticationTokenGetArgs>? AuthenticationToken { get; set; }
 
@@ -262,8 +269,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// URL of the Artifactory server to connect with.
         /// 
-        /// _Note: URL should not end in a slash character._
-        /// * either `authentication_token` or `authentication_basic` (one is required)
+        /// _**Note: URL should not end in a slash character.**_
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }

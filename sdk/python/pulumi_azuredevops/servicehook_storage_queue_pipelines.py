@@ -309,7 +309,7 @@ class ServicehookStorageQueuePipelines(pulumi.CustomResource):
                  visi_timeout: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Manages a Service Hook Storage Queue Pipelines.
+        Manages a Storage Queue Pipelines Service Hook .
 
         ## Example Usage
 
@@ -360,7 +360,7 @@ class ServicehookStorageQueuePipelines(pulumi.CustomResource):
 
         ## Import
 
-        Service Hook Storage Queue Pipeliness can be imported using the `resource id`, e.g.
+        Storage Queue Pipelines Service Hook can be imported using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azuredevops:index/servicehookStorageQueuePipelines:ServicehookStorageQueuePipelines example 00000000-0000-0000-0000-000000000000
@@ -386,7 +386,7 @@ class ServicehookStorageQueuePipelines(pulumi.CustomResource):
                  args: ServicehookStorageQueuePipelinesArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Service Hook Storage Queue Pipelines.
+        Manages a Storage Queue Pipelines Service Hook .
 
         ## Example Usage
 
@@ -437,7 +437,7 @@ class ServicehookStorageQueuePipelines(pulumi.CustomResource):
 
         ## Import
 
-        Service Hook Storage Queue Pipeliness can be imported using the `resource id`, e.g.
+        Storage Queue Pipelines Service Hook can be imported using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azuredevops:index/servicehookStorageQueuePipelines:ServicehookStorageQueuePipelines example 00000000-0000-0000-0000-000000000000

@@ -27,7 +27,7 @@ class CheckExclusiveLockArgs:
         The set of arguments for constructing a CheckExclusiveLock resource.
         :param pulumi.Input[str] project_id: The project ID. Changing this forces a new Exclusive Lock Check to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the resource being protected by the check. Changing this forces a new Exclusive Lock to be created.
-        :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
+        :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
         :param pulumi.Input[int] timeout: The timeout in minutes for the exclusive lock. Defaults to `43200`.
         """
         pulumi.set(__self__, "project_id", project_id)
@@ -64,7 +64,7 @@ class CheckExclusiveLockArgs:
     @pulumi.getter(name="targetResourceType")
     def target_resource_type(self) -> pulumi.Input[str]:
         """
-        The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
+        The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
         """
         return pulumi.get(self, "target_resource_type")
 
@@ -97,7 +97,7 @@ class _CheckExclusiveLockState:
         Input properties used for looking up and filtering CheckExclusiveLock resources.
         :param pulumi.Input[str] project_id: The project ID. Changing this forces a new Exclusive Lock Check to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the resource being protected by the check. Changing this forces a new Exclusive Lock to be created.
-        :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
+        :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
         :param pulumi.Input[int] timeout: The timeout in minutes for the exclusive lock. Defaults to `43200`.
         :param pulumi.Input[int] version: The version of the check.
         """
@@ -140,7 +140,7 @@ class _CheckExclusiveLockState:
     @pulumi.getter(name="targetResourceType")
     def target_resource_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
+        The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
         """
         return pulumi.get(self, "target_resource_type")
 
@@ -260,7 +260,7 @@ class CheckExclusiveLock(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] project_id: The project ID. Changing this forces a new Exclusive Lock Check to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the resource being protected by the check. Changing this forces a new Exclusive Lock to be created.
-        :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
+        :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
         :param pulumi.Input[int] timeout: The timeout in minutes for the exclusive lock. Defaults to `43200`.
         """
         ...
@@ -405,7 +405,7 @@ class CheckExclusiveLock(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] project_id: The project ID. Changing this forces a new Exclusive Lock Check to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the resource being protected by the check. Changing this forces a new Exclusive Lock to be created.
-        :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
+        :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
         :param pulumi.Input[int] timeout: The timeout in minutes for the exclusive lock. Defaults to `43200`.
         :param pulumi.Input[int] version: The version of the check.
         """
@@ -440,7 +440,7 @@ class CheckExclusiveLock(pulumi.CustomResource):
     @pulumi.getter(name="targetResourceType")
     def target_resource_type(self) -> pulumi.Output[str]:
         """
-        The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
+        The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
         """
         return pulumi.get(self, "target_resource_type")
 

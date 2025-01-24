@@ -67,7 +67,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Azure DevOps Service Endpoint Service Fabric can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+ * Azure DevOps Service Fabric Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
  *
  * ```sh
  * $ pulumi import azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -102,13 +102,22 @@ export class ServiceEndpointServiceFabric extends pulumi.CustomResource {
     }
 
     public readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * An `azureActiveDirectory` block as documented below.
+     */
     public readonly azureActiveDirectory!: pulumi.Output<outputs.ServiceEndpointServiceFabricAzureActiveDirectory | undefined>;
+    /**
+     * A `certificate` block as documented below.
+     */
     public readonly certificate!: pulumi.Output<outputs.ServiceEndpointServiceFabricCertificate | undefined>;
     /**
-     * Client connection endpoint for the cluster. Prefix the value with 'tcp://';. This value overrides the publish profile.
+     * Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
      */
     public readonly clusterEndpoint!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * A `none` block as documented below.
+     */
     public readonly none!: pulumi.Output<outputs.ServiceEndpointServiceFabricNone | undefined>;
     /**
      * The ID of the project.
@@ -170,13 +179,22 @@ export class ServiceEndpointServiceFabric extends pulumi.CustomResource {
  */
 export interface ServiceEndpointServiceFabricState {
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * An `azureActiveDirectory` block as documented below.
+     */
     azureActiveDirectory?: pulumi.Input<inputs.ServiceEndpointServiceFabricAzureActiveDirectory>;
+    /**
+     * A `certificate` block as documented below.
+     */
     certificate?: pulumi.Input<inputs.ServiceEndpointServiceFabricCertificate>;
     /**
-     * Client connection endpoint for the cluster. Prefix the value with 'tcp://';. This value overrides the publish profile.
+     * Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
      */
     clusterEndpoint?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
+    /**
+     * A `none` block as documented below.
+     */
     none?: pulumi.Input<inputs.ServiceEndpointServiceFabricNone>;
     /**
      * The ID of the project.
@@ -193,13 +211,22 @@ export interface ServiceEndpointServiceFabricState {
  */
 export interface ServiceEndpointServiceFabricArgs {
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * An `azureActiveDirectory` block as documented below.
+     */
     azureActiveDirectory?: pulumi.Input<inputs.ServiceEndpointServiceFabricAzureActiveDirectory>;
+    /**
+     * A `certificate` block as documented below.
+     */
     certificate?: pulumi.Input<inputs.ServiceEndpointServiceFabricCertificate>;
     /**
-     * Client connection endpoint for the cluster. Prefix the value with 'tcp://';. This value overrides the publish profile.
+     * Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
      */
     clusterEndpoint: pulumi.Input<string>;
     description?: pulumi.Input<string>;
+    /**
+     * A `none` block as documented below.
+     */
     none?: pulumi.Input<inputs.ServiceEndpointServiceFabricNone>;
     /**
      * The ID of the project.

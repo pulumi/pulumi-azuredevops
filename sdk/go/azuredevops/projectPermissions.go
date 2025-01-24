@@ -109,7 +109,7 @@ type ProjectPermissions struct {
 	// | AGILETOOLS_BACKLOG           | Agile backlog management.                    |
 	// | AGILETOOLS_PLANS             | Agile plans.                                 |
 	Permissions pulumi.StringMapOutput `pulumi:"permissions"`
-	// The **group** principal to assign the permissions.
+	// The `group` principal to assign the permissions.
 	Principal pulumi.StringOutput `pulumi:"principal"`
 	// The ID of the project to assign the permissions.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
@@ -186,7 +186,7 @@ type projectPermissionsState struct {
 	// | AGILETOOLS_BACKLOG           | Agile backlog management.                    |
 	// | AGILETOOLS_PLANS             | Agile plans.                                 |
 	Permissions map[string]string `pulumi:"permissions"`
-	// The **group** principal to assign the permissions.
+	// The `group` principal to assign the permissions.
 	Principal *string `pulumi:"principal"`
 	// The ID of the project to assign the permissions.
 	ProjectId *string `pulumi:"projectId"`
@@ -225,7 +225,7 @@ type ProjectPermissionsState struct {
 	// | AGILETOOLS_BACKLOG           | Agile backlog management.                    |
 	// | AGILETOOLS_PLANS             | Agile plans.                                 |
 	Permissions pulumi.StringMapInput
-	// The **group** principal to assign the permissions.
+	// The `group` principal to assign the permissions.
 	Principal pulumi.StringPtrInput
 	// The ID of the project to assign the permissions.
 	ProjectId pulumi.StringPtrInput
@@ -268,7 +268,7 @@ type projectPermissionsArgs struct {
 	// | AGILETOOLS_BACKLOG           | Agile backlog management.                    |
 	// | AGILETOOLS_PLANS             | Agile plans.                                 |
 	Permissions map[string]string `pulumi:"permissions"`
-	// The **group** principal to assign the permissions.
+	// The `group` principal to assign the permissions.
 	Principal string `pulumi:"principal"`
 	// The ID of the project to assign the permissions.
 	ProjectId string `pulumi:"projectId"`
@@ -308,7 +308,7 @@ type ProjectPermissionsArgs struct {
 	// | AGILETOOLS_BACKLOG           | Agile backlog management.                    |
 	// | AGILETOOLS_PLANS             | Agile plans.                                 |
 	Permissions pulumi.StringMapInput
-	// The **group** principal to assign the permissions.
+	// The `group` principal to assign the permissions.
 	Principal pulumi.StringInput
 	// The ID of the project to assign the permissions.
 	ProjectId pulumi.StringInput
@@ -436,7 +436,7 @@ func (o ProjectPermissionsOutput) Permissions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ProjectPermissions) pulumi.StringMapOutput { return v.Permissions }).(pulumi.StringMapOutput)
 }
 
-// The **group** principal to assign the permissions.
+// The `group` principal to assign the permissions.
 func (o ProjectPermissionsOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProjectPermissions) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
 }

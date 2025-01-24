@@ -175,7 +175,7 @@ namespace Pulumi.AzureDevOps
     public sealed class GetFeedArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ID of the Feed.
+        /// The ID of the Feed.
         /// 
         /// &gt; **Note** Only one of `name` or `feed_id` can be set at the same time.
         /// </summary>
@@ -183,7 +183,7 @@ namespace Pulumi.AzureDevOps
         public string? FeedId { get; set; }
 
         /// <summary>
-        /// Name of the Feed.
+        /// The Name of the Feed.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -203,7 +203,7 @@ namespace Pulumi.AzureDevOps
     public sealed class GetFeedInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ID of the Feed.
+        /// The ID of the Feed.
         /// 
         /// &gt; **Note** Only one of `name` or `feed_id` can be set at the same time.
         /// </summary>
@@ -211,7 +211,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? FeedId { get; set; }
 
         /// <summary>
-        /// Name of the Feed.
+        /// The Name of the Feed.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

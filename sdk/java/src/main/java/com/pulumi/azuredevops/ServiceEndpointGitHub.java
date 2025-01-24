@@ -169,7 +169,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Azure DevOps Service Endpoint GitHub can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+ * Azure DevOps GitHub Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
  * 
  * ```sh
  * $ pulumi import azuredevops:index/serviceEndpointGitHub:ServiceEndpointGitHub example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -178,9 +178,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azuredevops:index/serviceEndpointGitHub:ServiceEndpointGitHub")
 public class ServiceEndpointGitHub extends com.pulumi.resources.CustomResource {
+    /**
+     * An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+     * 
+     */
     @Export(name="authOauth", refs={ServiceEndpointGitHubAuthOauth.class}, tree="[0]")
     private Output</* @Nullable */ ServiceEndpointGitHubAuthOauth> authOauth;
 
+    /**
+     * @return An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+     * 
+     */
     public Output<Optional<ServiceEndpointGitHubAuthOauth>> authOauth() {
         return Codegen.optional(this.authOauth);
     }

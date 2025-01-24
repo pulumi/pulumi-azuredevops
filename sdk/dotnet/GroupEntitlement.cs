@@ -60,9 +60,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ## Import
     /// 
-    /// The resource allows the import via the ID of a group entitlement, which is a
-    /// 
-    /// UUID.
+    /// The resource allows the import via the ID of a group entitlement, which is a UUID.
     /// 
     /// ```sh
     /// $ pulumi import azuredevops:index/groupEntitlement:GroupEntitlement example 00000000-0000-0000-0000-000000000000
@@ -72,7 +70,7 @@ namespace Pulumi.AzureDevOps
     public partial class GroupEntitlement : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+        /// Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
         /// </summary>
         [Output("accountLicenseType")]
         public Output<string?> AccountLicenseType { get; private set; } = null!;
@@ -90,7 +88,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+        /// The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
         /// 
         /// &gt; **NOTE:** A existing group in Azure AD can only be referenced by the combination of `origin_id` and `origin`.
         /// </summary>
@@ -162,7 +160,7 @@ namespace Pulumi.AzureDevOps
     public sealed class GroupEntitlementArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+        /// Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
         /// </summary>
         [Input("accountLicenseType")]
         public Input<string>? AccountLicenseType { get; set; }
@@ -174,7 +172,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+        /// The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
         /// 
         /// &gt; **NOTE:** A existing group in Azure AD can only be referenced by the combination of `origin_id` and `origin`.
         /// </summary>
@@ -202,7 +200,7 @@ namespace Pulumi.AzureDevOps
     public sealed class GroupEntitlementState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+        /// Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
         /// </summary>
         [Input("accountLicenseType")]
         public Input<string>? AccountLicenseType { get; set; }
@@ -220,7 +218,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+        /// The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
         /// 
         /// &gt; **NOTE:** A existing group in Azure AD can only be referenced by the combination of `origin_id` and `origin`.
         /// </summary>

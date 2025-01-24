@@ -7,7 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Manages a JFrog Platform V2 server endpoint within an Azure DevOps organization.
+ * Manages a JFrog Platform V2 service endpoint within an Azure DevOps organization.
  *
  * > **Note:** Using this service endpoint requires you to first install [JFrog Extension](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-azure-devops-extension).
  *
@@ -66,7 +66,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Azure DevOps Service Endpoint JFrog Platform V2 can be imported using the **projectID/serviceEndpointID**, e.g.
+ * Azure DevOps JFrog Platform V2 Service Endpoint can be imported using the **projectID/serviceEndpointID**, e.g.
  *
  * ```sh
  * $ pulumi import azuredevops:index/serviceendpointJfrogPlatformV2:ServiceendpointJfrogPlatformV2 example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -101,11 +101,11 @@ export class ServiceendpointJfrogPlatformV2 extends pulumi.CustomResource {
     }
 
     /**
-     * A `authenticationBasic` block as documented below.
+     * An `authenticationBasic` block as documented below.
      */
     public readonly authenticationBasic!: pulumi.Output<outputs.ServiceendpointJfrogPlatformV2AuthenticationBasic | undefined>;
     /**
-     * A `authenticationToken` block as documented below.
+     * An `authenticationToken` block as documented below.
      */
     public readonly authenticationToken!: pulumi.Output<outputs.ServiceendpointJfrogPlatformV2AuthenticationToken | undefined>;
     public readonly authorization!: pulumi.Output<{[key: string]: string}>;
@@ -177,11 +177,11 @@ export class ServiceendpointJfrogPlatformV2 extends pulumi.CustomResource {
  */
 export interface ServiceendpointJfrogPlatformV2State {
     /**
-     * A `authenticationBasic` block as documented below.
+     * An `authenticationBasic` block as documented below.
      */
     authenticationBasic?: pulumi.Input<inputs.ServiceendpointJfrogPlatformV2AuthenticationBasic>;
     /**
-     * A `authenticationToken` block as documented below.
+     * An `authenticationToken` block as documented below.
      */
     authenticationToken?: pulumi.Input<inputs.ServiceendpointJfrogPlatformV2AuthenticationToken>;
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -210,11 +210,11 @@ export interface ServiceendpointJfrogPlatformV2State {
  */
 export interface ServiceendpointJfrogPlatformV2Args {
     /**
-     * A `authenticationBasic` block as documented below.
+     * An `authenticationBasic` block as documented below.
      */
     authenticationBasic?: pulumi.Input<inputs.ServiceendpointJfrogPlatformV2AuthenticationBasic>;
     /**
-     * A `authenticationToken` block as documented below.
+     * An `authenticationToken` block as documented below.
      */
     authenticationToken?: pulumi.Input<inputs.ServiceendpointJfrogPlatformV2AuthenticationToken>;
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

@@ -16,7 +16,7 @@ namespace Pulumi.AzureDevOps.Inputs
         private Input<string>? _token;
 
         /// <summary>
-        /// The Artifactory access token.
+        /// Authentication Token generated through Artifactory.
         /// </summary>
         public Input<string>? Token
         {

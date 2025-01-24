@@ -16,14 +16,14 @@ public final class GroupEntitlementArgs extends com.pulumi.resources.ResourceArg
     public static final GroupEntitlementArgs Empty = new GroupEntitlementArgs();
 
     /**
-     * Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+     * Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
      * 
      */
     @Import(name="accountLicenseType")
     private @Nullable Output<String> accountLicenseType;
 
     /**
-     * @return Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+     * @return Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
      * 
      */
     public Optional<Output<String>> accountLicenseType() {
@@ -46,7 +46,7 @@ public final class GroupEntitlementArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+     * The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
      * 
      * &gt; **NOTE:** A existing group in Azure AD can only be referenced by the combination of `origin_id` and `origin`.
      * 
@@ -55,7 +55,7 @@ public final class GroupEntitlementArgs extends com.pulumi.resources.ResourceArg
     private @Nullable Output<String> licensingSource;
 
     /**
-     * @return The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+     * @return The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
      * 
      * &gt; **NOTE:** A existing group in Azure AD can only be referenced by the combination of `origin_id` and `origin`.
      * 
@@ -123,7 +123,7 @@ public final class GroupEntitlementArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param accountLicenseType Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+         * @param accountLicenseType Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class GroupEntitlementArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param accountLicenseType Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+         * @param accountLicenseType Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class GroupEntitlementArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param licensingSource The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+         * @param licensingSource The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
          * 
          * &gt; **NOTE:** A existing group in Azure AD can only be referenced by the combination of `origin_id` and `origin`.
          * 
@@ -178,7 +178,7 @@ public final class GroupEntitlementArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param licensingSource The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+         * @param licensingSource The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
          * 
          * &gt; **NOTE:** A existing group in Azure AD can only be referenced by the combination of `origin_id` and `origin`.
          * 

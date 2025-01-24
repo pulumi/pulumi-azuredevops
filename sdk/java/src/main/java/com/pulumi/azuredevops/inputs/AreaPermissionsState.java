@@ -35,12 +35,36 @@ public final class AreaPermissionsState extends com.pulumi.resources.ResourceArg
     /**
      * the permissions to assign. The following permissions are available.
      * 
+     * | Permission             | Description                          |
+     * |------------------------|--------------------------------------|
+     * | GENERIC_READ           | View permissions for this node       |
+     * | GENERIC_WRITE          | Edit this node                       |
+     * | CREATE_CHILDREN        | Create child nodes                   |
+     * | DELETE                 | Delete this node                     |
+     * | WORK_ITEM_READ         | View work items in this node         |
+     * | WORK_ITEM_WRITE        | Edit work items in this node         |
+     * | MANAGE_TEST_PLANS      | Manage test plans                    |
+     * | MANAGE_TEST_SUITES     | Manage test suites                   |
+     * | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
+     * 
      */
     @Import(name="permissions")
     private @Nullable Output<Map<String,String>> permissions;
 
     /**
      * @return the permissions to assign. The following permissions are available.
+     * 
+     * | Permission             | Description                          |
+     * |------------------------|--------------------------------------|
+     * | GENERIC_READ           | View permissions for this node       |
+     * | GENERIC_WRITE          | Edit this node                       |
+     * | CREATE_CHILDREN        | Create child nodes                   |
+     * | DELETE                 | Delete this node                     |
+     * | WORK_ITEM_READ         | View work items in this node         |
+     * | WORK_ITEM_WRITE        | Edit work items in this node         |
+     * | MANAGE_TEST_PLANS      | Manage test plans                    |
+     * | MANAGE_TEST_SUITES     | Manage test suites                   |
+     * | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
      * 
      */
     public Optional<Output<Map<String,String>>> permissions() {
@@ -80,36 +104,12 @@ public final class AreaPermissionsState extends com.pulumi.resources.ResourceArg
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`.
      * 
-     * | Permission             | Description                          |
-     * |------------------------|--------------------------------------|
-     * | GENERIC_READ           | View permissions for this node       |
-     * | GENERIC_WRITE          | Edit this node                       |
-     * | CREATE_CHILDREN        | Create child nodes                   |
-     * | DELETE                 | Delete this node                     |
-     * | WORK_ITEM_READ         | View work items in this node         |
-     * | WORK_ITEM_WRITE        | Edit work items in this node         |
-     * | MANAGE_TEST_PLANS      | Manage test plans                    |
-     * | MANAGE_TEST_SUITES     | Manage test suites                   |
-     * | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
-     * 
      */
     @Import(name="replace")
     private @Nullable Output<Boolean> replace;
 
     /**
      * @return Replace (`true`) or merge (`false`) the permissions. Default: `true`.
-     * 
-     * | Permission             | Description                          |
-     * |------------------------|--------------------------------------|
-     * | GENERIC_READ           | View permissions for this node       |
-     * | GENERIC_WRITE          | Edit this node                       |
-     * | CREATE_CHILDREN        | Create child nodes                   |
-     * | DELETE                 | Delete this node                     |
-     * | WORK_ITEM_READ         | View work items in this node         |
-     * | WORK_ITEM_WRITE        | Edit work items in this node         |
-     * | MANAGE_TEST_PLANS      | Manage test plans                    |
-     * | MANAGE_TEST_SUITES     | Manage test suites                   |
-     * | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
      * 
      */
     public Optional<Output<Boolean>> replace() {
@@ -168,6 +168,18 @@ public final class AreaPermissionsState extends com.pulumi.resources.ResourceArg
         /**
          * @param permissions the permissions to assign. The following permissions are available.
          * 
+         * | Permission             | Description                          |
+         * |------------------------|--------------------------------------|
+         * | GENERIC_READ           | View permissions for this node       |
+         * | GENERIC_WRITE          | Edit this node                       |
+         * | CREATE_CHILDREN        | Create child nodes                   |
+         * | DELETE                 | Delete this node                     |
+         * | WORK_ITEM_READ         | View work items in this node         |
+         * | WORK_ITEM_WRITE        | Edit work items in this node         |
+         * | MANAGE_TEST_PLANS      | Manage test plans                    |
+         * | MANAGE_TEST_SUITES     | Manage test suites                   |
+         * | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
+         * 
          * @return builder
          * 
          */
@@ -178,6 +190,18 @@ public final class AreaPermissionsState extends com.pulumi.resources.ResourceArg
 
         /**
          * @param permissions the permissions to assign. The following permissions are available.
+         * 
+         * | Permission             | Description                          |
+         * |------------------------|--------------------------------------|
+         * | GENERIC_READ           | View permissions for this node       |
+         * | GENERIC_WRITE          | Edit this node                       |
+         * | CREATE_CHILDREN        | Create child nodes                   |
+         * | DELETE                 | Delete this node                     |
+         * | WORK_ITEM_READ         | View work items in this node         |
+         * | WORK_ITEM_WRITE        | Edit work items in this node         |
+         * | MANAGE_TEST_PLANS      | Manage test plans                    |
+         * | MANAGE_TEST_SUITES     | Manage test suites                   |
+         * | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
          * 
          * @return builder
          * 
@@ -231,18 +255,6 @@ public final class AreaPermissionsState extends com.pulumi.resources.ResourceArg
         /**
          * @param replace Replace (`true`) or merge (`false`) the permissions. Default: `true`.
          * 
-         * | Permission             | Description                          |
-         * |------------------------|--------------------------------------|
-         * | GENERIC_READ           | View permissions for this node       |
-         * | GENERIC_WRITE          | Edit this node                       |
-         * | CREATE_CHILDREN        | Create child nodes                   |
-         * | DELETE                 | Delete this node                     |
-         * | WORK_ITEM_READ         | View work items in this node         |
-         * | WORK_ITEM_WRITE        | Edit work items in this node         |
-         * | MANAGE_TEST_PLANS      | Manage test plans                    |
-         * | MANAGE_TEST_SUITES     | Manage test suites                   |
-         * | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
-         * 
          * @return builder
          * 
          */
@@ -253,18 +265,6 @@ public final class AreaPermissionsState extends com.pulumi.resources.ResourceArg
 
         /**
          * @param replace Replace (`true`) or merge (`false`) the permissions. Default: `true`.
-         * 
-         * | Permission             | Description                          |
-         * |------------------------|--------------------------------------|
-         * | GENERIC_READ           | View permissions for this node       |
-         * | GENERIC_WRITE          | Edit this node                       |
-         * | CREATE_CHILDREN        | Create child nodes                   |
-         * | DELETE                 | Delete this node                     |
-         * | WORK_ITEM_READ         | View work items in this node         |
-         * | WORK_ITEM_WRITE        | Edit work items in this node         |
-         * | MANAGE_TEST_PLANS      | Manage test plans                    |
-         * | MANAGE_TEST_SUITES     | Manage test suites                   |
-         * | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
          * 
          * @return builder
          * 

@@ -42,7 +42,7 @@ public final class BranchPolicyBuildValidationSettings {
      */
     private @Nullable Boolean queueOnSourceUpdateOnly;
     /**
-     * @return Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+     * @return A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
      * 
      */
     private List<BranchPolicyBuildValidationSettingsScope> scopes;
@@ -94,7 +94,7 @@ public final class BranchPolicyBuildValidationSettings {
         return Optional.ofNullable(this.queueOnSourceUpdateOnly);
     }
     /**
-     * @return Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+     * @return A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
      * 
      */
     public List<BranchPolicyBuildValidationSettingsScope> scopes() {

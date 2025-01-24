@@ -102,14 +102,14 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * A `credentials` block.
+     * A `credentials` block as defined below.
      * 
      */
     @Import(name="credentials")
     private @Nullable Output<ServiceEndpointAzureRMCredentialsArgs> credentials;
 
     /**
-     * @return A `credentials` block.
+     * @return A `credentials` block as defined below.
      * 
      */
     public Optional<Output<ServiceEndpointAzureRMCredentialsArgs>> credentials() {
@@ -147,14 +147,14 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * A `features` block.
+     * A `features` block as defined below.
      * 
      */
     @Import(name="features")
     private @Nullable Output<ServiceEndpointAzureRMFeaturesArgs> features;
 
     /**
-     * @return A `features` block.
+     * @return A `features` block as defined below.
      * 
      */
     public Optional<Output<ServiceEndpointAzureRMFeaturesArgs>> features() {
@@ -211,7 +211,7 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+     * Specifies the type of Azure Resource Manager Service Endpoint. Possible values are `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
      * 
      * &gt; **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
      * 
@@ -220,7 +220,7 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
     private @Nullable Output<String> serviceEndpointAuthenticationScheme;
 
     /**
-     * @return Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+     * @return Specifies the type of Azure Resource Manager Service Endpoint. Possible values are `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
      * 
      * &gt; **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
      * 
@@ -397,7 +397,7 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param credentials A `credentials` block.
+         * @param credentials A `credentials` block as defined below.
          * 
          * @return builder
          * 
@@ -408,7 +408,7 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param credentials A `credentials` block.
+         * @param credentials A `credentials` block as defined below.
          * 
          * @return builder
          * 
@@ -460,7 +460,7 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param features A `features` block.
+         * @param features A `features` block as defined below.
          * 
          * @return builder
          * 
@@ -471,7 +471,7 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param features A `features` block.
+         * @param features A `features` block as defined below.
          * 
          * @return builder
          * 
@@ -548,7 +548,7 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param serviceEndpointAuthenticationScheme Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+         * @param serviceEndpointAuthenticationScheme Specifies the type of Azure Resource Manager Service Endpoint. Possible values are `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
          * 
          * &gt; **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
          * 
@@ -561,7 +561,7 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param serviceEndpointAuthenticationScheme Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+         * @param serviceEndpointAuthenticationScheme Specifies the type of Azure Resource Manager Service Endpoint. Possible values are `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
          * 
          * &gt; **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
          * 

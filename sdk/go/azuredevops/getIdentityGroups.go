@@ -72,7 +72,7 @@ type GetIdentityGroupsArgs struct {
 
 // A collection of values returned by getIdentityGroups.
 type GetIdentityGroupsResult struct {
-	// A set of existing groups in your Azure DevOps Organization or project with details about every single group which includes:
+	// A `groups` blocks as documented below. A set of existing groups in your Azure DevOps Organization or project with details about every single group.
 	Groups []GetIdentityGroupsGroup `pulumi:"groups"`
 	// The provider-assigned unique ID for this managed resource.
 	Id        string  `pulumi:"id"`
@@ -113,7 +113,7 @@ func (o GetIdentityGroupsResultOutput) ToGetIdentityGroupsResultOutputWithContex
 	return o
 }
 
-// A set of existing groups in your Azure DevOps Organization or project with details about every single group which includes:
+// A `groups` blocks as documented below. A set of existing groups in your Azure DevOps Organization or project with details about every single group.
 func (o GetIdentityGroupsResultOutput) Groups() GetIdentityGroupsGroupArrayOutput {
 	return o.ApplyT(func(v GetIdentityGroupsResult) []GetIdentityGroupsGroup { return v.Groups }).(GetIdentityGroupsGroupArrayOutput)
 }

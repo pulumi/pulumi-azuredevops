@@ -64,14 +64,14 @@ public final class BranchPolicyCommentResolutionArgs extends com.pulumi.resource
     }
 
     /**
-     * Configuration for the policy. This block must be defined exactly once.
+     * A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
      * 
      */
     @Import(name="settings", required=true)
     private Output<BranchPolicyCommentResolutionSettingsArgs> settings;
 
     /**
-     * @return Configuration for the policy. This block must be defined exactly once.
+     * @return A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
      * 
      */
     public Output<BranchPolicyCommentResolutionSettingsArgs> settings() {
@@ -169,7 +169,7 @@ public final class BranchPolicyCommentResolutionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param settings Configuration for the policy. This block must be defined exactly once.
+         * @param settings A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class BranchPolicyCommentResolutionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param settings Configuration for the policy. This block must be defined exactly once.
+         * @param settings A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
          * 
          * @return builder
          * 

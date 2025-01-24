@@ -231,14 +231,13 @@ export class GitPermissions extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the branch to assign the permissions. 
+     * The name of the branch to assign the permissions.
      *
-     * > **Note** to assign permissions to a branch, the `repositoryId` must be set as well.
+     * > **Note** To assign permissions to a branch, the `repositoryId` must be set as well.
      */
     public readonly branchName!: pulumi.Output<string | undefined>;
     /**
      * the permissions to assign. The following permissions are available
-     *
      *
      * | Permissions             | Description                                            |
      * |-------------------------|--------------------------------------------------------|
@@ -324,14 +323,13 @@ export class GitPermissions extends pulumi.CustomResource {
  */
 export interface GitPermissionsState {
     /**
-     * The name of the branch to assign the permissions. 
+     * The name of the branch to assign the permissions.
      *
-     * > **Note** to assign permissions to a branch, the `repositoryId` must be set as well.
+     * > **Note** To assign permissions to a branch, the `repositoryId` must be set as well.
      */
     branchName?: pulumi.Input<string>;
     /**
      * the permissions to assign. The following permissions are available
-     *
      *
      * | Permissions             | Description                                            |
      * |-------------------------|--------------------------------------------------------|
@@ -376,14 +374,13 @@ export interface GitPermissionsState {
  */
 export interface GitPermissionsArgs {
     /**
-     * The name of the branch to assign the permissions. 
+     * The name of the branch to assign the permissions.
      *
-     * > **Note** to assign permissions to a branch, the `repositoryId` must be set as well.
+     * > **Note** To assign permissions to a branch, the `repositoryId` must be set as well.
      */
     branchName?: pulumi.Input<string>;
     /**
      * the permissions to assign. The following permissions are available
-     *
      *
      * | Permissions             | Description                                            |
      * |-------------------------|--------------------------------------------------------|

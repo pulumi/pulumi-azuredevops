@@ -29,7 +29,7 @@ class GitArgs:
                  parent_repository_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Git resource.
-        :param pulumi.Input['GitInitializationArgs'] initialization: An `initialization` block as documented below.
+        :param pulumi.Input['GitInitializationArgs'] initialization: A `initialization` block as documented below.
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input[str] default_branch: The ref of the default branch. Will be used as the branch name for initialized repositories.
         :param pulumi.Input[bool] disabled: The ability to disable or enable the repository. Defaults to `false`.
@@ -51,7 +51,7 @@ class GitArgs:
     @pulumi.getter
     def initialization(self) -> pulumi.Input['GitInitializationArgs']:
         """
-        An `initialization` block as documented below.
+        A `initialization` block as documented below.
         """
         return pulumi.get(self, "initialization")
 
@@ -139,7 +139,7 @@ class _GitState:
         Input properties used for looking up and filtering Git resources.
         :param pulumi.Input[str] default_branch: The ref of the default branch. Will be used as the branch name for initialized repositories.
         :param pulumi.Input[bool] disabled: The ability to disable or enable the repository. Defaults to `false`.
-        :param pulumi.Input['GitInitializationArgs'] initialization: An `initialization` block as documented below.
+        :param pulumi.Input['GitInitializationArgs'] initialization: A `initialization` block as documented below.
         :param pulumi.Input[bool] is_fork: True if the repository was created as a fork.
         :param pulumi.Input[str] name: The name of the git repository.
         :param pulumi.Input[str] parent_repository_id: The ID of a Git project from which a fork is to be created.
@@ -203,7 +203,7 @@ class _GitState:
     @pulumi.getter
     def initialization(self) -> Optional[pulumi.Input['GitInitializationArgs']]:
         """
-        An `initialization` block as documented below.
+        A `initialization` block as documented below.
         """
         return pulumi.get(self, "initialization")
 
@@ -351,7 +351,7 @@ class Git(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_branch: The ref of the default branch. Will be used as the branch name for initialized repositories.
         :param pulumi.Input[bool] disabled: The ability to disable or enable the repository. Defaults to `false`.
-        :param pulumi.Input[Union['GitInitializationArgs', 'GitInitializationArgsDict']] initialization: An `initialization` block as documented below.
+        :param pulumi.Input[Union['GitInitializationArgs', 'GitInitializationArgsDict']] initialization: A `initialization` block as documented below.
         :param pulumi.Input[str] name: The name of the git repository.
         :param pulumi.Input[str] parent_repository_id: The ID of a Git project from which a fork is to be created.
         :param pulumi.Input[str] project_id: The project ID or project name.
@@ -454,7 +454,7 @@ class Git(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_branch: The ref of the default branch. Will be used as the branch name for initialized repositories.
         :param pulumi.Input[bool] disabled: The ability to disable or enable the repository. Defaults to `false`.
-        :param pulumi.Input[Union['GitInitializationArgs', 'GitInitializationArgsDict']] initialization: An `initialization` block as documented below.
+        :param pulumi.Input[Union['GitInitializationArgs', 'GitInitializationArgsDict']] initialization: A `initialization` block as documented below.
         :param pulumi.Input[bool] is_fork: True if the repository was created as a fork.
         :param pulumi.Input[str] name: The name of the git repository.
         :param pulumi.Input[str] parent_repository_id: The ID of a Git project from which a fork is to be created.
@@ -503,7 +503,7 @@ class Git(pulumi.CustomResource):
     @pulumi.getter
     def initialization(self) -> pulumi.Output['outputs.GitInitialization']:
         """
-        An `initialization` block as documented below.
+        A `initialization` block as documented below.
         """
         return pulumi.get(self, "initialization")
 

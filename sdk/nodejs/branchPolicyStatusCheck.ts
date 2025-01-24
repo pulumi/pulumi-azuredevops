@@ -114,7 +114,7 @@ export class BranchPolicyStatusCheck extends pulumi.CustomResource {
      */
     public readonly projectId!: pulumi.Output<string>;
     /**
-     * Configuration for the policy. This block must be defined exactly once.
+     * A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
      */
     public readonly settings!: pulumi.Output<outputs.BranchPolicyStatusCheckSettings>;
 
@@ -170,7 +170,7 @@ export interface BranchPolicyStatusCheckState {
      */
     projectId?: pulumi.Input<string>;
     /**
-     * Configuration for the policy. This block must be defined exactly once.
+     * A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
      */
     settings?: pulumi.Input<inputs.BranchPolicyStatusCheckSettings>;
 }
@@ -192,7 +192,7 @@ export interface BranchPolicyStatusCheckArgs {
      */
     projectId: pulumi.Input<string>;
     /**
-     * Configuration for the policy. This block must be defined exactly once.
+     * A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
      */
     settings: pulumi.Input<inputs.BranchPolicyStatusCheckSettings>;
 }

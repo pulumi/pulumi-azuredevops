@@ -17,12 +17,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BuildDefinitionSchedule {
     /**
-     * @return block supports the following:
+     * @return A `branch_filter` block as defined below.
      * 
      */
     private List<BuildDefinitionScheduleBranchFilter> branchFilters;
     /**
-     * @return When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
+     * @return When to build. Possible values are: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
      * 
      */
     private List<String> daysToBuilds;
@@ -37,17 +37,17 @@ public final class BuildDefinitionSchedule {
      */
     private @Nullable Boolean scheduleOnlyWithChanges;
     /**
-     * @return Build start hour. Defaults to `0`. Valid values: `0 ~ 23`.
+     * @return Build start hour. Possible values are: `0 ~ 23`. Defaults to `0`.
      * 
      */
     private @Nullable Integer startHours;
     /**
-     * @return Build start minute. Defaults to `0`. Valid values: `0 ~ 59`.
+     * @return Build start minute. Possible values are: `0 ~ 59`. Defaults to `0`.
      * 
      */
     private @Nullable Integer startMinutes;
     /**
-     * @return Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Valid values:
+     * @return Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Possible values are:
      * `(UTC-12:00) International Date Line West`,
      * `(UTC-11:00) Coordinated Universal Time-11`,
      * `(UTC-10:00) Aleutian Islands`,
@@ -195,14 +195,14 @@ public final class BuildDefinitionSchedule {
 
     private BuildDefinitionSchedule() {}
     /**
-     * @return block supports the following:
+     * @return A `branch_filter` block as defined below.
      * 
      */
     public List<BuildDefinitionScheduleBranchFilter> branchFilters() {
         return this.branchFilters;
     }
     /**
-     * @return When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
+     * @return When to build. Possible values are: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
      * 
      */
     public List<String> daysToBuilds() {
@@ -223,21 +223,21 @@ public final class BuildDefinitionSchedule {
         return Optional.ofNullable(this.scheduleOnlyWithChanges);
     }
     /**
-     * @return Build start hour. Defaults to `0`. Valid values: `0 ~ 23`.
+     * @return Build start hour. Possible values are: `0 ~ 23`. Defaults to `0`.
      * 
      */
     public Optional<Integer> startHours() {
         return Optional.ofNullable(this.startHours);
     }
     /**
-     * @return Build start minute. Defaults to `0`. Valid values: `0 ~ 59`.
+     * @return Build start minute. Possible values are: `0 ~ 59`. Defaults to `0`.
      * 
      */
     public Optional<Integer> startMinutes() {
         return Optional.ofNullable(this.startMinutes);
     }
     /**
-     * @return Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Valid values:
+     * @return Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Possible values are:
      * `(UTC-12:00) International Date Line West`,
      * `(UTC-11:00) Coordinated Universal Time-11`,
      * `(UTC-10:00) Aleutian Islands`,

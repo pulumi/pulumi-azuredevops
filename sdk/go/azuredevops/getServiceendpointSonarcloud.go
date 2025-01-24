@@ -64,9 +64,9 @@ type GetServiceendpointSonarcloudArgs struct {
 
 // A collection of values returned by getServiceendpointSonarcloud.
 type GetServiceendpointSonarcloudResult struct {
-	// Specifies the Authorization Scheme Map.
+	// The Authorization scheme.
 	Authorization map[string]string `pulumi:"authorization"`
-	// Specifies the description of the Service Endpoint.
+	// The description of the Service Endpoint.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                  string `pulumi:"id"`
@@ -115,12 +115,12 @@ func (o GetServiceendpointSonarcloudResultOutput) ToGetServiceendpointSonarcloud
 	return o
 }
 
-// Specifies the Authorization Scheme Map.
+// The Authorization scheme.
 func (o GetServiceendpointSonarcloudResultOutput) Authorization() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetServiceendpointSonarcloudResult) map[string]string { return v.Authorization }).(pulumi.StringMapOutput)
 }
 
-// Specifies the description of the Service Endpoint.
+// The description of the Service Endpoint.
 func (o GetServiceendpointSonarcloudResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceendpointSonarcloudResult) string { return v.Description }).(pulumi.StringOutput)
 }

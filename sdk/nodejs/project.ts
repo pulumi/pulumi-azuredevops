@@ -33,6 +33,7 @@ import * as utilities from "./utilities";
  * ## PAT Permissions Required
  *
  * - **Project & Team**: Read, Write, & Manage
+ * - **Work Items**: Read
  *
  * ## Import
  *
@@ -78,16 +79,23 @@ export class Project extends pulumi.CustomResource {
 
     /**
      * The Description of the Project.
+     * *
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Defines the status (`enabled`, `disabled`) of the project features.
-     * Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+     * Defines the status (`enabled`, `disabled`) of the project features. Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
      *
-     * > **NOTE:**
-     * > It's possible to define project features both within the `azuredevops.ProjectFeatures` resource and
-     * > via the `features` block by using the `azuredevops.Project` resource.
-     * > However it's not possible to use both methods to manage features, since there'll be conflicts.
+     * | Features     | Possible Values   |
+     * |--------------|-------------------|
+     * | boards       | enabled, disabled |
+     * | repositories | enabled, disabled |
+     * | pipelines    | enabled, disabled |
+     * | testplans    | enabled, disabled |
+     * | artifacts    | enabled, disabled |
+     *
+     * > **NOTE:** It's possible to define project features both within the `azuredevops.ProjectFeatures` resource and
+     * via the `features` block by using the `azuredevops.Project` resource.
+     * However it's not possible to use both methods to manage features, since there'll be conflicts.
      */
     public readonly features!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -99,15 +107,15 @@ export class Project extends pulumi.CustomResource {
      */
     public /*out*/ readonly processTemplateId!: pulumi.Output<string>;
     /**
-     * Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
+     * Specifies the version control system. Possbile values are: `Git` or `Tfvc`. Defaults to `Git`.
      */
     public readonly versionControl!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
+     * Specifies the visibility of the Project. Possible values are: `private` or `public`. Defaults to `private`.
      */
     public readonly visibility!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
+     * Specifies the work item template. Possible values are: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
      */
     public readonly workItemTemplate!: pulumi.Output<string | undefined>;
 
@@ -152,16 +160,23 @@ export class Project extends pulumi.CustomResource {
 export interface ProjectState {
     /**
      * The Description of the Project.
+     * *
      */
     description?: pulumi.Input<string>;
     /**
-     * Defines the status (`enabled`, `disabled`) of the project features.
-     * Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+     * Defines the status (`enabled`, `disabled`) of the project features. Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
      *
-     * > **NOTE:**
-     * > It's possible to define project features both within the `azuredevops.ProjectFeatures` resource and
-     * > via the `features` block by using the `azuredevops.Project` resource.
-     * > However it's not possible to use both methods to manage features, since there'll be conflicts.
+     * | Features     | Possible Values   |
+     * |--------------|-------------------|
+     * | boards       | enabled, disabled |
+     * | repositories | enabled, disabled |
+     * | pipelines    | enabled, disabled |
+     * | testplans    | enabled, disabled |
+     * | artifacts    | enabled, disabled |
+     *
+     * > **NOTE:** It's possible to define project features both within the `azuredevops.ProjectFeatures` resource and
+     * via the `features` block by using the `azuredevops.Project` resource.
+     * However it's not possible to use both methods to manage features, since there'll be conflicts.
      */
     features?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -173,15 +188,15 @@ export interface ProjectState {
      */
     processTemplateId?: pulumi.Input<string>;
     /**
-     * Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
+     * Specifies the version control system. Possbile values are: `Git` or `Tfvc`. Defaults to `Git`.
      */
     versionControl?: pulumi.Input<string>;
     /**
-     * Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
+     * Specifies the visibility of the Project. Possible values are: `private` or `public`. Defaults to `private`.
      */
     visibility?: pulumi.Input<string>;
     /**
-     * Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
+     * Specifies the work item template. Possible values are: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
      */
     workItemTemplate?: pulumi.Input<string>;
 }
@@ -192,16 +207,23 @@ export interface ProjectState {
 export interface ProjectArgs {
     /**
      * The Description of the Project.
+     * *
      */
     description?: pulumi.Input<string>;
     /**
-     * Defines the status (`enabled`, `disabled`) of the project features.
-     * Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+     * Defines the status (`enabled`, `disabled`) of the project features. Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
      *
-     * > **NOTE:**
-     * > It's possible to define project features both within the `azuredevops.ProjectFeatures` resource and
-     * > via the `features` block by using the `azuredevops.Project` resource.
-     * > However it's not possible to use both methods to manage features, since there'll be conflicts.
+     * | Features     | Possible Values   |
+     * |--------------|-------------------|
+     * | boards       | enabled, disabled |
+     * | repositories | enabled, disabled |
+     * | pipelines    | enabled, disabled |
+     * | testplans    | enabled, disabled |
+     * | artifacts    | enabled, disabled |
+     *
+     * > **NOTE:** It's possible to define project features both within the `azuredevops.ProjectFeatures` resource and
+     * via the `features` block by using the `azuredevops.Project` resource.
+     * However it's not possible to use both methods to manage features, since there'll be conflicts.
      */
     features?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -209,15 +231,15 @@ export interface ProjectArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
+     * Specifies the version control system. Possbile values are: `Git` or `Tfvc`. Defaults to `Git`.
      */
     versionControl?: pulumi.Input<string>;
     /**
-     * Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
+     * Specifies the visibility of the Project. Possible values are: `private` or `public`. Defaults to `private`.
      */
     visibility?: pulumi.Input<string>;
     /**
-     * Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
+     * Specifies the work item template. Possible values are: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
      */
     workItemTemplate?: pulumi.Input<string>;
 }

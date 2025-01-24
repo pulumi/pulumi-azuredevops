@@ -28,7 +28,7 @@ class FeedPermissionArgs:
         The set of arguments for constructing a FeedPermission resource.
         :param pulumi.Input[str] feed_id: The ID of the Feed.
         :param pulumi.Input[str] identity_descriptor: The Descriptor of identity you want to assign a role.
-        :param pulumi.Input[str] role: The role to be assigned, possible values : `reader`, `contributor`, `collaborator`, `administrator`
+        :param pulumi.Input[str] role: The role to be assigned. Possible values are: `reader`, `contributor`, `collaborator`, `administrator`
         :param pulumi.Input[str] display_name: The display name of the assignment
         :param pulumi.Input[str] project_id: The ID of the Project Feed is created in. If not specified, feed will be created at the organization level.
         """
@@ -68,7 +68,7 @@ class FeedPermissionArgs:
     @pulumi.getter
     def role(self) -> pulumi.Input[str]:
         """
-        The role to be assigned, possible values : `reader`, `contributor`, `collaborator`, `administrator`
+        The role to be assigned. Possible values are: `reader`, `contributor`, `collaborator`, `administrator`
         """
         return pulumi.get(self, "role")
 
@@ -117,7 +117,7 @@ class _FeedPermissionState:
         :param pulumi.Input[str] identity_descriptor: The Descriptor of identity you want to assign a role.
         :param pulumi.Input[str] identity_id: The ID of the identity.
         :param pulumi.Input[str] project_id: The ID of the Project Feed is created in. If not specified, feed will be created at the organization level.
-        :param pulumi.Input[str] role: The role to be assigned, possible values : `reader`, `contributor`, `collaborator`, `administrator`
+        :param pulumi.Input[str] role: The role to be assigned. Possible values are: `reader`, `contributor`, `collaborator`, `administrator`
         """
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
@@ -196,7 +196,7 @@ class _FeedPermissionState:
     @pulumi.getter
     def role(self) -> Optional[pulumi.Input[str]]:
         """
-        The role to be assigned, possible values : `reader`, `contributor`, `collaborator`, `administrator`
+        The role to be assigned. Possible values are: `reader`, `contributor`, `collaborator`, `administrator`
         """
         return pulumi.get(self, "role")
 
@@ -231,7 +231,7 @@ class FeedPermission(pulumi.CustomResource):
             scope=example.id,
             display_name="Example group",
             description="Example description")
-        example_feed = azuredevops.Feed("example", name="releases")
+        example_feed = azuredevops.Feed("example", name="examplefeed")
         permission = azuredevops.FeedPermission("permission",
             feed_id=example_feed.id,
             role="reader",
@@ -248,7 +248,7 @@ class FeedPermission(pulumi.CustomResource):
         :param pulumi.Input[str] feed_id: The ID of the Feed.
         :param pulumi.Input[str] identity_descriptor: The Descriptor of identity you want to assign a role.
         :param pulumi.Input[str] project_id: The ID of the Project Feed is created in. If not specified, feed will be created at the organization level.
-        :param pulumi.Input[str] role: The role to be assigned, possible values : `reader`, `contributor`, `collaborator`, `administrator`
+        :param pulumi.Input[str] role: The role to be assigned. Possible values are: `reader`, `contributor`, `collaborator`, `administrator`
         """
         ...
     @overload
@@ -271,7 +271,7 @@ class FeedPermission(pulumi.CustomResource):
             scope=example.id,
             display_name="Example group",
             description="Example description")
-        example_feed = azuredevops.Feed("example", name="releases")
+        example_feed = azuredevops.Feed("example", name="examplefeed")
         permission = azuredevops.FeedPermission("permission",
             feed_id=example_feed.id,
             role="reader",
@@ -351,7 +351,7 @@ class FeedPermission(pulumi.CustomResource):
         :param pulumi.Input[str] identity_descriptor: The Descriptor of identity you want to assign a role.
         :param pulumi.Input[str] identity_id: The ID of the identity.
         :param pulumi.Input[str] project_id: The ID of the Project Feed is created in. If not specified, feed will be created at the organization level.
-        :param pulumi.Input[str] role: The role to be assigned, possible values : `reader`, `contributor`, `collaborator`, `administrator`
+        :param pulumi.Input[str] role: The role to be assigned. Possible values are: `reader`, `contributor`, `collaborator`, `administrator`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -409,7 +409,7 @@ class FeedPermission(pulumi.CustomResource):
     @pulumi.getter
     def role(self) -> pulumi.Output[str]:
         """
-        The role to be assigned, possible values : `reader`, `contributor`, `collaborator`, `administrator`
+        The role to be assigned. Possible values are: `reader`, `contributor`, `collaborator`, `administrator`
         """
         return pulumi.get(self, "role")
 

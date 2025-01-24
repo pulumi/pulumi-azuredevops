@@ -161,11 +161,11 @@ namespace Pulumi.AzureDevOps
     public sealed class GetServiceendpointSonarcloudResult
     {
         /// <summary>
-        /// Specifies the Authorization Scheme Map.
+        /// The Authorization scheme.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Authorization;
         /// <summary>
-        /// Specifies the description of the Service Endpoint.
+        /// The description of the Service Endpoint.
         /// </summary>
         public readonly string Description;
         /// <summary>

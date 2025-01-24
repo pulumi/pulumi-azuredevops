@@ -20,20 +20,12 @@ public final class GetUsersArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * A `features` block as defined below.
      * 
-     * DataSource without specifying any arguments will return all users inside an organization.
-     * 
-     * List of possible subject types
-     * 
      */
     @Import(name="features")
     private @Nullable Output<GetUsersFeaturesArgs> features;
 
     /**
      * @return A `features` block as defined below.
-     * 
-     * DataSource without specifying any arguments will return all users inside an organization.
-     * 
-     * List of possible subject types
      * 
      */
     public Optional<Output<GetUsersFeaturesArgs>> features() {
@@ -42,6 +34,7 @@ public final class GetUsersArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+     * &lt;pre&gt;List of possible origins
      * 
      */
     @Import(name="origin")
@@ -49,6 +42,7 @@ public final class GetUsersArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * @return The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+     * &lt;pre&gt;List of possible origins
      * 
      */
     public Optional<Output<String>> origin() {
@@ -87,6 +81,7 @@ public final class GetUsersArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
+     * &lt;pre&gt;List of possible subject types
      * 
      */
     @Import(name="subjectTypes")
@@ -94,6 +89,7 @@ public final class GetUsersArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * @return A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
+     * &lt;pre&gt;List of possible subject types
      * 
      */
     public Optional<Output<List<String>>> subjectTypes() {
@@ -131,10 +127,6 @@ public final class GetUsersArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param features A `features` block as defined below.
          * 
-         * DataSource without specifying any arguments will return all users inside an organization.
-         * 
-         * List of possible subject types
-         * 
          * @return builder
          * 
          */
@@ -146,10 +138,6 @@ public final class GetUsersArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param features A `features` block as defined below.
          * 
-         * DataSource without specifying any arguments will return all users inside an organization.
-         * 
-         * List of possible subject types
-         * 
          * @return builder
          * 
          */
@@ -159,6 +147,7 @@ public final class GetUsersArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param origin The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+         * &lt;pre&gt;List of possible origins
          * 
          * @return builder
          * 
@@ -170,6 +159,7 @@ public final class GetUsersArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param origin The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+         * &lt;pre&gt;List of possible origins
          * 
          * @return builder
          * 
@@ -222,6 +212,7 @@ public final class GetUsersArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param subjectTypes A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
+         * &lt;pre&gt;List of possible subject types
          * 
          * @return builder
          * 
@@ -233,6 +224,7 @@ public final class GetUsersArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param subjectTypes A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
+         * &lt;pre&gt;List of possible subject types
          * 
          * @return builder
          * 
@@ -243,6 +235,7 @@ public final class GetUsersArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param subjectTypes A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
+         * &lt;pre&gt;List of possible subject types
          * 
          * @return builder
          * 

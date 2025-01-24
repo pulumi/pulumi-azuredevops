@@ -104,8 +104,9 @@ export class RepositoryPolicyAuthorEmailPattern extends pulumi.CustomResource {
     }
 
     /**
-     * Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
-     * Email patterns prefixed with "!" are excluded. Order is important.
+     * Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
+     *
+     * ~>**NOTE:** Email patterns prefixed with `!` are excluded. Order is important.
      */
     public readonly authorEmailPatterns!: pulumi.Output<string[]>;
     /**
@@ -167,8 +168,9 @@ export class RepositoryPolicyAuthorEmailPattern extends pulumi.CustomResource {
  */
 export interface RepositoryPolicyAuthorEmailPatternState {
     /**
-     * Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
-     * Email patterns prefixed with "!" are excluded. Order is important.
+     * Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
+     *
+     * ~>**NOTE:** Email patterns prefixed with `!` are excluded. Order is important.
      */
     authorEmailPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -194,8 +196,9 @@ export interface RepositoryPolicyAuthorEmailPatternState {
  */
 export interface RepositoryPolicyAuthorEmailPatternArgs {
     /**
-     * Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
-     * Email patterns prefixed with "!" are excluded. Order is important.
+     * Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
+     *
+     * ~>**NOTE:** Email patterns prefixed with `!` are excluded. Order is important.
      */
     authorEmailPatterns: pulumi.Input<pulumi.Input<string>[]>;
     /**

@@ -110,7 +110,9 @@ namespace Pulumi.AzureDevOps
         public Output<string> Mail { get; private set; } = null!;
 
         /// <summary>
-        /// &gt; NOTE: It's possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+        /// The member of the Group.
+        /// 
+        /// &gt; **NOTE:** It's possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
         /// </summary>
         [Output("members")]
         public Output<ImmutableArray<string>> Members { get; private set; } = null!;
@@ -219,7 +221,9 @@ namespace Pulumi.AzureDevOps
         private InputList<string>? _members;
 
         /// <summary>
-        /// &gt; NOTE: It's possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+        /// The member of the Group.
+        /// 
+        /// &gt; **NOTE:** It's possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
         /// </summary>
         public InputList<string> Members
         {
@@ -287,7 +291,9 @@ namespace Pulumi.AzureDevOps
         private InputList<string>? _members;
 
         /// <summary>
-        /// &gt; NOTE: It's possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+        /// The member of the Group.
+        /// 
+        /// &gt; **NOTE:** It's possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
         /// </summary>
         public InputList<string> Members
         {

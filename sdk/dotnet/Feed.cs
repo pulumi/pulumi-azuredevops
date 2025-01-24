@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps
 {
     /// <summary>
-    /// Manages creation of the Feed within Azure DevOps organization.
+    /// Manages Feed within Azure DevOps organization.
     /// 
     /// ## Example Usage
     /// 
@@ -25,7 +25,7 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     var example = new AzureDevOps.Feed("example", new()
     ///     {
-    ///         Name = "releases",
+    ///         Name = "examplefeed",
     ///     });
     /// 
     /// });
@@ -51,7 +51,7 @@ namespace Pulumi.AzureDevOps
     /// 
     ///     var exampleFeed = new AzureDevOps.Feed("example", new()
     ///     {
-    ///         Name = "releases",
+    ///         Name = "examplefeed",
     ///         ProjectId = example.Id,
     ///     });
     /// 
@@ -69,7 +69,7 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     var example = new AzureDevOps.Feed("example", new()
     ///     {
-    ///         Name = "releases",
+    ///         Name = "examplefeed",
     ///         Features = new[]
     ///         {
     ///             new AzureDevOps.Inputs.FeedFeatureArgs

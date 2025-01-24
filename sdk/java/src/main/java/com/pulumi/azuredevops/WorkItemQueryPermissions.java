@@ -313,14 +313,14 @@ public class WorkItemQueryPermissions extends com.pulumi.resources.CustomResourc
         return this.projectId;
     }
     /**
-     * Replace (`true`) or merge (`false`) the permissions. Default: `true`
+     * Replace (`true`) or merge (`false`) the permissions. Defaults to `true`
      * 
      */
     @Export(name="replace", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> replace;
 
     /**
-     * @return Replace (`true`) or merge (`false`) the permissions. Default: `true`
+     * @return Replace (`true`) or merge (`false`) the permissions. Defaults to `true`
      * 
      */
     public Output<Optional<Boolean>> replace() {

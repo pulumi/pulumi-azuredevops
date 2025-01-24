@@ -32,7 +32,7 @@ type Git struct {
 	DefaultBranch pulumi.StringOutput `pulumi:"defaultBranch"`
 	// The ability to disable or enable the repository. Defaults to `false`.
 	Disabled pulumi.BoolPtrOutput `pulumi:"disabled"`
-	// An `initialization` block as documented below.
+	// A `initialization` block as documented below.
 	Initialization GitInitializationOutput `pulumi:"initialization"`
 	// True if the repository was created as a fork.
 	IsFork pulumi.BoolOutput `pulumi:"isFork"`
@@ -94,7 +94,7 @@ type gitState struct {
 	DefaultBranch *string `pulumi:"defaultBranch"`
 	// The ability to disable or enable the repository. Defaults to `false`.
 	Disabled *bool `pulumi:"disabled"`
-	// An `initialization` block as documented below.
+	// A `initialization` block as documented below.
 	Initialization *GitInitialization `pulumi:"initialization"`
 	// True if the repository was created as a fork.
 	IsFork *bool `pulumi:"isFork"`
@@ -121,7 +121,7 @@ type GitState struct {
 	DefaultBranch pulumi.StringPtrInput
 	// The ability to disable or enable the repository. Defaults to `false`.
 	Disabled pulumi.BoolPtrInput
-	// An `initialization` block as documented below.
+	// A `initialization` block as documented below.
 	Initialization GitInitializationPtrInput
 	// True if the repository was created as a fork.
 	IsFork pulumi.BoolPtrInput
@@ -152,7 +152,7 @@ type gitArgs struct {
 	DefaultBranch *string `pulumi:"defaultBranch"`
 	// The ability to disable or enable the repository. Defaults to `false`.
 	Disabled *bool `pulumi:"disabled"`
-	// An `initialization` block as documented below.
+	// A `initialization` block as documented below.
 	Initialization GitInitialization `pulumi:"initialization"`
 	// The name of the git repository.
 	Name *string `pulumi:"name"`
@@ -168,7 +168,7 @@ type GitArgs struct {
 	DefaultBranch pulumi.StringPtrInput
 	// The ability to disable or enable the repository. Defaults to `false`.
 	Disabled pulumi.BoolPtrInput
-	// An `initialization` block as documented below.
+	// A `initialization` block as documented below.
 	Initialization GitInitializationInput
 	// The name of the git repository.
 	Name pulumi.StringPtrInput
@@ -275,7 +275,7 @@ func (o GitOutput) Disabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Git) pulumi.BoolPtrOutput { return v.Disabled }).(pulumi.BoolPtrOutput)
 }
 
-// An `initialization` block as documented below.
+// A `initialization` block as documented below.
 func (o GitOutput) Initialization() GitInitializationOutput {
 	return o.ApplyT(func(v *Git) GitInitializationOutput { return v.Initialization }).(GitInitializationOutput)
 }

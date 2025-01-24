@@ -284,7 +284,7 @@ type CheckBranchControl struct {
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The ID of the resource being protected by the check.
 	TargetResourceId pulumi.StringOutput `pulumi:"targetResourceId"`
-	// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+	// The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
 	TargetResourceType pulumi.StringOutput `pulumi:"targetResourceType"`
 	// The timeout in minutes for the branch control check. Defaults to `1440`.
 	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
@@ -343,7 +343,7 @@ type checkBranchControlState struct {
 	ProjectId *string `pulumi:"projectId"`
 	// The ID of the resource being protected by the check.
 	TargetResourceId *string `pulumi:"targetResourceId"`
-	// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+	// The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
 	TargetResourceType *string `pulumi:"targetResourceType"`
 	// The timeout in minutes for the branch control check. Defaults to `1440`.
 	Timeout *int `pulumi:"timeout"`
@@ -364,7 +364,7 @@ type CheckBranchControlState struct {
 	ProjectId pulumi.StringPtrInput
 	// The ID of the resource being protected by the check.
 	TargetResourceId pulumi.StringPtrInput
-	// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+	// The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
 	TargetResourceType pulumi.StringPtrInput
 	// The timeout in minutes for the branch control check. Defaults to `1440`.
 	Timeout pulumi.IntPtrInput
@@ -389,7 +389,7 @@ type checkBranchControlArgs struct {
 	ProjectId string `pulumi:"projectId"`
 	// The ID of the resource being protected by the check.
 	TargetResourceId string `pulumi:"targetResourceId"`
-	// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+	// The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
 	TargetResourceType string `pulumi:"targetResourceType"`
 	// The timeout in minutes for the branch control check. Defaults to `1440`.
 	Timeout *int `pulumi:"timeout"`
@@ -409,7 +409,7 @@ type CheckBranchControlArgs struct {
 	ProjectId pulumi.StringInput
 	// The ID of the resource being protected by the check.
 	TargetResourceId pulumi.StringInput
-	// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+	// The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
 	TargetResourceType pulumi.StringInput
 	// The timeout in minutes for the branch control check. Defaults to `1440`.
 	Timeout pulumi.IntPtrInput
@@ -529,7 +529,7 @@ func (o CheckBranchControlOutput) TargetResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CheckBranchControl) pulumi.StringOutput { return v.TargetResourceId }).(pulumi.StringOutput)
 }
 
-// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+// The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
 func (o CheckBranchControlOutput) TargetResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *CheckBranchControl) pulumi.StringOutput { return v.TargetResourceType }).(pulumi.StringOutput)
 }

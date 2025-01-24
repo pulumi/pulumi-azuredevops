@@ -127,12 +127,26 @@ public class IterativePermissions extends com.pulumi.resources.CustomResource {
     /**
      * the permissions to assign. The following permissions are available.
      * 
+     * | Permission      | Description                    |
+     * |-----------------|--------------------------------|
+     * | GENERIC_READ    | View permissions for this node |
+     * | GENERIC_WRITE   | Edit this node                 |
+     * | CREATE_CHILDREN | Create child nodes             |
+     * | DELETE          | Delete this node               |
+     * 
      */
     @Export(name="permissions", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> permissions;
 
     /**
      * @return the permissions to assign. The following permissions are available.
+     * 
+     * | Permission      | Description                    |
+     * |-----------------|--------------------------------|
+     * | GENERIC_READ    | View permissions for this node |
+     * | GENERIC_WRITE   | Edit this node                 |
+     * | CREATE_CHILDREN | Create child nodes             |
+     * | DELETE          | Delete this node               |
      * 
      */
     public Output<Map<String,String>> permissions() {
@@ -169,26 +183,12 @@ public class IterativePermissions extends com.pulumi.resources.CustomResource {
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      * 
-     * | Permission      | Description                    |
-     * |-----------------|--------------------------------|
-     * | GENERIC_READ    | View permissions for this node |
-     * | GENERIC_WRITE   | Edit this node                 |
-     * | CREATE_CHILDREN | Create child nodes             |
-     * | DELETE          | Delete this node               |
-     * 
      */
     @Export(name="replace", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> replace;
 
     /**
      * @return Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     * 
-     * | Permission      | Description                    |
-     * |-----------------|--------------------------------|
-     * | GENERIC_READ    | View permissions for this node |
-     * | GENERIC_WRITE   | Edit this node                 |
-     * | CREATE_CHILDREN | Create child nodes             |
-     * | DELETE          | Delete this node               |
      * 
      */
     public Output<Optional<Boolean>> replace() {

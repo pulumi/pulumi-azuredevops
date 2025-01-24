@@ -7,7 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Manages an Artifactory server endpoint within an Azure DevOps organization. Using this service endpoint requires you to first install [JFrog Artifactory Extension](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-artifactory-vsts-extension).
+ * Manages an JFrog Artifactory server endpoint within an Azure DevOps organization. Using this service endpoint requires you to first install [JFrog Artifactory Extension](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-artifactory-vsts-extension).
  *
  * ## Example Usage
  *
@@ -64,7 +64,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Azure DevOps Service Endpoint Artifactory can be imported using the **projectID/serviceEndpointID**, e.g.
+ * Azure DevOps JFrog Artifactory Service Endpoint can be imported using the **projectID/serviceEndpointID**, e.g.
  *
  * ```sh
  * $ pulumi import azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -99,6 +99,9 @@ export class ServiceEndpointArtifactory extends pulumi.CustomResource {
     }
 
     public readonly authenticationBasic!: pulumi.Output<outputs.ServiceEndpointArtifactoryAuthenticationBasic | undefined>;
+    /**
+     * A `authenticationBasic` block as defined below.
+     */
     public readonly authenticationToken!: pulumi.Output<outputs.ServiceEndpointArtifactoryAuthenticationToken | undefined>;
     public readonly authorization!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -116,8 +119,7 @@ export class ServiceEndpointArtifactory extends pulumi.CustomResource {
     /**
      * URL of the Artifactory server to connect with.
      *
-     * _Note: URL should not end in a slash character._
-     * * either `authenticationToken` or `authenticationBasic` (one is required)
+     * _**Note: URL should not end in a slash character.**_
      */
     public readonly url!: pulumi.Output<string>;
 
@@ -170,6 +172,9 @@ export class ServiceEndpointArtifactory extends pulumi.CustomResource {
  */
 export interface ServiceEndpointArtifactoryState {
     authenticationBasic?: pulumi.Input<inputs.ServiceEndpointArtifactoryAuthenticationBasic>;
+    /**
+     * A `authenticationBasic` block as defined below.
+     */
     authenticationToken?: pulumi.Input<inputs.ServiceEndpointArtifactoryAuthenticationToken>;
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -187,8 +192,7 @@ export interface ServiceEndpointArtifactoryState {
     /**
      * URL of the Artifactory server to connect with.
      *
-     * _Note: URL should not end in a slash character._
-     * * either `authenticationToken` or `authenticationBasic` (one is required)
+     * _**Note: URL should not end in a slash character.**_
      */
     url?: pulumi.Input<string>;
 }
@@ -198,6 +202,9 @@ export interface ServiceEndpointArtifactoryState {
  */
 export interface ServiceEndpointArtifactoryArgs {
     authenticationBasic?: pulumi.Input<inputs.ServiceEndpointArtifactoryAuthenticationBasic>;
+    /**
+     * A `authenticationBasic` block as defined below.
+     */
     authenticationToken?: pulumi.Input<inputs.ServiceEndpointArtifactoryAuthenticationToken>;
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -215,8 +222,7 @@ export interface ServiceEndpointArtifactoryArgs {
     /**
      * URL of the Artifactory server to connect with.
      *
-     * _Note: URL should not end in a slash character._
-     * * either `authenticationToken` or `authenticationBasic` (one is required)
+     * _**Note: URL should not end in a slash character.**_
      */
     url: pulumi.Input<string>;
 }

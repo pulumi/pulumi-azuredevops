@@ -100,16 +100,16 @@ type GetServiceEndpointGithubArgs struct {
 	ServiceEndpointId *string `pulumi:"serviceEndpointId"`
 	// the Name of the Service Endpoint.
 	//
-	// > **NOTE:** One of either `serviceEndpointId` or `serviceEndpointName` must be specified.
-	// **NOTE:** When supplying `serviceEndpointName`, take care to ensure that this is a unique name.
+	// > **NOTE:** 1. One of either `serviceEndpointId` or `serviceEndpointName` must be specified.
+	// <br>2. When supplying `serviceEndpointName`, take care to ensure that this is a unique name.
 	ServiceEndpointName *string `pulumi:"serviceEndpointName"`
 }
 
 // A collection of values returned by getServiceEndpointGithub.
 type GetServiceEndpointGithubResult struct {
-	// Specifies the Authorization Scheme Map.
+	// The Authorization scheme.
 	Authorization map[string]string `pulumi:"authorization"`
-	// Specifies the description of the Service Endpoint.
+	// The description of the Service Endpoint.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                  string `pulumi:"id"`
@@ -135,8 +135,8 @@ type GetServiceEndpointGithubOutputArgs struct {
 	ServiceEndpointId pulumi.StringPtrInput `pulumi:"serviceEndpointId"`
 	// the Name of the Service Endpoint.
 	//
-	// > **NOTE:** One of either `serviceEndpointId` or `serviceEndpointName` must be specified.
-	// **NOTE:** When supplying `serviceEndpointName`, take care to ensure that this is a unique name.
+	// > **NOTE:** 1. One of either `serviceEndpointId` or `serviceEndpointName` must be specified.
+	// <br>2. When supplying `serviceEndpointName`, take care to ensure that this is a unique name.
 	ServiceEndpointName pulumi.StringPtrInput `pulumi:"serviceEndpointName"`
 }
 
@@ -159,12 +159,12 @@ func (o GetServiceEndpointGithubResultOutput) ToGetServiceEndpointGithubResultOu
 	return o
 }
 
-// Specifies the Authorization Scheme Map.
+// The Authorization scheme.
 func (o GetServiceEndpointGithubResultOutput) Authorization() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetServiceEndpointGithubResult) map[string]string { return v.Authorization }).(pulumi.StringMapOutput)
 }
 
-// Specifies the description of the Service Endpoint.
+// The description of the Service Endpoint.
 func (o GetServiceEndpointGithubResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceEndpointGithubResult) string { return v.Description }).(pulumi.StringOutput)
 }

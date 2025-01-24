@@ -19,9 +19,17 @@ public final class ServiceEndpointGitHubArgs extends com.pulumi.resources.Resour
 
     public static final ServiceEndpointGitHubArgs Empty = new ServiceEndpointGitHubArgs();
 
+    /**
+     * An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+     * 
+     */
     @Import(name="authOauth")
     private @Nullable Output<ServiceEndpointGitHubAuthOauthArgs> authOauth;
 
+    /**
+     * @return An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+     * 
+     */
     public Optional<Output<ServiceEndpointGitHubAuthOauthArgs>> authOauth() {
         return Optional.ofNullable(this.authOauth);
     }
@@ -114,11 +122,23 @@ public final class ServiceEndpointGitHubArgs extends com.pulumi.resources.Resour
             $ = new ServiceEndpointGitHubArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param authOauth An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authOauth(@Nullable Output<ServiceEndpointGitHubAuthOauthArgs> authOauth) {
             $.authOauth = authOauth;
             return this;
         }
 
+        /**
+         * @param authOauth An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authOauth(ServiceEndpointGitHubAuthOauthArgs authOauth) {
             return authOauth(Output.of(authOauth));
         }

@@ -64,14 +64,14 @@ public class Git extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.disabled);
     }
     /**
-     * An `initialization` block as documented below.
+     * A `initialization` block as documented below.
      * 
      */
     @Export(name="initialization", refs={GitInitialization.class}, tree="[0]")
     private Output<GitInitialization> initialization;
 
     /**
-     * @return An `initialization` block as documented below.
+     * @return A `initialization` block as documented below.
      * 
      */
     public Output<GitInitialization> initialization() {

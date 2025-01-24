@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps
 {
     /// <summary>
-    /// Manages a SonarCloud service endpoint within Azure DevOps.
+    /// Manages a SonarQube Cloud service endpoint within Azure DevOps.
     /// 
     /// ## Example Usage
     /// 
@@ -50,7 +50,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ## Import
     /// 
-    /// Azure DevOps Service Endpoint SonarCloud can be imported using the **projectID/serviceEndpointID**, e.g.
+    /// Azure DevOps SonarQube Cloud Service Endpoint can be imported using the **projectID/serviceEndpointID**, e.g.
     /// 
     /// ```sh
     /// $ pulumi import azuredevops:index/serviceEndpointSonarCloud:ServiceEndpointSonarCloud example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -81,7 +81,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> ServiceEndpointName { get; private set; } = null!;
 
         /// <summary>
-        /// Authentication Token generated through SonarCloud (go to `My Account &gt; Security &gt; Generate Tokens`).
+        /// The Authentication Token generated through SonarCloud (go to `My Account &gt; Security &gt; Generate Tokens`).
         /// </summary>
         [Output("token")]
         public Output<string> Token { get; private set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.AzureDevOps
         private Input<string>? _token;
 
         /// <summary>
-        /// Authentication Token generated through SonarCloud (go to `My Account &gt; Security &gt; Generate Tokens`).
+        /// The Authentication Token generated through SonarCloud (go to `My Account &gt; Security &gt; Generate Tokens`).
         /// </summary>
         public Input<string>? Token
         {
@@ -216,7 +216,7 @@ namespace Pulumi.AzureDevOps
         private Input<string>? _token;
 
         /// <summary>
-        /// Authentication Token generated through SonarCloud (go to `My Account &gt; Security &gt; Generate Tokens`).
+        /// The Authentication Token generated through SonarCloud (go to `My Account &gt; Security &gt; Generate Tokens`).
         /// </summary>
         public Input<string>? Token
         {

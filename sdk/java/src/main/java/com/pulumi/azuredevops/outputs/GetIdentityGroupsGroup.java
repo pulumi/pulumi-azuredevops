@@ -10,19 +10,39 @@ import java.util.Objects;
 
 @CustomType
 public final class GetIdentityGroupsGroup {
+    /**
+     * @return The descriptor of the Identity Group.
+     * 
+     */
+    private String descriptor;
+    /**
+     * @return The ID of the Identity Group.
+     * 
+     */
     private String id;
     /**
-     * @return This is the non-unique display name of the identity subject. To change this field, you must alter its value in the source provider.
+     * @return This is the non-unique display name of the identity subject.
      * 
      */
     private String name;
 
     private GetIdentityGroupsGroup() {}
+    /**
+     * @return The descriptor of the Identity Group.
+     * 
+     */
+    public String descriptor() {
+        return this.descriptor;
+    }
+    /**
+     * @return The ID of the Identity Group.
+     * 
+     */
     public String id() {
         return this.id;
     }
     /**
-     * @return This is the non-unique display name of the identity subject. To change this field, you must alter its value in the source provider.
+     * @return This is the non-unique display name of the identity subject.
      * 
      */
     public String name() {
@@ -38,15 +58,25 @@ public final class GetIdentityGroupsGroup {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String descriptor;
         private String id;
         private String name;
         public Builder() {}
         public Builder(GetIdentityGroupsGroup defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.descriptor = defaults.descriptor;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
+        public Builder descriptor(String descriptor) {
+            if (descriptor == null) {
+              throw new MissingRequiredPropertyException("GetIdentityGroupsGroup", "descriptor");
+            }
+            this.descriptor = descriptor;
+            return this;
+        }
         @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
@@ -65,6 +95,7 @@ public final class GetIdentityGroupsGroup {
         }
         public GetIdentityGroupsGroup build() {
             final var _resultValue = new GetIdentityGroupsGroup();
+            _resultValue.descriptor = descriptor;
             _resultValue.id = id;
             _resultValue.name = name;
             return _resultValue;

@@ -12,12 +12,12 @@ import java.util.Objects;
 @CustomType
 public final class GetServiceendpointNpmResult {
     /**
-     * @return Specifies the Authorization Scheme Map.
+     * @return The Authorization scheme.
      * 
      */
     private Map<String,String> authorization;
     /**
-     * @return Specifies the description of the Service Endpoint.
+     * @return The description of the Service Endpoint.
      * 
      */
     private String description;
@@ -30,21 +30,21 @@ public final class GetServiceendpointNpmResult {
     private String serviceEndpointId;
     private String serviceEndpointName;
     /**
-     * @return Specifies the URL of the npm registry to connect with.
+     * @return The URL of the NPM registry to connect with.
      * 
      */
     private String url;
 
     private GetServiceendpointNpmResult() {}
     /**
-     * @return Specifies the Authorization Scheme Map.
+     * @return The Authorization scheme.
      * 
      */
     public Map<String,String> authorization() {
         return this.authorization;
     }
     /**
-     * @return Specifies the description of the Service Endpoint.
+     * @return The description of the Service Endpoint.
      * 
      */
     public String description() {
@@ -67,7 +67,7 @@ public final class GetServiceendpointNpmResult {
         return this.serviceEndpointName;
     }
     /**
-     * @return Specifies the URL of the npm registry to connect with.
+     * @return The URL of the NPM registry to connect with.
      * 
      */
     public String url() {

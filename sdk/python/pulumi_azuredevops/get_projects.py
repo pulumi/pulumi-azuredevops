@@ -61,7 +61,7 @@ class GetProjectsResult:
     @pulumi.getter
     def projects(self) -> Sequence['outputs.GetProjectsProjectResult']:
         """
-        A list of existing projects in your Azure DevOps Organization with details about every project which includes:
+        A list of `projects` blocks as documented below. A list of existing projects in your Azure DevOps Organization with details about every project which includes:
         """
         return pulumi.get(self, "projects")
 
@@ -69,7 +69,7 @@ class GetProjectsResult:
     @pulumi.getter
     def state(self) -> Optional[str]:
         """
-        Project state.
+        The state of the Project.
         """
         return pulumi.get(self, "state")
 
@@ -114,7 +114,7 @@ def get_projects(name: Optional[str] = None,
     :param str name: Name of the Project, if not specified all projects will be returned.
     :param str state: State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
            
-           DataSource without specifying any arguments will return all projects.
+           > **NOTE:** DataSource without specifying any arguments will return all projects.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -155,7 +155,7 @@ def get_projects_output(name: Optional[pulumi.Input[Optional[str]]] = None,
     :param str name: Name of the Project, if not specified all projects will be returned.
     :param str state: State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
            
-           DataSource without specifying any arguments will return all projects.
+           > **NOTE:** DataSource without specifying any arguments will return all projects.
     """
     __args__ = dict()
     __args__['name'] = name

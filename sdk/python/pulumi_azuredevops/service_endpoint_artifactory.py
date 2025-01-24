@@ -34,8 +34,8 @@ class ServiceEndpointArtifactoryArgs:
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] url: URL of the Artifactory server to connect with.
                
-               _Note: URL should not end in a slash character._
-               * either `authentication_token` or `authentication_basic` (one is required)
+               _**Note: URL should not end in a slash character.**_
+        :param pulumi.Input['ServiceEndpointArtifactoryAuthenticationTokenArgs'] authentication_token: A `authentication_basic` block as defined below.
         :param pulumi.Input[str] description: The Service Endpoint description.
         """
         pulumi.set(__self__, "project_id", project_id)
@@ -80,8 +80,7 @@ class ServiceEndpointArtifactoryArgs:
         """
         URL of the Artifactory server to connect with.
 
-        _Note: URL should not end in a slash character._
-        * either `authentication_token` or `authentication_basic` (one is required)
+        _**Note: URL should not end in a slash character.**_
         """
         return pulumi.get(self, "url")
 
@@ -101,6 +100,9 @@ class ServiceEndpointArtifactoryArgs:
     @property
     @pulumi.getter(name="authenticationToken")
     def authentication_token(self) -> Optional[pulumi.Input['ServiceEndpointArtifactoryAuthenticationTokenArgs']]:
+        """
+        A `authentication_basic` block as defined below.
+        """
         return pulumi.get(self, "authentication_token")
 
     @authentication_token.setter
@@ -141,13 +143,13 @@ class _ServiceEndpointArtifactoryState:
                  url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ServiceEndpointArtifactory resources.
+        :param pulumi.Input['ServiceEndpointArtifactoryAuthenticationTokenArgs'] authentication_token: A `authentication_basic` block as defined below.
         :param pulumi.Input[str] description: The Service Endpoint description.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] url: URL of the Artifactory server to connect with.
                
-               _Note: URL should not end in a slash character._
-               * either `authentication_token` or `authentication_basic` (one is required)
+               _**Note: URL should not end in a slash character.**_
         """
         if authentication_basic is not None:
             pulumi.set(__self__, "authentication_basic", authentication_basic)
@@ -176,6 +178,9 @@ class _ServiceEndpointArtifactoryState:
     @property
     @pulumi.getter(name="authenticationToken")
     def authentication_token(self) -> Optional[pulumi.Input['ServiceEndpointArtifactoryAuthenticationTokenArgs']]:
+        """
+        A `authentication_basic` block as defined below.
+        """
         return pulumi.get(self, "authentication_token")
 
     @authentication_token.setter
@@ -233,8 +238,7 @@ class _ServiceEndpointArtifactoryState:
         """
         URL of the Artifactory server to connect with.
 
-        _Note: URL should not end in a slash character._
-        * either `authentication_token` or `authentication_basic` (one is required)
+        _**Note: URL should not end in a slash character.**_
         """
         return pulumi.get(self, "url")
 
@@ -257,7 +261,7 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
                  url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages an Artifactory server endpoint within an Azure DevOps organization. Using this service endpoint requires you to first install [JFrog Artifactory Extension](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-artifactory-vsts-extension).
+        Manages an JFrog Artifactory server endpoint within an Azure DevOps organization. Using this service endpoint requires you to first install [JFrog Artifactory Extension](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-artifactory-vsts-extension).
 
         ## Example Usage
 
@@ -310,7 +314,7 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
 
         ## Import
 
-        Azure DevOps Service Endpoint Artifactory can be imported using the **projectID/serviceEndpointID**, e.g.
+        Azure DevOps JFrog Artifactory Service Endpoint can be imported using the **projectID/serviceEndpointID**, e.g.
 
         ```sh
         $ pulumi import azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -318,13 +322,13 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['ServiceEndpointArtifactoryAuthenticationTokenArgs', 'ServiceEndpointArtifactoryAuthenticationTokenArgsDict']] authentication_token: A `authentication_basic` block as defined below.
         :param pulumi.Input[str] description: The Service Endpoint description.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] url: URL of the Artifactory server to connect with.
                
-               _Note: URL should not end in a slash character._
-               * either `authentication_token` or `authentication_basic` (one is required)
+               _**Note: URL should not end in a slash character.**_
         """
         ...
     @overload
@@ -333,7 +337,7 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
                  args: ServiceEndpointArtifactoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Artifactory server endpoint within an Azure DevOps organization. Using this service endpoint requires you to first install [JFrog Artifactory Extension](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-artifactory-vsts-extension).
+        Manages an JFrog Artifactory server endpoint within an Azure DevOps organization. Using this service endpoint requires you to first install [JFrog Artifactory Extension](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-artifactory-vsts-extension).
 
         ## Example Usage
 
@@ -386,7 +390,7 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
 
         ## Import
 
-        Azure DevOps Service Endpoint Artifactory can be imported using the **projectID/serviceEndpointID**, e.g.
+        Azure DevOps JFrog Artifactory Service Endpoint can be imported using the **projectID/serviceEndpointID**, e.g.
 
         ```sh
         $ pulumi import azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -460,13 +464,13 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['ServiceEndpointArtifactoryAuthenticationTokenArgs', 'ServiceEndpointArtifactoryAuthenticationTokenArgsDict']] authentication_token: A `authentication_basic` block as defined below.
         :param pulumi.Input[str] description: The Service Endpoint description.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] url: URL of the Artifactory server to connect with.
                
-               _Note: URL should not end in a slash character._
-               * either `authentication_token` or `authentication_basic` (one is required)
+               _**Note: URL should not end in a slash character.**_
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -489,6 +493,9 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
     @property
     @pulumi.getter(name="authenticationToken")
     def authentication_token(self) -> pulumi.Output[Optional['outputs.ServiceEndpointArtifactoryAuthenticationToken']]:
+        """
+        A `authentication_basic` block as defined below.
+        """
         return pulumi.get(self, "authentication_token")
 
     @property
@@ -526,8 +533,7 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
         """
         URL of the Artifactory server to connect with.
 
-        _Note: URL should not end in a slash character._
-        * either `authentication_token` or `authentication_basic` (one is required)
+        _**Note: URL should not end in a slash character.**_
         """
         return pulumi.get(self, "url")
 

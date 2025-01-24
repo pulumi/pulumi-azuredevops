@@ -99,7 +99,7 @@ class GetAreaResult:
     @pulumi.getter(name="projectId")
     def project_id(self) -> str:
         """
-        The project ID of the child Area node
+        The ID of project.
         """
         return pulumi.get(self, "project_id")
 

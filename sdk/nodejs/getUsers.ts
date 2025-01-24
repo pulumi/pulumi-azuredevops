@@ -27,14 +27,11 @@ export function getUsers(args?: GetUsersArgs, opts?: pulumi.InvokeOptions): Prom
 export interface GetUsersArgs {
     /**
      * A `features` block as defined below.
-     *
-     * DataSource without specifying any arguments will return all users inside an organization.
-     *
-     * List of possible subject types
      */
     features?: inputs.GetUsersFeatures;
     /**
      * The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+     * <pre>List of possible origins
      */
     origin?: string;
     /**
@@ -47,6 +44,7 @@ export interface GetUsersArgs {
     principalName?: string;
     /**
      * A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
+     * <pre>List of possible subject types
      */
     subjectTypes?: string[];
 }
@@ -74,7 +72,7 @@ export interface GetUsersResult {
     readonly principalName?: string;
     readonly subjectTypes?: string[];
     /**
-     * A set of existing users in your Azure DevOps Organization with details about every single user which includes:
+     * A `users` block as defined below. A set of existing users in your Azure DevOps Organization with details about every single user.
      */
     readonly users: outputs.GetUsersUser[];
 }
@@ -99,14 +97,11 @@ export function getUsersOutput(args?: GetUsersOutputArgs, opts?: pulumi.InvokeOu
 export interface GetUsersOutputArgs {
     /**
      * A `features` block as defined below.
-     *
-     * DataSource without specifying any arguments will return all users inside an organization.
-     *
-     * List of possible subject types
      */
     features?: pulumi.Input<inputs.GetUsersFeaturesArgs>;
     /**
      * The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+     * <pre>List of possible origins
      */
     origin?: pulumi.Input<string>;
     /**
@@ -119,6 +114,7 @@ export interface GetUsersOutputArgs {
     principalName?: pulumi.Input<string>;
     /**
      * A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
+     * <pre>List of possible subject types
      */
     subjectTypes?: pulumi.Input<pulumi.Input<string>[]>;
 }

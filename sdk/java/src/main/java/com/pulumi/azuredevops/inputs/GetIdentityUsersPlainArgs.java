@@ -31,14 +31,14 @@ public final class GetIdentityUsersPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * The type of search to perform. Default is `General`. Possible values are `AccountName`, `DisplayName`, and `MailAddress`.
+     * The type of search to perform. Possible values are: `AccountName`, `DisplayName`, and `MailAddress`. Default is `General`.
      * 
      */
     @Import(name="searchFilter")
     private @Nullable String searchFilter;
 
     /**
-     * @return The type of search to perform. Default is `General`. Possible values are `AccountName`, `DisplayName`, and `MailAddress`.
+     * @return The type of search to perform. Possible values are: `AccountName`, `DisplayName`, and `MailAddress`. Default is `General`.
      * 
      */
     public Optional<String> searchFilter() {
@@ -82,7 +82,7 @@ public final class GetIdentityUsersPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param searchFilter The type of search to perform. Default is `General`. Possible values are `AccountName`, `DisplayName`, and `MailAddress`.
+         * @param searchFilter The type of search to perform. Possible values are: `AccountName`, `DisplayName`, and `MailAddress`. Default is `General`.
          * 
          * @return builder
          * 

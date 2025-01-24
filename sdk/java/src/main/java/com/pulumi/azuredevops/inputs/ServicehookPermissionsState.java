@@ -20,12 +20,26 @@ public final class ServicehookPermissionsState extends com.pulumi.resources.Reso
     /**
      * the permissions to assign. The following permissions are available.
      * 
+     * | Name                | Permission Description |
+     * |---------------------|------------------------|
+     * | ViewSubscriptions   | View Subscriptions     |
+     * | EditSubscriptions   | Edit Subscription      |
+     * | DeleteSubscriptions | Delete Subscriptions   |
+     * | PublishEvents       | Publish Events         |
+     * 
      */
     @Import(name="permissions")
     private @Nullable Output<Map<String,String>> permissions;
 
     /**
      * @return the permissions to assign. The following permissions are available.
+     * 
+     * | Name                | Permission Description |
+     * |---------------------|------------------------|
+     * | ViewSubscriptions   | View Subscriptions     |
+     * | EditSubscriptions   | Edit Subscription      |
+     * | DeleteSubscriptions | Delete Subscriptions   |
+     * | PublishEvents       | Publish Events         |
      * 
      */
     public Optional<Output<Map<String,String>>> permissions() {
@@ -65,26 +79,12 @@ public final class ServicehookPermissionsState extends com.pulumi.resources.Reso
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      * 
-     * | Name               | Permission Description   |
-     * | ------------------ | ------------------------ |
-     * | ViewSubscriptions  | View Subscriptions       |
-     * | EditSubscriptions  | Edit Subscription        |
-     * | DeleteSubscriptions| Delete Subscriptions     |
-     * | PublishEvents      | Publish Events           |
-     * 
      */
     @Import(name="replace")
     private @Nullable Output<Boolean> replace;
 
     /**
      * @return Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     * 
-     * | Name               | Permission Description   |
-     * | ------------------ | ------------------------ |
-     * | ViewSubscriptions  | View Subscriptions       |
-     * | EditSubscriptions  | Edit Subscription        |
-     * | DeleteSubscriptions| Delete Subscriptions     |
-     * | PublishEvents      | Publish Events           |
      * 
      */
     public Optional<Output<Boolean>> replace() {
@@ -121,6 +121,13 @@ public final class ServicehookPermissionsState extends com.pulumi.resources.Reso
         /**
          * @param permissions the permissions to assign. The following permissions are available.
          * 
+         * | Name                | Permission Description |
+         * |---------------------|------------------------|
+         * | ViewSubscriptions   | View Subscriptions     |
+         * | EditSubscriptions   | Edit Subscription      |
+         * | DeleteSubscriptions | Delete Subscriptions   |
+         * | PublishEvents       | Publish Events         |
+         * 
          * @return builder
          * 
          */
@@ -131,6 +138,13 @@ public final class ServicehookPermissionsState extends com.pulumi.resources.Reso
 
         /**
          * @param permissions the permissions to assign. The following permissions are available.
+         * 
+         * | Name                | Permission Description |
+         * |---------------------|------------------------|
+         * | ViewSubscriptions   | View Subscriptions     |
+         * | EditSubscriptions   | Edit Subscription      |
+         * | DeleteSubscriptions | Delete Subscriptions   |
+         * | PublishEvents       | Publish Events         |
          * 
          * @return builder
          * 
@@ -184,13 +198,6 @@ public final class ServicehookPermissionsState extends com.pulumi.resources.Reso
         /**
          * @param replace Replace (`true`) or merge (`false`) the permissions. Default: `true`
          * 
-         * | Name               | Permission Description   |
-         * | ------------------ | ------------------------ |
-         * | ViewSubscriptions  | View Subscriptions       |
-         * | EditSubscriptions  | Edit Subscription        |
-         * | DeleteSubscriptions| Delete Subscriptions     |
-         * | PublishEvents      | Publish Events           |
-         * 
          * @return builder
          * 
          */
@@ -201,13 +208,6 @@ public final class ServicehookPermissionsState extends com.pulumi.resources.Reso
 
         /**
          * @param replace Replace (`true`) or merge (`false`) the permissions. Default: `true`
-         * 
-         * | Name               | Permission Description   |
-         * | ------------------ | ------------------------ |
-         * | ViewSubscriptions  | View Subscriptions       |
-         * | EditSubscriptions  | Edit Subscription        |
-         * | DeleteSubscriptions| Delete Subscriptions     |
-         * | PublishEvents      | Publish Events           |
          * 
          * @return builder
          * 

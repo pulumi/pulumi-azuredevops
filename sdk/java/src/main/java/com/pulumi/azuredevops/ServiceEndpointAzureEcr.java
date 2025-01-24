@@ -21,8 +21,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### Service Principal
- * 
+ * ### Authorize with Service Principal
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
@@ -73,7 +72,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### WorkloadIdentityFederation
+ * ### Authorize with WorkloadIdentityFederation
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -163,7 +162,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Azure DevOps Service Endpoint Azure Container Registry can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+ * Azure DevOps Azure Container Registry Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
  * 
  * ```sh
  * $ pulumi import azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -253,14 +252,14 @@ public class ServiceEndpointAzureEcr extends com.pulumi.resources.CustomResource
         return this.azurecrSubscriptionName;
     }
     /**
-     * A `credentials` block.
+     * A `credentials` block as defined below.
      * 
      */
     @Export(name="credentials", refs={ServiceEndpointAzureEcrCredentials.class}, tree="[0]")
     private Output</* @Nullable */ ServiceEndpointAzureEcrCredentials> credentials;
 
     /**
-     * @return A `credentials` block.
+     * @return A `credentials` block as defined below.
      * 
      */
     public Output<Optional<ServiceEndpointAzureEcrCredentials>> credentials() {

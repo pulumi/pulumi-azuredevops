@@ -24,7 +24,7 @@ public final class GetBuildDefinitionPullRequestTriggerOverride {
      */
     private List<GetBuildDefinitionPullRequestTriggerOverrideBranchFilter> branchFilters;
     /**
-     * @return block supports the following:
+     * @return The file paths to include or exclude. A `path_filter` block as defined above.
      * 
      */
     private List<GetBuildDefinitionPullRequestTriggerOverridePathFilter> pathFilters;
@@ -45,7 +45,7 @@ public final class GetBuildDefinitionPullRequestTriggerOverride {
         return this.branchFilters;
     }
     /**
-     * @return block supports the following:
+     * @return The file paths to include or exclude. A `path_filter` block as defined above.
      * 
      */
     public List<GetBuildDefinitionPullRequestTriggerOverridePathFilter> pathFilters() {

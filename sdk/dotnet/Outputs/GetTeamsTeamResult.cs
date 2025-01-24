@@ -21,13 +21,16 @@ namespace Pulumi.AzureDevOps.Outputs
         /// Team description.
         /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// The ID of the Team.
+        /// </summary>
         public readonly string Id;
         /// <summary>
         /// List of subject descriptors for `members` of the team.
         /// </summary>
         public readonly ImmutableArray<string> Members;
         /// <summary>
-        /// Team name.
+        /// The name of the team.
         /// </summary>
         public readonly string Name;
         /// <summary>

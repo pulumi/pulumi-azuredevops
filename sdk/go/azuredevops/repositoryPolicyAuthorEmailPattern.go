@@ -126,7 +126,8 @@ type RepositoryPolicyAuthorEmailPattern struct {
 	pulumi.CustomResourceState
 
 	// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
-	// Email patterns prefixed with "!" are excluded. Order is important.
+	//
+	// ~>**NOTE:** Email patterns prefixed with `!` are excluded. Order is important.
 	AuthorEmailPatterns pulumi.StringArrayOutput `pulumi:"authorEmailPatterns"`
 	// A flag indicating if the policy should be blocking. Defaults to `true`.
 	Blocking pulumi.BoolPtrOutput `pulumi:"blocking"`
@@ -175,7 +176,8 @@ func GetRepositoryPolicyAuthorEmailPattern(ctx *pulumi.Context,
 // Input properties used for looking up and filtering RepositoryPolicyAuthorEmailPattern resources.
 type repositoryPolicyAuthorEmailPatternState struct {
 	// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
-	// Email patterns prefixed with "!" are excluded. Order is important.
+	//
+	// ~>**NOTE:** Email patterns prefixed with `!` are excluded. Order is important.
 	AuthorEmailPatterns []string `pulumi:"authorEmailPatterns"`
 	// A flag indicating if the policy should be blocking. Defaults to `true`.
 	Blocking *bool `pulumi:"blocking"`
@@ -189,7 +191,8 @@ type repositoryPolicyAuthorEmailPatternState struct {
 
 type RepositoryPolicyAuthorEmailPatternState struct {
 	// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
-	// Email patterns prefixed with "!" are excluded. Order is important.
+	//
+	// ~>**NOTE:** Email patterns prefixed with `!` are excluded. Order is important.
 	AuthorEmailPatterns pulumi.StringArrayInput
 	// A flag indicating if the policy should be blocking. Defaults to `true`.
 	Blocking pulumi.BoolPtrInput
@@ -207,7 +210,8 @@ func (RepositoryPolicyAuthorEmailPatternState) ElementType() reflect.Type {
 
 type repositoryPolicyAuthorEmailPatternArgs struct {
 	// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
-	// Email patterns prefixed with "!" are excluded. Order is important.
+	//
+	// ~>**NOTE:** Email patterns prefixed with `!` are excluded. Order is important.
 	AuthorEmailPatterns []string `pulumi:"authorEmailPatterns"`
 	// A flag indicating if the policy should be blocking. Defaults to `true`.
 	Blocking *bool `pulumi:"blocking"`
@@ -222,7 +226,8 @@ type repositoryPolicyAuthorEmailPatternArgs struct {
 // The set of arguments for constructing a RepositoryPolicyAuthorEmailPattern resource.
 type RepositoryPolicyAuthorEmailPatternArgs struct {
 	// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
-	// Email patterns prefixed with "!" are excluded. Order is important.
+	//
+	// ~>**NOTE:** Email patterns prefixed with `!` are excluded. Order is important.
 	AuthorEmailPatterns pulumi.StringArrayInput
 	// A flag indicating if the policy should be blocking. Defaults to `true`.
 	Blocking pulumi.BoolPtrInput
@@ -322,7 +327,8 @@ func (o RepositoryPolicyAuthorEmailPatternOutput) ToRepositoryPolicyAuthorEmailP
 }
 
 // Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
-// Email patterns prefixed with "!" are excluded. Order is important.
+//
+// ~>**NOTE:** Email patterns prefixed with `!` are excluded. Order is important.
 func (o RepositoryPolicyAuthorEmailPatternOutput) AuthorEmailPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RepositoryPolicyAuthorEmailPattern) pulumi.StringArrayOutput { return v.AuthorEmailPatterns }).(pulumi.StringArrayOutput)
 }

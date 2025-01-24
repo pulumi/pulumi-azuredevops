@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages permissions for service hooks
+// Manages permissions for Service Hook permissions.
 //
 // ## Permission levels
 //
@@ -83,19 +83,19 @@ type ServicehookPermissions struct {
 	pulumi.CustomResourceState
 
 	// the permissions to assign. The following permissions are available.
+	//
+	// | Name                | Permission Description |
+	// |---------------------|------------------------|
+	// | ViewSubscriptions   | View Subscriptions     |
+	// | EditSubscriptions   | Edit Subscription      |
+	// | DeleteSubscriptions | Delete Subscriptions   |
+	// | PublishEvents       | Publish Events         |
 	Permissions pulumi.StringMapOutput `pulumi:"permissions"`
 	// The **group** principal to assign the permissions.
 	Principal pulumi.StringOutput `pulumi:"principal"`
 	// The ID of the project.
 	ProjectId pulumi.StringPtrOutput `pulumi:"projectId"`
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-	//
-	// | Name               | Permission Description   |
-	// | ------------------ | ------------------------ |
-	// | ViewSubscriptions  | View Subscriptions       |
-	// | EditSubscriptions  | Edit Subscription        |
-	// | DeleteSubscriptions| Delete Subscriptions     |
-	// | PublishEvents      | Publish Events           |
 	Replace pulumi.BoolPtrOutput `pulumi:"replace"`
 }
 
@@ -136,37 +136,37 @@ func GetServicehookPermissions(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ServicehookPermissions resources.
 type servicehookPermissionsState struct {
 	// the permissions to assign. The following permissions are available.
+	//
+	// | Name                | Permission Description |
+	// |---------------------|------------------------|
+	// | ViewSubscriptions   | View Subscriptions     |
+	// | EditSubscriptions   | Edit Subscription      |
+	// | DeleteSubscriptions | Delete Subscriptions   |
+	// | PublishEvents       | Publish Events         |
 	Permissions map[string]string `pulumi:"permissions"`
 	// The **group** principal to assign the permissions.
 	Principal *string `pulumi:"principal"`
 	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-	//
-	// | Name               | Permission Description   |
-	// | ------------------ | ------------------------ |
-	// | ViewSubscriptions  | View Subscriptions       |
-	// | EditSubscriptions  | Edit Subscription        |
-	// | DeleteSubscriptions| Delete Subscriptions     |
-	// | PublishEvents      | Publish Events           |
 	Replace *bool `pulumi:"replace"`
 }
 
 type ServicehookPermissionsState struct {
 	// the permissions to assign. The following permissions are available.
+	//
+	// | Name                | Permission Description |
+	// |---------------------|------------------------|
+	// | ViewSubscriptions   | View Subscriptions     |
+	// | EditSubscriptions   | Edit Subscription      |
+	// | DeleteSubscriptions | Delete Subscriptions   |
+	// | PublishEvents       | Publish Events         |
 	Permissions pulumi.StringMapInput
 	// The **group** principal to assign the permissions.
 	Principal pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-	//
-	// | Name               | Permission Description   |
-	// | ------------------ | ------------------------ |
-	// | ViewSubscriptions  | View Subscriptions       |
-	// | EditSubscriptions  | Edit Subscription        |
-	// | DeleteSubscriptions| Delete Subscriptions     |
-	// | PublishEvents      | Publish Events           |
 	Replace pulumi.BoolPtrInput
 }
 
@@ -176,38 +176,38 @@ func (ServicehookPermissionsState) ElementType() reflect.Type {
 
 type servicehookPermissionsArgs struct {
 	// the permissions to assign. The following permissions are available.
+	//
+	// | Name                | Permission Description |
+	// |---------------------|------------------------|
+	// | ViewSubscriptions   | View Subscriptions     |
+	// | EditSubscriptions   | Edit Subscription      |
+	// | DeleteSubscriptions | Delete Subscriptions   |
+	// | PublishEvents       | Publish Events         |
 	Permissions map[string]string `pulumi:"permissions"`
 	// The **group** principal to assign the permissions.
 	Principal string `pulumi:"principal"`
 	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-	//
-	// | Name               | Permission Description   |
-	// | ------------------ | ------------------------ |
-	// | ViewSubscriptions  | View Subscriptions       |
-	// | EditSubscriptions  | Edit Subscription        |
-	// | DeleteSubscriptions| Delete Subscriptions     |
-	// | PublishEvents      | Publish Events           |
 	Replace *bool `pulumi:"replace"`
 }
 
 // The set of arguments for constructing a ServicehookPermissions resource.
 type ServicehookPermissionsArgs struct {
 	// the permissions to assign. The following permissions are available.
+	//
+	// | Name                | Permission Description |
+	// |---------------------|------------------------|
+	// | ViewSubscriptions   | View Subscriptions     |
+	// | EditSubscriptions   | Edit Subscription      |
+	// | DeleteSubscriptions | Delete Subscriptions   |
+	// | PublishEvents       | Publish Events         |
 	Permissions pulumi.StringMapInput
 	// The **group** principal to assign the permissions.
 	Principal pulumi.StringInput
 	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-	//
-	// | Name               | Permission Description   |
-	// | ------------------ | ------------------------ |
-	// | ViewSubscriptions  | View Subscriptions       |
-	// | EditSubscriptions  | Edit Subscription        |
-	// | DeleteSubscriptions| Delete Subscriptions     |
-	// | PublishEvents      | Publish Events           |
 	Replace pulumi.BoolPtrInput
 }
 
@@ -299,6 +299,13 @@ func (o ServicehookPermissionsOutput) ToServicehookPermissionsOutputWithContext(
 }
 
 // the permissions to assign. The following permissions are available.
+//
+// | Name                | Permission Description |
+// |---------------------|------------------------|
+// | ViewSubscriptions   | View Subscriptions     |
+// | EditSubscriptions   | Edit Subscription      |
+// | DeleteSubscriptions | Delete Subscriptions   |
+// | PublishEvents       | Publish Events         |
 func (o ServicehookPermissionsOutput) Permissions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServicehookPermissions) pulumi.StringMapOutput { return v.Permissions }).(pulumi.StringMapOutput)
 }
@@ -314,13 +321,6 @@ func (o ServicehookPermissionsOutput) ProjectId() pulumi.StringPtrOutput {
 }
 
 // Replace (`true`) or merge (`false`) the permissions. Default: `true`
-//
-// | Name               | Permission Description   |
-// | ------------------ | ------------------------ |
-// | ViewSubscriptions  | View Subscriptions       |
-// | EditSubscriptions  | Edit Subscription        |
-// | DeleteSubscriptions| Delete Subscriptions     |
-// | PublishEvents      | Publish Events           |
 func (o ServicehookPermissionsOutput) Replace() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServicehookPermissions) pulumi.BoolPtrOutput { return v.Replace }).(pulumi.BoolPtrOutput)
 }

@@ -15,14 +15,14 @@ public final class ServiceEndpointArtifactoryAuthenticationTokenArgs extends com
     public static final ServiceEndpointArtifactoryAuthenticationTokenArgs Empty = new ServiceEndpointArtifactoryAuthenticationTokenArgs();
 
     /**
-     * The Artifactory access token.
+     * Authentication Token generated through Artifactory.
      * 
      */
     @Import(name="token", required=true)
     private Output<String> token;
 
     /**
-     * @return The Artifactory access token.
+     * @return Authentication Token generated through Artifactory.
      * 
      */
     public Output<String> token() {
@@ -54,7 +54,7 @@ public final class ServiceEndpointArtifactoryAuthenticationTokenArgs extends com
         }
 
         /**
-         * @param token The Artifactory access token.
+         * @param token Authentication Token generated through Artifactory.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ServiceEndpointArtifactoryAuthenticationTokenArgs extends com
         }
 
         /**
-         * @param token The Artifactory access token.
+         * @param token Authentication Token generated through Artifactory.
          * 
          * @return builder
          * 

@@ -364,7 +364,7 @@ type BuildDefinition struct {
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// A `pullRequestTrigger` block as documented below.
 	PullRequestTrigger BuildDefinitionPullRequestTriggerPtrOutput `pulumi:"pullRequestTrigger"`
-	// The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+	// The queue status of the build definition. Possible values are: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
 	QueueStatus pulumi.StringPtrOutput `pulumi:"queueStatus"`
 	// A `repository` block as documented below.
 	Repository BuildDefinitionRepositoryOutput `pulumi:"repository"`
@@ -429,7 +429,7 @@ type buildDefinitionState struct {
 	ProjectId *string `pulumi:"projectId"`
 	// A `pullRequestTrigger` block as documented below.
 	PullRequestTrigger *BuildDefinitionPullRequestTrigger `pulumi:"pullRequestTrigger"`
-	// The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+	// The queue status of the build definition. Possible values are: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
 	QueueStatus *string `pulumi:"queueStatus"`
 	// A `repository` block as documented below.
 	Repository *BuildDefinitionRepository `pulumi:"repository"`
@@ -459,7 +459,7 @@ type BuildDefinitionState struct {
 	ProjectId pulumi.StringPtrInput
 	// A `pullRequestTrigger` block as documented below.
 	PullRequestTrigger BuildDefinitionPullRequestTriggerPtrInput
-	// The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+	// The queue status of the build definition. Possible values are: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
 	QueueStatus pulumi.StringPtrInput
 	// A `repository` block as documented below.
 	Repository BuildDefinitionRepositoryPtrInput
@@ -493,7 +493,7 @@ type buildDefinitionArgs struct {
 	ProjectId string `pulumi:"projectId"`
 	// A `pullRequestTrigger` block as documented below.
 	PullRequestTrigger *BuildDefinitionPullRequestTrigger `pulumi:"pullRequestTrigger"`
-	// The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+	// The queue status of the build definition. Possible values are: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
 	QueueStatus *string `pulumi:"queueStatus"`
 	// A `repository` block as documented below.
 	Repository BuildDefinitionRepository `pulumi:"repository"`
@@ -522,7 +522,7 @@ type BuildDefinitionArgs struct {
 	ProjectId pulumi.StringInput
 	// A `pullRequestTrigger` block as documented below.
 	PullRequestTrigger BuildDefinitionPullRequestTriggerPtrInput
-	// The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+	// The queue status of the build definition. Possible values are: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
 	QueueStatus pulumi.StringPtrInput
 	// A `repository` block as documented below.
 	Repository BuildDefinitionRepositoryInput
@@ -662,7 +662,7 @@ func (o BuildDefinitionOutput) PullRequestTrigger() BuildDefinitionPullRequestTr
 	return o.ApplyT(func(v *BuildDefinition) BuildDefinitionPullRequestTriggerPtrOutput { return v.PullRequestTrigger }).(BuildDefinitionPullRequestTriggerPtrOutput)
 }
 
-// The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+// The queue status of the build definition. Possible values are: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
 func (o BuildDefinitionOutput) QueueStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BuildDefinition) pulumi.StringPtrOutput { return v.QueueStatus }).(pulumi.StringPtrOutput)
 }

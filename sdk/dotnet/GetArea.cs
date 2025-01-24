@@ -220,7 +220,7 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public readonly string Path;
         /// <summary>
-        /// The project ID of the child Area node
+        /// The ID of project.
         /// </summary>
         public readonly string ProjectId;
 

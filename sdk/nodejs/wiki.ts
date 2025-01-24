@@ -35,7 +35,7 @@ import * as utilities from "./utilities";
  *     repositoryId: exampleGit.id,
  *     version: "main",
  *     type: "codeWiki",
- *     mappedpath: "/",
+ *     mappedPath: "/",
  * });
  * ```
  *
@@ -79,6 +79,9 @@ export class Wiki extends pulumi.CustomResource {
         return obj['__pulumiType'] === Wiki.__pulumiType;
     }
 
+    /**
+     * Folder path inside repository which is shown as Wiki.
+     */
     public readonly mappedPath!: pulumi.Output<string>;
     /**
      * The name of the Wiki.
@@ -153,6 +156,9 @@ export class Wiki extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Wiki resources.
  */
 export interface WikiState {
+    /**
+     * Folder path inside repository which is shown as Wiki.
+     */
     mappedPath?: pulumi.Input<string>;
     /**
      * The name of the Wiki.
@@ -188,6 +194,9 @@ export interface WikiState {
  * The set of arguments for constructing a Wiki resource.
  */
 export interface WikiArgs {
+    /**
+     * Folder path inside repository which is shown as Wiki.
+     */
     mappedPath?: pulumi.Input<string>;
     /**
      * The name of the Wiki.

@@ -50,6 +50,8 @@ export function getRepositories(args?: GetRepositoriesArgs, opts?: pulumi.Invoke
  */
 export interface GetRepositoriesArgs {
     /**
+     * Defaults to `false`.
+     *
      * DataSource without specifying any arguments will return all Git repositories of an organization.
      */
     includeHidden?: boolean;
@@ -81,7 +83,7 @@ export interface GetRepositoriesResult {
      */
     readonly projectId?: string;
     /**
-     * A list of existing projects in your Azure DevOps Organization with details about every project which includes:
+     * A `repositories` blocks as documented below. A list of existing projects in your Azure DevOps Organization with details about every project.
      */
     readonly repositories: outputs.GetRepositoriesRepository[];
 }
@@ -129,6 +131,8 @@ export function getRepositoriesOutput(args?: GetRepositoriesOutputArgs, opts?: p
  */
 export interface GetRepositoriesOutputArgs {
     /**
+     * Defaults to `false`.
+     *
      * DataSource without specifying any arguments will return all Git repositories of an organization.
      */
     includeHidden?: pulumi.Input<boolean>;

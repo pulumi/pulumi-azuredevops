@@ -21,6 +21,7 @@ import javax.annotation.Nullable;
 /**
  * ## Example Usage
  * 
+ * ### Basic usage
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
@@ -78,7 +79,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### With AzureRM Key Vault
+ * ### Link to AzureRM Key Vault
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

@@ -70,14 +70,14 @@ public final class ServiceEndpointSonarCloudArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Authentication Token generated through SonarCloud (go to `My Account &gt; Security &gt; Generate Tokens`).
+     * The Authentication Token generated through SonarCloud (go to `My Account &gt; Security &gt; Generate Tokens`).
      * 
      */
     @Import(name="token", required=true)
     private Output<String> token;
 
     /**
-     * @return Authentication Token generated through SonarCloud (go to `My Account &gt; Security &gt; Generate Tokens`).
+     * @return The Authentication Token generated through SonarCloud (go to `My Account &gt; Security &gt; Generate Tokens`).
      * 
      */
     public Output<String> token() {
@@ -185,7 +185,7 @@ public final class ServiceEndpointSonarCloudArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param token Authentication Token generated through SonarCloud (go to `My Account &gt; Security &gt; Generate Tokens`).
+         * @param token The Authentication Token generated through SonarCloud (go to `My Account &gt; Security &gt; Generate Tokens`).
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class ServiceEndpointSonarCloudArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param token Authentication Token generated through SonarCloud (go to `My Account &gt; Security &gt; Generate Tokens`).
+         * @param token The Authentication Token generated through SonarCloud (go to `My Account &gt; Security &gt; Generate Tokens`).
          * 
          * @return builder
          * 

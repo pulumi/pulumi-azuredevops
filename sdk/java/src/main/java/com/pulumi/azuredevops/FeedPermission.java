@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFeed = new Feed("exampleFeed", FeedArgs.builder()
- *             .name("releases")
+ *             .name("examplefeed")
  *             .build());
  * 
  *         var permission = new FeedPermission("permission", FeedPermissionArgs.builder()
@@ -153,14 +153,14 @@ public class FeedPermission extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.projectId);
     }
     /**
-     * The role to be assigned, possible values : `reader`, `contributor`, `collaborator`, `administrator`
+     * The role to be assigned. Possible values are: `reader`, `contributor`, `collaborator`, `administrator`
      * 
      */
     @Export(name="role", refs={String.class}, tree="[0]")
     private Output<String> role;
 
     /**
-     * @return The role to be assigned, possible values : `reader`, `contributor`, `collaborator`, `administrator`
+     * @return The role to be assigned. Possible values are: `reader`, `contributor`, `collaborator`, `administrator`
      * 
      */
     public Output<String> role() {

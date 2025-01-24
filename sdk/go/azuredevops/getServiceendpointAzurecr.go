@@ -66,7 +66,7 @@ type GetServiceendpointAzurecrArgs struct {
 type GetServiceendpointAzurecrResult struct {
 	// The Object ID of the Service Principal.
 	AppObjectId string `pulumi:"appObjectId"`
-	// Specifies the Authorization Scheme Map.
+	// The Authorization scheme.
 	Authorization map[string]string `pulumi:"authorization"`
 	// The ID of Service Principal Role Assignment.
 	AzSpnRoleAssignmentId string `pulumi:"azSpnRoleAssignmentId"`
@@ -140,7 +140,7 @@ func (o GetServiceendpointAzurecrResultOutput) AppObjectId() pulumi.StringOutput
 	return o.ApplyT(func(v GetServiceendpointAzurecrResult) string { return v.AppObjectId }).(pulumi.StringOutput)
 }
 
-// Specifies the Authorization Scheme Map.
+// The Authorization scheme.
 func (o GetServiceendpointAzurecrResultOutput) Authorization() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetServiceendpointAzurecrResult) map[string]string { return v.Authorization }).(pulumi.StringMapOutput)
 }

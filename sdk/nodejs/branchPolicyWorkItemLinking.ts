@@ -100,7 +100,7 @@ export class BranchPolicyWorkItemLinking extends pulumi.CustomResource {
      */
     public readonly projectId!: pulumi.Output<string>;
     /**
-     * Configuration for the policy. This block must be defined exactly once.
+     * A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
      */
     public readonly settings!: pulumi.Output<outputs.BranchPolicyWorkItemLinkingSettings>;
 
@@ -156,7 +156,7 @@ export interface BranchPolicyWorkItemLinkingState {
      */
     projectId?: pulumi.Input<string>;
     /**
-     * Configuration for the policy. This block must be defined exactly once.
+     * A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
      */
     settings?: pulumi.Input<inputs.BranchPolicyWorkItemLinkingSettings>;
 }
@@ -178,7 +178,7 @@ export interface BranchPolicyWorkItemLinkingArgs {
      */
     projectId: pulumi.Input<string>;
     /**
-     * Configuration for the policy. This block must be defined exactly once.
+     * A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
      */
     settings: pulumi.Input<inputs.BranchPolicyWorkItemLinkingSettings>;
 }

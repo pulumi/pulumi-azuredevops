@@ -187,7 +187,7 @@ export class WorkItemQueryPermissions extends pulumi.CustomResource {
      */
     public readonly projectId!: pulumi.Output<string>;
     /**
-     * Replace (`true`) or merge (`false`) the permissions. Default: `true`
+     * Replace (`true`) or merge (`false`) the permissions. Defaults to `true`
      */
     public readonly replace!: pulumi.Output<boolean | undefined>;
 
@@ -259,7 +259,7 @@ export interface WorkItemQueryPermissionsState {
      */
     projectId?: pulumi.Input<string>;
     /**
-     * Replace (`true`) or merge (`false`) the permissions. Default: `true`
+     * Replace (`true`) or merge (`false`) the permissions. Defaults to `true`
      */
     replace?: pulumi.Input<boolean>;
 }
@@ -292,7 +292,7 @@ export interface WorkItemQueryPermissionsArgs {
      */
     projectId: pulumi.Input<string>;
     /**
-     * Replace (`true`) or merge (`false`) the permissions. Default: `true`
+     * Replace (`true`) or merge (`false`) the permissions. Defaults to `true`
      */
     replace?: pulumi.Input<boolean>;
 }

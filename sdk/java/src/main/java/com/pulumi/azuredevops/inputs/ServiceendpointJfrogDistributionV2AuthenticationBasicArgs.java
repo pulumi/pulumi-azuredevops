@@ -15,14 +15,14 @@ public final class ServiceendpointJfrogDistributionV2AuthenticationBasicArgs ext
     public static final ServiceendpointJfrogDistributionV2AuthenticationBasicArgs Empty = new ServiceendpointJfrogDistributionV2AuthenticationBasicArgs();
 
     /**
-     * Artifactory Password.
+     * The Password of the Artifactory.
      * 
      */
     @Import(name="password", required=true)
     private Output<String> password;
 
     /**
-     * @return Artifactory Password.
+     * @return The Password of the Artifactory.
      * 
      */
     public Output<String> password() {
@@ -30,14 +30,14 @@ public final class ServiceendpointJfrogDistributionV2AuthenticationBasicArgs ext
     }
 
     /**
-     * Artifactory Username.
+     * The Username of the Artifactory.
      * 
      */
     @Import(name="username", required=true)
     private Output<String> username;
 
     /**
-     * @return Artifactory Username.
+     * @return The Username of the Artifactory.
      * 
      */
     public Output<String> username() {
@@ -70,7 +70,7 @@ public final class ServiceendpointJfrogDistributionV2AuthenticationBasicArgs ext
         }
 
         /**
-         * @param password Artifactory Password.
+         * @param password The Password of the Artifactory.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class ServiceendpointJfrogDistributionV2AuthenticationBasicArgs ext
         }
 
         /**
-         * @param password Artifactory Password.
+         * @param password The Password of the Artifactory.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class ServiceendpointJfrogDistributionV2AuthenticationBasicArgs ext
         }
 
         /**
-         * @param username Artifactory Username.
+         * @param username The Username of the Artifactory.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ServiceendpointJfrogDistributionV2AuthenticationBasicArgs ext
         }
 
         /**
-         * @param username Artifactory Username.
+         * @param username The Username of the Artifactory.
          * 
          * @return builder
          * 

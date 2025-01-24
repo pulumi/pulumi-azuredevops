@@ -84,6 +84,18 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// the permissions to assign. The following permissions are available.
+        /// 
+        /// | Permission             | Description                          |
+        /// |------------------------|--------------------------------------|
+        /// | GENERIC_READ           | View permissions for this node       |
+        /// | GENERIC_WRITE          | Edit this node                       |
+        /// | CREATE_CHILDREN        | Create child nodes                   |
+        /// | DELETE                 | Delete this node                     |
+        /// | WORK_ITEM_READ         | View work items in this node         |
+        /// | WORK_ITEM_WRITE        | Edit work items in this node         |
+        /// | MANAGE_TEST_PLANS      | Manage test plans                    |
+        /// | MANAGE_TEST_SUITES     | Manage test suites                   |
+        /// | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
         /// </summary>
         [Output("permissions")]
         public Output<ImmutableDictionary<string, string>> Permissions { get; private set; } = null!;
@@ -102,18 +114,6 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// Replace (`true`) or merge (`false`) the permissions. Default: `true`.
-        /// 
-        /// | Permission             | Description                          |
-        /// |------------------------|--------------------------------------|
-        /// | GENERIC_READ           | View permissions for this node       |
-        /// | GENERIC_WRITE          | Edit this node                       |
-        /// | CREATE_CHILDREN        | Create child nodes                   |
-        /// | DELETE                 | Delete this node                     |
-        /// | WORK_ITEM_READ         | View work items in this node         |
-        /// | WORK_ITEM_WRITE        | Edit work items in this node         |
-        /// | MANAGE_TEST_PLANS      | Manage test plans                    |
-        /// | MANAGE_TEST_SUITES     | Manage test suites                   |
-        /// | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
         /// </summary>
         [Output("replace")]
         public Output<bool?> Replace { get; private set; } = null!;
@@ -175,6 +175,18 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// the permissions to assign. The following permissions are available.
+        /// 
+        /// | Permission             | Description                          |
+        /// |------------------------|--------------------------------------|
+        /// | GENERIC_READ           | View permissions for this node       |
+        /// | GENERIC_WRITE          | Edit this node                       |
+        /// | CREATE_CHILDREN        | Create child nodes                   |
+        /// | DELETE                 | Delete this node                     |
+        /// | WORK_ITEM_READ         | View work items in this node         |
+        /// | WORK_ITEM_WRITE        | Edit work items in this node         |
+        /// | MANAGE_TEST_PLANS      | Manage test plans                    |
+        /// | MANAGE_TEST_SUITES     | Manage test suites                   |
+        /// | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
         /// </summary>
         public InputMap<string> Permissions
         {
@@ -196,18 +208,6 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// Replace (`true`) or merge (`false`) the permissions. Default: `true`.
-        /// 
-        /// | Permission             | Description                          |
-        /// |------------------------|--------------------------------------|
-        /// | GENERIC_READ           | View permissions for this node       |
-        /// | GENERIC_WRITE          | Edit this node                       |
-        /// | CREATE_CHILDREN        | Create child nodes                   |
-        /// | DELETE                 | Delete this node                     |
-        /// | WORK_ITEM_READ         | View work items in this node         |
-        /// | WORK_ITEM_WRITE        | Edit work items in this node         |
-        /// | MANAGE_TEST_PLANS      | Manage test plans                    |
-        /// | MANAGE_TEST_SUITES     | Manage test suites                   |
-        /// | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
         /// </summary>
         [Input("replace")]
         public Input<bool>? Replace { get; set; }
@@ -231,6 +231,18 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// the permissions to assign. The following permissions are available.
+        /// 
+        /// | Permission             | Description                          |
+        /// |------------------------|--------------------------------------|
+        /// | GENERIC_READ           | View permissions for this node       |
+        /// | GENERIC_WRITE          | Edit this node                       |
+        /// | CREATE_CHILDREN        | Create child nodes                   |
+        /// | DELETE                 | Delete this node                     |
+        /// | WORK_ITEM_READ         | View work items in this node         |
+        /// | WORK_ITEM_WRITE        | Edit work items in this node         |
+        /// | MANAGE_TEST_PLANS      | Manage test plans                    |
+        /// | MANAGE_TEST_SUITES     | Manage test suites                   |
+        /// | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
         /// </summary>
         public InputMap<string> Permissions
         {
@@ -252,18 +264,6 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// Replace (`true`) or merge (`false`) the permissions. Default: `true`.
-        /// 
-        /// | Permission             | Description                          |
-        /// |------------------------|--------------------------------------|
-        /// | GENERIC_READ           | View permissions for this node       |
-        /// | GENERIC_WRITE          | Edit this node                       |
-        /// | CREATE_CHILDREN        | Create child nodes                   |
-        /// | DELETE                 | Delete this node                     |
-        /// | WORK_ITEM_READ         | View work items in this node         |
-        /// | WORK_ITEM_WRITE        | Edit work items in this node         |
-        /// | MANAGE_TEST_PLANS      | Manage test plans                    |
-        /// | MANAGE_TEST_SUITES     | Manage test suites                   |
-        /// | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
         /// </summary>
         [Input("replace")]
         public Input<bool>? Replace { get; set; }

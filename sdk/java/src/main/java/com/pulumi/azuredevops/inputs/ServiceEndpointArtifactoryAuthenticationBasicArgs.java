@@ -15,14 +15,14 @@ public final class ServiceEndpointArtifactoryAuthenticationBasicArgs extends com
     public static final ServiceEndpointArtifactoryAuthenticationBasicArgs Empty = new ServiceEndpointArtifactoryAuthenticationBasicArgs();
 
     /**
-     * The Artifactory password.
+     * The Password of the Artifactory.
      * 
      */
     @Import(name="password", required=true)
     private Output<String> password;
 
     /**
-     * @return The Artifactory password.
+     * @return The Password of the Artifactory.
      * 
      */
     public Output<String> password() {
@@ -30,14 +30,14 @@ public final class ServiceEndpointArtifactoryAuthenticationBasicArgs extends com
     }
 
     /**
-     * The Artifactory user name.
+     * The Username of the Artifactory.
      * 
      */
     @Import(name="username", required=true)
     private Output<String> username;
 
     /**
-     * @return The Artifactory user name.
+     * @return The Username of the Artifactory.
      * 
      */
     public Output<String> username() {
@@ -70,7 +70,7 @@ public final class ServiceEndpointArtifactoryAuthenticationBasicArgs extends com
         }
 
         /**
-         * @param password The Artifactory password.
+         * @param password The Password of the Artifactory.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class ServiceEndpointArtifactoryAuthenticationBasicArgs extends com
         }
 
         /**
-         * @param password The Artifactory password.
+         * @param password The Password of the Artifactory.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class ServiceEndpointArtifactoryAuthenticationBasicArgs extends com
         }
 
         /**
-         * @param username The Artifactory user name.
+         * @param username The Username of the Artifactory.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ServiceEndpointArtifactoryAuthenticationBasicArgs extends com
         }
 
         /**
-         * @param username The Artifactory user name.
+         * @param username The Username of the Artifactory.
          * 
          * @return builder
          * 

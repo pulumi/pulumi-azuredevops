@@ -41,14 +41,14 @@ public final class ServiceendpointExternaltfsArgs extends com.pulumi.resources.R
     }
 
     /**
-     * URL of the Azure DevOps organization or the TFS Project Collection to connect to.
+     * Azure DevOps Organization or TFS Project Collection Url.
      * 
      */
     @Import(name="connectionUrl", required=true)
     private Output<String> connectionUrl;
 
     /**
-     * @return URL of the Azure DevOps organization or the TFS Project Collection to connect to.
+     * @return Azure DevOps Organization or TFS Project Collection Url.
      * 
      */
     public Output<String> connectionUrl() {
@@ -152,7 +152,7 @@ public final class ServiceendpointExternaltfsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param connectionUrl URL of the Azure DevOps organization or the TFS Project Collection to connect to.
+         * @param connectionUrl Azure DevOps Organization or TFS Project Collection Url.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class ServiceendpointExternaltfsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param connectionUrl URL of the Azure DevOps organization or the TFS Project Collection to connect to.
+         * @param connectionUrl Azure DevOps Organization or TFS Project Collection Url.
          * 
          * @return builder
          * 

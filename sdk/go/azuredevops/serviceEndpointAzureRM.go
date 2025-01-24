@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages Manual or Automatic AzureRM service endpoint within Azure DevOps.
+// Manages Manual or Automatic Azure Resource Manager service endpoint within Azure DevOps.
 //
 // ## Requirements (Manual AzureRM Service Endpoint)
 //
@@ -315,7 +315,7 @@ import (
 //
 // ## Import
 //
-// Azure DevOps Service Endpoint Azure Resource Manage can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+// Azure DevOps Azure Resource Manager Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
 // $ pulumi import azuredevops:index/serviceEndpointAzureRM:ServiceEndpointAzureRM example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -334,13 +334,13 @@ type ServiceEndpointAzureRM struct {
 	AzurermSubscriptionId pulumi.StringPtrOutput `pulumi:"azurermSubscriptionId"`
 	// The Subscription Name of the targets.
 	AzurermSubscriptionName pulumi.StringPtrOutput `pulumi:"azurermSubscriptionName"`
-	// A `credentials` block.
+	// A `credentials` block as defined below.
 	Credentials ServiceEndpointAzureRMCredentialsPtrOutput `pulumi:"credentials"`
 	// Service connection description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud` and `AzureStack`. Changing this forces a new resource to be created.
 	Environment pulumi.StringPtrOutput `pulumi:"environment"`
-	// A `features` block.
+	// A `features` block as defined below.
 	Features ServiceEndpointAzureRMFeaturesPtrOutput `pulumi:"features"`
 	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
@@ -350,7 +350,7 @@ type ServiceEndpointAzureRM struct {
 	//
 	// > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
 	ServerUrl pulumi.StringOutput `pulumi:"serverUrl"`
-	// Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+	// Specifies the type of Azure Resource Manager Service Endpoint. Possible values are `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
 	//
 	// > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
 	ServiceEndpointAuthenticationScheme pulumi.StringPtrOutput `pulumi:"serviceEndpointAuthenticationScheme"`
@@ -414,13 +414,13 @@ type serviceEndpointAzureRMState struct {
 	AzurermSubscriptionId *string `pulumi:"azurermSubscriptionId"`
 	// The Subscription Name of the targets.
 	AzurermSubscriptionName *string `pulumi:"azurermSubscriptionName"`
-	// A `credentials` block.
+	// A `credentials` block as defined below.
 	Credentials *ServiceEndpointAzureRMCredentials `pulumi:"credentials"`
 	// Service connection description.
 	Description *string `pulumi:"description"`
 	// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud` and `AzureStack`. Changing this forces a new resource to be created.
 	Environment *string `pulumi:"environment"`
-	// A `features` block.
+	// A `features` block as defined below.
 	Features *ServiceEndpointAzureRMFeatures `pulumi:"features"`
 	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
@@ -430,7 +430,7 @@ type serviceEndpointAzureRMState struct {
 	//
 	// > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
 	ServerUrl *string `pulumi:"serverUrl"`
-	// Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+	// Specifies the type of Azure Resource Manager Service Endpoint. Possible values are `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
 	//
 	// > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
 	ServiceEndpointAuthenticationScheme *string `pulumi:"serviceEndpointAuthenticationScheme"`
@@ -456,13 +456,13 @@ type ServiceEndpointAzureRMState struct {
 	AzurermSubscriptionId pulumi.StringPtrInput
 	// The Subscription Name of the targets.
 	AzurermSubscriptionName pulumi.StringPtrInput
-	// A `credentials` block.
+	// A `credentials` block as defined below.
 	Credentials ServiceEndpointAzureRMCredentialsPtrInput
 	// Service connection description.
 	Description pulumi.StringPtrInput
 	// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud` and `AzureStack`. Changing this forces a new resource to be created.
 	Environment pulumi.StringPtrInput
-	// A `features` block.
+	// A `features` block as defined below.
 	Features ServiceEndpointAzureRMFeaturesPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
@@ -472,7 +472,7 @@ type ServiceEndpointAzureRMState struct {
 	//
 	// > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
 	ServerUrl pulumi.StringPtrInput
-	// Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+	// Specifies the type of Azure Resource Manager Service Endpoint. Possible values are `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
 	//
 	// > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
 	ServiceEndpointAuthenticationScheme pulumi.StringPtrInput
@@ -502,13 +502,13 @@ type serviceEndpointAzureRMArgs struct {
 	AzurermSubscriptionId *string `pulumi:"azurermSubscriptionId"`
 	// The Subscription Name of the targets.
 	AzurermSubscriptionName *string `pulumi:"azurermSubscriptionName"`
-	// A `credentials` block.
+	// A `credentials` block as defined below.
 	Credentials *ServiceEndpointAzureRMCredentials `pulumi:"credentials"`
 	// Service connection description.
 	Description *string `pulumi:"description"`
 	// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud` and `AzureStack`. Changing this forces a new resource to be created.
 	Environment *string `pulumi:"environment"`
-	// A `features` block.
+	// A `features` block as defined below.
 	Features *ServiceEndpointAzureRMFeatures `pulumi:"features"`
 	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
@@ -518,7 +518,7 @@ type serviceEndpointAzureRMArgs struct {
 	//
 	// > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
 	ServerUrl *string `pulumi:"serverUrl"`
-	// Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+	// Specifies the type of Azure Resource Manager Service Endpoint. Possible values are `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
 	//
 	// > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
 	ServiceEndpointAuthenticationScheme *string `pulumi:"serviceEndpointAuthenticationScheme"`
@@ -539,13 +539,13 @@ type ServiceEndpointAzureRMArgs struct {
 	AzurermSubscriptionId pulumi.StringPtrInput
 	// The Subscription Name of the targets.
 	AzurermSubscriptionName pulumi.StringPtrInput
-	// A `credentials` block.
+	// A `credentials` block as defined below.
 	Credentials ServiceEndpointAzureRMCredentialsPtrInput
 	// Service connection description.
 	Description pulumi.StringPtrInput
 	// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud` and `AzureStack`. Changing this forces a new resource to be created.
 	Environment pulumi.StringPtrInput
-	// A `features` block.
+	// A `features` block as defined below.
 	Features ServiceEndpointAzureRMFeaturesPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringInput
@@ -555,7 +555,7 @@ type ServiceEndpointAzureRMArgs struct {
 	//
 	// > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
 	ServerUrl pulumi.StringPtrInput
-	// Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+	// Specifies the type of Azure Resource Manager Service Endpoint. Possible values are `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
 	//
 	// > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
 	ServiceEndpointAuthenticationScheme pulumi.StringPtrInput
@@ -679,7 +679,7 @@ func (o ServiceEndpointAzureRMOutput) AzurermSubscriptionName() pulumi.StringPtr
 	return o.ApplyT(func(v *ServiceEndpointAzureRM) pulumi.StringPtrOutput { return v.AzurermSubscriptionName }).(pulumi.StringPtrOutput)
 }
 
-// A `credentials` block.
+// A `credentials` block as defined below.
 func (o ServiceEndpointAzureRMOutput) Credentials() ServiceEndpointAzureRMCredentialsPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointAzureRM) ServiceEndpointAzureRMCredentialsPtrOutput { return v.Credentials }).(ServiceEndpointAzureRMCredentialsPtrOutput)
 }
@@ -694,7 +694,7 @@ func (o ServiceEndpointAzureRMOutput) Environment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointAzureRM) pulumi.StringPtrOutput { return v.Environment }).(pulumi.StringPtrOutput)
 }
 
-// A `features` block.
+// A `features` block as defined below.
 func (o ServiceEndpointAzureRMOutput) Features() ServiceEndpointAzureRMFeaturesPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointAzureRM) ServiceEndpointAzureRMFeaturesPtrOutput { return v.Features }).(ServiceEndpointAzureRMFeaturesPtrOutput)
 }
@@ -716,7 +716,7 @@ func (o ServiceEndpointAzureRMOutput) ServerUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceEndpointAzureRM) pulumi.StringOutput { return v.ServerUrl }).(pulumi.StringOutput)
 }
 
-// Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+// Specifies the type of Azure Resource Manager Service Endpoint. Possible values are `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
 //
 // > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
 func (o ServiceEndpointAzureRMOutput) ServiceEndpointAuthenticationScheme() pulumi.StringPtrOutput {

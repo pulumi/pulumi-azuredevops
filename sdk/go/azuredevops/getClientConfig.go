@@ -50,7 +50,8 @@ func GetClientConfig(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetClie
 // A collection of values returned by getClientConfig.
 type GetClientConfigResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id              string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// The organization configured for the provider.
 	OrganizationUrl string `pulumi:"organizationUrl"`
 }
 
@@ -81,6 +82,7 @@ func (o GetClientConfigResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClientConfigResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The organization configured for the provider.
 func (o GetClientConfigResultOutput) OrganizationUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClientConfigResult) string { return v.OrganizationUrl }).(pulumi.StringOutput)
 }

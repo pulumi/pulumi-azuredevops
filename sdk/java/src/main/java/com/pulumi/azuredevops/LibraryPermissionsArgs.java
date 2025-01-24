@@ -21,12 +21,30 @@ public final class LibraryPermissionsArgs extends com.pulumi.resources.ResourceA
     /**
      * the permissions to assign. The following permissions are available.
      * 
+     * | Permission  | Description               |
+     * |-------------|---------------------------|
+     * | View        | View library item         |
+     * | Administer  | Administer library item   |
+     * | Create      | Create library item       |
+     * | ViewSecrets | View library item secrets |
+     * | Use         | Use library item          |
+     * | Owner       | Owner library item        |
+     * 
      */
     @Import(name="permissions", required=true)
     private Output<Map<String,String>> permissions;
 
     /**
      * @return the permissions to assign. The following permissions are available.
+     * 
+     * | Permission  | Description               |
+     * |-------------|---------------------------|
+     * | View        | View library item         |
+     * | Administer  | Administer library item   |
+     * | Create      | Create library item       |
+     * | ViewSecrets | View library item secrets |
+     * | Use         | Use library item          |
+     * | Owner       | Owner library item        |
      * 
      */
     public Output<Map<String,String>> permissions() {
@@ -66,30 +84,12 @@ public final class LibraryPermissionsArgs extends com.pulumi.resources.ResourceA
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      * 
-     * | Permission        | Description                         |
-     * | ----------------- | ----------------------------------- |
-     * | View              | View library item                   |
-     * | Administer        | Administer library item             |
-     * | Create            | Create library item                 |
-     * | ViewSecrets       | View library item secrets           |
-     * | Use               | Use library item                    |
-     * | Owner             | Owner library item                  |
-     * 
      */
     @Import(name="replace")
     private @Nullable Output<Boolean> replace;
 
     /**
      * @return Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     * 
-     * | Permission        | Description                         |
-     * | ----------------- | ----------------------------------- |
-     * | View              | View library item                   |
-     * | Administer        | Administer library item             |
-     * | Create            | Create library item                 |
-     * | ViewSecrets       | View library item secrets           |
-     * | Use               | Use library item                    |
-     * | Owner             | Owner library item                  |
      * 
      */
     public Optional<Output<Boolean>> replace() {
@@ -126,6 +126,15 @@ public final class LibraryPermissionsArgs extends com.pulumi.resources.ResourceA
         /**
          * @param permissions the permissions to assign. The following permissions are available.
          * 
+         * | Permission  | Description               |
+         * |-------------|---------------------------|
+         * | View        | View library item         |
+         * | Administer  | Administer library item   |
+         * | Create      | Create library item       |
+         * | ViewSecrets | View library item secrets |
+         * | Use         | Use library item          |
+         * | Owner       | Owner library item        |
+         * 
          * @return builder
          * 
          */
@@ -136,6 +145,15 @@ public final class LibraryPermissionsArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param permissions the permissions to assign. The following permissions are available.
+         * 
+         * | Permission  | Description               |
+         * |-------------|---------------------------|
+         * | View        | View library item         |
+         * | Administer  | Administer library item   |
+         * | Create      | Create library item       |
+         * | ViewSecrets | View library item secrets |
+         * | Use         | Use library item          |
+         * | Owner       | Owner library item        |
          * 
          * @return builder
          * 
@@ -189,15 +207,6 @@ public final class LibraryPermissionsArgs extends com.pulumi.resources.ResourceA
         /**
          * @param replace Replace (`true`) or merge (`false`) the permissions. Default: `true`
          * 
-         * | Permission        | Description                         |
-         * | ----------------- | ----------------------------------- |
-         * | View              | View library item                   |
-         * | Administer        | Administer library item             |
-         * | Create            | Create library item                 |
-         * | ViewSecrets       | View library item secrets           |
-         * | Use               | Use library item                    |
-         * | Owner             | Owner library item                  |
-         * 
          * @return builder
          * 
          */
@@ -208,15 +217,6 @@ public final class LibraryPermissionsArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param replace Replace (`true`) or merge (`false`) the permissions. Default: `true`
-         * 
-         * | Permission        | Description                         |
-         * | ----------------- | ----------------------------------- |
-         * | View              | View library item                   |
-         * | Administer        | Administer library item             |
-         * | Create            | Create library item                 |
-         * | ViewSecrets       | View library item secrets           |
-         * | Use               | Use library item                    |
-         * | Owner             | Owner library item                  |
          * 
          * @return builder
          * 

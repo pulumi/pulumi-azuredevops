@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class ServiceEndpointAzureEcrCredentials {
     /**
-     * @return The service principal application Id
+     * @return The ID of the Service Principal Application.
      * 
      */
     private String serviceprincipalid;
 
     private ServiceEndpointAzureEcrCredentials() {}
     /**
-     * @return The service principal application Id
+     * @return The ID of the Service Principal Application.
      * 
      */
     public String serviceprincipalid() {

@@ -31,7 +31,7 @@ public final class GetBuildDefinitionCiTriggerOverride {
      */
     private Integer maxConcurrentBuildsPerBranch;
     /**
-     * @return block supports the following:
+     * @return The file paths to include or exclude. A `path_filter` block as defined above.
      * 
      */
     private List<GetBuildDefinitionCiTriggerOverridePathFilter> pathFilters;
@@ -69,7 +69,7 @@ public final class GetBuildDefinitionCiTriggerOverride {
         return this.maxConcurrentBuildsPerBranch;
     }
     /**
-     * @return block supports the following:
+     * @return The file paths to include or exclude. A `path_filter` block as defined above.
      * 
      */
     public List<GetBuildDefinitionCiTriggerOverridePathFilter> pathFilters() {

@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages permissions for service hooks
+ * Manages permissions for Service Hook permissions.
  * 
  * ## Permission levels
  * 
@@ -101,12 +101,26 @@ public class ServicehookPermissions extends com.pulumi.resources.CustomResource 
     /**
      * the permissions to assign. The following permissions are available.
      * 
+     * | Name                | Permission Description |
+     * |---------------------|------------------------|
+     * | ViewSubscriptions   | View Subscriptions     |
+     * | EditSubscriptions   | Edit Subscription      |
+     * | DeleteSubscriptions | Delete Subscriptions   |
+     * | PublishEvents       | Publish Events         |
+     * 
      */
     @Export(name="permissions", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> permissions;
 
     /**
      * @return the permissions to assign. The following permissions are available.
+     * 
+     * | Name                | Permission Description |
+     * |---------------------|------------------------|
+     * | ViewSubscriptions   | View Subscriptions     |
+     * | EditSubscriptions   | Edit Subscription      |
+     * | DeleteSubscriptions | Delete Subscriptions   |
+     * | PublishEvents       | Publish Events         |
      * 
      */
     public Output<Map<String,String>> permissions() {
@@ -143,26 +157,12 @@ public class ServicehookPermissions extends com.pulumi.resources.CustomResource 
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      * 
-     * | Name               | Permission Description   |
-     * | ------------------ | ------------------------ |
-     * | ViewSubscriptions  | View Subscriptions       |
-     * | EditSubscriptions  | Edit Subscription        |
-     * | DeleteSubscriptions| Delete Subscriptions     |
-     * | PublishEvents      | Publish Events           |
-     * 
      */
     @Export(name="replace", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> replace;
 
     /**
      * @return Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     * 
-     * | Name               | Permission Description   |
-     * | ------------------ | ------------------------ |
-     * | ViewSubscriptions  | View Subscriptions       |
-     * | EditSubscriptions  | Edit Subscription        |
-     * | DeleteSubscriptions| Delete Subscriptions     |
-     * | PublishEvents      | Publish Events           |
      * 
      */
     public Output<Optional<Boolean>> replace() {

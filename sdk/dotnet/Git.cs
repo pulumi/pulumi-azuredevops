@@ -40,7 +40,7 @@ namespace Pulumi.AzureDevOps
         public Output<bool?> Disabled { get; private set; } = null!;
 
         /// <summary>
-        /// An `initialization` block as documented below.
+        /// A `initialization` block as documented below.
         /// </summary>
         [Output("initialization")]
         public Output<Outputs.GitInitialization> Initialization { get; private set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.AzureDevOps
         public Input<bool>? Disabled { get; set; }
 
         /// <summary>
-        /// An `initialization` block as documented below.
+        /// A `initialization` block as documented below.
         /// </summary>
         [Input("initialization", required: true)]
         public Input<Inputs.GitInitializationArgs> Initialization { get; set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.AzureDevOps
         public Input<bool>? Disabled { get; set; }
 
         /// <summary>
-        /// An `initialization` block as documented below.
+        /// A `initialization` block as documented below.
         /// </summary>
         [Input("initialization")]
         public Input<Inputs.GitInitializationGetArgs>? Initialization { get; set; }

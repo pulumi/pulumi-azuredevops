@@ -296,7 +296,7 @@ export class BuildDefinition extends pulumi.CustomResource {
      */
     public readonly pullRequestTrigger!: pulumi.Output<outputs.BuildDefinitionPullRequestTrigger | undefined>;
     /**
-     * The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+     * The queue status of the build definition. Possible values are: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
      */
     public readonly queueStatus!: pulumi.Output<string | undefined>;
     /**
@@ -409,7 +409,7 @@ export interface BuildDefinitionState {
      */
     pullRequestTrigger?: pulumi.Input<inputs.BuildDefinitionPullRequestTrigger>;
     /**
-     * The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+     * The queue status of the build definition. Possible values are: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
      */
     queueStatus?: pulumi.Input<string>;
     /**
@@ -468,7 +468,7 @@ export interface BuildDefinitionArgs {
      */
     pullRequestTrigger?: pulumi.Input<inputs.BuildDefinitionPullRequestTrigger>;
     /**
-     * The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+     * The queue status of the build definition. Possible values are: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
      */
     queueStatus?: pulumi.Input<string>;
     /**

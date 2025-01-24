@@ -24,7 +24,7 @@ export interface GetIdentityUsersArgs {
      */
     name: string;
     /**
-     * The type of search to perform. Default is `General`. Possible values are `AccountName`, `DisplayName`, and `MailAddress`.
+     * The type of search to perform. Possible values are: `AccountName`, `DisplayName`, and `MailAddress`. Default is `General`.
      */
     searchFilter?: string;
 }
@@ -33,14 +33,14 @@ export interface GetIdentityUsersArgs {
  * A collection of values returned by getIdentityUsers.
  */
 export interface GetIdentityUsersResult {
+    /**
+     * The descriptor of the user.
+     */
     readonly descriptor: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * This is the PrincipalName of this identity member from the source provider. The source provider may change this field over time and it is not guaranteed to be immutable for the life of the identity member.
-     */
     readonly name: string;
     readonly searchFilter?: string;
 }
@@ -64,7 +64,7 @@ export interface GetIdentityUsersOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * The type of search to perform. Default is `General`. Possible values are `AccountName`, `DisplayName`, and `MailAddress`.
+     * The type of search to perform. Possible values are: `AccountName`, `DisplayName`, and `MailAddress`. Default is `General`.
      */
     searchFilter?: pulumi.Input<string>;
 }

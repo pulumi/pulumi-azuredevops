@@ -88,70 +88,70 @@ import javax.annotation.Nullable;
 @ResourceType(type="azuredevops:index/resourceAuthorization:ResourceAuthorization")
 public class ResourceAuthorization extends com.pulumi.resources.CustomResource {
     /**
-     * Set to true to allow public access in the project. Type: boolean.
+     * Set to true to allow public access in the project.
      * 
      */
     @Export(name="authorized", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> authorized;
 
     /**
-     * @return Set to true to allow public access in the project. Type: boolean.
+     * @return Set to true to allow public access in the project.
      * 
      */
     public Output<Boolean> authorized() {
         return this.authorized;
     }
     /**
-     * The ID of the build definition to authorize. Type: string.
+     * The ID of the build definition to authorize.
      * 
      */
     @Export(name="definitionId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> definitionId;
 
     /**
-     * @return The ID of the build definition to authorize. Type: string.
+     * @return The ID of the build definition to authorize.
      * 
      */
     public Output<Optional<Integer>> definitionId() {
         return Codegen.optional(this.definitionId);
     }
     /**
-     * The project ID or project name. Type: string.
+     * The project ID or project name.
      * 
      */
     @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
-     * @return The project ID or project name. Type: string.
+     * @return The project ID or project name.
      * 
      */
     public Output<String> projectId() {
         return this.projectId;
     }
     /**
-     * The ID of the resource to authorize. Type: string.
+     * The ID of the resource to authorize.
      * 
      */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
     /**
-     * @return The ID of the resource to authorize. Type: string.
+     * @return The ID of the resource to authorize.
      * 
      */
     public Output<String> resourceId() {
         return this.resourceId;
     }
     /**
-     * The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
+     * The type of the resource to authorize. Possible values: `endpoint`, `queue`, `variablegroup`. Defaults to value: `endpoint`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
-     * @return The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
+     * @return The type of the resource to authorize. Possible values: `endpoint`, `queue`, `variablegroup`. Defaults to value: `endpoint`.
      * 
      */
     public Output<Optional<String>> type() {

@@ -148,14 +148,14 @@ public class BranchPolicyCommentResolution extends com.pulumi.resources.CustomRe
         return this.projectId;
     }
     /**
-     * Configuration for the policy. This block must be defined exactly once.
+     * A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
      * 
      */
     @Export(name="settings", refs={BranchPolicyCommentResolutionSettings.class}, tree="[0]")
     private Output<BranchPolicyCommentResolutionSettings> settings;
 
     /**
-     * @return Configuration for the policy. This block must be defined exactly once.
+     * @return A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
      * 
      */
     public Output<BranchPolicyCommentResolutionSettings> settings() {

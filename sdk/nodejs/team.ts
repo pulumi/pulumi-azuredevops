@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * ## *---
+ *
+ * layout: "azuredevops"
+ * page_title: "AzureDevops: azuredevops.Team"
+ * description: |-
+ *   Manages a team within a project in a Azure DevOps organization.
+ * ---
+ *
+ * # azuredevops.Team
+ *
  * Manages a team within a project in a Azure DevOps organization.
  *
  * ## Example Usage
@@ -83,10 +93,10 @@ export class Team extends pulumi.CustomResource {
     /**
      * List of subject descriptors to define administrators of the team.
      *
-     * > NOTE: It's possible to define team administrators both within the
-     * > `azuredevops.Team` resource via the `administrators` block and by using the
-     * > `azuredevops.TeamAdministrators` resource. However it's not possible to use
-     * > both methods to manage team administrators, since there'll be conflicts.
+     * > **NOTE:** It's possible to define team administrators both within the
+     * `azuredevops.Team` resource via the `administrators` block and by using the
+     * `azuredevops.TeamAdministrators` resource. However it's not possible to use
+     * both methods to manage team administrators, since there'll be conflicts.
      */
     public readonly administrators!: pulumi.Output<string[]>;
     /**
@@ -100,10 +110,10 @@ export class Team extends pulumi.CustomResource {
     /**
      * List of subject descriptors to define members of the team.
      *
-     * > NOTE: It's possible to define team members both within the
-     * > `azuredevops.Team` resource via the `members` block and by using the
-     * > `azuredevops.TeamMembers` resource. However it's not possible to use
-     * > both methods to manage team members, since there'll be conflicts.
+     * > **NOTE:** It's possible to define team members both within the
+     * `azuredevops.Team` resource via the `members` block and by using the
+     * `azuredevops.TeamMembers` resource. However it's not possible to use
+     * both methods to manage team members, since there'll be conflicts.
      */
     public readonly members!: pulumi.Output<string[]>;
     /**
@@ -158,10 +168,10 @@ export interface TeamState {
     /**
      * List of subject descriptors to define administrators of the team.
      *
-     * > NOTE: It's possible to define team administrators both within the
-     * > `azuredevops.Team` resource via the `administrators` block and by using the
-     * > `azuredevops.TeamAdministrators` resource. However it's not possible to use
-     * > both methods to manage team administrators, since there'll be conflicts.
+     * > **NOTE:** It's possible to define team administrators both within the
+     * `azuredevops.Team` resource via the `administrators` block and by using the
+     * `azuredevops.TeamAdministrators` resource. However it's not possible to use
+     * both methods to manage team administrators, since there'll be conflicts.
      */
     administrators?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -175,10 +185,10 @@ export interface TeamState {
     /**
      * List of subject descriptors to define members of the team.
      *
-     * > NOTE: It's possible to define team members both within the
-     * > `azuredevops.Team` resource via the `members` block and by using the
-     * > `azuredevops.TeamMembers` resource. However it's not possible to use
-     * > both methods to manage team members, since there'll be conflicts.
+     * > **NOTE:** It's possible to define team members both within the
+     * `azuredevops.Team` resource via the `members` block and by using the
+     * `azuredevops.TeamMembers` resource. However it's not possible to use
+     * both methods to manage team members, since there'll be conflicts.
      */
     members?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -198,10 +208,10 @@ export interface TeamArgs {
     /**
      * List of subject descriptors to define administrators of the team.
      *
-     * > NOTE: It's possible to define team administrators both within the
-     * > `azuredevops.Team` resource via the `administrators` block and by using the
-     * > `azuredevops.TeamAdministrators` resource. However it's not possible to use
-     * > both methods to manage team administrators, since there'll be conflicts.
+     * > **NOTE:** It's possible to define team administrators both within the
+     * `azuredevops.Team` resource via the `administrators` block and by using the
+     * `azuredevops.TeamAdministrators` resource. However it's not possible to use
+     * both methods to manage team administrators, since there'll be conflicts.
      */
     administrators?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -211,10 +221,10 @@ export interface TeamArgs {
     /**
      * List of subject descriptors to define members of the team.
      *
-     * > NOTE: It's possible to define team members both within the
-     * > `azuredevops.Team` resource via the `members` block and by using the
-     * > `azuredevops.TeamMembers` resource. However it's not possible to use
-     * > both methods to manage team members, since there'll be conflicts.
+     * > **NOTE:** It's possible to define team members both within the
+     * `azuredevops.Team` resource via the `members` block and by using the
+     * `azuredevops.TeamMembers` resource. However it's not possible to use
+     * both methods to manage team members, since there'll be conflicts.
      */
     members?: pulumi.Input<pulumi.Input<string>[]>;
     /**

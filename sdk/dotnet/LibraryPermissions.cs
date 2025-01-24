@@ -56,12 +56,12 @@ namespace Pulumi.AzureDevOps
     /// 
     /// The Azure DevOps UI uses roles to assign permissions for the Library.
     /// 
-    /// | Role          | Allowed Permissions    |
-    /// | ------------- | ---------------------- |
-    /// | Reader        | View                   |
-    /// | Creator       | View, Create           |
-    /// | User          | View, Use              |
-    /// | Administrator | View, Use, Administer  |
+    /// | Role          | Allowed Permissions   |
+    /// |---------------|-----------------------|
+    /// | Reader        | View                  |
+    /// | Creator       | View, Create          |
+    /// | User          | View, Use             |
+    /// | Administrator | View, Use, Administer |
     /// 
     /// ## Relevant Links
     /// 
@@ -80,6 +80,15 @@ namespace Pulumi.AzureDevOps
     {
         /// <summary>
         /// the permissions to assign. The following permissions are available.
+        /// 
+        /// | Permission  | Description               |
+        /// |-------------|---------------------------|
+        /// | View        | View library item         |
+        /// | Administer  | Administer library item   |
+        /// | Create      | Create library item       |
+        /// | ViewSecrets | View library item secrets |
+        /// | Use         | Use library item          |
+        /// | Owner       | Owner library item        |
         /// </summary>
         [Output("permissions")]
         public Output<ImmutableDictionary<string, string>> Permissions { get; private set; } = null!;
@@ -98,15 +107,6 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-        /// 
-        /// | Permission        | Description                         |
-        /// | ----------------- | ----------------------------------- |
-        /// | View              | View library item                   |
-        /// | Administer        | Administer library item             |
-        /// | Create            | Create library item                 |
-        /// | ViewSecrets       | View library item secrets           |
-        /// | Use               | Use library item                    |
-        /// | Owner             | Owner library item                  |
         /// </summary>
         [Output("replace")]
         public Output<bool?> Replace { get; private set; } = null!;
@@ -162,6 +162,15 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// the permissions to assign. The following permissions are available.
+        /// 
+        /// | Permission  | Description               |
+        /// |-------------|---------------------------|
+        /// | View        | View library item         |
+        /// | Administer  | Administer library item   |
+        /// | Create      | Create library item       |
+        /// | ViewSecrets | View library item secrets |
+        /// | Use         | Use library item          |
+        /// | Owner       | Owner library item        |
         /// </summary>
         public InputMap<string> Permissions
         {
@@ -183,15 +192,6 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-        /// 
-        /// | Permission        | Description                         |
-        /// | ----------------- | ----------------------------------- |
-        /// | View              | View library item                   |
-        /// | Administer        | Administer library item             |
-        /// | Create            | Create library item                 |
-        /// | ViewSecrets       | View library item secrets           |
-        /// | Use               | Use library item                    |
-        /// | Owner             | Owner library item                  |
         /// </summary>
         [Input("replace")]
         public Input<bool>? Replace { get; set; }
@@ -209,6 +209,15 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// the permissions to assign. The following permissions are available.
+        /// 
+        /// | Permission  | Description               |
+        /// |-------------|---------------------------|
+        /// | View        | View library item         |
+        /// | Administer  | Administer library item   |
+        /// | Create      | Create library item       |
+        /// | ViewSecrets | View library item secrets |
+        /// | Use         | Use library item          |
+        /// | Owner       | Owner library item        |
         /// </summary>
         public InputMap<string> Permissions
         {
@@ -230,15 +239,6 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
-        /// 
-        /// | Permission        | Description                         |
-        /// | ----------------- | ----------------------------------- |
-        /// | View              | View library item                   |
-        /// | Administer        | Administer library item             |
-        /// | Create            | Create library item                 |
-        /// | ViewSecrets       | View library item secrets           |
-        /// | Use               | Use library item                    |
-        /// | Owner             | Owner library item                  |
         /// </summary>
         [Input("replace")]
         public Input<bool>? Replace { get; set; }

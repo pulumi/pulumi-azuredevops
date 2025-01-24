@@ -58,7 +58,7 @@ export class Git extends pulumi.CustomResource {
      */
     public readonly disabled!: pulumi.Output<boolean | undefined>;
     /**
-     * An `initialization` block as documented below.
+     * A `initialization` block as documented below.
      */
     public readonly initialization!: pulumi.Output<outputs.GitInitialization>;
     /**
@@ -162,7 +162,7 @@ export interface GitState {
      */
     disabled?: pulumi.Input<boolean>;
     /**
-     * An `initialization` block as documented below.
+     * A `initialization` block as documented below.
      */
     initialization?: pulumi.Input<inputs.GitInitialization>;
     /**
@@ -216,7 +216,7 @@ export interface GitArgs {
      */
     disabled?: pulumi.Input<boolean>;
     /**
-     * An `initialization` block as documented below.
+     * A `initialization` block as documented below.
      */
     initialization: pulumi.Input<inputs.GitInitialization>;
     /**

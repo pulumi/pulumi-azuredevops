@@ -45,7 +45,7 @@ class BuildDefinitionArgs:
         :param pulumi.Input[str] name: The name of the build definition.
         :param pulumi.Input[str] path: The folder path of the build definition.
         :param pulumi.Input['BuildDefinitionPullRequestTriggerArgs'] pull_request_trigger: A `pull_request_trigger` block as documented below.
-        :param pulumi.Input[str] queue_status: The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+        :param pulumi.Input[str] queue_status: The queue status of the build definition. Possible values are: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] variable_groups: A list of variable group IDs (integers) to link to the build definition.
         :param pulumi.Input[Sequence[pulumi.Input['BuildDefinitionVariableArgs']]] variables: A list of `variable` blocks, as documented below.
         """
@@ -186,7 +186,7 @@ class BuildDefinitionArgs:
     @pulumi.getter(name="queueStatus")
     def queue_status(self) -> Optional[pulumi.Input[str]]:
         """
-        The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+        The queue status of the build definition. Possible values are: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
         """
         return pulumi.get(self, "queue_status")
 
@@ -255,7 +255,7 @@ class _BuildDefinitionState:
         :param pulumi.Input[str] path: The folder path of the build definition.
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input['BuildDefinitionPullRequestTriggerArgs'] pull_request_trigger: A `pull_request_trigger` block as documented below.
-        :param pulumi.Input[str] queue_status: The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+        :param pulumi.Input[str] queue_status: The queue status of the build definition. Possible values are: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
         :param pulumi.Input['BuildDefinitionRepositoryArgs'] repository: A `repository` block as documented below.
         :param pulumi.Input[int] revision: The revision of the build definition
         :param pulumi.Input[Sequence[pulumi.Input[int]]] variable_groups: A list of variable group IDs (integers) to link to the build definition.
@@ -390,7 +390,7 @@ class _BuildDefinitionState:
     @pulumi.getter(name="queueStatus")
     def queue_status(self) -> Optional[pulumi.Input[str]]:
         """
-        The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+        The queue status of the build definition. Possible values are: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
         """
         return pulumi.get(self, "queue_status")
 
@@ -703,7 +703,7 @@ class BuildDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] path: The folder path of the build definition.
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input[Union['BuildDefinitionPullRequestTriggerArgs', 'BuildDefinitionPullRequestTriggerArgsDict']] pull_request_trigger: A `pull_request_trigger` block as documented below.
-        :param pulumi.Input[str] queue_status: The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+        :param pulumi.Input[str] queue_status: The queue status of the build definition. Possible values are: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
         :param pulumi.Input[Union['BuildDefinitionRepositoryArgs', 'BuildDefinitionRepositoryArgsDict']] repository: A `repository` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] variable_groups: A list of variable group IDs (integers) to link to the build definition.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionVariableArgs', 'BuildDefinitionVariableArgsDict']]]] variables: A list of `variable` blocks, as documented below.
@@ -1026,7 +1026,7 @@ class BuildDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] path: The folder path of the build definition.
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input[Union['BuildDefinitionPullRequestTriggerArgs', 'BuildDefinitionPullRequestTriggerArgsDict']] pull_request_trigger: A `pull_request_trigger` block as documented below.
-        :param pulumi.Input[str] queue_status: The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+        :param pulumi.Input[str] queue_status: The queue status of the build definition. Possible values are: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
         :param pulumi.Input[Union['BuildDefinitionRepositoryArgs', 'BuildDefinitionRepositoryArgsDict']] repository: A `repository` block as documented below.
         :param pulumi.Input[int] revision: The revision of the build definition
         :param pulumi.Input[Sequence[pulumi.Input[int]]] variable_groups: A list of variable group IDs (integers) to link to the build definition.
@@ -1120,7 +1120,7 @@ class BuildDefinition(pulumi.CustomResource):
     @pulumi.getter(name="queueStatus")
     def queue_status(self) -> pulumi.Output[Optional[str]]:
         """
-        The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+        The queue status of the build definition. Possible values are: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
         """
         return pulumi.get(self, "queue_status")
 

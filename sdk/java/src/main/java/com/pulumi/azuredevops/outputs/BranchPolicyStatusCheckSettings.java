@@ -16,9 +16,9 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BranchPolicyStatusCheckSettings {
     /**
-     * @return Policy applicability. If policy `applicability` is `default`, apply unless &#34;Not Applicable&#34;
-     * status is posted to the pull request. If policy `applicability` is `conditional`, policy is applied only after a status
-     * is posted to the pull request.
+     * @return Policy applicability. If policy `applicability=default`, apply unless &#34;Not Applicable&#34;
+     * status is posted to the pull request. If policy `applicability=conditional`, policy is applied only after a status
+     * is posted to the pull request. Possible values `default`, `conditional`. Defaults to `default`.
      * 
      */
     private @Nullable String applicability;
@@ -33,7 +33,10 @@ public final class BranchPolicyStatusCheckSettings {
      */
     private @Nullable String displayName;
     /**
-     * @return If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `[&#34;/WebApp/Models/Data.cs&#34;, &#34;/WebApp/*&#34;, &#34;*.cs&#34;]`. Paths prefixed with &#34;!&#34; are excluded. Example: `[&#34;/WebApp/*&#34;, &#34;!/WebApp/Tests/*&#34;]`. Order is significant.
+     * @return If a path filter is set, the policy will only apply when files which match the filter are changed. Not setting this field means that the policy is always applied.
+     * 
+     * ~&gt;**NOTE** 1. Specify absolute paths and wildcards. Example: `[&#34;/WebApp/Models/Data.cs&#34;, &#34;/WebApp/*&#34;, &#34;*.cs&#34;]`.
+     * &lt;br&gt; 2. Paths prefixed with &#34;!&#34; are excluded. Example: `[&#34;/WebApp/*&#34;, &#34;!/WebApp/Tests/*&#34;]`. Order is significant.
      * 
      */
     private @Nullable List<String> filenamePatterns;
@@ -53,17 +56,16 @@ public final class BranchPolicyStatusCheckSettings {
      */
     private String name;
     /**
-     * @return Controls which repositories and branches the policy will be enabled for. This block must be defined
-     * at least once.
+     * @return A `scope` block as defined below.
      * 
      */
     private List<BranchPolicyStatusCheckSettingsScope> scopes;
 
     private BranchPolicyStatusCheckSettings() {}
     /**
-     * @return Policy applicability. If policy `applicability` is `default`, apply unless &#34;Not Applicable&#34;
-     * status is posted to the pull request. If policy `applicability` is `conditional`, policy is applied only after a status
-     * is posted to the pull request.
+     * @return Policy applicability. If policy `applicability=default`, apply unless &#34;Not Applicable&#34;
+     * status is posted to the pull request. If policy `applicability=conditional`, policy is applied only after a status
+     * is posted to the pull request. Possible values `default`, `conditional`. Defaults to `default`.
      * 
      */
     public Optional<String> applicability() {
@@ -84,7 +86,10 @@ public final class BranchPolicyStatusCheckSettings {
         return Optional.ofNullable(this.displayName);
     }
     /**
-     * @return If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `[&#34;/WebApp/Models/Data.cs&#34;, &#34;/WebApp/*&#34;, &#34;*.cs&#34;]`. Paths prefixed with &#34;!&#34; are excluded. Example: `[&#34;/WebApp/*&#34;, &#34;!/WebApp/Tests/*&#34;]`. Order is significant.
+     * @return If a path filter is set, the policy will only apply when files which match the filter are changed. Not setting this field means that the policy is always applied.
+     * 
+     * ~&gt;**NOTE** 1. Specify absolute paths and wildcards. Example: `[&#34;/WebApp/Models/Data.cs&#34;, &#34;/WebApp/*&#34;, &#34;*.cs&#34;]`.
+     * &lt;br&gt; 2. Paths prefixed with &#34;!&#34; are excluded. Example: `[&#34;/WebApp/*&#34;, &#34;!/WebApp/Tests/*&#34;]`. Order is significant.
      * 
      */
     public List<String> filenamePatterns() {
@@ -112,8 +117,7 @@ public final class BranchPolicyStatusCheckSettings {
         return this.name;
     }
     /**
-     * @return Controls which repositories and branches the policy will be enabled for. This block must be defined
-     * at least once.
+     * @return A `scope` block as defined below.
      * 
      */
     public List<BranchPolicyStatusCheckSettingsScope> scopes() {

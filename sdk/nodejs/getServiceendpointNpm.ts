@@ -54,11 +54,11 @@ export interface GetServiceendpointNpmArgs {
  */
 export interface GetServiceendpointNpmResult {
     /**
-     * Specifies the Authorization Scheme Map.
+     * The Authorization scheme.
      */
     readonly authorization: {[key: string]: string};
     /**
-     * Specifies the description of the Service Endpoint.
+     * The description of the Service Endpoint.
      */
     readonly description: string;
     /**
@@ -69,7 +69,7 @@ export interface GetServiceendpointNpmResult {
     readonly serviceEndpointId: string;
     readonly serviceEndpointName: string;
     /**
-     * Specifies the URL of the npm registry to connect with.
+     * The URL of the NPM registry to connect with.
      */
     readonly url: string;
 }

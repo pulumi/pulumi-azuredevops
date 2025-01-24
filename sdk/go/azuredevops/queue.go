@@ -118,8 +118,7 @@ type Queue struct {
 
 	// The ID of the organization agent pool. Conflicts with `name`.
 	//
-	// > **NOTE:**
-	// One of `name` or `agentPoolId` must be specified, but not both.
+	// > **NOTE:** One of `name` or `agentPoolId` must be specified, but not both.
 	// When `agentPoolId` is specified, the agent queue name will be derived from the agent pool name.
 	AgentPoolId pulumi.IntOutput `pulumi:"agentPoolId"`
 	// The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agentPoolId`.
@@ -163,8 +162,7 @@ func GetQueue(ctx *pulumi.Context,
 type queueState struct {
 	// The ID of the organization agent pool. Conflicts with `name`.
 	//
-	// > **NOTE:**
-	// One of `name` or `agentPoolId` must be specified, but not both.
+	// > **NOTE:** One of `name` or `agentPoolId` must be specified, but not both.
 	// When `agentPoolId` is specified, the agent queue name will be derived from the agent pool name.
 	AgentPoolId *int `pulumi:"agentPoolId"`
 	// The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agentPoolId`.
@@ -176,8 +174,7 @@ type queueState struct {
 type QueueState struct {
 	// The ID of the organization agent pool. Conflicts with `name`.
 	//
-	// > **NOTE:**
-	// One of `name` or `agentPoolId` must be specified, but not both.
+	// > **NOTE:** One of `name` or `agentPoolId` must be specified, but not both.
 	// When `agentPoolId` is specified, the agent queue name will be derived from the agent pool name.
 	AgentPoolId pulumi.IntPtrInput
 	// The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agentPoolId`.
@@ -193,8 +190,7 @@ func (QueueState) ElementType() reflect.Type {
 type queueArgs struct {
 	// The ID of the organization agent pool. Conflicts with `name`.
 	//
-	// > **NOTE:**
-	// One of `name` or `agentPoolId` must be specified, but not both.
+	// > **NOTE:** One of `name` or `agentPoolId` must be specified, but not both.
 	// When `agentPoolId` is specified, the agent queue name will be derived from the agent pool name.
 	AgentPoolId *int `pulumi:"agentPoolId"`
 	// The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agentPoolId`.
@@ -207,8 +203,7 @@ type queueArgs struct {
 type QueueArgs struct {
 	// The ID of the organization agent pool. Conflicts with `name`.
 	//
-	// > **NOTE:**
-	// One of `name` or `agentPoolId` must be specified, but not both.
+	// > **NOTE:** One of `name` or `agentPoolId` must be specified, but not both.
 	// When `agentPoolId` is specified, the agent queue name will be derived from the agent pool name.
 	AgentPoolId pulumi.IntPtrInput
 	// The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agentPoolId`.
@@ -306,8 +301,7 @@ func (o QueueOutput) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 
 // The ID of the organization agent pool. Conflicts with `name`.
 //
-// > **NOTE:**
-// One of `name` or `agentPoolId` must be specified, but not both.
+// > **NOTE:** One of `name` or `agentPoolId` must be specified, but not both.
 // When `agentPoolId` is specified, the agent queue name will be derived from the agent pool name.
 func (o QueueOutput) AgentPoolId() pulumi.IntOutput {
 	return o.ApplyT(func(v *Queue) pulumi.IntOutput { return v.AgentPoolId }).(pulumi.IntOutput)

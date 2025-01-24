@@ -42,6 +42,8 @@ import com.pulumi.azuredevops.inputs.GetServiceEndpointAzureRMArgs;
 import com.pulumi.azuredevops.inputs.GetServiceEndpointAzureRMPlainArgs;
 import com.pulumi.azuredevops.inputs.GetServiceEndpointGithubArgs;
 import com.pulumi.azuredevops.inputs.GetServiceEndpointGithubPlainArgs;
+import com.pulumi.azuredevops.inputs.GetServicePrincipalArgs;
+import com.pulumi.azuredevops.inputs.GetServicePrincipalPlainArgs;
 import com.pulumi.azuredevops.inputs.GetServiceendpointAzurecrArgs;
 import com.pulumi.azuredevops.inputs.GetServiceendpointAzurecrPlainArgs;
 import com.pulumi.azuredevops.inputs.GetServiceendpointBitbucketArgs;
@@ -79,6 +81,7 @@ import com.pulumi.azuredevops.outputs.GetRepositoriesResult;
 import com.pulumi.azuredevops.outputs.GetSecurityroleDefinitionsResult;
 import com.pulumi.azuredevops.outputs.GetServiceEndpointAzureRMResult;
 import com.pulumi.azuredevops.outputs.GetServiceEndpointGithubResult;
+import com.pulumi.azuredevops.outputs.GetServicePrincipalResult;
 import com.pulumi.azuredevops.outputs.GetServiceendpointAzurecrResult;
 import com.pulumi.azuredevops.outputs.GetServiceendpointBitbucketResult;
 import com.pulumi.azuredevops.outputs.GetServiceendpointNpmResult;
@@ -4184,7 +4187,7 @@ public final class AzuredevopsFunctions {
      * 
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
+     * - [Azure DevOps Service REST API 7.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.1)
      * 
      */
     public static Output<GetPoolResult> getPool(GetPoolArgs args) {
@@ -4234,7 +4237,7 @@ public final class AzuredevopsFunctions {
      * 
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
+     * - [Azure DevOps Service REST API 7.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.1)
      * 
      */
     public static CompletableFuture<GetPoolResult> getPoolPlain(GetPoolPlainArgs args) {
@@ -4284,7 +4287,7 @@ public final class AzuredevopsFunctions {
      * 
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
+     * - [Azure DevOps Service REST API 7.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.1)
      * 
      */
     public static Output<GetPoolResult> getPool(GetPoolArgs args, InvokeOptions options) {
@@ -4334,7 +4337,7 @@ public final class AzuredevopsFunctions {
      * 
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
+     * - [Azure DevOps Service REST API 7.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.1)
      * 
      */
     public static Output<GetPoolResult> getPool(GetPoolArgs args, InvokeOutputOptions options) {
@@ -4384,7 +4387,7 @@ public final class AzuredevopsFunctions {
      * 
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
+     * - [Azure DevOps Service REST API 7.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.1)
      * 
      */
     public static CompletableFuture<GetPoolResult> getPoolPlain(GetPoolPlainArgs args, InvokeOptions options) {
@@ -4431,7 +4434,7 @@ public final class AzuredevopsFunctions {
      * 
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
+     * - [Azure DevOps Service REST API 7.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.1)
      * 
      */
     public static Output<GetPoolsResult> getPools() {
@@ -4478,7 +4481,7 @@ public final class AzuredevopsFunctions {
      * 
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
+     * - [Azure DevOps Service REST API 7.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.1)
      * 
      */
     public static CompletableFuture<GetPoolsResult> getPoolsPlain() {
@@ -4525,7 +4528,7 @@ public final class AzuredevopsFunctions {
      * 
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
+     * - [Azure DevOps Service REST API 7.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.1)
      * 
      */
     public static Output<GetPoolsResult> getPools(InvokeArgs args) {
@@ -4572,7 +4575,7 @@ public final class AzuredevopsFunctions {
      * 
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
+     * - [Azure DevOps Service REST API 7.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.1)
      * 
      */
     public static CompletableFuture<GetPoolsResult> getPoolsPlain(InvokeArgs args) {
@@ -4619,7 +4622,7 @@ public final class AzuredevopsFunctions {
      * 
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
+     * - [Azure DevOps Service REST API 7.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.1)
      * 
      */
     public static Output<GetPoolsResult> getPools(InvokeArgs args, InvokeOptions options) {
@@ -4666,7 +4669,7 @@ public final class AzuredevopsFunctions {
      * 
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
+     * - [Azure DevOps Service REST API 7.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.1)
      * 
      */
     public static Output<GetPoolsResult> getPools(InvokeArgs args, InvokeOutputOptions options) {
@@ -4713,7 +4716,7 @@ public final class AzuredevopsFunctions {
      * 
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
+     * - [Azure DevOps Service REST API 7.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.1)
      * 
      */
     public static CompletableFuture<GetPoolsResult> getPoolsPlain(InvokeArgs args, InvokeOptions options) {
@@ -4762,6 +4765,11 @@ public final class AzuredevopsFunctions {
      * 
      * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
      * 
+     * ## PAT Permissions Required
+     * 
+     * - **Project &amp; Team**: Read
+     * - **Work Items**: Read
+     * 
      */
     public static Output<GetProjectResult> getProject() {
         return getProject(GetProjectArgs.Empty, InvokeOptions.Empty);
@@ -4808,6 +4816,11 @@ public final class AzuredevopsFunctions {
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
+     * 
+     * ## PAT Permissions Required
+     * 
+     * - **Project &amp; Team**: Read
+     * - **Work Items**: Read
      * 
      */
     public static CompletableFuture<GetProjectResult> getProjectPlain() {
@@ -4856,6 +4869,11 @@ public final class AzuredevopsFunctions {
      * 
      * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
      * 
+     * ## PAT Permissions Required
+     * 
+     * - **Project &amp; Team**: Read
+     * - **Work Items**: Read
+     * 
      */
     public static Output<GetProjectResult> getProject(GetProjectArgs args) {
         return getProject(args, InvokeOptions.Empty);
@@ -4902,6 +4920,11 @@ public final class AzuredevopsFunctions {
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
+     * 
+     * ## PAT Permissions Required
+     * 
+     * - **Project &amp; Team**: Read
+     * - **Work Items**: Read
      * 
      */
     public static CompletableFuture<GetProjectResult> getProjectPlain(GetProjectPlainArgs args) {
@@ -4950,6 +4973,11 @@ public final class AzuredevopsFunctions {
      * 
      * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
      * 
+     * ## PAT Permissions Required
+     * 
+     * - **Project &amp; Team**: Read
+     * - **Work Items**: Read
+     * 
      */
     public static Output<GetProjectResult> getProject(GetProjectArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azuredevops:index/getProject:getProject", TypeShape.of(GetProjectResult.class), args, Utilities.withVersion(options));
@@ -4997,6 +5025,11 @@ public final class AzuredevopsFunctions {
      * 
      * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
      * 
+     * ## PAT Permissions Required
+     * 
+     * - **Project &amp; Team**: Read
+     * - **Work Items**: Read
+     * 
      */
     public static Output<GetProjectResult> getProject(GetProjectArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azuredevops:index/getProject:getProject", TypeShape.of(GetProjectResult.class), args, Utilities.withVersion(options));
@@ -5043,6 +5076,11 @@ public final class AzuredevopsFunctions {
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
+     * 
+     * ## PAT Permissions Required
+     * 
+     * - **Project &amp; Team**: Read
+     * - **Work Items**: Read
      * 
      */
     public static CompletableFuture<GetProjectResult> getProjectPlain(GetProjectPlainArgs args, InvokeOptions options) {
@@ -5866,7 +5904,7 @@ public final class AzuredevopsFunctions {
      * 
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 7.0 - Roledefinitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)
+     * - [Azure DevOps Service REST API 7.0 - Role Definitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)
      * 
      */
     public static Output<GetSecurityroleDefinitionsResult> getSecurityroleDefinitions(GetSecurityroleDefinitionsArgs args) {
@@ -5913,7 +5951,7 @@ public final class AzuredevopsFunctions {
      * 
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 7.0 - Roledefinitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)
+     * - [Azure DevOps Service REST API 7.0 - Role Definitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)
      * 
      */
     public static CompletableFuture<GetSecurityroleDefinitionsResult> getSecurityroleDefinitionsPlain(GetSecurityroleDefinitionsPlainArgs args) {
@@ -5960,7 +5998,7 @@ public final class AzuredevopsFunctions {
      * 
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 7.0 - Roledefinitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)
+     * - [Azure DevOps Service REST API 7.0 - Role Definitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)
      * 
      */
     public static Output<GetSecurityroleDefinitionsResult> getSecurityroleDefinitions(GetSecurityroleDefinitionsArgs args, InvokeOptions options) {
@@ -6007,7 +6045,7 @@ public final class AzuredevopsFunctions {
      * 
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 7.0 - Roledefinitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)
+     * - [Azure DevOps Service REST API 7.0 - Role Definitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)
      * 
      */
     public static Output<GetSecurityroleDefinitionsResult> getSecurityroleDefinitions(GetSecurityroleDefinitionsArgs args, InvokeOutputOptions options) {
@@ -6054,7 +6092,7 @@ public final class AzuredevopsFunctions {
      * 
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 7.0 - Roledefinitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)
+     * - [Azure DevOps Service REST API 7.0 - Role Definitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)
      * 
      */
     public static CompletableFuture<GetSecurityroleDefinitionsResult> getSecurityroleDefinitionsPlain(GetSecurityroleDefinitionsPlainArgs args, InvokeOptions options) {
@@ -6989,6 +7027,221 @@ public final class AzuredevopsFunctions {
      */
     public static CompletableFuture<GetServiceEndpointGithubResult> getServiceEndpointGithubPlain(GetServiceEndpointGithubPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azuredevops:index/getServiceEndpointGithub:getServiceEndpointGithub", TypeShape.of(GetServiceEndpointGithubResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Service Principal.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServicePrincipalArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+     *             .displayName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getServicePrincipalResult -> getServicePrincipalResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetServicePrincipalResult> getServicePrincipal(GetServicePrincipalArgs args) {
+        return getServicePrincipal(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Service Principal.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServicePrincipalArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+     *             .displayName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getServicePrincipalResult -> getServicePrincipalResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetServicePrincipalResult> getServicePrincipalPlain(GetServicePrincipalPlainArgs args) {
+        return getServicePrincipalPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Service Principal.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServicePrincipalArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+     *             .displayName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getServicePrincipalResult -> getServicePrincipalResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetServicePrincipalResult> getServicePrincipal(GetServicePrincipalArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getServicePrincipal:getServicePrincipal", TypeShape.of(GetServicePrincipalResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Service Principal.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServicePrincipalArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+     *             .displayName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getServicePrincipalResult -> getServicePrincipalResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetServicePrincipalResult> getServicePrincipal(GetServicePrincipalArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getServicePrincipal:getServicePrincipal", TypeShape.of(GetServicePrincipalResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Service Principal.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServicePrincipalArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+     *             .displayName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getServicePrincipalResult -> getServicePrincipalResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetServicePrincipalResult> getServicePrincipalPlain(GetServicePrincipalPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azuredevops:index/getServicePrincipal:getServicePrincipal", TypeShape.of(GetServicePrincipalResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Azure Container Registry Service Endpoint.

@@ -50,7 +50,7 @@ class GetServiceendpointBitbucketResult:
     @pulumi.getter
     def authorization(self) -> Mapping[str, str]:
         """
-        Specifies the Authorization Scheme Map.
+        The Authorization scheme.
         """
         return pulumi.get(self, "authorization")
 
@@ -58,7 +58,7 @@ class GetServiceendpointBitbucketResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        Specifies the description of the Service Endpoint.
+        The description of the Service Endpoint.
         """
         return pulumi.get(self, "description")
 
@@ -142,8 +142,8 @@ def get_serviceendpoint_bitbucket(project_id: Optional[str] = None,
     :param str service_endpoint_id: the ID of the Service Endpoint.
     :param str service_endpoint_name: the Name of the Service Endpoint.
            
-           > **NOTE:** One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
-           > **NOTE:** When supplying `service_endpoint_name`, take care to ensure that this is a unique name.
+           > **NOTE:** 1. One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
+           <br>2. When supplying `service_endpoint_name`, take care to ensure that this is a unique name.
     """
     __args__ = dict()
     __args__['projectId'] = project_id
@@ -201,8 +201,8 @@ def get_serviceendpoint_bitbucket_output(project_id: Optional[pulumi.Input[str]]
     :param str service_endpoint_id: the ID of the Service Endpoint.
     :param str service_endpoint_name: the Name of the Service Endpoint.
            
-           > **NOTE:** One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
-           > **NOTE:** When supplying `service_endpoint_name`, take care to ensure that this is a unique name.
+           > **NOTE:** 1. One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
+           <br>2. When supplying `service_endpoint_name`, take care to ensure that this is a unique name.
     """
     __args__ = dict()
     __args__['projectId'] = project_id

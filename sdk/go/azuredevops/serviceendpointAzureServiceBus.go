@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Azure Service Bus endpoint within Azure DevOps.
+// Manages an Azure Service Bus service endpoint within Azure DevOps.
 //
 // ## Example Usage
 //

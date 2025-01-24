@@ -17,11 +17,58 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages an Azure Repos/Team Foundation Server service endpoint within Azure DevOps.
+ * Manages an Azure Repository/Team Foundation Server service endpoint within Azure DevOps.
  * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
+ * import com.pulumi.azuredevops.ServiceendpointExternaltfs;
+ * import com.pulumi.azuredevops.ServiceendpointExternaltfsArgs;
+ * import com.pulumi.azuredevops.inputs.ServiceendpointExternaltfsAuthPersonalArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Project("example", ProjectArgs.builder()
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .description("Managed by Pulumi")
+ *             .build());
+ * 
+ *         var exampleServiceendpointExternaltfs = new ServiceendpointExternaltfs("exampleServiceendpointExternaltfs", ServiceendpointExternaltfsArgs.builder()
+ *             .projectId(example.id())
+ *             .serviceEndpointName("Example External TFS Name")
+ *             .connectionUrl("https://dev.azure.com/myorganization")
+ *             .description("Managed by Pulumi")
+ *             .authPersonal(ServiceendpointExternaltfsAuthPersonalArgs.builder()
+ *                 .personalAccessToken("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Relevant Links
@@ -30,7 +77,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Azure DevOps Service Endpoint External TFS can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+ * Azure DevOps Azure Repository/Team Foundation Server Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
  * 
  * ```sh
  * $ pulumi import azuredevops:index/serviceendpointExternaltfs:ServiceendpointExternaltfs example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -60,14 +107,14 @@ public class ServiceendpointExternaltfs extends com.pulumi.resources.CustomResou
         return this.authorization;
     }
     /**
-     * URL of the Azure DevOps organization or the TFS Project Collection to connect to.
+     * Azure DevOps Organization or TFS Project Collection Url.
      * 
      */
     @Export(name="connectionUrl", refs={String.class}, tree="[0]")
     private Output<String> connectionUrl;
 
     /**
-     * @return URL of the Azure DevOps organization or the TFS Project Collection to connect to.
+     * @return Azure DevOps Organization or TFS Project Collection Url.
      * 
      */
     public Output<String> connectionUrl() {

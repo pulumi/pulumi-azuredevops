@@ -16,9 +16,17 @@ public final class WikiArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final WikiArgs Empty = new WikiArgs();
 
+    /**
+     * Folder path inside repository which is shown as Wiki.
+     * 
+     */
     @Import(name="mappedPath")
     private @Nullable Output<String> mappedPath;
 
+    /**
+     * @return Folder path inside repository which is shown as Wiki.
+     * 
+     */
     public Optional<Output<String>> mappedPath() {
         return Optional.ofNullable(this.mappedPath);
     }
@@ -127,11 +135,23 @@ public final class WikiArgs extends com.pulumi.resources.ResourceArgs {
             $ = new WikiArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param mappedPath Folder path inside repository which is shown as Wiki.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mappedPath(@Nullable Output<String> mappedPath) {
             $.mappedPath = mappedPath;
             return this;
         }
 
+        /**
+         * @param mappedPath Folder path inside repository which is shown as Wiki.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mappedPath(String mappedPath) {
             return mappedPath(Output.of(mappedPath));
         }

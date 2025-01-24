@@ -124,7 +124,7 @@ type RepositoryPolicyMaxFileSize struct {
 	Blocking pulumi.BoolPtrOutput `pulumi:"blocking"`
 	// A flag indicating if the policy should be enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Block pushes that contain new or updated files larger than this limit. Available values is: `1, 2, 5, 10, 50, 100, 200` (MB).
+	// Block pushes that contain new or updated files larger than this limit. Possible values are: `1, 2, 5, 10, 50, 100, 200` (MB).
 	MaxFileSize pulumi.IntOutput `pulumi:"maxFileSize"`
 	// The ID of the project in which the policy will be created.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
@@ -172,7 +172,7 @@ type repositoryPolicyMaxFileSizeState struct {
 	Blocking *bool `pulumi:"blocking"`
 	// A flag indicating if the policy should be enabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// Block pushes that contain new or updated files larger than this limit. Available values is: `1, 2, 5, 10, 50, 100, 200` (MB).
+	// Block pushes that contain new or updated files larger than this limit. Possible values are: `1, 2, 5, 10, 50, 100, 200` (MB).
 	MaxFileSize *int `pulumi:"maxFileSize"`
 	// The ID of the project in which the policy will be created.
 	ProjectId *string `pulumi:"projectId"`
@@ -185,7 +185,7 @@ type RepositoryPolicyMaxFileSizeState struct {
 	Blocking pulumi.BoolPtrInput
 	// A flag indicating if the policy should be enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// Block pushes that contain new or updated files larger than this limit. Available values is: `1, 2, 5, 10, 50, 100, 200` (MB).
+	// Block pushes that contain new or updated files larger than this limit. Possible values are: `1, 2, 5, 10, 50, 100, 200` (MB).
 	MaxFileSize pulumi.IntPtrInput
 	// The ID of the project in which the policy will be created.
 	ProjectId pulumi.StringPtrInput
@@ -202,7 +202,7 @@ type repositoryPolicyMaxFileSizeArgs struct {
 	Blocking *bool `pulumi:"blocking"`
 	// A flag indicating if the policy should be enabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// Block pushes that contain new or updated files larger than this limit. Available values is: `1, 2, 5, 10, 50, 100, 200` (MB).
+	// Block pushes that contain new or updated files larger than this limit. Possible values are: `1, 2, 5, 10, 50, 100, 200` (MB).
 	MaxFileSize int `pulumi:"maxFileSize"`
 	// The ID of the project in which the policy will be created.
 	ProjectId string `pulumi:"projectId"`
@@ -216,7 +216,7 @@ type RepositoryPolicyMaxFileSizeArgs struct {
 	Blocking pulumi.BoolPtrInput
 	// A flag indicating if the policy should be enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// Block pushes that contain new or updated files larger than this limit. Available values is: `1, 2, 5, 10, 50, 100, 200` (MB).
+	// Block pushes that contain new or updated files larger than this limit. Possible values are: `1, 2, 5, 10, 50, 100, 200` (MB).
 	MaxFileSize pulumi.IntInput
 	// The ID of the project in which the policy will be created.
 	ProjectId pulumi.StringInput
@@ -321,7 +321,7 @@ func (o RepositoryPolicyMaxFileSizeOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RepositoryPolicyMaxFileSize) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Block pushes that contain new or updated files larger than this limit. Available values is: `1, 2, 5, 10, 50, 100, 200` (MB).
+// Block pushes that contain new or updated files larger than this limit. Possible values are: `1, 2, 5, 10, 50, 100, 200` (MB).
 func (o RepositoryPolicyMaxFileSizeOutput) MaxFileSize() pulumi.IntOutput {
 	return o.ApplyT(func(v *RepositoryPolicyMaxFileSize) pulumi.IntOutput { return v.MaxFileSize }).(pulumi.IntOutput)
 }

@@ -88,7 +88,7 @@ class GetServiceendpointAzurecrResult:
     @pulumi.getter
     def authorization(self) -> Mapping[str, str]:
         """
-        Specifies the Authorization Scheme Map.
+        The Authorization scheme.
         """
         return pulumi.get(self, "authorization")
 

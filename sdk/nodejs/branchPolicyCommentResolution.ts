@@ -100,7 +100,7 @@ export class BranchPolicyCommentResolution extends pulumi.CustomResource {
      */
     public readonly projectId!: pulumi.Output<string>;
     /**
-     * Configuration for the policy. This block must be defined exactly once.
+     * A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
      */
     public readonly settings!: pulumi.Output<outputs.BranchPolicyCommentResolutionSettings>;
 
@@ -156,7 +156,7 @@ export interface BranchPolicyCommentResolutionState {
      */
     projectId?: pulumi.Input<string>;
     /**
-     * Configuration for the policy. This block must be defined exactly once.
+     * A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
      */
     settings?: pulumi.Input<inputs.BranchPolicyCommentResolutionSettings>;
 }
@@ -178,7 +178,7 @@ export interface BranchPolicyCommentResolutionArgs {
      */
     projectId: pulumi.Input<string>;
     /**
-     * Configuration for the policy. This block must be defined exactly once.
+     * A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
      */
     settings: pulumi.Input<inputs.BranchPolicyCommentResolutionSettings>;
 }

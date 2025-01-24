@@ -30,7 +30,7 @@ class ServiceendpointExternaltfsArgs:
         """
         The set of arguments for constructing a ServiceendpointExternaltfs resource.
         :param pulumi.Input['ServiceendpointExternaltfsAuthPersonalArgs'] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
-        :param pulumi.Input[str] connection_url: URL of the Azure DevOps organization or the TFS Project Collection to connect to.
+        :param pulumi.Input[str] connection_url: Azure DevOps Organization or TFS Project Collection Url.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
@@ -59,7 +59,7 @@ class ServiceendpointExternaltfsArgs:
     @pulumi.getter(name="connectionUrl")
     def connection_url(self) -> pulumi.Input[str]:
         """
-        URL of the Azure DevOps organization or the TFS Project Collection to connect to.
+        Azure DevOps Organization or TFS Project Collection Url.
         """
         return pulumi.get(self, "connection_url")
 
@@ -122,7 +122,7 @@ class _ServiceendpointExternaltfsState:
         """
         Input properties used for looking up and filtering ServiceendpointExternaltfs resources.
         :param pulumi.Input['ServiceendpointExternaltfsAuthPersonalArgs'] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
-        :param pulumi.Input[str] connection_url: URL of the Azure DevOps organization or the TFS Project Collection to connect to.
+        :param pulumi.Input[str] connection_url: Azure DevOps Organization or TFS Project Collection Url.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
@@ -164,7 +164,7 @@ class _ServiceendpointExternaltfsState:
     @pulumi.getter(name="connectionUrl")
     def connection_url(self) -> Optional[pulumi.Input[str]]:
         """
-        URL of the Azure DevOps organization or the TFS Project Collection to connect to.
+        Azure DevOps Organization or TFS Project Collection Url.
         """
         return pulumi.get(self, "connection_url")
 
@@ -219,11 +219,37 @@ class ServiceendpointExternaltfs(pulumi.CustomResource):
                  service_endpoint_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages an Azure Repos/Team Foundation Server service endpoint within Azure DevOps.
+        Manages an Azure Repository/Team Foundation Server service endpoint within Azure DevOps.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            name="Example Project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Pulumi")
+        example_serviceendpoint_externaltfs = azuredevops.ServiceendpointExternaltfs("example",
+            project_id=example.id,
+            service_endpoint_name="Example External TFS Name",
+            connection_url="https://dev.azure.com/myorganization",
+            description="Managed by Pulumi",
+            auth_personal={
+                "personal_access_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            })
+        ```
+
+        ## Relevant Links
+
+        - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
 
         ## Import
 
-        Azure DevOps Service Endpoint External TFS can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+        Azure DevOps Azure Repository/Team Foundation Server Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
         $ pulumi import azuredevops:index/serviceendpointExternaltfs:ServiceendpointExternaltfs example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -232,7 +258,7 @@ class ServiceendpointExternaltfs(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServiceendpointExternaltfsAuthPersonalArgs', 'ServiceendpointExternaltfsAuthPersonalArgsDict']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
-        :param pulumi.Input[str] connection_url: URL of the Azure DevOps organization or the TFS Project Collection to connect to.
+        :param pulumi.Input[str] connection_url: Azure DevOps Organization or TFS Project Collection Url.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
@@ -243,11 +269,37 @@ class ServiceendpointExternaltfs(pulumi.CustomResource):
                  args: ServiceendpointExternaltfsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Azure Repos/Team Foundation Server service endpoint within Azure DevOps.
+        Manages an Azure Repository/Team Foundation Server service endpoint within Azure DevOps.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            name="Example Project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Pulumi")
+        example_serviceendpoint_externaltfs = azuredevops.ServiceendpointExternaltfs("example",
+            project_id=example.id,
+            service_endpoint_name="Example External TFS Name",
+            connection_url="https://dev.azure.com/myorganization",
+            description="Managed by Pulumi",
+            auth_personal={
+                "personal_access_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            })
+        ```
+
+        ## Relevant Links
+
+        - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
 
         ## Import
 
-        Azure DevOps Service Endpoint External TFS can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+        Azure DevOps Azure Repository/Team Foundation Server Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
         $ pulumi import azuredevops:index/serviceendpointExternaltfs:ServiceendpointExternaltfs example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -321,7 +373,7 @@ class ServiceendpointExternaltfs(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServiceendpointExternaltfsAuthPersonalArgs', 'ServiceendpointExternaltfsAuthPersonalArgsDict']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
-        :param pulumi.Input[str] connection_url: URL of the Azure DevOps organization or the TFS Project Collection to connect to.
+        :param pulumi.Input[str] connection_url: Azure DevOps Organization or TFS Project Collection Url.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
@@ -354,7 +406,7 @@ class ServiceendpointExternaltfs(pulumi.CustomResource):
     @pulumi.getter(name="connectionUrl")
     def connection_url(self) -> pulumi.Output[str]:
         """
-        URL of the Azure DevOps organization or the TFS Project Collection to connect to.
+        Azure DevOps Organization or TFS Project Collection Url.
         """
         return pulumi.get(self, "connection_url")
 

@@ -314,7 +314,7 @@ type GitPermissions struct {
 
 	// The name of the branch to assign the permissions.
 	//
-	// > **Note** to assign permissions to a branch, the `repositoryId` must be set as well.
+	// > **Note** To assign permissions to a branch, the `repositoryId` must be set as well.
 	BranchName pulumi.StringPtrOutput `pulumi:"branchName"`
 	// the permissions to assign. The following permissions are available
 	//
@@ -388,7 +388,7 @@ func GetGitPermissions(ctx *pulumi.Context,
 type gitPermissionsState struct {
 	// The name of the branch to assign the permissions.
 	//
-	// > **Note** to assign permissions to a branch, the `repositoryId` must be set as well.
+	// > **Note** To assign permissions to a branch, the `repositoryId` must be set as well.
 	BranchName *string `pulumi:"branchName"`
 	// the permissions to assign. The following permissions are available
 	//
@@ -424,7 +424,7 @@ type gitPermissionsState struct {
 type GitPermissionsState struct {
 	// The name of the branch to assign the permissions.
 	//
-	// > **Note** to assign permissions to a branch, the `repositoryId` must be set as well.
+	// > **Note** To assign permissions to a branch, the `repositoryId` must be set as well.
 	BranchName pulumi.StringPtrInput
 	// the permissions to assign. The following permissions are available
 	//
@@ -464,7 +464,7 @@ func (GitPermissionsState) ElementType() reflect.Type {
 type gitPermissionsArgs struct {
 	// The name of the branch to assign the permissions.
 	//
-	// > **Note** to assign permissions to a branch, the `repositoryId` must be set as well.
+	// > **Note** To assign permissions to a branch, the `repositoryId` must be set as well.
 	BranchName *string `pulumi:"branchName"`
 	// the permissions to assign. The following permissions are available
 	//
@@ -501,7 +501,7 @@ type gitPermissionsArgs struct {
 type GitPermissionsArgs struct {
 	// The name of the branch to assign the permissions.
 	//
-	// > **Note** to assign permissions to a branch, the `repositoryId` must be set as well.
+	// > **Note** To assign permissions to a branch, the `repositoryId` must be set as well.
 	BranchName pulumi.StringPtrInput
 	// the permissions to assign. The following permissions are available
 	//
@@ -623,7 +623,7 @@ func (o GitPermissionsOutput) ToGitPermissionsOutputWithContext(ctx context.Cont
 
 // The name of the branch to assign the permissions.
 //
-// > **Note** to assign permissions to a branch, the `repositoryId` must be set as well.
+// > **Note** To assign permissions to a branch, the `repositoryId` must be set as well.
 func (o GitPermissionsOutput) BranchName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GitPermissions) pulumi.StringPtrOutput { return v.BranchName }).(pulumi.StringPtrOutput)
 }

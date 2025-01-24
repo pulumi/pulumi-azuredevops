@@ -60,31 +60,31 @@ namespace Pulumi.AzureDevOps
     public partial class ResourceAuthorization : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Set to true to allow public access in the project. Type: boolean.
+        /// Set to true to allow public access in the project.
         /// </summary>
         [Output("authorized")]
         public Output<bool> Authorized { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the build definition to authorize. Type: string.
+        /// The ID of the build definition to authorize.
         /// </summary>
         [Output("definitionId")]
         public Output<int?> DefinitionId { get; private set; } = null!;
 
         /// <summary>
-        /// The project ID or project name. Type: string.
+        /// The project ID or project name.
         /// </summary>
         [Output("projectId")]
         public Output<string> ProjectId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the resource to authorize. Type: string.
+        /// The ID of the resource to authorize.
         /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
+        /// The type of the resource to authorize. Possible values: `endpoint`, `queue`, `variablegroup`. Defaults to value: `endpoint`.
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -140,31 +140,31 @@ namespace Pulumi.AzureDevOps
     public sealed class ResourceAuthorizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Set to true to allow public access in the project. Type: boolean.
+        /// Set to true to allow public access in the project.
         /// </summary>
         [Input("authorized", required: true)]
         public Input<bool> Authorized { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the build definition to authorize. Type: string.
+        /// The ID of the build definition to authorize.
         /// </summary>
         [Input("definitionId")]
         public Input<int>? DefinitionId { get; set; }
 
         /// <summary>
-        /// The project ID or project name. Type: string.
+        /// The project ID or project name.
         /// </summary>
         [Input("projectId", required: true)]
         public Input<string> ProjectId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the resource to authorize. Type: string.
+        /// The ID of the resource to authorize.
         /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
 
         /// <summary>
-        /// The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
+        /// The type of the resource to authorize. Possible values: `endpoint`, `queue`, `variablegroup`. Defaults to value: `endpoint`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -178,31 +178,31 @@ namespace Pulumi.AzureDevOps
     public sealed class ResourceAuthorizationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Set to true to allow public access in the project. Type: boolean.
+        /// Set to true to allow public access in the project.
         /// </summary>
         [Input("authorized")]
         public Input<bool>? Authorized { get; set; }
 
         /// <summary>
-        /// The ID of the build definition to authorize. Type: string.
+        /// The ID of the build definition to authorize.
         /// </summary>
         [Input("definitionId")]
         public Input<int>? DefinitionId { get; set; }
 
         /// <summary>
-        /// The project ID or project name. Type: string.
+        /// The project ID or project name.
         /// </summary>
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }
 
         /// <summary>
-        /// The ID of the resource to authorize. Type: string.
+        /// The ID of the resource to authorize.
         /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
 
         /// <summary>
-        /// The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
+        /// The type of the resource to authorize. Possible values: `endpoint`, `queue`, `variablegroup`. Defaults to value: `endpoint`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

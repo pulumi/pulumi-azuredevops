@@ -31,6 +31,9 @@ export interface GetClientConfigResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The organization configured for the provider.
+     */
     readonly organizationUrl: string;
 }
 /**

@@ -18,8 +18,8 @@ import * as utilities from "./utilities";
  *     description: "Managed by Pulumi",
  * });
  * const exampleWiki = new azuredevops.Wiki("example", {
- *     name: "Example project wiki ",
  *     projectId: example.id,
+ *     name: "Example project wiki ",
  *     type: "projectWiki",
  * });
  * const exampleWikiPage = new azuredevops.WikiPage("example", {

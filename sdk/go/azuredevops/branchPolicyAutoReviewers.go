@@ -102,7 +102,7 @@ type BranchPolicyAutoReviewers struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The ID of the project in which the policy will be created.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
-	// Configuration for the policy. This block must be defined exactly once.
+	// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
 	Settings BranchPolicyAutoReviewersSettingsOutput `pulumi:"settings"`
 }
 
@@ -148,7 +148,7 @@ type branchPolicyAutoReviewersState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The ID of the project in which the policy will be created.
 	ProjectId *string `pulumi:"projectId"`
-	// Configuration for the policy. This block must be defined exactly once.
+	// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
 	Settings *BranchPolicyAutoReviewersSettings `pulumi:"settings"`
 }
 
@@ -159,7 +159,7 @@ type BranchPolicyAutoReviewersState struct {
 	Enabled pulumi.BoolPtrInput
 	// The ID of the project in which the policy will be created.
 	ProjectId pulumi.StringPtrInput
-	// Configuration for the policy. This block must be defined exactly once.
+	// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
 	Settings BranchPolicyAutoReviewersSettingsPtrInput
 }
 
@@ -174,7 +174,7 @@ type branchPolicyAutoReviewersArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The ID of the project in which the policy will be created.
 	ProjectId string `pulumi:"projectId"`
-	// Configuration for the policy. This block must be defined exactly once.
+	// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
 	Settings BranchPolicyAutoReviewersSettings `pulumi:"settings"`
 }
 
@@ -186,7 +186,7 @@ type BranchPolicyAutoReviewersArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// The ID of the project in which the policy will be created.
 	ProjectId pulumi.StringInput
-	// Configuration for the policy. This block must be defined exactly once.
+	// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
 	Settings BranchPolicyAutoReviewersSettingsInput
 }
 
@@ -292,7 +292,7 @@ func (o BranchPolicyAutoReviewersOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BranchPolicyAutoReviewers) pulumi.StringOutput { return v.ProjectId }).(pulumi.StringOutput)
 }
 
-// Configuration for the policy. This block must be defined exactly once.
+// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
 func (o BranchPolicyAutoReviewersOutput) Settings() BranchPolicyAutoReviewersSettingsOutput {
 	return o.ApplyT(func(v *BranchPolicyAutoReviewers) BranchPolicyAutoReviewersSettingsOutput { return v.Settings }).(BranchPolicyAutoReviewersSettingsOutput)
 }

@@ -10,6 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps
 {
     /// <summary>
+    /// ## *---
+    /// 
+    /// layout: "azuredevops"
+    /// page_title: "AzureDevops: azuredevops.Team"
+    /// description: |-
+    ///   Manages a team within a project in a Azure DevOps organization.
+    /// ---
+    /// 
+    /// # azuredevops.Team
+    /// 
     /// Manages a team within a project in a Azure DevOps organization.
     /// 
     /// ## Example Usage
@@ -82,10 +92,10 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// List of subject descriptors to define administrators of the team.
         /// 
-        /// &gt; NOTE: It's possible to define team administrators both within the
-        /// &gt; `azuredevops.Team` resource via the `administrators` block and by using the
-        /// &gt; `azuredevops.TeamAdministrators` resource. However it's not possible to use
-        /// &gt; both methods to manage team administrators, since there'll be conflicts.
+        /// &gt; **NOTE:** It's possible to define team administrators both within the
+        /// `azuredevops.Team` resource via the `administrators` block and by using the
+        /// `azuredevops.TeamAdministrators` resource. However it's not possible to use
+        /// both methods to manage team administrators, since there'll be conflicts.
         /// </summary>
         [Output("administrators")]
         public Output<ImmutableArray<string>> Administrators { get; private set; } = null!;
@@ -105,10 +115,10 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// List of subject descriptors to define members of the team.
         /// 
-        /// &gt; NOTE: It's possible to define team members both within the
-        /// &gt; `azuredevops.Team` resource via the `members` block and by using the
-        /// &gt; `azuredevops.TeamMembers` resource. However it's not possible to use
-        /// &gt; both methods to manage team members, since there'll be conflicts.
+        /// &gt; **NOTE:** It's possible to define team members both within the
+        /// `azuredevops.Team` resource via the `members` block and by using the
+        /// `azuredevops.TeamMembers` resource. However it's not possible to use
+        /// both methods to manage team members, since there'll be conflicts.
         /// </summary>
         [Output("members")]
         public Output<ImmutableArray<string>> Members { get; private set; } = null!;
@@ -177,10 +187,10 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// List of subject descriptors to define administrators of the team.
         /// 
-        /// &gt; NOTE: It's possible to define team administrators both within the
-        /// &gt; `azuredevops.Team` resource via the `administrators` block and by using the
-        /// &gt; `azuredevops.TeamAdministrators` resource. However it's not possible to use
-        /// &gt; both methods to manage team administrators, since there'll be conflicts.
+        /// &gt; **NOTE:** It's possible to define team administrators both within the
+        /// `azuredevops.Team` resource via the `administrators` block and by using the
+        /// `azuredevops.TeamAdministrators` resource. However it's not possible to use
+        /// both methods to manage team administrators, since there'll be conflicts.
         /// </summary>
         public InputList<string> Administrators
         {
@@ -200,10 +210,10 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// List of subject descriptors to define members of the team.
         /// 
-        /// &gt; NOTE: It's possible to define team members both within the
-        /// &gt; `azuredevops.Team` resource via the `members` block and by using the
-        /// &gt; `azuredevops.TeamMembers` resource. However it's not possible to use
-        /// &gt; both methods to manage team members, since there'll be conflicts.
+        /// &gt; **NOTE:** It's possible to define team members both within the
+        /// `azuredevops.Team` resource via the `members` block and by using the
+        /// `azuredevops.TeamMembers` resource. However it's not possible to use
+        /// both methods to manage team members, since there'll be conflicts.
         /// </summary>
         public InputList<string> Members
         {
@@ -237,10 +247,10 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// List of subject descriptors to define administrators of the team.
         /// 
-        /// &gt; NOTE: It's possible to define team administrators both within the
-        /// &gt; `azuredevops.Team` resource via the `administrators` block and by using the
-        /// &gt; `azuredevops.TeamAdministrators` resource. However it's not possible to use
-        /// &gt; both methods to manage team administrators, since there'll be conflicts.
+        /// &gt; **NOTE:** It's possible to define team administrators both within the
+        /// `azuredevops.Team` resource via the `administrators` block and by using the
+        /// `azuredevops.TeamAdministrators` resource. However it's not possible to use
+        /// both methods to manage team administrators, since there'll be conflicts.
         /// </summary>
         public InputList<string> Administrators
         {
@@ -266,10 +276,10 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// List of subject descriptors to define members of the team.
         /// 
-        /// &gt; NOTE: It's possible to define team members both within the
-        /// &gt; `azuredevops.Team` resource via the `members` block and by using the
-        /// &gt; `azuredevops.TeamMembers` resource. However it's not possible to use
-        /// &gt; both methods to manage team members, since there'll be conflicts.
+        /// &gt; **NOTE:** It's possible to define team members both within the
+        /// `azuredevops.Team` resource via the `members` block and by using the
+        /// `azuredevops.TeamMembers` resource. However it's not possible to use
+        /// both methods to manage team members, since there'll be conflicts.
         /// </summary>
         public InputList<string> Members
         {

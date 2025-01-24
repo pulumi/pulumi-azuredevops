@@ -330,6 +330,10 @@
                     }
                 }
             },
+            "azuredevops_check_rest_api": {
+                "current": "azuredevops:index/checkRestApi:CheckRestApi",
+                "majorVersion": 3
+            },
             "azuredevops_elastic_pool": {
                 "current": "azuredevops:index/elasticPool:ElasticPool",
                 "majorVersion": 3
@@ -358,6 +362,10 @@
             },
             "azuredevops_feed_permission": {
                 "current": "azuredevops:index/feedPermission:FeedPermission",
+                "majorVersion": 3
+            },
+            "azuredevops_feed_retention_policy": {
+                "current": "azuredevops:index/feedRetentionPolicy:FeedRetentionPolicy",
                 "majorVersion": 3
             },
             "azuredevops_git_permissions": {
@@ -430,6 +438,15 @@
             "azuredevops_project_pipeline_settings": {
                 "current": "azuredevops:index/projectPipelineSettings:ProjectPipelineSettings",
                 "majorVersion": 3
+            },
+            "azuredevops_project_tags": {
+                "current": "azuredevops:index/projectTags:ProjectTags",
+                "majorVersion": 3,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "azuredevops_repository_policy_author_email_pattern": {
                 "current": "azuredevops:index/repositoryPolicyAuthorEmailPattern:RepositoryPolicyAuthorEmailPattern",
@@ -515,6 +532,10 @@
                 "current": "azuredevops:index/securityroleAssignment:SecurityroleAssignment",
                 "majorVersion": 3
             },
+            "azuredevops_service_principal_entitlement": {
+                "current": "azuredevops:index/servicePrincipalEntitlement:ServicePrincipalEntitlement",
+                "majorVersion": 3
+            },
             "azuredevops_serviceendpoint_argocd": {
                 "current": "azuredevops:index/serviceendpointArgocd:ServiceendpointArgocd",
                 "majorVersion": 3,
@@ -574,6 +595,18 @@
             },
             "azuredevops_serviceendpoint_bitbucket": {
                 "current": "azuredevops:index/serviceEndpointBitBucket:ServiceEndpointBitBucket",
+                "majorVersion": 3
+            },
+            "azuredevops_serviceendpoint_checkmarx_one": {
+                "current": "azuredevops:index/serviceendpointCheckmarxOne:ServiceendpointCheckmarxOne",
+                "majorVersion": 3
+            },
+            "azuredevops_serviceendpoint_checkmarx_sast": {
+                "current": "azuredevops:index/serviceendpointCheckmarxSast:ServiceendpointCheckmarxSast",
+                "majorVersion": 3
+            },
+            "azuredevops_serviceendpoint_checkmarx_sca": {
+                "current": "azuredevops:index/serviceendpointCheckmarxSca:ServiceendpointCheckmarxSca",
                 "majorVersion": 3
             },
             "azuredevops_serviceendpoint_dockerregistry": {
@@ -1110,6 +1143,10 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "azuredevops_service_principal": {
+                "current": "azuredevops:index/getServicePrincipal:getServicePrincipal",
+                "majorVersion": 3
             },
             "azuredevops_serviceendpoint_azurecr": {
                 "current": "azuredevops:index/getServiceendpointAzurecr:getServiceendpointAzurecr",

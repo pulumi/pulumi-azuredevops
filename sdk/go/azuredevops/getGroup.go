@@ -76,9 +76,9 @@ func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getGroup.
 type LookupGroupArgs struct {
-	// The Group Name.
+	// The Name of the Group.
 	Name string `pulumi:"name"`
-	// The Project ID. If no project ID is specified the project collection groups will be searched.
+	// The ID of the Project. If `projectId` is not specified the project collection groups will be searched.
 	ProjectId *string `pulumi:"projectId"`
 }
 
@@ -109,9 +109,9 @@ func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...
 
 // A collection of arguments for invoking getGroup.
 type LookupGroupOutputArgs struct {
-	// The Group Name.
+	// The Name of the Group.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The Project ID. If no project ID is specified the project collection groups will be searched.
+	// The ID of the Project. If `projectId` is not specified the project collection groups will be searched.
 	ProjectId pulumi.StringPtrInput `pulumi:"projectId"`
 }
 

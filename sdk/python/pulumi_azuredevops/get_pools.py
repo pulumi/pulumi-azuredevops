@@ -39,7 +39,7 @@ class GetPoolsResult:
     @pulumi.getter(name="agentPools")
     def agent_pools(self) -> Sequence['outputs.GetPoolsAgentPoolResult']:
         """
-        A list of existing agent pools in your Azure DevOps Organization with the following details about every agent pool:
+        An `agent_pools` blocks as documented below. A list of existing agent pools in your Azure DevOps Organization with the following details about every agent pool:
         """
         return pulumi.get(self, "agent_pools")
 
@@ -81,7 +81,7 @@ def get_pools(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPoolsR
 
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
+    - [Azure DevOps Service REST API 7.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.1)
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -109,7 +109,7 @@ def get_pools_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOut
 
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
+    - [Azure DevOps Service REST API 7.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.1)
     """
     __args__ = dict()
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

@@ -43,7 +43,7 @@ export function getGroups(args?: GetGroupsArgs, opts?: pulumi.InvokeOptions): Pr
  */
 export interface GetGroupsArgs {
     /**
-     * The Project ID. If no project ID is specified all groups of an organization will be returned
+     * The ID of the Project. If no project ID is specified all groups of an organization will be returned
      */
     projectId?: string;
 }
@@ -53,7 +53,7 @@ export interface GetGroupsArgs {
  */
 export interface GetGroupsResult {
     /**
-     * A set of existing groups in your Azure DevOps Organization or project with details about every single group which includes:
+     * A `groups` blocks as documented below. A set of existing groups in your Azure DevOps Organization or project with details about every single group which includes:
      */
     readonly groups: outputs.GetGroupsGroup[];
     /**
@@ -99,7 +99,7 @@ export function getGroupsOutput(args?: GetGroupsOutputArgs, opts?: pulumi.Invoke
  */
 export interface GetGroupsOutputArgs {
     /**
-     * The Project ID. If no project ID is specified all groups of an organization will be returned
+     * The ID of the Project. If no project ID is specified all groups of an organization will be returned
      */
     projectId?: pulumi.Input<string>;
 }

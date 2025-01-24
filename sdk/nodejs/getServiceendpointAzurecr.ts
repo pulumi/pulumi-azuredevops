@@ -58,7 +58,7 @@ export interface GetServiceendpointAzurecrResult {
      */
     readonly appObjectId: string;
     /**
-     * Specifies the Authorization Scheme Map.
+     * The Authorization scheme.
      */
     readonly authorization: {[key: string]: string};
     /**

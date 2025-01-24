@@ -64,14 +64,14 @@ public final class BranchPolicyWorkItemLinkingArgs extends com.pulumi.resources.
     }
 
     /**
-     * Configuration for the policy. This block must be defined exactly once.
+     * A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
      * 
      */
     @Import(name="settings", required=true)
     private Output<BranchPolicyWorkItemLinkingSettingsArgs> settings;
 
     /**
-     * @return Configuration for the policy. This block must be defined exactly once.
+     * @return A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
      * 
      */
     public Output<BranchPolicyWorkItemLinkingSettingsArgs> settings() {
@@ -169,7 +169,7 @@ public final class BranchPolicyWorkItemLinkingArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param settings Configuration for the policy. This block must be defined exactly once.
+         * @param settings A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class BranchPolicyWorkItemLinkingArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param settings Configuration for the policy. This block must be defined exactly once.
+         * @param settings A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
          * 
          * @return builder
          * 

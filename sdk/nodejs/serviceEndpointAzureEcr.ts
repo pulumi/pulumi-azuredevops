@@ -11,8 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * ### Service Principal
- *
+ * ### Authorize with Service Principal
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -36,7 +35,7 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
- * ### WorkloadIdentityFederation
+ * ### Authorize with WorkloadIdentityFederation
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -90,7 +89,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Azure DevOps Service Endpoint Azure Container Registry can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+ * Azure DevOps Azure Container Registry Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
  *
  * ```sh
  * $ pulumi import azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -145,7 +144,7 @@ export class ServiceEndpointAzureEcr extends pulumi.CustomResource {
      */
     public readonly azurecrSubscriptionName!: pulumi.Output<string>;
     /**
-     * A `credentials` block.
+     * A `credentials` block as defined below.
      */
     public readonly credentials!: pulumi.Output<outputs.ServiceEndpointAzureEcrCredentials | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
@@ -279,7 +278,7 @@ export interface ServiceEndpointAzureEcrState {
      */
     azurecrSubscriptionName?: pulumi.Input<string>;
     /**
-     * A `credentials` block.
+     * A `credentials` block as defined below.
      */
     credentials?: pulumi.Input<inputs.ServiceEndpointAzureEcrCredentials>;
     description?: pulumi.Input<string>;
@@ -336,7 +335,7 @@ export interface ServiceEndpointAzureEcrArgs {
      */
     azurecrSubscriptionName: pulumi.Input<string>;
     /**
-     * A `credentials` block.
+     * A `credentials` block as defined below.
      */
     credentials?: pulumi.Input<inputs.ServiceEndpointAzureEcrCredentials>;
     description?: pulumi.Input<string>;

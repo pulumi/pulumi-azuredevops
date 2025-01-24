@@ -90,7 +90,7 @@ export interface GetAreaResult {
      */
     readonly path: string;
     /**
-     * The project ID of the child Area node
+     * The ID of project.
      */
     readonly projectId: string;
 }

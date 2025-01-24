@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps
 {
     /// <summary>
-    /// Manages a Service Hook Storage Queue Pipelines.
+    /// Manages a Storage Queue Pipelines Service Hook .
     /// 
     /// ## Example Usage
     /// 
@@ -91,7 +91,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ## Import
     /// 
-    /// Service Hook Storage Queue Pipeliness can be imported using the `resource id`, e.g.
+    /// Storage Queue Pipelines Service Hook can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import azuredevops:index/servicehookStorageQueuePipelines:ServicehookStorageQueuePipelines example 00000000-0000-0000-0000-000000000000

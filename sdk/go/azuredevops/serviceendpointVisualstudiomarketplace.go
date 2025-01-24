@@ -16,8 +16,7 @@ import (
 //
 // ## Example Usage
 //
-// ### With Token
-//
+// ### Authorize with token
 // ```go
 // package main
 //
@@ -58,7 +57,7 @@ import (
 //
 // ```
 //
-// ### With Username And Password
+// ### Authorize with username and password
 //
 // ```go
 // package main

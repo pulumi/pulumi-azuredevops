@@ -56,7 +56,9 @@ export interface GetTeamArgs {
      */
     projectId: string;
     /**
-     * The maximum number of teams to return. Defaults to `100`.
+     * The maximum number of teams to return. Defaults to `100`. This property is deprecated and will be removed in the feature
+     *
+     * @deprecated This property is deprecated and will be removed in the feature
      */
     top?: number;
 }
@@ -70,7 +72,7 @@ export interface GetTeamResult {
      */
     readonly administrators: string[];
     /**
-     * Team description.
+     * The description of the team.
      */
     readonly description: string;
     /**
@@ -87,6 +89,9 @@ export interface GetTeamResult {
     readonly members: string[];
     readonly name: string;
     readonly projectId: string;
+    /**
+     * @deprecated This property is deprecated and will be removed in the feature
+     */
     readonly top?: number;
 }
 /**
@@ -141,7 +146,9 @@ export interface GetTeamOutputArgs {
      */
     projectId: pulumi.Input<string>;
     /**
-     * The maximum number of teams to return. Defaults to `100`.
+     * The maximum number of teams to return. Defaults to `100`. This property is deprecated and will be removed in the feature
+     *
+     * @deprecated This property is deprecated and will be removed in the feature
      */
     top?: pulumi.Input<number>;
 }

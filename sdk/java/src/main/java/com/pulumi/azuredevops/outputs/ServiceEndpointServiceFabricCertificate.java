@@ -28,7 +28,7 @@ public final class ServiceEndpointServiceFabricCertificate {
      */
     private @Nullable String serverCertificateCommonName;
     /**
-     * @return Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+     * @return Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
      * 
      */
     private String serverCertificateLookup;
@@ -61,7 +61,7 @@ public final class ServiceEndpointServiceFabricCertificate {
         return Optional.ofNullable(this.serverCertificateCommonName);
     }
     /**
-     * @return Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+     * @return Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
      * 
      */
     public String serverCertificateLookup() {

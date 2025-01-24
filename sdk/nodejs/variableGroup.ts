@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * ### Basic usage
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -39,7 +40,7 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
- * ### With AzureRM Key Vault
+ * ### Link to AzureRM Key Vault
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

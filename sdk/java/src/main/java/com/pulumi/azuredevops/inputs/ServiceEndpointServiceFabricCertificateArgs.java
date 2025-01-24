@@ -62,14 +62,14 @@ public final class ServiceEndpointServiceFabricCertificateArgs extends com.pulum
     }
 
     /**
-     * Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+     * Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
      * 
      */
     @Import(name="serverCertificateLookup", required=true)
     private Output<String> serverCertificateLookup;
 
     /**
-     * @return Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+     * @return Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
      * 
      */
     public Output<String> serverCertificateLookup() {
@@ -183,7 +183,7 @@ public final class ServiceEndpointServiceFabricCertificateArgs extends com.pulum
         }
 
         /**
-         * @param serverCertificateLookup Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+         * @param serverCertificateLookup Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class ServiceEndpointServiceFabricCertificateArgs extends com.pulum
         }
 
         /**
-         * @param serverCertificateLookup Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+         * @param serverCertificateLookup Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
          * 
          * @return builder
          * 

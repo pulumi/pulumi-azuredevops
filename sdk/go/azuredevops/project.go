@@ -54,6 +54,7 @@ import (
 // ## PAT Permissions Required
 //
 // - **Project & Team**: Read, Write, & Manage
+// - **Work Items**: Read
 //
 // ## Import
 //
@@ -72,12 +73,19 @@ type Project struct {
 	pulumi.CustomResourceState
 
 	// The Description of the Project.
+	// *
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Defines the status (`enabled`, `disabled`) of the project features.
-	// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+	// Defines the status (`enabled`, `disabled`) of the project features. Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 	//
-	// > **NOTE:**
-	// It's possible to define project features both within the `ProjectFeatures` resource and
+	// | Features     | Possible Values   |
+	// |--------------|-------------------|
+	// | boards       | enabled, disabled |
+	// | repositories | enabled, disabled |
+	// | pipelines    | enabled, disabled |
+	// | testplans    | enabled, disabled |
+	// | artifacts    | enabled, disabled |
+	//
+	// > **NOTE:** It's possible to define project features both within the `ProjectFeatures` resource and
 	// via the `features` block by using the `Project` resource.
 	// However it's not possible to use both methods to manage features, since there'll be conflicts.
 	Features pulumi.StringMapOutput `pulumi:"features"`
@@ -85,11 +93,11 @@ type Project struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Process Template ID used by the Project.
 	ProcessTemplateId pulumi.StringOutput `pulumi:"processTemplateId"`
-	// Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
+	// Specifies the version control system. Possbile values are: `Git` or `Tfvc`. Defaults to `Git`.
 	VersionControl pulumi.StringPtrOutput `pulumi:"versionControl"`
-	// Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
+	// Specifies the visibility of the Project. Possible values are: `private` or `public`. Defaults to `private`.
 	Visibility pulumi.StringPtrOutput `pulumi:"visibility"`
-	// Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
+	// Specifies the work item template. Possible values are: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
 	WorkItemTemplate pulumi.StringPtrOutput `pulumi:"workItemTemplate"`
 }
 
@@ -124,12 +132,19 @@ func GetProject(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Project resources.
 type projectState struct {
 	// The Description of the Project.
+	// *
 	Description *string `pulumi:"description"`
-	// Defines the status (`enabled`, `disabled`) of the project features.
-	// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+	// Defines the status (`enabled`, `disabled`) of the project features. Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 	//
-	// > **NOTE:**
-	// It's possible to define project features both within the `ProjectFeatures` resource and
+	// | Features     | Possible Values   |
+	// |--------------|-------------------|
+	// | boards       | enabled, disabled |
+	// | repositories | enabled, disabled |
+	// | pipelines    | enabled, disabled |
+	// | testplans    | enabled, disabled |
+	// | artifacts    | enabled, disabled |
+	//
+	// > **NOTE:** It's possible to define project features both within the `ProjectFeatures` resource and
 	// via the `features` block by using the `Project` resource.
 	// However it's not possible to use both methods to manage features, since there'll be conflicts.
 	Features map[string]string `pulumi:"features"`
@@ -137,22 +152,29 @@ type projectState struct {
 	Name *string `pulumi:"name"`
 	// The Process Template ID used by the Project.
 	ProcessTemplateId *string `pulumi:"processTemplateId"`
-	// Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
+	// Specifies the version control system. Possbile values are: `Git` or `Tfvc`. Defaults to `Git`.
 	VersionControl *string `pulumi:"versionControl"`
-	// Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
+	// Specifies the visibility of the Project. Possible values are: `private` or `public`. Defaults to `private`.
 	Visibility *string `pulumi:"visibility"`
-	// Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
+	// Specifies the work item template. Possible values are: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
 	WorkItemTemplate *string `pulumi:"workItemTemplate"`
 }
 
 type ProjectState struct {
 	// The Description of the Project.
+	// *
 	Description pulumi.StringPtrInput
-	// Defines the status (`enabled`, `disabled`) of the project features.
-	// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+	// Defines the status (`enabled`, `disabled`) of the project features. Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 	//
-	// > **NOTE:**
-	// It's possible to define project features both within the `ProjectFeatures` resource and
+	// | Features     | Possible Values   |
+	// |--------------|-------------------|
+	// | boards       | enabled, disabled |
+	// | repositories | enabled, disabled |
+	// | pipelines    | enabled, disabled |
+	// | testplans    | enabled, disabled |
+	// | artifacts    | enabled, disabled |
+	//
+	// > **NOTE:** It's possible to define project features both within the `ProjectFeatures` resource and
 	// via the `features` block by using the `Project` resource.
 	// However it's not possible to use both methods to manage features, since there'll be conflicts.
 	Features pulumi.StringMapInput
@@ -160,11 +182,11 @@ type ProjectState struct {
 	Name pulumi.StringPtrInput
 	// The Process Template ID used by the Project.
 	ProcessTemplateId pulumi.StringPtrInput
-	// Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
+	// Specifies the version control system. Possbile values are: `Git` or `Tfvc`. Defaults to `Git`.
 	VersionControl pulumi.StringPtrInput
-	// Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
+	// Specifies the visibility of the Project. Possible values are: `private` or `public`. Defaults to `private`.
 	Visibility pulumi.StringPtrInput
-	// Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
+	// Specifies the work item template. Possible values are: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
 	WorkItemTemplate pulumi.StringPtrInput
 }
 
@@ -174,44 +196,58 @@ func (ProjectState) ElementType() reflect.Type {
 
 type projectArgs struct {
 	// The Description of the Project.
+	// *
 	Description *string `pulumi:"description"`
-	// Defines the status (`enabled`, `disabled`) of the project features.
-	// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+	// Defines the status (`enabled`, `disabled`) of the project features. Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 	//
-	// > **NOTE:**
-	// It's possible to define project features both within the `ProjectFeatures` resource and
+	// | Features     | Possible Values   |
+	// |--------------|-------------------|
+	// | boards       | enabled, disabled |
+	// | repositories | enabled, disabled |
+	// | pipelines    | enabled, disabled |
+	// | testplans    | enabled, disabled |
+	// | artifacts    | enabled, disabled |
+	//
+	// > **NOTE:** It's possible to define project features both within the `ProjectFeatures` resource and
 	// via the `features` block by using the `Project` resource.
 	// However it's not possible to use both methods to manage features, since there'll be conflicts.
 	Features map[string]string `pulumi:"features"`
 	// The Project Name.
 	Name *string `pulumi:"name"`
-	// Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
+	// Specifies the version control system. Possbile values are: `Git` or `Tfvc`. Defaults to `Git`.
 	VersionControl *string `pulumi:"versionControl"`
-	// Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
+	// Specifies the visibility of the Project. Possible values are: `private` or `public`. Defaults to `private`.
 	Visibility *string `pulumi:"visibility"`
-	// Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
+	// Specifies the work item template. Possible values are: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
 	WorkItemTemplate *string `pulumi:"workItemTemplate"`
 }
 
 // The set of arguments for constructing a Project resource.
 type ProjectArgs struct {
 	// The Description of the Project.
+	// *
 	Description pulumi.StringPtrInput
-	// Defines the status (`enabled`, `disabled`) of the project features.
-	// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+	// Defines the status (`enabled`, `disabled`) of the project features. Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 	//
-	// > **NOTE:**
-	// It's possible to define project features both within the `ProjectFeatures` resource and
+	// | Features     | Possible Values   |
+	// |--------------|-------------------|
+	// | boards       | enabled, disabled |
+	// | repositories | enabled, disabled |
+	// | pipelines    | enabled, disabled |
+	// | testplans    | enabled, disabled |
+	// | artifacts    | enabled, disabled |
+	//
+	// > **NOTE:** It's possible to define project features both within the `ProjectFeatures` resource and
 	// via the `features` block by using the `Project` resource.
 	// However it's not possible to use both methods to manage features, since there'll be conflicts.
 	Features pulumi.StringMapInput
 	// The Project Name.
 	Name pulumi.StringPtrInput
-	// Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
+	// Specifies the version control system. Possbile values are: `Git` or `Tfvc`. Defaults to `Git`.
 	VersionControl pulumi.StringPtrInput
-	// Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
+	// Specifies the visibility of the Project. Possible values are: `private` or `public`. Defaults to `private`.
 	Visibility pulumi.StringPtrInput
-	// Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
+	// Specifies the work item template. Possible values are: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
 	WorkItemTemplate pulumi.StringPtrInput
 }
 
@@ -303,15 +339,22 @@ func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOu
 }
 
 // The Description of the Project.
+// *
 func (o ProjectOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Defines the status (`enabled`, `disabled`) of the project features.
-// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+// Defines the status (`enabled`, `disabled`) of the project features. Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 //
-// > **NOTE:**
-// It's possible to define project features both within the `ProjectFeatures` resource and
+// | Features     | Possible Values   |
+// |--------------|-------------------|
+// | boards       | enabled, disabled |
+// | repositories | enabled, disabled |
+// | pipelines    | enabled, disabled |
+// | testplans    | enabled, disabled |
+// | artifacts    | enabled, disabled |
+//
+// > **NOTE:** It's possible to define project features both within the `ProjectFeatures` resource and
 // via the `features` block by using the `Project` resource.
 // However it's not possible to use both methods to manage features, since there'll be conflicts.
 func (o ProjectOutput) Features() pulumi.StringMapOutput {
@@ -328,17 +371,17 @@ func (o ProjectOutput) ProcessTemplateId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.ProcessTemplateId }).(pulumi.StringOutput)
 }
 
-// Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
+// Specifies the version control system. Possbile values are: `Git` or `Tfvc`. Defaults to `Git`.
 func (o ProjectOutput) VersionControl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.VersionControl }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
+// Specifies the visibility of the Project. Possible values are: `private` or `public`. Defaults to `private`.
 func (o ProjectOutput) Visibility() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.Visibility }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
+// Specifies the work item template. Possible values are: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
 func (o ProjectOutput) WorkItemTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.WorkItemTemplate }).(pulumi.StringPtrOutput)
 }

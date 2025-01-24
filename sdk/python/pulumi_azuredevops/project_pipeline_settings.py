@@ -28,14 +28,13 @@ class ProjectPipelineSettingsArgs:
                  status_badges_are_private: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a ProjectPipelineSettings resource.
-        :param pulumi.Input[str] project_id: The `id` of the project for which the project pipeline settings will be managed.
+        :param pulumi.Input[str] project_id: The ID of the project for which the project pipeline settings will be managed.
         :param pulumi.Input[bool] enforce_job_scope: Limit job authorization scope to current project for non-release pipelines.
         :param pulumi.Input[bool] enforce_job_scope_for_release: Limit job authorization scope to current project for release pipelines.
                
-               > **NOTE:**
-               > The settings at the organization will override settings specified on the project.
-               > For example, if `enforce_job_scope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
-               > In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
+               > **NOTE:** The settings at the organization will override settings specified on the project.
+               For example, if `enforce_job_scope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
+               In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
         :param pulumi.Input[bool] enforce_referenced_repo_scoped_token: Protect access to repositories in YAML pipelines.
         :param pulumi.Input[bool] enforce_settable_var: Limit variables that can be set at queue time.
         :param pulumi.Input[bool] publish_pipeline_metadata: Publish metadata from pipelines.
@@ -59,7 +58,7 @@ class ProjectPipelineSettingsArgs:
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Input[str]:
         """
-        The `id` of the project for which the project pipeline settings will be managed.
+        The ID of the project for which the project pipeline settings will be managed.
         """
         return pulumi.get(self, "project_id")
 
@@ -85,10 +84,9 @@ class ProjectPipelineSettingsArgs:
         """
         Limit job authorization scope to current project for release pipelines.
 
-        > **NOTE:**
-        > The settings at the organization will override settings specified on the project.
-        > For example, if `enforce_job_scope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
-        > In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
+        > **NOTE:** The settings at the organization will override settings specified on the project.
+        For example, if `enforce_job_scope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
+        In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
         """
         return pulumi.get(self, "enforce_job_scope_for_release")
 
@@ -160,13 +158,12 @@ class _ProjectPipelineSettingsState:
         :param pulumi.Input[bool] enforce_job_scope: Limit job authorization scope to current project for non-release pipelines.
         :param pulumi.Input[bool] enforce_job_scope_for_release: Limit job authorization scope to current project for release pipelines.
                
-               > **NOTE:**
-               > The settings at the organization will override settings specified on the project.
-               > For example, if `enforce_job_scope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
-               > In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
+               > **NOTE:** The settings at the organization will override settings specified on the project.
+               For example, if `enforce_job_scope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
+               In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
         :param pulumi.Input[bool] enforce_referenced_repo_scoped_token: Protect access to repositories in YAML pipelines.
         :param pulumi.Input[bool] enforce_settable_var: Limit variables that can be set at queue time.
-        :param pulumi.Input[str] project_id: The `id` of the project for which the project pipeline settings will be managed.
+        :param pulumi.Input[str] project_id: The ID of the project for which the project pipeline settings will be managed.
         :param pulumi.Input[bool] publish_pipeline_metadata: Publish metadata from pipelines.
         :param pulumi.Input[bool] status_badges_are_private: Disable anonymous access to badges.
         """
@@ -203,10 +200,9 @@ class _ProjectPipelineSettingsState:
         """
         Limit job authorization scope to current project for release pipelines.
 
-        > **NOTE:**
-        > The settings at the organization will override settings specified on the project.
-        > For example, if `enforce_job_scope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
-        > In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
+        > **NOTE:** The settings at the organization will override settings specified on the project.
+        For example, if `enforce_job_scope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
+        In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
         """
         return pulumi.get(self, "enforce_job_scope_for_release")
 
@@ -242,7 +238,7 @@ class _ProjectPipelineSettingsState:
     @pulumi.getter(name="projectId")
     def project_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The `id` of the project for which the project pipeline settings will be managed.
+        The ID of the project for which the project pipeline settings will be managed.
         """
         return pulumi.get(self, "project_id")
 
@@ -333,13 +329,12 @@ class ProjectPipelineSettings(pulumi.CustomResource):
         :param pulumi.Input[bool] enforce_job_scope: Limit job authorization scope to current project for non-release pipelines.
         :param pulumi.Input[bool] enforce_job_scope_for_release: Limit job authorization scope to current project for release pipelines.
                
-               > **NOTE:**
-               > The settings at the organization will override settings specified on the project.
-               > For example, if `enforce_job_scope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
-               > In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
+               > **NOTE:** The settings at the organization will override settings specified on the project.
+               For example, if `enforce_job_scope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
+               In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
         :param pulumi.Input[bool] enforce_referenced_repo_scoped_token: Protect access to repositories in YAML pipelines.
         :param pulumi.Input[bool] enforce_settable_var: Limit variables that can be set at queue time.
-        :param pulumi.Input[str] project_id: The `id` of the project for which the project pipeline settings will be managed.
+        :param pulumi.Input[str] project_id: The ID of the project for which the project pipeline settings will be managed.
         :param pulumi.Input[bool] publish_pipeline_metadata: Publish metadata from pipelines.
         :param pulumi.Input[bool] status_badges_are_private: Disable anonymous access to badges.
         """
@@ -456,13 +451,12 @@ class ProjectPipelineSettings(pulumi.CustomResource):
         :param pulumi.Input[bool] enforce_job_scope: Limit job authorization scope to current project for non-release pipelines.
         :param pulumi.Input[bool] enforce_job_scope_for_release: Limit job authorization scope to current project for release pipelines.
                
-               > **NOTE:**
-               > The settings at the organization will override settings specified on the project.
-               > For example, if `enforce_job_scope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
-               > In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
+               > **NOTE:** The settings at the organization will override settings specified on the project.
+               For example, if `enforce_job_scope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
+               In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
         :param pulumi.Input[bool] enforce_referenced_repo_scoped_token: Protect access to repositories in YAML pipelines.
         :param pulumi.Input[bool] enforce_settable_var: Limit variables that can be set at queue time.
-        :param pulumi.Input[str] project_id: The `id` of the project for which the project pipeline settings will be managed.
+        :param pulumi.Input[str] project_id: The ID of the project for which the project pipeline settings will be managed.
         :param pulumi.Input[bool] publish_pipeline_metadata: Publish metadata from pipelines.
         :param pulumi.Input[bool] status_badges_are_private: Disable anonymous access to badges.
         """
@@ -493,10 +487,9 @@ class ProjectPipelineSettings(pulumi.CustomResource):
         """
         Limit job authorization scope to current project for release pipelines.
 
-        > **NOTE:**
-        > The settings at the organization will override settings specified on the project.
-        > For example, if `enforce_job_scope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
-        > In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
+        > **NOTE:** The settings at the organization will override settings specified on the project.
+        For example, if `enforce_job_scope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
+        In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
         """
         return pulumi.get(self, "enforce_job_scope_for_release")
 
@@ -520,7 +513,7 @@ class ProjectPipelineSettings(pulumi.CustomResource):
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Output[str]:
         """
-        The `id` of the project for which the project pipeline settings will be managed.
+        The ID of the project for which the project pipeline settings will be managed.
         """
         return pulumi.get(self, "project_id")
 

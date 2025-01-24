@@ -40,7 +40,7 @@ class ServiceEndpointAzureEcrArgs:
         :param pulumi.Input[str] azurecr_subscription_name: The subscription name of the Azure targets.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The name you will use to refer to this service connection in task inputs.
-        :param pulumi.Input['ServiceEndpointAzureEcrCredentialsArgs'] credentials: A `credentials` block.
+        :param pulumi.Input['ServiceEndpointAzureEcrCredentialsArgs'] credentials: A `credentials` block as defined below.
         :param pulumi.Input[str] resource_group: The resource group to which the container registry belongs.
         :param pulumi.Input[str] service_endpoint_authentication_scheme: Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
         """
@@ -146,7 +146,7 @@ class ServiceEndpointAzureEcrArgs:
     @pulumi.getter
     def credentials(self) -> Optional[pulumi.Input['ServiceEndpointAzureEcrCredentialsArgs']]:
         """
-        A `credentials` block.
+        A `credentials` block as defined below.
         """
         return pulumi.get(self, "credentials")
 
@@ -215,7 +215,7 @@ class _ServiceEndpointAzureEcrState:
         :param pulumi.Input[str] azurecr_spn_tenantid: The tenant id of the service principal.
         :param pulumi.Input[str] azurecr_subscription_id: The subscription id of the Azure targets.
         :param pulumi.Input[str] azurecr_subscription_name: The subscription name of the Azure targets.
-        :param pulumi.Input['ServiceEndpointAzureEcrCredentialsArgs'] credentials: A `credentials` block.
+        :param pulumi.Input['ServiceEndpointAzureEcrCredentialsArgs'] credentials: A `credentials` block as defined below.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] resource_group: The resource group to which the container registry belongs.
         :param pulumi.Input[str] service_endpoint_authentication_scheme: Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
@@ -349,7 +349,7 @@ class _ServiceEndpointAzureEcrState:
     @pulumi.getter
     def credentials(self) -> Optional[pulumi.Input['ServiceEndpointAzureEcrCredentialsArgs']]:
         """
-        A `credentials` block.
+        A `credentials` block as defined below.
         """
         return pulumi.get(self, "credentials")
 
@@ -482,8 +482,7 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Service Principal
-
+        ### Authorize with Service Principal
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -505,7 +504,7 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
             azurecr_subscription_name="subscription name")
         ```
 
-        ### WorkloadIdentityFederation
+        ### Authorize with WorkloadIdentityFederation
 
         ```python
         import pulumi
@@ -554,7 +553,7 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
 
         ## Import
 
-        Azure DevOps Service Endpoint Azure Container Registry can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+        Azure DevOps Azure Container Registry Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
         $ pulumi import azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -566,7 +565,7 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
         :param pulumi.Input[str] azurecr_spn_tenantid: The tenant id of the service principal.
         :param pulumi.Input[str] azurecr_subscription_id: The subscription id of the Azure targets.
         :param pulumi.Input[str] azurecr_subscription_name: The subscription name of the Azure targets.
-        :param pulumi.Input[Union['ServiceEndpointAzureEcrCredentialsArgs', 'ServiceEndpointAzureEcrCredentialsArgsDict']] credentials: A `credentials` block.
+        :param pulumi.Input[Union['ServiceEndpointAzureEcrCredentialsArgs', 'ServiceEndpointAzureEcrCredentialsArgsDict']] credentials: A `credentials` block as defined below.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] resource_group: The resource group to which the container registry belongs.
         :param pulumi.Input[str] service_endpoint_authentication_scheme: Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
@@ -583,8 +582,7 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Service Principal
-
+        ### Authorize with Service Principal
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -606,7 +604,7 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
             azurecr_subscription_name="subscription name")
         ```
 
-        ### WorkloadIdentityFederation
+        ### Authorize with WorkloadIdentityFederation
 
         ```python
         import pulumi
@@ -655,7 +653,7 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
 
         ## Import
 
-        Azure DevOps Service Endpoint Azure Container Registry can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+        Azure DevOps Azure Container Registry Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
         $ pulumi import azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -765,7 +763,7 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
         :param pulumi.Input[str] azurecr_spn_tenantid: The tenant id of the service principal.
         :param pulumi.Input[str] azurecr_subscription_id: The subscription id of the Azure targets.
         :param pulumi.Input[str] azurecr_subscription_name: The subscription name of the Azure targets.
-        :param pulumi.Input[Union['ServiceEndpointAzureEcrCredentialsArgs', 'ServiceEndpointAzureEcrCredentialsArgsDict']] credentials: A `credentials` block.
+        :param pulumi.Input[Union['ServiceEndpointAzureEcrCredentialsArgs', 'ServiceEndpointAzureEcrCredentialsArgsDict']] credentials: A `credentials` block as defined below.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] resource_group: The resource group to which the container registry belongs.
         :param pulumi.Input[str] service_endpoint_authentication_scheme: Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
@@ -854,7 +852,7 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
     @pulumi.getter
     def credentials(self) -> pulumi.Output[Optional['outputs.ServiceEndpointAzureEcrCredentials']]:
         """
-        A `credentials` block.
+        A `credentials` block as defined below.
         """
         return pulumi.get(self, "credentials")
 

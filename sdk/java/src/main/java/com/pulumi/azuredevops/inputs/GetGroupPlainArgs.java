@@ -16,14 +16,14 @@ public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetGroupPlainArgs Empty = new GetGroupPlainArgs();
 
     /**
-     * The Group Name.
+     * The Name of the Group.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The Group Name.
+     * @return The Name of the Group.
      * 
      */
     public String name() {
@@ -31,14 +31,14 @@ public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The Project ID. If no project ID is specified the project collection groups will be searched.
+     * The ID of the Project. If `project_id` is not specified the project collection groups will be searched.
      * 
      */
     @Import(name="projectId")
     private @Nullable String projectId;
 
     /**
-     * @return The Project ID. If no project ID is specified the project collection groups will be searched.
+     * @return The ID of the Project. If `project_id` is not specified the project collection groups will be searched.
      * 
      */
     public Optional<String> projectId() {
@@ -71,7 +71,7 @@ public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The Group Name.
+         * @param name The Name of the Group.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param projectId The Project ID. If no project ID is specified the project collection groups will be searched.
+         * @param projectId The ID of the Project. If `project_id` is not specified the project collection groups will be searched.
          * 
          * @return builder
          * 

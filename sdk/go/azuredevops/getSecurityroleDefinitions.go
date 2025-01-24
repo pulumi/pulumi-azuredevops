@@ -42,7 +42,7 @@ import (
 //
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 7.0 - Roledefinitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)
+// - [Azure DevOps Service REST API 7.0 - Role Definitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)
 func GetSecurityroleDefinitions(ctx *pulumi.Context, args *GetSecurityroleDefinitionsArgs, opts ...pulumi.InvokeOption) (*GetSecurityroleDefinitionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSecurityroleDefinitionsResult
@@ -57,7 +57,7 @@ func GetSecurityroleDefinitions(ctx *pulumi.Context, args *GetSecurityroleDefini
 type GetSecurityroleDefinitionsArgs struct {
 	// Name of the Scope for which Security Role Definitions will be returned.
 	//
-	// DataSource without specifying any arguments will return all projects.
+	// > **NOTE:** DataSource without specifying any arguments will return all projects.
 	Scope string `pulumi:"scope"`
 }
 
@@ -84,7 +84,7 @@ func GetSecurityroleDefinitionsOutput(ctx *pulumi.Context, args GetSecurityroleD
 type GetSecurityroleDefinitionsOutputArgs struct {
 	// Name of the Scope for which Security Role Definitions will be returned.
 	//
-	// DataSource without specifying any arguments will return all projects.
+	// > **NOTE:** DataSource without specifying any arguments will return all projects.
 	Scope pulumi.StringInput `pulumi:"scope"`
 }
 

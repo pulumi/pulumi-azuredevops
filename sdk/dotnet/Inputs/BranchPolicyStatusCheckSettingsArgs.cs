@@ -13,9 +13,9 @@ namespace Pulumi.AzureDevOps.Inputs
     public sealed class BranchPolicyStatusCheckSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Policy applicability. If policy `applicability` is `default`, apply unless "Not Applicable" 
-        /// status is posted to the pull request. If policy `applicability` is `conditional`, policy is applied only after a status
-        /// is posted to the pull request.
+        /// Policy applicability. If policy `applicability=default`, apply unless "Not Applicable"
+        /// status is posted to the pull request. If policy `applicability=conditional`, policy is applied only after a status
+        /// is posted to the pull request. Possible values `default`, `conditional`. Defaults to `default`.
         /// </summary>
         [Input("applicability")]
         public Input<string>? Applicability { get; set; }
@@ -36,7 +36,10 @@ namespace Pulumi.AzureDevOps.Inputs
         private InputList<string>? _filenamePatterns;
 
         /// <summary>
-        /// If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+        /// If a path filter is set, the policy will only apply when files which match the filter are changed. Not setting this field means that the policy is always applied.
+        /// 
+        /// ~&gt;**NOTE** 1. Specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`.
+        /// &lt;br&gt; 2. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
         /// </summary>
         public InputList<string> FilenamePatterns
         {
@@ -66,8 +69,7 @@ namespace Pulumi.AzureDevOps.Inputs
         private InputList<Inputs.BranchPolicyStatusCheckSettingsScopeArgs>? _scopes;
 
         /// <summary>
-        /// Controls which repositories and branches the policy will be enabled for. This block must be defined
-        /// at least once.
+        /// A `scope` block as defined below.
         /// </summary>
         public InputList<Inputs.BranchPolicyStatusCheckSettingsScopeArgs> Scopes
         {

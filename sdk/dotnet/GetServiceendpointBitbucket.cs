@@ -234,8 +234,8 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// the Name of the Service Endpoint.
         /// 
-        /// &gt; **NOTE:** One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
-        /// &gt; **NOTE:** When supplying `service_endpoint_name`, take care to ensure that this is a unique name.
+        /// &gt; **NOTE:** 1. One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
+        /// &lt;br&gt;2. When supplying `service_endpoint_name`, take care to ensure that this is a unique name.
         /// </summary>
         [Input("serviceEndpointName")]
         public string? ServiceEndpointName { get; set; }
@@ -263,8 +263,8 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// the Name of the Service Endpoint.
         /// 
-        /// &gt; **NOTE:** One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
-        /// &gt; **NOTE:** When supplying `service_endpoint_name`, take care to ensure that this is a unique name.
+        /// &gt; **NOTE:** 1. One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
+        /// &lt;br&gt;2. When supplying `service_endpoint_name`, take care to ensure that this is a unique name.
         /// </summary>
         [Input("serviceEndpointName")]
         public Input<string>? ServiceEndpointName { get; set; }
@@ -280,11 +280,11 @@ namespace Pulumi.AzureDevOps
     public sealed class GetServiceendpointBitbucketResult
     {
         /// <summary>
-        /// Specifies the Authorization Scheme Map.
+        /// The Authorization scheme.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Authorization;
         /// <summary>
-        /// Specifies the description of the Service Endpoint.
+        /// The description of the Service Endpoint.
         /// </summary>
         public readonly string Description;
         /// <summary>

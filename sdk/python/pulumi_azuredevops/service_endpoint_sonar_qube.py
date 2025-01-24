@@ -29,7 +29,7 @@ class ServiceEndpointSonarQubeArgs:
         The set of arguments for constructing a ServiceEndpointSonarQube resource.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
-        :param pulumi.Input[str] token: Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
+        :param pulumi.Input[str] token: The Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
         :param pulumi.Input[str] url: URL of the SonarQube server to connect with.
         :param pulumi.Input[str] description: The Service Endpoint description.
         """
@@ -70,7 +70,7 @@ class ServiceEndpointSonarQubeArgs:
     @pulumi.getter
     def token(self) -> pulumi.Input[str]:
         """
-        Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
+        The Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
         """
         return pulumi.get(self, "token")
 
@@ -126,7 +126,7 @@ class _ServiceEndpointSonarQubeState:
         :param pulumi.Input[str] description: The Service Endpoint description.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
-        :param pulumi.Input[str] token: Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
+        :param pulumi.Input[str] token: The Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
         :param pulumi.Input[str] url: URL of the SonarQube server to connect with.
         """
         if authorization is not None:
@@ -191,7 +191,7 @@ class _ServiceEndpointSonarQubeState:
     @pulumi.getter
     def token(self) -> Optional[pulumi.Input[str]]:
         """
-        Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
+        The Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
         """
         return pulumi.get(self, "token")
 
@@ -225,7 +225,7 @@ class ServiceEndpointSonarQube(pulumi.CustomResource):
                  url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a SonarQube service endpoint within Azure DevOps.
+        Manages a SonarQube Server service endpoint within Azure DevOps.
 
         ## Example Usage
 
@@ -255,7 +255,7 @@ class ServiceEndpointSonarQube(pulumi.CustomResource):
 
         ## Import
 
-        Azure DevOps Service Endpoint SonarQube can be imported using the **projectID/serviceEndpointID**, e.g.
+        Azure DevOps SonarQube Server Service Endpoint can be imported using the **projectID/serviceEndpointID**, e.g.
 
         ```sh
         $ pulumi import azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -266,7 +266,7 @@ class ServiceEndpointSonarQube(pulumi.CustomResource):
         :param pulumi.Input[str] description: The Service Endpoint description.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
-        :param pulumi.Input[str] token: Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
+        :param pulumi.Input[str] token: The Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
         :param pulumi.Input[str] url: URL of the SonarQube server to connect with.
         """
         ...
@@ -276,7 +276,7 @@ class ServiceEndpointSonarQube(pulumi.CustomResource):
                  args: ServiceEndpointSonarQubeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a SonarQube service endpoint within Azure DevOps.
+        Manages a SonarQube Server service endpoint within Azure DevOps.
 
         ## Example Usage
 
@@ -306,7 +306,7 @@ class ServiceEndpointSonarQube(pulumi.CustomResource):
 
         ## Import
 
-        Azure DevOps Service Endpoint SonarQube can be imported using the **projectID/serviceEndpointID**, e.g.
+        Azure DevOps SonarQube Server Service Endpoint can be imported using the **projectID/serviceEndpointID**, e.g.
 
         ```sh
         $ pulumi import azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -384,7 +384,7 @@ class ServiceEndpointSonarQube(pulumi.CustomResource):
         :param pulumi.Input[str] description: The Service Endpoint description.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
-        :param pulumi.Input[str] token: Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
+        :param pulumi.Input[str] token: The Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
         :param pulumi.Input[str] url: URL of the SonarQube server to connect with.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -432,7 +432,7 @@ class ServiceEndpointSonarQube(pulumi.CustomResource):
     @pulumi.getter
     def token(self) -> pulumi.Output[str]:
         """
-        Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
+        The Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
         """
         return pulumi.get(self, "token")
 

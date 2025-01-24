@@ -71,6 +71,8 @@ func GetRepositories(ctx *pulumi.Context, args *GetRepositoriesArgs, opts ...pul
 
 // A collection of arguments for invoking getRepositories.
 type GetRepositoriesArgs struct {
+	// Defaults to `false`.
+	//
 	// DataSource without specifying any arguments will return all Git repositories of an organization.
 	IncludeHidden *bool `pulumi:"includeHidden"`
 	// Name of the Git repository to retrieve; requires `projectId` to be specified as well
@@ -88,7 +90,7 @@ type GetRepositoriesResult struct {
 	Name *string `pulumi:"name"`
 	// Project identifier to which the Git repository belongs.
 	ProjectId *string `pulumi:"projectId"`
-	// A list of existing projects in your Azure DevOps Organization with details about every project which includes:
+	// A `repositories` blocks as documented below. A list of existing projects in your Azure DevOps Organization with details about every project.
 	Repositories []GetRepositoriesRepository `pulumi:"repositories"`
 }
 
@@ -103,6 +105,8 @@ func GetRepositoriesOutput(ctx *pulumi.Context, args GetRepositoriesOutputArgs, 
 
 // A collection of arguments for invoking getRepositories.
 type GetRepositoriesOutputArgs struct {
+	// Defaults to `false`.
+	//
 	// DataSource without specifying any arguments will return all Git repositories of an organization.
 	IncludeHidden pulumi.BoolPtrInput `pulumi:"includeHidden"`
 	// Name of the Git repository to retrieve; requires `projectId` to be specified as well
@@ -149,7 +153,7 @@ func (o GetRepositoriesResultOutput) ProjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetRepositoriesResult) *string { return v.ProjectId }).(pulumi.StringPtrOutput)
 }
 
-// A list of existing projects in your Azure DevOps Organization with details about every project which includes:
+// A `repositories` blocks as documented below. A list of existing projects in your Azure DevOps Organization with details about every project.
 func (o GetRepositoriesResultOutput) Repositories() GetRepositoriesRepositoryArrayOutput {
 	return o.ApplyT(func(v GetRepositoriesResult) []GetRepositoriesRepository { return v.Repositories }).(GetRepositoriesRepositoryArrayOutput)
 }
