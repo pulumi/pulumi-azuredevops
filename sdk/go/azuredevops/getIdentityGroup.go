@@ -64,6 +64,7 @@ type GetIdentityGroupArgs struct {
 
 // A collection of values returned by getIdentityGroup.
 type GetIdentityGroupResult struct {
+	// The descriptor of the identity group.
 	Descriptor string `pulumi:"descriptor"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -108,6 +109,7 @@ func (o GetIdentityGroupResultOutput) ToGetIdentityGroupResultOutputWithContext(
 	return o
 }
 
+// The descriptor of the identity group.
 func (o GetIdentityGroupResultOutput) Descriptor() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIdentityGroupResult) string { return v.Descriptor }).(pulumi.StringOutput)
 }

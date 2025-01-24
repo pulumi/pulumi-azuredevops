@@ -110,8 +110,9 @@ namespace Pulumi.AzureDevOps
     public partial class RepositoryPolicyAuthorEmailPattern : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
-        /// Email patterns prefixed with "!" are excluded. Order is important.
+        /// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
+        /// 
+        /// ~&gt;**NOTE:** Email patterns prefixed with `!` are excluded. Order is important.
         /// </summary>
         [Output("authorEmailPatterns")]
         public Output<ImmutableArray<string>> AuthorEmailPatterns { get; private set; } = null!;
@@ -190,8 +191,9 @@ namespace Pulumi.AzureDevOps
         private InputList<string>? _authorEmailPatterns;
 
         /// <summary>
-        /// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
-        /// Email patterns prefixed with "!" are excluded. Order is important.
+        /// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
+        /// 
+        /// ~&gt;**NOTE:** Email patterns prefixed with `!` are excluded. Order is important.
         /// </summary>
         public InputList<string> AuthorEmailPatterns
         {
@@ -241,8 +243,9 @@ namespace Pulumi.AzureDevOps
         private InputList<string>? _authorEmailPatterns;
 
         /// <summary>
-        /// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
-        /// Email patterns prefixed with "!" are excluded. Order is important.
+        /// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
+        /// 
+        /// ~&gt;**NOTE:** Email patterns prefixed with `!` are excluded. Order is important.
         /// </summary>
         public InputList<string> AuthorEmailPatterns
         {

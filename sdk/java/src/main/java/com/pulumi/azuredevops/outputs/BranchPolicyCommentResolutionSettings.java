@@ -12,14 +12,14 @@ import java.util.Objects;
 @CustomType
 public final class BranchPolicyCommentResolutionSettings {
     /**
-     * @return Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+     * @return A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
      * 
      */
     private List<BranchPolicyCommentResolutionSettingsScope> scopes;
 
     private BranchPolicyCommentResolutionSettings() {}
     /**
-     * @return Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+     * @return A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
      * 
      */
     public List<BranchPolicyCommentResolutionSettingsScope> scopes() {

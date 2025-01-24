@@ -14,7 +14,7 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class ServiceEndpointAzureEcrCredentials
     {
         /// <summary>
-        /// The service principal application Id
+        /// The ID of the Service Principal Application.
         /// </summary>
         public readonly string Serviceprincipalid;
 

@@ -145,7 +145,7 @@ class BranchPolicyAutoReviewersSettings(dict):
                  submitter_can_vote: Optional[bool] = None):
         """
         :param Sequence[str] auto_reviewer_ids: Required reviewers ids. Supports multiples user Ids.
-        :param Sequence['BranchPolicyAutoReviewersSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        :param Sequence['BranchPolicyAutoReviewersSettingsScopeArgs'] scopes: A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         :param str message: Activity feed message, Message will appear in the activity feed of pull requests with automatically added reviewers.
         :param int minimum_number_of_reviewers: Minimum number of required reviewers. Defaults to `1`.
                
@@ -176,7 +176,7 @@ class BranchPolicyAutoReviewersSettings(dict):
     @pulumi.getter
     def scopes(self) -> Sequence['outputs.BranchPolicyAutoReviewersSettingsScope']:
         """
-        Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
         return pulumi.get(self, "scopes")
 
@@ -319,7 +319,7 @@ class BranchPolicyBuildValidationSettings(dict):
         """
         :param int build_definition_id: The ID of the build to monitor for the policy.
         :param str display_name: The display name for the policy.
-        :param Sequence['BranchPolicyBuildValidationSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        :param Sequence['BranchPolicyBuildValidationSettingsScopeArgs'] scopes: A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         :param Sequence[str] filename_patterns: If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
         :param bool manual_queue_only: If set to true, the build will need to be manually queued. Defaults to `false`
         :param bool queue_on_source_update_only: True if the build should queue on source updates only. Defaults to `true`.
@@ -362,7 +362,7 @@ class BranchPolicyBuildValidationSettings(dict):
     @pulumi.getter
     def scopes(self) -> Sequence['outputs.BranchPolicyBuildValidationSettingsScope']:
         """
-        Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
         return pulumi.get(self, "scopes")
 
@@ -473,7 +473,7 @@ class BranchPolicyCommentResolutionSettings(dict):
     def __init__(__self__, *,
                  scopes: Sequence['outputs.BranchPolicyCommentResolutionSettingsScope']):
         """
-        :param Sequence['BranchPolicyCommentResolutionSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        :param Sequence['BranchPolicyCommentResolutionSettingsScopeArgs'] scopes: A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
         pulumi.set(__self__, "scopes", scopes)
 
@@ -481,7 +481,7 @@ class BranchPolicyCommentResolutionSettings(dict):
     @pulumi.getter
     def scopes(self) -> Sequence['outputs.BranchPolicyCommentResolutionSettingsScope']:
         """
-        Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
         return pulumi.get(self, "scopes")
 
@@ -582,7 +582,7 @@ class BranchPolicyMergeTypesSettings(dict):
                  allow_rebase_with_merge: Optional[bool] = None,
                  allow_squash: Optional[bool] = None):
         """
-        :param Sequence['BranchPolicyMergeTypesSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        :param Sequence['BranchPolicyMergeTypesSettingsScopeArgs'] scopes: A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         :param bool allow_basic_no_fast_forward: Allow basic merge with no fast forward. Defaults to `false`.
         :param bool allow_rebase_and_fast_forward: Allow rebase with fast forward. Defaults to `false`.
         :param bool allow_rebase_with_merge: Allow rebase with merge commit. Defaults to `false`.
@@ -602,7 +602,7 @@ class BranchPolicyMergeTypesSettings(dict):
     @pulumi.getter
     def scopes(self) -> Sequence['outputs.BranchPolicyMergeTypesSettingsScope']:
         """
-        Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
         return pulumi.get(self, "scopes")
 
@@ -938,14 +938,16 @@ class BranchPolicyStatusCheckSettings(dict):
                  invalidate_on_update: Optional[bool] = None):
         """
         :param str name: The status name to check.
-        :param Sequence['BranchPolicyStatusCheckSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined
-               at least once.
-        :param str applicability: Policy applicability. If policy `applicability` is `default`, apply unless "Not Applicable" 
-               status is posted to the pull request. If policy `applicability` is `conditional`, policy is applied only after a status
-               is posted to the pull request.
+        :param Sequence['BranchPolicyStatusCheckSettingsScopeArgs'] scopes: A `scope` block as defined below.
+        :param str applicability: Policy applicability. If policy `applicability=default`, apply unless "Not Applicable"
+               status is posted to the pull request. If policy `applicability=conditional`, policy is applied only after a status
+               is posted to the pull request. Possible values `default`, `conditional`. Defaults to `default`.
         :param str author_id: The authorized user can post the status.
         :param str display_name: The display name.
-        :param Sequence[str] filename_patterns: If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+        :param Sequence[str] filename_patterns: If a path filter is set, the policy will only apply when files which match the filter are changed. Not setting this field means that the policy is always applied.
+               
+               ~>**NOTE** 1. Specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`.
+               <br> 2. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
         :param str genre: The genre of the status to check (see [Microsoft Documentation](https://docs.microsoft.com/en-us/azure/devops/repos/git/pull-request-status?view=azure-devops#status-policy))
         :param bool invalidate_on_update: Reset status whenever there are new changes.
         """
@@ -976,8 +978,7 @@ class BranchPolicyStatusCheckSettings(dict):
     @pulumi.getter
     def scopes(self) -> Sequence['outputs.BranchPolicyStatusCheckSettingsScope']:
         """
-        Controls which repositories and branches the policy will be enabled for. This block must be defined
-        at least once.
+        A `scope` block as defined below.
         """
         return pulumi.get(self, "scopes")
 
@@ -985,9 +986,9 @@ class BranchPolicyStatusCheckSettings(dict):
     @pulumi.getter
     def applicability(self) -> Optional[str]:
         """
-        Policy applicability. If policy `applicability` is `default`, apply unless "Not Applicable" 
-        status is posted to the pull request. If policy `applicability` is `conditional`, policy is applied only after a status
-        is posted to the pull request.
+        Policy applicability. If policy `applicability=default`, apply unless "Not Applicable"
+        status is posted to the pull request. If policy `applicability=conditional`, policy is applied only after a status
+        is posted to the pull request. Possible values `default`, `conditional`. Defaults to `default`.
         """
         return pulumi.get(self, "applicability")
 
@@ -1011,7 +1012,10 @@ class BranchPolicyStatusCheckSettings(dict):
     @pulumi.getter(name="filenamePatterns")
     def filename_patterns(self) -> Optional[Sequence[str]]:
         """
-        If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+        If a path filter is set, the policy will only apply when files which match the filter are changed. Not setting this field means that the policy is always applied.
+
+        ~>**NOTE** 1. Specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`.
+        <br> 2. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
         """
         return pulumi.get(self, "filename_patterns")
 
@@ -1061,8 +1065,8 @@ class BranchPolicyStatusCheckSettingsScope(dict):
                  repository_ref: Optional[str] = None):
         """
         :param str match_type: The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
-        :param str repository_id: The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
-        :param str repository_ref: The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+        :param str repository_id: The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type=DefaultBranch`, this should not be defined.
+        :param str repository_ref: The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type=Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type=Prefix`, this should be a ref path such as `refs/heads/releases`.
         """
         if match_type is not None:
             pulumi.set(__self__, "match_type", match_type)
@@ -1083,7 +1087,7 @@ class BranchPolicyStatusCheckSettingsScope(dict):
     @pulumi.getter(name="repositoryId")
     def repository_id(self) -> Optional[str]:
         """
-        The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
+        The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type=DefaultBranch`, this should not be defined.
         """
         return pulumi.get(self, "repository_id")
 
@@ -1091,7 +1095,7 @@ class BranchPolicyStatusCheckSettingsScope(dict):
     @pulumi.getter(name="repositoryRef")
     def repository_ref(self) -> Optional[str]:
         """
-        The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+        The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type=Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type=Prefix`, this should be a ref path such as `refs/heads/releases`.
         """
         return pulumi.get(self, "repository_ref")
 
@@ -1101,7 +1105,7 @@ class BranchPolicyWorkItemLinkingSettings(dict):
     def __init__(__self__, *,
                  scopes: Sequence['outputs.BranchPolicyWorkItemLinkingSettingsScope']):
         """
-        :param Sequence['BranchPolicyWorkItemLinkingSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        :param Sequence['BranchPolicyWorkItemLinkingSettingsScopeArgs'] scopes: A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
         pulumi.set(__self__, "scopes", scopes)
 
@@ -1109,7 +1113,7 @@ class BranchPolicyWorkItemLinkingSettings(dict):
     @pulumi.getter
     def scopes(self) -> Sequence['outputs.BranchPolicyWorkItemLinkingSettingsScope']:
         """
-        Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
         return pulumi.get(self, "scopes")
 
@@ -1801,7 +1805,7 @@ class BuildDefinitionRepository(dict):
                  service_connection_id: Optional[str] = None):
         """
         :param str repo_id: The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
-        :param str repo_type: The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+        :param str repo_type: The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
         :param str yml_path: The path of the Yaml file describing the build definition.
         :param str branch_name: The branch name for which builds are triggered. Defaults to `master`.
         :param str github_enterprise_url: The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`.
@@ -1832,7 +1836,7 @@ class BuildDefinitionRepository(dict):
     @pulumi.getter(name="repoType")
     def repo_type(self) -> str:
         """
-        The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+        The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
         """
         return pulumi.get(self, "repo_type")
 
@@ -1917,13 +1921,13 @@ class BuildDefinitionSchedule(dict):
                  start_minutes: Optional[int] = None,
                  time_zone: Optional[str] = None):
         """
-        :param Sequence['BuildDefinitionScheduleBranchFilterArgs'] branch_filters: block supports the following:
-        :param Sequence[str] days_to_builds: When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
+        :param Sequence['BuildDefinitionScheduleBranchFilterArgs'] branch_filters: A `branch_filter` block as defined below.
+        :param Sequence[str] days_to_builds: When to build. Possible values are: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
         :param str schedule_job_id: The ID of the schedule job
         :param bool schedule_only_with_changes: Schedule builds if the source or pipeline has changed. Defaults to `true`.
-        :param int start_hours: Build start hour. Defaults to `0`. Valid values: `0 ~ 23`.
-        :param int start_minutes: Build start minute. Defaults to `0`. Valid values: `0 ~ 59`.
-        :param str time_zone: Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Valid values: 
+        :param int start_hours: Build start hour. Possible values are: `0 ~ 23`. Defaults to `0`.
+        :param int start_minutes: Build start minute. Possible values are: `0 ~ 59`. Defaults to `0`.
+        :param str time_zone: Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Possible values are:
                `(UTC-12:00) International Date Line West`,
                `(UTC-11:00) Coordinated Universal Time-11`,
                `(UTC-10:00) Aleutian Islands`,
@@ -2083,7 +2087,7 @@ class BuildDefinitionSchedule(dict):
     @pulumi.getter(name="branchFilters")
     def branch_filters(self) -> Sequence['outputs.BuildDefinitionScheduleBranchFilter']:
         """
-        block supports the following:
+        A `branch_filter` block as defined below.
         """
         return pulumi.get(self, "branch_filters")
 
@@ -2091,7 +2095,7 @@ class BuildDefinitionSchedule(dict):
     @pulumi.getter(name="daysToBuilds")
     def days_to_builds(self) -> Sequence[str]:
         """
-        When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
+        When to build. Possible values are: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
         """
         return pulumi.get(self, "days_to_builds")
 
@@ -2115,7 +2119,7 @@ class BuildDefinitionSchedule(dict):
     @pulumi.getter(name="startHours")
     def start_hours(self) -> Optional[int]:
         """
-        Build start hour. Defaults to `0`. Valid values: `0 ~ 23`.
+        Build start hour. Possible values are: `0 ~ 23`. Defaults to `0`.
         """
         return pulumi.get(self, "start_hours")
 
@@ -2123,7 +2127,7 @@ class BuildDefinitionSchedule(dict):
     @pulumi.getter(name="startMinutes")
     def start_minutes(self) -> Optional[int]:
         """
-        Build start minute. Defaults to `0`. Valid values: `0 ~ 59`.
+        Build start minute. Possible values are: `0 ~ 59`. Defaults to `0`.
         """
         return pulumi.get(self, "start_minutes")
 
@@ -2131,7 +2135,7 @@ class BuildDefinitionSchedule(dict):
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> Optional[str]:
         """
-        Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Valid values: 
+        Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Possible values are:
         `(UTC-12:00) International Date Line West`,
         `(UTC-11:00) Coordinated Universal Time-11`,
         `(UTC-10:00) Aleutian Islands`,
@@ -2429,7 +2433,7 @@ class CheckRequiredTemplateRequiredTemplate(dict):
         :param str repository_name: The name of the repository storing the template.
         :param str repository_ref: The branch in which the template will be referenced.
         :param str template_path: The path to the template yaml.
-        :param str repository_type: The type of the repository storing the template. Valid values: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
+        :param str repository_type: The type of the repository storing the template. Possible values are: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
         """
         pulumi.set(__self__, "repository_name", repository_name)
         pulumi.set(__self__, "repository_ref", repository_ref)
@@ -2465,7 +2469,7 @@ class CheckRequiredTemplateRequiredTemplate(dict):
     @pulumi.getter(name="repositoryType")
     def repository_type(self) -> Optional[str]:
         """
-        The type of the repository storing the template. Valid values: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
+        The type of the repository storing the template. Possible values are: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
         """
         return pulumi.get(self, "repository_type")
 
@@ -2554,8 +2558,7 @@ class GitInitialization(dict):
         :param str init_type: The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
         :param str password: The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
                
-               ~>**Note**
-               At least `service_connection_id` or `username/password` needs to be set to import private repository.
+               ~>**Note** At least `service_connection_id` or `username/password` needs to be set to import private repository.
         :param str service_connection_id: The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
         :param str source_type: Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`.
         :param str source_url: The URL of the source repository. Used if the `init_type` is `Import`.
@@ -2587,8 +2590,7 @@ class GitInitialization(dict):
         """
         The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
 
-        ~>**Note**
-        At least `service_connection_id` or `username/password` needs to be set to import private repository.
+        ~>**Note** At least `service_connection_id` or `username/password` needs to be set to import private repository.
         """
         return pulumi.get(self, "password")
 
@@ -2631,8 +2633,8 @@ class ServiceEndpointArtifactoryAuthenticationBasic(dict):
                  password: str,
                  username: str):
         """
-        :param str password: The Artifactory password.
-        :param str username: The Artifactory user name.
+        :param str password: The Password of the Artifactory.
+        :param str username: The Username of the Artifactory.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -2641,7 +2643,7 @@ class ServiceEndpointArtifactoryAuthenticationBasic(dict):
     @pulumi.getter
     def password(self) -> str:
         """
-        The Artifactory password.
+        The Password of the Artifactory.
         """
         return pulumi.get(self, "password")
 
@@ -2649,7 +2651,7 @@ class ServiceEndpointArtifactoryAuthenticationBasic(dict):
     @pulumi.getter
     def username(self) -> str:
         """
-        The Artifactory user name.
+        The Username of the Artifactory.
         """
         return pulumi.get(self, "username")
 
@@ -2659,7 +2661,7 @@ class ServiceEndpointArtifactoryAuthenticationToken(dict):
     def __init__(__self__, *,
                  token: str):
         """
-        :param str token: The Artifactory access token.
+        :param str token: Authentication Token generated through Artifactory.
         """
         pulumi.set(__self__, "token", token)
 
@@ -2667,7 +2669,7 @@ class ServiceEndpointArtifactoryAuthenticationToken(dict):
     @pulumi.getter
     def token(self) -> str:
         """
-        The Artifactory access token.
+        Authentication Token generated through Artifactory.
         """
         return pulumi.get(self, "token")
 
@@ -2677,7 +2679,7 @@ class ServiceEndpointAzureEcrCredentials(dict):
     def __init__(__self__, *,
                  serviceprincipalid: str):
         """
-        :param str serviceprincipalid: The service principal application Id
+        :param str serviceprincipalid: The ID of the Service Principal Application.
         """
         pulumi.set(__self__, "serviceprincipalid", serviceprincipalid)
 
@@ -2685,7 +2687,7 @@ class ServiceEndpointAzureEcrCredentials(dict):
     @pulumi.getter
     def serviceprincipalid(self) -> str:
         """
-        The service principal application Id
+        The ID of the Service Principal Application.
         """
         return pulumi.get(self, "serviceprincipalid")
 
@@ -3166,7 +3168,7 @@ class ServiceEndpointServiceFabricAzureActiveDirectory(dict):
                  server_certificate_thumbprint: Optional[str] = None):
         """
         :param str password: Password for the Azure Active Directory account.
-        :param str server_certificate_lookup: Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+        :param str server_certificate_lookup: Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
         :param str username: Specify an Azure Active Directory account.
         :param str server_certificate_common_name: The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
         :param str server_certificate_thumbprint: The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
@@ -3191,7 +3193,7 @@ class ServiceEndpointServiceFabricAzureActiveDirectory(dict):
     @pulumi.getter(name="serverCertificateLookup")
     def server_certificate_lookup(self) -> str:
         """
-        Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+        Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
         """
         return pulumi.get(self, "server_certificate_lookup")
 
@@ -3255,7 +3257,7 @@ class ServiceEndpointServiceFabricCertificate(dict):
                  server_certificate_thumbprint: Optional[str] = None):
         """
         :param str client_certificate: Base64 encoding of the cluster's client certificate file.
-        :param str server_certificate_lookup: Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+        :param str server_certificate_lookup: Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
         :param str client_certificate_password: Password for the certificate.
         :param str server_certificate_common_name: The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
         :param str server_certificate_thumbprint: The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
@@ -3281,7 +3283,7 @@ class ServiceEndpointServiceFabricCertificate(dict):
     @pulumi.getter(name="serverCertificateLookup")
     def server_certificate_lookup(self) -> str:
         """
-        Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+        Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
         """
         return pulumi.get(self, "server_certificate_lookup")
 
@@ -3364,8 +3366,8 @@ class ServiceendpointArgocdAuthenticationBasic(dict):
                  password: str,
                  username: str):
         """
-        :param str password: ArgoCD Password.
-        :param str username: ArgoCD Username.
+        :param str password: The Password of the ArgoCD.
+        :param str username: The Username of the ArgoCD.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -3374,7 +3376,7 @@ class ServiceendpointArgocdAuthenticationBasic(dict):
     @pulumi.getter
     def password(self) -> str:
         """
-        ArgoCD Password.
+        The Password of the ArgoCD.
         """
         return pulumi.get(self, "password")
 
@@ -3382,7 +3384,7 @@ class ServiceendpointArgocdAuthenticationBasic(dict):
     @pulumi.getter
     def username(self) -> str:
         """
-        ArgoCD Username.
+        The Username of the ArgoCD.
         """
         return pulumi.get(self, "username")
 
@@ -3446,8 +3448,8 @@ class ServiceendpointJfrogArtifactoryV2AuthenticationBasic(dict):
                  password: str,
                  username: str):
         """
-        :param str password: Artifactory Password.
-        :param str username: Artifactory Username.
+        :param str password: The Password of the Artifactory.
+        :param str username: The Username of the Artifactory.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -3456,7 +3458,7 @@ class ServiceendpointJfrogArtifactoryV2AuthenticationBasic(dict):
     @pulumi.getter
     def password(self) -> str:
         """
-        Artifactory Password.
+        The Password of the Artifactory.
         """
         return pulumi.get(self, "password")
 
@@ -3464,7 +3466,7 @@ class ServiceendpointJfrogArtifactoryV2AuthenticationBasic(dict):
     @pulumi.getter
     def username(self) -> str:
         """
-        Artifactory Username.
+        The Username of the Artifactory.
         """
         return pulumi.get(self, "username")
 
@@ -3493,8 +3495,8 @@ class ServiceendpointJfrogDistributionV2AuthenticationBasic(dict):
                  password: str,
                  username: str):
         """
-        :param str password: Artifactory Password.
-        :param str username: Artifactory Username.
+        :param str password: The Password of the Artifactory.
+        :param str username: The Username of the Artifactory.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -3503,7 +3505,7 @@ class ServiceendpointJfrogDistributionV2AuthenticationBasic(dict):
     @pulumi.getter
     def password(self) -> str:
         """
-        Artifactory Password.
+        The Password of the Artifactory.
         """
         return pulumi.get(self, "password")
 
@@ -3511,7 +3513,7 @@ class ServiceendpointJfrogDistributionV2AuthenticationBasic(dict):
     @pulumi.getter
     def username(self) -> str:
         """
-        Artifactory Username.
+        The Username of the Artifactory.
         """
         return pulumi.get(self, "username")
 
@@ -3521,7 +3523,7 @@ class ServiceendpointJfrogDistributionV2AuthenticationToken(dict):
     def __init__(__self__, *,
                  token: str):
         """
-        :param str token: Authentication Token generated through Artifactory.
+        :param str token: The Authentication Token generated through Artifactory.
         """
         pulumi.set(__self__, "token", token)
 
@@ -3529,7 +3531,7 @@ class ServiceendpointJfrogDistributionV2AuthenticationToken(dict):
     @pulumi.getter
     def token(self) -> str:
         """
-        Authentication Token generated through Artifactory.
+        The Authentication Token generated through Artifactory.
         """
         return pulumi.get(self, "token")
 
@@ -3540,8 +3542,8 @@ class ServiceendpointJfrogPlatformV2AuthenticationBasic(dict):
                  password: str,
                  username: str):
         """
-        :param str password: Artifactory Password.
-        :param str username: Artifactory Username.
+        :param str password: The Password of the Artifactory.
+        :param str username: The Username of the  Artifactory.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -3550,7 +3552,7 @@ class ServiceendpointJfrogPlatformV2AuthenticationBasic(dict):
     @pulumi.getter
     def password(self) -> str:
         """
-        Artifactory Password.
+        The Password of the Artifactory.
         """
         return pulumi.get(self, "password")
 
@@ -3558,7 +3560,7 @@ class ServiceendpointJfrogPlatformV2AuthenticationBasic(dict):
     @pulumi.getter
     def username(self) -> str:
         """
-        Artifactory Username.
+        The Username of the  Artifactory.
         """
         return pulumi.get(self, "username")
 
@@ -3587,8 +3589,8 @@ class ServiceendpointJfrogXrayV2AuthenticationBasic(dict):
                  password: str,
                  username: str):
         """
-        :param str password: Artifactory Password.
-        :param str username: Artifactory Username.
+        :param str password: The Password of the Artifactory.
+        :param str username: The Username of the  Artifactory.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -3597,7 +3599,7 @@ class ServiceendpointJfrogXrayV2AuthenticationBasic(dict):
     @pulumi.getter
     def password(self) -> str:
         """
-        Artifactory Password.
+        The Password of the Artifactory.
         """
         return pulumi.get(self, "password")
 
@@ -3605,7 +3607,7 @@ class ServiceendpointJfrogXrayV2AuthenticationBasic(dict):
     @pulumi.getter
     def username(self) -> str:
         """
-        Artifactory Username.
+        The Username of the  Artifactory.
         """
         return pulumi.get(self, "username")
 
@@ -4033,7 +4035,7 @@ class GetAreaChildrenResult(dict):
                  project_id: str):
         """
         :param bool has_children: Indicator if the child Area node has child nodes
-        :param str id: The id of the child Area node
+        :param str id: The ID of the child Area node
         :param str name: The name of the child Area node
         :param str path: The path to the Area; _Format_: URL relative; if omitted, or value `"/"` is used, the root Area will be returned
         :param str project_id: The project ID.
@@ -4056,7 +4058,7 @@ class GetAreaChildrenResult(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        The id of the child Area node
+        The ID of the child Area node
         """
         return pulumi.get(self, "id")
 
@@ -4127,7 +4129,7 @@ class GetBuildDefinitionCiTriggerOverrideResult(dict):
         :param bool batch: If batch is true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built.
         :param Sequence['GetBuildDefinitionCiTriggerOverrideBranchFilterArgs'] branch_filters: A `branch_filter` block as defined above.
         :param int max_concurrent_builds_per_branch: The number of max builds per branch.
-        :param Sequence['GetBuildDefinitionCiTriggerOverridePathFilterArgs'] path_filters: block supports the following:
+        :param Sequence['GetBuildDefinitionCiTriggerOverridePathFilterArgs'] path_filters: The file paths to include or exclude. A `path_filter` block as defined above.
         :param int polling_interval: How often the external repository is polled.
         :param str polling_job_id: This is the ID of the polling job that polls the external repository. Once the build definition is saved/updated, this value is set.
         """
@@ -4166,7 +4168,7 @@ class GetBuildDefinitionCiTriggerOverrideResult(dict):
     @pulumi.getter(name="pathFilters")
     def path_filters(self) -> Sequence['outputs.GetBuildDefinitionCiTriggerOverridePathFilterResult']:
         """
-        block supports the following:
+        The file paths to include or exclude. A `path_filter` block as defined above.
         """
         return pulumi.get(self, "path_filters")
 
@@ -4345,7 +4347,7 @@ class GetBuildDefinitionPullRequestTriggerOverrideResult(dict):
         """
         :param bool auto_cancel: Should further updates to a PR cancel an in progress validation?
         :param Sequence['GetBuildDefinitionPullRequestTriggerOverrideBranchFilterArgs'] branch_filters: A `branch_filter` block as defined above.
-        :param Sequence['GetBuildDefinitionPullRequestTriggerOverridePathFilterArgs'] path_filters: block supports the following:
+        :param Sequence['GetBuildDefinitionPullRequestTriggerOverridePathFilterArgs'] path_filters: The file paths to include or exclude. A `path_filter` block as defined above.
         """
         pulumi.set(__self__, "auto_cancel", auto_cancel)
         pulumi.set(__self__, "branch_filters", branch_filters)
@@ -4371,7 +4373,7 @@ class GetBuildDefinitionPullRequestTriggerOverrideResult(dict):
     @pulumi.getter(name="pathFilters")
     def path_filters(self) -> Sequence['outputs.GetBuildDefinitionPullRequestTriggerOverridePathFilterResult']:
         """
-        block supports the following:
+        The file paths to include or exclude. A `path_filter` block as defined above.
         """
         return pulumi.get(self, "path_filters")
 
@@ -4709,7 +4711,7 @@ class GetGroupsGroupResult(dict):
         """
         :param str descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
         :param str domain: This represents the name of the container of origin for a graph member. (For MSA this is "Windows Live ID", for AD the name of the domain, for AAD the tenantID of the directory, for VSTS groups the ScopeId, etc)
-        :param str id: The group ID.
+        :param str id: The ID of the group.
         :param str origin: The type of source provider for the origin identifier (ex:AD, AAD, MSA)
         :param str principal_name: This is the PrincipalName of this graph member from the source provider. The source provider may change this field over time and it is not guaranteed to be immutable for the life of the graph member by VSTS.
         :param str url: This url is the full route to the source resource of this graph subject.
@@ -4753,7 +4755,7 @@ class GetGroupsGroupResult(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        The group ID.
+        The ID of the group.
         """
         return pulumi.get(self, "id")
 
@@ -4817,24 +4819,39 @@ class GetGroupsGroupResult(dict):
 @pulumi.output_type
 class GetIdentityGroupsGroupResult(dict):
     def __init__(__self__, *,
+                 descriptor: str,
                  id: str,
                  name: str):
         """
-        :param str name: This is the non-unique display name of the identity subject. To change this field, you must alter its value in the source provider.
+        :param str descriptor: The descriptor of the Identity Group.
+        :param str id: The ID of the Identity Group.
+        :param str name: This is the non-unique display name of the identity subject.
         """
+        pulumi.set(__self__, "descriptor", descriptor)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
+    def descriptor(self) -> str:
+        """
+        The descriptor of the Identity Group.
+        """
+        return pulumi.get(self, "descriptor")
+
+    @property
+    @pulumi.getter
     def id(self) -> str:
+        """
+        The ID of the Identity Group.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> str:
         """
-        This is the non-unique display name of the identity subject. To change this field, you must alter its value in the source provider.
+        This is the non-unique display name of the identity subject.
         """
         return pulumi.get(self, "name")
 
@@ -4849,7 +4866,7 @@ class GetIterationChildrenResult(dict):
                  project_id: str):
         """
         :param bool has_children: Indicator if the child Iteration node has child nodes
-        :param str id: The id of the child Iteration node
+        :param str id: The ID of the child Iteration node
         :param str name: The name of the child Iteration node
         :param str path: The path to the Iteration, _Format_: URL relative; if omitted, or value `"/"` is used, the root Iteration will be returned
         :param str project_id: The project ID.
@@ -4872,7 +4889,7 @@ class GetIterationChildrenResult(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        The id of the child Iteration node
+        The ID of the child Iteration node
         """
         return pulumi.get(self, "id")
 
@@ -4912,7 +4929,8 @@ class GetPoolsAgentPoolResult(dict):
         """
         :param bool auto_provision: Specifies whether or not a queue should be automatically provisioned for each project collection.
         :param bool auto_update: Specifies whether or not agents within the pool should be automatically updated.
-        :param str name: The name of the agent pool
+        :param int id: The ID of the agent pool.
+        :param str name: The name of the agent pool.
         :param str pool_type: Specifies whether the agent pool type is Automation or Deployment.
         """
         pulumi.set(__self__, "auto_provision", auto_provision)
@@ -4940,13 +4958,16 @@ class GetPoolsAgentPoolResult(dict):
     @property
     @pulumi.getter
     def id(self) -> int:
+        """
+        The ID of the agent pool.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the agent pool
+        The name of the agent pool.
         """
         return pulumi.get(self, "name")
 
@@ -4969,10 +4990,10 @@ class GetProjectsProjectResult(dict):
         """
         :param str name: Name of the Project, if not specified all projects will be returned.
         :param str project_id: The ID of the Project.
-        :param str project_url: Url to the full version of the object.
+        :param str project_url: The Url to the full version of the object.
         :param str state: State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
                
-               DataSource without specifying any arguments will return all projects.
+               > **NOTE:** DataSource without specifying any arguments will return all projects.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "project_id", project_id)
@@ -4999,7 +5020,7 @@ class GetProjectsProjectResult(dict):
     @pulumi.getter(name="projectUrl")
     def project_url(self) -> str:
         """
-        Url to the full version of the object.
+        The Url to the full version of the object.
         """
         return pulumi.get(self, "project_url")
 
@@ -5009,7 +5030,7 @@ class GetProjectsProjectResult(dict):
         """
         State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
 
-        DataSource without specifying any arguments will return all projects.
+        > **NOTE:** DataSource without specifying any arguments will return all projects.
         """
         return pulumi.get(self, "state")
 
@@ -5149,7 +5170,7 @@ class GetSecurityroleDefinitionsDefinitionResult(dict):
         :param str name: The name of the Security Role Definition.
         :param str scope: Name of the Scope for which Security Role Definitions will be returned.
                
-               DataSource without specifying any arguments will return all projects.
+               > **NOTE:** DataSource without specifying any arguments will return all projects.
         :param int deny_permissions: The mask of the denied permissions of the Security Role Definition.
         """
         pulumi.set(__self__, "allow_permissions", allow_permissions)
@@ -5207,7 +5228,7 @@ class GetSecurityroleDefinitionsDefinitionResult(dict):
         """
         Name of the Scope for which Security Role Definitions will be returned.
 
-        DataSource without specifying any arguments will return all projects.
+        > **NOTE:** DataSource without specifying any arguments will return all projects.
         """
         return pulumi.get(self, "scope")
 
@@ -5232,8 +5253,9 @@ class GetTeamsTeamResult(dict):
         """
         :param Sequence[str] administrators: List of subject descriptors for `administrators` of the team.
         :param str description: Team description.
+        :param str id: The ID of the Team.
         :param Sequence[str] members: List of subject descriptors for `members` of the team.
-        :param str name: Team name.
+        :param str name: The name of the team.
         :param str project_id: The Project ID. If no project ID all teams of the organization will be returned.
         """
         pulumi.set(__self__, "administrators", administrators)
@@ -5262,6 +5284,9 @@ class GetTeamsTeamResult(dict):
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        The ID of the Team.
+        """
         return pulumi.get(self, "id")
 
     @property
@@ -5276,7 +5301,7 @@ class GetTeamsTeamResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Team name.
+        The name of the team.
         """
         return pulumi.get(self, "name")
 
@@ -5325,9 +5350,10 @@ class GetUsersUserResult(dict):
         """
         :param str descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
         :param str display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
-        :param str id: The user ID.
+        :param str id: The ID of the User.
         :param str mail_address: The email address of record for a given graph member. This may be different than the principal name.
         :param str origin: The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+               <pre>List of possible origins
         :param str principal_name: The PrincipalName of this graph member from the source provider.
         :param str origin_id: The unique identifier from the system of origin.
         """
@@ -5360,7 +5386,7 @@ class GetUsersUserResult(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        The user ID.
+        The ID of the User.
         """
         return pulumi.get(self, "id")
 
@@ -5377,6 +5403,7 @@ class GetUsersUserResult(dict):
     def origin(self) -> str:
         """
         The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+        <pre>List of possible origins
         """
         return pulumi.get(self, "origin")
 

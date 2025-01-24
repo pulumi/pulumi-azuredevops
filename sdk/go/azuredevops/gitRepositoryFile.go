@@ -84,8 +84,7 @@ import (
 type GitRepositoryFile struct {
 	pulumi.CustomResourceState
 
-	// Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it
-	// does not already exist.
+	// Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
 	Branch pulumi.StringPtrOutput `pulumi:"branch"`
 	// Commit message when adding or updating the managed file.
 	CommitMessage pulumi.StringOutput `pulumi:"commitMessage"`
@@ -138,8 +137,7 @@ func GetGitRepositoryFile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GitRepositoryFile resources.
 type gitRepositoryFileState struct {
-	// Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it
-	// does not already exist.
+	// Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
 	Branch *string `pulumi:"branch"`
 	// Commit message when adding or updating the managed file.
 	CommitMessage *string `pulumi:"commitMessage"`
@@ -154,8 +152,7 @@ type gitRepositoryFileState struct {
 }
 
 type GitRepositoryFileState struct {
-	// Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it
-	// does not already exist.
+	// Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
 	Branch pulumi.StringPtrInput
 	// Commit message when adding or updating the managed file.
 	CommitMessage pulumi.StringPtrInput
@@ -174,8 +171,7 @@ func (GitRepositoryFileState) ElementType() reflect.Type {
 }
 
 type gitRepositoryFileArgs struct {
-	// Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it
-	// does not already exist.
+	// Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
 	Branch *string `pulumi:"branch"`
 	// Commit message when adding or updating the managed file.
 	CommitMessage *string `pulumi:"commitMessage"`
@@ -191,8 +187,7 @@ type gitRepositoryFileArgs struct {
 
 // The set of arguments for constructing a GitRepositoryFile resource.
 type GitRepositoryFileArgs struct {
-	// Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it
-	// does not already exist.
+	// Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
 	Branch pulumi.StringPtrInput
 	// Commit message when adding or updating the managed file.
 	CommitMessage pulumi.StringPtrInput
@@ -293,8 +288,7 @@ func (o GitRepositoryFileOutput) ToGitRepositoryFileOutputWithContext(ctx contex
 	return o
 }
 
-// Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it
-// does not already exist.
+// Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
 func (o GitRepositoryFileOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GitRepositoryFile) pulumi.StringPtrOutput { return v.Branch }).(pulumi.StringPtrOutput)
 }

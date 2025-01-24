@@ -17,7 +17,7 @@ public final class GetAreaChildren {
      */
     private Boolean hasChildren;
     /**
-     * @return The id of the child Area node
+     * @return The ID of the child Area node
      * 
      */
     private String id;
@@ -46,7 +46,7 @@ public final class GetAreaChildren {
         return this.hasChildren;
     }
     /**
-     * @return The id of the child Area node
+     * @return The ID of the child Area node
      * 
      */
     public String id() {

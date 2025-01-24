@@ -49,14 +49,14 @@ public final class GitState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `initialization` block as documented below.
+     * A `initialization` block as documented below.
      * 
      */
     @Import(name="initialization")
     private @Nullable Output<GitInitializationArgs> initialization;
 
     /**
-     * @return An `initialization` block as documented below.
+     * @return A `initialization` block as documented below.
      * 
      */
     public Optional<Output<GitInitializationArgs>> initialization() {
@@ -276,7 +276,7 @@ public final class GitState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param initialization An `initialization` block as documented below.
+         * @param initialization A `initialization` block as documented below.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class GitState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param initialization An `initialization` block as documented below.
+         * @param initialization A `initialization` block as documented below.
          * 
          * @return builder
          * 

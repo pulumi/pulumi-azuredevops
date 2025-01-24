@@ -23,7 +23,7 @@ import * as utilities from "./utilities";
  *
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 7.0 - Roledefinitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)
+ * - [Azure DevOps Service REST API 7.0 - Role Definitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)
  */
 export function getSecurityroleDefinitions(args: GetSecurityroleDefinitionsArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityroleDefinitionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,7 +39,7 @@ export interface GetSecurityroleDefinitionsArgs {
     /**
      * Name of the Scope for which Security Role Definitions will be returned.
      *
-     * DataSource without specifying any arguments will return all projects.
+     * > **NOTE:** DataSource without specifying any arguments will return all projects.
      */
     scope: string;
 }
@@ -78,7 +78,7 @@ export interface GetSecurityroleDefinitionsResult {
  *
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 7.0 - Roledefinitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)
+ * - [Azure DevOps Service REST API 7.0 - Role Definitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)
  */
 export function getSecurityroleDefinitionsOutput(args: GetSecurityroleDefinitionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityroleDefinitionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -94,7 +94,7 @@ export interface GetSecurityroleDefinitionsOutputArgs {
     /**
      * Name of the Scope for which Security Role Definitions will be returned.
      *
-     * DataSource without specifying any arguments will return all projects.
+     * > **NOTE:** DataSource without specifying any arguments will return all projects.
      */
     scope: pulumi.Input<string>;
 }

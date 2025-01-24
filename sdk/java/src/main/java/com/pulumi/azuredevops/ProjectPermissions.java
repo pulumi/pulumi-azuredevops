@@ -166,14 +166,14 @@ public class ProjectPermissions extends com.pulumi.resources.CustomResource {
         return this.permissions;
     }
     /**
-     * The **group** principal to assign the permissions.
+     * The `group` principal to assign the permissions.
      * 
      */
     @Export(name="principal", refs={String.class}, tree="[0]")
     private Output<String> principal;
 
     /**
-     * @return The **group** principal to assign the permissions.
+     * @return The `group` principal to assign the permissions.
      * 
      */
     public Output<String> principal() {

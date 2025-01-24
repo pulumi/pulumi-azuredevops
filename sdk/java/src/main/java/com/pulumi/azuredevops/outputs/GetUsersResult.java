@@ -38,7 +38,7 @@ public final class GetUsersResult {
     private @Nullable String principalName;
     private @Nullable List<String> subjectTypes;
     /**
-     * @return A set of existing users in your Azure DevOps Organization with details about every single user which includes:
+     * @return A `users` block as defined below. A set of existing users in your Azure DevOps Organization with details about every single user.
      * 
      */
     private List<GetUsersUser> users;
@@ -79,7 +79,7 @@ public final class GetUsersResult {
         return this.subjectTypes == null ? List.of() : this.subjectTypes;
     }
     /**
-     * @return A set of existing users in your Azure DevOps Organization with details about every single user which includes:
+     * @return A `users` block as defined below. A set of existing users in your Azure DevOps Organization with details about every single user.
      * 
      */
     public List<GetUsersUser> users() {

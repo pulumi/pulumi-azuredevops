@@ -148,7 +148,8 @@ import javax.annotation.Nullable;
 public class RepositoryPolicyAuthorEmailPattern extends com.pulumi.resources.CustomResource {
     /**
      * Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
-     * Email patterns prefixed with &#34;!&#34; are excluded. Order is important.
+     * 
+     * ~&gt;**NOTE:** Email patterns prefixed with `!` are excluded. Order is important.
      * 
      */
     @Export(name="authorEmailPatterns", refs={List.class,String.class}, tree="[0,1]")
@@ -156,7 +157,8 @@ public class RepositoryPolicyAuthorEmailPattern extends com.pulumi.resources.Cus
 
     /**
      * @return Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
-     * Email patterns prefixed with &#34;!&#34; are excluded. Order is important.
+     * 
+     * ~&gt;**NOTE:** Email patterns prefixed with `!` are excluded. Order is important.
      * 
      */
     public Output<List<String>> authorEmailPatterns() {

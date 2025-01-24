@@ -50,6 +50,9 @@ export interface GetIdentityGroupArgs {
  * A collection of values returned by getIdentityGroup.
  */
 export interface GetIdentityGroupResult {
+    /**
+     * The descriptor of the identity group.
+     */
     readonly descriptor: string;
     /**
      * The provider-assigned unique ID for this managed resource.

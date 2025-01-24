@@ -111,7 +111,7 @@ export class ProjectPermissions extends pulumi.CustomResource {
      */
     public readonly permissions!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The **group** principal to assign the permissions.
+     * The `group` principal to assign the permissions.
      */
     public readonly principal!: pulumi.Output<string>;
     /**
@@ -198,7 +198,7 @@ export interface ProjectPermissionsState {
      */
     permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The **group** principal to assign the permissions.
+     * The `group` principal to assign the permissions.
      */
     principal?: pulumi.Input<string>;
     /**
@@ -248,7 +248,7 @@ export interface ProjectPermissionsArgs {
      */
     permissions: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The **group** principal to assign the permissions.
+     * The `group` principal to assign the permissions.
      */
     principal: pulumi.Input<string>;
     /**

@@ -20,18 +20,18 @@ public final class BranchPolicyStatusCheckSettingsArgs extends com.pulumi.resour
     public static final BranchPolicyStatusCheckSettingsArgs Empty = new BranchPolicyStatusCheckSettingsArgs();
 
     /**
-     * Policy applicability. If policy `applicability` is `default`, apply unless &#34;Not Applicable&#34;
-     * status is posted to the pull request. If policy `applicability` is `conditional`, policy is applied only after a status
-     * is posted to the pull request.
+     * Policy applicability. If policy `applicability=default`, apply unless &#34;Not Applicable&#34;
+     * status is posted to the pull request. If policy `applicability=conditional`, policy is applied only after a status
+     * is posted to the pull request. Possible values `default`, `conditional`. Defaults to `default`.
      * 
      */
     @Import(name="applicability")
     private @Nullable Output<String> applicability;
 
     /**
-     * @return Policy applicability. If policy `applicability` is `default`, apply unless &#34;Not Applicable&#34;
-     * status is posted to the pull request. If policy `applicability` is `conditional`, policy is applied only after a status
-     * is posted to the pull request.
+     * @return Policy applicability. If policy `applicability=default`, apply unless &#34;Not Applicable&#34;
+     * status is posted to the pull request. If policy `applicability=conditional`, policy is applied only after a status
+     * is posted to the pull request. Possible values `default`, `conditional`. Defaults to `default`.
      * 
      */
     public Optional<Output<String>> applicability() {
@@ -69,14 +69,20 @@ public final class BranchPolicyStatusCheckSettingsArgs extends com.pulumi.resour
     }
 
     /**
-     * If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `[&#34;/WebApp/Models/Data.cs&#34;, &#34;/WebApp/*&#34;, &#34;*.cs&#34;]`. Paths prefixed with &#34;!&#34; are excluded. Example: `[&#34;/WebApp/*&#34;, &#34;!/WebApp/Tests/*&#34;]`. Order is significant.
+     * If a path filter is set, the policy will only apply when files which match the filter are changed. Not setting this field means that the policy is always applied.
+     * 
+     * ~&gt;**NOTE** 1. Specify absolute paths and wildcards. Example: `[&#34;/WebApp/Models/Data.cs&#34;, &#34;/WebApp/*&#34;, &#34;*.cs&#34;]`.
+     * &lt;br&gt; 2. Paths prefixed with &#34;!&#34; are excluded. Example: `[&#34;/WebApp/*&#34;, &#34;!/WebApp/Tests/*&#34;]`. Order is significant.
      * 
      */
     @Import(name="filenamePatterns")
     private @Nullable Output<List<String>> filenamePatterns;
 
     /**
-     * @return If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `[&#34;/WebApp/Models/Data.cs&#34;, &#34;/WebApp/*&#34;, &#34;*.cs&#34;]`. Paths prefixed with &#34;!&#34; are excluded. Example: `[&#34;/WebApp/*&#34;, &#34;!/WebApp/Tests/*&#34;]`. Order is significant.
+     * @return If a path filter is set, the policy will only apply when files which match the filter are changed. Not setting this field means that the policy is always applied.
+     * 
+     * ~&gt;**NOTE** 1. Specify absolute paths and wildcards. Example: `[&#34;/WebApp/Models/Data.cs&#34;, &#34;/WebApp/*&#34;, &#34;*.cs&#34;]`.
+     * &lt;br&gt; 2. Paths prefixed with &#34;!&#34; are excluded. Example: `[&#34;/WebApp/*&#34;, &#34;!/WebApp/Tests/*&#34;]`. Order is significant.
      * 
      */
     public Optional<Output<List<String>>> filenamePatterns() {
@@ -129,16 +135,14 @@ public final class BranchPolicyStatusCheckSettingsArgs extends com.pulumi.resour
     }
 
     /**
-     * Controls which repositories and branches the policy will be enabled for. This block must be defined
-     * at least once.
+     * A `scope` block as defined below.
      * 
      */
     @Import(name="scopes", required=true)
     private Output<List<BranchPolicyStatusCheckSettingsScopeArgs>> scopes;
 
     /**
-     * @return Controls which repositories and branches the policy will be enabled for. This block must be defined
-     * at least once.
+     * @return A `scope` block as defined below.
      * 
      */
     public Output<List<BranchPolicyStatusCheckSettingsScopeArgs>> scopes() {
@@ -177,9 +181,9 @@ public final class BranchPolicyStatusCheckSettingsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param applicability Policy applicability. If policy `applicability` is `default`, apply unless &#34;Not Applicable&#34;
-         * status is posted to the pull request. If policy `applicability` is `conditional`, policy is applied only after a status
-         * is posted to the pull request.
+         * @param applicability Policy applicability. If policy `applicability=default`, apply unless &#34;Not Applicable&#34;
+         * status is posted to the pull request. If policy `applicability=conditional`, policy is applied only after a status
+         * is posted to the pull request. Possible values `default`, `conditional`. Defaults to `default`.
          * 
          * @return builder
          * 
@@ -190,9 +194,9 @@ public final class BranchPolicyStatusCheckSettingsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param applicability Policy applicability. If policy `applicability` is `default`, apply unless &#34;Not Applicable&#34;
-         * status is posted to the pull request. If policy `applicability` is `conditional`, policy is applied only after a status
-         * is posted to the pull request.
+         * @param applicability Policy applicability. If policy `applicability=default`, apply unless &#34;Not Applicable&#34;
+         * status is posted to the pull request. If policy `applicability=conditional`, policy is applied only after a status
+         * is posted to the pull request. Possible values `default`, `conditional`. Defaults to `default`.
          * 
          * @return builder
          * 
@@ -244,7 +248,10 @@ public final class BranchPolicyStatusCheckSettingsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param filenamePatterns If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `[&#34;/WebApp/Models/Data.cs&#34;, &#34;/WebApp/*&#34;, &#34;*.cs&#34;]`. Paths prefixed with &#34;!&#34; are excluded. Example: `[&#34;/WebApp/*&#34;, &#34;!/WebApp/Tests/*&#34;]`. Order is significant.
+         * @param filenamePatterns If a path filter is set, the policy will only apply when files which match the filter are changed. Not setting this field means that the policy is always applied.
+         * 
+         * ~&gt;**NOTE** 1. Specify absolute paths and wildcards. Example: `[&#34;/WebApp/Models/Data.cs&#34;, &#34;/WebApp/*&#34;, &#34;*.cs&#34;]`.
+         * &lt;br&gt; 2. Paths prefixed with &#34;!&#34; are excluded. Example: `[&#34;/WebApp/*&#34;, &#34;!/WebApp/Tests/*&#34;]`. Order is significant.
          * 
          * @return builder
          * 
@@ -255,7 +262,10 @@ public final class BranchPolicyStatusCheckSettingsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param filenamePatterns If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `[&#34;/WebApp/Models/Data.cs&#34;, &#34;/WebApp/*&#34;, &#34;*.cs&#34;]`. Paths prefixed with &#34;!&#34; are excluded. Example: `[&#34;/WebApp/*&#34;, &#34;!/WebApp/Tests/*&#34;]`. Order is significant.
+         * @param filenamePatterns If a path filter is set, the policy will only apply when files which match the filter are changed. Not setting this field means that the policy is always applied.
+         * 
+         * ~&gt;**NOTE** 1. Specify absolute paths and wildcards. Example: `[&#34;/WebApp/Models/Data.cs&#34;, &#34;/WebApp/*&#34;, &#34;*.cs&#34;]`.
+         * &lt;br&gt; 2. Paths prefixed with &#34;!&#34; are excluded. Example: `[&#34;/WebApp/*&#34;, &#34;!/WebApp/Tests/*&#34;]`. Order is significant.
          * 
          * @return builder
          * 
@@ -265,7 +275,10 @@ public final class BranchPolicyStatusCheckSettingsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param filenamePatterns If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `[&#34;/WebApp/Models/Data.cs&#34;, &#34;/WebApp/*&#34;, &#34;*.cs&#34;]`. Paths prefixed with &#34;!&#34; are excluded. Example: `[&#34;/WebApp/*&#34;, &#34;!/WebApp/Tests/*&#34;]`. Order is significant.
+         * @param filenamePatterns If a path filter is set, the policy will only apply when files which match the filter are changed. Not setting this field means that the policy is always applied.
+         * 
+         * ~&gt;**NOTE** 1. Specify absolute paths and wildcards. Example: `[&#34;/WebApp/Models/Data.cs&#34;, &#34;/WebApp/*&#34;, &#34;*.cs&#34;]`.
+         * &lt;br&gt; 2. Paths prefixed with &#34;!&#34; are excluded. Example: `[&#34;/WebApp/*&#34;, &#34;!/WebApp/Tests/*&#34;]`. Order is significant.
          * 
          * @return builder
          * 
@@ -338,8 +351,7 @@ public final class BranchPolicyStatusCheckSettingsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param scopes Controls which repositories and branches the policy will be enabled for. This block must be defined
-         * at least once.
+         * @param scopes A `scope` block as defined below.
          * 
          * @return builder
          * 
@@ -350,8 +362,7 @@ public final class BranchPolicyStatusCheckSettingsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param scopes Controls which repositories and branches the policy will be enabled for. This block must be defined
-         * at least once.
+         * @param scopes A `scope` block as defined below.
          * 
          * @return builder
          * 
@@ -361,8 +372,7 @@ public final class BranchPolicyStatusCheckSettingsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param scopes Controls which repositories and branches the policy will be enabled for. This block must be defined
-         * at least once.
+         * @param scopes A `scope` block as defined below.
          * 
          * @return builder
          * 

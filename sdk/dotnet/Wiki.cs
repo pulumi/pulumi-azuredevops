@@ -52,7 +52,7 @@ namespace Pulumi.AzureDevOps
     ///         RepositoryId = exampleGit.Id,
     ///         Version = "main",
     ///         Type = "codeWiki",
-    ///         Mappedpath = "/",
+    ///         MappedPath = "/",
     ///     });
     /// 
     /// });
@@ -73,6 +73,9 @@ namespace Pulumi.AzureDevOps
     [AzureDevOpsResourceType("azuredevops:index/wiki:Wiki")]
     public partial class Wiki : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Folder path inside repository which is shown as Wiki.
+        /// </summary>
         [Output("mappedPath")]
         public Output<string> MappedPath { get; private set; } = null!;
 
@@ -164,6 +167,9 @@ namespace Pulumi.AzureDevOps
 
     public sealed class WikiArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Folder path inside repository which is shown as Wiki.
+        /// </summary>
         [Input("mappedPath")]
         public Input<string>? MappedPath { get; set; }
 
@@ -205,6 +211,9 @@ namespace Pulumi.AzureDevOps
 
     public sealed class WikiState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Folder path inside repository which is shown as Wiki.
+        /// </summary>
         [Input("mappedPath")]
         public Input<string>? MappedPath { get; set; }
 

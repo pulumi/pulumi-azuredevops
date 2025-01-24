@@ -79,16 +79,17 @@ export class TeamMembers extends pulumi.CustomResource {
     /**
      * List of subject descriptors to define members of the team.
      *
-     * > NOTE: It's possible to define team members both within the
-     * > `azuredevops.Team` resource via the `members` block and by using the
-     * > `azuredevops.TeamMembers` resource. However it's not possible to use
-     * > both methods to manage team members, since there'll be conflicts.
+     * > **NOTE:** It's possible to define team members both within the
+     * `azuredevops.Team` resource via the `members` block and by using the
+     * `azuredevops.TeamMembers` resource. However, it's not possible to use
+     * both methods to manage team members, since there'll be conflicts.
      */
     public readonly members!: pulumi.Output<string[]>;
     /**
-     * The mode how the resource manages team members.
-     * - `mode == add`: the resource will ensure that all specified members will be part of the referenced team
-     * - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
+     * The mode how the resource manages team members. Possible values: `add`, `overwrite`. Defaults to `add`.
+     *
+     * > **NOTE:** 1. `mode = add`: the resource will ensure that all specified members will be part of the referenced team
+     * <br>2. `mode = overwrite`: the resource will replace all existing members with the members specified within the `members` block
      */
     public readonly mode!: pulumi.Output<string | undefined>;
     /**
@@ -145,16 +146,17 @@ export interface TeamMembersState {
     /**
      * List of subject descriptors to define members of the team.
      *
-     * > NOTE: It's possible to define team members both within the
-     * > `azuredevops.Team` resource via the `members` block and by using the
-     * > `azuredevops.TeamMembers` resource. However it's not possible to use
-     * > both methods to manage team members, since there'll be conflicts.
+     * > **NOTE:** It's possible to define team members both within the
+     * `azuredevops.Team` resource via the `members` block and by using the
+     * `azuredevops.TeamMembers` resource. However, it's not possible to use
+     * both methods to manage team members, since there'll be conflicts.
      */
     members?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The mode how the resource manages team members.
-     * - `mode == add`: the resource will ensure that all specified members will be part of the referenced team
-     * - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
+     * The mode how the resource manages team members. Possible values: `add`, `overwrite`. Defaults to `add`.
+     *
+     * > **NOTE:** 1. `mode = add`: the resource will ensure that all specified members will be part of the referenced team
+     * <br>2. `mode = overwrite`: the resource will replace all existing members with the members specified within the `members` block
      */
     mode?: pulumi.Input<string>;
     /**
@@ -174,16 +176,17 @@ export interface TeamMembersArgs {
     /**
      * List of subject descriptors to define members of the team.
      *
-     * > NOTE: It's possible to define team members both within the
-     * > `azuredevops.Team` resource via the `members` block and by using the
-     * > `azuredevops.TeamMembers` resource. However it's not possible to use
-     * > both methods to manage team members, since there'll be conflicts.
+     * > **NOTE:** It's possible to define team members both within the
+     * `azuredevops.Team` resource via the `members` block and by using the
+     * `azuredevops.TeamMembers` resource. However, it's not possible to use
+     * both methods to manage team members, since there'll be conflicts.
      */
     members: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The mode how the resource manages team members.
-     * - `mode == add`: the resource will ensure that all specified members will be part of the referenced team
-     * - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
+     * The mode how the resource manages team members. Possible values: `add`, `overwrite`. Defaults to `add`.
+     *
+     * > **NOTE:** 1. `mode = add`: the resource will ensure that all specified members will be part of the referenced team
+     * <br>2. `mode = overwrite`: the resource will replace all existing members with the members specified within the `members` block
      */
     mode?: pulumi.Input<string>;
     /**

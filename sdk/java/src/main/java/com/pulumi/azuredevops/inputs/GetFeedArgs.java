@@ -16,7 +16,7 @@ public final class GetFeedArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetFeedArgs Empty = new GetFeedArgs();
 
     /**
-     * ID of the Feed.
+     * The ID of the Feed.
      * 
      * &gt; **Note** Only one of `name` or `feed_id` can be set at the same time.
      * 
@@ -25,7 +25,7 @@ public final class GetFeedArgs extends com.pulumi.resources.InvokeArgs {
     private @Nullable Output<String> feedId;
 
     /**
-     * @return ID of the Feed.
+     * @return The ID of the Feed.
      * 
      * &gt; **Note** Only one of `name` or `feed_id` can be set at the same time.
      * 
@@ -35,14 +35,14 @@ public final class GetFeedArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Name of the Feed.
+     * The Name of the Feed.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the Feed.
+     * @return The Name of the Feed.
      * 
      */
     public Optional<Output<String>> name() {
@@ -91,7 +91,7 @@ public final class GetFeedArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param feedId ID of the Feed.
+         * @param feedId The ID of the Feed.
          * 
          * &gt; **Note** Only one of `name` or `feed_id` can be set at the same time.
          * 
@@ -104,7 +104,7 @@ public final class GetFeedArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param feedId ID of the Feed.
+         * @param feedId The ID of the Feed.
          * 
          * &gt; **Note** Only one of `name` or `feed_id` can be set at the same time.
          * 
@@ -116,7 +116,7 @@ public final class GetFeedArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Name of the Feed.
+         * @param name The Name of the Feed.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class GetFeedArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Name of the Feed.
+         * @param name The Name of the Feed.
          * 
          * @return builder
          * 

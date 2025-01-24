@@ -49,7 +49,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ## Import
     /// 
-    /// Azure DevOps Service Endpoint Snyk can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+    /// Azure DevOps Snyk Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
     /// 
     /// ```sh
     /// $ pulumi import azuredevops:index/serviceendpointSnyk:ServiceendpointSnyk example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps
 {
     /// <summary>
-    /// Manages an JFrog XRay V2 server endpoint within an Azure DevOps organization.
+    /// Manages an JFrog XRay V2 service endpoint within an Azure DevOps organization.
     /// 
     /// &gt; **Note:** Using this service endpoint requires you to first install [JFrog Extension](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-azure-devops-extension).
     /// 
@@ -89,7 +89,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ## Import
     /// 
-    /// Azure DevOps Service Endpoint JFrog XRay V2 can be imported using the **projectID/serviceEndpointID**, e.g.
+    /// Azure DevOps JFrog Platform V2 Service Endpoint can be imported using the **projectID/serviceEndpointID**, e.g.
     /// 
     /// ```sh
     /// $ pulumi import azuredevops:index/serviceendpointJfrogXrayV2:ServiceendpointJfrogXrayV2 example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -99,13 +99,13 @@ namespace Pulumi.AzureDevOps
     public partial class ServiceendpointJfrogXrayV2 : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `authentication_basic` block as documented below.
+        /// An `authentication_basic` block as documented below.
         /// </summary>
         [Output("authenticationBasic")]
         public Output<Outputs.ServiceendpointJfrogXrayV2AuthenticationBasic?> AuthenticationBasic { get; private set; } = null!;
 
         /// <summary>
-        /// A `authentication_token` block as documented below.
+        /// An `authentication_token` block as documented below.
         /// </summary>
         [Output("authenticationToken")]
         public Output<Outputs.ServiceendpointJfrogXrayV2AuthenticationToken?> AuthenticationToken { get; private set; } = null!;
@@ -186,13 +186,13 @@ namespace Pulumi.AzureDevOps
     public sealed class ServiceendpointJfrogXrayV2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `authentication_basic` block as documented below.
+        /// An `authentication_basic` block as documented below.
         /// </summary>
         [Input("authenticationBasic")]
         public Input<Inputs.ServiceendpointJfrogXrayV2AuthenticationBasicArgs>? AuthenticationBasic { get; set; }
 
         /// <summary>
-        /// A `authentication_token` block as documented below.
+        /// An `authentication_token` block as documented below.
         /// </summary>
         [Input("authenticationToken")]
         public Input<Inputs.ServiceendpointJfrogXrayV2AuthenticationTokenArgs>? AuthenticationToken { get; set; }
@@ -240,13 +240,13 @@ namespace Pulumi.AzureDevOps
     public sealed class ServiceendpointJfrogXrayV2State : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `authentication_basic` block as documented below.
+        /// An `authentication_basic` block as documented below.
         /// </summary>
         [Input("authenticationBasic")]
         public Input<Inputs.ServiceendpointJfrogXrayV2AuthenticationBasicGetArgs>? AuthenticationBasic { get; set; }
 
         /// <summary>
-        /// A `authentication_token` block as documented below.
+        /// An `authentication_token` block as documented below.
         /// </summary>
         [Input("authenticationToken")]
         public Input<Inputs.ServiceendpointJfrogXrayV2AuthenticationTokenGetArgs>? AuthenticationToken { get; set; }

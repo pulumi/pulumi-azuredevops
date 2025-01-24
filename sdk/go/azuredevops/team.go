@@ -12,6 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## *---
+//
+// layout: "azuredevops"
+// page_title: "AzureDevops: Team"
+// description: |-
+//
+//	Manages a team within a project in a Azure DevOps organization.
+//
+// ---
+//
+// # Team
+//
 // Manages a team within a project in a Azure DevOps organization.
 //
 // ## Example Usage
@@ -89,7 +101,7 @@ type Team struct {
 
 	// List of subject descriptors to define administrators of the team.
 	//
-	// > NOTE: It's possible to define team administrators both within the
+	// > **NOTE:** It's possible to define team administrators both within the
 	// `Team` resource via the `administrators` block and by using the
 	// `TeamAdministrators` resource. However it's not possible to use
 	// both methods to manage team administrators, since there'll be conflicts.
@@ -100,7 +112,7 @@ type Team struct {
 	Descriptor pulumi.StringOutput `pulumi:"descriptor"`
 	// List of subject descriptors to define members of the team.
 	//
-	// > NOTE: It's possible to define team members both within the
+	// > **NOTE:** It's possible to define team members both within the
 	// `Team` resource via the `members` block and by using the
 	// `TeamMembers` resource. However it's not possible to use
 	// both methods to manage team members, since there'll be conflicts.
@@ -146,7 +158,7 @@ func GetTeam(ctx *pulumi.Context,
 type teamState struct {
 	// List of subject descriptors to define administrators of the team.
 	//
-	// > NOTE: It's possible to define team administrators both within the
+	// > **NOTE:** It's possible to define team administrators both within the
 	// `Team` resource via the `administrators` block and by using the
 	// `TeamAdministrators` resource. However it's not possible to use
 	// both methods to manage team administrators, since there'll be conflicts.
@@ -157,7 +169,7 @@ type teamState struct {
 	Descriptor *string `pulumi:"descriptor"`
 	// List of subject descriptors to define members of the team.
 	//
-	// > NOTE: It's possible to define team members both within the
+	// > **NOTE:** It's possible to define team members both within the
 	// `Team` resource via the `members` block and by using the
 	// `TeamMembers` resource. However it's not possible to use
 	// both methods to manage team members, since there'll be conflicts.
@@ -171,7 +183,7 @@ type teamState struct {
 type TeamState struct {
 	// List of subject descriptors to define administrators of the team.
 	//
-	// > NOTE: It's possible to define team administrators both within the
+	// > **NOTE:** It's possible to define team administrators both within the
 	// `Team` resource via the `administrators` block and by using the
 	// `TeamAdministrators` resource. However it's not possible to use
 	// both methods to manage team administrators, since there'll be conflicts.
@@ -182,7 +194,7 @@ type TeamState struct {
 	Descriptor pulumi.StringPtrInput
 	// List of subject descriptors to define members of the team.
 	//
-	// > NOTE: It's possible to define team members both within the
+	// > **NOTE:** It's possible to define team members both within the
 	// `Team` resource via the `members` block and by using the
 	// `TeamMembers` resource. However it's not possible to use
 	// both methods to manage team members, since there'll be conflicts.
@@ -200,7 +212,7 @@ func (TeamState) ElementType() reflect.Type {
 type teamArgs struct {
 	// List of subject descriptors to define administrators of the team.
 	//
-	// > NOTE: It's possible to define team administrators both within the
+	// > **NOTE:** It's possible to define team administrators both within the
 	// `Team` resource via the `administrators` block and by using the
 	// `TeamAdministrators` resource. However it's not possible to use
 	// both methods to manage team administrators, since there'll be conflicts.
@@ -209,7 +221,7 @@ type teamArgs struct {
 	Description *string `pulumi:"description"`
 	// List of subject descriptors to define members of the team.
 	//
-	// > NOTE: It's possible to define team members both within the
+	// > **NOTE:** It's possible to define team members both within the
 	// `Team` resource via the `members` block and by using the
 	// `TeamMembers` resource. However it's not possible to use
 	// both methods to manage team members, since there'll be conflicts.
@@ -224,7 +236,7 @@ type teamArgs struct {
 type TeamArgs struct {
 	// List of subject descriptors to define administrators of the team.
 	//
-	// > NOTE: It's possible to define team administrators both within the
+	// > **NOTE:** It's possible to define team administrators both within the
 	// `Team` resource via the `administrators` block and by using the
 	// `TeamAdministrators` resource. However it's not possible to use
 	// both methods to manage team administrators, since there'll be conflicts.
@@ -233,7 +245,7 @@ type TeamArgs struct {
 	Description pulumi.StringPtrInput
 	// List of subject descriptors to define members of the team.
 	//
-	// > NOTE: It's possible to define team members both within the
+	// > **NOTE:** It's possible to define team members both within the
 	// `Team` resource via the `members` block and by using the
 	// `TeamMembers` resource. However it's not possible to use
 	// both methods to manage team members, since there'll be conflicts.
@@ -333,7 +345,7 @@ func (o TeamOutput) ToTeamOutputWithContext(ctx context.Context) TeamOutput {
 
 // List of subject descriptors to define administrators of the team.
 //
-// > NOTE: It's possible to define team administrators both within the
+// > **NOTE:** It's possible to define team administrators both within the
 // `Team` resource via the `administrators` block and by using the
 // `TeamAdministrators` resource. However it's not possible to use
 // both methods to manage team administrators, since there'll be conflicts.
@@ -353,7 +365,7 @@ func (o TeamOutput) Descriptor() pulumi.StringOutput {
 
 // List of subject descriptors to define members of the team.
 //
-// > NOTE: It's possible to define team members both within the
+// > **NOTE:** It's possible to define team members both within the
 // `Team` resource via the `members` block and by using the
 // `TeamMembers` resource. However it's not possible to use
 // both methods to manage team members, since there'll be conflicts.

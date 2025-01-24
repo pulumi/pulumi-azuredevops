@@ -85,7 +85,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Azure DevOps Service Endpoint Kubernetes can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+ * Azure DevOps Kubernetes Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
  *
  * ```sh
  * $ pulumi import azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -129,12 +129,12 @@ export class ServiceEndpointKubernetes extends pulumi.CustomResource {
      */
     public readonly authorizationType!: pulumi.Output<string>;
     /**
-     * A `azureSubscription` block defined blow.
+     * An `azureSubscription` block as defined below.
      */
     public readonly azureSubscriptions!: pulumi.Output<outputs.ServiceEndpointKubernetesAzureSubscription[] | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * A `kubeconfig` block defined blow.
+     * A `kubeconfig` block as defined below.
      */
     public readonly kubeconfig!: pulumi.Output<outputs.ServiceEndpointKubernetesKubeconfig | undefined>;
     /**
@@ -142,7 +142,7 @@ export class ServiceEndpointKubernetes extends pulumi.CustomResource {
      */
     public readonly projectId!: pulumi.Output<string>;
     /**
-     * A `serviceAccount` block defined blow.
+     * A `serviceAccount` block as defined below.
      */
     public readonly serviceAccount!: pulumi.Output<outputs.ServiceEndpointKubernetesServiceAccount | undefined>;
     /**
@@ -215,12 +215,12 @@ export interface ServiceEndpointKubernetesState {
      */
     authorizationType?: pulumi.Input<string>;
     /**
-     * A `azureSubscription` block defined blow.
+     * An `azureSubscription` block as defined below.
      */
     azureSubscriptions?: pulumi.Input<pulumi.Input<inputs.ServiceEndpointKubernetesAzureSubscription>[]>;
     description?: pulumi.Input<string>;
     /**
-     * A `kubeconfig` block defined blow.
+     * A `kubeconfig` block as defined below.
      */
     kubeconfig?: pulumi.Input<inputs.ServiceEndpointKubernetesKubeconfig>;
     /**
@@ -228,7 +228,7 @@ export interface ServiceEndpointKubernetesState {
      */
     projectId?: pulumi.Input<string>;
     /**
-     * A `serviceAccount` block defined blow.
+     * A `serviceAccount` block as defined below.
      */
     serviceAccount?: pulumi.Input<inputs.ServiceEndpointKubernetesServiceAccount>;
     /**
@@ -251,12 +251,12 @@ export interface ServiceEndpointKubernetesArgs {
      */
     authorizationType: pulumi.Input<string>;
     /**
-     * A `azureSubscription` block defined blow.
+     * An `azureSubscription` block as defined below.
      */
     azureSubscriptions?: pulumi.Input<pulumi.Input<inputs.ServiceEndpointKubernetesAzureSubscription>[]>;
     description?: pulumi.Input<string>;
     /**
-     * A `kubeconfig` block defined blow.
+     * A `kubeconfig` block as defined below.
      */
     kubeconfig?: pulumi.Input<inputs.ServiceEndpointKubernetesKubeconfig>;
     /**
@@ -264,7 +264,7 @@ export interface ServiceEndpointKubernetesArgs {
      */
     projectId: pulumi.Input<string>;
     /**
-     * A `serviceAccount` block defined blow.
+     * A `serviceAccount` block as defined below.
      */
     serviceAccount?: pulumi.Input<inputs.ServiceEndpointKubernetesServiceAccount>;
     /**

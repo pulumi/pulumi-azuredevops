@@ -27,14 +27,13 @@ class GroupMembershipArgs:
         :param pulumi.Input[str] group: The descriptor of the group being managed.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] members: A list of user or group descriptors that will become members of the group.
                
-               > **NOTE** It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
-               
-               > **NOTE**  The `members` uses `descriptor` as the identifier not Resource ID or others.
+               > **NOTE** 1. It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+               <br>2. The `members` uses `descriptor` as the identifier not Resource ID or others.
         :param pulumi.Input[str] mode: The mode how the resource manages group members.
-               - `mode == add`: the resource will ensure that all specified members will be part of the referenced group
-               - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
                
-               > **NOTE** To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
+               ~>**NOTE** 1. `mode = add`: the resource will ensure that all specified members will be part of the referenced group
+               <br>2. `mode = overwrite`: the resource will replace all existing members with the members specified within the `members` block
+               <br>3. To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
         """
         pulumi.set(__self__, "group", group)
         pulumi.set(__self__, "members", members)
@@ -59,9 +58,8 @@ class GroupMembershipArgs:
         """
         A list of user or group descriptors that will become members of the group.
 
-        > **NOTE** It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
-
-        > **NOTE**  The `members` uses `descriptor` as the identifier not Resource ID or others.
+        > **NOTE** 1. It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+        <br>2. The `members` uses `descriptor` as the identifier not Resource ID or others.
         """
         return pulumi.get(self, "members")
 
@@ -74,10 +72,10 @@ class GroupMembershipArgs:
     def mode(self) -> Optional[pulumi.Input[str]]:
         """
         The mode how the resource manages group members.
-        - `mode == add`: the resource will ensure that all specified members will be part of the referenced group
-        - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
 
-        > **NOTE** To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
+        ~>**NOTE** 1. `mode = add`: the resource will ensure that all specified members will be part of the referenced group
+        <br>2. `mode = overwrite`: the resource will replace all existing members with the members specified within the `members` block
+        <br>3. To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
         """
         return pulumi.get(self, "mode")
 
@@ -97,14 +95,13 @@ class _GroupMembershipState:
         :param pulumi.Input[str] group: The descriptor of the group being managed.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] members: A list of user or group descriptors that will become members of the group.
                
-               > **NOTE** It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
-               
-               > **NOTE**  The `members` uses `descriptor` as the identifier not Resource ID or others.
+               > **NOTE** 1. It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+               <br>2. The `members` uses `descriptor` as the identifier not Resource ID or others.
         :param pulumi.Input[str] mode: The mode how the resource manages group members.
-               - `mode == add`: the resource will ensure that all specified members will be part of the referenced group
-               - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
                
-               > **NOTE** To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
+               ~>**NOTE** 1. `mode = add`: the resource will ensure that all specified members will be part of the referenced group
+               <br>2. `mode = overwrite`: the resource will replace all existing members with the members specified within the `members` block
+               <br>3. To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
         """
         if group is not None:
             pulumi.set(__self__, "group", group)
@@ -131,9 +128,8 @@ class _GroupMembershipState:
         """
         A list of user or group descriptors that will become members of the group.
 
-        > **NOTE** It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
-
-        > **NOTE**  The `members` uses `descriptor` as the identifier not Resource ID or others.
+        > **NOTE** 1. It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+        <br>2. The `members` uses `descriptor` as the identifier not Resource ID or others.
         """
         return pulumi.get(self, "members")
 
@@ -146,10 +142,10 @@ class _GroupMembershipState:
     def mode(self) -> Optional[pulumi.Input[str]]:
         """
         The mode how the resource manages group members.
-        - `mode == add`: the resource will ensure that all specified members will be part of the referenced group
-        - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
 
-        > **NOTE** To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
+        ~>**NOTE** 1. `mode = add`: the resource will ensure that all specified members will be part of the referenced group
+        <br>2. `mode = overwrite`: the resource will replace all existing members with the members specified within the `members` block
+        <br>3. To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
         """
         return pulumi.get(self, "mode")
 
@@ -193,23 +189,18 @@ class GroupMembership(pulumi.CustomResource):
 
         - **Deployment Groups**: Read & Manage
 
-        ## Import
-
-        Not supported.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group: The descriptor of the group being managed.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] members: A list of user or group descriptors that will become members of the group.
                
-               > **NOTE** It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
-               
-               > **NOTE**  The `members` uses `descriptor` as the identifier not Resource ID or others.
+               > **NOTE** 1. It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+               <br>2. The `members` uses `descriptor` as the identifier not Resource ID or others.
         :param pulumi.Input[str] mode: The mode how the resource manages group members.
-               - `mode == add`: the resource will ensure that all specified members will be part of the referenced group
-               - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
                
-               > **NOTE** To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
+               ~>**NOTE** 1. `mode = add`: the resource will ensure that all specified members will be part of the referenced group
+               <br>2. `mode = overwrite`: the resource will replace all existing members with the members specified within the `members` block
+               <br>3. To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
         """
         ...
     @overload
@@ -242,10 +233,6 @@ class GroupMembership(pulumi.CustomResource):
         ## PAT Permissions Required
 
         - **Deployment Groups**: Read & Manage
-
-        ## Import
-
-        Not supported.
 
         :param str resource_name: The name of the resource.
         :param GroupMembershipArgs args: The arguments to use to populate this resource's properties.
@@ -304,14 +291,13 @@ class GroupMembership(pulumi.CustomResource):
         :param pulumi.Input[str] group: The descriptor of the group being managed.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] members: A list of user or group descriptors that will become members of the group.
                
-               > **NOTE** It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
-               
-               > **NOTE**  The `members` uses `descriptor` as the identifier not Resource ID or others.
+               > **NOTE** 1. It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+               <br>2. The `members` uses `descriptor` as the identifier not Resource ID or others.
         :param pulumi.Input[str] mode: The mode how the resource manages group members.
-               - `mode == add`: the resource will ensure that all specified members will be part of the referenced group
-               - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
                
-               > **NOTE** To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
+               ~>**NOTE** 1. `mode = add`: the resource will ensure that all specified members will be part of the referenced group
+               <br>2. `mode = overwrite`: the resource will replace all existing members with the members specified within the `members` block
+               <br>3. To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -336,9 +322,8 @@ class GroupMembership(pulumi.CustomResource):
         """
         A list of user or group descriptors that will become members of the group.
 
-        > **NOTE** It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
-
-        > **NOTE**  The `members` uses `descriptor` as the identifier not Resource ID or others.
+        > **NOTE** 1. It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+        <br>2. The `members` uses `descriptor` as the identifier not Resource ID or others.
         """
         return pulumi.get(self, "members")
 
@@ -347,10 +332,10 @@ class GroupMembership(pulumi.CustomResource):
     def mode(self) -> pulumi.Output[Optional[str]]:
         """
         The mode how the resource manages group members.
-        - `mode == add`: the resource will ensure that all specified members will be part of the referenced group
-        - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
 
-        > **NOTE** To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
+        ~>**NOTE** 1. `mode = add`: the resource will ensure that all specified members will be part of the referenced group
+        <br>2. `mode = overwrite`: the resource will replace all existing members with the members specified within the `members` block
+        <br>3. To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
         """
         return pulumi.get(self, "mode")
 

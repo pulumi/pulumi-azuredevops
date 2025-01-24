@@ -147,8 +147,8 @@ def get_group(name: Optional[str] = None,
     - **Work Items**: Read
 
 
-    :param str name: The Group Name.
-    :param str project_id: The Project ID. If no project ID is specified the project collection groups will be searched.
+    :param str name: The Name of the Group.
+    :param str project_id: The ID of the Project. If `project_id` is not specified the project collection groups will be searched.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -196,8 +196,8 @@ def get_group_output(name: Optional[pulumi.Input[str]] = None,
     - **Work Items**: Read
 
 
-    :param str name: The Group Name.
-    :param str project_id: The Project ID. If no project ID is specified the project collection groups will be searched.
+    :param str name: The Name of the Group.
+    :param str project_id: The ID of the Project. If `project_id` is not specified the project collection groups will be searched.
     """
     __args__ = dict()
     __args__['name'] = name

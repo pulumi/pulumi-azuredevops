@@ -12,12 +12,12 @@ import java.util.Objects;
 @CustomType
 public final class GetServiceendpointBitbucketResult {
     /**
-     * @return Specifies the Authorization Scheme Map.
+     * @return The Authorization scheme.
      * 
      */
     private Map<String,String> authorization;
     /**
-     * @return Specifies the description of the Service Endpoint.
+     * @return The description of the Service Endpoint.
      * 
      */
     private String description;
@@ -32,14 +32,14 @@ public final class GetServiceendpointBitbucketResult {
 
     private GetServiceendpointBitbucketResult() {}
     /**
-     * @return Specifies the Authorization Scheme Map.
+     * @return The Authorization scheme.
      * 
      */
     public Map<String,String> authorization() {
         return this.authorization;
     }
     /**
-     * @return Specifies the description of the Service Endpoint.
+     * @return The description of the Service Endpoint.
      * 
      */
     public String description() {

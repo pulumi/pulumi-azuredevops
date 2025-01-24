@@ -233,7 +233,7 @@ public class PipelineAuthorization extends com.pulumi.resources.CustomResource {
         return this.resourceId;
     }
     /**
-     * The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
+     * The type of the resource to authorize. Possible values are: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
      * 
      * &gt; **Note** `repository` is for AzureDevOps repository. To authorize repository other than
      * Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.
@@ -245,7 +245,7 @@ public class PipelineAuthorization extends com.pulumi.resources.CustomResource {
     private Output<String> type;
 
     /**
-     * @return The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
+     * @return The type of the resource to authorize. Possible values are: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
      * 
      * &gt; **Note** `repository` is for AzureDevOps repository. To authorize repository other than
      * Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.

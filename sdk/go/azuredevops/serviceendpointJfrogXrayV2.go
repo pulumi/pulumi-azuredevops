@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an JFrog XRay V2 server endpoint within an Azure DevOps organization.
+// Manages an JFrog XRay V2 service endpoint within an Azure DevOps organization.
 //
 // > **Note:** Using this service endpoint requires you to first install [JFrog Extension](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-azure-devops-extension).
 //
@@ -107,7 +107,7 @@ import (
 //
 // ## Import
 //
-// Azure DevOps Service Endpoint JFrog XRay V2 can be imported using the **projectID/serviceEndpointID**, e.g.
+// Azure DevOps JFrog Platform V2 Service Endpoint can be imported using the **projectID/serviceEndpointID**, e.g.
 //
 // ```sh
 // $ pulumi import azuredevops:index/serviceendpointJfrogXrayV2:ServiceendpointJfrogXrayV2 example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -115,9 +115,9 @@ import (
 type ServiceendpointJfrogXrayV2 struct {
 	pulumi.CustomResourceState
 
-	// A `authenticationBasic` block as documented below.
+	// An `authenticationBasic` block as documented below.
 	AuthenticationBasic ServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput `pulumi:"authenticationBasic"`
-	// A `authenticationToken` block as documented below.
+	// An `authenticationToken` block as documented below.
 	AuthenticationToken ServiceendpointJfrogXrayV2AuthenticationTokenPtrOutput `pulumi:"authenticationToken"`
 	Authorization       pulumi.StringMapOutput                                 `pulumi:"authorization"`
 	// The Service Endpoint description.
@@ -171,9 +171,9 @@ func GetServiceendpointJfrogXrayV2(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceendpointJfrogXrayV2 resources.
 type serviceendpointJfrogXrayV2State struct {
-	// A `authenticationBasic` block as documented below.
+	// An `authenticationBasic` block as documented below.
 	AuthenticationBasic *ServiceendpointJfrogXrayV2AuthenticationBasic `pulumi:"authenticationBasic"`
-	// A `authenticationToken` block as documented below.
+	// An `authenticationToken` block as documented below.
 	AuthenticationToken *ServiceendpointJfrogXrayV2AuthenticationToken `pulumi:"authenticationToken"`
 	Authorization       map[string]string                              `pulumi:"authorization"`
 	// The Service Endpoint description.
@@ -189,9 +189,9 @@ type serviceendpointJfrogXrayV2State struct {
 }
 
 type ServiceendpointJfrogXrayV2State struct {
-	// A `authenticationBasic` block as documented below.
+	// An `authenticationBasic` block as documented below.
 	AuthenticationBasic ServiceendpointJfrogXrayV2AuthenticationBasicPtrInput
-	// A `authenticationToken` block as documented below.
+	// An `authenticationToken` block as documented below.
 	AuthenticationToken ServiceendpointJfrogXrayV2AuthenticationTokenPtrInput
 	Authorization       pulumi.StringMapInput
 	// The Service Endpoint description.
@@ -211,9 +211,9 @@ func (ServiceendpointJfrogXrayV2State) ElementType() reflect.Type {
 }
 
 type serviceendpointJfrogXrayV2Args struct {
-	// A `authenticationBasic` block as documented below.
+	// An `authenticationBasic` block as documented below.
 	AuthenticationBasic *ServiceendpointJfrogXrayV2AuthenticationBasic `pulumi:"authenticationBasic"`
-	// A `authenticationToken` block as documented below.
+	// An `authenticationToken` block as documented below.
 	AuthenticationToken *ServiceendpointJfrogXrayV2AuthenticationToken `pulumi:"authenticationToken"`
 	Authorization       map[string]string                              `pulumi:"authorization"`
 	// The Service Endpoint description.
@@ -230,9 +230,9 @@ type serviceendpointJfrogXrayV2Args struct {
 
 // The set of arguments for constructing a ServiceendpointJfrogXrayV2 resource.
 type ServiceendpointJfrogXrayV2Args struct {
-	// A `authenticationBasic` block as documented below.
+	// An `authenticationBasic` block as documented below.
 	AuthenticationBasic ServiceendpointJfrogXrayV2AuthenticationBasicPtrInput
-	// A `authenticationToken` block as documented below.
+	// An `authenticationToken` block as documented below.
 	AuthenticationToken ServiceendpointJfrogXrayV2AuthenticationTokenPtrInput
 	Authorization       pulumi.StringMapInput
 	// The Service Endpoint description.
@@ -334,14 +334,14 @@ func (o ServiceendpointJfrogXrayV2Output) ToServiceendpointJfrogXrayV2OutputWith
 	return o
 }
 
-// A `authenticationBasic` block as documented below.
+// An `authenticationBasic` block as documented below.
 func (o ServiceendpointJfrogXrayV2Output) AuthenticationBasic() ServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointJfrogXrayV2) ServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput {
 		return v.AuthenticationBasic
 	}).(ServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput)
 }
 
-// A `authenticationToken` block as documented below.
+// An `authenticationToken` block as documented below.
 func (o ServiceendpointJfrogXrayV2Output) AuthenticationToken() ServiceendpointJfrogXrayV2AuthenticationTokenPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointJfrogXrayV2) ServiceendpointJfrogXrayV2AuthenticationTokenPtrOutput {
 		return v.AuthenticationToken

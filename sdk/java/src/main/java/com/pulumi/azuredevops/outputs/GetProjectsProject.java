@@ -21,14 +21,14 @@ public final class GetProjectsProject {
      */
     private String projectId;
     /**
-     * @return Url to the full version of the object.
+     * @return The Url to the full version of the object.
      * 
      */
     private String projectUrl;
     /**
      * @return State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
      * 
-     * DataSource without specifying any arguments will return all projects.
+     * &gt; **NOTE:** DataSource without specifying any arguments will return all projects.
      * 
      */
     private String state;
@@ -49,7 +49,7 @@ public final class GetProjectsProject {
         return this.projectId;
     }
     /**
-     * @return Url to the full version of the object.
+     * @return The Url to the full version of the object.
      * 
      */
     public String projectUrl() {
@@ -58,7 +58,7 @@ public final class GetProjectsProject {
     /**
      * @return State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
      * 
-     * DataSource without specifying any arguments will return all projects.
+     * &gt; **NOTE:** DataSource without specifying any arguments will return all projects.
      * 
      */
     public String state() {

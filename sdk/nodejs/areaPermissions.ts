@@ -90,18 +90,6 @@ export class AreaPermissions extends pulumi.CustomResource {
     public readonly path!: pulumi.Output<string | undefined>;
     /**
      * the permissions to assign. The following permissions are available.
-     */
-    public readonly permissions!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The **group** principal to assign the permissions.
-     */
-    public readonly principal!: pulumi.Output<string>;
-    /**
-     * The ID of the project to assign the permissions.
-     */
-    public readonly projectId!: pulumi.Output<string>;
-    /**
-     * Replace (`true`) or merge (`false`) the permissions. Default: `true`.
      *
      * | Permission             | Description                          |
      * |------------------------|--------------------------------------|
@@ -114,6 +102,18 @@ export class AreaPermissions extends pulumi.CustomResource {
      * | MANAGE_TEST_PLANS      | Manage test plans                    |
      * | MANAGE_TEST_SUITES     | Manage test suites                   |
      * | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
+     */
+    public readonly permissions!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The **group** principal to assign the permissions.
+     */
+    public readonly principal!: pulumi.Output<string>;
+    /**
+     * The ID of the project to assign the permissions.
+     */
+    public readonly projectId!: pulumi.Output<string>;
+    /**
+     * Replace (`true`) or merge (`false`) the permissions. Default: `true`.
      */
     public readonly replace!: pulumi.Output<boolean | undefined>;
 
@@ -167,18 +167,6 @@ export interface AreaPermissionsState {
     path?: pulumi.Input<string>;
     /**
      * the permissions to assign. The following permissions are available.
-     */
-    permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The **group** principal to assign the permissions.
-     */
-    principal?: pulumi.Input<string>;
-    /**
-     * The ID of the project to assign the permissions.
-     */
-    projectId?: pulumi.Input<string>;
-    /**
-     * Replace (`true`) or merge (`false`) the permissions. Default: `true`.
      *
      * | Permission             | Description                          |
      * |------------------------|--------------------------------------|
@@ -191,6 +179,18 @@ export interface AreaPermissionsState {
      * | MANAGE_TEST_PLANS      | Manage test plans                    |
      * | MANAGE_TEST_SUITES     | Manage test suites                   |
      * | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
+     */
+    permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The **group** principal to assign the permissions.
+     */
+    principal?: pulumi.Input<string>;
+    /**
+     * The ID of the project to assign the permissions.
+     */
+    projectId?: pulumi.Input<string>;
+    /**
+     * Replace (`true`) or merge (`false`) the permissions. Default: `true`.
      */
     replace?: pulumi.Input<boolean>;
 }
@@ -205,18 +205,6 @@ export interface AreaPermissionsArgs {
     path?: pulumi.Input<string>;
     /**
      * the permissions to assign. The following permissions are available.
-     */
-    permissions: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The **group** principal to assign the permissions.
-     */
-    principal: pulumi.Input<string>;
-    /**
-     * The ID of the project to assign the permissions.
-     */
-    projectId: pulumi.Input<string>;
-    /**
-     * Replace (`true`) or merge (`false`) the permissions. Default: `true`.
      *
      * | Permission             | Description                          |
      * |------------------------|--------------------------------------|
@@ -229,6 +217,18 @@ export interface AreaPermissionsArgs {
      * | MANAGE_TEST_PLANS      | Manage test plans                    |
      * | MANAGE_TEST_SUITES     | Manage test suites                   |
      * | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
+     */
+    permissions: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The **group** principal to assign the permissions.
+     */
+    principal: pulumi.Input<string>;
+    /**
+     * The ID of the project to assign the permissions.
+     */
+    projectId: pulumi.Input<string>;
+    /**
+     * Replace (`true`) or merge (`false`) the permissions. Default: `true`.
      */
     replace?: pulumi.Input<boolean>;
 }

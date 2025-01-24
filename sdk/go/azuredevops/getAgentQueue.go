@@ -76,13 +76,13 @@ type GetAgentQueueArgs struct {
 
 // A collection of values returned by getAgentQueue.
 type GetAgentQueueResult struct {
-	// Agent pool identifier to which the agent queue belongs.
+	// The ID of the Agent pool to which the agent queue belongs.
 	AgentPoolId int `pulumi:"agentPoolId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The name of the agent queue.
 	Name string `pulumi:"name"`
-	// Project identifier to which the agent queue belongs.
+	// The ID of the Project to which the agent queue belongs.
 	ProjectId string `pulumi:"projectId"`
 }
 
@@ -122,7 +122,7 @@ func (o GetAgentQueueResultOutput) ToGetAgentQueueResultOutputWithContext(ctx co
 	return o
 }
 
-// Agent pool identifier to which the agent queue belongs.
+// The ID of the Agent pool to which the agent queue belongs.
 func (o GetAgentQueueResultOutput) AgentPoolId() pulumi.IntOutput {
 	return o.ApplyT(func(v GetAgentQueueResult) int { return v.AgentPoolId }).(pulumi.IntOutput)
 }
@@ -137,7 +137,7 @@ func (o GetAgentQueueResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAgentQueueResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Project identifier to which the agent queue belongs.
+// The ID of the Project to which the agent queue belongs.
 func (o GetAgentQueueResultOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAgentQueueResult) string { return v.ProjectId }).(pulumi.StringOutput)
 }

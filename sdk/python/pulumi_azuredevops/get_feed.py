@@ -117,10 +117,10 @@ def get_feed(feed_id: Optional[str] = None,
     - [Azure DevOps Service REST API 7.0 - Feed - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/artifacts/feed-management/get-feed?view=azure-devops-rest-7.0)
 
 
-    :param str feed_id: ID of the Feed.
+    :param str feed_id: The ID of the Feed.
            
            > **Note** Only one of `name` or `feed_id` can be set at the same time.
-    :param str name: Name of the Feed.
+    :param str name: The Name of the Feed.
     :param str project_id: ID of the Project Feed is created in.
     """
     __args__ = dict()
@@ -167,10 +167,10 @@ def get_feed_output(feed_id: Optional[pulumi.Input[Optional[str]]] = None,
     - [Azure DevOps Service REST API 7.0 - Feed - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/artifacts/feed-management/get-feed?view=azure-devops-rest-7.0)
 
 
-    :param str feed_id: ID of the Feed.
+    :param str feed_id: The ID of the Feed.
            
            > **Note** Only one of `name` or `feed_id` can be set at the same time.
-    :param str name: Name of the Feed.
+    :param str name: The Name of the Feed.
     :param str project_id: ID of the Project Feed is created in.
     """
     __args__ = dict()

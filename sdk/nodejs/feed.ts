@@ -7,7 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Manages creation of the Feed within Azure DevOps organization.
+ * Manages Feed within Azure DevOps organization.
  *
  * ## Example Usage
  *
@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const example = new azuredevops.Feed("example", {name: "releases"});
+ * const example = new azuredevops.Feed("example", {name: "examplefeed"});
  * ```
  *
  * ### Create Feed in the scope of a Project
@@ -32,7 +32,7 @@ import * as utilities from "./utilities";
  *     description: "Managed by Pulumi",
  * });
  * const exampleFeed = new azuredevops.Feed("example", {
- *     name: "releases",
+ *     name: "examplefeed",
  *     projectId: example.id,
  * });
  * ```
@@ -43,7 +43,7 @@ import * as utilities from "./utilities";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * const example = new azuredevops.Feed("example", {
- *     name: "releases",
+ *     name: "examplefeed",
  *     features: [{
  *         permanentDelete: false,
  *     }],

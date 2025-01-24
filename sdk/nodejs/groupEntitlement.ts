@@ -39,9 +39,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * The resource allows the import via the ID of a group entitlement, which is a
- *
- * UUID.
+ * The resource allows the import via the ID of a group entitlement, which is a UUID.
  *
  * ```sh
  * $ pulumi import azuredevops:index/groupEntitlement:GroupEntitlement example 00000000-0000-0000-0000-000000000000
@@ -76,7 +74,7 @@ export class GroupEntitlement extends pulumi.CustomResource {
     }
 
     /**
-     * Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+     * Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
      */
     public readonly accountLicenseType!: pulumi.Output<string | undefined>;
     /**
@@ -88,7 +86,7 @@ export class GroupEntitlement extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
-     * The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+     * The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
      *
      * > **NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
      */
@@ -146,7 +144,7 @@ export class GroupEntitlement extends pulumi.CustomResource {
  */
 export interface GroupEntitlementState {
     /**
-     * Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+     * Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
      */
     accountLicenseType?: pulumi.Input<string>;
     /**
@@ -158,7 +156,7 @@ export interface GroupEntitlementState {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+     * The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
      *
      * > **NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
      */
@@ -182,7 +180,7 @@ export interface GroupEntitlementState {
  */
 export interface GroupEntitlementArgs {
     /**
-     * Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+     * Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
      */
     accountLicenseType?: pulumi.Input<string>;
     /**
@@ -190,7 +188,7 @@ export interface GroupEntitlementArgs {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+     * The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
      *
      * > **NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
      */

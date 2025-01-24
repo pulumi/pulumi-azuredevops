@@ -18,7 +18,7 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly bool HasChildren;
         /// <summary>
-        /// The id of the child Area node
+        /// The ID of the child Area node
         /// </summary>
         public readonly string Id;
         /// <summary>

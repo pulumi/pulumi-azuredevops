@@ -21,13 +21,12 @@ public final class GetTeamsResult {
      */
     private String id;
     /**
-     * @return Project identifier.
-     * - `id - Team identifier
+     * @return The ID of the Project.
      * 
      */
     private @Nullable String projectId;
     /**
-     * @return A list of existing projects in your Azure DevOps Organization with details about every project which includes:
+     * @return A list of `teams` blocks as documented below. A list of existing projects in your Azure DevOps Organization with details about every project which includes:
      * 
      */
     private List<GetTeamsTeam> teams;
@@ -42,15 +41,14 @@ public final class GetTeamsResult {
         return this.id;
     }
     /**
-     * @return Project identifier.
-     * - `id - Team identifier
+     * @return The ID of the Project.
      * 
      */
     public Optional<String> projectId() {
         return Optional.ofNullable(this.projectId);
     }
     /**
-     * @return A list of existing projects in your Azure DevOps Organization with details about every project which includes:
+     * @return A list of `teams` blocks as documented below. A list of existing projects in your Azure DevOps Organization with details about every project which includes:
      * 
      */
     public List<GetTeamsTeam> teams() {

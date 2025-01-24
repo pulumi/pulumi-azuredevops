@@ -24,7 +24,7 @@ import * as utilities from "./utilities";
  *
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
+ * - [Azure DevOps Service REST API 7.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.1)
  */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,13 +47,25 @@ export interface GetPoolArgs {
  * A collection of values returned by getPool.
  */
 export interface GetPoolResult {
+    /**
+     * Specifies whether a queue should be automatically provisioned for each project collection.
+     */
     readonly autoProvision: boolean;
+    /**
+     * Specifies whether or not agents within the pool should be automatically updated.
+     */
     readonly autoUpdate: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The name of the agent pool
+     */
     readonly name: string;
+    /**
+     * Specifies whether the agent pool type is Automation or Deployment.
+     */
     readonly poolType: string;
 }
 /**
@@ -76,7 +88,7 @@ export interface GetPoolResult {
  *
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
+ * - [Azure DevOps Service REST API 7.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.1)
  */
 export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

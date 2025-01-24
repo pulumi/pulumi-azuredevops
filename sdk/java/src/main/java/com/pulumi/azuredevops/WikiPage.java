@@ -51,8 +51,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleWiki = new Wiki("exampleWiki", WikiArgs.builder()
- *             .name("Example project wiki ")
  *             .projectId(example.id())
+ *             .name("Example project wiki ")
  *             .type("projectWiki")
  *             .build());
  * 

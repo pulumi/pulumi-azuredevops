@@ -40,7 +40,7 @@ namespace Pulumi.AzureDevOps.Outputs
         /// <summary>
         /// Name of the Scope for which Security Role Definitions will be returned.
         /// 
-        /// DataSource without specifying any arguments will return all projects.
+        /// &gt; **NOTE:** DataSource without specifying any arguments will return all projects.
         /// </summary>
         public readonly string Scope;
 

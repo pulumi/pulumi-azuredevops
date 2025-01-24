@@ -42,7 +42,7 @@ class GetGroupsResult:
     @pulumi.getter
     def groups(self) -> Sequence['outputs.GetGroupsGroupResult']:
         """
-        A set of existing groups in your Azure DevOps Organization or project with details about every single group which includes:
+        A `groups` blocks as documented below. A set of existing groups in your Azure DevOps Organization or project with details about every single group which includes:
         """
         return pulumi.get(self, "groups")
 
@@ -94,7 +94,7 @@ def get_groups(project_id: Optional[str] = None,
     - [Azure DevOps Service REST API 7.0 - Groups - List](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-7.0)
 
 
-    :param str project_id: The Project ID. If no project ID is specified all groups of an organization will be returned
+    :param str project_id: The ID of the Project. If no project ID is specified all groups of an organization will be returned
     """
     __args__ = dict()
     __args__['projectId'] = project_id
@@ -128,7 +128,7 @@ def get_groups_output(project_id: Optional[pulumi.Input[Optional[str]]] = None,
     - [Azure DevOps Service REST API 7.0 - Groups - List](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-7.0)
 
 
-    :param str project_id: The Project ID. If no project ID is specified all groups of an organization will be returned
+    :param str project_id: The ID of the Project. If no project ID is specified all groups of an organization will be returned
     """
     __args__ = dict()
     __args__['projectId'] = project_id

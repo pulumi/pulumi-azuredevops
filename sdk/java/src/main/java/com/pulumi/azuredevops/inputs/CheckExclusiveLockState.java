@@ -47,14 +47,14 @@ public final class CheckExclusiveLockState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
+     * The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
      * 
      */
     @Import(name="targetResourceType")
     private @Nullable Output<String> targetResourceType;
 
     /**
-     * @return The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
+     * @return The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
      * 
      */
     public Optional<Output<String>> targetResourceType() {
@@ -162,7 +162,7 @@ public final class CheckExclusiveLockState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param targetResourceType The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
+         * @param targetResourceType The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class CheckExclusiveLockState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param targetResourceType The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
+         * @param targetResourceType The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
          * 
          * @return builder
          * 

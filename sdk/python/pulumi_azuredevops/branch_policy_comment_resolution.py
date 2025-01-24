@@ -28,7 +28,7 @@ class BranchPolicyCommentResolutionArgs:
         """
         The set of arguments for constructing a BranchPolicyCommentResolution resource.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
-        :param pulumi.Input['BranchPolicyCommentResolutionSettingsArgs'] settings: Configuration for the policy. This block must be defined exactly once.
+        :param pulumi.Input['BranchPolicyCommentResolutionSettingsArgs'] settings: A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
         :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         """
@@ -55,7 +55,7 @@ class BranchPolicyCommentResolutionArgs:
     @pulumi.getter
     def settings(self) -> pulumi.Input['BranchPolicyCommentResolutionSettingsArgs']:
         """
-        Configuration for the policy. This block must be defined exactly once.
+        A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
         """
         return pulumi.get(self, "settings")
 
@@ -100,7 +100,7 @@ class _BranchPolicyCommentResolutionState:
         :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
-        :param pulumi.Input['BranchPolicyCommentResolutionSettingsArgs'] settings: Configuration for the policy. This block must be defined exactly once.
+        :param pulumi.Input['BranchPolicyCommentResolutionSettingsArgs'] settings: A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
         """
         if blocking is not None:
             pulumi.set(__self__, "blocking", blocking)
@@ -151,7 +151,7 @@ class _BranchPolicyCommentResolutionState:
     @pulumi.getter
     def settings(self) -> Optional[pulumi.Input['BranchPolicyCommentResolutionSettingsArgs']]:
         """
-        Configuration for the policy. This block must be defined exactly once.
+        A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
         """
         return pulumi.get(self, "settings")
 
@@ -226,7 +226,7 @@ class BranchPolicyCommentResolution(pulumi.CustomResource):
         :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
-        :param pulumi.Input[Union['BranchPolicyCommentResolutionSettingsArgs', 'BranchPolicyCommentResolutionSettingsArgsDict']] settings: Configuration for the policy. This block must be defined exactly once.
+        :param pulumi.Input[Union['BranchPolicyCommentResolutionSettingsArgs', 'BranchPolicyCommentResolutionSettingsArgsDict']] settings: A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
         """
         ...
     @overload
@@ -345,7 +345,7 @@ class BranchPolicyCommentResolution(pulumi.CustomResource):
         :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
-        :param pulumi.Input[Union['BranchPolicyCommentResolutionSettingsArgs', 'BranchPolicyCommentResolutionSettingsArgsDict']] settings: Configuration for the policy. This block must be defined exactly once.
+        :param pulumi.Input[Union['BranchPolicyCommentResolutionSettingsArgs', 'BranchPolicyCommentResolutionSettingsArgsDict']] settings: A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -385,7 +385,7 @@ class BranchPolicyCommentResolution(pulumi.CustomResource):
     @pulumi.getter
     def settings(self) -> pulumi.Output['outputs.BranchPolicyCommentResolutionSettings']:
         """
-        Configuration for the policy. This block must be defined exactly once.
+        A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
         """
         return pulumi.get(self, "settings")
 

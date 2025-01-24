@@ -52,7 +52,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ## Import
     /// 
-    /// Azure DevOps Service Endpoint GitHub Enterprise Server can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+    /// Azure DevOps GitHub Enterprise Server Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
     /// 
     /// ```sh
     /// $ pulumi import azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -61,6 +61,9 @@ namespace Pulumi.AzureDevOps
     [AzureDevOpsResourceType("azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise")]
     public partial class ServiceEndpointGitHubEnterprise : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        /// </summary>
         [Output("authPersonal")]
         public Output<Outputs.ServiceEndpointGitHubEnterpriseAuthPersonal> AuthPersonal { get; private set; } = null!;
 
@@ -134,6 +137,9 @@ namespace Pulumi.AzureDevOps
 
     public sealed class ServiceEndpointGitHubEnterpriseArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        /// </summary>
         [Input("authPersonal", required: true)]
         public Input<Inputs.ServiceEndpointGitHubEnterpriseAuthPersonalArgs> AuthPersonal { get; set; } = null!;
 
@@ -174,6 +180,9 @@ namespace Pulumi.AzureDevOps
 
     public sealed class ServiceEndpointGitHubEnterpriseState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        /// </summary>
         [Input("authPersonal")]
         public Input<Inputs.ServiceEndpointGitHubEnterpriseAuthPersonalGetArgs>? AuthPersonal { get; set; }
 

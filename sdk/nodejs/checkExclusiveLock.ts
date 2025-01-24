@@ -116,7 +116,7 @@ export class CheckExclusiveLock extends pulumi.CustomResource {
      */
     public readonly targetResourceId!: pulumi.Output<string>;
     /**
-     * The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
+     * The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
      */
     public readonly targetResourceType!: pulumi.Output<string>;
     /**
@@ -181,7 +181,7 @@ export interface CheckExclusiveLockState {
      */
     targetResourceId?: pulumi.Input<string>;
     /**
-     * The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
+     * The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
      */
     targetResourceType?: pulumi.Input<string>;
     /**
@@ -207,7 +207,7 @@ export interface CheckExclusiveLockArgs {
      */
     targetResourceId: pulumi.Input<string>;
     /**
-     * The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
+     * The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
      */
     targetResourceType: pulumi.Input<string>;
     /**

@@ -28,7 +28,7 @@ class BranchPolicyStatusCheckArgs:
         """
         The set of arguments for constructing a BranchPolicyStatusCheck resource.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
-        :param pulumi.Input['BranchPolicyStatusCheckSettingsArgs'] settings: Configuration for the policy. This block must be defined exactly once.
+        :param pulumi.Input['BranchPolicyStatusCheckSettingsArgs'] settings: A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
         :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         """
@@ -55,7 +55,7 @@ class BranchPolicyStatusCheckArgs:
     @pulumi.getter
     def settings(self) -> pulumi.Input['BranchPolicyStatusCheckSettingsArgs']:
         """
-        Configuration for the policy. This block must be defined exactly once.
+        A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
         """
         return pulumi.get(self, "settings")
 
@@ -100,7 +100,7 @@ class _BranchPolicyStatusCheckState:
         :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
-        :param pulumi.Input['BranchPolicyStatusCheckSettingsArgs'] settings: Configuration for the policy. This block must be defined exactly once.
+        :param pulumi.Input['BranchPolicyStatusCheckSettingsArgs'] settings: A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
         """
         if blocking is not None:
             pulumi.set(__self__, "blocking", blocking)
@@ -151,7 +151,7 @@ class _BranchPolicyStatusCheckState:
     @pulumi.getter
     def settings(self) -> Optional[pulumi.Input['BranchPolicyStatusCheckSettingsArgs']]:
         """
-        Configuration for the policy. This block must be defined exactly once.
+        A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
         """
         return pulumi.get(self, "settings")
 
@@ -238,7 +238,7 @@ class BranchPolicyStatusCheck(pulumi.CustomResource):
         :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
-        :param pulumi.Input[Union['BranchPolicyStatusCheckSettingsArgs', 'BranchPolicyStatusCheckSettingsArgsDict']] settings: Configuration for the policy. This block must be defined exactly once.
+        :param pulumi.Input[Union['BranchPolicyStatusCheckSettingsArgs', 'BranchPolicyStatusCheckSettingsArgsDict']] settings: A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
         """
         ...
     @overload
@@ -369,7 +369,7 @@ class BranchPolicyStatusCheck(pulumi.CustomResource):
         :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
-        :param pulumi.Input[Union['BranchPolicyStatusCheckSettingsArgs', 'BranchPolicyStatusCheckSettingsArgsDict']] settings: Configuration for the policy. This block must be defined exactly once.
+        :param pulumi.Input[Union['BranchPolicyStatusCheckSettingsArgs', 'BranchPolicyStatusCheckSettingsArgsDict']] settings: A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -409,7 +409,7 @@ class BranchPolicyStatusCheck(pulumi.CustomResource):
     @pulumi.getter
     def settings(self) -> pulumi.Output['outputs.BranchPolicyStatusCheckSettings']:
         """
-        Configuration for the policy. This block must be defined exactly once.
+        A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
         """
         return pulumi.get(self, "settings")
 

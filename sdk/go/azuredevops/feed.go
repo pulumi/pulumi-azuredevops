@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages creation of the Feed within Azure DevOps organization.
+// Manages Feed within Azure DevOps organization.
 //
 // ## Example Usage
 //
@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := azuredevops.NewFeed(ctx, "example", &azuredevops.FeedArgs{
-//				Name: pulumi.String("releases"),
+//				Name: pulumi.String("examplefeed"),
 //			})
 //			if err != nil {
 //				return err
@@ -64,7 +64,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewFeed(ctx, "example", &azuredevops.FeedArgs{
-//				Name:      pulumi.String("releases"),
+//				Name:      pulumi.String("examplefeed"),
 //				ProjectId: example.ID(),
 //			})
 //			if err != nil {
@@ -90,7 +90,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := azuredevops.NewFeed(ctx, "example", &azuredevops.FeedArgs{
-//				Name: pulumi.String("releases"),
+//				Name: pulumi.String("examplefeed"),
 //				Features: azuredevops.FeedFeatureArray{
 //					&azuredevops.FeedFeatureArgs{
 //						PermanentDelete: pulumi.Bool(false),

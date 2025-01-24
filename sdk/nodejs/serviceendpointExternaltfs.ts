@@ -7,11 +7,39 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Manages an Azure Repos/Team Foundation Server service endpoint within Azure DevOps.
+ * Manages an Azure Repository/Team Foundation Server service endpoint within Azure DevOps.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ *     description: "Managed by Pulumi",
+ * });
+ * const exampleServiceendpointExternaltfs = new azuredevops.ServiceendpointExternaltfs("example", {
+ *     projectId: example.id,
+ *     serviceEndpointName: "Example External TFS Name",
+ *     connectionUrl: "https://dev.azure.com/myorganization",
+ *     description: "Managed by Pulumi",
+ *     authPersonal: {
+ *         personalAccessToken: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+ *     },
+ * });
+ * ```
+ *
+ * ## Relevant Links
+ *
+ * - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
  *
  * ## Import
  *
- * Azure DevOps Service Endpoint External TFS can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+ * Azure DevOps Azure Repository/Team Foundation Server Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
  *
  * ```sh
  * $ pulumi import azuredevops:index/serviceendpointExternaltfs:ServiceendpointExternaltfs example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -51,7 +79,7 @@ export class ServiceendpointExternaltfs extends pulumi.CustomResource {
     public readonly authPersonal!: pulumi.Output<outputs.ServiceendpointExternaltfsAuthPersonal>;
     public readonly authorization!: pulumi.Output<{[key: string]: string}>;
     /**
-     * URL of the Azure DevOps organization or the TFS Project Collection to connect to.
+     * Azure DevOps Organization or TFS Project Collection Url.
      */
     public readonly connectionUrl!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
@@ -119,7 +147,7 @@ export interface ServiceendpointExternaltfsState {
     authPersonal?: pulumi.Input<inputs.ServiceendpointExternaltfsAuthPersonal>;
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * URL of the Azure DevOps organization or the TFS Project Collection to connect to.
+     * Azure DevOps Organization or TFS Project Collection Url.
      */
     connectionUrl?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
@@ -143,7 +171,7 @@ export interface ServiceendpointExternaltfsArgs {
     authPersonal: pulumi.Input<inputs.ServiceendpointExternaltfsAuthPersonal>;
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * URL of the Azure DevOps organization or the TFS Project Collection to connect to.
+     * Azure DevOps Organization or TFS Project Collection Url.
      */
     connectionUrl: pulumi.Input<string>;
     description?: pulumi.Input<string>;

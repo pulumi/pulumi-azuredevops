@@ -13,6 +13,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetProjectResult {
+    /**
+     * @return The description of the project.
+     * 
+     */
     private String description;
     private Map<String,String> features;
     /**
@@ -20,14 +24,38 @@ public final class GetProjectResult {
      * 
      */
     private String id;
+    /**
+     * @return The name of the project.
+     * 
+     */
     private @Nullable String name;
+    /**
+     * @return The process template ID for the project.
+     * 
+     */
     private String processTemplateId;
     private @Nullable String projectId;
+    /**
+     * @return The version control of the project.
+     * 
+     */
     private String versionControl;
+    /**
+     * @return The visibility of the project.
+     * 
+     */
     private String visibility;
+    /**
+     * @return The work item template for the project.
+     * 
+     */
     private String workItemTemplate;
 
     private GetProjectResult() {}
+    /**
+     * @return The description of the project.
+     * 
+     */
     public String description() {
         return this.description;
     }
@@ -41,21 +69,41 @@ public final class GetProjectResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The name of the project.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    /**
+     * @return The process template ID for the project.
+     * 
+     */
     public String processTemplateId() {
         return this.processTemplateId;
     }
     public Optional<String> projectId() {
         return Optional.ofNullable(this.projectId);
     }
+    /**
+     * @return The version control of the project.
+     * 
+     */
     public String versionControl() {
         return this.versionControl;
     }
+    /**
+     * @return The visibility of the project.
+     * 
+     */
     public String visibility() {
         return this.visibility;
     }
+    /**
+     * @return The work item template for the project.
+     * 
+     */
     public String workItemTemplate() {
         return this.workItemTemplate;
     }

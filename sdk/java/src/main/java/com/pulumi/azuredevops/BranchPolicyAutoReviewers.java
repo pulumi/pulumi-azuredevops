@@ -150,14 +150,14 @@ public class BranchPolicyAutoReviewers extends com.pulumi.resources.CustomResour
         return this.projectId;
     }
     /**
-     * Configuration for the policy. This block must be defined exactly once.
+     * A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
      * 
      */
     @Export(name="settings", refs={BranchPolicyAutoReviewersSettings.class}, tree="[0]")
     private Output<BranchPolicyAutoReviewersSettings> settings;
 
     /**
-     * @return Configuration for the policy. This block must be defined exactly once.
+     * @return A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
      * 
      */
     public Output<BranchPolicyAutoReviewersSettings> settings() {

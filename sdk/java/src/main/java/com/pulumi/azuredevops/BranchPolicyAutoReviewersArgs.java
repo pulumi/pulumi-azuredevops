@@ -64,14 +64,14 @@ public final class BranchPolicyAutoReviewersArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Configuration for the policy. This block must be defined exactly once.
+     * A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
      * 
      */
     @Import(name="settings", required=true)
     private Output<BranchPolicyAutoReviewersSettingsArgs> settings;
 
     /**
-     * @return Configuration for the policy. This block must be defined exactly once.
+     * @return A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
      * 
      */
     public Output<BranchPolicyAutoReviewersSettingsArgs> settings() {
@@ -169,7 +169,7 @@ public final class BranchPolicyAutoReviewersArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param settings Configuration for the policy. This block must be defined exactly once.
+         * @param settings A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class BranchPolicyAutoReviewersArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param settings Configuration for the policy. This block must be defined exactly once.
+         * @param settings A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
          * 
          * @return builder
          * 

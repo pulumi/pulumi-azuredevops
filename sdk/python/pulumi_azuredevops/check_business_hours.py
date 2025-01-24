@@ -40,7 +40,7 @@ class CheckBusinessHoursArgs:
         :param pulumi.Input[str] project_id: The project ID.
         :param pulumi.Input[str] start_time: The beginning of the time period that this check will be allowed to pass, specified as 24-hour time with leading zeros.
         :param pulumi.Input[str] target_resource_id: The ID of the resource being protected by the check.
-        :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+        :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
         :param pulumi.Input[str] time_zone: The time zone this check will be evaluated in. See below for supported values.
         :param pulumi.Input[str] display_name: The name of the business hours check displayed in the web UI.
         :param pulumi.Input[bool] friday: This check will pass on Fridays. Defaults to `false`.
@@ -129,7 +129,7 @@ class CheckBusinessHoursArgs:
     @pulumi.getter(name="targetResourceType")
     def target_resource_type(self) -> pulumi.Input[str]:
         """
-        The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+        The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
         """
         return pulumi.get(self, "target_resource_type")
 
@@ -288,7 +288,7 @@ class _CheckBusinessHoursState:
         :param pulumi.Input[str] start_time: The beginning of the time period that this check will be allowed to pass, specified as 24-hour time with leading zeros.
         :param pulumi.Input[bool] sunday: This check will pass on Sundays. Defaults to `false`.
         :param pulumi.Input[str] target_resource_id: The ID of the resource being protected by the check.
-        :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+        :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
         :param pulumi.Input[bool] thursday: This check will pass on Thursdays. Defaults to `false`.
         :param pulumi.Input[str] time_zone: The time zone this check will be evaluated in. See below for supported values.
         :param pulumi.Input[int] timeout: The timeout in minutes for the business hours check. Defaults to `1440`.
@@ -441,7 +441,7 @@ class _CheckBusinessHoursState:
     @pulumi.getter(name="targetResourceType")
     def target_resource_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+        The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
         """
         return pulumi.get(self, "target_resource_type")
 
@@ -847,7 +847,7 @@ class CheckBusinessHours(pulumi.CustomResource):
         :param pulumi.Input[str] start_time: The beginning of the time period that this check will be allowed to pass, specified as 24-hour time with leading zeros.
         :param pulumi.Input[bool] sunday: This check will pass on Sundays. Defaults to `false`.
         :param pulumi.Input[str] target_resource_id: The ID of the resource being protected by the check.
-        :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+        :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
         :param pulumi.Input[bool] thursday: This check will pass on Thursdays. Defaults to `false`.
         :param pulumi.Input[str] time_zone: The time zone this check will be evaluated in. See below for supported values.
         :param pulumi.Input[int] timeout: The timeout in minutes for the business hours check. Defaults to `1440`.
@@ -1262,7 +1262,7 @@ class CheckBusinessHours(pulumi.CustomResource):
         :param pulumi.Input[str] start_time: The beginning of the time period that this check will be allowed to pass, specified as 24-hour time with leading zeros.
         :param pulumi.Input[bool] sunday: This check will pass on Sundays. Defaults to `false`.
         :param pulumi.Input[str] target_resource_id: The ID of the resource being protected by the check.
-        :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+        :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
         :param pulumi.Input[bool] thursday: This check will pass on Thursdays. Defaults to `false`.
         :param pulumi.Input[str] time_zone: The time zone this check will be evaluated in. See below for supported values.
         :param pulumi.Input[int] timeout: The timeout in minutes for the business hours check. Defaults to `1440`.
@@ -1368,7 +1368,7 @@ class CheckBusinessHours(pulumi.CustomResource):
     @pulumi.getter(name="targetResourceType")
     def target_resource_type(self) -> pulumi.Output[str]:
         """
-        The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+        The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
         """
         return pulumi.get(self, "target_resource_type")
 

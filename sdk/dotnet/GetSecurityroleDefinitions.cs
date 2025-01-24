@@ -38,7 +38,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// ## Relevant Links
         /// 
-        /// - [Azure DevOps Service REST API 7.0 - Roledefinitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)
+        /// - [Azure DevOps Service REST API 7.0 - Role Definitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)
         /// </summary>
         public static Task<GetSecurityroleDefinitionsResult> InvokeAsync(GetSecurityroleDefinitionsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityroleDefinitionsResult>("azuredevops:index/getSecurityroleDefinitions:getSecurityroleDefinitions", args ?? new GetSecurityroleDefinitionsArgs(), options.WithDefaults());
@@ -70,7 +70,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// ## Relevant Links
         /// 
-        /// - [Azure DevOps Service REST API 7.0 - Roledefinitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)
+        /// - [Azure DevOps Service REST API 7.0 - Role Definitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)
         /// </summary>
         public static Output<GetSecurityroleDefinitionsResult> Invoke(GetSecurityroleDefinitionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityroleDefinitionsResult>("azuredevops:index/getSecurityroleDefinitions:getSecurityroleDefinitions", args ?? new GetSecurityroleDefinitionsInvokeArgs(), options.WithDefaults());
@@ -102,7 +102,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// ## Relevant Links
         /// 
-        /// - [Azure DevOps Service REST API 7.0 - Roledefinitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)
+        /// - [Azure DevOps Service REST API 7.0 - Role Definitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)
         /// </summary>
         public static Output<GetSecurityroleDefinitionsResult> Invoke(GetSecurityroleDefinitionsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityroleDefinitionsResult>("azuredevops:index/getSecurityroleDefinitions:getSecurityroleDefinitions", args ?? new GetSecurityroleDefinitionsInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Name of the Scope for which Security Role Definitions will be returned.
         /// 
-        /// DataSource without specifying any arguments will return all projects.
+        /// &gt; **NOTE:** DataSource without specifying any arguments will return all projects.
         /// </summary>
         [Input("scope", required: true)]
         public string Scope { get; set; } = null!;
@@ -130,7 +130,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Name of the Scope for which Security Role Definitions will be returned.
         /// 
-        /// DataSource without specifying any arguments will return all projects.
+        /// &gt; **NOTE:** DataSource without specifying any arguments will return all projects.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;

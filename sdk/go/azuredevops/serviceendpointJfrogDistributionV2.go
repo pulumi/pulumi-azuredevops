@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a JFrog Distribution V2 server endpoint within an Azure DevOps organization.
+// Manages a JFrog Distribution V2 service endpoint within an Azure DevOps organization.
 //
 // > **Note:** Using this service endpoint requires you to first install [JFrog Extension](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-azure-devops-extension).
 //
@@ -107,7 +107,7 @@ import (
 //
 // ## Import
 //
-// Azure DevOps Service Endpoint JFrog Distribution V2 can be imported using the **projectID/serviceEndpointID**, e.g.
+// Azure DevOps JFrog Distribution V2 Service Endpoint can be imported using the **projectID/serviceEndpointID**, e.g.
 //
 // ```sh
 // $ pulumi import azuredevops:index/serviceendpointJfrogDistributionV2:ServiceendpointJfrogDistributionV2 example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -115,9 +115,9 @@ import (
 type ServiceendpointJfrogDistributionV2 struct {
 	pulumi.CustomResourceState
 
-	// A `authenticationBasic` block as documented below.
+	// An `authenticationBasic` block as documented below.
 	AuthenticationBasic ServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput `pulumi:"authenticationBasic"`
-	// A `authenticationToken` block as documented below.
+	// An `authenticationToken` block as documented below.
 	AuthenticationToken ServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutput `pulumi:"authenticationToken"`
 	Authorization       pulumi.StringMapOutput                                         `pulumi:"authorization"`
 	// The Service Endpoint description.
@@ -171,9 +171,9 @@ func GetServiceendpointJfrogDistributionV2(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceendpointJfrogDistributionV2 resources.
 type serviceendpointJfrogDistributionV2State struct {
-	// A `authenticationBasic` block as documented below.
+	// An `authenticationBasic` block as documented below.
 	AuthenticationBasic *ServiceendpointJfrogDistributionV2AuthenticationBasic `pulumi:"authenticationBasic"`
-	// A `authenticationToken` block as documented below.
+	// An `authenticationToken` block as documented below.
 	AuthenticationToken *ServiceendpointJfrogDistributionV2AuthenticationToken `pulumi:"authenticationToken"`
 	Authorization       map[string]string                                      `pulumi:"authorization"`
 	// The Service Endpoint description.
@@ -189,9 +189,9 @@ type serviceendpointJfrogDistributionV2State struct {
 }
 
 type ServiceendpointJfrogDistributionV2State struct {
-	// A `authenticationBasic` block as documented below.
+	// An `authenticationBasic` block as documented below.
 	AuthenticationBasic ServiceendpointJfrogDistributionV2AuthenticationBasicPtrInput
-	// A `authenticationToken` block as documented below.
+	// An `authenticationToken` block as documented below.
 	AuthenticationToken ServiceendpointJfrogDistributionV2AuthenticationTokenPtrInput
 	Authorization       pulumi.StringMapInput
 	// The Service Endpoint description.
@@ -211,9 +211,9 @@ func (ServiceendpointJfrogDistributionV2State) ElementType() reflect.Type {
 }
 
 type serviceendpointJfrogDistributionV2Args struct {
-	// A `authenticationBasic` block as documented below.
+	// An `authenticationBasic` block as documented below.
 	AuthenticationBasic *ServiceendpointJfrogDistributionV2AuthenticationBasic `pulumi:"authenticationBasic"`
-	// A `authenticationToken` block as documented below.
+	// An `authenticationToken` block as documented below.
 	AuthenticationToken *ServiceendpointJfrogDistributionV2AuthenticationToken `pulumi:"authenticationToken"`
 	Authorization       map[string]string                                      `pulumi:"authorization"`
 	// The Service Endpoint description.
@@ -230,9 +230,9 @@ type serviceendpointJfrogDistributionV2Args struct {
 
 // The set of arguments for constructing a ServiceendpointJfrogDistributionV2 resource.
 type ServiceendpointJfrogDistributionV2Args struct {
-	// A `authenticationBasic` block as documented below.
+	// An `authenticationBasic` block as documented below.
 	AuthenticationBasic ServiceendpointJfrogDistributionV2AuthenticationBasicPtrInput
-	// A `authenticationToken` block as documented below.
+	// An `authenticationToken` block as documented below.
 	AuthenticationToken ServiceendpointJfrogDistributionV2AuthenticationTokenPtrInput
 	Authorization       pulumi.StringMapInput
 	// The Service Endpoint description.
@@ -334,14 +334,14 @@ func (o ServiceendpointJfrogDistributionV2Output) ToServiceendpointJfrogDistribu
 	return o
 }
 
-// A `authenticationBasic` block as documented below.
+// An `authenticationBasic` block as documented below.
 func (o ServiceendpointJfrogDistributionV2Output) AuthenticationBasic() ServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointJfrogDistributionV2) ServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput {
 		return v.AuthenticationBasic
 	}).(ServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput)
 }
 
-// A `authenticationToken` block as documented below.
+// An `authenticationToken` block as documented below.
 func (o ServiceendpointJfrogDistributionV2Output) AuthenticationToken() ServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointJfrogDistributionV2) ServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutput {
 		return v.AuthenticationToken

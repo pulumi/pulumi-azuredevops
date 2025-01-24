@@ -26,9 +26,17 @@ public final class ServiceEndpointArtifactoryArgs extends com.pulumi.resources.R
         return Optional.ofNullable(this.authenticationBasic);
     }
 
+    /**
+     * A `authentication_basic` block as defined below.
+     * 
+     */
     @Import(name="authenticationToken")
     private @Nullable Output<ServiceEndpointArtifactoryAuthenticationTokenArgs> authenticationToken;
 
+    /**
+     * @return A `authentication_basic` block as defined below.
+     * 
+     */
     public Optional<Output<ServiceEndpointArtifactoryAuthenticationTokenArgs>> authenticationToken() {
         return Optional.ofNullable(this.authenticationToken);
     }
@@ -88,8 +96,7 @@ public final class ServiceEndpointArtifactoryArgs extends com.pulumi.resources.R
     /**
      * URL of the Artifactory server to connect with.
      * 
-     * _Note: URL should not end in a slash character._
-     * * either `authentication_token` or `authentication_basic` (one is required)
+     * _**Note: URL should not end in a slash character.**_
      * 
      */
     @Import(name="url", required=true)
@@ -98,8 +105,7 @@ public final class ServiceEndpointArtifactoryArgs extends com.pulumi.resources.R
     /**
      * @return URL of the Artifactory server to connect with.
      * 
-     * _Note: URL should not end in a slash character._
-     * * either `authentication_token` or `authentication_basic` (one is required)
+     * _**Note: URL should not end in a slash character.**_
      * 
      */
     public Output<String> url() {
@@ -145,11 +151,23 @@ public final class ServiceEndpointArtifactoryArgs extends com.pulumi.resources.R
             return authenticationBasic(Output.of(authenticationBasic));
         }
 
+        /**
+         * @param authenticationToken A `authentication_basic` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authenticationToken(@Nullable Output<ServiceEndpointArtifactoryAuthenticationTokenArgs> authenticationToken) {
             $.authenticationToken = authenticationToken;
             return this;
         }
 
+        /**
+         * @param authenticationToken A `authentication_basic` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authenticationToken(ServiceEndpointArtifactoryAuthenticationTokenArgs authenticationToken) {
             return authenticationToken(Output.of(authenticationToken));
         }
@@ -229,8 +247,7 @@ public final class ServiceEndpointArtifactoryArgs extends com.pulumi.resources.R
         /**
          * @param url URL of the Artifactory server to connect with.
          * 
-         * _Note: URL should not end in a slash character._
-         * * either `authentication_token` or `authentication_basic` (one is required)
+         * _**Note: URL should not end in a slash character.**_
          * 
          * @return builder
          * 
@@ -243,8 +260,7 @@ public final class ServiceEndpointArtifactoryArgs extends com.pulumi.resources.R
         /**
          * @param url URL of the Artifactory server to connect with.
          * 
-         * _Note: URL should not end in a slash character._
-         * * either `authentication_token` or `authentication_basic` (one is required)
+         * _**Note: URL should not end in a slash character.**_
          * 
          * @return builder
          * 

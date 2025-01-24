@@ -26,11 +26,11 @@ class ResourceAuthorizationArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ResourceAuthorization resource.
-        :param pulumi.Input[bool] authorized: Set to true to allow public access in the project. Type: boolean.
-        :param pulumi.Input[str] project_id: The project ID or project name. Type: string.
-        :param pulumi.Input[str] resource_id: The ID of the resource to authorize. Type: string.
-        :param pulumi.Input[int] definition_id: The ID of the build definition to authorize. Type: string.
-        :param pulumi.Input[str] type: The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
+        :param pulumi.Input[bool] authorized: Set to true to allow public access in the project.
+        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] resource_id: The ID of the resource to authorize.
+        :param pulumi.Input[int] definition_id: The ID of the build definition to authorize.
+        :param pulumi.Input[str] type: The type of the resource to authorize. Possible values: `endpoint`, `queue`, `variablegroup`. Defaults to value: `endpoint`.
         """
         pulumi.set(__self__, "authorized", authorized)
         pulumi.set(__self__, "project_id", project_id)
@@ -44,7 +44,7 @@ class ResourceAuthorizationArgs:
     @pulumi.getter
     def authorized(self) -> pulumi.Input[bool]:
         """
-        Set to true to allow public access in the project. Type: boolean.
+        Set to true to allow public access in the project.
         """
         return pulumi.get(self, "authorized")
 
@@ -56,7 +56,7 @@ class ResourceAuthorizationArgs:
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Input[str]:
         """
-        The project ID or project name. Type: string.
+        The project ID or project name.
         """
         return pulumi.get(self, "project_id")
 
@@ -68,7 +68,7 @@ class ResourceAuthorizationArgs:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Input[str]:
         """
-        The ID of the resource to authorize. Type: string.
+        The ID of the resource to authorize.
         """
         return pulumi.get(self, "resource_id")
 
@@ -80,7 +80,7 @@ class ResourceAuthorizationArgs:
     @pulumi.getter(name="definitionId")
     def definition_id(self) -> Optional[pulumi.Input[int]]:
         """
-        The ID of the build definition to authorize. Type: string.
+        The ID of the build definition to authorize.
         """
         return pulumi.get(self, "definition_id")
 
@@ -92,7 +92,7 @@ class ResourceAuthorizationArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
+        The type of the resource to authorize. Possible values: `endpoint`, `queue`, `variablegroup`. Defaults to value: `endpoint`.
         """
         return pulumi.get(self, "type")
 
@@ -111,11 +111,11 @@ class _ResourceAuthorizationState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ResourceAuthorization resources.
-        :param pulumi.Input[bool] authorized: Set to true to allow public access in the project. Type: boolean.
-        :param pulumi.Input[int] definition_id: The ID of the build definition to authorize. Type: string.
-        :param pulumi.Input[str] project_id: The project ID or project name. Type: string.
-        :param pulumi.Input[str] resource_id: The ID of the resource to authorize. Type: string.
-        :param pulumi.Input[str] type: The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
+        :param pulumi.Input[bool] authorized: Set to true to allow public access in the project.
+        :param pulumi.Input[int] definition_id: The ID of the build definition to authorize.
+        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] resource_id: The ID of the resource to authorize.
+        :param pulumi.Input[str] type: The type of the resource to authorize. Possible values: `endpoint`, `queue`, `variablegroup`. Defaults to value: `endpoint`.
         """
         if authorized is not None:
             pulumi.set(__self__, "authorized", authorized)
@@ -132,7 +132,7 @@ class _ResourceAuthorizationState:
     @pulumi.getter
     def authorized(self) -> Optional[pulumi.Input[bool]]:
         """
-        Set to true to allow public access in the project. Type: boolean.
+        Set to true to allow public access in the project.
         """
         return pulumi.get(self, "authorized")
 
@@ -144,7 +144,7 @@ class _ResourceAuthorizationState:
     @pulumi.getter(name="definitionId")
     def definition_id(self) -> Optional[pulumi.Input[int]]:
         """
-        The ID of the build definition to authorize. Type: string.
+        The ID of the build definition to authorize.
         """
         return pulumi.get(self, "definition_id")
 
@@ -156,7 +156,7 @@ class _ResourceAuthorizationState:
     @pulumi.getter(name="projectId")
     def project_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The project ID or project name. Type: string.
+        The project ID or project name.
         """
         return pulumi.get(self, "project_id")
 
@@ -168,7 +168,7 @@ class _ResourceAuthorizationState:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the resource to authorize. Type: string.
+        The ID of the resource to authorize.
         """
         return pulumi.get(self, "resource_id")
 
@@ -180,7 +180,7 @@ class _ResourceAuthorizationState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
+        The type of the resource to authorize. Possible values: `endpoint`, `queue`, `variablegroup`. Defaults to value: `endpoint`.
         """
         return pulumi.get(self, "type")
 
@@ -235,11 +235,11 @@ class ResourceAuthorization(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] authorized: Set to true to allow public access in the project. Type: boolean.
-        :param pulumi.Input[int] definition_id: The ID of the build definition to authorize. Type: string.
-        :param pulumi.Input[str] project_id: The project ID or project name. Type: string.
-        :param pulumi.Input[str] resource_id: The ID of the resource to authorize. Type: string.
-        :param pulumi.Input[str] type: The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
+        :param pulumi.Input[bool] authorized: Set to true to allow public access in the project.
+        :param pulumi.Input[int] definition_id: The ID of the build definition to authorize.
+        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] resource_id: The ID of the resource to authorize.
+        :param pulumi.Input[str] type: The type of the resource to authorize. Possible values: `endpoint`, `queue`, `variablegroup`. Defaults to value: `endpoint`.
         """
         ...
     @overload
@@ -344,11 +344,11 @@ class ResourceAuthorization(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] authorized: Set to true to allow public access in the project. Type: boolean.
-        :param pulumi.Input[int] definition_id: The ID of the build definition to authorize. Type: string.
-        :param pulumi.Input[str] project_id: The project ID or project name. Type: string.
-        :param pulumi.Input[str] resource_id: The ID of the resource to authorize. Type: string.
-        :param pulumi.Input[str] type: The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
+        :param pulumi.Input[bool] authorized: Set to true to allow public access in the project.
+        :param pulumi.Input[int] definition_id: The ID of the build definition to authorize.
+        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] resource_id: The ID of the resource to authorize.
+        :param pulumi.Input[str] type: The type of the resource to authorize. Possible values: `endpoint`, `queue`, `variablegroup`. Defaults to value: `endpoint`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -365,7 +365,7 @@ class ResourceAuthorization(pulumi.CustomResource):
     @pulumi.getter
     def authorized(self) -> pulumi.Output[bool]:
         """
-        Set to true to allow public access in the project. Type: boolean.
+        Set to true to allow public access in the project.
         """
         return pulumi.get(self, "authorized")
 
@@ -373,7 +373,7 @@ class ResourceAuthorization(pulumi.CustomResource):
     @pulumi.getter(name="definitionId")
     def definition_id(self) -> pulumi.Output[Optional[int]]:
         """
-        The ID of the build definition to authorize. Type: string.
+        The ID of the build definition to authorize.
         """
         return pulumi.get(self, "definition_id")
 
@@ -381,7 +381,7 @@ class ResourceAuthorization(pulumi.CustomResource):
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Output[str]:
         """
-        The project ID or project name. Type: string.
+        The project ID or project name.
         """
         return pulumi.get(self, "project_id")
 
@@ -389,7 +389,7 @@ class ResourceAuthorization(pulumi.CustomResource):
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[str]:
         """
-        The ID of the resource to authorize. Type: string.
+        The ID of the resource to authorize.
         """
         return pulumi.get(self, "resource_id")
 
@@ -397,7 +397,7 @@ class ResourceAuthorization(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[str]]:
         """
-        The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
+        The type of the resource to authorize. Possible values: `endpoint`, `queue`, `variablegroup`. Defaults to value: `endpoint`.
         """
         return pulumi.get(self, "type")
 

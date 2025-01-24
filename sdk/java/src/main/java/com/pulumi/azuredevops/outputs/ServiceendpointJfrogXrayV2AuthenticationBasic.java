@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class ServiceendpointJfrogXrayV2AuthenticationBasic {
     /**
-     * @return Artifactory Password.
+     * @return The Password of the Artifactory.
      * 
      */
     private String password;
     /**
-     * @return Artifactory Username.
+     * @return The Username of the  Artifactory.
      * 
      */
     private String username;
 
     private ServiceendpointJfrogXrayV2AuthenticationBasic() {}
     /**
-     * @return Artifactory Password.
+     * @return The Password of the Artifactory.
      * 
      */
     public String password() {
         return this.password;
     }
     /**
-     * @return Artifactory Username.
+     * @return The Username of the  Artifactory.
      * 
      */
     public String username() {

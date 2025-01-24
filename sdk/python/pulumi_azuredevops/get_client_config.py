@@ -45,6 +45,9 @@ class GetClientConfigResult:
     @property
     @pulumi.getter(name="organizationUrl")
     def organization_url(self) -> str:
+        """
+        The organization configured for the provider.
+        """
         return pulumi.get(self, "organization_url")
 
 

@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a SonarQube service endpoint within Azure DevOps.
+// Manages a SonarQube Server service endpoint within Azure DevOps.
 //
 // ## Example Usage
 //
@@ -62,7 +62,7 @@ import (
 //
 // ## Import
 //
-// Azure DevOps Service Endpoint SonarQube can be imported using the **projectID/serviceEndpointID**, e.g.
+// Azure DevOps SonarQube Server Service Endpoint can be imported using the **projectID/serviceEndpointID**, e.g.
 //
 // ```sh
 // $ pulumi import azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -77,7 +77,7 @@ type ServiceEndpointSonarQube struct {
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringOutput `pulumi:"serviceEndpointName"`
-	// Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
+	// The Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
 	Token pulumi.StringOutput `pulumi:"token"`
 	// URL of the SonarQube server to connect with.
 	Url pulumi.StringOutput `pulumi:"url"`
@@ -139,7 +139,7 @@ type serviceEndpointSonarQubeState struct {
 	ProjectId *string `pulumi:"projectId"`
 	// The Service Endpoint name.
 	ServiceEndpointName *string `pulumi:"serviceEndpointName"`
-	// Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
+	// The Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
 	Token *string `pulumi:"token"`
 	// URL of the SonarQube server to connect with.
 	Url *string `pulumi:"url"`
@@ -153,7 +153,7 @@ type ServiceEndpointSonarQubeState struct {
 	ProjectId pulumi.StringPtrInput
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringPtrInput
-	// Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
+	// The Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
 	Token pulumi.StringPtrInput
 	// URL of the SonarQube server to connect with.
 	Url pulumi.StringPtrInput
@@ -171,7 +171,7 @@ type serviceEndpointSonarQubeArgs struct {
 	ProjectId string `pulumi:"projectId"`
 	// The Service Endpoint name.
 	ServiceEndpointName string `pulumi:"serviceEndpointName"`
-	// Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
+	// The Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
 	Token string `pulumi:"token"`
 	// URL of the SonarQube server to connect with.
 	Url string `pulumi:"url"`
@@ -186,7 +186,7 @@ type ServiceEndpointSonarQubeArgs struct {
 	ProjectId pulumi.StringInput
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringInput
-	// Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
+	// The Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
 	Token pulumi.StringInput
 	// URL of the SonarQube server to connect with.
 	Url pulumi.StringInput
@@ -298,7 +298,7 @@ func (o ServiceEndpointSonarQubeOutput) ServiceEndpointName() pulumi.StringOutpu
 	return o.ApplyT(func(v *ServiceEndpointSonarQube) pulumi.StringOutput { return v.ServiceEndpointName }).(pulumi.StringOutput)
 }
 
-// Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
+// The Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
 func (o ServiceEndpointSonarQubeOutput) Token() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceEndpointSonarQube) pulumi.StringOutput { return v.Token }).(pulumi.StringOutput)
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class BranchPolicyWorkItemLinkingSettings
     {
         /// <summary>
-        /// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        /// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         /// </summary>
         public readonly ImmutableArray<Outputs.BranchPolicyWorkItemLinkingSettingsScope> Scopes;
 

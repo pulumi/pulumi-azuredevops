@@ -75,7 +75,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Azure DevOps Service Endpoint GitHub can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+ * Azure DevOps GitHub Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
  *
  * ```sh
  * $ pulumi import azuredevops:index/serviceEndpointGitHub:ServiceEndpointGitHub example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -109,6 +109,9 @@ export class ServiceEndpointGitHub extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceEndpointGitHub.__pulumiType;
     }
 
+    /**
+     * An `authOauth` block as documented below. Allows connecting using an Oauth token.
+     */
     public readonly authOauth!: pulumi.Output<outputs.ServiceEndpointGitHubAuthOauth | undefined>;
     /**
      * An `authPersonal` block as documented below. Allows connecting using a personal access token.
@@ -168,6 +171,9 @@ export class ServiceEndpointGitHub extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceEndpointGitHub resources.
  */
 export interface ServiceEndpointGitHubState {
+    /**
+     * An `authOauth` block as documented below. Allows connecting using an Oauth token.
+     */
     authOauth?: pulumi.Input<inputs.ServiceEndpointGitHubAuthOauth>;
     /**
      * An `authPersonal` block as documented below. Allows connecting using a personal access token.
@@ -189,6 +195,9 @@ export interface ServiceEndpointGitHubState {
  * The set of arguments for constructing a ServiceEndpointGitHub resource.
  */
 export interface ServiceEndpointGitHubArgs {
+    /**
+     * An `authOauth` block as documented below. Allows connecting using an Oauth token.
+     */
     authOauth?: pulumi.Input<inputs.ServiceEndpointGitHubAuthOauth>;
     /**
      * An `authPersonal` block as documented below. Allows connecting using a personal access token.

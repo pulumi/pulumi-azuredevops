@@ -163,14 +163,14 @@ public class BranchPolicyStatusCheck extends com.pulumi.resources.CustomResource
         return this.projectId;
     }
     /**
-     * Configuration for the policy. This block must be defined exactly once.
+     * A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
      * 
      */
     @Export(name="settings", refs={BranchPolicyStatusCheckSettings.class}, tree="[0]")
     private Output<BranchPolicyStatusCheckSettings> settings;
 
     /**
-     * @return Configuration for the policy. This block must be defined exactly once.
+     * @return A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
      * 
      */
     public Output<BranchPolicyStatusCheckSettings> settings() {

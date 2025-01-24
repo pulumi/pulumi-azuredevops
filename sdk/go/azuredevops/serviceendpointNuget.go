@@ -59,7 +59,7 @@ import (
 //
 // ## Import
 //
-// Azure DevOps Service Endpoint NuGet can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+// Azure DevOps NuGet Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
 // $ pulumi import azuredevops:index/serviceendpointNuget:ServiceendpointNuget example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000

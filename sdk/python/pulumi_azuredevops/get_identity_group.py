@@ -43,6 +43,9 @@ class GetIdentityGroupResult:
     @property
     @pulumi.getter
     def descriptor(self) -> str:
+        """
+        The descriptor of the identity group.
+        """
         return pulumi.get(self, "descriptor")
 
     @property

@@ -225,7 +225,7 @@ class ServiceEndpointNpm(pulumi.CustomResource):
                  url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a npm service endpoint within Azure DevOps.
+        Manages a NPM service endpoint within Azure DevOps.
 
         ## Example Usage
 
@@ -255,7 +255,7 @@ class ServiceEndpointNpm(pulumi.CustomResource):
 
         ## Import
 
-        Azure DevOps Service Endpoint npm can be imported using the **projectID/serviceEndpointID**, e.g.
+        Azure DevOps NPM Service Endpoint can be imported using the **projectID/serviceEndpointID**, e.g.
 
         ```sh
         $ pulumi import azuredevops:index/serviceEndpointNpm:ServiceEndpointNpm example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -276,7 +276,7 @@ class ServiceEndpointNpm(pulumi.CustomResource):
                  args: ServiceEndpointNpmArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a npm service endpoint within Azure DevOps.
+        Manages a NPM service endpoint within Azure DevOps.
 
         ## Example Usage
 
@@ -306,7 +306,7 @@ class ServiceEndpointNpm(pulumi.CustomResource):
 
         ## Import
 
-        Azure DevOps Service Endpoint npm can be imported using the **projectID/serviceEndpointID**, e.g.
+        Azure DevOps NPM Service Endpoint can be imported using the **projectID/serviceEndpointID**, e.g.
 
         ```sh
         $ pulumi import azuredevops:index/serviceEndpointNpm:ServiceEndpointNpm example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000

@@ -16,8 +16,7 @@ import (
 //
 // ## Example Usage
 //
-// ### Service Principal
-//
+// ### Authorize with Service Principal
 // ```go
 // package main
 //
@@ -59,7 +58,7 @@ import (
 //
 // ```
 //
-// ### WorkloadIdentityFederation
+// ### Authorize with WorkloadIdentityFederation
 //
 // ```go
 // package main
@@ -142,7 +141,7 @@ import (
 //
 // ## Import
 //
-// Azure DevOps Service Endpoint Azure Container Registry can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+// Azure DevOps Azure Container Registry Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
 // $ pulumi import azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -162,7 +161,7 @@ type ServiceEndpointAzureEcr struct {
 	AzurecrSubscriptionId pulumi.StringOutput `pulumi:"azurecrSubscriptionId"`
 	// The subscription name of the Azure targets.
 	AzurecrSubscriptionName pulumi.StringOutput `pulumi:"azurecrSubscriptionName"`
-	// A `credentials` block.
+	// A `credentials` block as defined below.
 	Credentials ServiceEndpointAzureEcrCredentialsPtrOutput `pulumi:"credentials"`
 	Description pulumi.StringPtrOutput                      `pulumi:"description"`
 	// The ID of the project.
@@ -242,7 +241,7 @@ type serviceEndpointAzureEcrState struct {
 	AzurecrSubscriptionId *string `pulumi:"azurecrSubscriptionId"`
 	// The subscription name of the Azure targets.
 	AzurecrSubscriptionName *string `pulumi:"azurecrSubscriptionName"`
-	// A `credentials` block.
+	// A `credentials` block as defined below.
 	Credentials *ServiceEndpointAzureEcrCredentials `pulumi:"credentials"`
 	Description *string                             `pulumi:"description"`
 	// The ID of the project.
@@ -275,7 +274,7 @@ type ServiceEndpointAzureEcrState struct {
 	AzurecrSubscriptionId pulumi.StringPtrInput
 	// The subscription name of the Azure targets.
 	AzurecrSubscriptionName pulumi.StringPtrInput
-	// A `credentials` block.
+	// A `credentials` block as defined below.
 	Credentials ServiceEndpointAzureEcrCredentialsPtrInput
 	Description pulumi.StringPtrInput
 	// The ID of the project.
@@ -309,7 +308,7 @@ type serviceEndpointAzureEcrArgs struct {
 	AzurecrSubscriptionId string `pulumi:"azurecrSubscriptionId"`
 	// The subscription name of the Azure targets.
 	AzurecrSubscriptionName string `pulumi:"azurecrSubscriptionName"`
-	// A `credentials` block.
+	// A `credentials` block as defined below.
 	Credentials *ServiceEndpointAzureEcrCredentials `pulumi:"credentials"`
 	Description *string                             `pulumi:"description"`
 	// The ID of the project.
@@ -333,7 +332,7 @@ type ServiceEndpointAzureEcrArgs struct {
 	AzurecrSubscriptionId pulumi.StringInput
 	// The subscription name of the Azure targets.
 	AzurecrSubscriptionName pulumi.StringInput
-	// A `credentials` block.
+	// A `credentials` block as defined below.
 	Credentials ServiceEndpointAzureEcrCredentialsPtrInput
 	Description pulumi.StringPtrInput
 	// The ID of the project.
@@ -469,7 +468,7 @@ func (o ServiceEndpointAzureEcrOutput) AzurecrSubscriptionName() pulumi.StringOu
 	return o.ApplyT(func(v *ServiceEndpointAzureEcr) pulumi.StringOutput { return v.AzurecrSubscriptionName }).(pulumi.StringOutput)
 }
 
-// A `credentials` block.
+// A `credentials` block as defined below.
 func (o ServiceEndpointAzureEcrOutput) Credentials() ServiceEndpointAzureEcrCredentialsPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointAzureEcr) ServiceEndpointAzureEcrCredentialsPtrOutput { return v.Credentials }).(ServiceEndpointAzureEcrCredentialsPtrOutput)
 }

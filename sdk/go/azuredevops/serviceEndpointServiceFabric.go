@@ -108,7 +108,7 @@ import (
 //
 // ## Import
 //
-// Azure DevOps Service Endpoint Service Fabric can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+// Azure DevOps Service Fabric Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
 // $ pulumi import azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -116,13 +116,16 @@ import (
 type ServiceEndpointServiceFabric struct {
 	pulumi.CustomResourceState
 
-	Authorization        pulumi.StringMapOutput                                    `pulumi:"authorization"`
+	Authorization pulumi.StringMapOutput `pulumi:"authorization"`
+	// An `azureActiveDirectory` block as documented below.
 	AzureActiveDirectory ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput `pulumi:"azureActiveDirectory"`
-	Certificate          ServiceEndpointServiceFabricCertificatePtrOutput          `pulumi:"certificate"`
-	// Client connection endpoint for the cluster. Prefix the value with 'tcp://';. This value overrides the publish profile.
-	ClusterEndpoint pulumi.StringOutput                       `pulumi:"clusterEndpoint"`
-	Description     pulumi.StringPtrOutput                    `pulumi:"description"`
-	None            ServiceEndpointServiceFabricNonePtrOutput `pulumi:"none"`
+	// A `certificate` block as documented below.
+	Certificate ServiceEndpointServiceFabricCertificatePtrOutput `pulumi:"certificate"`
+	// Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
+	ClusterEndpoint pulumi.StringOutput    `pulumi:"clusterEndpoint"`
+	Description     pulumi.StringPtrOutput `pulumi:"description"`
+	// A `none` block as documented below.
+	None ServiceEndpointServiceFabricNonePtrOutput `pulumi:"none"`
 	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The Service Endpoint name.
@@ -168,13 +171,16 @@ func GetServiceEndpointServiceFabric(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceEndpointServiceFabric resources.
 type serviceEndpointServiceFabricState struct {
-	Authorization        map[string]string                                 `pulumi:"authorization"`
+	Authorization map[string]string `pulumi:"authorization"`
+	// An `azureActiveDirectory` block as documented below.
 	AzureActiveDirectory *ServiceEndpointServiceFabricAzureActiveDirectory `pulumi:"azureActiveDirectory"`
-	Certificate          *ServiceEndpointServiceFabricCertificate          `pulumi:"certificate"`
-	// Client connection endpoint for the cluster. Prefix the value with 'tcp://';. This value overrides the publish profile.
-	ClusterEndpoint *string                           `pulumi:"clusterEndpoint"`
-	Description     *string                           `pulumi:"description"`
-	None            *ServiceEndpointServiceFabricNone `pulumi:"none"`
+	// A `certificate` block as documented below.
+	Certificate *ServiceEndpointServiceFabricCertificate `pulumi:"certificate"`
+	// Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
+	ClusterEndpoint *string `pulumi:"clusterEndpoint"`
+	Description     *string `pulumi:"description"`
+	// A `none` block as documented below.
+	None *ServiceEndpointServiceFabricNone `pulumi:"none"`
 	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// The Service Endpoint name.
@@ -182,13 +188,16 @@ type serviceEndpointServiceFabricState struct {
 }
 
 type ServiceEndpointServiceFabricState struct {
-	Authorization        pulumi.StringMapInput
+	Authorization pulumi.StringMapInput
+	// An `azureActiveDirectory` block as documented below.
 	AzureActiveDirectory ServiceEndpointServiceFabricAzureActiveDirectoryPtrInput
-	Certificate          ServiceEndpointServiceFabricCertificatePtrInput
-	// Client connection endpoint for the cluster. Prefix the value with 'tcp://';. This value overrides the publish profile.
+	// A `certificate` block as documented below.
+	Certificate ServiceEndpointServiceFabricCertificatePtrInput
+	// Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
 	ClusterEndpoint pulumi.StringPtrInput
 	Description     pulumi.StringPtrInput
-	None            ServiceEndpointServiceFabricNonePtrInput
+	// A `none` block as documented below.
+	None ServiceEndpointServiceFabricNonePtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// The Service Endpoint name.
@@ -200,13 +209,16 @@ func (ServiceEndpointServiceFabricState) ElementType() reflect.Type {
 }
 
 type serviceEndpointServiceFabricArgs struct {
-	Authorization        map[string]string                                 `pulumi:"authorization"`
+	Authorization map[string]string `pulumi:"authorization"`
+	// An `azureActiveDirectory` block as documented below.
 	AzureActiveDirectory *ServiceEndpointServiceFabricAzureActiveDirectory `pulumi:"azureActiveDirectory"`
-	Certificate          *ServiceEndpointServiceFabricCertificate          `pulumi:"certificate"`
-	// Client connection endpoint for the cluster. Prefix the value with 'tcp://';. This value overrides the publish profile.
-	ClusterEndpoint string                            `pulumi:"clusterEndpoint"`
-	Description     *string                           `pulumi:"description"`
-	None            *ServiceEndpointServiceFabricNone `pulumi:"none"`
+	// A `certificate` block as documented below.
+	Certificate *ServiceEndpointServiceFabricCertificate `pulumi:"certificate"`
+	// Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
+	ClusterEndpoint string  `pulumi:"clusterEndpoint"`
+	Description     *string `pulumi:"description"`
+	// A `none` block as documented below.
+	None *ServiceEndpointServiceFabricNone `pulumi:"none"`
 	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// The Service Endpoint name.
@@ -215,13 +227,16 @@ type serviceEndpointServiceFabricArgs struct {
 
 // The set of arguments for constructing a ServiceEndpointServiceFabric resource.
 type ServiceEndpointServiceFabricArgs struct {
-	Authorization        pulumi.StringMapInput
+	Authorization pulumi.StringMapInput
+	// An `azureActiveDirectory` block as documented below.
 	AzureActiveDirectory ServiceEndpointServiceFabricAzureActiveDirectoryPtrInput
-	Certificate          ServiceEndpointServiceFabricCertificatePtrInput
-	// Client connection endpoint for the cluster. Prefix the value with 'tcp://';. This value overrides the publish profile.
+	// A `certificate` block as documented below.
+	Certificate ServiceEndpointServiceFabricCertificatePtrInput
+	// Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
 	ClusterEndpoint pulumi.StringInput
 	Description     pulumi.StringPtrInput
-	None            ServiceEndpointServiceFabricNonePtrInput
+	// A `none` block as documented below.
+	None ServiceEndpointServiceFabricNonePtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// The Service Endpoint name.
@@ -319,19 +334,21 @@ func (o ServiceEndpointServiceFabricOutput) Authorization() pulumi.StringMapOutp
 	return o.ApplyT(func(v *ServiceEndpointServiceFabric) pulumi.StringMapOutput { return v.Authorization }).(pulumi.StringMapOutput)
 }
 
+// An `azureActiveDirectory` block as documented below.
 func (o ServiceEndpointServiceFabricOutput) AzureActiveDirectory() ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointServiceFabric) ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput {
 		return v.AzureActiveDirectory
 	}).(ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput)
 }
 
+// A `certificate` block as documented below.
 func (o ServiceEndpointServiceFabricOutput) Certificate() ServiceEndpointServiceFabricCertificatePtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointServiceFabric) ServiceEndpointServiceFabricCertificatePtrOutput {
 		return v.Certificate
 	}).(ServiceEndpointServiceFabricCertificatePtrOutput)
 }
 
-// Client connection endpoint for the cluster. Prefix the value with 'tcp://';. This value overrides the publish profile.
+// Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
 func (o ServiceEndpointServiceFabricOutput) ClusterEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceEndpointServiceFabric) pulumi.StringOutput { return v.ClusterEndpoint }).(pulumi.StringOutput)
 }
@@ -340,6 +357,7 @@ func (o ServiceEndpointServiceFabricOutput) Description() pulumi.StringPtrOutput
 	return o.ApplyT(func(v *ServiceEndpointServiceFabric) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// A `none` block as documented below.
 func (o ServiceEndpointServiceFabricOutput) None() ServiceEndpointServiceFabricNonePtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointServiceFabric) ServiceEndpointServiceFabricNonePtrOutput { return v.None }).(ServiceEndpointServiceFabricNonePtrOutput)
 }

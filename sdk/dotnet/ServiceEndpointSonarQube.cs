@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps
 {
     /// <summary>
-    /// Manages a SonarQube service endpoint within Azure DevOps.
+    /// Manages a SonarQube Server service endpoint within Azure DevOps.
     /// 
     /// ## Example Usage
     /// 
@@ -51,7 +51,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ## Import
     /// 
-    /// Azure DevOps Service Endpoint SonarQube can be imported using the **projectID/serviceEndpointID**, e.g.
+    /// Azure DevOps SonarQube Server Service Endpoint can be imported using the **projectID/serviceEndpointID**, e.g.
     /// 
     /// ```sh
     /// $ pulumi import azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -82,7 +82,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> ServiceEndpointName { get; private set; } = null!;
 
         /// <summary>
-        /// Authentication Token generated through SonarQube (go to My Account &gt; Security &gt; Generate Tokens).
+        /// The Authentication Token generated through SonarQube (go to My Account &gt; Security &gt; Generate Tokens).
         /// </summary>
         [Output("token")]
         public Output<string> Token { get; private set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.AzureDevOps
         private Input<string>? _token;
 
         /// <summary>
-        /// Authentication Token generated through SonarQube (go to My Account &gt; Security &gt; Generate Tokens).
+        /// The Authentication Token generated through SonarQube (go to My Account &gt; Security &gt; Generate Tokens).
         /// </summary>
         public Input<string>? Token
         {
@@ -229,7 +229,7 @@ namespace Pulumi.AzureDevOps
         private Input<string>? _token;
 
         /// <summary>
-        /// Authentication Token generated through SonarQube (go to My Account &gt; Security &gt; Generate Tokens).
+        /// The Authentication Token generated through SonarQube (go to My Account &gt; Security &gt; Generate Tokens).
         /// </summary>
         public Input<string>? Token
         {

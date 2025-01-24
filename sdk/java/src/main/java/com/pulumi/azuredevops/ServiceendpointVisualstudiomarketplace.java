@@ -22,8 +22,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### With Token
- * 
+ * ### Authorize with token
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
@@ -74,7 +73,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### With Username And Password
+ * ### Authorize with username and password
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

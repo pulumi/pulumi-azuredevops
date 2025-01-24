@@ -47,16 +47,24 @@ public final class GetTeamPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The maximum number of teams to return. Defaults to `100`.
+     * The maximum number of teams to return. Defaults to `100`. This property is deprecated and will be removed in the feature
+     * 
+     * @deprecated
+     * This property is deprecated and will be removed in the feature
      * 
      */
+    @Deprecated /* This property is deprecated and will be removed in the feature */
     @Import(name="top")
     private @Nullable Integer top;
 
     /**
-     * @return The maximum number of teams to return. Defaults to `100`.
+     * @return The maximum number of teams to return. Defaults to `100`. This property is deprecated and will be removed in the feature
+     * 
+     * @deprecated
+     * This property is deprecated and will be removed in the feature
      * 
      */
+    @Deprecated /* This property is deprecated and will be removed in the feature */
     public Optional<Integer> top() {
         return Optional.ofNullable(this.top);
     }
@@ -110,11 +118,15 @@ public final class GetTeamPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param top The maximum number of teams to return. Defaults to `100`.
+         * @param top The maximum number of teams to return. Defaults to `100`. This property is deprecated and will be removed in the feature
          * 
          * @return builder
          * 
+         * @deprecated
+         * This property is deprecated and will be removed in the feature
+         * 
          */
+        @Deprecated /* This property is deprecated and will be removed in the feature */
         public Builder top(@Nullable Integer top) {
             $.top = top;
             return this;

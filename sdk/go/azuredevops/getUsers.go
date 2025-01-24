@@ -25,18 +25,16 @@ func GetUsers(ctx *pulumi.Context, args *GetUsersArgs, opts ...pulumi.InvokeOpti
 // A collection of arguments for invoking getUsers.
 type GetUsersArgs struct {
 	// A `features` block as defined below.
-	//
-	// DataSource without specifying any arguments will return all users inside an organization.
-	//
-	// List of possible subject types
 	Features *GetUsersFeatures `pulumi:"features"`
 	// The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+	// <pre>List of possible origins
 	Origin *string `pulumi:"origin"`
 	// The unique identifier from the system of origin.
 	OriginId *string `pulumi:"originId"`
 	// The PrincipalName of this graph member from the source provider.
 	PrincipalName *string `pulumi:"principalName"`
 	// A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
+	// <pre>List of possible subject types
 	SubjectTypes []string `pulumi:"subjectTypes"`
 }
 
@@ -52,7 +50,7 @@ type GetUsersResult struct {
 	// This is the PrincipalName of this graph member from the source provider. The source provider may change this field over time and it is not guaranteed to be immutable for the life of the graph member by VSTS.
 	PrincipalName *string  `pulumi:"principalName"`
 	SubjectTypes  []string `pulumi:"subjectTypes"`
-	// A set of existing users in your Azure DevOps Organization with details about every single user which includes:
+	// A `users` block as defined below. A set of existing users in your Azure DevOps Organization with details about every single user.
 	Users []GetUsersUser `pulumi:"users"`
 }
 
@@ -68,18 +66,16 @@ func GetUsersOutput(ctx *pulumi.Context, args GetUsersOutputArgs, opts ...pulumi
 // A collection of arguments for invoking getUsers.
 type GetUsersOutputArgs struct {
 	// A `features` block as defined below.
-	//
-	// DataSource without specifying any arguments will return all users inside an organization.
-	//
-	// List of possible subject types
 	Features GetUsersFeaturesPtrInput `pulumi:"features"`
 	// The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+	// <pre>List of possible origins
 	Origin pulumi.StringPtrInput `pulumi:"origin"`
 	// The unique identifier from the system of origin.
 	OriginId pulumi.StringPtrInput `pulumi:"originId"`
 	// The PrincipalName of this graph member from the source provider.
 	PrincipalName pulumi.StringPtrInput `pulumi:"principalName"`
 	// A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
+	// <pre>List of possible subject types
 	SubjectTypes pulumi.StringArrayInput `pulumi:"subjectTypes"`
 }
 
@@ -130,7 +126,7 @@ func (o GetUsersResultOutput) SubjectTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetUsersResult) []string { return v.SubjectTypes }).(pulumi.StringArrayOutput)
 }
 
-// A set of existing users in your Azure DevOps Organization with details about every single user which includes:
+// A `users` block as defined below. A set of existing users in your Azure DevOps Organization with details about every single user.
 func (o GetUsersResultOutput) Users() GetUsersUserArrayOutput {
 	return o.ApplyT(func(v GetUsersResult) []GetUsersUser { return v.Users }).(GetUsersUserArrayOutput)
 }

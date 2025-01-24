@@ -16,11 +16,17 @@ public final class ProjectFeaturesArgs extends com.pulumi.resources.ResourceArgs
     public static final ProjectFeaturesArgs Empty = new ProjectFeaturesArgs();
 
     /**
-     * Defines the status (`enabled`, `disabled`) of the project features.\
-     * Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+     * Defines the status (`enabled`, `disabled`) of the project features.  Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
      * 
-     * &gt; **NOTE:**
-     * It&#39;s possible to define project features both within the `azuredevops.ProjectFeatures` resource and
+     * | Features     | Possible Values   |
+     * |--------------|-------------------|
+     * | boards       | enabled, disabled |
+     * | repositories | enabled, disabled |
+     * | pipelines    | enabled, disabled |
+     * | testplans    | enabled, disabled |
+     * | artifacts    | enabled, disabled |
+     * 
+     * &gt; **NOTE:** It&#39;s possible to define project features both within the `azuredevops.ProjectFeatures` resource and
      * via the `features` block by using the `azuredevops.Project` resource.
      * However it&#39;s not possible to use both methods to manage features, since there&#39;ll be conflicts.
      * 
@@ -29,11 +35,17 @@ public final class ProjectFeaturesArgs extends com.pulumi.resources.ResourceArgs
     private Output<Map<String,String>> features;
 
     /**
-     * @return Defines the status (`enabled`, `disabled`) of the project features.\
-     * Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+     * @return Defines the status (`enabled`, `disabled`) of the project features.  Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
      * 
-     * &gt; **NOTE:**
-     * It&#39;s possible to define project features both within the `azuredevops.ProjectFeatures` resource and
+     * | Features     | Possible Values   |
+     * |--------------|-------------------|
+     * | boards       | enabled, disabled |
+     * | repositories | enabled, disabled |
+     * | pipelines    | enabled, disabled |
+     * | testplans    | enabled, disabled |
+     * | artifacts    | enabled, disabled |
+     * 
+     * &gt; **NOTE:** It&#39;s possible to define project features both within the `azuredevops.ProjectFeatures` resource and
      * via the `features` block by using the `azuredevops.Project` resource.
      * However it&#39;s not possible to use both methods to manage features, since there&#39;ll be conflicts.
      * 
@@ -75,11 +87,17 @@ public final class ProjectFeaturesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param features Defines the status (`enabled`, `disabled`) of the project features.\
-         * Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+         * @param features Defines the status (`enabled`, `disabled`) of the project features.  Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
          * 
-         * &gt; **NOTE:**
-         * It&#39;s possible to define project features both within the `azuredevops.ProjectFeatures` resource and
+         * | Features     | Possible Values   |
+         * |--------------|-------------------|
+         * | boards       | enabled, disabled |
+         * | repositories | enabled, disabled |
+         * | pipelines    | enabled, disabled |
+         * | testplans    | enabled, disabled |
+         * | artifacts    | enabled, disabled |
+         * 
+         * &gt; **NOTE:** It&#39;s possible to define project features both within the `azuredevops.ProjectFeatures` resource and
          * via the `features` block by using the `azuredevops.Project` resource.
          * However it&#39;s not possible to use both methods to manage features, since there&#39;ll be conflicts.
          * 
@@ -92,11 +110,17 @@ public final class ProjectFeaturesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param features Defines the status (`enabled`, `disabled`) of the project features.\
-         * Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+         * @param features Defines the status (`enabled`, `disabled`) of the project features.  Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
          * 
-         * &gt; **NOTE:**
-         * It&#39;s possible to define project features both within the `azuredevops.ProjectFeatures` resource and
+         * | Features     | Possible Values   |
+         * |--------------|-------------------|
+         * | boards       | enabled, disabled |
+         * | repositories | enabled, disabled |
+         * | pipelines    | enabled, disabled |
+         * | testplans    | enabled, disabled |
+         * | artifacts    | enabled, disabled |
+         * 
+         * &gt; **NOTE:** It&#39;s possible to define project features both within the `azuredevops.ProjectFeatures` resource and
          * via the `features` block by using the `azuredevops.Project` resource.
          * However it&#39;s not possible to use both methods to manage features, since there&#39;ll be conflicts.
          * 

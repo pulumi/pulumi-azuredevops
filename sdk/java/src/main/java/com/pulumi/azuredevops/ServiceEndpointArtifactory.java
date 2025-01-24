@@ -18,7 +18,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages an Artifactory server endpoint within an Azure DevOps organization. Using this service endpoint requires you to first install [JFrog Artifactory Extension](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-artifactory-vsts-extension).
+ * Manages an JFrog Artifactory server endpoint within an Azure DevOps organization. Using this service endpoint requires you to first install [JFrog Artifactory Extension](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-artifactory-vsts-extension).
  * 
  * ## Example Usage
  * 
@@ -131,7 +131,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Azure DevOps Service Endpoint Artifactory can be imported using the **projectID/serviceEndpointID**, e.g.
+ * Azure DevOps JFrog Artifactory Service Endpoint can be imported using the **projectID/serviceEndpointID**, e.g.
  * 
  * ```sh
  * $ pulumi import azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -146,9 +146,17 @@ public class ServiceEndpointArtifactory extends com.pulumi.resources.CustomResou
     public Output<Optional<ServiceEndpointArtifactoryAuthenticationBasic>> authenticationBasic() {
         return Codegen.optional(this.authenticationBasic);
     }
+    /**
+     * A `authentication_basic` block as defined below.
+     * 
+     */
     @Export(name="authenticationToken", refs={ServiceEndpointArtifactoryAuthenticationToken.class}, tree="[0]")
     private Output</* @Nullable */ ServiceEndpointArtifactoryAuthenticationToken> authenticationToken;
 
+    /**
+     * @return A `authentication_basic` block as defined below.
+     * 
+     */
     public Output<Optional<ServiceEndpointArtifactoryAuthenticationToken>> authenticationToken() {
         return Codegen.optional(this.authenticationToken);
     }
@@ -203,8 +211,7 @@ public class ServiceEndpointArtifactory extends com.pulumi.resources.CustomResou
     /**
      * URL of the Artifactory server to connect with.
      * 
-     * _Note: URL should not end in a slash character._
-     * * either `authentication_token` or `authentication_basic` (one is required)
+     * _**Note: URL should not end in a slash character.**_
      * 
      */
     @Export(name="url", refs={String.class}, tree="[0]")
@@ -213,8 +220,7 @@ public class ServiceEndpointArtifactory extends com.pulumi.resources.CustomResou
     /**
      * @return URL of the Artifactory server to connect with.
      * 
-     * _Note: URL should not end in a slash character._
-     * * either `authentication_token` or `authentication_basic` (one is required)
+     * _**Note: URL should not end in a slash character.**_
      * 
      */
     public Output<String> url() {

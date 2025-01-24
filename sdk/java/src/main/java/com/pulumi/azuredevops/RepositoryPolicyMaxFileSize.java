@@ -173,14 +173,14 @@ public class RepositoryPolicyMaxFileSize extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.enabled);
     }
     /**
-     * Block pushes that contain new or updated files larger than this limit. Available values is: `1, 2, 5, 10, 50, 100, 200` (MB).
+     * Block pushes that contain new or updated files larger than this limit. Possible values are: `1, 2, 5, 10, 50, 100, 200` (MB).
      * 
      */
     @Export(name="maxFileSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxFileSize;
 
     /**
-     * @return Block pushes that contain new or updated files larger than this limit. Available values is: `1, 2, 5, 10, 50, 100, 200` (MB).
+     * @return Block pushes that contain new or updated files larger than this limit. Possible values are: `1, 2, 5, 10, 50, 100, 200` (MB).
      * 
      */
     public Output<Integer> maxFileSize() {

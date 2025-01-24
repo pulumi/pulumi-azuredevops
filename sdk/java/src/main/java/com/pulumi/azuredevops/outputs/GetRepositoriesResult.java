@@ -32,7 +32,7 @@ public final class GetRepositoriesResult {
      */
     private @Nullable String projectId;
     /**
-     * @return A list of existing projects in your Azure DevOps Organization with details about every project which includes:
+     * @return A `repositories` blocks as documented below. A list of existing projects in your Azure DevOps Organization with details about every project.
      * 
      */
     private List<GetRepositoriesRepository> repositories;
@@ -63,7 +63,7 @@ public final class GetRepositoriesResult {
         return Optional.ofNullable(this.projectId);
     }
     /**
-     * @return A list of existing projects in your Azure DevOps Organization with details about every project which includes:
+     * @return A `repositories` blocks as documented below. A list of existing projects in your Azure DevOps Organization with details about every project.
      * 
      */
     public List<GetRepositoriesRepository> repositories() {

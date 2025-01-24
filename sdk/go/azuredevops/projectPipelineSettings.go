@@ -77,8 +77,7 @@ type ProjectPipelineSettings struct {
 	EnforceJobScope pulumi.BoolOutput `pulumi:"enforceJobScope"`
 	// Limit job authorization scope to current project for release pipelines.
 	//
-	// > **NOTE:**
-	// The settings at the organization will override settings specified on the project.
+	// > **NOTE:** The settings at the organization will override settings specified on the project.
 	// For example, if `enforceJobScope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
 	// In this scenario, the plan will always show that the resource is trying to change `enforceJobScope` from `true` to `false`.
 	EnforceJobScopeForRelease pulumi.BoolOutput `pulumi:"enforceJobScopeForRelease"`
@@ -86,7 +85,7 @@ type ProjectPipelineSettings struct {
 	EnforceReferencedRepoScopedToken pulumi.BoolOutput `pulumi:"enforceReferencedRepoScopedToken"`
 	// Limit variables that can be set at queue time.
 	EnforceSettableVar pulumi.BoolOutput `pulumi:"enforceSettableVar"`
-	// The `id` of the project for which the project pipeline settings will be managed.
+	// The ID of the project for which the project pipeline settings will be managed.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// Publish metadata from pipelines.
 	PublishPipelineMetadata pulumi.BoolOutput `pulumi:"publishPipelineMetadata"`
@@ -131,8 +130,7 @@ type projectPipelineSettingsState struct {
 	EnforceJobScope *bool `pulumi:"enforceJobScope"`
 	// Limit job authorization scope to current project for release pipelines.
 	//
-	// > **NOTE:**
-	// The settings at the organization will override settings specified on the project.
+	// > **NOTE:** The settings at the organization will override settings specified on the project.
 	// For example, if `enforceJobScope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
 	// In this scenario, the plan will always show that the resource is trying to change `enforceJobScope` from `true` to `false`.
 	EnforceJobScopeForRelease *bool `pulumi:"enforceJobScopeForRelease"`
@@ -140,7 +138,7 @@ type projectPipelineSettingsState struct {
 	EnforceReferencedRepoScopedToken *bool `pulumi:"enforceReferencedRepoScopedToken"`
 	// Limit variables that can be set at queue time.
 	EnforceSettableVar *bool `pulumi:"enforceSettableVar"`
-	// The `id` of the project for which the project pipeline settings will be managed.
+	// The ID of the project for which the project pipeline settings will be managed.
 	ProjectId *string `pulumi:"projectId"`
 	// Publish metadata from pipelines.
 	PublishPipelineMetadata *bool `pulumi:"publishPipelineMetadata"`
@@ -153,8 +151,7 @@ type ProjectPipelineSettingsState struct {
 	EnforceJobScope pulumi.BoolPtrInput
 	// Limit job authorization scope to current project for release pipelines.
 	//
-	// > **NOTE:**
-	// The settings at the organization will override settings specified on the project.
+	// > **NOTE:** The settings at the organization will override settings specified on the project.
 	// For example, if `enforceJobScope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
 	// In this scenario, the plan will always show that the resource is trying to change `enforceJobScope` from `true` to `false`.
 	EnforceJobScopeForRelease pulumi.BoolPtrInput
@@ -162,7 +159,7 @@ type ProjectPipelineSettingsState struct {
 	EnforceReferencedRepoScopedToken pulumi.BoolPtrInput
 	// Limit variables that can be set at queue time.
 	EnforceSettableVar pulumi.BoolPtrInput
-	// The `id` of the project for which the project pipeline settings will be managed.
+	// The ID of the project for which the project pipeline settings will be managed.
 	ProjectId pulumi.StringPtrInput
 	// Publish metadata from pipelines.
 	PublishPipelineMetadata pulumi.BoolPtrInput
@@ -179,8 +176,7 @@ type projectPipelineSettingsArgs struct {
 	EnforceJobScope *bool `pulumi:"enforceJobScope"`
 	// Limit job authorization scope to current project for release pipelines.
 	//
-	// > **NOTE:**
-	// The settings at the organization will override settings specified on the project.
+	// > **NOTE:** The settings at the organization will override settings specified on the project.
 	// For example, if `enforceJobScope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
 	// In this scenario, the plan will always show that the resource is trying to change `enforceJobScope` from `true` to `false`.
 	EnforceJobScopeForRelease *bool `pulumi:"enforceJobScopeForRelease"`
@@ -188,7 +184,7 @@ type projectPipelineSettingsArgs struct {
 	EnforceReferencedRepoScopedToken *bool `pulumi:"enforceReferencedRepoScopedToken"`
 	// Limit variables that can be set at queue time.
 	EnforceSettableVar *bool `pulumi:"enforceSettableVar"`
-	// The `id` of the project for which the project pipeline settings will be managed.
+	// The ID of the project for which the project pipeline settings will be managed.
 	ProjectId string `pulumi:"projectId"`
 	// Publish metadata from pipelines.
 	PublishPipelineMetadata *bool `pulumi:"publishPipelineMetadata"`
@@ -202,8 +198,7 @@ type ProjectPipelineSettingsArgs struct {
 	EnforceJobScope pulumi.BoolPtrInput
 	// Limit job authorization scope to current project for release pipelines.
 	//
-	// > **NOTE:**
-	// The settings at the organization will override settings specified on the project.
+	// > **NOTE:** The settings at the organization will override settings specified on the project.
 	// For example, if `enforceJobScope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
 	// In this scenario, the plan will always show that the resource is trying to change `enforceJobScope` from `true` to `false`.
 	EnforceJobScopeForRelease pulumi.BoolPtrInput
@@ -211,7 +206,7 @@ type ProjectPipelineSettingsArgs struct {
 	EnforceReferencedRepoScopedToken pulumi.BoolPtrInput
 	// Limit variables that can be set at queue time.
 	EnforceSettableVar pulumi.BoolPtrInput
-	// The `id` of the project for which the project pipeline settings will be managed.
+	// The ID of the project for which the project pipeline settings will be managed.
 	ProjectId pulumi.StringInput
 	// Publish metadata from pipelines.
 	PublishPipelineMetadata pulumi.BoolPtrInput
@@ -313,8 +308,7 @@ func (o ProjectPipelineSettingsOutput) EnforceJobScope() pulumi.BoolOutput {
 
 // Limit job authorization scope to current project for release pipelines.
 //
-// > **NOTE:**
-// The settings at the organization will override settings specified on the project.
+// > **NOTE:** The settings at the organization will override settings specified on the project.
 // For example, if `enforceJobScope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
 // In this scenario, the plan will always show that the resource is trying to change `enforceJobScope` from `true` to `false`.
 func (o ProjectPipelineSettingsOutput) EnforceJobScopeForRelease() pulumi.BoolOutput {
@@ -331,7 +325,7 @@ func (o ProjectPipelineSettingsOutput) EnforceSettableVar() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ProjectPipelineSettings) pulumi.BoolOutput { return v.EnforceSettableVar }).(pulumi.BoolOutput)
 }
 
-// The `id` of the project for which the project pipeline settings will be managed.
+// The ID of the project for which the project pipeline settings will be managed.
 func (o ProjectPipelineSettingsOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProjectPipelineSettings) pulumi.StringOutput { return v.ProjectId }).(pulumi.StringOutput)
 }

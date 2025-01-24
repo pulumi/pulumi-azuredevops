@@ -15,6 +15,10 @@ public final class GetClientConfigResult {
      * 
      */
     private String id;
+    /**
+     * @return The organization configured for the provider.
+     * 
+     */
     private String organizationUrl;
 
     private GetClientConfigResult() {}
@@ -25,6 +29,10 @@ public final class GetClientConfigResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The organization configured for the provider.
+     * 
+     */
     public String organizationUrl() {
         return this.organizationUrl;
     }

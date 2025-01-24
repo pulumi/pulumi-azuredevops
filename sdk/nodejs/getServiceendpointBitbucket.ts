@@ -69,8 +69,8 @@ export interface GetServiceendpointBitbucketArgs {
     /**
      * the Name of the Service Endpoint.
      *
-     * > **NOTE:** One of either `serviceEndpointId` or `serviceEndpointName` must be specified.
-     * > **NOTE:** When supplying `serviceEndpointName`, take care to ensure that this is a unique name.
+     * > **NOTE:** 1. One of either `serviceEndpointId` or `serviceEndpointName` must be specified.
+     * <br>2. When supplying `serviceEndpointName`, take care to ensure that this is a unique name.
      */
     serviceEndpointName?: string;
 }
@@ -80,11 +80,11 @@ export interface GetServiceendpointBitbucketArgs {
  */
 export interface GetServiceendpointBitbucketResult {
     /**
-     * Specifies the Authorization Scheme Map.
+     * The Authorization scheme.
      */
     readonly authorization: {[key: string]: string};
     /**
-     * Specifies the description of the Service Endpoint.
+     * The description of the Service Endpoint.
      */
     readonly description: string;
     /**
@@ -160,8 +160,8 @@ export interface GetServiceendpointBitbucketOutputArgs {
     /**
      * the Name of the Service Endpoint.
      *
-     * > **NOTE:** One of either `serviceEndpointId` or `serviceEndpointName` must be specified.
-     * > **NOTE:** When supplying `serviceEndpointName`, take care to ensure that this is a unique name.
+     * > **NOTE:** 1. One of either `serviceEndpointId` or `serviceEndpointName` must be specified.
+     * <br>2. When supplying `serviceEndpointName`, take care to ensure that this is a unique name.
      */
     serviceEndpointName?: pulumi.Input<string>;
 }

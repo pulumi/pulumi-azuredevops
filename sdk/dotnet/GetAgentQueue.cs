@@ -187,7 +187,7 @@ namespace Pulumi.AzureDevOps
     public sealed class GetAgentQueueResult
     {
         /// <summary>
-        /// Agent pool identifier to which the agent queue belongs.
+        /// The ID of the Agent pool to which the agent queue belongs.
         /// </summary>
         public readonly int AgentPoolId;
         /// <summary>
@@ -199,7 +199,7 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Project identifier to which the agent queue belongs.
+        /// The ID of the Project to which the agent queue belongs.
         /// </summary>
         public readonly string ProjectId;
 

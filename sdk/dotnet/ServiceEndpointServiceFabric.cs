@@ -90,7 +90,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ## Import
     /// 
-    /// Azure DevOps Service Endpoint Service Fabric can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+    /// Azure DevOps Service Fabric Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
     /// 
     /// ```sh
     /// $ pulumi import azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -102,14 +102,20 @@ namespace Pulumi.AzureDevOps
         [Output("authorization")]
         public Output<ImmutableDictionary<string, string>> Authorization { get; private set; } = null!;
 
+        /// <summary>
+        /// An `azure_active_directory` block as documented below.
+        /// </summary>
         [Output("azureActiveDirectory")]
         public Output<Outputs.ServiceEndpointServiceFabricAzureActiveDirectory?> AzureActiveDirectory { get; private set; } = null!;
 
+        /// <summary>
+        /// A `certificate` block as documented below.
+        /// </summary>
         [Output("certificate")]
         public Output<Outputs.ServiceEndpointServiceFabricCertificate?> Certificate { get; private set; } = null!;
 
         /// <summary>
-        /// Client connection endpoint for the cluster. Prefix the value with 'tcp://';. This value overrides the publish profile.
+        /// Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
         /// </summary>
         [Output("clusterEndpoint")]
         public Output<string> ClusterEndpoint { get; private set; } = null!;
@@ -117,6 +123,9 @@ namespace Pulumi.AzureDevOps
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// A `none` block as documented below.
+        /// </summary>
         [Output("none")]
         public Output<Outputs.ServiceEndpointServiceFabricNone?> None { get; private set; } = null!;
 
@@ -186,14 +195,20 @@ namespace Pulumi.AzureDevOps
             set => _authorization = value;
         }
 
+        /// <summary>
+        /// An `azure_active_directory` block as documented below.
+        /// </summary>
         [Input("azureActiveDirectory")]
         public Input<Inputs.ServiceEndpointServiceFabricAzureActiveDirectoryArgs>? AzureActiveDirectory { get; set; }
 
+        /// <summary>
+        /// A `certificate` block as documented below.
+        /// </summary>
         [Input("certificate")]
         public Input<Inputs.ServiceEndpointServiceFabricCertificateArgs>? Certificate { get; set; }
 
         /// <summary>
-        /// Client connection endpoint for the cluster. Prefix the value with 'tcp://';. This value overrides the publish profile.
+        /// Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
         /// </summary>
         [Input("clusterEndpoint", required: true)]
         public Input<string> ClusterEndpoint { get; set; } = null!;
@@ -201,6 +216,9 @@ namespace Pulumi.AzureDevOps
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// A `none` block as documented below.
+        /// </summary>
         [Input("none")]
         public Input<Inputs.ServiceEndpointServiceFabricNoneArgs>? None { get; set; }
 
@@ -232,14 +250,20 @@ namespace Pulumi.AzureDevOps
             set => _authorization = value;
         }
 
+        /// <summary>
+        /// An `azure_active_directory` block as documented below.
+        /// </summary>
         [Input("azureActiveDirectory")]
         public Input<Inputs.ServiceEndpointServiceFabricAzureActiveDirectoryGetArgs>? AzureActiveDirectory { get; set; }
 
+        /// <summary>
+        /// A `certificate` block as documented below.
+        /// </summary>
         [Input("certificate")]
         public Input<Inputs.ServiceEndpointServiceFabricCertificateGetArgs>? Certificate { get; set; }
 
         /// <summary>
-        /// Client connection endpoint for the cluster. Prefix the value with 'tcp://';. This value overrides the publish profile.
+        /// Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
         /// </summary>
         [Input("clusterEndpoint")]
         public Input<string>? ClusterEndpoint { get; set; }
@@ -247,6 +271,9 @@ namespace Pulumi.AzureDevOps
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// A `none` block as documented below.
+        /// </summary>
         [Input("none")]
         public Input<Inputs.ServiceEndpointServiceFabricNoneGetArgs>? None { get; set; }
 

@@ -27,8 +27,7 @@ class QueueArgs:
         :param pulumi.Input[str] project_id: The ID of the project in which to create the resource.
         :param pulumi.Input[int] agent_pool_id: The ID of the organization agent pool. Conflicts with `name`.
                
-               > **NOTE:**
-               One of `name` or `agent_pool_id` must be specified, but not both.
+               > **NOTE:** One of `name` or `agent_pool_id` must be specified, but not both.
                When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
         :param pulumi.Input[str] name: The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.
         """
@@ -56,8 +55,7 @@ class QueueArgs:
         """
         The ID of the organization agent pool. Conflicts with `name`.
 
-        > **NOTE:**
-        One of `name` or `agent_pool_id` must be specified, but not both.
+        > **NOTE:** One of `name` or `agent_pool_id` must be specified, but not both.
         When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
         """
         return pulumi.get(self, "agent_pool_id")
@@ -89,8 +87,7 @@ class _QueueState:
         Input properties used for looking up and filtering Queue resources.
         :param pulumi.Input[int] agent_pool_id: The ID of the organization agent pool. Conflicts with `name`.
                
-               > **NOTE:**
-               One of `name` or `agent_pool_id` must be specified, but not both.
+               > **NOTE:** One of `name` or `agent_pool_id` must be specified, but not both.
                When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
         :param pulumi.Input[str] name: The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.
         :param pulumi.Input[str] project_id: The ID of the project in which to create the resource.
@@ -108,8 +105,7 @@ class _QueueState:
         """
         The ID of the organization agent pool. Conflicts with `name`.
 
-        > **NOTE:**
-        One of `name` or `agent_pool_id` must be specified, but not both.
+        > **NOTE:** One of `name` or `agent_pool_id` must be specified, but not both.
         When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
         """
         return pulumi.get(self, "agent_pool_id")
@@ -208,8 +204,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] agent_pool_id: The ID of the organization agent pool. Conflicts with `name`.
                
-               > **NOTE:**
-               One of `name` or `agent_pool_id` must be specified, but not both.
+               > **NOTE:** One of `name` or `agent_pool_id` must be specified, but not both.
                When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
         :param pulumi.Input[str] name: The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.
         :param pulumi.Input[str] project_id: The ID of the project in which to create the resource.
@@ -326,8 +321,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] agent_pool_id: The ID of the organization agent pool. Conflicts with `name`.
                
-               > **NOTE:**
-               One of `name` or `agent_pool_id` must be specified, but not both.
+               > **NOTE:** One of `name` or `agent_pool_id` must be specified, but not both.
                When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
         :param pulumi.Input[str] name: The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.
         :param pulumi.Input[str] project_id: The ID of the project in which to create the resource.
@@ -347,8 +341,7 @@ class Queue(pulumi.CustomResource):
         """
         The ID of the organization agent pool. Conflicts with `name`.
 
-        > **NOTE:**
-        One of `name` or `agent_pool_id` must be specified, but not both.
+        > **NOTE:** One of `name` or `agent_pool_id` must be specified, but not both.
         When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
         """
         return pulumi.get(self, "agent_pool_id")

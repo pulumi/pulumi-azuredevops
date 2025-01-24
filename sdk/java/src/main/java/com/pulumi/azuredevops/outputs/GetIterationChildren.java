@@ -17,7 +17,7 @@ public final class GetIterationChildren {
      */
     private Boolean hasChildren;
     /**
-     * @return The id of the child Iteration node
+     * @return The ID of the child Iteration node
      * 
      */
     private String id;
@@ -46,7 +46,7 @@ public final class GetIterationChildren {
         return this.hasChildren;
     }
     /**
-     * @return The id of the child Iteration node
+     * @return The ID of the child Iteration node
      * 
      */
     public String id() {

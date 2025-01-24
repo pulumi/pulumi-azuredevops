@@ -30,8 +30,8 @@ namespace Pulumi.AzureDevOps
     /// 
     ///     var exampleWiki = new AzureDevOps.Wiki("example", new()
     ///     {
-    ///         Name = "Example project wiki ",
     ///         ProjectId = example.Id,
+    ///         Name = "Example project wiki ",
     ///         Type = "projectWiki",
     ///     });
     /// 

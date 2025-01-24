@@ -107,14 +107,18 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * &gt; NOTE: It&#39;s possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it&#39;s not possible to use both methods to manage group members, since there&#39;ll be conflicts.
+     * The member of the Group.
+     * 
+     * &gt; **NOTE:** It&#39;s possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it&#39;s not possible to use both methods to manage group members, since there&#39;ll be conflicts.
      * 
      */
     @Import(name="members")
     private @Nullable Output<List<String>> members;
 
     /**
-     * @return &gt; NOTE: It&#39;s possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it&#39;s not possible to use both methods to manage group members, since there&#39;ll be conflicts.
+     * @return The member of the Group.
+     * 
+     * &gt; **NOTE:** It&#39;s possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it&#39;s not possible to use both methods to manage group members, since there&#39;ll be conflicts.
      * 
      */
     public Optional<Output<List<String>>> members() {
@@ -374,7 +378,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param members &gt; NOTE: It&#39;s possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it&#39;s not possible to use both methods to manage group members, since there&#39;ll be conflicts.
+         * @param members The member of the Group.
+         * 
+         * &gt; **NOTE:** It&#39;s possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it&#39;s not possible to use both methods to manage group members, since there&#39;ll be conflicts.
          * 
          * @return builder
          * 
@@ -385,7 +391,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param members &gt; NOTE: It&#39;s possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it&#39;s not possible to use both methods to manage group members, since there&#39;ll be conflicts.
+         * @param members The member of the Group.
+         * 
+         * &gt; **NOTE:** It&#39;s possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it&#39;s not possible to use both methods to manage group members, since there&#39;ll be conflicts.
          * 
          * @return builder
          * 
@@ -395,7 +403,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param members &gt; NOTE: It&#39;s possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it&#39;s not possible to use both methods to manage group members, since there&#39;ll be conflicts.
+         * @param members The member of the Group.
+         * 
+         * &gt; **NOTE:** It&#39;s possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it&#39;s not possible to use both methods to manage group members, since there&#39;ll be conflicts.
          * 
          * @return builder
          * 

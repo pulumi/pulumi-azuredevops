@@ -11,20 +11,44 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPoolResult {
+    /**
+     * @return Specifies whether a queue should be automatically provisioned for each project collection.
+     * 
+     */
     private Boolean autoProvision;
+    /**
+     * @return Specifies whether or not agents within the pool should be automatically updated.
+     * 
+     */
     private Boolean autoUpdate;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return The name of the agent pool
+     * 
+     */
     private String name;
+    /**
+     * @return Specifies whether the agent pool type is Automation or Deployment.
+     * 
+     */
     private String poolType;
 
     private GetPoolResult() {}
+    /**
+     * @return Specifies whether a queue should be automatically provisioned for each project collection.
+     * 
+     */
     public Boolean autoProvision() {
         return this.autoProvision;
     }
+    /**
+     * @return Specifies whether or not agents within the pool should be automatically updated.
+     * 
+     */
     public Boolean autoUpdate() {
         return this.autoUpdate;
     }
@@ -35,9 +59,17 @@ public final class GetPoolResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The name of the agent pool
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Specifies whether the agent pool type is Automation or Deployment.
+     * 
+     */
     public String poolType() {
         return this.poolType;
     }

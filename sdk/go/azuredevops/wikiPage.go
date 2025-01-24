@@ -36,8 +36,8 @@ import (
 //				return err
 //			}
 //			exampleWiki, err := azuredevops.NewWiki(ctx, "example", &azuredevops.WikiArgs{
-//				Name:      pulumi.String("Example project wiki "),
 //				ProjectId: example.ID(),
+//				Name:      pulumi.String("Example project wiki "),
 //				Type:      pulumi.String("projectWiki"),
 //			})
 //			if err != nil {

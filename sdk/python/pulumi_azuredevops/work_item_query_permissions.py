@@ -37,7 +37,7 @@ class WorkItemQueryPermissionsArgs:
         :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[str] path: Path to a query or folder beneath `Shared Queries`
-        :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
+        :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Defaults to `true`
         """
         pulumi.set(__self__, "permissions", permissions)
         pulumi.set(__self__, "principal", principal)
@@ -106,7 +106,7 @@ class WorkItemQueryPermissionsArgs:
     @pulumi.getter
     def replace(self) -> Optional[pulumi.Input[bool]]:
         """
-        Replace (`true`) or merge (`false`) the permissions. Default: `true`
+        Replace (`true`) or merge (`false`) the permissions. Defaults to `true`
         """
         return pulumi.get(self, "replace")
 
@@ -136,7 +136,7 @@ class _WorkItemQueryPermissionsState:
                | ManagePermissions        | Manage Permissions                 |
         :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
-        :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
+        :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Defaults to `true`
         """
         if path is not None:
             pulumi.set(__self__, "path", path)
@@ -208,7 +208,7 @@ class _WorkItemQueryPermissionsState:
     @pulumi.getter
     def replace(self) -> Optional[pulumi.Input[bool]]:
         """
-        Replace (`true`) or merge (`false`) the permissions. Default: `true`
+        Replace (`true`) or merge (`false`) the permissions. Defaults to `true`
         """
         return pulumi.get(self, "replace")
 
@@ -357,7 +357,7 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
                | ManagePermissions        | Manage Permissions                 |
         :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
-        :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
+        :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Defaults to `true`
         """
         ...
     @overload
@@ -554,7 +554,7 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
                | ManagePermissions        | Manage Permissions                 |
         :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
-        :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
+        :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Defaults to `true`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -610,7 +610,7 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
     @pulumi.getter
     def replace(self) -> pulumi.Output[Optional[bool]]:
         """
-        Replace (`true`) or merge (`false`) the permissions. Default: `true`
+        Replace (`true`) or merge (`false`) the permissions. Defaults to `true`
         """
         return pulumi.get(self, "replace")
 

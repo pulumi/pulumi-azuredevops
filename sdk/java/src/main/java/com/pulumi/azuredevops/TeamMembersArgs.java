@@ -20,9 +20,9 @@ public final class TeamMembersArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * List of subject descriptors to define members of the team.
      * 
-     * &gt; NOTE: It&#39;s possible to define team members both within the
+     * &gt; **NOTE:** It&#39;s possible to define team members both within the
      * `azuredevops.Team` resource via the `members` block and by using the
-     * `azuredevops.TeamMembers` resource. However it&#39;s not possible to use
+     * `azuredevops.TeamMembers` resource. However, it&#39;s not possible to use
      * both methods to manage team members, since there&#39;ll be conflicts.
      * 
      */
@@ -32,9 +32,9 @@ public final class TeamMembersArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return List of subject descriptors to define members of the team.
      * 
-     * &gt; NOTE: It&#39;s possible to define team members both within the
+     * &gt; **NOTE:** It&#39;s possible to define team members both within the
      * `azuredevops.Team` resource via the `members` block and by using the
-     * `azuredevops.TeamMembers` resource. However it&#39;s not possible to use
+     * `azuredevops.TeamMembers` resource. However, it&#39;s not possible to use
      * both methods to manage team members, since there&#39;ll be conflicts.
      * 
      */
@@ -43,18 +43,20 @@ public final class TeamMembersArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The mode how the resource manages team members.
-     * - `mode == add`: the resource will ensure that all specified members will be part of the referenced team
-     * - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
+     * The mode how the resource manages team members. Possible values: `add`, `overwrite`. Defaults to `add`.
+     * 
+     * &gt; **NOTE:** 1. `mode = add`: the resource will ensure that all specified members will be part of the referenced team
+     * &lt;br&gt;2. `mode = overwrite`: the resource will replace all existing members with the members specified within the `members` block
      * 
      */
     @Import(name="mode")
     private @Nullable Output<String> mode;
 
     /**
-     * @return The mode how the resource manages team members.
-     * - `mode == add`: the resource will ensure that all specified members will be part of the referenced team
-     * - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
+     * @return The mode how the resource manages team members. Possible values: `add`, `overwrite`. Defaults to `add`.
+     * 
+     * &gt; **NOTE:** 1. `mode = add`: the resource will ensure that all specified members will be part of the referenced team
+     * &lt;br&gt;2. `mode = overwrite`: the resource will replace all existing members with the members specified within the `members` block
      * 
      */
     public Optional<Output<String>> mode() {
@@ -121,9 +123,9 @@ public final class TeamMembersArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param members List of subject descriptors to define members of the team.
          * 
-         * &gt; NOTE: It&#39;s possible to define team members both within the
+         * &gt; **NOTE:** It&#39;s possible to define team members both within the
          * `azuredevops.Team` resource via the `members` block and by using the
-         * `azuredevops.TeamMembers` resource. However it&#39;s not possible to use
+         * `azuredevops.TeamMembers` resource. However, it&#39;s not possible to use
          * both methods to manage team members, since there&#39;ll be conflicts.
          * 
          * @return builder
@@ -137,9 +139,9 @@ public final class TeamMembersArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param members List of subject descriptors to define members of the team.
          * 
-         * &gt; NOTE: It&#39;s possible to define team members both within the
+         * &gt; **NOTE:** It&#39;s possible to define team members both within the
          * `azuredevops.Team` resource via the `members` block and by using the
-         * `azuredevops.TeamMembers` resource. However it&#39;s not possible to use
+         * `azuredevops.TeamMembers` resource. However, it&#39;s not possible to use
          * both methods to manage team members, since there&#39;ll be conflicts.
          * 
          * @return builder
@@ -152,9 +154,9 @@ public final class TeamMembersArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param members List of subject descriptors to define members of the team.
          * 
-         * &gt; NOTE: It&#39;s possible to define team members both within the
+         * &gt; **NOTE:** It&#39;s possible to define team members both within the
          * `azuredevops.Team` resource via the `members` block and by using the
-         * `azuredevops.TeamMembers` resource. However it&#39;s not possible to use
+         * `azuredevops.TeamMembers` resource. However, it&#39;s not possible to use
          * both methods to manage team members, since there&#39;ll be conflicts.
          * 
          * @return builder
@@ -165,9 +167,10 @@ public final class TeamMembersArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mode The mode how the resource manages team members.
-         * - `mode == add`: the resource will ensure that all specified members will be part of the referenced team
-         * - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
+         * @param mode The mode how the resource manages team members. Possible values: `add`, `overwrite`. Defaults to `add`.
+         * 
+         * &gt; **NOTE:** 1. `mode = add`: the resource will ensure that all specified members will be part of the referenced team
+         * &lt;br&gt;2. `mode = overwrite`: the resource will replace all existing members with the members specified within the `members` block
          * 
          * @return builder
          * 
@@ -178,9 +181,10 @@ public final class TeamMembersArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mode The mode how the resource manages team members.
-         * - `mode == add`: the resource will ensure that all specified members will be part of the referenced team
-         * - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
+         * @param mode The mode how the resource manages team members. Possible values: `add`, `overwrite`. Defaults to `add`.
+         * 
+         * &gt; **NOTE:** 1. `mode = add`: the resource will ensure that all specified members will be part of the referenced team
+         * &lt;br&gt;2. `mode = overwrite`: the resource will replace all existing members with the members specified within the `members` block
          * 
          * @return builder
          * 

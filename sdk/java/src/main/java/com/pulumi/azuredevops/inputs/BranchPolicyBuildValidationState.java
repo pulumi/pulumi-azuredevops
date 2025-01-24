@@ -63,14 +63,14 @@ public final class BranchPolicyBuildValidationState extends com.pulumi.resources
     }
 
     /**
-     * Configuration for the policy. This block must be defined exactly once.
+     * A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
      * 
      */
     @Import(name="settings")
     private @Nullable Output<BranchPolicyBuildValidationSettingsArgs> settings;
 
     /**
-     * @return Configuration for the policy. This block must be defined exactly once.
+     * @return A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
      * 
      */
     public Optional<Output<BranchPolicyBuildValidationSettingsArgs>> settings() {
@@ -168,7 +168,7 @@ public final class BranchPolicyBuildValidationState extends com.pulumi.resources
         }
 
         /**
-         * @param settings Configuration for the policy. This block must be defined exactly once.
+         * @param settings A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class BranchPolicyBuildValidationState extends com.pulumi.resources
         }
 
         /**
-         * @param settings Configuration for the policy. This block must be defined exactly once.
+         * @param settings A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
          * 
          * @return builder
          * 

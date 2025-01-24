@@ -39,6 +39,11 @@ namespace Pulumi.AzureDevOps
         /// ## Relevant Links
         /// 
         /// - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
+        /// 
+        /// ## PAT Permissions Required
+        /// 
+        /// - **Project &amp; Team**: Read
+        /// - **Work Items**: Read
         /// </summary>
         public static Task<GetProjectResult> InvokeAsync(GetProjectArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azuredevops:index/getProject:getProject", args ?? new GetProjectArgs(), options.WithDefaults());
@@ -71,6 +76,11 @@ namespace Pulumi.AzureDevOps
         /// ## Relevant Links
         /// 
         /// - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
+        /// 
+        /// ## PAT Permissions Required
+        /// 
+        /// - **Project &amp; Team**: Read
+        /// - **Work Items**: Read
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azuredevops:index/getProject:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
@@ -103,6 +113,11 @@ namespace Pulumi.AzureDevOps
         /// ## Relevant Links
         /// 
         /// - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
+        /// 
+        /// ## PAT Permissions Required
+        /// 
+        /// - **Project &amp; Team**: Read
+        /// - **Work Items**: Read
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azuredevops:index/getProject:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
@@ -119,6 +134,8 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// ID of the Project.
+        /// 
+        /// &gt; **NOTE:** One of either `project_id` or `name` must be specified.
         /// </summary>
         [Input("projectId")]
         public string? ProjectId { get; set; }
@@ -139,6 +156,8 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// ID of the Project.
+        /// 
+        /// &gt; **NOTE:** One of either `project_id` or `name` must be specified.
         /// </summary>
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }
@@ -153,17 +172,35 @@ namespace Pulumi.AzureDevOps
     [OutputType]
     public sealed class GetProjectResult
     {
+        /// <summary>
+        /// The description of the project.
+        /// </summary>
         public readonly string Description;
         public readonly ImmutableDictionary<string, string> Features;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The name of the project.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The process template ID for the project.
+        /// </summary>
         public readonly string ProcessTemplateId;
         public readonly string? ProjectId;
+        /// <summary>
+        /// The version control of the project.
+        /// </summary>
         public readonly string VersionControl;
+        /// <summary>
+        /// The visibility of the project.
+        /// </summary>
         public readonly string Visibility;
+        /// <summary>
+        /// The work item template for the project.
+        /// </summary>
         public readonly string WorkItemTemplate;
 
         [OutputConstructor]

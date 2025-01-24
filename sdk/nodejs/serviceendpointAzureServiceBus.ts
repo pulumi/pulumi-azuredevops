@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Manages an Azure Service Bus endpoint within Azure DevOps.
+ * Manages an Azure Service Bus service endpoint within Azure DevOps.
  *
  * ## Example Usage
  *

@@ -127,7 +127,7 @@ namespace Pulumi.AzureDevOps
     public sealed class GetGroupsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Project ID. If no project ID is specified all groups of an organization will be returned
+        /// The ID of the Project. If no project ID is specified all groups of an organization will be returned
         /// </summary>
         [Input("projectId")]
         public string? ProjectId { get; set; }
@@ -141,7 +141,7 @@ namespace Pulumi.AzureDevOps
     public sealed class GetGroupsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Project ID. If no project ID is specified all groups of an organization will be returned
+        /// The ID of the Project. If no project ID is specified all groups of an organization will be returned
         /// </summary>
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }
@@ -157,7 +157,7 @@ namespace Pulumi.AzureDevOps
     public sealed class GetGroupsResult
     {
         /// <summary>
-        /// A set of existing groups in your Azure DevOps Organization or project with details about every single group which includes:
+        /// A `groups` blocks as documented below. A set of existing groups in your Azure DevOps Organization or project with details about every single group which includes:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupsGroupResult> Groups;
         /// <summary>

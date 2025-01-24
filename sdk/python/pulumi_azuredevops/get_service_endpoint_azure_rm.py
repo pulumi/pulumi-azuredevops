@@ -86,7 +86,7 @@ class GetServiceEndpointAzureRMResult:
     @pulumi.getter
     def authorization(self) -> Mapping[str, str]:
         """
-        The Authorization Scheme Map.
+        The Authorization scheme.
         """
         return pulumi.get(self, "authorization")
 
@@ -282,8 +282,8 @@ def get_service_endpoint_azure_rm(project_id: Optional[str] = None,
     :param str service_endpoint_id: the ID of the Service Endpoint.
     :param str service_endpoint_name: the Name of the Service Endpoint.
            
-           > **NOTE:** One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
-           > **NOTE:** When supplying `service_endpoint_name`, take care to ensure that this is a unique name.
+           > **NOTE:** 1. One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
+           <br>2. When supplying `service_endpoint_name`, take care to ensure that this is a unique name.
     """
     __args__ = dict()
     __args__['projectId'] = project_id
@@ -349,8 +349,8 @@ def get_service_endpoint_azure_rm_output(project_id: Optional[pulumi.Input[str]]
     :param str service_endpoint_id: the ID of the Service Endpoint.
     :param str service_endpoint_name: the Name of the Service Endpoint.
            
-           > **NOTE:** One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
-           > **NOTE:** When supplying `service_endpoint_name`, take care to ensure that this is a unique name.
+           > **NOTE:** 1. One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
+           <br>2. When supplying `service_endpoint_name`, take care to ensure that this is a unique name.
     """
     __args__ = dict()
     __args__['projectId'] = project_id

@@ -70,7 +70,9 @@ type LookupTeamArgs struct {
 	Name string `pulumi:"name"`
 	// The Project ID.
 	ProjectId string `pulumi:"projectId"`
-	// The maximum number of teams to return. Defaults to `100`.
+	// The maximum number of teams to return. Defaults to `100`. This property is deprecated and will be removed in the feature
+	//
+	// Deprecated: This property is deprecated and will be removed in the feature
 	Top *int `pulumi:"top"`
 }
 
@@ -78,7 +80,7 @@ type LookupTeamArgs struct {
 type LookupTeamResult struct {
 	// List of subject descriptors for `administrators` of the team.
 	Administrators []string `pulumi:"administrators"`
-	// Team description.
+	// The description of the team.
 	Description string `pulumi:"description"`
 	// The descriptor of the Team.
 	Descriptor string `pulumi:"descriptor"`
@@ -88,7 +90,8 @@ type LookupTeamResult struct {
 	Members   []string `pulumi:"members"`
 	Name      string   `pulumi:"name"`
 	ProjectId string   `pulumi:"projectId"`
-	Top       *int     `pulumi:"top"`
+	// Deprecated: This property is deprecated and will be removed in the feature
+	Top *int `pulumi:"top"`
 }
 
 func LookupTeamOutput(ctx *pulumi.Context, args LookupTeamOutputArgs, opts ...pulumi.InvokeOption) LookupTeamResultOutput {
@@ -106,7 +109,9 @@ type LookupTeamOutputArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The Project ID.
 	ProjectId pulumi.StringInput `pulumi:"projectId"`
-	// The maximum number of teams to return. Defaults to `100`.
+	// The maximum number of teams to return. Defaults to `100`. This property is deprecated and will be removed in the feature
+	//
+	// Deprecated: This property is deprecated and will be removed in the feature
 	Top pulumi.IntPtrInput `pulumi:"top"`
 }
 
@@ -134,7 +139,7 @@ func (o LookupTeamResultOutput) Administrators() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupTeamResult) []string { return v.Administrators }).(pulumi.StringArrayOutput)
 }
 
-// Team description.
+// The description of the team.
 func (o LookupTeamResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTeamResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -162,6 +167,7 @@ func (o LookupTeamResultOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTeamResult) string { return v.ProjectId }).(pulumi.StringOutput)
 }
 
+// Deprecated: This property is deprecated and will be removed in the feature
 func (o LookupTeamResultOutput) Top() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupTeamResult) *int { return v.Top }).(pulumi.IntPtrOutput)
 }

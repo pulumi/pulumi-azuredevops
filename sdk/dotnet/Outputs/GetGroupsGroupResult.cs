@@ -30,7 +30,7 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly string Domain;
         /// <summary>
-        /// The group ID.
+        /// The ID of the group.
         /// </summary>
         public readonly string Id;
         /// <summary>

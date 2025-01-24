@@ -14,6 +14,7 @@ import (
 
 // ## Example Usage
 //
+// ### Basic usage
 // ```go
 // package main
 //
@@ -62,7 +63,7 @@ import (
 //
 // ```
 //
-// ### With AzureRM Key Vault
+// ### Link to AzureRM Key Vault
 //
 // ```go
 // package main

@@ -90,7 +90,7 @@ type GetAreaResult struct {
 	Name string `pulumi:"name"`
 	// The complete path (in relative URL format) of the child Area
 	Path string `pulumi:"path"`
-	// The project ID of the child Area node
+	// The ID of project.
 	ProjectId string `pulumi:"projectId"`
 }
 
@@ -161,7 +161,7 @@ func (o GetAreaResultOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAreaResult) string { return v.Path }).(pulumi.StringOutput)
 }
 
-// The project ID of the child Area node
+// The ID of project.
 func (o GetAreaResultOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAreaResult) string { return v.ProjectId }).(pulumi.StringOutput)
 }

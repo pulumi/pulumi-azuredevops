@@ -34,8 +34,7 @@ public final class GitInitializationArgs extends com.pulumi.resources.ResourceAr
     /**
      * The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
      * 
-     * ~&gt;**Note**
-     * At least `service_connection_id` or `username/password` needs to be set to import private repository.
+     * ~&gt;**Note** At least `service_connection_id` or `username/password` needs to be set to import private repository.
      * 
      */
     @Import(name="password")
@@ -44,8 +43,7 @@ public final class GitInitializationArgs extends com.pulumi.resources.ResourceAr
     /**
      * @return The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
      * 
-     * ~&gt;**Note**
-     * At least `service_connection_id` or `username/password` needs to be set to import private repository.
+     * ~&gt;**Note** At least `service_connection_id` or `username/password` needs to be set to import private repository.
      * 
      */
     public Optional<Output<String>> password() {
@@ -165,8 +163,7 @@ public final class GitInitializationArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param password The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
          * 
-         * ~&gt;**Note**
-         * At least `service_connection_id` or `username/password` needs to be set to import private repository.
+         * ~&gt;**Note** At least `service_connection_id` or `username/password` needs to be set to import private repository.
          * 
          * @return builder
          * 
@@ -179,8 +176,7 @@ public final class GitInitializationArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param password The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
          * 
-         * ~&gt;**Note**
-         * At least `service_connection_id` or `username/password` needs to be set to import private repository.
+         * ~&gt;**Note** At least `service_connection_id` or `username/password` needs to be set to import private repository.
          * 
          * @return builder
          * 

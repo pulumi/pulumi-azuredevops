@@ -60,9 +60,7 @@ import (
 //
 // ## Import
 //
-// Azure DevOps Service Endpoint SSH can be imported using **projectID/serviceEndpointID** or **
-//
-// projectName/serviceEndpointID**
+// Azure DevOps SSH Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
 // $ pulumi import azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000

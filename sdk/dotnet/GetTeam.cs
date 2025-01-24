@@ -154,7 +154,7 @@ namespace Pulumi.AzureDevOps
         public string ProjectId { get; set; } = null!;
 
         /// <summary>
-        /// The maximum number of teams to return. Defaults to `100`.
+        /// The maximum number of teams to return. Defaults to `100`. This property is deprecated and will be removed in the feature
         /// </summary>
         [Input("top")]
         public int? Top { get; set; }
@@ -180,7 +180,7 @@ namespace Pulumi.AzureDevOps
         public Input<string> ProjectId { get; set; } = null!;
 
         /// <summary>
-        /// The maximum number of teams to return. Defaults to `100`.
+        /// The maximum number of teams to return. Defaults to `100`. This property is deprecated and will be removed in the feature
         /// </summary>
         [Input("top")]
         public Input<int>? Top { get; set; }
@@ -200,7 +200,7 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public readonly ImmutableArray<string> Administrators;
         /// <summary>
-        /// Team description.
+        /// The description of the team.
         /// </summary>
         public readonly string Description;
         /// <summary>

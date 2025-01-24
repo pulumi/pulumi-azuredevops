@@ -28,17 +28,24 @@ class ProjectArgs:
         """
         The set of arguments for constructing a Project resource.
         :param pulumi.Input[str] description: The Description of the Project.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] features: Defines the status (`enabled`, `disabled`) of the project features.
-               Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+               *
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] features: Defines the status (`enabled`, `disabled`) of the project features. Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
                
-               > **NOTE:**
-               > It's possible to define project features both within the `ProjectFeatures` resource and
-               > via the `features` block by using the `Project` resource.
-               > However it's not possible to use both methods to manage features, since there'll be conflicts.
+               | Features     | Possible Values   |
+               |--------------|-------------------|
+               | boards       | enabled, disabled |
+               | repositories | enabled, disabled |
+               | pipelines    | enabled, disabled |
+               | testplans    | enabled, disabled |
+               | artifacts    | enabled, disabled |
+               
+               > **NOTE:** It's possible to define project features both within the `ProjectFeatures` resource and
+               via the `features` block by using the `Project` resource.
+               However it's not possible to use both methods to manage features, since there'll be conflicts.
         :param pulumi.Input[str] name: The Project Name.
-        :param pulumi.Input[str] version_control: Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
-        :param pulumi.Input[str] visibility: Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
-        :param pulumi.Input[str] work_item_template: Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
+        :param pulumi.Input[str] version_control: Specifies the version control system. Possbile values are: `Git` or `Tfvc`. Defaults to `Git`.
+        :param pulumi.Input[str] visibility: Specifies the visibility of the Project. Possible values are: `private` or `public`. Defaults to `private`.
+        :param pulumi.Input[str] work_item_template: Specifies the work item template. Possible values are: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -58,6 +65,7 @@ class ProjectArgs:
     def description(self) -> Optional[pulumi.Input[str]]:
         """
         The Description of the Project.
+        *
         """
         return pulumi.get(self, "description")
 
@@ -69,13 +77,19 @@ class ProjectArgs:
     @pulumi.getter
     def features(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Defines the status (`enabled`, `disabled`) of the project features.
-        Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+        Defines the status (`enabled`, `disabled`) of the project features. Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 
-        > **NOTE:**
-        > It's possible to define project features both within the `ProjectFeatures` resource and
-        > via the `features` block by using the `Project` resource.
-        > However it's not possible to use both methods to manage features, since there'll be conflicts.
+        | Features     | Possible Values   |
+        |--------------|-------------------|
+        | boards       | enabled, disabled |
+        | repositories | enabled, disabled |
+        | pipelines    | enabled, disabled |
+        | testplans    | enabled, disabled |
+        | artifacts    | enabled, disabled |
+
+        > **NOTE:** It's possible to define project features both within the `ProjectFeatures` resource and
+        via the `features` block by using the `Project` resource.
+        However it's not possible to use both methods to manage features, since there'll be conflicts.
         """
         return pulumi.get(self, "features")
 
@@ -99,7 +113,7 @@ class ProjectArgs:
     @pulumi.getter(name="versionControl")
     def version_control(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
+        Specifies the version control system. Possbile values are: `Git` or `Tfvc`. Defaults to `Git`.
         """
         return pulumi.get(self, "version_control")
 
@@ -111,7 +125,7 @@ class ProjectArgs:
     @pulumi.getter
     def visibility(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
+        Specifies the visibility of the Project. Possible values are: `private` or `public`. Defaults to `private`.
         """
         return pulumi.get(self, "visibility")
 
@@ -123,7 +137,7 @@ class ProjectArgs:
     @pulumi.getter(name="workItemTemplate")
     def work_item_template(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
+        Specifies the work item template. Possible values are: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
         """
         return pulumi.get(self, "work_item_template")
 
@@ -145,18 +159,25 @@ class _ProjectState:
         """
         Input properties used for looking up and filtering Project resources.
         :param pulumi.Input[str] description: The Description of the Project.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] features: Defines the status (`enabled`, `disabled`) of the project features.
-               Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+               *
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] features: Defines the status (`enabled`, `disabled`) of the project features. Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
                
-               > **NOTE:**
-               > It's possible to define project features both within the `ProjectFeatures` resource and
-               > via the `features` block by using the `Project` resource.
-               > However it's not possible to use both methods to manage features, since there'll be conflicts.
+               | Features     | Possible Values   |
+               |--------------|-------------------|
+               | boards       | enabled, disabled |
+               | repositories | enabled, disabled |
+               | pipelines    | enabled, disabled |
+               | testplans    | enabled, disabled |
+               | artifacts    | enabled, disabled |
+               
+               > **NOTE:** It's possible to define project features both within the `ProjectFeatures` resource and
+               via the `features` block by using the `Project` resource.
+               However it's not possible to use both methods to manage features, since there'll be conflicts.
         :param pulumi.Input[str] name: The Project Name.
         :param pulumi.Input[str] process_template_id: The Process Template ID used by the Project.
-        :param pulumi.Input[str] version_control: Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
-        :param pulumi.Input[str] visibility: Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
-        :param pulumi.Input[str] work_item_template: Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
+        :param pulumi.Input[str] version_control: Specifies the version control system. Possbile values are: `Git` or `Tfvc`. Defaults to `Git`.
+        :param pulumi.Input[str] visibility: Specifies the visibility of the Project. Possible values are: `private` or `public`. Defaults to `private`.
+        :param pulumi.Input[str] work_item_template: Specifies the work item template. Possible values are: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -178,6 +199,7 @@ class _ProjectState:
     def description(self) -> Optional[pulumi.Input[str]]:
         """
         The Description of the Project.
+        *
         """
         return pulumi.get(self, "description")
 
@@ -189,13 +211,19 @@ class _ProjectState:
     @pulumi.getter
     def features(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Defines the status (`enabled`, `disabled`) of the project features.
-        Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+        Defines the status (`enabled`, `disabled`) of the project features. Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 
-        > **NOTE:**
-        > It's possible to define project features both within the `ProjectFeatures` resource and
-        > via the `features` block by using the `Project` resource.
-        > However it's not possible to use both methods to manage features, since there'll be conflicts.
+        | Features     | Possible Values   |
+        |--------------|-------------------|
+        | boards       | enabled, disabled |
+        | repositories | enabled, disabled |
+        | pipelines    | enabled, disabled |
+        | testplans    | enabled, disabled |
+        | artifacts    | enabled, disabled |
+
+        > **NOTE:** It's possible to define project features both within the `ProjectFeatures` resource and
+        via the `features` block by using the `Project` resource.
+        However it's not possible to use both methods to manage features, since there'll be conflicts.
         """
         return pulumi.get(self, "features")
 
@@ -231,7 +259,7 @@ class _ProjectState:
     @pulumi.getter(name="versionControl")
     def version_control(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
+        Specifies the version control system. Possbile values are: `Git` or `Tfvc`. Defaults to `Git`.
         """
         return pulumi.get(self, "version_control")
 
@@ -243,7 +271,7 @@ class _ProjectState:
     @pulumi.getter
     def visibility(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
+        Specifies the visibility of the Project. Possible values are: `private` or `public`. Defaults to `private`.
         """
         return pulumi.get(self, "visibility")
 
@@ -255,7 +283,7 @@ class _ProjectState:
     @pulumi.getter(name="workItemTemplate")
     def work_item_template(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
+        Specifies the work item template. Possible values are: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
         """
         return pulumi.get(self, "work_item_template")
 
@@ -304,6 +332,7 @@ class Project(pulumi.CustomResource):
         ## PAT Permissions Required
 
         - **Project & Team**: Read, Write, & Manage
+        - **Work Items**: Read
 
         ## Import
 
@@ -322,17 +351,24 @@ class Project(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The Description of the Project.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] features: Defines the status (`enabled`, `disabled`) of the project features.
-               Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+               *
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] features: Defines the status (`enabled`, `disabled`) of the project features. Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
                
-               > **NOTE:**
-               > It's possible to define project features both within the `ProjectFeatures` resource and
-               > via the `features` block by using the `Project` resource.
-               > However it's not possible to use both methods to manage features, since there'll be conflicts.
+               | Features     | Possible Values   |
+               |--------------|-------------------|
+               | boards       | enabled, disabled |
+               | repositories | enabled, disabled |
+               | pipelines    | enabled, disabled |
+               | testplans    | enabled, disabled |
+               | artifacts    | enabled, disabled |
+               
+               > **NOTE:** It's possible to define project features both within the `ProjectFeatures` resource and
+               via the `features` block by using the `Project` resource.
+               However it's not possible to use both methods to manage features, since there'll be conflicts.
         :param pulumi.Input[str] name: The Project Name.
-        :param pulumi.Input[str] version_control: Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
-        :param pulumi.Input[str] visibility: Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
-        :param pulumi.Input[str] work_item_template: Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
+        :param pulumi.Input[str] version_control: Specifies the version control system. Possbile values are: `Git` or `Tfvc`. Defaults to `Git`.
+        :param pulumi.Input[str] visibility: Specifies the visibility of the Project. Possible values are: `private` or `public`. Defaults to `private`.
+        :param pulumi.Input[str] work_item_template: Specifies the work item template. Possible values are: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
         """
         ...
     @overload
@@ -368,6 +404,7 @@ class Project(pulumi.CustomResource):
         ## PAT Permissions Required
 
         - **Project & Team**: Read, Write, & Manage
+        - **Work Items**: Read
 
         ## Import
 
@@ -445,18 +482,25 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The Description of the Project.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] features: Defines the status (`enabled`, `disabled`) of the project features.
-               Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+               *
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] features: Defines the status (`enabled`, `disabled`) of the project features. Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
                
-               > **NOTE:**
-               > It's possible to define project features both within the `ProjectFeatures` resource and
-               > via the `features` block by using the `Project` resource.
-               > However it's not possible to use both methods to manage features, since there'll be conflicts.
+               | Features     | Possible Values   |
+               |--------------|-------------------|
+               | boards       | enabled, disabled |
+               | repositories | enabled, disabled |
+               | pipelines    | enabled, disabled |
+               | testplans    | enabled, disabled |
+               | artifacts    | enabled, disabled |
+               
+               > **NOTE:** It's possible to define project features both within the `ProjectFeatures` resource and
+               via the `features` block by using the `Project` resource.
+               However it's not possible to use both methods to manage features, since there'll be conflicts.
         :param pulumi.Input[str] name: The Project Name.
         :param pulumi.Input[str] process_template_id: The Process Template ID used by the Project.
-        :param pulumi.Input[str] version_control: Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
-        :param pulumi.Input[str] visibility: Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
-        :param pulumi.Input[str] work_item_template: Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
+        :param pulumi.Input[str] version_control: Specifies the version control system. Possbile values are: `Git` or `Tfvc`. Defaults to `Git`.
+        :param pulumi.Input[str] visibility: Specifies the visibility of the Project. Possible values are: `private` or `public`. Defaults to `private`.
+        :param pulumi.Input[str] work_item_template: Specifies the work item template. Possible values are: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -476,6 +520,7 @@ class Project(pulumi.CustomResource):
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         The Description of the Project.
+        *
         """
         return pulumi.get(self, "description")
 
@@ -483,13 +528,19 @@ class Project(pulumi.CustomResource):
     @pulumi.getter
     def features(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Defines the status (`enabled`, `disabled`) of the project features.
-        Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+        Defines the status (`enabled`, `disabled`) of the project features. Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 
-        > **NOTE:**
-        > It's possible to define project features both within the `ProjectFeatures` resource and
-        > via the `features` block by using the `Project` resource.
-        > However it's not possible to use both methods to manage features, since there'll be conflicts.
+        | Features     | Possible Values   |
+        |--------------|-------------------|
+        | boards       | enabled, disabled |
+        | repositories | enabled, disabled |
+        | pipelines    | enabled, disabled |
+        | testplans    | enabled, disabled |
+        | artifacts    | enabled, disabled |
+
+        > **NOTE:** It's possible to define project features both within the `ProjectFeatures` resource and
+        via the `features` block by using the `Project` resource.
+        However it's not possible to use both methods to manage features, since there'll be conflicts.
         """
         return pulumi.get(self, "features")
 
@@ -513,7 +564,7 @@ class Project(pulumi.CustomResource):
     @pulumi.getter(name="versionControl")
     def version_control(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
+        Specifies the version control system. Possbile values are: `Git` or `Tfvc`. Defaults to `Git`.
         """
         return pulumi.get(self, "version_control")
 
@@ -521,7 +572,7 @@ class Project(pulumi.CustomResource):
     @pulumi.getter
     def visibility(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
+        Specifies the visibility of the Project. Possible values are: `private` or `public`. Defaults to `private`.
         """
         return pulumi.get(self, "visibility")
 
@@ -529,7 +580,7 @@ class Project(pulumi.CustomResource):
     @pulumi.getter(name="workItemTemplate")
     def work_item_template(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
+        Specifies the work item template. Possible values are: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
         """
         return pulumi.get(self, "work_item_template")
 

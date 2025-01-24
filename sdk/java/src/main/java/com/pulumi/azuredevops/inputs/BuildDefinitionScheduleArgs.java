@@ -21,14 +21,14 @@ public final class BuildDefinitionScheduleArgs extends com.pulumi.resources.Reso
     public static final BuildDefinitionScheduleArgs Empty = new BuildDefinitionScheduleArgs();
 
     /**
-     * block supports the following:
+     * A `branch_filter` block as defined below.
      * 
      */
     @Import(name="branchFilters", required=true)
     private Output<List<BuildDefinitionScheduleBranchFilterArgs>> branchFilters;
 
     /**
-     * @return block supports the following:
+     * @return A `branch_filter` block as defined below.
      * 
      */
     public Output<List<BuildDefinitionScheduleBranchFilterArgs>> branchFilters() {
@@ -36,14 +36,14 @@ public final class BuildDefinitionScheduleArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
+     * When to build. Possible values are: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
      * 
      */
     @Import(name="daysToBuilds", required=true)
     private Output<List<String>> daysToBuilds;
 
     /**
-     * @return When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
+     * @return When to build. Possible values are: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
      * 
      */
     public Output<List<String>> daysToBuilds() {
@@ -81,14 +81,14 @@ public final class BuildDefinitionScheduleArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Build start hour. Defaults to `0`. Valid values: `0 ~ 23`.
+     * Build start hour. Possible values are: `0 ~ 23`. Defaults to `0`.
      * 
      */
     @Import(name="startHours")
     private @Nullable Output<Integer> startHours;
 
     /**
-     * @return Build start hour. Defaults to `0`. Valid values: `0 ~ 23`.
+     * @return Build start hour. Possible values are: `0 ~ 23`. Defaults to `0`.
      * 
      */
     public Optional<Output<Integer>> startHours() {
@@ -96,14 +96,14 @@ public final class BuildDefinitionScheduleArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Build start minute. Defaults to `0`. Valid values: `0 ~ 59`.
+     * Build start minute. Possible values are: `0 ~ 59`. Defaults to `0`.
      * 
      */
     @Import(name="startMinutes")
     private @Nullable Output<Integer> startMinutes;
 
     /**
-     * @return Build start minute. Defaults to `0`. Valid values: `0 ~ 59`.
+     * @return Build start minute. Possible values are: `0 ~ 59`. Defaults to `0`.
      * 
      */
     public Optional<Output<Integer>> startMinutes() {
@@ -111,7 +111,7 @@ public final class BuildDefinitionScheduleArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Valid values:
+     * Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Possible values are:
      * `(UTC-12:00) International Date Line West`,
      * `(UTC-11:00) Coordinated Universal Time-11`,
      * `(UTC-10:00) Aleutian Islands`,
@@ -259,7 +259,7 @@ public final class BuildDefinitionScheduleArgs extends com.pulumi.resources.Reso
     private @Nullable Output<String> timeZone;
 
     /**
-     * @return Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Valid values:
+     * @return Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Possible values are:
      * `(UTC-12:00) International Date Line West`,
      * `(UTC-11:00) Coordinated Universal Time-11`,
      * `(UTC-10:00) Aleutian Islands`,
@@ -438,7 +438,7 @@ public final class BuildDefinitionScheduleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param branchFilters block supports the following:
+         * @param branchFilters A `branch_filter` block as defined below.
          * 
          * @return builder
          * 
@@ -449,7 +449,7 @@ public final class BuildDefinitionScheduleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param branchFilters block supports the following:
+         * @param branchFilters A `branch_filter` block as defined below.
          * 
          * @return builder
          * 
@@ -459,7 +459,7 @@ public final class BuildDefinitionScheduleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param branchFilters block supports the following:
+         * @param branchFilters A `branch_filter` block as defined below.
          * 
          * @return builder
          * 
@@ -469,7 +469,7 @@ public final class BuildDefinitionScheduleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param daysToBuilds When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
+         * @param daysToBuilds When to build. Possible values are: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
          * 
          * @return builder
          * 
@@ -480,7 +480,7 @@ public final class BuildDefinitionScheduleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param daysToBuilds When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
+         * @param daysToBuilds When to build. Possible values are: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
          * 
          * @return builder
          * 
@@ -490,7 +490,7 @@ public final class BuildDefinitionScheduleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param daysToBuilds When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
+         * @param daysToBuilds When to build. Possible values are: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
          * 
          * @return builder
          * 
@@ -542,7 +542,7 @@ public final class BuildDefinitionScheduleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param startHours Build start hour. Defaults to `0`. Valid values: `0 ~ 23`.
+         * @param startHours Build start hour. Possible values are: `0 ~ 23`. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -553,7 +553,7 @@ public final class BuildDefinitionScheduleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param startHours Build start hour. Defaults to `0`. Valid values: `0 ~ 23`.
+         * @param startHours Build start hour. Possible values are: `0 ~ 23`. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -563,7 +563,7 @@ public final class BuildDefinitionScheduleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param startMinutes Build start minute. Defaults to `0`. Valid values: `0 ~ 59`.
+         * @param startMinutes Build start minute. Possible values are: `0 ~ 59`. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -574,7 +574,7 @@ public final class BuildDefinitionScheduleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param startMinutes Build start minute. Defaults to `0`. Valid values: `0 ~ 59`.
+         * @param startMinutes Build start minute. Possible values are: `0 ~ 59`. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -584,7 +584,7 @@ public final class BuildDefinitionScheduleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param timeZone Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Valid values:
+         * @param timeZone Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Possible values are:
          * `(UTC-12:00) International Date Line West`,
          * `(UTC-11:00) Coordinated Universal Time-11`,
          * `(UTC-10:00) Aleutian Islands`,
@@ -736,7 +736,7 @@ public final class BuildDefinitionScheduleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param timeZone Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Valid values:
+         * @param timeZone Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Possible values are:
          * `(UTC-12:00) International Date Line West`,
          * `(UTC-11:00) Coordinated Universal Time-11`,
          * `(UTC-10:00) Aleutian Islands`,

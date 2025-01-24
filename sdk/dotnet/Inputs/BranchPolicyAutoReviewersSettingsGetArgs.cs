@@ -54,7 +54,7 @@ namespace Pulumi.AzureDevOps.Inputs
         private InputList<Inputs.BranchPolicyAutoReviewersSettingsScopeGetArgs>? _scopes;
 
         /// <summary>
-        /// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        /// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         /// </summary>
         public InputList<Inputs.BranchPolicyAutoReviewersSettingsScopeGetArgs> Scopes
         {

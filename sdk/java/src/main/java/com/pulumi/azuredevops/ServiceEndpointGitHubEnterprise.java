@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Azure DevOps Service Endpoint GitHub Enterprise Server can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+ * Azure DevOps GitHub Enterprise Server Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
  * 
  * ```sh
  * $ pulumi import azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -86,9 +86,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise")
 public class ServiceEndpointGitHubEnterprise extends com.pulumi.resources.CustomResource {
+    /**
+     * An `auth_personal` block as documented below. Allows connecting using a personal access token.
+     * 
+     */
     @Export(name="authPersonal", refs={ServiceEndpointGitHubEnterpriseAuthPersonal.class}, tree="[0]")
     private Output<ServiceEndpointGitHubEnterpriseAuthPersonal> authPersonal;
 
+    /**
+     * @return An `auth_personal` block as documented below. Allows connecting using a personal access token.
+     * 
+     */
     public Output<ServiceEndpointGitHubEnterpriseAuthPersonal> authPersonal() {
         return this.authPersonal;
     }

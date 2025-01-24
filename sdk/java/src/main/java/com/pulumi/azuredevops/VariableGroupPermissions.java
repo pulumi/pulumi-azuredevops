@@ -96,15 +96,15 @@ import javax.annotation.Nullable;
  * 
  * The Azure DevOps UI uses roles to assign permissions for variable groups.
  * 
- * | Role          | Allow Permissions      |
- * | ------------- | ---------------------- |
- * | Reader        | View                   |
- * | User          | View, Use              |
- * | Administrator | View, Use, Administer  |
+ * | Role          | Allow Permissions     |
+ * |---------------|-----------------------|
+ * | Reader        | View                  |
+ * | User          | View, Use             |
+ * | Administrator | View, Use, Administer |
  * 
  * ## Relevant Links
  * 
- * * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
+ * * [Azure DevOps Service REST API 7.1 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.1)
  * 
  * ## PAT Permissions Required
  * 
@@ -120,12 +120,30 @@ public class VariableGroupPermissions extends com.pulumi.resources.CustomResourc
     /**
      * the permissions to assign. The following permissions are available.
      * 
+     * | Permission  | Description               |
+     * |-------------|---------------------------|
+     * | View        | View library item         |
+     * | Administer  | Administer library item   |
+     * | Create      | Create library item       |
+     * | ViewSecrets | View library item secrets |
+     * | Use         | Use library item          |
+     * | Owner       | Owner library item        |
+     * 
      */
     @Export(name="permissions", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> permissions;
 
     /**
      * @return the permissions to assign. The following permissions are available.
+     * 
+     * | Permission  | Description               |
+     * |-------------|---------------------------|
+     * | View        | View library item         |
+     * | Administer  | Administer library item   |
+     * | Create      | Create library item       |
+     * | ViewSecrets | View library item secrets |
+     * | Use         | Use library item          |
+     * | Owner       | Owner library item        |
      * 
      */
     public Output<Map<String,String>> permissions() {
@@ -162,30 +180,12 @@ public class VariableGroupPermissions extends com.pulumi.resources.CustomResourc
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      * 
-     * | Permission        | Description                         |
-     * | ----------------- | ----------------------------------- |
-     * | View              | View library item                   |
-     * | Administer        | Administer library item             |
-     * | Create            | Create library item                 |
-     * | ViewSecrets       | View library item secrets           |
-     * | Use               | Use library item                    |
-     * | Owner             | Owner library item                  |
-     * 
      */
     @Export(name="replace", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> replace;
 
     /**
      * @return Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     * 
-     * | Permission        | Description                         |
-     * | ----------------- | ----------------------------------- |
-     * | View              | View library item                   |
-     * | Administer        | Administer library item             |
-     * | Create            | Create library item                 |
-     * | ViewSecrets       | View library item secrets           |
-     * | Use               | Use library item                    |
-     * | Owner             | Owner library item                  |
      * 
      */
     public Output<Optional<Boolean>> replace() {

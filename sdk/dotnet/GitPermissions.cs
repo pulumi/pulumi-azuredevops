@@ -278,16 +278,15 @@ namespace Pulumi.AzureDevOps
     public partial class GitPermissions : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the branch to assign the permissions. 
+        /// The name of the branch to assign the permissions.
         /// 
-        /// &gt; **Note** to assign permissions to a branch, the `repository_id` must be set as well.
+        /// &gt; **Note** To assign permissions to a branch, the `repository_id` must be set as well.
         /// </summary>
         [Output("branchName")]
         public Output<string?> BranchName { get; private set; } = null!;
 
         /// <summary>
         /// the permissions to assign. The following permissions are available
-        /// 
         /// 
         /// | Permissions             | Description                                            |
         /// |-------------------------|--------------------------------------------------------|
@@ -382,9 +381,9 @@ namespace Pulumi.AzureDevOps
     public sealed class GitPermissionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the branch to assign the permissions. 
+        /// The name of the branch to assign the permissions.
         /// 
-        /// &gt; **Note** to assign permissions to a branch, the `repository_id` must be set as well.
+        /// &gt; **Note** To assign permissions to a branch, the `repository_id` must be set as well.
         /// </summary>
         [Input("branchName")]
         public Input<string>? BranchName { get; set; }
@@ -394,7 +393,6 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// the permissions to assign. The following permissions are available
-        /// 
         /// 
         /// | Permissions             | Description                                            |
         /// |-------------------------|--------------------------------------------------------|
@@ -454,9 +452,9 @@ namespace Pulumi.AzureDevOps
     public sealed class GitPermissionsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the branch to assign the permissions. 
+        /// The name of the branch to assign the permissions.
         /// 
-        /// &gt; **Note** to assign permissions to a branch, the `repository_id` must be set as well.
+        /// &gt; **Note** To assign permissions to a branch, the `repository_id` must be set as well.
         /// </summary>
         [Input("branchName")]
         public Input<string>? BranchName { get; set; }
@@ -466,7 +464,6 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// the permissions to assign. The following permissions are available
-        /// 
         /// 
         /// | Permissions             | Description                                            |
         /// |-------------------------|--------------------------------------------------------|

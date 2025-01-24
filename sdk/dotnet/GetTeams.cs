@@ -170,12 +170,11 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Project identifier.
-        /// - `id - Team identifier
+        /// The ID of the Project.
         /// </summary>
         public readonly string? ProjectId;
         /// <summary>
-        /// A list of existing projects in your Azure DevOps Organization with details about every project which includes:
+        /// A list of `teams` blocks as documented below. A list of existing projects in your Azure DevOps Organization with details about every project which includes:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTeamsTeamResult> Teams;
         public readonly int? Top;

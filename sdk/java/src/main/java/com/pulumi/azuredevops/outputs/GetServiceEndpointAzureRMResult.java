@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetServiceEndpointAzureRMResult {
     /**
-     * @return The Authorization Scheme Map.
+     * @return The Authorization scheme.
      * 
      */
     private Map<String,String> authorization;
@@ -92,7 +92,7 @@ public final class GetServiceEndpointAzureRMResult {
 
     private GetServiceEndpointAzureRMResult() {}
     /**
-     * @return The Authorization Scheme Map.
+     * @return The Authorization scheme.
      * 
      */
     public Map<String,String> authorization() {

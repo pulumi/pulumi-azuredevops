@@ -94,8 +94,7 @@ export class Queue extends pulumi.CustomResource {
     /**
      * The ID of the organization agent pool. Conflicts with `name`.
      *
-     * > **NOTE:**
-     * One of `name` or `agentPoolId` must be specified, but not both.
+     * > **NOTE:** One of `name` or `agentPoolId` must be specified, but not both.
      * When `agentPoolId` is specified, the agent queue name will be derived from the agent pool name.
      */
     public readonly agentPoolId!: pulumi.Output<number>;
@@ -145,8 +144,7 @@ export interface QueueState {
     /**
      * The ID of the organization agent pool. Conflicts with `name`.
      *
-     * > **NOTE:**
-     * One of `name` or `agentPoolId` must be specified, but not both.
+     * > **NOTE:** One of `name` or `agentPoolId` must be specified, but not both.
      * When `agentPoolId` is specified, the agent queue name will be derived from the agent pool name.
      */
     agentPoolId?: pulumi.Input<number>;
@@ -167,8 +165,7 @@ export interface QueueArgs {
     /**
      * The ID of the organization agent pool. Conflicts with `name`.
      *
-     * > **NOTE:**
-     * One of `name` or `agentPoolId` must be specified, but not both.
+     * > **NOTE:** One of `name` or `agentPoolId` must be specified, but not both.
      * When `agentPoolId` is specified, the agent queue name will be derived from the agent pool name.
      */
     agentPoolId?: pulumi.Input<number>;

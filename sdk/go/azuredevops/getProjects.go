@@ -61,7 +61,7 @@ type GetProjectsArgs struct {
 	Name *string `pulumi:"name"`
 	// State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
 	//
-	// DataSource without specifying any arguments will return all projects.
+	// > **NOTE:** DataSource without specifying any arguments will return all projects.
 	State *string `pulumi:"state"`
 }
 
@@ -71,9 +71,9 @@ type GetProjectsResult struct {
 	Id string `pulumi:"id"`
 	// The name of the Project.
 	Name *string `pulumi:"name"`
-	// A list of existing projects in your Azure DevOps Organization with details about every project which includes:
+	// A list of `projects` blocks as documented below. A list of existing projects in your Azure DevOps Organization with details about every project which includes:
 	Projects []GetProjectsProject `pulumi:"projects"`
-	// Project state.
+	// The state of the Project.
 	State *string `pulumi:"state"`
 }
 
@@ -92,7 +92,7 @@ type GetProjectsOutputArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
 	//
-	// DataSource without specifying any arguments will return all projects.
+	// > **NOTE:** DataSource without specifying any arguments will return all projects.
 	State pulumi.StringPtrInput `pulumi:"state"`
 }
 
@@ -125,12 +125,12 @@ func (o GetProjectsResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetProjectsResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// A list of existing projects in your Azure DevOps Organization with details about every project which includes:
+// A list of `projects` blocks as documented below. A list of existing projects in your Azure DevOps Organization with details about every project which includes:
 func (o GetProjectsResultOutput) Projects() GetProjectsProjectArrayOutput {
 	return o.ApplyT(func(v GetProjectsResult) []GetProjectsProject { return v.Projects }).(GetProjectsProjectArrayOutput)
 }
 
-// Project state.
+// The state of the Project.
 func (o GetProjectsResultOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetProjectsResult) *string { return v.State }).(pulumi.StringPtrOutput)
 }

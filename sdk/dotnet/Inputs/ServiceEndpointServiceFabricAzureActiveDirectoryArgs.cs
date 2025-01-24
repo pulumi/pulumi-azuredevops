@@ -35,7 +35,7 @@ namespace Pulumi.AzureDevOps.Inputs
         public Input<string>? ServerCertificateCommonName { get; set; }
 
         /// <summary>
-        /// Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+        /// Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
         /// </summary>
         [Input("serverCertificateLookup", required: true)]
         public Input<string> ServerCertificateLookup { get; set; } = null!;

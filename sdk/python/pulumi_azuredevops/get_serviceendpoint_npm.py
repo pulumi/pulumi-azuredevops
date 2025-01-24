@@ -53,7 +53,7 @@ class GetServiceendpointNpmResult:
     @pulumi.getter
     def authorization(self) -> Mapping[str, str]:
         """
-        Specifies the Authorization Scheme Map.
+        The Authorization scheme.
         """
         return pulumi.get(self, "authorization")
 
@@ -61,7 +61,7 @@ class GetServiceendpointNpmResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        Specifies the description of the Service Endpoint.
+        The description of the Service Endpoint.
         """
         return pulumi.get(self, "description")
 
@@ -92,7 +92,7 @@ class GetServiceendpointNpmResult:
     @pulumi.getter
     def url(self) -> str:
         """
-        Specifies the URL of the npm registry to connect with.
+        The URL of the NPM registry to connect with.
         """
         return pulumi.get(self, "url")
 

@@ -44,7 +44,7 @@ import (
 //				return err
 //			}
 //			exampleFeed, err := azuredevops.NewFeed(ctx, "example", &azuredevops.FeedArgs{
-//				Name: pulumi.String("releases"),
+//				Name: pulumi.String("examplefeed"),
 //			})
 //			if err != nil {
 //				return err
@@ -79,7 +79,7 @@ type FeedPermission struct {
 	IdentityId pulumi.StringOutput `pulumi:"identityId"`
 	// The ID of the Project Feed is created in. If not specified, feed will be created at the organization level.
 	ProjectId pulumi.StringPtrOutput `pulumi:"projectId"`
-	// The role to be assigned, possible values : `reader`, `contributor`, `collaborator`, `administrator`
+	// The role to be assigned. Possible values are: `reader`, `contributor`, `collaborator`, `administrator`
 	Role pulumi.StringOutput `pulumi:"role"`
 }
 
@@ -132,7 +132,7 @@ type feedPermissionState struct {
 	IdentityId *string `pulumi:"identityId"`
 	// The ID of the Project Feed is created in. If not specified, feed will be created at the organization level.
 	ProjectId *string `pulumi:"projectId"`
-	// The role to be assigned, possible values : `reader`, `contributor`, `collaborator`, `administrator`
+	// The role to be assigned. Possible values are: `reader`, `contributor`, `collaborator`, `administrator`
 	Role *string `pulumi:"role"`
 }
 
@@ -147,7 +147,7 @@ type FeedPermissionState struct {
 	IdentityId pulumi.StringPtrInput
 	// The ID of the Project Feed is created in. If not specified, feed will be created at the organization level.
 	ProjectId pulumi.StringPtrInput
-	// The role to be assigned, possible values : `reader`, `contributor`, `collaborator`, `administrator`
+	// The role to be assigned. Possible values are: `reader`, `contributor`, `collaborator`, `administrator`
 	Role pulumi.StringPtrInput
 }
 
@@ -164,7 +164,7 @@ type feedPermissionArgs struct {
 	IdentityDescriptor string `pulumi:"identityDescriptor"`
 	// The ID of the Project Feed is created in. If not specified, feed will be created at the organization level.
 	ProjectId *string `pulumi:"projectId"`
-	// The role to be assigned, possible values : `reader`, `contributor`, `collaborator`, `administrator`
+	// The role to be assigned. Possible values are: `reader`, `contributor`, `collaborator`, `administrator`
 	Role string `pulumi:"role"`
 }
 
@@ -178,7 +178,7 @@ type FeedPermissionArgs struct {
 	IdentityDescriptor pulumi.StringInput
 	// The ID of the Project Feed is created in. If not specified, feed will be created at the organization level.
 	ProjectId pulumi.StringPtrInput
-	// The role to be assigned, possible values : `reader`, `contributor`, `collaborator`, `administrator`
+	// The role to be assigned. Possible values are: `reader`, `contributor`, `collaborator`, `administrator`
 	Role pulumi.StringInput
 }
 
@@ -294,7 +294,7 @@ func (o FeedPermissionOutput) ProjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FeedPermission) pulumi.StringPtrOutput { return v.ProjectId }).(pulumi.StringPtrOutput)
 }
 
-// The role to be assigned, possible values : `reader`, `contributor`, `collaborator`, `administrator`
+// The role to be assigned. Possible values are: `reader`, `contributor`, `collaborator`, `administrator`
 func (o FeedPermissionOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v *FeedPermission) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
 }

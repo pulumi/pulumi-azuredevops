@@ -145,14 +145,14 @@ public final class BuildDefinitionState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+     * The queue status of the build definition. Possible values are: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
      * 
      */
     @Import(name="queueStatus")
     private @Nullable Output<String> queueStatus;
 
     /**
-     * @return The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+     * @return The queue status of the build definition. Possible values are: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
      * 
      */
     public Optional<Output<String>> queueStatus() {
@@ -452,7 +452,7 @@ public final class BuildDefinitionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param queueStatus The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+         * @param queueStatus The queue status of the build definition. Possible values are: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
          * 
          * @return builder
          * 
@@ -463,7 +463,7 @@ public final class BuildDefinitionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param queueStatus The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+         * @param queueStatus The queue status of the build definition. Possible values are: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
          * 
          * @return builder
          * 

@@ -99,7 +99,7 @@ type BranchPolicyMergeTypes struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The ID of the project in which the policy will be created.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
-	// Configuration for the policy. This block must be defined exactly once.
+	// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
 	Settings BranchPolicyMergeTypesSettingsOutput `pulumi:"settings"`
 }
 
@@ -145,7 +145,7 @@ type branchPolicyMergeTypesState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The ID of the project in which the policy will be created.
 	ProjectId *string `pulumi:"projectId"`
-	// Configuration for the policy. This block must be defined exactly once.
+	// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
 	Settings *BranchPolicyMergeTypesSettings `pulumi:"settings"`
 }
 
@@ -156,7 +156,7 @@ type BranchPolicyMergeTypesState struct {
 	Enabled pulumi.BoolPtrInput
 	// The ID of the project in which the policy will be created.
 	ProjectId pulumi.StringPtrInput
-	// Configuration for the policy. This block must be defined exactly once.
+	// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
 	Settings BranchPolicyMergeTypesSettingsPtrInput
 }
 
@@ -171,7 +171,7 @@ type branchPolicyMergeTypesArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The ID of the project in which the policy will be created.
 	ProjectId string `pulumi:"projectId"`
-	// Configuration for the policy. This block must be defined exactly once.
+	// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
 	Settings BranchPolicyMergeTypesSettings `pulumi:"settings"`
 }
 
@@ -183,7 +183,7 @@ type BranchPolicyMergeTypesArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// The ID of the project in which the policy will be created.
 	ProjectId pulumi.StringInput
-	// Configuration for the policy. This block must be defined exactly once.
+	// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
 	Settings BranchPolicyMergeTypesSettingsInput
 }
 
@@ -289,7 +289,7 @@ func (o BranchPolicyMergeTypesOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BranchPolicyMergeTypes) pulumi.StringOutput { return v.ProjectId }).(pulumi.StringOutput)
 }
 
-// Configuration for the policy. This block must be defined exactly once.
+// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
 func (o BranchPolicyMergeTypesOutput) Settings() BranchPolicyMergeTypesSettingsOutput {
 	return o.ApplyT(func(v *BranchPolicyMergeTypes) BranchPolicyMergeTypesSettingsOutput { return v.Settings }).(BranchPolicyMergeTypesSettingsOutput)
 }

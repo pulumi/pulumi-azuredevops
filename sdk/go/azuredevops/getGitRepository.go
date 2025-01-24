@@ -63,9 +63,9 @@ func GetGitRepository(ctx *pulumi.Context, args *GetGitRepositoryArgs, opts ...p
 
 // A collection of arguments for invoking getGitRepository.
 type GetGitRepositoryArgs struct {
-	// Name of the Git repository to retrieve
+	// The Name of the Git repository to retrieve
 	Name string `pulumi:"name"`
-	// ID of project to list Git repositories
+	// The ID of project to list Git repositories
 	ProjectId string `pulumi:"projectId"`
 }
 
@@ -73,12 +73,12 @@ type GetGitRepositoryArgs struct {
 type GetGitRepositoryResult struct {
 	// The ref of the default branch.
 	DefaultBranch string `pulumi:"defaultBranch"`
-	// Is the repository disabled?
+	// Indicates whether the repository is disabled.
 	Disabled bool `pulumi:"disabled"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string `pulumi:"id"`
 	IsFork bool   `pulumi:"isFork"`
-	// Git repository name.
+	// The name of the Git repository.
 	Name string `pulumi:"name"`
 	// Project identifier to which the Git repository belongs.
 	ProjectId string `pulumi:"projectId"`
@@ -88,9 +88,9 @@ type GetGitRepositoryResult struct {
 	Size int `pulumi:"size"`
 	// SSH Url to clone the Git repository
 	SshUrl string `pulumi:"sshUrl"`
-	// Details REST API endpoint for the Git Repository.
+	// The details REST API endpoint for the Git Repository.
 	Url string `pulumi:"url"`
-	// Url of the Git repository web view
+	// The Url of the Git repository web view
 	WebUrl string `pulumi:"webUrl"`
 }
 
@@ -105,9 +105,9 @@ func GetGitRepositoryOutput(ctx *pulumi.Context, args GetGitRepositoryOutputArgs
 
 // A collection of arguments for invoking getGitRepository.
 type GetGitRepositoryOutputArgs struct {
-	// Name of the Git repository to retrieve
+	// The Name of the Git repository to retrieve
 	Name pulumi.StringInput `pulumi:"name"`
-	// ID of project to list Git repositories
+	// The ID of project to list Git repositories
 	ProjectId pulumi.StringInput `pulumi:"projectId"`
 }
 
@@ -135,7 +135,7 @@ func (o GetGitRepositoryResultOutput) DefaultBranch() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGitRepositoryResult) string { return v.DefaultBranch }).(pulumi.StringOutput)
 }
 
-// Is the repository disabled?
+// Indicates whether the repository is disabled.
 func (o GetGitRepositoryResultOutput) Disabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetGitRepositoryResult) bool { return v.Disabled }).(pulumi.BoolOutput)
 }
@@ -149,7 +149,7 @@ func (o GetGitRepositoryResultOutput) IsFork() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetGitRepositoryResult) bool { return v.IsFork }).(pulumi.BoolOutput)
 }
 
-// Git repository name.
+// The name of the Git repository.
 func (o GetGitRepositoryResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGitRepositoryResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -174,12 +174,12 @@ func (o GetGitRepositoryResultOutput) SshUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGitRepositoryResult) string { return v.SshUrl }).(pulumi.StringOutput)
 }
 
-// Details REST API endpoint for the Git Repository.
+// The details REST API endpoint for the Git Repository.
 func (o GetGitRepositoryResultOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGitRepositoryResult) string { return v.Url }).(pulumi.StringOutput)
 }
 
-// Url of the Git repository web view
+// The Url of the Git repository web view
 func (o GetGitRepositoryResultOutput) WebUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGitRepositoryResult) string { return v.WebUrl }).(pulumi.StringOutput)
 }

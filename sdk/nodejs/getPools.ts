@@ -24,7 +24,7 @@ import * as utilities from "./utilities";
  *
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
+ * - [Azure DevOps Service REST API 7.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.1)
  */
 export function getPools(opts?: pulumi.InvokeOptions): Promise<GetPoolsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,7 +37,7 @@ export function getPools(opts?: pulumi.InvokeOptions): Promise<GetPoolsResult> {
  */
 export interface GetPoolsResult {
     /**
-     * A list of existing agent pools in your Azure DevOps Organization with the following details about every agent pool:
+     * An `agentPools` blocks as documented below. A list of existing agent pools in your Azure DevOps Organization with the following details about every agent pool:
      */
     readonly agentPools: outputs.GetPoolsAgentPool[];
     /**
@@ -63,7 +63,7 @@ export interface GetPoolsResult {
  *
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
+ * - [Azure DevOps Service REST API 7.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.1)
  */
 export function getPoolsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPoolsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

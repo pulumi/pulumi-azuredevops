@@ -42,7 +42,7 @@ public final class GetAreaResult {
      */
     private String path;
     /**
-     * @return The project ID of the child Area node
+     * @return The ID of project.
      * 
      */
     private String projectId;
@@ -87,7 +87,7 @@ public final class GetAreaResult {
         return this.path;
     }
     /**
-     * @return The project ID of the child Area node
+     * @return The ID of project.
      * 
      */
     public String projectId() {

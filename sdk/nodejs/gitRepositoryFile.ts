@@ -83,8 +83,7 @@ export class GitRepositoryFile extends pulumi.CustomResource {
     }
 
     /**
-     * Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it
-     * does not already exist.
+     * Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
      */
     public readonly branch!: pulumi.Output<string | undefined>;
     /**
@@ -155,8 +154,7 @@ export class GitRepositoryFile extends pulumi.CustomResource {
  */
 export interface GitRepositoryFileState {
     /**
-     * Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it
-     * does not already exist.
+     * Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
      */
     branch?: pulumi.Input<string>;
     /**
@@ -186,8 +184,7 @@ export interface GitRepositoryFileState {
  */
 export interface GitRepositoryFileArgs {
     /**
-     * Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it
-     * does not already exist.
+     * Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
      */
     branch?: pulumi.Input<string>;
     /**

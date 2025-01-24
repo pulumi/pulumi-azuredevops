@@ -97,7 +97,7 @@ class GetUsersResult:
     @pulumi.getter
     def users(self) -> Sequence['outputs.GetUsersUserResult']:
         """
-        A set of existing users in your Azure DevOps Organization with details about every single user which includes:
+        A `users` block as defined below. A set of existing users in your Azure DevOps Organization with details about every single user.
         """
         return pulumi.get(self, "users")
 
@@ -128,14 +128,12 @@ def get_users(features: Optional[Union['GetUsersFeaturesArgs', 'GetUsersFeatures
 
 
     :param Union['GetUsersFeaturesArgs', 'GetUsersFeaturesArgsDict'] features: A `features` block as defined below.
-           
-           DataSource without specifying any arguments will return all users inside an organization.
-           
-           List of possible subject types
     :param str origin: The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+           <pre>List of possible origins
     :param str origin_id: The unique identifier from the system of origin.
     :param str principal_name: The PrincipalName of this graph member from the source provider.
     :param Sequence[str] subject_types: A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
+           <pre>List of possible subject types
     """
     __args__ = dict()
     __args__['features'] = features
@@ -165,14 +163,12 @@ def get_users_output(features: Optional[pulumi.Input[Optional[Union['GetUsersFea
 
 
     :param Union['GetUsersFeaturesArgs', 'GetUsersFeaturesArgsDict'] features: A `features` block as defined below.
-           
-           DataSource without specifying any arguments will return all users inside an organization.
-           
-           List of possible subject types
     :param str origin: The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+           <pre>List of possible origins
     :param str origin_id: The unique identifier from the system of origin.
     :param str principal_name: The PrincipalName of this graph member from the source provider.
     :param Sequence[str] subject_types: A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
+           <pre>List of possible subject types
     """
     __args__ = dict()
     __args__['features'] = features

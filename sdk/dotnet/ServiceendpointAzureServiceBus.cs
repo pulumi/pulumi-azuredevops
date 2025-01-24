@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps
 {
     /// <summary>
-    /// Manages an Azure Service Bus endpoint within Azure DevOps.
+    /// Manages an Azure Service Bus service endpoint within Azure DevOps.
     /// 
     /// ## Example Usage
     /// 

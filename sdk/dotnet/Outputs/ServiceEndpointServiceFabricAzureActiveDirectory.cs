@@ -22,7 +22,7 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly string? ServerCertificateCommonName;
         /// <summary>
-        /// Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+        /// Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
         /// </summary>
         public readonly string ServerCertificateLookup;
         /// <summary>

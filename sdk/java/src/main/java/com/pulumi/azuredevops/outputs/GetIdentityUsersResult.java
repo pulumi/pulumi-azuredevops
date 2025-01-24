@@ -12,20 +12,24 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetIdentityUsersResult {
+    /**
+     * @return The descriptor of the user.
+     * 
+     */
     private String descriptor;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return This is the PrincipalName of this identity member from the source provider. The source provider may change this field over time and it is not guaranteed to be immutable for the life of the identity member.
-     * 
-     */
     private String name;
     private @Nullable String searchFilter;
 
     private GetIdentityUsersResult() {}
+    /**
+     * @return The descriptor of the user.
+     * 
+     */
     public String descriptor() {
         return this.descriptor;
     }
@@ -36,10 +40,6 @@ public final class GetIdentityUsersResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return This is the PrincipalName of this identity member from the source provider. The source provider may change this field over time and it is not guaranteed to be immutable for the life of the identity member.
-     * 
-     */
     public String name() {
         return this.name;
     }

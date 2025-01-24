@@ -23,7 +23,7 @@ public final class ServiceEndpointServiceFabricAzureActiveDirectory {
      */
     private @Nullable String serverCertificateCommonName;
     /**
-     * @return Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+     * @return Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
      * 
      */
     private String serverCertificateLookup;
@@ -54,7 +54,7 @@ public final class ServiceEndpointServiceFabricAzureActiveDirectory {
         return Optional.ofNullable(this.serverCertificateCommonName);
     }
     /**
-     * @return Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+     * @return Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
      * 
      */
     public String serverCertificateLookup() {

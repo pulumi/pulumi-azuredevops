@@ -12,11 +12,57 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Azure Repos/Team Foundation Server service endpoint within Azure DevOps.
+// Manages an Azure Repository/Team Foundation Server service endpoint within Azure DevOps.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Pulumi"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceendpointExternaltfs(ctx, "example", &azuredevops.ServiceendpointExternaltfsArgs{
+//				ProjectId:           example.ID(),
+//				ServiceEndpointName: pulumi.String("Example External TFS Name"),
+//				ConnectionUrl:       pulumi.String("https://dev.azure.com/myorganization"),
+//				Description:         pulumi.String("Managed by Pulumi"),
+//				AuthPersonal: &azuredevops.ServiceendpointExternaltfsAuthPersonalArgs{
+//					PersonalAccessToken: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Relevant Links
+//
+// - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
 //
 // ## Import
 //
-// Azure DevOps Service Endpoint External TFS can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+// Azure DevOps Azure Repository/Team Foundation Server Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
 // $ pulumi import azuredevops:index/serviceendpointExternaltfs:ServiceendpointExternaltfs example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -27,7 +73,7 @@ type ServiceendpointExternaltfs struct {
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal  ServiceendpointExternaltfsAuthPersonalOutput `pulumi:"authPersonal"`
 	Authorization pulumi.StringMapOutput                       `pulumi:"authorization"`
-	// URL of the Azure DevOps organization or the TFS Project Collection to connect to.
+	// Azure DevOps Organization or TFS Project Collection Url.
 	ConnectionUrl pulumi.StringOutput    `pulumi:"connectionUrl"`
 	Description   pulumi.StringPtrOutput `pulumi:"description"`
 	// The ID of the project.
@@ -81,7 +127,7 @@ type serviceendpointExternaltfsState struct {
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal  *ServiceendpointExternaltfsAuthPersonal `pulumi:"authPersonal"`
 	Authorization map[string]string                       `pulumi:"authorization"`
-	// URL of the Azure DevOps organization or the TFS Project Collection to connect to.
+	// Azure DevOps Organization or TFS Project Collection Url.
 	ConnectionUrl *string `pulumi:"connectionUrl"`
 	Description   *string `pulumi:"description"`
 	// The ID of the project.
@@ -94,7 +140,7 @@ type ServiceendpointExternaltfsState struct {
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal  ServiceendpointExternaltfsAuthPersonalPtrInput
 	Authorization pulumi.StringMapInput
-	// URL of the Azure DevOps organization or the TFS Project Collection to connect to.
+	// Azure DevOps Organization or TFS Project Collection Url.
 	ConnectionUrl pulumi.StringPtrInput
 	Description   pulumi.StringPtrInput
 	// The ID of the project.
@@ -111,7 +157,7 @@ type serviceendpointExternaltfsArgs struct {
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal  ServiceendpointExternaltfsAuthPersonal `pulumi:"authPersonal"`
 	Authorization map[string]string                      `pulumi:"authorization"`
-	// URL of the Azure DevOps organization or the TFS Project Collection to connect to.
+	// Azure DevOps Organization or TFS Project Collection Url.
 	ConnectionUrl string  `pulumi:"connectionUrl"`
 	Description   *string `pulumi:"description"`
 	// The ID of the project.
@@ -125,7 +171,7 @@ type ServiceendpointExternaltfsArgs struct {
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal  ServiceendpointExternaltfsAuthPersonalInput
 	Authorization pulumi.StringMapInput
-	// URL of the Azure DevOps organization or the TFS Project Collection to connect to.
+	// Azure DevOps Organization or TFS Project Collection Url.
 	ConnectionUrl pulumi.StringInput
 	Description   pulumi.StringPtrInput
 	// The ID of the project.
@@ -232,7 +278,7 @@ func (o ServiceendpointExternaltfsOutput) Authorization() pulumi.StringMapOutput
 	return o.ApplyT(func(v *ServiceendpointExternaltfs) pulumi.StringMapOutput { return v.Authorization }).(pulumi.StringMapOutput)
 }
 
-// URL of the Azure DevOps organization or the TFS Project Collection to connect to.
+// Azure DevOps Organization or TFS Project Collection Url.
 func (o ServiceendpointExternaltfsOutput) ConnectionUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceendpointExternaltfs) pulumi.StringOutput { return v.ConnectionUrl }).(pulumi.StringOutput)
 }

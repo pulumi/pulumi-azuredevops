@@ -217,7 +217,7 @@ class ServiceendpointAzureServiceBus(pulumi.CustomResource):
                  service_endpoint_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages an Azure Service Bus endpoint within Azure DevOps.
+        Manages an Azure Service Bus service endpoint within Azure DevOps.
 
         ## Example Usage
 
@@ -265,7 +265,7 @@ class ServiceendpointAzureServiceBus(pulumi.CustomResource):
                  args: ServiceendpointAzureServiceBusArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Azure Service Bus endpoint within Azure DevOps.
+        Manages an Azure Service Bus service endpoint within Azure DevOps.
 
         ## Example Usage
 

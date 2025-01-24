@@ -86,7 +86,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ## Import
     /// 
-    /// Azure DevOps Service Endpoint ArgoCD can be imported using the **projectID/serviceEndpointID**, e.g.
+    /// Azure DevOps Argo CD Service Endpoint can be imported using the **projectID/serviceEndpointID**, e.g.
     /// 
     /// ```sh
     /// $ pulumi import azuredevops:index/serviceendpointArgocd:ServiceendpointArgocd example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000

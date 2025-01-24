@@ -68,6 +68,7 @@ import javax.annotation.Nullable;
  * ## PAT Permissions Required
  * 
  * - **Project &amp; Team**: Read, Write, &amp; Manage
+ * - **Work Items**: Read
  * 
  * ## Import
  * 
@@ -88,6 +89,7 @@ import javax.annotation.Nullable;
 public class Project extends com.pulumi.resources.CustomResource {
     /**
      * The Description of the Project.
+     * *
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
@@ -95,17 +97,24 @@ public class Project extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The Description of the Project.
+     * *
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * Defines the status (`enabled`, `disabled`) of the project features.
-     * Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+     * Defines the status (`enabled`, `disabled`) of the project features. Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
      * 
-     * &gt; **NOTE:**
-     * It&#39;s possible to define project features both within the `azuredevops.ProjectFeatures` resource and
+     * | Features     | Possible Values   |
+     * |--------------|-------------------|
+     * | boards       | enabled, disabled |
+     * | repositories | enabled, disabled |
+     * | pipelines    | enabled, disabled |
+     * | testplans    | enabled, disabled |
+     * | artifacts    | enabled, disabled |
+     * 
+     * &gt; **NOTE:** It&#39;s possible to define project features both within the `azuredevops.ProjectFeatures` resource and
      * via the `features` block by using the `azuredevops.Project` resource.
      * However it&#39;s not possible to use both methods to manage features, since there&#39;ll be conflicts.
      * 
@@ -114,11 +123,17 @@ public class Project extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Map<String,String>> features;
 
     /**
-     * @return Defines the status (`enabled`, `disabled`) of the project features.
-     * Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+     * @return Defines the status (`enabled`, `disabled`) of the project features. Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
      * 
-     * &gt; **NOTE:**
-     * It&#39;s possible to define project features both within the `azuredevops.ProjectFeatures` resource and
+     * | Features     | Possible Values   |
+     * |--------------|-------------------|
+     * | boards       | enabled, disabled |
+     * | repositories | enabled, disabled |
+     * | pipelines    | enabled, disabled |
+     * | testplans    | enabled, disabled |
+     * | artifacts    | enabled, disabled |
+     * 
+     * &gt; **NOTE:** It&#39;s possible to define project features both within the `azuredevops.ProjectFeatures` resource and
      * via the `features` block by using the `azuredevops.Project` resource.
      * However it&#39;s not possible to use both methods to manage features, since there&#39;ll be conflicts.
      * 
@@ -155,42 +170,42 @@ public class Project extends com.pulumi.resources.CustomResource {
         return this.processTemplateId;
     }
     /**
-     * Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
+     * Specifies the version control system. Possbile values are: `Git` or `Tfvc`. Defaults to `Git`.
      * 
      */
     @Export(name="versionControl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> versionControl;
 
     /**
-     * @return Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
+     * @return Specifies the version control system. Possbile values are: `Git` or `Tfvc`. Defaults to `Git`.
      * 
      */
     public Output<Optional<String>> versionControl() {
         return Codegen.optional(this.versionControl);
     }
     /**
-     * Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
+     * Specifies the visibility of the Project. Possible values are: `private` or `public`. Defaults to `private`.
      * 
      */
     @Export(name="visibility", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> visibility;
 
     /**
-     * @return Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
+     * @return Specifies the visibility of the Project. Possible values are: `private` or `public`. Defaults to `private`.
      * 
      */
     public Output<Optional<String>> visibility() {
         return Codegen.optional(this.visibility);
     }
     /**
-     * Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
+     * Specifies the work item template. Possible values are: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
      * 
      */
     @Export(name="workItemTemplate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> workItemTemplate;
 
     /**
-     * @return Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
+     * @return Specifies the work item template. Possible values are: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
      * 
      */
     public Output<Optional<String>> workItemTemplate() {

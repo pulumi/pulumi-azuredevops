@@ -204,8 +204,8 @@ class WikiPage(pulumi.CustomResource):
             name="Example Project",
             description="Managed by Pulumi")
         example_wiki = azuredevops.Wiki("example",
-            name="Example project wiki ",
             project_id=example.id,
+            name="Example project wiki ",
             type="projectWiki")
         example_wiki_page = azuredevops.WikiPage("example",
             project_id=example.id,
@@ -244,8 +244,8 @@ class WikiPage(pulumi.CustomResource):
             name="Example Project",
             description="Managed by Pulumi")
         example_wiki = azuredevops.Wiki("example",
-            name="Example project wiki ",
             project_id=example.id,
+            name="Example project wiki ",
             type="projectWiki")
         example_wiki_page = azuredevops.WikiPage("example",
             project_id=example.id,

@@ -31,7 +31,7 @@ class CheckBranchControlArgs:
         The set of arguments for constructing a CheckBranchControl resource.
         :param pulumi.Input[str] project_id: The project ID.
         :param pulumi.Input[str] target_resource_id: The ID of the resource being protected by the check.
-        :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+        :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
         :param pulumi.Input[str] allowed_branches: The branches allowed to use the resource. Specify a comma separated list of allowed branches in `refs/heads/branch_name` format. To allow deployments from all branches, specify ` * ` . `refs/heads/features/* , refs/heads/releases/*` restricts deployments to all branches under features/ or releases/ . Defaults to `*`.
         :param pulumi.Input[str] display_name: The name of the branch control check displayed in the web UI.
         :param pulumi.Input[bool] ignore_unknown_protection_status: Allow deployment from branches for which protection status could not be obtained. Only relevant when verify_branch_protection is `true`. Defaults to `false`.
@@ -80,7 +80,7 @@ class CheckBranchControlArgs:
     @pulumi.getter(name="targetResourceType")
     def target_resource_type(self) -> pulumi.Input[str]:
         """
-        The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+        The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
         """
         return pulumi.get(self, "target_resource_type")
 
@@ -168,7 +168,7 @@ class _CheckBranchControlState:
         :param pulumi.Input[bool] ignore_unknown_protection_status: Allow deployment from branches for which protection status could not be obtained. Only relevant when verify_branch_protection is `true`. Defaults to `false`.
         :param pulumi.Input[str] project_id: The project ID.
         :param pulumi.Input[str] target_resource_id: The ID of the resource being protected by the check.
-        :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+        :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
         :param pulumi.Input[int] timeout: The timeout in minutes for the branch control check. Defaults to `1440`.
         :param pulumi.Input[bool] verify_branch_protection: Validate the branches being deployed are protected. Defaults to `false`.
         :param pulumi.Input[int] version: The version of the check.
@@ -256,7 +256,7 @@ class _CheckBranchControlState:
     @pulumi.getter(name="targetResourceType")
     def target_resource_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+        The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
         """
         return pulumi.get(self, "target_resource_type")
 
@@ -451,7 +451,7 @@ class CheckBranchControl(pulumi.CustomResource):
         :param pulumi.Input[bool] ignore_unknown_protection_status: Allow deployment from branches for which protection status could not be obtained. Only relevant when verify_branch_protection is `true`. Defaults to `false`.
         :param pulumi.Input[str] project_id: The project ID.
         :param pulumi.Input[str] target_resource_id: The ID of the resource being protected by the check.
-        :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+        :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
         :param pulumi.Input[int] timeout: The timeout in minutes for the branch control check. Defaults to `1440`.
         :param pulumi.Input[bool] verify_branch_protection: Validate the branches being deployed are protected. Defaults to `false`.
         """
@@ -668,7 +668,7 @@ class CheckBranchControl(pulumi.CustomResource):
         :param pulumi.Input[bool] ignore_unknown_protection_status: Allow deployment from branches for which protection status could not be obtained. Only relevant when verify_branch_protection is `true`. Defaults to `false`.
         :param pulumi.Input[str] project_id: The project ID.
         :param pulumi.Input[str] target_resource_id: The ID of the resource being protected by the check.
-        :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+        :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
         :param pulumi.Input[int] timeout: The timeout in minutes for the branch control check. Defaults to `1440`.
         :param pulumi.Input[bool] verify_branch_protection: Validate the branches being deployed are protected. Defaults to `false`.
         :param pulumi.Input[int] version: The version of the check.
@@ -732,7 +732,7 @@ class CheckBranchControl(pulumi.CustomResource):
     @pulumi.getter(name="targetResourceType")
     def target_resource_type(self) -> pulumi.Output[str]:
         """
-        The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+        The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
         """
         return pulumi.get(self, "target_resource_type")
 

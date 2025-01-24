@@ -161,11 +161,11 @@ namespace Pulumi.AzureDevOps
     public sealed class GetServiceendpointNpmResult
     {
         /// <summary>
-        /// Specifies the Authorization Scheme Map.
+        /// The Authorization scheme.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Authorization;
         /// <summary>
-        /// Specifies the description of the Service Endpoint.
+        /// The description of the Service Endpoint.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -176,7 +176,7 @@ namespace Pulumi.AzureDevOps
         public readonly string ServiceEndpointId;
         public readonly string ServiceEndpointName;
         /// <summary>
-        /// Specifies the URL of the npm registry to connect with.
+        /// The URL of the NPM registry to connect with.
         /// </summary>
         public readonly string Url;
 

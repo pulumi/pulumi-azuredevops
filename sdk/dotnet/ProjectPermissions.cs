@@ -105,7 +105,7 @@ namespace Pulumi.AzureDevOps
         public Output<ImmutableDictionary<string, string>> Permissions { get; private set; } = null!;
 
         /// <summary>
-        /// The **group** principal to assign the permissions.
+        /// The `group` principal to assign the permissions.
         /// </summary>
         [Output("principal")]
         public Output<string> Principal { get; private set; } = null!;
@@ -209,7 +209,7 @@ namespace Pulumi.AzureDevOps
         }
 
         /// <summary>
-        /// The **group** principal to assign the permissions.
+        /// The `group` principal to assign the permissions.
         /// </summary>
         [Input("principal", required: true)]
         public Input<string> Principal { get; set; } = null!;
@@ -275,7 +275,7 @@ namespace Pulumi.AzureDevOps
         }
 
         /// <summary>
-        /// The **group** principal to assign the permissions.
+        /// The `group` principal to assign the permissions.
         /// </summary>
         [Input("principal")]
         public Input<string>? Principal { get; set; }

@@ -22,6 +22,11 @@ import * as utilities from "./utilities";
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
+ *
+ * ## PAT Permissions Required
+ *
+ * - **Project & Team**: Read
+ * - **Work Items**: Read
  */
 export function getProject(args?: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
     args = args || {};
@@ -42,6 +47,8 @@ export interface GetProjectArgs {
     name?: string;
     /**
      * ID of the Project.
+     *
+     * > **NOTE:** One of either `projectId` or `name` must be specified.
      */
     projectId?: string;
 }
@@ -50,17 +57,35 @@ export interface GetProjectArgs {
  * A collection of values returned by getProject.
  */
 export interface GetProjectResult {
+    /**
+     * The description of the project.
+     */
     readonly description: string;
     readonly features: {[key: string]: string};
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The name of the project.
+     */
     readonly name?: string;
+    /**
+     * The process template ID for the project.
+     */
     readonly processTemplateId: string;
     readonly projectId?: string;
+    /**
+     * The version control of the project.
+     */
     readonly versionControl: string;
+    /**
+     * The visibility of the project.
+     */
     readonly visibility: string;
+    /**
+     * The work item template for the project.
+     */
     readonly workItemTemplate: string;
 }
 /**
@@ -81,6 +106,11 @@ export interface GetProjectResult {
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
+ *
+ * ## PAT Permissions Required
+ *
+ * - **Project & Team**: Read
+ * - **Work Items**: Read
  */
 export function getProjectOutput(args?: GetProjectOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProjectResult> {
     args = args || {};
@@ -101,6 +131,8 @@ export interface GetProjectOutputArgs {
     name?: pulumi.Input<string>;
     /**
      * ID of the Project.
+     *
+     * > **NOTE:** One of either `projectId` or `name` must be specified.
      */
     projectId?: pulumi.Input<string>;
 }

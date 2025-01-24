@@ -46,11 +46,17 @@ class GetPoolResult:
     @property
     @pulumi.getter(name="autoProvision")
     def auto_provision(self) -> bool:
+        """
+        Specifies whether a queue should be automatically provisioned for each project collection.
+        """
         return pulumi.get(self, "auto_provision")
 
     @property
     @pulumi.getter(name="autoUpdate")
     def auto_update(self) -> bool:
+        """
+        Specifies whether or not agents within the pool should be automatically updated.
+        """
         return pulumi.get(self, "auto_update")
 
     @property
@@ -64,11 +70,17 @@ class GetPoolResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the agent pool
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="poolType")
     def pool_type(self) -> str:
+        """
+        Specifies whether the agent pool type is Automation or Deployment.
+        """
         return pulumi.get(self, "pool_type")
 
 
@@ -105,7 +117,7 @@ def get_pool(name: Optional[str] = None,
 
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
+    - [Azure DevOps Service REST API 7.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.1)
 
 
     :param str name: Name of the Agent Pool.
@@ -141,7 +153,7 @@ def get_pool_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
+    - [Azure DevOps Service REST API 7.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.1)
 
 
     :param str name: Name of the Agent Pool.

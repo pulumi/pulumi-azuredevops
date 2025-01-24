@@ -95,7 +95,7 @@ type BranchPolicyWorkItemLinking struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The ID of the project in which the policy will be created.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
-	// Configuration for the policy. This block must be defined exactly once.
+	// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
 	Settings BranchPolicyWorkItemLinkingSettingsOutput `pulumi:"settings"`
 }
 
@@ -141,7 +141,7 @@ type branchPolicyWorkItemLinkingState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The ID of the project in which the policy will be created.
 	ProjectId *string `pulumi:"projectId"`
-	// Configuration for the policy. This block must be defined exactly once.
+	// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
 	Settings *BranchPolicyWorkItemLinkingSettings `pulumi:"settings"`
 }
 
@@ -152,7 +152,7 @@ type BranchPolicyWorkItemLinkingState struct {
 	Enabled pulumi.BoolPtrInput
 	// The ID of the project in which the policy will be created.
 	ProjectId pulumi.StringPtrInput
-	// Configuration for the policy. This block must be defined exactly once.
+	// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
 	Settings BranchPolicyWorkItemLinkingSettingsPtrInput
 }
 
@@ -167,7 +167,7 @@ type branchPolicyWorkItemLinkingArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The ID of the project in which the policy will be created.
 	ProjectId string `pulumi:"projectId"`
-	// Configuration for the policy. This block must be defined exactly once.
+	// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
 	Settings BranchPolicyWorkItemLinkingSettings `pulumi:"settings"`
 }
 
@@ -179,7 +179,7 @@ type BranchPolicyWorkItemLinkingArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// The ID of the project in which the policy will be created.
 	ProjectId pulumi.StringInput
-	// Configuration for the policy. This block must be defined exactly once.
+	// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
 	Settings BranchPolicyWorkItemLinkingSettingsInput
 }
 
@@ -285,7 +285,7 @@ func (o BranchPolicyWorkItemLinkingOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BranchPolicyWorkItemLinking) pulumi.StringOutput { return v.ProjectId }).(pulumi.StringOutput)
 }
 
-// Configuration for the policy. This block must be defined exactly once.
+// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
 func (o BranchPolicyWorkItemLinkingOutput) Settings() BranchPolicyWorkItemLinkingSettingsOutput {
 	return o.ApplyT(func(v *BranchPolicyWorkItemLinking) BranchPolicyWorkItemLinkingSettingsOutput { return v.Settings }).(BranchPolicyWorkItemLinkingSettingsOutput)
 }

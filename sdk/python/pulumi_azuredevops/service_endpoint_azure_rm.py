@@ -45,15 +45,15 @@ class ServiceEndpointAzureRMArgs:
         :param pulumi.Input[str] azurerm_management_group_name: The Management group Name of the targets.
         :param pulumi.Input[str] azurerm_subscription_id: The Subscription ID of the Azure targets.
         :param pulumi.Input[str] azurerm_subscription_name: The Subscription Name of the targets.
-        :param pulumi.Input['ServiceEndpointAzureRMCredentialsArgs'] credentials: A `credentials` block.
+        :param pulumi.Input['ServiceEndpointAzureRMCredentialsArgs'] credentials: A `credentials` block as defined below.
         :param pulumi.Input[str] description: Service connection description.
         :param pulumi.Input[str] environment: The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud` and `AzureStack`. Changing this forces a new resource to be created.
-        :param pulumi.Input['ServiceEndpointAzureRMFeaturesArgs'] features: A `features` block.
+        :param pulumi.Input['ServiceEndpointAzureRMFeaturesArgs'] features: A `features` block as defined below.
         :param pulumi.Input[str] resource_group: The resource group used for scope of automatic service endpoint.
         :param pulumi.Input[str] server_url: The server URL of the service endpoint. Changing this forces a new resource to be created.
                
                > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
-        :param pulumi.Input[str] service_endpoint_authentication_scheme: Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+        :param pulumi.Input[str] service_endpoint_authentication_scheme: Specifies the type of Azure Resource Manager Service Endpoint. Possible values are `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
                
                > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
         """
@@ -182,7 +182,7 @@ class ServiceEndpointAzureRMArgs:
     @pulumi.getter
     def credentials(self) -> Optional[pulumi.Input['ServiceEndpointAzureRMCredentialsArgs']]:
         """
-        A `credentials` block.
+        A `credentials` block as defined below.
         """
         return pulumi.get(self, "credentials")
 
@@ -218,7 +218,7 @@ class ServiceEndpointAzureRMArgs:
     @pulumi.getter
     def features(self) -> Optional[pulumi.Input['ServiceEndpointAzureRMFeaturesArgs']]:
         """
-        A `features` block.
+        A `features` block as defined below.
         """
         return pulumi.get(self, "features")
 
@@ -256,7 +256,7 @@ class ServiceEndpointAzureRMArgs:
     @pulumi.getter(name="serviceEndpointAuthenticationScheme")
     def service_endpoint_authentication_scheme(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+        Specifies the type of Azure Resource Manager Service Endpoint. Possible values are `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
 
         > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
         """
@@ -295,16 +295,16 @@ class _ServiceEndpointAzureRMState:
         :param pulumi.Input[str] azurerm_spn_tenantid: The Tenant ID of the service principal.
         :param pulumi.Input[str] azurerm_subscription_id: The Subscription ID of the Azure targets.
         :param pulumi.Input[str] azurerm_subscription_name: The Subscription Name of the targets.
-        :param pulumi.Input['ServiceEndpointAzureRMCredentialsArgs'] credentials: A `credentials` block.
+        :param pulumi.Input['ServiceEndpointAzureRMCredentialsArgs'] credentials: A `credentials` block as defined below.
         :param pulumi.Input[str] description: Service connection description.
         :param pulumi.Input[str] environment: The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud` and `AzureStack`. Changing this forces a new resource to be created.
-        :param pulumi.Input['ServiceEndpointAzureRMFeaturesArgs'] features: A `features` block.
+        :param pulumi.Input['ServiceEndpointAzureRMFeaturesArgs'] features: A `features` block as defined below.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] resource_group: The resource group used for scope of automatic service endpoint.
         :param pulumi.Input[str] server_url: The server URL of the service endpoint. Changing this forces a new resource to be created.
                
                > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
-        :param pulumi.Input[str] service_endpoint_authentication_scheme: Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+        :param pulumi.Input[str] service_endpoint_authentication_scheme: Specifies the type of Azure Resource Manager Service Endpoint. Possible values are `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
                
                > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint Name.
@@ -422,7 +422,7 @@ class _ServiceEndpointAzureRMState:
     @pulumi.getter
     def credentials(self) -> Optional[pulumi.Input['ServiceEndpointAzureRMCredentialsArgs']]:
         """
-        A `credentials` block.
+        A `credentials` block as defined below.
         """
         return pulumi.get(self, "credentials")
 
@@ -458,7 +458,7 @@ class _ServiceEndpointAzureRMState:
     @pulumi.getter
     def features(self) -> Optional[pulumi.Input['ServiceEndpointAzureRMFeaturesArgs']]:
         """
-        A `features` block.
+        A `features` block as defined below.
         """
         return pulumi.get(self, "features")
 
@@ -508,7 +508,7 @@ class _ServiceEndpointAzureRMState:
     @pulumi.getter(name="serviceEndpointAuthenticationScheme")
     def service_endpoint_authentication_scheme(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+        Specifies the type of Azure Resource Manager Service Endpoint. Possible values are `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
 
         > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
         """
@@ -589,7 +589,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
                  service_endpoint_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages Manual or Automatic AzureRM service endpoint within Azure DevOps.
+        Manages Manual or Automatic Azure Resource Manager service endpoint within Azure DevOps.
 
         ## Requirements (Manual AzureRM Service Endpoint)
 
@@ -758,7 +758,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
 
         ## Import
 
-        Azure DevOps Service Endpoint Azure Resource Manage can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+        Azure DevOps Azure Resource Manager Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
         $ pulumi import azuredevops:index/serviceEndpointAzureRM:ServiceEndpointAzureRM example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -771,16 +771,16 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         :param pulumi.Input[str] azurerm_spn_tenantid: The Tenant ID of the service principal.
         :param pulumi.Input[str] azurerm_subscription_id: The Subscription ID of the Azure targets.
         :param pulumi.Input[str] azurerm_subscription_name: The Subscription Name of the targets.
-        :param pulumi.Input[Union['ServiceEndpointAzureRMCredentialsArgs', 'ServiceEndpointAzureRMCredentialsArgsDict']] credentials: A `credentials` block.
+        :param pulumi.Input[Union['ServiceEndpointAzureRMCredentialsArgs', 'ServiceEndpointAzureRMCredentialsArgsDict']] credentials: A `credentials` block as defined below.
         :param pulumi.Input[str] description: Service connection description.
         :param pulumi.Input[str] environment: The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud` and `AzureStack`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ServiceEndpointAzureRMFeaturesArgs', 'ServiceEndpointAzureRMFeaturesArgsDict']] features: A `features` block.
+        :param pulumi.Input[Union['ServiceEndpointAzureRMFeaturesArgs', 'ServiceEndpointAzureRMFeaturesArgsDict']] features: A `features` block as defined below.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] resource_group: The resource group used for scope of automatic service endpoint.
         :param pulumi.Input[str] server_url: The server URL of the service endpoint. Changing this forces a new resource to be created.
                
                > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
-        :param pulumi.Input[str] service_endpoint_authentication_scheme: Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+        :param pulumi.Input[str] service_endpoint_authentication_scheme: Specifies the type of Azure Resource Manager Service Endpoint. Possible values are `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
                
                > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint Name.
@@ -792,7 +792,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
                  args: ServiceEndpointAzureRMArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages Manual or Automatic AzureRM service endpoint within Azure DevOps.
+        Manages Manual or Automatic Azure Resource Manager service endpoint within Azure DevOps.
 
         ## Requirements (Manual AzureRM Service Endpoint)
 
@@ -961,7 +961,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
 
         ## Import
 
-        Azure DevOps Service Endpoint Azure Resource Manage can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+        Azure DevOps Azure Resource Manager Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
         $ pulumi import azuredevops:index/serviceEndpointAzureRM:ServiceEndpointAzureRM example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -1070,16 +1070,16 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         :param pulumi.Input[str] azurerm_spn_tenantid: The Tenant ID of the service principal.
         :param pulumi.Input[str] azurerm_subscription_id: The Subscription ID of the Azure targets.
         :param pulumi.Input[str] azurerm_subscription_name: The Subscription Name of the targets.
-        :param pulumi.Input[Union['ServiceEndpointAzureRMCredentialsArgs', 'ServiceEndpointAzureRMCredentialsArgsDict']] credentials: A `credentials` block.
+        :param pulumi.Input[Union['ServiceEndpointAzureRMCredentialsArgs', 'ServiceEndpointAzureRMCredentialsArgsDict']] credentials: A `credentials` block as defined below.
         :param pulumi.Input[str] description: Service connection description.
         :param pulumi.Input[str] environment: The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud` and `AzureStack`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ServiceEndpointAzureRMFeaturesArgs', 'ServiceEndpointAzureRMFeaturesArgsDict']] features: A `features` block.
+        :param pulumi.Input[Union['ServiceEndpointAzureRMFeaturesArgs', 'ServiceEndpointAzureRMFeaturesArgsDict']] features: A `features` block as defined below.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] resource_group: The resource group used for scope of automatic service endpoint.
         :param pulumi.Input[str] server_url: The server URL of the service endpoint. Changing this forces a new resource to be created.
                
                > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
-        :param pulumi.Input[str] service_endpoint_authentication_scheme: Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+        :param pulumi.Input[str] service_endpoint_authentication_scheme: Specifies the type of Azure Resource Manager Service Endpoint. Possible values are `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
                
                > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint Name.
@@ -1160,7 +1160,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
     @pulumi.getter
     def credentials(self) -> pulumi.Output[Optional['outputs.ServiceEndpointAzureRMCredentials']]:
         """
-        A `credentials` block.
+        A `credentials` block as defined below.
         """
         return pulumi.get(self, "credentials")
 
@@ -1184,7 +1184,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
     @pulumi.getter
     def features(self) -> pulumi.Output[Optional['outputs.ServiceEndpointAzureRMFeatures']]:
         """
-        A `features` block.
+        A `features` block as defined below.
         """
         return pulumi.get(self, "features")
 
@@ -1218,7 +1218,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
     @pulumi.getter(name="serviceEndpointAuthenticationScheme")
     def service_endpoint_authentication_scheme(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+        Specifies the type of Azure Resource Manager Service Endpoint. Possible values are `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
 
         > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
         """

@@ -25,12 +25,12 @@ public final class GetProjectsResult {
      */
     private @Nullable String name;
     /**
-     * @return A list of existing projects in your Azure DevOps Organization with details about every project which includes:
+     * @return A list of `projects` blocks as documented below. A list of existing projects in your Azure DevOps Organization with details about every project which includes:
      * 
      */
     private List<GetProjectsProject> projects;
     /**
-     * @return Project state.
+     * @return The state of the Project.
      * 
      */
     private @Nullable String state;
@@ -51,14 +51,14 @@ public final class GetProjectsResult {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return A list of existing projects in your Azure DevOps Organization with details about every project which includes:
+     * @return A list of `projects` blocks as documented below. A list of existing projects in your Azure DevOps Organization with details about every project which includes:
      * 
      */
     public List<GetProjectsProject> projects() {
         return this.projects;
     }
     /**
-     * @return Project state.
+     * @return The state of the Project.
      * 
      */
     public Optional<String> state() {

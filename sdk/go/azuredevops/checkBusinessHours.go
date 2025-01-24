@@ -456,7 +456,7 @@ type CheckBusinessHours struct {
 	Sunday pulumi.BoolPtrOutput `pulumi:"sunday"`
 	// The ID of the resource being protected by the check.
 	TargetResourceId pulumi.StringOutput `pulumi:"targetResourceId"`
-	// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+	// The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
 	TargetResourceType pulumi.StringOutput `pulumi:"targetResourceType"`
 	// This check will pass on Thursdays. Defaults to `false`.
 	Thursday pulumi.BoolPtrOutput `pulumi:"thursday"`
@@ -538,7 +538,7 @@ type checkBusinessHoursState struct {
 	Sunday *bool `pulumi:"sunday"`
 	// The ID of the resource being protected by the check.
 	TargetResourceId *string `pulumi:"targetResourceId"`
-	// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+	// The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
 	TargetResourceType *string `pulumi:"targetResourceType"`
 	// This check will pass on Thursdays. Defaults to `false`.
 	Thursday *bool `pulumi:"thursday"`
@@ -573,7 +573,7 @@ type CheckBusinessHoursState struct {
 	Sunday pulumi.BoolPtrInput
 	// The ID of the resource being protected by the check.
 	TargetResourceId pulumi.StringPtrInput
-	// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+	// The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
 	TargetResourceType pulumi.StringPtrInput
 	// This check will pass on Thursdays. Defaults to `false`.
 	Thursday pulumi.BoolPtrInput
@@ -612,7 +612,7 @@ type checkBusinessHoursArgs struct {
 	Sunday *bool `pulumi:"sunday"`
 	// The ID of the resource being protected by the check.
 	TargetResourceId string `pulumi:"targetResourceId"`
-	// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+	// The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
 	TargetResourceType string `pulumi:"targetResourceType"`
 	// This check will pass on Thursdays. Defaults to `false`.
 	Thursday *bool `pulumi:"thursday"`
@@ -646,7 +646,7 @@ type CheckBusinessHoursArgs struct {
 	Sunday pulumi.BoolPtrInput
 	// The ID of the resource being protected by the check.
 	TargetResourceId pulumi.StringInput
-	// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+	// The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
 	TargetResourceType pulumi.StringInput
 	// This check will pass on Thursdays. Defaults to `false`.
 	Thursday pulumi.BoolPtrInput
@@ -792,7 +792,7 @@ func (o CheckBusinessHoursOutput) TargetResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CheckBusinessHours) pulumi.StringOutput { return v.TargetResourceId }).(pulumi.StringOutput)
 }
 
-// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+// The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
 func (o CheckBusinessHoursOutput) TargetResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *CheckBusinessHours) pulumi.StringOutput { return v.TargetResourceType }).(pulumi.StringOutput)
 }

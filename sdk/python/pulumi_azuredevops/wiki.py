@@ -28,6 +28,7 @@ class WikiArgs:
         """
         The set of arguments for constructing a Wiki resource.
         :param pulumi.Input[str] type: The type of the wiki. Possible values are `codeWiki`, `projectWiki`.
+        :param pulumi.Input[str] mapped_path: Folder path inside repository which is shown as Wiki.
         :param pulumi.Input[str] name: The name of the Wiki.
         :param pulumi.Input[str] project_id: The ID of the Project.
         :param pulumi.Input[str] repository_id: The ID of the repository.
@@ -60,6 +61,9 @@ class WikiArgs:
     @property
     @pulumi.getter(name="mappedPath")
     def mapped_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Folder path inside repository which is shown as Wiki.
+        """
         return pulumi.get(self, "mapped_path")
 
     @mapped_path.setter
@@ -128,6 +132,7 @@ class _WikiState:
                  version: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Wiki resources.
+        :param pulumi.Input[str] mapped_path: Folder path inside repository which is shown as Wiki.
         :param pulumi.Input[str] name: The name of the Wiki.
         :param pulumi.Input[str] project_id: The ID of the Project.
         :param pulumi.Input[str] remote_url: The remote web url to the wiki.
@@ -156,6 +161,9 @@ class _WikiState:
     @property
     @pulumi.getter(name="mappedPath")
     def mapped_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Folder path inside repository which is shown as Wiki.
+        """
         return pulumi.get(self, "mapped_path")
 
     @mapped_path.setter
@@ -287,7 +295,7 @@ class Wiki(pulumi.CustomResource):
             repository_id=example_git.id,
             version="main",
             type="codeWiki",
-            mappedpath="/")
+            mapped_path="/")
         ```
 
         ## Relevant Links
@@ -304,6 +312,7 @@ class Wiki(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] mapped_path: Folder path inside repository which is shown as Wiki.
         :param pulumi.Input[str] name: The name of the Wiki.
         :param pulumi.Input[str] project_id: The ID of the Project.
         :param pulumi.Input[str] repository_id: The ID of the repository.
@@ -344,7 +353,7 @@ class Wiki(pulumi.CustomResource):
             repository_id=example_git.id,
             version="main",
             type="codeWiki",
-            mappedpath="/")
+            mapped_path="/")
         ```
 
         ## Relevant Links
@@ -424,6 +433,7 @@ class Wiki(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] mapped_path: Folder path inside repository which is shown as Wiki.
         :param pulumi.Input[str] name: The name of the Wiki.
         :param pulumi.Input[str] project_id: The ID of the Project.
         :param pulumi.Input[str] remote_url: The remote web url to the wiki.
@@ -449,6 +459,9 @@ class Wiki(pulumi.CustomResource):
     @property
     @pulumi.getter(name="mappedPath")
     def mapped_path(self) -> pulumi.Output[str]:
+        """
+        Folder path inside repository which is shown as Wiki.
+        """
         return pulumi.get(self, "mapped_path")
 
     @property

@@ -23,7 +23,7 @@ public final class GetUsersUser {
      */
     private String displayName;
     /**
-     * @return The user ID.
+     * @return The ID of the User.
      * 
      */
     private String id;
@@ -34,6 +34,7 @@ public final class GetUsersUser {
     private String mailAddress;
     /**
      * @return The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+     * &lt;pre&gt;List of possible origins
      * 
      */
     private String origin;
@@ -64,7 +65,7 @@ public final class GetUsersUser {
         return this.displayName;
     }
     /**
-     * @return The user ID.
+     * @return The ID of the User.
      * 
      */
     public String id() {
@@ -79,6 +80,7 @@ public final class GetUsersUser {
     }
     /**
      * @return The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+     * &lt;pre&gt;List of possible origins
      * 
      */
     public String origin() {

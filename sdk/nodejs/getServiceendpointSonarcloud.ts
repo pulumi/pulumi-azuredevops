@@ -54,11 +54,11 @@ export interface GetServiceendpointSonarcloudArgs {
  */
 export interface GetServiceendpointSonarcloudResult {
     /**
-     * Specifies the Authorization Scheme Map.
+     * The Authorization scheme.
      */
     readonly authorization: {[key: string]: string};
     /**
-     * Specifies the description of the Service Endpoint.
+     * The description of the Service Endpoint.
      */
     readonly description: string;
     /**

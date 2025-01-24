@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Manages a SonarQube service endpoint within Azure DevOps.
+ * Manages a SonarQube Server service endpoint within Azure DevOps.
  *
  * ## Example Usage
  *
@@ -37,7 +37,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Azure DevOps Service Endpoint SonarQube can be imported using the **projectID/serviceEndpointID**, e.g.
+ * Azure DevOps SonarQube Server Service Endpoint can be imported using the **projectID/serviceEndpointID**, e.g.
  *
  * ```sh
  * $ pulumi import azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -85,7 +85,7 @@ export class ServiceEndpointSonarQube extends pulumi.CustomResource {
      */
     public readonly serviceEndpointName!: pulumi.Output<string>;
     /**
-     * Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
+     * The Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
      */
     public readonly token!: pulumi.Output<string>;
     /**
@@ -158,7 +158,7 @@ export interface ServiceEndpointSonarQubeState {
      */
     serviceEndpointName?: pulumi.Input<string>;
     /**
-     * Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
+     * The Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
      */
     token?: pulumi.Input<string>;
     /**
@@ -185,7 +185,7 @@ export interface ServiceEndpointSonarQubeArgs {
      */
     serviceEndpointName: pulumi.Input<string>;
     /**
-     * Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
+     * The Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
      */
     token: pulumi.Input<string>;
     /**

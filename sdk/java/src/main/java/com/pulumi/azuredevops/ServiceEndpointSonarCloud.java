@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a SonarCloud service endpoint within Azure DevOps.
+ * Manages a SonarQube Cloud service endpoint within Azure DevOps.
  * 
  * ## Example Usage
  * 
@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Azure DevOps Service Endpoint SonarCloud can be imported using the **projectID/serviceEndpointID**, e.g.
+ * Azure DevOps SonarQube Cloud Service Endpoint can be imported using the **projectID/serviceEndpointID**, e.g.
  * 
  * ```sh
  * $ pulumi import azuredevops:index/serviceEndpointSonarCloud:ServiceEndpointSonarCloud example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -133,14 +133,14 @@ public class ServiceEndpointSonarCloud extends com.pulumi.resources.CustomResour
         return this.serviceEndpointName;
     }
     /**
-     * Authentication Token generated through SonarCloud (go to `My Account &gt; Security &gt; Generate Tokens`).
+     * The Authentication Token generated through SonarCloud (go to `My Account &gt; Security &gt; Generate Tokens`).
      * 
      */
     @Export(name="token", refs={String.class}, tree="[0]")
     private Output<String> token;
 
     /**
-     * @return Authentication Token generated through SonarCloud (go to `My Account &gt; Security &gt; Generate Tokens`).
+     * @return The Authentication Token generated through SonarCloud (go to `My Account &gt; Security &gt; Generate Tokens`).
      * 
      */
     public Output<String> token() {

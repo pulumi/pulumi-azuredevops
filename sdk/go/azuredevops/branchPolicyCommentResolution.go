@@ -95,7 +95,7 @@ type BranchPolicyCommentResolution struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The ID of the project in which the policy will be created.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
-	// Configuration for the policy. This block must be defined exactly once.
+	// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
 	Settings BranchPolicyCommentResolutionSettingsOutput `pulumi:"settings"`
 }
 
@@ -141,7 +141,7 @@ type branchPolicyCommentResolutionState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The ID of the project in which the policy will be created.
 	ProjectId *string `pulumi:"projectId"`
-	// Configuration for the policy. This block must be defined exactly once.
+	// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
 	Settings *BranchPolicyCommentResolutionSettings `pulumi:"settings"`
 }
 
@@ -152,7 +152,7 @@ type BranchPolicyCommentResolutionState struct {
 	Enabled pulumi.BoolPtrInput
 	// The ID of the project in which the policy will be created.
 	ProjectId pulumi.StringPtrInput
-	// Configuration for the policy. This block must be defined exactly once.
+	// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
 	Settings BranchPolicyCommentResolutionSettingsPtrInput
 }
 
@@ -167,7 +167,7 @@ type branchPolicyCommentResolutionArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The ID of the project in which the policy will be created.
 	ProjectId string `pulumi:"projectId"`
-	// Configuration for the policy. This block must be defined exactly once.
+	// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
 	Settings BranchPolicyCommentResolutionSettings `pulumi:"settings"`
 }
 
@@ -179,7 +179,7 @@ type BranchPolicyCommentResolutionArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// The ID of the project in which the policy will be created.
 	ProjectId pulumi.StringInput
-	// Configuration for the policy. This block must be defined exactly once.
+	// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
 	Settings BranchPolicyCommentResolutionSettingsInput
 }
 
@@ -285,7 +285,7 @@ func (o BranchPolicyCommentResolutionOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BranchPolicyCommentResolution) pulumi.StringOutput { return v.ProjectId }).(pulumi.StringOutput)
 }
 
-// Configuration for the policy. This block must be defined exactly once.
+// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
 func (o BranchPolicyCommentResolutionOutput) Settings() BranchPolicyCommentResolutionSettingsOutput {
 	return o.ApplyT(func(v *BranchPolicyCommentResolution) BranchPolicyCommentResolutionSettingsOutput { return v.Settings }).(BranchPolicyCommentResolutionSettingsOutput)
 }

@@ -124,13 +124,13 @@ namespace Pulumi.AzureDevOps
     public sealed class GetGitRepositoryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the Git repository to retrieve
+        /// The Name of the Git repository to retrieve
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// ID of project to list Git repositories
+        /// The ID of project to list Git repositories
         /// </summary>
         [Input("projectId", required: true)]
         public string ProjectId { get; set; } = null!;
@@ -144,13 +144,13 @@ namespace Pulumi.AzureDevOps
     public sealed class GetGitRepositoryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the Git repository to retrieve
+        /// The Name of the Git repository to retrieve
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// ID of project to list Git repositories
+        /// The ID of project to list Git repositories
         /// </summary>
         [Input("projectId", required: true)]
         public Input<string> ProjectId { get; set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public readonly string DefaultBranch;
         /// <summary>
-        /// Is the repository disabled?
+        /// Indicates whether the repository is disabled.
         /// </summary>
         public readonly bool Disabled;
         /// <summary>
@@ -179,7 +179,7 @@ namespace Pulumi.AzureDevOps
         public readonly string Id;
         public readonly bool IsFork;
         /// <summary>
-        /// Git repository name.
+        /// The name of the Git repository.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -199,11 +199,11 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public readonly string SshUrl;
         /// <summary>
-        /// Details REST API endpoint for the Git Repository.
+        /// The details REST API endpoint for the Git Repository.
         /// </summary>
         public readonly string Url;
         /// <summary>
-        /// Url of the Git repository web view
+        /// The Url of the Git repository web view
         /// </summary>
         public readonly string WebUrl;
 

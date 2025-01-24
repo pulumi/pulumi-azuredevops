@@ -39,12 +39,12 @@ import * as utilities from "./utilities";
  *
  * The Azure DevOps UI uses roles to assign permissions for the Library.
  *
- * | Role          | Allowed Permissions    |
- * | ------------- | ---------------------- |
- * | Reader        | View                   |
- * | Creator       | View, Create           |
- * | User          | View, Use              |
- * | Administrator | View, Use, Administer  |
+ * | Role          | Allowed Permissions   |
+ * |---------------|-----------------------|
+ * | Reader        | View                  |
+ * | Creator       | View, Create          |
+ * | User          | View, Use             |
+ * | Administrator | View, Use, Administer |
  *
  * ## Relevant Links
  *
@@ -88,6 +88,15 @@ export class LibraryPermissions extends pulumi.CustomResource {
 
     /**
      * the permissions to assign. The following permissions are available.
+     *
+     * | Permission  | Description               |
+     * |-------------|---------------------------|
+     * | View        | View library item         |
+     * | Administer  | Administer library item   |
+     * | Create      | Create library item       |
+     * | ViewSecrets | View library item secrets |
+     * | Use         | Use library item          |
+     * | Owner       | Owner library item        |
      */
     public readonly permissions!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -100,15 +109,6 @@ export class LibraryPermissions extends pulumi.CustomResource {
     public readonly projectId!: pulumi.Output<string>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     *
-     * | Permission        | Description                         |
-     * | ----------------- | ----------------------------------- |
-     * | View              | View library item                   |
-     * | Administer        | Administer library item             |
-     * | Create            | Create library item                 |
-     * | ViewSecrets       | View library item secrets           |
-     * | Use               | Use library item                    |
-     * | Owner             | Owner library item                  |
      */
     public readonly replace!: pulumi.Output<boolean | undefined>;
 
@@ -156,6 +156,15 @@ export class LibraryPermissions extends pulumi.CustomResource {
 export interface LibraryPermissionsState {
     /**
      * the permissions to assign. The following permissions are available.
+     *
+     * | Permission  | Description               |
+     * |-------------|---------------------------|
+     * | View        | View library item         |
+     * | Administer  | Administer library item   |
+     * | Create      | Create library item       |
+     * | ViewSecrets | View library item secrets |
+     * | Use         | Use library item          |
+     * | Owner       | Owner library item        |
      */
     permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -168,15 +177,6 @@ export interface LibraryPermissionsState {
     projectId?: pulumi.Input<string>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     *
-     * | Permission        | Description                         |
-     * | ----------------- | ----------------------------------- |
-     * | View              | View library item                   |
-     * | Administer        | Administer library item             |
-     * | Create            | Create library item                 |
-     * | ViewSecrets       | View library item secrets           |
-     * | Use               | Use library item                    |
-     * | Owner             | Owner library item                  |
      */
     replace?: pulumi.Input<boolean>;
 }
@@ -187,6 +187,15 @@ export interface LibraryPermissionsState {
 export interface LibraryPermissionsArgs {
     /**
      * the permissions to assign. The following permissions are available.
+     *
+     * | Permission  | Description               |
+     * |-------------|---------------------------|
+     * | View        | View library item         |
+     * | Administer  | Administer library item   |
+     * | Create      | Create library item       |
+     * | ViewSecrets | View library item secrets |
+     * | Use         | Use library item          |
+     * | Owner       | Owner library item        |
      */
     permissions: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -199,15 +208,6 @@ export interface LibraryPermissionsArgs {
     projectId: pulumi.Input<string>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
-     *
-     * | Permission        | Description                         |
-     * | ----------------- | ----------------------------------- |
-     * | View              | View library item                   |
-     * | Administer        | Administer library item             |
-     * | Create            | Create library item                 |
-     * | ViewSecrets       | View library item secrets           |
-     * | Use               | Use library item                    |
-     * | Owner             | Owner library item                  |
      */
     replace?: pulumi.Input<boolean>;
 }

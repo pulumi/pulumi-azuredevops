@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages an Azure Service Bus endpoint within Azure DevOps.
+ * Manages an Azure Service Bus service endpoint within Azure DevOps.
  * 
  * ## Example Usage
  * 

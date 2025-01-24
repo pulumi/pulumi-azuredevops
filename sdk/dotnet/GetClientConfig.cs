@@ -95,6 +95,9 @@ namespace Pulumi.AzureDevOps
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The organization configured for the provider.
+        /// </summary>
         public readonly string OrganizationUrl;
 
         [OutputConstructor]

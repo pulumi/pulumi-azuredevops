@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  *             .repositoryId(exampleGit.id())
  *             .version("main")
  *             .type("codeWiki")
- *             .mappedpath("/")
+ *             .mappedPath("/")
  *             .build());
  * 
  *     }
@@ -96,9 +96,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azuredevops:index/wiki:Wiki")
 public class Wiki extends com.pulumi.resources.CustomResource {
+    /**
+     * Folder path inside repository which is shown as Wiki.
+     * 
+     */
     @Export(name="mappedPath", refs={String.class}, tree="[0]")
     private Output<String> mappedPath;
 
+    /**
+     * @return Folder path inside repository which is shown as Wiki.
+     * 
+     */
     public Output<String> mappedPath() {
         return this.mappedPath;
     }

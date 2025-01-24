@@ -69,23 +69,23 @@ export class ResourceAuthorization extends pulumi.CustomResource {
     }
 
     /**
-     * Set to true to allow public access in the project. Type: boolean.
+     * Set to true to allow public access in the project.
      */
     public readonly authorized!: pulumi.Output<boolean>;
     /**
-     * The ID of the build definition to authorize. Type: string.
+     * The ID of the build definition to authorize.
      */
     public readonly definitionId!: pulumi.Output<number | undefined>;
     /**
-     * The project ID or project name. Type: string.
+     * The project ID or project name.
      */
     public readonly projectId!: pulumi.Output<string>;
     /**
-     * The ID of the resource to authorize. Type: string.
+     * The ID of the resource to authorize.
      */
     public readonly resourceId!: pulumi.Output<string>;
     /**
-     * The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
+     * The type of the resource to authorize. Possible values: `endpoint`, `queue`, `variablegroup`. Defaults to value: `endpoint`.
      */
     public readonly type!: pulumi.Output<string | undefined>;
 
@@ -136,23 +136,23 @@ export class ResourceAuthorization extends pulumi.CustomResource {
  */
 export interface ResourceAuthorizationState {
     /**
-     * Set to true to allow public access in the project. Type: boolean.
+     * Set to true to allow public access in the project.
      */
     authorized?: pulumi.Input<boolean>;
     /**
-     * The ID of the build definition to authorize. Type: string.
+     * The ID of the build definition to authorize.
      */
     definitionId?: pulumi.Input<number>;
     /**
-     * The project ID or project name. Type: string.
+     * The project ID or project name.
      */
     projectId?: pulumi.Input<string>;
     /**
-     * The ID of the resource to authorize. Type: string.
+     * The ID of the resource to authorize.
      */
     resourceId?: pulumi.Input<string>;
     /**
-     * The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
+     * The type of the resource to authorize. Possible values: `endpoint`, `queue`, `variablegroup`. Defaults to value: `endpoint`.
      */
     type?: pulumi.Input<string>;
 }
@@ -162,23 +162,23 @@ export interface ResourceAuthorizationState {
  */
 export interface ResourceAuthorizationArgs {
     /**
-     * Set to true to allow public access in the project. Type: boolean.
+     * Set to true to allow public access in the project.
      */
     authorized: pulumi.Input<boolean>;
     /**
-     * The ID of the build definition to authorize. Type: string.
+     * The ID of the build definition to authorize.
      */
     definitionId?: pulumi.Input<number>;
     /**
-     * The project ID or project name. Type: string.
+     * The project ID or project name.
      */
     projectId: pulumi.Input<string>;
     /**
-     * The ID of the resource to authorize. Type: string.
+     * The ID of the resource to authorize.
      */
     resourceId: pulumi.Input<string>;
     /**
-     * The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
+     * The type of the resource to authorize. Possible values: `endpoint`, `queue`, `variablegroup`. Defaults to value: `endpoint`.
      */
     type?: pulumi.Input<string>;
 }

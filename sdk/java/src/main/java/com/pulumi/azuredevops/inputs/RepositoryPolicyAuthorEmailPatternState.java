@@ -19,7 +19,8 @@ public final class RepositoryPolicyAuthorEmailPatternState extends com.pulumi.re
 
     /**
      * Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
-     * Email patterns prefixed with &#34;!&#34; are excluded. Order is important.
+     * 
+     * ~&gt;**NOTE:** Email patterns prefixed with `!` are excluded. Order is important.
      * 
      */
     @Import(name="authorEmailPatterns")
@@ -27,7 +28,8 @@ public final class RepositoryPolicyAuthorEmailPatternState extends com.pulumi.re
 
     /**
      * @return Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
-     * Email patterns prefixed with &#34;!&#34; are excluded. Order is important.
+     * 
+     * ~&gt;**NOTE:** Email patterns prefixed with `!` are excluded. Order is important.
      * 
      */
     public Optional<Output<List<String>>> authorEmailPatterns() {
@@ -124,7 +126,8 @@ public final class RepositoryPolicyAuthorEmailPatternState extends com.pulumi.re
 
         /**
          * @param authorEmailPatterns Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
-         * Email patterns prefixed with &#34;!&#34; are excluded. Order is important.
+         * 
+         * ~&gt;**NOTE:** Email patterns prefixed with `!` are excluded. Order is important.
          * 
          * @return builder
          * 
@@ -136,7 +139,8 @@ public final class RepositoryPolicyAuthorEmailPatternState extends com.pulumi.re
 
         /**
          * @param authorEmailPatterns Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
-         * Email patterns prefixed with &#34;!&#34; are excluded. Order is important.
+         * 
+         * ~&gt;**NOTE:** Email patterns prefixed with `!` are excluded. Order is important.
          * 
          * @return builder
          * 
@@ -147,7 +151,8 @@ public final class RepositoryPolicyAuthorEmailPatternState extends com.pulumi.re
 
         /**
          * @param authorEmailPatterns Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
-         * Email patterns prefixed with &#34;!&#34; are excluded. Order is important.
+         * 
+         * ~&gt;**NOTE:** Email patterns prefixed with `!` are excluded. Order is important.
          * 
          * @return builder
          * 

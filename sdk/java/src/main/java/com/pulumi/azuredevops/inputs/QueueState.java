@@ -19,8 +19,7 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of the organization agent pool. Conflicts with `name`.
      * 
-     * &gt; **NOTE:**
-     * One of `name` or `agent_pool_id` must be specified, but not both.
+     * &gt; **NOTE:** One of `name` or `agent_pool_id` must be specified, but not both.
      * When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
      * 
      */
@@ -30,8 +29,7 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The ID of the organization agent pool. Conflicts with `name`.
      * 
-     * &gt; **NOTE:**
-     * One of `name` or `agent_pool_id` must be specified, but not both.
+     * &gt; **NOTE:** One of `name` or `agent_pool_id` must be specified, but not both.
      * When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
      * 
      */
@@ -98,8 +96,7 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param agentPoolId The ID of the organization agent pool. Conflicts with `name`.
          * 
-         * &gt; **NOTE:**
-         * One of `name` or `agent_pool_id` must be specified, but not both.
+         * &gt; **NOTE:** One of `name` or `agent_pool_id` must be specified, but not both.
          * When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
          * 
          * @return builder
@@ -113,8 +110,7 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param agentPoolId The ID of the organization agent pool. Conflicts with `name`.
          * 
-         * &gt; **NOTE:**
-         * One of `name` or `agent_pool_id` must be specified, but not both.
+         * &gt; **NOTE:** One of `name` or `agent_pool_id` must be specified, but not both.
          * When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
          * 
          * @return builder

@@ -188,7 +188,7 @@ export class CheckBranchControl extends pulumi.CustomResource {
      */
     public readonly targetResourceId!: pulumi.Output<string>;
     /**
-     * The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+     * The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
      */
     public readonly targetResourceType!: pulumi.Output<string>;
     /**
@@ -277,7 +277,7 @@ export interface CheckBranchControlState {
      */
     targetResourceId?: pulumi.Input<string>;
     /**
-     * The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+     * The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
      */
     targetResourceType?: pulumi.Input<string>;
     /**
@@ -319,7 +319,7 @@ export interface CheckBranchControlArgs {
      */
     targetResourceId: pulumi.Input<string>;
     /**
-     * The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+     * The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
      */
     targetResourceType: pulumi.Input<string>;
     /**

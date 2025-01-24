@@ -167,7 +167,7 @@ type CheckExclusiveLock struct {
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The ID of the resource being protected by the check. Changing this forces a new Exclusive Lock to be created.
 	TargetResourceId pulumi.StringOutput `pulumi:"targetResourceId"`
-	// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
+	// The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
 	TargetResourceType pulumi.StringOutput `pulumi:"targetResourceType"`
 	// The timeout in minutes for the exclusive lock. Defaults to `43200`.
 	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
@@ -218,7 +218,7 @@ type checkExclusiveLockState struct {
 	ProjectId *string `pulumi:"projectId"`
 	// The ID of the resource being protected by the check. Changing this forces a new Exclusive Lock to be created.
 	TargetResourceId *string `pulumi:"targetResourceId"`
-	// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
+	// The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
 	TargetResourceType *string `pulumi:"targetResourceType"`
 	// The timeout in minutes for the exclusive lock. Defaults to `43200`.
 	Timeout *int `pulumi:"timeout"`
@@ -231,7 +231,7 @@ type CheckExclusiveLockState struct {
 	ProjectId pulumi.StringPtrInput
 	// The ID of the resource being protected by the check. Changing this forces a new Exclusive Lock to be created.
 	TargetResourceId pulumi.StringPtrInput
-	// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
+	// The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
 	TargetResourceType pulumi.StringPtrInput
 	// The timeout in minutes for the exclusive lock. Defaults to `43200`.
 	Timeout pulumi.IntPtrInput
@@ -248,7 +248,7 @@ type checkExclusiveLockArgs struct {
 	ProjectId string `pulumi:"projectId"`
 	// The ID of the resource being protected by the check. Changing this forces a new Exclusive Lock to be created.
 	TargetResourceId string `pulumi:"targetResourceId"`
-	// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
+	// The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
 	TargetResourceType string `pulumi:"targetResourceType"`
 	// The timeout in minutes for the exclusive lock. Defaults to `43200`.
 	Timeout *int `pulumi:"timeout"`
@@ -260,7 +260,7 @@ type CheckExclusiveLockArgs struct {
 	ProjectId pulumi.StringInput
 	// The ID of the resource being protected by the check. Changing this forces a new Exclusive Lock to be created.
 	TargetResourceId pulumi.StringInput
-	// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
+	// The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
 	TargetResourceType pulumi.StringInput
 	// The timeout in minutes for the exclusive lock. Defaults to `43200`.
 	Timeout pulumi.IntPtrInput
@@ -363,7 +363,7 @@ func (o CheckExclusiveLockOutput) TargetResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CheckExclusiveLock) pulumi.StringOutput { return v.TargetResourceId }).(pulumi.StringOutput)
 }
 
-// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
+// The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
 func (o CheckExclusiveLockOutput) TargetResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *CheckExclusiveLock) pulumi.StringOutput { return v.TargetResourceType }).(pulumi.StringOutput)
 }

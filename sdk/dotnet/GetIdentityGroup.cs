@@ -147,6 +147,9 @@ namespace Pulumi.AzureDevOps
     [OutputType]
     public sealed class GetIdentityGroupResult
     {
+        /// <summary>
+        /// The descriptor of the identity group.
+        /// </summary>
         public readonly string Descriptor;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

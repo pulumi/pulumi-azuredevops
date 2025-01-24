@@ -48,8 +48,8 @@ public final class GetServiceEndpointAzureRMPlainArgs extends com.pulumi.resourc
     /**
      * the Name of the Service Endpoint.
      * 
-     * &gt; **NOTE:** One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
-     * **NOTE:** When supplying `service_endpoint_name`, take care to ensure that this is a unique name.
+     * &gt; **NOTE:** 1. One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
+     * &lt;br&gt;2. When supplying `service_endpoint_name`, take care to ensure that this is a unique name.
      * 
      */
     @Import(name="serviceEndpointName")
@@ -58,8 +58,8 @@ public final class GetServiceEndpointAzureRMPlainArgs extends com.pulumi.resourc
     /**
      * @return the Name of the Service Endpoint.
      * 
-     * &gt; **NOTE:** One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
-     * **NOTE:** When supplying `service_endpoint_name`, take care to ensure that this is a unique name.
+     * &gt; **NOTE:** 1. One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
+     * &lt;br&gt;2. When supplying `service_endpoint_name`, take care to ensure that this is a unique name.
      * 
      */
     public Optional<String> serviceEndpointName() {
@@ -117,8 +117,8 @@ public final class GetServiceEndpointAzureRMPlainArgs extends com.pulumi.resourc
         /**
          * @param serviceEndpointName the Name of the Service Endpoint.
          * 
-         * &gt; **NOTE:** One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
-         * **NOTE:** When supplying `service_endpoint_name`, take care to ensure that this is a unique name.
+         * &gt; **NOTE:** 1. One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
+         * &lt;br&gt;2. When supplying `service_endpoint_name`, take care to ensure that this is a unique name.
          * 
          * @return builder
          * 

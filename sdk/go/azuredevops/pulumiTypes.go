@@ -24,7 +24,7 @@ type BranchPolicyAutoReviewersSettings struct {
 	MinimumNumberOfReviewers *int `pulumi:"minimumNumberOfReviewers"`
 	// Filter path(s) on which the policy is applied. Supports absolute paths, wildcards and multiple paths. Example: /WebApp/Models/Data.cs, /WebApp/* or *.cs,/WebApp/Models/Data.cs;ClientApp/Models/Data.cs.
 	PathFilters []string `pulumi:"pathFilters"`
-	// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+	// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 	Scopes []BranchPolicyAutoReviewersSettingsScope `pulumi:"scopes"`
 	// Controls whether or not the submitter's vote counts. Defaults to `false`.
 	SubmitterCanVote *bool `pulumi:"submitterCanVote"`
@@ -52,7 +52,7 @@ type BranchPolicyAutoReviewersSettingsArgs struct {
 	MinimumNumberOfReviewers pulumi.IntPtrInput `pulumi:"minimumNumberOfReviewers"`
 	// Filter path(s) on which the policy is applied. Supports absolute paths, wildcards and multiple paths. Example: /WebApp/Models/Data.cs, /WebApp/* or *.cs,/WebApp/Models/Data.cs;ClientApp/Models/Data.cs.
 	PathFilters pulumi.StringArrayInput `pulumi:"pathFilters"`
-	// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+	// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 	Scopes BranchPolicyAutoReviewersSettingsScopeArrayInput `pulumi:"scopes"`
 	// Controls whether or not the submitter's vote counts. Defaults to `false`.
 	SubmitterCanVote pulumi.BoolPtrInput `pulumi:"submitterCanVote"`
@@ -157,7 +157,7 @@ func (o BranchPolicyAutoReviewersSettingsOutput) PathFilters() pulumi.StringArra
 	return o.ApplyT(func(v BranchPolicyAutoReviewersSettings) []string { return v.PathFilters }).(pulumi.StringArrayOutput)
 }
 
-// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 func (o BranchPolicyAutoReviewersSettingsOutput) Scopes() BranchPolicyAutoReviewersSettingsScopeArrayOutput {
 	return o.ApplyT(func(v BranchPolicyAutoReviewersSettings) []BranchPolicyAutoReviewersSettingsScope { return v.Scopes }).(BranchPolicyAutoReviewersSettingsScopeArrayOutput)
 }
@@ -233,7 +233,7 @@ func (o BranchPolicyAutoReviewersSettingsPtrOutput) PathFilters() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 func (o BranchPolicyAutoReviewersSettingsPtrOutput) Scopes() BranchPolicyAutoReviewersSettingsScopeArrayOutput {
 	return o.ApplyT(func(v *BranchPolicyAutoReviewersSettings) []BranchPolicyAutoReviewersSettingsScope {
 		if v == nil {
@@ -379,7 +379,7 @@ type BranchPolicyBuildValidationSettings struct {
 	ManualQueueOnly *bool `pulumi:"manualQueueOnly"`
 	// True if the build should queue on source updates only. Defaults to `true`.
 	QueueOnSourceUpdateOnly *bool `pulumi:"queueOnSourceUpdateOnly"`
-	// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+	// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 	Scopes []BranchPolicyBuildValidationSettingsScope `pulumi:"scopes"`
 	// The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
 	//
@@ -412,7 +412,7 @@ type BranchPolicyBuildValidationSettingsArgs struct {
 	ManualQueueOnly pulumi.BoolPtrInput `pulumi:"manualQueueOnly"`
 	// True if the build should queue on source updates only. Defaults to `true`.
 	QueueOnSourceUpdateOnly pulumi.BoolPtrInput `pulumi:"queueOnSourceUpdateOnly"`
-	// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+	// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 	Scopes BranchPolicyBuildValidationSettingsScopeArrayInput `pulumi:"scopes"`
 	// The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
 	//
@@ -525,7 +525,7 @@ func (o BranchPolicyBuildValidationSettingsOutput) QueueOnSourceUpdateOnly() pul
 	return o.ApplyT(func(v BranchPolicyBuildValidationSettings) *bool { return v.QueueOnSourceUpdateOnly }).(pulumi.BoolPtrOutput)
 }
 
-// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 func (o BranchPolicyBuildValidationSettingsOutput) Scopes() BranchPolicyBuildValidationSettingsScopeArrayOutput {
 	return o.ApplyT(func(v BranchPolicyBuildValidationSettings) []BranchPolicyBuildValidationSettingsScope {
 		return v.Scopes
@@ -616,7 +616,7 @@ func (o BranchPolicyBuildValidationSettingsPtrOutput) QueueOnSourceUpdateOnly() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 func (o BranchPolicyBuildValidationSettingsPtrOutput) Scopes() BranchPolicyBuildValidationSettingsScopeArrayOutput {
 	return o.ApplyT(func(v *BranchPolicyBuildValidationSettings) []BranchPolicyBuildValidationSettingsScope {
 		if v == nil {
@@ -757,7 +757,7 @@ func (o BranchPolicyBuildValidationSettingsScopeArrayOutput) Index(i pulumi.IntI
 }
 
 type BranchPolicyCommentResolutionSettings struct {
-	// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+	// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 	Scopes []BranchPolicyCommentResolutionSettingsScope `pulumi:"scopes"`
 }
 
@@ -773,7 +773,7 @@ type BranchPolicyCommentResolutionSettingsInput interface {
 }
 
 type BranchPolicyCommentResolutionSettingsArgs struct {
-	// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+	// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 	Scopes BranchPolicyCommentResolutionSettingsScopeArrayInput `pulumi:"scopes"`
 }
 
@@ -854,7 +854,7 @@ func (o BranchPolicyCommentResolutionSettingsOutput) ToBranchPolicyCommentResolu
 	}).(BranchPolicyCommentResolutionSettingsPtrOutput)
 }
 
-// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 func (o BranchPolicyCommentResolutionSettingsOutput) Scopes() BranchPolicyCommentResolutionSettingsScopeArrayOutput {
 	return o.ApplyT(func(v BranchPolicyCommentResolutionSettings) []BranchPolicyCommentResolutionSettingsScope {
 		return v.Scopes
@@ -885,7 +885,7 @@ func (o BranchPolicyCommentResolutionSettingsPtrOutput) Elem() BranchPolicyComme
 	}).(BranchPolicyCommentResolutionSettingsOutput)
 }
 
-// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 func (o BranchPolicyCommentResolutionSettingsPtrOutput) Scopes() BranchPolicyCommentResolutionSettingsScopeArrayOutput {
 	return o.ApplyT(func(v *BranchPolicyCommentResolutionSettings) []BranchPolicyCommentResolutionSettingsScope {
 		if v == nil {
@@ -1019,7 +1019,7 @@ type BranchPolicyMergeTypesSettings struct {
 	AllowRebaseWithMerge *bool `pulumi:"allowRebaseWithMerge"`
 	// Allow squash merge. Defaults to `false`
 	AllowSquash *bool `pulumi:"allowSquash"`
-	// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+	// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 	Scopes []BranchPolicyMergeTypesSettingsScope `pulumi:"scopes"`
 }
 
@@ -1043,7 +1043,7 @@ type BranchPolicyMergeTypesSettingsArgs struct {
 	AllowRebaseWithMerge pulumi.BoolPtrInput `pulumi:"allowRebaseWithMerge"`
 	// Allow squash merge. Defaults to `false`
 	AllowSquash pulumi.BoolPtrInput `pulumi:"allowSquash"`
-	// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+	// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 	Scopes BranchPolicyMergeTypesSettingsScopeArrayInput `pulumi:"scopes"`
 }
 
@@ -1144,7 +1144,7 @@ func (o BranchPolicyMergeTypesSettingsOutput) AllowSquash() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v BranchPolicyMergeTypesSettings) *bool { return v.AllowSquash }).(pulumi.BoolPtrOutput)
 }
 
-// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 func (o BranchPolicyMergeTypesSettingsOutput) Scopes() BranchPolicyMergeTypesSettingsScopeArrayOutput {
 	return o.ApplyT(func(v BranchPolicyMergeTypesSettings) []BranchPolicyMergeTypesSettingsScope { return v.Scopes }).(BranchPolicyMergeTypesSettingsScopeArrayOutput)
 }
@@ -1213,7 +1213,7 @@ func (o BranchPolicyMergeTypesSettingsPtrOutput) AllowSquash() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 func (o BranchPolicyMergeTypesSettingsPtrOutput) Scopes() BranchPolicyMergeTypesSettingsScopeArrayOutput {
 	return o.ApplyT(func(v *BranchPolicyMergeTypesSettings) []BranchPolicyMergeTypesSettingsScope {
 		if v == nil {
@@ -1732,15 +1732,18 @@ func (o BranchPolicyMinReviewersSettingsScopeArrayOutput) Index(i pulumi.IntInpu
 }
 
 type BranchPolicyStatusCheckSettings struct {
-	// Policy applicability. If policy `applicability` is `default`, apply unless "Not Applicable"
-	// status is posted to the pull request. If policy `applicability` is `conditional`, policy is applied only after a status
-	// is posted to the pull request.
+	// Policy applicability. If policy `applicability=default`, apply unless "Not Applicable"
+	// status is posted to the pull request. If policy `applicability=conditional`, policy is applied only after a status
+	// is posted to the pull request. Possible values `default`, `conditional`. Defaults to `default`.
 	Applicability *string `pulumi:"applicability"`
 	// The authorized user can post the status.
 	AuthorId *string `pulumi:"authorId"`
 	// The display name.
 	DisplayName *string `pulumi:"displayName"`
-	// If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+	// If a path filter is set, the policy will only apply when files which match the filter are changed. Not setting this field means that the policy is always applied.
+	//
+	// ~>**NOTE** 1. Specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`.
+	// <br> 2. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
 	FilenamePatterns []string `pulumi:"filenamePatterns"`
 	// The genre of the status to check (see [Microsoft Documentation](https://docs.microsoft.com/en-us/azure/devops/repos/git/pull-request-status?view=azure-devops#status-policy))
 	Genre *string `pulumi:"genre"`
@@ -1748,8 +1751,7 @@ type BranchPolicyStatusCheckSettings struct {
 	InvalidateOnUpdate *bool `pulumi:"invalidateOnUpdate"`
 	// The status name to check.
 	Name string `pulumi:"name"`
-	// Controls which repositories and branches the policy will be enabled for. This block must be defined
-	// at least once.
+	// A `scope` block as defined below.
 	Scopes []BranchPolicyStatusCheckSettingsScope `pulumi:"scopes"`
 }
 
@@ -1765,15 +1767,18 @@ type BranchPolicyStatusCheckSettingsInput interface {
 }
 
 type BranchPolicyStatusCheckSettingsArgs struct {
-	// Policy applicability. If policy `applicability` is `default`, apply unless "Not Applicable"
-	// status is posted to the pull request. If policy `applicability` is `conditional`, policy is applied only after a status
-	// is posted to the pull request.
+	// Policy applicability. If policy `applicability=default`, apply unless "Not Applicable"
+	// status is posted to the pull request. If policy `applicability=conditional`, policy is applied only after a status
+	// is posted to the pull request. Possible values `default`, `conditional`. Defaults to `default`.
 	Applicability pulumi.StringPtrInput `pulumi:"applicability"`
 	// The authorized user can post the status.
 	AuthorId pulumi.StringPtrInput `pulumi:"authorId"`
 	// The display name.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+	// If a path filter is set, the policy will only apply when files which match the filter are changed. Not setting this field means that the policy is always applied.
+	//
+	// ~>**NOTE** 1. Specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`.
+	// <br> 2. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
 	FilenamePatterns pulumi.StringArrayInput `pulumi:"filenamePatterns"`
 	// The genre of the status to check (see [Microsoft Documentation](https://docs.microsoft.com/en-us/azure/devops/repos/git/pull-request-status?view=azure-devops#status-policy))
 	Genre pulumi.StringPtrInput `pulumi:"genre"`
@@ -1781,8 +1786,7 @@ type BranchPolicyStatusCheckSettingsArgs struct {
 	InvalidateOnUpdate pulumi.BoolPtrInput `pulumi:"invalidateOnUpdate"`
 	// The status name to check.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Controls which repositories and branches the policy will be enabled for. This block must be defined
-	// at least once.
+	// A `scope` block as defined below.
 	Scopes BranchPolicyStatusCheckSettingsScopeArrayInput `pulumi:"scopes"`
 }
 
@@ -1863,9 +1867,9 @@ func (o BranchPolicyStatusCheckSettingsOutput) ToBranchPolicyStatusCheckSettings
 	}).(BranchPolicyStatusCheckSettingsPtrOutput)
 }
 
-// Policy applicability. If policy `applicability` is `default`, apply unless "Not Applicable"
-// status is posted to the pull request. If policy `applicability` is `conditional`, policy is applied only after a status
-// is posted to the pull request.
+// Policy applicability. If policy `applicability=default`, apply unless "Not Applicable"
+// status is posted to the pull request. If policy `applicability=conditional`, policy is applied only after a status
+// is posted to the pull request. Possible values `default`, `conditional`. Defaults to `default`.
 func (o BranchPolicyStatusCheckSettingsOutput) Applicability() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BranchPolicyStatusCheckSettings) *string { return v.Applicability }).(pulumi.StringPtrOutput)
 }
@@ -1880,7 +1884,10 @@ func (o BranchPolicyStatusCheckSettingsOutput) DisplayName() pulumi.StringPtrOut
 	return o.ApplyT(func(v BranchPolicyStatusCheckSettings) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+// If a path filter is set, the policy will only apply when files which match the filter are changed. Not setting this field means that the policy is always applied.
+//
+// ~>**NOTE** 1. Specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`.
+// <br> 2. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
 func (o BranchPolicyStatusCheckSettingsOutput) FilenamePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BranchPolicyStatusCheckSettings) []string { return v.FilenamePatterns }).(pulumi.StringArrayOutput)
 }
@@ -1900,8 +1907,7 @@ func (o BranchPolicyStatusCheckSettingsOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v BranchPolicyStatusCheckSettings) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Controls which repositories and branches the policy will be enabled for. This block must be defined
-// at least once.
+// A `scope` block as defined below.
 func (o BranchPolicyStatusCheckSettingsOutput) Scopes() BranchPolicyStatusCheckSettingsScopeArrayOutput {
 	return o.ApplyT(func(v BranchPolicyStatusCheckSettings) []BranchPolicyStatusCheckSettingsScope { return v.Scopes }).(BranchPolicyStatusCheckSettingsScopeArrayOutput)
 }
@@ -1930,9 +1936,9 @@ func (o BranchPolicyStatusCheckSettingsPtrOutput) Elem() BranchPolicyStatusCheck
 	}).(BranchPolicyStatusCheckSettingsOutput)
 }
 
-// Policy applicability. If policy `applicability` is `default`, apply unless "Not Applicable"
-// status is posted to the pull request. If policy `applicability` is `conditional`, policy is applied only after a status
-// is posted to the pull request.
+// Policy applicability. If policy `applicability=default`, apply unless "Not Applicable"
+// status is posted to the pull request. If policy `applicability=conditional`, policy is applied only after a status
+// is posted to the pull request. Possible values `default`, `conditional`. Defaults to `default`.
 func (o BranchPolicyStatusCheckSettingsPtrOutput) Applicability() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BranchPolicyStatusCheckSettings) *string {
 		if v == nil {
@@ -1962,7 +1968,10 @@ func (o BranchPolicyStatusCheckSettingsPtrOutput) DisplayName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+// If a path filter is set, the policy will only apply when files which match the filter are changed. Not setting this field means that the policy is always applied.
+//
+// ~>**NOTE** 1. Specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`.
+// <br> 2. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
 func (o BranchPolicyStatusCheckSettingsPtrOutput) FilenamePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BranchPolicyStatusCheckSettings) []string {
 		if v == nil {
@@ -2002,8 +2011,7 @@ func (o BranchPolicyStatusCheckSettingsPtrOutput) Name() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Controls which repositories and branches the policy will be enabled for. This block must be defined
-// at least once.
+// A `scope` block as defined below.
 func (o BranchPolicyStatusCheckSettingsPtrOutput) Scopes() BranchPolicyStatusCheckSettingsScopeArrayOutput {
 	return o.ApplyT(func(v *BranchPolicyStatusCheckSettings) []BranchPolicyStatusCheckSettingsScope {
 		if v == nil {
@@ -2016,9 +2024,9 @@ func (o BranchPolicyStatusCheckSettingsPtrOutput) Scopes() BranchPolicyStatusChe
 type BranchPolicyStatusCheckSettingsScope struct {
 	// The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
 	MatchType *string `pulumi:"matchType"`
-	// The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
+	// The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type=DefaultBranch`, this should not be defined.
 	RepositoryId *string `pulumi:"repositoryId"`
-	// The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+	// The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `match_type=Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type=Prefix`, this should be a ref path such as `refs/heads/releases`.
 	RepositoryRef *string `pulumi:"repositoryRef"`
 }
 
@@ -2036,9 +2044,9 @@ type BranchPolicyStatusCheckSettingsScopeInput interface {
 type BranchPolicyStatusCheckSettingsScopeArgs struct {
 	// The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
 	MatchType pulumi.StringPtrInput `pulumi:"matchType"`
-	// The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
+	// The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type=DefaultBranch`, this should not be defined.
 	RepositoryId pulumi.StringPtrInput `pulumi:"repositoryId"`
-	// The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+	// The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `match_type=Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type=Prefix`, this should be a ref path such as `refs/heads/releases`.
 	RepositoryRef pulumi.StringPtrInput `pulumi:"repositoryRef"`
 }
 
@@ -2098,12 +2106,12 @@ func (o BranchPolicyStatusCheckSettingsScopeOutput) MatchType() pulumi.StringPtr
 	return o.ApplyT(func(v BranchPolicyStatusCheckSettingsScope) *string { return v.MatchType }).(pulumi.StringPtrOutput)
 }
 
-// The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
+// The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type=DefaultBranch`, this should not be defined.
 func (o BranchPolicyStatusCheckSettingsScopeOutput) RepositoryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BranchPolicyStatusCheckSettingsScope) *string { return v.RepositoryId }).(pulumi.StringPtrOutput)
 }
 
-// The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+// The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `match_type=Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type=Prefix`, this should be a ref path such as `refs/heads/releases`.
 func (o BranchPolicyStatusCheckSettingsScopeOutput) RepositoryRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BranchPolicyStatusCheckSettingsScope) *string { return v.RepositoryRef }).(pulumi.StringPtrOutput)
 }
@@ -2129,7 +2137,7 @@ func (o BranchPolicyStatusCheckSettingsScopeArrayOutput) Index(i pulumi.IntInput
 }
 
 type BranchPolicyWorkItemLinkingSettings struct {
-	// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+	// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 	Scopes []BranchPolicyWorkItemLinkingSettingsScope `pulumi:"scopes"`
 }
 
@@ -2145,7 +2153,7 @@ type BranchPolicyWorkItemLinkingSettingsInput interface {
 }
 
 type BranchPolicyWorkItemLinkingSettingsArgs struct {
-	// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+	// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 	Scopes BranchPolicyWorkItemLinkingSettingsScopeArrayInput `pulumi:"scopes"`
 }
 
@@ -2226,7 +2234,7 @@ func (o BranchPolicyWorkItemLinkingSettingsOutput) ToBranchPolicyWorkItemLinking
 	}).(BranchPolicyWorkItemLinkingSettingsPtrOutput)
 }
 
-// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 func (o BranchPolicyWorkItemLinkingSettingsOutput) Scopes() BranchPolicyWorkItemLinkingSettingsScopeArrayOutput {
 	return o.ApplyT(func(v BranchPolicyWorkItemLinkingSettings) []BranchPolicyWorkItemLinkingSettingsScope {
 		return v.Scopes
@@ -2257,7 +2265,7 @@ func (o BranchPolicyWorkItemLinkingSettingsPtrOutput) Elem() BranchPolicyWorkIte
 	}).(BranchPolicyWorkItemLinkingSettingsOutput)
 }
 
-// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 func (o BranchPolicyWorkItemLinkingSettingsPtrOutput) Scopes() BranchPolicyWorkItemLinkingSettingsScopeArrayOutput {
 	return o.ApplyT(func(v *BranchPolicyWorkItemLinkingSettings) []BranchPolicyWorkItemLinkingSettingsScope {
 		if v == nil {
@@ -4064,7 +4072,7 @@ type BuildDefinitionRepository struct {
 	GithubEnterpriseUrl *string `pulumi:"githubEnterpriseUrl"`
 	// The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
 	RepoId string `pulumi:"repoId"`
-	// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+	// The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
 	RepoType string `pulumi:"repoType"`
 	// Report build status. Default is true.
 	ReportBuildStatus *bool `pulumi:"reportBuildStatus"`
@@ -4092,7 +4100,7 @@ type BuildDefinitionRepositoryArgs struct {
 	GithubEnterpriseUrl pulumi.StringPtrInput `pulumi:"githubEnterpriseUrl"`
 	// The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
 	RepoId pulumi.StringInput `pulumi:"repoId"`
-	// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+	// The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
 	RepoType pulumi.StringInput `pulumi:"repoType"`
 	// Report build status. Default is true.
 	ReportBuildStatus pulumi.BoolPtrInput `pulumi:"reportBuildStatus"`
@@ -4194,7 +4202,7 @@ func (o BuildDefinitionRepositoryOutput) RepoId() pulumi.StringOutput {
 	return o.ApplyT(func(v BuildDefinitionRepository) string { return v.RepoId }).(pulumi.StringOutput)
 }
 
-// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+// The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
 func (o BuildDefinitionRepositoryOutput) RepoType() pulumi.StringOutput {
 	return o.ApplyT(func(v BuildDefinitionRepository) string { return v.RepoType }).(pulumi.StringOutput)
 }
@@ -4268,7 +4276,7 @@ func (o BuildDefinitionRepositoryPtrOutput) RepoId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+// The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
 func (o BuildDefinitionRepositoryPtrOutput) RepoType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionRepository) *string {
 		if v == nil {
@@ -4309,19 +4317,19 @@ func (o BuildDefinitionRepositoryPtrOutput) YmlPath() pulumi.StringPtrOutput {
 }
 
 type BuildDefinitionSchedule struct {
-	// block supports the following:
+	// A `branchFilter` block as defined below.
 	BranchFilters []BuildDefinitionScheduleBranchFilter `pulumi:"branchFilters"`
-	// When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
+	// When to build. Possible values are: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
 	DaysToBuilds []string `pulumi:"daysToBuilds"`
 	// The ID of the schedule job
 	ScheduleJobId *string `pulumi:"scheduleJobId"`
 	// Schedule builds if the source or pipeline has changed. Defaults to `true`.
 	ScheduleOnlyWithChanges *bool `pulumi:"scheduleOnlyWithChanges"`
-	// Build start hour. Defaults to `0`. Valid values: `0 ~ 23`.
+	// Build start hour. Possible values are: `0 ~ 23`. Defaults to `0`.
 	StartHours *int `pulumi:"startHours"`
-	// Build start minute. Defaults to `0`. Valid values: `0 ~ 59`.
+	// Build start minute. Possible values are: `0 ~ 59`. Defaults to `0`.
 	StartMinutes *int `pulumi:"startMinutes"`
-	// Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Valid values:
+	// Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Possible values are:
 	// `(UTC-12:00) International Date Line West`,
 	// `(UTC-11:00) Coordinated Universal Time-11`,
 	// `(UTC-10:00) Aleutian Islands`,
@@ -4478,19 +4486,19 @@ type BuildDefinitionScheduleInput interface {
 }
 
 type BuildDefinitionScheduleArgs struct {
-	// block supports the following:
+	// A `branchFilter` block as defined below.
 	BranchFilters BuildDefinitionScheduleBranchFilterArrayInput `pulumi:"branchFilters"`
-	// When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
+	// When to build. Possible values are: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
 	DaysToBuilds pulumi.StringArrayInput `pulumi:"daysToBuilds"`
 	// The ID of the schedule job
 	ScheduleJobId pulumi.StringPtrInput `pulumi:"scheduleJobId"`
 	// Schedule builds if the source or pipeline has changed. Defaults to `true`.
 	ScheduleOnlyWithChanges pulumi.BoolPtrInput `pulumi:"scheduleOnlyWithChanges"`
-	// Build start hour. Defaults to `0`. Valid values: `0 ~ 23`.
+	// Build start hour. Possible values are: `0 ~ 23`. Defaults to `0`.
 	StartHours pulumi.IntPtrInput `pulumi:"startHours"`
-	// Build start minute. Defaults to `0`. Valid values: `0 ~ 59`.
+	// Build start minute. Possible values are: `0 ~ 59`. Defaults to `0`.
 	StartMinutes pulumi.IntPtrInput `pulumi:"startMinutes"`
-	// Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Valid values:
+	// Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Possible values are:
 	// `(UTC-12:00) International Date Line West`,
 	// `(UTC-11:00) Coordinated Universal Time-11`,
 	// `(UTC-10:00) Aleutian Islands`,
@@ -4686,12 +4694,12 @@ func (o BuildDefinitionScheduleOutput) ToBuildDefinitionScheduleOutputWithContex
 	return o
 }
 
-// block supports the following:
+// A `branchFilter` block as defined below.
 func (o BuildDefinitionScheduleOutput) BranchFilters() BuildDefinitionScheduleBranchFilterArrayOutput {
 	return o.ApplyT(func(v BuildDefinitionSchedule) []BuildDefinitionScheduleBranchFilter { return v.BranchFilters }).(BuildDefinitionScheduleBranchFilterArrayOutput)
 }
 
-// When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
+// When to build. Possible values are: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
 func (o BuildDefinitionScheduleOutput) DaysToBuilds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BuildDefinitionSchedule) []string { return v.DaysToBuilds }).(pulumi.StringArrayOutput)
 }
@@ -4706,17 +4714,17 @@ func (o BuildDefinitionScheduleOutput) ScheduleOnlyWithChanges() pulumi.BoolPtrO
 	return o.ApplyT(func(v BuildDefinitionSchedule) *bool { return v.ScheduleOnlyWithChanges }).(pulumi.BoolPtrOutput)
 }
 
-// Build start hour. Defaults to `0`. Valid values: `0 ~ 23`.
+// Build start hour. Possible values are: `0 ~ 23`. Defaults to `0`.
 func (o BuildDefinitionScheduleOutput) StartHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionSchedule) *int { return v.StartHours }).(pulumi.IntPtrOutput)
 }
 
-// Build start minute. Defaults to `0`. Valid values: `0 ~ 59`.
+// Build start minute. Possible values are: `0 ~ 59`. Defaults to `0`.
 func (o BuildDefinitionScheduleOutput) StartMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionSchedule) *int { return v.StartMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Valid values:
+// Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Possible values are:
 // `(UTC-12:00) International Date Line West`,
 // `(UTC-11:00) Coordinated Universal Time-11`,
 // `(UTC-10:00) Aleutian Islands`,
@@ -5126,7 +5134,7 @@ type CheckRequiredTemplateRequiredTemplate struct {
 	RepositoryName string `pulumi:"repositoryName"`
 	// The branch in which the template will be referenced.
 	RepositoryRef string `pulumi:"repositoryRef"`
-	// The type of the repository storing the template. Valid values: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
+	// The type of the repository storing the template. Possible values are: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
 	RepositoryType *string `pulumi:"repositoryType"`
 	// The path to the template yaml.
 	TemplatePath string `pulumi:"templatePath"`
@@ -5148,7 +5156,7 @@ type CheckRequiredTemplateRequiredTemplateArgs struct {
 	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
 	// The branch in which the template will be referenced.
 	RepositoryRef pulumi.StringInput `pulumi:"repositoryRef"`
-	// The type of the repository storing the template. Valid values: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
+	// The type of the repository storing the template. Possible values are: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
 	RepositoryType pulumi.StringPtrInput `pulumi:"repositoryType"`
 	// The path to the template yaml.
 	TemplatePath pulumi.StringInput `pulumi:"templatePath"`
@@ -5215,7 +5223,7 @@ func (o CheckRequiredTemplateRequiredTemplateOutput) RepositoryRef() pulumi.Stri
 	return o.ApplyT(func(v CheckRequiredTemplateRequiredTemplate) string { return v.RepositoryRef }).(pulumi.StringOutput)
 }
 
-// The type of the repository storing the template. Valid values: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
+// The type of the repository storing the template. Possible values are: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
 func (o CheckRequiredTemplateRequiredTemplateOutput) RepositoryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CheckRequiredTemplateRequiredTemplate) *string { return v.RepositoryType }).(pulumi.StringPtrOutput)
 }
@@ -5356,8 +5364,7 @@ type GitInitialization struct {
 	InitType string `pulumi:"initType"`
 	// The password used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`.
 	//
-	// ~>**Note**
-	// At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
+	// ~>**Note** At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
 	Password *string `pulumi:"password"`
 	// The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
 	ServiceConnectionId *string `pulumi:"serviceConnectionId"`
@@ -5385,8 +5392,7 @@ type GitInitializationArgs struct {
 	InitType pulumi.StringInput `pulumi:"initType"`
 	// The password used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`.
 	//
-	// ~>**Note**
-	// At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
+	// ~>**Note** At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
 	Password pulumi.StringPtrInput `pulumi:"password"`
 	// The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
 	ServiceConnectionId pulumi.StringPtrInput `pulumi:"serviceConnectionId"`
@@ -5482,8 +5488,7 @@ func (o GitInitializationOutput) InitType() pulumi.StringOutput {
 
 // The password used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`.
 //
-// ~>**Note**
-// At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
+// ~>**Note** At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
 func (o GitInitializationOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GitInitialization) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
@@ -5544,8 +5549,7 @@ func (o GitInitializationPtrOutput) InitType() pulumi.StringPtrOutput {
 
 // The password used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`.
 //
-// ~>**Note**
-// At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
+// ~>**Note** At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
 func (o GitInitializationPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GitInitialization) *string {
 		if v == nil {
@@ -5596,9 +5600,9 @@ func (o GitInitializationPtrOutput) Username() pulumi.StringPtrOutput {
 }
 
 type ServiceEndpointArtifactoryAuthenticationBasic struct {
-	// The Artifactory password.
+	// The Password of the Artifactory.
 	Password string `pulumi:"password"`
-	// The Artifactory user name.
+	// The Username of the Artifactory.
 	Username string `pulumi:"username"`
 }
 
@@ -5614,9 +5618,9 @@ type ServiceEndpointArtifactoryAuthenticationBasicInput interface {
 }
 
 type ServiceEndpointArtifactoryAuthenticationBasicArgs struct {
-	// The Artifactory password.
+	// The Password of the Artifactory.
 	Password pulumi.StringInput `pulumi:"password"`
-	// The Artifactory user name.
+	// The Username of the Artifactory.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -5697,12 +5701,12 @@ func (o ServiceEndpointArtifactoryAuthenticationBasicOutput) ToServiceEndpointAr
 	}).(ServiceEndpointArtifactoryAuthenticationBasicPtrOutput)
 }
 
-// The Artifactory password.
+// The Password of the Artifactory.
 func (o ServiceEndpointArtifactoryAuthenticationBasicOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceEndpointArtifactoryAuthenticationBasic) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// The Artifactory user name.
+// The Username of the Artifactory.
 func (o ServiceEndpointArtifactoryAuthenticationBasicOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceEndpointArtifactoryAuthenticationBasic) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -5731,7 +5735,7 @@ func (o ServiceEndpointArtifactoryAuthenticationBasicPtrOutput) Elem() ServiceEn
 	}).(ServiceEndpointArtifactoryAuthenticationBasicOutput)
 }
 
-// The Artifactory password.
+// The Password of the Artifactory.
 func (o ServiceEndpointArtifactoryAuthenticationBasicPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointArtifactoryAuthenticationBasic) *string {
 		if v == nil {
@@ -5741,7 +5745,7 @@ func (o ServiceEndpointArtifactoryAuthenticationBasicPtrOutput) Password() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Artifactory user name.
+// The Username of the Artifactory.
 func (o ServiceEndpointArtifactoryAuthenticationBasicPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointArtifactoryAuthenticationBasic) *string {
 		if v == nil {
@@ -5752,7 +5756,7 @@ func (o ServiceEndpointArtifactoryAuthenticationBasicPtrOutput) Username() pulum
 }
 
 type ServiceEndpointArtifactoryAuthenticationToken struct {
-	// The Artifactory access token.
+	// Authentication Token generated through Artifactory.
 	Token string `pulumi:"token"`
 }
 
@@ -5768,7 +5772,7 @@ type ServiceEndpointArtifactoryAuthenticationTokenInput interface {
 }
 
 type ServiceEndpointArtifactoryAuthenticationTokenArgs struct {
-	// The Artifactory access token.
+	// Authentication Token generated through Artifactory.
 	Token pulumi.StringInput `pulumi:"token"`
 }
 
@@ -5849,7 +5853,7 @@ func (o ServiceEndpointArtifactoryAuthenticationTokenOutput) ToServiceEndpointAr
 	}).(ServiceEndpointArtifactoryAuthenticationTokenPtrOutput)
 }
 
-// The Artifactory access token.
+// Authentication Token generated through Artifactory.
 func (o ServiceEndpointArtifactoryAuthenticationTokenOutput) Token() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceEndpointArtifactoryAuthenticationToken) string { return v.Token }).(pulumi.StringOutput)
 }
@@ -5878,7 +5882,7 @@ func (o ServiceEndpointArtifactoryAuthenticationTokenPtrOutput) Elem() ServiceEn
 	}).(ServiceEndpointArtifactoryAuthenticationTokenOutput)
 }
 
-// The Artifactory access token.
+// Authentication Token generated through Artifactory.
 func (o ServiceEndpointArtifactoryAuthenticationTokenPtrOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointArtifactoryAuthenticationToken) *string {
 		if v == nil {
@@ -5889,7 +5893,7 @@ func (o ServiceEndpointArtifactoryAuthenticationTokenPtrOutput) Token() pulumi.S
 }
 
 type ServiceEndpointAzureEcrCredentials struct {
-	// The service principal application Id
+	// The ID of the Service Principal Application.
 	Serviceprincipalid string `pulumi:"serviceprincipalid"`
 }
 
@@ -5905,7 +5909,7 @@ type ServiceEndpointAzureEcrCredentialsInput interface {
 }
 
 type ServiceEndpointAzureEcrCredentialsArgs struct {
-	// The service principal application Id
+	// The ID of the Service Principal Application.
 	Serviceprincipalid pulumi.StringInput `pulumi:"serviceprincipalid"`
 }
 
@@ -5986,7 +5990,7 @@ func (o ServiceEndpointAzureEcrCredentialsOutput) ToServiceEndpointAzureEcrCrede
 	}).(ServiceEndpointAzureEcrCredentialsPtrOutput)
 }
 
-// The service principal application Id
+// The ID of the Service Principal Application.
 func (o ServiceEndpointAzureEcrCredentialsOutput) Serviceprincipalid() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceEndpointAzureEcrCredentials) string { return v.Serviceprincipalid }).(pulumi.StringOutput)
 }
@@ -6015,7 +6019,7 @@ func (o ServiceEndpointAzureEcrCredentialsPtrOutput) Elem() ServiceEndpointAzure
 	}).(ServiceEndpointAzureEcrCredentialsOutput)
 }
 
-// The service principal application Id
+// The ID of the Service Principal Application.
 func (o ServiceEndpointAzureEcrCredentialsPtrOutput) Serviceprincipalid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointAzureEcrCredentials) *string {
 		if v == nil {
@@ -7396,7 +7400,7 @@ type ServiceEndpointServiceFabricAzureActiveDirectory struct {
 	Password string `pulumi:"password"`
 	// The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
 	ServerCertificateCommonName *string `pulumi:"serverCertificateCommonName"`
-	// Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+	// Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
 	ServerCertificateLookup string `pulumi:"serverCertificateLookup"`
 	// The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
 	ServerCertificateThumbprint *string `pulumi:"serverCertificateThumbprint"`
@@ -7420,7 +7424,7 @@ type ServiceEndpointServiceFabricAzureActiveDirectoryArgs struct {
 	Password pulumi.StringInput `pulumi:"password"`
 	// The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
 	ServerCertificateCommonName pulumi.StringPtrInput `pulumi:"serverCertificateCommonName"`
-	// Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+	// Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
 	ServerCertificateLookup pulumi.StringInput `pulumi:"serverCertificateLookup"`
 	// The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
 	ServerCertificateThumbprint pulumi.StringPtrInput `pulumi:"serverCertificateThumbprint"`
@@ -7515,7 +7519,7 @@ func (o ServiceEndpointServiceFabricAzureActiveDirectoryOutput) ServerCertificat
 	return o.ApplyT(func(v ServiceEndpointServiceFabricAzureActiveDirectory) *string { return v.ServerCertificateCommonName }).(pulumi.StringPtrOutput)
 }
 
-// Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+// Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
 func (o ServiceEndpointServiceFabricAzureActiveDirectoryOutput) ServerCertificateLookup() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceEndpointServiceFabricAzureActiveDirectory) string { return v.ServerCertificateLookup }).(pulumi.StringOutput)
 }
@@ -7574,7 +7578,7 @@ func (o ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput) ServerCertifi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+// Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
 func (o ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput) ServerCertificateLookup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointServiceFabricAzureActiveDirectory) *string {
 		if v == nil {
@@ -7611,7 +7615,7 @@ type ServiceEndpointServiceFabricCertificate struct {
 	ClientCertificatePassword *string `pulumi:"clientCertificatePassword"`
 	// The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
 	ServerCertificateCommonName *string `pulumi:"serverCertificateCommonName"`
-	// Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+	// Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
 	ServerCertificateLookup string `pulumi:"serverCertificateLookup"`
 	// The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
 	ServerCertificateThumbprint *string `pulumi:"serverCertificateThumbprint"`
@@ -7635,7 +7639,7 @@ type ServiceEndpointServiceFabricCertificateArgs struct {
 	ClientCertificatePassword pulumi.StringPtrInput `pulumi:"clientCertificatePassword"`
 	// The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
 	ServerCertificateCommonName pulumi.StringPtrInput `pulumi:"serverCertificateCommonName"`
-	// Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+	// Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
 	ServerCertificateLookup pulumi.StringInput `pulumi:"serverCertificateLookup"`
 	// The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
 	ServerCertificateThumbprint pulumi.StringPtrInput `pulumi:"serverCertificateThumbprint"`
@@ -7733,7 +7737,7 @@ func (o ServiceEndpointServiceFabricCertificateOutput) ServerCertificateCommonNa
 	return o.ApplyT(func(v ServiceEndpointServiceFabricCertificate) *string { return v.ServerCertificateCommonName }).(pulumi.StringPtrOutput)
 }
 
-// Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+// Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
 func (o ServiceEndpointServiceFabricCertificateOutput) ServerCertificateLookup() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceEndpointServiceFabricCertificate) string { return v.ServerCertificateLookup }).(pulumi.StringOutput)
 }
@@ -7797,7 +7801,7 @@ func (o ServiceEndpointServiceFabricCertificatePtrOutput) ServerCertificateCommo
 	}).(pulumi.StringPtrOutput)
 }
 
-// Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+// Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
 func (o ServiceEndpointServiceFabricCertificatePtrOutput) ServerCertificateLookup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointServiceFabricCertificate) *string {
 		if v == nil {
@@ -7974,9 +7978,9 @@ func (o ServiceEndpointServiceFabricNonePtrOutput) Unsecured() pulumi.BoolPtrOut
 }
 
 type ServiceendpointArgocdAuthenticationBasic struct {
-	// ArgoCD Password.
+	// The Password of the ArgoCD.
 	Password string `pulumi:"password"`
-	// ArgoCD Username.
+	// The Username of the ArgoCD.
 	Username string `pulumi:"username"`
 }
 
@@ -7992,9 +7996,9 @@ type ServiceendpointArgocdAuthenticationBasicInput interface {
 }
 
 type ServiceendpointArgocdAuthenticationBasicArgs struct {
-	// ArgoCD Password.
+	// The Password of the ArgoCD.
 	Password pulumi.StringInput `pulumi:"password"`
-	// ArgoCD Username.
+	// The Username of the ArgoCD.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -8075,12 +8079,12 @@ func (o ServiceendpointArgocdAuthenticationBasicOutput) ToServiceendpointArgocdA
 	}).(ServiceendpointArgocdAuthenticationBasicPtrOutput)
 }
 
-// ArgoCD Password.
+// The Password of the ArgoCD.
 func (o ServiceendpointArgocdAuthenticationBasicOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceendpointArgocdAuthenticationBasic) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// ArgoCD Username.
+// The Username of the ArgoCD.
 func (o ServiceendpointArgocdAuthenticationBasicOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceendpointArgocdAuthenticationBasic) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -8109,7 +8113,7 @@ func (o ServiceendpointArgocdAuthenticationBasicPtrOutput) Elem() Serviceendpoin
 	}).(ServiceendpointArgocdAuthenticationBasicOutput)
 }
 
-// ArgoCD Password.
+// The Password of the ArgoCD.
 func (o ServiceendpointArgocdAuthenticationBasicPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointArgocdAuthenticationBasic) *string {
 		if v == nil {
@@ -8119,7 +8123,7 @@ func (o ServiceendpointArgocdAuthenticationBasicPtrOutput) Password() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// ArgoCD Username.
+// The Username of the ArgoCD.
 func (o ServiceendpointArgocdAuthenticationBasicPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointArgocdAuthenticationBasic) *string {
 		if v == nil {
@@ -8404,9 +8408,9 @@ func (o ServiceendpointExternaltfsAuthPersonalPtrOutput) PersonalAccessToken() p
 }
 
 type ServiceendpointJfrogArtifactoryV2AuthenticationBasic struct {
-	// Artifactory Password.
+	// The Password of the Artifactory.
 	Password string `pulumi:"password"`
-	// Artifactory Username.
+	// The Username of the Artifactory.
 	Username string `pulumi:"username"`
 }
 
@@ -8422,9 +8426,9 @@ type ServiceendpointJfrogArtifactoryV2AuthenticationBasicInput interface {
 }
 
 type ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs struct {
-	// Artifactory Password.
+	// The Password of the Artifactory.
 	Password pulumi.StringInput `pulumi:"password"`
-	// Artifactory Username.
+	// The Username of the Artifactory.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -8505,12 +8509,12 @@ func (o ServiceendpointJfrogArtifactoryV2AuthenticationBasicOutput) ToServiceend
 	}).(ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput)
 }
 
-// Artifactory Password.
+// The Password of the Artifactory.
 func (o ServiceendpointJfrogArtifactoryV2AuthenticationBasicOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceendpointJfrogArtifactoryV2AuthenticationBasic) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// Artifactory Username.
+// The Username of the Artifactory.
 func (o ServiceendpointJfrogArtifactoryV2AuthenticationBasicOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceendpointJfrogArtifactoryV2AuthenticationBasic) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -8539,7 +8543,7 @@ func (o ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput) Elem() Se
 	}).(ServiceendpointJfrogArtifactoryV2AuthenticationBasicOutput)
 }
 
-// Artifactory Password.
+// The Password of the Artifactory.
 func (o ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointJfrogArtifactoryV2AuthenticationBasic) *string {
 		if v == nil {
@@ -8549,7 +8553,7 @@ func (o ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput) Password(
 	}).(pulumi.StringPtrOutput)
 }
 
-// Artifactory Username.
+// The Username of the Artifactory.
 func (o ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointJfrogArtifactoryV2AuthenticationBasic) *string {
 		if v == nil {
@@ -8697,9 +8701,9 @@ func (o ServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutput) Token() p
 }
 
 type ServiceendpointJfrogDistributionV2AuthenticationBasic struct {
-	// Artifactory Password.
+	// The Password of the Artifactory.
 	Password string `pulumi:"password"`
-	// Artifactory Username.
+	// The Username of the Artifactory.
 	Username string `pulumi:"username"`
 }
 
@@ -8715,9 +8719,9 @@ type ServiceendpointJfrogDistributionV2AuthenticationBasicInput interface {
 }
 
 type ServiceendpointJfrogDistributionV2AuthenticationBasicArgs struct {
-	// Artifactory Password.
+	// The Password of the Artifactory.
 	Password pulumi.StringInput `pulumi:"password"`
-	// Artifactory Username.
+	// The Username of the Artifactory.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -8798,12 +8802,12 @@ func (o ServiceendpointJfrogDistributionV2AuthenticationBasicOutput) ToServiceen
 	}).(ServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput)
 }
 
-// Artifactory Password.
+// The Password of the Artifactory.
 func (o ServiceendpointJfrogDistributionV2AuthenticationBasicOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceendpointJfrogDistributionV2AuthenticationBasic) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// Artifactory Username.
+// The Username of the Artifactory.
 func (o ServiceendpointJfrogDistributionV2AuthenticationBasicOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceendpointJfrogDistributionV2AuthenticationBasic) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -8832,7 +8836,7 @@ func (o ServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput) Elem() S
 	}).(ServiceendpointJfrogDistributionV2AuthenticationBasicOutput)
 }
 
-// Artifactory Password.
+// The Password of the Artifactory.
 func (o ServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointJfrogDistributionV2AuthenticationBasic) *string {
 		if v == nil {
@@ -8842,7 +8846,7 @@ func (o ServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput) Password
 	}).(pulumi.StringPtrOutput)
 }
 
-// Artifactory Username.
+// The Username of the Artifactory.
 func (o ServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointJfrogDistributionV2AuthenticationBasic) *string {
 		if v == nil {
@@ -8853,7 +8857,7 @@ func (o ServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput) Username
 }
 
 type ServiceendpointJfrogDistributionV2AuthenticationToken struct {
-	// Authentication Token generated through Artifactory.
+	// The Authentication Token generated through Artifactory.
 	Token string `pulumi:"token"`
 }
 
@@ -8869,7 +8873,7 @@ type ServiceendpointJfrogDistributionV2AuthenticationTokenInput interface {
 }
 
 type ServiceendpointJfrogDistributionV2AuthenticationTokenArgs struct {
-	// Authentication Token generated through Artifactory.
+	// The Authentication Token generated through Artifactory.
 	Token pulumi.StringInput `pulumi:"token"`
 }
 
@@ -8950,7 +8954,7 @@ func (o ServiceendpointJfrogDistributionV2AuthenticationTokenOutput) ToServiceen
 	}).(ServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutput)
 }
 
-// Authentication Token generated through Artifactory.
+// The Authentication Token generated through Artifactory.
 func (o ServiceendpointJfrogDistributionV2AuthenticationTokenOutput) Token() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceendpointJfrogDistributionV2AuthenticationToken) string { return v.Token }).(pulumi.StringOutput)
 }
@@ -8979,7 +8983,7 @@ func (o ServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutput) Elem() S
 	}).(ServiceendpointJfrogDistributionV2AuthenticationTokenOutput)
 }
 
-// Authentication Token generated through Artifactory.
+// The Authentication Token generated through Artifactory.
 func (o ServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointJfrogDistributionV2AuthenticationToken) *string {
 		if v == nil {
@@ -8990,9 +8994,9 @@ func (o ServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutput) Token() 
 }
 
 type ServiceendpointJfrogPlatformV2AuthenticationBasic struct {
-	// Artifactory Password.
+	// The Password of the Artifactory.
 	Password string `pulumi:"password"`
-	// Artifactory Username.
+	// The Username of the  Artifactory.
 	Username string `pulumi:"username"`
 }
 
@@ -9008,9 +9012,9 @@ type ServiceendpointJfrogPlatformV2AuthenticationBasicInput interface {
 }
 
 type ServiceendpointJfrogPlatformV2AuthenticationBasicArgs struct {
-	// Artifactory Password.
+	// The Password of the Artifactory.
 	Password pulumi.StringInput `pulumi:"password"`
-	// Artifactory Username.
+	// The Username of the  Artifactory.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -9091,12 +9095,12 @@ func (o ServiceendpointJfrogPlatformV2AuthenticationBasicOutput) ToServiceendpoi
 	}).(ServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutput)
 }
 
-// Artifactory Password.
+// The Password of the Artifactory.
 func (o ServiceendpointJfrogPlatformV2AuthenticationBasicOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceendpointJfrogPlatformV2AuthenticationBasic) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// Artifactory Username.
+// The Username of the  Artifactory.
 func (o ServiceendpointJfrogPlatformV2AuthenticationBasicOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceendpointJfrogPlatformV2AuthenticationBasic) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -9125,7 +9129,7 @@ func (o ServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutput) Elem() Servi
 	}).(ServiceendpointJfrogPlatformV2AuthenticationBasicOutput)
 }
 
-// Artifactory Password.
+// The Password of the Artifactory.
 func (o ServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointJfrogPlatformV2AuthenticationBasic) *string {
 		if v == nil {
@@ -9135,7 +9139,7 @@ func (o ServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutput) Password() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Artifactory Username.
+// The Username of the  Artifactory.
 func (o ServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointJfrogPlatformV2AuthenticationBasic) *string {
 		if v == nil {
@@ -9283,9 +9287,9 @@ func (o ServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutput) Token() pulu
 }
 
 type ServiceendpointJfrogXrayV2AuthenticationBasic struct {
-	// Artifactory Password.
+	// The Password of the Artifactory.
 	Password string `pulumi:"password"`
-	// Artifactory Username.
+	// The Username of the  Artifactory.
 	Username string `pulumi:"username"`
 }
 
@@ -9301,9 +9305,9 @@ type ServiceendpointJfrogXrayV2AuthenticationBasicInput interface {
 }
 
 type ServiceendpointJfrogXrayV2AuthenticationBasicArgs struct {
-	// Artifactory Password.
+	// The Password of the Artifactory.
 	Password pulumi.StringInput `pulumi:"password"`
-	// Artifactory Username.
+	// The Username of the  Artifactory.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -9384,12 +9388,12 @@ func (o ServiceendpointJfrogXrayV2AuthenticationBasicOutput) ToServiceendpointJf
 	}).(ServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput)
 }
 
-// Artifactory Password.
+// The Password of the Artifactory.
 func (o ServiceendpointJfrogXrayV2AuthenticationBasicOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceendpointJfrogXrayV2AuthenticationBasic) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// Artifactory Username.
+// The Username of the  Artifactory.
 func (o ServiceendpointJfrogXrayV2AuthenticationBasicOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceendpointJfrogXrayV2AuthenticationBasic) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -9418,7 +9422,7 @@ func (o ServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput) Elem() Serviceen
 	}).(ServiceendpointJfrogXrayV2AuthenticationBasicOutput)
 }
 
-// Artifactory Password.
+// The Password of the Artifactory.
 func (o ServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointJfrogXrayV2AuthenticationBasic) *string {
 		if v == nil {
@@ -9428,7 +9432,7 @@ func (o ServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput) Password() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Artifactory Username.
+// The Username of the  Artifactory.
 func (o ServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointJfrogXrayV2AuthenticationBasic) *string {
 		if v == nil {
@@ -10850,7 +10854,7 @@ func (o VariableGroupVariableArrayOutput) Index(i pulumi.IntInput) VariableGroup
 type GetAreaChildren struct {
 	// Indicator if the child Area node has child nodes
 	HasChildren bool `pulumi:"hasChildren"`
-	// The id of the child Area node
+	// The ID of the child Area node
 	Id string `pulumi:"id"`
 	// The name of the child Area node
 	Name string `pulumi:"name"`
@@ -10874,7 +10878,7 @@ type GetAreaChildrenInput interface {
 type GetAreaChildrenArgs struct {
 	// Indicator if the child Area node has child nodes
 	HasChildren pulumi.BoolInput `pulumi:"hasChildren"`
-	// The id of the child Area node
+	// The ID of the child Area node
 	Id pulumi.StringInput `pulumi:"id"`
 	// The name of the child Area node
 	Name pulumi.StringInput `pulumi:"name"`
@@ -10940,7 +10944,7 @@ func (o GetAreaChildrenOutput) HasChildren() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAreaChildren) bool { return v.HasChildren }).(pulumi.BoolOutput)
 }
 
-// The id of the child Area node
+// The ID of the child Area node
 func (o GetAreaChildrenOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAreaChildren) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -11093,7 +11097,7 @@ type GetBuildDefinitionCiTriggerOverride struct {
 	BranchFilters []GetBuildDefinitionCiTriggerOverrideBranchFilter `pulumi:"branchFilters"`
 	// The number of max builds per branch.
 	MaxConcurrentBuildsPerBranch int `pulumi:"maxConcurrentBuildsPerBranch"`
-	// block supports the following:
+	// The file paths to include or exclude. A `pathFilter` block as defined above.
 	PathFilters []GetBuildDefinitionCiTriggerOverridePathFilter `pulumi:"pathFilters"`
 	// How often the external repository is polled.
 	PollingInterval int `pulumi:"pollingInterval"`
@@ -11119,7 +11123,7 @@ type GetBuildDefinitionCiTriggerOverrideArgs struct {
 	BranchFilters GetBuildDefinitionCiTriggerOverrideBranchFilterArrayInput `pulumi:"branchFilters"`
 	// The number of max builds per branch.
 	MaxConcurrentBuildsPerBranch pulumi.IntInput `pulumi:"maxConcurrentBuildsPerBranch"`
-	// block supports the following:
+	// The file paths to include or exclude. A `pathFilter` block as defined above.
 	PathFilters GetBuildDefinitionCiTriggerOverridePathFilterArrayInput `pulumi:"pathFilters"`
 	// How often the external repository is polled.
 	PollingInterval pulumi.IntInput `pulumi:"pollingInterval"`
@@ -11195,7 +11199,7 @@ func (o GetBuildDefinitionCiTriggerOverrideOutput) MaxConcurrentBuildsPerBranch(
 	return o.ApplyT(func(v GetBuildDefinitionCiTriggerOverride) int { return v.MaxConcurrentBuildsPerBranch }).(pulumi.IntOutput)
 }
 
-// block supports the following:
+// The file paths to include or exclude. A `pathFilter` block as defined above.
 func (o GetBuildDefinitionCiTriggerOverrideOutput) PathFilters() GetBuildDefinitionCiTriggerOverridePathFilterArrayOutput {
 	return o.ApplyT(func(v GetBuildDefinitionCiTriggerOverride) []GetBuildDefinitionCiTriggerOverridePathFilter {
 		return v.PathFilters
@@ -11692,7 +11696,7 @@ type GetBuildDefinitionPullRequestTriggerOverride struct {
 	AutoCancel bool `pulumi:"autoCancel"`
 	// A `branchFilter` block as defined above.
 	BranchFilters []GetBuildDefinitionPullRequestTriggerOverrideBranchFilter `pulumi:"branchFilters"`
-	// block supports the following:
+	// The file paths to include or exclude. A `pathFilter` block as defined above.
 	PathFilters []GetBuildDefinitionPullRequestTriggerOverridePathFilter `pulumi:"pathFilters"`
 }
 
@@ -11712,7 +11716,7 @@ type GetBuildDefinitionPullRequestTriggerOverrideArgs struct {
 	AutoCancel pulumi.BoolInput `pulumi:"autoCancel"`
 	// A `branchFilter` block as defined above.
 	BranchFilters GetBuildDefinitionPullRequestTriggerOverrideBranchFilterArrayInput `pulumi:"branchFilters"`
-	// block supports the following:
+	// The file paths to include or exclude. A `pathFilter` block as defined above.
 	PathFilters GetBuildDefinitionPullRequestTriggerOverridePathFilterArrayInput `pulumi:"pathFilters"`
 }
 
@@ -11779,7 +11783,7 @@ func (o GetBuildDefinitionPullRequestTriggerOverrideOutput) BranchFilters() GetB
 	}).(GetBuildDefinitionPullRequestTriggerOverrideBranchFilterArrayOutput)
 }
 
-// block supports the following:
+// The file paths to include or exclude. A `pathFilter` block as defined above.
 func (o GetBuildDefinitionPullRequestTriggerOverrideOutput) PathFilters() GetBuildDefinitionPullRequestTriggerOverridePathFilterArrayOutput {
 	return o.ApplyT(func(v GetBuildDefinitionPullRequestTriggerOverride) []GetBuildDefinitionPullRequestTriggerOverridePathFilter {
 		return v.PathFilters
@@ -12568,7 +12572,7 @@ type GetGroupsGroup struct {
 	DisplayName *string `pulumi:"displayName"`
 	// This represents the name of the container of origin for a graph member. (For MSA this is "Windows Live ID", for AD the name of the domain, for AAD the tenantID of the directory, for VSTS groups the ScopeId, etc)
 	Domain string `pulumi:"domain"`
-	// The group ID.
+	// The ID of the group.
 	Id string `pulumi:"id"`
 	// The email address of record for a given graph member. This may be different than the principal name.
 	MailAddress *string `pulumi:"mailAddress"`
@@ -12602,7 +12606,7 @@ type GetGroupsGroupArgs struct {
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// This represents the name of the container of origin for a graph member. (For MSA this is "Windows Live ID", for AD the name of the domain, for AAD the tenantID of the directory, for VSTS groups the ScopeId, etc)
 	Domain pulumi.StringInput `pulumi:"domain"`
-	// The group ID.
+	// The ID of the group.
 	Id pulumi.StringInput `pulumi:"id"`
 	// The email address of record for a given graph member. This may be different than the principal name.
 	MailAddress pulumi.StringPtrInput `pulumi:"mailAddress"`
@@ -12687,7 +12691,7 @@ func (o GetGroupsGroupOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupsGroup) string { return v.Domain }).(pulumi.StringOutput)
 }
 
-// The group ID.
+// The ID of the group.
 func (o GetGroupsGroupOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupsGroup) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -12738,8 +12742,11 @@ func (o GetGroupsGroupArrayOutput) Index(i pulumi.IntInput) GetGroupsGroupOutput
 }
 
 type GetIdentityGroupsGroup struct {
+	// The descriptor of the Identity Group.
+	Descriptor string `pulumi:"descriptor"`
+	// The ID of the Identity Group.
 	Id string `pulumi:"id"`
-	// This is the non-unique display name of the identity subject. To change this field, you must alter its value in the source provider.
+	// This is the non-unique display name of the identity subject.
 	Name string `pulumi:"name"`
 }
 
@@ -12755,8 +12762,11 @@ type GetIdentityGroupsGroupInput interface {
 }
 
 type GetIdentityGroupsGroupArgs struct {
+	// The descriptor of the Identity Group.
+	Descriptor pulumi.StringInput `pulumi:"descriptor"`
+	// The ID of the Identity Group.
 	Id pulumi.StringInput `pulumi:"id"`
-	// This is the non-unique display name of the identity subject. To change this field, you must alter its value in the source provider.
+	// This is the non-unique display name of the identity subject.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -12811,11 +12821,17 @@ func (o GetIdentityGroupsGroupOutput) ToGetIdentityGroupsGroupOutputWithContext(
 	return o
 }
 
+// The descriptor of the Identity Group.
+func (o GetIdentityGroupsGroupOutput) Descriptor() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIdentityGroupsGroup) string { return v.Descriptor }).(pulumi.StringOutput)
+}
+
+// The ID of the Identity Group.
 func (o GetIdentityGroupsGroupOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIdentityGroupsGroup) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// This is the non-unique display name of the identity subject. To change this field, you must alter its value in the source provider.
+// This is the non-unique display name of the identity subject.
 func (o GetIdentityGroupsGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIdentityGroupsGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -12843,7 +12859,7 @@ func (o GetIdentityGroupsGroupArrayOutput) Index(i pulumi.IntInput) GetIdentityG
 type GetIterationChildren struct {
 	// Indicator if the child Iteration node has child nodes
 	HasChildren bool `pulumi:"hasChildren"`
-	// The id of the child Iteration node
+	// The ID of the child Iteration node
 	Id string `pulumi:"id"`
 	// The name of the child Iteration node
 	Name string `pulumi:"name"`
@@ -12867,7 +12883,7 @@ type GetIterationChildrenInput interface {
 type GetIterationChildrenArgs struct {
 	// Indicator if the child Iteration node has child nodes
 	HasChildren pulumi.BoolInput `pulumi:"hasChildren"`
-	// The id of the child Iteration node
+	// The ID of the child Iteration node
 	Id pulumi.StringInput `pulumi:"id"`
 	// The name of the child Iteration node
 	Name pulumi.StringInput `pulumi:"name"`
@@ -12933,7 +12949,7 @@ func (o GetIterationChildrenOutput) HasChildren() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetIterationChildren) bool { return v.HasChildren }).(pulumi.BoolOutput)
 }
 
-// The id of the child Iteration node
+// The ID of the child Iteration node
 func (o GetIterationChildrenOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIterationChildren) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -12978,8 +12994,9 @@ type GetPoolsAgentPool struct {
 	AutoProvision bool `pulumi:"autoProvision"`
 	// Specifies whether or not agents within the pool should be automatically updated.
 	AutoUpdate bool `pulumi:"autoUpdate"`
-	Id         int  `pulumi:"id"`
-	// The name of the agent pool
+	// The ID of the agent pool.
+	Id int `pulumi:"id"`
+	// The name of the agent pool.
 	Name string `pulumi:"name"`
 	// Specifies whether the agent pool type is Automation or Deployment.
 	PoolType string `pulumi:"poolType"`
@@ -13001,8 +13018,9 @@ type GetPoolsAgentPoolArgs struct {
 	AutoProvision pulumi.BoolInput `pulumi:"autoProvision"`
 	// Specifies whether or not agents within the pool should be automatically updated.
 	AutoUpdate pulumi.BoolInput `pulumi:"autoUpdate"`
-	Id         pulumi.IntInput  `pulumi:"id"`
-	// The name of the agent pool
+	// The ID of the agent pool.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the agent pool.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies whether the agent pool type is Automation or Deployment.
 	PoolType pulumi.StringInput `pulumi:"poolType"`
@@ -13069,11 +13087,12 @@ func (o GetPoolsAgentPoolOutput) AutoUpdate() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetPoolsAgentPool) bool { return v.AutoUpdate }).(pulumi.BoolOutput)
 }
 
+// The ID of the agent pool.
 func (o GetPoolsAgentPoolOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetPoolsAgentPool) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// The name of the agent pool
+// The name of the agent pool.
 func (o GetPoolsAgentPoolOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPoolsAgentPool) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -13108,11 +13127,11 @@ type GetProjectsProject struct {
 	Name string `pulumi:"name"`
 	// The ID of the Project.
 	ProjectId string `pulumi:"projectId"`
-	// Url to the full version of the object.
+	// The Url to the full version of the object.
 	ProjectUrl string `pulumi:"projectUrl"`
 	// State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
 	//
-	// DataSource without specifying any arguments will return all projects.
+	// > **NOTE:** DataSource without specifying any arguments will return all projects.
 	State string `pulumi:"state"`
 }
 
@@ -13132,11 +13151,11 @@ type GetProjectsProjectArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of the Project.
 	ProjectId pulumi.StringInput `pulumi:"projectId"`
-	// Url to the full version of the object.
+	// The Url to the full version of the object.
 	ProjectUrl pulumi.StringInput `pulumi:"projectUrl"`
 	// State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
 	//
-	// DataSource without specifying any arguments will return all projects.
+	// > **NOTE:** DataSource without specifying any arguments will return all projects.
 	State pulumi.StringInput `pulumi:"state"`
 }
 
@@ -13201,14 +13220,14 @@ func (o GetProjectsProjectOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProjectsProject) string { return v.ProjectId }).(pulumi.StringOutput)
 }
 
-// Url to the full version of the object.
+// The Url to the full version of the object.
 func (o GetProjectsProjectOutput) ProjectUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProjectsProject) string { return v.ProjectUrl }).(pulumi.StringOutput)
 }
 
 // State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
 //
-// DataSource without specifying any arguments will return all projects.
+// > **NOTE:** DataSource without specifying any arguments will return all projects.
 func (o GetProjectsProjectOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProjectsProject) string { return v.State }).(pulumi.StringOutput)
 }
@@ -13426,7 +13445,7 @@ type GetSecurityroleDefinitionsDefinition struct {
 	Name string `pulumi:"name"`
 	// Name of the Scope for which Security Role Definitions will be returned.
 	//
-	// DataSource without specifying any arguments will return all projects.
+	// > **NOTE:** DataSource without specifying any arguments will return all projects.
 	Scope string `pulumi:"scope"`
 }
 
@@ -13456,7 +13475,7 @@ type GetSecurityroleDefinitionsDefinitionArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Name of the Scope for which Security Role Definitions will be returned.
 	//
-	// DataSource without specifying any arguments will return all projects.
+	// > **NOTE:** DataSource without specifying any arguments will return all projects.
 	Scope pulumi.StringInput `pulumi:"scope"`
 }
 
@@ -13543,7 +13562,7 @@ func (o GetSecurityroleDefinitionsDefinitionOutput) Name() pulumi.StringOutput {
 
 // Name of the Scope for which Security Role Definitions will be returned.
 //
-// DataSource without specifying any arguments will return all projects.
+// > **NOTE:** DataSource without specifying any arguments will return all projects.
 func (o GetSecurityroleDefinitionsDefinitionOutput) Scope() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecurityroleDefinitionsDefinition) string { return v.Scope }).(pulumi.StringOutput)
 }
@@ -13573,10 +13592,11 @@ type GetTeamsTeam struct {
 	Administrators []string `pulumi:"administrators"`
 	// Team description.
 	Description string `pulumi:"description"`
-	Id          string `pulumi:"id"`
+	// The ID of the Team.
+	Id string `pulumi:"id"`
 	// List of subject descriptors for `members` of the team.
 	Members []string `pulumi:"members"`
-	// Team name.
+	// The name of the team.
 	Name string `pulumi:"name"`
 	// The Project ID. If no project ID all teams of the organization will be returned.
 	ProjectId string `pulumi:"projectId"`
@@ -13598,10 +13618,11 @@ type GetTeamsTeamArgs struct {
 	Administrators pulumi.StringArrayInput `pulumi:"administrators"`
 	// Team description.
 	Description pulumi.StringInput `pulumi:"description"`
-	Id          pulumi.StringInput `pulumi:"id"`
+	// The ID of the Team.
+	Id pulumi.StringInput `pulumi:"id"`
 	// List of subject descriptors for `members` of the team.
 	Members pulumi.StringArrayInput `pulumi:"members"`
-	// Team name.
+	// The name of the team.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The Project ID. If no project ID all teams of the organization will be returned.
 	ProjectId pulumi.StringInput `pulumi:"projectId"`
@@ -13668,6 +13689,7 @@ func (o GetTeamsTeamOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTeamsTeam) string { return v.Description }).(pulumi.StringOutput)
 }
 
+// The ID of the Team.
 func (o GetTeamsTeamOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTeamsTeam) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -13677,7 +13699,7 @@ func (o GetTeamsTeamOutput) Members() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetTeamsTeam) []string { return v.Members }).(pulumi.StringArrayOutput)
 }
 
-// Team name.
+// The name of the team.
 func (o GetTeamsTeamOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTeamsTeam) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -13857,11 +13879,12 @@ type GetUsersUser struct {
 	Descriptor string `pulumi:"descriptor"`
 	// This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
 	DisplayName string `pulumi:"displayName"`
-	// The user ID.
+	// The ID of the User.
 	Id string `pulumi:"id"`
 	// The email address of record for a given graph member. This may be different than the principal name.
 	MailAddress string `pulumi:"mailAddress"`
 	// The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+	// <pre>List of possible origins
 	Origin string `pulumi:"origin"`
 	// The unique identifier from the system of origin.
 	OriginId *string `pulumi:"originId"`
@@ -13885,11 +13908,12 @@ type GetUsersUserArgs struct {
 	Descriptor pulumi.StringInput `pulumi:"descriptor"`
 	// This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
-	// The user ID.
+	// The ID of the User.
 	Id pulumi.StringInput `pulumi:"id"`
 	// The email address of record for a given graph member. This may be different than the principal name.
 	MailAddress pulumi.StringInput `pulumi:"mailAddress"`
 	// The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+	// <pre>List of possible origins
 	Origin pulumi.StringInput `pulumi:"origin"`
 	// The unique identifier from the system of origin.
 	OriginId pulumi.StringPtrInput `pulumi:"originId"`
@@ -13958,7 +13982,7 @@ func (o GetUsersUserOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// The user ID.
+// The ID of the User.
 func (o GetUsersUserOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -13969,6 +13993,7 @@ func (o GetUsersUserOutput) MailAddress() pulumi.StringOutput {
 }
 
 // The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+// <pre>List of possible origins
 func (o GetUsersUserOutput) Origin() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.Origin }).(pulumi.StringOutput)
 }

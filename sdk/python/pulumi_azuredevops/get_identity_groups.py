@@ -42,7 +42,7 @@ class GetIdentityGroupsResult:
     @pulumi.getter
     def groups(self) -> Sequence['outputs.GetIdentityGroupsGroupResult']:
         """
-        A set of existing groups in your Azure DevOps Organization or project with details about every single group which includes:
+        A `groups` blocks as documented below. A set of existing groups in your Azure DevOps Organization or project with details about every single group.
         """
         return pulumi.get(self, "groups")
 

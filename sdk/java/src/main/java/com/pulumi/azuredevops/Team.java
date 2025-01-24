@@ -16,6 +16,16 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * ## *---
+ * 
+ * layout: &#34;azuredevops&#34;
+ * page_title: &#34;AzureDevops: azuredevops.Team&#34;
+ * description: |-
+ *   Manages a team within a project in a Azure DevOps organization.
+ * ---
+ * 
+ * # azuredevops.Team
+ * 
  * Manages a team within a project in a Azure DevOps organization.
  * 
  * ## Example Usage
@@ -100,7 +110,7 @@ public class Team extends com.pulumi.resources.CustomResource {
     /**
      * List of subject descriptors to define administrators of the team.
      * 
-     * &gt; NOTE: It&#39;s possible to define team administrators both within the
+     * &gt; **NOTE:** It&#39;s possible to define team administrators both within the
      * `azuredevops.Team` resource via the `administrators` block and by using the
      * `azuredevops.TeamAdministrators` resource. However it&#39;s not possible to use
      * both methods to manage team administrators, since there&#39;ll be conflicts.
@@ -112,7 +122,7 @@ public class Team extends com.pulumi.resources.CustomResource {
     /**
      * @return List of subject descriptors to define administrators of the team.
      * 
-     * &gt; NOTE: It&#39;s possible to define team administrators both within the
+     * &gt; **NOTE:** It&#39;s possible to define team administrators both within the
      * `azuredevops.Team` resource via the `administrators` block and by using the
      * `azuredevops.TeamAdministrators` resource. However it&#39;s not possible to use
      * both methods to manage team administrators, since there&#39;ll be conflicts.
@@ -152,7 +162,7 @@ public class Team extends com.pulumi.resources.CustomResource {
     /**
      * List of subject descriptors to define members of the team.
      * 
-     * &gt; NOTE: It&#39;s possible to define team members both within the
+     * &gt; **NOTE:** It&#39;s possible to define team members both within the
      * `azuredevops.Team` resource via the `members` block and by using the
      * `azuredevops.TeamMembers` resource. However it&#39;s not possible to use
      * both methods to manage team members, since there&#39;ll be conflicts.
@@ -164,7 +174,7 @@ public class Team extends com.pulumi.resources.CustomResource {
     /**
      * @return List of subject descriptors to define members of the team.
      * 
-     * &gt; NOTE: It&#39;s possible to define team members both within the
+     * &gt; **NOTE:** It&#39;s possible to define team members both within the
      * `azuredevops.Team` resource via the `members` block and by using the
      * `azuredevops.TeamMembers` resource. However it&#39;s not possible to use
      * both methods to manage team members, since there&#39;ll be conflicts.

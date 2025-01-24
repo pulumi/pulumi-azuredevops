@@ -16,14 +16,14 @@ public final class BranchPolicyWorkItemLinkingSettingsArgs extends com.pulumi.re
     public static final BranchPolicyWorkItemLinkingSettingsArgs Empty = new BranchPolicyWorkItemLinkingSettingsArgs();
 
     /**
-     * Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+     * A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
      * 
      */
     @Import(name="scopes", required=true)
     private Output<List<BranchPolicyWorkItemLinkingSettingsScopeArgs>> scopes;
 
     /**
-     * @return Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+     * @return A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
      * 
      */
     public Output<List<BranchPolicyWorkItemLinkingSettingsScopeArgs>> scopes() {
@@ -55,7 +55,7 @@ public final class BranchPolicyWorkItemLinkingSettingsArgs extends com.pulumi.re
         }
 
         /**
-         * @param scopes Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+         * @param scopes A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class BranchPolicyWorkItemLinkingSettingsArgs extends com.pulumi.re
         }
 
         /**
-         * @param scopes Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+         * @param scopes A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class BranchPolicyWorkItemLinkingSettingsArgs extends com.pulumi.re
         }
 
         /**
-         * @param scopes Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+         * @param scopes A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
          * 
          * @return builder
          * 

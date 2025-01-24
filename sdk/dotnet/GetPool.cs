@@ -41,7 +41,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// ## Relevant Links
         /// 
-        /// - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
+        /// - [Azure DevOps Service REST API 7.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.1)
         /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azuredevops:index/getPool:getPool", args ?? new GetPoolArgs(), options.WithDefaults());
@@ -76,7 +76,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// ## Relevant Links
         /// 
-        /// - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
+        /// - [Azure DevOps Service REST API 7.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.1)
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azuredevops:index/getPool:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
@@ -111,7 +111,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// ## Relevant Links
         /// 
-        /// - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
+        /// - [Azure DevOps Service REST API 7.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.1)
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azuredevops:index/getPool:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
@@ -150,13 +150,25 @@ namespace Pulumi.AzureDevOps
     [OutputType]
     public sealed class GetPoolResult
     {
+        /// <summary>
+        /// Specifies whether a queue should be automatically provisioned for each project collection.
+        /// </summary>
         public readonly bool AutoProvision;
+        /// <summary>
+        /// Specifies whether or not agents within the pool should be automatically updated.
+        /// </summary>
         public readonly bool AutoUpdate;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The name of the agent pool
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Specifies whether the agent pool type is Automation or Deployment.
+        /// </summary>
         public readonly string PoolType;
 
         [OutputConstructor]

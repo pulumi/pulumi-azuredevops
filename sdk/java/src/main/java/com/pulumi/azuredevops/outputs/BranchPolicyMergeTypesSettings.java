@@ -35,7 +35,7 @@ public final class BranchPolicyMergeTypesSettings {
      */
     private @Nullable Boolean allowSquash;
     /**
-     * @return Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+     * @return A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
      * 
      */
     private List<BranchPolicyMergeTypesSettingsScope> scopes;
@@ -70,7 +70,7 @@ public final class BranchPolicyMergeTypesSettings {
         return Optional.ofNullable(this.allowSquash);
     }
     /**
-     * @return Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+     * @return A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
      * 
      */
     public List<BranchPolicyMergeTypesSettingsScope> scopes() {

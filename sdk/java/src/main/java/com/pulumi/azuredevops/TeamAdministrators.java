@@ -16,6 +16,16 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * ## *---
+ * 
+ * layout: &#34;azuredevops&#34;
+ * page_title: &#34;AzureDevops: azuredevops.TeamAdministrators&#34;
+ * description: |-
+ *   Manages administrators of a team within a project in a Azure DevOps organization.
+ * ---
+ * 
+ * # azuredevops.TeamAdministrators
+ * 
  * Manages administrators of a team within a project in a Azure DevOps organization.
  * 
  * ## Example Usage
@@ -96,9 +106,9 @@ import javax.annotation.Nullable;
 @ResourceType(type="azuredevops:index/teamAdministrators:TeamAdministrators")
 public class TeamAdministrators extends com.pulumi.resources.CustomResource {
     /**
-     * List of subject descriptors to define adminitrators of the team.
+     * List of subject descriptors to define administrators of the team.
      * 
-     * &gt; NOTE: It&#39;s possible to define team administrators both within the
+     * &gt; **NOTE** It&#39;s possible to define team administrators both within the
      * `azuredevops.Team` resource via the `administrators` block and by using the
      * `azuredevops.TeamAdministrators` resource. However it&#39;s not possible to use
      * both methods to manage team administrators, since there&#39;ll be conflicts.
@@ -108,9 +118,9 @@ public class TeamAdministrators extends com.pulumi.resources.CustomResource {
     private Output<List<String>> administrators;
 
     /**
-     * @return List of subject descriptors to define adminitrators of the team.
+     * @return List of subject descriptors to define administrators of the team.
      * 
-     * &gt; NOTE: It&#39;s possible to define team administrators both within the
+     * &gt; **NOTE** It&#39;s possible to define team administrators both within the
      * `azuredevops.Team` resource via the `administrators` block and by using the
      * `azuredevops.TeamAdministrators` resource. However it&#39;s not possible to use
      * both methods to manage team administrators, since there&#39;ll be conflicts.
@@ -120,18 +130,20 @@ public class TeamAdministrators extends com.pulumi.resources.CustomResource {
         return this.administrators;
     }
     /**
-     * The mode how the resource manages team administrators.
-     * - `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team
-     * - `mode == overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
+     * The mode how the resource manages team administrators. Possible values: `add`, `overwrite`. Defaults to `add`.
+     * 
+     * &gt; **NOTE:** 1. `mode = add`: the resource will ensure that all specified administrators will be part of the referenced team
+     * &lt;br&gt; 2. `mode = overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
      * 
      */
     @Export(name="mode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mode;
 
     /**
-     * @return The mode how the resource manages team administrators.
-     * - `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team
-     * - `mode == overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
+     * @return The mode how the resource manages team administrators. Possible values: `add`, `overwrite`. Defaults to `add`.
+     * 
+     * &gt; **NOTE:** 1. `mode = add`: the resource will ensure that all specified administrators will be part of the referenced team
+     * &lt;br&gt; 2. `mode = overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
      * 
      */
     public Output<Optional<String>> mode() {

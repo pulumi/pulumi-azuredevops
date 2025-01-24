@@ -31,9 +31,12 @@ class ServiceEndpointServiceFabricArgs:
                  none: Optional[pulumi.Input['ServiceEndpointServiceFabricNoneArgs']] = None):
         """
         The set of arguments for constructing a ServiceEndpointServiceFabric resource.
-        :param pulumi.Input[str] cluster_endpoint: Client connection endpoint for the cluster. Prefix the value with 'tcp://';. This value overrides the publish profile.
+        :param pulumi.Input[str] cluster_endpoint: Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
+        :param pulumi.Input['ServiceEndpointServiceFabricAzureActiveDirectoryArgs'] azure_active_directory: An `azure_active_directory` block as documented below.
+        :param pulumi.Input['ServiceEndpointServiceFabricCertificateArgs'] certificate: A `certificate` block as documented below.
+        :param pulumi.Input['ServiceEndpointServiceFabricNoneArgs'] none: A `none` block as documented below.
         """
         pulumi.set(__self__, "cluster_endpoint", cluster_endpoint)
         pulumi.set(__self__, "project_id", project_id)
@@ -53,7 +56,7 @@ class ServiceEndpointServiceFabricArgs:
     @pulumi.getter(name="clusterEndpoint")
     def cluster_endpoint(self) -> pulumi.Input[str]:
         """
-        Client connection endpoint for the cluster. Prefix the value with 'tcp://';. This value overrides the publish profile.
+        Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
         """
         return pulumi.get(self, "cluster_endpoint")
 
@@ -97,6 +100,9 @@ class ServiceEndpointServiceFabricArgs:
     @property
     @pulumi.getter(name="azureActiveDirectory")
     def azure_active_directory(self) -> Optional[pulumi.Input['ServiceEndpointServiceFabricAzureActiveDirectoryArgs']]:
+        """
+        An `azure_active_directory` block as documented below.
+        """
         return pulumi.get(self, "azure_active_directory")
 
     @azure_active_directory.setter
@@ -106,6 +112,9 @@ class ServiceEndpointServiceFabricArgs:
     @property
     @pulumi.getter
     def certificate(self) -> Optional[pulumi.Input['ServiceEndpointServiceFabricCertificateArgs']]:
+        """
+        A `certificate` block as documented below.
+        """
         return pulumi.get(self, "certificate")
 
     @certificate.setter
@@ -124,6 +133,9 @@ class ServiceEndpointServiceFabricArgs:
     @property
     @pulumi.getter
     def none(self) -> Optional[pulumi.Input['ServiceEndpointServiceFabricNoneArgs']]:
+        """
+        A `none` block as documented below.
+        """
         return pulumi.get(self, "none")
 
     @none.setter
@@ -144,7 +156,10 @@ class _ServiceEndpointServiceFabricState:
                  service_endpoint_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ServiceEndpointServiceFabric resources.
-        :param pulumi.Input[str] cluster_endpoint: Client connection endpoint for the cluster. Prefix the value with 'tcp://';. This value overrides the publish profile.
+        :param pulumi.Input['ServiceEndpointServiceFabricAzureActiveDirectoryArgs'] azure_active_directory: An `azure_active_directory` block as documented below.
+        :param pulumi.Input['ServiceEndpointServiceFabricCertificateArgs'] certificate: A `certificate` block as documented below.
+        :param pulumi.Input[str] cluster_endpoint: Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
+        :param pulumi.Input['ServiceEndpointServiceFabricNoneArgs'] none: A `none` block as documented below.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
@@ -177,6 +192,9 @@ class _ServiceEndpointServiceFabricState:
     @property
     @pulumi.getter(name="azureActiveDirectory")
     def azure_active_directory(self) -> Optional[pulumi.Input['ServiceEndpointServiceFabricAzureActiveDirectoryArgs']]:
+        """
+        An `azure_active_directory` block as documented below.
+        """
         return pulumi.get(self, "azure_active_directory")
 
     @azure_active_directory.setter
@@ -186,6 +204,9 @@ class _ServiceEndpointServiceFabricState:
     @property
     @pulumi.getter
     def certificate(self) -> Optional[pulumi.Input['ServiceEndpointServiceFabricCertificateArgs']]:
+        """
+        A `certificate` block as documented below.
+        """
         return pulumi.get(self, "certificate")
 
     @certificate.setter
@@ -196,7 +217,7 @@ class _ServiceEndpointServiceFabricState:
     @pulumi.getter(name="clusterEndpoint")
     def cluster_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        Client connection endpoint for the cluster. Prefix the value with 'tcp://';. This value overrides the publish profile.
+        Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
         """
         return pulumi.get(self, "cluster_endpoint")
 
@@ -216,6 +237,9 @@ class _ServiceEndpointServiceFabricState:
     @property
     @pulumi.getter
     def none(self) -> Optional[pulumi.Input['ServiceEndpointServiceFabricNoneArgs']]:
+        """
+        A `none` block as documented below.
+        """
         return pulumi.get(self, "none")
 
     @none.setter
@@ -318,7 +342,7 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
 
         ## Import
 
-        Azure DevOps Service Endpoint Service Fabric can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+        Azure DevOps Service Fabric Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
         $ pulumi import azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -326,7 +350,10 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cluster_endpoint: Client connection endpoint for the cluster. Prefix the value with 'tcp://';. This value overrides the publish profile.
+        :param pulumi.Input[Union['ServiceEndpointServiceFabricAzureActiveDirectoryArgs', 'ServiceEndpointServiceFabricAzureActiveDirectoryArgsDict']] azure_active_directory: An `azure_active_directory` block as documented below.
+        :param pulumi.Input[Union['ServiceEndpointServiceFabricCertificateArgs', 'ServiceEndpointServiceFabricCertificateArgsDict']] certificate: A `certificate` block as documented below.
+        :param pulumi.Input[str] cluster_endpoint: Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
+        :param pulumi.Input[Union['ServiceEndpointServiceFabricNoneArgs', 'ServiceEndpointServiceFabricNoneArgsDict']] none: A `none` block as documented below.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
@@ -393,7 +420,7 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
 
         ## Import
 
-        Azure DevOps Service Endpoint Service Fabric can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+        Azure DevOps Service Fabric Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
         $ pulumi import azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -470,7 +497,10 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cluster_endpoint: Client connection endpoint for the cluster. Prefix the value with 'tcp://';. This value overrides the publish profile.
+        :param pulumi.Input[Union['ServiceEndpointServiceFabricAzureActiveDirectoryArgs', 'ServiceEndpointServiceFabricAzureActiveDirectoryArgsDict']] azure_active_directory: An `azure_active_directory` block as documented below.
+        :param pulumi.Input[Union['ServiceEndpointServiceFabricCertificateArgs', 'ServiceEndpointServiceFabricCertificateArgsDict']] certificate: A `certificate` block as documented below.
+        :param pulumi.Input[str] cluster_endpoint: Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
+        :param pulumi.Input[Union['ServiceEndpointServiceFabricNoneArgs', 'ServiceEndpointServiceFabricNoneArgsDict']] none: A `none` block as documented below.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
@@ -496,18 +526,24 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
     @property
     @pulumi.getter(name="azureActiveDirectory")
     def azure_active_directory(self) -> pulumi.Output[Optional['outputs.ServiceEndpointServiceFabricAzureActiveDirectory']]:
+        """
+        An `azure_active_directory` block as documented below.
+        """
         return pulumi.get(self, "azure_active_directory")
 
     @property
     @pulumi.getter
     def certificate(self) -> pulumi.Output[Optional['outputs.ServiceEndpointServiceFabricCertificate']]:
+        """
+        A `certificate` block as documented below.
+        """
         return pulumi.get(self, "certificate")
 
     @property
     @pulumi.getter(name="clusterEndpoint")
     def cluster_endpoint(self) -> pulumi.Output[str]:
         """
-        Client connection endpoint for the cluster. Prefix the value with 'tcp://';. This value overrides the publish profile.
+        Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
         """
         return pulumi.get(self, "cluster_endpoint")
 
@@ -519,6 +555,9 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
     @property
     @pulumi.getter
     def none(self) -> pulumi.Output[Optional['outputs.ServiceEndpointServiceFabricNone']]:
+        """
+        A `none` block as documented below.
+        """
         return pulumi.get(self, "none")
 
     @property

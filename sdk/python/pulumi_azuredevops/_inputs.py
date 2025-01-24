@@ -163,7 +163,7 @@ if not MYPY:
         """
         scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyAutoReviewersSettingsScopeArgsDict']]]
         """
-        Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
         message: NotRequired[pulumi.Input[str]]
         """
@@ -197,7 +197,7 @@ class BranchPolicyAutoReviewersSettingsArgs:
                  submitter_can_vote: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_reviewer_ids: Required reviewers ids. Supports multiples user Ids.
-        :param pulumi.Input[Sequence[pulumi.Input['BranchPolicyAutoReviewersSettingsScopeArgs']]] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        :param pulumi.Input[Sequence[pulumi.Input['BranchPolicyAutoReviewersSettingsScopeArgs']]] scopes: A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         :param pulumi.Input[str] message: Activity feed message, Message will appear in the activity feed of pull requests with automatically added reviewers.
         :param pulumi.Input[int] minimum_number_of_reviewers: Minimum number of required reviewers. Defaults to `1`.
                
@@ -232,7 +232,7 @@ class BranchPolicyAutoReviewersSettingsArgs:
     @pulumi.getter
     def scopes(self) -> pulumi.Input[Sequence[pulumi.Input['BranchPolicyAutoReviewersSettingsScopeArgs']]]:
         """
-        Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
         return pulumi.get(self, "scopes")
 
@@ -375,7 +375,7 @@ if not MYPY:
         """
         scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyBuildValidationSettingsScopeArgsDict']]]
         """
-        Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
         filename_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -414,7 +414,7 @@ class BranchPolicyBuildValidationSettingsArgs:
         """
         :param pulumi.Input[int] build_definition_id: The ID of the build to monitor for the policy.
         :param pulumi.Input[str] display_name: The display name for the policy.
-        :param pulumi.Input[Sequence[pulumi.Input['BranchPolicyBuildValidationSettingsScopeArgs']]] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        :param pulumi.Input[Sequence[pulumi.Input['BranchPolicyBuildValidationSettingsScopeArgs']]] scopes: A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] filename_patterns: If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
         :param pulumi.Input[bool] manual_queue_only: If set to true, the build will need to be manually queued. Defaults to `false`
         :param pulumi.Input[bool] queue_on_source_update_only: True if the build should queue on source updates only. Defaults to `true`.
@@ -465,7 +465,7 @@ class BranchPolicyBuildValidationSettingsArgs:
     @pulumi.getter
     def scopes(self) -> pulumi.Input[Sequence[pulumi.Input['BranchPolicyBuildValidationSettingsScopeArgs']]]:
         """
-        Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
         return pulumi.get(self, "scopes")
 
@@ -603,7 +603,7 @@ if not MYPY:
     class BranchPolicyCommentResolutionSettingsArgsDict(TypedDict):
         scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyCommentResolutionSettingsScopeArgsDict']]]
         """
-        Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
 elif False:
     BranchPolicyCommentResolutionSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -613,7 +613,7 @@ class BranchPolicyCommentResolutionSettingsArgs:
     def __init__(__self__, *,
                  scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyCommentResolutionSettingsScopeArgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['BranchPolicyCommentResolutionSettingsScopeArgs']]] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        :param pulumi.Input[Sequence[pulumi.Input['BranchPolicyCommentResolutionSettingsScopeArgs']]] scopes: A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
         pulumi.set(__self__, "scopes", scopes)
 
@@ -621,7 +621,7 @@ class BranchPolicyCommentResolutionSettingsArgs:
     @pulumi.getter
     def scopes(self) -> pulumi.Input[Sequence[pulumi.Input['BranchPolicyCommentResolutionSettingsScopeArgs']]]:
         """
-        Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
         return pulumi.get(self, "scopes")
 
@@ -706,7 +706,7 @@ if not MYPY:
     class BranchPolicyMergeTypesSettingsArgsDict(TypedDict):
         scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyMergeTypesSettingsScopeArgsDict']]]
         """
-        Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
         allow_basic_no_fast_forward: NotRequired[pulumi.Input[bool]]
         """
@@ -736,7 +736,7 @@ class BranchPolicyMergeTypesSettingsArgs:
                  allow_rebase_with_merge: Optional[pulumi.Input[bool]] = None,
                  allow_squash: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['BranchPolicyMergeTypesSettingsScopeArgs']]] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        :param pulumi.Input[Sequence[pulumi.Input['BranchPolicyMergeTypesSettingsScopeArgs']]] scopes: A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         :param pulumi.Input[bool] allow_basic_no_fast_forward: Allow basic merge with no fast forward. Defaults to `false`.
         :param pulumi.Input[bool] allow_rebase_and_fast_forward: Allow rebase with fast forward. Defaults to `false`.
         :param pulumi.Input[bool] allow_rebase_with_merge: Allow rebase with merge commit. Defaults to `false`.
@@ -756,7 +756,7 @@ class BranchPolicyMergeTypesSettingsArgs:
     @pulumi.getter
     def scopes(self) -> pulumi.Input[Sequence[pulumi.Input['BranchPolicyMergeTypesSettingsScopeArgs']]]:
         """
-        Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
         return pulumi.get(self, "scopes")
 
@@ -1142,14 +1142,13 @@ if not MYPY:
         """
         scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyStatusCheckSettingsScopeArgsDict']]]
         """
-        Controls which repositories and branches the policy will be enabled for. This block must be defined
-        at least once.
+        A `scope` block as defined below.
         """
         applicability: NotRequired[pulumi.Input[str]]
         """
-        Policy applicability. If policy `applicability` is `default`, apply unless "Not Applicable" 
-        status is posted to the pull request. If policy `applicability` is `conditional`, policy is applied only after a status
-        is posted to the pull request.
+        Policy applicability. If policy `applicability=default`, apply unless "Not Applicable"
+        status is posted to the pull request. If policy `applicability=conditional`, policy is applied only after a status
+        is posted to the pull request. Possible values `default`, `conditional`. Defaults to `default`.
         """
         author_id: NotRequired[pulumi.Input[str]]
         """
@@ -1161,7 +1160,10 @@ if not MYPY:
         """
         filename_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+        If a path filter is set, the policy will only apply when files which match the filter are changed. Not setting this field means that the policy is always applied.
+
+        ~>**NOTE** 1. Specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`.
+        <br> 2. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
         """
         genre: NotRequired[pulumi.Input[str]]
         """
@@ -1187,14 +1189,16 @@ class BranchPolicyStatusCheckSettingsArgs:
                  invalidate_on_update: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] name: The status name to check.
-        :param pulumi.Input[Sequence[pulumi.Input['BranchPolicyStatusCheckSettingsScopeArgs']]] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined
-               at least once.
-        :param pulumi.Input[str] applicability: Policy applicability. If policy `applicability` is `default`, apply unless "Not Applicable" 
-               status is posted to the pull request. If policy `applicability` is `conditional`, policy is applied only after a status
-               is posted to the pull request.
+        :param pulumi.Input[Sequence[pulumi.Input['BranchPolicyStatusCheckSettingsScopeArgs']]] scopes: A `scope` block as defined below.
+        :param pulumi.Input[str] applicability: Policy applicability. If policy `applicability=default`, apply unless "Not Applicable"
+               status is posted to the pull request. If policy `applicability=conditional`, policy is applied only after a status
+               is posted to the pull request. Possible values `default`, `conditional`. Defaults to `default`.
         :param pulumi.Input[str] author_id: The authorized user can post the status.
         :param pulumi.Input[str] display_name: The display name.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] filename_patterns: If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] filename_patterns: If a path filter is set, the policy will only apply when files which match the filter are changed. Not setting this field means that the policy is always applied.
+               
+               ~>**NOTE** 1. Specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`.
+               <br> 2. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
         :param pulumi.Input[str] genre: The genre of the status to check (see [Microsoft Documentation](https://docs.microsoft.com/en-us/azure/devops/repos/git/pull-request-status?view=azure-devops#status-policy))
         :param pulumi.Input[bool] invalidate_on_update: Reset status whenever there are new changes.
         """
@@ -1229,8 +1233,7 @@ class BranchPolicyStatusCheckSettingsArgs:
     @pulumi.getter
     def scopes(self) -> pulumi.Input[Sequence[pulumi.Input['BranchPolicyStatusCheckSettingsScopeArgs']]]:
         """
-        Controls which repositories and branches the policy will be enabled for. This block must be defined
-        at least once.
+        A `scope` block as defined below.
         """
         return pulumi.get(self, "scopes")
 
@@ -1242,9 +1245,9 @@ class BranchPolicyStatusCheckSettingsArgs:
     @pulumi.getter
     def applicability(self) -> Optional[pulumi.Input[str]]:
         """
-        Policy applicability. If policy `applicability` is `default`, apply unless "Not Applicable" 
-        status is posted to the pull request. If policy `applicability` is `conditional`, policy is applied only after a status
-        is posted to the pull request.
+        Policy applicability. If policy `applicability=default`, apply unless "Not Applicable"
+        status is posted to the pull request. If policy `applicability=conditional`, policy is applied only after a status
+        is posted to the pull request. Possible values `default`, `conditional`. Defaults to `default`.
         """
         return pulumi.get(self, "applicability")
 
@@ -1280,7 +1283,10 @@ class BranchPolicyStatusCheckSettingsArgs:
     @pulumi.getter(name="filenamePatterns")
     def filename_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+        If a path filter is set, the policy will only apply when files which match the filter are changed. Not setting this field means that the policy is always applied.
+
+        ~>**NOTE** 1. Specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`.
+        <br> 2. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
         """
         return pulumi.get(self, "filename_patterns")
 
@@ -1321,11 +1327,11 @@ if not MYPY:
         """
         repository_id: NotRequired[pulumi.Input[str]]
         """
-        The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
+        The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type=DefaultBranch`, this should not be defined.
         """
         repository_ref: NotRequired[pulumi.Input[str]]
         """
-        The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+        The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type=Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type=Prefix`, this should be a ref path such as `refs/heads/releases`.
         """
 elif False:
     BranchPolicyStatusCheckSettingsScopeArgsDict: TypeAlias = Mapping[str, Any]
@@ -1338,8 +1344,8 @@ class BranchPolicyStatusCheckSettingsScopeArgs:
                  repository_ref: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] match_type: The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
-        :param pulumi.Input[str] repository_id: The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
-        :param pulumi.Input[str] repository_ref: The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+        :param pulumi.Input[str] repository_id: The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type=DefaultBranch`, this should not be defined.
+        :param pulumi.Input[str] repository_ref: The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type=Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type=Prefix`, this should be a ref path such as `refs/heads/releases`.
         """
         if match_type is not None:
             pulumi.set(__self__, "match_type", match_type)
@@ -1364,7 +1370,7 @@ class BranchPolicyStatusCheckSettingsScopeArgs:
     @pulumi.getter(name="repositoryId")
     def repository_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
+        The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type=DefaultBranch`, this should not be defined.
         """
         return pulumi.get(self, "repository_id")
 
@@ -1376,7 +1382,7 @@ class BranchPolicyStatusCheckSettingsScopeArgs:
     @pulumi.getter(name="repositoryRef")
     def repository_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+        The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type=Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type=Prefix`, this should be a ref path such as `refs/heads/releases`.
         """
         return pulumi.get(self, "repository_ref")
 
@@ -1389,7 +1395,7 @@ if not MYPY:
     class BranchPolicyWorkItemLinkingSettingsArgsDict(TypedDict):
         scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyWorkItemLinkingSettingsScopeArgsDict']]]
         """
-        Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
 elif False:
     BranchPolicyWorkItemLinkingSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -1399,7 +1405,7 @@ class BranchPolicyWorkItemLinkingSettingsArgs:
     def __init__(__self__, *,
                  scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyWorkItemLinkingSettingsScopeArgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['BranchPolicyWorkItemLinkingSettingsScopeArgs']]] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        :param pulumi.Input[Sequence[pulumi.Input['BranchPolicyWorkItemLinkingSettingsScopeArgs']]] scopes: A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
         pulumi.set(__self__, "scopes", scopes)
 
@@ -1407,7 +1413,7 @@ class BranchPolicyWorkItemLinkingSettingsArgs:
     @pulumi.getter
     def scopes(self) -> pulumi.Input[Sequence[pulumi.Input['BranchPolicyWorkItemLinkingSettingsScopeArgs']]]:
         """
-        Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
         return pulumi.get(self, "scopes")
 
@@ -2245,7 +2251,7 @@ if not MYPY:
         """
         repo_type: pulumi.Input[str]
         """
-        The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+        The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
         """
         yml_path: pulumi.Input[str]
         """
@@ -2282,7 +2288,7 @@ class BuildDefinitionRepositoryArgs:
                  service_connection_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] repo_id: The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
-        :param pulumi.Input[str] repo_type: The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+        :param pulumi.Input[str] repo_type: The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
         :param pulumi.Input[str] yml_path: The path of the Yaml file describing the build definition.
         :param pulumi.Input[str] branch_name: The branch name for which builds are triggered. Defaults to `master`.
         :param pulumi.Input[str] github_enterprise_url: The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`.
@@ -2317,7 +2323,7 @@ class BuildDefinitionRepositoryArgs:
     @pulumi.getter(name="repoType")
     def repo_type(self) -> pulumi.Input[str]:
         """
-        The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+        The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
         """
         return pulumi.get(self, "repo_type")
 
@@ -2390,11 +2396,11 @@ if not MYPY:
     class BuildDefinitionScheduleArgsDict(TypedDict):
         branch_filters: pulumi.Input[Sequence[pulumi.Input['BuildDefinitionScheduleBranchFilterArgsDict']]]
         """
-        block supports the following:
+        A `branch_filter` block as defined below.
         """
         days_to_builds: pulumi.Input[Sequence[pulumi.Input[str]]]
         """
-        When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
+        When to build. Possible values are: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
         """
         schedule_job_id: NotRequired[pulumi.Input[str]]
         """
@@ -2406,15 +2412,15 @@ if not MYPY:
         """
         start_hours: NotRequired[pulumi.Input[int]]
         """
-        Build start hour. Defaults to `0`. Valid values: `0 ~ 23`.
+        Build start hour. Possible values are: `0 ~ 23`. Defaults to `0`.
         """
         start_minutes: NotRequired[pulumi.Input[int]]
         """
-        Build start minute. Defaults to `0`. Valid values: `0 ~ 59`.
+        Build start minute. Possible values are: `0 ~ 59`. Defaults to `0`.
         """
         time_zone: NotRequired[pulumi.Input[str]]
         """
-        Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Valid values: 
+        Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Possible values are:
         `(UTC-12:00) International Date Line West`,
         `(UTC-11:00) Coordinated Universal Time-11`,
         `(UTC-10:00) Aleutian Islands`,
@@ -2571,13 +2577,13 @@ class BuildDefinitionScheduleArgs:
                  start_minutes: Optional[pulumi.Input[int]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['BuildDefinitionScheduleBranchFilterArgs']]] branch_filters: block supports the following:
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] days_to_builds: When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
+        :param pulumi.Input[Sequence[pulumi.Input['BuildDefinitionScheduleBranchFilterArgs']]] branch_filters: A `branch_filter` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] days_to_builds: When to build. Possible values are: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
         :param pulumi.Input[str] schedule_job_id: The ID of the schedule job
         :param pulumi.Input[bool] schedule_only_with_changes: Schedule builds if the source or pipeline has changed. Defaults to `true`.
-        :param pulumi.Input[int] start_hours: Build start hour. Defaults to `0`. Valid values: `0 ~ 23`.
-        :param pulumi.Input[int] start_minutes: Build start minute. Defaults to `0`. Valid values: `0 ~ 59`.
-        :param pulumi.Input[str] time_zone: Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Valid values: 
+        :param pulumi.Input[int] start_hours: Build start hour. Possible values are: `0 ~ 23`. Defaults to `0`.
+        :param pulumi.Input[int] start_minutes: Build start minute. Possible values are: `0 ~ 59`. Defaults to `0`.
+        :param pulumi.Input[str] time_zone: Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Possible values are:
                `(UTC-12:00) International Date Line West`,
                `(UTC-11:00) Coordinated Universal Time-11`,
                `(UTC-10:00) Aleutian Islands`,
@@ -2737,7 +2743,7 @@ class BuildDefinitionScheduleArgs:
     @pulumi.getter(name="branchFilters")
     def branch_filters(self) -> pulumi.Input[Sequence[pulumi.Input['BuildDefinitionScheduleBranchFilterArgs']]]:
         """
-        block supports the following:
+        A `branch_filter` block as defined below.
         """
         return pulumi.get(self, "branch_filters")
 
@@ -2749,7 +2755,7 @@ class BuildDefinitionScheduleArgs:
     @pulumi.getter(name="daysToBuilds")
     def days_to_builds(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
+        When to build. Possible values are: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
         """
         return pulumi.get(self, "days_to_builds")
 
@@ -2785,7 +2791,7 @@ class BuildDefinitionScheduleArgs:
     @pulumi.getter(name="startHours")
     def start_hours(self) -> Optional[pulumi.Input[int]]:
         """
-        Build start hour. Defaults to `0`. Valid values: `0 ~ 23`.
+        Build start hour. Possible values are: `0 ~ 23`. Defaults to `0`.
         """
         return pulumi.get(self, "start_hours")
 
@@ -2797,7 +2803,7 @@ class BuildDefinitionScheduleArgs:
     @pulumi.getter(name="startMinutes")
     def start_minutes(self) -> Optional[pulumi.Input[int]]:
         """
-        Build start minute. Defaults to `0`. Valid values: `0 ~ 59`.
+        Build start minute. Possible values are: `0 ~ 59`. Defaults to `0`.
         """
         return pulumi.get(self, "start_minutes")
 
@@ -2809,7 +2815,7 @@ class BuildDefinitionScheduleArgs:
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> Optional[pulumi.Input[str]]:
         """
-        Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Valid values: 
+        Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Possible values are:
         `(UTC-12:00) International Date Line West`,
         `(UTC-11:00) Coordinated Universal Time-11`,
         `(UTC-10:00) Aleutian Islands`,
@@ -3138,7 +3144,7 @@ if not MYPY:
         """
         repository_type: NotRequired[pulumi.Input[str]]
         """
-        The type of the repository storing the template. Valid values: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
+        The type of the repository storing the template. Possible values are: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
         """
 elif False:
     CheckRequiredTemplateRequiredTemplateArgsDict: TypeAlias = Mapping[str, Any]
@@ -3154,7 +3160,7 @@ class CheckRequiredTemplateRequiredTemplateArgs:
         :param pulumi.Input[str] repository_name: The name of the repository storing the template.
         :param pulumi.Input[str] repository_ref: The branch in which the template will be referenced.
         :param pulumi.Input[str] template_path: The path to the template yaml.
-        :param pulumi.Input[str] repository_type: The type of the repository storing the template. Valid values: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
+        :param pulumi.Input[str] repository_type: The type of the repository storing the template. Possible values are: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
         """
         pulumi.set(__self__, "repository_name", repository_name)
         pulumi.set(__self__, "repository_ref", repository_ref)
@@ -3202,7 +3208,7 @@ class CheckRequiredTemplateRequiredTemplateArgs:
     @pulumi.getter(name="repositoryType")
     def repository_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the repository storing the template. Valid values: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
+        The type of the repository storing the template. Possible values are: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
         """
         return pulumi.get(self, "repository_type")
 
@@ -3273,8 +3279,7 @@ if not MYPY:
         """
         The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
 
-        ~>**Note**
-        At least `service_connection_id` or `username/password` needs to be set to import private repository.
+        ~>**Note** At least `service_connection_id` or `username/password` needs to be set to import private repository.
         """
         service_connection_id: NotRequired[pulumi.Input[str]]
         """
@@ -3308,8 +3313,7 @@ class GitInitializationArgs:
         :param pulumi.Input[str] init_type: The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
         :param pulumi.Input[str] password: The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
                
-               ~>**Note**
-               At least `service_connection_id` or `username/password` needs to be set to import private repository.
+               ~>**Note** At least `service_connection_id` or `username/password` needs to be set to import private repository.
         :param pulumi.Input[str] service_connection_id: The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
         :param pulumi.Input[str] source_type: Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`.
         :param pulumi.Input[str] source_url: The URL of the source repository. Used if the `init_type` is `Import`.
@@ -3345,8 +3349,7 @@ class GitInitializationArgs:
         """
         The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
 
-        ~>**Note**
-        At least `service_connection_id` or `username/password` needs to be set to import private repository.
+        ~>**Note** At least `service_connection_id` or `username/password` needs to be set to import private repository.
         """
         return pulumi.get(self, "password")
 
@@ -3407,11 +3410,11 @@ if not MYPY:
     class ServiceEndpointArtifactoryAuthenticationBasicArgsDict(TypedDict):
         password: pulumi.Input[str]
         """
-        The Artifactory password.
+        The Password of the Artifactory.
         """
         username: pulumi.Input[str]
         """
-        The Artifactory user name.
+        The Username of the Artifactory.
         """
 elif False:
     ServiceEndpointArtifactoryAuthenticationBasicArgsDict: TypeAlias = Mapping[str, Any]
@@ -3422,8 +3425,8 @@ class ServiceEndpointArtifactoryAuthenticationBasicArgs:
                  password: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] password: The Artifactory password.
-        :param pulumi.Input[str] username: The Artifactory user name.
+        :param pulumi.Input[str] password: The Password of the Artifactory.
+        :param pulumi.Input[str] username: The Username of the Artifactory.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -3432,7 +3435,7 @@ class ServiceEndpointArtifactoryAuthenticationBasicArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        The Artifactory password.
+        The Password of the Artifactory.
         """
         return pulumi.get(self, "password")
 
@@ -3444,7 +3447,7 @@ class ServiceEndpointArtifactoryAuthenticationBasicArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        The Artifactory user name.
+        The Username of the Artifactory.
         """
         return pulumi.get(self, "username")
 
@@ -3457,7 +3460,7 @@ if not MYPY:
     class ServiceEndpointArtifactoryAuthenticationTokenArgsDict(TypedDict):
         token: pulumi.Input[str]
         """
-        The Artifactory access token.
+        Authentication Token generated through Artifactory.
         """
 elif False:
     ServiceEndpointArtifactoryAuthenticationTokenArgsDict: TypeAlias = Mapping[str, Any]
@@ -3467,7 +3470,7 @@ class ServiceEndpointArtifactoryAuthenticationTokenArgs:
     def __init__(__self__, *,
                  token: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] token: The Artifactory access token.
+        :param pulumi.Input[str] token: Authentication Token generated through Artifactory.
         """
         pulumi.set(__self__, "token", token)
 
@@ -3475,7 +3478,7 @@ class ServiceEndpointArtifactoryAuthenticationTokenArgs:
     @pulumi.getter
     def token(self) -> pulumi.Input[str]:
         """
-        The Artifactory access token.
+        Authentication Token generated through Artifactory.
         """
         return pulumi.get(self, "token")
 
@@ -3488,7 +3491,7 @@ if not MYPY:
     class ServiceEndpointAzureEcrCredentialsArgsDict(TypedDict):
         serviceprincipalid: pulumi.Input[str]
         """
-        The service principal application Id
+        The ID of the Service Principal Application.
         """
 elif False:
     ServiceEndpointAzureEcrCredentialsArgsDict: TypeAlias = Mapping[str, Any]
@@ -3498,7 +3501,7 @@ class ServiceEndpointAzureEcrCredentialsArgs:
     def __init__(__self__, *,
                  serviceprincipalid: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] serviceprincipalid: The service principal application Id
+        :param pulumi.Input[str] serviceprincipalid: The ID of the Service Principal Application.
         """
         pulumi.set(__self__, "serviceprincipalid", serviceprincipalid)
 
@@ -3506,7 +3509,7 @@ class ServiceEndpointAzureEcrCredentialsArgs:
     @pulumi.getter
     def serviceprincipalid(self) -> pulumi.Input[str]:
         """
-        The service principal application Id
+        The ID of the Service Principal Application.
         """
         return pulumi.get(self, "serviceprincipalid")
 
@@ -4049,7 +4052,7 @@ if not MYPY:
         """
         server_certificate_lookup: pulumi.Input[str]
         """
-        Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+        Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
         """
         username: pulumi.Input[str]
         """
@@ -4076,7 +4079,7 @@ class ServiceEndpointServiceFabricAzureActiveDirectoryArgs:
                  server_certificate_thumbprint: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] password: Password for the Azure Active Directory account.
-        :param pulumi.Input[str] server_certificate_lookup: Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+        :param pulumi.Input[str] server_certificate_lookup: Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
         :param pulumi.Input[str] username: Specify an Azure Active Directory account.
         :param pulumi.Input[str] server_certificate_common_name: The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
         :param pulumi.Input[str] server_certificate_thumbprint: The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
@@ -4105,7 +4108,7 @@ class ServiceEndpointServiceFabricAzureActiveDirectoryArgs:
     @pulumi.getter(name="serverCertificateLookup")
     def server_certificate_lookup(self) -> pulumi.Input[str]:
         """
-        Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+        Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
         """
         return pulumi.get(self, "server_certificate_lookup")
 
@@ -4158,7 +4161,7 @@ if not MYPY:
         """
         server_certificate_lookup: pulumi.Input[str]
         """
-        Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+        Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
         """
         client_certificate_password: NotRequired[pulumi.Input[str]]
         """
@@ -4185,7 +4188,7 @@ class ServiceEndpointServiceFabricCertificateArgs:
                  server_certificate_thumbprint: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] client_certificate: Base64 encoding of the cluster's client certificate file.
-        :param pulumi.Input[str] server_certificate_lookup: Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+        :param pulumi.Input[str] server_certificate_lookup: Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
         :param pulumi.Input[str] client_certificate_password: Password for the certificate.
         :param pulumi.Input[str] server_certificate_common_name: The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
         :param pulumi.Input[str] server_certificate_thumbprint: The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
@@ -4215,7 +4218,7 @@ class ServiceEndpointServiceFabricCertificateArgs:
     @pulumi.getter(name="serverCertificateLookup")
     def server_certificate_lookup(self) -> pulumi.Input[str]:
         """
-        Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+        Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
         """
         return pulumi.get(self, "server_certificate_lookup")
 
@@ -4316,11 +4319,11 @@ if not MYPY:
     class ServiceendpointArgocdAuthenticationBasicArgsDict(TypedDict):
         password: pulumi.Input[str]
         """
-        ArgoCD Password.
+        The Password of the ArgoCD.
         """
         username: pulumi.Input[str]
         """
-        ArgoCD Username.
+        The Username of the ArgoCD.
         """
 elif False:
     ServiceendpointArgocdAuthenticationBasicArgsDict: TypeAlias = Mapping[str, Any]
@@ -4331,8 +4334,8 @@ class ServiceendpointArgocdAuthenticationBasicArgs:
                  password: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] password: ArgoCD Password.
-        :param pulumi.Input[str] username: ArgoCD Username.
+        :param pulumi.Input[str] password: The Password of the ArgoCD.
+        :param pulumi.Input[str] username: The Username of the ArgoCD.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -4341,7 +4344,7 @@ class ServiceendpointArgocdAuthenticationBasicArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        ArgoCD Password.
+        The Password of the ArgoCD.
         """
         return pulumi.get(self, "password")
 
@@ -4353,7 +4356,7 @@ class ServiceendpointArgocdAuthenticationBasicArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        ArgoCD Username.
+        The Username of the ArgoCD.
         """
         return pulumi.get(self, "username")
 
@@ -4428,11 +4431,11 @@ if not MYPY:
     class ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgsDict(TypedDict):
         password: pulumi.Input[str]
         """
-        Artifactory Password.
+        The Password of the Artifactory.
         """
         username: pulumi.Input[str]
         """
-        Artifactory Username.
+        The Username of the Artifactory.
         """
 elif False:
     ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgsDict: TypeAlias = Mapping[str, Any]
@@ -4443,8 +4446,8 @@ class ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs:
                  password: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] password: Artifactory Password.
-        :param pulumi.Input[str] username: Artifactory Username.
+        :param pulumi.Input[str] password: The Password of the Artifactory.
+        :param pulumi.Input[str] username: The Username of the Artifactory.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -4453,7 +4456,7 @@ class ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        Artifactory Password.
+        The Password of the Artifactory.
         """
         return pulumi.get(self, "password")
 
@@ -4465,7 +4468,7 @@ class ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        Artifactory Username.
+        The Username of the Artifactory.
         """
         return pulumi.get(self, "username")
 
@@ -4509,11 +4512,11 @@ if not MYPY:
     class ServiceendpointJfrogDistributionV2AuthenticationBasicArgsDict(TypedDict):
         password: pulumi.Input[str]
         """
-        Artifactory Password.
+        The Password of the Artifactory.
         """
         username: pulumi.Input[str]
         """
-        Artifactory Username.
+        The Username of the Artifactory.
         """
 elif False:
     ServiceendpointJfrogDistributionV2AuthenticationBasicArgsDict: TypeAlias = Mapping[str, Any]
@@ -4524,8 +4527,8 @@ class ServiceendpointJfrogDistributionV2AuthenticationBasicArgs:
                  password: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] password: Artifactory Password.
-        :param pulumi.Input[str] username: Artifactory Username.
+        :param pulumi.Input[str] password: The Password of the Artifactory.
+        :param pulumi.Input[str] username: The Username of the Artifactory.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -4534,7 +4537,7 @@ class ServiceendpointJfrogDistributionV2AuthenticationBasicArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        Artifactory Password.
+        The Password of the Artifactory.
         """
         return pulumi.get(self, "password")
 
@@ -4546,7 +4549,7 @@ class ServiceendpointJfrogDistributionV2AuthenticationBasicArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        Artifactory Username.
+        The Username of the Artifactory.
         """
         return pulumi.get(self, "username")
 
@@ -4559,7 +4562,7 @@ if not MYPY:
     class ServiceendpointJfrogDistributionV2AuthenticationTokenArgsDict(TypedDict):
         token: pulumi.Input[str]
         """
-        Authentication Token generated through Artifactory.
+        The Authentication Token generated through Artifactory.
         """
 elif False:
     ServiceendpointJfrogDistributionV2AuthenticationTokenArgsDict: TypeAlias = Mapping[str, Any]
@@ -4569,7 +4572,7 @@ class ServiceendpointJfrogDistributionV2AuthenticationTokenArgs:
     def __init__(__self__, *,
                  token: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] token: Authentication Token generated through Artifactory.
+        :param pulumi.Input[str] token: The Authentication Token generated through Artifactory.
         """
         pulumi.set(__self__, "token", token)
 
@@ -4577,7 +4580,7 @@ class ServiceendpointJfrogDistributionV2AuthenticationTokenArgs:
     @pulumi.getter
     def token(self) -> pulumi.Input[str]:
         """
-        Authentication Token generated through Artifactory.
+        The Authentication Token generated through Artifactory.
         """
         return pulumi.get(self, "token")
 
@@ -4590,11 +4593,11 @@ if not MYPY:
     class ServiceendpointJfrogPlatformV2AuthenticationBasicArgsDict(TypedDict):
         password: pulumi.Input[str]
         """
-        Artifactory Password.
+        The Password of the Artifactory.
         """
         username: pulumi.Input[str]
         """
-        Artifactory Username.
+        The Username of the  Artifactory.
         """
 elif False:
     ServiceendpointJfrogPlatformV2AuthenticationBasicArgsDict: TypeAlias = Mapping[str, Any]
@@ -4605,8 +4608,8 @@ class ServiceendpointJfrogPlatformV2AuthenticationBasicArgs:
                  password: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] password: Artifactory Password.
-        :param pulumi.Input[str] username: Artifactory Username.
+        :param pulumi.Input[str] password: The Password of the Artifactory.
+        :param pulumi.Input[str] username: The Username of the  Artifactory.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -4615,7 +4618,7 @@ class ServiceendpointJfrogPlatformV2AuthenticationBasicArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        Artifactory Password.
+        The Password of the Artifactory.
         """
         return pulumi.get(self, "password")
 
@@ -4627,7 +4630,7 @@ class ServiceendpointJfrogPlatformV2AuthenticationBasicArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        Artifactory Username.
+        The Username of the  Artifactory.
         """
         return pulumi.get(self, "username")
 
@@ -4671,11 +4674,11 @@ if not MYPY:
     class ServiceendpointJfrogXrayV2AuthenticationBasicArgsDict(TypedDict):
         password: pulumi.Input[str]
         """
-        Artifactory Password.
+        The Password of the Artifactory.
         """
         username: pulumi.Input[str]
         """
-        Artifactory Username.
+        The Username of the  Artifactory.
         """
 elif False:
     ServiceendpointJfrogXrayV2AuthenticationBasicArgsDict: TypeAlias = Mapping[str, Any]
@@ -4686,8 +4689,8 @@ class ServiceendpointJfrogXrayV2AuthenticationBasicArgs:
                  password: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] password: Artifactory Password.
-        :param pulumi.Input[str] username: Artifactory Username.
+        :param pulumi.Input[str] password: The Password of the Artifactory.
+        :param pulumi.Input[str] username: The Username of the  Artifactory.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -4696,7 +4699,7 @@ class ServiceendpointJfrogXrayV2AuthenticationBasicArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        Artifactory Password.
+        The Password of the Artifactory.
         """
         return pulumi.get(self, "password")
 
@@ -4708,7 +4711,7 @@ class ServiceendpointJfrogXrayV2AuthenticationBasicArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        Artifactory Username.
+        The Username of the  Artifactory.
         """
         return pulumi.get(self, "username")
 

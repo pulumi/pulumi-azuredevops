@@ -14,8 +14,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ## Example Usage
     /// 
-    /// ### With Token
-    /// 
+    /// ### Authorize with token
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,7 +47,7 @@ namespace Pulumi.AzureDevOps
     /// });
     /// ```
     /// 
-    /// ### With Username And Password
+    /// ### Authorize with username and password
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

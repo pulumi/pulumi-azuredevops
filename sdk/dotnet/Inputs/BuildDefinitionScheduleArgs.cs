@@ -16,7 +16,7 @@ namespace Pulumi.AzureDevOps.Inputs
         private InputList<Inputs.BuildDefinitionScheduleBranchFilterArgs>? _branchFilters;
 
         /// <summary>
-        /// block supports the following:
+        /// A `branch_filter` block as defined below.
         /// </summary>
         public InputList<Inputs.BuildDefinitionScheduleBranchFilterArgs> BranchFilters
         {
@@ -28,7 +28,7 @@ namespace Pulumi.AzureDevOps.Inputs
         private InputList<string>? _daysToBuilds;
 
         /// <summary>
-        /// When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
+        /// When to build. Possible values are: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
         /// </summary>
         public InputList<string> DaysToBuilds
         {
@@ -49,19 +49,19 @@ namespace Pulumi.AzureDevOps.Inputs
         public Input<bool>? ScheduleOnlyWithChanges { get; set; }
 
         /// <summary>
-        /// Build start hour. Defaults to `0`. Valid values: `0 ~ 23`.
+        /// Build start hour. Possible values are: `0 ~ 23`. Defaults to `0`.
         /// </summary>
         [Input("startHours")]
         public Input<int>? StartHours { get; set; }
 
         /// <summary>
-        /// Build start minute. Defaults to `0`. Valid values: `0 ~ 59`.
+        /// Build start minute. Possible values are: `0 ~ 59`. Defaults to `0`.
         /// </summary>
         [Input("startMinutes")]
         public Input<int>? StartMinutes { get; set; }
 
         /// <summary>
-        /// Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Valid values: 
+        /// Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Possible values are:
         /// `(UTC-12:00) International Date Line West`,
         /// `(UTC-11:00) Coordinated Universal Time-11`,
         /// `(UTC-10:00) Aleutian Islands`,

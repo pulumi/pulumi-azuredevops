@@ -145,7 +145,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> TargetResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
+        /// The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
         /// </summary>
         [Output("targetResourceType")]
         public Output<string> TargetResourceType { get; private set; } = null!;
@@ -221,7 +221,7 @@ namespace Pulumi.AzureDevOps
         public Input<string> TargetResourceId { get; set; } = null!;
 
         /// <summary>
-        /// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
+        /// The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
         /// </summary>
         [Input("targetResourceType", required: true)]
         public Input<string> TargetResourceType { get; set; } = null!;
@@ -253,7 +253,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? TargetResourceId { get; set; }
 
         /// <summary>
-        /// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
+        /// The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
         /// </summary>
         [Input("targetResourceType")]
         public Input<string>? TargetResourceType { get; set; }

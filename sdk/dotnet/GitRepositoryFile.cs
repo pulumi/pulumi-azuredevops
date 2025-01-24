@@ -75,8 +75,7 @@ namespace Pulumi.AzureDevOps
     public partial class GitRepositoryFile : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it
-        /// does not already exist.
+        /// Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
         /// </summary>
         [Output("branch")]
         public Output<string?> Branch { get; private set; } = null!;
@@ -158,8 +157,7 @@ namespace Pulumi.AzureDevOps
     public sealed class GitRepositoryFileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it
-        /// does not already exist.
+        /// Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
         /// </summary>
         [Input("branch")]
         public Input<string>? Branch { get; set; }
@@ -203,8 +201,7 @@ namespace Pulumi.AzureDevOps
     public sealed class GitRepositoryFileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it
-        /// does not already exist.
+        /// Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
         /// </summary>
         [Input("branch")]
         public Input<string>? Branch { get; set; }

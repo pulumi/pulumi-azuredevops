@@ -78,7 +78,7 @@ public final class PipelineAuthorizationArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
+     * The type of the resource to authorize. Possible values are: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
      * 
      * &gt; **Note** `repository` is for AzureDevOps repository. To authorize repository other than
      * Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.
@@ -90,7 +90,7 @@ public final class PipelineAuthorizationArgs extends com.pulumi.resources.Resour
     private Output<String> type;
 
     /**
-     * @return The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
+     * @return The type of the resource to authorize. Possible values are: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
      * 
      * &gt; **Note** `repository` is for AzureDevOps repository. To authorize repository other than
      * Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.
@@ -215,7 +215,7 @@ public final class PipelineAuthorizationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param type The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
+         * @param type The type of the resource to authorize. Possible values are: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
          * 
          * &gt; **Note** `repository` is for AzureDevOps repository. To authorize repository other than
          * Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.
@@ -231,7 +231,7 @@ public final class PipelineAuthorizationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param type The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
+         * @param type The type of the resource to authorize. Possible values are: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
          * 
          * &gt; **Note** `repository` is for AzureDevOps repository. To authorize repository other than
          * Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.

@@ -21,9 +21,12 @@ namespace Pulumi.AzureDevOps.Outputs
         /// Specifies whether or not agents within the pool should be automatically updated.
         /// </summary>
         public readonly bool AutoUpdate;
+        /// <summary>
+        /// The ID of the agent pool.
+        /// </summary>
         public readonly int Id;
         /// <summary>
-        /// The name of the agent pool
+        /// The name of the agent pool.
         /// </summary>
         public readonly string Name;
         /// <summary>

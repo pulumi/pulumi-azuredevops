@@ -28,7 +28,7 @@ class ServiceEndpointSonarCloudArgs:
         The set of arguments for constructing a ServiceEndpointSonarCloud resource.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
-        :param pulumi.Input[str] token: Authentication Token generated through SonarCloud (go to `My Account > Security > Generate Tokens`).
+        :param pulumi.Input[str] token: The Authentication Token generated through SonarCloud (go to `My Account > Security > Generate Tokens`).
         :param pulumi.Input[str] description: The Service Endpoint description.
         """
         pulumi.set(__self__, "project_id", project_id)
@@ -67,7 +67,7 @@ class ServiceEndpointSonarCloudArgs:
     @pulumi.getter
     def token(self) -> pulumi.Input[str]:
         """
-        Authentication Token generated through SonarCloud (go to `My Account > Security > Generate Tokens`).
+        The Authentication Token generated through SonarCloud (go to `My Account > Security > Generate Tokens`).
         """
         return pulumi.get(self, "token")
 
@@ -110,7 +110,7 @@ class _ServiceEndpointSonarCloudState:
         :param pulumi.Input[str] description: The Service Endpoint description.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
-        :param pulumi.Input[str] token: Authentication Token generated through SonarCloud (go to `My Account > Security > Generate Tokens`).
+        :param pulumi.Input[str] token: The Authentication Token generated through SonarCloud (go to `My Account > Security > Generate Tokens`).
         """
         if authorization is not None:
             pulumi.set(__self__, "authorization", authorization)
@@ -172,7 +172,7 @@ class _ServiceEndpointSonarCloudState:
     @pulumi.getter
     def token(self) -> Optional[pulumi.Input[str]]:
         """
-        Authentication Token generated through SonarCloud (go to `My Account > Security > Generate Tokens`).
+        The Authentication Token generated through SonarCloud (go to `My Account > Security > Generate Tokens`).
         """
         return pulumi.get(self, "token")
 
@@ -193,7 +193,7 @@ class ServiceEndpointSonarCloud(pulumi.CustomResource):
                  token: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a SonarCloud service endpoint within Azure DevOps.
+        Manages a SonarQube Cloud service endpoint within Azure DevOps.
 
         ## Example Usage
 
@@ -222,7 +222,7 @@ class ServiceEndpointSonarCloud(pulumi.CustomResource):
 
         ## Import
 
-        Azure DevOps Service Endpoint SonarCloud can be imported using the **projectID/serviceEndpointID**, e.g.
+        Azure DevOps SonarQube Cloud Service Endpoint can be imported using the **projectID/serviceEndpointID**, e.g.
 
         ```sh
         $ pulumi import azuredevops:index/serviceEndpointSonarCloud:ServiceEndpointSonarCloud example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -233,7 +233,7 @@ class ServiceEndpointSonarCloud(pulumi.CustomResource):
         :param pulumi.Input[str] description: The Service Endpoint description.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
-        :param pulumi.Input[str] token: Authentication Token generated through SonarCloud (go to `My Account > Security > Generate Tokens`).
+        :param pulumi.Input[str] token: The Authentication Token generated through SonarCloud (go to `My Account > Security > Generate Tokens`).
         """
         ...
     @overload
@@ -242,7 +242,7 @@ class ServiceEndpointSonarCloud(pulumi.CustomResource):
                  args: ServiceEndpointSonarCloudArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a SonarCloud service endpoint within Azure DevOps.
+        Manages a SonarQube Cloud service endpoint within Azure DevOps.
 
         ## Example Usage
 
@@ -271,7 +271,7 @@ class ServiceEndpointSonarCloud(pulumi.CustomResource):
 
         ## Import
 
-        Azure DevOps Service Endpoint SonarCloud can be imported using the **projectID/serviceEndpointID**, e.g.
+        Azure DevOps SonarQube Cloud Service Endpoint can be imported using the **projectID/serviceEndpointID**, e.g.
 
         ```sh
         $ pulumi import azuredevops:index/serviceEndpointSonarCloud:ServiceEndpointSonarCloud example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -344,7 +344,7 @@ class ServiceEndpointSonarCloud(pulumi.CustomResource):
         :param pulumi.Input[str] description: The Service Endpoint description.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
-        :param pulumi.Input[str] token: Authentication Token generated through SonarCloud (go to `My Account > Security > Generate Tokens`).
+        :param pulumi.Input[str] token: The Authentication Token generated through SonarCloud (go to `My Account > Security > Generate Tokens`).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -390,7 +390,7 @@ class ServiceEndpointSonarCloud(pulumi.CustomResource):
     @pulumi.getter
     def token(self) -> pulumi.Output[str]:
         """
-        Authentication Token generated through SonarCloud (go to `My Account > Security > Generate Tokens`).
+        The Authentication Token generated through SonarCloud (go to `My Account > Security > Generate Tokens`).
         """
         return pulumi.get(self, "token")
 

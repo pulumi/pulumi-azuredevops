@@ -13,7 +13,7 @@ namespace Pulumi.AzureDevOps.Inputs
     public sealed class ServiceEndpointAzureEcrCredentialsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The service principal application Id
+        /// The ID of the Service Principal Application.
         /// </summary>
         [Input("serviceprincipalid", required: true)]
         public Input<string> Serviceprincipalid { get; set; } = null!;

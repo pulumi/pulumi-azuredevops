@@ -13,18 +13,28 @@ namespace Pulumi.AzureDevOps.Outputs
     [OutputType]
     public sealed class GetIdentityGroupsGroupResult
     {
+        /// <summary>
+        /// The descriptor of the Identity Group.
+        /// </summary>
+        public readonly string Descriptor;
+        /// <summary>
+        /// The ID of the Identity Group.
+        /// </summary>
         public readonly string Id;
         /// <summary>
-        /// This is the non-unique display name of the identity subject. To change this field, you must alter its value in the source provider.
+        /// This is the non-unique display name of the identity subject.
         /// </summary>
         public readonly string Name;
 
         [OutputConstructor]
         private GetIdentityGroupsGroupResult(
+            string descriptor,
+
             string id,
 
             string name)
         {
+            Descriptor = descriptor;
             Id = id;
             Name = name;
         }

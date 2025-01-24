@@ -224,7 +224,7 @@ type WorkItemQueryPermissions struct {
 	Principal pulumi.StringOutput `pulumi:"principal"`
 	// The ID of the project to assign the permissions.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
-	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+	// Replace (`true`) or merge (`false`) the permissions. Defaults to `true`
 	Replace pulumi.BoolPtrOutput `pulumi:"replace"`
 }
 
@@ -282,7 +282,7 @@ type workItemQueryPermissionsState struct {
 	Principal *string `pulumi:"principal"`
 	// The ID of the project to assign the permissions.
 	ProjectId *string `pulumi:"projectId"`
-	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+	// Replace (`true`) or merge (`false`) the permissions. Defaults to `true`
 	Replace *bool `pulumi:"replace"`
 }
 
@@ -302,7 +302,7 @@ type WorkItemQueryPermissionsState struct {
 	Principal pulumi.StringPtrInput
 	// The ID of the project to assign the permissions.
 	ProjectId pulumi.StringPtrInput
-	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+	// Replace (`true`) or merge (`false`) the permissions. Defaults to `true`
 	Replace pulumi.BoolPtrInput
 }
 
@@ -326,7 +326,7 @@ type workItemQueryPermissionsArgs struct {
 	Principal string `pulumi:"principal"`
 	// The ID of the project to assign the permissions.
 	ProjectId string `pulumi:"projectId"`
-	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+	// Replace (`true`) or merge (`false`) the permissions. Defaults to `true`
 	Replace *bool `pulumi:"replace"`
 }
 
@@ -347,7 +347,7 @@ type WorkItemQueryPermissionsArgs struct {
 	Principal pulumi.StringInput
 	// The ID of the project to assign the permissions.
 	ProjectId pulumi.StringInput
-	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+	// Replace (`true`) or merge (`false`) the permissions. Defaults to `true`
 	Replace pulumi.BoolPtrInput
 }
 
@@ -465,7 +465,7 @@ func (o WorkItemQueryPermissionsOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkItemQueryPermissions) pulumi.StringOutput { return v.ProjectId }).(pulumi.StringOutput)
 }
 
-// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+// Replace (`true`) or merge (`false`) the permissions. Defaults to `true`
 func (o WorkItemQueryPermissionsOutput) Replace() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkItemQueryPermissions) pulumi.BoolPtrOutput { return v.Replace }).(pulumi.BoolPtrOutput)
 }

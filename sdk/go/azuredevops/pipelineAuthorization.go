@@ -159,7 +159,7 @@ type PipelineAuthorization struct {
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The ID of the resource to authorize. Changing this forces a new resource to be created
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
-	// The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
+	// The type of the resource to authorize. Possible values are: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
 	//
 	// > **Note** `repository` is for AzureDevOps repository. To authorize repository other than
 	// Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.
@@ -215,7 +215,7 @@ type pipelineAuthorizationState struct {
 	ProjectId *string `pulumi:"projectId"`
 	// The ID of the resource to authorize. Changing this forces a new resource to be created
 	ResourceId *string `pulumi:"resourceId"`
-	// The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
+	// The type of the resource to authorize. Possible values are: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
 	//
 	// > **Note** `repository` is for AzureDevOps repository. To authorize repository other than
 	// Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.
@@ -233,7 +233,7 @@ type PipelineAuthorizationState struct {
 	ProjectId pulumi.StringPtrInput
 	// The ID of the resource to authorize. Changing this forces a new resource to be created
 	ResourceId pulumi.StringPtrInput
-	// The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
+	// The type of the resource to authorize. Possible values are: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
 	//
 	// > **Note** `repository` is for AzureDevOps repository. To authorize repository other than
 	// Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.
@@ -255,7 +255,7 @@ type pipelineAuthorizationArgs struct {
 	ProjectId string `pulumi:"projectId"`
 	// The ID of the resource to authorize. Changing this forces a new resource to be created
 	ResourceId string `pulumi:"resourceId"`
-	// The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
+	// The type of the resource to authorize. Possible values are: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
 	//
 	// > **Note** `repository` is for AzureDevOps repository. To authorize repository other than
 	// Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.
@@ -274,7 +274,7 @@ type PipelineAuthorizationArgs struct {
 	ProjectId pulumi.StringInput
 	// The ID of the resource to authorize. Changing this forces a new resource to be created
 	ResourceId pulumi.StringInput
-	// The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
+	// The type of the resource to authorize. Possible values are: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
 	//
 	// > **Note** `repository` is for AzureDevOps repository. To authorize repository other than
 	// Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.
@@ -390,7 +390,7 @@ func (o PipelineAuthorizationOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PipelineAuthorization) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
+// The type of the resource to authorize. Possible values are: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
 //
 // > **Note** `repository` is for AzureDevOps repository. To authorize repository other than
 // Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.

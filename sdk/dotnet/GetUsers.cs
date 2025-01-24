@@ -35,16 +35,13 @@ namespace Pulumi.AzureDevOps
     {
         /// <summary>
         /// A `features` block as defined below.
-        /// 
-        /// DataSource without specifying any arguments will return all users inside an organization.
-        /// 
-        /// List of possible subject types
         /// </summary>
         [Input("features")]
         public Inputs.GetUsersFeaturesArgs? Features { get; set; }
 
         /// <summary>
         /// The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+        /// &lt;pre&gt;List of possible origins
         /// </summary>
         [Input("origin")]
         public string? Origin { get; set; }
@@ -66,6 +63,7 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
+        /// &lt;pre&gt;List of possible subject types
         /// </summary>
         public List<string> SubjectTypes
         {
@@ -83,16 +81,13 @@ namespace Pulumi.AzureDevOps
     {
         /// <summary>
         /// A `features` block as defined below.
-        /// 
-        /// DataSource without specifying any arguments will return all users inside an organization.
-        /// 
-        /// List of possible subject types
         /// </summary>
         [Input("features")]
         public Input<Inputs.GetUsersFeaturesInputArgs>? Features { get; set; }
 
         /// <summary>
         /// The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+        /// &lt;pre&gt;List of possible origins
         /// </summary>
         [Input("origin")]
         public Input<string>? Origin { get; set; }
@@ -114,6 +109,7 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
+        /// &lt;pre&gt;List of possible subject types
         /// </summary>
         public InputList<string> SubjectTypes
         {
@@ -150,7 +146,7 @@ namespace Pulumi.AzureDevOps
         public readonly string? PrincipalName;
         public readonly ImmutableArray<string> SubjectTypes;
         /// <summary>
-        /// A set of existing users in your Azure DevOps Organization with details about every single user which includes:
+        /// A `users` block as defined below. A set of existing users in your Azure DevOps Organization with details about every single user.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetUsersUserResult> Users;
 

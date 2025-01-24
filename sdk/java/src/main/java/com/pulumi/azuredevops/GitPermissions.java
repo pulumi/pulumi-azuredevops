@@ -356,7 +356,7 @@ public class GitPermissions extends com.pulumi.resources.CustomResource {
     /**
      * The name of the branch to assign the permissions.
      * 
-     * &gt; **Note** to assign permissions to a branch, the `repository_id` must be set as well.
+     * &gt; **Note** To assign permissions to a branch, the `repository_id` must be set as well.
      * 
      */
     @Export(name="branchName", refs={String.class}, tree="[0]")
@@ -365,7 +365,7 @@ public class GitPermissions extends com.pulumi.resources.CustomResource {
     /**
      * @return The name of the branch to assign the permissions.
      * 
-     * &gt; **Note** to assign permissions to a branch, the `repository_id` must be set as well.
+     * &gt; **Note** To assign permissions to a branch, the `repository_id` must be set as well.
      * 
      */
     public Output<Optional<String>> branchName() {

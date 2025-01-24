@@ -91,12 +91,12 @@ def get_securityrole_definitions(scope: Optional[str] = None,
 
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 7.0 - Roledefinitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)
+    - [Azure DevOps Service REST API 7.0 - Role Definitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)
 
 
     :param str scope: Name of the Scope for which Security Role Definitions will be returned.
            
-           DataSource without specifying any arguments will return all projects.
+           > **NOTE:** DataSource without specifying any arguments will return all projects.
     """
     __args__ = dict()
     __args__['scope'] = scope
@@ -124,12 +124,12 @@ def get_securityrole_definitions_output(scope: Optional[pulumi.Input[str]] = Non
 
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 7.0 - Roledefinitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)
+    - [Azure DevOps Service REST API 7.0 - Role Definitions - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roledefinitions/list?view=azure-devops-rest-7.1)
 
 
     :param str scope: Name of the Scope for which Security Role Definitions will be returned.
            
-           DataSource without specifying any arguments will return all projects.
+           > **NOTE:** DataSource without specifying any arguments will return all projects.
     """
     __args__ = dict()
     __args__['scope'] = scope

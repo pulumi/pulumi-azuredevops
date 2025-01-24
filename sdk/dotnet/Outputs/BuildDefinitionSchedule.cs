@@ -14,11 +14,11 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class BuildDefinitionSchedule
     {
         /// <summary>
-        /// block supports the following:
+        /// A `branch_filter` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.BuildDefinitionScheduleBranchFilter> BranchFilters;
         /// <summary>
-        /// When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
+        /// When to build. Possible values are: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
         /// </summary>
         public readonly ImmutableArray<string> DaysToBuilds;
         /// <summary>
@@ -30,15 +30,15 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly bool? ScheduleOnlyWithChanges;
         /// <summary>
-        /// Build start hour. Defaults to `0`. Valid values: `0 ~ 23`.
+        /// Build start hour. Possible values are: `0 ~ 23`. Defaults to `0`.
         /// </summary>
         public readonly int? StartHours;
         /// <summary>
-        /// Build start minute. Defaults to `0`. Valid values: `0 ~ 59`.
+        /// Build start minute. Possible values are: `0 ~ 59`. Defaults to `0`.
         /// </summary>
         public readonly int? StartMinutes;
         /// <summary>
-        /// Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Valid values: 
+        /// Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Possible values are:
         /// `(UTC-12:00) International Date Line West`,
         /// `(UTC-11:00) Coordinated Universal Time-11`,
         /// `(UTC-10:00) Aleutian Islands`,

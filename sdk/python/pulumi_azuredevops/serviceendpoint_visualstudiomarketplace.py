@@ -265,8 +265,7 @@ class ServiceendpointVisualstudiomarketplace(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### With Token
-
+        ### Authorize with token
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -287,7 +286,7 @@ class ServiceendpointVisualstudiomarketplace(pulumi.CustomResource):
             description="Managed by Pulumi")
         ```
 
-        ### With Username And Password
+        ### Authorize with username and password
 
         ```python
         import pulumi
@@ -343,8 +342,7 @@ class ServiceendpointVisualstudiomarketplace(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### With Token
-
+        ### Authorize with token
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -365,7 +363,7 @@ class ServiceendpointVisualstudiomarketplace(pulumi.CustomResource):
             description="Managed by Pulumi")
         ```
 
-        ### With Username And Password
+        ### Authorize with username and password
 
         ```python
         import pulumi

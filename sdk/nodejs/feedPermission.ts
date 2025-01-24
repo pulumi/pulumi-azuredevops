@@ -20,7 +20,7 @@ import * as utilities from "./utilities";
  *     displayName: "Example group",
  *     description: "Example description",
  * });
- * const exampleFeed = new azuredevops.Feed("example", {name: "releases"});
+ * const exampleFeed = new azuredevops.Feed("example", {name: "examplefeed"});
  * const permission = new azuredevops.FeedPermission("permission", {
  *     feedId: exampleFeed.id,
  *     role: "reader",
@@ -81,7 +81,7 @@ export class FeedPermission extends pulumi.CustomResource {
      */
     public readonly projectId!: pulumi.Output<string | undefined>;
     /**
-     * The role to be assigned, possible values : `reader`, `contributor`, `collaborator`, `administrator`
+     * The role to be assigned. Possible values are: `reader`, `contributor`, `collaborator`, `administrator`
      */
     public readonly role!: pulumi.Output<string>;
 
@@ -152,7 +152,7 @@ export interface FeedPermissionState {
      */
     projectId?: pulumi.Input<string>;
     /**
-     * The role to be assigned, possible values : `reader`, `contributor`, `collaborator`, `administrator`
+     * The role to be assigned. Possible values are: `reader`, `contributor`, `collaborator`, `administrator`
      */
     role?: pulumi.Input<string>;
 }
@@ -178,7 +178,7 @@ export interface FeedPermissionArgs {
      */
     projectId?: pulumi.Input<string>;
     /**
-     * The role to be assigned, possible values : `reader`, `contributor`, `collaborator`, `administrator`
+     * The role to be assigned. Possible values are: `reader`, `contributor`, `collaborator`, `administrator`
      */
     role: pulumi.Input<string>;
 }

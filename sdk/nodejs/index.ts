@@ -90,6 +90,11 @@ export type CheckRequiredTemplate = import("./checkRequiredTemplate").CheckRequi
 export const CheckRequiredTemplate: typeof import("./checkRequiredTemplate").CheckRequiredTemplate = null as any;
 utilities.lazyLoad(exports, ["CheckRequiredTemplate"], () => require("./checkRequiredTemplate"));
 
+export { CheckRestApiArgs, CheckRestApiState } from "./checkRestApi";
+export type CheckRestApi = import("./checkRestApi").CheckRestApi;
+export const CheckRestApi: typeof import("./checkRestApi").CheckRestApi = null as any;
+utilities.lazyLoad(exports, ["CheckRestApi"], () => require("./checkRestApi"));
+
 export { ElasticPoolArgs, ElasticPoolState } from "./elasticPool";
 export type ElasticPool = import("./elasticPool").ElasticPool;
 export const ElasticPool: typeof import("./elasticPool").ElasticPool = null as any;
@@ -114,6 +119,11 @@ export { FeedPermissionArgs, FeedPermissionState } from "./feedPermission";
 export type FeedPermission = import("./feedPermission").FeedPermission;
 export const FeedPermission: typeof import("./feedPermission").FeedPermission = null as any;
 utilities.lazyLoad(exports, ["FeedPermission"], () => require("./feedPermission"));
+
+export { FeedRetentionPolicyArgs, FeedRetentionPolicyState } from "./feedRetentionPolicy";
+export type FeedRetentionPolicy = import("./feedRetentionPolicy").FeedRetentionPolicy;
+export const FeedRetentionPolicy: typeof import("./feedRetentionPolicy").FeedRetentionPolicy = null as any;
+utilities.lazyLoad(exports, ["FeedRetentionPolicy"], () => require("./feedRetentionPolicy"));
 
 export { GetAgentQueueArgs, GetAgentQueueResult, GetAgentQueueOutputArgs } from "./getAgentQueue";
 export const getAgentQueue: typeof import("./getAgentQueue").getAgentQueue = null as any;
@@ -219,6 +229,11 @@ export { GetServiceEndpointGithubArgs, GetServiceEndpointGithubResult, GetServic
 export const getServiceEndpointGithub: typeof import("./getServiceEndpointGithub").getServiceEndpointGithub = null as any;
 export const getServiceEndpointGithubOutput: typeof import("./getServiceEndpointGithub").getServiceEndpointGithubOutput = null as any;
 utilities.lazyLoad(exports, ["getServiceEndpointGithub","getServiceEndpointGithubOutput"], () => require("./getServiceEndpointGithub"));
+
+export { GetServicePrincipalArgs, GetServicePrincipalResult, GetServicePrincipalOutputArgs } from "./getServicePrincipal";
+export const getServicePrincipal: typeof import("./getServicePrincipal").getServicePrincipal = null as any;
+export const getServicePrincipalOutput: typeof import("./getServicePrincipal").getServicePrincipalOutput = null as any;
+utilities.lazyLoad(exports, ["getServicePrincipal","getServicePrincipalOutput"], () => require("./getServicePrincipal"));
 
 export { GetServiceendpointAzurecrArgs, GetServiceendpointAzurecrResult, GetServiceendpointAzurecrOutputArgs } from "./getServiceendpointAzurecr";
 export const getServiceendpointAzurecr: typeof import("./getServiceendpointAzurecr").getServiceendpointAzurecr = null as any;
@@ -334,6 +349,11 @@ export { ProjectPipelineSettingsArgs, ProjectPipelineSettingsState } from "./pro
 export type ProjectPipelineSettings = import("./projectPipelineSettings").ProjectPipelineSettings;
 export const ProjectPipelineSettings: typeof import("./projectPipelineSettings").ProjectPipelineSettings = null as any;
 utilities.lazyLoad(exports, ["ProjectPipelineSettings"], () => require("./projectPipelineSettings"));
+
+export { ProjectTagsArgs, ProjectTagsState } from "./projectTags";
+export type ProjectTags = import("./projectTags").ProjectTags;
+export const ProjectTags: typeof import("./projectTags").ProjectTags = null as any;
+utilities.lazyLoad(exports, ["ProjectTags"], () => require("./projectTags"));
 
 export { ProviderArgs } from "./provider";
 export type Provider = import("./provider").Provider;
@@ -485,6 +505,11 @@ export type ServiceEndpointSsh = import("./serviceEndpointSsh").ServiceEndpointS
 export const ServiceEndpointSsh: typeof import("./serviceEndpointSsh").ServiceEndpointSsh = null as any;
 utilities.lazyLoad(exports, ["ServiceEndpointSsh"], () => require("./serviceEndpointSsh"));
 
+export { ServicePrincipalEntitlementArgs, ServicePrincipalEntitlementState } from "./servicePrincipalEntitlement";
+export type ServicePrincipalEntitlement = import("./servicePrincipalEntitlement").ServicePrincipalEntitlement;
+export const ServicePrincipalEntitlement: typeof import("./servicePrincipalEntitlement").ServicePrincipalEntitlement = null as any;
+utilities.lazyLoad(exports, ["ServicePrincipalEntitlement"], () => require("./servicePrincipalEntitlement"));
+
 export { ServiceendpointArgocdArgs, ServiceendpointArgocdState } from "./serviceendpointArgocd";
 export type ServiceendpointArgocd = import("./serviceendpointArgocd").ServiceendpointArgocd;
 export const ServiceendpointArgocd: typeof import("./serviceendpointArgocd").ServiceendpointArgocd = null as any;
@@ -494,6 +519,21 @@ export { ServiceendpointAzureServiceBusArgs, ServiceendpointAzureServiceBusState
 export type ServiceendpointAzureServiceBus = import("./serviceendpointAzureServiceBus").ServiceendpointAzureServiceBus;
 export const ServiceendpointAzureServiceBus: typeof import("./serviceendpointAzureServiceBus").ServiceendpointAzureServiceBus = null as any;
 utilities.lazyLoad(exports, ["ServiceendpointAzureServiceBus"], () => require("./serviceendpointAzureServiceBus"));
+
+export { ServiceendpointCheckmarxOneArgs, ServiceendpointCheckmarxOneState } from "./serviceendpointCheckmarxOne";
+export type ServiceendpointCheckmarxOne = import("./serviceendpointCheckmarxOne").ServiceendpointCheckmarxOne;
+export const ServiceendpointCheckmarxOne: typeof import("./serviceendpointCheckmarxOne").ServiceendpointCheckmarxOne = null as any;
+utilities.lazyLoad(exports, ["ServiceendpointCheckmarxOne"], () => require("./serviceendpointCheckmarxOne"));
+
+export { ServiceendpointCheckmarxSastArgs, ServiceendpointCheckmarxSastState } from "./serviceendpointCheckmarxSast";
+export type ServiceendpointCheckmarxSast = import("./serviceendpointCheckmarxSast").ServiceendpointCheckmarxSast;
+export const ServiceendpointCheckmarxSast: typeof import("./serviceendpointCheckmarxSast").ServiceendpointCheckmarxSast = null as any;
+utilities.lazyLoad(exports, ["ServiceendpointCheckmarxSast"], () => require("./serviceendpointCheckmarxSast"));
+
+export { ServiceendpointCheckmarxScaArgs, ServiceendpointCheckmarxScaState } from "./serviceendpointCheckmarxSca";
+export type ServiceendpointCheckmarxSca = import("./serviceendpointCheckmarxSca").ServiceendpointCheckmarxSca;
+export const ServiceendpointCheckmarxSca: typeof import("./serviceendpointCheckmarxSca").ServiceendpointCheckmarxSca = null as any;
+utilities.lazyLoad(exports, ["ServiceendpointCheckmarxSca"], () => require("./serviceendpointCheckmarxSca"));
 
 export { ServiceendpointDynamicsLifecycleServicesArgs, ServiceendpointDynamicsLifecycleServicesState } from "./serviceendpointDynamicsLifecycleServices";
 export type ServiceendpointDynamicsLifecycleServices = import("./serviceendpointDynamicsLifecycleServices").ServiceendpointDynamicsLifecycleServices;
@@ -688,6 +728,8 @@ const _module = {
                 return new CheckExclusiveLock(name, <any>undefined, { urn })
             case "azuredevops:index/checkRequiredTemplate:CheckRequiredTemplate":
                 return new CheckRequiredTemplate(name, <any>undefined, { urn })
+            case "azuredevops:index/checkRestApi:CheckRestApi":
+                return new CheckRestApi(name, <any>undefined, { urn })
             case "azuredevops:index/elasticPool:ElasticPool":
                 return new ElasticPool(name, <any>undefined, { urn })
             case "azuredevops:index/environment:Environment":
@@ -698,6 +740,8 @@ const _module = {
                 return new Feed(name, <any>undefined, { urn })
             case "azuredevops:index/feedPermission:FeedPermission":
                 return new FeedPermission(name, <any>undefined, { urn })
+            case "azuredevops:index/feedRetentionPolicy:FeedRetentionPolicy":
+                return new FeedRetentionPolicy(name, <any>undefined, { urn })
             case "azuredevops:index/git:Git":
                 return new Git(name, <any>undefined, { urn })
             case "azuredevops:index/gitPermissions:GitPermissions":
@@ -728,6 +772,8 @@ const _module = {
                 return new ProjectPermissions(name, <any>undefined, { urn })
             case "azuredevops:index/projectPipelineSettings:ProjectPipelineSettings":
                 return new ProjectPipelineSettings(name, <any>undefined, { urn })
+            case "azuredevops:index/projectTags:ProjectTags":
+                return new ProjectTags(name, <any>undefined, { urn })
             case "azuredevops:index/queue:Queue":
                 return new Queue(name, <any>undefined, { urn })
             case "azuredevops:index/repositoryPolicyAuthorEmailPattern:RepositoryPolicyAuthorEmailPattern":
@@ -786,10 +832,18 @@ const _module = {
                 return new ServiceEndpointSonarQube(name, <any>undefined, { urn })
             case "azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh":
                 return new ServiceEndpointSsh(name, <any>undefined, { urn })
+            case "azuredevops:index/servicePrincipalEntitlement:ServicePrincipalEntitlement":
+                return new ServicePrincipalEntitlement(name, <any>undefined, { urn })
             case "azuredevops:index/serviceendpointArgocd:ServiceendpointArgocd":
                 return new ServiceendpointArgocd(name, <any>undefined, { urn })
             case "azuredevops:index/serviceendpointAzureServiceBus:ServiceendpointAzureServiceBus":
                 return new ServiceendpointAzureServiceBus(name, <any>undefined, { urn })
+            case "azuredevops:index/serviceendpointCheckmarxOne:ServiceendpointCheckmarxOne":
+                return new ServiceendpointCheckmarxOne(name, <any>undefined, { urn })
+            case "azuredevops:index/serviceendpointCheckmarxSast:ServiceendpointCheckmarxSast":
+                return new ServiceendpointCheckmarxSast(name, <any>undefined, { urn })
+            case "azuredevops:index/serviceendpointCheckmarxSca:ServiceendpointCheckmarxSca":
+                return new ServiceendpointCheckmarxSca(name, <any>undefined, { urn })
             case "azuredevops:index/serviceendpointDynamicsLifecycleServices:ServiceendpointDynamicsLifecycleServices":
                 return new ServiceendpointDynamicsLifecycleServices(name, <any>undefined, { urn })
             case "azuredevops:index/serviceendpointExternaltfs:ServiceendpointExternaltfs":
@@ -870,11 +924,13 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/checkBranchControl",
 pulumi.runtime.registerResourceModule("azuredevops", "index/checkBusinessHours", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/checkExclusiveLock", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/checkRequiredTemplate", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/checkRestApi", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/elasticPool", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/environment", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/environmentResourceKubernetes", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/feed", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/feedPermission", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/feedRetentionPolicy", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/git", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/gitPermissions", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/gitRepositoryBranch", _module)
@@ -890,6 +946,7 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/project", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/projectFeatures", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/projectPermissions", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/projectPipelineSettings", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/projectTags", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/queue", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/repositoryPolicyAuthorEmailPattern", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/repositoryPolicyCaseEnforcement", _module)
@@ -919,8 +976,12 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointServi
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointSonarCloud", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointSonarQube", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointSsh", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/servicePrincipalEntitlement", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointArgocd", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointAzureServiceBus", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointCheckmarxOne", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointCheckmarxSast", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointCheckmarxSca", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointDynamicsLifecycleServices", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointExternaltfs", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointGcpTerraform", _module)

@@ -59,7 +59,7 @@ export interface GetAgentQueueArgs {
  */
 export interface GetAgentQueueResult {
     /**
-     * Agent pool identifier to which the agent queue belongs.
+     * The ID of the Agent pool to which the agent queue belongs.
      */
     readonly agentPoolId: number;
     /**
@@ -71,7 +71,7 @@ export interface GetAgentQueueResult {
      */
     readonly name: string;
     /**
-     * Project identifier to which the agent queue belongs.
+     * The ID of the Project to which the agent queue belongs.
      */
     readonly projectId: string;
 }

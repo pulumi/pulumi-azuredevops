@@ -17,16 +17,14 @@ public final class GitRepositoryFileState extends com.pulumi.resources.ResourceA
     public static final GitRepositoryFileState Empty = new GitRepositoryFileState();
 
     /**
-     * Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it
-     * does not already exist.
+     * Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
      * 
      */
     @Import(name="branch")
     private @Nullable Output<String> branch;
 
     /**
-     * @return Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it
-     * does not already exist.
+     * @return Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
      * 
      */
     public Optional<Output<String>> branch() {
@@ -138,8 +136,7 @@ public final class GitRepositoryFileState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param branch Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it
-         * does not already exist.
+         * @param branch Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
          * 
          * @return builder
          * 
@@ -150,8 +147,7 @@ public final class GitRepositoryFileState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param branch Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it
-         * does not already exist.
+         * @param branch Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
          * 
          * @return builder
          * 

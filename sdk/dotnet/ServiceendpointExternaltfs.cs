@@ -10,11 +10,49 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps
 {
     /// <summary>
-    /// Manages an Azure Repos/Team Foundation Server service endpoint within Azure DevOps.
+    /// Manages an Azure Repository/Team Foundation Server service endpoint within Azure DevOps.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new AzureDevOps.Project("example", new()
+    ///     {
+    ///         Name = "Example Project",
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Pulumi",
+    ///     });
+    /// 
+    ///     var exampleServiceendpointExternaltfs = new AzureDevOps.ServiceendpointExternaltfs("example", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         ServiceEndpointName = "Example External TFS Name",
+    ///         ConnectionUrl = "https://dev.azure.com/myorganization",
+    ///         Description = "Managed by Pulumi",
+    ///         AuthPersonal = new AzureDevOps.Inputs.ServiceendpointExternaltfsAuthPersonalArgs
+    ///         {
+    ///             PersonalAccessToken = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Relevant Links
+    /// 
+    /// - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
     /// 
     /// ## Import
     /// 
-    /// Azure DevOps Service Endpoint External TFS can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+    /// Azure DevOps Azure Repository/Team Foundation Server Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
     /// 
     /// ```sh
     /// $ pulumi import azuredevops:index/serviceendpointExternaltfs:ServiceendpointExternaltfs example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -33,7 +71,7 @@ namespace Pulumi.AzureDevOps
         public Output<ImmutableDictionary<string, string>> Authorization { get; private set; } = null!;
 
         /// <summary>
-        /// URL of the Azure DevOps organization or the TFS Project Collection to connect to.
+        /// Azure DevOps Organization or TFS Project Collection Url.
         /// </summary>
         [Output("connectionUrl")]
         public Output<string> ConnectionUrl { get; private set; } = null!;
@@ -114,7 +152,7 @@ namespace Pulumi.AzureDevOps
         }
 
         /// <summary>
-        /// URL of the Azure DevOps organization or the TFS Project Collection to connect to.
+        /// Azure DevOps Organization or TFS Project Collection Url.
         /// </summary>
         [Input("connectionUrl", required: true)]
         public Input<string> ConnectionUrl { get; set; } = null!;
@@ -157,7 +195,7 @@ namespace Pulumi.AzureDevOps
         }
 
         /// <summary>
-        /// URL of the Azure DevOps organization or the TFS Project Collection to connect to.
+        /// Azure DevOps Organization or TFS Project Collection Url.
         /// </summary>
         [Input("connectionUrl")]
         public Input<string>? ConnectionUrl { get; set; }

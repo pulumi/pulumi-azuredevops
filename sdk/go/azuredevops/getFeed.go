@@ -87,11 +87,11 @@ func LookupFeed(ctx *pulumi.Context, args *LookupFeedArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getFeed.
 type LookupFeedArgs struct {
-	// ID of the Feed.
+	// The ID of the Feed.
 	//
 	// > **Note** Only one of `name` or `feedId` can be set at the same time.
 	FeedId *string `pulumi:"feedId"`
-	// Name of the Feed.
+	// The Name of the Feed.
 	Name *string `pulumi:"name"`
 	// ID of the Project Feed is created in.
 	ProjectId *string `pulumi:"projectId"`
@@ -120,11 +120,11 @@ func LookupFeedOutput(ctx *pulumi.Context, args LookupFeedOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getFeed.
 type LookupFeedOutputArgs struct {
-	// ID of the Feed.
+	// The ID of the Feed.
 	//
 	// > **Note** Only one of `name` or `feedId` can be set at the same time.
 	FeedId pulumi.StringPtrInput `pulumi:"feedId"`
-	// Name of the Feed.
+	// The Name of the Feed.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// ID of the Project Feed is created in.
 	ProjectId pulumi.StringPtrInput `pulumi:"projectId"`

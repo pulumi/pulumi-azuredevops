@@ -77,14 +77,14 @@ public final class FeedPermissionArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The role to be assigned, possible values : `reader`, `contributor`, `collaborator`, `administrator`
+     * The role to be assigned. Possible values are: `reader`, `contributor`, `collaborator`, `administrator`
      * 
      */
     @Import(name="role", required=true)
     private Output<String> role;
 
     /**
-     * @return The role to be assigned, possible values : `reader`, `contributor`, `collaborator`, `administrator`
+     * @return The role to be assigned. Possible values are: `reader`, `contributor`, `collaborator`, `administrator`
      * 
      */
     public Output<String> role() {
@@ -204,7 +204,7 @@ public final class FeedPermissionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param role The role to be assigned, possible values : `reader`, `contributor`, `collaborator`, `administrator`
+         * @param role The role to be assigned. Possible values are: `reader`, `contributor`, `collaborator`, `administrator`
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class FeedPermissionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param role The role to be assigned, possible values : `reader`, `contributor`, `collaborator`, `administrator`
+         * @param role The role to be assigned. Possible values are: `reader`, `contributor`, `collaborator`, `administrator`
          * 
          * @return builder
          * 

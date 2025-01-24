@@ -88,12 +88,6 @@ type AreaPermissions struct {
 	// The name of the branch to assign the permissions.
 	Path pulumi.StringPtrOutput `pulumi:"path"`
 	// the permissions to assign. The following permissions are available.
-	Permissions pulumi.StringMapOutput `pulumi:"permissions"`
-	// The **group** principal to assign the permissions.
-	Principal pulumi.StringOutput `pulumi:"principal"`
-	// The ID of the project to assign the permissions.
-	ProjectId pulumi.StringOutput `pulumi:"projectId"`
-	// Replace (`true`) or merge (`false`) the permissions. Default: `true`.
 	//
 	// | Permission             | Description                          |
 	// |------------------------|--------------------------------------|
@@ -106,6 +100,12 @@ type AreaPermissions struct {
 	// | MANAGE_TEST_PLANS      | Manage test plans                    |
 	// | MANAGE_TEST_SUITES     | Manage test suites                   |
 	// | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
+	Permissions pulumi.StringMapOutput `pulumi:"permissions"`
+	// The **group** principal to assign the permissions.
+	Principal pulumi.StringOutput `pulumi:"principal"`
+	// The ID of the project to assign the permissions.
+	ProjectId pulumi.StringOutput `pulumi:"projectId"`
+	// Replace (`true`) or merge (`false`) the permissions. Default: `true`.
 	Replace pulumi.BoolPtrOutput `pulumi:"replace"`
 }
 
@@ -151,12 +151,6 @@ type areaPermissionsState struct {
 	// The name of the branch to assign the permissions.
 	Path *string `pulumi:"path"`
 	// the permissions to assign. The following permissions are available.
-	Permissions map[string]string `pulumi:"permissions"`
-	// The **group** principal to assign the permissions.
-	Principal *string `pulumi:"principal"`
-	// The ID of the project to assign the permissions.
-	ProjectId *string `pulumi:"projectId"`
-	// Replace (`true`) or merge (`false`) the permissions. Default: `true`.
 	//
 	// | Permission             | Description                          |
 	// |------------------------|--------------------------------------|
@@ -169,6 +163,12 @@ type areaPermissionsState struct {
 	// | MANAGE_TEST_PLANS      | Manage test plans                    |
 	// | MANAGE_TEST_SUITES     | Manage test suites                   |
 	// | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
+	Permissions map[string]string `pulumi:"permissions"`
+	// The **group** principal to assign the permissions.
+	Principal *string `pulumi:"principal"`
+	// The ID of the project to assign the permissions.
+	ProjectId *string `pulumi:"projectId"`
+	// Replace (`true`) or merge (`false`) the permissions. Default: `true`.
 	Replace *bool `pulumi:"replace"`
 }
 
@@ -176,12 +176,6 @@ type AreaPermissionsState struct {
 	// The name of the branch to assign the permissions.
 	Path pulumi.StringPtrInput
 	// the permissions to assign. The following permissions are available.
-	Permissions pulumi.StringMapInput
-	// The **group** principal to assign the permissions.
-	Principal pulumi.StringPtrInput
-	// The ID of the project to assign the permissions.
-	ProjectId pulumi.StringPtrInput
-	// Replace (`true`) or merge (`false`) the permissions. Default: `true`.
 	//
 	// | Permission             | Description                          |
 	// |------------------------|--------------------------------------|
@@ -194,6 +188,12 @@ type AreaPermissionsState struct {
 	// | MANAGE_TEST_PLANS      | Manage test plans                    |
 	// | MANAGE_TEST_SUITES     | Manage test suites                   |
 	// | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
+	Permissions pulumi.StringMapInput
+	// The **group** principal to assign the permissions.
+	Principal pulumi.StringPtrInput
+	// The ID of the project to assign the permissions.
+	ProjectId pulumi.StringPtrInput
+	// Replace (`true`) or merge (`false`) the permissions. Default: `true`.
 	Replace pulumi.BoolPtrInput
 }
 
@@ -205,12 +205,6 @@ type areaPermissionsArgs struct {
 	// The name of the branch to assign the permissions.
 	Path *string `pulumi:"path"`
 	// the permissions to assign. The following permissions are available.
-	Permissions map[string]string `pulumi:"permissions"`
-	// The **group** principal to assign the permissions.
-	Principal string `pulumi:"principal"`
-	// The ID of the project to assign the permissions.
-	ProjectId string `pulumi:"projectId"`
-	// Replace (`true`) or merge (`false`) the permissions. Default: `true`.
 	//
 	// | Permission             | Description                          |
 	// |------------------------|--------------------------------------|
@@ -223,6 +217,12 @@ type areaPermissionsArgs struct {
 	// | MANAGE_TEST_PLANS      | Manage test plans                    |
 	// | MANAGE_TEST_SUITES     | Manage test suites                   |
 	// | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
+	Permissions map[string]string `pulumi:"permissions"`
+	// The **group** principal to assign the permissions.
+	Principal string `pulumi:"principal"`
+	// The ID of the project to assign the permissions.
+	ProjectId string `pulumi:"projectId"`
+	// Replace (`true`) or merge (`false`) the permissions. Default: `true`.
 	Replace *bool `pulumi:"replace"`
 }
 
@@ -231,12 +231,6 @@ type AreaPermissionsArgs struct {
 	// The name of the branch to assign the permissions.
 	Path pulumi.StringPtrInput
 	// the permissions to assign. The following permissions are available.
-	Permissions pulumi.StringMapInput
-	// The **group** principal to assign the permissions.
-	Principal pulumi.StringInput
-	// The ID of the project to assign the permissions.
-	ProjectId pulumi.StringInput
-	// Replace (`true`) or merge (`false`) the permissions. Default: `true`.
 	//
 	// | Permission             | Description                          |
 	// |------------------------|--------------------------------------|
@@ -249,6 +243,12 @@ type AreaPermissionsArgs struct {
 	// | MANAGE_TEST_PLANS      | Manage test plans                    |
 	// | MANAGE_TEST_SUITES     | Manage test suites                   |
 	// | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
+	Permissions pulumi.StringMapInput
+	// The **group** principal to assign the permissions.
+	Principal pulumi.StringInput
+	// The ID of the project to assign the permissions.
+	ProjectId pulumi.StringInput
+	// Replace (`true`) or merge (`false`) the permissions. Default: `true`.
 	Replace pulumi.BoolPtrInput
 }
 
@@ -345,6 +345,18 @@ func (o AreaPermissionsOutput) Path() pulumi.StringPtrOutput {
 }
 
 // the permissions to assign. The following permissions are available.
+//
+// | Permission             | Description                          |
+// |------------------------|--------------------------------------|
+// | GENERIC_READ           | View permissions for this node       |
+// | GENERIC_WRITE          | Edit this node                       |
+// | CREATE_CHILDREN        | Create child nodes                   |
+// | DELETE                 | Delete this node                     |
+// | WORK_ITEM_READ         | View work items in this node         |
+// | WORK_ITEM_WRITE        | Edit work items in this node         |
+// | MANAGE_TEST_PLANS      | Manage test plans                    |
+// | MANAGE_TEST_SUITES     | Manage test suites                   |
+// | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
 func (o AreaPermissionsOutput) Permissions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AreaPermissions) pulumi.StringMapOutput { return v.Permissions }).(pulumi.StringMapOutput)
 }
@@ -360,18 +372,6 @@ func (o AreaPermissionsOutput) ProjectId() pulumi.StringOutput {
 }
 
 // Replace (`true`) or merge (`false`) the permissions. Default: `true`.
-//
-// | Permission             | Description                          |
-// |------------------------|--------------------------------------|
-// | GENERIC_READ           | View permissions for this node       |
-// | GENERIC_WRITE          | Edit this node                       |
-// | CREATE_CHILDREN        | Create child nodes                   |
-// | DELETE                 | Delete this node                     |
-// | WORK_ITEM_READ         | View work items in this node         |
-// | WORK_ITEM_WRITE        | Edit work items in this node         |
-// | MANAGE_TEST_PLANS      | Manage test plans                    |
-// | MANAGE_TEST_SUITES     | Manage test suites                   |
-// | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
 func (o AreaPermissionsOutput) Replace() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AreaPermissions) pulumi.BoolPtrOutput { return v.Replace }).(pulumi.BoolPtrOutput)
 }

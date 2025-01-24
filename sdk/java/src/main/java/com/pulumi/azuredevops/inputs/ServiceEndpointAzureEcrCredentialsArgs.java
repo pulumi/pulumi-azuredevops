@@ -15,14 +15,14 @@ public final class ServiceEndpointAzureEcrCredentialsArgs extends com.pulumi.res
     public static final ServiceEndpointAzureEcrCredentialsArgs Empty = new ServiceEndpointAzureEcrCredentialsArgs();
 
     /**
-     * The service principal application Id
+     * The ID of the Service Principal Application.
      * 
      */
     @Import(name="serviceprincipalid", required=true)
     private Output<String> serviceprincipalid;
 
     /**
-     * @return The service principal application Id
+     * @return The ID of the Service Principal Application.
      * 
      */
     public Output<String> serviceprincipalid() {
@@ -54,7 +54,7 @@ public final class ServiceEndpointAzureEcrCredentialsArgs extends com.pulumi.res
         }
 
         /**
-         * @param serviceprincipalid The service principal application Id
+         * @param serviceprincipalid The ID of the Service Principal Application.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ServiceEndpointAzureEcrCredentialsArgs extends com.pulumi.res
         }
 
         /**
-         * @param serviceprincipalid The service principal application Id
+         * @param serviceprincipalid The ID of the Service Principal Application.
          * 
          * @return builder
          * 

@@ -49,14 +49,14 @@ public final class GitArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `initialization` block as documented below.
+     * A `initialization` block as documented below.
      * 
      */
     @Import(name="initialization", required=true)
     private Output<GitInitializationArgs> initialization;
 
     /**
-     * @return An `initialization` block as documented below.
+     * @return A `initialization` block as documented below.
      * 
      */
     public Output<GitInitializationArgs> initialization() {
@@ -180,7 +180,7 @@ public final class GitArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param initialization An `initialization` block as documented below.
+         * @param initialization A `initialization` block as documented below.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class GitArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param initialization An `initialization` block as documented below.
+         * @param initialization A `initialization` block as documented below.
          * 
          * @return builder
          * 

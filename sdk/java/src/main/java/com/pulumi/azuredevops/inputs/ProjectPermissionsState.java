@@ -89,14 +89,14 @@ public final class ProjectPermissionsState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The **group** principal to assign the permissions.
+     * The `group` principal to assign the permissions.
      * 
      */
     @Import(name="principal")
     private @Nullable Output<String> principal;
 
     /**
-     * @return The **group** principal to assign the permissions.
+     * @return The `group` principal to assign the permissions.
      * 
      */
     public Optional<Output<String>> principal() {
@@ -238,7 +238,7 @@ public final class ProjectPermissionsState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param principal The **group** principal to assign the permissions.
+         * @param principal The `group` principal to assign the permissions.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class ProjectPermissionsState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param principal The **group** principal to assign the permissions.
+         * @param principal The `group` principal to assign the permissions.
          * 
          * @return builder
          * 

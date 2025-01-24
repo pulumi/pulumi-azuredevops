@@ -165,7 +165,7 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public readonly string AppObjectId;
         /// <summary>
-        /// Specifies the Authorization Scheme Map.
+        /// The Authorization scheme.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Authorization;
         /// <summary>

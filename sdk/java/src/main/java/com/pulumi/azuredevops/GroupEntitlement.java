@@ -99,9 +99,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * The resource allows the import via the ID of a group entitlement, which is a
- * 
- * UUID.
+ * The resource allows the import via the ID of a group entitlement, which is a UUID.
  * 
  * ```sh
  * $ pulumi import azuredevops:index/groupEntitlement:GroupEntitlement example 00000000-0000-0000-0000-000000000000
@@ -111,14 +109,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azuredevops:index/groupEntitlement:GroupEntitlement")
 public class GroupEntitlement extends com.pulumi.resources.CustomResource {
     /**
-     * Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+     * Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
      * 
      */
     @Export(name="accountLicenseType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accountLicenseType;
 
     /**
-     * @return Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+     * @return Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
      * 
      */
     public Output<Optional<String>> accountLicenseType() {
@@ -153,7 +151,7 @@ public class GroupEntitlement extends com.pulumi.resources.CustomResource {
         return this.displayName;
     }
     /**
-     * The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+     * The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
      * 
      * &gt; **NOTE:** A existing group in Azure AD can only be referenced by the combination of `origin_id` and `origin`.
      * 
@@ -162,7 +160,7 @@ public class GroupEntitlement extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> licensingSource;
 
     /**
-     * @return The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+     * @return The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
      * 
      * &gt; **NOTE:** A existing group in Azure AD can only be referenced by the combination of `origin_id` and `origin`.
      * 

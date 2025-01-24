@@ -85,14 +85,14 @@ public final class BranchPolicyAutoReviewersSettingsArgs extends com.pulumi.reso
     }
 
     /**
-     * Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+     * A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
      * 
      */
     @Import(name="scopes", required=true)
     private Output<List<BranchPolicyAutoReviewersSettingsScopeArgs>> scopes;
 
     /**
-     * @return Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+     * @return A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
      * 
      */
     public Output<List<BranchPolicyAutoReviewersSettingsScopeArgs>> scopes() {
@@ -252,7 +252,7 @@ public final class BranchPolicyAutoReviewersSettingsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param scopes Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+         * @param scopes A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class BranchPolicyAutoReviewersSettingsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param scopes Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+         * @param scopes A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class BranchPolicyAutoReviewersSettingsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param scopes Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+         * @param scopes A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
          * 
          * @return builder
          * 

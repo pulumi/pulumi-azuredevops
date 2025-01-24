@@ -52,13 +52,13 @@ export function getFeed(args?: GetFeedArgs, opts?: pulumi.InvokeOptions): Promis
  */
 export interface GetFeedArgs {
     /**
-     * ID of the Feed.
+     * The ID of the Feed.
      *
      * > **Note** Only one of `name` or `feedId` can be set at the same time.
      */
     feedId?: string;
     /**
-     * Name of the Feed.
+     * The Name of the Feed.
      */
     name?: string;
     /**
@@ -136,13 +136,13 @@ export function getFeedOutput(args?: GetFeedOutputArgs, opts?: pulumi.InvokeOutp
  */
 export interface GetFeedOutputArgs {
     /**
-     * ID of the Feed.
+     * The ID of the Feed.
      *
      * > **Note** Only one of `name` or `feedId` can be set at the same time.
      */
     feedId?: pulumi.Input<string>;
     /**
-     * Name of the Feed.
+     * The Name of the Feed.
      */
     name?: pulumi.Input<string>;
     /**

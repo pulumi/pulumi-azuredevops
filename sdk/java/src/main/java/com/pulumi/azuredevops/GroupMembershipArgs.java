@@ -35,9 +35,8 @@ public final class GroupMembershipArgs extends com.pulumi.resources.ResourceArgs
     /**
      * A list of user or group descriptors that will become members of the group.
      * 
-     * &gt; **NOTE** It&#39;s possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it&#39;s not possible to use both methods to manage group members, since there&#39;ll be conflicts.
-     * 
-     * &gt; **NOTE**  The `members` uses `descriptor` as the identifier not Resource ID or others.
+     * &gt; **NOTE** 1. It&#39;s possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it&#39;s not possible to use both methods to manage group members, since there&#39;ll be conflicts.
+     * &lt;br&gt;2. The `members` uses `descriptor` as the identifier not Resource ID or others.
      * 
      */
     @Import(name="members", required=true)
@@ -46,9 +45,8 @@ public final class GroupMembershipArgs extends com.pulumi.resources.ResourceArgs
     /**
      * @return A list of user or group descriptors that will become members of the group.
      * 
-     * &gt; **NOTE** It&#39;s possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it&#39;s not possible to use both methods to manage group members, since there&#39;ll be conflicts.
-     * 
-     * &gt; **NOTE**  The `members` uses `descriptor` as the identifier not Resource ID or others.
+     * &gt; **NOTE** 1. It&#39;s possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it&#39;s not possible to use both methods to manage group members, since there&#39;ll be conflicts.
+     * &lt;br&gt;2. The `members` uses `descriptor` as the identifier not Resource ID or others.
      * 
      */
     public Output<List<String>> members() {
@@ -57,10 +55,10 @@ public final class GroupMembershipArgs extends com.pulumi.resources.ResourceArgs
 
     /**
      * The mode how the resource manages group members.
-     * - `mode == add`: the resource will ensure that all specified members will be part of the referenced group
-     * - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
      * 
-     * &gt; **NOTE** To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
+     * ~&gt;**NOTE** 1. `mode = add`: the resource will ensure that all specified members will be part of the referenced group
+     * &lt;br&gt;2. `mode = overwrite`: the resource will replace all existing members with the members specified within the `members` block
+     * &lt;br&gt;3. To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
      * 
      */
     @Import(name="mode")
@@ -68,10 +66,10 @@ public final class GroupMembershipArgs extends com.pulumi.resources.ResourceArgs
 
     /**
      * @return The mode how the resource manages group members.
-     * - `mode == add`: the resource will ensure that all specified members will be part of the referenced group
-     * - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
      * 
-     * &gt; **NOTE** To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
+     * ~&gt;**NOTE** 1. `mode = add`: the resource will ensure that all specified members will be part of the referenced group
+     * &lt;br&gt;2. `mode = overwrite`: the resource will replace all existing members with the members specified within the `members` block
+     * &lt;br&gt;3. To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
      * 
      */
     public Optional<Output<String>> mode() {
@@ -128,9 +126,8 @@ public final class GroupMembershipArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param members A list of user or group descriptors that will become members of the group.
          * 
-         * &gt; **NOTE** It&#39;s possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it&#39;s not possible to use both methods to manage group members, since there&#39;ll be conflicts.
-         * 
-         * &gt; **NOTE**  The `members` uses `descriptor` as the identifier not Resource ID or others.
+         * &gt; **NOTE** 1. It&#39;s possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it&#39;s not possible to use both methods to manage group members, since there&#39;ll be conflicts.
+         * &lt;br&gt;2. The `members` uses `descriptor` as the identifier not Resource ID or others.
          * 
          * @return builder
          * 
@@ -143,9 +140,8 @@ public final class GroupMembershipArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param members A list of user or group descriptors that will become members of the group.
          * 
-         * &gt; **NOTE** It&#39;s possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it&#39;s not possible to use both methods to manage group members, since there&#39;ll be conflicts.
-         * 
-         * &gt; **NOTE**  The `members` uses `descriptor` as the identifier not Resource ID or others.
+         * &gt; **NOTE** 1. It&#39;s possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it&#39;s not possible to use both methods to manage group members, since there&#39;ll be conflicts.
+         * &lt;br&gt;2. The `members` uses `descriptor` as the identifier not Resource ID or others.
          * 
          * @return builder
          * 
@@ -157,9 +153,8 @@ public final class GroupMembershipArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param members A list of user or group descriptors that will become members of the group.
          * 
-         * &gt; **NOTE** It&#39;s possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it&#39;s not possible to use both methods to manage group members, since there&#39;ll be conflicts.
-         * 
-         * &gt; **NOTE**  The `members` uses `descriptor` as the identifier not Resource ID or others.
+         * &gt; **NOTE** 1. It&#39;s possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it&#39;s not possible to use both methods to manage group members, since there&#39;ll be conflicts.
+         * &lt;br&gt;2. The `members` uses `descriptor` as the identifier not Resource ID or others.
          * 
          * @return builder
          * 
@@ -170,10 +165,10 @@ public final class GroupMembershipArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param mode The mode how the resource manages group members.
-         * - `mode == add`: the resource will ensure that all specified members will be part of the referenced group
-         * - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
          * 
-         * &gt; **NOTE** To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
+         * ~&gt;**NOTE** 1. `mode = add`: the resource will ensure that all specified members will be part of the referenced group
+         * &lt;br&gt;2. `mode = overwrite`: the resource will replace all existing members with the members specified within the `members` block
+         * &lt;br&gt;3. To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
          * 
          * @return builder
          * 
@@ -185,10 +180,10 @@ public final class GroupMembershipArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param mode The mode how the resource manages group members.
-         * - `mode == add`: the resource will ensure that all specified members will be part of the referenced group
-         * - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
          * 
-         * &gt; **NOTE** To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
+         * ~&gt;**NOTE** 1. `mode = add`: the resource will ensure that all specified members will be part of the referenced group
+         * &lt;br&gt;2. `mode = overwrite`: the resource will replace all existing members with the members specified within the `members` block
+         * &lt;br&gt;3. To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
          * 
          * @return builder
          * 

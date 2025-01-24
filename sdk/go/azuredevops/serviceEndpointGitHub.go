@@ -134,7 +134,7 @@ import (
 //
 // ## Import
 //
-// Azure DevOps Service Endpoint GitHub can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+// Azure DevOps GitHub Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
 // $ pulumi import azuredevops:index/serviceEndpointGitHub:ServiceEndpointGitHub example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -142,6 +142,7 @@ import (
 type ServiceEndpointGitHub struct {
 	pulumi.CustomResourceState
 
+	// An `authOauth` block as documented below. Allows connecting using an Oauth token.
 	AuthOauth ServiceEndpointGitHubAuthOauthPtrOutput `pulumi:"authOauth"`
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal  ServiceEndpointGitHubAuthPersonalPtrOutput `pulumi:"authPersonal"`
@@ -189,6 +190,7 @@ func GetServiceEndpointGitHub(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceEndpointGitHub resources.
 type serviceEndpointGitHubState struct {
+	// An `authOauth` block as documented below. Allows connecting using an Oauth token.
 	AuthOauth *ServiceEndpointGitHubAuthOauth `pulumi:"authOauth"`
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal  *ServiceEndpointGitHubAuthPersonal `pulumi:"authPersonal"`
@@ -201,6 +203,7 @@ type serviceEndpointGitHubState struct {
 }
 
 type ServiceEndpointGitHubState struct {
+	// An `authOauth` block as documented below. Allows connecting using an Oauth token.
 	AuthOauth ServiceEndpointGitHubAuthOauthPtrInput
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal  ServiceEndpointGitHubAuthPersonalPtrInput
@@ -217,6 +220,7 @@ func (ServiceEndpointGitHubState) ElementType() reflect.Type {
 }
 
 type serviceEndpointGitHubArgs struct {
+	// An `authOauth` block as documented below. Allows connecting using an Oauth token.
 	AuthOauth *ServiceEndpointGitHubAuthOauth `pulumi:"authOauth"`
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal  *ServiceEndpointGitHubAuthPersonal `pulumi:"authPersonal"`
@@ -230,6 +234,7 @@ type serviceEndpointGitHubArgs struct {
 
 // The set of arguments for constructing a ServiceEndpointGitHub resource.
 type ServiceEndpointGitHubArgs struct {
+	// An `authOauth` block as documented below. Allows connecting using an Oauth token.
 	AuthOauth ServiceEndpointGitHubAuthOauthPtrInput
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal  ServiceEndpointGitHubAuthPersonalPtrInput
@@ -328,6 +333,7 @@ func (o ServiceEndpointGitHubOutput) ToServiceEndpointGitHubOutputWithContext(ct
 	return o
 }
 
+// An `authOauth` block as documented below. Allows connecting using an Oauth token.
 func (o ServiceEndpointGitHubOutput) AuthOauth() ServiceEndpointGitHubAuthOauthPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointGitHub) ServiceEndpointGitHubAuthOauthPtrOutput { return v.AuthOauth }).(ServiceEndpointGitHubAuthOauthPtrOutput)
 }

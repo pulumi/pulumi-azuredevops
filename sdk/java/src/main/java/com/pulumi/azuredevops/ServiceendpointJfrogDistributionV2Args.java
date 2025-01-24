@@ -20,14 +20,14 @@ public final class ServiceendpointJfrogDistributionV2Args extends com.pulumi.res
     public static final ServiceendpointJfrogDistributionV2Args Empty = new ServiceendpointJfrogDistributionV2Args();
 
     /**
-     * A `authentication_basic` block as documented below.
+     * An `authentication_basic` block as documented below.
      * 
      */
     @Import(name="authenticationBasic")
     private @Nullable Output<ServiceendpointJfrogDistributionV2AuthenticationBasicArgs> authenticationBasic;
 
     /**
-     * @return A `authentication_basic` block as documented below.
+     * @return An `authentication_basic` block as documented below.
      * 
      */
     public Optional<Output<ServiceendpointJfrogDistributionV2AuthenticationBasicArgs>> authenticationBasic() {
@@ -35,14 +35,14 @@ public final class ServiceendpointJfrogDistributionV2Args extends com.pulumi.res
     }
 
     /**
-     * A `authentication_token` block as documented below.
+     * An `authentication_token` block as documented below.
      * 
      */
     @Import(name="authenticationToken")
     private @Nullable Output<ServiceendpointJfrogDistributionV2AuthenticationTokenArgs> authenticationToken;
 
     /**
-     * @return A `authentication_token` block as documented below.
+     * @return An `authentication_token` block as documented below.
      * 
      */
     public Optional<Output<ServiceendpointJfrogDistributionV2AuthenticationTokenArgs>> authenticationToken() {
@@ -151,7 +151,7 @@ public final class ServiceendpointJfrogDistributionV2Args extends com.pulumi.res
         }
 
         /**
-         * @param authenticationBasic A `authentication_basic` block as documented below.
+         * @param authenticationBasic An `authentication_basic` block as documented below.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class ServiceendpointJfrogDistributionV2Args extends com.pulumi.res
         }
 
         /**
-         * @param authenticationBasic A `authentication_basic` block as documented below.
+         * @param authenticationBasic An `authentication_basic` block as documented below.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class ServiceendpointJfrogDistributionV2Args extends com.pulumi.res
         }
 
         /**
-         * @param authenticationToken A `authentication_token` block as documented below.
+         * @param authenticationToken An `authentication_token` block as documented below.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class ServiceendpointJfrogDistributionV2Args extends com.pulumi.res
         }
 
         /**
-         * @param authenticationToken A `authentication_token` block as documented below.
+         * @param authenticationToken An `authentication_token` block as documented below.
          * 
          * @return builder
          * 

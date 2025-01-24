@@ -35,8 +35,8 @@ class ServiceendpointJfrogArtifactoryV2Args:
         :param pulumi.Input[str] url: URL of the Artifactory server to connect with.
                
                > **NOTE:** URL should not end in a slash character.
-        :param pulumi.Input['ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs'] authentication_basic: A `authentication_basic` block as documented below.
-        :param pulumi.Input['ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs'] authentication_token: A `authentication_token` block as documented below.
+        :param pulumi.Input['ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs'] authentication_basic: An `authentication_basic` block as documented below.
+        :param pulumi.Input['ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs'] authentication_token: An `authentication_token` block as documented below.
         :param pulumi.Input[str] description: The Service Endpoint description.
         """
         pulumi.set(__self__, "project_id", project_id)
@@ -93,7 +93,7 @@ class ServiceendpointJfrogArtifactoryV2Args:
     @pulumi.getter(name="authenticationBasic")
     def authentication_basic(self) -> Optional[pulumi.Input['ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs']]:
         """
-        A `authentication_basic` block as documented below.
+        An `authentication_basic` block as documented below.
         """
         return pulumi.get(self, "authentication_basic")
 
@@ -105,7 +105,7 @@ class ServiceendpointJfrogArtifactoryV2Args:
     @pulumi.getter(name="authenticationToken")
     def authentication_token(self) -> Optional[pulumi.Input['ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs']]:
         """
-        A `authentication_token` block as documented below.
+        An `authentication_token` block as documented below.
         """
         return pulumi.get(self, "authentication_token")
 
@@ -147,8 +147,8 @@ class _ServiceendpointJfrogArtifactoryV2State:
                  url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ServiceendpointJfrogArtifactoryV2 resources.
-        :param pulumi.Input['ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs'] authentication_basic: A `authentication_basic` block as documented below.
-        :param pulumi.Input['ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs'] authentication_token: A `authentication_token` block as documented below.
+        :param pulumi.Input['ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs'] authentication_basic: An `authentication_basic` block as documented below.
+        :param pulumi.Input['ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs'] authentication_token: An `authentication_token` block as documented below.
         :param pulumi.Input[str] description: The Service Endpoint description.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
@@ -175,7 +175,7 @@ class _ServiceendpointJfrogArtifactoryV2State:
     @pulumi.getter(name="authenticationBasic")
     def authentication_basic(self) -> Optional[pulumi.Input['ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs']]:
         """
-        A `authentication_basic` block as documented below.
+        An `authentication_basic` block as documented below.
         """
         return pulumi.get(self, "authentication_basic")
 
@@ -187,7 +187,7 @@ class _ServiceendpointJfrogArtifactoryV2State:
     @pulumi.getter(name="authenticationToken")
     def authentication_token(self) -> Optional[pulumi.Input['ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs']]:
         """
-        A `authentication_token` block as documented below.
+        An `authentication_token` block as documented below.
         """
         return pulumi.get(self, "authentication_token")
 
@@ -269,7 +269,7 @@ class ServiceendpointJfrogArtifactoryV2(pulumi.CustomResource):
                  url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a JFrog Artifactory V2 server endpoint within an Azure DevOps organization.
+        Manages a JFrog Artifactory V2 service endpoint within an Azure DevOps organization.
 
         > **Note:** Using this service endpoint requires you to first install [JFrog Extension](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-azure-devops-extension).
 
@@ -324,7 +324,7 @@ class ServiceendpointJfrogArtifactoryV2(pulumi.CustomResource):
 
         ## Import
 
-        Azure DevOps Service Endpoint JFrog Artifactory V2 can be imported using the **projectID/serviceEndpointID**, e.g.
+        Azure DevOps JFrog Artifactory V2 Service Endpoint can be imported using the **projectID/serviceEndpointID**, e.g.
 
         ```sh
         $ pulumi import azuredevops:index/serviceendpointJfrogArtifactoryV2:ServiceendpointJfrogArtifactoryV2 example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -332,8 +332,8 @@ class ServiceendpointJfrogArtifactoryV2(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs', 'ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgsDict']] authentication_basic: A `authentication_basic` block as documented below.
-        :param pulumi.Input[Union['ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs', 'ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgsDict']] authentication_token: A `authentication_token` block as documented below.
+        :param pulumi.Input[Union['ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs', 'ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgsDict']] authentication_basic: An `authentication_basic` block as documented below.
+        :param pulumi.Input[Union['ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs', 'ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgsDict']] authentication_token: An `authentication_token` block as documented below.
         :param pulumi.Input[str] description: The Service Endpoint description.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
@@ -348,7 +348,7 @@ class ServiceendpointJfrogArtifactoryV2(pulumi.CustomResource):
                  args: ServiceendpointJfrogArtifactoryV2Args,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a JFrog Artifactory V2 server endpoint within an Azure DevOps organization.
+        Manages a JFrog Artifactory V2 service endpoint within an Azure DevOps organization.
 
         > **Note:** Using this service endpoint requires you to first install [JFrog Extension](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-azure-devops-extension).
 
@@ -403,7 +403,7 @@ class ServiceendpointJfrogArtifactoryV2(pulumi.CustomResource):
 
         ## Import
 
-        Azure DevOps Service Endpoint JFrog Artifactory V2 can be imported using the **projectID/serviceEndpointID**, e.g.
+        Azure DevOps JFrog Artifactory V2 Service Endpoint can be imported using the **projectID/serviceEndpointID**, e.g.
 
         ```sh
         $ pulumi import azuredevops:index/serviceendpointJfrogArtifactoryV2:ServiceendpointJfrogArtifactoryV2 example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -477,8 +477,8 @@ class ServiceendpointJfrogArtifactoryV2(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs', 'ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgsDict']] authentication_basic: A `authentication_basic` block as documented below.
-        :param pulumi.Input[Union['ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs', 'ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgsDict']] authentication_token: A `authentication_token` block as documented below.
+        :param pulumi.Input[Union['ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs', 'ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgsDict']] authentication_basic: An `authentication_basic` block as documented below.
+        :param pulumi.Input[Union['ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs', 'ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgsDict']] authentication_token: An `authentication_token` block as documented below.
         :param pulumi.Input[str] description: The Service Endpoint description.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
@@ -503,7 +503,7 @@ class ServiceendpointJfrogArtifactoryV2(pulumi.CustomResource):
     @pulumi.getter(name="authenticationBasic")
     def authentication_basic(self) -> pulumi.Output[Optional['outputs.ServiceendpointJfrogArtifactoryV2AuthenticationBasic']]:
         """
-        A `authentication_basic` block as documented below.
+        An `authentication_basic` block as documented below.
         """
         return pulumi.get(self, "authentication_basic")
 
@@ -511,7 +511,7 @@ class ServiceendpointJfrogArtifactoryV2(pulumi.CustomResource):
     @pulumi.getter(name="authenticationToken")
     def authentication_token(self) -> pulumi.Output[Optional['outputs.ServiceendpointJfrogArtifactoryV2AuthenticationToken']]:
         """
-        A `authentication_token` block as documented below.
+        An `authentication_token` block as documented below.
         """
         return pulumi.get(self, "authentication_token")
 

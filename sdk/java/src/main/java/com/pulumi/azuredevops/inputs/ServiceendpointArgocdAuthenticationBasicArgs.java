@@ -15,14 +15,14 @@ public final class ServiceendpointArgocdAuthenticationBasicArgs extends com.pulu
     public static final ServiceendpointArgocdAuthenticationBasicArgs Empty = new ServiceendpointArgocdAuthenticationBasicArgs();
 
     /**
-     * ArgoCD Password.
+     * The Password of the ArgoCD.
      * 
      */
     @Import(name="password", required=true)
     private Output<String> password;
 
     /**
-     * @return ArgoCD Password.
+     * @return The Password of the ArgoCD.
      * 
      */
     public Output<String> password() {
@@ -30,14 +30,14 @@ public final class ServiceendpointArgocdAuthenticationBasicArgs extends com.pulu
     }
 
     /**
-     * ArgoCD Username.
+     * The Username of the ArgoCD.
      * 
      */
     @Import(name="username", required=true)
     private Output<String> username;
 
     /**
-     * @return ArgoCD Username.
+     * @return The Username of the ArgoCD.
      * 
      */
     public Output<String> username() {
@@ -70,7 +70,7 @@ public final class ServiceendpointArgocdAuthenticationBasicArgs extends com.pulu
         }
 
         /**
-         * @param password ArgoCD Password.
+         * @param password The Password of the ArgoCD.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class ServiceendpointArgocdAuthenticationBasicArgs extends com.pulu
         }
 
         /**
-         * @param password ArgoCD Password.
+         * @param password The Password of the ArgoCD.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class ServiceendpointArgocdAuthenticationBasicArgs extends com.pulu
         }
 
         /**
-         * @param username ArgoCD Username.
+         * @param username The Username of the ArgoCD.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ServiceendpointArgocdAuthenticationBasicArgs extends com.pulu
         }
 
         /**
-         * @param username ArgoCD Username.
+         * @param username The Username of the ArgoCD.
          * 
          * @return builder
          * 

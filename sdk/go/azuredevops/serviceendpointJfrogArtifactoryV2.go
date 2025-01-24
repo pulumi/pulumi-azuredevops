@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a JFrog Artifactory V2 server endpoint within an Azure DevOps organization.
+// Manages a JFrog Artifactory V2 service endpoint within an Azure DevOps organization.
 //
 // > **Note:** Using this service endpoint requires you to first install [JFrog Extension](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-azure-devops-extension).
 //
@@ -107,7 +107,7 @@ import (
 //
 // ## Import
 //
-// Azure DevOps Service Endpoint JFrog Artifactory V2 can be imported using the **projectID/serviceEndpointID**, e.g.
+// Azure DevOps JFrog Artifactory V2 Service Endpoint can be imported using the **projectID/serviceEndpointID**, e.g.
 //
 // ```sh
 // $ pulumi import azuredevops:index/serviceendpointJfrogArtifactoryV2:ServiceendpointJfrogArtifactoryV2 example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
@@ -115,9 +115,9 @@ import (
 type ServiceendpointJfrogArtifactoryV2 struct {
 	pulumi.CustomResourceState
 
-	// A `authenticationBasic` block as documented below.
+	// An `authenticationBasic` block as documented below.
 	AuthenticationBasic ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput `pulumi:"authenticationBasic"`
-	// A `authenticationToken` block as documented below.
+	// An `authenticationToken` block as documented below.
 	AuthenticationToken ServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutput `pulumi:"authenticationToken"`
 	Authorization       pulumi.StringMapOutput                                        `pulumi:"authorization"`
 	// The Service Endpoint description.
@@ -171,9 +171,9 @@ func GetServiceendpointJfrogArtifactoryV2(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceendpointJfrogArtifactoryV2 resources.
 type serviceendpointJfrogArtifactoryV2State struct {
-	// A `authenticationBasic` block as documented below.
+	// An `authenticationBasic` block as documented below.
 	AuthenticationBasic *ServiceendpointJfrogArtifactoryV2AuthenticationBasic `pulumi:"authenticationBasic"`
-	// A `authenticationToken` block as documented below.
+	// An `authenticationToken` block as documented below.
 	AuthenticationToken *ServiceendpointJfrogArtifactoryV2AuthenticationToken `pulumi:"authenticationToken"`
 	Authorization       map[string]string                                     `pulumi:"authorization"`
 	// The Service Endpoint description.
@@ -189,9 +189,9 @@ type serviceendpointJfrogArtifactoryV2State struct {
 }
 
 type ServiceendpointJfrogArtifactoryV2State struct {
-	// A `authenticationBasic` block as documented below.
+	// An `authenticationBasic` block as documented below.
 	AuthenticationBasic ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrInput
-	// A `authenticationToken` block as documented below.
+	// An `authenticationToken` block as documented below.
 	AuthenticationToken ServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrInput
 	Authorization       pulumi.StringMapInput
 	// The Service Endpoint description.
@@ -211,9 +211,9 @@ func (ServiceendpointJfrogArtifactoryV2State) ElementType() reflect.Type {
 }
 
 type serviceendpointJfrogArtifactoryV2Args struct {
-	// A `authenticationBasic` block as documented below.
+	// An `authenticationBasic` block as documented below.
 	AuthenticationBasic *ServiceendpointJfrogArtifactoryV2AuthenticationBasic `pulumi:"authenticationBasic"`
-	// A `authenticationToken` block as documented below.
+	// An `authenticationToken` block as documented below.
 	AuthenticationToken *ServiceendpointJfrogArtifactoryV2AuthenticationToken `pulumi:"authenticationToken"`
 	Authorization       map[string]string                                     `pulumi:"authorization"`
 	// The Service Endpoint description.
@@ -230,9 +230,9 @@ type serviceendpointJfrogArtifactoryV2Args struct {
 
 // The set of arguments for constructing a ServiceendpointJfrogArtifactoryV2 resource.
 type ServiceendpointJfrogArtifactoryV2Args struct {
-	// A `authenticationBasic` block as documented below.
+	// An `authenticationBasic` block as documented below.
 	AuthenticationBasic ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrInput
-	// A `authenticationToken` block as documented below.
+	// An `authenticationToken` block as documented below.
 	AuthenticationToken ServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrInput
 	Authorization       pulumi.StringMapInput
 	// The Service Endpoint description.
@@ -334,14 +334,14 @@ func (o ServiceendpointJfrogArtifactoryV2Output) ToServiceendpointJfrogArtifacto
 	return o
 }
 
-// A `authenticationBasic` block as documented below.
+// An `authenticationBasic` block as documented below.
 func (o ServiceendpointJfrogArtifactoryV2Output) AuthenticationBasic() ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointJfrogArtifactoryV2) ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput {
 		return v.AuthenticationBasic
 	}).(ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput)
 }
 
-// A `authenticationToken` block as documented below.
+// An `authenticationToken` block as documented below.
 func (o ServiceendpointJfrogArtifactoryV2Output) AuthenticationToken() ServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointJfrogArtifactoryV2) ServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutput {
 		return v.AuthenticationToken

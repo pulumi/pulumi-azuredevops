@@ -10,6 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetIdentityGroupResult {
+    /**
+     * @return The descriptor of the identity group.
+     * 
+     */
     private String descriptor;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -24,6 +28,10 @@ public final class GetIdentityGroupResult {
     private String projectId;
 
     private GetIdentityGroupResult() {}
+    /**
+     * @return The descriptor of the identity group.
+     * 
+     */
     public String descriptor() {
         return this.descriptor;
     }

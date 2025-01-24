@@ -18,7 +18,7 @@ public final class GetGitRepositoryResult {
      */
     private String defaultBranch;
     /**
-     * @return Is the repository disabled?
+     * @return Indicates whether the repository is disabled.
      * 
      */
     private Boolean disabled;
@@ -29,7 +29,7 @@ public final class GetGitRepositoryResult {
     private String id;
     private Boolean isFork;
     /**
-     * @return Git repository name.
+     * @return The name of the Git repository.
      * 
      */
     private String name;
@@ -54,12 +54,12 @@ public final class GetGitRepositoryResult {
      */
     private String sshUrl;
     /**
-     * @return Details REST API endpoint for the Git Repository.
+     * @return The details REST API endpoint for the Git Repository.
      * 
      */
     private String url;
     /**
-     * @return Url of the Git repository web view
+     * @return The Url of the Git repository web view
      * 
      */
     private String webUrl;
@@ -73,7 +73,7 @@ public final class GetGitRepositoryResult {
         return this.defaultBranch;
     }
     /**
-     * @return Is the repository disabled?
+     * @return Indicates whether the repository is disabled.
      * 
      */
     public Boolean disabled() {
@@ -90,7 +90,7 @@ public final class GetGitRepositoryResult {
         return this.isFork;
     }
     /**
-     * @return Git repository name.
+     * @return The name of the Git repository.
      * 
      */
     public String name() {
@@ -125,14 +125,14 @@ public final class GetGitRepositoryResult {
         return this.sshUrl;
     }
     /**
-     * @return Details REST API endpoint for the Git Repository.
+     * @return The details REST API endpoint for the Git Repository.
      * 
      */
     public String url() {
         return this.url;
     }
     /**
-     * @return Url of the Git repository web view
+     * @return The Url of the Git repository web view
      * 
      */
     public String webUrl() {

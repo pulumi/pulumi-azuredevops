@@ -44,7 +44,7 @@ class GetAgentQueueResult:
     @pulumi.getter(name="agentPoolId")
     def agent_pool_id(self) -> int:
         """
-        Agent pool identifier to which the agent queue belongs.
+        The ID of the Agent pool to which the agent queue belongs.
         """
         return pulumi.get(self, "agent_pool_id")
 
@@ -68,7 +68,7 @@ class GetAgentQueueResult:
     @pulumi.getter(name="projectId")
     def project_id(self) -> str:
         """
-        Project identifier to which the agent queue belongs.
+        The ID of the Project to which the agent queue belongs.
         """
         return pulumi.get(self, "project_id")
 

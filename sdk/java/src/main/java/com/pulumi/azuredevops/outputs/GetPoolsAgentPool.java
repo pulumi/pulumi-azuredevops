@@ -22,9 +22,13 @@ public final class GetPoolsAgentPool {
      * 
      */
     private Boolean autoUpdate;
+    /**
+     * @return The ID of the agent pool.
+     * 
+     */
     private Integer id;
     /**
-     * @return The name of the agent pool
+     * @return The name of the agent pool.
      * 
      */
     private String name;
@@ -49,11 +53,15 @@ public final class GetPoolsAgentPool {
     public Boolean autoUpdate() {
         return this.autoUpdate;
     }
+    /**
+     * @return The ID of the agent pool.
+     * 
+     */
     public Integer id() {
         return this.id;
     }
     /**
-     * @return The name of the agent pool
+     * @return The name of the agent pool.
      * 
      */
     public String name() {

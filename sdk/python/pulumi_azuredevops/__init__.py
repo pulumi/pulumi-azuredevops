@@ -22,11 +22,13 @@ from .check_branch_control import *
 from .check_business_hours import *
 from .check_exclusive_lock import *
 from .check_required_template import *
+from .check_rest_api import *
 from .elastic_pool import *
 from .environment import *
 from .environment_resource_kubernetes import *
 from .feed import *
 from .feed_permission import *
+from .feed_retention_policy import *
 from .get_agent_queue import *
 from .get_area import *
 from .get_build_definition import *
@@ -48,6 +50,7 @@ from .get_repositories import *
 from .get_securityrole_definitions import *
 from .get_service_endpoint_azure_rm import *
 from .get_service_endpoint_github import *
+from .get_service_principal import *
 from .get_serviceendpoint_azurecr import *
 from .get_serviceendpoint_bitbucket import *
 from .get_serviceendpoint_npm import *
@@ -71,6 +74,7 @@ from .project import *
 from .project_features import *
 from .project_permissions import *
 from .project_pipeline_settings import *
+from .project_tags import *
 from .provider import *
 from .queue import *
 from .repository_policy_author_email_pattern import *
@@ -101,8 +105,12 @@ from .service_endpoint_service_fabric import *
 from .service_endpoint_sonar_cloud import *
 from .service_endpoint_sonar_qube import *
 from .service_endpoint_ssh import *
+from .service_principal_entitlement import *
 from .serviceendpoint_argocd import *
 from .serviceendpoint_azure_service_bus import *
+from .serviceendpoint_checkmarx_one import *
+from .serviceendpoint_checkmarx_sast import *
+from .serviceendpoint_checkmarx_sca import *
 from .serviceendpoint_dynamics_lifecycle_services import *
 from .serviceendpoint_externaltfs import *
 from .serviceendpoint_gcp_terraform import *
@@ -283,6 +291,14 @@ _utilities.register(
  },
  {
   "pkg": "azuredevops",
+  "mod": "index/checkRestApi",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/checkRestApi:CheckRestApi": "CheckRestApi"
+  }
+ },
+ {
+  "pkg": "azuredevops",
   "mod": "index/elasticPool",
   "fqn": "pulumi_azuredevops",
   "classes": {
@@ -319,6 +335,14 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/feedPermission:FeedPermission": "FeedPermission"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/feedRetentionPolicy",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/feedRetentionPolicy:FeedRetentionPolicy": "FeedRetentionPolicy"
   }
  },
  {
@@ -439,6 +463,14 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/projectPipelineSettings:ProjectPipelineSettings": "ProjectPipelineSettings"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/projectTags",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/projectTags:ProjectTags": "ProjectTags"
   }
  },
  {
@@ -675,6 +707,14 @@ _utilities.register(
  },
  {
   "pkg": "azuredevops",
+  "mod": "index/servicePrincipalEntitlement",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/servicePrincipalEntitlement:ServicePrincipalEntitlement": "ServicePrincipalEntitlement"
+  }
+ },
+ {
+  "pkg": "azuredevops",
   "mod": "index/serviceendpointArgocd",
   "fqn": "pulumi_azuredevops",
   "classes": {
@@ -687,6 +727,30 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/serviceendpointAzureServiceBus:ServiceendpointAzureServiceBus": "ServiceendpointAzureServiceBus"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/serviceendpointCheckmarxOne",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/serviceendpointCheckmarxOne:ServiceendpointCheckmarxOne": "ServiceendpointCheckmarxOne"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/serviceendpointCheckmarxSast",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/serviceendpointCheckmarxSast:ServiceendpointCheckmarxSast": "ServiceendpointCheckmarxSast"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/serviceendpointCheckmarxSca",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/serviceendpointCheckmarxSca:ServiceendpointCheckmarxSca": "ServiceendpointCheckmarxSca"
   }
  },
  {

@@ -93,14 +93,14 @@ public final class WorkItemQueryPermissionsArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Replace (`true`) or merge (`false`) the permissions. Default: `true`
+     * Replace (`true`) or merge (`false`) the permissions. Defaults to `true`
      * 
      */
     @Import(name="replace")
     private @Nullable Output<Boolean> replace;
 
     /**
-     * @return Replace (`true`) or merge (`false`) the permissions. Default: `true`
+     * @return Replace (`true`) or merge (`false`) the permissions. Defaults to `true`
      * 
      */
     public Optional<Output<Boolean>> replace() {
@@ -234,7 +234,7 @@ public final class WorkItemQueryPermissionsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param replace Replace (`true`) or merge (`false`) the permissions. Default: `true`
+         * @param replace Replace (`true`) or merge (`false`) the permissions. Defaults to `true`
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class WorkItemQueryPermissionsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param replace Replace (`true`) or merge (`false`) the permissions. Default: `true`
+         * @param replace Replace (`true`) or merge (`false`) the permissions. Defaults to `true`
          * 
          * @return builder
          * 

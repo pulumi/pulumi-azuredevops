@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetGroupsResult {
     /**
-     * @return A set of existing groups in your Azure DevOps Organization or project with details about every single group which includes:
+     * @return A `groups` blocks as documented below. A set of existing groups in your Azure DevOps Organization or project with details about every single group which includes:
      * 
      */
     private List<GetGroupsGroup> groups;
@@ -28,7 +28,7 @@ public final class GetGroupsResult {
 
     private GetGroupsResult() {}
     /**
-     * @return A set of existing groups in your Azure DevOps Organization or project with details about every single group which includes:
+     * @return A `groups` blocks as documented below. A set of existing groups in your Azure DevOps Organization or project with details about every single group which includes:
      * 
      */
     public List<GetGroupsGroup> groups() {

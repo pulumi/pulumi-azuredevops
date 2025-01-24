@@ -22,7 +22,7 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBuildDefinitionPullRequestTriggerOverrideBranchFilterResult> BranchFilters;
         /// <summary>
-        /// block supports the following:
+        /// The file paths to include or exclude. A `path_filter` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBuildDefinitionPullRequestTriggerOverridePathFilterResult> PathFilters;
 

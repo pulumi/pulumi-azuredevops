@@ -81,10 +81,9 @@ export class ProjectPipelineSettings extends pulumi.CustomResource {
     /**
      * Limit job authorization scope to current project for release pipelines.
      *
-     * > **NOTE:**
-     * > The settings at the organization will override settings specified on the project.
-     * > For example, if `enforceJobScope` is true at the organization, the `azuredevops.ProjectPipelineSettings` resource cannot set it to false.
-     * > In this scenario, the plan will always show that the resource is trying to change `enforceJobScope` from `true` to `false`.
+     * > **NOTE:** The settings at the organization will override settings specified on the project.
+     * For example, if `enforceJobScope` is true at the organization, the `azuredevops.ProjectPipelineSettings` resource cannot set it to false.
+     * In this scenario, the plan will always show that the resource is trying to change `enforceJobScope` from `true` to `false`.
      */
     public readonly enforceJobScopeForRelease!: pulumi.Output<boolean>;
     /**
@@ -96,7 +95,7 @@ export class ProjectPipelineSettings extends pulumi.CustomResource {
      */
     public readonly enforceSettableVar!: pulumi.Output<boolean>;
     /**
-     * The `id` of the project for which the project pipeline settings will be managed.
+     * The ID of the project for which the project pipeline settings will be managed.
      */
     public readonly projectId!: pulumi.Output<string>;
     /**
@@ -157,10 +156,9 @@ export interface ProjectPipelineSettingsState {
     /**
      * Limit job authorization scope to current project for release pipelines.
      *
-     * > **NOTE:**
-     * > The settings at the organization will override settings specified on the project.
-     * > For example, if `enforceJobScope` is true at the organization, the `azuredevops.ProjectPipelineSettings` resource cannot set it to false.
-     * > In this scenario, the plan will always show that the resource is trying to change `enforceJobScope` from `true` to `false`.
+     * > **NOTE:** The settings at the organization will override settings specified on the project.
+     * For example, if `enforceJobScope` is true at the organization, the `azuredevops.ProjectPipelineSettings` resource cannot set it to false.
+     * In this scenario, the plan will always show that the resource is trying to change `enforceJobScope` from `true` to `false`.
      */
     enforceJobScopeForRelease?: pulumi.Input<boolean>;
     /**
@@ -172,7 +170,7 @@ export interface ProjectPipelineSettingsState {
      */
     enforceSettableVar?: pulumi.Input<boolean>;
     /**
-     * The `id` of the project for which the project pipeline settings will be managed.
+     * The ID of the project for which the project pipeline settings will be managed.
      */
     projectId?: pulumi.Input<string>;
     /**
@@ -196,10 +194,9 @@ export interface ProjectPipelineSettingsArgs {
     /**
      * Limit job authorization scope to current project for release pipelines.
      *
-     * > **NOTE:**
-     * > The settings at the organization will override settings specified on the project.
-     * > For example, if `enforceJobScope` is true at the organization, the `azuredevops.ProjectPipelineSettings` resource cannot set it to false.
-     * > In this scenario, the plan will always show that the resource is trying to change `enforceJobScope` from `true` to `false`.
+     * > **NOTE:** The settings at the organization will override settings specified on the project.
+     * For example, if `enforceJobScope` is true at the organization, the `azuredevops.ProjectPipelineSettings` resource cannot set it to false.
+     * In this scenario, the plan will always show that the resource is trying to change `enforceJobScope` from `true` to `false`.
      */
     enforceJobScopeForRelease?: pulumi.Input<boolean>;
     /**
@@ -211,7 +208,7 @@ export interface ProjectPipelineSettingsArgs {
      */
     enforceSettableVar?: pulumi.Input<boolean>;
     /**
-     * The `id` of the project for which the project pipeline settings will be managed.
+     * The ID of the project for which the project pipeline settings will be managed.
      */
     projectId: pulumi.Input<string>;
     /**

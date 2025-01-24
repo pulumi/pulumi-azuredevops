@@ -104,7 +104,7 @@ export class BranchPolicyMergeTypes extends pulumi.CustomResource {
      */
     public readonly projectId!: pulumi.Output<string>;
     /**
-     * Configuration for the policy. This block must be defined exactly once.
+     * A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
      */
     public readonly settings!: pulumi.Output<outputs.BranchPolicyMergeTypesSettings>;
 
@@ -160,7 +160,7 @@ export interface BranchPolicyMergeTypesState {
      */
     projectId?: pulumi.Input<string>;
     /**
-     * Configuration for the policy. This block must be defined exactly once.
+     * A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
      */
     settings?: pulumi.Input<inputs.BranchPolicyMergeTypesSettings>;
 }
@@ -182,7 +182,7 @@ export interface BranchPolicyMergeTypesArgs {
      */
     projectId: pulumi.Input<string>;
     /**
-     * Configuration for the policy. This block must be defined exactly once.
+     * A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
      */
     settings: pulumi.Input<inputs.BranchPolicyMergeTypesSettings>;
 }

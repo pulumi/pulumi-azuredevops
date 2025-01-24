@@ -90,14 +90,14 @@ public final class ProjectPermissionsArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The **group** principal to assign the permissions.
+     * The `group` principal to assign the permissions.
      * 
      */
     @Import(name="principal", required=true)
     private Output<String> principal;
 
     /**
-     * @return The **group** principal to assign the permissions.
+     * @return The `group` principal to assign the permissions.
      * 
      */
     public Output<String> principal() {
@@ -239,7 +239,7 @@ public final class ProjectPermissionsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param principal The **group** principal to assign the permissions.
+         * @param principal The `group` principal to assign the permissions.
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class ProjectPermissionsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param principal The **group** principal to assign the permissions.
+         * @param principal The `group` principal to assign the permissions.
          * 
          * @return builder
          * 

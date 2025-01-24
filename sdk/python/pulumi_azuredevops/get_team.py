@@ -64,7 +64,7 @@ class GetTeamResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        Team description.
+        The description of the team.
         """
         return pulumi.get(self, "description")
 
@@ -104,6 +104,7 @@ class GetTeamResult:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""This property is deprecated and will be removed in the feature""")
     def top(self) -> Optional[int]:
         return pulumi.get(self, "top")
 
@@ -158,7 +159,7 @@ def get_team(name: Optional[str] = None,
 
     :param str name: The name of the Team.
     :param str project_id: The Project ID.
-    :param int top: The maximum number of teams to return. Defaults to `100`.
+    :param int top: The maximum number of teams to return. Defaults to `100`. This property is deprecated and will be removed in the feature
     """
     __args__ = dict()
     __args__['name'] = name
@@ -210,7 +211,7 @@ def get_team_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: The name of the Team.
     :param str project_id: The Project ID.
-    :param int top: The maximum number of teams to return. Defaults to `100`.
+    :param int top: The maximum number of teams to return. Defaults to `100`. This property is deprecated and will be removed in the feature
     """
     __args__ = dict()
     __args__['name'] = name
