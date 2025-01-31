@@ -51,7 +51,7 @@ jobs:
       with:
         submodules: true
         persist-credentials: false
-    - uses: pulumi/provider-version-action@0391d47b9b0d865d33dd0a295b1fcf9f7021dd4c # v1.5.3
+    - uses: pulumi/provider-version-action@f96d032a2758fdda7939e5728eff6c0d980ae894 # v1.6.0
       id: provider-version
       with:
         set-env: 'PROVIDER_VERSION'
@@ -76,7 +76,7 @@ jobs:
     - name: Unit-test provider code
       run: make test_provider
     - name: Upload coverage reports to Codecov
-      uses: codecov/codecov-action@1e68e06f1dbfde0e4cefc87efeba9e4643565303 # v5.1.2
+      uses: codecov/codecov-action@0da7aa657d958d32c117fc47e1f977e7524753c7 # v5.3.0
       env:
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
     - if: inputs.is_pr
