@@ -1,4 +1,5 @@
 // Copyright 2016-2020, Pulumi Corporation.  All rights reserved.
+//go:build python || all
 // +build python all
 
 package examples
@@ -12,6 +13,7 @@ import (
 )
 
 func TestProjectPy(t *testing.T) {
+	t.Skip("Provider does not get enough usage to justify running integration tests")
 	test := getPythonBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: path.Join(getCwd(t), "project", "py"),
