@@ -1,4 +1,5 @@
 // Copyright 2016-2020, Pulumi Corporation.  All rights reserved.
+//go:build nodejs || all
 // +build nodejs all
 
 package examples
@@ -11,6 +12,7 @@ import (
 )
 
 func TestProjectTs(t *testing.T) {
+	t.Skip("Provider does not get enough usage to justify running integration tests")
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: path.Join(getCwd(t), "project", "ts"),
