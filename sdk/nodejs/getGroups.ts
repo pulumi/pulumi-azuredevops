@@ -19,9 +19,9 @@ import * as utilities from "./utilities";
  *     name: "Example Project",
  * });
  * // load all existing groups inside an organization
- * const example-all-groups = azuredevops.getGroups({});
+ * const example_all_groups = azuredevops.getGroups({});
  * // load all existing groups inside a specific project
- * const example-project-groups = example.then(example => azuredevops.getGroups({
+ * const example_project_groups = example.then(example => azuredevops.getGroups({
  *     projectId: example.id,
  * }));
  * ```
@@ -75,9 +75,9 @@ export interface GetGroupsResult {
  *     name: "Example Project",
  * });
  * // load all existing groups inside an organization
- * const example-all-groups = azuredevops.getGroups({});
+ * const example_all_groups = azuredevops.getGroups({});
  * // load all existing groups inside a specific project
- * const example-project-groups = example.then(example => azuredevops.getGroups({
+ * const example_project_groups = example.then(example => azuredevops.getGroups({
  *     projectId: example.id,
  * }));
  * ```

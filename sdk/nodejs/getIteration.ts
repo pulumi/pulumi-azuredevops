@@ -22,12 +22,12 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     description: "Managed by Pulumi",
  * });
- * const example-root-iteration = azuredevops.getIterationOutput({
+ * const example_root_iteration = azuredevops.getIterationOutput({
  *     projectId: example.id,
  *     path: "/",
  *     fetchChildren: true,
  * });
- * const example-child-iteration = azuredevops.getIterationOutput({
+ * const example_child_iteration = azuredevops.getIterationOutput({
  *     projectId: example.id,
  *     path: "/Iteration 1",
  *     fetchChildren: true,
@@ -115,12 +115,12 @@ export interface GetIterationResult {
  *     visibility: "private",
  *     description: "Managed by Pulumi",
  * });
- * const example-root-iteration = azuredevops.getIterationOutput({
+ * const example_root_iteration = azuredevops.getIterationOutput({
  *     projectId: example.id,
  *     path: "/",
  *     fetchChildren: true,
  * });
- * const example-child-iteration = azuredevops.getIterationOutput({
+ * const example_child_iteration = azuredevops.getIterationOutput({
  *     projectId: example.id,
  *     path: "/Iteration 1",
  *     fetchChildren: true,

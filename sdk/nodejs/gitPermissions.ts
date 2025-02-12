@@ -31,7 +31,7 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     description: "Managed by Pulumi",
  * });
- * const example-readers = azuredevops.getGroupOutput({
+ * const example_readers = azuredevops.getGroupOutput({
  *     projectId: example.id,
  *     name: "Readers",
  * });
@@ -63,7 +63,7 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     description: "Managed by Pulumi",
  * });
- * const example-group = azuredevops.getGroup({
+ * const example_group = azuredevops.getGroup({
  *     name: "Project Collection Administrators",
  * });
  * const exampleGit = new azuredevops.Git("example", {
@@ -110,7 +110,7 @@ import * as utilities from "./utilities";
  *         initType: "Clean",
  *     },
  * });
- * const example-group = azuredevops.getGroup({
+ * const example_group = azuredevops.getGroup({
  *     name: "Project Collection Administrators",
  * });
  * const example_permissions = new azuredevops.GitPermissions("example-permissions", {
@@ -138,15 +138,15 @@ import * as utilities from "./utilities";
  *     workItemTemplate: "Agile",
  *     description: "Managed by Pulumi",
  * });
- * const example-project-readers = azuredevops.getGroupOutput({
+ * const example_project_readers = azuredevops.getGroupOutput({
  *     projectId: example.id,
  *     name: "Readers",
  * });
- * const example-project-contributors = azuredevops.getGroupOutput({
+ * const example_project_contributors = azuredevops.getGroupOutput({
  *     projectId: example.id,
  *     name: "Contributors",
  * });
- * const example-project-administrators = azuredevops.getGroupOutput({
+ * const example_project_administrators = azuredevops.getGroupOutput({
  *     projectId: example.id,
  *     name: "Project administrators",
  * });

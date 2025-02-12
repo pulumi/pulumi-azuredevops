@@ -30,7 +30,7 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     description: "Managed by Pulumi",
  * });
- * const example-project-contributors = azuredevops.getGroupOutput({
+ * const example_project_contributors = azuredevops.getGroupOutput({
  *     projectId: example.id,
  *     name: "Contributors",
  * });

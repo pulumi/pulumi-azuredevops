@@ -24,7 +24,7 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     description: "Managed by Pulumi",
  * });
- * const example-readers = azuredevops.getGroupOutput({
+ * const example_readers = azuredevops.getGroupOutput({
  *     projectId: example.id,
  *     name: "Readers",
  * });
@@ -67,7 +67,7 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     description: "Managed by Pulumi",
  * });
- * const example-readers = azuredevops.getGroupOutput({
+ * const example_readers = azuredevops.getGroupOutput({
  *     projectId: example.id,
  *     name: "Readers",
  * });
