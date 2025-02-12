@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * // load existing group with specific name
- * const example-project-group = azuredevops.getIdentityGroup({
+ * const example_project_group = azuredevops.getIdentityGroup({
  *     projectId: example.id,
  *     name: "[Project-Name]\\Group-Name",
  * });
@@ -74,7 +74,7 @@ export interface GetIdentityGroupResult {
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * // load existing group with specific name
- * const example-project-group = azuredevops.getIdentityGroup({
+ * const example_project_group = azuredevops.getIdentityGroup({
  *     projectId: example.id,
  *     name: "[Project-Name]\\Group-Name",
  * });

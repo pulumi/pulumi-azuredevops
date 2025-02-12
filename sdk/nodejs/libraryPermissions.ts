@@ -20,7 +20,7 @@ import * as utilities from "./utilities";
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  * });
- * const tf-project-readers = azuredevops.getGroupOutput({
+ * const tf_project_readers = azuredevops.getGroupOutput({
  *     projectId: project.id,
  *     name: "Readers",
  * });

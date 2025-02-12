@@ -22,7 +22,7 @@ import * as utilities from "./utilities";
  * }));
  * export const groupId = exampleGetGroup.then(exampleGetGroup => exampleGetGroup.id);
  * export const groupDescriptor = exampleGetGroup.then(exampleGetGroup => exampleGetGroup.descriptor);
- * const example-collection-group = azuredevops.getGroup({
+ * const example_collection_group = azuredevops.getGroup({
  *     name: "Project Collection Administrators",
  * });
  * export const collectionGroupId = exampleGetGroup.then(exampleGetGroup => exampleGetGroup.id);
@@ -105,7 +105,7 @@ export interface GetGroupResult {
  * }));
  * export const groupId = exampleGetGroup.then(exampleGetGroup => exampleGetGroup.id);
  * export const groupDescriptor = exampleGetGroup.then(exampleGetGroup => exampleGetGroup.descriptor);
- * const example-collection-group = azuredevops.getGroup({
+ * const example_collection_group = azuredevops.getGroup({
  *     name: "Project Collection Administrators",
  * });
  * export const collectionGroupId = exampleGetGroup.then(exampleGetGroup => exampleGetGroup.id);
