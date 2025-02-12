@@ -14,11 +14,11 @@ import * as utilities from "./utilities";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * const example = new azuredevops.Project("example", {name: "Example Project"});
- * const example-readers = azuredevops.getGroupOutput({
+ * const example_readers = azuredevops.getGroupOutput({
  *     projectId: example.id,
  *     name: "Readers",
  * });
- * const example-contributors = azuredevops.getGroupOutput({
+ * const example_contributors = azuredevops.getGroupOutput({
  *     projectId: example.id,
  *     name: "Contributors",
  * });
