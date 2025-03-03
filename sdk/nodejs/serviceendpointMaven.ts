@@ -104,7 +104,7 @@ export class ServiceendpointMaven extends pulumi.CustomResource {
      * A `authenticationToken` block as documented below.
      */
     public readonly authenticationToken!: pulumi.Output<outputs.ServiceendpointMavenAuthenticationToken | undefined>;
-    public readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The ID of the project. Changing this forces a new Service Connection Maven to be created.
@@ -160,12 +160,12 @@ export class ServiceendpointMaven extends pulumi.CustomResource {
             }
             resourceInputs["authenticationBasic"] = args ? args.authenticationBasic : undefined;
             resourceInputs["authenticationToken"] = args ? args.authenticationToken : undefined;
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["repositoryId"] = args ? args.repositoryId : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServiceendpointMaven.__pulumiType, name, resourceInputs, opts);
@@ -216,7 +216,6 @@ export interface ServiceendpointMavenArgs {
      * A `authenticationToken` block as documented below.
      */
     authenticationToken?: pulumi.Input<inputs.ServiceendpointMavenAuthenticationToken>;
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     description?: pulumi.Input<string>;
     /**
      * The ID of the project. Changing this forces a new Service Connection Maven to be created.

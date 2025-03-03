@@ -181,8 +181,7 @@ func (ServiceEndpointSshState) ElementType() reflect.Type {
 }
 
 type serviceEndpointSshArgs struct {
-	Authorization map[string]string `pulumi:"authorization"`
-	Description   *string           `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The Host name or IP address of the remote machine.
 	Host string `pulumi:"host"`
 	// Password for connecting to the endpoint.
@@ -201,8 +200,7 @@ type serviceEndpointSshArgs struct {
 
 // The set of arguments for constructing a ServiceEndpointSsh resource.
 type ServiceEndpointSshArgs struct {
-	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
 	// The Host name or IP address of the remote machine.
 	Host pulumi.StringInput
 	// Password for connecting to the endpoint.

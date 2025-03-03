@@ -10,17 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps
 {
     /// <summary>
-    /// ## layout: "azuredevops"
-    /// 
-    /// ***
-    /// ## page_title: "AzureDevops: azuredevops.FeedRetentionPolicy"
-    /// 
-    /// description: |-
-    ///   Manages the Feed Retention Policy within Azure DevOps organization.
-    /// ---
-    /// 
-    /// # azuredevops.FeedRetentionPolicy
-    /// 
     /// Manages the Feed Retention Policy within Azure DevOps.
     /// 
     /// ## Example Usage

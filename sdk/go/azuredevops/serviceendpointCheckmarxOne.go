@@ -227,8 +227,7 @@ func (ServiceendpointCheckmarxOneState) ElementType() reflect.Type {
 
 type serviceendpointCheckmarxOneArgs struct {
 	// The account of the Checkmarx One. Conflict with `clientId` and `clientSecret`.
-	ApiKey        *string           `pulumi:"apiKey"`
-	Authorization map[string]string `pulumi:"authorization"`
+	ApiKey *string `pulumi:"apiKey"`
 	// The URL of Checkmarx Authorization. Used when using `clientId` and `clientSecret` authorization.
 	AuthorizationUrl *string `pulumi:"authorizationUrl"`
 	// The Client ID of the Checkmarx One. Conflict with `apiKey`
@@ -249,8 +248,7 @@ type serviceendpointCheckmarxOneArgs struct {
 // The set of arguments for constructing a ServiceendpointCheckmarxOne resource.
 type ServiceendpointCheckmarxOneArgs struct {
 	// The account of the Checkmarx One. Conflict with `clientId` and `clientSecret`.
-	ApiKey        pulumi.StringPtrInput
-	Authorization pulumi.StringMapInput
+	ApiKey pulumi.StringPtrInput
 	// The URL of Checkmarx Authorization. Used when using `clientId` and `clientSecret` authorization.
 	AuthorizationUrl pulumi.StringPtrInput
 	// The Client ID of the Checkmarx One. Conflict with `apiKey`

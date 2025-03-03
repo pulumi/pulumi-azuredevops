@@ -117,7 +117,7 @@ export class ServiceEndpointGitHub extends pulumi.CustomResource {
      * An `authPersonal` block as documented below. Allows connecting using a personal access token.
      */
     public readonly authPersonal!: pulumi.Output<outputs.ServiceEndpointGitHubAuthPersonal | undefined>;
-    public readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The ID of the project.
@@ -157,10 +157,10 @@ export class ServiceEndpointGitHub extends pulumi.CustomResource {
             }
             resourceInputs["authOauth"] = args ? args.authOauth : undefined;
             resourceInputs["authPersonal"] = args ? args.authPersonal : undefined;
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServiceEndpointGitHub.__pulumiType, name, resourceInputs, opts);
@@ -203,7 +203,6 @@ export interface ServiceEndpointGitHubArgs {
      * An `authPersonal` block as documented below. Allows connecting using a personal access token.
      */
     authPersonal?: pulumi.Input<inputs.ServiceEndpointGitHubAuthPersonal>;
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     description?: pulumi.Input<string>;
     /**
      * The ID of the project.

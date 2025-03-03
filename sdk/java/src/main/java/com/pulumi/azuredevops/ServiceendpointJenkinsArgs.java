@@ -8,7 +8,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -31,13 +30,6 @@ public final class ServiceendpointJenkinsArgs extends com.pulumi.resources.Resou
      */
     public Optional<Output<Boolean>> acceptUntrustedCerts() {
         return Optional.ofNullable(this.acceptUntrustedCerts);
-    }
-
-    @Import(name="authorization")
-    private @Nullable Output<Map<String,String>> authorization;
-
-    public Optional<Output<Map<String,String>>> authorization() {
-        return Optional.ofNullable(this.authorization);
     }
 
     @Import(name="description")
@@ -126,7 +118,6 @@ public final class ServiceendpointJenkinsArgs extends com.pulumi.resources.Resou
 
     private ServiceendpointJenkinsArgs(ServiceendpointJenkinsArgs $) {
         this.acceptUntrustedCerts = $.acceptUntrustedCerts;
-        this.authorization = $.authorization;
         this.description = $.description;
         this.password = $.password;
         this.projectId = $.projectId;
@@ -172,15 +163,6 @@ public final class ServiceendpointJenkinsArgs extends com.pulumi.resources.Resou
          */
         public Builder acceptUntrustedCerts(Boolean acceptUntrustedCerts) {
             return acceptUntrustedCerts(Output.of(acceptUntrustedCerts));
-        }
-
-        public Builder authorization(@Nullable Output<Map<String,String>> authorization) {
-            $.authorization = authorization;
-            return this;
-        }
-
-        public Builder authorization(Map<String,String> authorization) {
-            return authorization(Output.of(authorization));
         }
 
         public Builder description(@Nullable Output<String> description) {

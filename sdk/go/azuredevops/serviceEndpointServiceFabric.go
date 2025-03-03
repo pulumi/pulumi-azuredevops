@@ -209,7 +209,6 @@ func (ServiceEndpointServiceFabricState) ElementType() reflect.Type {
 }
 
 type serviceEndpointServiceFabricArgs struct {
-	Authorization map[string]string `pulumi:"authorization"`
 	// An `azureActiveDirectory` block as documented below.
 	AzureActiveDirectory *ServiceEndpointServiceFabricAzureActiveDirectory `pulumi:"azureActiveDirectory"`
 	// A `certificate` block as documented below.
@@ -227,7 +226,6 @@ type serviceEndpointServiceFabricArgs struct {
 
 // The set of arguments for constructing a ServiceEndpointServiceFabric resource.
 type ServiceEndpointServiceFabricArgs struct {
-	Authorization pulumi.StringMapInput
 	// An `azureActiveDirectory` block as documented below.
 	AzureActiveDirectory ServiceEndpointServiceFabricAzureActiveDirectoryPtrInput
 	// A `certificate` block as documented below.

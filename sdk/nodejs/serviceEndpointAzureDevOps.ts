@@ -74,7 +74,7 @@ export class ServiceEndpointAzureDevOps extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceEndpointAzureDevOps.__pulumiType;
     }
 
-    public readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The organization URL.
@@ -134,13 +134,13 @@ export class ServiceEndpointAzureDevOps extends pulumi.CustomResource {
             if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["orgUrl"] = args ? args.orgUrl : undefined;
             resourceInputs["personalAccessToken"] = args?.personalAccessToken ? pulumi.secret(args.personalAccessToken) : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["releaseApiUrl"] = args ? args.releaseApiUrl : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["personalAccessToken"] };
@@ -181,7 +181,6 @@ export interface ServiceEndpointAzureDevOpsState {
  * The set of arguments for constructing a ServiceEndpointAzureDevOps resource.
  */
 export interface ServiceEndpointAzureDevOpsArgs {
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     description?: pulumi.Input<string>;
     /**
      * The organization URL.

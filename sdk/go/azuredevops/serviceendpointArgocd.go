@@ -214,7 +214,6 @@ type serviceendpointArgocdArgs struct {
 	AuthenticationBasic *ServiceendpointArgocdAuthenticationBasic `pulumi:"authenticationBasic"`
 	// An `authenticationToken` block for the ArgoCD as documented below.
 	AuthenticationToken *ServiceendpointArgocdAuthenticationToken `pulumi:"authenticationToken"`
-	Authorization       map[string]string                         `pulumi:"authorization"`
 	// The Service Endpoint description.
 	Description *string `pulumi:"description"`
 	// The ID of the project.
@@ -233,7 +232,6 @@ type ServiceendpointArgocdArgs struct {
 	AuthenticationBasic ServiceendpointArgocdAuthenticationBasicPtrInput
 	// An `authenticationToken` block for the ArgoCD as documented below.
 	AuthenticationToken ServiceendpointArgocdAuthenticationTokenPtrInput
-	Authorization       pulumi.StringMapInput
 	// The Service Endpoint description.
 	Description pulumi.StringPtrInput
 	// The ID of the project.

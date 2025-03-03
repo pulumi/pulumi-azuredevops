@@ -80,7 +80,7 @@ export class ServiceendpointCheckmarxSca extends pulumi.CustomResource {
      * The account of the Checkmarx SCA.
      */
     public readonly account!: pulumi.Output<string>;
-    public readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The password of the Checkmarx SCA.
@@ -163,7 +163,6 @@ export class ServiceendpointCheckmarxSca extends pulumi.CustomResource {
             }
             resourceInputs["accessControlUrl"] = args ? args.accessControlUrl : undefined;
             resourceInputs["account"] = args ? args.account : undefined;
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
@@ -172,6 +171,7 @@ export class ServiceendpointCheckmarxSca extends pulumi.CustomResource {
             resourceInputs["team"] = args ? args.team : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
             resourceInputs["webAppUrl"] = args ? args.webAppUrl : undefined;
+            resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };
@@ -236,7 +236,6 @@ export interface ServiceendpointCheckmarxScaArgs {
      * The account of the Checkmarx SCA.
      */
     account: pulumi.Input<string>;
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     description?: pulumi.Input<string>;
     /**
      * The password of the Checkmarx SCA.

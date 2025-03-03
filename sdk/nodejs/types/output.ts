@@ -1018,6 +1018,10 @@ export interface GetIdentityGroupsGroup {
      * This is the non-unique display name of the identity subject.
      */
     name: string;
+    /**
+     * The subject descriptor of the identity group.
+     */
+    subjectDescriptor: string;
 }
 
 export interface GetIterationChildren {

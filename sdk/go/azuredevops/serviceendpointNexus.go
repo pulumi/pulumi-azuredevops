@@ -166,8 +166,7 @@ func (ServiceendpointNexusState) ElementType() reflect.Type {
 }
 
 type serviceendpointNexusArgs struct {
-	Authorization map[string]string `pulumi:"authorization"`
-	Description   *string           `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The Service Endpoint password to authenticate at the Nexus IQ Instance.
 	Password string `pulumi:"password"`
 	// The ID of the project. Changing this forces a new Service Connection Nexus to be created.
@@ -182,8 +181,7 @@ type serviceendpointNexusArgs struct {
 
 // The set of arguments for constructing a ServiceendpointNexus resource.
 type ServiceendpointNexusArgs struct {
-	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
 	// The Service Endpoint password to authenticate at the Nexus IQ Instance.
 	Password pulumi.StringInput
 	// The ID of the project. Changing this forces a new Service Connection Nexus to be created.

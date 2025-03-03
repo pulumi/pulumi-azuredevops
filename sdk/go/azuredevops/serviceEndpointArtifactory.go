@@ -209,7 +209,6 @@ type serviceEndpointArtifactoryArgs struct {
 	AuthenticationBasic *ServiceEndpointArtifactoryAuthenticationBasic `pulumi:"authenticationBasic"`
 	// A `authenticationBasic` block as defined below.
 	AuthenticationToken *ServiceEndpointArtifactoryAuthenticationToken `pulumi:"authenticationToken"`
-	Authorization       map[string]string                              `pulumi:"authorization"`
 	// The Service Endpoint description.
 	Description *string `pulumi:"description"`
 	// The ID of the project.
@@ -227,7 +226,6 @@ type ServiceEndpointArtifactoryArgs struct {
 	AuthenticationBasic ServiceEndpointArtifactoryAuthenticationBasicPtrInput
 	// A `authenticationBasic` block as defined below.
 	AuthenticationToken ServiceEndpointArtifactoryAuthenticationTokenPtrInput
-	Authorization       pulumi.StringMapInput
 	// The Service Endpoint description.
 	Description pulumi.StringPtrInput
 	// The ID of the project.

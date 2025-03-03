@@ -69,7 +69,7 @@ export class ServiceendpointAzureServiceBus extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceendpointAzureServiceBus.__pulumiType;
     }
 
-    public readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
     /**
      * The  Azure Service Bus Connection string.
      */
@@ -121,12 +121,12 @@ export class ServiceendpointAzureServiceBus extends pulumi.CustomResource {
             if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["connectionString"] = args?.connectionString ? pulumi.secret(args.connectionString) : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["queueName"] = args ? args.queueName : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["connectionString"] };
@@ -163,7 +163,6 @@ export interface ServiceendpointAzureServiceBusState {
  * The set of arguments for constructing a ServiceendpointAzureServiceBus resource.
  */
 export interface ServiceendpointAzureServiceBusArgs {
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The  Azure Service Bus Connection string.
      */

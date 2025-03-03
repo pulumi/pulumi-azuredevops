@@ -26,7 +26,7 @@ class GetIdentityUsersResult:
     """
     A collection of values returned by getIdentityUsers.
     """
-    def __init__(__self__, descriptor=None, id=None, name=None, search_filter=None):
+    def __init__(__self__, descriptor=None, id=None, name=None, search_filter=None, subject_descriptor=None):
         if descriptor and not isinstance(descriptor, str):
             raise TypeError("Expected argument 'descriptor' to be a str")
         pulumi.set(__self__, "descriptor", descriptor)
@@ -39,12 +39,15 @@ class GetIdentityUsersResult:
         if search_filter and not isinstance(search_filter, str):
             raise TypeError("Expected argument 'search_filter' to be a str")
         pulumi.set(__self__, "search_filter", search_filter)
+        if subject_descriptor and not isinstance(subject_descriptor, str):
+            raise TypeError("Expected argument 'subject_descriptor' to be a str")
+        pulumi.set(__self__, "subject_descriptor", subject_descriptor)
 
     @property
     @pulumi.getter
     def descriptor(self) -> str:
         """
-        The descriptor of the user.
+        The Descriptor of the user.
         """
         return pulumi.get(self, "descriptor")
 
@@ -66,6 +69,14 @@ class GetIdentityUsersResult:
     def search_filter(self) -> Optional[str]:
         return pulumi.get(self, "search_filter")
 
+    @property
+    @pulumi.getter(name="subjectDescriptor")
+    def subject_descriptor(self) -> str:
+        """
+        The Subject Descriptor of the user.
+        """
+        return pulumi.get(self, "subject_descriptor")
+
 
 class AwaitableGetIdentityUsersResult(GetIdentityUsersResult):
     # pylint: disable=using-constant-test
@@ -76,7 +87,8 @@ class AwaitableGetIdentityUsersResult(GetIdentityUsersResult):
             descriptor=self.descriptor,
             id=self.id,
             name=self.name,
-            search_filter=self.search_filter)
+            search_filter=self.search_filter,
+            subject_descriptor=self.subject_descriptor)
 
 
 def get_identity_users(name: Optional[str] = None,
@@ -99,7 +111,8 @@ def get_identity_users(name: Optional[str] = None,
         descriptor=pulumi.get(__ret__, 'descriptor'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
-        search_filter=pulumi.get(__ret__, 'search_filter'))
+        search_filter=pulumi.get(__ret__, 'search_filter'),
+        subject_descriptor=pulumi.get(__ret__, 'subject_descriptor'))
 def get_identity_users_output(name: Optional[pulumi.Input[str]] = None,
                               search_filter: Optional[pulumi.Input[Optional[str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdentityUsersResult]:
@@ -119,4 +132,5 @@ def get_identity_users_output(name: Optional[pulumi.Input[str]] = None,
         descriptor=pulumi.get(__response__, 'descriptor'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
-        search_filter=pulumi.get(__response__, 'search_filter')))
+        search_filter=pulumi.get(__response__, 'search_filter'),
+        subject_descriptor=pulumi.get(__response__, 'subject_descriptor')))

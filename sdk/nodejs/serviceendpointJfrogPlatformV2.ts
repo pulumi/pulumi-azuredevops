@@ -108,7 +108,7 @@ export class ServiceendpointJfrogPlatformV2 extends pulumi.CustomResource {
      * An `authenticationToken` block as documented below.
      */
     public readonly authenticationToken!: pulumi.Output<outputs.ServiceendpointJfrogPlatformV2AuthenticationToken | undefined>;
-    public readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Service Endpoint description.
      */
@@ -161,11 +161,11 @@ export class ServiceendpointJfrogPlatformV2 extends pulumi.CustomResource {
             }
             resourceInputs["authenticationBasic"] = args ? args.authenticationBasic : undefined;
             resourceInputs["authenticationToken"] = args ? args.authenticationToken : undefined;
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServiceendpointJfrogPlatformV2.__pulumiType, name, resourceInputs, opts);
@@ -217,7 +217,6 @@ export interface ServiceendpointJfrogPlatformV2Args {
      * An `authenticationToken` block as documented below.
      */
     authenticationToken?: pulumi.Input<inputs.ServiceendpointJfrogPlatformV2AuthenticationToken>;
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Service Endpoint description.
      */

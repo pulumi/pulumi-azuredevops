@@ -189,9 +189,8 @@ func (ServiceEndpointAwsState) ElementType() reflect.Type {
 
 type serviceEndpointAwsArgs struct {
 	// The AWS access key ID for signing programmatic requests.
-	AccessKeyId   *string           `pulumi:"accessKeyId"`
-	Authorization map[string]string `pulumi:"authorization"`
-	Description   *string           `pulumi:"description"`
+	AccessKeyId *string `pulumi:"accessKeyId"`
+	Description *string `pulumi:"description"`
 	// A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
 	ExternalId *string `pulumi:"externalId"`
 	// The ID of the project.
@@ -213,9 +212,8 @@ type serviceEndpointAwsArgs struct {
 // The set of arguments for constructing a ServiceEndpointAws resource.
 type ServiceEndpointAwsArgs struct {
 	// The AWS access key ID for signing programmatic requests.
-	AccessKeyId   pulumi.StringPtrInput
-	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	AccessKeyId pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
 	// A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
 	ExternalId pulumi.StringPtrInput
 	// The ID of the project.

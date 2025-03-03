@@ -189,7 +189,6 @@ func (ServiceendpointDynamicsLifecycleServicesState) ElementType() reflect.Type 
 }
 
 type serviceendpointDynamicsLifecycleServicesArgs struct {
-	Authorization map[string]string `pulumi:"authorization"`
 	// The URL of the Authentication Endpoint.
 	AuthorizationEndpoint string `pulumi:"authorizationEndpoint"`
 	// The client ID for a native application registration in Azure Active Directory with API permissions for Dynamics Lifecycle Services.
@@ -209,7 +208,6 @@ type serviceendpointDynamicsLifecycleServicesArgs struct {
 
 // The set of arguments for constructing a ServiceendpointDynamicsLifecycleServices resource.
 type ServiceendpointDynamicsLifecycleServicesArgs struct {
-	Authorization pulumi.StringMapInput
 	// The URL of the Authentication Endpoint.
 	AuthorizationEndpoint pulumi.StringInput
 	// The client ID for a native application registration in Azure Active Directory with API permissions for Dynamics Lifecycle Services.
