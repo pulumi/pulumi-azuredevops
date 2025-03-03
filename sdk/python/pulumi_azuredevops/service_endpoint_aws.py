@@ -22,7 +22,6 @@ class ServiceEndpointAwsArgs:
                  project_id: pulumi.Input[str],
                  service_endpoint_name: pulumi.Input[str],
                  access_key_id: Optional[pulumi.Input[str]] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  external_id: Optional[pulumi.Input[str]] = None,
                  role_session_name: Optional[pulumi.Input[str]] = None,
@@ -46,8 +45,6 @@ class ServiceEndpointAwsArgs:
         pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
         if access_key_id is not None:
             pulumi.set(__self__, "access_key_id", access_key_id)
-        if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if external_id is not None:
@@ -98,15 +95,6 @@ class ServiceEndpointAwsArgs:
     @access_key_id.setter
     def access_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "access_key_id", value)
-
-    @property
-    @pulumi.getter
-    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "authorization")
-
-    @authorization.setter
-    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "authorization", value)
 
     @property
     @pulumi.getter
@@ -372,7 +360,6 @@ class ServiceEndpointAws(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_key_id: Optional[pulumi.Input[str]] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  external_id: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
@@ -489,7 +476,6 @@ class ServiceEndpointAws(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_key_id: Optional[pulumi.Input[str]] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  external_id: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
@@ -509,7 +495,6 @@ class ServiceEndpointAws(pulumi.CustomResource):
             __props__ = ServiceEndpointAwsArgs.__new__(ServiceEndpointAwsArgs)
 
             __props__.__dict__["access_key_id"] = access_key_id
-            __props__.__dict__["authorization"] = authorization
             __props__.__dict__["description"] = description
             __props__.__dict__["external_id"] = external_id
             if project_id is None and not opts.urn:
@@ -523,6 +508,7 @@ class ServiceEndpointAws(pulumi.CustomResource):
             __props__.__dict__["service_endpoint_name"] = service_endpoint_name
             __props__.__dict__["session_token"] = None if session_token is None else pulumi.Output.secret(session_token)
             __props__.__dict__["use_oidc"] = use_oidc
+            __props__.__dict__["authorization"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["secretAccessKey", "sessionToken"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceEndpointAws, __self__).__init__(

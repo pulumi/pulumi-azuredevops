@@ -27,7 +27,6 @@ class ServiceendpointCheckmarxScaArgs:
                  service_endpoint_name: pulumi.Input[str],
                  username: pulumi.Input[str],
                  web_app_url: pulumi.Input[str],
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  team: Optional[pulumi.Input[str]] = None):
         """
@@ -50,8 +49,6 @@ class ServiceendpointCheckmarxScaArgs:
         pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
         pulumi.set(__self__, "username", username)
         pulumi.set(__self__, "web_app_url", web_app_url)
-        if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if team is not None:
@@ -152,15 +149,6 @@ class ServiceendpointCheckmarxScaArgs:
     @web_app_url.setter
     def web_app_url(self, value: pulumi.Input[str]):
         pulumi.set(self, "web_app_url", value)
-
-    @property
-    @pulumi.getter
-    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "authorization")
-
-    @authorization.setter
-    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "authorization", value)
 
     @property
     @pulumi.getter
@@ -367,7 +355,6 @@ class ServiceendpointCheckmarxSca(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_control_url: Optional[pulumi.Input[str]] = None,
                  account: Optional[pulumi.Input[str]] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
@@ -488,7 +475,6 @@ class ServiceendpointCheckmarxSca(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_control_url: Optional[pulumi.Input[str]] = None,
                  account: Optional[pulumi.Input[str]] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
@@ -512,7 +498,6 @@ class ServiceendpointCheckmarxSca(pulumi.CustomResource):
             if account is None and not opts.urn:
                 raise TypeError("Missing required property 'account'")
             __props__.__dict__["account"] = account
-            __props__.__dict__["authorization"] = authorization
             __props__.__dict__["description"] = description
             if password is None and not opts.urn:
                 raise TypeError("Missing required property 'password'")
@@ -533,6 +518,7 @@ class ServiceendpointCheckmarxSca(pulumi.CustomResource):
             if web_app_url is None and not opts.urn:
                 raise TypeError("Missing required property 'web_app_url'")
             __props__.__dict__["web_app_url"] = web_app_url
+            __props__.__dict__["authorization"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceendpointCheckmarxSca, __self__).__init__(

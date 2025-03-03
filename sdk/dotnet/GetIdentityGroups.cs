@@ -43,7 +43,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// ## Relevant Links
         /// 
-        /// - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+        /// - [Azure DevOps Service REST API 7.1 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
         /// </summary>
         public static Task<GetIdentityGroupsResult> InvokeAsync(GetIdentityGroupsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIdentityGroupsResult>("azuredevops:index/getIdentityGroups:getIdentityGroups", args ?? new GetIdentityGroupsArgs(), options.WithDefaults());
@@ -80,7 +80,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// ## Relevant Links
         /// 
-        /// - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+        /// - [Azure DevOps Service REST API 7.1 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
         /// </summary>
         public static Output<GetIdentityGroupsResult> Invoke(GetIdentityGroupsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIdentityGroupsResult>("azuredevops:index/getIdentityGroups:getIdentityGroups", args ?? new GetIdentityGroupsInvokeArgs(), options.WithDefaults());
@@ -117,7 +117,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// ## Relevant Links
         /// 
-        /// - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+        /// - [Azure DevOps Service REST API 7.1 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
         /// </summary>
         public static Output<GetIdentityGroupsResult> Invoke(GetIdentityGroupsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIdentityGroupsResult>("azuredevops:index/getIdentityGroups:getIdentityGroups", args ?? new GetIdentityGroupsInvokeArgs(), options.WithDefaults());

@@ -57,6 +57,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CheckRequiredTemplate{}
 	case "azuredevops:index/checkRestApi:CheckRestApi":
 		r = &CheckRestApi{}
+	case "azuredevops:index/dashboard:Dashboard":
+		r = &Dashboard{}
 	case "azuredevops:index/elasticPool:ElasticPool":
 		r = &ElasticPool{}
 	case "azuredevops:index/environment:Environment":
@@ -348,6 +350,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/checkRestApi",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/dashboard",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

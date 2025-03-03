@@ -74,7 +74,7 @@ export class ServiceEndpointAws extends pulumi.CustomResource {
      * The AWS access key ID for signing programmatic requests.
      */
     public readonly accessKeyId!: pulumi.Output<string | undefined>;
-    public readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
@@ -142,7 +142,6 @@ export class ServiceEndpointAws extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
             resourceInputs["accessKeyId"] = args ? args.accessKeyId : undefined;
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["externalId"] = args ? args.externalId : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
@@ -152,6 +151,7 @@ export class ServiceEndpointAws extends pulumi.CustomResource {
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             resourceInputs["sessionToken"] = args?.sessionToken ? pulumi.secret(args.sessionToken) : undefined;
             resourceInputs["useOidc"] = args ? args.useOidc : undefined;
+            resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["secretAccessKey", "sessionToken"] };
@@ -212,7 +212,6 @@ export interface ServiceEndpointAwsArgs {
      * The AWS access key ID for signing programmatic requests.
      */
     accessKeyId?: pulumi.Input<string>;
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     description?: pulumi.Input<string>;
     /**
      * A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.

@@ -72,7 +72,7 @@ export class ServiceendpointNuget extends pulumi.CustomResource {
      * The API Key used to connect to the endpoint.
      */
     public readonly apiKey!: pulumi.Output<string | undefined>;
-    public readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The URL for the feed. This will generally end with `index.json`.
@@ -135,7 +135,6 @@ export class ServiceendpointNuget extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
             resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["feedUrl"] = args ? args.feedUrl : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
@@ -143,6 +142,7 @@ export class ServiceendpointNuget extends pulumi.CustomResource {
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["apiKey", "password", "personalAccessToken"] };
@@ -197,7 +197,6 @@ export interface ServiceendpointNugetArgs {
      * The API Key used to connect to the endpoint.
      */
     apiKey?: pulumi.Input<string>;
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     description?: pulumi.Input<string>;
     /**
      * The URL for the feed. This will generally end with `index.json`.

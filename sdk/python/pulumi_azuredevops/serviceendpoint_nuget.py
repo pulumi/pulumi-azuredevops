@@ -23,7 +23,6 @@ class ServiceendpointNugetArgs:
                  project_id: pulumi.Input[str],
                  service_endpoint_name: pulumi.Input[str],
                  api_key: Optional[pulumi.Input[str]] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  personal_access_token: Optional[pulumi.Input[str]] = None,
@@ -45,8 +44,6 @@ class ServiceendpointNugetArgs:
         pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
-        if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if password is not None:
@@ -103,15 +100,6 @@ class ServiceendpointNugetArgs:
     @api_key.setter
     def api_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "api_key", value)
-
-    @property
-    @pulumi.getter
-    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "authorization")
-
-    @authorization.setter
-    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "authorization", value)
 
     @property
     @pulumi.getter
@@ -315,7 +303,6 @@ class ServiceendpointNuget(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key: Optional[pulumi.Input[str]] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  feed_url: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -426,7 +413,6 @@ class ServiceendpointNuget(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key: Optional[pulumi.Input[str]] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  feed_url: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -444,7 +430,6 @@ class ServiceendpointNuget(pulumi.CustomResource):
             __props__ = ServiceendpointNugetArgs.__new__(ServiceendpointNugetArgs)
 
             __props__.__dict__["api_key"] = None if api_key is None else pulumi.Output.secret(api_key)
-            __props__.__dict__["authorization"] = authorization
             __props__.__dict__["description"] = description
             if feed_url is None and not opts.urn:
                 raise TypeError("Missing required property 'feed_url'")
@@ -458,6 +443,7 @@ class ServiceendpointNuget(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_endpoint_name'")
             __props__.__dict__["service_endpoint_name"] = service_endpoint_name
             __props__.__dict__["username"] = username
+            __props__.__dict__["authorization"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiKey", "password", "personalAccessToken"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceendpointNuget, __self__).__init__(

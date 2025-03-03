@@ -176,8 +176,7 @@ func (ServiceEndpointGenericGitState) ElementType() reflect.Type {
 }
 
 type serviceEndpointGenericGitArgs struct {
-	Authorization map[string]string `pulumi:"authorization"`
-	Description   *string           `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
 	EnablePipelinesAccess *bool `pulumi:"enablePipelinesAccess"`
 	// The PAT or password used to authenticate to the git repository.
@@ -196,8 +195,7 @@ type serviceEndpointGenericGitArgs struct {
 
 // The set of arguments for constructing a ServiceEndpointGenericGit resource.
 type ServiceEndpointGenericGitArgs struct {
-	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
 	// A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
 	EnablePipelinesAccess pulumi.BoolPtrInput
 	// The PAT or password used to authenticate to the git repository.

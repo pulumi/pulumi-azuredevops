@@ -7,7 +7,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,13 +15,6 @@ import javax.annotation.Nullable;
 public final class ServiceendpointDynamicsLifecycleServicesArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ServiceendpointDynamicsLifecycleServicesArgs Empty = new ServiceendpointDynamicsLifecycleServicesArgs();
-
-    @Import(name="authorization")
-    private @Nullable Output<Map<String,String>> authorization;
-
-    public Optional<Output<Map<String,String>>> authorization() {
-        return Optional.ofNullable(this.authorization);
-    }
 
     /**
      * The URL of the Authentication Endpoint.
@@ -139,7 +131,6 @@ public final class ServiceendpointDynamicsLifecycleServicesArgs extends com.pulu
     private ServiceendpointDynamicsLifecycleServicesArgs() {}
 
     private ServiceendpointDynamicsLifecycleServicesArgs(ServiceendpointDynamicsLifecycleServicesArgs $) {
-        this.authorization = $.authorization;
         this.authorizationEndpoint = $.authorizationEndpoint;
         this.clientId = $.clientId;
         this.description = $.description;
@@ -166,15 +157,6 @@ public final class ServiceendpointDynamicsLifecycleServicesArgs extends com.pulu
 
         public Builder(ServiceendpointDynamicsLifecycleServicesArgs defaults) {
             $ = new ServiceendpointDynamicsLifecycleServicesArgs(Objects.requireNonNull(defaults));
-        }
-
-        public Builder authorization(@Nullable Output<Map<String,String>> authorization) {
-            $.authorization = authorization;
-            return this;
-        }
-
-        public Builder authorization(Map<String,String> authorization) {
-            return authorization(Output.of(authorization));
         }
 
         /**

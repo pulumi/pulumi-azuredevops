@@ -159,9 +159,8 @@ func (ServiceendpointOctopusdeployState) ElementType() reflect.Type {
 
 type serviceendpointOctopusdeployArgs struct {
 	// API key to connect to Octopus Deploy.
-	ApiKey        string            `pulumi:"apiKey"`
-	Authorization map[string]string `pulumi:"authorization"`
-	Description   *string           `pulumi:"description"`
+	ApiKey      string  `pulumi:"apiKey"`
+	Description *string `pulumi:"description"`
 	// Whether to ignore SSL errors when connecting to the Octopus server from the agent. Default to `false`.
 	IgnoreSslError *bool `pulumi:"ignoreSslError"`
 	// The ID of the project.
@@ -175,9 +174,8 @@ type serviceendpointOctopusdeployArgs struct {
 // The set of arguments for constructing a ServiceendpointOctopusdeploy resource.
 type ServiceendpointOctopusdeployArgs struct {
 	// API key to connect to Octopus Deploy.
-	ApiKey        pulumi.StringInput
-	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	ApiKey      pulumi.StringInput
+	Description pulumi.StringPtrInput
 	// Whether to ignore SSL errors when connecting to the Octopus server from the agent. Default to `false`.
 	IgnoreSslError pulumi.BoolPtrInput
 	// The ID of the project.

@@ -491,7 +491,6 @@ func (ServiceEndpointAzureRMState) ElementType() reflect.Type {
 }
 
 type serviceEndpointAzureRMArgs struct {
-	Authorization map[string]string `pulumi:"authorization"`
 	// The Management group ID of the Azure targets.
 	AzurermManagementGroupId *string `pulumi:"azurermManagementGroupId"`
 	// The Management group Name of the targets.
@@ -528,7 +527,6 @@ type serviceEndpointAzureRMArgs struct {
 
 // The set of arguments for constructing a ServiceEndpointAzureRM resource.
 type ServiceEndpointAzureRMArgs struct {
-	Authorization pulumi.StringMapInput
 	// The Management group ID of the Azure targets.
 	AzurermManagementGroupId pulumi.StringPtrInput
 	// The Management group Name of the targets.

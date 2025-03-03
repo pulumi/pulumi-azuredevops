@@ -72,7 +72,7 @@ export class ServiceendpointDynamicsLifecycleServices extends pulumi.CustomResou
         return obj['__pulumiType'] === ServiceendpointDynamicsLifecycleServices.__pulumiType;
     }
 
-    public readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
     /**
      * The URL of the Authentication Endpoint.
      */
@@ -148,7 +148,6 @@ export class ServiceendpointDynamicsLifecycleServices extends pulumi.CustomResou
             if ((!args || args.username === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["authorizationEndpoint"] = args ? args.authorizationEndpoint : undefined;
             resourceInputs["clientId"] = args ? args.clientId : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
@@ -157,6 +156,7 @@ export class ServiceendpointDynamicsLifecycleServices extends pulumi.CustomResou
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };
@@ -205,7 +205,6 @@ export interface ServiceendpointDynamicsLifecycleServicesState {
  * The set of arguments for constructing a ServiceendpointDynamicsLifecycleServices resource.
  */
 export interface ServiceendpointDynamicsLifecycleServicesArgs {
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The URL of the Authentication Endpoint.
      */

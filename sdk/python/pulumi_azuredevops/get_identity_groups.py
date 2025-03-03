@@ -91,7 +91,7 @@ def get_identity_groups(project_id: Optional[str] = None,
 
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+    - [Azure DevOps Service REST API 7.1 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
 
 
     :param str project_id: The Project ID. If no project ID is specified all groups of an organization will be returned
@@ -125,7 +125,7 @@ def get_identity_groups_output(project_id: Optional[pulumi.Input[Optional[str]]]
 
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+    - [Azure DevOps Service REST API 7.1 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
 
 
     :param str project_id: The Project ID. If no project ID is specified all groups of an organization will be returned

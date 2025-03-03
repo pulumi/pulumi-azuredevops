@@ -27,7 +27,6 @@ class ServiceendpointMavenArgs:
                  url: pulumi.Input[str],
                  authentication_basic: Optional[pulumi.Input['ServiceendpointMavenAuthenticationBasicArgs']] = None,
                  authentication_token: Optional[pulumi.Input['ServiceendpointMavenAuthenticationTokenArgs']] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServiceendpointMaven resource.
@@ -46,8 +45,6 @@ class ServiceendpointMavenArgs:
             pulumi.set(__self__, "authentication_basic", authentication_basic)
         if authentication_token is not None:
             pulumi.set(__self__, "authentication_token", authentication_token)
-        if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
         if description is not None:
             pulumi.set(__self__, "description", description)
 
@@ -122,15 +119,6 @@ class ServiceendpointMavenArgs:
     @authentication_token.setter
     def authentication_token(self, value: Optional[pulumi.Input['ServiceendpointMavenAuthenticationTokenArgs']]):
         pulumi.set(self, "authentication_token", value)
-
-    @property
-    @pulumi.getter
-    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "authorization")
-
-    @authorization.setter
-    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "authorization", value)
 
     @property
     @pulumi.getter
@@ -277,7 +265,6 @@ class ServiceendpointMaven(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authentication_basic: Optional[pulumi.Input[Union['ServiceendpointMavenAuthenticationBasicArgs', 'ServiceendpointMavenAuthenticationBasicArgsDict']]] = None,
                  authentication_token: Optional[pulumi.Input[Union['ServiceendpointMavenAuthenticationTokenArgs', 'ServiceendpointMavenAuthenticationTokenArgsDict']]] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  repository_id: Optional[pulumi.Input[str]] = None,
@@ -432,7 +419,6 @@ class ServiceendpointMaven(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authentication_basic: Optional[pulumi.Input[Union['ServiceendpointMavenAuthenticationBasicArgs', 'ServiceendpointMavenAuthenticationBasicArgsDict']]] = None,
                  authentication_token: Optional[pulumi.Input[Union['ServiceendpointMavenAuthenticationTokenArgs', 'ServiceendpointMavenAuthenticationTokenArgsDict']]] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  repository_id: Optional[pulumi.Input[str]] = None,
@@ -449,7 +435,6 @@ class ServiceendpointMaven(pulumi.CustomResource):
 
             __props__.__dict__["authentication_basic"] = authentication_basic
             __props__.__dict__["authentication_token"] = authentication_token
-            __props__.__dict__["authorization"] = authorization
             __props__.__dict__["description"] = description
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
@@ -463,6 +448,7 @@ class ServiceendpointMaven(pulumi.CustomResource):
             if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
             __props__.__dict__["url"] = url
+            __props__.__dict__["authorization"] = None
         super(ServiceendpointMaven, __self__).__init__(
             'azuredevops:index/serviceendpointMaven:ServiceendpointMaven',
             resource_name,

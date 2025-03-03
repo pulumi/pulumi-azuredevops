@@ -73,7 +73,7 @@ export class ServiceendpointSnyk extends pulumi.CustomResource {
      * The API token of the Snyk Security Scan.
      */
     public readonly apiToken!: pulumi.Output<string>;
-    public readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The ID of the project.
@@ -122,11 +122,11 @@ export class ServiceendpointSnyk extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
             resourceInputs["apiToken"] = args?.apiToken ? pulumi.secret(args.apiToken) : undefined;
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["serverUrl"] = args ? args.serverUrl : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["apiToken"] };
@@ -167,7 +167,6 @@ export interface ServiceendpointSnykArgs {
      * The API token of the Snyk Security Scan.
      */
     apiToken: pulumi.Input<string>;
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     description?: pulumi.Input<string>;
     /**
      * The ID of the project.

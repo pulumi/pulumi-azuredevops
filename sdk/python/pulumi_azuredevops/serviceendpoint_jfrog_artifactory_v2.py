@@ -26,7 +26,6 @@ class ServiceendpointJfrogArtifactoryV2Args:
                  url: pulumi.Input[str],
                  authentication_basic: Optional[pulumi.Input['ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs']] = None,
                  authentication_token: Optional[pulumi.Input['ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs']] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServiceendpointJfrogArtifactoryV2 resource.
@@ -46,8 +45,6 @@ class ServiceendpointJfrogArtifactoryV2Args:
             pulumi.set(__self__, "authentication_basic", authentication_basic)
         if authentication_token is not None:
             pulumi.set(__self__, "authentication_token", authentication_token)
-        if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
         if description is not None:
             pulumi.set(__self__, "description", description)
 
@@ -112,15 +109,6 @@ class ServiceendpointJfrogArtifactoryV2Args:
     @authentication_token.setter
     def authentication_token(self, value: Optional[pulumi.Input['ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs']]):
         pulumi.set(self, "authentication_token", value)
-
-    @property
-    @pulumi.getter
-    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "authorization")
-
-    @authorization.setter
-    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "authorization", value)
 
     @property
     @pulumi.getter
@@ -262,7 +250,6 @@ class ServiceendpointJfrogArtifactoryV2(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authentication_basic: Optional[pulumi.Input[Union['ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs', 'ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgsDict']]] = None,
                  authentication_token: Optional[pulumi.Input[Union['ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs', 'ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgsDict']]] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  service_endpoint_name: Optional[pulumi.Input[str]] = None,
@@ -426,7 +413,6 @@ class ServiceendpointJfrogArtifactoryV2(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authentication_basic: Optional[pulumi.Input[Union['ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs', 'ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgsDict']]] = None,
                  authentication_token: Optional[pulumi.Input[Union['ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs', 'ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgsDict']]] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  service_endpoint_name: Optional[pulumi.Input[str]] = None,
@@ -442,7 +428,6 @@ class ServiceendpointJfrogArtifactoryV2(pulumi.CustomResource):
 
             __props__.__dict__["authentication_basic"] = authentication_basic
             __props__.__dict__["authentication_token"] = authentication_token
-            __props__.__dict__["authorization"] = authorization
             __props__.__dict__["description"] = description
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
@@ -453,6 +438,7 @@ class ServiceendpointJfrogArtifactoryV2(pulumi.CustomResource):
             if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
             __props__.__dict__["url"] = url
+            __props__.__dict__["authorization"] = None
         super(ServiceendpointJfrogArtifactoryV2, __self__).__init__(
             'azuredevops:index/serviceendpointJfrogArtifactoryV2:ServiceendpointJfrogArtifactoryV2',
             resource_name,

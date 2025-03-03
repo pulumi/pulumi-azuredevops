@@ -23,7 +23,6 @@ class ServiceEndpointSshArgs:
                  project_id: pulumi.Input[str],
                  service_endpoint_name: pulumi.Input[str],
                  username: pulumi.Input[str],
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
@@ -42,8 +41,6 @@ class ServiceEndpointSshArgs:
         pulumi.set(__self__, "project_id", project_id)
         pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
         pulumi.set(__self__, "username", username)
-        if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if password is not None:
@@ -100,15 +97,6 @@ class ServiceEndpointSshArgs:
     @username.setter
     def username(self, value: pulumi.Input[str]):
         pulumi.set(self, "username", value)
-
-    @property
-    @pulumi.getter
-    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "authorization")
-
-    @authorization.setter
-    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "authorization", value)
 
     @property
     @pulumi.getter
@@ -305,7 +293,6 @@ class ServiceEndpointSsh(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  host: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -416,7 +403,6 @@ class ServiceEndpointSsh(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  host: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -434,7 +420,6 @@ class ServiceEndpointSsh(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceEndpointSshArgs.__new__(ServiceEndpointSshArgs)
 
-            __props__.__dict__["authorization"] = authorization
             __props__.__dict__["description"] = description
             if host is None and not opts.urn:
                 raise TypeError("Missing required property 'host'")
@@ -451,6 +436,7 @@ class ServiceEndpointSsh(pulumi.CustomResource):
             if username is None and not opts.urn:
                 raise TypeError("Missing required property 'username'")
             __props__.__dict__["username"] = username
+            __props__.__dict__["authorization"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password", "privateKey"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceEndpointSsh, __self__).__init__(

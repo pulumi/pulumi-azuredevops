@@ -155,9 +155,8 @@ func (ServiceEndpointPipelineState) ElementType() reflect.Type {
 
 type serviceEndpointPipelineArgs struct {
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
-	AuthPersonal  ServiceEndpointPipelineAuthPersonal `pulumi:"authPersonal"`
-	Authorization map[string]string                   `pulumi:"authorization"`
-	Description   *string                             `pulumi:"description"`
+	AuthPersonal ServiceEndpointPipelineAuthPersonal `pulumi:"authPersonal"`
+	Description  *string                             `pulumi:"description"`
 	// The organization name used for `Organization Url` and `Release API Url` fields.
 	OrganizationName string `pulumi:"organizationName"`
 	// The ID of the project.
@@ -169,9 +168,8 @@ type serviceEndpointPipelineArgs struct {
 // The set of arguments for constructing a ServiceEndpointPipeline resource.
 type ServiceEndpointPipelineArgs struct {
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
-	AuthPersonal  ServiceEndpointPipelineAuthPersonalInput
-	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	AuthPersonal ServiceEndpointPipelineAuthPersonalInput
+	Description  pulumi.StringPtrInput
 	// The organization name used for `Organization Url` and `Release API Url` fields.
 	OrganizationName pulumi.StringInput
 	// The ID of the project.

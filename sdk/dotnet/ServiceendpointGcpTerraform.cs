@@ -156,14 +156,6 @@ namespace Pulumi.AzureDevOps
 
     public sealed class ServiceendpointGcpTerraformArgs : global::Pulumi.ResourceArgs
     {
-        [Input("authorization")]
-        private InputMap<string>? _authorization;
-        public InputMap<string> Authorization
-        {
-            get => _authorization ?? (_authorization = new InputMap<string>());
-            set => _authorization = value;
-        }
-
         /// <summary>
         /// The client email field in the JSON key file for creating the JSON Web Token.
         /// </summary>

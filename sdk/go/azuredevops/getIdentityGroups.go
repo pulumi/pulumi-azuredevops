@@ -53,7 +53,7 @@ import (
 //
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+// - [Azure DevOps Service REST API 7.1 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
 func GetIdentityGroups(ctx *pulumi.Context, args *GetIdentityGroupsArgs, opts ...pulumi.InvokeOption) (*GetIdentityGroupsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetIdentityGroupsResult

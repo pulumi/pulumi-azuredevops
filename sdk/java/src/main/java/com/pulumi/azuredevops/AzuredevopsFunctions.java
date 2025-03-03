@@ -10,6 +10,8 @@ import com.pulumi.azuredevops.inputs.GetAreaArgs;
 import com.pulumi.azuredevops.inputs.GetAreaPlainArgs;
 import com.pulumi.azuredevops.inputs.GetBuildDefinitionArgs;
 import com.pulumi.azuredevops.inputs.GetBuildDefinitionPlainArgs;
+import com.pulumi.azuredevops.inputs.GetDescriptorArgs;
+import com.pulumi.azuredevops.inputs.GetDescriptorPlainArgs;
 import com.pulumi.azuredevops.inputs.GetEnvironmentArgs;
 import com.pulumi.azuredevops.inputs.GetEnvironmentPlainArgs;
 import com.pulumi.azuredevops.inputs.GetFeedArgs;
@@ -52,10 +54,14 @@ import com.pulumi.azuredevops.inputs.GetServiceendpointNpmArgs;
 import com.pulumi.azuredevops.inputs.GetServiceendpointNpmPlainArgs;
 import com.pulumi.azuredevops.inputs.GetServiceendpointSonarcloudArgs;
 import com.pulumi.azuredevops.inputs.GetServiceendpointSonarcloudPlainArgs;
+import com.pulumi.azuredevops.inputs.GetStorageKeyArgs;
+import com.pulumi.azuredevops.inputs.GetStorageKeyPlainArgs;
 import com.pulumi.azuredevops.inputs.GetTeamArgs;
 import com.pulumi.azuredevops.inputs.GetTeamPlainArgs;
 import com.pulumi.azuredevops.inputs.GetTeamsArgs;
 import com.pulumi.azuredevops.inputs.GetTeamsPlainArgs;
+import com.pulumi.azuredevops.inputs.GetUserArgs;
+import com.pulumi.azuredevops.inputs.GetUserPlainArgs;
 import com.pulumi.azuredevops.inputs.GetUsersArgs;
 import com.pulumi.azuredevops.inputs.GetUsersPlainArgs;
 import com.pulumi.azuredevops.inputs.GetVariableGroupArgs;
@@ -64,6 +70,7 @@ import com.pulumi.azuredevops.outputs.GetAgentQueueResult;
 import com.pulumi.azuredevops.outputs.GetAreaResult;
 import com.pulumi.azuredevops.outputs.GetBuildDefinitionResult;
 import com.pulumi.azuredevops.outputs.GetClientConfigResult;
+import com.pulumi.azuredevops.outputs.GetDescriptorResult;
 import com.pulumi.azuredevops.outputs.GetEnvironmentResult;
 import com.pulumi.azuredevops.outputs.GetFeedResult;
 import com.pulumi.azuredevops.outputs.GetGitRepositoryResult;
@@ -86,8 +93,10 @@ import com.pulumi.azuredevops.outputs.GetServiceendpointAzurecrResult;
 import com.pulumi.azuredevops.outputs.GetServiceendpointBitbucketResult;
 import com.pulumi.azuredevops.outputs.GetServiceendpointNpmResult;
 import com.pulumi.azuredevops.outputs.GetServiceendpointSonarcloudResult;
+import com.pulumi.azuredevops.outputs.GetStorageKeyResult;
 import com.pulumi.azuredevops.outputs.GetTeamResult;
 import com.pulumi.azuredevops.outputs.GetTeamsResult;
+import com.pulumi.azuredevops.outputs.GetUserResult;
 import com.pulumi.azuredevops.outputs.GetUsersResult;
 import com.pulumi.azuredevops.outputs.GetVariableGroupResult;
 import com.pulumi.core.Output;
@@ -1228,6 +1237,241 @@ public final class AzuredevopsFunctions {
      */
     public static CompletableFuture<GetClientConfigResult> getClientConfigPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azuredevops:index/getClientConfig:getClientConfig", TypeShape.of(GetClientConfigResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Descriptor.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetDescriptorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getDescriptor(GetDescriptorArgs.builder()
+     *             .storageKey("00000000-0000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getDescriptorResult -> getDescriptorResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Descriptors - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/graph/descriptors/get?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static Output<GetDescriptorResult> getDescriptor(GetDescriptorArgs args) {
+        return getDescriptor(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Descriptor.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetDescriptorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getDescriptor(GetDescriptorArgs.builder()
+     *             .storageKey("00000000-0000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getDescriptorResult -> getDescriptorResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Descriptors - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/graph/descriptors/get?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static CompletableFuture<GetDescriptorResult> getDescriptorPlain(GetDescriptorPlainArgs args) {
+        return getDescriptorPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Descriptor.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetDescriptorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getDescriptor(GetDescriptorArgs.builder()
+     *             .storageKey("00000000-0000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getDescriptorResult -> getDescriptorResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Descriptors - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/graph/descriptors/get?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static Output<GetDescriptorResult> getDescriptor(GetDescriptorArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getDescriptor:getDescriptor", TypeShape.of(GetDescriptorResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Descriptor.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetDescriptorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getDescriptor(GetDescriptorArgs.builder()
+     *             .storageKey("00000000-0000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getDescriptorResult -> getDescriptorResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Descriptors - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/graph/descriptors/get?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static Output<GetDescriptorResult> getDescriptor(GetDescriptorArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getDescriptor:getDescriptor", TypeShape.of(GetDescriptorResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Descriptor.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetDescriptorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getDescriptor(GetDescriptorArgs.builder()
+     *             .storageKey("00000000-0000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getDescriptorResult -> getDescriptorResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Descriptors - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/graph/descriptors/get?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static CompletableFuture<GetDescriptorResult> getDescriptorPlain(GetDescriptorPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azuredevops:index/getDescriptor:getDescriptor", TypeShape.of(GetDescriptorResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an Environment.
@@ -3185,7 +3429,7 @@ public final class AzuredevopsFunctions {
      * 
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+     * - [Azure DevOps Service REST API 7.1 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
      * 
      */
     public static Output<GetIdentityGroupResult> getIdentityGroup(GetIdentityGroupArgs args) {
@@ -3233,7 +3477,7 @@ public final class AzuredevopsFunctions {
      * 
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+     * - [Azure DevOps Service REST API 7.1 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
      * 
      */
     public static CompletableFuture<GetIdentityGroupResult> getIdentityGroupPlain(GetIdentityGroupPlainArgs args) {
@@ -3281,7 +3525,7 @@ public final class AzuredevopsFunctions {
      * 
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+     * - [Azure DevOps Service REST API 7.1 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
      * 
      */
     public static Output<GetIdentityGroupResult> getIdentityGroup(GetIdentityGroupArgs args, InvokeOptions options) {
@@ -3329,7 +3573,7 @@ public final class AzuredevopsFunctions {
      * 
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+     * - [Azure DevOps Service REST API 7.1 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
      * 
      */
     public static Output<GetIdentityGroupResult> getIdentityGroup(GetIdentityGroupArgs args, InvokeOutputOptions options) {
@@ -3377,7 +3621,7 @@ public final class AzuredevopsFunctions {
      * 
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+     * - [Azure DevOps Service REST API 7.1 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
      * 
      */
     public static CompletableFuture<GetIdentityGroupResult> getIdentityGroupPlain(GetIdentityGroupPlainArgs args, InvokeOptions options) {
@@ -3432,7 +3676,7 @@ public final class AzuredevopsFunctions {
      * 
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+     * - [Azure DevOps Service REST API 7.1 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
      * 
      */
     public static Output<GetIdentityGroupsResult> getIdentityGroups() {
@@ -3487,7 +3731,7 @@ public final class AzuredevopsFunctions {
      * 
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+     * - [Azure DevOps Service REST API 7.1 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
      * 
      */
     public static CompletableFuture<GetIdentityGroupsResult> getIdentityGroupsPlain() {
@@ -3542,7 +3786,7 @@ public final class AzuredevopsFunctions {
      * 
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+     * - [Azure DevOps Service REST API 7.1 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
      * 
      */
     public static Output<GetIdentityGroupsResult> getIdentityGroups(GetIdentityGroupsArgs args) {
@@ -3597,7 +3841,7 @@ public final class AzuredevopsFunctions {
      * 
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+     * - [Azure DevOps Service REST API 7.1 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
      * 
      */
     public static CompletableFuture<GetIdentityGroupsResult> getIdentityGroupsPlain(GetIdentityGroupsPlainArgs args) {
@@ -3652,7 +3896,7 @@ public final class AzuredevopsFunctions {
      * 
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+     * - [Azure DevOps Service REST API 7.1 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
      * 
      */
     public static Output<GetIdentityGroupsResult> getIdentityGroups(GetIdentityGroupsArgs args, InvokeOptions options) {
@@ -3707,7 +3951,7 @@ public final class AzuredevopsFunctions {
      * 
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+     * - [Azure DevOps Service REST API 7.1 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
      * 
      */
     public static Output<GetIdentityGroupsResult> getIdentityGroups(GetIdentityGroupsArgs args, InvokeOutputOptions options) {
@@ -3762,7 +4006,7 @@ public final class AzuredevopsFunctions {
      * 
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+     * - [Azure DevOps Service REST API 7.1 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
      * 
      */
     public static CompletableFuture<GetIdentityGroupsResult> getIdentityGroupsPlain(GetIdentityGroupsPlainArgs args, InvokeOptions options) {
@@ -8389,6 +8633,241 @@ public final class AzuredevopsFunctions {
         return Deployment.getInstance().invokeAsync("azuredevops:index/getServiceendpointSonarcloud:getServiceendpointSonarcloud", TypeShape.of(GetServiceendpointSonarcloudResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing Storage Key.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetStorageKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getStorageKey(GetStorageKeyArgs.builder()
+     *             .descriptor("aad.000000000000000000000000000000000000")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getStorageKeyResult -> getStorageKeyResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Storage Key - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/graph/storage-keys/get?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static Output<GetStorageKeyResult> getStorageKey(GetStorageKeyArgs args) {
+        return getStorageKey(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Storage Key.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetStorageKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getStorageKey(GetStorageKeyArgs.builder()
+     *             .descriptor("aad.000000000000000000000000000000000000")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getStorageKeyResult -> getStorageKeyResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Storage Key - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/graph/storage-keys/get?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static CompletableFuture<GetStorageKeyResult> getStorageKeyPlain(GetStorageKeyPlainArgs args) {
+        return getStorageKeyPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Storage Key.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetStorageKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getStorageKey(GetStorageKeyArgs.builder()
+     *             .descriptor("aad.000000000000000000000000000000000000")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getStorageKeyResult -> getStorageKeyResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Storage Key - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/graph/storage-keys/get?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static Output<GetStorageKeyResult> getStorageKey(GetStorageKeyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getStorageKey:getStorageKey", TypeShape.of(GetStorageKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Storage Key.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetStorageKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getStorageKey(GetStorageKeyArgs.builder()
+     *             .descriptor("aad.000000000000000000000000000000000000")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getStorageKeyResult -> getStorageKeyResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Storage Key - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/graph/storage-keys/get?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static Output<GetStorageKeyResult> getStorageKey(GetStorageKeyArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getStorageKey:getStorageKey", TypeShape.of(GetStorageKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Storage Key.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetStorageKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getStorageKey(GetStorageKeyArgs.builder()
+     *             .descriptor("aad.000000000000000000000000000000000000")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getStorageKeyResult -> getStorageKeyResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Storage Key - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/graph/storage-keys/get?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static CompletableFuture<GetStorageKeyResult> getStorageKeyPlain(GetStorageKeyPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azuredevops:index/getStorageKey:getStorageKey", TypeShape.of(GetStorageKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to access information about an existing Team in a Project within Azure DevOps.
      * 
      * ## Example Usage
@@ -9056,6 +9535,246 @@ public final class AzuredevopsFunctions {
      */
     public static CompletableFuture<GetTeamsResult> getTeamsPlain(GetTeamsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azuredevops:index/getTeams:getTeams", TypeShape.of(GetTeamsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing user within Azure DevOps.
+     * 
+     * ~&gt;**NOTE:** If you only have the Storage Key(UUID) of the user, you can use `azuredevops.getDescriptor` to resolve the Storage Key(UUID) to a `descriptor`.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var example = AzuredevopsFunctions.getUser(GetUserArgs.builder()
+     *             .principalName("example}{@literal @}{@code example.com")
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Graph Users API](https://learn.microsoft.com/en-us/rest/api/azure/devops/graph/users/get?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static Output<GetUserResult> getUser(GetUserArgs args) {
+        return getUser(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing user within Azure DevOps.
+     * 
+     * ~&gt;**NOTE:** If you only have the Storage Key(UUID) of the user, you can use `azuredevops.getDescriptor` to resolve the Storage Key(UUID) to a `descriptor`.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var example = AzuredevopsFunctions.getUser(GetUserArgs.builder()
+     *             .principalName("example}{@literal @}{@code example.com")
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Graph Users API](https://learn.microsoft.com/en-us/rest/api/azure/devops/graph/users/get?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args) {
+        return getUserPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing user within Azure DevOps.
+     * 
+     * ~&gt;**NOTE:** If you only have the Storage Key(UUID) of the user, you can use `azuredevops.getDescriptor` to resolve the Storage Key(UUID) to a `descriptor`.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var example = AzuredevopsFunctions.getUser(GetUserArgs.builder()
+     *             .principalName("example}{@literal @}{@code example.com")
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Graph Users API](https://learn.microsoft.com/en-us/rest/api/azure/devops/graph/users/get?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static Output<GetUserResult> getUser(GetUserArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing user within Azure DevOps.
+     * 
+     * ~&gt;**NOTE:** If you only have the Storage Key(UUID) of the user, you can use `azuredevops.getDescriptor` to resolve the Storage Key(UUID) to a `descriptor`.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var example = AzuredevopsFunctions.getUser(GetUserArgs.builder()
+     *             .principalName("example}{@literal @}{@code example.com")
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Graph Users API](https://learn.microsoft.com/en-us/rest/api/azure/devops/graph/users/get?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static Output<GetUserResult> getUser(GetUserArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing user within Azure DevOps.
+     * 
+     * ~&gt;**NOTE:** If you only have the Storage Key(UUID) of the user, you can use `azuredevops.getDescriptor` to resolve the Storage Key(UUID) to a `descriptor`.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var example = AzuredevopsFunctions.getUser(GetUserArgs.builder()
+     *             .principalName("example}{@literal @}{@code example.com")
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Graph Users API](https://learn.microsoft.com/en-us/rest/api/azure/devops/graph/users/get?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azuredevops:index/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing users within Azure DevOps.

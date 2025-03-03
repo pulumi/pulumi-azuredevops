@@ -154,7 +154,6 @@ func (ServiceEndpointSonarCloudState) ElementType() reflect.Type {
 }
 
 type serviceEndpointSonarCloudArgs struct {
-	Authorization map[string]string `pulumi:"authorization"`
 	// The Service Endpoint description.
 	Description *string `pulumi:"description"`
 	// The ID of the project.
@@ -167,7 +166,6 @@ type serviceEndpointSonarCloudArgs struct {
 
 // The set of arguments for constructing a ServiceEndpointSonarCloud resource.
 type ServiceEndpointSonarCloudArgs struct {
-	Authorization pulumi.StringMapInput
 	// The Service Endpoint description.
 	Description pulumi.StringPtrInput
 	// The ID of the project.

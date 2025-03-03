@@ -25,6 +25,10 @@ namespace Pulumi.AzureDevOps.Outputs
         /// This is the non-unique display name of the identity subject.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The subject descriptor of the identity group.
+        /// </summary>
+        public readonly string SubjectDescriptor;
 
         [OutputConstructor]
         private GetIdentityGroupsGroupResult(
@@ -32,11 +36,14 @@ namespace Pulumi.AzureDevOps.Outputs
 
             string id,
 
-            string name)
+            string name,
+
+            string subjectDescriptor)
         {
             Descriptor = descriptor;
             Id = id;
             Name = name;
+            SubjectDescriptor = subjectDescriptor;
         }
     }
 }

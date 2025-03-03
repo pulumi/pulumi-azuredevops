@@ -208,14 +208,6 @@ namespace Pulumi.AzureDevOps
             }
         }
 
-        [Input("authorization")]
-        private InputMap<string>? _authorization;
-        public InputMap<string> Authorization
-        {
-            get => _authorization ?? (_authorization = new InputMap<string>());
-            set => _authorization = value;
-        }
-
         /// <summary>
         /// The URL of Checkmarx Authorization. Used when using `client_id` and `client_secret` authorization.
         /// </summary>

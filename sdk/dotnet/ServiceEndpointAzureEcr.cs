@@ -262,14 +262,6 @@ namespace Pulumi.AzureDevOps
 
     public sealed class ServiceEndpointAzureEcrArgs : global::Pulumi.ResourceArgs
     {
-        [Input("authorization")]
-        private InputMap<string>? _authorization;
-        public InputMap<string> Authorization
-        {
-            get => _authorization ?? (_authorization = new InputMap<string>());
-            set => _authorization = value;
-        }
-
         /// <summary>
         /// The Azure container registry name.
         /// </summary>

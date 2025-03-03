@@ -23,6 +23,7 @@ from .check_business_hours import *
 from .check_exclusive_lock import *
 from .check_required_template import *
 from .check_rest_api import *
+from .dashboard import *
 from .elastic_pool import *
 from .environment import *
 from .environment_resource_kubernetes import *
@@ -33,6 +34,7 @@ from .get_agent_queue import *
 from .get_area import *
 from .get_build_definition import *
 from .get_client_config import *
+from .get_descriptor import *
 from .get_environment import *
 from .get_feed import *
 from .get_git_repository import *
@@ -55,8 +57,10 @@ from .get_serviceendpoint_azurecr import *
 from .get_serviceendpoint_bitbucket import *
 from .get_serviceendpoint_npm import *
 from .get_serviceendpoint_sonarcloud import *
+from .get_storage_key import *
 from .get_team import *
 from .get_teams import *
+from .get_user import *
 from .get_users import *
 from .get_variable_group import *
 from .git import *
@@ -295,6 +299,14 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/checkRestApi:CheckRestApi": "CheckRestApi"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/dashboard",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/dashboard:Dashboard": "Dashboard"
   }
  },
  {

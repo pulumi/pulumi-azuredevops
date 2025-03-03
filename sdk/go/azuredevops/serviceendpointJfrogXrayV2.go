@@ -215,7 +215,6 @@ type serviceendpointJfrogXrayV2Args struct {
 	AuthenticationBasic *ServiceendpointJfrogXrayV2AuthenticationBasic `pulumi:"authenticationBasic"`
 	// An `authenticationToken` block as documented below.
 	AuthenticationToken *ServiceendpointJfrogXrayV2AuthenticationToken `pulumi:"authenticationToken"`
-	Authorization       map[string]string                              `pulumi:"authorization"`
 	// The Service Endpoint description.
 	Description *string `pulumi:"description"`
 	// The ID of the project.
@@ -234,7 +233,6 @@ type ServiceendpointJfrogXrayV2Args struct {
 	AuthenticationBasic ServiceendpointJfrogXrayV2AuthenticationBasicPtrInput
 	// An `authenticationToken` block as documented below.
 	AuthenticationToken ServiceendpointJfrogXrayV2AuthenticationTokenPtrInput
-	Authorization       pulumi.StringMapInput
 	// The Service Endpoint description.
 	Description pulumi.StringPtrInput
 	// The ID of the project.

@@ -23,7 +23,6 @@ class ServiceendpointCheckmarxOneArgs:
                  server_url: pulumi.Input[str],
                  service_endpoint_name: pulumi.Input[str],
                  api_key: Optional[pulumi.Input[str]] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  authorization_url: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
@@ -45,8 +44,6 @@ class ServiceendpointCheckmarxOneArgs:
         pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
-        if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
         if authorization_url is not None:
             pulumi.set(__self__, "authorization_url", authorization_url)
         if client_id is not None:
@@ -103,15 +100,6 @@ class ServiceendpointCheckmarxOneArgs:
     @api_key.setter
     def api_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "api_key", value)
-
-    @property
-    @pulumi.getter
-    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "authorization")
-
-    @authorization.setter
-    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "authorization", value)
 
     @property
     @pulumi.getter(name="authorizationUrl")
@@ -315,7 +303,6 @@ class ServiceendpointCheckmarxOne(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key: Optional[pulumi.Input[str]] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  authorization_url: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
@@ -472,7 +459,6 @@ class ServiceendpointCheckmarxOne(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key: Optional[pulumi.Input[str]] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  authorization_url: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
@@ -490,7 +476,6 @@ class ServiceendpointCheckmarxOne(pulumi.CustomResource):
             __props__ = ServiceendpointCheckmarxOneArgs.__new__(ServiceendpointCheckmarxOneArgs)
 
             __props__.__dict__["api_key"] = None if api_key is None else pulumi.Output.secret(api_key)
-            __props__.__dict__["authorization"] = authorization
             __props__.__dict__["authorization_url"] = authorization_url
             __props__.__dict__["client_id"] = client_id
             __props__.__dict__["client_secret"] = None if client_secret is None else pulumi.Output.secret(client_secret)
@@ -504,6 +489,7 @@ class ServiceendpointCheckmarxOne(pulumi.CustomResource):
             if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")
             __props__.__dict__["service_endpoint_name"] = service_endpoint_name
+            __props__.__dict__["authorization"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiKey", "clientSecret"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceendpointCheckmarxOne, __self__).__init__(

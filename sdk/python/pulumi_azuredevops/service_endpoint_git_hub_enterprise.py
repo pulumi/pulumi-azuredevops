@@ -25,7 +25,6 @@ class ServiceEndpointGitHubEnterpriseArgs:
                  project_id: pulumi.Input[str],
                  service_endpoint_name: pulumi.Input[str],
                  url: pulumi.Input[str],
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServiceEndpointGitHubEnterprise resource.
@@ -38,8 +37,6 @@ class ServiceEndpointGitHubEnterpriseArgs:
         pulumi.set(__self__, "project_id", project_id)
         pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
         pulumi.set(__self__, "url", url)
-        if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
         if description is not None:
             pulumi.set(__self__, "description", description)
 
@@ -90,15 +87,6 @@ class ServiceEndpointGitHubEnterpriseArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
-
-    @property
-    @pulumi.getter
-    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "authorization")
-
-    @authorization.setter
-    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "authorization", value)
 
     @property
     @pulumi.getter
@@ -212,7 +200,6 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_personal: Optional[pulumi.Input[Union['ServiceEndpointGitHubEnterpriseAuthPersonalArgs', 'ServiceEndpointGitHubEnterpriseAuthPersonalArgsDict']]] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  service_endpoint_name: Optional[pulumi.Input[str]] = None,
@@ -321,7 +308,6 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_personal: Optional[pulumi.Input[Union['ServiceEndpointGitHubEnterpriseAuthPersonalArgs', 'ServiceEndpointGitHubEnterpriseAuthPersonalArgsDict']]] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  service_endpoint_name: Optional[pulumi.Input[str]] = None,
@@ -338,7 +324,6 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
             if auth_personal is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_personal'")
             __props__.__dict__["auth_personal"] = auth_personal
-            __props__.__dict__["authorization"] = authorization
             __props__.__dict__["description"] = description
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
@@ -349,6 +334,7 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
             if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
             __props__.__dict__["url"] = url
+            __props__.__dict__["authorization"] = None
         super(ServiceEndpointGitHubEnterprise, __self__).__init__(
             'azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise',
             resource_name,

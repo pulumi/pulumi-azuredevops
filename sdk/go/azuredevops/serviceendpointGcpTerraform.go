@@ -180,7 +180,6 @@ func (ServiceendpointGcpTerraformState) ElementType() reflect.Type {
 }
 
 type serviceendpointGcpTerraformArgs struct {
-	Authorization map[string]string `pulumi:"authorization"`
 	// The client email field in the JSON key file for creating the JSON Web Token.
 	ClientEmail *string `pulumi:"clientEmail"`
 	Description *string `pulumi:"description"`
@@ -200,7 +199,6 @@ type serviceendpointGcpTerraformArgs struct {
 
 // The set of arguments for constructing a ServiceendpointGcpTerraform resource.
 type ServiceendpointGcpTerraformArgs struct {
-	Authorization pulumi.StringMapInput
 	// The client email field in the JSON key file for creating the JSON Web Token.
 	ClientEmail pulumi.StringPtrInput
 	Description pulumi.StringPtrInput

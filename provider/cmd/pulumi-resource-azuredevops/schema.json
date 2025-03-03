@@ -2155,13 +2155,18 @@
                 "name": {
                     "type": "string",
                     "description": "This is the non-unique display name of the identity subject.\n"
+                },
+                "subjectDescriptor": {
+                    "type": "string",
+                    "description": "The subject descriptor of the identity group.\n"
                 }
             },
             "type": "object",
             "required": [
                 "descriptor",
                 "id",
-                "name"
+                "name",
+                "subjectDescriptor"
             ],
             "language": {
                 "nodejs": {
@@ -4737,6 +4742,99 @@
                 "type": "object"
             }
         },
+        "azuredevops:index/dashboard:Dashboard": {
+            "description": "Manages Dashboard within Azure DevOps project.\n\n\u003e **NOTE:** Project level Dashboard allows to be created with the same name. Dashboard held by a team must have a different name.\n\n## Example Usage\n\n### Manage Project dashboard\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = new azuredevops.Project(\"example\", {\n    name: \"Example Project\",\n    description: \"Managed by Pulumi\",\n});\nconst exampleDashboard = new azuredevops.Dashboard(\"example\", {\n    projectId: example.id,\n    name: \"Example dashboard\",\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.Project(\"example\",\n    name=\"Example Project\",\n    description=\"Managed by Pulumi\")\nexample_dashboard = azuredevops.Dashboard(\"example\",\n    project_id=example.id,\n    name=\"Example dashboard\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new AzureDevOps.Project(\"example\", new()\n    {\n        Name = \"Example Project\",\n        Description = \"Managed by Pulumi\",\n    });\n\n    var exampleDashboard = new AzureDevOps.Dashboard(\"example\", new()\n    {\n        ProjectId = example.Id,\n        Name = \"Example dashboard\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := azuredevops.NewProject(ctx, \"example\", \u0026azuredevops.ProjectArgs{\n\t\t\tName:        pulumi.String(\"Example Project\"),\n\t\t\tDescription: pulumi.String(\"Managed by Pulumi\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewDashboard(ctx, \"example\", \u0026azuredevops.DashboardArgs{\n\t\t\tProjectId: example.ID(),\n\t\t\tName:      pulumi.String(\"Example dashboard\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Project;\nimport com.pulumi.azuredevops.ProjectArgs;\nimport com.pulumi.azuredevops.Dashboard;\nimport com.pulumi.azuredevops.DashboardArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Project(\"example\", ProjectArgs.builder()\n            .name(\"Example Project\")\n            .description(\"Managed by Pulumi\")\n            .build());\n\n        var exampleDashboard = new Dashboard(\"exampleDashboard\", DashboardArgs.builder()\n            .projectId(example.id())\n            .name(\"Example dashboard\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: azuredevops:Project\n    properties:\n      name: Example Project\n      description: Managed by Pulumi\n  exampleDashboard:\n    type: azuredevops:Dashboard\n    name: example\n    properties:\n      projectId: ${example.id}\n      name: Example dashboard\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Manage Team dashboard\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = new azuredevops.Project(\"example\", {\n    name: \"Example Project\",\n    description: \"Managed by Pulumi\",\n});\nconst exampleTeam = new azuredevops.Team(\"example\", {\n    projectId: example.id,\n    name: \"Example team\",\n});\nconst exampleDashboard = new azuredevops.Dashboard(\"example\", {\n    projectId: example.id,\n    name: \"Example dashboard\",\n    teamId: exampleTeam.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.Project(\"example\",\n    name=\"Example Project\",\n    description=\"Managed by Pulumi\")\nexample_team = azuredevops.Team(\"example\",\n    project_id=example.id,\n    name=\"Example team\")\nexample_dashboard = azuredevops.Dashboard(\"example\",\n    project_id=example.id,\n    name=\"Example dashboard\",\n    team_id=example_team.id)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new AzureDevOps.Project(\"example\", new()\n    {\n        Name = \"Example Project\",\n        Description = \"Managed by Pulumi\",\n    });\n\n    var exampleTeam = new AzureDevOps.Team(\"example\", new()\n    {\n        ProjectId = example.Id,\n        Name = \"Example team\",\n    });\n\n    var exampleDashboard = new AzureDevOps.Dashboard(\"example\", new()\n    {\n        ProjectId = example.Id,\n        Name = \"Example dashboard\",\n        TeamId = exampleTeam.Id,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := azuredevops.NewProject(ctx, \"example\", \u0026azuredevops.ProjectArgs{\n\t\t\tName:        pulumi.String(\"Example Project\"),\n\t\t\tDescription: pulumi.String(\"Managed by Pulumi\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleTeam, err := azuredevops.NewTeam(ctx, \"example\", \u0026azuredevops.TeamArgs{\n\t\t\tProjectId: example.ID(),\n\t\t\tName:      pulumi.String(\"Example team\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewDashboard(ctx, \"example\", \u0026azuredevops.DashboardArgs{\n\t\t\tProjectId: example.ID(),\n\t\t\tName:      pulumi.String(\"Example dashboard\"),\n\t\t\tTeamId:    exampleTeam.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Project;\nimport com.pulumi.azuredevops.ProjectArgs;\nimport com.pulumi.azuredevops.Team;\nimport com.pulumi.azuredevops.TeamArgs;\nimport com.pulumi.azuredevops.Dashboard;\nimport com.pulumi.azuredevops.DashboardArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Project(\"example\", ProjectArgs.builder()\n            .name(\"Example Project\")\n            .description(\"Managed by Pulumi\")\n            .build());\n\n        var exampleTeam = new Team(\"exampleTeam\", TeamArgs.builder()\n            .projectId(example.id())\n            .name(\"Example team\")\n            .build());\n\n        var exampleDashboard = new Dashboard(\"exampleDashboard\", DashboardArgs.builder()\n            .projectId(example.id())\n            .name(\"Example dashboard\")\n            .teamId(exampleTeam.id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: azuredevops:Project\n    properties:\n      name: Example Project\n      description: Managed by Pulumi\n  exampleTeam:\n    type: azuredevops:Team\n    name: example\n    properties:\n      projectId: ${example.id}\n      name: Example team\n  exampleDashboard:\n    type: azuredevops:Dashboard\n    name: example\n    properties:\n      projectId: ${example.id}\n      name: Example dashboard\n      teamId: ${exampleTeam.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Relevant Links\n\n- [Azure DevOps dashboards REST API 7.1 - Dashboard ](https://learn.microsoft.com/en-us/rest/api/azure/devops/dashboard/dashboards?view=azure-devops-rest-7.1)\n\n## Import\n\nAzure DevOps Dashboard can be imported using the `projectId/dasboardId` or `projectId/teamId/dasboardId`\n\n```sh\n$ pulumi import azuredevops:index/dashboard:Dashboard dashboard 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000\n```\n\nor \n\n```sh\n$ pulumi import azuredevops:index/dashboard:Dashboard dashboard 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000\n```\n\n",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the dashboard.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the Dashboard.\n"
+                },
+                "ownerId": {
+                    "type": "string",
+                    "description": "The owner of the Dashboard, could be the project or a team.\n"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The ID of the Project. Changing this forces a new resource to be created.\n"
+                },
+                "refreshInterval": {
+                    "type": "integer",
+                    "description": "The interval for client to automatically refresh the dashboard. Expressed in minutes. Possible values are: `0`, `5`.Defaults to `0`.\n"
+                },
+                "teamId": {
+                    "type": "string",
+                    "description": "The ID of the Team.\n"
+                }
+            },
+            "required": [
+                "name",
+                "ownerId",
+                "projectId"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the dashboard.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the Dashboard.\n"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The ID of the Project. Changing this forces a new resource to be created.\n",
+                    "willReplaceOnChanges": true
+                },
+                "refreshInterval": {
+                    "type": "integer",
+                    "description": "The interval for client to automatically refresh the dashboard. Expressed in minutes. Possible values are: `0`, `5`.Defaults to `0`.\n"
+                },
+                "teamId": {
+                    "type": "string",
+                    "description": "The ID of the Team.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "projectId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Dashboard resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "The description of the dashboard.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the Dashboard.\n"
+                    },
+                    "ownerId": {
+                        "type": "string",
+                        "description": "The owner of the Dashboard, could be the project or a team.\n"
+                    },
+                    "projectId": {
+                        "type": "string",
+                        "description": "The ID of the Project. Changing this forces a new resource to be created.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "refreshInterval": {
+                        "type": "integer",
+                        "description": "The interval for client to automatically refresh the dashboard. Expressed in minutes. Possible values are: `0`, `5`.Defaults to `0`.\n"
+                    },
+                    "teamId": {
+                        "type": "string",
+                        "description": "The ID of the Team.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
         "azuredevops:index/elasticPool:ElasticPool": {
             "description": "Manages Elastic pool within Azure DevOps.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = new azuredevops.Project(\"example\", {\n    name: \"Example Project\",\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n    description: \"Managed by Pulumi\",\n});\nconst exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM(\"example\", {\n    projectId: example.id,\n    serviceEndpointName: \"Example Azure Connection\",\n    description: \"Managed by Pulumi\",\n    serviceEndpointAuthenticationScheme: \"ServicePrincipal\",\n    credentials: {\n        serviceprincipalid: \"00000000-0000-0000-0000-000000000000\",\n        serviceprincipalkey: \"00000000-0000-0000-0000-000000000000\",\n    },\n    azurermSpnTenantid: \"00000000-0000-0000-0000-000000000000\",\n    azurermSubscriptionId: \"00000000-0000-0000-0000-000000000000\",\n    azurermSubscriptionName: \"Subscription Name\",\n});\nconst exampleElasticPool = new azuredevops.ElasticPool(\"example\", {\n    name: \"Example Elastic Pool\",\n    serviceEndpointId: exampleServiceEndpointAzureRM.id,\n    serviceEndpointScope: example.id,\n    desiredIdle: 2,\n    maxCapacity: 3,\n    azureResourceId: \"/subscriptions/\u003cSubscription Id\u003e/resourceGroups/\u003cResource Name\u003e/providers/Microsoft.Compute/virtualMachineScaleSets/\u003cVMSS Name\u003e\",\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.Project(\"example\",\n    name=\"Example Project\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\",\n    description=\"Managed by Pulumi\")\nexample_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM(\"example\",\n    project_id=example.id,\n    service_endpoint_name=\"Example Azure Connection\",\n    description=\"Managed by Pulumi\",\n    service_endpoint_authentication_scheme=\"ServicePrincipal\",\n    credentials={\n        \"serviceprincipalid\": \"00000000-0000-0000-0000-000000000000\",\n        \"serviceprincipalkey\": \"00000000-0000-0000-0000-000000000000\",\n    },\n    azurerm_spn_tenantid=\"00000000-0000-0000-0000-000000000000\",\n    azurerm_subscription_id=\"00000000-0000-0000-0000-000000000000\",\n    azurerm_subscription_name=\"Subscription Name\")\nexample_elastic_pool = azuredevops.ElasticPool(\"example\",\n    name=\"Example Elastic Pool\",\n    service_endpoint_id=example_service_endpoint_azure_rm.id,\n    service_endpoint_scope=example.id,\n    desired_idle=2,\n    max_capacity=3,\n    azure_resource_id=\"/subscriptions/\u003cSubscription Id\u003e/resourceGroups/\u003cResource Name\u003e/providers/Microsoft.Compute/virtualMachineScaleSets/\u003cVMSS Name\u003e\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new AzureDevOps.Project(\"example\", new()\n    {\n        Name = \"Example Project\",\n        Visibility = \"private\",\n        VersionControl = \"Git\",\n        WorkItemTemplate = \"Agile\",\n        Description = \"Managed by Pulumi\",\n    });\n\n    var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM(\"example\", new()\n    {\n        ProjectId = example.Id,\n        ServiceEndpointName = \"Example Azure Connection\",\n        Description = \"Managed by Pulumi\",\n        ServiceEndpointAuthenticationScheme = \"ServicePrincipal\",\n        Credentials = new AzureDevOps.Inputs.ServiceEndpointAzureRMCredentialsArgs\n        {\n            Serviceprincipalid = \"00000000-0000-0000-0000-000000000000\",\n            Serviceprincipalkey = \"00000000-0000-0000-0000-000000000000\",\n        },\n        AzurermSpnTenantid = \"00000000-0000-0000-0000-000000000000\",\n        AzurermSubscriptionId = \"00000000-0000-0000-0000-000000000000\",\n        AzurermSubscriptionName = \"Subscription Name\",\n    });\n\n    var exampleElasticPool = new AzureDevOps.ElasticPool(\"example\", new()\n    {\n        Name = \"Example Elastic Pool\",\n        ServiceEndpointId = exampleServiceEndpointAzureRM.Id,\n        ServiceEndpointScope = example.Id,\n        DesiredIdle = 2,\n        MaxCapacity = 3,\n        AzureResourceId = \"/subscriptions/\u003cSubscription Id\u003e/resourceGroups/\u003cResource Name\u003e/providers/Microsoft.Compute/virtualMachineScaleSets/\u003cVMSS Name\u003e\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := azuredevops.NewProject(ctx, \"example\", \u0026azuredevops.ProjectArgs{\n\t\t\tName:             pulumi.String(\"Example Project\"),\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t\tDescription:      pulumi.String(\"Managed by Pulumi\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleServiceEndpointAzureRM, err := azuredevops.NewServiceEndpointAzureRM(ctx, \"example\", \u0026azuredevops.ServiceEndpointAzureRMArgs{\n\t\t\tProjectId:                           example.ID(),\n\t\t\tServiceEndpointName:                 pulumi.String(\"Example Azure Connection\"),\n\t\t\tDescription:                         pulumi.String(\"Managed by Pulumi\"),\n\t\t\tServiceEndpointAuthenticationScheme: pulumi.String(\"ServicePrincipal\"),\n\t\t\tCredentials: \u0026azuredevops.ServiceEndpointAzureRMCredentialsArgs{\n\t\t\t\tServiceprincipalid:  pulumi.String(\"00000000-0000-0000-0000-000000000000\"),\n\t\t\t\tServiceprincipalkey: pulumi.String(\"00000000-0000-0000-0000-000000000000\"),\n\t\t\t},\n\t\t\tAzurermSpnTenantid:      pulumi.String(\"00000000-0000-0000-0000-000000000000\"),\n\t\t\tAzurermSubscriptionId:   pulumi.String(\"00000000-0000-0000-0000-000000000000\"),\n\t\t\tAzurermSubscriptionName: pulumi.String(\"Subscription Name\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewElasticPool(ctx, \"example\", \u0026azuredevops.ElasticPoolArgs{\n\t\t\tName:                 pulumi.String(\"Example Elastic Pool\"),\n\t\t\tServiceEndpointId:    exampleServiceEndpointAzureRM.ID(),\n\t\t\tServiceEndpointScope: example.ID(),\n\t\t\tDesiredIdle:          pulumi.Int(2),\n\t\t\tMaxCapacity:          pulumi.Int(3),\n\t\t\tAzureResourceId:      pulumi.String(\"/subscriptions/\u003cSubscription Id\u003e/resourceGroups/\u003cResource Name\u003e/providers/Microsoft.Compute/virtualMachineScaleSets/\u003cVMSS Name\u003e\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Project;\nimport com.pulumi.azuredevops.ProjectArgs;\nimport com.pulumi.azuredevops.ServiceEndpointAzureRM;\nimport com.pulumi.azuredevops.ServiceEndpointAzureRMArgs;\nimport com.pulumi.azuredevops.inputs.ServiceEndpointAzureRMCredentialsArgs;\nimport com.pulumi.azuredevops.ElasticPool;\nimport com.pulumi.azuredevops.ElasticPoolArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Project(\"example\", ProjectArgs.builder()\n            .name(\"Example Project\")\n            .visibility(\"private\")\n            .versionControl(\"Git\")\n            .workItemTemplate(\"Agile\")\n            .description(\"Managed by Pulumi\")\n            .build());\n\n        var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM(\"exampleServiceEndpointAzureRM\", ServiceEndpointAzureRMArgs.builder()\n            .projectId(example.id())\n            .serviceEndpointName(\"Example Azure Connection\")\n            .description(\"Managed by Pulumi\")\n            .serviceEndpointAuthenticationScheme(\"ServicePrincipal\")\n            .credentials(ServiceEndpointAzureRMCredentialsArgs.builder()\n                .serviceprincipalid(\"00000000-0000-0000-0000-000000000000\")\n                .serviceprincipalkey(\"00000000-0000-0000-0000-000000000000\")\n                .build())\n            .azurermSpnTenantid(\"00000000-0000-0000-0000-000000000000\")\n            .azurermSubscriptionId(\"00000000-0000-0000-0000-000000000000\")\n            .azurermSubscriptionName(\"Subscription Name\")\n            .build());\n\n        var exampleElasticPool = new ElasticPool(\"exampleElasticPool\", ElasticPoolArgs.builder()\n            .name(\"Example Elastic Pool\")\n            .serviceEndpointId(exampleServiceEndpointAzureRM.id())\n            .serviceEndpointScope(example.id())\n            .desiredIdle(2)\n            .maxCapacity(3)\n            .azureResourceId(\"/subscriptions/\u003cSubscription Id\u003e/resourceGroups/\u003cResource Name\u003e/providers/Microsoft.Compute/virtualMachineScaleSets/\u003cVMSS Name\u003e\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: azuredevops:Project\n    properties:\n      name: Example Project\n      visibility: private\n      versionControl: Git\n      workItemTemplate: Agile\n      description: Managed by Pulumi\n  exampleServiceEndpointAzureRM:\n    type: azuredevops:ServiceEndpointAzureRM\n    name: example\n    properties:\n      projectId: ${example.id}\n      serviceEndpointName: Example Azure Connection\n      description: Managed by Pulumi\n      serviceEndpointAuthenticationScheme: ServicePrincipal\n      credentials:\n        serviceprincipalid: 00000000-0000-0000-0000-000000000000\n        serviceprincipalkey: 00000000-0000-0000-0000-000000000000\n      azurermSpnTenantid: 00000000-0000-0000-0000-000000000000\n      azurermSubscriptionId: 00000000-0000-0000-0000-000000000000\n      azurermSubscriptionName: Subscription Name\n  exampleElasticPool:\n    type: azuredevops:ElasticPool\n    name: example\n    properties:\n      name: Example Elastic Pool\n      serviceEndpointId: ${exampleServiceEndpointAzureRM.id}\n      serviceEndpointScope: ${example.id}\n      desiredIdle: 2\n      maxCapacity: 3\n      azureResourceId: /subscriptions/\u003cSubscription Id\u003e/resourceGroups/\u003cResource Name\u003e/providers/Microsoft.Compute/virtualMachineScaleSets/\u003cVMSS Name\u003e\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Relevant Links\n\n- [Azure DevOps Service REST API 7.0 - Elastic Pools](https://learn.microsoft.com/en-us/rest/api/azure/devops/distributedtask/elasticpools/create?view=azure-devops-rest-7.0)\n\n## Import\n\nAzure DevOps Agent Pools can be imported using the Elastic pool ID, e.g.\n\n```sh\n$ pulumi import azuredevops:index/elasticPool:ElasticPool example 0\n```\n\n",
             "properties": {
@@ -5264,7 +5362,7 @@
             }
         },
         "azuredevops:index/feedRetentionPolicy:FeedRetentionPolicy": {
-            "description": "## layout: \"azuredevops\"\n\n---\n## page_title: \"AzureDevops: azuredevops.FeedRetentionPolicy\"\n\ndescription: |-\n  Manages the Feed Retention Policy within Azure DevOps organization.\n---\n\n# azuredevops.FeedRetentionPolicy\n\nManages the Feed Retention Policy within Azure DevOps.\n\n## Example Usage\n\n### Project Feed\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = new azuredevops.Project(\"example\", {\n    name: \"Example Project\",\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n    description: \"Managed by Pulumi\",\n});\nconst exampleFeed = new azuredevops.Feed(\"example\", {\n    name: \"ExampleFeed\",\n    projectId: example.id,\n});\nconst exampleFeedRetentionPolicy = new azuredevops.FeedRetentionPolicy(\"example\", {\n    projectId: example.id,\n    feedId: exampleFeed.id,\n    countLimit: 20,\n    daysToKeepRecentlyDownloadedPackages: 30,\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.Project(\"example\",\n    name=\"Example Project\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\",\n    description=\"Managed by Pulumi\")\nexample_feed = azuredevops.Feed(\"example\",\n    name=\"ExampleFeed\",\n    project_id=example.id)\nexample_feed_retention_policy = azuredevops.FeedRetentionPolicy(\"example\",\n    project_id=example.id,\n    feed_id=example_feed.id,\n    count_limit=20,\n    days_to_keep_recently_downloaded_packages=30)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new AzureDevOps.Project(\"example\", new()\n    {\n        Name = \"Example Project\",\n        Visibility = \"private\",\n        VersionControl = \"Git\",\n        WorkItemTemplate = \"Agile\",\n        Description = \"Managed by Pulumi\",\n    });\n\n    var exampleFeed = new AzureDevOps.Feed(\"example\", new()\n    {\n        Name = \"ExampleFeed\",\n        ProjectId = example.Id,\n    });\n\n    var exampleFeedRetentionPolicy = new AzureDevOps.FeedRetentionPolicy(\"example\", new()\n    {\n        ProjectId = example.Id,\n        FeedId = exampleFeed.Id,\n        CountLimit = 20,\n        DaysToKeepRecentlyDownloadedPackages = 30,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := azuredevops.NewProject(ctx, \"example\", \u0026azuredevops.ProjectArgs{\n\t\t\tName:             pulumi.String(\"Example Project\"),\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t\tDescription:      pulumi.String(\"Managed by Pulumi\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleFeed, err := azuredevops.NewFeed(ctx, \"example\", \u0026azuredevops.FeedArgs{\n\t\t\tName:      pulumi.String(\"ExampleFeed\"),\n\t\t\tProjectId: example.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewFeedRetentionPolicy(ctx, \"example\", \u0026azuredevops.FeedRetentionPolicyArgs{\n\t\t\tProjectId:                            example.ID(),\n\t\t\tFeedId:                               exampleFeed.ID(),\n\t\t\tCountLimit:                           pulumi.Int(20),\n\t\t\tDaysToKeepRecentlyDownloadedPackages: pulumi.Int(30),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Project;\nimport com.pulumi.azuredevops.ProjectArgs;\nimport com.pulumi.azuredevops.Feed;\nimport com.pulumi.azuredevops.FeedArgs;\nimport com.pulumi.azuredevops.FeedRetentionPolicy;\nimport com.pulumi.azuredevops.FeedRetentionPolicyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Project(\"example\", ProjectArgs.builder()\n            .name(\"Example Project\")\n            .visibility(\"private\")\n            .versionControl(\"Git\")\n            .workItemTemplate(\"Agile\")\n            .description(\"Managed by Pulumi\")\n            .build());\n\n        var exampleFeed = new Feed(\"exampleFeed\", FeedArgs.builder()\n            .name(\"ExampleFeed\")\n            .projectId(example.id())\n            .build());\n\n        var exampleFeedRetentionPolicy = new FeedRetentionPolicy(\"exampleFeedRetentionPolicy\", FeedRetentionPolicyArgs.builder()\n            .projectId(example.id())\n            .feedId(exampleFeed.id())\n            .countLimit(20)\n            .daysToKeepRecentlyDownloadedPackages(30)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: azuredevops:Project\n    properties:\n      name: Example Project\n      visibility: private\n      versionControl: Git\n      workItemTemplate: Agile\n      description: Managed by Pulumi\n  exampleFeed:\n    type: azuredevops:Feed\n    name: example\n    properties:\n      name: ExampleFeed\n      projectId: ${example.id}\n  exampleFeedRetentionPolicy:\n    type: azuredevops:FeedRetentionPolicy\n    name: example\n    properties:\n      projectId: ${example.id}\n      feedId: ${exampleFeed.id}\n      countLimit: 20\n      daysToKeepRecentlyDownloadedPackages: 30\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Organization Feed\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = new azuredevops.Feed(\"example\", {name: \"examplefeed\"});\nconst exampleFeedRetentionPolicy = new azuredevops.FeedRetentionPolicy(\"example\", {\n    feedId: example.id,\n    countLimit: 20,\n    daysToKeepRecentlyDownloadedPackages: 30,\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.Feed(\"example\", name=\"examplefeed\")\nexample_feed_retention_policy = azuredevops.FeedRetentionPolicy(\"example\",\n    feed_id=example.id,\n    count_limit=20,\n    days_to_keep_recently_downloaded_packages=30)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new AzureDevOps.Feed(\"example\", new()\n    {\n        Name = \"examplefeed\",\n    });\n\n    var exampleFeedRetentionPolicy = new AzureDevOps.FeedRetentionPolicy(\"example\", new()\n    {\n        FeedId = example.Id,\n        CountLimit = 20,\n        DaysToKeepRecentlyDownloadedPackages = 30,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := azuredevops.NewFeed(ctx, \"example\", \u0026azuredevops.FeedArgs{\n\t\t\tName: pulumi.String(\"examplefeed\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewFeedRetentionPolicy(ctx, \"example\", \u0026azuredevops.FeedRetentionPolicyArgs{\n\t\t\tFeedId:                               example.ID(),\n\t\t\tCountLimit:                           pulumi.Int(20),\n\t\t\tDaysToKeepRecentlyDownloadedPackages: pulumi.Int(30),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Feed;\nimport com.pulumi.azuredevops.FeedArgs;\nimport com.pulumi.azuredevops.FeedRetentionPolicy;\nimport com.pulumi.azuredevops.FeedRetentionPolicyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Feed(\"example\", FeedArgs.builder()\n            .name(\"examplefeed\")\n            .build());\n\n        var exampleFeedRetentionPolicy = new FeedRetentionPolicy(\"exampleFeedRetentionPolicy\", FeedRetentionPolicyArgs.builder()\n            .feedId(example.id())\n            .countLimit(20)\n            .daysToKeepRecentlyDownloadedPackages(30)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: azuredevops:Feed\n    properties:\n      name: examplefeed\n  exampleFeedRetentionPolicy:\n    type: azuredevops:FeedRetentionPolicy\n    name: example\n    properties:\n      feedId: ${example.id}\n      countLimit: 20\n      daysToKeepRecentlyDownloadedPackages: 30\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Relevant Links\n\n- [Azure DevOps Service REST API 7.0 - Feed Management](https://learn.microsoft.com/en-us/rest/api/azure/devops/artifacts/feed-management?view=azure-devops-rest-7.0)\n\n## Import\n\nAzure DevOps Feed Retention Policy can be imported using the Project ID and Feed ID or Feed ID e.g.:\n\n```sh\n$ pulumi import azuredevops:index/feedRetentionPolicy:FeedRetentionPolicy example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000\n```\n\nor \n\n```sh\n$ pulumi import azuredevops:index/feedRetentionPolicy:FeedRetentionPolicy example 00000000-0000-0000-0000-000000000000\n```\n\n",
+            "description": "Manages the Feed Retention Policy within Azure DevOps.\n\n## Example Usage\n\n### Project Feed\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = new azuredevops.Project(\"example\", {\n    name: \"Example Project\",\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n    description: \"Managed by Pulumi\",\n});\nconst exampleFeed = new azuredevops.Feed(\"example\", {\n    name: \"ExampleFeed\",\n    projectId: example.id,\n});\nconst exampleFeedRetentionPolicy = new azuredevops.FeedRetentionPolicy(\"example\", {\n    projectId: example.id,\n    feedId: exampleFeed.id,\n    countLimit: 20,\n    daysToKeepRecentlyDownloadedPackages: 30,\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.Project(\"example\",\n    name=\"Example Project\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\",\n    description=\"Managed by Pulumi\")\nexample_feed = azuredevops.Feed(\"example\",\n    name=\"ExampleFeed\",\n    project_id=example.id)\nexample_feed_retention_policy = azuredevops.FeedRetentionPolicy(\"example\",\n    project_id=example.id,\n    feed_id=example_feed.id,\n    count_limit=20,\n    days_to_keep_recently_downloaded_packages=30)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new AzureDevOps.Project(\"example\", new()\n    {\n        Name = \"Example Project\",\n        Visibility = \"private\",\n        VersionControl = \"Git\",\n        WorkItemTemplate = \"Agile\",\n        Description = \"Managed by Pulumi\",\n    });\n\n    var exampleFeed = new AzureDevOps.Feed(\"example\", new()\n    {\n        Name = \"ExampleFeed\",\n        ProjectId = example.Id,\n    });\n\n    var exampleFeedRetentionPolicy = new AzureDevOps.FeedRetentionPolicy(\"example\", new()\n    {\n        ProjectId = example.Id,\n        FeedId = exampleFeed.Id,\n        CountLimit = 20,\n        DaysToKeepRecentlyDownloadedPackages = 30,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := azuredevops.NewProject(ctx, \"example\", \u0026azuredevops.ProjectArgs{\n\t\t\tName:             pulumi.String(\"Example Project\"),\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t\tDescription:      pulumi.String(\"Managed by Pulumi\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleFeed, err := azuredevops.NewFeed(ctx, \"example\", \u0026azuredevops.FeedArgs{\n\t\t\tName:      pulumi.String(\"ExampleFeed\"),\n\t\t\tProjectId: example.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewFeedRetentionPolicy(ctx, \"example\", \u0026azuredevops.FeedRetentionPolicyArgs{\n\t\t\tProjectId:                            example.ID(),\n\t\t\tFeedId:                               exampleFeed.ID(),\n\t\t\tCountLimit:                           pulumi.Int(20),\n\t\t\tDaysToKeepRecentlyDownloadedPackages: pulumi.Int(30),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Project;\nimport com.pulumi.azuredevops.ProjectArgs;\nimport com.pulumi.azuredevops.Feed;\nimport com.pulumi.azuredevops.FeedArgs;\nimport com.pulumi.azuredevops.FeedRetentionPolicy;\nimport com.pulumi.azuredevops.FeedRetentionPolicyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Project(\"example\", ProjectArgs.builder()\n            .name(\"Example Project\")\n            .visibility(\"private\")\n            .versionControl(\"Git\")\n            .workItemTemplate(\"Agile\")\n            .description(\"Managed by Pulumi\")\n            .build());\n\n        var exampleFeed = new Feed(\"exampleFeed\", FeedArgs.builder()\n            .name(\"ExampleFeed\")\n            .projectId(example.id())\n            .build());\n\n        var exampleFeedRetentionPolicy = new FeedRetentionPolicy(\"exampleFeedRetentionPolicy\", FeedRetentionPolicyArgs.builder()\n            .projectId(example.id())\n            .feedId(exampleFeed.id())\n            .countLimit(20)\n            .daysToKeepRecentlyDownloadedPackages(30)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: azuredevops:Project\n    properties:\n      name: Example Project\n      visibility: private\n      versionControl: Git\n      workItemTemplate: Agile\n      description: Managed by Pulumi\n  exampleFeed:\n    type: azuredevops:Feed\n    name: example\n    properties:\n      name: ExampleFeed\n      projectId: ${example.id}\n  exampleFeedRetentionPolicy:\n    type: azuredevops:FeedRetentionPolicy\n    name: example\n    properties:\n      projectId: ${example.id}\n      feedId: ${exampleFeed.id}\n      countLimit: 20\n      daysToKeepRecentlyDownloadedPackages: 30\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Organization Feed\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = new azuredevops.Feed(\"example\", {name: \"examplefeed\"});\nconst exampleFeedRetentionPolicy = new azuredevops.FeedRetentionPolicy(\"example\", {\n    feedId: example.id,\n    countLimit: 20,\n    daysToKeepRecentlyDownloadedPackages: 30,\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.Feed(\"example\", name=\"examplefeed\")\nexample_feed_retention_policy = azuredevops.FeedRetentionPolicy(\"example\",\n    feed_id=example.id,\n    count_limit=20,\n    days_to_keep_recently_downloaded_packages=30)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new AzureDevOps.Feed(\"example\", new()\n    {\n        Name = \"examplefeed\",\n    });\n\n    var exampleFeedRetentionPolicy = new AzureDevOps.FeedRetentionPolicy(\"example\", new()\n    {\n        FeedId = example.Id,\n        CountLimit = 20,\n        DaysToKeepRecentlyDownloadedPackages = 30,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := azuredevops.NewFeed(ctx, \"example\", \u0026azuredevops.FeedArgs{\n\t\t\tName: pulumi.String(\"examplefeed\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewFeedRetentionPolicy(ctx, \"example\", \u0026azuredevops.FeedRetentionPolicyArgs{\n\t\t\tFeedId:                               example.ID(),\n\t\t\tCountLimit:                           pulumi.Int(20),\n\t\t\tDaysToKeepRecentlyDownloadedPackages: pulumi.Int(30),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Feed;\nimport com.pulumi.azuredevops.FeedArgs;\nimport com.pulumi.azuredevops.FeedRetentionPolicy;\nimport com.pulumi.azuredevops.FeedRetentionPolicyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Feed(\"example\", FeedArgs.builder()\n            .name(\"examplefeed\")\n            .build());\n\n        var exampleFeedRetentionPolicy = new FeedRetentionPolicy(\"exampleFeedRetentionPolicy\", FeedRetentionPolicyArgs.builder()\n            .feedId(example.id())\n            .countLimit(20)\n            .daysToKeepRecentlyDownloadedPackages(30)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: azuredevops:Feed\n    properties:\n      name: examplefeed\n  exampleFeedRetentionPolicy:\n    type: azuredevops:FeedRetentionPolicy\n    name: example\n    properties:\n      feedId: ${example.id}\n      countLimit: 20\n      daysToKeepRecentlyDownloadedPackages: 30\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Relevant Links\n\n- [Azure DevOps Service REST API 7.0 - Feed Management](https://learn.microsoft.com/en-us/rest/api/azure/devops/artifacts/feed-management?view=azure-devops-rest-7.0)\n\n## Import\n\nAzure DevOps Feed Retention Policy can be imported using the Project ID and Feed ID or Feed ID e.g.:\n\n```sh\n$ pulumi import azuredevops:index/feedRetentionPolicy:FeedRetentionPolicy example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000\n```\n\nor \n\n```sh\n$ pulumi import azuredevops:index/feedRetentionPolicy:FeedRetentionPolicy example 00000000-0000-0000-0000-000000000000\n```\n\n",
             "properties": {
                 "countLimit": {
                     "type": "integer",
@@ -7805,12 +7903,6 @@
                     "$ref": "#/types/azuredevops:index/ServiceEndpointArtifactoryAuthenticationToken:ServiceEndpointArtifactoryAuthenticationToken",
                     "description": "A `authentication_basic` block as defined below.\n"
                 },
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
-                },
                 "description": {
                     "type": "string",
                     "description": "The Service Endpoint description.\n"
@@ -7931,12 +8023,6 @@
                 "accessKeyId": {
                     "type": "string",
                     "description": "The AWS access key ID for signing programmatic requests.\n"
-                },
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
                 },
                 "description": {
                     "type": "string"
@@ -8079,12 +8165,6 @@
                 "serviceEndpointName"
             ],
             "inputProperties": {
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
-                },
                 "description": {
                     "type": "string"
                 },
@@ -8246,12 +8326,6 @@
                 "workloadIdentityFederationSubject"
             ],
             "inputProperties": {
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
-                },
                 "azurecrName": {
                     "type": "string",
                     "description": "The Azure container registry name.\n",
@@ -8473,12 +8547,6 @@
                 "workloadIdentityFederationSubject"
             ],
             "inputProperties": {
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
-                },
                 "azurermManagementGroupId": {
                     "type": "string",
                     "description": "The Management group ID of the Azure targets.\n"
@@ -8670,12 +8738,6 @@
                 "username"
             ],
             "inputProperties": {
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
-                },
                 "description": {
                     "type": "string"
                 },
@@ -8793,12 +8855,6 @@
                 "serviceEndpointName"
             ],
             "inputProperties": {
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
-                },
                 "description": {
                     "type": "string"
                 },
@@ -8938,12 +8994,6 @@
                 "serviceEndpointName"
             ],
             "inputProperties": {
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
-                },
                 "description": {
                     "type": "string"
                 },
@@ -9058,12 +9108,6 @@
                 "serviceEndpointName"
             ],
             "inputProperties": {
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
-                },
                 "description": {
                     "type": "string"
                 },
@@ -9184,12 +9228,6 @@
                     "$ref": "#/types/azuredevops:index/ServiceEndpointGitHubAuthPersonal:ServiceEndpointGitHubAuthPersonal",
                     "description": "An `auth_personal` block as documented below. Allows connecting using a personal access token.\n"
                 },
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
-                },
                 "description": {
                     "type": "string"
                 },
@@ -9280,12 +9318,6 @@
                 "authPersonal": {
                     "$ref": "#/types/azuredevops:index/ServiceEndpointGitHubEnterpriseAuthPersonal:ServiceEndpointGitHubEnterpriseAuthPersonal",
                     "description": "An `auth_personal` block as documented below. Allows connecting using a personal access token.\n"
-                },
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
                 },
                 "description": {
                     "type": "string"
@@ -9390,12 +9422,6 @@
                     "type": "string",
                     "description": "The API token of the GitLab.\n",
                     "secret": true
-                },
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
                 },
                 "description": {
                     "type": "string"
@@ -9518,12 +9544,6 @@
                 "apiserverUrl": {
                     "type": "string",
                     "description": "The hostname (in form of URI) of the Kubernetes API.\n"
-                },
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
                 },
                 "authorizationType": {
                     "type": "string",
@@ -9655,12 +9675,6 @@
                     "description": "The access token for npm registry.\n",
                     "secret": true
                 },
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
-                },
                 "description": {
                     "type": "string",
                     "description": "The Service Endpoint description.\n"
@@ -9760,12 +9774,6 @@
                 "authPersonal": {
                     "$ref": "#/types/azuredevops:index/ServiceEndpointPipelineAuthPersonal:ServiceEndpointPipelineAuthPersonal",
                     "description": "An `auth_personal` block as documented below. Allows connecting using a personal access token.\n"
-                },
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
                 },
                 "description": {
                     "type": "string"
@@ -9867,12 +9875,6 @@
                 "serviceEndpointName"
             ],
             "inputProperties": {
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
-                },
                 "azureActiveDirectory": {
                     "$ref": "#/types/azuredevops:index/ServiceEndpointServiceFabricAzureActiveDirectory:ServiceEndpointServiceFabricAzureActiveDirectory",
                     "description": "An `azure_active_directory` block as documented below.\n"
@@ -9982,12 +9984,6 @@
                 "token"
             ],
             "inputProperties": {
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
-                },
                 "description": {
                     "type": "string",
                     "description": "The Service Endpoint description.\n"
@@ -10082,12 +10078,6 @@
                 "url"
             ],
             "inputProperties": {
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
-                },
                 "description": {
                     "type": "string",
                     "description": "The Service Endpoint description.\n"
@@ -10203,12 +10193,6 @@
                 "username"
             ],
             "inputProperties": {
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
-                },
                 "description": {
                     "type": "string"
                 },
@@ -10436,12 +10420,6 @@
                     "$ref": "#/types/azuredevops:index/ServiceendpointArgocdAuthenticationToken:ServiceendpointArgocdAuthenticationToken",
                     "description": "An `authentication_token` block for the ArgoCD as documented below.\n"
                 },
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
-                },
                 "description": {
                     "type": "string",
                     "description": "The Service Endpoint description.\n"
@@ -10541,12 +10519,6 @@
                 "serviceEndpointName"
             ],
             "inputProperties": {
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
-                },
                 "connectionString": {
                     "type": "string",
                     "description": "The  Azure Service Bus Connection string.\n",
@@ -10663,12 +10635,6 @@
                     "type": "string",
                     "description": "The account of the Checkmarx One. Conflict with `client_id` and `client_secret`.\n",
                     "secret": true
-                },
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
                 },
                 "authorizationUrl": {
                     "type": "string",
@@ -10803,12 +10769,6 @@
                 "username"
             ],
             "inputProperties": {
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
-                },
                 "description": {
                     "type": "string"
                 },
@@ -10966,12 +10926,6 @@
                     "type": "string",
                     "description": "The account of the Checkmarx SCA.\n"
                 },
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
-                },
                 "description": {
                     "type": "string"
                 },
@@ -11123,12 +11077,6 @@
                 "username"
             ],
             "inputProperties": {
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
-                },
                 "authorizationEndpoint": {
                     "type": "string",
                     "description": "The URL of the Authentication Endpoint.\n"
@@ -11259,12 +11207,6 @@
                     "$ref": "#/types/azuredevops:index/ServiceendpointExternaltfsAuthPersonal:ServiceendpointExternaltfsAuthPersonal",
                     "description": "An `auth_personal` block as documented below. Allows connecting using a personal access token.\n"
                 },
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
-                },
                 "connectionUrl": {
                     "type": "string",
                     "description": "Azure DevOps Organization or TFS Project Collection Url.\n"
@@ -11372,12 +11314,6 @@
                 "tokenUri"
             ],
             "inputProperties": {
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
-                },
                 "clientEmail": {
                     "type": "string",
                     "description": "The client email field in the JSON key file for creating the JSON Web Token.\n"
@@ -11506,12 +11442,6 @@
                 "webhookName"
             ],
             "inputProperties": {
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
-                },
                 "description": {
                     "type": "string"
                 },
@@ -11631,12 +11561,6 @@
                 "acceptUntrustedCerts": {
                     "type": "boolean",
                     "description": "Allows the Jenkins clients to accept self-signed SSL server certificates. Defaults to `false.`\n"
-                },
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
                 },
                 "description": {
                     "type": "string"
@@ -11762,12 +11686,6 @@
                     "$ref": "#/types/azuredevops:index/ServiceendpointJfrogArtifactoryV2AuthenticationToken:ServiceendpointJfrogArtifactoryV2AuthenticationToken",
                     "description": "An `authentication_token` block as documented below.\n"
                 },
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
-                },
                 "description": {
                     "type": "string",
                     "description": "The Service Endpoint description.\n"
@@ -11877,12 +11795,6 @@
                 "authenticationToken": {
                     "$ref": "#/types/azuredevops:index/ServiceendpointJfrogDistributionV2AuthenticationToken:ServiceendpointJfrogDistributionV2AuthenticationToken",
                     "description": "An `authentication_token` block as documented below.\n"
-                },
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
                 },
                 "description": {
                     "type": "string",
@@ -11994,12 +11906,6 @@
                     "$ref": "#/types/azuredevops:index/ServiceendpointJfrogPlatformV2AuthenticationToken:ServiceendpointJfrogPlatformV2AuthenticationToken",
                     "description": "An `authentication_token` block as documented below.\n"
                 },
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
-                },
                 "description": {
                     "type": "string",
                     "description": "The Service Endpoint description.\n"
@@ -12109,12 +12015,6 @@
                 "authenticationToken": {
                     "$ref": "#/types/azuredevops:index/ServiceendpointJfrogXrayV2AuthenticationToken:ServiceendpointJfrogXrayV2AuthenticationToken",
                     "description": "An `authentication_token` block as documented below.\n"
-                },
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
                 },
                 "description": {
                     "type": "string",
@@ -12230,12 +12130,6 @@
                     "$ref": "#/types/azuredevops:index/ServiceendpointMavenAuthenticationToken:ServiceendpointMavenAuthenticationToken",
                     "description": "A `authentication_token` block as documented below.\n"
                 },
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
-                },
                 "description": {
                     "type": "string"
                 },
@@ -12347,12 +12241,6 @@
                 "username"
             ],
             "inputProperties": {
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
-                },
                 "description": {
                     "type": "string"
                 },
@@ -12479,12 +12367,6 @@
                     "type": "string",
                     "description": "The API Key used to connect to the endpoint.\n",
                     "secret": true
-                },
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
                 },
                 "description": {
                     "type": "string"
@@ -12614,12 +12496,6 @@
                 "apiKey": {
                     "type": "string",
                     "description": "API key to connect to Octopus Deploy.\n"
-                },
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
                 },
                 "description": {
                     "type": "string"
@@ -12826,12 +12702,6 @@
                     "description": "The API token of the Snyk Security Scan.\n",
                     "secret": true
                 },
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
-                },
                 "description": {
                     "type": "string"
                 },
@@ -12936,12 +12806,6 @@
                 "authenticationToken": {
                     "$ref": "#/types/azuredevops:index/ServiceendpointVisualstudiomarketplaceAuthenticationToken:ServiceendpointVisualstudiomarketplaceAuthenticationToken",
                     "description": "An `authentication_token` block as documented below.\n"
-                },
-                "authorization": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
                 },
                 "description": {
                     "type": "string"
@@ -14560,6 +14424,44 @@
                 "type": "object"
             }
         },
+        "azuredevops:index/getDescriptor:getDescriptor": {
+            "description": "Use this data source to access information about an existing Descriptor.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = azuredevops.getDescriptor({\n    storageKey: \"00000000-0000-0000-0000-000000000000\",\n});\nexport const id = example.then(example =\u003e example.id);\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.get_descriptor(storage_key=\"00000000-0000-0000-0000-000000000000\")\npulumi.export(\"id\", example.id)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = AzureDevOps.GetDescriptor.Invoke(new()\n    {\n        StorageKey = \"00000000-0000-0000-0000-000000000000\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"id\"] = example.Apply(getDescriptorResult =\u003e getDescriptorResult.Id),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := azuredevops.GetDescriptor(ctx, \u0026azuredevops.GetDescriptorArgs{\n\t\t\tStorageKey: \"00000000-0000-0000-0000-000000000000\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"id\", example.Id)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.AzuredevopsFunctions;\nimport com.pulumi.azuredevops.inputs.GetDescriptorArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = AzuredevopsFunctions.getDescriptor(GetDescriptorArgs.builder()\n            .storageKey(\"00000000-0000-0000-0000-000000000000\")\n            .build());\n\n        ctx.export(\"id\", example.applyValue(getDescriptorResult -\u003e getDescriptorResult.id()));\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: azuredevops:getDescriptor\n      arguments:\n        storageKey: 00000000-0000-0000-0000-000000000000\noutputs:\n  id: ${example.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Relevant Links\n\n- [Azure DevOps Service REST API 7.1 - Descriptors - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/graph/descriptors/get?view=azure-devops-rest-7.1)\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getDescriptor.\n",
+                "properties": {
+                    "storageKey": {
+                        "type": "string",
+                        "description": "The ID of the resource(`user`, `group`, `scope`, etc.) that will be resolved to a descriptor.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "storageKey"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getDescriptor.\n",
+                "properties": {
+                    "descriptor": {
+                        "description": "The descriptor of the storage key.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "storageKey": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "descriptor",
+                    "storageKey",
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
         "azuredevops:index/getEnvironment:getEnvironment": {
             "description": "Use this data source to access information about an Environment.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst exampleProject = new azuredevops.Project(\"example\", {\n    name: \"Example Project\",\n    workItemTemplate: \"Agile\",\n    versionControl: \"Git\",\n    visibility: \"private\",\n    description: \"Managed by Pulumi\",\n});\nconst exampleEnvironment = new azuredevops.Environment(\"example\", {\n    projectId: exampleProject.id,\n    name: \"Example Environment\",\n    description: \"Managed by Pulumi\",\n});\nconst example = pulumi.all([exampleProject.id, exampleEnvironment.id]).apply(([exampleProjectId, exampleEnvironmentId]) =\u003e azuredevops.getEnvironmentOutput({\n    projectId: exampleProjectId,\n    environmentId: exampleEnvironmentId,\n}));\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample_project = azuredevops.Project(\"example\",\n    name=\"Example Project\",\n    work_item_template=\"Agile\",\n    version_control=\"Git\",\n    visibility=\"private\",\n    description=\"Managed by Pulumi\")\nexample_environment = azuredevops.Environment(\"example\",\n    project_id=example_project.id,\n    name=\"Example Environment\",\n    description=\"Managed by Pulumi\")\nexample = pulumi.Output.all(\n    exampleProjectId=example_project.id,\n    exampleEnvironmentId=example_environment.id\n).apply(lambda resolved_outputs: azuredevops.get_environment_output(project_id=resolved_outputs['exampleProjectId'],\n    environment_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleProject = new AzureDevOps.Project(\"example\", new()\n    {\n        Name = \"Example Project\",\n        WorkItemTemplate = \"Agile\",\n        VersionControl = \"Git\",\n        Visibility = \"private\",\n        Description = \"Managed by Pulumi\",\n    });\n\n    var exampleEnvironment = new AzureDevOps.Environment(\"example\", new()\n    {\n        ProjectId = exampleProject.Id,\n        Name = \"Example Environment\",\n        Description = \"Managed by Pulumi\",\n    });\n\n    var example = AzureDevOps.GetEnvironment.Invoke(new()\n    {\n        ProjectId = exampleProject.Id,\n        EnvironmentId = exampleEnvironment.Id,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleProject, err := azuredevops.NewProject(ctx, \"example\", \u0026azuredevops.ProjectArgs{\n\t\t\tName:             pulumi.String(\"Example Project\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tDescription:      pulumi.String(\"Managed by Pulumi\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleEnvironment, err := azuredevops.NewEnvironment(ctx, \"example\", \u0026azuredevops.EnvironmentArgs{\n\t\t\tProjectId:   exampleProject.ID(),\n\t\t\tName:        pulumi.String(\"Example Environment\"),\n\t\t\tDescription: pulumi.String(\"Managed by Pulumi\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_ = pulumi.All(exampleProject.ID(), exampleEnvironment.ID()).ApplyT(func(_args []interface{}) (azuredevops.GetEnvironmentResult, error) {\n\t\t\texampleProjectId := _args[0].(string)\n\t\t\texampleEnvironmentId := _args[1].(string)\n\t\t\treturn azuredevops.GetEnvironmentResult(interface{}(azuredevops.LookupEnvironmentOutput(ctx, azuredevops.GetEnvironmentOutputArgs{\n\t\t\t\tProjectId:     exampleProjectId,\n\t\t\t\tEnvironmentId: exampleEnvironmentId,\n\t\t\t}, nil))), nil\n\t\t}).(azuredevops.GetEnvironmentResultOutput)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Project;\nimport com.pulumi.azuredevops.ProjectArgs;\nimport com.pulumi.azuredevops.Environment;\nimport com.pulumi.azuredevops.EnvironmentArgs;\nimport com.pulumi.azuredevops.AzuredevopsFunctions;\nimport com.pulumi.azuredevops.inputs.GetEnvironmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleProject = new Project(\"exampleProject\", ProjectArgs.builder()\n            .name(\"Example Project\")\n            .workItemTemplate(\"Agile\")\n            .versionControl(\"Git\")\n            .visibility(\"private\")\n            .description(\"Managed by Pulumi\")\n            .build());\n\n        var exampleEnvironment = new Environment(\"exampleEnvironment\", EnvironmentArgs.builder()\n            .projectId(exampleProject.id())\n            .name(\"Example Environment\")\n            .description(\"Managed by Pulumi\")\n            .build());\n\n        final var example = AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()\n            .projectId(exampleProject.id())\n            .environmentId(exampleEnvironment.id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleProject:\n    type: azuredevops:Project\n    name: example\n    properties:\n      name: Example Project\n      workItemTemplate: Agile\n      versionControl: Git\n      visibility: private\n      description: Managed by Pulumi\n  exampleEnvironment:\n    type: azuredevops:Environment\n    name: example\n    properties:\n      projectId: ${exampleProject.id}\n      name: Example Environment\n      description: Managed by Pulumi\nvariables:\n  example:\n    fn::invoke:\n      function: azuredevops:getEnvironment\n      arguments:\n        projectId: ${exampleProject.id}\n        environmentId: ${exampleEnvironment.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Relevant Links\n\n* [Azure DevOps Service REST API 7.0 - Environments](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments?view=azure-devops-rest-7.0)\n",
             "inputs": {
@@ -14841,7 +14743,7 @@
             }
         },
         "azuredevops:index/getIdentityGroup:getIdentityGroup": {
-            "description": "Use this data source to access information about an existing Group within Azure DevOps On-Premise(Azure DevOps Server).\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\n// load existing group with specific name\nconst example_project_group = azuredevops.getIdentityGroup({\n    projectId: example.id,\n    name: \"[Project-Name]\\\\Group-Name\",\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\n# load existing group with specific name\nexample_project_group = azuredevops.get_identity_group(project_id=example[\"id\"],\n    name=\"[Project-Name]\\\\Group-Name\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // load existing group with specific name\n    var example_project_group = AzureDevOps.GetIdentityGroup.Invoke(new()\n    {\n        ProjectId = example.Id,\n        Name = \"[Project-Name]\\\\Group-Name\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// load existing group with specific name\n\t\t_, err := azuredevops.GetIdentityGroup(ctx, \u0026azuredevops.GetIdentityGroupArgs{\n\t\t\tProjectId: example.Id,\n\t\t\tName:      \"[Project-Name]\\\\Group-Name\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.AzuredevopsFunctions;\nimport com.pulumi.azuredevops.inputs.GetIdentityGroupArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // load existing group with specific name\n        final var example-project-group = AzuredevopsFunctions.getIdentityGroup(GetIdentityGroupArgs.builder()\n            .projectId(example.id())\n            .name(\"[Project-Name]\\\\Group-Name\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  # load existing group with specific name\n  example-project-group:\n    fn::invoke:\n      function: azuredevops:getIdentityGroup\n      arguments:\n        projectId: ${example.id}\n        name: '[Project-Name]\\Group-Name'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Relevant Links\n\n- [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)\n",
+            "description": "Use this data source to access information about an existing Group within Azure DevOps On-Premise(Azure DevOps Server).\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\n// load existing group with specific name\nconst example_project_group = azuredevops.getIdentityGroup({\n    projectId: example.id,\n    name: \"[Project-Name]\\\\Group-Name\",\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\n# load existing group with specific name\nexample_project_group = azuredevops.get_identity_group(project_id=example[\"id\"],\n    name=\"[Project-Name]\\\\Group-Name\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // load existing group with specific name\n    var example_project_group = AzureDevOps.GetIdentityGroup.Invoke(new()\n    {\n        ProjectId = example.Id,\n        Name = \"[Project-Name]\\\\Group-Name\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// load existing group with specific name\n\t\t_, err := azuredevops.GetIdentityGroup(ctx, \u0026azuredevops.GetIdentityGroupArgs{\n\t\t\tProjectId: example.Id,\n\t\t\tName:      \"[Project-Name]\\\\Group-Name\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.AzuredevopsFunctions;\nimport com.pulumi.azuredevops.inputs.GetIdentityGroupArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // load existing group with specific name\n        final var example-project-group = AzuredevopsFunctions.getIdentityGroup(GetIdentityGroupArgs.builder()\n            .projectId(example.id())\n            .name(\"[Project-Name]\\\\Group-Name\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  # load existing group with specific name\n  example-project-group:\n    fn::invoke:\n      function: azuredevops:getIdentityGroup\n      arguments:\n        projectId: ${example.id}\n        name: '[Project-Name]\\Group-Name'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Relevant Links\n\n- [Azure DevOps Service REST API 7.1 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getIdentityGroup.\n",
                 "properties": {
@@ -14877,19 +14779,24 @@
                     },
                     "projectId": {
                         "type": "string"
+                    },
+                    "subjectDescriptor": {
+                        "description": "The subject descriptor of the identity group.\n",
+                        "type": "string"
                     }
                 },
                 "required": [
                     "descriptor",
                     "name",
                     "projectId",
+                    "subjectDescriptor",
                     "id"
                 ],
                 "type": "object"
             }
         },
         "azuredevops:index/getIdentityGroups:getIdentityGroups": {
-            "description": "Use this data source to access information about existing Groups within Azure DevOps On-Premise(Azure DevOps Server).\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = azuredevops.getProject({\n    name: \"Example Project\",\n});\n// load all existing groups inside an organization\nconst example_all_groups = azuredevops.getIdentityGroups({});\n// load all existing groups inside a specific project\nconst example_project_groups = example.then(example =\u003e azuredevops.getIdentityGroups({\n    projectId: example.id,\n}));\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.get_project(name=\"Example Project\")\n# load all existing groups inside an organization\nexample_all_groups = azuredevops.get_identity_groups()\n# load all existing groups inside a specific project\nexample_project_groups = azuredevops.get_identity_groups(project_id=example.id)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = AzureDevOps.GetProject.Invoke(new()\n    {\n        Name = \"Example Project\",\n    });\n\n    // load all existing groups inside an organization\n    var example_all_groups = AzureDevOps.GetIdentityGroups.Invoke();\n\n    // load all existing groups inside a specific project\n    var example_project_groups = AzureDevOps.GetIdentityGroups.Invoke(new()\n    {\n        ProjectId = example.Apply(getProjectResult =\u003e getProjectResult.Id),\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := azuredevops.LookupProject(ctx, \u0026azuredevops.LookupProjectArgs{\n\t\t\tName: pulumi.StringRef(\"Example Project\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// load all existing groups inside an organization\n\t\t_, err = azuredevops.GetIdentityGroups(ctx, \u0026azuredevops.GetIdentityGroupsArgs{}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// load all existing groups inside a specific project\n\t\t_, err = azuredevops.GetIdentityGroups(ctx, \u0026azuredevops.GetIdentityGroupsArgs{\n\t\t\tProjectId: pulumi.StringRef(example.Id),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.AzuredevopsFunctions;\nimport com.pulumi.azuredevops.inputs.GetProjectArgs;\nimport com.pulumi.azuredevops.inputs.GetIdentityGroupsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()\n            .name(\"Example Project\")\n            .build());\n\n        // load all existing groups inside an organization\n        final var example-all-groups = AzuredevopsFunctions.getIdentityGroups();\n\n        // load all existing groups inside a specific project\n        final var example-project-groups = AzuredevopsFunctions.getIdentityGroups(GetIdentityGroupsArgs.builder()\n            .projectId(example.applyValue(getProjectResult -\u003e getProjectResult.id()))\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: azuredevops:getProject\n      arguments:\n        name: Example Project\n  # load all existing groups inside an organization\n  example-all-groups:\n    fn::invoke:\n      function: azuredevops:getIdentityGroups\n      arguments: {}\n  # load all existing groups inside a specific project\n  example-project-groups:\n    fn::invoke:\n      function: azuredevops:getIdentityGroups\n      arguments:\n        projectId: ${example.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Relevant Links\n\n- [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)\n",
+            "description": "Use this data source to access information about existing Groups within Azure DevOps On-Premise(Azure DevOps Server).\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = azuredevops.getProject({\n    name: \"Example Project\",\n});\n// load all existing groups inside an organization\nconst example_all_groups = azuredevops.getIdentityGroups({});\n// load all existing groups inside a specific project\nconst example_project_groups = example.then(example =\u003e azuredevops.getIdentityGroups({\n    projectId: example.id,\n}));\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.get_project(name=\"Example Project\")\n# load all existing groups inside an organization\nexample_all_groups = azuredevops.get_identity_groups()\n# load all existing groups inside a specific project\nexample_project_groups = azuredevops.get_identity_groups(project_id=example.id)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = AzureDevOps.GetProject.Invoke(new()\n    {\n        Name = \"Example Project\",\n    });\n\n    // load all existing groups inside an organization\n    var example_all_groups = AzureDevOps.GetIdentityGroups.Invoke();\n\n    // load all existing groups inside a specific project\n    var example_project_groups = AzureDevOps.GetIdentityGroups.Invoke(new()\n    {\n        ProjectId = example.Apply(getProjectResult =\u003e getProjectResult.Id),\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := azuredevops.LookupProject(ctx, \u0026azuredevops.LookupProjectArgs{\n\t\t\tName: pulumi.StringRef(\"Example Project\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// load all existing groups inside an organization\n\t\t_, err = azuredevops.GetIdentityGroups(ctx, \u0026azuredevops.GetIdentityGroupsArgs{}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// load all existing groups inside a specific project\n\t\t_, err = azuredevops.GetIdentityGroups(ctx, \u0026azuredevops.GetIdentityGroupsArgs{\n\t\t\tProjectId: pulumi.StringRef(example.Id),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.AzuredevopsFunctions;\nimport com.pulumi.azuredevops.inputs.GetProjectArgs;\nimport com.pulumi.azuredevops.inputs.GetIdentityGroupsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()\n            .name(\"Example Project\")\n            .build());\n\n        // load all existing groups inside an organization\n        final var example-all-groups = AzuredevopsFunctions.getIdentityGroups();\n\n        // load all existing groups inside a specific project\n        final var example-project-groups = AzuredevopsFunctions.getIdentityGroups(GetIdentityGroupsArgs.builder()\n            .projectId(example.applyValue(getProjectResult -\u003e getProjectResult.id()))\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: azuredevops:getProject\n      arguments:\n        name: Example Project\n  # load all existing groups inside an organization\n  example-all-groups:\n    fn::invoke:\n      function: azuredevops:getIdentityGroups\n      arguments: {}\n  # load all existing groups inside a specific project\n  example-project-groups:\n    fn::invoke:\n      function: azuredevops:getIdentityGroups\n      arguments:\n        projectId: ${example.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Relevant Links\n\n- [Azure DevOps Service REST API 7.1 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getIdentityGroups.\n",
                 "properties": {
@@ -14948,7 +14855,7 @@
                 "description": "A collection of values returned by getIdentityUsers.\n",
                 "properties": {
                     "descriptor": {
-                        "description": "The descriptor of the user.\n",
+                        "description": "The Descriptor of the user.\n",
                         "type": "string"
                     },
                     "id": {
@@ -14960,11 +14867,16 @@
                     },
                     "searchFilter": {
                         "type": "string"
+                    },
+                    "subjectDescriptor": {
+                        "description": "The Subject Descriptor of the user.\n",
+                        "type": "string"
                     }
                 },
                 "required": [
                     "descriptor",
                     "name",
+                    "subjectDescriptor",
                     "id"
                 ],
                 "type": "object"
@@ -15859,6 +15771,44 @@
                 "type": "object"
             }
         },
+        "azuredevops:index/getStorageKey:getStorageKey": {
+            "description": "Use this data source to access information about an existing Storage Key.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = azuredevops.getStorageKey({\n    descriptor: \"aad.000000000000000000000000000000000000\",\n});\nexport const id = example.then(example =\u003e example.id);\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.get_storage_key(descriptor=\"aad.000000000000000000000000000000000000\")\npulumi.export(\"id\", example.id)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = AzureDevOps.GetStorageKey.Invoke(new()\n    {\n        Descriptor = \"aad.000000000000000000000000000000000000\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"id\"] = example.Apply(getStorageKeyResult =\u003e getStorageKeyResult.Id),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := azuredevops.GetStorageKey(ctx, \u0026azuredevops.GetStorageKeyArgs{\n\t\t\tDescriptor: \"aad.000000000000000000000000000000000000\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"id\", example.Id)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.AzuredevopsFunctions;\nimport com.pulumi.azuredevops.inputs.GetStorageKeyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = AzuredevopsFunctions.getStorageKey(GetStorageKeyArgs.builder()\n            .descriptor(\"aad.000000000000000000000000000000000000\")\n            .build());\n\n        ctx.export(\"id\", example.applyValue(getStorageKeyResult -\u003e getStorageKeyResult.id()));\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: azuredevops:getStorageKey\n      arguments:\n        descriptor: aad.000000000000000000000000000000000000\noutputs:\n  id: ${example.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Relevant Links\n\n- [Azure DevOps Service REST API 7.1 - Storage Key - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/graph/storage-keys/get?view=azure-devops-rest-7.1)\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getStorageKey.\n",
+                "properties": {
+                    "descriptor": {
+                        "type": "string",
+                        "description": "The descriptor that will be resolved to a storage key.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "descriptor"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getStorageKey.\n",
+                "properties": {
+                    "descriptor": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "storageKey": {
+                        "description": "The Storage Key of the descriptor.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "descriptor",
+                    "storageKey",
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
         "azuredevops:index/getTeam:getTeam": {
             "description": "Use this data source to access information about an existing Team in a Project within Azure DevOps.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst exampleProject = new azuredevops.Project(\"example\", {\n    name: \"Example Project\",\n    workItemTemplate: \"Agile\",\n    versionControl: \"Git\",\n    visibility: \"private\",\n    description: \"Managed by Pulumi\",\n});\nconst example = azuredevops.getTeamOutput({\n    projectId: exampleProject.id,\n    name: \"Example Project Team\",\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample_project = azuredevops.Project(\"example\",\n    name=\"Example Project\",\n    work_item_template=\"Agile\",\n    version_control=\"Git\",\n    visibility=\"private\",\n    description=\"Managed by Pulumi\")\nexample = azuredevops.get_team_output(project_id=example_project.id,\n    name=\"Example Project Team\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleProject = new AzureDevOps.Project(\"example\", new()\n    {\n        Name = \"Example Project\",\n        WorkItemTemplate = \"Agile\",\n        VersionControl = \"Git\",\n        Visibility = \"private\",\n        Description = \"Managed by Pulumi\",\n    });\n\n    var example = AzureDevOps.GetTeam.Invoke(new()\n    {\n        ProjectId = exampleProject.Id,\n        Name = \"Example Project Team\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleProject, err := azuredevops.NewProject(ctx, \"example\", \u0026azuredevops.ProjectArgs{\n\t\t\tName:             pulumi.String(\"Example Project\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tDescription:      pulumi.String(\"Managed by Pulumi\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_ = azuredevops.LookupTeamOutput(ctx, azuredevops.GetTeamOutputArgs{\n\t\t\tProjectId: exampleProject.ID(),\n\t\t\tName:      pulumi.String(\"Example Project Team\"),\n\t\t}, nil)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Project;\nimport com.pulumi.azuredevops.ProjectArgs;\nimport com.pulumi.azuredevops.AzuredevopsFunctions;\nimport com.pulumi.azuredevops.inputs.GetTeamArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleProject = new Project(\"exampleProject\", ProjectArgs.builder()\n            .name(\"Example Project\")\n            .workItemTemplate(\"Agile\")\n            .versionControl(\"Git\")\n            .visibility(\"private\")\n            .description(\"Managed by Pulumi\")\n            .build());\n\n        final var example = AzuredevopsFunctions.getTeam(GetTeamArgs.builder()\n            .projectId(exampleProject.id())\n            .name(\"Example Project Team\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleProject:\n    type: azuredevops:Project\n    name: example\n    properties:\n      name: Example Project\n      workItemTemplate: Agile\n      versionControl: Git\n      visibility: private\n      description: Managed by Pulumi\nvariables:\n  example:\n    fn::invoke:\n      function: azuredevops:getTeam\n      arguments:\n        projectId: ${exampleProject.id}\n        name: Example Project Team\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Relevant Links\n\n- [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)\n\n## PAT Permissions Required\n\n- **vso.project**:\tGrants the ability to read projects and teams.\n",
             "inputs": {
@@ -15976,6 +15926,74 @@
                 },
                 "required": [
                     "teams",
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
+        "azuredevops:index/getUser:getUser": {
+            "description": "Use this data source to access information about an existing user within Azure DevOps.\n\n~\u003e**NOTE:** If you only have the Storage Key(UUID) of the user, you can use `azuredevops.getDescriptor` to resolve the Storage Key(UUID) to a `descriptor`.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.AzuredevopsFunctions;\nimport com.pulumi.azuredevops.inputs.GetUserArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = AzuredevopsFunctions.getUser(GetUserArgs.builder()\n            .principalName(\"example@example.com\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: azuredevops:getUser\n      arguments:\n        principalName: example@example.com\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Relevant Links\n\n- [Azure DevOps Service REST API 7.1 - Graph Users API](https://learn.microsoft.com/en-us/rest/api/azure/devops/graph/users/get?view=azure-devops-rest-7.1)\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getUser.\n",
+                "properties": {
+                    "descriptor": {
+                        "type": "string",
+                        "description": "The descriptor of the user.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "descriptor"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getUser.\n",
+                "properties": {
+                    "descriptor": {
+                        "type": "string"
+                    },
+                    "displayName": {
+                        "description": "The display name of the User.\n",
+                        "type": "string"
+                    },
+                    "domain": {
+                        "description": "The domain of the user.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "mailAddress": {
+                        "description": "The email address of the user.\n",
+                        "type": "string"
+                    },
+                    "origin": {
+                        "description": "The type of source provider for the origin identifier (ex:`AD`, `AAD`, `MSA`).\n",
+                        "type": "string"
+                    },
+                    "originId": {
+                        "description": "The origin ID of the user.\n",
+                        "type": "string"
+                    },
+                    "principalName": {
+                        "description": "The principal name of the user.\n",
+                        "type": "string"
+                    },
+                    "subjectKind": {
+                        "description": "The subject kind of the user (ex: `Group`, `Scope`, `User`).\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "descriptor",
+                    "displayName",
+                    "domain",
+                    "mailAddress",
+                    "origin",
+                    "originId",
+                    "principalName",
+                    "subjectKind",
                     "id"
                 ],
                 "type": "object"

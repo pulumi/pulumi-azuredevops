@@ -173,8 +173,7 @@ func (ServiceEndpointAzureDevOpsState) ElementType() reflect.Type {
 }
 
 type serviceEndpointAzureDevOpsArgs struct {
-	Authorization map[string]string `pulumi:"authorization"`
-	Description   *string           `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The organization URL.
 	OrgUrl string `pulumi:"orgUrl"`
 	// The Azure DevOps personal access token.
@@ -189,8 +188,7 @@ type serviceEndpointAzureDevOpsArgs struct {
 
 // The set of arguments for constructing a ServiceEndpointAzureDevOps resource.
 type ServiceEndpointAzureDevOpsArgs struct {
-	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
 	// The organization URL.
 	OrgUrl pulumi.StringInput
 	// The Azure DevOps personal access token.

@@ -8,7 +8,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -31,13 +30,6 @@ public final class ServiceendpointExternaltfsArgs extends com.pulumi.resources.R
      */
     public Output<ServiceendpointExternaltfsAuthPersonalArgs> authPersonal() {
         return this.authPersonal;
-    }
-
-    @Import(name="authorization")
-    private @Nullable Output<Map<String,String>> authorization;
-
-    public Optional<Output<Map<String,String>>> authorization() {
-        return Optional.ofNullable(this.authorization);
     }
 
     /**
@@ -96,7 +88,6 @@ public final class ServiceendpointExternaltfsArgs extends com.pulumi.resources.R
 
     private ServiceendpointExternaltfsArgs(ServiceendpointExternaltfsArgs $) {
         this.authPersonal = $.authPersonal;
-        this.authorization = $.authorization;
         this.connectionUrl = $.connectionUrl;
         this.description = $.description;
         this.projectId = $.projectId;
@@ -140,15 +131,6 @@ public final class ServiceendpointExternaltfsArgs extends com.pulumi.resources.R
          */
         public Builder authPersonal(ServiceendpointExternaltfsAuthPersonalArgs authPersonal) {
             return authPersonal(Output.of(authPersonal));
-        }
-
-        public Builder authorization(@Nullable Output<Map<String,String>> authorization) {
-            $.authorization = authorization;
-            return this;
-        }
-
-        public Builder authorization(Map<String,String> authorization) {
-            return authorization(Output.of(authorization));
         }
 
         /**

@@ -71,7 +71,7 @@ export class ServiceEndpointSonarQube extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceEndpointSonarQube.__pulumiType;
     }
 
-    public readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Service Endpoint description.
      */
@@ -126,12 +126,12 @@ export class ServiceEndpointSonarQube extends pulumi.CustomResource {
             if ((!args || args.url === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             resourceInputs["token"] = args?.token ? pulumi.secret(args.token) : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["token"] };
@@ -171,7 +171,6 @@ export interface ServiceEndpointSonarQubeState {
  * The set of arguments for constructing a ServiceEndpointSonarQube resource.
  */
 export interface ServiceEndpointSonarQubeArgs {
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Service Endpoint description.
      */

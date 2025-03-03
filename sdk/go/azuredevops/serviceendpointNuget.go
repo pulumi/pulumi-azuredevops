@@ -188,9 +188,8 @@ func (ServiceendpointNugetState) ElementType() reflect.Type {
 
 type serviceendpointNugetArgs struct {
 	// The API Key used to connect to the endpoint.
-	ApiKey        *string           `pulumi:"apiKey"`
-	Authorization map[string]string `pulumi:"authorization"`
-	Description   *string           `pulumi:"description"`
+	ApiKey      *string `pulumi:"apiKey"`
+	Description *string `pulumi:"description"`
 	// The URL for the feed. This will generally end with `index.json`.
 	FeedUrl string `pulumi:"feedUrl"`
 	// The account password used to connect to the endpoint
@@ -210,9 +209,8 @@ type serviceendpointNugetArgs struct {
 // The set of arguments for constructing a ServiceendpointNuget resource.
 type ServiceendpointNugetArgs struct {
 	// The API Key used to connect to the endpoint.
-	ApiKey        pulumi.StringPtrInput
-	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	ApiKey      pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
 	// The URL for the feed. This will generally end with `index.json`.
 	FeedUrl pulumi.StringInput
 	// The account password used to connect to the endpoint

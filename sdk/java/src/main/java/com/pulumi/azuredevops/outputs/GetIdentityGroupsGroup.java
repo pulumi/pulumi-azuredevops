@@ -25,6 +25,11 @@ public final class GetIdentityGroupsGroup {
      * 
      */
     private String name;
+    /**
+     * @return The subject descriptor of the identity group.
+     * 
+     */
+    private String subjectDescriptor;
 
     private GetIdentityGroupsGroup() {}
     /**
@@ -48,6 +53,13 @@ public final class GetIdentityGroupsGroup {
     public String name() {
         return this.name;
     }
+    /**
+     * @return The subject descriptor of the identity group.
+     * 
+     */
+    public String subjectDescriptor() {
+        return this.subjectDescriptor;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -61,12 +73,14 @@ public final class GetIdentityGroupsGroup {
         private String descriptor;
         private String id;
         private String name;
+        private String subjectDescriptor;
         public Builder() {}
         public Builder(GetIdentityGroupsGroup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.descriptor = defaults.descriptor;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.subjectDescriptor = defaults.subjectDescriptor;
         }
 
         @CustomType.Setter
@@ -93,11 +107,20 @@ public final class GetIdentityGroupsGroup {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder subjectDescriptor(String subjectDescriptor) {
+            if (subjectDescriptor == null) {
+              throw new MissingRequiredPropertyException("GetIdentityGroupsGroup", "subjectDescriptor");
+            }
+            this.subjectDescriptor = subjectDescriptor;
+            return this;
+        }
         public GetIdentityGroupsGroup build() {
             final var _resultValue = new GetIdentityGroupsGroup();
             _resultValue.descriptor = descriptor;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.subjectDescriptor = subjectDescriptor;
             return _resultValue;
         }
     }

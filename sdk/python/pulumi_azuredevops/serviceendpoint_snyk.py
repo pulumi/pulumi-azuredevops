@@ -23,7 +23,6 @@ class ServiceendpointSnykArgs:
                  project_id: pulumi.Input[str],
                  server_url: pulumi.Input[str],
                  service_endpoint_name: pulumi.Input[str],
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServiceendpointSnyk resource.
@@ -36,8 +35,6 @@ class ServiceendpointSnykArgs:
         pulumi.set(__self__, "project_id", project_id)
         pulumi.set(__self__, "server_url", server_url)
         pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
-        if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
         if description is not None:
             pulumi.set(__self__, "description", description)
 
@@ -88,15 +85,6 @@ class ServiceendpointSnykArgs:
     @service_endpoint_name.setter
     def service_endpoint_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "service_endpoint_name", value)
-
-    @property
-    @pulumi.getter
-    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "authorization")
-
-    @authorization.setter
-    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "authorization", value)
 
     @property
     @pulumi.getter
@@ -210,7 +198,6 @@ class ServiceendpointSnyk(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_token: Optional[pulumi.Input[str]] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  server_url: Optional[pulumi.Input[str]] = None,
@@ -315,7 +302,6 @@ class ServiceendpointSnyk(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_token: Optional[pulumi.Input[str]] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  server_url: Optional[pulumi.Input[str]] = None,
@@ -332,7 +318,6 @@ class ServiceendpointSnyk(pulumi.CustomResource):
             if api_token is None and not opts.urn:
                 raise TypeError("Missing required property 'api_token'")
             __props__.__dict__["api_token"] = None if api_token is None else pulumi.Output.secret(api_token)
-            __props__.__dict__["authorization"] = authorization
             __props__.__dict__["description"] = description
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
@@ -343,6 +328,7 @@ class ServiceendpointSnyk(pulumi.CustomResource):
             if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")
             __props__.__dict__["service_endpoint_name"] = service_endpoint_name
+            __props__.__dict__["authorization"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiToken"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceendpointSnyk, __self__).__init__(

@@ -77,7 +77,7 @@ export class ServiceendpointExternaltfs extends pulumi.CustomResource {
      * An `authPersonal` block as documented below. Allows connecting using a personal access token.
      */
     public readonly authPersonal!: pulumi.Output<outputs.ServiceendpointExternaltfsAuthPersonal>;
-    public readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
     /**
      * Azure DevOps Organization or TFS Project Collection Url.
      */
@@ -126,11 +126,11 @@ export class ServiceendpointExternaltfs extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
             resourceInputs["authPersonal"] = args ? args.authPersonal : undefined;
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["connectionUrl"] = args ? args.connectionUrl : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServiceendpointExternaltfs.__pulumiType, name, resourceInputs, opts);
@@ -169,7 +169,6 @@ export interface ServiceendpointExternaltfsArgs {
      * An `authPersonal` block as documented below. Allows connecting using a personal access token.
      */
     authPersonal: pulumi.Input<inputs.ServiceendpointExternaltfsAuthPersonal>;
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Azure DevOps Organization or TFS Project Collection Url.
      */

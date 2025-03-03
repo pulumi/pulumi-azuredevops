@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetIdentityUsersResult {
     /**
-     * @return The descriptor of the user.
+     * @return The Descriptor of the user.
      * 
      */
     private String descriptor;
@@ -24,10 +24,15 @@ public final class GetIdentityUsersResult {
     private String id;
     private String name;
     private @Nullable String searchFilter;
+    /**
+     * @return The Subject Descriptor of the user.
+     * 
+     */
+    private String subjectDescriptor;
 
     private GetIdentityUsersResult() {}
     /**
-     * @return The descriptor of the user.
+     * @return The Descriptor of the user.
      * 
      */
     public String descriptor() {
@@ -46,6 +51,13 @@ public final class GetIdentityUsersResult {
     public Optional<String> searchFilter() {
         return Optional.ofNullable(this.searchFilter);
     }
+    /**
+     * @return The Subject Descriptor of the user.
+     * 
+     */
+    public String subjectDescriptor() {
+        return this.subjectDescriptor;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -60,6 +72,7 @@ public final class GetIdentityUsersResult {
         private String id;
         private String name;
         private @Nullable String searchFilter;
+        private String subjectDescriptor;
         public Builder() {}
         public Builder(GetIdentityUsersResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -67,6 +80,7 @@ public final class GetIdentityUsersResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.searchFilter = defaults.searchFilter;
+    	      this.subjectDescriptor = defaults.subjectDescriptor;
         }
 
         @CustomType.Setter
@@ -99,12 +113,21 @@ public final class GetIdentityUsersResult {
             this.searchFilter = searchFilter;
             return this;
         }
+        @CustomType.Setter
+        public Builder subjectDescriptor(String subjectDescriptor) {
+            if (subjectDescriptor == null) {
+              throw new MissingRequiredPropertyException("GetIdentityUsersResult", "subjectDescriptor");
+            }
+            this.subjectDescriptor = subjectDescriptor;
+            return this;
+        }
         public GetIdentityUsersResult build() {
             final var _resultValue = new GetIdentityUsersResult();
             _resultValue.descriptor = descriptor;
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.searchFilter = searchFilter;
+            _resultValue.subjectDescriptor = subjectDescriptor;
             return _resultValue;
         }
     }

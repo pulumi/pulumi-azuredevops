@@ -8,7 +8,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -17,13 +16,6 @@ import javax.annotation.Nullable;
 public final class ServiceEndpointSshArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ServiceEndpointSshArgs Empty = new ServiceEndpointSshArgs();
-
-    @Import(name="authorization")
-    private @Nullable Output<Map<String,String>> authorization;
-
-    public Optional<Output<Map<String,String>>> authorization() {
-        return Optional.ofNullable(this.authorization);
-    }
 
     @Import(name="description")
     private @Nullable Output<String> description;
@@ -140,7 +132,6 @@ public final class ServiceEndpointSshArgs extends com.pulumi.resources.ResourceA
     private ServiceEndpointSshArgs() {}
 
     private ServiceEndpointSshArgs(ServiceEndpointSshArgs $) {
-        this.authorization = $.authorization;
         this.description = $.description;
         this.host = $.host;
         this.password = $.password;
@@ -167,15 +158,6 @@ public final class ServiceEndpointSshArgs extends com.pulumi.resources.ResourceA
 
         public Builder(ServiceEndpointSshArgs defaults) {
             $ = new ServiceEndpointSshArgs(Objects.requireNonNull(defaults));
-        }
-
-        public Builder authorization(@Nullable Output<Map<String,String>> authorization) {
-            $.authorization = authorization;
-            return this;
-        }
-
-        public Builder authorization(Map<String,String> authorization) {
-            return authorization(Output.of(authorization));
         }
 
         public Builder description(@Nullable Output<String> description) {

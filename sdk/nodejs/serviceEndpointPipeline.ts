@@ -77,7 +77,7 @@ export class ServiceEndpointPipeline extends pulumi.CustomResource {
      * An `authPersonal` block as documented below. Allows connecting using a personal access token.
      */
     public readonly authPersonal!: pulumi.Output<outputs.ServiceEndpointPipelineAuthPersonal>;
-    public readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The organization name used for `Organization Url` and `Release API Url` fields.
@@ -126,11 +126,11 @@ export class ServiceEndpointPipeline extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
             resourceInputs["authPersonal"] = args ? args.authPersonal : undefined;
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["organizationName"] = args ? args.organizationName : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServiceEndpointPipeline.__pulumiType, name, resourceInputs, opts);
@@ -169,7 +169,6 @@ export interface ServiceEndpointPipelineArgs {
      * An `authPersonal` block as documented below. Allows connecting using a personal access token.
      */
     authPersonal: pulumi.Input<inputs.ServiceEndpointPipelineAuthPersonal>;
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     description?: pulumi.Input<string>;
     /**
      * The organization name used for `Organization Url` and `Release API Url` fields.

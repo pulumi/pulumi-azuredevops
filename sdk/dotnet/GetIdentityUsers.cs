@@ -76,7 +76,7 @@ namespace Pulumi.AzureDevOps
     public sealed class GetIdentityUsersResult
     {
         /// <summary>
-        /// The descriptor of the user.
+        /// The Descriptor of the user.
         /// </summary>
         public readonly string Descriptor;
         /// <summary>
@@ -85,6 +85,10 @@ namespace Pulumi.AzureDevOps
         public readonly string Id;
         public readonly string Name;
         public readonly string? SearchFilter;
+        /// <summary>
+        /// The Subject Descriptor of the user.
+        /// </summary>
+        public readonly string SubjectDescriptor;
 
         [OutputConstructor]
         private GetIdentityUsersResult(
@@ -94,12 +98,15 @@ namespace Pulumi.AzureDevOps
 
             string name,
 
-            string? searchFilter)
+            string? searchFilter,
+
+            string subjectDescriptor)
         {
             Descriptor = descriptor;
             Id = id;
             Name = name;
             SearchFilter = searchFilter;
+            SubjectDescriptor = subjectDescriptor;
         }
     }
 }

@@ -74,7 +74,7 @@ export class ServiceEndpointGitLab extends pulumi.CustomResource {
      * The API token of the GitLab.
      */
     public readonly apiToken!: pulumi.Output<string>;
-    public readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The ID of the project.
@@ -131,12 +131,12 @@ export class ServiceEndpointGitLab extends pulumi.CustomResource {
                 throw new Error("Missing required property 'username'");
             }
             resourceInputs["apiToken"] = args?.apiToken ? pulumi.secret(args.apiToken) : undefined;
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["apiToken"] };
@@ -181,7 +181,6 @@ export interface ServiceEndpointGitLabArgs {
      * The API token of the GitLab.
      */
     apiToken: pulumi.Input<string>;
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     description?: pulumi.Input<string>;
     /**
      * The ID of the project.

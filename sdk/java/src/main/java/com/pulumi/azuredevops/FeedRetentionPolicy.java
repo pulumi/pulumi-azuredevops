@@ -16,17 +16,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * ## layout: &#34;azuredevops&#34;
- * 
- * ***
- * ## page_title: &#34;AzureDevops: azuredevops.FeedRetentionPolicy&#34;
- * 
- * description: |-
- *   Manages the Feed Retention Policy within Azure DevOps organization.
- * ---
- * 
- * # azuredevops.FeedRetentionPolicy
- * 
  * Manages the Feed Retention Policy within Azure DevOps.
  * 
  * ## Example Usage

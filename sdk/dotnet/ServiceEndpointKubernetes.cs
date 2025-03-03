@@ -216,14 +216,6 @@ namespace Pulumi.AzureDevOps
         [Input("apiserverUrl", required: true)]
         public Input<string> ApiserverUrl { get; set; } = null!;
 
-        [Input("authorization")]
-        private InputMap<string>? _authorization;
-        public InputMap<string> Authorization
-        {
-            get => _authorization ?? (_authorization = new InputMap<string>());
-            set => _authorization = value;
-        }
-
         /// <summary>
         /// The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.
         /// </summary>

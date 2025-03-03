@@ -26,7 +26,7 @@ class GetIdentityGroupResult:
     """
     A collection of values returned by getIdentityGroup.
     """
-    def __init__(__self__, descriptor=None, id=None, name=None, project_id=None):
+    def __init__(__self__, descriptor=None, id=None, name=None, project_id=None, subject_descriptor=None):
         if descriptor and not isinstance(descriptor, str):
             raise TypeError("Expected argument 'descriptor' to be a str")
         pulumi.set(__self__, "descriptor", descriptor)
@@ -39,6 +39,9 @@ class GetIdentityGroupResult:
         if project_id and not isinstance(project_id, str):
             raise TypeError("Expected argument 'project_id' to be a str")
         pulumi.set(__self__, "project_id", project_id)
+        if subject_descriptor and not isinstance(subject_descriptor, str):
+            raise TypeError("Expected argument 'subject_descriptor' to be a str")
+        pulumi.set(__self__, "subject_descriptor", subject_descriptor)
 
     @property
     @pulumi.getter
@@ -69,6 +72,14 @@ class GetIdentityGroupResult:
     def project_id(self) -> str:
         return pulumi.get(self, "project_id")
 
+    @property
+    @pulumi.getter(name="subjectDescriptor")
+    def subject_descriptor(self) -> str:
+        """
+        The subject descriptor of the identity group.
+        """
+        return pulumi.get(self, "subject_descriptor")
+
 
 class AwaitableGetIdentityGroupResult(GetIdentityGroupResult):
     # pylint: disable=using-constant-test
@@ -79,7 +90,8 @@ class AwaitableGetIdentityGroupResult(GetIdentityGroupResult):
             descriptor=self.descriptor,
             id=self.id,
             name=self.name,
-            project_id=self.project_id)
+            project_id=self.project_id,
+            subject_descriptor=self.subject_descriptor)
 
 
 def get_identity_group(name: Optional[str] = None,
@@ -101,7 +113,7 @@ def get_identity_group(name: Optional[str] = None,
 
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+    - [Azure DevOps Service REST API 7.1 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
 
 
     :param str name: The name of the group.
@@ -117,7 +129,8 @@ def get_identity_group(name: Optional[str] = None,
         descriptor=pulumi.get(__ret__, 'descriptor'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
-        project_id=pulumi.get(__ret__, 'project_id'))
+        project_id=pulumi.get(__ret__, 'project_id'),
+        subject_descriptor=pulumi.get(__ret__, 'subject_descriptor'))
 def get_identity_group_output(name: Optional[pulumi.Input[str]] = None,
                               project_id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdentityGroupResult]:
@@ -137,7 +150,7 @@ def get_identity_group_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+    - [Azure DevOps Service REST API 7.1 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
 
 
     :param str name: The name of the group.
@@ -152,4 +165,5 @@ def get_identity_group_output(name: Optional[pulumi.Input[str]] = None,
         descriptor=pulumi.get(__response__, 'descriptor'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
-        project_id=pulumi.get(__response__, 'project_id')))
+        project_id=pulumi.get(__response__, 'project_id'),
+        subject_descriptor=pulumi.get(__response__, 'subject_descriptor')))

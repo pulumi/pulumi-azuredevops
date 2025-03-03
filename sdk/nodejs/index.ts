@@ -95,6 +95,11 @@ export type CheckRestApi = import("./checkRestApi").CheckRestApi;
 export const CheckRestApi: typeof import("./checkRestApi").CheckRestApi = null as any;
 utilities.lazyLoad(exports, ["CheckRestApi"], () => require("./checkRestApi"));
 
+export { DashboardArgs, DashboardState } from "./dashboard";
+export type Dashboard = import("./dashboard").Dashboard;
+export const Dashboard: typeof import("./dashboard").Dashboard = null as any;
+utilities.lazyLoad(exports, ["Dashboard"], () => require("./dashboard"));
+
 export { ElasticPoolArgs, ElasticPoolState } from "./elasticPool";
 export type ElasticPool = import("./elasticPool").ElasticPool;
 export const ElasticPool: typeof import("./elasticPool").ElasticPool = null as any;
@@ -144,6 +149,11 @@ export { GetClientConfigResult } from "./getClientConfig";
 export const getClientConfig: typeof import("./getClientConfig").getClientConfig = null as any;
 export const getClientConfigOutput: typeof import("./getClientConfig").getClientConfigOutput = null as any;
 utilities.lazyLoad(exports, ["getClientConfig","getClientConfigOutput"], () => require("./getClientConfig"));
+
+export { GetDescriptorArgs, GetDescriptorResult, GetDescriptorOutputArgs } from "./getDescriptor";
+export const getDescriptor: typeof import("./getDescriptor").getDescriptor = null as any;
+export const getDescriptorOutput: typeof import("./getDescriptor").getDescriptorOutput = null as any;
+utilities.lazyLoad(exports, ["getDescriptor","getDescriptorOutput"], () => require("./getDescriptor"));
 
 export { GetEnvironmentArgs, GetEnvironmentResult, GetEnvironmentOutputArgs } from "./getEnvironment";
 export const getEnvironment: typeof import("./getEnvironment").getEnvironment = null as any;
@@ -255,6 +265,11 @@ export const getServiceendpointSonarcloud: typeof import("./getServiceendpointSo
 export const getServiceendpointSonarcloudOutput: typeof import("./getServiceendpointSonarcloud").getServiceendpointSonarcloudOutput = null as any;
 utilities.lazyLoad(exports, ["getServiceendpointSonarcloud","getServiceendpointSonarcloudOutput"], () => require("./getServiceendpointSonarcloud"));
 
+export { GetStorageKeyArgs, GetStorageKeyResult, GetStorageKeyOutputArgs } from "./getStorageKey";
+export const getStorageKey: typeof import("./getStorageKey").getStorageKey = null as any;
+export const getStorageKeyOutput: typeof import("./getStorageKey").getStorageKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getStorageKey","getStorageKeyOutput"], () => require("./getStorageKey"));
+
 export { GetTeamArgs, GetTeamResult, GetTeamOutputArgs } from "./getTeam";
 export const getTeam: typeof import("./getTeam").getTeam = null as any;
 export const getTeamOutput: typeof import("./getTeam").getTeamOutput = null as any;
@@ -264,6 +279,11 @@ export { GetTeamsArgs, GetTeamsResult, GetTeamsOutputArgs } from "./getTeams";
 export const getTeams: typeof import("./getTeams").getTeams = null as any;
 export const getTeamsOutput: typeof import("./getTeams").getTeamsOutput = null as any;
 utilities.lazyLoad(exports, ["getTeams","getTeamsOutput"], () => require("./getTeams"));
+
+export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
+export const getUser: typeof import("./getUser").getUser = null as any;
+export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
+utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
 
 export { GetUsersArgs, GetUsersResult, GetUsersOutputArgs } from "./getUsers";
 export const getUsers: typeof import("./getUsers").getUsers = null as any;
@@ -730,6 +750,8 @@ const _module = {
                 return new CheckRequiredTemplate(name, <any>undefined, { urn })
             case "azuredevops:index/checkRestApi:CheckRestApi":
                 return new CheckRestApi(name, <any>undefined, { urn })
+            case "azuredevops:index/dashboard:Dashboard":
+                return new Dashboard(name, <any>undefined, { urn })
             case "azuredevops:index/elasticPool:ElasticPool":
                 return new ElasticPool(name, <any>undefined, { urn })
             case "azuredevops:index/environment:Environment":
@@ -925,6 +947,7 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/checkBusinessHours",
 pulumi.runtime.registerResourceModule("azuredevops", "index/checkExclusiveLock", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/checkRequiredTemplate", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/checkRestApi", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/dashboard", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/elasticPool", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/environment", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/environmentResourceKubernetes", _module)

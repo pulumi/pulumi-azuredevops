@@ -123,7 +123,7 @@ export class ServiceEndpointKubernetes extends pulumi.CustomResource {
      * The hostname (in form of URI) of the Kubernetes API.
      */
     public readonly apiserverUrl!: pulumi.Output<string>;
-    public readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
     /**
      * The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.
      */
@@ -187,7 +187,6 @@ export class ServiceEndpointKubernetes extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
             resourceInputs["apiserverUrl"] = args ? args.apiserverUrl : undefined;
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["authorizationType"] = args ? args.authorizationType : undefined;
             resourceInputs["azureSubscriptions"] = args ? args.azureSubscriptions : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
@@ -195,6 +194,7 @@ export class ServiceEndpointKubernetes extends pulumi.CustomResource {
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["serviceAccount"] = args ? args.serviceAccount : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServiceEndpointKubernetes.__pulumiType, name, resourceInputs, opts);
@@ -245,7 +245,6 @@ export interface ServiceEndpointKubernetesArgs {
      * The hostname (in form of URI) of the Kubernetes API.
      */
     apiserverUrl: pulumi.Input<string>;
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.
      */

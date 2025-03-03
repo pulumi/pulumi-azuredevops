@@ -28,7 +28,7 @@ import * as utilities from "./utilities";
  *
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+ * - [Azure DevOps Service REST API 7.1 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
  */
 export function getIdentityGroups(args?: GetIdentityGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetIdentityGroupsResult> {
     args = args || {};
@@ -84,7 +84,7 @@ export interface GetIdentityGroupsResult {
  *
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+ * - [Azure DevOps Service REST API 7.1 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
  */
 export function getIdentityGroupsOutput(args?: GetIdentityGroupsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIdentityGroupsResult> {
     args = args || {};

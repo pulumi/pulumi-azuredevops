@@ -197,14 +197,6 @@ namespace Pulumi.AzureDevOps
         [Input("authenticationToken")]
         public Input<Inputs.ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs>? AuthenticationToken { get; set; }
 
-        [Input("authorization")]
-        private InputMap<string>? _authorization;
-        public InputMap<string> Authorization
-        {
-            get => _authorization ?? (_authorization = new InputMap<string>());
-            set => _authorization = value;
-        }
-
         /// <summary>
         /// The Service Endpoint description.
         /// </summary>

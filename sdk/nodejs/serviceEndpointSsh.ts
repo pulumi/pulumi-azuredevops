@@ -69,7 +69,7 @@ export class ServiceEndpointSsh extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceEndpointSsh.__pulumiType;
     }
 
-    public readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The Host name or IP address of the remote machine.
@@ -136,7 +136,6 @@ export class ServiceEndpointSsh extends pulumi.CustomResource {
             if ((!args || args.username === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["host"] = args ? args.host : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
@@ -145,6 +144,7 @@ export class ServiceEndpointSsh extends pulumi.CustomResource {
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password", "privateKey"] };
@@ -193,7 +193,6 @@ export interface ServiceEndpointSshState {
  * The set of arguments for constructing a ServiceEndpointSsh resource.
  */
 export interface ServiceEndpointSshArgs {
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     description?: pulumi.Input<string>;
     /**
      * The Host name or IP address of the remote machine.

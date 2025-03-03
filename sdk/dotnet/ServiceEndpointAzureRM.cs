@@ -422,14 +422,6 @@ namespace Pulumi.AzureDevOps
 
     public sealed class ServiceEndpointAzureRMArgs : global::Pulumi.ResourceArgs
     {
-        [Input("authorization")]
-        private InputMap<string>? _authorization;
-        public InputMap<string> Authorization
-        {
-            get => _authorization ?? (_authorization = new InputMap<string>());
-            set => _authorization = value;
-        }
-
         /// <summary>
         /// The Management group ID of the Azure targets.
         /// </summary>

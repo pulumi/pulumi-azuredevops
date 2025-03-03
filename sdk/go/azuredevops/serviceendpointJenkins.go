@@ -173,9 +173,8 @@ func (ServiceendpointJenkinsState) ElementType() reflect.Type {
 
 type serviceendpointJenkinsArgs struct {
 	// Allows the Jenkins clients to accept self-signed SSL server certificates. Defaults to `false.`
-	AcceptUntrustedCerts *bool             `pulumi:"acceptUntrustedCerts"`
-	Authorization        map[string]string `pulumi:"authorization"`
-	Description          *string           `pulumi:"description"`
+	AcceptUntrustedCerts *bool   `pulumi:"acceptUntrustedCerts"`
+	Description          *string `pulumi:"description"`
 	// The Service Endpoint password to authenticate at the Jenkins Instance.
 	Password string `pulumi:"password"`
 	// The ID of the project. Changing this forces a new Service Connection Jenkins to be created.
@@ -192,7 +191,6 @@ type serviceendpointJenkinsArgs struct {
 type ServiceendpointJenkinsArgs struct {
 	// Allows the Jenkins clients to accept self-signed SSL server certificates. Defaults to `false.`
 	AcceptUntrustedCerts pulumi.BoolPtrInput
-	Authorization        pulumi.StringMapInput
 	Description          pulumi.StringPtrInput
 	// The Service Endpoint password to authenticate at the Jenkins Instance.
 	Password pulumi.StringInput

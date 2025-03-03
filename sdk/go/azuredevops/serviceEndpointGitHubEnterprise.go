@@ -155,9 +155,8 @@ func (ServiceEndpointGitHubEnterpriseState) ElementType() reflect.Type {
 
 type serviceEndpointGitHubEnterpriseArgs struct {
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
-	AuthPersonal  ServiceEndpointGitHubEnterpriseAuthPersonal `pulumi:"authPersonal"`
-	Authorization map[string]string                           `pulumi:"authorization"`
-	Description   *string                                     `pulumi:"description"`
+	AuthPersonal ServiceEndpointGitHubEnterpriseAuthPersonal `pulumi:"authPersonal"`
+	Description  *string                                     `pulumi:"description"`
 	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// The Service Endpoint name.
@@ -169,9 +168,8 @@ type serviceEndpointGitHubEnterpriseArgs struct {
 // The set of arguments for constructing a ServiceEndpointGitHubEnterprise resource.
 type ServiceEndpointGitHubEnterpriseArgs struct {
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
-	AuthPersonal  ServiceEndpointGitHubEnterpriseAuthPersonalInput
-	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	AuthPersonal ServiceEndpointGitHubEnterpriseAuthPersonalInput
+	Description  pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// The Service Endpoint name.

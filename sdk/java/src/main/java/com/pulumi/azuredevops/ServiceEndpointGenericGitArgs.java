@@ -8,7 +8,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -17,13 +16,6 @@ import javax.annotation.Nullable;
 public final class ServiceEndpointGenericGitArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ServiceEndpointGenericGitArgs Empty = new ServiceEndpointGenericGitArgs();
-
-    @Import(name="authorization")
-    private @Nullable Output<Map<String,String>> authorization;
-
-    public Optional<Output<Map<String,String>>> authorization() {
-        return Optional.ofNullable(this.authorization);
-    }
 
     @Import(name="description")
     private @Nullable Output<String> description;
@@ -129,7 +121,6 @@ public final class ServiceEndpointGenericGitArgs extends com.pulumi.resources.Re
     private ServiceEndpointGenericGitArgs() {}
 
     private ServiceEndpointGenericGitArgs(ServiceEndpointGenericGitArgs $) {
-        this.authorization = $.authorization;
         this.description = $.description;
         this.enablePipelinesAccess = $.enablePipelinesAccess;
         this.password = $.password;
@@ -155,15 +146,6 @@ public final class ServiceEndpointGenericGitArgs extends com.pulumi.resources.Re
 
         public Builder(ServiceEndpointGenericGitArgs defaults) {
             $ = new ServiceEndpointGenericGitArgs(Objects.requireNonNull(defaults));
-        }
-
-        public Builder authorization(@Nullable Output<Map<String,String>> authorization) {
-            $.authorization = authorization;
-            return this;
-        }
-
-        public Builder authorization(Map<String,String> authorization) {
-            return authorization(Output.of(authorization));
         }
 
         public Builder description(@Nullable Output<String> description) {

@@ -213,7 +213,6 @@ type serviceendpointVisualstudiomarketplaceArgs struct {
 	AuthenticationBasic *ServiceendpointVisualstudiomarketplaceAuthenticationBasic `pulumi:"authenticationBasic"`
 	// An `authenticationToken` block as documented below.
 	AuthenticationToken *ServiceendpointVisualstudiomarketplaceAuthenticationToken `pulumi:"authenticationToken"`
-	Authorization       map[string]string                                          `pulumi:"authorization"`
 	Description         *string                                                    `pulumi:"description"`
 	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
@@ -231,7 +230,6 @@ type ServiceendpointVisualstudiomarketplaceArgs struct {
 	AuthenticationBasic ServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrInput
 	// An `authenticationToken` block as documented below.
 	AuthenticationToken ServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrInput
-	Authorization       pulumi.StringMapInput
 	Description         pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringInput

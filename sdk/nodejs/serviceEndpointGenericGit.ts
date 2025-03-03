@@ -71,7 +71,7 @@ export class ServiceEndpointGenericGit extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceEndpointGenericGit.__pulumiType;
     }
 
-    public readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
@@ -132,7 +132,6 @@ export class ServiceEndpointGenericGit extends pulumi.CustomResource {
             if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["enablePipelinesAccess"] = args ? args.enablePipelinesAccess : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
@@ -140,6 +139,7 @@ export class ServiceEndpointGenericGit extends pulumi.CustomResource {
             resourceInputs["repositoryUrl"] = args ? args.repositoryUrl : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };
@@ -186,7 +186,6 @@ export interface ServiceEndpointGenericGitState {
  * The set of arguments for constructing a ServiceEndpointGenericGit resource.
  */
 export interface ServiceEndpointGenericGitArgs {
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     description?: pulumi.Input<string>;
     /**
      * A value indicating whether or not to attempt accessing this git server from Azure Pipelines.

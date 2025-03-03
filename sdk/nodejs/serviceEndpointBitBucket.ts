@@ -69,7 +69,7 @@ export class ServiceEndpointBitBucket extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceEndpointBitBucket.__pulumiType;
     }
 
-    public readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Bitbucket account password.
@@ -121,12 +121,12 @@ export class ServiceEndpointBitBucket extends pulumi.CustomResource {
             if ((!args || args.username === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };
@@ -163,7 +163,6 @@ export interface ServiceEndpointBitBucketState {
  * The set of arguments for constructing a ServiceEndpointBitBucket resource.
  */
 export interface ServiceEndpointBitBucketArgs {
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     description?: pulumi.Input<string>;
     /**
      * Bitbucket account password.

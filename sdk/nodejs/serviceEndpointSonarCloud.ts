@@ -70,7 +70,7 @@ export class ServiceEndpointSonarCloud extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceEndpointSonarCloud.__pulumiType;
     }
 
-    public readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Service Endpoint description.
      */
@@ -117,11 +117,11 @@ export class ServiceEndpointSonarCloud extends pulumi.CustomResource {
             if ((!args || args.token === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'token'");
             }
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             resourceInputs["token"] = args?.token ? pulumi.secret(args.token) : undefined;
+            resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["token"] };
@@ -157,7 +157,6 @@ export interface ServiceEndpointSonarCloudState {
  * The set of arguments for constructing a ServiceEndpointSonarCloud resource.
  */
 export interface ServiceEndpointSonarCloudArgs {
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Service Endpoint description.
      */

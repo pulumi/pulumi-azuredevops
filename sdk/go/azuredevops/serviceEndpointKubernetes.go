@@ -229,8 +229,7 @@ func (ServiceEndpointKubernetesState) ElementType() reflect.Type {
 
 type serviceEndpointKubernetesArgs struct {
 	// The hostname (in form of URI) of the Kubernetes API.
-	ApiserverUrl  string            `pulumi:"apiserverUrl"`
-	Authorization map[string]string `pulumi:"authorization"`
+	ApiserverUrl string `pulumi:"apiserverUrl"`
 	// The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.
 	AuthorizationType string `pulumi:"authorizationType"`
 	// An `azureSubscription` block as defined below.
@@ -249,8 +248,7 @@ type serviceEndpointKubernetesArgs struct {
 // The set of arguments for constructing a ServiceEndpointKubernetes resource.
 type ServiceEndpointKubernetesArgs struct {
 	// The hostname (in form of URI) of the Kubernetes API.
-	ApiserverUrl  pulumi.StringInput
-	Authorization pulumi.StringMapInput
+	ApiserverUrl pulumi.StringInput
 	// The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.
 	AuthorizationType pulumi.StringInput
 	// An `azureSubscription` block as defined below.
