@@ -215,7 +215,6 @@ type serviceendpointJfrogPlatformV2Args struct {
 	AuthenticationBasic *ServiceendpointJfrogPlatformV2AuthenticationBasic `pulumi:"authenticationBasic"`
 	// An `authenticationToken` block as documented below.
 	AuthenticationToken *ServiceendpointJfrogPlatformV2AuthenticationToken `pulumi:"authenticationToken"`
-	Authorization       map[string]string                                  `pulumi:"authorization"`
 	// The Service Endpoint description.
 	Description *string `pulumi:"description"`
 	// The ID of the project.
@@ -234,7 +233,6 @@ type ServiceendpointJfrogPlatformV2Args struct {
 	AuthenticationBasic ServiceendpointJfrogPlatformV2AuthenticationBasicPtrInput
 	// An `authenticationToken` block as documented below.
 	AuthenticationToken ServiceendpointJfrogPlatformV2AuthenticationTokenPtrInput
-	Authorization       pulumi.StringMapInput
 	// The Service Endpoint description.
 	Description pulumi.StringPtrInput
 	// The ID of the project.

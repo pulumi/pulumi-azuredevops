@@ -4821,15 +4821,18 @@ class GetIdentityGroupsGroupResult(dict):
     def __init__(__self__, *,
                  descriptor: str,
                  id: str,
-                 name: str):
+                 name: str,
+                 subject_descriptor: str):
         """
         :param str descriptor: The descriptor of the Identity Group.
         :param str id: The ID of the Identity Group.
         :param str name: This is the non-unique display name of the identity subject.
+        :param str subject_descriptor: The subject descriptor of the identity group.
         """
         pulumi.set(__self__, "descriptor", descriptor)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "subject_descriptor", subject_descriptor)
 
     @property
     @pulumi.getter
@@ -4854,6 +4857,14 @@ class GetIdentityGroupsGroupResult(dict):
         This is the non-unique display name of the identity subject.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="subjectDescriptor")
+    def subject_descriptor(self) -> str:
+        """
+        The subject descriptor of the identity group.
+        """
+        return pulumi.get(self, "subject_descriptor")
 
 
 @pulumi.output_type

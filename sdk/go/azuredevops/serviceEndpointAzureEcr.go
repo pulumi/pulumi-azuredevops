@@ -299,7 +299,6 @@ func (ServiceEndpointAzureEcrState) ElementType() reflect.Type {
 }
 
 type serviceEndpointAzureEcrArgs struct {
-	Authorization map[string]string `pulumi:"authorization"`
 	// The Azure container registry name.
 	AzurecrName string `pulumi:"azurecrName"`
 	// The tenant id of the service principal.
@@ -323,7 +322,6 @@ type serviceEndpointAzureEcrArgs struct {
 
 // The set of arguments for constructing a ServiceEndpointAzureEcr resource.
 type ServiceEndpointAzureEcrArgs struct {
-	Authorization pulumi.StringMapInput
 	// The Azure container registry name.
 	AzurecrName pulumi.StringInput
 	// The tenant id of the service principal.

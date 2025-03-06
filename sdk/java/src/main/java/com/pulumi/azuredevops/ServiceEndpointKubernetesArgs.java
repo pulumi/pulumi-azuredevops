@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -34,13 +33,6 @@ public final class ServiceEndpointKubernetesArgs extends com.pulumi.resources.Re
      */
     public Output<String> apiserverUrl() {
         return this.apiserverUrl;
-    }
-
-    @Import(name="authorization")
-    private @Nullable Output<Map<String,String>> authorization;
-
-    public Optional<Output<Map<String,String>>> authorization() {
-        return Optional.ofNullable(this.authorization);
     }
 
     /**
@@ -144,7 +136,6 @@ public final class ServiceEndpointKubernetesArgs extends com.pulumi.resources.Re
 
     private ServiceEndpointKubernetesArgs(ServiceEndpointKubernetesArgs $) {
         this.apiserverUrl = $.apiserverUrl;
-        this.authorization = $.authorization;
         this.authorizationType = $.authorizationType;
         this.azureSubscriptions = $.azureSubscriptions;
         this.description = $.description;
@@ -191,15 +182,6 @@ public final class ServiceEndpointKubernetesArgs extends com.pulumi.resources.Re
          */
         public Builder apiserverUrl(String apiserverUrl) {
             return apiserverUrl(Output.of(apiserverUrl));
-        }
-
-        public Builder authorization(@Nullable Output<Map<String,String>> authorization) {
-            $.authorization = authorization;
-            return this;
-        }
-
-        public Builder authorization(Map<String,String> authorization) {
-            return authorization(Output.of(authorization));
         }
 
         /**

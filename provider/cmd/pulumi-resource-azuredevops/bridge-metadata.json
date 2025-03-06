@@ -334,6 +334,10 @@
                 "current": "azuredevops:index/checkRestApi:CheckRestApi",
                 "majorVersion": 3
             },
+            "azuredevops_dashboard": {
+                "current": "azuredevops:index/dashboard:Dashboard",
+                "majorVersion": 3
+            },
             "azuredevops_elastic_pool": {
                 "current": "azuredevops:index/elasticPool:ElasticPool",
                 "majorVersion": 3
@@ -1062,6 +1066,10 @@
                 "current": "azuredevops:index/getClientConfig:getClientConfig",
                 "majorVersion": 3
             },
+            "azuredevops_descriptor": {
+                "current": "azuredevops:index/getDescriptor:getDescriptor",
+                "majorVersion": 3
+            },
             "azuredevops_environment": {
                 "current": "azuredevops:index/getEnvironment:getEnvironment",
                 "majorVersion": 3
@@ -1172,6 +1180,10 @@
                 "current": "azuredevops:index/getServiceendpointSonarcloud:getServiceendpointSonarcloud",
                 "majorVersion": 3
             },
+            "azuredevops_storage_key": {
+                "current": "azuredevops:index/getStorageKey:getStorageKey",
+                "majorVersion": 3
+            },
             "azuredevops_team": {
                 "current": "azuredevops:index/getTeam:getTeam",
                 "majorVersion": 3,
@@ -1202,6 +1214,10 @@
                         }
                     }
                 }
+            },
+            "azuredevops_user": {
+                "current": "azuredevops:index/getUser:getUser",
+                "majorVersion": 3
             },
             "azuredevops_users": {
                 "current": "azuredevops:index/getUsers:getUsers",

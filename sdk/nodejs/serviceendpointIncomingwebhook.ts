@@ -66,7 +66,7 @@ export class ServiceendpointIncomingwebhook extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceendpointIncomingwebhook.__pulumiType;
     }
 
-    public readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Http header name on which checksum will be sent.
@@ -120,13 +120,13 @@ export class ServiceendpointIncomingwebhook extends pulumi.CustomResource {
             if ((!args || args.webhookName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'webhookName'");
             }
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["httpHeader"] = args ? args.httpHeader : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["secret"] = args?.secret ? pulumi.secret(args.secret) : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             resourceInputs["webhookName"] = args ? args.webhookName : undefined;
+            resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["secret"] };
@@ -167,7 +167,6 @@ export interface ServiceendpointIncomingwebhookState {
  * The set of arguments for constructing a ServiceendpointIncomingwebhook resource.
  */
 export interface ServiceendpointIncomingwebhookArgs {
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     description?: pulumi.Input<string>;
     /**
      * Http header name on which checksum will be sent.

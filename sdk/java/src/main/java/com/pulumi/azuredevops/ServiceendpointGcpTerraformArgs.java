@@ -7,7 +7,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,13 +15,6 @@ import javax.annotation.Nullable;
 public final class ServiceendpointGcpTerraformArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ServiceendpointGcpTerraformArgs Empty = new ServiceendpointGcpTerraformArgs();
-
-    @Import(name="authorization")
-    private @Nullable Output<Map<String,String>> authorization;
-
-    public Optional<Output<Map<String,String>>> authorization() {
-        return Optional.ofNullable(this.authorization);
-    }
 
     /**
      * The client email field in the JSON key file for creating the JSON Web Token.
@@ -139,7 +131,6 @@ public final class ServiceendpointGcpTerraformArgs extends com.pulumi.resources.
     private ServiceendpointGcpTerraformArgs() {}
 
     private ServiceendpointGcpTerraformArgs(ServiceendpointGcpTerraformArgs $) {
-        this.authorization = $.authorization;
         this.clientEmail = $.clientEmail;
         this.description = $.description;
         this.gcpProjectId = $.gcpProjectId;
@@ -166,15 +157,6 @@ public final class ServiceendpointGcpTerraformArgs extends com.pulumi.resources.
 
         public Builder(ServiceendpointGcpTerraformArgs defaults) {
             $ = new ServiceendpointGcpTerraformArgs(Objects.requireNonNull(defaults));
-        }
-
-        public Builder authorization(@Nullable Output<Map<String,String>> authorization) {
-            $.authorization = authorization;
-            return this;
-        }
-
-        public Builder authorization(Map<String,String> authorization) {
-            return authorization(Output.of(authorization));
         }
 
         /**

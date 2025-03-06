@@ -211,7 +211,6 @@ type serviceendpointMavenArgs struct {
 	AuthenticationBasic *ServiceendpointMavenAuthenticationBasic `pulumi:"authenticationBasic"`
 	// A `authenticationToken` block as documented below.
 	AuthenticationToken *ServiceendpointMavenAuthenticationToken `pulumi:"authenticationToken"`
-	Authorization       map[string]string                        `pulumi:"authorization"`
 	Description         *string                                  `pulumi:"description"`
 	// The ID of the project. Changing this forces a new Service Connection Maven to be created.
 	ProjectId string `pulumi:"projectId"`
@@ -229,7 +228,6 @@ type ServiceendpointMavenArgs struct {
 	AuthenticationBasic ServiceendpointMavenAuthenticationBasicPtrInput
 	// A `authenticationToken` block as documented below.
 	AuthenticationToken ServiceendpointMavenAuthenticationTokenPtrInput
-	Authorization       pulumi.StringMapInput
 	Description         pulumi.StringPtrInput
 	// The ID of the project. Changing this forces a new Service Connection Maven to be created.
 	ProjectId pulumi.StringInput

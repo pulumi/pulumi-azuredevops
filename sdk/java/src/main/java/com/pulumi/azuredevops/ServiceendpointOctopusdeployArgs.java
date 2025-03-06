@@ -8,7 +8,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -31,13 +30,6 @@ public final class ServiceendpointOctopusdeployArgs extends com.pulumi.resources
      */
     public Output<String> apiKey() {
         return this.apiKey;
-    }
-
-    @Import(name="authorization")
-    private @Nullable Output<Map<String,String>> authorization;
-
-    public Optional<Output<Map<String,String>>> authorization() {
-        return Optional.ofNullable(this.authorization);
     }
 
     @Import(name="description")
@@ -111,7 +103,6 @@ public final class ServiceendpointOctopusdeployArgs extends com.pulumi.resources
 
     private ServiceendpointOctopusdeployArgs(ServiceendpointOctopusdeployArgs $) {
         this.apiKey = $.apiKey;
-        this.authorization = $.authorization;
         this.description = $.description;
         this.ignoreSslError = $.ignoreSslError;
         this.projectId = $.projectId;
@@ -156,15 +147,6 @@ public final class ServiceendpointOctopusdeployArgs extends com.pulumi.resources
          */
         public Builder apiKey(String apiKey) {
             return apiKey(Output.of(apiKey));
-        }
-
-        public Builder authorization(@Nullable Output<Map<String,String>> authorization) {
-            $.authorization = authorization;
-            return this;
-        }
-
-        public Builder authorization(Map<String,String> authorization) {
-            return authorization(Output.of(authorization));
         }
 
         public Builder description(@Nullable Output<String> description) {

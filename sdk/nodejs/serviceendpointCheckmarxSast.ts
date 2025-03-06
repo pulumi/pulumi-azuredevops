@@ -71,7 +71,7 @@ export class ServiceendpointCheckmarxSast extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceendpointCheckmarxSast.__pulumiType;
     }
 
-    public readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The password of the Checkmarx SAST.
@@ -141,7 +141,6 @@ export class ServiceendpointCheckmarxSast extends pulumi.CustomResource {
             if ((!args || args.username === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["preset"] = args ? args.preset : undefined;
@@ -150,6 +149,7 @@ export class ServiceendpointCheckmarxSast extends pulumi.CustomResource {
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             resourceInputs["team"] = args ? args.team : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };
@@ -198,7 +198,6 @@ export interface ServiceendpointCheckmarxSastState {
  * The set of arguments for constructing a ServiceendpointCheckmarxSast resource.
  */
 export interface ServiceendpointCheckmarxSastArgs {
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     description?: pulumi.Input<string>;
     /**
      * The password of the Checkmarx SAST.

@@ -159,8 +159,7 @@ func (ServiceendpointIncomingwebhookState) ElementType() reflect.Type {
 }
 
 type serviceendpointIncomingwebhookArgs struct {
-	Authorization map[string]string `pulumi:"authorization"`
-	Description   *string           `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// Http header name on which checksum will be sent.
 	HttpHeader *string `pulumi:"httpHeader"`
 	// The ID of the project. Changing this forces a new Service Connection Incoming WebHook to be created.
@@ -175,8 +174,7 @@ type serviceendpointIncomingwebhookArgs struct {
 
 // The set of arguments for constructing a ServiceendpointIncomingwebhook resource.
 type ServiceendpointIncomingwebhookArgs struct {
-	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
 	// Http header name on which checksum will be sent.
 	HttpHeader pulumi.StringPtrInput
 	// The ID of the project. Changing this forces a new Service Connection Incoming WebHook to be created.

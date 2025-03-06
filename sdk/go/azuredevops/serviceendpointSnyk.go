@@ -160,9 +160,8 @@ func (ServiceendpointSnykState) ElementType() reflect.Type {
 
 type serviceendpointSnykArgs struct {
 	// The API token of the Snyk Security Scan.
-	ApiToken      string            `pulumi:"apiToken"`
-	Authorization map[string]string `pulumi:"authorization"`
-	Description   *string           `pulumi:"description"`
+	ApiToken    string  `pulumi:"apiToken"`
+	Description *string `pulumi:"description"`
 	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// The server URL of the Snyk Security Scan.
@@ -174,9 +173,8 @@ type serviceendpointSnykArgs struct {
 // The set of arguments for constructing a ServiceendpointSnyk resource.
 type ServiceendpointSnykArgs struct {
 	// The API token of the Snyk Security Scan.
-	ApiToken      pulumi.StringInput
-	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	ApiToken    pulumi.StringInput
+	Description pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// The server URL of the Snyk Security Scan.

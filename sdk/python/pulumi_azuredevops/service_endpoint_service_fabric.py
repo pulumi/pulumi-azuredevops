@@ -24,7 +24,6 @@ class ServiceEndpointServiceFabricArgs:
                  cluster_endpoint: pulumi.Input[str],
                  project_id: pulumi.Input[str],
                  service_endpoint_name: pulumi.Input[str],
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  azure_active_directory: Optional[pulumi.Input['ServiceEndpointServiceFabricAzureActiveDirectoryArgs']] = None,
                  certificate: Optional[pulumi.Input['ServiceEndpointServiceFabricCertificateArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -41,8 +40,6 @@ class ServiceEndpointServiceFabricArgs:
         pulumi.set(__self__, "cluster_endpoint", cluster_endpoint)
         pulumi.set(__self__, "project_id", project_id)
         pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
-        if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
         if azure_active_directory is not None:
             pulumi.set(__self__, "azure_active_directory", azure_active_directory)
         if certificate is not None:
@@ -87,15 +84,6 @@ class ServiceEndpointServiceFabricArgs:
     @service_endpoint_name.setter
     def service_endpoint_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "service_endpoint_name", value)
-
-    @property
-    @pulumi.getter
-    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "authorization")
-
-    @authorization.setter
-    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "authorization", value)
 
     @property
     @pulumi.getter(name="azureActiveDirectory")
@@ -276,7 +264,6 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  azure_active_directory: Optional[pulumi.Input[Union['ServiceEndpointServiceFabricAzureActiveDirectoryArgs', 'ServiceEndpointServiceFabricAzureActiveDirectoryArgsDict']]] = None,
                  certificate: Optional[pulumi.Input[Union['ServiceEndpointServiceFabricCertificateArgs', 'ServiceEndpointServiceFabricCertificateArgsDict']]] = None,
                  cluster_endpoint: Optional[pulumi.Input[str]] = None,
@@ -441,7 +428,6 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  azure_active_directory: Optional[pulumi.Input[Union['ServiceEndpointServiceFabricAzureActiveDirectoryArgs', 'ServiceEndpointServiceFabricAzureActiveDirectoryArgsDict']]] = None,
                  certificate: Optional[pulumi.Input[Union['ServiceEndpointServiceFabricCertificateArgs', 'ServiceEndpointServiceFabricCertificateArgsDict']]] = None,
                  cluster_endpoint: Optional[pulumi.Input[str]] = None,
@@ -458,7 +444,6 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceEndpointServiceFabricArgs.__new__(ServiceEndpointServiceFabricArgs)
 
-            __props__.__dict__["authorization"] = authorization
             __props__.__dict__["azure_active_directory"] = azure_active_directory
             __props__.__dict__["certificate"] = certificate
             if cluster_endpoint is None and not opts.urn:
@@ -472,6 +457,7 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
             if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")
             __props__.__dict__["service_endpoint_name"] = service_endpoint_name
+            __props__.__dict__["authorization"] = None
         super(ServiceEndpointServiceFabric, __self__).__init__(
             'azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric',
             resource_name,

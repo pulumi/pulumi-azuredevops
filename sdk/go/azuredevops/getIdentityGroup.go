@@ -43,7 +43,7 @@ import (
 //
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+// - [Azure DevOps Service REST API 7.1 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
 func GetIdentityGroup(ctx *pulumi.Context, args *GetIdentityGroupArgs, opts ...pulumi.InvokeOption) (*GetIdentityGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetIdentityGroupResult
@@ -71,6 +71,8 @@ type GetIdentityGroupResult struct {
 	// This is the non-unique display name of the identity subject. To change this field, you must alter its value in the source provider.
 	Name      string `pulumi:"name"`
 	ProjectId string `pulumi:"projectId"`
+	// The subject descriptor of the identity group.
+	SubjectDescriptor string `pulumi:"subjectDescriptor"`
 }
 
 func GetIdentityGroupOutput(ctx *pulumi.Context, args GetIdentityGroupOutputArgs, opts ...pulumi.InvokeOption) GetIdentityGroupResultOutput {
@@ -126,6 +128,11 @@ func (o GetIdentityGroupResultOutput) Name() pulumi.StringOutput {
 
 func (o GetIdentityGroupResultOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIdentityGroupResult) string { return v.ProjectId }).(pulumi.StringOutput)
+}
+
+// The subject descriptor of the identity group.
+func (o GetIdentityGroupResultOutput) SubjectDescriptor() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIdentityGroupResult) string { return v.SubjectDescriptor }).(pulumi.StringOutput)
 }
 
 func init() {

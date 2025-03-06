@@ -69,7 +69,7 @@ export class ServiceendpointGcpTerraform extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceendpointGcpTerraform.__pulumiType;
     }
 
-    public readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
     /**
      * The client email field in the JSON key file for creating the JSON Web Token.
      */
@@ -139,7 +139,6 @@ export class ServiceendpointGcpTerraform extends pulumi.CustomResource {
             if ((!args || args.tokenUri === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tokenUri'");
             }
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["clientEmail"] = args ? args.clientEmail : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["gcpProjectId"] = args ? args.gcpProjectId : undefined;
@@ -148,6 +147,7 @@ export class ServiceendpointGcpTerraform extends pulumi.CustomResource {
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             resourceInputs["tokenUri"] = args ? args.tokenUri : undefined;
+            resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["privateKey"] };
@@ -196,7 +196,6 @@ export interface ServiceendpointGcpTerraformState {
  * The set of arguments for constructing a ServiceendpointGcpTerraform resource.
  */
 export interface ServiceendpointGcpTerraformArgs {
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The client email field in the JSON key file for creating the JSON Web Token.
      */

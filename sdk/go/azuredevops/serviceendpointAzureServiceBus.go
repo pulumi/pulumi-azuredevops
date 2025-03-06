@@ -159,7 +159,6 @@ func (ServiceendpointAzureServiceBusState) ElementType() reflect.Type {
 }
 
 type serviceendpointAzureServiceBusArgs struct {
-	Authorization map[string]string `pulumi:"authorization"`
 	// The  Azure Service Bus Connection string.
 	ConnectionString string  `pulumi:"connectionString"`
 	Description      *string `pulumi:"description"`
@@ -173,7 +172,6 @@ type serviceendpointAzureServiceBusArgs struct {
 
 // The set of arguments for constructing a ServiceendpointAzureServiceBus resource.
 type ServiceendpointAzureServiceBusArgs struct {
-	Authorization pulumi.StringMapInput
 	// The  Azure Service Bus Connection string.
 	ConnectionString pulumi.StringInput
 	Description      pulumi.StringPtrInput

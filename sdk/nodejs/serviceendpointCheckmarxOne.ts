@@ -97,7 +97,7 @@ export class ServiceendpointCheckmarxOne extends pulumi.CustomResource {
      * The account of the Checkmarx One. Conflict with `clientId` and `clientSecret`.
      */
     public readonly apiKey!: pulumi.Output<string | undefined>;
-    public readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
     /**
      * The URL of Checkmarx Authorization. Used when using `clientId` and `clientSecret` authorization.
      */
@@ -160,7 +160,6 @@ export class ServiceendpointCheckmarxOne extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
             resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["authorizationUrl"] = args ? args.authorizationUrl : undefined;
             resourceInputs["clientId"] = args ? args.clientId : undefined;
             resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
@@ -168,6 +167,7 @@ export class ServiceendpointCheckmarxOne extends pulumi.CustomResource {
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["serverUrl"] = args ? args.serverUrl : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["apiKey", "clientSecret"] };
@@ -222,7 +222,6 @@ export interface ServiceendpointCheckmarxOneArgs {
      * The account of the Checkmarx One. Conflict with `clientId` and `clientSecret`.
      */
     apiKey?: pulumi.Input<string>;
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The URL of Checkmarx Authorization. Used when using `clientId` and `clientSecret` authorization.
      */

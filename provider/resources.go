@@ -82,6 +82,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azuredevops_agent_queue":                 {Tok: makeResource("Queue")},
 			"azuredevops_branch_policy_min_reviewers": {Tok: makeResource("BranchPolicyMinReviewers")},
 			"azuredevops_build_definition":            {Tok: makeResource("BuildDefinition")},
+			"azuredevops_dashboard": {
+				Tok: makeResource("Dashboard"),
+				Docs: &tfbridge.DocInfo{
+					Source: "dashbaord.html.markdown",
+				},
+			},
 			"azuredevops_environment_resource_kubernetes": {
 				Docs: &tfbridge.DocInfo{
 					Source: "environment_kubernetes_resource.html.markdown",

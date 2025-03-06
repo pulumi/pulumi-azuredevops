@@ -34,7 +34,7 @@ export interface GetIdentityUsersArgs {
  */
 export interface GetIdentityUsersResult {
     /**
-     * The descriptor of the user.
+     * The Descriptor of the user.
      */
     readonly descriptor: string;
     /**
@@ -43,6 +43,10 @@ export interface GetIdentityUsersResult {
     readonly id: string;
     readonly name: string;
     readonly searchFilter?: string;
+    /**
+     * The Subject Descriptor of the user.
+     */
+    readonly subjectDescriptor: string;
 }
 /**
  * Use this data source to access information about an existing users within Azure DevOps On-Premise(Azure DevOps Server).

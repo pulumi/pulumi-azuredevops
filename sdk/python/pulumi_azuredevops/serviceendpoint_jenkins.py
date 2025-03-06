@@ -25,7 +25,6 @@ class ServiceendpointJenkinsArgs:
                  url: pulumi.Input[str],
                  username: pulumi.Input[str],
                  accept_untrusted_certs: Optional[pulumi.Input[bool]] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServiceendpointJenkins resource.
@@ -43,8 +42,6 @@ class ServiceendpointJenkinsArgs:
         pulumi.set(__self__, "username", username)
         if accept_untrusted_certs is not None:
             pulumi.set(__self__, "accept_untrusted_certs", accept_untrusted_certs)
-        if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
         if description is not None:
             pulumi.set(__self__, "description", description)
 
@@ -119,15 +116,6 @@ class ServiceendpointJenkinsArgs:
     @accept_untrusted_certs.setter
     def accept_untrusted_certs(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "accept_untrusted_certs", value)
-
-    @property
-    @pulumi.getter
-    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "authorization")
-
-    @authorization.setter
-    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "authorization", value)
 
     @property
     @pulumi.getter
@@ -273,7 +261,6 @@ class ServiceendpointJenkins(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accept_untrusted_certs: Optional[pulumi.Input[bool]] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
@@ -378,7 +365,6 @@ class ServiceendpointJenkins(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accept_untrusted_certs: Optional[pulumi.Input[bool]] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
@@ -395,7 +381,6 @@ class ServiceendpointJenkins(pulumi.CustomResource):
             __props__ = ServiceendpointJenkinsArgs.__new__(ServiceendpointJenkinsArgs)
 
             __props__.__dict__["accept_untrusted_certs"] = accept_untrusted_certs
-            __props__.__dict__["authorization"] = authorization
             __props__.__dict__["description"] = description
             if password is None and not opts.urn:
                 raise TypeError("Missing required property 'password'")
@@ -412,6 +397,7 @@ class ServiceendpointJenkins(pulumi.CustomResource):
             if username is None and not opts.urn:
                 raise TypeError("Missing required property 'username'")
             __props__.__dict__["username"] = username
+            __props__.__dict__["authorization"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceendpointJenkins, __self__).__init__(

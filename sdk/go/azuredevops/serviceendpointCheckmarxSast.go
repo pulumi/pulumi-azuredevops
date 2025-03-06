@@ -182,8 +182,7 @@ func (ServiceendpointCheckmarxSastState) ElementType() reflect.Type {
 }
 
 type serviceendpointCheckmarxSastArgs struct {
-	Authorization map[string]string `pulumi:"authorization"`
-	Description   *string           `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The password of the Checkmarx SAST.
 	Password string `pulumi:"password"`
 	// Predefined sets of queries that you can select when Creating, Configuring and Branching Projects. Predefined presets are provided by Checkmarx and you can configure your own. You can also import and export presets (on the server).In Service Connection if preset(optional) value is added, then it will igonres Preset available in pipeline and uses preset available in service connection only.If Preset is blank in service connection then it will use pipelines preset.
@@ -202,8 +201,7 @@ type serviceendpointCheckmarxSastArgs struct {
 
 // The set of arguments for constructing a ServiceendpointCheckmarxSast resource.
 type ServiceendpointCheckmarxSastArgs struct {
-	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
 	// The password of the Checkmarx SAST.
 	Password pulumi.StringInput
 	// Predefined sets of queries that you can select when Creating, Configuring and Branching Projects. Predefined presets are provided by Checkmarx and you can configure your own. You can also import and export presets (on the server).In Service Connection if preset(optional) value is added, then it will igonres Preset available in pipeline and uses preset available in service connection only.If Preset is blank in service connection then it will use pipelines preset.

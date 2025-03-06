@@ -138,14 +138,6 @@ namespace Pulumi.AzureDevOps
 
     public sealed class ServiceendpointAzureServiceBusArgs : global::Pulumi.ResourceArgs
     {
-        [Input("authorization")]
-        private InputMap<string>? _authorization;
-        public InputMap<string> Authorization
-        {
-            get => _authorization ?? (_authorization = new InputMap<string>());
-            set => _authorization = value;
-        }
-
         [Input("connectionString", required: true)]
         private Input<string>? _connectionString;
 
