@@ -23,7 +23,6 @@ class ServiceendpointOctopusdeployArgs:
                  project_id: pulumi.Input[str],
                  service_endpoint_name: pulumi.Input[str],
                  url: pulumi.Input[str],
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ignore_ssl_error: Optional[pulumi.Input[bool]] = None):
         """
@@ -38,8 +37,6 @@ class ServiceendpointOctopusdeployArgs:
         pulumi.set(__self__, "project_id", project_id)
         pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
         pulumi.set(__self__, "url", url)
-        if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if ignore_ssl_error is not None:
@@ -92,15 +89,6 @@ class ServiceendpointOctopusdeployArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
-
-    @property
-    @pulumi.getter
-    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "authorization")
-
-    @authorization.setter
-    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "authorization", value)
 
     @property
     @pulumi.getter
@@ -242,7 +230,6 @@ class ServiceendpointOctopusdeploy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key: Optional[pulumi.Input[str]] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ignore_ssl_error: Optional[pulumi.Input[bool]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
@@ -349,7 +336,6 @@ class ServiceendpointOctopusdeploy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key: Optional[pulumi.Input[str]] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ignore_ssl_error: Optional[pulumi.Input[bool]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
@@ -367,7 +353,6 @@ class ServiceendpointOctopusdeploy(pulumi.CustomResource):
             if api_key is None and not opts.urn:
                 raise TypeError("Missing required property 'api_key'")
             __props__.__dict__["api_key"] = api_key
-            __props__.__dict__["authorization"] = authorization
             __props__.__dict__["description"] = description
             __props__.__dict__["ignore_ssl_error"] = ignore_ssl_error
             if project_id is None and not opts.urn:
@@ -379,6 +364,7 @@ class ServiceendpointOctopusdeploy(pulumi.CustomResource):
             if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
             __props__.__dict__["url"] = url
+            __props__.__dict__["authorization"] = None
         super(ServiceendpointOctopusdeploy, __self__).__init__(
             'azuredevops:index/serviceendpointOctopusdeploy:ServiceendpointOctopusdeploy',
             resource_name,

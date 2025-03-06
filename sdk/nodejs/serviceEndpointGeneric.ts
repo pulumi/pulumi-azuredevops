@@ -71,7 +71,7 @@ export class ServiceEndpointGeneric extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceEndpointGeneric.__pulumiType;
     }
 
-    public readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The password or token key used to authenticate to the server url using basic authentication.
@@ -125,13 +125,13 @@ export class ServiceEndpointGeneric extends pulumi.CustomResource {
             if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["serverUrl"] = args ? args.serverUrl : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };
@@ -172,7 +172,6 @@ export interface ServiceEndpointGenericState {
  * The set of arguments for constructing a ServiceEndpointGeneric resource.
  */
 export interface ServiceEndpointGenericArgs {
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     description?: pulumi.Input<string>;
     /**
      * The password or token key used to authenticate to the server url using basic authentication.

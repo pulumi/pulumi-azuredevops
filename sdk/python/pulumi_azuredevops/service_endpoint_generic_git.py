@@ -22,7 +22,6 @@ class ServiceEndpointGenericGitArgs:
                  project_id: pulumi.Input[str],
                  repository_url: pulumi.Input[str],
                  service_endpoint_name: pulumi.Input[str],
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_pipelines_access: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -41,8 +40,6 @@ class ServiceEndpointGenericGitArgs:
         pulumi.set(__self__, "project_id", project_id)
         pulumi.set(__self__, "repository_url", repository_url)
         pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
-        if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if enable_pipelines_access is not None:
@@ -87,15 +84,6 @@ class ServiceEndpointGenericGitArgs:
     @service_endpoint_name.setter
     def service_endpoint_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "service_endpoint_name", value)
-
-    @property
-    @pulumi.getter
-    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "authorization")
-
-    @authorization.setter
-    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "authorization", value)
 
     @property
     @pulumi.getter
@@ -282,7 +270,6 @@ class ServiceEndpointGenericGit(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_pipelines_access: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -397,7 +384,6 @@ class ServiceEndpointGenericGit(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_pipelines_access: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -414,7 +400,6 @@ class ServiceEndpointGenericGit(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceEndpointGenericGitArgs.__new__(ServiceEndpointGenericGitArgs)
 
-            __props__.__dict__["authorization"] = authorization
             __props__.__dict__["description"] = description
             __props__.__dict__["enable_pipelines_access"] = enable_pipelines_access
             __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
@@ -428,6 +413,7 @@ class ServiceEndpointGenericGit(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_endpoint_name'")
             __props__.__dict__["service_endpoint_name"] = service_endpoint_name
             __props__.__dict__["username"] = username
+            __props__.__dict__["authorization"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceEndpointGenericGit, __self__).__init__(

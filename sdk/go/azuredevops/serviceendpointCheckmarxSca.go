@@ -207,9 +207,8 @@ type serviceendpointCheckmarxScaArgs struct {
 	// The Access Control URL of the Checkmarx SCA.
 	AccessControlUrl string `pulumi:"accessControlUrl"`
 	// The account of the Checkmarx SCA.
-	Account       string            `pulumi:"account"`
-	Authorization map[string]string `pulumi:"authorization"`
-	Description   *string           `pulumi:"description"`
+	Account     string  `pulumi:"account"`
+	Description *string `pulumi:"description"`
 	// The password of the Checkmarx SCA.
 	Password string `pulumi:"password"`
 	// The ID of the project.
@@ -231,9 +230,8 @@ type ServiceendpointCheckmarxScaArgs struct {
 	// The Access Control URL of the Checkmarx SCA.
 	AccessControlUrl pulumi.StringInput
 	// The account of the Checkmarx SCA.
-	Account       pulumi.StringInput
-	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	Account     pulumi.StringInput
+	Description pulumi.StringPtrInput
 	// The password of the Checkmarx SCA.
 	Password pulumi.StringInput
 	// The ID of the project.

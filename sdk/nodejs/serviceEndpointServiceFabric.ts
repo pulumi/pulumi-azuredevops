@@ -101,7 +101,7 @@ export class ServiceEndpointServiceFabric extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceEndpointServiceFabric.__pulumiType;
     }
 
-    public readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
     /**
      * An `azureActiveDirectory` block as documented below.
      */
@@ -160,7 +160,6 @@ export class ServiceEndpointServiceFabric extends pulumi.CustomResource {
             if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["azureActiveDirectory"] = args ? args.azureActiveDirectory : undefined;
             resourceInputs["certificate"] = args ? args.certificate : undefined;
             resourceInputs["clusterEndpoint"] = args ? args.clusterEndpoint : undefined;
@@ -168,6 +167,7 @@ export class ServiceEndpointServiceFabric extends pulumi.CustomResource {
             resourceInputs["none"] = args ? args.none : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServiceEndpointServiceFabric.__pulumiType, name, resourceInputs, opts);
@@ -210,7 +210,6 @@ export interface ServiceEndpointServiceFabricState {
  * The set of arguments for constructing a ServiceEndpointServiceFabric resource.
  */
 export interface ServiceEndpointServiceFabricArgs {
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * An `azureActiveDirectory` block as documented below.
      */

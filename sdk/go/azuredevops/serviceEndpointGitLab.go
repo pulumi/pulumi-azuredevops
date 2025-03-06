@@ -170,9 +170,8 @@ func (ServiceEndpointGitLabState) ElementType() reflect.Type {
 
 type serviceEndpointGitLabArgs struct {
 	// The API token of the GitLab.
-	ApiToken      string            `pulumi:"apiToken"`
-	Authorization map[string]string `pulumi:"authorization"`
-	Description   *string           `pulumi:"description"`
+	ApiToken    string  `pulumi:"apiToken"`
+	Description *string `pulumi:"description"`
 	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// The Service Endpoint name.
@@ -186,9 +185,8 @@ type serviceEndpointGitLabArgs struct {
 // The set of arguments for constructing a ServiceEndpointGitLab resource.
 type ServiceEndpointGitLabArgs struct {
 	// The API token of the GitLab.
-	ApiToken      pulumi.StringInput
-	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	ApiToken    pulumi.StringInput
+	Description pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// The Service Endpoint name.

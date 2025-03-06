@@ -73,7 +73,7 @@ export class ServiceendpointOctopusdeploy extends pulumi.CustomResource {
      * API key to connect to Octopus Deploy.
      */
     public readonly apiKey!: pulumi.Output<string>;
-    public readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Whether to ignore SSL errors when connecting to the Octopus server from the agent. Default to `false`.
@@ -127,12 +127,12 @@ export class ServiceendpointOctopusdeploy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'url'");
             }
             resourceInputs["apiKey"] = args ? args.apiKey : undefined;
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["ignoreSslError"] = args ? args.ignoreSslError : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServiceendpointOctopusdeploy.__pulumiType, name, resourceInputs, opts);
@@ -175,7 +175,6 @@ export interface ServiceendpointOctopusdeployArgs {
      * API key to connect to Octopus Deploy.
      */
     apiKey: pulumi.Input<string>;
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     description?: pulumi.Input<string>;
     /**
      * Whether to ignore SSL errors when connecting to the Octopus server from the agent. Default to `false`.

@@ -187,14 +187,6 @@ namespace Pulumi.AzureDevOps
 
     public sealed class ServiceEndpointServiceFabricArgs : global::Pulumi.ResourceArgs
     {
-        [Input("authorization")]
-        private InputMap<string>? _authorization;
-        public InputMap<string> Authorization
-        {
-            get => _authorization ?? (_authorization = new InputMap<string>());
-            set => _authorization = value;
-        }
-
         /// <summary>
         /// An `azure_active_directory` block as documented below.
         /// </summary>

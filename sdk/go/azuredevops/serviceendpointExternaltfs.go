@@ -155,8 +155,7 @@ func (ServiceendpointExternaltfsState) ElementType() reflect.Type {
 
 type serviceendpointExternaltfsArgs struct {
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
-	AuthPersonal  ServiceendpointExternaltfsAuthPersonal `pulumi:"authPersonal"`
-	Authorization map[string]string                      `pulumi:"authorization"`
+	AuthPersonal ServiceendpointExternaltfsAuthPersonal `pulumi:"authPersonal"`
 	// Azure DevOps Organization or TFS Project Collection Url.
 	ConnectionUrl string  `pulumi:"connectionUrl"`
 	Description   *string `pulumi:"description"`
@@ -169,8 +168,7 @@ type serviceendpointExternaltfsArgs struct {
 // The set of arguments for constructing a ServiceendpointExternaltfs resource.
 type ServiceendpointExternaltfsArgs struct {
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
-	AuthPersonal  ServiceendpointExternaltfsAuthPersonalInput
-	Authorization pulumi.StringMapInput
+	AuthPersonal ServiceendpointExternaltfsAuthPersonalInput
 	// Azure DevOps Organization or TFS Project Collection Url.
 	ConnectionUrl pulumi.StringInput
 	Description   pulumi.StringPtrInput

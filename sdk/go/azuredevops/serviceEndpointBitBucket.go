@@ -159,8 +159,7 @@ func (ServiceEndpointBitBucketState) ElementType() reflect.Type {
 }
 
 type serviceEndpointBitBucketArgs struct {
-	Authorization map[string]string `pulumi:"authorization"`
-	Description   *string           `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// Bitbucket account password.
 	Password string `pulumi:"password"`
 	// The ID of the project.
@@ -173,8 +172,7 @@ type serviceEndpointBitBucketArgs struct {
 
 // The set of arguments for constructing a ServiceEndpointBitBucket resource.
 type ServiceEndpointBitBucketArgs struct {
-	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
 	// Bitbucket account password.
 	Password pulumi.StringInput
 	// The ID of the project.

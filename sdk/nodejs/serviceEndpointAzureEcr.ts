@@ -124,7 +124,7 @@ export class ServiceEndpointAzureEcr extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly appObjectId!: pulumi.Output<string>;
-    public readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
     public /*out*/ readonly azSpnRoleAssignmentId!: pulumi.Output<string>;
     public /*out*/ readonly azSpnRolePermissions!: pulumi.Output<string>;
     /**
@@ -229,7 +229,6 @@ export class ServiceEndpointAzureEcr extends pulumi.CustomResource {
             if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["azurecrName"] = args ? args.azurecrName : undefined;
             resourceInputs["azurecrSpnTenantid"] = args ? args.azurecrSpnTenantid : undefined;
             resourceInputs["azurecrSubscriptionId"] = args ? args.azurecrSubscriptionId : undefined;
@@ -241,6 +240,7 @@ export class ServiceEndpointAzureEcr extends pulumi.CustomResource {
             resourceInputs["serviceEndpointAuthenticationScheme"] = args ? args.serviceEndpointAuthenticationScheme : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             resourceInputs["appObjectId"] = undefined /*out*/;
+            resourceInputs["authorization"] = undefined /*out*/;
             resourceInputs["azSpnRoleAssignmentId"] = undefined /*out*/;
             resourceInputs["azSpnRolePermissions"] = undefined /*out*/;
             resourceInputs["servicePrincipalId"] = undefined /*out*/;
@@ -317,7 +317,6 @@ export interface ServiceEndpointAzureEcrState {
  * The set of arguments for constructing a ServiceEndpointAzureEcr resource.
  */
 export interface ServiceEndpointAzureEcrArgs {
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Azure container registry name.
      */

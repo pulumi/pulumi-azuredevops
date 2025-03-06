@@ -26,6 +26,11 @@ public final class GetIdentityGroupResult {
      */
     private String name;
     private String projectId;
+    /**
+     * @return The subject descriptor of the identity group.
+     * 
+     */
+    private String subjectDescriptor;
 
     private GetIdentityGroupResult() {}
     /**
@@ -52,6 +57,13 @@ public final class GetIdentityGroupResult {
     public String projectId() {
         return this.projectId;
     }
+    /**
+     * @return The subject descriptor of the identity group.
+     * 
+     */
+    public String subjectDescriptor() {
+        return this.subjectDescriptor;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -66,6 +78,7 @@ public final class GetIdentityGroupResult {
         private String id;
         private String name;
         private String projectId;
+        private String subjectDescriptor;
         public Builder() {}
         public Builder(GetIdentityGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -73,6 +86,7 @@ public final class GetIdentityGroupResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.projectId = defaults.projectId;
+    	      this.subjectDescriptor = defaults.subjectDescriptor;
         }
 
         @CustomType.Setter
@@ -107,12 +121,21 @@ public final class GetIdentityGroupResult {
             this.projectId = projectId;
             return this;
         }
+        @CustomType.Setter
+        public Builder subjectDescriptor(String subjectDescriptor) {
+            if (subjectDescriptor == null) {
+              throw new MissingRequiredPropertyException("GetIdentityGroupResult", "subjectDescriptor");
+            }
+            this.subjectDescriptor = subjectDescriptor;
+            return this;
+        }
         public GetIdentityGroupResult build() {
             final var _resultValue = new GetIdentityGroupResult();
             _resultValue.descriptor = descriptor;
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.projectId = projectId;
+            _resultValue.subjectDescriptor = subjectDescriptor;
             return _resultValue;
         }
     }

@@ -10,7 +10,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -19,13 +18,6 @@ import javax.annotation.Nullable;
 public final class ServiceEndpointServiceFabricArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ServiceEndpointServiceFabricArgs Empty = new ServiceEndpointServiceFabricArgs();
-
-    @Import(name="authorization")
-    private @Nullable Output<Map<String,String>> authorization;
-
-    public Optional<Output<Map<String,String>>> authorization() {
-        return Optional.ofNullable(this.authorization);
-    }
 
     /**
      * An `azure_active_directory` block as documented below.
@@ -127,7 +119,6 @@ public final class ServiceEndpointServiceFabricArgs extends com.pulumi.resources
     private ServiceEndpointServiceFabricArgs() {}
 
     private ServiceEndpointServiceFabricArgs(ServiceEndpointServiceFabricArgs $) {
-        this.authorization = $.authorization;
         this.azureActiveDirectory = $.azureActiveDirectory;
         this.certificate = $.certificate;
         this.clusterEndpoint = $.clusterEndpoint;
@@ -153,15 +144,6 @@ public final class ServiceEndpointServiceFabricArgs extends com.pulumi.resources
 
         public Builder(ServiceEndpointServiceFabricArgs defaults) {
             $ = new ServiceEndpointServiceFabricArgs(Objects.requireNonNull(defaults));
-        }
-
-        public Builder authorization(@Nullable Output<Map<String,String>> authorization) {
-            $.authorization = authorization;
-            return this;
-        }
-
-        public Builder authorization(Map<String,String> authorization) {
-            return authorization(Output.of(authorization));
         }
 
         /**

@@ -225,7 +225,7 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceEndpointAzureRM.__pulumiType;
     }
 
-    public readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Management group ID of the Azure targets.
      */
@@ -341,7 +341,6 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
             if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["azurermManagementGroupId"] = args ? args.azurermManagementGroupId : undefined;
             resourceInputs["azurermManagementGroupName"] = args ? args.azurermManagementGroupName : undefined;
             resourceInputs["azurermSpnTenantid"] = args ? args.azurermSpnTenantid : undefined;
@@ -356,6 +355,7 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
             resourceInputs["serverUrl"] = args ? args.serverUrl : undefined;
             resourceInputs["serviceEndpointAuthenticationScheme"] = args ? args.serviceEndpointAuthenticationScheme : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["authorization"] = undefined /*out*/;
             resourceInputs["servicePrincipalId"] = undefined /*out*/;
             resourceInputs["workloadIdentityFederationIssuer"] = undefined /*out*/;
             resourceInputs["workloadIdentityFederationSubject"] = undefined /*out*/;
@@ -448,7 +448,6 @@ export interface ServiceEndpointAzureRMState {
  * The set of arguments for constructing a ServiceEndpointAzureRM resource.
  */
 export interface ServiceEndpointAzureRMArgs {
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Management group ID of the Azure targets.
      */

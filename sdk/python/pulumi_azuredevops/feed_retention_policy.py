@@ -168,17 +168,6 @@ class FeedRetentionPolicy(pulumi.CustomResource):
                  project_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## layout: "azuredevops"
-
-        ***
-        ## page_title: "AzureDevops: FeedRetentionPolicy"
-
-        description: |-
-          Manages the Feed Retention Policy within Azure DevOps organization.
-        ---
-
-        # FeedRetentionPolicy
-
         Manages the Feed Retention Policy within Azure DevOps.
 
         ## Example Usage
@@ -248,17 +237,6 @@ class FeedRetentionPolicy(pulumi.CustomResource):
                  args: FeedRetentionPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## layout: "azuredevops"
-
-        ***
-        ## page_title: "AzureDevops: FeedRetentionPolicy"
-
-        description: |-
-          Manages the Feed Retention Policy within Azure DevOps organization.
-        ---
-
-        # FeedRetentionPolicy
-
         Manages the Feed Retention Policy within Azure DevOps.
 
         ## Example Usage

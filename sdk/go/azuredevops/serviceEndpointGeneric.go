@@ -164,8 +164,7 @@ func (ServiceEndpointGenericState) ElementType() reflect.Type {
 }
 
 type serviceEndpointGenericArgs struct {
-	Authorization map[string]string `pulumi:"authorization"`
-	Description   *string           `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The password or token key used to authenticate to the server url using basic authentication.
 	Password *string `pulumi:"password"`
 	// The ID of the project.
@@ -180,8 +179,7 @@ type serviceEndpointGenericArgs struct {
 
 // The set of arguments for constructing a ServiceEndpointGeneric resource.
 type ServiceEndpointGenericArgs struct {
-	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
 	// The password or token key used to authenticate to the server url using basic authentication.
 	Password pulumi.StringPtrInput
 	// The ID of the project.

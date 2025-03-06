@@ -103,7 +103,7 @@ export class ServiceEndpointArtifactory extends pulumi.CustomResource {
      * A `authenticationBasic` block as defined below.
      */
     public readonly authenticationToken!: pulumi.Output<outputs.ServiceEndpointArtifactoryAuthenticationToken | undefined>;
-    public readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Service Endpoint description.
      */
@@ -156,11 +156,11 @@ export class ServiceEndpointArtifactory extends pulumi.CustomResource {
             }
             resourceInputs["authenticationBasic"] = args ? args.authenticationBasic : undefined;
             resourceInputs["authenticationToken"] = args ? args.authenticationToken : undefined;
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServiceEndpointArtifactory.__pulumiType, name, resourceInputs, opts);
@@ -206,7 +206,6 @@ export interface ServiceEndpointArtifactoryArgs {
      * A `authenticationBasic` block as defined below.
      */
     authenticationToken?: pulumi.Input<inputs.ServiceEndpointArtifactoryAuthenticationToken>;
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Service Endpoint description.
      */

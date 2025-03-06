@@ -7,7 +7,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,13 +15,6 @@ import javax.annotation.Nullable;
 public final class ServiceEndpointSonarQubeArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ServiceEndpointSonarQubeArgs Empty = new ServiceEndpointSonarQubeArgs();
-
-    @Import(name="authorization")
-    private @Nullable Output<Map<String,String>> authorization;
-
-    public Optional<Output<Map<String,String>>> authorization() {
-        return Optional.ofNullable(this.authorization);
-    }
 
     /**
      * The Service Endpoint description.
@@ -102,7 +94,6 @@ public final class ServiceEndpointSonarQubeArgs extends com.pulumi.resources.Res
     private ServiceEndpointSonarQubeArgs() {}
 
     private ServiceEndpointSonarQubeArgs(ServiceEndpointSonarQubeArgs $) {
-        this.authorization = $.authorization;
         this.description = $.description;
         this.projectId = $.projectId;
         this.serviceEndpointName = $.serviceEndpointName;
@@ -126,15 +117,6 @@ public final class ServiceEndpointSonarQubeArgs extends com.pulumi.resources.Res
 
         public Builder(ServiceEndpointSonarQubeArgs defaults) {
             $ = new ServiceEndpointSonarQubeArgs(Objects.requireNonNull(defaults));
-        }
-
-        public Builder authorization(@Nullable Output<Map<String,String>> authorization) {
-            $.authorization = authorization;
-            return this;
-        }
-
-        public Builder authorization(Map<String,String> authorization) {
-            return authorization(Output.of(authorization));
         }
 
         /**

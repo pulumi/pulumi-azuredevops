@@ -23,7 +23,6 @@ class ServiceendpointAzureServiceBusArgs:
                  project_id: pulumi.Input[str],
                  queue_name: pulumi.Input[str],
                  service_endpoint_name: pulumi.Input[str],
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServiceendpointAzureServiceBus resource.
@@ -36,8 +35,6 @@ class ServiceendpointAzureServiceBusArgs:
         pulumi.set(__self__, "project_id", project_id)
         pulumi.set(__self__, "queue_name", queue_name)
         pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
-        if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
         if description is not None:
             pulumi.set(__self__, "description", description)
 
@@ -88,15 +85,6 @@ class ServiceendpointAzureServiceBusArgs:
     @service_endpoint_name.setter
     def service_endpoint_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "service_endpoint_name", value)
-
-    @property
-    @pulumi.getter
-    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "authorization")
-
-    @authorization.setter
-    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "authorization", value)
 
     @property
     @pulumi.getter
@@ -209,7 +197,6 @@ class ServiceendpointAzureServiceBus(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
@@ -314,7 +301,6 @@ class ServiceendpointAzureServiceBus(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
@@ -329,7 +315,6 @@ class ServiceendpointAzureServiceBus(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceendpointAzureServiceBusArgs.__new__(ServiceendpointAzureServiceBusArgs)
 
-            __props__.__dict__["authorization"] = authorization
             if connection_string is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_string'")
             __props__.__dict__["connection_string"] = None if connection_string is None else pulumi.Output.secret(connection_string)
@@ -343,6 +328,7 @@ class ServiceendpointAzureServiceBus(pulumi.CustomResource):
             if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")
             __props__.__dict__["service_endpoint_name"] = service_endpoint_name
+            __props__.__dict__["authorization"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["connectionString"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceendpointAzureServiceBus, __self__).__init__(

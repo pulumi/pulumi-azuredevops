@@ -22,7 +22,7 @@ import * as utilities from "./utilities";
  *
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+ * - [Azure DevOps Service REST API 7.1 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
  */
 export function getIdentityGroup(args: GetIdentityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetIdentityGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -63,6 +63,10 @@ export interface GetIdentityGroupResult {
      */
     readonly name: string;
     readonly projectId: string;
+    /**
+     * The subject descriptor of the identity group.
+     */
+    readonly subjectDescriptor: string;
 }
 /**
  * Use this data source to access information about an existing Group within Azure DevOps On-Premise(Azure DevOps Server).
@@ -82,7 +86,7 @@ export interface GetIdentityGroupResult {
  *
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 7.0 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
+ * - [Azure DevOps Service REST API 7.1 - Identities](https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/?view=azure-devops-rest-7.2)
  */
 export function getIdentityGroupOutput(args: GetIdentityGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIdentityGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

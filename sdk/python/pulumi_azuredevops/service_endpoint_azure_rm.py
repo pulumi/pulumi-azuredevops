@@ -24,7 +24,6 @@ class ServiceEndpointAzureRMArgs:
                  azurerm_spn_tenantid: pulumi.Input[str],
                  project_id: pulumi.Input[str],
                  service_endpoint_name: pulumi.Input[str],
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  azurerm_management_group_id: Optional[pulumi.Input[str]] = None,
                  azurerm_management_group_name: Optional[pulumi.Input[str]] = None,
                  azurerm_subscription_id: Optional[pulumi.Input[str]] = None,
@@ -60,8 +59,6 @@ class ServiceEndpointAzureRMArgs:
         pulumi.set(__self__, "azurerm_spn_tenantid", azurerm_spn_tenantid)
         pulumi.set(__self__, "project_id", project_id)
         pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
-        if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
         if azurerm_management_group_id is not None:
             pulumi.set(__self__, "azurerm_management_group_id", azurerm_management_group_id)
         if azurerm_management_group_name is not None:
@@ -120,15 +117,6 @@ class ServiceEndpointAzureRMArgs:
     @service_endpoint_name.setter
     def service_endpoint_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "service_endpoint_name", value)
-
-    @property
-    @pulumi.getter
-    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "authorization")
-
-    @authorization.setter
-    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "authorization", value)
 
     @property
     @pulumi.getter(name="azurermManagementGroupId")
@@ -572,7 +560,6 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  azurerm_management_group_id: Optional[pulumi.Input[str]] = None,
                  azurerm_management_group_name: Optional[pulumi.Input[str]] = None,
                  azurerm_spn_tenantid: Optional[pulumi.Input[str]] = None,
@@ -982,7 +969,6 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  azurerm_management_group_id: Optional[pulumi.Input[str]] = None,
                  azurerm_management_group_name: Optional[pulumi.Input[str]] = None,
                  azurerm_spn_tenantid: Optional[pulumi.Input[str]] = None,
@@ -1006,7 +992,6 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceEndpointAzureRMArgs.__new__(ServiceEndpointAzureRMArgs)
 
-            __props__.__dict__["authorization"] = authorization
             __props__.__dict__["azurerm_management_group_id"] = azurerm_management_group_id
             __props__.__dict__["azurerm_management_group_name"] = azurerm_management_group_name
             if azurerm_spn_tenantid is None and not opts.urn:
@@ -1027,6 +1012,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")
             __props__.__dict__["service_endpoint_name"] = service_endpoint_name
+            __props__.__dict__["authorization"] = None
             __props__.__dict__["service_principal_id"] = None
             __props__.__dict__["workload_identity_federation_issuer"] = None
             __props__.__dict__["workload_identity_federation_subject"] = None

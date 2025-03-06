@@ -12,19 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## layout: "azuredevops"
-//
-// ***
-// ## page_title: "AzureDevops: FeedRetentionPolicy"
-//
-// description: |-
-//
-//	Manages the Feed Retention Policy within Azure DevOps organization.
-//
-// ---
-//
-// # FeedRetentionPolicy
-//
 // Manages the Feed Retention Policy within Azure DevOps.
 //
 // ## Example Usage

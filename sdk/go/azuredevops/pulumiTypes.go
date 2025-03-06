@@ -12748,6 +12748,8 @@ type GetIdentityGroupsGroup struct {
 	Id string `pulumi:"id"`
 	// This is the non-unique display name of the identity subject.
 	Name string `pulumi:"name"`
+	// The subject descriptor of the identity group.
+	SubjectDescriptor string `pulumi:"subjectDescriptor"`
 }
 
 // GetIdentityGroupsGroupInput is an input type that accepts GetIdentityGroupsGroupArgs and GetIdentityGroupsGroupOutput values.
@@ -12768,6 +12770,8 @@ type GetIdentityGroupsGroupArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// This is the non-unique display name of the identity subject.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The subject descriptor of the identity group.
+	SubjectDescriptor pulumi.StringInput `pulumi:"subjectDescriptor"`
 }
 
 func (GetIdentityGroupsGroupArgs) ElementType() reflect.Type {
@@ -12834,6 +12838,11 @@ func (o GetIdentityGroupsGroupOutput) Id() pulumi.StringOutput {
 // This is the non-unique display name of the identity subject.
 func (o GetIdentityGroupsGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIdentityGroupsGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The subject descriptor of the identity group.
+func (o GetIdentityGroupsGroupOutput) SubjectDescriptor() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIdentityGroupsGroup) string { return v.SubjectDescriptor }).(pulumi.StringOutput)
 }
 
 type GetIdentityGroupsGroupArrayOutput struct{ *pulumi.OutputState }

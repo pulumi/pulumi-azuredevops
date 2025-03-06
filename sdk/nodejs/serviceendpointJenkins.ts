@@ -71,7 +71,7 @@ export class ServiceendpointJenkins extends pulumi.CustomResource {
      * Allows the Jenkins clients to accept self-signed SSL server certificates. Defaults to `false.`
      */
     public readonly acceptUntrustedCerts!: pulumi.Output<boolean | undefined>;
-    public readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The Service Endpoint password to authenticate at the Jenkins Instance.
@@ -133,13 +133,13 @@ export class ServiceendpointJenkins extends pulumi.CustomResource {
                 throw new Error("Missing required property 'username'");
             }
             resourceInputs["acceptUntrustedCerts"] = args ? args.acceptUntrustedCerts : undefined;
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };
@@ -188,7 +188,6 @@ export interface ServiceendpointJenkinsArgs {
      * Allows the Jenkins clients to accept self-signed SSL server certificates. Defaults to `false.`
      */
     acceptUntrustedCerts?: pulumi.Input<boolean>;
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     description?: pulumi.Input<string>;
     /**
      * The Service Endpoint password to authenticate at the Jenkins Instance.

@@ -22,7 +22,6 @@ class ServiceendpointIncomingwebhookArgs:
                  project_id: pulumi.Input[str],
                  service_endpoint_name: pulumi.Input[str],
                  webhook_name: pulumi.Input[str],
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  http_header: Optional[pulumi.Input[str]] = None,
                  secret: Optional[pulumi.Input[str]] = None):
@@ -37,8 +36,6 @@ class ServiceendpointIncomingwebhookArgs:
         pulumi.set(__self__, "project_id", project_id)
         pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
         pulumi.set(__self__, "webhook_name", webhook_name)
-        if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if http_header is not None:
@@ -81,15 +78,6 @@ class ServiceendpointIncomingwebhookArgs:
     @webhook_name.setter
     def webhook_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "webhook_name", value)
-
-    @property
-    @pulumi.getter
-    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "authorization")
-
-    @authorization.setter
-    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "authorization", value)
 
     @property
     @pulumi.getter
@@ -242,7 +230,6 @@ class ServiceendpointIncomingwebhook(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  http_header: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
@@ -343,7 +330,6 @@ class ServiceendpointIncomingwebhook(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  http_header: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
@@ -359,7 +345,6 @@ class ServiceendpointIncomingwebhook(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceendpointIncomingwebhookArgs.__new__(ServiceendpointIncomingwebhookArgs)
 
-            __props__.__dict__["authorization"] = authorization
             __props__.__dict__["description"] = description
             __props__.__dict__["http_header"] = http_header
             if project_id is None and not opts.urn:
@@ -372,6 +357,7 @@ class ServiceendpointIncomingwebhook(pulumi.CustomResource):
             if webhook_name is None and not opts.urn:
                 raise TypeError("Missing required property 'webhook_name'")
             __props__.__dict__["webhook_name"] = webhook_name
+            __props__.__dict__["authorization"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["secret"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceendpointIncomingwebhook, __self__).__init__(

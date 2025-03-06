@@ -32,12 +32,14 @@ type GetIdentityUsersArgs struct {
 
 // A collection of values returned by getIdentityUsers.
 type GetIdentityUsersResult struct {
-	// The descriptor of the user.
+	// The Descriptor of the user.
 	Descriptor string `pulumi:"descriptor"`
 	// The provider-assigned unique ID for this managed resource.
 	Id           string  `pulumi:"id"`
 	Name         string  `pulumi:"name"`
 	SearchFilter *string `pulumi:"searchFilter"`
+	// The Subject Descriptor of the user.
+	SubjectDescriptor string `pulumi:"subjectDescriptor"`
 }
 
 func GetIdentityUsersOutput(ctx *pulumi.Context, args GetIdentityUsersOutputArgs, opts ...pulumi.InvokeOption) GetIdentityUsersResultOutput {
@@ -76,7 +78,7 @@ func (o GetIdentityUsersResultOutput) ToGetIdentityUsersResultOutputWithContext(
 	return o
 }
 
-// The descriptor of the user.
+// The Descriptor of the user.
 func (o GetIdentityUsersResultOutput) Descriptor() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIdentityUsersResult) string { return v.Descriptor }).(pulumi.StringOutput)
 }
@@ -92,6 +94,11 @@ func (o GetIdentityUsersResultOutput) Name() pulumi.StringOutput {
 
 func (o GetIdentityUsersResultOutput) SearchFilter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetIdentityUsersResult) *string { return v.SearchFilter }).(pulumi.StringPtrOutput)
+}
+
+// The Subject Descriptor of the user.
+func (o GetIdentityUsersResultOutput) SubjectDescriptor() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIdentityUsersResult) string { return v.SubjectDescriptor }).(pulumi.StringOutput)
 }
 
 func init() {

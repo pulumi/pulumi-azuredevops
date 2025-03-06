@@ -192,8 +192,7 @@ func (ServiceEndpointDockerRegistryState) ElementType() reflect.Type {
 }
 
 type serviceEndpointDockerRegistryArgs struct {
-	Authorization map[string]string `pulumi:"authorization"`
-	Description   *string           `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The email for Docker account user.
 	DockerEmail *string `pulumi:"dockerEmail"`
 	// The password for the account user identified above.
@@ -212,8 +211,7 @@ type serviceEndpointDockerRegistryArgs struct {
 
 // The set of arguments for constructing a ServiceEndpointDockerRegistry resource.
 type ServiceEndpointDockerRegistryArgs struct {
-	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
 	// The email for Docker account user.
 	DockerEmail pulumi.StringPtrInput
 	// The password for the account user identified above.

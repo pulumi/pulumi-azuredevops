@@ -165,8 +165,7 @@ func (ServiceEndpointNpmState) ElementType() reflect.Type {
 
 type serviceEndpointNpmArgs struct {
 	// The access token for npm registry.
-	AccessToken   string            `pulumi:"accessToken"`
-	Authorization map[string]string `pulumi:"authorization"`
+	AccessToken string `pulumi:"accessToken"`
 	// The Service Endpoint description.
 	Description *string `pulumi:"description"`
 	// The ID of the project.
@@ -180,8 +179,7 @@ type serviceEndpointNpmArgs struct {
 // The set of arguments for constructing a ServiceEndpointNpm resource.
 type ServiceEndpointNpmArgs struct {
 	// The access token for npm registry.
-	AccessToken   pulumi.StringInput
-	Authorization pulumi.StringMapInput
+	AccessToken pulumi.StringInput
 	// The Service Endpoint description.
 	Description pulumi.StringPtrInput
 	// The ID of the project.
