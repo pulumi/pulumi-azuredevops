@@ -32,6 +32,14 @@ export interface GetUsersArgs {
     /**
      * The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
      * <pre>List of possible origins
+     * ```hcl
+     * ActiveDirectory          = "ad"   # Windows Active Directory
+     * AzureActiveDirectory     = "aad"  # Azure Active Directory
+     * MicrosoftAccount         = "msa"  # Windows Live Account
+     * VisualStudioTeamServices = "vsts" # DevOps
+     * GitHubDirectory          = "ghb"  # GitHub
+     * ```
+     * </pre>
      */
     origin?: string;
     /**
@@ -45,6 +53,29 @@ export interface GetUsersArgs {
     /**
      * A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
      * <pre>List of possible subject types
+     * ```hcl
+     * AadUser                 = "aad" # Azure Active Directory Tenant
+     * MsaUser                 = "msa" # Windows Live
+     * UnknownUser             = "unusr"
+     * BindPendingUser         = "bnd" # Invited user with pending redeem status
+     * WindowsIdentity         = "win" # Windows Active Directory user
+     * UnauthenticatedIdentity = "uauth"
+     * ServiceIdentity         = "svc"
+     * AggregateIdentity       = "agg"
+     * ImportedIdentity        = "imp"
+     * ServerTestIdentity      = "tst"
+     * GroupScopeType          = "scp"
+     * CspPartnerIdentity      = "csp"
+     * SystemServicePrincipal  = "s2s"
+     * SystemLicense           = "slic"
+     * SystemScope             = "sscp"
+     * SystemCspPartner        = "scsp"
+     * SystemPublicAccess      = "spa"
+     * SystemAccessControl     = "sace"
+     * AcsServiceIdentity      = "acs"
+     * Unknown                 = "ukn"
+     * ```
+     * </pre>
      */
     subjectTypes?: string[];
 }
@@ -102,6 +133,14 @@ export interface GetUsersOutputArgs {
     /**
      * The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
      * <pre>List of possible origins
+     * ```hcl
+     * ActiveDirectory          = "ad"   # Windows Active Directory
+     * AzureActiveDirectory     = "aad"  # Azure Active Directory
+     * MicrosoftAccount         = "msa"  # Windows Live Account
+     * VisualStudioTeamServices = "vsts" # DevOps
+     * GitHubDirectory          = "ghb"  # GitHub
+     * ```
+     * </pre>
      */
     origin?: pulumi.Input<string>;
     /**
@@ -115,6 +154,29 @@ export interface GetUsersOutputArgs {
     /**
      * A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
      * <pre>List of possible subject types
+     * ```hcl
+     * AadUser                 = "aad" # Azure Active Directory Tenant
+     * MsaUser                 = "msa" # Windows Live
+     * UnknownUser             = "unusr"
+     * BindPendingUser         = "bnd" # Invited user with pending redeem status
+     * WindowsIdentity         = "win" # Windows Active Directory user
+     * UnauthenticatedIdentity = "uauth"
+     * ServiceIdentity         = "svc"
+     * AggregateIdentity       = "agg"
+     * ImportedIdentity        = "imp"
+     * ServerTestIdentity      = "tst"
+     * GroupScopeType          = "scp"
+     * CspPartnerIdentity      = "csp"
+     * SystemServicePrincipal  = "s2s"
+     * SystemLicense           = "slic"
+     * SystemScope             = "sscp"
+     * SystemCspPartner        = "scsp"
+     * SystemPublicAccess      = "spa"
+     * SystemAccessControl     = "sace"
+     * AcsServiceIdentity      = "acs"
+     * Unknown                 = "ukn"
+     * ```
+     * </pre>
      */
     subjectTypes?: pulumi.Input<pulumi.Input<string>[]>;
 }

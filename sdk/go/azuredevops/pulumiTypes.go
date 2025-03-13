@@ -13894,6 +13894,14 @@ type GetUsersUser struct {
 	MailAddress string `pulumi:"mailAddress"`
 	// The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
 	// <pre>List of possible origins
+	// ```hcl
+	// ActiveDirectory          = "ad"   # Windows Active Directory
+	// AzureActiveDirectory     = "aad"  # Azure Active Directory
+	// MicrosoftAccount         = "msa"  # Windows Live Account
+	// VisualStudioTeamServices = "vsts" # DevOps
+	// GitHubDirectory          = "ghb"  # GitHub
+	// ```
+	// </pre>
 	Origin string `pulumi:"origin"`
 	// The unique identifier from the system of origin.
 	OriginId *string `pulumi:"originId"`
@@ -13923,6 +13931,14 @@ type GetUsersUserArgs struct {
 	MailAddress pulumi.StringInput `pulumi:"mailAddress"`
 	// The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
 	// <pre>List of possible origins
+	// ```hcl
+	// ActiveDirectory          = "ad"   # Windows Active Directory
+	// AzureActiveDirectory     = "aad"  # Azure Active Directory
+	// MicrosoftAccount         = "msa"  # Windows Live Account
+	// VisualStudioTeamServices = "vsts" # DevOps
+	// GitHubDirectory          = "ghb"  # GitHub
+	// ```
+	// </pre>
 	Origin pulumi.StringInput `pulumi:"origin"`
 	// The unique identifier from the system of origin.
 	OriginId pulumi.StringPtrInput `pulumi:"originId"`
@@ -14003,6 +14019,14 @@ func (o GetUsersUserOutput) MailAddress() pulumi.StringOutput {
 
 // The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
 // <pre>List of possible origins
+// ```hcl
+// ActiveDirectory          = "ad"   # Windows Active Directory
+// AzureActiveDirectory     = "aad"  # Azure Active Directory
+// MicrosoftAccount         = "msa"  # Windows Live Account
+// VisualStudioTeamServices = "vsts" # DevOps
+// GitHubDirectory          = "ghb"  # GitHub
+// ```
+// </pre>
 func (o GetUsersUserOutput) Origin() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.Origin }).(pulumi.StringOutput)
 }

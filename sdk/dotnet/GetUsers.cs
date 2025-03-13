@@ -42,6 +42,14 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
         /// &lt;pre&gt;List of possible origins
+        /// ```hcl
+        /// ActiveDirectory          = "ad"   # Windows Active Directory
+        /// AzureActiveDirectory     = "aad"  # Azure Active Directory
+        /// MicrosoftAccount         = "msa"  # Windows Live Account
+        /// VisualStudioTeamServices = "vsts" # DevOps
+        /// GitHubDirectory          = "ghb"  # GitHub
+        /// ```
+        /// &lt;/pre&gt;
         /// </summary>
         [Input("origin")]
         public string? Origin { get; set; }
@@ -64,6 +72,29 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
         /// &lt;pre&gt;List of possible subject types
+        /// ```hcl
+        /// AadUser                 = "aad" # Azure Active Directory Tenant
+        /// MsaUser                 = "msa" # Windows Live
+        /// UnknownUser             = "unusr"
+        /// BindPendingUser         = "bnd" # Invited user with pending redeem status
+        /// WindowsIdentity         = "win" # Windows Active Directory user
+        /// UnauthenticatedIdentity = "uauth"
+        /// ServiceIdentity         = "svc"
+        /// AggregateIdentity       = "agg"
+        /// ImportedIdentity        = "imp"
+        /// ServerTestIdentity      = "tst"
+        /// GroupScopeType          = "scp"
+        /// CspPartnerIdentity      = "csp"
+        /// SystemServicePrincipal  = "s2s"
+        /// SystemLicense           = "slic"
+        /// SystemScope             = "sscp"
+        /// SystemCspPartner        = "scsp"
+        /// SystemPublicAccess      = "spa"
+        /// SystemAccessControl     = "sace"
+        /// AcsServiceIdentity      = "acs"
+        /// Unknown                 = "ukn"
+        /// ```
+        /// &lt;/pre&gt;
         /// </summary>
         public List<string> SubjectTypes
         {
@@ -88,6 +119,14 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
         /// &lt;pre&gt;List of possible origins
+        /// ```hcl
+        /// ActiveDirectory          = "ad"   # Windows Active Directory
+        /// AzureActiveDirectory     = "aad"  # Azure Active Directory
+        /// MicrosoftAccount         = "msa"  # Windows Live Account
+        /// VisualStudioTeamServices = "vsts" # DevOps
+        /// GitHubDirectory          = "ghb"  # GitHub
+        /// ```
+        /// &lt;/pre&gt;
         /// </summary>
         [Input("origin")]
         public Input<string>? Origin { get; set; }
@@ -110,6 +149,29 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
         /// &lt;pre&gt;List of possible subject types
+        /// ```hcl
+        /// AadUser                 = "aad" # Azure Active Directory Tenant
+        /// MsaUser                 = "msa" # Windows Live
+        /// UnknownUser             = "unusr"
+        /// BindPendingUser         = "bnd" # Invited user with pending redeem status
+        /// WindowsIdentity         = "win" # Windows Active Directory user
+        /// UnauthenticatedIdentity = "uauth"
+        /// ServiceIdentity         = "svc"
+        /// AggregateIdentity       = "agg"
+        /// ImportedIdentity        = "imp"
+        /// ServerTestIdentity      = "tst"
+        /// GroupScopeType          = "scp"
+        /// CspPartnerIdentity      = "csp"
+        /// SystemServicePrincipal  = "s2s"
+        /// SystemLicense           = "slic"
+        /// SystemScope             = "sscp"
+        /// SystemCspPartner        = "scsp"
+        /// SystemPublicAccess      = "spa"
+        /// SystemAccessControl     = "sace"
+        /// AcsServiceIdentity      = "acs"
+        /// Unknown                 = "ukn"
+        /// ```
+        /// &lt;/pre&gt;
         /// </summary>
         public InputList<string> SubjectTypes
         {

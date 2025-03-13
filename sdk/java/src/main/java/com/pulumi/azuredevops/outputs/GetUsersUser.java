@@ -35,6 +35,14 @@ public final class GetUsersUser {
     /**
      * @return The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
      * &lt;pre&gt;List of possible origins
+     * ```hcl
+     * ActiveDirectory          = &#34;ad&#34;   # Windows Active Directory
+     * AzureActiveDirectory     = &#34;aad&#34;  # Azure Active Directory
+     * MicrosoftAccount         = &#34;msa&#34;  # Windows Live Account
+     * VisualStudioTeamServices = &#34;vsts&#34; # DevOps
+     * GitHubDirectory          = &#34;ghb&#34;  # GitHub
+     * ```
+     * &lt;/pre&gt;
      * 
      */
     private String origin;
@@ -81,6 +89,14 @@ public final class GetUsersUser {
     /**
      * @return The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
      * &lt;pre&gt;List of possible origins
+     * ```hcl
+     * ActiveDirectory          = &#34;ad&#34;   # Windows Active Directory
+     * AzureActiveDirectory     = &#34;aad&#34;  # Azure Active Directory
+     * MicrosoftAccount         = &#34;msa&#34;  # Windows Live Account
+     * VisualStudioTeamServices = &#34;vsts&#34; # DevOps
+     * GitHubDirectory          = &#34;ghb&#34;  # GitHub
+     * ```
+     * &lt;/pre&gt;
      * 
      */
     public String origin() {

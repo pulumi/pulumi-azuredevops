@@ -5365,6 +5365,14 @@ class GetUsersUserResult(dict):
         :param str mail_address: The email address of record for a given graph member. This may be different than the principal name.
         :param str origin: The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
                <pre>List of possible origins
+               ```hcl
+               ActiveDirectory          = "ad"   # Windows Active Directory
+               AzureActiveDirectory     = "aad"  # Azure Active Directory
+               MicrosoftAccount         = "msa"  # Windows Live Account
+               VisualStudioTeamServices = "vsts" # DevOps
+               GitHubDirectory          = "ghb"  # GitHub
+               ```
+               </pre>
         :param str principal_name: The PrincipalName of this graph member from the source provider.
         :param str origin_id: The unique identifier from the system of origin.
         """
@@ -5415,6 +5423,14 @@ class GetUsersUserResult(dict):
         """
         The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
         <pre>List of possible origins
+        ```hcl
+        ActiveDirectory          = "ad"   # Windows Active Directory
+        AzureActiveDirectory     = "aad"  # Azure Active Directory
+        MicrosoftAccount         = "msa"  # Windows Live Account
+        VisualStudioTeamServices = "vsts" # DevOps
+        GitHubDirectory          = "ghb"  # GitHub
+        ```
+        </pre>
         """
         return pulumi.get(self, "origin")
 
