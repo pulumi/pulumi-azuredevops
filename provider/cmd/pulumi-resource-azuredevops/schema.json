@@ -2465,7 +2465,7 @@
                 },
                 "origin": {
                     "type": "string",
-                    "description": "The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.\n\u003cpre\u003eList of possible origins\n"
+                    "description": "The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.\n\u003cpre\u003eList of possible origins\n```hcl\nActiveDirectory          = \"ad\"   # Windows Active Directory\nAzureActiveDirectory     = \"aad\"  # Azure Active Directory\nMicrosoftAccount         = \"msa\"  # Windows Live Account\nVisualStudioTeamServices = \"vsts\" # DevOps\nGitHubDirectory          = \"ghb\"  # GitHub\n```\n\u003c/pre\u003e\n"
                 },
                 "originId": {
                     "type": "string",
@@ -16010,7 +16010,7 @@
                     },
                     "origin": {
                         "type": "string",
-                        "description": "The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.\n\u003cpre\u003eList of possible origins\n"
+                        "description": "The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.\n\u003cpre\u003eList of possible origins\n```hcl\nActiveDirectory          = \"ad\"   # Windows Active Directory\nAzureActiveDirectory     = \"aad\"  # Azure Active Directory\nMicrosoftAccount         = \"msa\"  # Windows Live Account\nVisualStudioTeamServices = \"vsts\" # DevOps\nGitHubDirectory          = \"ghb\"  # GitHub\n```\n\u003c/pre\u003e\n"
                     },
                     "originId": {
                         "type": "string",
@@ -16025,7 +16025,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.\n\u003cpre\u003eList of possible subject types\n"
+                        "description": "A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.\n\u003cpre\u003eList of possible subject types\n```hcl\nAadUser                 = \"aad\" # Azure Active Directory Tenant\nMsaUser                 = \"msa\" # Windows Live\nUnknownUser             = \"unusr\"\nBindPendingUser         = \"bnd\" # Invited user with pending redeem status\nWindowsIdentity         = \"win\" # Windows Active Directory user\nUnauthenticatedIdentity = \"uauth\"\nServiceIdentity         = \"svc\"\nAggregateIdentity       = \"agg\"\nImportedIdentity        = \"imp\"\nServerTestIdentity      = \"tst\"\nGroupScopeType          = \"scp\"\nCspPartnerIdentity      = \"csp\"\nSystemServicePrincipal  = \"s2s\"\nSystemLicense           = \"slic\"\nSystemScope             = \"sscp\"\nSystemCspPartner        = \"scsp\"\nSystemPublicAccess      = \"spa\"\nSystemAccessControl     = \"sace\"\nAcsServiceIdentity      = \"acs\"\nUnknown                 = \"ukn\"\n```\n\u003c/pre\u003e\n"
                     }
                 },
                 "type": "object"
