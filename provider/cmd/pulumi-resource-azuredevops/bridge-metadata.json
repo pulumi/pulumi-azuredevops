@@ -211,6 +211,29 @@
                     "features": {
                         "maxItemsOne": false
                     },
+                    "jobs": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "dependencies": {
+                                    "maxItemsOne": false
+                                },
+                                "target": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "demands": {
+                                                "maxItemsOne": false
+                                            },
+                                            "execution_options": {
+                                                "maxItemsOne": true
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
                     "pull_request_trigger": {
                         "maxItemsOne": true,
                         "elem": {
@@ -985,6 +1008,29 @@
                             }
                         }
                     },
+                    "jobs": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "dependencies": {
+                                    "maxItemsOne": false
+                                },
+                                "target": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "demands": {
+                                                "maxItemsOne": false
+                                            },
+                                            "execution_options": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
                     "pull_request_trigger": {
                         "maxItemsOne": false,
                         "elem": {
@@ -1094,6 +1140,15 @@
             "azuredevops_group": {
                 "current": "azuredevops:index/getGroup:getGroup",
                 "majorVersion": 3
+            },
+            "azuredevops_group_membership": {
+                "current": "azuredevops:index/getGroupMembership:getGroupMembership",
+                "majorVersion": 3,
+                "fields": {
+                    "members": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "azuredevops_groups": {
                 "current": "azuredevops:index/getGroups:getGroups",
