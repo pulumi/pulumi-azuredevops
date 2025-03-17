@@ -126,6 +126,8 @@ def get_users(features: Optional[Union['GetUsersFeaturesArgs', 'GetUsersFeatures
     """
     Use this data source to access information about an existing users within Azure DevOps.
 
+    > **NOTE:** This resource will try to get all the users within the organization which may result in poor performance. `get_identity_users`, `get_user` can be used to replace this resource.
+
 
     :param Union['GetUsersFeaturesArgs', 'GetUsersFeaturesArgsDict'] features: A `features` block as defined below.
     :param str origin: The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
@@ -160,6 +162,8 @@ def get_users_output(features: Optional[pulumi.Input[Optional[Union['GetUsersFea
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUsersResult]:
     """
     Use this data source to access information about an existing users within Azure DevOps.
+
+    > **NOTE:** This resource will try to get all the users within the organization which may result in poor performance. `get_identity_users`, `get_user` can be used to replace this resource.
 
 
     :param Union['GetUsersFeaturesArgs', 'GetUsersFeaturesArgsDict'] features: A `features` block as defined below.

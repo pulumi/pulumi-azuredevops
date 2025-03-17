@@ -165,16 +165,16 @@ export class ServiceEndpointAzureEcr extends pulumi.CustomResource {
      */
     public readonly serviceEndpointName!: pulumi.Output<string>;
     /**
-     * The service principal ID.
+     * The Application(Client) ID of the Service Principal.
      */
     public /*out*/ readonly servicePrincipalId!: pulumi.Output<string>;
     public /*out*/ readonly spnObjectId!: pulumi.Output<string>;
     /**
-     * The issuer of the workload identity federation service principal.
+     * The issuer if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
      */
     public /*out*/ readonly workloadIdentityFederationIssuer!: pulumi.Output<string>;
     /**
-     * The subject of the workload identity federation service principal.
+     * The subject if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `sc://<organisation>/<project>/<service-connection-name>`.
      */
     public /*out*/ readonly workloadIdentityFederationSubject!: pulumi.Output<string>;
 
@@ -299,16 +299,16 @@ export interface ServiceEndpointAzureEcrState {
      */
     serviceEndpointName?: pulumi.Input<string>;
     /**
-     * The service principal ID.
+     * The Application(Client) ID of the Service Principal.
      */
     servicePrincipalId?: pulumi.Input<string>;
     spnObjectId?: pulumi.Input<string>;
     /**
-     * The issuer of the workload identity federation service principal.
+     * The issuer if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
      */
     workloadIdentityFederationIssuer?: pulumi.Input<string>;
     /**
-     * The subject of the workload identity federation service principal.
+     * The subject if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `sc://<organisation>/<project>/<service-connection-name>`.
      */
     workloadIdentityFederationSubject?: pulumi.Input<string>;
 }

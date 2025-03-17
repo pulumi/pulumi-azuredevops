@@ -319,6 +319,132 @@ namespace Pulumi.AzureDevOps
     /// });
     /// ```
     /// 
+    /// ### Using Other Git and Agent Jobs
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new AzureDevOps.ServiceEndpointGenericGit("example", new()
+    ///     {
+    ///         ProjectId = exampleAzuredevopsProject.Id,
+    ///         RepositoryUrl = "https://gitlab.com/example/example.git",
+    ///         Password = "token",
+    ///         ServiceEndpointName = "Example Generic Git",
+    ///     });
+    /// 
+    ///     var exampleBuildDefinition = new AzureDevOps.BuildDefinition("example", new()
+    ///     {
+    ///         ProjectId = exampleAzuredevopsProject2.Id,
+    ///         Name = "Example Build Definition",
+    ///         Path = "\\ExampleFolder",
+    ///         CiTrigger = new AzureDevOps.Inputs.BuildDefinitionCiTriggerArgs
+    ///         {
+    ///             UseYaml = false,
+    ///         },
+    ///         Repository = new AzureDevOps.Inputs.BuildDefinitionRepositoryArgs
+    ///         {
+    ///             RepoType = "Git",
+    ///             RepoId = example.RepositoryUrl,
+    ///             BranchName = "refs/heads/main",
+    ///             Url = example.RepositoryUrl,
+    ///             ServiceConnectionId = example.Id,
+    ///         },
+    ///         Jobs = new[]
+    ///         {
+    ///             new AzureDevOps.Inputs.BuildDefinitionJobArgs
+    ///             {
+    ///                 Name = "Agent Job1",
+    ///                 RefName = "agent_job1",
+    ///                 Condition = "succeededOrFailed()",
+    ///                 Target = new AzureDevOps.Inputs.BuildDefinitionJobTargetArgs
+    ///                 {
+    ///                     Type = "AgentJob",
+    ///                     ExecutionOptions = new AzureDevOps.Inputs.BuildDefinitionJobTargetExecutionOptionsArgs
+    ///                     {
+    ///                         Type = "None",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureDevOps.Inputs.BuildDefinitionJobArgs
+    ///             {
+    ///                 Name = "Agent Job2",
+    ///                 RefName = "agent_job2",
+    ///                 Condition = "succeededOrFailed()",
+    ///                 Dependencies = new[]
+    ///                 {
+    ///                     new AzureDevOps.Inputs.BuildDefinitionJobDependencyArgs
+    ///                     {
+    ///                         Scope = "agent_job1",
+    ///                     },
+    ///                 },
+    ///                 Target = new AzureDevOps.Inputs.BuildDefinitionJobTargetArgs
+    ///                 {
+    ///                     Type = "AgentJob",
+    ///                     Demands = new[]
+    ///                     {
+    ///                         "git",
+    ///                     },
+    ///                     ExecutionOptions = new AzureDevOps.Inputs.BuildDefinitionJobTargetExecutionOptionsArgs
+    ///                     {
+    ///                         Type = "Multi-Configuration",
+    ///                         ContinueOnError = true,
+    ///                         Multipliers = "multipliers",
+    ///                         MaxConcurrency = 2,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureDevOps.Inputs.BuildDefinitionJobArgs
+    ///             {
+    ///                 Name = "Agentless Job1",
+    ///                 RefName = "agentless_job1",
+    ///                 Condition = "succeeded()",
+    ///                 Target = new AzureDevOps.Inputs.BuildDefinitionJobTargetArgs
+    ///                 {
+    ///                     Type = "AgentlessJob",
+    ///                     ExecutionOptions = new AzureDevOps.Inputs.BuildDefinitionJobTargetExecutionOptionsArgs
+    ///                     {
+    ///                         Type = "None",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureDevOps.Inputs.BuildDefinitionJobArgs
+    ///             {
+    ///                 Name = "Agentless Job2",
+    ///                 RefName = "agentless_job2",
+    ///                 Condition = "succeeded()",
+    ///                 JobAuthorizationScope = "project",
+    ///                 Dependencies = new[]
+    ///                 {
+    ///                     new AzureDevOps.Inputs.BuildDefinitionJobDependencyArgs
+    ///                     {
+    ///                         Scope = "agent_job2",
+    ///                     },
+    ///                     new AzureDevOps.Inputs.BuildDefinitionJobDependencyArgs
+    ///                     {
+    ///                         Scope = "agentless_job1",
+    ///                     },
+    ///                 },
+    ///                 Target = new AzureDevOps.Inputs.BuildDefinitionJobTargetArgs
+    ///                 {
+    ///                     Type = "AgentlessJob",
+    ///                     ExecutionOptions = new AzureDevOps.Inputs.BuildDefinitionJobTargetExecutionOptionsArgs
+    ///                     {
+    ///                         Type = "Multi-Configuration",
+    ///                         ContinueOnError = true,
+    ///                         Multipliers = "multipliers",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Remarks
     /// 
     /// The path attribute can not end in `\` unless the path is the root value of `\`.
@@ -358,6 +484,12 @@ namespace Pulumi.AzureDevOps
         public Output<string?> AgentPoolName { get; private set; } = null!;
 
         /// <summary>
+        /// The Agent Specification to run the pipelines. Required when `repo_type` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+        /// </summary>
+        [Output("agentSpecification")]
+        public Output<string?> AgentSpecification { get; private set; } = null!;
+
+        /// <summary>
         /// A `build_completion_trigger` block as documented below.
         /// </summary>
         [Output("buildCompletionTriggers")]
@@ -374,6 +506,20 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Output("features")]
         public Output<ImmutableArray<Outputs.BuildDefinitionFeature>> Features { get; private set; } = null!;
+
+        /// <summary>
+        /// The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+        /// </summary>
+        [Output("jobAuthorizationScope")]
+        public Output<string?> JobAuthorizationScope { get; private set; } = null!;
+
+        /// <summary>
+        /// A `jobs` blocks as documented below.
+        /// 
+        /// &gt; **NOTE:** The `jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
+        /// </summary>
+        [Output("jobs")]
+        public Output<ImmutableArray<Outputs.BuildDefinitionJob>> Jobs { get; private set; } = null!;
 
         /// <summary>
         /// The name of the build definition.
@@ -484,6 +630,12 @@ namespace Pulumi.AzureDevOps
         [Input("agentPoolName")]
         public Input<string>? AgentPoolName { get; set; }
 
+        /// <summary>
+        /// The Agent Specification to run the pipelines. Required when `repo_type` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+        /// </summary>
+        [Input("agentSpecification")]
+        public Input<string>? AgentSpecification { get; set; }
+
         [Input("buildCompletionTriggers")]
         private InputList<Inputs.BuildDefinitionBuildCompletionTriggerArgs>? _buildCompletionTriggers;
 
@@ -512,6 +664,26 @@ namespace Pulumi.AzureDevOps
         {
             get => _features ?? (_features = new InputList<Inputs.BuildDefinitionFeatureArgs>());
             set => _features = value;
+        }
+
+        /// <summary>
+        /// The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+        /// </summary>
+        [Input("jobAuthorizationScope")]
+        public Input<string>? JobAuthorizationScope { get; set; }
+
+        [Input("jobs")]
+        private InputList<Inputs.BuildDefinitionJobArgs>? _jobs;
+
+        /// <summary>
+        /// A `jobs` blocks as documented below.
+        /// 
+        /// &gt; **NOTE:** The `jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
+        /// </summary>
+        public InputList<Inputs.BuildDefinitionJobArgs> Jobs
+        {
+            get => _jobs ?? (_jobs = new InputList<Inputs.BuildDefinitionJobArgs>());
+            set => _jobs = value;
         }
 
         /// <summary>
@@ -596,6 +768,12 @@ namespace Pulumi.AzureDevOps
         [Input("agentPoolName")]
         public Input<string>? AgentPoolName { get; set; }
 
+        /// <summary>
+        /// The Agent Specification to run the pipelines. Required when `repo_type` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+        /// </summary>
+        [Input("agentSpecification")]
+        public Input<string>? AgentSpecification { get; set; }
+
         [Input("buildCompletionTriggers")]
         private InputList<Inputs.BuildDefinitionBuildCompletionTriggerGetArgs>? _buildCompletionTriggers;
 
@@ -624,6 +802,26 @@ namespace Pulumi.AzureDevOps
         {
             get => _features ?? (_features = new InputList<Inputs.BuildDefinitionFeatureGetArgs>());
             set => _features = value;
+        }
+
+        /// <summary>
+        /// The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+        /// </summary>
+        [Input("jobAuthorizationScope")]
+        public Input<string>? JobAuthorizationScope { get; set; }
+
+        [Input("jobs")]
+        private InputList<Inputs.BuildDefinitionJobGetArgs>? _jobs;
+
+        /// <summary>
+        /// A `jobs` blocks as documented below.
+        /// 
+        /// &gt; **NOTE:** The `jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
+        /// </summary>
+        public InputList<Inputs.BuildDefinitionJobGetArgs> Jobs
+        {
+            get => _jobs ?? (_jobs = new InputList<Inputs.BuildDefinitionJobGetArgs>());
+            set => _jobs = value;
         }
 
         /// <summary>

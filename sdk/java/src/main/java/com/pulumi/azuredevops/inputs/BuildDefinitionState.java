@@ -6,6 +6,7 @@ package com.pulumi.azuredevops.inputs;
 import com.pulumi.azuredevops.inputs.BuildDefinitionBuildCompletionTriggerArgs;
 import com.pulumi.azuredevops.inputs.BuildDefinitionCiTriggerArgs;
 import com.pulumi.azuredevops.inputs.BuildDefinitionFeatureArgs;
+import com.pulumi.azuredevops.inputs.BuildDefinitionJobArgs;
 import com.pulumi.azuredevops.inputs.BuildDefinitionPullRequestTriggerArgs;
 import com.pulumi.azuredevops.inputs.BuildDefinitionRepositoryArgs;
 import com.pulumi.azuredevops.inputs.BuildDefinitionScheduleArgs;
@@ -37,6 +38,21 @@ public final class BuildDefinitionState extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<String>> agentPoolName() {
         return Optional.ofNullable(this.agentPoolName);
+    }
+
+    /**
+     * The Agent Specification to run the pipelines. Required when `repo_type` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+     * 
+     */
+    @Import(name="agentSpecification")
+    private @Nullable Output<String> agentSpecification;
+
+    /**
+     * @return The Agent Specification to run the pipelines. Required when `repo_type` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+     * 
+     */
+    public Optional<Output<String>> agentSpecification() {
+        return Optional.ofNullable(this.agentSpecification);
     }
 
     /**
@@ -82,6 +98,40 @@ public final class BuildDefinitionState extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<List<BuildDefinitionFeatureArgs>>> features() {
         return Optional.ofNullable(this.features);
+    }
+
+    /**
+     * The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+     * 
+     */
+    @Import(name="jobAuthorizationScope")
+    private @Nullable Output<String> jobAuthorizationScope;
+
+    /**
+     * @return The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+     * 
+     */
+    public Optional<Output<String>> jobAuthorizationScope() {
+        return Optional.ofNullable(this.jobAuthorizationScope);
+    }
+
+    /**
+     * A `jobs` blocks as documented below.
+     * 
+     * &gt; **NOTE:** The `jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
+     * 
+     */
+    @Import(name="jobs")
+    private @Nullable Output<List<BuildDefinitionJobArgs>> jobs;
+
+    /**
+     * @return A `jobs` blocks as documented below.
+     * 
+     * &gt; **NOTE:** The `jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
+     * 
+     */
+    public Optional<Output<List<BuildDefinitionJobArgs>>> jobs() {
+        return Optional.ofNullable(this.jobs);
     }
 
     /**
@@ -230,9 +280,12 @@ public final class BuildDefinitionState extends com.pulumi.resources.ResourceArg
 
     private BuildDefinitionState(BuildDefinitionState $) {
         this.agentPoolName = $.agentPoolName;
+        this.agentSpecification = $.agentSpecification;
         this.buildCompletionTriggers = $.buildCompletionTriggers;
         this.ciTrigger = $.ciTrigger;
         this.features = $.features;
+        this.jobAuthorizationScope = $.jobAuthorizationScope;
+        this.jobs = $.jobs;
         this.name = $.name;
         this.path = $.path;
         this.projectId = $.projectId;
@@ -282,6 +335,27 @@ public final class BuildDefinitionState extends com.pulumi.resources.ResourceArg
          */
         public Builder agentPoolName(String agentPoolName) {
             return agentPoolName(Output.of(agentPoolName));
+        }
+
+        /**
+         * @param agentSpecification The Agent Specification to run the pipelines. Required when `repo_type` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder agentSpecification(@Nullable Output<String> agentSpecification) {
+            $.agentSpecification = agentSpecification;
+            return this;
+        }
+
+        /**
+         * @param agentSpecification The Agent Specification to run the pipelines. Required when `repo_type` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder agentSpecification(String agentSpecification) {
+            return agentSpecification(Output.of(agentSpecification));
         }
 
         /**
@@ -365,6 +439,64 @@ public final class BuildDefinitionState extends com.pulumi.resources.ResourceArg
          */
         public Builder features(BuildDefinitionFeatureArgs... features) {
             return features(List.of(features));
+        }
+
+        /**
+         * @param jobAuthorizationScope The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jobAuthorizationScope(@Nullable Output<String> jobAuthorizationScope) {
+            $.jobAuthorizationScope = jobAuthorizationScope;
+            return this;
+        }
+
+        /**
+         * @param jobAuthorizationScope The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jobAuthorizationScope(String jobAuthorizationScope) {
+            return jobAuthorizationScope(Output.of(jobAuthorizationScope));
+        }
+
+        /**
+         * @param jobs A `jobs` blocks as documented below.
+         * 
+         * &gt; **NOTE:** The `jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jobs(@Nullable Output<List<BuildDefinitionJobArgs>> jobs) {
+            $.jobs = jobs;
+            return this;
+        }
+
+        /**
+         * @param jobs A `jobs` blocks as documented below.
+         * 
+         * &gt; **NOTE:** The `jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jobs(List<BuildDefinitionJobArgs> jobs) {
+            return jobs(Output.of(jobs));
+        }
+
+        /**
+         * @param jobs A `jobs` blocks as documented below.
+         * 
+         * &gt; **NOTE:** The `jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jobs(BuildDefinitionJobArgs... jobs) {
+            return jobs(List.of(jobs));
         }
 
         /**

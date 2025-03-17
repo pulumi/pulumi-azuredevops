@@ -19,7 +19,7 @@ namespace Pulumi.AzureDevOps.Inputs
         public Input<string>? BranchName { get; set; }
 
         /// <summary>
-        /// The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`.
+        /// The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`. Conflict with `url`
         /// </summary>
         [Input("githubEnterpriseUrl")]
         public Input<string>? GithubEnterpriseUrl { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.AzureDevOps.Inputs
         public Input<string> RepoId { get; set; } = null!;
 
         /// <summary>
-        /// The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+        /// The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise` or `Git`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
         /// </summary>
         [Input("repoType", required: true)]
         public Input<string> RepoType { get; set; } = null!;
@@ -49,10 +49,16 @@ namespace Pulumi.AzureDevOps.Inputs
         public Input<string>? ServiceConnectionId { get; set; }
 
         /// <summary>
+        /// The URL of the Git repository. Used if `repo_type` is `Git`. Conflict with `github_enterprise_url`
+        /// </summary>
+        [Input("url")]
+        public Input<string>? Url { get; set; }
+
+        /// <summary>
         /// The path of the Yaml file describing the build definition.
         /// </summary>
-        [Input("ymlPath", required: true)]
-        public Input<string> YmlPath { get; set; } = null!;
+        [Input("ymlPath")]
+        public Input<string>? YmlPath { get; set; }
 
         public BuildDefinitionRepositoryGetArgs()
         {

@@ -33,14 +33,14 @@ public final class BuildDefinitionRepositoryArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`.
+     * The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`. Conflict with `url`
      * 
      */
     @Import(name="githubEnterpriseUrl")
     private @Nullable Output<String> githubEnterpriseUrl;
 
     /**
-     * @return The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`.
+     * @return The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`. Conflict with `url`
      * 
      */
     public Optional<Output<String>> githubEnterpriseUrl() {
@@ -63,14 +63,14 @@ public final class BuildDefinitionRepositoryArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+     * The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise` or `Git`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
      * 
      */
     @Import(name="repoType", required=true)
     private Output<String> repoType;
 
     /**
-     * @return The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+     * @return The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise` or `Git`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
      * 
      */
     public Output<String> repoType() {
@@ -108,18 +108,33 @@ public final class BuildDefinitionRepositoryArgs extends com.pulumi.resources.Re
     }
 
     /**
+     * The URL of the Git repository. Used if `repo_type` is `Git`. Conflict with `github_enterprise_url`
+     * 
+     */
+    @Import(name="url")
+    private @Nullable Output<String> url;
+
+    /**
+     * @return The URL of the Git repository. Used if `repo_type` is `Git`. Conflict with `github_enterprise_url`
+     * 
+     */
+    public Optional<Output<String>> url() {
+        return Optional.ofNullable(this.url);
+    }
+
+    /**
      * The path of the Yaml file describing the build definition.
      * 
      */
-    @Import(name="ymlPath", required=true)
-    private Output<String> ymlPath;
+    @Import(name="ymlPath")
+    private @Nullable Output<String> ymlPath;
 
     /**
      * @return The path of the Yaml file describing the build definition.
      * 
      */
-    public Output<String> ymlPath() {
-        return this.ymlPath;
+    public Optional<Output<String>> ymlPath() {
+        return Optional.ofNullable(this.ymlPath);
     }
 
     private BuildDefinitionRepositoryArgs() {}
@@ -131,6 +146,7 @@ public final class BuildDefinitionRepositoryArgs extends com.pulumi.resources.Re
         this.repoType = $.repoType;
         this.reportBuildStatus = $.reportBuildStatus;
         this.serviceConnectionId = $.serviceConnectionId;
+        this.url = $.url;
         this.ymlPath = $.ymlPath;
     }
 
@@ -174,7 +190,7 @@ public final class BuildDefinitionRepositoryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param githubEnterpriseUrl The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`.
+         * @param githubEnterpriseUrl The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`. Conflict with `url`
          * 
          * @return builder
          * 
@@ -185,7 +201,7 @@ public final class BuildDefinitionRepositoryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param githubEnterpriseUrl The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`.
+         * @param githubEnterpriseUrl The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`. Conflict with `url`
          * 
          * @return builder
          * 
@@ -216,7 +232,7 @@ public final class BuildDefinitionRepositoryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param repoType The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+         * @param repoType The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise` or `Git`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
          * 
          * @return builder
          * 
@@ -227,7 +243,7 @@ public final class BuildDefinitionRepositoryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param repoType The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+         * @param repoType The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise` or `Git`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
          * 
          * @return builder
          * 
@@ -279,12 +295,33 @@ public final class BuildDefinitionRepositoryArgs extends com.pulumi.resources.Re
         }
 
         /**
+         * @param url The URL of the Git repository. Used if `repo_type` is `Git`. Conflict with `github_enterprise_url`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder url(@Nullable Output<String> url) {
+            $.url = url;
+            return this;
+        }
+
+        /**
+         * @param url The URL of the Git repository. Used if `repo_type` is `Git`. Conflict with `github_enterprise_url`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder url(String url) {
+            return url(Output.of(url));
+        }
+
+        /**
          * @param ymlPath The path of the Yaml file describing the build definition.
          * 
          * @return builder
          * 
          */
-        public Builder ymlPath(Output<String> ymlPath) {
+        public Builder ymlPath(@Nullable Output<String> ymlPath) {
             $.ymlPath = ymlPath;
             return this;
         }
@@ -305,9 +342,6 @@ public final class BuildDefinitionRepositoryArgs extends com.pulumi.resources.Re
             }
             if ($.repoType == null) {
                 throw new MissingRequiredPropertyException("BuildDefinitionRepositoryArgs", "repoType");
-            }
-            if ($.ymlPath == null) {
-                throw new MissingRequiredPropertyException("BuildDefinitionRepositoryArgs", "ymlPath");
             }
             return $;
         }

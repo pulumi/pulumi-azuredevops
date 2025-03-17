@@ -49,6 +49,7 @@
         "getFeed.ts",
         "getGitRepository.ts",
         "getGroup.ts",
+        "getGroupMembership.ts",
         "getGroups.ts",
         "getIdentityGroup.ts",
         "getIdentityGroups.ts",

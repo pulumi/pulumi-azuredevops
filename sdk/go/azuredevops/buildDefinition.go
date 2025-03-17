@@ -317,6 +317,120 @@ import (
 //
 // ```
 //
+// ### Using Other Git and Agent Jobs
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.NewServiceEndpointGenericGit(ctx, "example", &azuredevops.ServiceEndpointGenericGitArgs{
+//				ProjectId:           pulumi.Any(exampleAzuredevopsProject.Id),
+//				RepositoryUrl:       pulumi.String("https://gitlab.com/example/example.git"),
+//				Password:            pulumi.String("token"),
+//				ServiceEndpointName: pulumi.String("Example Generic Git"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewBuildDefinition(ctx, "example", &azuredevops.BuildDefinitionArgs{
+//				ProjectId: pulumi.Any(exampleAzuredevopsProject2.Id),
+//				Name:      pulumi.String("Example Build Definition"),
+//				Path:      pulumi.String("\\ExampleFolder"),
+//				CiTrigger: &azuredevops.BuildDefinitionCiTriggerArgs{
+//					UseYaml: pulumi.Bool(false),
+//				},
+//				Repository: &azuredevops.BuildDefinitionRepositoryArgs{
+//					RepoType:            pulumi.String("Git"),
+//					RepoId:              example.RepositoryUrl,
+//					BranchName:          pulumi.String("refs/heads/main"),
+//					Url:                 example.RepositoryUrl,
+//					ServiceConnectionId: example.ID(),
+//				},
+//				Jobs: azuredevops.BuildDefinitionJobArray{
+//					&azuredevops.BuildDefinitionJobArgs{
+//						Name:      pulumi.String("Agent Job1"),
+//						RefName:   pulumi.String("agent_job1"),
+//						Condition: pulumi.String("succeededOrFailed()"),
+//						Target: &azuredevops.BuildDefinitionJobTargetArgs{
+//							Type: pulumi.String("AgentJob"),
+//							ExecutionOptions: &azuredevops.BuildDefinitionJobTargetExecutionOptionsArgs{
+//								Type: pulumi.String("None"),
+//							},
+//						},
+//					},
+//					&azuredevops.BuildDefinitionJobArgs{
+//						Name:      pulumi.String("Agent Job2"),
+//						RefName:   pulumi.String("agent_job2"),
+//						Condition: pulumi.String("succeededOrFailed()"),
+//						Dependencies: azuredevops.BuildDefinitionJobDependencyArray{
+//							&azuredevops.BuildDefinitionJobDependencyArgs{
+//								Scope: pulumi.String("agent_job1"),
+//							},
+//						},
+//						Target: &azuredevops.BuildDefinitionJobTargetArgs{
+//							Type: pulumi.String("AgentJob"),
+//							Demands: pulumi.StringArray{
+//								pulumi.String("git"),
+//							},
+//							ExecutionOptions: &azuredevops.BuildDefinitionJobTargetExecutionOptionsArgs{
+//								Type:            pulumi.String("Multi-Configuration"),
+//								ContinueOnError: pulumi.Bool(true),
+//								Multipliers:     pulumi.String("multipliers"),
+//								MaxConcurrency:  pulumi.Int(2),
+//							},
+//						},
+//					},
+//					&azuredevops.BuildDefinitionJobArgs{
+//						Name:      pulumi.String("Agentless Job1"),
+//						RefName:   pulumi.String("agentless_job1"),
+//						Condition: pulumi.String("succeeded()"),
+//						Target: &azuredevops.BuildDefinitionJobTargetArgs{
+//							Type: pulumi.String("AgentlessJob"),
+//							ExecutionOptions: &azuredevops.BuildDefinitionJobTargetExecutionOptionsArgs{
+//								Type: pulumi.String("None"),
+//							},
+//						},
+//					},
+//					&azuredevops.BuildDefinitionJobArgs{
+//						Name:                  pulumi.String("Agentless Job2"),
+//						RefName:               pulumi.String("agentless_job2"),
+//						Condition:             pulumi.String("succeeded()"),
+//						JobAuthorizationScope: pulumi.String("project"),
+//						Dependencies: azuredevops.BuildDefinitionJobDependencyArray{
+//							&azuredevops.BuildDefinitionJobDependencyArgs{
+//								Scope: pulumi.String("agent_job2"),
+//							},
+//							&azuredevops.BuildDefinitionJobDependencyArgs{
+//								Scope: pulumi.String("agentless_job1"),
+//							},
+//						},
+//						Target: &azuredevops.BuildDefinitionJobTargetArgs{
+//							Type: pulumi.String("AgentlessJob"),
+//							ExecutionOptions: &azuredevops.BuildDefinitionJobTargetExecutionOptionsArgs{
+//								Type:            pulumi.String("Multi-Configuration"),
+//								ContinueOnError: pulumi.Bool(true),
+//								Multipliers:     pulumi.String("multipliers"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Remarks
 //
 // The path attribute can not end in `\` unless the path is the root value of `\`.
@@ -350,12 +464,20 @@ type BuildDefinition struct {
 
 	// The agent pool that should execute the build. Defaults to `Azure Pipelines`.
 	AgentPoolName pulumi.StringPtrOutput `pulumi:"agentPoolName"`
+	// The Agent Specification to run the pipelines. Required when `repoType` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+	AgentSpecification pulumi.StringPtrOutput `pulumi:"agentSpecification"`
 	// A `buildCompletionTrigger` block as documented below.
 	BuildCompletionTriggers BuildDefinitionBuildCompletionTriggerArrayOutput `pulumi:"buildCompletionTriggers"`
 	// A `ciTrigger` block as documented below.
 	CiTrigger BuildDefinitionCiTriggerPtrOutput `pulumi:"ciTrigger"`
 	// A `features` blocks as documented below.
 	Features BuildDefinitionFeatureArrayOutput `pulumi:"features"`
+	// The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+	JobAuthorizationScope pulumi.StringPtrOutput `pulumi:"jobAuthorizationScope"`
+	// A `jobs` blocks as documented below.
+	//
+	// > **NOTE:** The `jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
+	Jobs BuildDefinitionJobArrayOutput `pulumi:"jobs"`
 	// The name of the build definition.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The folder path of the build definition.
@@ -415,12 +537,20 @@ func GetBuildDefinition(ctx *pulumi.Context,
 type buildDefinitionState struct {
 	// The agent pool that should execute the build. Defaults to `Azure Pipelines`.
 	AgentPoolName *string `pulumi:"agentPoolName"`
+	// The Agent Specification to run the pipelines. Required when `repoType` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+	AgentSpecification *string `pulumi:"agentSpecification"`
 	// A `buildCompletionTrigger` block as documented below.
 	BuildCompletionTriggers []BuildDefinitionBuildCompletionTrigger `pulumi:"buildCompletionTriggers"`
 	// A `ciTrigger` block as documented below.
 	CiTrigger *BuildDefinitionCiTrigger `pulumi:"ciTrigger"`
 	// A `features` blocks as documented below.
 	Features []BuildDefinitionFeature `pulumi:"features"`
+	// The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+	JobAuthorizationScope *string `pulumi:"jobAuthorizationScope"`
+	// A `jobs` blocks as documented below.
+	//
+	// > **NOTE:** The `jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
+	Jobs []BuildDefinitionJob `pulumi:"jobs"`
 	// The name of the build definition.
 	Name *string `pulumi:"name"`
 	// The folder path of the build definition.
@@ -445,12 +575,20 @@ type buildDefinitionState struct {
 type BuildDefinitionState struct {
 	// The agent pool that should execute the build. Defaults to `Azure Pipelines`.
 	AgentPoolName pulumi.StringPtrInput
+	// The Agent Specification to run the pipelines. Required when `repoType` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+	AgentSpecification pulumi.StringPtrInput
 	// A `buildCompletionTrigger` block as documented below.
 	BuildCompletionTriggers BuildDefinitionBuildCompletionTriggerArrayInput
 	// A `ciTrigger` block as documented below.
 	CiTrigger BuildDefinitionCiTriggerPtrInput
 	// A `features` blocks as documented below.
 	Features BuildDefinitionFeatureArrayInput
+	// The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+	JobAuthorizationScope pulumi.StringPtrInput
+	// A `jobs` blocks as documented below.
+	//
+	// > **NOTE:** The `jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
+	Jobs BuildDefinitionJobArrayInput
 	// The name of the build definition.
 	Name pulumi.StringPtrInput
 	// The folder path of the build definition.
@@ -479,12 +617,20 @@ func (BuildDefinitionState) ElementType() reflect.Type {
 type buildDefinitionArgs struct {
 	// The agent pool that should execute the build. Defaults to `Azure Pipelines`.
 	AgentPoolName *string `pulumi:"agentPoolName"`
+	// The Agent Specification to run the pipelines. Required when `repoType` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+	AgentSpecification *string `pulumi:"agentSpecification"`
 	// A `buildCompletionTrigger` block as documented below.
 	BuildCompletionTriggers []BuildDefinitionBuildCompletionTrigger `pulumi:"buildCompletionTriggers"`
 	// A `ciTrigger` block as documented below.
 	CiTrigger *BuildDefinitionCiTrigger `pulumi:"ciTrigger"`
 	// A `features` blocks as documented below.
 	Features []BuildDefinitionFeature `pulumi:"features"`
+	// The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+	JobAuthorizationScope *string `pulumi:"jobAuthorizationScope"`
+	// A `jobs` blocks as documented below.
+	//
+	// > **NOTE:** The `jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
+	Jobs []BuildDefinitionJob `pulumi:"jobs"`
 	// The name of the build definition.
 	Name *string `pulumi:"name"`
 	// The folder path of the build definition.
@@ -508,12 +654,20 @@ type buildDefinitionArgs struct {
 type BuildDefinitionArgs struct {
 	// The agent pool that should execute the build. Defaults to `Azure Pipelines`.
 	AgentPoolName pulumi.StringPtrInput
+	// The Agent Specification to run the pipelines. Required when `repoType` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+	AgentSpecification pulumi.StringPtrInput
 	// A `buildCompletionTrigger` block as documented below.
 	BuildCompletionTriggers BuildDefinitionBuildCompletionTriggerArrayInput
 	// A `ciTrigger` block as documented below.
 	CiTrigger BuildDefinitionCiTriggerPtrInput
 	// A `features` blocks as documented below.
 	Features BuildDefinitionFeatureArrayInput
+	// The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+	JobAuthorizationScope pulumi.StringPtrInput
+	// A `jobs` blocks as documented below.
+	//
+	// > **NOTE:** The `jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
+	Jobs BuildDefinitionJobArrayInput
 	// The name of the build definition.
 	Name pulumi.StringPtrInput
 	// The folder path of the build definition.
@@ -625,6 +779,11 @@ func (o BuildDefinitionOutput) AgentPoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BuildDefinition) pulumi.StringPtrOutput { return v.AgentPoolName }).(pulumi.StringPtrOutput)
 }
 
+// The Agent Specification to run the pipelines. Required when `repoType` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+func (o BuildDefinitionOutput) AgentSpecification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BuildDefinition) pulumi.StringPtrOutput { return v.AgentSpecification }).(pulumi.StringPtrOutput)
+}
+
 // A `buildCompletionTrigger` block as documented below.
 func (o BuildDefinitionOutput) BuildCompletionTriggers() BuildDefinitionBuildCompletionTriggerArrayOutput {
 	return o.ApplyT(func(v *BuildDefinition) BuildDefinitionBuildCompletionTriggerArrayOutput {
@@ -640,6 +799,18 @@ func (o BuildDefinitionOutput) CiTrigger() BuildDefinitionCiTriggerPtrOutput {
 // A `features` blocks as documented below.
 func (o BuildDefinitionOutput) Features() BuildDefinitionFeatureArrayOutput {
 	return o.ApplyT(func(v *BuildDefinition) BuildDefinitionFeatureArrayOutput { return v.Features }).(BuildDefinitionFeatureArrayOutput)
+}
+
+// The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+func (o BuildDefinitionOutput) JobAuthorizationScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BuildDefinition) pulumi.StringPtrOutput { return v.JobAuthorizationScope }).(pulumi.StringPtrOutput)
+}
+
+// A `jobs` blocks as documented below.
+//
+// > **NOTE:** The `jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
+func (o BuildDefinitionOutput) Jobs() BuildDefinitionJobArrayOutput {
+	return o.ApplyT(func(v *BuildDefinition) BuildDefinitionJobArrayOutput { return v.Jobs }).(BuildDefinitionJobArrayOutput)
 }
 
 // The name of the build definition.

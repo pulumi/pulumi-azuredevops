@@ -61,6 +61,10 @@ export interface GetBuildDefinitionResult {
      */
     readonly agentPoolName: string;
     /**
+     * The Agent Specification to run the pipelines. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+     */
+    readonly agentSpecification: string;
+    /**
      * A `ciTrigger` block as defined below.
      */
     readonly ciTriggers: outputs.GetBuildDefinitionCiTrigger[];
@@ -68,6 +72,14 @@ export interface GetBuildDefinitionResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The job authorization scope for builds queued against this definition.
+     */
+    readonly jobAuthorizationScope: string;
+    /**
+     * A `jobs` blocks as documented below.
+     */
+    readonly jobs: outputs.GetBuildDefinitionJob[];
     /**
      * The name of the variable.
      */

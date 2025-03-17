@@ -16,10 +16,30 @@ public final class GetClientConfigResult {
      */
     private String id;
     /**
-     * @return The organization configured for the provider.
+     * @return The name of the organization.
+     * 
+     */
+    private String name;
+    /**
+     * @return The URL of the organization.
      * 
      */
     private String organizationUrl;
+    /**
+     * @return The owner ID of the organization.
+     * 
+     */
+    private String ownerId;
+    /**
+     * @return The status of the organization.
+     * 
+     */
+    private String status;
+    /**
+     * @return The Tenant ID of the connected Azure Directory.
+     * 
+     */
+    private String tenantId;
 
     private GetClientConfigResult() {}
     /**
@@ -30,11 +50,39 @@ public final class GetClientConfigResult {
         return this.id;
     }
     /**
-     * @return The organization configured for the provider.
+     * @return The name of the organization.
+     * 
+     */
+    public String name() {
+        return this.name;
+    }
+    /**
+     * @return The URL of the organization.
      * 
      */
     public String organizationUrl() {
         return this.organizationUrl;
+    }
+    /**
+     * @return The owner ID of the organization.
+     * 
+     */
+    public String ownerId() {
+        return this.ownerId;
+    }
+    /**
+     * @return The status of the organization.
+     * 
+     */
+    public String status() {
+        return this.status;
+    }
+    /**
+     * @return The Tenant ID of the connected Azure Directory.
+     * 
+     */
+    public String tenantId() {
+        return this.tenantId;
     }
 
     public static Builder builder() {
@@ -47,12 +95,20 @@ public final class GetClientConfigResult {
     @CustomType.Builder
     public static final class Builder {
         private String id;
+        private String name;
         private String organizationUrl;
+        private String ownerId;
+        private String status;
+        private String tenantId;
         public Builder() {}
         public Builder(GetClientConfigResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
+    	      this.name = defaults.name;
     	      this.organizationUrl = defaults.organizationUrl;
+    	      this.ownerId = defaults.ownerId;
+    	      this.status = defaults.status;
+    	      this.tenantId = defaults.tenantId;
         }
 
         @CustomType.Setter
@@ -64,6 +120,14 @@ public final class GetClientConfigResult {
             return this;
         }
         @CustomType.Setter
+        public Builder name(String name) {
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetClientConfigResult", "name");
+            }
+            this.name = name;
+            return this;
+        }
+        @CustomType.Setter
         public Builder organizationUrl(String organizationUrl) {
             if (organizationUrl == null) {
               throw new MissingRequiredPropertyException("GetClientConfigResult", "organizationUrl");
@@ -71,10 +135,38 @@ public final class GetClientConfigResult {
             this.organizationUrl = organizationUrl;
             return this;
         }
+        @CustomType.Setter
+        public Builder ownerId(String ownerId) {
+            if (ownerId == null) {
+              throw new MissingRequiredPropertyException("GetClientConfigResult", "ownerId");
+            }
+            this.ownerId = ownerId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder status(String status) {
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetClientConfigResult", "status");
+            }
+            this.status = status;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder tenantId(String tenantId) {
+            if (tenantId == null) {
+              throw new MissingRequiredPropertyException("GetClientConfigResult", "tenantId");
+            }
+            this.tenantId = tenantId;
+            return this;
+        }
         public GetClientConfigResult build() {
             final var _resultValue = new GetClientConfigResult();
             _resultValue.id = id;
+            _resultValue.name = name;
             _resultValue.organizationUrl = organizationUrl;
+            _resultValue.ownerId = ownerId;
+            _resultValue.status = status;
+            _resultValue.tenantId = tenantId;
             return _resultValue;
         }
     }

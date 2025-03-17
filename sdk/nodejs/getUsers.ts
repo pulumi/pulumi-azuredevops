@@ -8,6 +8,8 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to access information about an existing users within Azure DevOps.
+ *
+ * > **NOTE:** This resource will try to get all the users within the organization which may result in poor performance. `azuredevops.getIdentityUsers`, `azuredevops.getUser` can be used to replace this resource.
  */
 export function getUsers(args?: GetUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetUsersResult> {
     args = args || {};
@@ -78,6 +80,8 @@ export interface GetUsersResult {
 }
 /**
  * Use this data source to access information about an existing users within Azure DevOps.
+ *
+ * > **NOTE:** This resource will try to get all the users within the organization which may result in poor performance. `azuredevops.getIdentityUsers`, `azuredevops.getUser` can be used to replace this resource.
  */
 export function getUsersOutput(args?: GetUsersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUsersResult> {
     args = args || {};

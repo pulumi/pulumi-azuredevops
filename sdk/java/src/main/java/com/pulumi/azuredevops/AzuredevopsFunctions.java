@@ -19,6 +19,8 @@ import com.pulumi.azuredevops.inputs.GetFeedPlainArgs;
 import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
 import com.pulumi.azuredevops.inputs.GetGitRepositoryPlainArgs;
 import com.pulumi.azuredevops.inputs.GetGroupArgs;
+import com.pulumi.azuredevops.inputs.GetGroupMembershipArgs;
+import com.pulumi.azuredevops.inputs.GetGroupMembershipPlainArgs;
 import com.pulumi.azuredevops.inputs.GetGroupPlainArgs;
 import com.pulumi.azuredevops.inputs.GetGroupsArgs;
 import com.pulumi.azuredevops.inputs.GetGroupsPlainArgs;
@@ -74,6 +76,7 @@ import com.pulumi.azuredevops.outputs.GetDescriptorResult;
 import com.pulumi.azuredevops.outputs.GetEnvironmentResult;
 import com.pulumi.azuredevops.outputs.GetFeedResult;
 import com.pulumi.azuredevops.outputs.GetGitRepositoryResult;
+import com.pulumi.azuredevops.outputs.GetGroupMembershipResult;
 import com.pulumi.azuredevops.outputs.GetGroupResult;
 import com.pulumi.azuredevops.outputs.GetGroupsResult;
 import com.pulumi.azuredevops.outputs.GetIdentityGroupResult;
@@ -3001,6 +3004,236 @@ public final class AzuredevopsFunctions {
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azuredevops:index/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Group Memberships within Azure DevOps
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetGroupMembershipArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getGroupMembership(GetGroupMembershipArgs.builder()
+     *             .groupDescriptor("groupdescroptpr")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Memberships](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static Output<GetGroupMembershipResult> getGroupMembership(GetGroupMembershipArgs args) {
+        return getGroupMembership(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Group Memberships within Azure DevOps
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetGroupMembershipArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getGroupMembership(GetGroupMembershipArgs.builder()
+     *             .groupDescriptor("groupdescroptpr")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Memberships](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static CompletableFuture<GetGroupMembershipResult> getGroupMembershipPlain(GetGroupMembershipPlainArgs args) {
+        return getGroupMembershipPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Group Memberships within Azure DevOps
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetGroupMembershipArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getGroupMembership(GetGroupMembershipArgs.builder()
+     *             .groupDescriptor("groupdescroptpr")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Memberships](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static Output<GetGroupMembershipResult> getGroupMembership(GetGroupMembershipArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getGroupMembership:getGroupMembership", TypeShape.of(GetGroupMembershipResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Group Memberships within Azure DevOps
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetGroupMembershipArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getGroupMembership(GetGroupMembershipArgs.builder()
+     *             .groupDescriptor("groupdescroptpr")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Memberships](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static Output<GetGroupMembershipResult> getGroupMembership(GetGroupMembershipArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getGroupMembership:getGroupMembership", TypeShape.of(GetGroupMembershipResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Group Memberships within Azure DevOps
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetGroupMembershipArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getGroupMembership(GetGroupMembershipArgs.builder()
+     *             .groupDescriptor("groupdescroptpr")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Memberships](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static CompletableFuture<GetGroupMembershipResult> getGroupMembershipPlain(GetGroupMembershipPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azuredevops:index/getGroupMembership:getGroupMembership", TypeShape.of(GetGroupMembershipResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about existing Groups within Azure DevOps
@@ -9204,7 +9437,7 @@ public final class AzuredevopsFunctions {
      * 
      *         ctx.export("projectId", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.projectId()).collect(toList()));
      *         ctx.export("name", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.name()).collect(toList()));
-     *         ctx.export("alladministrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.administrators()).collect(toList()));
+     *         ctx.export("allAdministrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.administrators()).collect(toList()));
      *         ctx.export("administrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.members()).collect(toList()));
      *     }
      * }
@@ -9256,7 +9489,7 @@ public final class AzuredevopsFunctions {
      * 
      *         ctx.export("projectId", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.projectId()).collect(toList()));
      *         ctx.export("name", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.name()).collect(toList()));
-     *         ctx.export("alladministrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.administrators()).collect(toList()));
+     *         ctx.export("allAdministrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.administrators()).collect(toList()));
      *         ctx.export("administrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.members()).collect(toList()));
      *     }
      * }
@@ -9308,7 +9541,7 @@ public final class AzuredevopsFunctions {
      * 
      *         ctx.export("projectId", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.projectId()).collect(toList()));
      *         ctx.export("name", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.name()).collect(toList()));
-     *         ctx.export("alladministrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.administrators()).collect(toList()));
+     *         ctx.export("allAdministrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.administrators()).collect(toList()));
      *         ctx.export("administrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.members()).collect(toList()));
      *     }
      * }
@@ -9360,7 +9593,7 @@ public final class AzuredevopsFunctions {
      * 
      *         ctx.export("projectId", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.projectId()).collect(toList()));
      *         ctx.export("name", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.name()).collect(toList()));
-     *         ctx.export("alladministrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.administrators()).collect(toList()));
+     *         ctx.export("allAdministrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.administrators()).collect(toList()));
      *         ctx.export("administrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.members()).collect(toList()));
      *     }
      * }
@@ -9412,7 +9645,7 @@ public final class AzuredevopsFunctions {
      * 
      *         ctx.export("projectId", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.projectId()).collect(toList()));
      *         ctx.export("name", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.name()).collect(toList()));
-     *         ctx.export("alladministrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.administrators()).collect(toList()));
+     *         ctx.export("allAdministrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.administrators()).collect(toList()));
      *         ctx.export("administrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.members()).collect(toList()));
      *     }
      * }
@@ -9464,7 +9697,7 @@ public final class AzuredevopsFunctions {
      * 
      *         ctx.export("projectId", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.projectId()).collect(toList()));
      *         ctx.export("name", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.name()).collect(toList()));
-     *         ctx.export("alladministrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.administrators()).collect(toList()));
+     *         ctx.export("allAdministrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.administrators()).collect(toList()));
      *         ctx.export("administrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.members()).collect(toList()));
      *     }
      * }
@@ -9516,7 +9749,7 @@ public final class AzuredevopsFunctions {
      * 
      *         ctx.export("projectId", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.projectId()).collect(toList()));
      *         ctx.export("name", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.name()).collect(toList()));
-     *         ctx.export("alladministrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.administrators()).collect(toList()));
+     *         ctx.export("allAdministrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.administrators()).collect(toList()));
      *         ctx.export("administrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.members()).collect(toList()));
      *     }
      * }
@@ -9779,12 +10012,16 @@ public final class AzuredevopsFunctions {
     /**
      * Use this data source to access information about an existing users within Azure DevOps.
      * 
+     * &gt; **NOTE:** This resource will try to get all the users within the organization which may result in poor performance. `azuredevops.getIdentityUsers`, `azuredevops.getUser` can be used to replace this resource.
+     * 
      */
     public static Output<GetUsersResult> getUsers() {
         return getUsers(GetUsersArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing users within Azure DevOps.
+     * 
+     * &gt; **NOTE:** This resource will try to get all the users within the organization which may result in poor performance. `azuredevops.getIdentityUsers`, `azuredevops.getUser` can be used to replace this resource.
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain() {
@@ -9793,12 +10030,16 @@ public final class AzuredevopsFunctions {
     /**
      * Use this data source to access information about an existing users within Azure DevOps.
      * 
+     * &gt; **NOTE:** This resource will try to get all the users within the organization which may result in poor performance. `azuredevops.getIdentityUsers`, `azuredevops.getUser` can be used to replace this resource.
+     * 
      */
     public static Output<GetUsersResult> getUsers(GetUsersArgs args) {
         return getUsers(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing users within Azure DevOps.
+     * 
+     * &gt; **NOTE:** This resource will try to get all the users within the organization which may result in poor performance. `azuredevops.getIdentityUsers`, `azuredevops.getUser` can be used to replace this resource.
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain(GetUsersPlainArgs args) {
@@ -9807,6 +10048,8 @@ public final class AzuredevopsFunctions {
     /**
      * Use this data source to access information about an existing users within Azure DevOps.
      * 
+     * &gt; **NOTE:** This resource will try to get all the users within the organization which may result in poor performance. `azuredevops.getIdentityUsers`, `azuredevops.getUser` can be used to replace this resource.
+     * 
      */
     public static Output<GetUsersResult> getUsers(GetUsersArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azuredevops:index/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
@@ -9814,12 +10057,16 @@ public final class AzuredevopsFunctions {
     /**
      * Use this data source to access information about an existing users within Azure DevOps.
      * 
+     * &gt; **NOTE:** This resource will try to get all the users within the organization which may result in poor performance. `azuredevops.getIdentityUsers`, `azuredevops.getUser` can be used to replace this resource.
+     * 
      */
     public static Output<GetUsersResult> getUsers(GetUsersArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azuredevops:index/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing users within Azure DevOps.
+     * 
+     * &gt; **NOTE:** This resource will try to get all the users within the organization which may result in poor performance. `azuredevops.getIdentityUsers`, `azuredevops.getUser` can be used to replace this resource.
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain(GetUsersPlainArgs args, InvokeOptions options) {

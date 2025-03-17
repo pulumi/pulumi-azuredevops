@@ -70,10 +70,16 @@ type LookupBuildDefinitionArgs struct {
 type LookupBuildDefinitionResult struct {
 	// The agent pool that should execute the build.
 	AgentPoolName string `pulumi:"agentPoolName"`
+	// The Agent Specification to run the pipelines. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+	AgentSpecification string `pulumi:"agentSpecification"`
 	// A `ciTrigger` block as defined below.
 	CiTriggers []GetBuildDefinitionCiTrigger `pulumi:"ciTriggers"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// The job authorization scope for builds queued against this definition.
+	JobAuthorizationScope string `pulumi:"jobAuthorizationScope"`
+	// A `jobs` blocks as documented below.
+	Jobs []GetBuildDefinitionJob `pulumi:"jobs"`
 	// The name of the variable.
 	Name      string  `pulumi:"name"`
 	Path      *string `pulumi:"path"`
@@ -137,6 +143,11 @@ func (o LookupBuildDefinitionResultOutput) AgentPoolName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBuildDefinitionResult) string { return v.AgentPoolName }).(pulumi.StringOutput)
 }
 
+// The Agent Specification to run the pipelines. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+func (o LookupBuildDefinitionResultOutput) AgentSpecification() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBuildDefinitionResult) string { return v.AgentSpecification }).(pulumi.StringOutput)
+}
+
 // A `ciTrigger` block as defined below.
 func (o LookupBuildDefinitionResultOutput) CiTriggers() GetBuildDefinitionCiTriggerArrayOutput {
 	return o.ApplyT(func(v LookupBuildDefinitionResult) []GetBuildDefinitionCiTrigger { return v.CiTriggers }).(GetBuildDefinitionCiTriggerArrayOutput)
@@ -145,6 +156,16 @@ func (o LookupBuildDefinitionResultOutput) CiTriggers() GetBuildDefinitionCiTrig
 // The provider-assigned unique ID for this managed resource.
 func (o LookupBuildDefinitionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBuildDefinitionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The job authorization scope for builds queued against this definition.
+func (o LookupBuildDefinitionResultOutput) JobAuthorizationScope() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBuildDefinitionResult) string { return v.JobAuthorizationScope }).(pulumi.StringOutput)
+}
+
+// A `jobs` blocks as documented below.
+func (o LookupBuildDefinitionResultOutput) Jobs() GetBuildDefinitionJobArrayOutput {
+	return o.ApplyT(func(v LookupBuildDefinitionResult) []GetBuildDefinitionJob { return v.Jobs }).(GetBuildDefinitionJobArrayOutput)
 }
 
 // The name of the variable.

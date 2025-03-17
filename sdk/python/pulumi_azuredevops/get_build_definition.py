@@ -27,16 +27,25 @@ class GetBuildDefinitionResult:
     """
     A collection of values returned by getBuildDefinition.
     """
-    def __init__(__self__, agent_pool_name=None, ci_triggers=None, id=None, name=None, path=None, project_id=None, pull_request_triggers=None, queue_status=None, repositories=None, revision=None, schedules=None, variable_groups=None, variables=None):
+    def __init__(__self__, agent_pool_name=None, agent_specification=None, ci_triggers=None, id=None, job_authorization_scope=None, jobs=None, name=None, path=None, project_id=None, pull_request_triggers=None, queue_status=None, repositories=None, revision=None, schedules=None, variable_groups=None, variables=None):
         if agent_pool_name and not isinstance(agent_pool_name, str):
             raise TypeError("Expected argument 'agent_pool_name' to be a str")
         pulumi.set(__self__, "agent_pool_name", agent_pool_name)
+        if agent_specification and not isinstance(agent_specification, str):
+            raise TypeError("Expected argument 'agent_specification' to be a str")
+        pulumi.set(__self__, "agent_specification", agent_specification)
         if ci_triggers and not isinstance(ci_triggers, list):
             raise TypeError("Expected argument 'ci_triggers' to be a list")
         pulumi.set(__self__, "ci_triggers", ci_triggers)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if job_authorization_scope and not isinstance(job_authorization_scope, str):
+            raise TypeError("Expected argument 'job_authorization_scope' to be a str")
+        pulumi.set(__self__, "job_authorization_scope", job_authorization_scope)
+        if jobs and not isinstance(jobs, list):
+            raise TypeError("Expected argument 'jobs' to be a list")
+        pulumi.set(__self__, "jobs", jobs)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -77,6 +86,14 @@ class GetBuildDefinitionResult:
         return pulumi.get(self, "agent_pool_name")
 
     @property
+    @pulumi.getter(name="agentSpecification")
+    def agent_specification(self) -> str:
+        """
+        The Agent Specification to run the pipelines. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+        """
+        return pulumi.get(self, "agent_specification")
+
+    @property
     @pulumi.getter(name="ciTriggers")
     def ci_triggers(self) -> Sequence['outputs.GetBuildDefinitionCiTriggerResult']:
         """
@@ -91,6 +108,22 @@ class GetBuildDefinitionResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="jobAuthorizationScope")
+    def job_authorization_scope(self) -> str:
+        """
+        The job authorization scope for builds queued against this definition.
+        """
+        return pulumi.get(self, "job_authorization_scope")
+
+    @property
+    @pulumi.getter
+    def jobs(self) -> Sequence['outputs.GetBuildDefinitionJobResult']:
+        """
+        A `jobs` blocks as documented below.
+        """
+        return pulumi.get(self, "jobs")
 
     @property
     @pulumi.getter
@@ -174,8 +207,11 @@ class AwaitableGetBuildDefinitionResult(GetBuildDefinitionResult):
             yield self
         return GetBuildDefinitionResult(
             agent_pool_name=self.agent_pool_name,
+            agent_specification=self.agent_specification,
             ci_triggers=self.ci_triggers,
             id=self.id,
+            job_authorization_scope=self.job_authorization_scope,
+            jobs=self.jobs,
             name=self.name,
             path=self.path,
             project_id=self.project_id,
@@ -221,8 +257,11 @@ def get_build_definition(name: Optional[str] = None,
 
     return AwaitableGetBuildDefinitionResult(
         agent_pool_name=pulumi.get(__ret__, 'agent_pool_name'),
+        agent_specification=pulumi.get(__ret__, 'agent_specification'),
         ci_triggers=pulumi.get(__ret__, 'ci_triggers'),
         id=pulumi.get(__ret__, 'id'),
+        job_authorization_scope=pulumi.get(__ret__, 'job_authorization_scope'),
+        jobs=pulumi.get(__ret__, 'jobs'),
         name=pulumi.get(__ret__, 'name'),
         path=pulumi.get(__ret__, 'path'),
         project_id=pulumi.get(__ret__, 'project_id'),
@@ -265,8 +304,11 @@ def get_build_definition_output(name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getBuildDefinition:getBuildDefinition', __args__, opts=opts, typ=GetBuildDefinitionResult)
     return __ret__.apply(lambda __response__: GetBuildDefinitionResult(
         agent_pool_name=pulumi.get(__response__, 'agent_pool_name'),
+        agent_specification=pulumi.get(__response__, 'agent_specification'),
         ci_triggers=pulumi.get(__response__, 'ci_triggers'),
         id=pulumi.get(__response__, 'id'),
+        job_authorization_scope=pulumi.get(__response__, 'job_authorization_scope'),
+        jobs=pulumi.get(__response__, 'jobs'),
         name=pulumi.get(__response__, 'name'),
         path=pulumi.get(__response__, 'path'),
         project_id=pulumi.get(__response__, 'project_id'),

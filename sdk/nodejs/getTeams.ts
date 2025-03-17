@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  * const example = azuredevops.getTeams({});
  * export const projectId = example.then(example => example.teams.map(__item => __item.projectId));
  * export const name = example.then(example => example.teams.map(__item => __item.name));
- * export const alladministrators = example.then(example => example.teams.map(__item => __item.administrators));
+ * export const allAdministrators = example.then(example => example.teams.map(__item => __item.administrators));
  * export const administrators = example.then(example => example.teams.map(__item => __item.members));
  * ```
  *
@@ -83,7 +83,7 @@ export interface GetTeamsResult {
  * const example = azuredevops.getTeams({});
  * export const projectId = example.then(example => example.teams.map(__item => __item.projectId));
  * export const name = example.then(example => example.teams.map(__item => __item.name));
- * export const alladministrators = example.then(example => example.teams.map(__item => __item.administrators));
+ * export const allAdministrators = example.then(example => example.teams.map(__item => __item.administrators));
  * export const administrators = example.then(example => example.teams.map(__item => __item.members));
  * ```
  *

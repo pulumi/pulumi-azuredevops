@@ -176,6 +176,10 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public readonly string AgentPoolName;
         /// <summary>
+        /// The Agent Specification to run the pipelines. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+        /// </summary>
+        public readonly string AgentSpecification;
+        /// <summary>
         /// A `ci_trigger` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBuildDefinitionCiTriggerResult> CiTriggers;
@@ -183,6 +187,14 @@ namespace Pulumi.AzureDevOps
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The job authorization scope for builds queued against this definition.
+        /// </summary>
+        public readonly string JobAuthorizationScope;
+        /// <summary>
+        /// A `jobs` blocks as documented below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetBuildDefinitionJobResult> Jobs;
         /// <summary>
         /// The name of the variable.
         /// </summary>
@@ -222,9 +234,15 @@ namespace Pulumi.AzureDevOps
         private GetBuildDefinitionResult(
             string agentPoolName,
 
+            string agentSpecification,
+
             ImmutableArray<Outputs.GetBuildDefinitionCiTriggerResult> ciTriggers,
 
             string id,
+
+            string jobAuthorizationScope,
+
+            ImmutableArray<Outputs.GetBuildDefinitionJobResult> jobs,
 
             string name,
 
@@ -247,8 +265,11 @@ namespace Pulumi.AzureDevOps
             ImmutableArray<Outputs.GetBuildDefinitionVariableResult> variables)
         {
             AgentPoolName = agentPoolName;
+            AgentSpecification = agentSpecification;
             CiTriggers = ciTriggers;
             Id = id;
+            JobAuthorizationScope = jobAuthorizationScope;
+            Jobs = jobs;
             Name = name;
             Path = path;
             ProjectId = projectId;

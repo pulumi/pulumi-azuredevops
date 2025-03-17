@@ -32,9 +32,25 @@ export interface GetClientConfigResult {
      */
     readonly id: string;
     /**
-     * The organization configured for the provider.
+     * The name of the organization.
+     */
+    readonly name: string;
+    /**
+     * The URL of the organization.
      */
     readonly organizationUrl: string;
+    /**
+     * The owner ID of the organization.
+     */
+    readonly ownerId: string;
+    /**
+     * The status of the organization.
+     */
+    readonly status: string;
+    /**
+     * The Tenant ID of the connected Azure Directory.
+     */
+    readonly tenantId: string;
 }
 /**
  * Use this data source to access information about the Azure DevOps organization configured for the provider.

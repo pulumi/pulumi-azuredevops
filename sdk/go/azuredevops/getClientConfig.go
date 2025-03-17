@@ -51,8 +51,16 @@ func GetClientConfig(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetClie
 type GetClientConfigResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The organization configured for the provider.
+	// The name of the organization.
+	Name string `pulumi:"name"`
+	// The URL of the organization.
 	OrganizationUrl string `pulumi:"organizationUrl"`
+	// The owner ID of the organization.
+	OwnerId string `pulumi:"ownerId"`
+	// The status of the organization.
+	Status string `pulumi:"status"`
+	// The Tenant ID of the connected Azure Directory.
+	TenantId string `pulumi:"tenantId"`
 }
 
 func GetClientConfigOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetClientConfigResultOutput {
@@ -82,9 +90,29 @@ func (o GetClientConfigResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClientConfigResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The organization configured for the provider.
+// The name of the organization.
+func (o GetClientConfigResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClientConfigResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The URL of the organization.
 func (o GetClientConfigResultOutput) OrganizationUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClientConfigResult) string { return v.OrganizationUrl }).(pulumi.StringOutput)
+}
+
+// The owner ID of the organization.
+func (o GetClientConfigResultOutput) OwnerId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClientConfigResult) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+// The status of the organization.
+func (o GetClientConfigResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClientConfigResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// The Tenant ID of the connected Azure Directory.
+func (o GetClientConfigResultOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClientConfigResult) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
 func init() {
