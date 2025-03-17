@@ -19,7 +19,7 @@ public final class BuildDefinitionRepository {
      */
     private @Nullable String branchName;
     /**
-     * @return The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`.
+     * @return The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`. Conflict with `url`
      * 
      */
     private @Nullable String githubEnterpriseUrl;
@@ -29,7 +29,7 @@ public final class BuildDefinitionRepository {
      */
     private String repoId;
     /**
-     * @return The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+     * @return The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise` or `Git`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
      * 
      */
     private String repoType;
@@ -44,10 +44,15 @@ public final class BuildDefinitionRepository {
      */
     private @Nullable String serviceConnectionId;
     /**
+     * @return The URL of the Git repository. Used if `repo_type` is `Git`. Conflict with `github_enterprise_url`
+     * 
+     */
+    private @Nullable String url;
+    /**
      * @return The path of the Yaml file describing the build definition.
      * 
      */
-    private String ymlPath;
+    private @Nullable String ymlPath;
 
     private BuildDefinitionRepository() {}
     /**
@@ -58,7 +63,7 @@ public final class BuildDefinitionRepository {
         return Optional.ofNullable(this.branchName);
     }
     /**
-     * @return The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`.
+     * @return The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`. Conflict with `url`
      * 
      */
     public Optional<String> githubEnterpriseUrl() {
@@ -72,7 +77,7 @@ public final class BuildDefinitionRepository {
         return this.repoId;
     }
     /**
-     * @return The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+     * @return The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise` or `Git`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
      * 
      */
     public String repoType() {
@@ -93,11 +98,18 @@ public final class BuildDefinitionRepository {
         return Optional.ofNullable(this.serviceConnectionId);
     }
     /**
+     * @return The URL of the Git repository. Used if `repo_type` is `Git`. Conflict with `github_enterprise_url`
+     * 
+     */
+    public Optional<String> url() {
+        return Optional.ofNullable(this.url);
+    }
+    /**
      * @return The path of the Yaml file describing the build definition.
      * 
      */
-    public String ymlPath() {
-        return this.ymlPath;
+    public Optional<String> ymlPath() {
+        return Optional.ofNullable(this.ymlPath);
     }
 
     public static Builder builder() {
@@ -115,7 +127,8 @@ public final class BuildDefinitionRepository {
         private String repoType;
         private @Nullable Boolean reportBuildStatus;
         private @Nullable String serviceConnectionId;
-        private String ymlPath;
+        private @Nullable String url;
+        private @Nullable String ymlPath;
         public Builder() {}
         public Builder(BuildDefinitionRepository defaults) {
     	      Objects.requireNonNull(defaults);
@@ -125,6 +138,7 @@ public final class BuildDefinitionRepository {
     	      this.repoType = defaults.repoType;
     	      this.reportBuildStatus = defaults.reportBuildStatus;
     	      this.serviceConnectionId = defaults.serviceConnectionId;
+    	      this.url = defaults.url;
     	      this.ymlPath = defaults.ymlPath;
         }
 
@@ -169,10 +183,14 @@ public final class BuildDefinitionRepository {
             return this;
         }
         @CustomType.Setter
-        public Builder ymlPath(String ymlPath) {
-            if (ymlPath == null) {
-              throw new MissingRequiredPropertyException("BuildDefinitionRepository", "ymlPath");
-            }
+        public Builder url(@Nullable String url) {
+
+            this.url = url;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder ymlPath(@Nullable String ymlPath) {
+
             this.ymlPath = ymlPath;
             return this;
         }
@@ -184,6 +202,7 @@ public final class BuildDefinitionRepository {
             _resultValue.repoType = repoType;
             _resultValue.reportBuildStatus = reportBuildStatus;
             _resultValue.serviceConnectionId = serviceConnectionId;
+            _resultValue.url = url;
             _resultValue.ymlPath = ymlPath;
             return _resultValue;
         }

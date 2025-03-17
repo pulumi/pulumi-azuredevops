@@ -3311,6 +3311,421 @@ func (o BuildDefinitionFeatureArrayOutput) Index(i pulumi.IntInput) BuildDefinit
 	}).(BuildDefinitionFeatureOutput)
 }
 
+type BuildDefinitionJob struct {
+	// Enables scripts and other processes launched by tasks to access the OAuth token through the `System.AccessToken` variable. Possible values: `true`, `false`. Defaults to `false`. Available when Job type is `AgentJob`
+	AllowScriptsAuthAccessOption *bool `pulumi:"allowScriptsAuthAccessOption"`
+	// Specifies when this job should run. Can **Custom conditions** to specify more complex conditions. Possible values: `succeeded()`, `succeededOrFailed()`, `always()`, `failed()` etc. More details: [Pipeline conditions](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/conditions?view=azure-devops)
+	Condition string `pulumi:"condition"`
+	// A `dependencies` blocks as documented below. Define the job dependencies.
+	Dependencies []BuildDefinitionJobDependency `pulumi:"dependencies"`
+	// The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+	JobAuthorizationScope *string `pulumi:"jobAuthorizationScope"`
+	// The job cancel timeout (in minutes) for builds cancelled by user for this definition. Possible values are between `0` and `60`. Defaults to `0`.
+	JobCancelTimeoutInMinutes *int `pulumi:"jobCancelTimeoutInMinutes"`
+	// The job execution timeout (in minutes) for builds queued against this definition. Possible values are between `0` and `1000000000`. Defaults to `0`.
+	JobTimeoutInMinutes *int `pulumi:"jobTimeoutInMinutes"`
+	// The name of the job.
+	Name string `pulumi:"name"`
+	// The reference name of the job, can be used to define the job dependencies.
+	RefName string `pulumi:"refName"`
+	// A `target` blocks as documented below.
+	Target BuildDefinitionJobTarget `pulumi:"target"`
+}
+
+// BuildDefinitionJobInput is an input type that accepts BuildDefinitionJobArgs and BuildDefinitionJobOutput values.
+// You can construct a concrete instance of `BuildDefinitionJobInput` via:
+//
+//	BuildDefinitionJobArgs{...}
+type BuildDefinitionJobInput interface {
+	pulumi.Input
+
+	ToBuildDefinitionJobOutput() BuildDefinitionJobOutput
+	ToBuildDefinitionJobOutputWithContext(context.Context) BuildDefinitionJobOutput
+}
+
+type BuildDefinitionJobArgs struct {
+	// Enables scripts and other processes launched by tasks to access the OAuth token through the `System.AccessToken` variable. Possible values: `true`, `false`. Defaults to `false`. Available when Job type is `AgentJob`
+	AllowScriptsAuthAccessOption pulumi.BoolPtrInput `pulumi:"allowScriptsAuthAccessOption"`
+	// Specifies when this job should run. Can **Custom conditions** to specify more complex conditions. Possible values: `succeeded()`, `succeededOrFailed()`, `always()`, `failed()` etc. More details: [Pipeline conditions](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/conditions?view=azure-devops)
+	Condition pulumi.StringInput `pulumi:"condition"`
+	// A `dependencies` blocks as documented below. Define the job dependencies.
+	Dependencies BuildDefinitionJobDependencyArrayInput `pulumi:"dependencies"`
+	// The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+	JobAuthorizationScope pulumi.StringPtrInput `pulumi:"jobAuthorizationScope"`
+	// The job cancel timeout (in minutes) for builds cancelled by user for this definition. Possible values are between `0` and `60`. Defaults to `0`.
+	JobCancelTimeoutInMinutes pulumi.IntPtrInput `pulumi:"jobCancelTimeoutInMinutes"`
+	// The job execution timeout (in minutes) for builds queued against this definition. Possible values are between `0` and `1000000000`. Defaults to `0`.
+	JobTimeoutInMinutes pulumi.IntPtrInput `pulumi:"jobTimeoutInMinutes"`
+	// The name of the job.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The reference name of the job, can be used to define the job dependencies.
+	RefName pulumi.StringInput `pulumi:"refName"`
+	// A `target` blocks as documented below.
+	Target BuildDefinitionJobTargetInput `pulumi:"target"`
+}
+
+func (BuildDefinitionJobArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildDefinitionJob)(nil)).Elem()
+}
+
+func (i BuildDefinitionJobArgs) ToBuildDefinitionJobOutput() BuildDefinitionJobOutput {
+	return i.ToBuildDefinitionJobOutputWithContext(context.Background())
+}
+
+func (i BuildDefinitionJobArgs) ToBuildDefinitionJobOutputWithContext(ctx context.Context) BuildDefinitionJobOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionJobOutput)
+}
+
+// BuildDefinitionJobArrayInput is an input type that accepts BuildDefinitionJobArray and BuildDefinitionJobArrayOutput values.
+// You can construct a concrete instance of `BuildDefinitionJobArrayInput` via:
+//
+//	BuildDefinitionJobArray{ BuildDefinitionJobArgs{...} }
+type BuildDefinitionJobArrayInput interface {
+	pulumi.Input
+
+	ToBuildDefinitionJobArrayOutput() BuildDefinitionJobArrayOutput
+	ToBuildDefinitionJobArrayOutputWithContext(context.Context) BuildDefinitionJobArrayOutput
+}
+
+type BuildDefinitionJobArray []BuildDefinitionJobInput
+
+func (BuildDefinitionJobArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BuildDefinitionJob)(nil)).Elem()
+}
+
+func (i BuildDefinitionJobArray) ToBuildDefinitionJobArrayOutput() BuildDefinitionJobArrayOutput {
+	return i.ToBuildDefinitionJobArrayOutputWithContext(context.Background())
+}
+
+func (i BuildDefinitionJobArray) ToBuildDefinitionJobArrayOutputWithContext(ctx context.Context) BuildDefinitionJobArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionJobArrayOutput)
+}
+
+type BuildDefinitionJobOutput struct{ *pulumi.OutputState }
+
+func (BuildDefinitionJobOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildDefinitionJob)(nil)).Elem()
+}
+
+func (o BuildDefinitionJobOutput) ToBuildDefinitionJobOutput() BuildDefinitionJobOutput {
+	return o
+}
+
+func (o BuildDefinitionJobOutput) ToBuildDefinitionJobOutputWithContext(ctx context.Context) BuildDefinitionJobOutput {
+	return o
+}
+
+// Enables scripts and other processes launched by tasks to access the OAuth token through the `System.AccessToken` variable. Possible values: `true`, `false`. Defaults to `false`. Available when Job type is `AgentJob`
+func (o BuildDefinitionJobOutput) AllowScriptsAuthAccessOption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BuildDefinitionJob) *bool { return v.AllowScriptsAuthAccessOption }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies when this job should run. Can **Custom conditions** to specify more complex conditions. Possible values: `succeeded()`, `succeededOrFailed()`, `always()`, `failed()` etc. More details: [Pipeline conditions](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/conditions?view=azure-devops)
+func (o BuildDefinitionJobOutput) Condition() pulumi.StringOutput {
+	return o.ApplyT(func(v BuildDefinitionJob) string { return v.Condition }).(pulumi.StringOutput)
+}
+
+// A `dependencies` blocks as documented below. Define the job dependencies.
+func (o BuildDefinitionJobOutput) Dependencies() BuildDefinitionJobDependencyArrayOutput {
+	return o.ApplyT(func(v BuildDefinitionJob) []BuildDefinitionJobDependency { return v.Dependencies }).(BuildDefinitionJobDependencyArrayOutput)
+}
+
+// The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+func (o BuildDefinitionJobOutput) JobAuthorizationScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BuildDefinitionJob) *string { return v.JobAuthorizationScope }).(pulumi.StringPtrOutput)
+}
+
+// The job cancel timeout (in minutes) for builds cancelled by user for this definition. Possible values are between `0` and `60`. Defaults to `0`.
+func (o BuildDefinitionJobOutput) JobCancelTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BuildDefinitionJob) *int { return v.JobCancelTimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// The job execution timeout (in minutes) for builds queued against this definition. Possible values are between `0` and `1000000000`. Defaults to `0`.
+func (o BuildDefinitionJobOutput) JobTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BuildDefinitionJob) *int { return v.JobTimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// The name of the job.
+func (o BuildDefinitionJobOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BuildDefinitionJob) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The reference name of the job, can be used to define the job dependencies.
+func (o BuildDefinitionJobOutput) RefName() pulumi.StringOutput {
+	return o.ApplyT(func(v BuildDefinitionJob) string { return v.RefName }).(pulumi.StringOutput)
+}
+
+// A `target` blocks as documented below.
+func (o BuildDefinitionJobOutput) Target() BuildDefinitionJobTargetOutput {
+	return o.ApplyT(func(v BuildDefinitionJob) BuildDefinitionJobTarget { return v.Target }).(BuildDefinitionJobTargetOutput)
+}
+
+type BuildDefinitionJobArrayOutput struct{ *pulumi.OutputState }
+
+func (BuildDefinitionJobArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BuildDefinitionJob)(nil)).Elem()
+}
+
+func (o BuildDefinitionJobArrayOutput) ToBuildDefinitionJobArrayOutput() BuildDefinitionJobArrayOutput {
+	return o
+}
+
+func (o BuildDefinitionJobArrayOutput) ToBuildDefinitionJobArrayOutputWithContext(ctx context.Context) BuildDefinitionJobArrayOutput {
+	return o
+}
+
+func (o BuildDefinitionJobArrayOutput) Index(i pulumi.IntInput) BuildDefinitionJobOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BuildDefinitionJob {
+		return vs[0].([]BuildDefinitionJob)[vs[1].(int)]
+	}).(BuildDefinitionJobOutput)
+}
+
+type BuildDefinitionJobDependency struct {
+	// The job reference name that depends on. Reference to `jobs.ref_name`
+	Scope string `pulumi:"scope"`
+}
+
+// BuildDefinitionJobDependencyInput is an input type that accepts BuildDefinitionJobDependencyArgs and BuildDefinitionJobDependencyOutput values.
+// You can construct a concrete instance of `BuildDefinitionJobDependencyInput` via:
+//
+//	BuildDefinitionJobDependencyArgs{...}
+type BuildDefinitionJobDependencyInput interface {
+	pulumi.Input
+
+	ToBuildDefinitionJobDependencyOutput() BuildDefinitionJobDependencyOutput
+	ToBuildDefinitionJobDependencyOutputWithContext(context.Context) BuildDefinitionJobDependencyOutput
+}
+
+type BuildDefinitionJobDependencyArgs struct {
+	// The job reference name that depends on. Reference to `jobs.ref_name`
+	Scope pulumi.StringInput `pulumi:"scope"`
+}
+
+func (BuildDefinitionJobDependencyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildDefinitionJobDependency)(nil)).Elem()
+}
+
+func (i BuildDefinitionJobDependencyArgs) ToBuildDefinitionJobDependencyOutput() BuildDefinitionJobDependencyOutput {
+	return i.ToBuildDefinitionJobDependencyOutputWithContext(context.Background())
+}
+
+func (i BuildDefinitionJobDependencyArgs) ToBuildDefinitionJobDependencyOutputWithContext(ctx context.Context) BuildDefinitionJobDependencyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionJobDependencyOutput)
+}
+
+// BuildDefinitionJobDependencyArrayInput is an input type that accepts BuildDefinitionJobDependencyArray and BuildDefinitionJobDependencyArrayOutput values.
+// You can construct a concrete instance of `BuildDefinitionJobDependencyArrayInput` via:
+//
+//	BuildDefinitionJobDependencyArray{ BuildDefinitionJobDependencyArgs{...} }
+type BuildDefinitionJobDependencyArrayInput interface {
+	pulumi.Input
+
+	ToBuildDefinitionJobDependencyArrayOutput() BuildDefinitionJobDependencyArrayOutput
+	ToBuildDefinitionJobDependencyArrayOutputWithContext(context.Context) BuildDefinitionJobDependencyArrayOutput
+}
+
+type BuildDefinitionJobDependencyArray []BuildDefinitionJobDependencyInput
+
+func (BuildDefinitionJobDependencyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BuildDefinitionJobDependency)(nil)).Elem()
+}
+
+func (i BuildDefinitionJobDependencyArray) ToBuildDefinitionJobDependencyArrayOutput() BuildDefinitionJobDependencyArrayOutput {
+	return i.ToBuildDefinitionJobDependencyArrayOutputWithContext(context.Background())
+}
+
+func (i BuildDefinitionJobDependencyArray) ToBuildDefinitionJobDependencyArrayOutputWithContext(ctx context.Context) BuildDefinitionJobDependencyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionJobDependencyArrayOutput)
+}
+
+type BuildDefinitionJobDependencyOutput struct{ *pulumi.OutputState }
+
+func (BuildDefinitionJobDependencyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildDefinitionJobDependency)(nil)).Elem()
+}
+
+func (o BuildDefinitionJobDependencyOutput) ToBuildDefinitionJobDependencyOutput() BuildDefinitionJobDependencyOutput {
+	return o
+}
+
+func (o BuildDefinitionJobDependencyOutput) ToBuildDefinitionJobDependencyOutputWithContext(ctx context.Context) BuildDefinitionJobDependencyOutput {
+	return o
+}
+
+// The job reference name that depends on. Reference to `jobs.ref_name`
+func (o BuildDefinitionJobDependencyOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v BuildDefinitionJobDependency) string { return v.Scope }).(pulumi.StringOutput)
+}
+
+type BuildDefinitionJobDependencyArrayOutput struct{ *pulumi.OutputState }
+
+func (BuildDefinitionJobDependencyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BuildDefinitionJobDependency)(nil)).Elem()
+}
+
+func (o BuildDefinitionJobDependencyArrayOutput) ToBuildDefinitionJobDependencyArrayOutput() BuildDefinitionJobDependencyArrayOutput {
+	return o
+}
+
+func (o BuildDefinitionJobDependencyArrayOutput) ToBuildDefinitionJobDependencyArrayOutputWithContext(ctx context.Context) BuildDefinitionJobDependencyArrayOutput {
+	return o
+}
+
+func (o BuildDefinitionJobDependencyArrayOutput) Index(i pulumi.IntInput) BuildDefinitionJobDependencyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BuildDefinitionJobDependency {
+		return vs[0].([]BuildDefinitionJobDependency)[vs[1].(int)]
+	}).(BuildDefinitionJobDependencyOutput)
+}
+
+type BuildDefinitionJobTarget struct {
+	// A list of demands that represents the agent capabilities required by this build. Example: `git`
+	Demands []string `pulumi:"demands"`
+	// A `executionOptions` blocks as documented below.
+	ExecutionOptions BuildDefinitionJobTargetExecutionOptions `pulumi:"executionOptions"`
+	// The job type. Possible values: `AgentJob`, `AgentlessJob`
+	Type string `pulumi:"type"`
+}
+
+// BuildDefinitionJobTargetInput is an input type that accepts BuildDefinitionJobTargetArgs and BuildDefinitionJobTargetOutput values.
+// You can construct a concrete instance of `BuildDefinitionJobTargetInput` via:
+//
+//	BuildDefinitionJobTargetArgs{...}
+type BuildDefinitionJobTargetInput interface {
+	pulumi.Input
+
+	ToBuildDefinitionJobTargetOutput() BuildDefinitionJobTargetOutput
+	ToBuildDefinitionJobTargetOutputWithContext(context.Context) BuildDefinitionJobTargetOutput
+}
+
+type BuildDefinitionJobTargetArgs struct {
+	// A list of demands that represents the agent capabilities required by this build. Example: `git`
+	Demands pulumi.StringArrayInput `pulumi:"demands"`
+	// A `executionOptions` blocks as documented below.
+	ExecutionOptions BuildDefinitionJobTargetExecutionOptionsInput `pulumi:"executionOptions"`
+	// The job type. Possible values: `AgentJob`, `AgentlessJob`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (BuildDefinitionJobTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildDefinitionJobTarget)(nil)).Elem()
+}
+
+func (i BuildDefinitionJobTargetArgs) ToBuildDefinitionJobTargetOutput() BuildDefinitionJobTargetOutput {
+	return i.ToBuildDefinitionJobTargetOutputWithContext(context.Background())
+}
+
+func (i BuildDefinitionJobTargetArgs) ToBuildDefinitionJobTargetOutputWithContext(ctx context.Context) BuildDefinitionJobTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionJobTargetOutput)
+}
+
+type BuildDefinitionJobTargetOutput struct{ *pulumi.OutputState }
+
+func (BuildDefinitionJobTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildDefinitionJobTarget)(nil)).Elem()
+}
+
+func (o BuildDefinitionJobTargetOutput) ToBuildDefinitionJobTargetOutput() BuildDefinitionJobTargetOutput {
+	return o
+}
+
+func (o BuildDefinitionJobTargetOutput) ToBuildDefinitionJobTargetOutputWithContext(ctx context.Context) BuildDefinitionJobTargetOutput {
+	return o
+}
+
+// A list of demands that represents the agent capabilities required by this build. Example: `git`
+func (o BuildDefinitionJobTargetOutput) Demands() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BuildDefinitionJobTarget) []string { return v.Demands }).(pulumi.StringArrayOutput)
+}
+
+// A `executionOptions` blocks as documented below.
+func (o BuildDefinitionJobTargetOutput) ExecutionOptions() BuildDefinitionJobTargetExecutionOptionsOutput {
+	return o.ApplyT(func(v BuildDefinitionJobTarget) BuildDefinitionJobTargetExecutionOptions { return v.ExecutionOptions }).(BuildDefinitionJobTargetExecutionOptionsOutput)
+}
+
+// The job type. Possible values: `AgentJob`, `AgentlessJob`
+func (o BuildDefinitionJobTargetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BuildDefinitionJobTarget) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type BuildDefinitionJobTargetExecutionOptions struct {
+	// Whether to continue the job when an error occurs. Possible values are: `true`, `false`.
+	ContinueOnError *bool `pulumi:"continueOnError"`
+	// Limit the number of agents to be used. If job type is `AgentlessJob`, the concurrency is not configurable and is fixed to 50.
+	MaxConcurrency *int `pulumi:"maxConcurrency"`
+	// A list of comma separated configuration variables to use. These are defined on the Variables tab. For example, OperatingSystem, Browser will run the tasks for both variables. Available when `execution_options.type` is `Multi-Configuration`.
+	Multipliers *string `pulumi:"multipliers"`
+	// The execution type of the Job. Possible values are: `None`, `Multi-Configuration`, `Multi-Agent`.
+	Type string `pulumi:"type"`
+}
+
+// BuildDefinitionJobTargetExecutionOptionsInput is an input type that accepts BuildDefinitionJobTargetExecutionOptionsArgs and BuildDefinitionJobTargetExecutionOptionsOutput values.
+// You can construct a concrete instance of `BuildDefinitionJobTargetExecutionOptionsInput` via:
+//
+//	BuildDefinitionJobTargetExecutionOptionsArgs{...}
+type BuildDefinitionJobTargetExecutionOptionsInput interface {
+	pulumi.Input
+
+	ToBuildDefinitionJobTargetExecutionOptionsOutput() BuildDefinitionJobTargetExecutionOptionsOutput
+	ToBuildDefinitionJobTargetExecutionOptionsOutputWithContext(context.Context) BuildDefinitionJobTargetExecutionOptionsOutput
+}
+
+type BuildDefinitionJobTargetExecutionOptionsArgs struct {
+	// Whether to continue the job when an error occurs. Possible values are: `true`, `false`.
+	ContinueOnError pulumi.BoolPtrInput `pulumi:"continueOnError"`
+	// Limit the number of agents to be used. If job type is `AgentlessJob`, the concurrency is not configurable and is fixed to 50.
+	MaxConcurrency pulumi.IntPtrInput `pulumi:"maxConcurrency"`
+	// A list of comma separated configuration variables to use. These are defined on the Variables tab. For example, OperatingSystem, Browser will run the tasks for both variables. Available when `execution_options.type` is `Multi-Configuration`.
+	Multipliers pulumi.StringPtrInput `pulumi:"multipliers"`
+	// The execution type of the Job. Possible values are: `None`, `Multi-Configuration`, `Multi-Agent`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (BuildDefinitionJobTargetExecutionOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildDefinitionJobTargetExecutionOptions)(nil)).Elem()
+}
+
+func (i BuildDefinitionJobTargetExecutionOptionsArgs) ToBuildDefinitionJobTargetExecutionOptionsOutput() BuildDefinitionJobTargetExecutionOptionsOutput {
+	return i.ToBuildDefinitionJobTargetExecutionOptionsOutputWithContext(context.Background())
+}
+
+func (i BuildDefinitionJobTargetExecutionOptionsArgs) ToBuildDefinitionJobTargetExecutionOptionsOutputWithContext(ctx context.Context) BuildDefinitionJobTargetExecutionOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionJobTargetExecutionOptionsOutput)
+}
+
+type BuildDefinitionJobTargetExecutionOptionsOutput struct{ *pulumi.OutputState }
+
+func (BuildDefinitionJobTargetExecutionOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildDefinitionJobTargetExecutionOptions)(nil)).Elem()
+}
+
+func (o BuildDefinitionJobTargetExecutionOptionsOutput) ToBuildDefinitionJobTargetExecutionOptionsOutput() BuildDefinitionJobTargetExecutionOptionsOutput {
+	return o
+}
+
+func (o BuildDefinitionJobTargetExecutionOptionsOutput) ToBuildDefinitionJobTargetExecutionOptionsOutputWithContext(ctx context.Context) BuildDefinitionJobTargetExecutionOptionsOutput {
+	return o
+}
+
+// Whether to continue the job when an error occurs. Possible values are: `true`, `false`.
+func (o BuildDefinitionJobTargetExecutionOptionsOutput) ContinueOnError() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BuildDefinitionJobTargetExecutionOptions) *bool { return v.ContinueOnError }).(pulumi.BoolPtrOutput)
+}
+
+// Limit the number of agents to be used. If job type is `AgentlessJob`, the concurrency is not configurable and is fixed to 50.
+func (o BuildDefinitionJobTargetExecutionOptionsOutput) MaxConcurrency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BuildDefinitionJobTargetExecutionOptions) *int { return v.MaxConcurrency }).(pulumi.IntPtrOutput)
+}
+
+// A list of comma separated configuration variables to use. These are defined on the Variables tab. For example, OperatingSystem, Browser will run the tasks for both variables. Available when `execution_options.type` is `Multi-Configuration`.
+func (o BuildDefinitionJobTargetExecutionOptionsOutput) Multipliers() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BuildDefinitionJobTargetExecutionOptions) *string { return v.Multipliers }).(pulumi.StringPtrOutput)
+}
+
+// The execution type of the Job. Possible values are: `None`, `Multi-Configuration`, `Multi-Agent`.
+func (o BuildDefinitionJobTargetExecutionOptionsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BuildDefinitionJobTargetExecutionOptions) string { return v.Type }).(pulumi.StringOutput)
+}
+
 type BuildDefinitionPullRequestTrigger struct {
 	CommentRequired *string `pulumi:"commentRequired"`
 	// Set permissions for Forked repositories.
@@ -4068,18 +4483,20 @@ func (o BuildDefinitionPullRequestTriggerOverridePathFilterArrayOutput) Index(i 
 type BuildDefinitionRepository struct {
 	// The branch name for which builds are triggered. Defaults to `master`.
 	BranchName *string `pulumi:"branchName"`
-	// The Github Enterprise URL. Used if `repoType` is `GithubEnterprise`.
+	// The Github Enterprise URL. Used if `repoType` is `GithubEnterprise`. Conflict with `url`
 	GithubEnterpriseUrl *string `pulumi:"githubEnterpriseUrl"`
 	// The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
 	RepoId string `pulumi:"repoId"`
-	// The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+	// The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise` or `Git`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
 	RepoType string `pulumi:"repoType"`
 	// Report build status. Default is true.
 	ReportBuildStatus *bool `pulumi:"reportBuildStatus"`
 	// The service connection ID. Used if the `repoType` is `GitHub` or `GitHubEnterprise`.
 	ServiceConnectionId *string `pulumi:"serviceConnectionId"`
+	// The URL of the Git repository. Used if `repoType` is `Git`. Conflict with `githubEnterpriseUrl`
+	Url *string `pulumi:"url"`
 	// The path of the Yaml file describing the build definition.
-	YmlPath string `pulumi:"ymlPath"`
+	YmlPath *string `pulumi:"ymlPath"`
 }
 
 // BuildDefinitionRepositoryInput is an input type that accepts BuildDefinitionRepositoryArgs and BuildDefinitionRepositoryOutput values.
@@ -4096,18 +4513,20 @@ type BuildDefinitionRepositoryInput interface {
 type BuildDefinitionRepositoryArgs struct {
 	// The branch name for which builds are triggered. Defaults to `master`.
 	BranchName pulumi.StringPtrInput `pulumi:"branchName"`
-	// The Github Enterprise URL. Used if `repoType` is `GithubEnterprise`.
+	// The Github Enterprise URL. Used if `repoType` is `GithubEnterprise`. Conflict with `url`
 	GithubEnterpriseUrl pulumi.StringPtrInput `pulumi:"githubEnterpriseUrl"`
 	// The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
 	RepoId pulumi.StringInput `pulumi:"repoId"`
-	// The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+	// The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise` or `Git`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
 	RepoType pulumi.StringInput `pulumi:"repoType"`
 	// Report build status. Default is true.
 	ReportBuildStatus pulumi.BoolPtrInput `pulumi:"reportBuildStatus"`
 	// The service connection ID. Used if the `repoType` is `GitHub` or `GitHubEnterprise`.
 	ServiceConnectionId pulumi.StringPtrInput `pulumi:"serviceConnectionId"`
+	// The URL of the Git repository. Used if `repoType` is `Git`. Conflict with `githubEnterpriseUrl`
+	Url pulumi.StringPtrInput `pulumi:"url"`
 	// The path of the Yaml file describing the build definition.
-	YmlPath pulumi.StringInput `pulumi:"ymlPath"`
+	YmlPath pulumi.StringPtrInput `pulumi:"ymlPath"`
 }
 
 func (BuildDefinitionRepositoryArgs) ElementType() reflect.Type {
@@ -4192,7 +4611,7 @@ func (o BuildDefinitionRepositoryOutput) BranchName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionRepository) *string { return v.BranchName }).(pulumi.StringPtrOutput)
 }
 
-// The Github Enterprise URL. Used if `repoType` is `GithubEnterprise`.
+// The Github Enterprise URL. Used if `repoType` is `GithubEnterprise`. Conflict with `url`
 func (o BuildDefinitionRepositoryOutput) GithubEnterpriseUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionRepository) *string { return v.GithubEnterpriseUrl }).(pulumi.StringPtrOutput)
 }
@@ -4202,7 +4621,7 @@ func (o BuildDefinitionRepositoryOutput) RepoId() pulumi.StringOutput {
 	return o.ApplyT(func(v BuildDefinitionRepository) string { return v.RepoId }).(pulumi.StringOutput)
 }
 
-// The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+// The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise` or `Git`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
 func (o BuildDefinitionRepositoryOutput) RepoType() pulumi.StringOutput {
 	return o.ApplyT(func(v BuildDefinitionRepository) string { return v.RepoType }).(pulumi.StringOutput)
 }
@@ -4217,9 +4636,14 @@ func (o BuildDefinitionRepositoryOutput) ServiceConnectionId() pulumi.StringPtrO
 	return o.ApplyT(func(v BuildDefinitionRepository) *string { return v.ServiceConnectionId }).(pulumi.StringPtrOutput)
 }
 
+// The URL of the Git repository. Used if `repoType` is `Git`. Conflict with `githubEnterpriseUrl`
+func (o BuildDefinitionRepositoryOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BuildDefinitionRepository) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
 // The path of the Yaml file describing the build definition.
-func (o BuildDefinitionRepositoryOutput) YmlPath() pulumi.StringOutput {
-	return o.ApplyT(func(v BuildDefinitionRepository) string { return v.YmlPath }).(pulumi.StringOutput)
+func (o BuildDefinitionRepositoryOutput) YmlPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BuildDefinitionRepository) *string { return v.YmlPath }).(pulumi.StringPtrOutput)
 }
 
 type BuildDefinitionRepositoryPtrOutput struct{ *pulumi.OutputState }
@@ -4256,7 +4680,7 @@ func (o BuildDefinitionRepositoryPtrOutput) BranchName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Github Enterprise URL. Used if `repoType` is `GithubEnterprise`.
+// The Github Enterprise URL. Used if `repoType` is `GithubEnterprise`. Conflict with `url`
 func (o BuildDefinitionRepositoryPtrOutput) GithubEnterpriseUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionRepository) *string {
 		if v == nil {
@@ -4276,7 +4700,7 @@ func (o BuildDefinitionRepositoryPtrOutput) RepoId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+// The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise` or `Git`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
 func (o BuildDefinitionRepositoryPtrOutput) RepoType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionRepository) *string {
 		if v == nil {
@@ -4306,13 +4730,23 @@ func (o BuildDefinitionRepositoryPtrOutput) ServiceConnectionId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The URL of the Git repository. Used if `repoType` is `Git`. Conflict with `githubEnterpriseUrl`
+func (o BuildDefinitionRepositoryPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BuildDefinitionRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
 // The path of the Yaml file describing the build definition.
 func (o BuildDefinitionRepositoryPtrOutput) YmlPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionRepository) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.YmlPath
+		return v.YmlPath
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -11448,6 +11882,513 @@ func (o GetBuildDefinitionCiTriggerOverridePathFilterArrayOutput) Index(i pulumi
 	}).(GetBuildDefinitionCiTriggerOverridePathFilterOutput)
 }
 
+type GetBuildDefinitionJob struct {
+	// Enables scripts and other processes launched by tasks to access the OAuth token through the `System.AccessToken` variable.
+	AllowScriptsAuthAccessOption bool `pulumi:"allowScriptsAuthAccessOption"`
+	// Specifies when this job should run. Can **Custom conditions** to specify more complex conditions. More details: [Pipeline conditions](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/conditions?view=azure-devops)
+	Condition string `pulumi:"condition"`
+	// A `dependencies` blocks as documented below. Define the job dependencies.
+	Dependencies []GetBuildDefinitionJobDependency `pulumi:"dependencies"`
+	// The job authorization scope for builds queued against this definition.
+	JobAuthorizationScope string `pulumi:"jobAuthorizationScope"`
+	// The job cancel timeout (in minutes) for builds cancelled by user for this definition.
+	JobCancelTimeoutInMinutes int `pulumi:"jobCancelTimeoutInMinutes"`
+	// The job execution timeout (in minutes) for builds queued against this definition.
+	JobTimeoutInMinutes int `pulumi:"jobTimeoutInMinutes"`
+	// The name of this Build Definition.
+	Name string `pulumi:"name"`
+	// The reference name of the job, can be used to define the job dependencies.
+	RefName string `pulumi:"refName"`
+	// A `target` blocks as documented below.
+	Targets []GetBuildDefinitionJobTarget `pulumi:"targets"`
+}
+
+// GetBuildDefinitionJobInput is an input type that accepts GetBuildDefinitionJobArgs and GetBuildDefinitionJobOutput values.
+// You can construct a concrete instance of `GetBuildDefinitionJobInput` via:
+//
+//	GetBuildDefinitionJobArgs{...}
+type GetBuildDefinitionJobInput interface {
+	pulumi.Input
+
+	ToGetBuildDefinitionJobOutput() GetBuildDefinitionJobOutput
+	ToGetBuildDefinitionJobOutputWithContext(context.Context) GetBuildDefinitionJobOutput
+}
+
+type GetBuildDefinitionJobArgs struct {
+	// Enables scripts and other processes launched by tasks to access the OAuth token through the `System.AccessToken` variable.
+	AllowScriptsAuthAccessOption pulumi.BoolInput `pulumi:"allowScriptsAuthAccessOption"`
+	// Specifies when this job should run. Can **Custom conditions** to specify more complex conditions. More details: [Pipeline conditions](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/conditions?view=azure-devops)
+	Condition pulumi.StringInput `pulumi:"condition"`
+	// A `dependencies` blocks as documented below. Define the job dependencies.
+	Dependencies GetBuildDefinitionJobDependencyArrayInput `pulumi:"dependencies"`
+	// The job authorization scope for builds queued against this definition.
+	JobAuthorizationScope pulumi.StringInput `pulumi:"jobAuthorizationScope"`
+	// The job cancel timeout (in minutes) for builds cancelled by user for this definition.
+	JobCancelTimeoutInMinutes pulumi.IntInput `pulumi:"jobCancelTimeoutInMinutes"`
+	// The job execution timeout (in minutes) for builds queued against this definition.
+	JobTimeoutInMinutes pulumi.IntInput `pulumi:"jobTimeoutInMinutes"`
+	// The name of this Build Definition.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The reference name of the job, can be used to define the job dependencies.
+	RefName pulumi.StringInput `pulumi:"refName"`
+	// A `target` blocks as documented below.
+	Targets GetBuildDefinitionJobTargetArrayInput `pulumi:"targets"`
+}
+
+func (GetBuildDefinitionJobArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBuildDefinitionJob)(nil)).Elem()
+}
+
+func (i GetBuildDefinitionJobArgs) ToGetBuildDefinitionJobOutput() GetBuildDefinitionJobOutput {
+	return i.ToGetBuildDefinitionJobOutputWithContext(context.Background())
+}
+
+func (i GetBuildDefinitionJobArgs) ToGetBuildDefinitionJobOutputWithContext(ctx context.Context) GetBuildDefinitionJobOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBuildDefinitionJobOutput)
+}
+
+// GetBuildDefinitionJobArrayInput is an input type that accepts GetBuildDefinitionJobArray and GetBuildDefinitionJobArrayOutput values.
+// You can construct a concrete instance of `GetBuildDefinitionJobArrayInput` via:
+//
+//	GetBuildDefinitionJobArray{ GetBuildDefinitionJobArgs{...} }
+type GetBuildDefinitionJobArrayInput interface {
+	pulumi.Input
+
+	ToGetBuildDefinitionJobArrayOutput() GetBuildDefinitionJobArrayOutput
+	ToGetBuildDefinitionJobArrayOutputWithContext(context.Context) GetBuildDefinitionJobArrayOutput
+}
+
+type GetBuildDefinitionJobArray []GetBuildDefinitionJobInput
+
+func (GetBuildDefinitionJobArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBuildDefinitionJob)(nil)).Elem()
+}
+
+func (i GetBuildDefinitionJobArray) ToGetBuildDefinitionJobArrayOutput() GetBuildDefinitionJobArrayOutput {
+	return i.ToGetBuildDefinitionJobArrayOutputWithContext(context.Background())
+}
+
+func (i GetBuildDefinitionJobArray) ToGetBuildDefinitionJobArrayOutputWithContext(ctx context.Context) GetBuildDefinitionJobArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBuildDefinitionJobArrayOutput)
+}
+
+type GetBuildDefinitionJobOutput struct{ *pulumi.OutputState }
+
+func (GetBuildDefinitionJobOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBuildDefinitionJob)(nil)).Elem()
+}
+
+func (o GetBuildDefinitionJobOutput) ToGetBuildDefinitionJobOutput() GetBuildDefinitionJobOutput {
+	return o
+}
+
+func (o GetBuildDefinitionJobOutput) ToGetBuildDefinitionJobOutputWithContext(ctx context.Context) GetBuildDefinitionJobOutput {
+	return o
+}
+
+// Enables scripts and other processes launched by tasks to access the OAuth token through the `System.AccessToken` variable.
+func (o GetBuildDefinitionJobOutput) AllowScriptsAuthAccessOption() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetBuildDefinitionJob) bool { return v.AllowScriptsAuthAccessOption }).(pulumi.BoolOutput)
+}
+
+// Specifies when this job should run. Can **Custom conditions** to specify more complex conditions. More details: [Pipeline conditions](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/conditions?view=azure-devops)
+func (o GetBuildDefinitionJobOutput) Condition() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBuildDefinitionJob) string { return v.Condition }).(pulumi.StringOutput)
+}
+
+// A `dependencies` blocks as documented below. Define the job dependencies.
+func (o GetBuildDefinitionJobOutput) Dependencies() GetBuildDefinitionJobDependencyArrayOutput {
+	return o.ApplyT(func(v GetBuildDefinitionJob) []GetBuildDefinitionJobDependency { return v.Dependencies }).(GetBuildDefinitionJobDependencyArrayOutput)
+}
+
+// The job authorization scope for builds queued against this definition.
+func (o GetBuildDefinitionJobOutput) JobAuthorizationScope() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBuildDefinitionJob) string { return v.JobAuthorizationScope }).(pulumi.StringOutput)
+}
+
+// The job cancel timeout (in minutes) for builds cancelled by user for this definition.
+func (o GetBuildDefinitionJobOutput) JobCancelTimeoutInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetBuildDefinitionJob) int { return v.JobCancelTimeoutInMinutes }).(pulumi.IntOutput)
+}
+
+// The job execution timeout (in minutes) for builds queued against this definition.
+func (o GetBuildDefinitionJobOutput) JobTimeoutInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetBuildDefinitionJob) int { return v.JobTimeoutInMinutes }).(pulumi.IntOutput)
+}
+
+// The name of this Build Definition.
+func (o GetBuildDefinitionJobOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBuildDefinitionJob) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The reference name of the job, can be used to define the job dependencies.
+func (o GetBuildDefinitionJobOutput) RefName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBuildDefinitionJob) string { return v.RefName }).(pulumi.StringOutput)
+}
+
+// A `target` blocks as documented below.
+func (o GetBuildDefinitionJobOutput) Targets() GetBuildDefinitionJobTargetArrayOutput {
+	return o.ApplyT(func(v GetBuildDefinitionJob) []GetBuildDefinitionJobTarget { return v.Targets }).(GetBuildDefinitionJobTargetArrayOutput)
+}
+
+type GetBuildDefinitionJobArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBuildDefinitionJobArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBuildDefinitionJob)(nil)).Elem()
+}
+
+func (o GetBuildDefinitionJobArrayOutput) ToGetBuildDefinitionJobArrayOutput() GetBuildDefinitionJobArrayOutput {
+	return o
+}
+
+func (o GetBuildDefinitionJobArrayOutput) ToGetBuildDefinitionJobArrayOutputWithContext(ctx context.Context) GetBuildDefinitionJobArrayOutput {
+	return o
+}
+
+func (o GetBuildDefinitionJobArrayOutput) Index(i pulumi.IntInput) GetBuildDefinitionJobOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBuildDefinitionJob {
+		return vs[0].([]GetBuildDefinitionJob)[vs[1].(int)]
+	}).(GetBuildDefinitionJobOutput)
+}
+
+type GetBuildDefinitionJobDependency struct {
+	// The job reference name that depends on. Reference to `jobs.ref_name`
+	Scope string `pulumi:"scope"`
+}
+
+// GetBuildDefinitionJobDependencyInput is an input type that accepts GetBuildDefinitionJobDependencyArgs and GetBuildDefinitionJobDependencyOutput values.
+// You can construct a concrete instance of `GetBuildDefinitionJobDependencyInput` via:
+//
+//	GetBuildDefinitionJobDependencyArgs{...}
+type GetBuildDefinitionJobDependencyInput interface {
+	pulumi.Input
+
+	ToGetBuildDefinitionJobDependencyOutput() GetBuildDefinitionJobDependencyOutput
+	ToGetBuildDefinitionJobDependencyOutputWithContext(context.Context) GetBuildDefinitionJobDependencyOutput
+}
+
+type GetBuildDefinitionJobDependencyArgs struct {
+	// The job reference name that depends on. Reference to `jobs.ref_name`
+	Scope pulumi.StringInput `pulumi:"scope"`
+}
+
+func (GetBuildDefinitionJobDependencyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBuildDefinitionJobDependency)(nil)).Elem()
+}
+
+func (i GetBuildDefinitionJobDependencyArgs) ToGetBuildDefinitionJobDependencyOutput() GetBuildDefinitionJobDependencyOutput {
+	return i.ToGetBuildDefinitionJobDependencyOutputWithContext(context.Background())
+}
+
+func (i GetBuildDefinitionJobDependencyArgs) ToGetBuildDefinitionJobDependencyOutputWithContext(ctx context.Context) GetBuildDefinitionJobDependencyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBuildDefinitionJobDependencyOutput)
+}
+
+// GetBuildDefinitionJobDependencyArrayInput is an input type that accepts GetBuildDefinitionJobDependencyArray and GetBuildDefinitionJobDependencyArrayOutput values.
+// You can construct a concrete instance of `GetBuildDefinitionJobDependencyArrayInput` via:
+//
+//	GetBuildDefinitionJobDependencyArray{ GetBuildDefinitionJobDependencyArgs{...} }
+type GetBuildDefinitionJobDependencyArrayInput interface {
+	pulumi.Input
+
+	ToGetBuildDefinitionJobDependencyArrayOutput() GetBuildDefinitionJobDependencyArrayOutput
+	ToGetBuildDefinitionJobDependencyArrayOutputWithContext(context.Context) GetBuildDefinitionJobDependencyArrayOutput
+}
+
+type GetBuildDefinitionJobDependencyArray []GetBuildDefinitionJobDependencyInput
+
+func (GetBuildDefinitionJobDependencyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBuildDefinitionJobDependency)(nil)).Elem()
+}
+
+func (i GetBuildDefinitionJobDependencyArray) ToGetBuildDefinitionJobDependencyArrayOutput() GetBuildDefinitionJobDependencyArrayOutput {
+	return i.ToGetBuildDefinitionJobDependencyArrayOutputWithContext(context.Background())
+}
+
+func (i GetBuildDefinitionJobDependencyArray) ToGetBuildDefinitionJobDependencyArrayOutputWithContext(ctx context.Context) GetBuildDefinitionJobDependencyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBuildDefinitionJobDependencyArrayOutput)
+}
+
+type GetBuildDefinitionJobDependencyOutput struct{ *pulumi.OutputState }
+
+func (GetBuildDefinitionJobDependencyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBuildDefinitionJobDependency)(nil)).Elem()
+}
+
+func (o GetBuildDefinitionJobDependencyOutput) ToGetBuildDefinitionJobDependencyOutput() GetBuildDefinitionJobDependencyOutput {
+	return o
+}
+
+func (o GetBuildDefinitionJobDependencyOutput) ToGetBuildDefinitionJobDependencyOutputWithContext(ctx context.Context) GetBuildDefinitionJobDependencyOutput {
+	return o
+}
+
+// The job reference name that depends on. Reference to `jobs.ref_name`
+func (o GetBuildDefinitionJobDependencyOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBuildDefinitionJobDependency) string { return v.Scope }).(pulumi.StringOutput)
+}
+
+type GetBuildDefinitionJobDependencyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBuildDefinitionJobDependencyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBuildDefinitionJobDependency)(nil)).Elem()
+}
+
+func (o GetBuildDefinitionJobDependencyArrayOutput) ToGetBuildDefinitionJobDependencyArrayOutput() GetBuildDefinitionJobDependencyArrayOutput {
+	return o
+}
+
+func (o GetBuildDefinitionJobDependencyArrayOutput) ToGetBuildDefinitionJobDependencyArrayOutputWithContext(ctx context.Context) GetBuildDefinitionJobDependencyArrayOutput {
+	return o
+}
+
+func (o GetBuildDefinitionJobDependencyArrayOutput) Index(i pulumi.IntInput) GetBuildDefinitionJobDependencyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBuildDefinitionJobDependency {
+		return vs[0].([]GetBuildDefinitionJobDependency)[vs[1].(int)]
+	}).(GetBuildDefinitionJobDependencyOutput)
+}
+
+type GetBuildDefinitionJobTarget struct {
+	// A list of demands that represents the agent capabilities required by this build. Example: `git`
+	Demands []string `pulumi:"demands"`
+	// A `executionOptions` blocks as documented below.
+	ExecutionOptions []GetBuildDefinitionJobTargetExecutionOption `pulumi:"executionOptions"`
+	// The execution type of the Job.
+	Type string `pulumi:"type"`
+}
+
+// GetBuildDefinitionJobTargetInput is an input type that accepts GetBuildDefinitionJobTargetArgs and GetBuildDefinitionJobTargetOutput values.
+// You can construct a concrete instance of `GetBuildDefinitionJobTargetInput` via:
+//
+//	GetBuildDefinitionJobTargetArgs{...}
+type GetBuildDefinitionJobTargetInput interface {
+	pulumi.Input
+
+	ToGetBuildDefinitionJobTargetOutput() GetBuildDefinitionJobTargetOutput
+	ToGetBuildDefinitionJobTargetOutputWithContext(context.Context) GetBuildDefinitionJobTargetOutput
+}
+
+type GetBuildDefinitionJobTargetArgs struct {
+	// A list of demands that represents the agent capabilities required by this build. Example: `git`
+	Demands pulumi.StringArrayInput `pulumi:"demands"`
+	// A `executionOptions` blocks as documented below.
+	ExecutionOptions GetBuildDefinitionJobTargetExecutionOptionArrayInput `pulumi:"executionOptions"`
+	// The execution type of the Job.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetBuildDefinitionJobTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBuildDefinitionJobTarget)(nil)).Elem()
+}
+
+func (i GetBuildDefinitionJobTargetArgs) ToGetBuildDefinitionJobTargetOutput() GetBuildDefinitionJobTargetOutput {
+	return i.ToGetBuildDefinitionJobTargetOutputWithContext(context.Background())
+}
+
+func (i GetBuildDefinitionJobTargetArgs) ToGetBuildDefinitionJobTargetOutputWithContext(ctx context.Context) GetBuildDefinitionJobTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBuildDefinitionJobTargetOutput)
+}
+
+// GetBuildDefinitionJobTargetArrayInput is an input type that accepts GetBuildDefinitionJobTargetArray and GetBuildDefinitionJobTargetArrayOutput values.
+// You can construct a concrete instance of `GetBuildDefinitionJobTargetArrayInput` via:
+//
+//	GetBuildDefinitionJobTargetArray{ GetBuildDefinitionJobTargetArgs{...} }
+type GetBuildDefinitionJobTargetArrayInput interface {
+	pulumi.Input
+
+	ToGetBuildDefinitionJobTargetArrayOutput() GetBuildDefinitionJobTargetArrayOutput
+	ToGetBuildDefinitionJobTargetArrayOutputWithContext(context.Context) GetBuildDefinitionJobTargetArrayOutput
+}
+
+type GetBuildDefinitionJobTargetArray []GetBuildDefinitionJobTargetInput
+
+func (GetBuildDefinitionJobTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBuildDefinitionJobTarget)(nil)).Elem()
+}
+
+func (i GetBuildDefinitionJobTargetArray) ToGetBuildDefinitionJobTargetArrayOutput() GetBuildDefinitionJobTargetArrayOutput {
+	return i.ToGetBuildDefinitionJobTargetArrayOutputWithContext(context.Background())
+}
+
+func (i GetBuildDefinitionJobTargetArray) ToGetBuildDefinitionJobTargetArrayOutputWithContext(ctx context.Context) GetBuildDefinitionJobTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBuildDefinitionJobTargetArrayOutput)
+}
+
+type GetBuildDefinitionJobTargetOutput struct{ *pulumi.OutputState }
+
+func (GetBuildDefinitionJobTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBuildDefinitionJobTarget)(nil)).Elem()
+}
+
+func (o GetBuildDefinitionJobTargetOutput) ToGetBuildDefinitionJobTargetOutput() GetBuildDefinitionJobTargetOutput {
+	return o
+}
+
+func (o GetBuildDefinitionJobTargetOutput) ToGetBuildDefinitionJobTargetOutputWithContext(ctx context.Context) GetBuildDefinitionJobTargetOutput {
+	return o
+}
+
+// A list of demands that represents the agent capabilities required by this build. Example: `git`
+func (o GetBuildDefinitionJobTargetOutput) Demands() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetBuildDefinitionJobTarget) []string { return v.Demands }).(pulumi.StringArrayOutput)
+}
+
+// A `executionOptions` blocks as documented below.
+func (o GetBuildDefinitionJobTargetOutput) ExecutionOptions() GetBuildDefinitionJobTargetExecutionOptionArrayOutput {
+	return o.ApplyT(func(v GetBuildDefinitionJobTarget) []GetBuildDefinitionJobTargetExecutionOption {
+		return v.ExecutionOptions
+	}).(GetBuildDefinitionJobTargetExecutionOptionArrayOutput)
+}
+
+// The execution type of the Job.
+func (o GetBuildDefinitionJobTargetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBuildDefinitionJobTarget) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetBuildDefinitionJobTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBuildDefinitionJobTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBuildDefinitionJobTarget)(nil)).Elem()
+}
+
+func (o GetBuildDefinitionJobTargetArrayOutput) ToGetBuildDefinitionJobTargetArrayOutput() GetBuildDefinitionJobTargetArrayOutput {
+	return o
+}
+
+func (o GetBuildDefinitionJobTargetArrayOutput) ToGetBuildDefinitionJobTargetArrayOutputWithContext(ctx context.Context) GetBuildDefinitionJobTargetArrayOutput {
+	return o
+}
+
+func (o GetBuildDefinitionJobTargetArrayOutput) Index(i pulumi.IntInput) GetBuildDefinitionJobTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBuildDefinitionJobTarget {
+		return vs[0].([]GetBuildDefinitionJobTarget)[vs[1].(int)]
+	}).(GetBuildDefinitionJobTargetOutput)
+}
+
+type GetBuildDefinitionJobTargetExecutionOption struct {
+	// Whether to continue the job when an error occurs.
+	ContinueOnError bool `pulumi:"continueOnError"`
+	// Limit the number of agents to be used. If job type is `AgentlessJob`, the concurrency is not configurable and is fixed to 50.
+	MaxConcurrency int `pulumi:"maxConcurrency"`
+	// A list of comma separated configuration variables to use. These are defined on the Variables tab. For example, OperatingSystem, Browser will run the tasks for both variables.
+	Multipliers string `pulumi:"multipliers"`
+	// The execution type of the Job.
+	Type string `pulumi:"type"`
+}
+
+// GetBuildDefinitionJobTargetExecutionOptionInput is an input type that accepts GetBuildDefinitionJobTargetExecutionOptionArgs and GetBuildDefinitionJobTargetExecutionOptionOutput values.
+// You can construct a concrete instance of `GetBuildDefinitionJobTargetExecutionOptionInput` via:
+//
+//	GetBuildDefinitionJobTargetExecutionOptionArgs{...}
+type GetBuildDefinitionJobTargetExecutionOptionInput interface {
+	pulumi.Input
+
+	ToGetBuildDefinitionJobTargetExecutionOptionOutput() GetBuildDefinitionJobTargetExecutionOptionOutput
+	ToGetBuildDefinitionJobTargetExecutionOptionOutputWithContext(context.Context) GetBuildDefinitionJobTargetExecutionOptionOutput
+}
+
+type GetBuildDefinitionJobTargetExecutionOptionArgs struct {
+	// Whether to continue the job when an error occurs.
+	ContinueOnError pulumi.BoolInput `pulumi:"continueOnError"`
+	// Limit the number of agents to be used. If job type is `AgentlessJob`, the concurrency is not configurable and is fixed to 50.
+	MaxConcurrency pulumi.IntInput `pulumi:"maxConcurrency"`
+	// A list of comma separated configuration variables to use. These are defined on the Variables tab. For example, OperatingSystem, Browser will run the tasks for both variables.
+	Multipliers pulumi.StringInput `pulumi:"multipliers"`
+	// The execution type of the Job.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetBuildDefinitionJobTargetExecutionOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBuildDefinitionJobTargetExecutionOption)(nil)).Elem()
+}
+
+func (i GetBuildDefinitionJobTargetExecutionOptionArgs) ToGetBuildDefinitionJobTargetExecutionOptionOutput() GetBuildDefinitionJobTargetExecutionOptionOutput {
+	return i.ToGetBuildDefinitionJobTargetExecutionOptionOutputWithContext(context.Background())
+}
+
+func (i GetBuildDefinitionJobTargetExecutionOptionArgs) ToGetBuildDefinitionJobTargetExecutionOptionOutputWithContext(ctx context.Context) GetBuildDefinitionJobTargetExecutionOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBuildDefinitionJobTargetExecutionOptionOutput)
+}
+
+// GetBuildDefinitionJobTargetExecutionOptionArrayInput is an input type that accepts GetBuildDefinitionJobTargetExecutionOptionArray and GetBuildDefinitionJobTargetExecutionOptionArrayOutput values.
+// You can construct a concrete instance of `GetBuildDefinitionJobTargetExecutionOptionArrayInput` via:
+//
+//	GetBuildDefinitionJobTargetExecutionOptionArray{ GetBuildDefinitionJobTargetExecutionOptionArgs{...} }
+type GetBuildDefinitionJobTargetExecutionOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetBuildDefinitionJobTargetExecutionOptionArrayOutput() GetBuildDefinitionJobTargetExecutionOptionArrayOutput
+	ToGetBuildDefinitionJobTargetExecutionOptionArrayOutputWithContext(context.Context) GetBuildDefinitionJobTargetExecutionOptionArrayOutput
+}
+
+type GetBuildDefinitionJobTargetExecutionOptionArray []GetBuildDefinitionJobTargetExecutionOptionInput
+
+func (GetBuildDefinitionJobTargetExecutionOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBuildDefinitionJobTargetExecutionOption)(nil)).Elem()
+}
+
+func (i GetBuildDefinitionJobTargetExecutionOptionArray) ToGetBuildDefinitionJobTargetExecutionOptionArrayOutput() GetBuildDefinitionJobTargetExecutionOptionArrayOutput {
+	return i.ToGetBuildDefinitionJobTargetExecutionOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetBuildDefinitionJobTargetExecutionOptionArray) ToGetBuildDefinitionJobTargetExecutionOptionArrayOutputWithContext(ctx context.Context) GetBuildDefinitionJobTargetExecutionOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBuildDefinitionJobTargetExecutionOptionArrayOutput)
+}
+
+type GetBuildDefinitionJobTargetExecutionOptionOutput struct{ *pulumi.OutputState }
+
+func (GetBuildDefinitionJobTargetExecutionOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBuildDefinitionJobTargetExecutionOption)(nil)).Elem()
+}
+
+func (o GetBuildDefinitionJobTargetExecutionOptionOutput) ToGetBuildDefinitionJobTargetExecutionOptionOutput() GetBuildDefinitionJobTargetExecutionOptionOutput {
+	return o
+}
+
+func (o GetBuildDefinitionJobTargetExecutionOptionOutput) ToGetBuildDefinitionJobTargetExecutionOptionOutputWithContext(ctx context.Context) GetBuildDefinitionJobTargetExecutionOptionOutput {
+	return o
+}
+
+// Whether to continue the job when an error occurs.
+func (o GetBuildDefinitionJobTargetExecutionOptionOutput) ContinueOnError() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetBuildDefinitionJobTargetExecutionOption) bool { return v.ContinueOnError }).(pulumi.BoolOutput)
+}
+
+// Limit the number of agents to be used. If job type is `AgentlessJob`, the concurrency is not configurable and is fixed to 50.
+func (o GetBuildDefinitionJobTargetExecutionOptionOutput) MaxConcurrency() pulumi.IntOutput {
+	return o.ApplyT(func(v GetBuildDefinitionJobTargetExecutionOption) int { return v.MaxConcurrency }).(pulumi.IntOutput)
+}
+
+// A list of comma separated configuration variables to use. These are defined on the Variables tab. For example, OperatingSystem, Browser will run the tasks for both variables.
+func (o GetBuildDefinitionJobTargetExecutionOptionOutput) Multipliers() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBuildDefinitionJobTargetExecutionOption) string { return v.Multipliers }).(pulumi.StringOutput)
+}
+
+// The execution type of the Job.
+func (o GetBuildDefinitionJobTargetExecutionOptionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBuildDefinitionJobTargetExecutionOption) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetBuildDefinitionJobTargetExecutionOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBuildDefinitionJobTargetExecutionOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBuildDefinitionJobTargetExecutionOption)(nil)).Elem()
+}
+
+func (o GetBuildDefinitionJobTargetExecutionOptionArrayOutput) ToGetBuildDefinitionJobTargetExecutionOptionArrayOutput() GetBuildDefinitionJobTargetExecutionOptionArrayOutput {
+	return o
+}
+
+func (o GetBuildDefinitionJobTargetExecutionOptionArrayOutput) ToGetBuildDefinitionJobTargetExecutionOptionArrayOutputWithContext(ctx context.Context) GetBuildDefinitionJobTargetExecutionOptionArrayOutput {
+	return o
+}
+
+func (o GetBuildDefinitionJobTargetExecutionOptionArrayOutput) Index(i pulumi.IntInput) GetBuildDefinitionJobTargetExecutionOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBuildDefinitionJobTargetExecutionOption {
+		return vs[0].([]GetBuildDefinitionJobTargetExecutionOption)[vs[1].(int)]
+	}).(GetBuildDefinitionJobTargetExecutionOptionOutput)
+}
+
 type GetBuildDefinitionPullRequestTrigger struct {
 	// Is a comment required on the PR?
 	CommentRequired string `pulumi:"commentRequired"`
@@ -12035,6 +12976,7 @@ type GetBuildDefinitionRepository struct {
 	ReportBuildStatus bool `pulumi:"reportBuildStatus"`
 	// The service connection ID.
 	ServiceConnectionId string `pulumi:"serviceConnectionId"`
+	Url                 string `pulumi:"url"`
 	// The path of the Yaml file describing the build definition.
 	YmlPath string `pulumi:"ymlPath"`
 }
@@ -12063,6 +13005,7 @@ type GetBuildDefinitionRepositoryArgs struct {
 	ReportBuildStatus pulumi.BoolInput `pulumi:"reportBuildStatus"`
 	// The service connection ID.
 	ServiceConnectionId pulumi.StringInput `pulumi:"serviceConnectionId"`
+	Url                 pulumi.StringInput `pulumi:"url"`
 	// The path of the Yaml file describing the build definition.
 	YmlPath pulumi.StringInput `pulumi:"ymlPath"`
 }
@@ -12146,6 +13089,10 @@ func (o GetBuildDefinitionRepositoryOutput) ReportBuildStatus() pulumi.BoolOutpu
 // The service connection ID.
 func (o GetBuildDefinitionRepositoryOutput) ServiceConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBuildDefinitionRepository) string { return v.ServiceConnectionId }).(pulumi.StringOutput)
+}
+
+func (o GetBuildDefinitionRepositoryOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBuildDefinitionRepository) string { return v.Url }).(pulumi.StringOutput)
 }
 
 // The path of the Yaml file describing the build definition.
@@ -14328,6 +15275,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionCiTriggerOverridePathFilterArrayInput)(nil)).Elem(), BuildDefinitionCiTriggerOverridePathFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionFeatureInput)(nil)).Elem(), BuildDefinitionFeatureArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionFeatureArrayInput)(nil)).Elem(), BuildDefinitionFeatureArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionJobInput)(nil)).Elem(), BuildDefinitionJobArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionJobArrayInput)(nil)).Elem(), BuildDefinitionJobArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionJobDependencyInput)(nil)).Elem(), BuildDefinitionJobDependencyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionJobDependencyArrayInput)(nil)).Elem(), BuildDefinitionJobDependencyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionJobTargetInput)(nil)).Elem(), BuildDefinitionJobTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionJobTargetExecutionOptionsInput)(nil)).Elem(), BuildDefinitionJobTargetExecutionOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionPullRequestTriggerInput)(nil)).Elem(), BuildDefinitionPullRequestTriggerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionPullRequestTriggerPtrInput)(nil)).Elem(), BuildDefinitionPullRequestTriggerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionPullRequestTriggerForksInput)(nil)).Elem(), BuildDefinitionPullRequestTriggerForksArgs{})
@@ -14430,6 +15383,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBuildDefinitionCiTriggerOverrideBranchFilterArrayInput)(nil)).Elem(), GetBuildDefinitionCiTriggerOverrideBranchFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBuildDefinitionCiTriggerOverridePathFilterInput)(nil)).Elem(), GetBuildDefinitionCiTriggerOverridePathFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBuildDefinitionCiTriggerOverridePathFilterArrayInput)(nil)).Elem(), GetBuildDefinitionCiTriggerOverridePathFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBuildDefinitionJobInput)(nil)).Elem(), GetBuildDefinitionJobArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBuildDefinitionJobArrayInput)(nil)).Elem(), GetBuildDefinitionJobArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBuildDefinitionJobDependencyInput)(nil)).Elem(), GetBuildDefinitionJobDependencyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBuildDefinitionJobDependencyArrayInput)(nil)).Elem(), GetBuildDefinitionJobDependencyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBuildDefinitionJobTargetInput)(nil)).Elem(), GetBuildDefinitionJobTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBuildDefinitionJobTargetArrayInput)(nil)).Elem(), GetBuildDefinitionJobTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBuildDefinitionJobTargetExecutionOptionInput)(nil)).Elem(), GetBuildDefinitionJobTargetExecutionOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBuildDefinitionJobTargetExecutionOptionArrayInput)(nil)).Elem(), GetBuildDefinitionJobTargetExecutionOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBuildDefinitionPullRequestTriggerInput)(nil)).Elem(), GetBuildDefinitionPullRequestTriggerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBuildDefinitionPullRequestTriggerArrayInput)(nil)).Elem(), GetBuildDefinitionPullRequestTriggerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBuildDefinitionPullRequestTriggerForkInput)(nil)).Elem(), GetBuildDefinitionPullRequestTriggerForkArgs{})
@@ -14514,6 +15475,12 @@ func init() {
 	pulumi.RegisterOutputType(BuildDefinitionCiTriggerOverridePathFilterArrayOutput{})
 	pulumi.RegisterOutputType(BuildDefinitionFeatureOutput{})
 	pulumi.RegisterOutputType(BuildDefinitionFeatureArrayOutput{})
+	pulumi.RegisterOutputType(BuildDefinitionJobOutput{})
+	pulumi.RegisterOutputType(BuildDefinitionJobArrayOutput{})
+	pulumi.RegisterOutputType(BuildDefinitionJobDependencyOutput{})
+	pulumi.RegisterOutputType(BuildDefinitionJobDependencyArrayOutput{})
+	pulumi.RegisterOutputType(BuildDefinitionJobTargetOutput{})
+	pulumi.RegisterOutputType(BuildDefinitionJobTargetExecutionOptionsOutput{})
 	pulumi.RegisterOutputType(BuildDefinitionPullRequestTriggerOutput{})
 	pulumi.RegisterOutputType(BuildDefinitionPullRequestTriggerPtrOutput{})
 	pulumi.RegisterOutputType(BuildDefinitionPullRequestTriggerForksOutput{})
@@ -14616,6 +15583,14 @@ func init() {
 	pulumi.RegisterOutputType(GetBuildDefinitionCiTriggerOverrideBranchFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetBuildDefinitionCiTriggerOverridePathFilterOutput{})
 	pulumi.RegisterOutputType(GetBuildDefinitionCiTriggerOverridePathFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetBuildDefinitionJobOutput{})
+	pulumi.RegisterOutputType(GetBuildDefinitionJobArrayOutput{})
+	pulumi.RegisterOutputType(GetBuildDefinitionJobDependencyOutput{})
+	pulumi.RegisterOutputType(GetBuildDefinitionJobDependencyArrayOutput{})
+	pulumi.RegisterOutputType(GetBuildDefinitionJobTargetOutput{})
+	pulumi.RegisterOutputType(GetBuildDefinitionJobTargetArrayOutput{})
+	pulumi.RegisterOutputType(GetBuildDefinitionJobTargetExecutionOptionOutput{})
+	pulumi.RegisterOutputType(GetBuildDefinitionJobTargetExecutionOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetBuildDefinitionPullRequestTriggerOutput{})
 	pulumi.RegisterOutputType(GetBuildDefinitionPullRequestTriggerArrayOutput{})
 	pulumi.RegisterOutputType(GetBuildDefinitionPullRequestTriggerForkOutput{})

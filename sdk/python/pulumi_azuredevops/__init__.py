@@ -39,6 +39,7 @@ from .get_environment import *
 from .get_feed import *
 from .get_git_repository import *
 from .get_group import *
+from .get_group_membership import *
 from .get_groups import *
 from .get_identity_group import *
 from .get_identity_groups import *

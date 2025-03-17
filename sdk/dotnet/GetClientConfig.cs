@@ -96,18 +96,46 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The organization configured for the provider.
+        /// The name of the organization.
+        /// </summary>
+        public readonly string Name;
+        /// <summary>
+        /// The URL of the organization.
         /// </summary>
         public readonly string OrganizationUrl;
+        /// <summary>
+        /// The owner ID of the organization.
+        /// </summary>
+        public readonly string OwnerId;
+        /// <summary>
+        /// The status of the organization.
+        /// </summary>
+        public readonly string Status;
+        /// <summary>
+        /// The Tenant ID of the connected Azure Directory.
+        /// </summary>
+        public readonly string TenantId;
 
         [OutputConstructor]
         private GetClientConfigResult(
             string id,
 
-            string organizationUrl)
+            string name,
+
+            string organizationUrl,
+
+            string ownerId,
+
+            string status,
+
+            string tenantId)
         {
             Id = id;
+            Name = name;
             OrganizationUrl = organizationUrl;
+            OwnerId = ownerId;
+            Status = status;
+            TenantId = tenantId;
         }
     }
 }

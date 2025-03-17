@@ -26,13 +26,25 @@ class GetClientConfigResult:
     """
     A collection of values returned by getClientConfig.
     """
-    def __init__(__self__, id=None, organization_url=None):
+    def __init__(__self__, id=None, name=None, organization_url=None, owner_id=None, status=None, tenant_id=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
         if organization_url and not isinstance(organization_url, str):
             raise TypeError("Expected argument 'organization_url' to be a str")
         pulumi.set(__self__, "organization_url", organization_url)
+        if owner_id and not isinstance(owner_id, str):
+            raise TypeError("Expected argument 'owner_id' to be a str")
+        pulumi.set(__self__, "owner_id", owner_id)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
+        if tenant_id and not isinstance(tenant_id, str):
+            raise TypeError("Expected argument 'tenant_id' to be a str")
+        pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -43,12 +55,44 @@ class GetClientConfigResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the organization.
+        """
+        return pulumi.get(self, "name")
+
+    @property
     @pulumi.getter(name="organizationUrl")
     def organization_url(self) -> str:
         """
-        The organization configured for the provider.
+        The URL of the organization.
         """
         return pulumi.get(self, "organization_url")
+
+    @property
+    @pulumi.getter(name="ownerId")
+    def owner_id(self) -> str:
+        """
+        The owner ID of the organization.
+        """
+        return pulumi.get(self, "owner_id")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The status of the organization.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The Tenant ID of the connected Azure Directory.
+        """
+        return pulumi.get(self, "tenant_id")
 
 
 class AwaitableGetClientConfigResult(GetClientConfigResult):
@@ -58,7 +102,11 @@ class AwaitableGetClientConfigResult(GetClientConfigResult):
             yield self
         return GetClientConfigResult(
             id=self.id,
-            organization_url=self.organization_url)
+            name=self.name,
+            organization_url=self.organization_url,
+            owner_id=self.owner_id,
+            status=self.status,
+            tenant_id=self.tenant_id)
 
 
 def get_client_config(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClientConfigResult:
@@ -81,7 +129,11 @@ def get_client_config(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableG
 
     return AwaitableGetClientConfigResult(
         id=pulumi.get(__ret__, 'id'),
-        organization_url=pulumi.get(__ret__, 'organization_url'))
+        name=pulumi.get(__ret__, 'name'),
+        organization_url=pulumi.get(__ret__, 'organization_url'),
+        owner_id=pulumi.get(__ret__, 'owner_id'),
+        status=pulumi.get(__ret__, 'status'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'))
 def get_client_config_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClientConfigResult]:
     """
     Use this data source to access information about the Azure DevOps organization configured for the provider.
@@ -101,4 +153,8 @@ def get_client_config_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.I
     __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getClientConfig:getClientConfig', __args__, opts=opts, typ=GetClientConfigResult)
     return __ret__.apply(lambda __response__: GetClientConfigResult(
         id=pulumi.get(__response__, 'id'),
-        organization_url=pulumi.get(__response__, 'organization_url')))
+        name=pulumi.get(__response__, 'name'),
+        organization_url=pulumi.get(__response__, 'organization_url'),
+        owner_id=pulumi.get(__response__, 'owner_id'),
+        status=pulumi.get(__response__, 'status'),
+        tenant_id=pulumi.get(__response__, 'tenant_id')))

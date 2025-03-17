@@ -196,7 +196,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> ServiceEndpointName { get; private set; } = null!;
 
         /// <summary>
-        /// The service principal ID.
+        /// The Application(Client) ID of the Service Principal.
         /// </summary>
         [Output("servicePrincipalId")]
         public Output<string> ServicePrincipalId { get; private set; } = null!;
@@ -205,13 +205,13 @@ namespace Pulumi.AzureDevOps
         public Output<string> SpnObjectId { get; private set; } = null!;
 
         /// <summary>
-        /// The issuer of the workload identity federation service principal.
+        /// The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
         /// </summary>
         [Output("workloadIdentityFederationIssuer")]
         public Output<string> WorkloadIdentityFederationIssuer { get; private set; } = null!;
 
         /// <summary>
-        /// The subject of the workload identity federation service principal.
+        /// The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://&lt;organisation&gt;/&lt;project&gt;/&lt;service-connection-name&gt;`.
         /// </summary>
         [Output("workloadIdentityFederationSubject")]
         public Output<string> WorkloadIdentityFederationSubject { get; private set; } = null!;
@@ -402,7 +402,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? ServiceEndpointName { get; set; }
 
         /// <summary>
-        /// The service principal ID.
+        /// The Application(Client) ID of the Service Principal.
         /// </summary>
         [Input("servicePrincipalId")]
         public Input<string>? ServicePrincipalId { get; set; }
@@ -411,13 +411,13 @@ namespace Pulumi.AzureDevOps
         public Input<string>? SpnObjectId { get; set; }
 
         /// <summary>
-        /// The issuer of the workload identity federation service principal.
+        /// The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
         /// </summary>
         [Input("workloadIdentityFederationIssuer")]
         public Input<string>? WorkloadIdentityFederationIssuer { get; set; }
 
         /// <summary>
-        /// The subject of the workload identity federation service principal.
+        /// The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://&lt;organisation&gt;/&lt;project&gt;/&lt;service-connection-name&gt;`.
         /// </summary>
         [Input("workloadIdentityFederationSubject")]
         public Input<string>? WorkloadIdentityFederationSubject { get; set; }

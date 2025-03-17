@@ -380,6 +380,86 @@ export interface BuildDefinitionFeature {
     skipFirstRun?: pulumi.Input<boolean>;
 }
 
+export interface BuildDefinitionJob {
+    /**
+     * Enables scripts and other processes launched by tasks to access the OAuth token through the `System.AccessToken` variable. Possible values: `true`, `false`. Defaults to `false`. Available when Job type is `AgentJob`
+     */
+    allowScriptsAuthAccessOption?: pulumi.Input<boolean>;
+    /**
+     * Specifies when this job should run. Can **Custom conditions** to specify more complex conditions. Possible values: `succeeded()`, `succeededOrFailed()`, `always()`, `failed()` etc. More details: [Pipeline conditions](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/conditions?view=azure-devops)
+     */
+    condition: pulumi.Input<string>;
+    /**
+     * A `dependencies` blocks as documented below. Define the job dependencies.
+     */
+    dependencies?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionJobDependency>[]>;
+    /**
+     * The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+     */
+    jobAuthorizationScope?: pulumi.Input<string>;
+    /**
+     * The job cancel timeout (in minutes) for builds cancelled by user for this definition. Possible values are between `0` and `60`. Defaults to `0`.
+     */
+    jobCancelTimeoutInMinutes?: pulumi.Input<number>;
+    /**
+     * The job execution timeout (in minutes) for builds queued against this definition. Possible values are between `0` and `1000000000`. Defaults to `0`.
+     */
+    jobTimeoutInMinutes?: pulumi.Input<number>;
+    /**
+     * The name of the job.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The reference name of the job, can be used to define the job dependencies.
+     */
+    refName: pulumi.Input<string>;
+    /**
+     * A `target` blocks as documented below.
+     */
+    target: pulumi.Input<inputs.BuildDefinitionJobTarget>;
+}
+
+export interface BuildDefinitionJobDependency {
+    /**
+     * The job reference name that depends on. Reference to `jobs.ref_name`
+     */
+    scope: pulumi.Input<string>;
+}
+
+export interface BuildDefinitionJobTarget {
+    /**
+     * A list of demands that represents the agent capabilities required by this build. Example: `git`
+     */
+    demands?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A `executionOptions` blocks as documented below.
+     */
+    executionOptions: pulumi.Input<inputs.BuildDefinitionJobTargetExecutionOptions>;
+    /**
+     * The job type. Possible values: `AgentJob`, `AgentlessJob`
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface BuildDefinitionJobTargetExecutionOptions {
+    /**
+     * Whether to continue the job when an error occurs. Possible values are: `true`, `false`.
+     */
+    continueOnError?: pulumi.Input<boolean>;
+    /**
+     * Limit the number of agents to be used. If job type is `AgentlessJob`, the concurrency is not configurable and is fixed to 50.
+     */
+    maxConcurrency?: pulumi.Input<number>;
+    /**
+     * A list of comma separated configuration variables to use. These are defined on the Variables tab. For example, OperatingSystem, Browser will run the tasks for both variables. Available when `execution_options.type` is `Multi-Configuration`.
+     */
+    multipliers?: pulumi.Input<string>;
+    /**
+     * The execution type of the Job. Possible values are: `None`, `Multi-Configuration`, `Multi-Agent`.
+     */
+    type: pulumi.Input<string>;
+}
+
 export interface BuildDefinitionPullRequestTrigger {
     commentRequired?: pulumi.Input<string>;
     /**
@@ -451,7 +531,7 @@ export interface BuildDefinitionRepository {
      */
     branchName?: pulumi.Input<string>;
     /**
-     * The Github Enterprise URL. Used if `repoType` is `GithubEnterprise`.
+     * The Github Enterprise URL. Used if `repoType` is `GithubEnterprise`. Conflict with `url`
      */
     githubEnterpriseUrl?: pulumi.Input<string>;
     /**
@@ -459,7 +539,7 @@ export interface BuildDefinitionRepository {
      */
     repoId: pulumi.Input<string>;
     /**
-     * The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+     * The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise` or `Git`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
      */
     repoType: pulumi.Input<string>;
     /**
@@ -471,9 +551,13 @@ export interface BuildDefinitionRepository {
      */
     serviceConnectionId?: pulumi.Input<string>;
     /**
+     * The URL of the Git repository. Used if `repoType` is `Git`. Conflict with `githubEnterpriseUrl`
+     */
+    url?: pulumi.Input<string>;
+    /**
      * The path of the Yaml file describing the build definition.
      */
-    ymlPath: pulumi.Input<string>;
+    ymlPath?: pulumi.Input<string>;
 }
 
 export interface BuildDefinitionSchedule {

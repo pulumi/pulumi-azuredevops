@@ -175,6 +175,11 @@ export const getGroup: typeof import("./getGroup").getGroup = null as any;
 export const getGroupOutput: typeof import("./getGroup").getGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
 
+export { GetGroupMembershipArgs, GetGroupMembershipResult, GetGroupMembershipOutputArgs } from "./getGroupMembership";
+export const getGroupMembership: typeof import("./getGroupMembership").getGroupMembership = null as any;
+export const getGroupMembershipOutput: typeof import("./getGroupMembership").getGroupMembershipOutput = null as any;
+utilities.lazyLoad(exports, ["getGroupMembership","getGroupMembershipOutput"], () => require("./getGroupMembership"));
+
 export { GetGroupsArgs, GetGroupsResult, GetGroupsOutputArgs } from "./getGroups";
 export const getGroups: typeof import("./getGroups").getGroups = null as any;
 export const getGroupsOutput: typeof import("./getGroups").getGroupsOutput = null as any;

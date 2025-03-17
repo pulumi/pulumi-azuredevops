@@ -57,6 +57,14 @@ __all__ = [
     'BuildDefinitionCiTriggerOverridePathFilterArgsDict',
     'BuildDefinitionFeatureArgs',
     'BuildDefinitionFeatureArgsDict',
+    'BuildDefinitionJobArgs',
+    'BuildDefinitionJobArgsDict',
+    'BuildDefinitionJobDependencyArgs',
+    'BuildDefinitionJobDependencyArgsDict',
+    'BuildDefinitionJobTargetArgs',
+    'BuildDefinitionJobTargetArgsDict',
+    'BuildDefinitionJobTargetExecutionOptionsArgs',
+    'BuildDefinitionJobTargetExecutionOptionsArgsDict',
     'BuildDefinitionPullRequestTriggerArgs',
     'BuildDefinitionPullRequestTriggerArgsDict',
     'BuildDefinitionPullRequestTriggerForksArgs',
@@ -1922,6 +1930,386 @@ class BuildDefinitionFeatureArgs:
 
 
 if not MYPY:
+    class BuildDefinitionJobArgsDict(TypedDict):
+        condition: pulumi.Input[str]
+        """
+        Specifies when this job should run. Can **Custom conditions** to specify more complex conditions. Possible values: `succeeded()`, `succeededOrFailed()`, `always()`, `failed()` etc. More details: [Pipeline conditions](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/conditions?view=azure-devops)
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the job.
+        """
+        ref_name: pulumi.Input[str]
+        """
+        The reference name of the job, can be used to define the job dependencies.
+        """
+        target: pulumi.Input['BuildDefinitionJobTargetArgsDict']
+        """
+        A `target` blocks as documented below.
+        """
+        allow_scripts_auth_access_option: NotRequired[pulumi.Input[bool]]
+        """
+        Enables scripts and other processes launched by tasks to access the OAuth token through the `System.AccessToken` variable. Possible values: `true`, `false`. Defaults to `false`. Available when Job type is `AgentJob`
+        """
+        dependencies: NotRequired[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionJobDependencyArgsDict']]]]
+        """
+        A `dependencies` blocks as documented below. Define the job dependencies.
+        """
+        job_authorization_scope: NotRequired[pulumi.Input[str]]
+        """
+        The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+        """
+        job_cancel_timeout_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        The job cancel timeout (in minutes) for builds cancelled by user for this definition. Possible values are between `0` and `60`. Defaults to `0`.
+        """
+        job_timeout_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        The job execution timeout (in minutes) for builds queued against this definition. Possible values are between `0` and `1000000000`. Defaults to `0`.
+        """
+elif False:
+    BuildDefinitionJobArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BuildDefinitionJobArgs:
+    def __init__(__self__, *,
+                 condition: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 ref_name: pulumi.Input[str],
+                 target: pulumi.Input['BuildDefinitionJobTargetArgs'],
+                 allow_scripts_auth_access_option: Optional[pulumi.Input[bool]] = None,
+                 dependencies: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionJobDependencyArgs']]]] = None,
+                 job_authorization_scope: Optional[pulumi.Input[str]] = None,
+                 job_cancel_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+                 job_timeout_in_minutes: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] condition: Specifies when this job should run. Can **Custom conditions** to specify more complex conditions. Possible values: `succeeded()`, `succeededOrFailed()`, `always()`, `failed()` etc. More details: [Pipeline conditions](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/conditions?view=azure-devops)
+        :param pulumi.Input[str] name: The name of the job.
+        :param pulumi.Input[str] ref_name: The reference name of the job, can be used to define the job dependencies.
+        :param pulumi.Input['BuildDefinitionJobTargetArgs'] target: A `target` blocks as documented below.
+        :param pulumi.Input[bool] allow_scripts_auth_access_option: Enables scripts and other processes launched by tasks to access the OAuth token through the `System.AccessToken` variable. Possible values: `true`, `false`. Defaults to `false`. Available when Job type is `AgentJob`
+        :param pulumi.Input[Sequence[pulumi.Input['BuildDefinitionJobDependencyArgs']]] dependencies: A `dependencies` blocks as documented below. Define the job dependencies.
+        :param pulumi.Input[str] job_authorization_scope: The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+        :param pulumi.Input[int] job_cancel_timeout_in_minutes: The job cancel timeout (in minutes) for builds cancelled by user for this definition. Possible values are between `0` and `60`. Defaults to `0`.
+        :param pulumi.Input[int] job_timeout_in_minutes: The job execution timeout (in minutes) for builds queued against this definition. Possible values are between `0` and `1000000000`. Defaults to `0`.
+        """
+        pulumi.set(__self__, "condition", condition)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "ref_name", ref_name)
+        pulumi.set(__self__, "target", target)
+        if allow_scripts_auth_access_option is not None:
+            pulumi.set(__self__, "allow_scripts_auth_access_option", allow_scripts_auth_access_option)
+        if dependencies is not None:
+            pulumi.set(__self__, "dependencies", dependencies)
+        if job_authorization_scope is not None:
+            pulumi.set(__self__, "job_authorization_scope", job_authorization_scope)
+        if job_cancel_timeout_in_minutes is not None:
+            pulumi.set(__self__, "job_cancel_timeout_in_minutes", job_cancel_timeout_in_minutes)
+        if job_timeout_in_minutes is not None:
+            pulumi.set(__self__, "job_timeout_in_minutes", job_timeout_in_minutes)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> pulumi.Input[str]:
+        """
+        Specifies when this job should run. Can **Custom conditions** to specify more complex conditions. Possible values: `succeeded()`, `succeededOrFailed()`, `always()`, `failed()` etc. More details: [Pipeline conditions](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/conditions?view=azure-devops)
+        """
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: pulumi.Input[str]):
+        pulumi.set(self, "condition", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the job.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="refName")
+    def ref_name(self) -> pulumi.Input[str]:
+        """
+        The reference name of the job, can be used to define the job dependencies.
+        """
+        return pulumi.get(self, "ref_name")
+
+    @ref_name.setter
+    def ref_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ref_name", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> pulumi.Input['BuildDefinitionJobTargetArgs']:
+        """
+        A `target` blocks as documented below.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input['BuildDefinitionJobTargetArgs']):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter(name="allowScriptsAuthAccessOption")
+    def allow_scripts_auth_access_option(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables scripts and other processes launched by tasks to access the OAuth token through the `System.AccessToken` variable. Possible values: `true`, `false`. Defaults to `false`. Available when Job type is `AgentJob`
+        """
+        return pulumi.get(self, "allow_scripts_auth_access_option")
+
+    @allow_scripts_auth_access_option.setter
+    def allow_scripts_auth_access_option(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_scripts_auth_access_option", value)
+
+    @property
+    @pulumi.getter
+    def dependencies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionJobDependencyArgs']]]]:
+        """
+        A `dependencies` blocks as documented below. Define the job dependencies.
+        """
+        return pulumi.get(self, "dependencies")
+
+    @dependencies.setter
+    def dependencies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionJobDependencyArgs']]]]):
+        pulumi.set(self, "dependencies", value)
+
+    @property
+    @pulumi.getter(name="jobAuthorizationScope")
+    def job_authorization_scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+        """
+        return pulumi.get(self, "job_authorization_scope")
+
+    @job_authorization_scope.setter
+    def job_authorization_scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "job_authorization_scope", value)
+
+    @property
+    @pulumi.getter(name="jobCancelTimeoutInMinutes")
+    def job_cancel_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The job cancel timeout (in minutes) for builds cancelled by user for this definition. Possible values are between `0` and `60`. Defaults to `0`.
+        """
+        return pulumi.get(self, "job_cancel_timeout_in_minutes")
+
+    @job_cancel_timeout_in_minutes.setter
+    def job_cancel_timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "job_cancel_timeout_in_minutes", value)
+
+    @property
+    @pulumi.getter(name="jobTimeoutInMinutes")
+    def job_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The job execution timeout (in minutes) for builds queued against this definition. Possible values are between `0` and `1000000000`. Defaults to `0`.
+        """
+        return pulumi.get(self, "job_timeout_in_minutes")
+
+    @job_timeout_in_minutes.setter
+    def job_timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "job_timeout_in_minutes", value)
+
+
+if not MYPY:
+    class BuildDefinitionJobDependencyArgsDict(TypedDict):
+        scope: pulumi.Input[str]
+        """
+        The job reference name that depends on. Reference to `jobs.ref_name`
+        """
+elif False:
+    BuildDefinitionJobDependencyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BuildDefinitionJobDependencyArgs:
+    def __init__(__self__, *,
+                 scope: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] scope: The job reference name that depends on. Reference to `jobs.ref_name`
+        """
+        pulumi.set(__self__, "scope", scope)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input[str]:
+        """
+        The job reference name that depends on. Reference to `jobs.ref_name`
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scope", value)
+
+
+if not MYPY:
+    class BuildDefinitionJobTargetArgsDict(TypedDict):
+        execution_options: pulumi.Input['BuildDefinitionJobTargetExecutionOptionsArgsDict']
+        """
+        A `execution_options` blocks as documented below.
+        """
+        type: pulumi.Input[str]
+        """
+        The job type. Possible values: `AgentJob`, `AgentlessJob`
+        """
+        demands: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of demands that represents the agent capabilities required by this build. Example: `git`
+        """
+elif False:
+    BuildDefinitionJobTargetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BuildDefinitionJobTargetArgs:
+    def __init__(__self__, *,
+                 execution_options: pulumi.Input['BuildDefinitionJobTargetExecutionOptionsArgs'],
+                 type: pulumi.Input[str],
+                 demands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['BuildDefinitionJobTargetExecutionOptionsArgs'] execution_options: A `execution_options` blocks as documented below.
+        :param pulumi.Input[str] type: The job type. Possible values: `AgentJob`, `AgentlessJob`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] demands: A list of demands that represents the agent capabilities required by this build. Example: `git`
+        """
+        pulumi.set(__self__, "execution_options", execution_options)
+        pulumi.set(__self__, "type", type)
+        if demands is not None:
+            pulumi.set(__self__, "demands", demands)
+
+    @property
+    @pulumi.getter(name="executionOptions")
+    def execution_options(self) -> pulumi.Input['BuildDefinitionJobTargetExecutionOptionsArgs']:
+        """
+        A `execution_options` blocks as documented below.
+        """
+        return pulumi.get(self, "execution_options")
+
+    @execution_options.setter
+    def execution_options(self, value: pulumi.Input['BuildDefinitionJobTargetExecutionOptionsArgs']):
+        pulumi.set(self, "execution_options", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The job type. Possible values: `AgentJob`, `AgentlessJob`
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def demands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of demands that represents the agent capabilities required by this build. Example: `git`
+        """
+        return pulumi.get(self, "demands")
+
+    @demands.setter
+    def demands(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "demands", value)
+
+
+if not MYPY:
+    class BuildDefinitionJobTargetExecutionOptionsArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The execution type of the Job. Possible values are: `None`, `Multi-Configuration`, `Multi-Agent`.
+        """
+        continue_on_error: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to continue the job when an error occurs. Possible values are: `true`, `false`.
+        """
+        max_concurrency: NotRequired[pulumi.Input[int]]
+        """
+        Limit the number of agents to be used. If job type is `AgentlessJob`, the concurrency is not configurable and is fixed to 50.
+        """
+        multipliers: NotRequired[pulumi.Input[str]]
+        """
+        A list of comma separated configuration variables to use. These are defined on the Variables tab. For example, OperatingSystem, Browser will run the tasks for both variables. Available when `execution_options.type` is `Multi-Configuration`.
+        """
+elif False:
+    BuildDefinitionJobTargetExecutionOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BuildDefinitionJobTargetExecutionOptionsArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 continue_on_error: Optional[pulumi.Input[bool]] = None,
+                 max_concurrency: Optional[pulumi.Input[int]] = None,
+                 multipliers: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: The execution type of the Job. Possible values are: `None`, `Multi-Configuration`, `Multi-Agent`.
+        :param pulumi.Input[bool] continue_on_error: Whether to continue the job when an error occurs. Possible values are: `true`, `false`.
+        :param pulumi.Input[int] max_concurrency: Limit the number of agents to be used. If job type is `AgentlessJob`, the concurrency is not configurable and is fixed to 50.
+        :param pulumi.Input[str] multipliers: A list of comma separated configuration variables to use. These are defined on the Variables tab. For example, OperatingSystem, Browser will run the tasks for both variables. Available when `execution_options.type` is `Multi-Configuration`.
+        """
+        pulumi.set(__self__, "type", type)
+        if continue_on_error is not None:
+            pulumi.set(__self__, "continue_on_error", continue_on_error)
+        if max_concurrency is not None:
+            pulumi.set(__self__, "max_concurrency", max_concurrency)
+        if multipliers is not None:
+            pulumi.set(__self__, "multipliers", multipliers)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The execution type of the Job. Possible values are: `None`, `Multi-Configuration`, `Multi-Agent`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="continueOnError")
+    def continue_on_error(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to continue the job when an error occurs. Possible values are: `true`, `false`.
+        """
+        return pulumi.get(self, "continue_on_error")
+
+    @continue_on_error.setter
+    def continue_on_error(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "continue_on_error", value)
+
+    @property
+    @pulumi.getter(name="maxConcurrency")
+    def max_concurrency(self) -> Optional[pulumi.Input[int]]:
+        """
+        Limit the number of agents to be used. If job type is `AgentlessJob`, the concurrency is not configurable and is fixed to 50.
+        """
+        return pulumi.get(self, "max_concurrency")
+
+    @max_concurrency.setter
+    def max_concurrency(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_concurrency", value)
+
+    @property
+    @pulumi.getter
+    def multipliers(self) -> Optional[pulumi.Input[str]]:
+        """
+        A list of comma separated configuration variables to use. These are defined on the Variables tab. For example, OperatingSystem, Browser will run the tasks for both variables. Available when `execution_options.type` is `Multi-Configuration`.
+        """
+        return pulumi.get(self, "multipliers")
+
+    @multipliers.setter
+    def multipliers(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "multipliers", value)
+
+
+if not MYPY:
     class BuildDefinitionPullRequestTriggerArgsDict(TypedDict):
         forks: pulumi.Input['BuildDefinitionPullRequestTriggerForksArgsDict']
         """
@@ -2251,11 +2639,7 @@ if not MYPY:
         """
         repo_type: pulumi.Input[str]
         """
-        The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
-        """
-        yml_path: pulumi.Input[str]
-        """
-        The path of the Yaml file describing the build definition.
+        The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise` or `Git`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
         """
         branch_name: NotRequired[pulumi.Input[str]]
         """
@@ -2263,7 +2647,7 @@ if not MYPY:
         """
         github_enterprise_url: NotRequired[pulumi.Input[str]]
         """
-        The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`.
+        The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`. Conflict with `url`
         """
         report_build_status: NotRequired[pulumi.Input[bool]]
         """
@@ -2273,6 +2657,14 @@ if not MYPY:
         """
         The service connection ID. Used if the `repo_type` is `GitHub` or `GitHubEnterprise`.
         """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        The URL of the Git repository. Used if `repo_type` is `Git`. Conflict with `github_enterprise_url`
+        """
+        yml_path: NotRequired[pulumi.Input[str]]
+        """
+        The path of the Yaml file describing the build definition.
+        """
 elif False:
     BuildDefinitionRepositoryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2281,23 +2673,24 @@ class BuildDefinitionRepositoryArgs:
     def __init__(__self__, *,
                  repo_id: pulumi.Input[str],
                  repo_type: pulumi.Input[str],
-                 yml_path: pulumi.Input[str],
                  branch_name: Optional[pulumi.Input[str]] = None,
                  github_enterprise_url: Optional[pulumi.Input[str]] = None,
                  report_build_status: Optional[pulumi.Input[bool]] = None,
-                 service_connection_id: Optional[pulumi.Input[str]] = None):
+                 service_connection_id: Optional[pulumi.Input[str]] = None,
+                 url: Optional[pulumi.Input[str]] = None,
+                 yml_path: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] repo_id: The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
-        :param pulumi.Input[str] repo_type: The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
-        :param pulumi.Input[str] yml_path: The path of the Yaml file describing the build definition.
+        :param pulumi.Input[str] repo_type: The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise` or `Git`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
         :param pulumi.Input[str] branch_name: The branch name for which builds are triggered. Defaults to `master`.
-        :param pulumi.Input[str] github_enterprise_url: The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`.
+        :param pulumi.Input[str] github_enterprise_url: The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`. Conflict with `url`
         :param pulumi.Input[bool] report_build_status: Report build status. Default is true.
         :param pulumi.Input[str] service_connection_id: The service connection ID. Used if the `repo_type` is `GitHub` or `GitHubEnterprise`.
+        :param pulumi.Input[str] url: The URL of the Git repository. Used if `repo_type` is `Git`. Conflict with `github_enterprise_url`
+        :param pulumi.Input[str] yml_path: The path of the Yaml file describing the build definition.
         """
         pulumi.set(__self__, "repo_id", repo_id)
         pulumi.set(__self__, "repo_type", repo_type)
-        pulumi.set(__self__, "yml_path", yml_path)
         if branch_name is not None:
             pulumi.set(__self__, "branch_name", branch_name)
         if github_enterprise_url is not None:
@@ -2306,6 +2699,10 @@ class BuildDefinitionRepositoryArgs:
             pulumi.set(__self__, "report_build_status", report_build_status)
         if service_connection_id is not None:
             pulumi.set(__self__, "service_connection_id", service_connection_id)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+        if yml_path is not None:
+            pulumi.set(__self__, "yml_path", yml_path)
 
     @property
     @pulumi.getter(name="repoId")
@@ -2323,25 +2720,13 @@ class BuildDefinitionRepositoryArgs:
     @pulumi.getter(name="repoType")
     def repo_type(self) -> pulumi.Input[str]:
         """
-        The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+        The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise` or `Git`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
         """
         return pulumi.get(self, "repo_type")
 
     @repo_type.setter
     def repo_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "repo_type", value)
-
-    @property
-    @pulumi.getter(name="ymlPath")
-    def yml_path(self) -> pulumi.Input[str]:
-        """
-        The path of the Yaml file describing the build definition.
-        """
-        return pulumi.get(self, "yml_path")
-
-    @yml_path.setter
-    def yml_path(self, value: pulumi.Input[str]):
-        pulumi.set(self, "yml_path", value)
 
     @property
     @pulumi.getter(name="branchName")
@@ -2359,7 +2744,7 @@ class BuildDefinitionRepositoryArgs:
     @pulumi.getter(name="githubEnterpriseUrl")
     def github_enterprise_url(self) -> Optional[pulumi.Input[str]]:
         """
-        The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`.
+        The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`. Conflict with `url`
         """
         return pulumi.get(self, "github_enterprise_url")
 
@@ -2390,6 +2775,30 @@ class BuildDefinitionRepositoryArgs:
     @service_connection_id.setter
     def service_connection_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service_connection_id", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of the Git repository. Used if `repo_type` is `Git`. Conflict with `github_enterprise_url`
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="ymlPath")
+    def yml_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path of the Yaml file describing the build definition.
+        """
+        return pulumi.get(self, "yml_path")
+
+    @yml_path.setter
+    def yml_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "yml_path", value)
 
 
 if not MYPY:

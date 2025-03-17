@@ -208,9 +208,9 @@ class _ServiceEndpointAzureEcrState:
         :param pulumi.Input[str] resource_group: The resource group to which the container registry belongs.
         :param pulumi.Input[str] service_endpoint_authentication_scheme: Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
         :param pulumi.Input[str] service_endpoint_name: The name you will use to refer to this service connection in task inputs.
-        :param pulumi.Input[str] service_principal_id: The service principal ID.
-        :param pulumi.Input[str] workload_identity_federation_issuer: The issuer of the workload identity federation service principal.
-        :param pulumi.Input[str] workload_identity_federation_subject: The subject of the workload identity federation service principal.
+        :param pulumi.Input[str] service_principal_id: The Application(Client) ID of the Service Principal.
+        :param pulumi.Input[str] workload_identity_federation_issuer: The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+        :param pulumi.Input[str] workload_identity_federation_subject: The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://<organisation>/<project>/<service-connection-name>`.
         """
         if app_object_id is not None:
             pulumi.set(__self__, "app_object_id", app_object_id)
@@ -406,7 +406,7 @@ class _ServiceEndpointAzureEcrState:
     @pulumi.getter(name="servicePrincipalId")
     def service_principal_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The service principal ID.
+        The Application(Client) ID of the Service Principal.
         """
         return pulumi.get(self, "service_principal_id")
 
@@ -427,7 +427,7 @@ class _ServiceEndpointAzureEcrState:
     @pulumi.getter(name="workloadIdentityFederationIssuer")
     def workload_identity_federation_issuer(self) -> Optional[pulumi.Input[str]]:
         """
-        The issuer of the workload identity federation service principal.
+        The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
         """
         return pulumi.get(self, "workload_identity_federation_issuer")
 
@@ -439,7 +439,7 @@ class _ServiceEndpointAzureEcrState:
     @pulumi.getter(name="workloadIdentityFederationSubject")
     def workload_identity_federation_subject(self) -> Optional[pulumi.Input[str]]:
         """
-        The subject of the workload identity federation service principal.
+        The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://<organisation>/<project>/<service-connection-name>`.
         """
         return pulumi.get(self, "workload_identity_federation_subject")
 
@@ -754,9 +754,9 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group: The resource group to which the container registry belongs.
         :param pulumi.Input[str] service_endpoint_authentication_scheme: Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
         :param pulumi.Input[str] service_endpoint_name: The name you will use to refer to this service connection in task inputs.
-        :param pulumi.Input[str] service_principal_id: The service principal ID.
-        :param pulumi.Input[str] workload_identity_federation_issuer: The issuer of the workload identity federation service principal.
-        :param pulumi.Input[str] workload_identity_federation_subject: The subject of the workload identity federation service principal.
+        :param pulumi.Input[str] service_principal_id: The Application(Client) ID of the Service Principal.
+        :param pulumi.Input[str] workload_identity_federation_issuer: The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+        :param pulumi.Input[str] workload_identity_federation_subject: The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://<organisation>/<project>/<service-connection-name>`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -883,7 +883,7 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
     @pulumi.getter(name="servicePrincipalId")
     def service_principal_id(self) -> pulumi.Output[str]:
         """
-        The service principal ID.
+        The Application(Client) ID of the Service Principal.
         """
         return pulumi.get(self, "service_principal_id")
 
@@ -896,7 +896,7 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
     @pulumi.getter(name="workloadIdentityFederationIssuer")
     def workload_identity_federation_issuer(self) -> pulumi.Output[str]:
         """
-        The issuer of the workload identity federation service principal.
+        The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
         """
         return pulumi.get(self, "workload_identity_federation_issuer")
 
@@ -904,7 +904,7 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
     @pulumi.getter(name="workloadIdentityFederationSubject")
     def workload_identity_federation_subject(self) -> pulumi.Output[str]:
         """
-        The subject of the workload identity federation service principal.
+        The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://<organisation>/<project>/<service-connection-name>`.
         """
         return pulumi.get(self, "workload_identity_federation_subject")
 

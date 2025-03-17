@@ -380,6 +380,86 @@ export interface BuildDefinitionFeature {
     skipFirstRun?: boolean;
 }
 
+export interface BuildDefinitionJob {
+    /**
+     * Enables scripts and other processes launched by tasks to access the OAuth token through the `System.AccessToken` variable. Possible values: `true`, `false`. Defaults to `false`. Available when Job type is `AgentJob`
+     */
+    allowScriptsAuthAccessOption?: boolean;
+    /**
+     * Specifies when this job should run. Can **Custom conditions** to specify more complex conditions. Possible values: `succeeded()`, `succeededOrFailed()`, `always()`, `failed()` etc. More details: [Pipeline conditions](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/conditions?view=azure-devops)
+     */
+    condition: string;
+    /**
+     * A `dependencies` blocks as documented below. Define the job dependencies.
+     */
+    dependencies?: outputs.BuildDefinitionJobDependency[];
+    /**
+     * The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+     */
+    jobAuthorizationScope?: string;
+    /**
+     * The job cancel timeout (in minutes) for builds cancelled by user for this definition. Possible values are between `0` and `60`. Defaults to `0`.
+     */
+    jobCancelTimeoutInMinutes?: number;
+    /**
+     * The job execution timeout (in minutes) for builds queued against this definition. Possible values are between `0` and `1000000000`. Defaults to `0`.
+     */
+    jobTimeoutInMinutes?: number;
+    /**
+     * The name of the job.
+     */
+    name: string;
+    /**
+     * The reference name of the job, can be used to define the job dependencies.
+     */
+    refName: string;
+    /**
+     * A `target` blocks as documented below.
+     */
+    target: outputs.BuildDefinitionJobTarget;
+}
+
+export interface BuildDefinitionJobDependency {
+    /**
+     * The job reference name that depends on. Reference to `jobs.ref_name`
+     */
+    scope: string;
+}
+
+export interface BuildDefinitionJobTarget {
+    /**
+     * A list of demands that represents the agent capabilities required by this build. Example: `git`
+     */
+    demands?: string[];
+    /**
+     * A `executionOptions` blocks as documented below.
+     */
+    executionOptions: outputs.BuildDefinitionJobTargetExecutionOptions;
+    /**
+     * The job type. Possible values: `AgentJob`, `AgentlessJob`
+     */
+    type: string;
+}
+
+export interface BuildDefinitionJobTargetExecutionOptions {
+    /**
+     * Whether to continue the job when an error occurs. Possible values are: `true`, `false`.
+     */
+    continueOnError?: boolean;
+    /**
+     * Limit the number of agents to be used. If job type is `AgentlessJob`, the concurrency is not configurable and is fixed to 50.
+     */
+    maxConcurrency: number;
+    /**
+     * A list of comma separated configuration variables to use. These are defined on the Variables tab. For example, OperatingSystem, Browser will run the tasks for both variables. Available when `execution_options.type` is `Multi-Configuration`.
+     */
+    multipliers?: string;
+    /**
+     * The execution type of the Job. Possible values are: `None`, `Multi-Configuration`, `Multi-Agent`.
+     */
+    type: string;
+}
+
 export interface BuildDefinitionPullRequestTrigger {
     commentRequired?: string;
     /**
@@ -451,7 +531,7 @@ export interface BuildDefinitionRepository {
      */
     branchName?: string;
     /**
-     * The Github Enterprise URL. Used if `repoType` is `GithubEnterprise`.
+     * The Github Enterprise URL. Used if `repoType` is `GithubEnterprise`. Conflict with `url`
      */
     githubEnterpriseUrl?: string;
     /**
@@ -459,7 +539,7 @@ export interface BuildDefinitionRepository {
      */
     repoId: string;
     /**
-     * The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+     * The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise` or `Git`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
      */
     repoType: string;
     /**
@@ -471,9 +551,13 @@ export interface BuildDefinitionRepository {
      */
     serviceConnectionId?: string;
     /**
+     * The URL of the Git repository. Used if `repoType` is `Git`. Conflict with `githubEnterpriseUrl`
+     */
+    url: string;
+    /**
      * The path of the Yaml file describing the build definition.
      */
-    ymlPath: string;
+    ymlPath?: string;
 }
 
 export interface BuildDefinitionSchedule {
@@ -795,6 +879,86 @@ export interface GetBuildDefinitionCiTriggerOverridePathFilter {
     includes: string[];
 }
 
+export interface GetBuildDefinitionJob {
+    /**
+     * Enables scripts and other processes launched by tasks to access the OAuth token through the `System.AccessToken` variable.
+     */
+    allowScriptsAuthAccessOption: boolean;
+    /**
+     * Specifies when this job should run. Can **Custom conditions** to specify more complex conditions. More details: [Pipeline conditions](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/conditions?view=azure-devops)
+     */
+    condition: string;
+    /**
+     * A `dependencies` blocks as documented below. Define the job dependencies.
+     */
+    dependencies: outputs.GetBuildDefinitionJobDependency[];
+    /**
+     * The job authorization scope for builds queued against this definition.
+     */
+    jobAuthorizationScope: string;
+    /**
+     * The job cancel timeout (in minutes) for builds cancelled by user for this definition.
+     */
+    jobCancelTimeoutInMinutes: number;
+    /**
+     * The job execution timeout (in minutes) for builds queued against this definition.
+     */
+    jobTimeoutInMinutes: number;
+    /**
+     * The name of this Build Definition.
+     */
+    name: string;
+    /**
+     * The reference name of the job, can be used to define the job dependencies.
+     */
+    refName: string;
+    /**
+     * A `target` blocks as documented below.
+     */
+    targets: outputs.GetBuildDefinitionJobTarget[];
+}
+
+export interface GetBuildDefinitionJobDependency {
+    /**
+     * The job reference name that depends on. Reference to `jobs.ref_name`
+     */
+    scope: string;
+}
+
+export interface GetBuildDefinitionJobTarget {
+    /**
+     * A list of demands that represents the agent capabilities required by this build. Example: `git`
+     */
+    demands: string[];
+    /**
+     * A `executionOptions` blocks as documented below.
+     */
+    executionOptions: outputs.GetBuildDefinitionJobTargetExecutionOption[];
+    /**
+     * The execution type of the Job.
+     */
+    type: string;
+}
+
+export interface GetBuildDefinitionJobTargetExecutionOption {
+    /**
+     * Whether to continue the job when an error occurs.
+     */
+    continueOnError: boolean;
+    /**
+     * Limit the number of agents to be used. If job type is `AgentlessJob`, the concurrency is not configurable and is fixed to 50.
+     */
+    maxConcurrency: number;
+    /**
+     * A list of comma separated configuration variables to use. These are defined on the Variables tab. For example, OperatingSystem, Browser will run the tasks for both variables.
+     */
+    multipliers: string;
+    /**
+     * The execution type of the Job.
+     */
+    type: string;
+}
+
 export interface GetBuildDefinitionPullRequestTrigger {
     /**
      * Is a comment required on the PR?
@@ -891,6 +1055,7 @@ export interface GetBuildDefinitionRepository {
      * The service connection ID.
      */
     serviceConnectionId: string;
+    url: string;
     /**
      * The path of the Yaml file describing the build definition.
      */

@@ -13,18 +13,24 @@ namespace Pulumi.AzureDevOps
     {
         /// <summary>
         /// Use this data source to access information about an existing users within Azure DevOps.
+        /// 
+        /// &gt; **NOTE:** This resource will try to get all the users within the organization which may result in poor performance. `azuredevops.getIdentityUsers`, `azuredevops.getUser` can be used to replace this resource.
         /// </summary>
         public static Task<GetUsersResult> InvokeAsync(GetUsersArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUsersResult>("azuredevops:index/getUsers:getUsers", args ?? new GetUsersArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing users within Azure DevOps.
+        /// 
+        /// &gt; **NOTE:** This resource will try to get all the users within the organization which may result in poor performance. `azuredevops.getIdentityUsers`, `azuredevops.getUser` can be used to replace this resource.
         /// </summary>
         public static Output<GetUsersResult> Invoke(GetUsersInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUsersResult>("azuredevops:index/getUsers:getUsers", args ?? new GetUsersInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing users within Azure DevOps.
+        /// 
+        /// &gt; **NOTE:** This resource will try to get all the users within the organization which may result in poor performance. `azuredevops.getIdentityUsers`, `azuredevops.getUser` can be used to replace this resource.
         /// </summary>
         public static Output<GetUsersResult> Invoke(GetUsersInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetUsersResult>("azuredevops:index/getUsers:getUsers", args ?? new GetUsersInvokeArgs(), options.WithDefaults());

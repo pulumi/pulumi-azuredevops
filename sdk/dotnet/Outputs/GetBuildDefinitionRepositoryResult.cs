@@ -37,6 +37,7 @@ namespace Pulumi.AzureDevOps.Outputs
         /// The service connection ID.
         /// </summary>
         public readonly string ServiceConnectionId;
+        public readonly string Url;
         /// <summary>
         /// The path of the Yaml file describing the build definition.
         /// </summary>
@@ -56,6 +57,8 @@ namespace Pulumi.AzureDevOps.Outputs
 
             string serviceConnectionId,
 
+            string url,
+
             string ymlPath)
         {
             BranchName = branchName;
@@ -64,6 +67,7 @@ namespace Pulumi.AzureDevOps.Outputs
             RepoType = repoType;
             ReportBuildStatus = reportBuildStatus;
             ServiceConnectionId = serviceConnectionId;
+            Url = url;
             YmlPath = ymlPath;
         }
     }

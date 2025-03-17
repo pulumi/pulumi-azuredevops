@@ -98,7 +98,7 @@ def get_teams(project_id: Optional[str] = None,
     example = azuredevops.get_teams()
     pulumi.export("projectId", [__item.project_id for __item in example.teams])
     pulumi.export("name", [__item.name for __item in example.teams])
-    pulumi.export("alladministrators", [__item.administrators for __item in example.teams])
+    pulumi.export("allAdministrators", [__item.administrators for __item in example.teams])
     pulumi.export("administrators", [__item.members for __item in example.teams])
     ```
 
@@ -140,7 +140,7 @@ def get_teams_output(project_id: Optional[pulumi.Input[Optional[str]]] = None,
     example = azuredevops.get_teams()
     pulumi.export("projectId", [__item.project_id for __item in example.teams])
     pulumi.export("name", [__item.name for __item in example.teams])
-    pulumi.export("alladministrators", [__item.administrators for __item in example.teams])
+    pulumi.export("allAdministrators", [__item.administrators for __item in example.teams])
     pulumi.export("administrators", [__item.members for __item in example.teams])
     ```
 

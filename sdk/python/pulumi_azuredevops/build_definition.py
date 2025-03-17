@@ -24,9 +24,12 @@ class BuildDefinitionArgs:
                  project_id: pulumi.Input[str],
                  repository: pulumi.Input['BuildDefinitionRepositoryArgs'],
                  agent_pool_name: Optional[pulumi.Input[str]] = None,
+                 agent_specification: Optional[pulumi.Input[str]] = None,
                  build_completion_triggers: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionBuildCompletionTriggerArgs']]]] = None,
                  ci_trigger: Optional[pulumi.Input['BuildDefinitionCiTriggerArgs']] = None,
                  features: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionFeatureArgs']]]] = None,
+                 job_authorization_scope: Optional[pulumi.Input[str]] = None,
+                 jobs: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionJobArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  pull_request_trigger: Optional[pulumi.Input['BuildDefinitionPullRequestTriggerArgs']] = None,
@@ -39,9 +42,14 @@ class BuildDefinitionArgs:
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input['BuildDefinitionRepositoryArgs'] repository: A `repository` block as documented below.
         :param pulumi.Input[str] agent_pool_name: The agent pool that should execute the build. Defaults to `Azure Pipelines`.
+        :param pulumi.Input[str] agent_specification: The Agent Specification to run the pipelines. Required when `repo_type` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
         :param pulumi.Input[Sequence[pulumi.Input['BuildDefinitionBuildCompletionTriggerArgs']]] build_completion_triggers: A `build_completion_trigger` block as documented below.
         :param pulumi.Input['BuildDefinitionCiTriggerArgs'] ci_trigger: A `ci_trigger` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input['BuildDefinitionFeatureArgs']]] features: A `features` blocks as documented below.
+        :param pulumi.Input[str] job_authorization_scope: The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+        :param pulumi.Input[Sequence[pulumi.Input['BuildDefinitionJobArgs']]] jobs: A `jobs` blocks as documented below.
+               
+               > **NOTE:** The `jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
         :param pulumi.Input[str] name: The name of the build definition.
         :param pulumi.Input[str] path: The folder path of the build definition.
         :param pulumi.Input['BuildDefinitionPullRequestTriggerArgs'] pull_request_trigger: A `pull_request_trigger` block as documented below.
@@ -53,12 +61,18 @@ class BuildDefinitionArgs:
         pulumi.set(__self__, "repository", repository)
         if agent_pool_name is not None:
             pulumi.set(__self__, "agent_pool_name", agent_pool_name)
+        if agent_specification is not None:
+            pulumi.set(__self__, "agent_specification", agent_specification)
         if build_completion_triggers is not None:
             pulumi.set(__self__, "build_completion_triggers", build_completion_triggers)
         if ci_trigger is not None:
             pulumi.set(__self__, "ci_trigger", ci_trigger)
         if features is not None:
             pulumi.set(__self__, "features", features)
+        if job_authorization_scope is not None:
+            pulumi.set(__self__, "job_authorization_scope", job_authorization_scope)
+        if jobs is not None:
+            pulumi.set(__self__, "jobs", jobs)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if path is not None:
@@ -111,6 +125,18 @@ class BuildDefinitionArgs:
         pulumi.set(self, "agent_pool_name", value)
 
     @property
+    @pulumi.getter(name="agentSpecification")
+    def agent_specification(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Agent Specification to run the pipelines. Required when `repo_type` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+        """
+        return pulumi.get(self, "agent_specification")
+
+    @agent_specification.setter
+    def agent_specification(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "agent_specification", value)
+
+    @property
     @pulumi.getter(name="buildCompletionTriggers")
     def build_completion_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionBuildCompletionTriggerArgs']]]]:
         """
@@ -145,6 +171,32 @@ class BuildDefinitionArgs:
     @features.setter
     def features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionFeatureArgs']]]]):
         pulumi.set(self, "features", value)
+
+    @property
+    @pulumi.getter(name="jobAuthorizationScope")
+    def job_authorization_scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+        """
+        return pulumi.get(self, "job_authorization_scope")
+
+    @job_authorization_scope.setter
+    def job_authorization_scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "job_authorization_scope", value)
+
+    @property
+    @pulumi.getter
+    def jobs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionJobArgs']]]]:
+        """
+        A `jobs` blocks as documented below.
+
+        > **NOTE:** The `jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
+        """
+        return pulumi.get(self, "jobs")
+
+    @jobs.setter
+    def jobs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionJobArgs']]]]):
+        pulumi.set(self, "jobs", value)
 
     @property
     @pulumi.getter
@@ -232,9 +284,12 @@ class BuildDefinitionArgs:
 class _BuildDefinitionState:
     def __init__(__self__, *,
                  agent_pool_name: Optional[pulumi.Input[str]] = None,
+                 agent_specification: Optional[pulumi.Input[str]] = None,
                  build_completion_triggers: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionBuildCompletionTriggerArgs']]]] = None,
                  ci_trigger: Optional[pulumi.Input['BuildDefinitionCiTriggerArgs']] = None,
                  features: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionFeatureArgs']]]] = None,
+                 job_authorization_scope: Optional[pulumi.Input[str]] = None,
+                 jobs: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionJobArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
@@ -248,9 +303,14 @@ class _BuildDefinitionState:
         """
         Input properties used for looking up and filtering BuildDefinition resources.
         :param pulumi.Input[str] agent_pool_name: The agent pool that should execute the build. Defaults to `Azure Pipelines`.
+        :param pulumi.Input[str] agent_specification: The Agent Specification to run the pipelines. Required when `repo_type` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
         :param pulumi.Input[Sequence[pulumi.Input['BuildDefinitionBuildCompletionTriggerArgs']]] build_completion_triggers: A `build_completion_trigger` block as documented below.
         :param pulumi.Input['BuildDefinitionCiTriggerArgs'] ci_trigger: A `ci_trigger` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input['BuildDefinitionFeatureArgs']]] features: A `features` blocks as documented below.
+        :param pulumi.Input[str] job_authorization_scope: The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+        :param pulumi.Input[Sequence[pulumi.Input['BuildDefinitionJobArgs']]] jobs: A `jobs` blocks as documented below.
+               
+               > **NOTE:** The `jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
         :param pulumi.Input[str] name: The name of the build definition.
         :param pulumi.Input[str] path: The folder path of the build definition.
         :param pulumi.Input[str] project_id: The project ID or project name.
@@ -263,12 +323,18 @@ class _BuildDefinitionState:
         """
         if agent_pool_name is not None:
             pulumi.set(__self__, "agent_pool_name", agent_pool_name)
+        if agent_specification is not None:
+            pulumi.set(__self__, "agent_specification", agent_specification)
         if build_completion_triggers is not None:
             pulumi.set(__self__, "build_completion_triggers", build_completion_triggers)
         if ci_trigger is not None:
             pulumi.set(__self__, "ci_trigger", ci_trigger)
         if features is not None:
             pulumi.set(__self__, "features", features)
+        if job_authorization_scope is not None:
+            pulumi.set(__self__, "job_authorization_scope", job_authorization_scope)
+        if jobs is not None:
+            pulumi.set(__self__, "jobs", jobs)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if path is not None:
@@ -301,6 +367,18 @@ class _BuildDefinitionState:
     @agent_pool_name.setter
     def agent_pool_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "agent_pool_name", value)
+
+    @property
+    @pulumi.getter(name="agentSpecification")
+    def agent_specification(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Agent Specification to run the pipelines. Required when `repo_type` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+        """
+        return pulumi.get(self, "agent_specification")
+
+    @agent_specification.setter
+    def agent_specification(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "agent_specification", value)
 
     @property
     @pulumi.getter(name="buildCompletionTriggers")
@@ -337,6 +415,32 @@ class _BuildDefinitionState:
     @features.setter
     def features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionFeatureArgs']]]]):
         pulumi.set(self, "features", value)
+
+    @property
+    @pulumi.getter(name="jobAuthorizationScope")
+    def job_authorization_scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+        """
+        return pulumi.get(self, "job_authorization_scope")
+
+    @job_authorization_scope.setter
+    def job_authorization_scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "job_authorization_scope", value)
+
+    @property
+    @pulumi.getter
+    def jobs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionJobArgs']]]]:
+        """
+        A `jobs` blocks as documented below.
+
+        > **NOTE:** The `jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
+        """
+        return pulumi.get(self, "jobs")
+
+    @jobs.setter
+    def jobs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionJobArgs']]]]):
+        pulumi.set(self, "jobs", value)
 
     @property
     @pulumi.getter
@@ -462,9 +566,12 @@ class BuildDefinition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_pool_name: Optional[pulumi.Input[str]] = None,
+                 agent_specification: Optional[pulumi.Input[str]] = None,
                  build_completion_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionBuildCompletionTriggerArgs', 'BuildDefinitionBuildCompletionTriggerArgsDict']]]]] = None,
                  ci_trigger: Optional[pulumi.Input[Union['BuildDefinitionCiTriggerArgs', 'BuildDefinitionCiTriggerArgsDict']]] = None,
                  features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionFeatureArgs', 'BuildDefinitionFeatureArgsDict']]]]] = None,
+                 job_authorization_scope: Optional[pulumi.Input[str]] = None,
+                 jobs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionJobArgs', 'BuildDefinitionJobArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
@@ -664,6 +771,96 @@ class BuildDefinition(pulumi.CustomResource):
             })
         ```
 
+        ### Using Other Git and Agent Jobs
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.ServiceEndpointGenericGit("example",
+            project_id=example_azuredevops_project["id"],
+            repository_url="https://gitlab.com/example/example.git",
+            password="token",
+            service_endpoint_name="Example Generic Git")
+        example_build_definition = azuredevops.BuildDefinition("example",
+            project_id=example_azuredevops_project2["id"],
+            name="Example Build Definition",
+            path="\\\\ExampleFolder",
+            ci_trigger={
+                "use_yaml": False,
+            },
+            repository={
+                "repo_type": "Git",
+                "repo_id": example.repository_url,
+                "branch_name": "refs/heads/main",
+                "url": example.repository_url,
+                "service_connection_id": example.id,
+            },
+            jobs=[
+                {
+                    "name": "Agent Job1",
+                    "ref_name": "agent_job1",
+                    "condition": "succeededOrFailed()",
+                    "target": {
+                        "type": "AgentJob",
+                        "execution_options": {
+                            "type": "None",
+                        },
+                    },
+                },
+                {
+                    "name": "Agent Job2",
+                    "ref_name": "agent_job2",
+                    "condition": "succeededOrFailed()",
+                    "dependencies": [{
+                        "scope": "agent_job1",
+                    }],
+                    "target": {
+                        "type": "AgentJob",
+                        "demands": ["git"],
+                        "execution_options": {
+                            "type": "Multi-Configuration",
+                            "continue_on_error": True,
+                            "multipliers": "multipliers",
+                            "max_concurrency": 2,
+                        },
+                    },
+                },
+                {
+                    "name": "Agentless Job1",
+                    "ref_name": "agentless_job1",
+                    "condition": "succeeded()",
+                    "target": {
+                        "type": "AgentlessJob",
+                        "execution_options": {
+                            "type": "None",
+                        },
+                    },
+                },
+                {
+                    "name": "Agentless Job2",
+                    "ref_name": "agentless_job2",
+                    "condition": "succeeded()",
+                    "job_authorization_scope": "project",
+                    "dependencies": [
+                        {
+                            "scope": "agent_job2",
+                        },
+                        {
+                            "scope": "agentless_job1",
+                        },
+                    ],
+                    "target": {
+                        "type": "AgentlessJob",
+                        "execution_options": {
+                            "type": "Multi-Configuration",
+                            "continue_on_error": True,
+                            "multipliers": "multipliers",
+                        },
+                    },
+                },
+            ])
+        ```
+
         ## Remarks
 
         The path attribute can not end in `\\` unless the path is the root value of `\\`.
@@ -696,9 +893,14 @@ class BuildDefinition(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agent_pool_name: The agent pool that should execute the build. Defaults to `Azure Pipelines`.
+        :param pulumi.Input[str] agent_specification: The Agent Specification to run the pipelines. Required when `repo_type` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionBuildCompletionTriggerArgs', 'BuildDefinitionBuildCompletionTriggerArgsDict']]]] build_completion_triggers: A `build_completion_trigger` block as documented below.
         :param pulumi.Input[Union['BuildDefinitionCiTriggerArgs', 'BuildDefinitionCiTriggerArgsDict']] ci_trigger: A `ci_trigger` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionFeatureArgs', 'BuildDefinitionFeatureArgsDict']]]] features: A `features` blocks as documented below.
+        :param pulumi.Input[str] job_authorization_scope: The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionJobArgs', 'BuildDefinitionJobArgsDict']]]] jobs: A `jobs` blocks as documented below.
+               
+               > **NOTE:** The `jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
         :param pulumi.Input[str] name: The name of the build definition.
         :param pulumi.Input[str] path: The folder path of the build definition.
         :param pulumi.Input[str] project_id: The project ID or project name.
@@ -903,6 +1105,96 @@ class BuildDefinition(pulumi.CustomResource):
             })
         ```
 
+        ### Using Other Git and Agent Jobs
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.ServiceEndpointGenericGit("example",
+            project_id=example_azuredevops_project["id"],
+            repository_url="https://gitlab.com/example/example.git",
+            password="token",
+            service_endpoint_name="Example Generic Git")
+        example_build_definition = azuredevops.BuildDefinition("example",
+            project_id=example_azuredevops_project2["id"],
+            name="Example Build Definition",
+            path="\\\\ExampleFolder",
+            ci_trigger={
+                "use_yaml": False,
+            },
+            repository={
+                "repo_type": "Git",
+                "repo_id": example.repository_url,
+                "branch_name": "refs/heads/main",
+                "url": example.repository_url,
+                "service_connection_id": example.id,
+            },
+            jobs=[
+                {
+                    "name": "Agent Job1",
+                    "ref_name": "agent_job1",
+                    "condition": "succeededOrFailed()",
+                    "target": {
+                        "type": "AgentJob",
+                        "execution_options": {
+                            "type": "None",
+                        },
+                    },
+                },
+                {
+                    "name": "Agent Job2",
+                    "ref_name": "agent_job2",
+                    "condition": "succeededOrFailed()",
+                    "dependencies": [{
+                        "scope": "agent_job1",
+                    }],
+                    "target": {
+                        "type": "AgentJob",
+                        "demands": ["git"],
+                        "execution_options": {
+                            "type": "Multi-Configuration",
+                            "continue_on_error": True,
+                            "multipliers": "multipliers",
+                            "max_concurrency": 2,
+                        },
+                    },
+                },
+                {
+                    "name": "Agentless Job1",
+                    "ref_name": "agentless_job1",
+                    "condition": "succeeded()",
+                    "target": {
+                        "type": "AgentlessJob",
+                        "execution_options": {
+                            "type": "None",
+                        },
+                    },
+                },
+                {
+                    "name": "Agentless Job2",
+                    "ref_name": "agentless_job2",
+                    "condition": "succeeded()",
+                    "job_authorization_scope": "project",
+                    "dependencies": [
+                        {
+                            "scope": "agent_job2",
+                        },
+                        {
+                            "scope": "agentless_job1",
+                        },
+                    ],
+                    "target": {
+                        "type": "AgentlessJob",
+                        "execution_options": {
+                            "type": "Multi-Configuration",
+                            "continue_on_error": True,
+                            "multipliers": "multipliers",
+                        },
+                    },
+                },
+            ])
+        ```
+
         ## Remarks
 
         The path attribute can not end in `\\` unless the path is the root value of `\\`.
@@ -948,9 +1240,12 @@ class BuildDefinition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_pool_name: Optional[pulumi.Input[str]] = None,
+                 agent_specification: Optional[pulumi.Input[str]] = None,
                  build_completion_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionBuildCompletionTriggerArgs', 'BuildDefinitionBuildCompletionTriggerArgsDict']]]]] = None,
                  ci_trigger: Optional[pulumi.Input[Union['BuildDefinitionCiTriggerArgs', 'BuildDefinitionCiTriggerArgsDict']]] = None,
                  features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionFeatureArgs', 'BuildDefinitionFeatureArgsDict']]]]] = None,
+                 job_authorization_scope: Optional[pulumi.Input[str]] = None,
+                 jobs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionJobArgs', 'BuildDefinitionJobArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
@@ -970,9 +1265,12 @@ class BuildDefinition(pulumi.CustomResource):
             __props__ = BuildDefinitionArgs.__new__(BuildDefinitionArgs)
 
             __props__.__dict__["agent_pool_name"] = agent_pool_name
+            __props__.__dict__["agent_specification"] = agent_specification
             __props__.__dict__["build_completion_triggers"] = build_completion_triggers
             __props__.__dict__["ci_trigger"] = ci_trigger
             __props__.__dict__["features"] = features
+            __props__.__dict__["job_authorization_scope"] = job_authorization_scope
+            __props__.__dict__["jobs"] = jobs
             __props__.__dict__["name"] = name
             __props__.__dict__["path"] = path
             if project_id is None and not opts.urn:
@@ -998,9 +1296,12 @@ class BuildDefinition(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             agent_pool_name: Optional[pulumi.Input[str]] = None,
+            agent_specification: Optional[pulumi.Input[str]] = None,
             build_completion_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionBuildCompletionTriggerArgs', 'BuildDefinitionBuildCompletionTriggerArgsDict']]]]] = None,
             ci_trigger: Optional[pulumi.Input[Union['BuildDefinitionCiTriggerArgs', 'BuildDefinitionCiTriggerArgsDict']]] = None,
             features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionFeatureArgs', 'BuildDefinitionFeatureArgsDict']]]]] = None,
+            job_authorization_scope: Optional[pulumi.Input[str]] = None,
+            jobs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionJobArgs', 'BuildDefinitionJobArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             path: Optional[pulumi.Input[str]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
@@ -1019,9 +1320,14 @@ class BuildDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agent_pool_name: The agent pool that should execute the build. Defaults to `Azure Pipelines`.
+        :param pulumi.Input[str] agent_specification: The Agent Specification to run the pipelines. Required when `repo_type` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionBuildCompletionTriggerArgs', 'BuildDefinitionBuildCompletionTriggerArgsDict']]]] build_completion_triggers: A `build_completion_trigger` block as documented below.
         :param pulumi.Input[Union['BuildDefinitionCiTriggerArgs', 'BuildDefinitionCiTriggerArgsDict']] ci_trigger: A `ci_trigger` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionFeatureArgs', 'BuildDefinitionFeatureArgsDict']]]] features: A `features` blocks as documented below.
+        :param pulumi.Input[str] job_authorization_scope: The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionJobArgs', 'BuildDefinitionJobArgsDict']]]] jobs: A `jobs` blocks as documented below.
+               
+               > **NOTE:** The `jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
         :param pulumi.Input[str] name: The name of the build definition.
         :param pulumi.Input[str] path: The folder path of the build definition.
         :param pulumi.Input[str] project_id: The project ID or project name.
@@ -1037,9 +1343,12 @@ class BuildDefinition(pulumi.CustomResource):
         __props__ = _BuildDefinitionState.__new__(_BuildDefinitionState)
 
         __props__.__dict__["agent_pool_name"] = agent_pool_name
+        __props__.__dict__["agent_specification"] = agent_specification
         __props__.__dict__["build_completion_triggers"] = build_completion_triggers
         __props__.__dict__["ci_trigger"] = ci_trigger
         __props__.__dict__["features"] = features
+        __props__.__dict__["job_authorization_scope"] = job_authorization_scope
+        __props__.__dict__["jobs"] = jobs
         __props__.__dict__["name"] = name
         __props__.__dict__["path"] = path
         __props__.__dict__["project_id"] = project_id
@@ -1059,6 +1368,14 @@ class BuildDefinition(pulumi.CustomResource):
         The agent pool that should execute the build. Defaults to `Azure Pipelines`.
         """
         return pulumi.get(self, "agent_pool_name")
+
+    @property
+    @pulumi.getter(name="agentSpecification")
+    def agent_specification(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Agent Specification to run the pipelines. Required when `repo_type` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+        """
+        return pulumi.get(self, "agent_specification")
 
     @property
     @pulumi.getter(name="buildCompletionTriggers")
@@ -1083,6 +1400,24 @@ class BuildDefinition(pulumi.CustomResource):
         A `features` blocks as documented below.
         """
         return pulumi.get(self, "features")
+
+    @property
+    @pulumi.getter(name="jobAuthorizationScope")
+    def job_authorization_scope(self) -> pulumi.Output[Optional[str]]:
+        """
+        The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+        """
+        return pulumi.get(self, "job_authorization_scope")
+
+    @property
+    @pulumi.getter
+    def jobs(self) -> pulumi.Output[Optional[Sequence['outputs.BuildDefinitionJob']]]:
+        """
+        A `jobs` blocks as documented below.
+
+        > **NOTE:** The `jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
+        """
+        return pulumi.get(self, "jobs")
 
     @property
     @pulumi.getter

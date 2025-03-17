@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.azuredevops.outputs.GetBuildDefinitionCiTrigger;
+import com.pulumi.azuredevops.outputs.GetBuildDefinitionJob;
 import com.pulumi.azuredevops.outputs.GetBuildDefinitionPullRequestTrigger;
 import com.pulumi.azuredevops.outputs.GetBuildDefinitionRepository;
 import com.pulumi.azuredevops.outputs.GetBuildDefinitionSchedule;
@@ -25,6 +26,11 @@ public final class GetBuildDefinitionResult {
      */
     private String agentPoolName;
     /**
+     * @return The Agent Specification to run the pipelines. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+     * 
+     */
+    private String agentSpecification;
+    /**
      * @return A `ci_trigger` block as defined below.
      * 
      */
@@ -34,6 +40,16 @@ public final class GetBuildDefinitionResult {
      * 
      */
     private String id;
+    /**
+     * @return The job authorization scope for builds queued against this definition.
+     * 
+     */
+    private String jobAuthorizationScope;
+    /**
+     * @return A `jobs` blocks as documented below.
+     * 
+     */
+    private List<GetBuildDefinitionJob> jobs;
     /**
      * @return The name of the variable.
      * 
@@ -86,6 +102,13 @@ public final class GetBuildDefinitionResult {
         return this.agentPoolName;
     }
     /**
+     * @return The Agent Specification to run the pipelines. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+     * 
+     */
+    public String agentSpecification() {
+        return this.agentSpecification;
+    }
+    /**
      * @return A `ci_trigger` block as defined below.
      * 
      */
@@ -98,6 +121,20 @@ public final class GetBuildDefinitionResult {
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return The job authorization scope for builds queued against this definition.
+     * 
+     */
+    public String jobAuthorizationScope() {
+        return this.jobAuthorizationScope;
+    }
+    /**
+     * @return A `jobs` blocks as documented below.
+     * 
+     */
+    public List<GetBuildDefinitionJob> jobs() {
+        return this.jobs;
     }
     /**
      * @return The name of the variable.
@@ -172,8 +209,11 @@ public final class GetBuildDefinitionResult {
     @CustomType.Builder
     public static final class Builder {
         private String agentPoolName;
+        private String agentSpecification;
         private List<GetBuildDefinitionCiTrigger> ciTriggers;
         private String id;
+        private String jobAuthorizationScope;
+        private List<GetBuildDefinitionJob> jobs;
         private String name;
         private @Nullable String path;
         private String projectId;
@@ -188,8 +228,11 @@ public final class GetBuildDefinitionResult {
         public Builder(GetBuildDefinitionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.agentPoolName = defaults.agentPoolName;
+    	      this.agentSpecification = defaults.agentSpecification;
     	      this.ciTriggers = defaults.ciTriggers;
     	      this.id = defaults.id;
+    	      this.jobAuthorizationScope = defaults.jobAuthorizationScope;
+    	      this.jobs = defaults.jobs;
     	      this.name = defaults.name;
     	      this.path = defaults.path;
     	      this.projectId = defaults.projectId;
@@ -211,6 +254,14 @@ public final class GetBuildDefinitionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder agentSpecification(String agentSpecification) {
+            if (agentSpecification == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionResult", "agentSpecification");
+            }
+            this.agentSpecification = agentSpecification;
+            return this;
+        }
+        @CustomType.Setter
         public Builder ciTriggers(List<GetBuildDefinitionCiTrigger> ciTriggers) {
             if (ciTriggers == null) {
               throw new MissingRequiredPropertyException("GetBuildDefinitionResult", "ciTriggers");
@@ -228,6 +279,25 @@ public final class GetBuildDefinitionResult {
             }
             this.id = id;
             return this;
+        }
+        @CustomType.Setter
+        public Builder jobAuthorizationScope(String jobAuthorizationScope) {
+            if (jobAuthorizationScope == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionResult", "jobAuthorizationScope");
+            }
+            this.jobAuthorizationScope = jobAuthorizationScope;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder jobs(List<GetBuildDefinitionJob> jobs) {
+            if (jobs == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionResult", "jobs");
+            }
+            this.jobs = jobs;
+            return this;
+        }
+        public Builder jobs(GetBuildDefinitionJob... jobs) {
+            return jobs(List.of(jobs));
         }
         @CustomType.Setter
         public Builder name(String name) {
@@ -325,8 +395,11 @@ public final class GetBuildDefinitionResult {
         public GetBuildDefinitionResult build() {
             final var _resultValue = new GetBuildDefinitionResult();
             _resultValue.agentPoolName = agentPoolName;
+            _resultValue.agentSpecification = agentSpecification;
             _resultValue.ciTriggers = ciTriggers;
             _resultValue.id = id;
+            _resultValue.jobAuthorizationScope = jobAuthorizationScope;
+            _resultValue.jobs = jobs;
             _resultValue.name = name;
             _resultValue.path = path;
             _resultValue.projectId = projectId;

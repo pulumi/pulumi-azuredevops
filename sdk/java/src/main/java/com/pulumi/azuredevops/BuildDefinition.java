@@ -9,6 +9,7 @@ import com.pulumi.azuredevops.inputs.BuildDefinitionState;
 import com.pulumi.azuredevops.outputs.BuildDefinitionBuildCompletionTrigger;
 import com.pulumi.azuredevops.outputs.BuildDefinitionCiTrigger;
 import com.pulumi.azuredevops.outputs.BuildDefinitionFeature;
+import com.pulumi.azuredevops.outputs.BuildDefinitionJob;
 import com.pulumi.azuredevops.outputs.BuildDefinitionPullRequestTrigger;
 import com.pulumi.azuredevops.outputs.BuildDefinitionRepository;
 import com.pulumi.azuredevops.outputs.BuildDefinitionSchedule;
@@ -350,6 +351,128 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Using Other Git and Agent Jobs
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azuredevops.ServiceEndpointGenericGit;
+ * import com.pulumi.azuredevops.ServiceEndpointGenericGitArgs;
+ * import com.pulumi.azuredevops.BuildDefinition;
+ * import com.pulumi.azuredevops.BuildDefinitionArgs;
+ * import com.pulumi.azuredevops.inputs.BuildDefinitionCiTriggerArgs;
+ * import com.pulumi.azuredevops.inputs.BuildDefinitionRepositoryArgs;
+ * import com.pulumi.azuredevops.inputs.BuildDefinitionJobArgs;
+ * import com.pulumi.azuredevops.inputs.BuildDefinitionJobTargetArgs;
+ * import com.pulumi.azuredevops.inputs.BuildDefinitionJobTargetExecutionOptionsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ServiceEndpointGenericGit("example", ServiceEndpointGenericGitArgs.builder()
+ *             .projectId(exampleAzuredevopsProject.id())
+ *             .repositoryUrl("https://gitlab.com/example/example.git")
+ *             .password("token")
+ *             .serviceEndpointName("Example Generic Git")
+ *             .build());
+ * 
+ *         var exampleBuildDefinition = new BuildDefinition("exampleBuildDefinition", BuildDefinitionArgs.builder()
+ *             .projectId(exampleAzuredevopsProject2.id())
+ *             .name("Example Build Definition")
+ *             .path("\\ExampleFolder")
+ *             .ciTrigger(BuildDefinitionCiTriggerArgs.builder()
+ *                 .useYaml(false)
+ *                 .build())
+ *             .repository(BuildDefinitionRepositoryArgs.builder()
+ *                 .repoType("Git")
+ *                 .repoId(example.repositoryUrl())
+ *                 .branchName("refs/heads/main")
+ *                 .url(example.repositoryUrl())
+ *                 .serviceConnectionId(example.id())
+ *                 .build())
+ *             .jobs(            
+ *                 BuildDefinitionJobArgs.builder()
+ *                     .name("Agent Job1")
+ *                     .refName("agent_job1")
+ *                     .condition("succeededOrFailed()")
+ *                     .target(BuildDefinitionJobTargetArgs.builder()
+ *                         .type("AgentJob")
+ *                         .executionOptions(BuildDefinitionJobTargetExecutionOptionsArgs.builder()
+ *                             .type("None")
+ *                             .build())
+ *                         .build())
+ *                     .build(),
+ *                 BuildDefinitionJobArgs.builder()
+ *                     .name("Agent Job2")
+ *                     .refName("agent_job2")
+ *                     .condition("succeededOrFailed()")
+ *                     .dependencies(BuildDefinitionJobDependencyArgs.builder()
+ *                         .scope("agent_job1")
+ *                         .build())
+ *                     .target(BuildDefinitionJobTargetArgs.builder()
+ *                         .type("AgentJob")
+ *                         .demands("git")
+ *                         .executionOptions(BuildDefinitionJobTargetExecutionOptionsArgs.builder()
+ *                             .type("Multi-Configuration")
+ *                             .continueOnError(true)
+ *                             .multipliers("multipliers")
+ *                             .maxConcurrency(2)
+ *                             .build())
+ *                         .build())
+ *                     .build(),
+ *                 BuildDefinitionJobArgs.builder()
+ *                     .name("Agentless Job1")
+ *                     .refName("agentless_job1")
+ *                     .condition("succeeded()")
+ *                     .target(BuildDefinitionJobTargetArgs.builder()
+ *                         .type("AgentlessJob")
+ *                         .executionOptions(BuildDefinitionJobTargetExecutionOptionsArgs.builder()
+ *                             .type("None")
+ *                             .build())
+ *                         .build())
+ *                     .build(),
+ *                 BuildDefinitionJobArgs.builder()
+ *                     .name("Agentless Job2")
+ *                     .refName("agentless_job2")
+ *                     .condition("succeeded()")
+ *                     .jobAuthorizationScope("project")
+ *                     .dependencies(                    
+ *                         BuildDefinitionJobDependencyArgs.builder()
+ *                             .scope("agent_job2")
+ *                             .build(),
+ *                         BuildDefinitionJobDependencyArgs.builder()
+ *                             .scope("agentless_job1")
+ *                             .build())
+ *                     .target(BuildDefinitionJobTargetArgs.builder()
+ *                         .type("AgentlessJob")
+ *                         .executionOptions(BuildDefinitionJobTargetExecutionOptionsArgs.builder()
+ *                             .type("Multi-Configuration")
+ *                             .continueOnError(true)
+ *                             .multipliers("multipliers")
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Remarks
  * 
  * The path attribute can not end in `\` unless the path is the root value of `\`.
@@ -397,6 +520,20 @@ public class BuildDefinition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.agentPoolName);
     }
     /**
+     * The Agent Specification to run the pipelines. Required when `repo_type` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+     * 
+     */
+    @Export(name="agentSpecification", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> agentSpecification;
+
+    /**
+     * @return The Agent Specification to run the pipelines. Required when `repo_type` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+     * 
+     */
+    public Output<Optional<String>> agentSpecification() {
+        return Codegen.optional(this.agentSpecification);
+    }
+    /**
      * A `build_completion_trigger` block as documented below.
      * 
      */
@@ -437,6 +574,38 @@ public class BuildDefinition extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<BuildDefinitionFeature>>> features() {
         return Codegen.optional(this.features);
+    }
+    /**
+     * The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+     * 
+     */
+    @Export(name="jobAuthorizationScope", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> jobAuthorizationScope;
+
+    /**
+     * @return The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+     * 
+     */
+    public Output<Optional<String>> jobAuthorizationScope() {
+        return Codegen.optional(this.jobAuthorizationScope);
+    }
+    /**
+     * A `jobs` blocks as documented below.
+     * 
+     * &gt; **NOTE:** The `jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
+     * 
+     */
+    @Export(name="jobs", refs={List.class,BuildDefinitionJob.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<BuildDefinitionJob>> jobs;
+
+    /**
+     * @return A `jobs` blocks as documented below.
+     * 
+     * &gt; **NOTE:** The `jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
+     * 
+     */
+    public Output<Optional<List<BuildDefinitionJob>>> jobs() {
+        return Codegen.optional(this.jobs);
     }
     /**
      * The name of the build definition.

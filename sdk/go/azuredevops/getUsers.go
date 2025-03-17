@@ -12,6 +12,8 @@ import (
 )
 
 // Use this data source to access information about an existing users within Azure DevOps.
+//
+// > **NOTE:** This resource will try to get all the users within the organization which may result in poor performance. `getIdentityUsers`, `getUser` can be used to replace this resource.
 func GetUsers(ctx *pulumi.Context, args *GetUsersArgs, opts ...pulumi.InvokeOption) (*GetUsersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetUsersResult

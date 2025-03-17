@@ -172,12 +172,12 @@ type ServiceEndpointAzureEcr struct {
 	ServiceEndpointAuthenticationScheme pulumi.StringPtrOutput `pulumi:"serviceEndpointAuthenticationScheme"`
 	// The name you will use to refer to this service connection in task inputs.
 	ServiceEndpointName pulumi.StringOutput `pulumi:"serviceEndpointName"`
-	// The service principal ID.
+	// The Application(Client) ID of the Service Principal.
 	ServicePrincipalId pulumi.StringOutput `pulumi:"servicePrincipalId"`
 	SpnObjectId        pulumi.StringOutput `pulumi:"spnObjectId"`
-	// The issuer of the workload identity federation service principal.
+	// The issuer if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
 	WorkloadIdentityFederationIssuer pulumi.StringOutput `pulumi:"workloadIdentityFederationIssuer"`
-	// The subject of the workload identity federation service principal.
+	// The subject if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `sc://<organisation>/<project>/<service-connection-name>`.
 	WorkloadIdentityFederationSubject pulumi.StringOutput `pulumi:"workloadIdentityFederationSubject"`
 }
 
@@ -252,12 +252,12 @@ type serviceEndpointAzureEcrState struct {
 	ServiceEndpointAuthenticationScheme *string `pulumi:"serviceEndpointAuthenticationScheme"`
 	// The name you will use to refer to this service connection in task inputs.
 	ServiceEndpointName *string `pulumi:"serviceEndpointName"`
-	// The service principal ID.
+	// The Application(Client) ID of the Service Principal.
 	ServicePrincipalId *string `pulumi:"servicePrincipalId"`
 	SpnObjectId        *string `pulumi:"spnObjectId"`
-	// The issuer of the workload identity federation service principal.
+	// The issuer if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
 	WorkloadIdentityFederationIssuer *string `pulumi:"workloadIdentityFederationIssuer"`
-	// The subject of the workload identity federation service principal.
+	// The subject if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `sc://<organisation>/<project>/<service-connection-name>`.
 	WorkloadIdentityFederationSubject *string `pulumi:"workloadIdentityFederationSubject"`
 }
 
@@ -285,12 +285,12 @@ type ServiceEndpointAzureEcrState struct {
 	ServiceEndpointAuthenticationScheme pulumi.StringPtrInput
 	// The name you will use to refer to this service connection in task inputs.
 	ServiceEndpointName pulumi.StringPtrInput
-	// The service principal ID.
+	// The Application(Client) ID of the Service Principal.
 	ServicePrincipalId pulumi.StringPtrInput
 	SpnObjectId        pulumi.StringPtrInput
-	// The issuer of the workload identity federation service principal.
+	// The issuer if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
 	WorkloadIdentityFederationIssuer pulumi.StringPtrInput
-	// The subject of the workload identity federation service principal.
+	// The subject if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `sc://<organisation>/<project>/<service-connection-name>`.
 	WorkloadIdentityFederationSubject pulumi.StringPtrInput
 }
 
@@ -495,7 +495,7 @@ func (o ServiceEndpointAzureEcrOutput) ServiceEndpointName() pulumi.StringOutput
 	return o.ApplyT(func(v *ServiceEndpointAzureEcr) pulumi.StringOutput { return v.ServiceEndpointName }).(pulumi.StringOutput)
 }
 
-// The service principal ID.
+// The Application(Client) ID of the Service Principal.
 func (o ServiceEndpointAzureEcrOutput) ServicePrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceEndpointAzureEcr) pulumi.StringOutput { return v.ServicePrincipalId }).(pulumi.StringOutput)
 }
@@ -504,12 +504,12 @@ func (o ServiceEndpointAzureEcrOutput) SpnObjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceEndpointAzureEcr) pulumi.StringOutput { return v.SpnObjectId }).(pulumi.StringOutput)
 }
 
-// The issuer of the workload identity federation service principal.
+// The issuer if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
 func (o ServiceEndpointAzureEcrOutput) WorkloadIdentityFederationIssuer() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceEndpointAzureEcr) pulumi.StringOutput { return v.WorkloadIdentityFederationIssuer }).(pulumi.StringOutput)
 }
 
-// The subject of the workload identity federation service principal.
+// The subject if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `sc://<organisation>/<project>/<service-connection-name>`.
 func (o ServiceEndpointAzureEcrOutput) WorkloadIdentityFederationSubject() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceEndpointAzureEcr) pulumi.StringOutput { return v.WorkloadIdentityFederationSubject }).(pulumi.StringOutput)
 }

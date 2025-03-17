@@ -206,6 +206,98 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
+ * ### Using Other Git and Agent Jobs
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = new azuredevops.ServiceEndpointGenericGit("example", {
+ *     projectId: exampleAzuredevopsProject.id,
+ *     repositoryUrl: "https://gitlab.com/example/example.git",
+ *     password: "token",
+ *     serviceEndpointName: "Example Generic Git",
+ * });
+ * const exampleBuildDefinition = new azuredevops.BuildDefinition("example", {
+ *     projectId: exampleAzuredevopsProject2.id,
+ *     name: "Example Build Definition",
+ *     path: "\\ExampleFolder",
+ *     ciTrigger: {
+ *         useYaml: false,
+ *     },
+ *     repository: {
+ *         repoType: "Git",
+ *         repoId: example.repositoryUrl,
+ *         branchName: "refs/heads/main",
+ *         url: example.repositoryUrl,
+ *         serviceConnectionId: example.id,
+ *     },
+ *     jobs: [
+ *         {
+ *             name: "Agent Job1",
+ *             refName: "agent_job1",
+ *             condition: "succeededOrFailed()",
+ *             target: {
+ *                 type: "AgentJob",
+ *                 executionOptions: {
+ *                     type: "None",
+ *                 },
+ *             },
+ *         },
+ *         {
+ *             name: "Agent Job2",
+ *             refName: "agent_job2",
+ *             condition: "succeededOrFailed()",
+ *             dependencies: [{
+ *                 scope: "agent_job1",
+ *             }],
+ *             target: {
+ *                 type: "AgentJob",
+ *                 demands: ["git"],
+ *                 executionOptions: {
+ *                     type: "Multi-Configuration",
+ *                     continueOnError: true,
+ *                     multipliers: "multipliers",
+ *                     maxConcurrency: 2,
+ *                 },
+ *             },
+ *         },
+ *         {
+ *             name: "Agentless Job1",
+ *             refName: "agentless_job1",
+ *             condition: "succeeded()",
+ *             target: {
+ *                 type: "AgentlessJob",
+ *                 executionOptions: {
+ *                     type: "None",
+ *                 },
+ *             },
+ *         },
+ *         {
+ *             name: "Agentless Job2",
+ *             refName: "agentless_job2",
+ *             condition: "succeeded()",
+ *             jobAuthorizationScope: "project",
+ *             dependencies: [
+ *                 {
+ *                     scope: "agent_job2",
+ *                 },
+ *                 {
+ *                     scope: "agentless_job1",
+ *                 },
+ *             ],
+ *             target: {
+ *                 type: "AgentlessJob",
+ *                 executionOptions: {
+ *                     type: "Multi-Configuration",
+ *                     continueOnError: true,
+ *                     multipliers: "multipliers",
+ *                 },
+ *             },
+ *         },
+ *     ],
+ * });
+ * ```
+ *
  * ## Remarks
  *
  * The path attribute can not end in `\` unless the path is the root value of `\`.
@@ -268,6 +360,10 @@ export class BuildDefinition extends pulumi.CustomResource {
      */
     public readonly agentPoolName!: pulumi.Output<string | undefined>;
     /**
+     * The Agent Specification to run the pipelines. Required when `repoType` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+     */
+    public readonly agentSpecification!: pulumi.Output<string | undefined>;
+    /**
      * A `buildCompletionTrigger` block as documented below.
      */
     public readonly buildCompletionTriggers!: pulumi.Output<outputs.BuildDefinitionBuildCompletionTrigger[] | undefined>;
@@ -279,6 +375,16 @@ export class BuildDefinition extends pulumi.CustomResource {
      * A `features` blocks as documented below.
      */
     public readonly features!: pulumi.Output<outputs.BuildDefinitionFeature[] | undefined>;
+    /**
+     * The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+     */
+    public readonly jobAuthorizationScope!: pulumi.Output<string | undefined>;
+    /**
+     * A `jobs` blocks as documented below.
+     *
+     * > **NOTE:** The `jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
+     */
+    public readonly jobs!: pulumi.Output<outputs.BuildDefinitionJob[] | undefined>;
     /**
      * The name of the build definition.
      */
@@ -331,9 +437,12 @@ export class BuildDefinition extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as BuildDefinitionState | undefined;
             resourceInputs["agentPoolName"] = state ? state.agentPoolName : undefined;
+            resourceInputs["agentSpecification"] = state ? state.agentSpecification : undefined;
             resourceInputs["buildCompletionTriggers"] = state ? state.buildCompletionTriggers : undefined;
             resourceInputs["ciTrigger"] = state ? state.ciTrigger : undefined;
             resourceInputs["features"] = state ? state.features : undefined;
+            resourceInputs["jobAuthorizationScope"] = state ? state.jobAuthorizationScope : undefined;
+            resourceInputs["jobs"] = state ? state.jobs : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["path"] = state ? state.path : undefined;
             resourceInputs["projectId"] = state ? state.projectId : undefined;
@@ -353,9 +462,12 @@ export class BuildDefinition extends pulumi.CustomResource {
                 throw new Error("Missing required property 'repository'");
             }
             resourceInputs["agentPoolName"] = args ? args.agentPoolName : undefined;
+            resourceInputs["agentSpecification"] = args ? args.agentSpecification : undefined;
             resourceInputs["buildCompletionTriggers"] = args ? args.buildCompletionTriggers : undefined;
             resourceInputs["ciTrigger"] = args ? args.ciTrigger : undefined;
             resourceInputs["features"] = args ? args.features : undefined;
+            resourceInputs["jobAuthorizationScope"] = args ? args.jobAuthorizationScope : undefined;
+            resourceInputs["jobs"] = args ? args.jobs : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["path"] = args ? args.path : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
@@ -381,6 +493,10 @@ export interface BuildDefinitionState {
      */
     agentPoolName?: pulumi.Input<string>;
     /**
+     * The Agent Specification to run the pipelines. Required when `repoType` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+     */
+    agentSpecification?: pulumi.Input<string>;
+    /**
      * A `buildCompletionTrigger` block as documented below.
      */
     buildCompletionTriggers?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionBuildCompletionTrigger>[]>;
@@ -392,6 +508,16 @@ export interface BuildDefinitionState {
      * A `features` blocks as documented below.
      */
     features?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionFeature>[]>;
+    /**
+     * The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+     */
+    jobAuthorizationScope?: pulumi.Input<string>;
+    /**
+     * A `jobs` blocks as documented below.
+     *
+     * > **NOTE:** The `jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
+     */
+    jobs?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionJob>[]>;
     /**
      * The name of the build definition.
      */
@@ -440,6 +566,10 @@ export interface BuildDefinitionArgs {
      */
     agentPoolName?: pulumi.Input<string>;
     /**
+     * The Agent Specification to run the pipelines. Required when `repoType` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+     */
+    agentSpecification?: pulumi.Input<string>;
+    /**
      * A `buildCompletionTrigger` block as documented below.
      */
     buildCompletionTriggers?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionBuildCompletionTrigger>[]>;
@@ -451,6 +581,16 @@ export interface BuildDefinitionArgs {
      * A `features` blocks as documented below.
      */
     features?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionFeature>[]>;
+    /**
+     * The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+     */
+    jobAuthorizationScope?: pulumi.Input<string>;
+    /**
+     * A `jobs` blocks as documented below.
+     *
+     * > **NOTE:** The `jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
+     */
+    jobs?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionJob>[]>;
     /**
      * The name of the build definition.
      */

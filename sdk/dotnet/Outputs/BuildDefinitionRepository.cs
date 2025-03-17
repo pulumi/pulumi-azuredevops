@@ -18,7 +18,7 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly string? BranchName;
         /// <summary>
-        /// The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`.
+        /// The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`. Conflict with `url`
         /// </summary>
         public readonly string? GithubEnterpriseUrl;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly string RepoId;
         /// <summary>
-        /// The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+        /// The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise` or `Git`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
         /// </summary>
         public readonly string RepoType;
         /// <summary>
@@ -38,9 +38,13 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly string? ServiceConnectionId;
         /// <summary>
+        /// The URL of the Git repository. Used if `repo_type` is `Git`. Conflict with `github_enterprise_url`
+        /// </summary>
+        public readonly string? Url;
+        /// <summary>
         /// The path of the Yaml file describing the build definition.
         /// </summary>
-        public readonly string YmlPath;
+        public readonly string? YmlPath;
 
         [OutputConstructor]
         private BuildDefinitionRepository(
@@ -56,7 +60,9 @@ namespace Pulumi.AzureDevOps.Outputs
 
             string? serviceConnectionId,
 
-            string ymlPath)
+            string? url,
+
+            string? ymlPath)
         {
             BranchName = branchName;
             GithubEnterpriseUrl = githubEnterpriseUrl;
@@ -64,6 +70,7 @@ namespace Pulumi.AzureDevOps.Outputs
             RepoType = repoType;
             ReportBuildStatus = reportBuildStatus;
             ServiceConnectionId = serviceConnectionId;
+            Url = url;
             YmlPath = ymlPath;
         }
     }

@@ -41,6 +41,7 @@ public final class GetBuildDefinitionRepository {
      * 
      */
     private String serviceConnectionId;
+    private String url;
     /**
      * @return The path of the Yaml file describing the build definition.
      * 
@@ -90,6 +91,9 @@ public final class GetBuildDefinitionRepository {
     public String serviceConnectionId() {
         return this.serviceConnectionId;
     }
+    public String url() {
+        return this.url;
+    }
     /**
      * @return The path of the Yaml file describing the build definition.
      * 
@@ -113,6 +117,7 @@ public final class GetBuildDefinitionRepository {
         private String repoType;
         private Boolean reportBuildStatus;
         private String serviceConnectionId;
+        private String url;
         private String ymlPath;
         public Builder() {}
         public Builder(GetBuildDefinitionRepository defaults) {
@@ -123,6 +128,7 @@ public final class GetBuildDefinitionRepository {
     	      this.repoType = defaults.repoType;
     	      this.reportBuildStatus = defaults.reportBuildStatus;
     	      this.serviceConnectionId = defaults.serviceConnectionId;
+    	      this.url = defaults.url;
     	      this.ymlPath = defaults.ymlPath;
         }
 
@@ -175,6 +181,14 @@ public final class GetBuildDefinitionRepository {
             return this;
         }
         @CustomType.Setter
+        public Builder url(String url) {
+            if (url == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionRepository", "url");
+            }
+            this.url = url;
+            return this;
+        }
+        @CustomType.Setter
         public Builder ymlPath(String ymlPath) {
             if (ymlPath == null) {
               throw new MissingRequiredPropertyException("GetBuildDefinitionRepository", "ymlPath");
@@ -190,6 +204,7 @@ public final class GetBuildDefinitionRepository {
             _resultValue.repoType = repoType;
             _resultValue.reportBuildStatus = reportBuildStatus;
             _resultValue.serviceConnectionId = serviceConnectionId;
+            _resultValue.url = url;
             _resultValue.ymlPath = ymlPath;
             return _resultValue;
         }
