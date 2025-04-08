@@ -78,8 +78,8 @@ import javax.annotation.Nullable;
  *         var exampleTeam = new Team("exampleTeam", TeamArgs.builder()
  *             .projectId(example.id())
  *             .name("Example Team")
- *             .administrators(example_project_contributors.applyValue(example_project_contributors -> example_project_contributors.descriptor()))
- *             .members(example_project_readers.applyValue(example_project_readers -> example_project_readers.descriptor()))
+ *             .administrators(example_project_contributors.applyValue(_example_project_contributors -> _example_project_contributors.descriptor()))
+ *             .members(example_project_readers.applyValue(_example_project_readers -> _example_project_readers.descriptor()))
  *             .build());
  * 
  *     }

@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  * 
  *         var example_root_permissions = new ServiceendpointPermissions("example-root-permissions", ServiceendpointPermissionsArgs.builder()
  *             .projectId(example.id())
- *             .principal(example_readers.applyValue(example_readers -> example_readers.id()))
+ *             .principal(example_readers.applyValue(_example_readers -> _example_readers.id()))
  *             .permissions(Map.ofEntries(
  *                 Map.entry("Use", "allow"),
  *                 Map.entry("Administer", "allow"),
@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  * 
  *         var example_permissions = new ServiceendpointPermissions("example-permissions", ServiceendpointPermissionsArgs.builder()
  *             .projectId(example.id())
- *             .principal(example_readers.applyValue(example_readers -> example_readers.id()))
+ *             .principal(example_readers.applyValue(_example_readers -> _example_readers.id()))
  *             .serviceendpointId(exampleServiceEndpointDockerRegistry.id())
  *             .permissions(Map.ofEntries(
  *                 Map.entry("Use", "allow"),

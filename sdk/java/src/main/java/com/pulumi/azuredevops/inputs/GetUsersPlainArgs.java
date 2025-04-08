@@ -34,6 +34,14 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
      * &lt;pre&gt;List of possible origins
+     * ```hcl
+     * ActiveDirectory          = &#34;ad&#34;   # Windows Active Directory
+     * AzureActiveDirectory     = &#34;aad&#34;  # Azure Active Directory
+     * MicrosoftAccount         = &#34;msa&#34;  # Windows Live Account
+     * VisualStudioTeamServices = &#34;vsts&#34; # DevOps
+     * GitHubDirectory          = &#34;ghb&#34;  # GitHub
+     * ```
+     * &lt;/pre&gt;
      * 
      */
     @Import(name="origin")
@@ -42,6 +50,14 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
      * &lt;pre&gt;List of possible origins
+     * ```hcl
+     * ActiveDirectory          = &#34;ad&#34;   # Windows Active Directory
+     * AzureActiveDirectory     = &#34;aad&#34;  # Azure Active Directory
+     * MicrosoftAccount         = &#34;msa&#34;  # Windows Live Account
+     * VisualStudioTeamServices = &#34;vsts&#34; # DevOps
+     * GitHubDirectory          = &#34;ghb&#34;  # GitHub
+     * ```
+     * &lt;/pre&gt;
      * 
      */
     public Optional<String> origin() {
@@ -81,6 +97,29 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
      * &lt;pre&gt;List of possible subject types
+     * ```hcl
+     * AadUser                 = &#34;aad&#34; # Azure Active Directory Tenant
+     * MsaUser                 = &#34;msa&#34; # Windows Live
+     * UnknownUser             = &#34;unusr&#34;
+     * BindPendingUser         = &#34;bnd&#34; # Invited user with pending redeem status
+     * WindowsIdentity         = &#34;win&#34; # Windows Active Directory user
+     * UnauthenticatedIdentity = &#34;uauth&#34;
+     * ServiceIdentity         = &#34;svc&#34;
+     * AggregateIdentity       = &#34;agg&#34;
+     * ImportedIdentity        = &#34;imp&#34;
+     * ServerTestIdentity      = &#34;tst&#34;
+     * GroupScopeType          = &#34;scp&#34;
+     * CspPartnerIdentity      = &#34;csp&#34;
+     * SystemServicePrincipal  = &#34;s2s&#34;
+     * SystemLicense           = &#34;slic&#34;
+     * SystemScope             = &#34;sscp&#34;
+     * SystemCspPartner        = &#34;scsp&#34;
+     * SystemPublicAccess      = &#34;spa&#34;
+     * SystemAccessControl     = &#34;sace&#34;
+     * AcsServiceIdentity      = &#34;acs&#34;
+     * Unknown                 = &#34;ukn&#34;
+     * ```
+     * &lt;/pre&gt;
      * 
      */
     @Import(name="subjectTypes")
@@ -89,6 +128,29 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
      * &lt;pre&gt;List of possible subject types
+     * ```hcl
+     * AadUser                 = &#34;aad&#34; # Azure Active Directory Tenant
+     * MsaUser                 = &#34;msa&#34; # Windows Live
+     * UnknownUser             = &#34;unusr&#34;
+     * BindPendingUser         = &#34;bnd&#34; # Invited user with pending redeem status
+     * WindowsIdentity         = &#34;win&#34; # Windows Active Directory user
+     * UnauthenticatedIdentity = &#34;uauth&#34;
+     * ServiceIdentity         = &#34;svc&#34;
+     * AggregateIdentity       = &#34;agg&#34;
+     * ImportedIdentity        = &#34;imp&#34;
+     * ServerTestIdentity      = &#34;tst&#34;
+     * GroupScopeType          = &#34;scp&#34;
+     * CspPartnerIdentity      = &#34;csp&#34;
+     * SystemServicePrincipal  = &#34;s2s&#34;
+     * SystemLicense           = &#34;slic&#34;
+     * SystemScope             = &#34;sscp&#34;
+     * SystemCspPartner        = &#34;scsp&#34;
+     * SystemPublicAccess      = &#34;spa&#34;
+     * SystemAccessControl     = &#34;sace&#34;
+     * AcsServiceIdentity      = &#34;acs&#34;
+     * Unknown                 = &#34;ukn&#34;
+     * ```
+     * &lt;/pre&gt;
      * 
      */
     public Optional<List<String>> subjectTypes() {
@@ -137,6 +199,14 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param origin The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
          * &lt;pre&gt;List of possible origins
+         * ```hcl
+         * ActiveDirectory          = &#34;ad&#34;   # Windows Active Directory
+         * AzureActiveDirectory     = &#34;aad&#34;  # Azure Active Directory
+         * MicrosoftAccount         = &#34;msa&#34;  # Windows Live Account
+         * VisualStudioTeamServices = &#34;vsts&#34; # DevOps
+         * GitHubDirectory          = &#34;ghb&#34;  # GitHub
+         * ```
+         * &lt;/pre&gt;
          * 
          * @return builder
          * 
@@ -171,6 +241,29 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param subjectTypes A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
          * &lt;pre&gt;List of possible subject types
+         * ```hcl
+         * AadUser                 = &#34;aad&#34; # Azure Active Directory Tenant
+         * MsaUser                 = &#34;msa&#34; # Windows Live
+         * UnknownUser             = &#34;unusr&#34;
+         * BindPendingUser         = &#34;bnd&#34; # Invited user with pending redeem status
+         * WindowsIdentity         = &#34;win&#34; # Windows Active Directory user
+         * UnauthenticatedIdentity = &#34;uauth&#34;
+         * ServiceIdentity         = &#34;svc&#34;
+         * AggregateIdentity       = &#34;agg&#34;
+         * ImportedIdentity        = &#34;imp&#34;
+         * ServerTestIdentity      = &#34;tst&#34;
+         * GroupScopeType          = &#34;scp&#34;
+         * CspPartnerIdentity      = &#34;csp&#34;
+         * SystemServicePrincipal  = &#34;s2s&#34;
+         * SystemLicense           = &#34;slic&#34;
+         * SystemScope             = &#34;sscp&#34;
+         * SystemCspPartner        = &#34;scsp&#34;
+         * SystemPublicAccess      = &#34;spa&#34;
+         * SystemAccessControl     = &#34;sace&#34;
+         * AcsServiceIdentity      = &#34;acs&#34;
+         * Unknown                 = &#34;ukn&#34;
+         * ```
+         * &lt;/pre&gt;
          * 
          * @return builder
          * 
@@ -183,6 +276,29 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param subjectTypes A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
          * &lt;pre&gt;List of possible subject types
+         * ```hcl
+         * AadUser                 = &#34;aad&#34; # Azure Active Directory Tenant
+         * MsaUser                 = &#34;msa&#34; # Windows Live
+         * UnknownUser             = &#34;unusr&#34;
+         * BindPendingUser         = &#34;bnd&#34; # Invited user with pending redeem status
+         * WindowsIdentity         = &#34;win&#34; # Windows Active Directory user
+         * UnauthenticatedIdentity = &#34;uauth&#34;
+         * ServiceIdentity         = &#34;svc&#34;
+         * AggregateIdentity       = &#34;agg&#34;
+         * ImportedIdentity        = &#34;imp&#34;
+         * ServerTestIdentity      = &#34;tst&#34;
+         * GroupScopeType          = &#34;scp&#34;
+         * CspPartnerIdentity      = &#34;csp&#34;
+         * SystemServicePrincipal  = &#34;s2s&#34;
+         * SystemLicense           = &#34;slic&#34;
+         * SystemScope             = &#34;sscp&#34;
+         * SystemCspPartner        = &#34;scsp&#34;
+         * SystemPublicAccess      = &#34;spa&#34;
+         * SystemAccessControl     = &#34;sace&#34;
+         * AcsServiceIdentity      = &#34;acs&#34;
+         * Unknown                 = &#34;ukn&#34;
+         * ```
+         * &lt;/pre&gt;
          * 
          * @return builder
          * 

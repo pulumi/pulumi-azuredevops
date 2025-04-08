@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  * 
  *         var example_permissions = new GitPermissions("example-permissions", GitPermissionsArgs.builder()
  *             .projectId(example.id())
- *             .principal(example_readers.applyValue(example_readers -> example_readers.id()))
+ *             .principal(example_readers.applyValue(_example_readers -> _example_readers.id()))
  *             .permissions(Map.ofEntries(
  *                 Map.entry("CreateRepository", "Deny"),
  *                 Map.entry("DeleteRepository", "Deny"),
@@ -292,7 +292,7 @@ import javax.annotation.Nullable;
  * 
  *         var example_permissions = new GitPermissions("example-permissions", GitPermissionsArgs.builder()
  *             .projectId(example.id())
- *             .principal(example_project_readers.applyValue(example_project_readers -> example_project_readers.id()))
+ *             .principal(example_project_readers.applyValue(_example_project_readers -> _example_project_readers.id()))
  *             .permissions(Map.ofEntries(
  *                 Map.entry("CreateRepository", "Deny"),
  *                 Map.entry("DeleteRepository", "Deny"),
@@ -312,7 +312,7 @@ import javax.annotation.Nullable;
  *         var example_repo_permissions = new GitPermissions("example-repo-permissions", GitPermissionsArgs.builder()
  *             .projectId(exampleGit.projectId())
  *             .repositoryId(exampleGit.id())
- *             .principal(example_project_administrators.applyValue(example_project_administrators -> example_project_administrators.id()))
+ *             .principal(example_project_administrators.applyValue(_example_project_administrators -> _example_project_administrators.id()))
  *             .permissions(Map.ofEntries(
  *                 Map.entry("RemoveOthersLocks", "Allow"),
  *                 Map.entry("ManagePermissions", "Deny"),
@@ -325,7 +325,7 @@ import javax.annotation.Nullable;
  *             .projectId(exampleGit.projectId())
  *             .repositoryId(exampleGit.id())
  *             .branchName("master")
- *             .principal(example_project_contributors.applyValue(example_project_contributors -> example_project_contributors.id()))
+ *             .principal(example_project_contributors.applyValue(_example_project_contributors -> _example_project_contributors.id()))
  *             .permissions(Map.ofEntries(
  *                 Map.entry("RemoveOthersLocks", "Allow"),
  *                 Map.entry("ForcePush", "Deny")

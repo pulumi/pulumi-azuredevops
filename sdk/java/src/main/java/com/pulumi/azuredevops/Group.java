@@ -66,8 +66,8 @@ import javax.annotation.Nullable;
  *             .displayName("Example group")
  *             .description("Example description")
  *             .members(            
- *                 example_readers.applyValue(example_readers -> example_readers.descriptor()),
- *                 example_contributors.applyValue(example_contributors -> example_contributors.descriptor()))
+ *                 example_readers.applyValue(_example_readers -> _example_readers.descriptor()),
+ *                 example_contributors.applyValue(_example_contributors -> _example_contributors.descriptor()))
  *             .build());
  * 
  *     }

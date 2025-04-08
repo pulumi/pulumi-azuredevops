@@ -154,8 +154,8 @@ public final class AzuredevopsFunctions {
      *             .name("Example Agent Queue")
      *             .build());
      * 
-     *         ctx.export("name", example.applyValue(getAgentQueueResult -> getAgentQueueResult).applyValue(example -> example.applyValue(getAgentQueueResult -> getAgentQueueResult.name())));
-     *         ctx.export("poolId", example.applyValue(getAgentQueueResult -> getAgentQueueResult).applyValue(example -> example.applyValue(getAgentQueueResult -> getAgentQueueResult.agentPoolId())));
+     *         ctx.export("name", example.applyValue(_example -> _example.name()));
+     *         ctx.export("poolId", example.applyValue(_example -> _example.agentPoolId()));
      *     }
      * }
      * }
@@ -213,8 +213,8 @@ public final class AzuredevopsFunctions {
      *             .name("Example Agent Queue")
      *             .build());
      * 
-     *         ctx.export("name", example.applyValue(getAgentQueueResult -> getAgentQueueResult).applyValue(example -> example.applyValue(getAgentQueueResult -> getAgentQueueResult.name())));
-     *         ctx.export("poolId", example.applyValue(getAgentQueueResult -> getAgentQueueResult).applyValue(example -> example.applyValue(getAgentQueueResult -> getAgentQueueResult.agentPoolId())));
+     *         ctx.export("name", example.applyValue(_example -> _example.name()));
+     *         ctx.export("poolId", example.applyValue(_example -> _example.agentPoolId()));
      *     }
      * }
      * }
@@ -272,8 +272,8 @@ public final class AzuredevopsFunctions {
      *             .name("Example Agent Queue")
      *             .build());
      * 
-     *         ctx.export("name", example.applyValue(getAgentQueueResult -> getAgentQueueResult).applyValue(example -> example.applyValue(getAgentQueueResult -> getAgentQueueResult.name())));
-     *         ctx.export("poolId", example.applyValue(getAgentQueueResult -> getAgentQueueResult).applyValue(example -> example.applyValue(getAgentQueueResult -> getAgentQueueResult.agentPoolId())));
+     *         ctx.export("name", example.applyValue(_example -> _example.name()));
+     *         ctx.export("poolId", example.applyValue(_example -> _example.agentPoolId()));
      *     }
      * }
      * }
@@ -331,8 +331,8 @@ public final class AzuredevopsFunctions {
      *             .name("Example Agent Queue")
      *             .build());
      * 
-     *         ctx.export("name", example.applyValue(getAgentQueueResult -> getAgentQueueResult).applyValue(example -> example.applyValue(getAgentQueueResult -> getAgentQueueResult.name())));
-     *         ctx.export("poolId", example.applyValue(getAgentQueueResult -> getAgentQueueResult).applyValue(example -> example.applyValue(getAgentQueueResult -> getAgentQueueResult.agentPoolId())));
+     *         ctx.export("name", example.applyValue(_example -> _example.name()));
+     *         ctx.export("poolId", example.applyValue(_example -> _example.agentPoolId()));
      *     }
      * }
      * }
@@ -390,8 +390,8 @@ public final class AzuredevopsFunctions {
      *             .name("Example Agent Queue")
      *             .build());
      * 
-     *         ctx.export("name", example.applyValue(getAgentQueueResult -> getAgentQueueResult).applyValue(example -> example.applyValue(getAgentQueueResult -> getAgentQueueResult.name())));
-     *         ctx.export("poolId", example.applyValue(getAgentQueueResult -> getAgentQueueResult).applyValue(example -> example.applyValue(getAgentQueueResult -> getAgentQueueResult.agentPoolId())));
+     *         ctx.export("name", example.applyValue(_example -> _example.name()));
+     *         ctx.export("poolId", example.applyValue(_example -> _example.agentPoolId()));
      *     }
      * }
      * }
@@ -444,11 +444,11 @@ public final class AzuredevopsFunctions {
      *             .description("Managed by Pulumi")
      *             .build());
      * 
-     *         final var example = AzuredevopsFunctions.getArea(GetAreaArgs.builder()
-     *             .projectId(exampleProject.id())
+     *         final var example = exampleProject.id().applyValue(_id -> AzuredevopsFunctions.getArea(GetAreaArgs.builder()
+     *             .projectId(_id)
      *             .path("/")
-     *             .fetchChildren("false")
-     *             .build());
+     *             .fetchChildren(false)
+     *             .build()));
      * 
      *     }
      * }
@@ -506,11 +506,11 @@ public final class AzuredevopsFunctions {
      *             .description("Managed by Pulumi")
      *             .build());
      * 
-     *         final var example = AzuredevopsFunctions.getArea(GetAreaArgs.builder()
-     *             .projectId(exampleProject.id())
+     *         final var example = exampleProject.id().applyValue(_id -> AzuredevopsFunctions.getArea(GetAreaArgs.builder()
+     *             .projectId(_id)
      *             .path("/")
-     *             .fetchChildren("false")
-     *             .build());
+     *             .fetchChildren(false)
+     *             .build()));
      * 
      *     }
      * }
@@ -568,11 +568,11 @@ public final class AzuredevopsFunctions {
      *             .description("Managed by Pulumi")
      *             .build());
      * 
-     *         final var example = AzuredevopsFunctions.getArea(GetAreaArgs.builder()
-     *             .projectId(exampleProject.id())
+     *         final var example = exampleProject.id().applyValue(_id -> AzuredevopsFunctions.getArea(GetAreaArgs.builder()
+     *             .projectId(_id)
      *             .path("/")
-     *             .fetchChildren("false")
-     *             .build());
+     *             .fetchChildren(false)
+     *             .build()));
      * 
      *     }
      * }
@@ -630,11 +630,11 @@ public final class AzuredevopsFunctions {
      *             .description("Managed by Pulumi")
      *             .build());
      * 
-     *         final var example = AzuredevopsFunctions.getArea(GetAreaArgs.builder()
-     *             .projectId(exampleProject.id())
+     *         final var example = exampleProject.id().applyValue(_id -> AzuredevopsFunctions.getArea(GetAreaArgs.builder()
+     *             .projectId(_id)
      *             .path("/")
-     *             .fetchChildren("false")
-     *             .build());
+     *             .fetchChildren(false)
+     *             .build()));
      * 
      *     }
      * }
@@ -692,11 +692,11 @@ public final class AzuredevopsFunctions {
      *             .description("Managed by Pulumi")
      *             .build());
      * 
-     *         final var example = AzuredevopsFunctions.getArea(GetAreaArgs.builder()
-     *             .projectId(exampleProject.id())
+     *         final var example = exampleProject.id().applyValue(_id -> AzuredevopsFunctions.getArea(GetAreaArgs.builder()
+     *             .projectId(_id)
      *             .path("/")
-     *             .fetchChildren("false")
-     *             .build());
+     *             .fetchChildren(false)
+     *             .build()));
      * 
      *     }
      * }
@@ -750,11 +750,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var exampleGetBuildDefinition = AzuredevopsFunctions.getBuildDefinition(GetBuildDefinitionArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .name("existing")
      *             .build());
      * 
-     *         ctx.export("id", exampleGetBuildDefinition.applyValue(getBuildDefinitionResult -> getBuildDefinitionResult.id()));
+     *         ctx.export("id", exampleGetBuildDefinition.id());
      *     }
      * }
      * }
@@ -799,11 +799,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var exampleGetBuildDefinition = AzuredevopsFunctions.getBuildDefinition(GetBuildDefinitionArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .name("existing")
      *             .build());
      * 
-     *         ctx.export("id", exampleGetBuildDefinition.applyValue(getBuildDefinitionResult -> getBuildDefinitionResult.id()));
+     *         ctx.export("id", exampleGetBuildDefinition.id());
      *     }
      * }
      * }
@@ -848,11 +848,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var exampleGetBuildDefinition = AzuredevopsFunctions.getBuildDefinition(GetBuildDefinitionArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .name("existing")
      *             .build());
      * 
-     *         ctx.export("id", exampleGetBuildDefinition.applyValue(getBuildDefinitionResult -> getBuildDefinitionResult.id()));
+     *         ctx.export("id", exampleGetBuildDefinition.id());
      *     }
      * }
      * }
@@ -897,11 +897,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var exampleGetBuildDefinition = AzuredevopsFunctions.getBuildDefinition(GetBuildDefinitionArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .name("existing")
      *             .build());
      * 
-     *         ctx.export("id", exampleGetBuildDefinition.applyValue(getBuildDefinitionResult -> getBuildDefinitionResult.id()));
+     *         ctx.export("id", exampleGetBuildDefinition.id());
      *     }
      * }
      * }
@@ -946,11 +946,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var exampleGetBuildDefinition = AzuredevopsFunctions.getBuildDefinition(GetBuildDefinitionArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .name("existing")
      *             .build());
      * 
-     *         ctx.export("id", exampleGetBuildDefinition.applyValue(getBuildDefinitionResult -> getBuildDefinitionResult.id()));
+     *         ctx.export("id", exampleGetBuildDefinition.id());
      *     }
      * }
      * }
@@ -988,9 +988,9 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AzuredevopsFunctions.getClientConfig();
+     *         final var example = AzuredevopsFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("orgUrl", example.applyValue(getClientConfigResult -> getClientConfigResult.organizationUrl()));
+     *         ctx.export("orgUrl", example.organizationUrl());
      *     }
      * }
      * }
@@ -1028,9 +1028,9 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AzuredevopsFunctions.getClientConfig();
+     *         final var example = AzuredevopsFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("orgUrl", example.applyValue(getClientConfigResult -> getClientConfigResult.organizationUrl()));
+     *         ctx.export("orgUrl", example.organizationUrl());
      *     }
      * }
      * }
@@ -1068,9 +1068,9 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AzuredevopsFunctions.getClientConfig();
+     *         final var example = AzuredevopsFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("orgUrl", example.applyValue(getClientConfigResult -> getClientConfigResult.organizationUrl()));
+     *         ctx.export("orgUrl", example.organizationUrl());
      *     }
      * }
      * }
@@ -1108,9 +1108,9 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AzuredevopsFunctions.getClientConfig();
+     *         final var example = AzuredevopsFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("orgUrl", example.applyValue(getClientConfigResult -> getClientConfigResult.organizationUrl()));
+     *         ctx.export("orgUrl", example.organizationUrl());
      *     }
      * }
      * }
@@ -1148,9 +1148,9 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AzuredevopsFunctions.getClientConfig();
+     *         final var example = AzuredevopsFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("orgUrl", example.applyValue(getClientConfigResult -> getClientConfigResult.organizationUrl()));
+     *         ctx.export("orgUrl", example.organizationUrl());
      *     }
      * }
      * }
@@ -1188,9 +1188,9 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AzuredevopsFunctions.getClientConfig();
+     *         final var example = AzuredevopsFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("orgUrl", example.applyValue(getClientConfigResult -> getClientConfigResult.organizationUrl()));
+     *         ctx.export("orgUrl", example.organizationUrl());
      *     }
      * }
      * }
@@ -1228,9 +1228,9 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AzuredevopsFunctions.getClientConfig();
+     *         final var example = AzuredevopsFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("orgUrl", example.applyValue(getClientConfigResult -> getClientConfigResult.organizationUrl()));
+     *         ctx.export("orgUrl", example.organizationUrl());
      *     }
      * }
      * }
@@ -1273,7 +1273,7 @@ public final class AzuredevopsFunctions {
      *             .storageKey("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDescriptorResult -> getDescriptorResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1320,7 +1320,7 @@ public final class AzuredevopsFunctions {
      *             .storageKey("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDescriptorResult -> getDescriptorResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1367,7 +1367,7 @@ public final class AzuredevopsFunctions {
      *             .storageKey("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDescriptorResult -> getDescriptorResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1414,7 +1414,7 @@ public final class AzuredevopsFunctions {
      *             .storageKey("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDescriptorResult -> getDescriptorResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1461,7 +1461,7 @@ public final class AzuredevopsFunctions {
      *             .storageKey("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDescriptorResult -> getDescriptorResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1522,10 +1522,14 @@ public final class AzuredevopsFunctions {
      *             .description("Managed by Pulumi")
      *             .build());
      * 
-     *         final var example = AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .projectId(exampleProject.id())
-     *             .environmentId(exampleEnvironment.id())
-     *             .build());
+     *         final var example = Output.tuple(exampleProject.id(), exampleEnvironment.id()).applyValue(values -> {
+     *             var exampleProjectId = values.t1;
+     *             var exampleEnvironmentId = values.t2;
+     *             return AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *                 .projectId(exampleProjectId)
+     *                 .environmentId(exampleEnvironmentId)
+     *                 .build());
+     *         });
      * 
      *     }
      * }
@@ -1587,10 +1591,14 @@ public final class AzuredevopsFunctions {
      *             .description("Managed by Pulumi")
      *             .build());
      * 
-     *         final var example = AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .projectId(exampleProject.id())
-     *             .environmentId(exampleEnvironment.id())
-     *             .build());
+     *         final var example = Output.tuple(exampleProject.id(), exampleEnvironment.id()).applyValue(values -> {
+     *             var exampleProjectId = values.t1;
+     *             var exampleEnvironmentId = values.t2;
+     *             return AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *                 .projectId(exampleProjectId)
+     *                 .environmentId(exampleEnvironmentId)
+     *                 .build());
+     *         });
      * 
      *     }
      * }
@@ -1652,10 +1660,14 @@ public final class AzuredevopsFunctions {
      *             .description("Managed by Pulumi")
      *             .build());
      * 
-     *         final var example = AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .projectId(exampleProject.id())
-     *             .environmentId(exampleEnvironment.id())
-     *             .build());
+     *         final var example = Output.tuple(exampleProject.id(), exampleEnvironment.id()).applyValue(values -> {
+     *             var exampleProjectId = values.t1;
+     *             var exampleEnvironmentId = values.t2;
+     *             return AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *                 .projectId(exampleProjectId)
+     *                 .environmentId(exampleEnvironmentId)
+     *                 .build());
+     *         });
      * 
      *     }
      * }
@@ -1717,10 +1729,14 @@ public final class AzuredevopsFunctions {
      *             .description("Managed by Pulumi")
      *             .build());
      * 
-     *         final var example = AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .projectId(exampleProject.id())
-     *             .environmentId(exampleEnvironment.id())
-     *             .build());
+     *         final var example = Output.tuple(exampleProject.id(), exampleEnvironment.id()).applyValue(values -> {
+     *             var exampleProjectId = values.t1;
+     *             var exampleEnvironmentId = values.t2;
+     *             return AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *                 .projectId(exampleProjectId)
+     *                 .environmentId(exampleEnvironmentId)
+     *                 .build());
+     *         });
      * 
      *     }
      * }
@@ -1782,10 +1798,14 @@ public final class AzuredevopsFunctions {
      *             .description("Managed by Pulumi")
      *             .build());
      * 
-     *         final var example = AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .projectId(exampleProject.id())
-     *             .environmentId(exampleEnvironment.id())
-     *             .build());
+     *         final var example = Output.tuple(exampleProject.id(), exampleEnvironment.id()).applyValue(values -> {
+     *             var exampleProjectId = values.t1;
+     *             var exampleEnvironmentId = values.t2;
+     *             return AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *                 .projectId(exampleProjectId)
+     *                 .environmentId(exampleEnvironmentId)
+     *                 .build());
+     *         });
      * 
      *     }
      * }
@@ -1871,7 +1891,7 @@ public final class AzuredevopsFunctions {
      * 
      *         final var exampleGetFeed = AzuredevopsFunctions.getFeed(GetFeedArgs.builder()
      *             .name("releases")
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .build());
      * 
      *     }
@@ -1958,7 +1978,7 @@ public final class AzuredevopsFunctions {
      * 
      *         final var exampleGetFeed = AzuredevopsFunctions.getFeed(GetFeedArgs.builder()
      *             .name("releases")
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .build());
      * 
      *     }
@@ -2045,7 +2065,7 @@ public final class AzuredevopsFunctions {
      * 
      *         final var exampleGetFeed = AzuredevopsFunctions.getFeed(GetFeedArgs.builder()
      *             .name("releases")
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .build());
      * 
      *     }
@@ -2132,7 +2152,7 @@ public final class AzuredevopsFunctions {
      * 
      *         final var exampleGetFeed = AzuredevopsFunctions.getFeed(GetFeedArgs.builder()
      *             .name("releases")
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .build());
      * 
      *     }
@@ -2219,7 +2239,7 @@ public final class AzuredevopsFunctions {
      * 
      *         final var exampleGetFeed = AzuredevopsFunctions.getFeed(GetFeedArgs.builder()
      *             .name("releases")
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .build());
      * 
      *     }
@@ -2306,7 +2326,7 @@ public final class AzuredevopsFunctions {
      * 
      *         final var exampleGetFeed = AzuredevopsFunctions.getFeed(GetFeedArgs.builder()
      *             .name("releases")
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .build());
      * 
      *     }
@@ -2393,7 +2413,7 @@ public final class AzuredevopsFunctions {
      * 
      *         final var exampleGetFeed = AzuredevopsFunctions.getFeed(GetFeedArgs.builder()
      *             .name("releases")
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .build());
      * 
      *     }
@@ -2446,7 +2466,7 @@ public final class AzuredevopsFunctions {
      * 
      *         // Load a specific Git repository by name
      *         final var example-single-repo = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .name("Example Repository")
      *             .build());
      * 
@@ -2500,7 +2520,7 @@ public final class AzuredevopsFunctions {
      * 
      *         // Load a specific Git repository by name
      *         final var example-single-repo = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .name("Example Repository")
      *             .build());
      * 
@@ -2554,7 +2574,7 @@ public final class AzuredevopsFunctions {
      * 
      *         // Load a specific Git repository by name
      *         final var example-single-repo = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .name("Example Repository")
      *             .build());
      * 
@@ -2608,7 +2628,7 @@ public final class AzuredevopsFunctions {
      * 
      *         // Load a specific Git repository by name
      *         final var example-single-repo = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .name("Example Repository")
      *             .build());
      * 
@@ -2662,7 +2682,7 @@ public final class AzuredevopsFunctions {
      * 
      *         // Load a specific Git repository by name
      *         final var example-single-repo = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .name("Example Repository")
      *             .build());
      * 
@@ -2714,18 +2734,18 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var exampleGetGroup = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .name("Example Group")
      *             .build());
      * 
-     *         ctx.export("groupId", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.id()));
-     *         ctx.export("groupDescriptor", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.descriptor()));
+     *         ctx.export("groupId", exampleGetGroup.id());
+     *         ctx.export("groupDescriptor", exampleGetGroup.descriptor());
      *         final var example-collection-group = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
      *             .name("Project Collection Administrators")
      *             .build());
      * 
-     *         ctx.export("collectionGroupId", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.id()));
-     *         ctx.export("collectionGroupDescriptor", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.descriptor()));
+     *         ctx.export("collectionGroupId", exampleGetGroup.id());
+     *         ctx.export("collectionGroupDescriptor", exampleGetGroup.descriptor());
      *     }
      * }
      * }
@@ -2779,18 +2799,18 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var exampleGetGroup = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .name("Example Group")
      *             .build());
      * 
-     *         ctx.export("groupId", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.id()));
-     *         ctx.export("groupDescriptor", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.descriptor()));
+     *         ctx.export("groupId", exampleGetGroup.id());
+     *         ctx.export("groupDescriptor", exampleGetGroup.descriptor());
      *         final var example-collection-group = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
      *             .name("Project Collection Administrators")
      *             .build());
      * 
-     *         ctx.export("collectionGroupId", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.id()));
-     *         ctx.export("collectionGroupDescriptor", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.descriptor()));
+     *         ctx.export("collectionGroupId", exampleGetGroup.id());
+     *         ctx.export("collectionGroupDescriptor", exampleGetGroup.descriptor());
      *     }
      * }
      * }
@@ -2844,18 +2864,18 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var exampleGetGroup = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .name("Example Group")
      *             .build());
      * 
-     *         ctx.export("groupId", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.id()));
-     *         ctx.export("groupDescriptor", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.descriptor()));
+     *         ctx.export("groupId", exampleGetGroup.id());
+     *         ctx.export("groupDescriptor", exampleGetGroup.descriptor());
      *         final var example-collection-group = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
      *             .name("Project Collection Administrators")
      *             .build());
      * 
-     *         ctx.export("collectionGroupId", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.id()));
-     *         ctx.export("collectionGroupDescriptor", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.descriptor()));
+     *         ctx.export("collectionGroupId", exampleGetGroup.id());
+     *         ctx.export("collectionGroupDescriptor", exampleGetGroup.descriptor());
      *     }
      * }
      * }
@@ -2909,18 +2929,18 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var exampleGetGroup = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .name("Example Group")
      *             .build());
      * 
-     *         ctx.export("groupId", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.id()));
-     *         ctx.export("groupDescriptor", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.descriptor()));
+     *         ctx.export("groupId", exampleGetGroup.id());
+     *         ctx.export("groupDescriptor", exampleGetGroup.descriptor());
      *         final var example-collection-group = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
      *             .name("Project Collection Administrators")
      *             .build());
      * 
-     *         ctx.export("collectionGroupId", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.id()));
-     *         ctx.export("collectionGroupDescriptor", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.descriptor()));
+     *         ctx.export("collectionGroupId", exampleGetGroup.id());
+     *         ctx.export("collectionGroupDescriptor", exampleGetGroup.descriptor());
      *     }
      * }
      * }
@@ -2974,18 +2994,18 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var exampleGetGroup = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .name("Example Group")
      *             .build());
      * 
-     *         ctx.export("groupId", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.id()));
-     *         ctx.export("groupDescriptor", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.descriptor()));
+     *         ctx.export("groupId", exampleGetGroup.id());
+     *         ctx.export("groupDescriptor", exampleGetGroup.descriptor());
      *         final var example-collection-group = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
      *             .name("Project Collection Administrators")
      *             .build());
      * 
-     *         ctx.export("collectionGroupId", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.id()));
-     *         ctx.export("collectionGroupDescriptor", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.descriptor()));
+     *         ctx.export("collectionGroupId", exampleGetGroup.id());
+     *         ctx.export("collectionGroupDescriptor", exampleGetGroup.descriptor());
      *     }
      * }
      * }
@@ -3269,11 +3289,12 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         // load all existing groups inside an organization
-     *         final var example-all-groups = AzuredevopsFunctions.getGroups();
+     *         final var example-all-groups = AzuredevopsFunctions.getGroups(GetGroupsArgs.builder()
+     *             .build());
      * 
      *         // load all existing groups inside a specific project
      *         final var example-project-groups = AzuredevopsFunctions.getGroups(GetGroupsArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .build());
      * 
      *     }
@@ -3324,11 +3345,12 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         // load all existing groups inside an organization
-     *         final var example-all-groups = AzuredevopsFunctions.getGroups();
+     *         final var example-all-groups = AzuredevopsFunctions.getGroups(GetGroupsArgs.builder()
+     *             .build());
      * 
      *         // load all existing groups inside a specific project
      *         final var example-project-groups = AzuredevopsFunctions.getGroups(GetGroupsArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .build());
      * 
      *     }
@@ -3379,11 +3401,12 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         // load all existing groups inside an organization
-     *         final var example-all-groups = AzuredevopsFunctions.getGroups();
+     *         final var example-all-groups = AzuredevopsFunctions.getGroups(GetGroupsArgs.builder()
+     *             .build());
      * 
      *         // load all existing groups inside a specific project
      *         final var example-project-groups = AzuredevopsFunctions.getGroups(GetGroupsArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .build());
      * 
      *     }
@@ -3434,11 +3457,12 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         // load all existing groups inside an organization
-     *         final var example-all-groups = AzuredevopsFunctions.getGroups();
+     *         final var example-all-groups = AzuredevopsFunctions.getGroups(GetGroupsArgs.builder()
+     *             .build());
      * 
      *         // load all existing groups inside a specific project
      *         final var example-project-groups = AzuredevopsFunctions.getGroups(GetGroupsArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .build());
      * 
      *     }
@@ -3489,11 +3513,12 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         // load all existing groups inside an organization
-     *         final var example-all-groups = AzuredevopsFunctions.getGroups();
+     *         final var example-all-groups = AzuredevopsFunctions.getGroups(GetGroupsArgs.builder()
+     *             .build());
      * 
      *         // load all existing groups inside a specific project
      *         final var example-project-groups = AzuredevopsFunctions.getGroups(GetGroupsArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .build());
      * 
      *     }
@@ -3544,11 +3569,12 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         // load all existing groups inside an organization
-     *         final var example-all-groups = AzuredevopsFunctions.getGroups();
+     *         final var example-all-groups = AzuredevopsFunctions.getGroups(GetGroupsArgs.builder()
+     *             .build());
      * 
      *         // load all existing groups inside a specific project
      *         final var example-project-groups = AzuredevopsFunctions.getGroups(GetGroupsArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .build());
      * 
      *     }
@@ -3599,11 +3625,12 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         // load all existing groups inside an organization
-     *         final var example-all-groups = AzuredevopsFunctions.getGroups();
+     *         final var example-all-groups = AzuredevopsFunctions.getGroups(GetGroupsArgs.builder()
+     *             .build());
      * 
      *         // load all existing groups inside a specific project
      *         final var example-project-groups = AzuredevopsFunctions.getGroups(GetGroupsArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .build());
      * 
      *     }
@@ -3894,11 +3921,12 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         // load all existing groups inside an organization
-     *         final var example-all-groups = AzuredevopsFunctions.getIdentityGroups();
+     *         final var example-all-groups = AzuredevopsFunctions.getIdentityGroups(GetIdentityGroupsArgs.builder()
+     *             .build());
      * 
      *         // load all existing groups inside a specific project
      *         final var example-project-groups = AzuredevopsFunctions.getIdentityGroups(GetIdentityGroupsArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .build());
      * 
      *     }
@@ -3949,11 +3977,12 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         // load all existing groups inside an organization
-     *         final var example-all-groups = AzuredevopsFunctions.getIdentityGroups();
+     *         final var example-all-groups = AzuredevopsFunctions.getIdentityGroups(GetIdentityGroupsArgs.builder()
+     *             .build());
      * 
      *         // load all existing groups inside a specific project
      *         final var example-project-groups = AzuredevopsFunctions.getIdentityGroups(GetIdentityGroupsArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .build());
      * 
      *     }
@@ -4004,11 +4033,12 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         // load all existing groups inside an organization
-     *         final var example-all-groups = AzuredevopsFunctions.getIdentityGroups();
+     *         final var example-all-groups = AzuredevopsFunctions.getIdentityGroups(GetIdentityGroupsArgs.builder()
+     *             .build());
      * 
      *         // load all existing groups inside a specific project
      *         final var example-project-groups = AzuredevopsFunctions.getIdentityGroups(GetIdentityGroupsArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .build());
      * 
      *     }
@@ -4059,11 +4089,12 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         // load all existing groups inside an organization
-     *         final var example-all-groups = AzuredevopsFunctions.getIdentityGroups();
+     *         final var example-all-groups = AzuredevopsFunctions.getIdentityGroups(GetIdentityGroupsArgs.builder()
+     *             .build());
      * 
      *         // load all existing groups inside a specific project
      *         final var example-project-groups = AzuredevopsFunctions.getIdentityGroups(GetIdentityGroupsArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .build());
      * 
      *     }
@@ -4114,11 +4145,12 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         // load all existing groups inside an organization
-     *         final var example-all-groups = AzuredevopsFunctions.getIdentityGroups();
+     *         final var example-all-groups = AzuredevopsFunctions.getIdentityGroups(GetIdentityGroupsArgs.builder()
+     *             .build());
      * 
      *         // load all existing groups inside a specific project
      *         final var example-project-groups = AzuredevopsFunctions.getIdentityGroups(GetIdentityGroupsArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .build());
      * 
      *     }
@@ -4169,11 +4201,12 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         // load all existing groups inside an organization
-     *         final var example-all-groups = AzuredevopsFunctions.getIdentityGroups();
+     *         final var example-all-groups = AzuredevopsFunctions.getIdentityGroups(GetIdentityGroupsArgs.builder()
+     *             .build());
      * 
      *         // load all existing groups inside a specific project
      *         final var example-project-groups = AzuredevopsFunctions.getIdentityGroups(GetIdentityGroupsArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .build());
      * 
      *     }
@@ -4224,11 +4257,12 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         // load all existing groups inside an organization
-     *         final var example-all-groups = AzuredevopsFunctions.getIdentityGroups();
+     *         final var example-all-groups = AzuredevopsFunctions.getIdentityGroups(GetIdentityGroupsArgs.builder()
+     *             .build());
      * 
      *         // load all existing groups inside a specific project
      *         final var example-project-groups = AzuredevopsFunctions.getIdentityGroups(GetIdentityGroupsArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .build());
      * 
      *     }
@@ -4652,10 +4686,10 @@ public final class AzuredevopsFunctions {
      *             .name("Example Agent Pool")
      *             .build());
      * 
-     *         ctx.export("name", example.applyValue(getPoolResult -> getPoolResult.name()));
-     *         ctx.export("poolType", example.applyValue(getPoolResult -> getPoolResult.poolType()));
-     *         ctx.export("autoProvision", example.applyValue(getPoolResult -> getPoolResult.autoProvision()));
-     *         ctx.export("autoUpdate", example.applyValue(getPoolResult -> getPoolResult.autoUpdate()));
+     *         ctx.export("name", example.name());
+     *         ctx.export("poolType", example.poolType());
+     *         ctx.export("autoProvision", example.autoProvision());
+     *         ctx.export("autoUpdate", example.autoUpdate());
      *     }
      * }
      * }
@@ -4702,10 +4736,10 @@ public final class AzuredevopsFunctions {
      *             .name("Example Agent Pool")
      *             .build());
      * 
-     *         ctx.export("name", example.applyValue(getPoolResult -> getPoolResult.name()));
-     *         ctx.export("poolType", example.applyValue(getPoolResult -> getPoolResult.poolType()));
-     *         ctx.export("autoProvision", example.applyValue(getPoolResult -> getPoolResult.autoProvision()));
-     *         ctx.export("autoUpdate", example.applyValue(getPoolResult -> getPoolResult.autoUpdate()));
+     *         ctx.export("name", example.name());
+     *         ctx.export("poolType", example.poolType());
+     *         ctx.export("autoProvision", example.autoProvision());
+     *         ctx.export("autoUpdate", example.autoUpdate());
      *     }
      * }
      * }
@@ -4752,10 +4786,10 @@ public final class AzuredevopsFunctions {
      *             .name("Example Agent Pool")
      *             .build());
      * 
-     *         ctx.export("name", example.applyValue(getPoolResult -> getPoolResult.name()));
-     *         ctx.export("poolType", example.applyValue(getPoolResult -> getPoolResult.poolType()));
-     *         ctx.export("autoProvision", example.applyValue(getPoolResult -> getPoolResult.autoProvision()));
-     *         ctx.export("autoUpdate", example.applyValue(getPoolResult -> getPoolResult.autoUpdate()));
+     *         ctx.export("name", example.name());
+     *         ctx.export("poolType", example.poolType());
+     *         ctx.export("autoProvision", example.autoProvision());
+     *         ctx.export("autoUpdate", example.autoUpdate());
      *     }
      * }
      * }
@@ -4802,10 +4836,10 @@ public final class AzuredevopsFunctions {
      *             .name("Example Agent Pool")
      *             .build());
      * 
-     *         ctx.export("name", example.applyValue(getPoolResult -> getPoolResult.name()));
-     *         ctx.export("poolType", example.applyValue(getPoolResult -> getPoolResult.poolType()));
-     *         ctx.export("autoProvision", example.applyValue(getPoolResult -> getPoolResult.autoProvision()));
-     *         ctx.export("autoUpdate", example.applyValue(getPoolResult -> getPoolResult.autoUpdate()));
+     *         ctx.export("name", example.name());
+     *         ctx.export("poolType", example.poolType());
+     *         ctx.export("autoProvision", example.autoProvision());
+     *         ctx.export("autoUpdate", example.autoUpdate());
      *     }
      * }
      * }
@@ -4852,10 +4886,10 @@ public final class AzuredevopsFunctions {
      *             .name("Example Agent Pool")
      *             .build());
      * 
-     *         ctx.export("name", example.applyValue(getPoolResult -> getPoolResult.name()));
-     *         ctx.export("poolType", example.applyValue(getPoolResult -> getPoolResult.poolType()));
-     *         ctx.export("autoProvision", example.applyValue(getPoolResult -> getPoolResult.autoProvision()));
-     *         ctx.export("autoUpdate", example.applyValue(getPoolResult -> getPoolResult.autoUpdate()));
+     *         ctx.export("name", example.name());
+     *         ctx.export("poolType", example.poolType());
+     *         ctx.export("autoProvision", example.autoProvision());
+     *         ctx.export("autoUpdate", example.autoUpdate());
      *     }
      * }
      * }
@@ -4897,12 +4931,12 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AzuredevopsFunctions.getPools();
+     *         final var example = AzuredevopsFunctions.getPools(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("agentPoolName", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.name()).collect(toList()));
-     *         ctx.export("autoProvision", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.autoProvision()).collect(toList()));
-     *         ctx.export("autoUpdate", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.autoUpdate()).collect(toList()));
-     *         ctx.export("poolType", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.poolType()).collect(toList()));
+     *         ctx.export("agentPoolName", example.agentPools().stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("autoProvision", example.agentPools().stream().map(element -> element.autoProvision()).collect(toList()));
+     *         ctx.export("autoUpdate", example.agentPools().stream().map(element -> element.autoUpdate()).collect(toList()));
+     *         ctx.export("poolType", example.agentPools().stream().map(element -> element.poolType()).collect(toList()));
      *     }
      * }
      * }
@@ -4944,12 +4978,12 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AzuredevopsFunctions.getPools();
+     *         final var example = AzuredevopsFunctions.getPools(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("agentPoolName", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.name()).collect(toList()));
-     *         ctx.export("autoProvision", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.autoProvision()).collect(toList()));
-     *         ctx.export("autoUpdate", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.autoUpdate()).collect(toList()));
-     *         ctx.export("poolType", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.poolType()).collect(toList()));
+     *         ctx.export("agentPoolName", example.agentPools().stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("autoProvision", example.agentPools().stream().map(element -> element.autoProvision()).collect(toList()));
+     *         ctx.export("autoUpdate", example.agentPools().stream().map(element -> element.autoUpdate()).collect(toList()));
+     *         ctx.export("poolType", example.agentPools().stream().map(element -> element.poolType()).collect(toList()));
      *     }
      * }
      * }
@@ -4991,12 +5025,12 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AzuredevopsFunctions.getPools();
+     *         final var example = AzuredevopsFunctions.getPools(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("agentPoolName", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.name()).collect(toList()));
-     *         ctx.export("autoProvision", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.autoProvision()).collect(toList()));
-     *         ctx.export("autoUpdate", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.autoUpdate()).collect(toList()));
-     *         ctx.export("poolType", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.poolType()).collect(toList()));
+     *         ctx.export("agentPoolName", example.agentPools().stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("autoProvision", example.agentPools().stream().map(element -> element.autoProvision()).collect(toList()));
+     *         ctx.export("autoUpdate", example.agentPools().stream().map(element -> element.autoUpdate()).collect(toList()));
+     *         ctx.export("poolType", example.agentPools().stream().map(element -> element.poolType()).collect(toList()));
      *     }
      * }
      * }
@@ -5038,12 +5072,12 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AzuredevopsFunctions.getPools();
+     *         final var example = AzuredevopsFunctions.getPools(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("agentPoolName", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.name()).collect(toList()));
-     *         ctx.export("autoProvision", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.autoProvision()).collect(toList()));
-     *         ctx.export("autoUpdate", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.autoUpdate()).collect(toList()));
-     *         ctx.export("poolType", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.poolType()).collect(toList()));
+     *         ctx.export("agentPoolName", example.agentPools().stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("autoProvision", example.agentPools().stream().map(element -> element.autoProvision()).collect(toList()));
+     *         ctx.export("autoUpdate", example.agentPools().stream().map(element -> element.autoUpdate()).collect(toList()));
+     *         ctx.export("poolType", example.agentPools().stream().map(element -> element.poolType()).collect(toList()));
      *     }
      * }
      * }
@@ -5085,12 +5119,12 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AzuredevopsFunctions.getPools();
+     *         final var example = AzuredevopsFunctions.getPools(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("agentPoolName", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.name()).collect(toList()));
-     *         ctx.export("autoProvision", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.autoProvision()).collect(toList()));
-     *         ctx.export("autoUpdate", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.autoUpdate()).collect(toList()));
-     *         ctx.export("poolType", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.poolType()).collect(toList()));
+     *         ctx.export("agentPoolName", example.agentPools().stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("autoProvision", example.agentPools().stream().map(element -> element.autoProvision()).collect(toList()));
+     *         ctx.export("autoUpdate", example.agentPools().stream().map(element -> element.autoUpdate()).collect(toList()));
+     *         ctx.export("poolType", example.agentPools().stream().map(element -> element.poolType()).collect(toList()));
      *     }
      * }
      * }
@@ -5132,12 +5166,12 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AzuredevopsFunctions.getPools();
+     *         final var example = AzuredevopsFunctions.getPools(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("agentPoolName", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.name()).collect(toList()));
-     *         ctx.export("autoProvision", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.autoProvision()).collect(toList()));
-     *         ctx.export("autoUpdate", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.autoUpdate()).collect(toList()));
-     *         ctx.export("poolType", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.poolType()).collect(toList()));
+     *         ctx.export("agentPoolName", example.agentPools().stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("autoProvision", example.agentPools().stream().map(element -> element.autoProvision()).collect(toList()));
+     *         ctx.export("autoUpdate", example.agentPools().stream().map(element -> element.autoUpdate()).collect(toList()));
+     *         ctx.export("poolType", example.agentPools().stream().map(element -> element.poolType()).collect(toList()));
      *     }
      * }
      * }
@@ -5179,12 +5213,12 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AzuredevopsFunctions.getPools();
+     *         final var example = AzuredevopsFunctions.getPools(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("agentPoolName", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.name()).collect(toList()));
-     *         ctx.export("autoProvision", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.autoProvision()).collect(toList()));
-     *         ctx.export("autoUpdate", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.autoUpdate()).collect(toList()));
-     *         ctx.export("poolType", example.applyValue(getPoolsResult -> getPoolsResult.agentPools()).stream().map(element -> element.poolType()).collect(toList()));
+     *         ctx.export("agentPoolName", example.agentPools().stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("autoProvision", example.agentPools().stream().map(element -> element.autoProvision()).collect(toList()));
+     *         ctx.export("autoUpdate", example.agentPools().stream().map(element -> element.autoUpdate()).collect(toList()));
+     *         ctx.export("poolType", example.agentPools().stream().map(element -> element.poolType()).collect(toList()));
      *     }
      * }
      * }
@@ -5231,7 +5265,7 @@ public final class AzuredevopsFunctions {
      *             .name("Example Project")
      *             .build());
      * 
-     *         ctx.export("project", example.applyValue(getProjectResult -> getProjectResult));
+     *         ctx.export("project", example);
      *     }
      * }
      * }
@@ -5283,7 +5317,7 @@ public final class AzuredevopsFunctions {
      *             .name("Example Project")
      *             .build());
      * 
-     *         ctx.export("project", example.applyValue(getProjectResult -> getProjectResult));
+     *         ctx.export("project", example);
      *     }
      * }
      * }
@@ -5335,7 +5369,7 @@ public final class AzuredevopsFunctions {
      *             .name("Example Project")
      *             .build());
      * 
-     *         ctx.export("project", example.applyValue(getProjectResult -> getProjectResult));
+     *         ctx.export("project", example);
      *     }
      * }
      * }
@@ -5387,7 +5421,7 @@ public final class AzuredevopsFunctions {
      *             .name("Example Project")
      *             .build());
      * 
-     *         ctx.export("project", example.applyValue(getProjectResult -> getProjectResult));
+     *         ctx.export("project", example);
      *     }
      * }
      * }
@@ -5439,7 +5473,7 @@ public final class AzuredevopsFunctions {
      *             .name("Example Project")
      *             .build());
      * 
-     *         ctx.export("project", example.applyValue(getProjectResult -> getProjectResult));
+     *         ctx.export("project", example);
      *     }
      * }
      * }
@@ -5491,7 +5525,7 @@ public final class AzuredevopsFunctions {
      *             .name("Example Project")
      *             .build());
      * 
-     *         ctx.export("project", example.applyValue(getProjectResult -> getProjectResult));
+     *         ctx.export("project", example);
      *     }
      * }
      * }
@@ -5543,7 +5577,7 @@ public final class AzuredevopsFunctions {
      *             .name("Example Project")
      *             .build());
      * 
-     *         ctx.export("project", example.applyValue(getProjectResult -> getProjectResult));
+     *         ctx.export("project", example);
      *     }
      * }
      * }
@@ -5596,10 +5630,10 @@ public final class AzuredevopsFunctions {
      *             .state("wellFormed")
      *             .build());
      * 
-     *         ctx.export("projectId", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.projectId()).collect(toList()));
-     *         ctx.export("name", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.name()).collect(toList()));
-     *         ctx.export("projectUrl", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.projectUrl()).collect(toList()));
-     *         ctx.export("state", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.state()).collect(toList()));
+     *         ctx.export("projectId", example.projects().stream().map(element -> element.projectId()).collect(toList()));
+     *         ctx.export("name", example.projects().stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("projectUrl", example.projects().stream().map(element -> element.projectUrl()).collect(toList()));
+     *         ctx.export("state", example.projects().stream().map(element -> element.state()).collect(toList()));
      *     }
      * }
      * }
@@ -5647,10 +5681,10 @@ public final class AzuredevopsFunctions {
      *             .state("wellFormed")
      *             .build());
      * 
-     *         ctx.export("projectId", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.projectId()).collect(toList()));
-     *         ctx.export("name", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.name()).collect(toList()));
-     *         ctx.export("projectUrl", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.projectUrl()).collect(toList()));
-     *         ctx.export("state", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.state()).collect(toList()));
+     *         ctx.export("projectId", example.projects().stream().map(element -> element.projectId()).collect(toList()));
+     *         ctx.export("name", example.projects().stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("projectUrl", example.projects().stream().map(element -> element.projectUrl()).collect(toList()));
+     *         ctx.export("state", example.projects().stream().map(element -> element.state()).collect(toList()));
      *     }
      * }
      * }
@@ -5698,10 +5732,10 @@ public final class AzuredevopsFunctions {
      *             .state("wellFormed")
      *             .build());
      * 
-     *         ctx.export("projectId", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.projectId()).collect(toList()));
-     *         ctx.export("name", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.name()).collect(toList()));
-     *         ctx.export("projectUrl", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.projectUrl()).collect(toList()));
-     *         ctx.export("state", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.state()).collect(toList()));
+     *         ctx.export("projectId", example.projects().stream().map(element -> element.projectId()).collect(toList()));
+     *         ctx.export("name", example.projects().stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("projectUrl", example.projects().stream().map(element -> element.projectUrl()).collect(toList()));
+     *         ctx.export("state", example.projects().stream().map(element -> element.state()).collect(toList()));
      *     }
      * }
      * }
@@ -5749,10 +5783,10 @@ public final class AzuredevopsFunctions {
      *             .state("wellFormed")
      *             .build());
      * 
-     *         ctx.export("projectId", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.projectId()).collect(toList()));
-     *         ctx.export("name", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.name()).collect(toList()));
-     *         ctx.export("projectUrl", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.projectUrl()).collect(toList()));
-     *         ctx.export("state", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.state()).collect(toList()));
+     *         ctx.export("projectId", example.projects().stream().map(element -> element.projectId()).collect(toList()));
+     *         ctx.export("name", example.projects().stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("projectUrl", example.projects().stream().map(element -> element.projectUrl()).collect(toList()));
+     *         ctx.export("state", example.projects().stream().map(element -> element.state()).collect(toList()));
      *     }
      * }
      * }
@@ -5800,10 +5834,10 @@ public final class AzuredevopsFunctions {
      *             .state("wellFormed")
      *             .build());
      * 
-     *         ctx.export("projectId", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.projectId()).collect(toList()));
-     *         ctx.export("name", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.name()).collect(toList()));
-     *         ctx.export("projectUrl", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.projectUrl()).collect(toList()));
-     *         ctx.export("state", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.state()).collect(toList()));
+     *         ctx.export("projectId", example.projects().stream().map(element -> element.projectId()).collect(toList()));
+     *         ctx.export("name", example.projects().stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("projectUrl", example.projects().stream().map(element -> element.projectUrl()).collect(toList()));
+     *         ctx.export("state", example.projects().stream().map(element -> element.state()).collect(toList()));
      *     }
      * }
      * }
@@ -5851,10 +5885,10 @@ public final class AzuredevopsFunctions {
      *             .state("wellFormed")
      *             .build());
      * 
-     *         ctx.export("projectId", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.projectId()).collect(toList()));
-     *         ctx.export("name", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.name()).collect(toList()));
-     *         ctx.export("projectUrl", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.projectUrl()).collect(toList()));
-     *         ctx.export("state", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.state()).collect(toList()));
+     *         ctx.export("projectId", example.projects().stream().map(element -> element.projectId()).collect(toList()));
+     *         ctx.export("name", example.projects().stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("projectUrl", example.projects().stream().map(element -> element.projectUrl()).collect(toList()));
+     *         ctx.export("state", example.projects().stream().map(element -> element.state()).collect(toList()));
      *     }
      * }
      * }
@@ -5902,10 +5936,10 @@ public final class AzuredevopsFunctions {
      *             .state("wellFormed")
      *             .build());
      * 
-     *         ctx.export("projectId", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.projectId()).collect(toList()));
-     *         ctx.export("name", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.name()).collect(toList()));
-     *         ctx.export("projectUrl", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.projectUrl()).collect(toList()));
-     *         ctx.export("state", example.applyValue(getProjectsResult -> getProjectsResult.projects()).stream().map(element -> element.state()).collect(toList()));
+     *         ctx.export("projectId", example.projects().stream().map(element -> element.projectId()).collect(toList()));
+     *         ctx.export("name", example.projects().stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("projectUrl", example.projects().stream().map(element -> element.projectUrl()).collect(toList()));
+     *         ctx.export("state", example.projects().stream().map(element -> element.state()).collect(toList()));
      *     }
      * }
      * }
@@ -5956,13 +5990,13 @@ public final class AzuredevopsFunctions {
      * 
      *         // Load all Git repositories of a project, which are accessible for the current user
      *         final var example-all-repos = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .includeHidden(true)
      *             .build());
      * 
      *         // Load a specific Git repository by name
      *         final var example-single-repo = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .name("Example Repository")
      *             .build());
      * 
@@ -6016,13 +6050,13 @@ public final class AzuredevopsFunctions {
      * 
      *         // Load all Git repositories of a project, which are accessible for the current user
      *         final var example-all-repos = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .includeHidden(true)
      *             .build());
      * 
      *         // Load a specific Git repository by name
      *         final var example-single-repo = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .name("Example Repository")
      *             .build());
      * 
@@ -6076,13 +6110,13 @@ public final class AzuredevopsFunctions {
      * 
      *         // Load all Git repositories of a project, which are accessible for the current user
      *         final var example-all-repos = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .includeHidden(true)
      *             .build());
      * 
      *         // Load a specific Git repository by name
      *         final var example-single-repo = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .name("Example Repository")
      *             .build());
      * 
@@ -6136,13 +6170,13 @@ public final class AzuredevopsFunctions {
      * 
      *         // Load all Git repositories of a project, which are accessible for the current user
      *         final var example-all-repos = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .includeHidden(true)
      *             .build());
      * 
      *         // Load a specific Git repository by name
      *         final var example-single-repo = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .name("Example Repository")
      *             .build());
      * 
@@ -6196,13 +6230,13 @@ public final class AzuredevopsFunctions {
      * 
      *         // Load all Git repositories of a project, which are accessible for the current user
      *         final var example-all-repos = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .includeHidden(true)
      *             .build());
      * 
      *         // Load a specific Git repository by name
      *         final var example-single-repo = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .name("Example Repository")
      *             .build());
      * 
@@ -6256,13 +6290,13 @@ public final class AzuredevopsFunctions {
      * 
      *         // Load all Git repositories of a project, which are accessible for the current user
      *         final var example-all-repos = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .includeHidden(true)
      *             .build());
      * 
      *         // Load a specific Git repository by name
      *         final var example-single-repo = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .name("Example Repository")
      *             .build());
      * 
@@ -6316,13 +6350,13 @@ public final class AzuredevopsFunctions {
      * 
      *         // Load all Git repositories of a project, which are accessible for the current user
      *         final var example-all-repos = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .includeHidden(true)
      *             .build());
      * 
      *         // Load a specific Git repository by name
      *         final var example-single-repo = AzuredevopsFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .name("Example Repository")
      *             .build());
      * 
@@ -6611,11 +6645,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointAzureRM(GetServiceEndpointAzureRMArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(sample.id())
      *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointName", serviceendpoint.applyValue(getServiceEndpointAzureRMResult -> getServiceEndpointAzureRMResult.serviceEndpointName()));
+     *         ctx.export("serviceEndpointName", serviceendpoint.serviceEndpointName());
      *     }
      * }
      * }
@@ -6653,11 +6687,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointAzureRM(GetServiceEndpointAzureRMArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(sample.id())
      *             .serviceEndpointName("Example-Service-Endpoint")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", serviceendpoint.applyValue(getServiceEndpointAzureRMResult -> getServiceEndpointAzureRMResult.id()));
+     *         ctx.export("serviceEndpointId", serviceendpoint.id());
      *     }
      * }
      * }
@@ -6704,11 +6738,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointAzureRM(GetServiceEndpointAzureRMArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(sample.id())
      *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointName", serviceendpoint.applyValue(getServiceEndpointAzureRMResult -> getServiceEndpointAzureRMResult.serviceEndpointName()));
+     *         ctx.export("serviceEndpointName", serviceendpoint.serviceEndpointName());
      *     }
      * }
      * }
@@ -6746,11 +6780,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointAzureRM(GetServiceEndpointAzureRMArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(sample.id())
      *             .serviceEndpointName("Example-Service-Endpoint")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", serviceendpoint.applyValue(getServiceEndpointAzureRMResult -> getServiceEndpointAzureRMResult.id()));
+     *         ctx.export("serviceEndpointId", serviceendpoint.id());
      *     }
      * }
      * }
@@ -6797,11 +6831,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointAzureRM(GetServiceEndpointAzureRMArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(sample.id())
      *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointName", serviceendpoint.applyValue(getServiceEndpointAzureRMResult -> getServiceEndpointAzureRMResult.serviceEndpointName()));
+     *         ctx.export("serviceEndpointName", serviceendpoint.serviceEndpointName());
      *     }
      * }
      * }
@@ -6839,11 +6873,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointAzureRM(GetServiceEndpointAzureRMArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(sample.id())
      *             .serviceEndpointName("Example-Service-Endpoint")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", serviceendpoint.applyValue(getServiceEndpointAzureRMResult -> getServiceEndpointAzureRMResult.id()));
+     *         ctx.export("serviceEndpointId", serviceendpoint.id());
      *     }
      * }
      * }
@@ -6890,11 +6924,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointAzureRM(GetServiceEndpointAzureRMArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(sample.id())
      *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointName", serviceendpoint.applyValue(getServiceEndpointAzureRMResult -> getServiceEndpointAzureRMResult.serviceEndpointName()));
+     *         ctx.export("serviceEndpointName", serviceendpoint.serviceEndpointName());
      *     }
      * }
      * }
@@ -6932,11 +6966,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointAzureRM(GetServiceEndpointAzureRMArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(sample.id())
      *             .serviceEndpointName("Example-Service-Endpoint")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", serviceendpoint.applyValue(getServiceEndpointAzureRMResult -> getServiceEndpointAzureRMResult.id()));
+     *         ctx.export("serviceEndpointId", serviceendpoint.id());
      *     }
      * }
      * }
@@ -6983,11 +7017,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointAzureRM(GetServiceEndpointAzureRMArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(sample.id())
      *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointName", serviceendpoint.applyValue(getServiceEndpointAzureRMResult -> getServiceEndpointAzureRMResult.serviceEndpointName()));
+     *         ctx.export("serviceEndpointName", serviceendpoint.serviceEndpointName());
      *     }
      * }
      * }
@@ -7025,11 +7059,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointAzureRM(GetServiceEndpointAzureRMArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(sample.id())
      *             .serviceEndpointName("Example-Service-Endpoint")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", serviceendpoint.applyValue(getServiceEndpointAzureRMResult -> getServiceEndpointAzureRMResult.id()));
+     *         ctx.export("serviceEndpointId", serviceendpoint.id());
      *     }
      * }
      * }
@@ -7076,11 +7110,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointGithub(GetServiceEndpointGithubArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(sample.id())
      *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointName", serviceendpoint.applyValue(getServiceEndpointGithubResult -> getServiceEndpointGithubResult.serviceEndpointName()));
+     *         ctx.export("serviceEndpointName", serviceendpoint.serviceEndpointName());
      *     }
      * }
      * }
@@ -7118,11 +7152,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointGithub(GetServiceEndpointGithubArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(sample.id())
      *             .serviceEndpointName("Example-Service-Endpoint")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", serviceendpoint.applyValue(getServiceEndpointGithubResult -> getServiceEndpointGithubResult.id()));
+     *         ctx.export("serviceEndpointId", serviceendpoint.id());
      *     }
      * }
      * }
@@ -7169,11 +7203,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointGithub(GetServiceEndpointGithubArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(sample.id())
      *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointName", serviceendpoint.applyValue(getServiceEndpointGithubResult -> getServiceEndpointGithubResult.serviceEndpointName()));
+     *         ctx.export("serviceEndpointName", serviceendpoint.serviceEndpointName());
      *     }
      * }
      * }
@@ -7211,11 +7245,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointGithub(GetServiceEndpointGithubArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(sample.id())
      *             .serviceEndpointName("Example-Service-Endpoint")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", serviceendpoint.applyValue(getServiceEndpointGithubResult -> getServiceEndpointGithubResult.id()));
+     *         ctx.export("serviceEndpointId", serviceendpoint.id());
      *     }
      * }
      * }
@@ -7262,11 +7296,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointGithub(GetServiceEndpointGithubArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(sample.id())
      *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointName", serviceendpoint.applyValue(getServiceEndpointGithubResult -> getServiceEndpointGithubResult.serviceEndpointName()));
+     *         ctx.export("serviceEndpointName", serviceendpoint.serviceEndpointName());
      *     }
      * }
      * }
@@ -7304,11 +7338,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointGithub(GetServiceEndpointGithubArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(sample.id())
      *             .serviceEndpointName("Example-Service-Endpoint")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", serviceendpoint.applyValue(getServiceEndpointGithubResult -> getServiceEndpointGithubResult.id()));
+     *         ctx.export("serviceEndpointId", serviceendpoint.id());
      *     }
      * }
      * }
@@ -7355,11 +7389,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointGithub(GetServiceEndpointGithubArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(sample.id())
      *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointName", serviceendpoint.applyValue(getServiceEndpointGithubResult -> getServiceEndpointGithubResult.serviceEndpointName()));
+     *         ctx.export("serviceEndpointName", serviceendpoint.serviceEndpointName());
      *     }
      * }
      * }
@@ -7397,11 +7431,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointGithub(GetServiceEndpointGithubArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(sample.id())
      *             .serviceEndpointName("Example-Service-Endpoint")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", serviceendpoint.applyValue(getServiceEndpointGithubResult -> getServiceEndpointGithubResult.id()));
+     *         ctx.export("serviceEndpointId", serviceendpoint.id());
      *     }
      * }
      * }
@@ -7448,11 +7482,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointGithub(GetServiceEndpointGithubArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(sample.id())
      *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointName", serviceendpoint.applyValue(getServiceEndpointGithubResult -> getServiceEndpointGithubResult.serviceEndpointName()));
+     *         ctx.export("serviceEndpointName", serviceendpoint.serviceEndpointName());
      *     }
      * }
      * }
@@ -7490,11 +7524,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var serviceendpoint = AzuredevopsFunctions.getServiceEndpointGithub(GetServiceEndpointGithubArgs.builder()
-     *             .projectId(sample.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(sample.id())
      *             .serviceEndpointName("Example-Service-Endpoint")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", serviceendpoint.applyValue(getServiceEndpointGithubResult -> getServiceEndpointGithubResult.id()));
+     *         ctx.export("serviceEndpointId", serviceendpoint.id());
      *     }
      * }
      * }
@@ -7537,7 +7571,7 @@ public final class AzuredevopsFunctions {
      *             .displayName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getServicePrincipalResult -> getServicePrincipalResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -7580,7 +7614,7 @@ public final class AzuredevopsFunctions {
      *             .displayName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getServicePrincipalResult -> getServicePrincipalResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -7623,7 +7657,7 @@ public final class AzuredevopsFunctions {
      *             .displayName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getServicePrincipalResult -> getServicePrincipalResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -7666,7 +7700,7 @@ public final class AzuredevopsFunctions {
      *             .displayName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getServicePrincipalResult -> getServicePrincipalResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -7709,7 +7743,7 @@ public final class AzuredevopsFunctions {
      *             .displayName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getServicePrincipalResult -> getServicePrincipalResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -7753,7 +7787,7 @@ public final class AzuredevopsFunctions {
      *             .serviceEndpointName("Example Azure Container Registry")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", example.applyValue(getServiceendpointAzurecrResult -> getServiceendpointAzurecrResult.id()));
+     *         ctx.export("serviceEndpointId", example.id());
      *     }
      * }
      * }
@@ -7797,7 +7831,7 @@ public final class AzuredevopsFunctions {
      *             .serviceEndpointName("Example Azure Container Registry")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", example.applyValue(getServiceendpointAzurecrResult -> getServiceendpointAzurecrResult.id()));
+     *         ctx.export("serviceEndpointId", example.id());
      *     }
      * }
      * }
@@ -7841,7 +7875,7 @@ public final class AzuredevopsFunctions {
      *             .serviceEndpointName("Example Azure Container Registry")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", example.applyValue(getServiceendpointAzurecrResult -> getServiceendpointAzurecrResult.id()));
+     *         ctx.export("serviceEndpointId", example.id());
      *     }
      * }
      * }
@@ -7885,7 +7919,7 @@ public final class AzuredevopsFunctions {
      *             .serviceEndpointName("Example Azure Container Registry")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", example.applyValue(getServiceendpointAzurecrResult -> getServiceendpointAzurecrResult.id()));
+     *         ctx.export("serviceEndpointId", example.id());
      *     }
      * }
      * }
@@ -7929,7 +7963,7 @@ public final class AzuredevopsFunctions {
      *             .serviceEndpointName("Example Azure Container Registry")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", example.applyValue(getServiceendpointAzurecrResult -> getServiceendpointAzurecrResult.id()));
+     *         ctx.export("serviceEndpointId", example.id());
      *     }
      * }
      * }
@@ -7976,11 +8010,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var exampleGetServiceendpointBitbucket = AzuredevopsFunctions.getServiceendpointBitbucket(GetServiceendpointBitbucketArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointName", exampleGetServiceendpointBitbucket.applyValue(getServiceendpointBitbucketResult -> getServiceendpointBitbucketResult.serviceEndpointName()));
+     *         ctx.export("serviceEndpointName", exampleGetServiceendpointBitbucket.serviceEndpointName());
      *     }
      * }
      * }
@@ -8018,11 +8052,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var exampleGetServiceendpointBitbucket = AzuredevopsFunctions.getServiceendpointBitbucket(GetServiceendpointBitbucketArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .serviceEndpointName("Example")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", exampleGetServiceendpointBitbucket.applyValue(getServiceendpointBitbucketResult -> getServiceendpointBitbucketResult.id()));
+     *         ctx.export("serviceEndpointId", exampleGetServiceendpointBitbucket.id());
      *     }
      * }
      * }
@@ -8073,11 +8107,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var exampleGetServiceendpointBitbucket = AzuredevopsFunctions.getServiceendpointBitbucket(GetServiceendpointBitbucketArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointName", exampleGetServiceendpointBitbucket.applyValue(getServiceendpointBitbucketResult -> getServiceendpointBitbucketResult.serviceEndpointName()));
+     *         ctx.export("serviceEndpointName", exampleGetServiceendpointBitbucket.serviceEndpointName());
      *     }
      * }
      * }
@@ -8115,11 +8149,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var exampleGetServiceendpointBitbucket = AzuredevopsFunctions.getServiceendpointBitbucket(GetServiceendpointBitbucketArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .serviceEndpointName("Example")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", exampleGetServiceendpointBitbucket.applyValue(getServiceendpointBitbucketResult -> getServiceendpointBitbucketResult.id()));
+     *         ctx.export("serviceEndpointId", exampleGetServiceendpointBitbucket.id());
      *     }
      * }
      * }
@@ -8170,11 +8204,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var exampleGetServiceendpointBitbucket = AzuredevopsFunctions.getServiceendpointBitbucket(GetServiceendpointBitbucketArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointName", exampleGetServiceendpointBitbucket.applyValue(getServiceendpointBitbucketResult -> getServiceendpointBitbucketResult.serviceEndpointName()));
+     *         ctx.export("serviceEndpointName", exampleGetServiceendpointBitbucket.serviceEndpointName());
      *     }
      * }
      * }
@@ -8212,11 +8246,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var exampleGetServiceendpointBitbucket = AzuredevopsFunctions.getServiceendpointBitbucket(GetServiceendpointBitbucketArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .serviceEndpointName("Example")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", exampleGetServiceendpointBitbucket.applyValue(getServiceendpointBitbucketResult -> getServiceendpointBitbucketResult.id()));
+     *         ctx.export("serviceEndpointId", exampleGetServiceendpointBitbucket.id());
      *     }
      * }
      * }
@@ -8267,11 +8301,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var exampleGetServiceendpointBitbucket = AzuredevopsFunctions.getServiceendpointBitbucket(GetServiceendpointBitbucketArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointName", exampleGetServiceendpointBitbucket.applyValue(getServiceendpointBitbucketResult -> getServiceendpointBitbucketResult.serviceEndpointName()));
+     *         ctx.export("serviceEndpointName", exampleGetServiceendpointBitbucket.serviceEndpointName());
      *     }
      * }
      * }
@@ -8309,11 +8343,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var exampleGetServiceendpointBitbucket = AzuredevopsFunctions.getServiceendpointBitbucket(GetServiceendpointBitbucketArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .serviceEndpointName("Example")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", exampleGetServiceendpointBitbucket.applyValue(getServiceendpointBitbucketResult -> getServiceendpointBitbucketResult.id()));
+     *         ctx.export("serviceEndpointId", exampleGetServiceendpointBitbucket.id());
      *     }
      * }
      * }
@@ -8364,11 +8398,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var exampleGetServiceendpointBitbucket = AzuredevopsFunctions.getServiceendpointBitbucket(GetServiceendpointBitbucketArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointName", exampleGetServiceendpointBitbucket.applyValue(getServiceendpointBitbucketResult -> getServiceendpointBitbucketResult.serviceEndpointName()));
+     *         ctx.export("serviceEndpointName", exampleGetServiceendpointBitbucket.serviceEndpointName());
      *     }
      * }
      * }
@@ -8406,11 +8440,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var exampleGetServiceendpointBitbucket = AzuredevopsFunctions.getServiceendpointBitbucket(GetServiceendpointBitbucketArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .serviceEndpointName("Example")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", exampleGetServiceendpointBitbucket.applyValue(getServiceendpointBitbucketResult -> getServiceendpointBitbucketResult.id()));
+     *         ctx.export("serviceEndpointId", exampleGetServiceendpointBitbucket.id());
      *     }
      * }
      * }
@@ -8458,7 +8492,7 @@ public final class AzuredevopsFunctions {
      *             .serviceEndpointName("Example npm")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", example.applyValue(getServiceendpointNpmResult -> getServiceendpointNpmResult.id()));
+     *         ctx.export("serviceEndpointId", example.id());
      *     }
      * }
      * }
@@ -8502,7 +8536,7 @@ public final class AzuredevopsFunctions {
      *             .serviceEndpointName("Example npm")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", example.applyValue(getServiceendpointNpmResult -> getServiceendpointNpmResult.id()));
+     *         ctx.export("serviceEndpointId", example.id());
      *     }
      * }
      * }
@@ -8546,7 +8580,7 @@ public final class AzuredevopsFunctions {
      *             .serviceEndpointName("Example npm")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", example.applyValue(getServiceendpointNpmResult -> getServiceendpointNpmResult.id()));
+     *         ctx.export("serviceEndpointId", example.id());
      *     }
      * }
      * }
@@ -8590,7 +8624,7 @@ public final class AzuredevopsFunctions {
      *             .serviceEndpointName("Example npm")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", example.applyValue(getServiceendpointNpmResult -> getServiceendpointNpmResult.id()));
+     *         ctx.export("serviceEndpointId", example.id());
      *     }
      * }
      * }
@@ -8634,7 +8668,7 @@ public final class AzuredevopsFunctions {
      *             .serviceEndpointName("Example npm")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", example.applyValue(getServiceendpointNpmResult -> getServiceendpointNpmResult.id()));
+     *         ctx.export("serviceEndpointId", example.id());
      *     }
      * }
      * }
@@ -8678,7 +8712,7 @@ public final class AzuredevopsFunctions {
      *             .serviceEndpointName("Example Sonar Cloud")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", example.applyValue(getServiceendpointSonarcloudResult -> getServiceendpointSonarcloudResult.id()));
+     *         ctx.export("serviceEndpointId", example.id());
      *     }
      * }
      * }
@@ -8722,7 +8756,7 @@ public final class AzuredevopsFunctions {
      *             .serviceEndpointName("Example Sonar Cloud")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", example.applyValue(getServiceendpointSonarcloudResult -> getServiceendpointSonarcloudResult.id()));
+     *         ctx.export("serviceEndpointId", example.id());
      *     }
      * }
      * }
@@ -8766,7 +8800,7 @@ public final class AzuredevopsFunctions {
      *             .serviceEndpointName("Example Sonar Cloud")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", example.applyValue(getServiceendpointSonarcloudResult -> getServiceendpointSonarcloudResult.id()));
+     *         ctx.export("serviceEndpointId", example.id());
      *     }
      * }
      * }
@@ -8810,7 +8844,7 @@ public final class AzuredevopsFunctions {
      *             .serviceEndpointName("Example Sonar Cloud")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", example.applyValue(getServiceendpointSonarcloudResult -> getServiceendpointSonarcloudResult.id()));
+     *         ctx.export("serviceEndpointId", example.id());
      *     }
      * }
      * }
@@ -8854,7 +8888,7 @@ public final class AzuredevopsFunctions {
      *             .serviceEndpointName("Example Sonar Cloud")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", example.applyValue(getServiceendpointSonarcloudResult -> getServiceendpointSonarcloudResult.id()));
+     *         ctx.export("serviceEndpointId", example.id());
      *     }
      * }
      * }
@@ -8897,7 +8931,7 @@ public final class AzuredevopsFunctions {
      *             .descriptor("aad.000000000000000000000000000000000000")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getStorageKeyResult -> getStorageKeyResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -8944,7 +8978,7 @@ public final class AzuredevopsFunctions {
      *             .descriptor("aad.000000000000000000000000000000000000")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getStorageKeyResult -> getStorageKeyResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -8991,7 +9025,7 @@ public final class AzuredevopsFunctions {
      *             .descriptor("aad.000000000000000000000000000000000000")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getStorageKeyResult -> getStorageKeyResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -9038,7 +9072,7 @@ public final class AzuredevopsFunctions {
      *             .descriptor("aad.000000000000000000000000000000000000")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getStorageKeyResult -> getStorageKeyResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -9085,7 +9119,7 @@ public final class AzuredevopsFunctions {
      *             .descriptor("aad.000000000000000000000000000000000000")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getStorageKeyResult -> getStorageKeyResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -9433,12 +9467,13 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AzuredevopsFunctions.getTeams();
+     *         final var example = AzuredevopsFunctions.getTeams(GetTeamsArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("projectId", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.projectId()).collect(toList()));
-     *         ctx.export("name", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.name()).collect(toList()));
-     *         ctx.export("allAdministrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.administrators()).collect(toList()));
-     *         ctx.export("administrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.members()).collect(toList()));
+     *         ctx.export("projectId", example.teams().stream().map(element -> element.projectId()).collect(toList()));
+     *         ctx.export("name", example.teams().stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("allAdministrators", example.teams().stream().map(element -> element.administrators()).collect(toList()));
+     *         ctx.export("administrators", example.teams().stream().map(element -> element.members()).collect(toList()));
      *     }
      * }
      * }
@@ -9485,12 +9520,13 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AzuredevopsFunctions.getTeams();
+     *         final var example = AzuredevopsFunctions.getTeams(GetTeamsArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("projectId", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.projectId()).collect(toList()));
-     *         ctx.export("name", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.name()).collect(toList()));
-     *         ctx.export("allAdministrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.administrators()).collect(toList()));
-     *         ctx.export("administrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.members()).collect(toList()));
+     *         ctx.export("projectId", example.teams().stream().map(element -> element.projectId()).collect(toList()));
+     *         ctx.export("name", example.teams().stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("allAdministrators", example.teams().stream().map(element -> element.administrators()).collect(toList()));
+     *         ctx.export("administrators", example.teams().stream().map(element -> element.members()).collect(toList()));
      *     }
      * }
      * }
@@ -9537,12 +9573,13 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AzuredevopsFunctions.getTeams();
+     *         final var example = AzuredevopsFunctions.getTeams(GetTeamsArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("projectId", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.projectId()).collect(toList()));
-     *         ctx.export("name", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.name()).collect(toList()));
-     *         ctx.export("allAdministrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.administrators()).collect(toList()));
-     *         ctx.export("administrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.members()).collect(toList()));
+     *         ctx.export("projectId", example.teams().stream().map(element -> element.projectId()).collect(toList()));
+     *         ctx.export("name", example.teams().stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("allAdministrators", example.teams().stream().map(element -> element.administrators()).collect(toList()));
+     *         ctx.export("administrators", example.teams().stream().map(element -> element.members()).collect(toList()));
      *     }
      * }
      * }
@@ -9589,12 +9626,13 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AzuredevopsFunctions.getTeams();
+     *         final var example = AzuredevopsFunctions.getTeams(GetTeamsArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("projectId", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.projectId()).collect(toList()));
-     *         ctx.export("name", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.name()).collect(toList()));
-     *         ctx.export("allAdministrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.administrators()).collect(toList()));
-     *         ctx.export("administrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.members()).collect(toList()));
+     *         ctx.export("projectId", example.teams().stream().map(element -> element.projectId()).collect(toList()));
+     *         ctx.export("name", example.teams().stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("allAdministrators", example.teams().stream().map(element -> element.administrators()).collect(toList()));
+     *         ctx.export("administrators", example.teams().stream().map(element -> element.members()).collect(toList()));
      *     }
      * }
      * }
@@ -9641,12 +9679,13 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AzuredevopsFunctions.getTeams();
+     *         final var example = AzuredevopsFunctions.getTeams(GetTeamsArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("projectId", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.projectId()).collect(toList()));
-     *         ctx.export("name", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.name()).collect(toList()));
-     *         ctx.export("allAdministrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.administrators()).collect(toList()));
-     *         ctx.export("administrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.members()).collect(toList()));
+     *         ctx.export("projectId", example.teams().stream().map(element -> element.projectId()).collect(toList()));
+     *         ctx.export("name", example.teams().stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("allAdministrators", example.teams().stream().map(element -> element.administrators()).collect(toList()));
+     *         ctx.export("administrators", example.teams().stream().map(element -> element.members()).collect(toList()));
      *     }
      * }
      * }
@@ -9693,12 +9732,13 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AzuredevopsFunctions.getTeams();
+     *         final var example = AzuredevopsFunctions.getTeams(GetTeamsArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("projectId", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.projectId()).collect(toList()));
-     *         ctx.export("name", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.name()).collect(toList()));
-     *         ctx.export("allAdministrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.administrators()).collect(toList()));
-     *         ctx.export("administrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.members()).collect(toList()));
+     *         ctx.export("projectId", example.teams().stream().map(element -> element.projectId()).collect(toList()));
+     *         ctx.export("name", example.teams().stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("allAdministrators", example.teams().stream().map(element -> element.administrators()).collect(toList()));
+     *         ctx.export("administrators", example.teams().stream().map(element -> element.members()).collect(toList()));
      *     }
      * }
      * }
@@ -9745,12 +9785,13 @@ public final class AzuredevopsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AzuredevopsFunctions.getTeams();
+     *         final var example = AzuredevopsFunctions.getTeams(GetTeamsArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("projectId", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.projectId()).collect(toList()));
-     *         ctx.export("name", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.name()).collect(toList()));
-     *         ctx.export("allAdministrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.administrators()).collect(toList()));
-     *         ctx.export("administrators", example.applyValue(getTeamsResult -> getTeamsResult.teams()).stream().map(element -> element.members()).collect(toList()));
+     *         ctx.export("projectId", example.teams().stream().map(element -> element.projectId()).collect(toList()));
+     *         ctx.export("name", example.teams().stream().map(element -> element.name()).collect(toList()));
+     *         ctx.export("allAdministrators", example.teams().stream().map(element -> element.administrators()).collect(toList()));
+     *         ctx.export("administrators", example.teams().stream().map(element -> element.members()).collect(toList()));
      *     }
      * }
      * }
@@ -9777,36 +9818,6 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.inputs.GetUserArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App }{{@code
-     *     public static void main(String[] args) }{{@code
-     *         Pulumi.run(App::stack);
-     *     }}{@code
-     * 
-     *     public static void stack(Context ctx) }{{@code
-     *         final var example = AzuredevopsFunctions.getUser(GetUserArgs.builder()
-     *             .principalName("example}{@literal @}{@code example.com")
-     *             .build());
-     * 
-     *     }}{@code
-     * }}{@code
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -9825,36 +9836,6 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.inputs.GetUserArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App }{{@code
-     *     public static void main(String[] args) }{{@code
-     *         Pulumi.run(App::stack);
-     *     }}{@code
-     * 
-     *     public static void stack(Context ctx) }{{@code
-     *         final var example = AzuredevopsFunctions.getUser(GetUserArgs.builder()
-     *             .principalName("example}{@literal @}{@code example.com")
-     *             .build());
-     * 
-     *     }}{@code
-     * }}{@code
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -9873,36 +9854,6 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.inputs.GetUserArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App }{{@code
-     *     public static void main(String[] args) }{{@code
-     *         Pulumi.run(App::stack);
-     *     }}{@code
-     * 
-     *     public static void stack(Context ctx) }{{@code
-     *         final var example = AzuredevopsFunctions.getUser(GetUserArgs.builder()
-     *             .principalName("example}{@literal @}{@code example.com")
-     *             .build());
-     * 
-     *     }}{@code
-     * }}{@code
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -9921,36 +9872,6 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.inputs.GetUserArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App }{{@code
-     *     public static void main(String[] args) }{{@code
-     *         Pulumi.run(App::stack);
-     *     }}{@code
-     * 
-     *     public static void stack(Context ctx) }{{@code
-     *         final var example = AzuredevopsFunctions.getUser(GetUserArgs.builder()
-     *             .principalName("example}{@literal @}{@code example.com")
-     *             .build());
-     * 
-     *     }}{@code
-     * }}{@code
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -9969,36 +9890,6 @@ public final class AzuredevopsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.inputs.GetUserArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App }{{@code
-     *     public static void main(String[] args) }{{@code
-     *         Pulumi.run(App::stack);
-     *     }}{@code
-     * 
-     *     public static void stack(Context ctx) }{{@code
-     *         final var example = AzuredevopsFunctions.getUser(GetUserArgs.builder()
-     *             .principalName("example}{@literal @}{@code example.com")
-     *             .build());
-     * 
-     *     }}{@code
-     * }}{@code
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Relevant Links
@@ -10108,11 +9999,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var exampleGetVariableGroup = AzuredevopsFunctions.getVariableGroup(GetVariableGroupArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .name("Example Variable Group")
      *             .build());
      * 
-     *         ctx.export("id", exampleGetVariableGroup.applyValue(getVariableGroupResult -> getVariableGroupResult.id()));
+     *         ctx.export("id", exampleGetVariableGroup.id());
      *     }
      * }
      * }
@@ -10163,11 +10054,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var exampleGetVariableGroup = AzuredevopsFunctions.getVariableGroup(GetVariableGroupArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .name("Example Variable Group")
      *             .build());
      * 
-     *         ctx.export("id", exampleGetVariableGroup.applyValue(getVariableGroupResult -> getVariableGroupResult.id()));
+     *         ctx.export("id", exampleGetVariableGroup.id());
      *     }
      * }
      * }
@@ -10218,11 +10109,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var exampleGetVariableGroup = AzuredevopsFunctions.getVariableGroup(GetVariableGroupArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .name("Example Variable Group")
      *             .build());
      * 
-     *         ctx.export("id", exampleGetVariableGroup.applyValue(getVariableGroupResult -> getVariableGroupResult.id()));
+     *         ctx.export("id", exampleGetVariableGroup.id());
      *     }
      * }
      * }
@@ -10273,11 +10164,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var exampleGetVariableGroup = AzuredevopsFunctions.getVariableGroup(GetVariableGroupArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .name("Example Variable Group")
      *             .build());
      * 
-     *         ctx.export("id", exampleGetVariableGroup.applyValue(getVariableGroupResult -> getVariableGroupResult.id()));
+     *         ctx.export("id", exampleGetVariableGroup.id());
      *     }
      * }
      * }
@@ -10328,11 +10219,11 @@ public final class AzuredevopsFunctions {
      *             .build());
      * 
      *         final var exampleGetVariableGroup = AzuredevopsFunctions.getVariableGroup(GetVariableGroupArgs.builder()
-     *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+     *             .projectId(example.id())
      *             .name("Example Variable Group")
      *             .build());
      * 
-     *         ctx.export("id", exampleGetVariableGroup.applyValue(getVariableGroupResult -> getVariableGroupResult.id()));
+     *         ctx.export("id", exampleGetVariableGroup.id());
      *     }
      * }
      * }

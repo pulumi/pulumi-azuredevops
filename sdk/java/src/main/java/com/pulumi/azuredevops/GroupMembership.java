@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleGroupMembership = new GroupMembership("exampleGroupMembership", GroupMembershipArgs.builder()
- *             .group(example.applyValue(getGroupResult -> getGroupResult).applyValue(example -> example.applyValue(getGroupResult -> getGroupResult.descriptor())))
+ *             .group(example.applyValue(_example -> _example.descriptor()))
  *             .members(exampleUser.descriptor())
  *             .build());
  * 

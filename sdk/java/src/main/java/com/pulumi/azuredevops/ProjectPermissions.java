@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  * 
  *         var example_permission = new ProjectPermissions("example-permission", ProjectPermissionsArgs.builder()
  *             .projectId(example.id())
- *             .principal(example_readers.applyValue(example_readers -> example_readers.id()))
+ *             .principal(example_readers.applyValue(_example_readers -> _example_readers.id()))
  *             .permissions(Map.ofEntries(
  *                 Map.entry("DELETE", "Deny"),
  *                 Map.entry("EDIT_BUILD_STATUS", "NotSet"),

@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleBuildDefinitionPermissions = new BuildDefinitionPermissions("exampleBuildDefinitionPermissions", BuildDefinitionPermissionsArgs.builder()
  *             .projectId(example.id())
- *             .principal(example_readers.applyValue(example_readers -> example_readers.id()))
+ *             .principal(example_readers.applyValue(_example_readers -> _example_readers.id()))
  *             .buildDefinitionId(exampleBuildDefinition.id())
  *             .permissions(Map.ofEntries(
  *                 Map.entry("ViewBuilds", "Allow"),
