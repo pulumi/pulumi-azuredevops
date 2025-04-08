@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  *             .urlSuffix("user/1")
  *             .retryInterval(4000)
  *             .variableGroupName(exampleVariableGroup.name())
- *             .timeout("40000")
+ *             .timeout(40000)
  *             .build());
  * 
  *     }

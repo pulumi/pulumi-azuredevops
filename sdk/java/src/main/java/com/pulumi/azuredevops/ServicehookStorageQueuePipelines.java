@@ -127,7 +127,8 @@ import javax.annotation.Nullable;
  *             .accountKey(exampleAzurermStorageAccount.primaryAccessKey())
  *             .queueName(exampleAzurermStorageQueue.name())
  *             .visiTimeout(30)
- *             .runStateChangedEvent()
+ *             .runStateChangedEvent(ServicehookStorageQueuePipelinesRunStateChangedEventArgs.builder()
+ *                 .build())
  *             .build());
  * 
  *     }

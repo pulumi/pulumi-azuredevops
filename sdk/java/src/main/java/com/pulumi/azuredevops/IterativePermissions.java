@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  * 
  *         var example_root_permissions = new IterativePermissions("example-root-permissions", IterativePermissionsArgs.builder()
  *             .projectId(example.id())
- *             .principal(example_readers.applyValue(example_readers -> example_readers.id()))
+ *             .principal(example_readers.applyValue(_example_readers -> _example_readers.id()))
  *             .permissions(Map.ofEntries(
  *                 Map.entry("CREATE_CHILDREN", "Deny"),
  *                 Map.entry("GENERIC_READ", "NotSet"),
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  * 
  *         var example_iteration_permissions = new IterativePermissions("example-iteration-permissions", IterativePermissionsArgs.builder()
  *             .projectId(example.id())
- *             .principal(example_readers.applyValue(example_readers -> example_readers.id()))
+ *             .principal(example_readers.applyValue(_example_readers -> _example_readers.id()))
  *             .path("Iteration 1")
  *             .permissions(Map.ofEntries(
  *                 Map.entry("CREATE_CHILDREN", "Allow"),

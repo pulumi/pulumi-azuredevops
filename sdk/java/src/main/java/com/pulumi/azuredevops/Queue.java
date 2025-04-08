@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()
  *             .projectId(exampleProject.id())
- *             .agentPoolId(example.applyValue(getPoolResult -> getPoolResult.id()))
+ *             .agentPoolId(example.id())
  *             .build());
  * 
  *         // Grant access to queue to all pipelines in the project
@@ -114,7 +114,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()
  *             .name("example-queue")
- *             .projectId(example.applyValue(getProjectResult -> getProjectResult.id()))
+ *             .projectId(example.id())
  *             .build());
  * 
  *     }

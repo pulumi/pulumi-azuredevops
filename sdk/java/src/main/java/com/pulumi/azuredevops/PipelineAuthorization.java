@@ -151,7 +151,7 @@ import javax.annotation.Nullable;
  *             .name("Example Pipeline")
  *             .repository(BuildDefinitionRepositoryArgs.builder()
  *                 .repoType("TfsGit")
- *                 .repoId(example.applyValue(getGitRepositoryResult -> getGitRepositoryResult).applyValue(example -> example.applyValue(getGitRepositoryResult -> getGitRepositoryResult.id())))
+ *                 .repoId(example.applyValue(_example -> _example.id()))
  *                 .ymlPath("azure-pipelines.yml")
  *                 .build())
  *             .build());

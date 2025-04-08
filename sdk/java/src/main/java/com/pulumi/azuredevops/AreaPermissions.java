@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  * 
  *         var example_root_permissions = new AreaPermissions("example-root-permissions", AreaPermissionsArgs.builder()
  *             .projectId(example.id())
- *             .principal(example_project_readers.applyValue(example_project_readers -> example_project_readers.id()))
+ *             .principal(example_project_readers.applyValue(_example_project_readers -> _example_project_readers.id()))
  *             .path("/")
  *             .permissions(Map.ofEntries(
  *                 Map.entry("CREATE_CHILDREN", "Deny"),
