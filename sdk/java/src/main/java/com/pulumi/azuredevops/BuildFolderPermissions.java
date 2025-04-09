@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  *         var exampleBuildFolderPermissions = new BuildFolderPermissions("exampleBuildFolderPermissions", BuildFolderPermissionsArgs.builder()
  *             .projectId(example.id())
  *             .path("\\ExampleFolder")
- *             .principal(example_readers.applyValue(example_readers -> example_readers.id()))
+ *             .principal(example_readers.applyValue(_example_readers -> _example_readers.id()))
  *             .permissions(Map.ofEntries(
  *                 Map.entry("ViewBuilds", "Allow"),
  *                 Map.entry("EditBuildQuality", "Allow"),
@@ -144,7 +144,7 @@ import javax.annotation.Nullable;
  *         var exampleBuildFolderPermissions = new BuildFolderPermissions("exampleBuildFolderPermissions", BuildFolderPermissionsArgs.builder()
  *             .projectId(example.id())
  *             .path("\\")
- *             .principal(example_readers.applyValue(example_readers -> example_readers.id()))
+ *             .principal(example_readers.applyValue(_example_readers -> _example_readers.id()))
  *             .permissions(Map.of("RetainIndefinitely", "Allow"))
  *             .build());
  * 

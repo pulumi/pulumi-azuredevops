@@ -330,7 +330,7 @@ import javax.annotation.Nullable;
  *                 .repoId("<GitHub Org>/<Repo Name>")
  *                 .branchName("main")
  *                 .ymlPath("azure-pipelines.yml")
- *                 .serviceConnectionId(example.applyValue(getServiceEndpointGithubResult -> getServiceEndpointGithubResult.id()))
+ *                 .serviceConnectionId(example.id())
  *                 .build())
  *             .pullRequestTrigger(BuildDefinitionPullRequestTriggerArgs.builder()
  *                 .override(BuildDefinitionPullRequestTriggerOverrideArgs.builder()

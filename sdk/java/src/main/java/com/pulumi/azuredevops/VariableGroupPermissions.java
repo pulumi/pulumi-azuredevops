@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  *         var permissions = new VariableGroupPermissions("permissions", VariableGroupPermissionsArgs.builder()
  *             .projectId(project.id())
  *             .variableGroupId(example.id())
- *             .principal(tf_project_readers.applyValue(tf_project_readers -> tf_project_readers.id()))
+ *             .principal(tf_project_readers.applyValue(_tf_project_readers -> _tf_project_readers.id()))
  *             .permissions(Map.ofEntries(
  *                 Map.entry("View", "allow"),
  *                 Map.entry("Administer", "allow"),

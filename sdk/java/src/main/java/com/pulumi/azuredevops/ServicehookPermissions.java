@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  * 
  *         var example_permissions = new ServicehookPermissions("example-permissions", ServicehookPermissionsArgs.builder()
  *             .projectId(example.id())
- *             .principal(example_readers.applyValue(example_readers -> example_readers.id()))
+ *             .principal(example_readers.applyValue(_example_readers -> _example_readers.id()))
  *             .permissions(Map.ofEntries(
  *                 Map.entry("ViewSubscriptions", "allow"),
  *                 Map.entry("EditSubscriptions", "allow"),
