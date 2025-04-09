@@ -74,14 +74,14 @@ import javax.annotation.Nullable;
  * 
  *         var exampleTeam = new Team("exampleTeam", TeamArgs.builder()
  *             .projectId(example.id())
- *             .name(example.name().applyValue(name -> String.format("%s Team 2", name)))
+ *             .name(example.name().applyValue(_name -> String.format("%s Team 2", _name)))
  *             .build());
  * 
  *         var example_team_administrators = new TeamAdministrators("example-team-administrators", TeamAdministratorsArgs.builder()
  *             .projectId(exampleTeam.projectId())
  *             .teamId(exampleTeam.id())
  *             .mode("overwrite")
- *             .administrators(example_project_contributors.applyValue(example_project_contributors -> example_project_contributors.descriptor()))
+ *             .administrators(example_project_contributors.applyValue(_example_project_contributors -> _example_project_contributors.descriptor()))
  *             .build());
  * 
  *     }

@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  * 
  *         var project_wiq_root_permissions = new WorkItemQueryPermissions("project-wiq-root-permissions", WorkItemQueryPermissionsArgs.builder()
  *             .projectId(example.id())
- *             .principal(example_readers.applyValue(example_readers -> example_readers.id()))
+ *             .principal(example_readers.applyValue(_example_readers -> _example_readers.id()))
  *             .permissions(Map.ofEntries(
  *                 Map.entry("CreateRepository", "Deny"),
  *                 Map.entry("DeleteRepository", "Deny"),
@@ -139,7 +139,7 @@ import javax.annotation.Nullable;
  *         var example_permissions = new WorkItemQueryPermissions("example-permissions", WorkItemQueryPermissionsArgs.builder()
  *             .projectId(example.id())
  *             .path("/Team")
- *             .principal(example_readers.applyValue(example_readers -> example_readers.id()))
+ *             .principal(example_readers.applyValue(_example_readers -> _example_readers.id()))
  *             .permissions(Map.ofEntries(
  *                 Map.entry("Contribute", "Allow"),
  *                 Map.entry("Delete", "Deny"),
@@ -202,7 +202,7 @@ import javax.annotation.Nullable;
  * 
  *         var example_project_permissions = new WorkItemQueryPermissions("example-project-permissions", WorkItemQueryPermissionsArgs.builder()
  *             .projectId(example.id())
- *             .principal(example_readers.applyValue(example_readers -> example_readers.id()))
+ *             .principal(example_readers.applyValue(_example_readers -> _example_readers.id()))
  *             .permissions(Map.ofEntries(
  *                 Map.entry("Read", "Allow"),
  *                 Map.entry("Delete", "Deny"),
@@ -214,7 +214,7 @@ import javax.annotation.Nullable;
  *         var example_sharedqueries_permissions = new WorkItemQueryPermissions("example-sharedqueries-permissions", WorkItemQueryPermissionsArgs.builder()
  *             .projectId(example.id())
  *             .path("/")
- *             .principal(example_contributors.applyValue(example_contributors -> example_contributors.id()))
+ *             .principal(example_contributors.applyValue(_example_contributors -> _example_contributors.id()))
  *             .permissions(Map.ofEntries(
  *                 Map.entry("Read", "Allow"),
  *                 Map.entry("Delete", "Deny")

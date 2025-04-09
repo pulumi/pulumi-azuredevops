@@ -41,7 +41,7 @@ import * as utilities from "./utilities";
  *                 matchType: "Exact",
  *             },
  *             {
- *                 repositoryId: undefined,
+ *                 repositoryId: null,
  *                 repositoryRef: "refs/heads/releases",
  *                 matchType: "Prefix",
  *             },

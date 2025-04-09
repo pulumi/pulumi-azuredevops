@@ -1388,6 +1388,14 @@ export interface GetUsersUser {
     /**
      * The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
      * <pre>List of possible origins
+     * ```hcl
+     * ActiveDirectory          = "ad"   # Windows Active Directory
+     * AzureActiveDirectory     = "aad"  # Azure Active Directory
+     * MicrosoftAccount         = "msa"  # Windows Live Account
+     * VisualStudioTeamServices = "vsts" # DevOps
+     * GitHubDirectory          = "ghb"  # GitHub
+     * ```
+     * </pre>
      */
     origin: string;
     /**

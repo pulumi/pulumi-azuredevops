@@ -53,7 +53,7 @@ namespace Pulumi.AzureDevOps
     /// Azure DevOps AWS Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
     /// 
     /// ```sh
-    /// $ pulumi import azuredevops:index/serviceEndpointAws:ServiceEndpointAws azuredevops_serviceendpoint_aws.example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+    /// $ pulumi import azuredevops:index/serviceEndpointAws:ServiceEndpointAws  azuredevops_serviceendpoint_aws.example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/serviceEndpointAws:ServiceEndpointAws")]
