@@ -6,8 +6,8 @@ toolchain go1.23.5
 
 require (
 	github.com/pulumi/pulumi-azuredevops/provider/v3 v3.0.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.106.0
-	github.com/pulumi/pulumi/pkg/v3 v3.160.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.106.1-0.20250415223939-5dbe4a516710
+	github.com/pulumi/pulumi/pkg/v3 v3.162.0
 )
 
 replace (
@@ -87,7 +87,7 @@ require (
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/gofrs/uuid v4.2.0+incompatible // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
-	github.com/golang-jwt/jwt/v5 v5.2.1 // indirect
+	github.com/golang-jwt/jwt/v5 v5.2.2 // indirect
 	github.com/golang/glog v1.2.4 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
 	github.com/golang/protobuf v1.5.4 // indirect
@@ -178,11 +178,11 @@ require (
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/posener/complete v1.2.3 // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
-	github.com/pulumi/esc v0.10.0 // indirect
+	github.com/pulumi/esc v0.13.0 // indirect
 	github.com/pulumi/inflector v0.1.1 // indirect
 	github.com/pulumi/pulumi-java/pkg v1.8.0 // indirect
 	github.com/pulumi/pulumi-yaml v1.15.1 // indirect
-	github.com/pulumi/pulumi/sdk/v3 v3.160.0 // indirect
+	github.com/pulumi/pulumi/sdk/v3 v3.162.0 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
