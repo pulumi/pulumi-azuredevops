@@ -47,6 +47,7 @@ class BuildFolderPermissionsArgs:
                | DeleteBuildDefinition          | Delete build pipeline                 |
                | OverrideBuildCheckInValidation | Override check-in validation by build |
                | AdministerBuildPermissions     | Administer build permissions          |
+               | CreateBuildDefinition          | Create build pipeline                 |
         :param pulumi.Input[builtins.str] principal: The **group** principal to assign the permissions.
         :param pulumi.Input[builtins.str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[builtins.bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`.
@@ -93,6 +94,7 @@ class BuildFolderPermissionsArgs:
         | DeleteBuildDefinition          | Delete build pipeline                 |
         | OverrideBuildCheckInValidation | Override check-in validation by build |
         | AdministerBuildPermissions     | Administer build permissions          |
+        | CreateBuildDefinition          | Create build pipeline                 |
         """
         return pulumi.get(self, "permissions")
 
@@ -167,6 +169,7 @@ class _BuildFolderPermissionsState:
                | DeleteBuildDefinition          | Delete build pipeline                 |
                | OverrideBuildCheckInValidation | Override check-in validation by build |
                | AdministerBuildPermissions     | Administer build permissions          |
+               | CreateBuildDefinition          | Create build pipeline                 |
         :param pulumi.Input[builtins.str] principal: The **group** principal to assign the permissions.
         :param pulumi.Input[builtins.str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[builtins.bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`.
@@ -217,6 +220,7 @@ class _BuildFolderPermissionsState:
         | DeleteBuildDefinition          | Delete build pipeline                 |
         | OverrideBuildCheckInValidation | Override check-in validation by build |
         | AdministerBuildPermissions     | Administer build permissions          |
+        | CreateBuildDefinition          | Create build pipeline                 |
         """
         return pulumi.get(self, "permissions")
 
@@ -374,6 +378,7 @@ class BuildFolderPermissions(pulumi.CustomResource):
                | DeleteBuildDefinition          | Delete build pipeline                 |
                | OverrideBuildCheckInValidation | Override check-in validation by build |
                | AdministerBuildPermissions     | Administer build permissions          |
+               | CreateBuildDefinition          | Create build pipeline                 |
         :param pulumi.Input[builtins.str] principal: The **group** principal to assign the permissions.
         :param pulumi.Input[builtins.str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[builtins.bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`.
@@ -548,6 +553,7 @@ class BuildFolderPermissions(pulumi.CustomResource):
                | DeleteBuildDefinition          | Delete build pipeline                 |
                | OverrideBuildCheckInValidation | Override check-in validation by build |
                | AdministerBuildPermissions     | Administer build permissions          |
+               | CreateBuildDefinition          | Create build pipeline                 |
         :param pulumi.Input[builtins.str] principal: The **group** principal to assign the permissions.
         :param pulumi.Input[builtins.str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[builtins.bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`.
@@ -594,6 +600,7 @@ class BuildFolderPermissions(pulumi.CustomResource):
         | DeleteBuildDefinition          | Delete build pipeline                 |
         | OverrideBuildCheckInValidation | Override check-in validation by build |
         | AdministerBuildPermissions     | Administer build permissions          |
+        | CreateBuildDefinition          | Create build pipeline                 |
         """
         return pulumi.get(self, "permissions")
 

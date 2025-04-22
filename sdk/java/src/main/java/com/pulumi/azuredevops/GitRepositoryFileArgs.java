@@ -18,6 +18,36 @@ public final class GitRepositoryFileArgs extends com.pulumi.resources.ResourceAr
     public static final GitRepositoryFileArgs Empty = new GitRepositoryFileArgs();
 
     /**
+     * The email of the author.
+     * 
+     */
+    @Import(name="authorEmail")
+    private @Nullable Output<String> authorEmail;
+
+    /**
+     * @return The email of the author.
+     * 
+     */
+    public Optional<Output<String>> authorEmail() {
+        return Optional.ofNullable(this.authorEmail);
+    }
+
+    /**
+     * The name of the author.
+     * 
+     */
+    @Import(name="authorName")
+    private @Nullable Output<String> authorName;
+
+    /**
+     * @return The name of the author.
+     * 
+     */
+    public Optional<Output<String>> authorName() {
+        return Optional.ofNullable(this.authorName);
+    }
+
+    /**
      * Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
      * 
      */
@@ -45,6 +75,36 @@ public final class GitRepositoryFileArgs extends com.pulumi.resources.ResourceAr
      */
     public Optional<Output<String>> commitMessage() {
         return Optional.ofNullable(this.commitMessage);
+    }
+
+    /**
+     * The email of the committer.
+     * 
+     */
+    @Import(name="committerEmail")
+    private @Nullable Output<String> committerEmail;
+
+    /**
+     * @return The email of the committer.
+     * 
+     */
+    public Optional<Output<String>> committerEmail() {
+        return Optional.ofNullable(this.committerEmail);
+    }
+
+    /**
+     * The name of the committer.
+     * 
+     */
+    @Import(name="committerName")
+    private @Nullable Output<String> committerName;
+
+    /**
+     * @return The name of the committer.
+     * 
+     */
+    public Optional<Output<String>> committerName() {
+        return Optional.ofNullable(this.committerName);
     }
 
     /**
@@ -110,8 +170,12 @@ public final class GitRepositoryFileArgs extends com.pulumi.resources.ResourceAr
     private GitRepositoryFileArgs() {}
 
     private GitRepositoryFileArgs(GitRepositoryFileArgs $) {
+        this.authorEmail = $.authorEmail;
+        this.authorName = $.authorName;
         this.branch = $.branch;
         this.commitMessage = $.commitMessage;
+        this.committerEmail = $.committerEmail;
+        this.committerName = $.committerName;
         this.content = $.content;
         this.file = $.file;
         this.overwriteOnCreate = $.overwriteOnCreate;
@@ -134,6 +198,48 @@ public final class GitRepositoryFileArgs extends com.pulumi.resources.ResourceAr
 
         public Builder(GitRepositoryFileArgs defaults) {
             $ = new GitRepositoryFileArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param authorEmail The email of the author.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authorEmail(@Nullable Output<String> authorEmail) {
+            $.authorEmail = authorEmail;
+            return this;
+        }
+
+        /**
+         * @param authorEmail The email of the author.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authorEmail(String authorEmail) {
+            return authorEmail(Output.of(authorEmail));
+        }
+
+        /**
+         * @param authorName The name of the author.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authorName(@Nullable Output<String> authorName) {
+            $.authorName = authorName;
+            return this;
+        }
+
+        /**
+         * @param authorName The name of the author.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authorName(String authorName) {
+            return authorName(Output.of(authorName));
         }
 
         /**
@@ -176,6 +282,48 @@ public final class GitRepositoryFileArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder commitMessage(String commitMessage) {
             return commitMessage(Output.of(commitMessage));
+        }
+
+        /**
+         * @param committerEmail The email of the committer.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder committerEmail(@Nullable Output<String> committerEmail) {
+            $.committerEmail = committerEmail;
+            return this;
+        }
+
+        /**
+         * @param committerEmail The email of the committer.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder committerEmail(String committerEmail) {
+            return committerEmail(Output.of(committerEmail));
+        }
+
+        /**
+         * @param committerName The name of the committer.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder committerName(@Nullable Output<String> committerName) {
+            $.committerName = committerName;
+            return this;
+        }
+
+        /**
+         * @param committerName The name of the committer.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder committerName(String committerName) {
+            return committerName(Output.of(committerName));
         }
 
         /**

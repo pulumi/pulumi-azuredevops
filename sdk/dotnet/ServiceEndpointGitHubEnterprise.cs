@@ -14,6 +14,8 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ## Example Usage
     /// 
+    /// ### With token
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,6 +48,39 @@ namespace Pulumi.AzureDevOps
     /// });
     /// ```
     /// 
+    /// ### With OAuth
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new AzureDevOps.Project("example", new()
+    ///     {
+    ///         Name = "Example Project",
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Pulumi",
+    ///     });
+    /// 
+    ///     var exampleServiceEndpointGitHubEnterprise = new AzureDevOps.ServiceEndpointGitHubEnterprise("example", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         ServiceEndpointName = "Example GitHub Enterprise",
+    ///         Description = "Managed by Pulumi",
+    ///         AuthOauth = new AzureDevOps.Inputs.ServiceEndpointGitHubEnterpriseAuthOauthArgs
+    ///         {
+    ///             OauthConfigurationId = "00000000-0000-0000-0000-000000000000",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ss
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
@@ -62,10 +97,16 @@ namespace Pulumi.AzureDevOps
     public partial class ServiceEndpointGitHubEnterprise : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+        /// </summary>
+        [Output("authOauth")]
+        public Output<Outputs.ServiceEndpointGitHubEnterpriseAuthOauth?> AuthOauth { get; private set; } = null!;
+
+        /// <summary>
         /// An `auth_personal` block as documented below. Allows connecting using a personal access token.
         /// </summary>
         [Output("authPersonal")]
-        public Output<Outputs.ServiceEndpointGitHubEnterpriseAuthPersonal> AuthPersonal { get; private set; } = null!;
+        public Output<Outputs.ServiceEndpointGitHubEnterpriseAuthPersonal?> AuthPersonal { get; private set; } = null!;
 
         [Output("authorization")]
         public Output<ImmutableDictionary<string, string>> Authorization { get; private set; } = null!;
@@ -89,7 +130,7 @@ namespace Pulumi.AzureDevOps
         /// GitHub Enterprise Server Url.
         /// </summary>
         [Output("url")]
-        public Output<string> Url { get; private set; } = null!;
+        public Output<string?> Url { get; private set; } = null!;
 
 
         /// <summary>
@@ -138,10 +179,16 @@ namespace Pulumi.AzureDevOps
     public sealed class ServiceEndpointGitHubEnterpriseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+        /// </summary>
+        [Input("authOauth")]
+        public Input<Inputs.ServiceEndpointGitHubEnterpriseAuthOauthArgs>? AuthOauth { get; set; }
+
+        /// <summary>
         /// An `auth_personal` block as documented below. Allows connecting using a personal access token.
         /// </summary>
-        [Input("authPersonal", required: true)]
-        public Input<Inputs.ServiceEndpointGitHubEnterpriseAuthPersonalArgs> AuthPersonal { get; set; } = null!;
+        [Input("authPersonal")]
+        public Input<Inputs.ServiceEndpointGitHubEnterpriseAuthPersonalArgs>? AuthPersonal { get; set; }
 
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -161,8 +208,8 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// GitHub Enterprise Server Url.
         /// </summary>
-        [Input("url", required: true)]
-        public Input<string> Url { get; set; } = null!;
+        [Input("url")]
+        public Input<string>? Url { get; set; }
 
         public ServiceEndpointGitHubEnterpriseArgs()
         {
@@ -172,6 +219,12 @@ namespace Pulumi.AzureDevOps
 
     public sealed class ServiceEndpointGitHubEnterpriseState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+        /// </summary>
+        [Input("authOauth")]
+        public Input<Inputs.ServiceEndpointGitHubEnterpriseAuthOauthGetArgs>? AuthOauth { get; set; }
+
         /// <summary>
         /// An `auth_personal` block as documented below. Allows connecting using a personal access token.
         /// </summary>

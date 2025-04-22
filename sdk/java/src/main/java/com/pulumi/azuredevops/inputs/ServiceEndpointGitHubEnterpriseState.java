@@ -3,6 +3,7 @@
 
 package com.pulumi.azuredevops.inputs;
 
+import com.pulumi.azuredevops.inputs.ServiceEndpointGitHubEnterpriseAuthOauthArgs;
 import com.pulumi.azuredevops.inputs.ServiceEndpointGitHubEnterpriseAuthPersonalArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class ServiceEndpointGitHubEnterpriseState extends com.pulumi.resources.ResourceArgs {
 
     public static final ServiceEndpointGitHubEnterpriseState Empty = new ServiceEndpointGitHubEnterpriseState();
+
+    /**
+     * An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+     * 
+     */
+    @Import(name="authOauth")
+    private @Nullable Output<ServiceEndpointGitHubEnterpriseAuthOauthArgs> authOauth;
+
+    /**
+     * @return An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+     * 
+     */
+    public Optional<Output<ServiceEndpointGitHubEnterpriseAuthOauthArgs>> authOauth() {
+        return Optional.ofNullable(this.authOauth);
+    }
 
     /**
      * An `auth_personal` block as documented below. Allows connecting using a personal access token.
@@ -94,6 +110,7 @@ public final class ServiceEndpointGitHubEnterpriseState extends com.pulumi.resou
     private ServiceEndpointGitHubEnterpriseState() {}
 
     private ServiceEndpointGitHubEnterpriseState(ServiceEndpointGitHubEnterpriseState $) {
+        this.authOauth = $.authOauth;
         this.authPersonal = $.authPersonal;
         this.authorization = $.authorization;
         this.description = $.description;
@@ -118,6 +135,27 @@ public final class ServiceEndpointGitHubEnterpriseState extends com.pulumi.resou
 
         public Builder(ServiceEndpointGitHubEnterpriseState defaults) {
             $ = new ServiceEndpointGitHubEnterpriseState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param authOauth An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authOauth(@Nullable Output<ServiceEndpointGitHubEnterpriseAuthOauthArgs> authOauth) {
+            $.authOauth = authOauth;
+            return this;
+        }
+
+        /**
+         * @param authOauth An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authOauth(ServiceEndpointGitHubEnterpriseAuthOauthArgs authOauth) {
+            return authOauth(Output.of(authOauth));
         }
 
         /**

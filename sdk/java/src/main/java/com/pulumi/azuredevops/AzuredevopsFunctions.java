@@ -17,6 +17,8 @@ import com.pulumi.azuredevops.inputs.GetEnvironmentPlainArgs;
 import com.pulumi.azuredevops.inputs.GetFeedArgs;
 import com.pulumi.azuredevops.inputs.GetFeedPlainArgs;
 import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
+import com.pulumi.azuredevops.inputs.GetGitRepositoryFileArgs;
+import com.pulumi.azuredevops.inputs.GetGitRepositoryFilePlainArgs;
 import com.pulumi.azuredevops.inputs.GetGitRepositoryPlainArgs;
 import com.pulumi.azuredevops.inputs.GetGroupArgs;
 import com.pulumi.azuredevops.inputs.GetGroupMembershipArgs;
@@ -75,6 +77,7 @@ import com.pulumi.azuredevops.outputs.GetClientConfigResult;
 import com.pulumi.azuredevops.outputs.GetDescriptorResult;
 import com.pulumi.azuredevops.outputs.GetEnvironmentResult;
 import com.pulumi.azuredevops.outputs.GetFeedResult;
+import com.pulumi.azuredevops.outputs.GetGitRepositoryFileResult;
 import com.pulumi.azuredevops.outputs.GetGitRepositoryResult;
 import com.pulumi.azuredevops.outputs.GetGroupMembershipResult;
 import com.pulumi.azuredevops.outputs.GetGroupResult;
@@ -2699,6 +2702,286 @@ public final class AzuredevopsFunctions {
      */
     public static CompletableFuture<GetGitRepositoryResult> getGitRepositoryPlain(GetGitRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azuredevops:index/getGitRepository:getGitRepository", TypeShape.of(GetGitRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get an existing Git Repository File.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
+     * import com.pulumi.azuredevops.inputs.GetGitRepositoryFileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         // Load a specific Git repository by name
+     *         final var exampleGetGitRepository = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
+     *             .projectId(example.id())
+     *             .name("Example Repository")
+     *             .build());
+     * 
+     *         final var exampleGetGitRepositoryFile = AzuredevopsFunctions.getGitRepositoryFile(GetGitRepositoryFileArgs.builder()
+     *             .repositoryId(exampleGetGitRepository.id())
+     *             .branch("refs/heads/main")
+     *             .file("MyFile.txt")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetGitRepositoryFileResult> getGitRepositoryFile(GetGitRepositoryFileArgs args) {
+        return getGitRepositoryFile(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get an existing Git Repository File.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
+     * import com.pulumi.azuredevops.inputs.GetGitRepositoryFileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         // Load a specific Git repository by name
+     *         final var exampleGetGitRepository = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
+     *             .projectId(example.id())
+     *             .name("Example Repository")
+     *             .build());
+     * 
+     *         final var exampleGetGitRepositoryFile = AzuredevopsFunctions.getGitRepositoryFile(GetGitRepositoryFileArgs.builder()
+     *             .repositoryId(exampleGetGitRepository.id())
+     *             .branch("refs/heads/main")
+     *             .file("MyFile.txt")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetGitRepositoryFileResult> getGitRepositoryFilePlain(GetGitRepositoryFilePlainArgs args) {
+        return getGitRepositoryFilePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get an existing Git Repository File.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
+     * import com.pulumi.azuredevops.inputs.GetGitRepositoryFileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         // Load a specific Git repository by name
+     *         final var exampleGetGitRepository = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
+     *             .projectId(example.id())
+     *             .name("Example Repository")
+     *             .build());
+     * 
+     *         final var exampleGetGitRepositoryFile = AzuredevopsFunctions.getGitRepositoryFile(GetGitRepositoryFileArgs.builder()
+     *             .repositoryId(exampleGetGitRepository.id())
+     *             .branch("refs/heads/main")
+     *             .file("MyFile.txt")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetGitRepositoryFileResult> getGitRepositoryFile(GetGitRepositoryFileArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getGitRepositoryFile:getGitRepositoryFile", TypeShape.of(GetGitRepositoryFileResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get an existing Git Repository File.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
+     * import com.pulumi.azuredevops.inputs.GetGitRepositoryFileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         // Load a specific Git repository by name
+     *         final var exampleGetGitRepository = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
+     *             .projectId(example.id())
+     *             .name("Example Repository")
+     *             .build());
+     * 
+     *         final var exampleGetGitRepositoryFile = AzuredevopsFunctions.getGitRepositoryFile(GetGitRepositoryFileArgs.builder()
+     *             .repositoryId(exampleGetGitRepository.id())
+     *             .branch("refs/heads/main")
+     *             .file("MyFile.txt")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetGitRepositoryFileResult> getGitRepositoryFile(GetGitRepositoryFileArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getGitRepositoryFile:getGitRepositoryFile", TypeShape.of(GetGitRepositoryFileResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get an existing Git Repository File.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
+     * import com.pulumi.azuredevops.inputs.GetGitRepositoryFileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         // Load a specific Git repository by name
+     *         final var exampleGetGitRepository = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
+     *             .projectId(example.id())
+     *             .name("Example Repository")
+     *             .build());
+     * 
+     *         final var exampleGetGitRepositoryFile = AzuredevopsFunctions.getGitRepositoryFile(GetGitRepositoryFileArgs.builder()
+     *             .repositoryId(exampleGetGitRepository.id())
+     *             .branch("refs/heads/main")
+     *             .file("MyFile.txt")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetGitRepositoryFileResult> getGitRepositoryFilePlain(GetGitRepositoryFilePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azuredevops:index/getGitRepositoryFile:getGitRepositoryFile", TypeShape.of(GetGitRepositoryFileResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Group within Azure DevOps

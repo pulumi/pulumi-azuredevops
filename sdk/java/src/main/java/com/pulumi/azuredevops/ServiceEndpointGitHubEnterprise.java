@@ -6,6 +6,7 @@ package com.pulumi.azuredevops;
 import com.pulumi.azuredevops.ServiceEndpointGitHubEnterpriseArgs;
 import com.pulumi.azuredevops.Utilities;
 import com.pulumi.azuredevops.inputs.ServiceEndpointGitHubEnterpriseState;
+import com.pulumi.azuredevops.outputs.ServiceEndpointGitHubEnterpriseAuthOauth;
 import com.pulumi.azuredevops.outputs.ServiceEndpointGitHubEnterpriseAuthPersonal;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -20,6 +21,8 @@ import javax.annotation.Nullable;
  * Manages a GitHub Enterprise Server service endpoint within Azure DevOps.
  * 
  * ## Example Usage
+ * 
+ * ### With token
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -71,6 +74,57 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### With OAuth
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
+ * import com.pulumi.azuredevops.ServiceEndpointGitHubEnterprise;
+ * import com.pulumi.azuredevops.ServiceEndpointGitHubEnterpriseArgs;
+ * import com.pulumi.azuredevops.inputs.ServiceEndpointGitHubEnterpriseAuthOauthArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Project("example", ProjectArgs.builder()
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .description("Managed by Pulumi")
+ *             .build());
+ * 
+ *         var exampleServiceEndpointGitHubEnterprise = new ServiceEndpointGitHubEnterprise("exampleServiceEndpointGitHubEnterprise", ServiceEndpointGitHubEnterpriseArgs.builder()
+ *             .projectId(example.id())
+ *             .serviceEndpointName("Example GitHub Enterprise")
+ *             .description("Managed by Pulumi")
+ *             .authOauth(ServiceEndpointGitHubEnterpriseAuthOauthArgs.builder()
+ *                 .oauthConfigurationId("00000000-0000-0000-0000-000000000000")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * ss
  * ## Relevant Links
  * 
  * - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
@@ -87,18 +141,32 @@ import javax.annotation.Nullable;
 @ResourceType(type="azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise")
 public class ServiceEndpointGitHubEnterprise extends com.pulumi.resources.CustomResource {
     /**
+     * An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+     * 
+     */
+    @Export(name="authOauth", refs={ServiceEndpointGitHubEnterpriseAuthOauth.class}, tree="[0]")
+    private Output</* @Nullable */ ServiceEndpointGitHubEnterpriseAuthOauth> authOauth;
+
+    /**
+     * @return An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+     * 
+     */
+    public Output<Optional<ServiceEndpointGitHubEnterpriseAuthOauth>> authOauth() {
+        return Codegen.optional(this.authOauth);
+    }
+    /**
      * An `auth_personal` block as documented below. Allows connecting using a personal access token.
      * 
      */
     @Export(name="authPersonal", refs={ServiceEndpointGitHubEnterpriseAuthPersonal.class}, tree="[0]")
-    private Output<ServiceEndpointGitHubEnterpriseAuthPersonal> authPersonal;
+    private Output</* @Nullable */ ServiceEndpointGitHubEnterpriseAuthPersonal> authPersonal;
 
     /**
      * @return An `auth_personal` block as documented below. Allows connecting using a personal access token.
      * 
      */
-    public Output<ServiceEndpointGitHubEnterpriseAuthPersonal> authPersonal() {
-        return this.authPersonal;
+    public Output<Optional<ServiceEndpointGitHubEnterpriseAuthPersonal>> authPersonal() {
+        return Codegen.optional(this.authPersonal);
     }
     @Export(name="authorization", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> authorization;
@@ -145,14 +213,14 @@ public class ServiceEndpointGitHubEnterprise extends com.pulumi.resources.Custom
      * 
      */
     @Export(name="url", refs={String.class}, tree="[0]")
-    private Output<String> url;
+    private Output</* @Nullable */ String> url;
 
     /**
      * @return GitHub Enterprise Server Url.
      * 
      */
-    public Output<String> url() {
-        return this.url;
+    public Output<Optional<String>> url() {
+        return Codegen.optional(this.url);
     }
 
     /**

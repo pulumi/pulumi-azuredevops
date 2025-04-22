@@ -115,6 +115,11 @@ export type EnvironmentResourceKubernetes = import("./environmentResourceKuberne
 export const EnvironmentResourceKubernetes: typeof import("./environmentResourceKubernetes").EnvironmentResourceKubernetes = null as any;
 utilities.lazyLoad(exports, ["EnvironmentResourceKubernetes"], () => require("./environmentResourceKubernetes"));
 
+export { ExtensionArgs, ExtensionState } from "./extension";
+export type Extension = import("./extension").Extension;
+export const Extension: typeof import("./extension").Extension = null as any;
+utilities.lazyLoad(exports, ["Extension"], () => require("./extension"));
+
 export { FeedArgs, FeedState } from "./feed";
 export type Feed = import("./feed").Feed;
 export const Feed: typeof import("./feed").Feed = null as any;
@@ -169,6 +174,11 @@ export { GetGitRepositoryArgs, GetGitRepositoryResult, GetGitRepositoryOutputArg
 export const getGitRepository: typeof import("./getGitRepository").getGitRepository = null as any;
 export const getGitRepositoryOutput: typeof import("./getGitRepository").getGitRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getGitRepository","getGitRepositoryOutput"], () => require("./getGitRepository"));
+
+export { GetGitRepositoryFileArgs, GetGitRepositoryFileResult, GetGitRepositoryFileOutputArgs } from "./getGitRepositoryFile";
+export const getGitRepositoryFile: typeof import("./getGitRepositoryFile").getGitRepositoryFile = null as any;
+export const getGitRepositoryFileOutput: typeof import("./getGitRepositoryFile").getGitRepositoryFileOutput = null as any;
+utilities.lazyLoad(exports, ["getGitRepositoryFile","getGitRepositoryFileOutput"], () => require("./getGitRepositoryFile"));
 
 export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
 export const getGroup: typeof import("./getGroup").getGroup = null as any;
@@ -625,6 +635,11 @@ export type ServiceendpointOctopusdeploy = import("./serviceendpointOctopusdeplo
 export const ServiceendpointOctopusdeploy: typeof import("./serviceendpointOctopusdeploy").ServiceendpointOctopusdeploy = null as any;
 utilities.lazyLoad(exports, ["ServiceendpointOctopusdeploy"], () => require("./serviceendpointOctopusdeploy"));
 
+export { ServiceendpointOpenshiftArgs, ServiceendpointOpenshiftState } from "./serviceendpointOpenshift";
+export type ServiceendpointOpenshift = import("./serviceendpointOpenshift").ServiceendpointOpenshift;
+export const ServiceendpointOpenshift: typeof import("./serviceendpointOpenshift").ServiceendpointOpenshift = null as any;
+utilities.lazyLoad(exports, ["ServiceendpointOpenshift"], () => require("./serviceendpointOpenshift"));
+
 export { ServiceendpointPermissionsArgs, ServiceendpointPermissionsState } from "./serviceendpointPermissions";
 export type ServiceendpointPermissions = import("./serviceendpointPermissions").ServiceendpointPermissions;
 export const ServiceendpointPermissions: typeof import("./serviceendpointPermissions").ServiceendpointPermissions = null as any;
@@ -763,6 +778,8 @@ const _module = {
                 return new Environment(name, <any>undefined, { urn })
             case "azuredevops:index/environmentResourceKubernetes:EnvironmentResourceKubernetes":
                 return new EnvironmentResourceKubernetes(name, <any>undefined, { urn })
+            case "azuredevops:index/extension:Extension":
+                return new Extension(name, <any>undefined, { urn })
             case "azuredevops:index/feed:Feed":
                 return new Feed(name, <any>undefined, { urn })
             case "azuredevops:index/feedPermission:FeedPermission":
@@ -897,6 +914,8 @@ const _module = {
                 return new ServiceendpointNuget(name, <any>undefined, { urn })
             case "azuredevops:index/serviceendpointOctopusdeploy:ServiceendpointOctopusdeploy":
                 return new ServiceendpointOctopusdeploy(name, <any>undefined, { urn })
+            case "azuredevops:index/serviceendpointOpenshift:ServiceendpointOpenshift":
+                return new ServiceendpointOpenshift(name, <any>undefined, { urn })
             case "azuredevops:index/serviceendpointPermissions:ServiceendpointPermissions":
                 return new ServiceendpointPermissions(name, <any>undefined, { urn })
             case "azuredevops:index/serviceendpointSnyk:ServiceendpointSnyk":
@@ -956,6 +975,7 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/dashboard", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/elasticPool", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/environment", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/environmentResourceKubernetes", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/extension", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/feed", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/feedPermission", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/feedRetentionPolicy", _module)
@@ -1023,6 +1043,7 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointMaven
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointNexus", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointNuget", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointOctopusdeploy", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointOpenshift", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointPermissions", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointSnyk", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointVisualstudiomarketplace", _module)

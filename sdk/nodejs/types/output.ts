@@ -1447,12 +1447,6 @@ export interface GitInitialization {
      */
     initType: string;
     /**
-     * The password used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`.
-     *
-     * ~>**Note** At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
-     */
-    password?: string;
-    /**
      * The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
      */
     serviceConnectionId?: string;
@@ -1526,6 +1520,13 @@ export interface ServiceEndpointGitHubAuthPersonal {
      * The Personal Access Token for GitHub.
      */
     personalAccessToken: string;
+}
+
+export interface ServiceEndpointGitHubEnterpriseAuthOauth {
+    /**
+     * The OAuth Configuration ID.
+     */
+    oauthConfigurationId: string;
 }
 
 export interface ServiceEndpointGitHubEnterpriseAuthPersonal {
@@ -1775,6 +1776,31 @@ export interface ServiceendpointMavenAuthenticationBasic {
 export interface ServiceendpointMavenAuthenticationToken {
     /**
      * Authentication Token generated through maven repository.
+     */
+    token: string;
+}
+
+export interface ServiceendpointOpenshiftAuthBasic {
+    /**
+     * The password of the user.
+     */
+    password: string;
+    /**
+     * The name of the user.
+     */
+    username: string;
+}
+
+export interface ServiceendpointOpenshiftAuthNone {
+    /**
+     * The kubectl config
+     */
+    kubeConfig?: string;
+}
+
+export interface ServiceendpointOpenshiftAuthToken {
+    /**
+     * The API token.
      */
     token: string;
 }

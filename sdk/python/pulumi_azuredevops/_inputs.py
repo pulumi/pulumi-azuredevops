@@ -104,6 +104,8 @@ __all__ = [
     'ServiceEndpointGitHubAuthOauthArgsDict',
     'ServiceEndpointGitHubAuthPersonalArgs',
     'ServiceEndpointGitHubAuthPersonalArgsDict',
+    'ServiceEndpointGitHubEnterpriseAuthOauthArgs',
+    'ServiceEndpointGitHubEnterpriseAuthOauthArgsDict',
     'ServiceEndpointGitHubEnterpriseAuthPersonalArgs',
     'ServiceEndpointGitHubEnterpriseAuthPersonalArgsDict',
     'ServiceEndpointKubernetesAzureSubscriptionArgs',
@@ -146,6 +148,12 @@ __all__ = [
     'ServiceendpointMavenAuthenticationBasicArgsDict',
     'ServiceendpointMavenAuthenticationTokenArgs',
     'ServiceendpointMavenAuthenticationTokenArgsDict',
+    'ServiceendpointOpenshiftAuthBasicArgs',
+    'ServiceendpointOpenshiftAuthBasicArgsDict',
+    'ServiceendpointOpenshiftAuthNoneArgs',
+    'ServiceendpointOpenshiftAuthNoneArgsDict',
+    'ServiceendpointOpenshiftAuthTokenArgs',
+    'ServiceendpointOpenshiftAuthTokenArgsDict',
     'ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs',
     'ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgsDict',
     'ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs',
@@ -3685,12 +3693,6 @@ if not MYPY:
         """
         The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
         """
-        password: NotRequired[pulumi.Input[builtins.str]]
-        """
-        The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
-
-        ~>**Note** At least `service_connection_id` or `username/password` needs to be set to import private repository.
-        """
         service_connection_id: NotRequired[pulumi.Input[builtins.str]]
         """
         The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
@@ -3714,24 +3716,18 @@ elif False:
 class GitInitializationArgs:
     def __init__(__self__, *,
                  init_type: pulumi.Input[builtins.str],
-                 password: Optional[pulumi.Input[builtins.str]] = None,
                  service_connection_id: Optional[pulumi.Input[builtins.str]] = None,
                  source_type: Optional[pulumi.Input[builtins.str]] = None,
                  source_url: Optional[pulumi.Input[builtins.str]] = None,
                  username: Optional[pulumi.Input[builtins.str]] = None):
         """
         :param pulumi.Input[builtins.str] init_type: The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
-        :param pulumi.Input[builtins.str] password: The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
-               
-               ~>**Note** At least `service_connection_id` or `username/password` needs to be set to import private repository.
         :param pulumi.Input[builtins.str] service_connection_id: The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
         :param pulumi.Input[builtins.str] source_type: Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`.
         :param pulumi.Input[builtins.str] source_url: The URL of the source repository. Used if the `init_type` is `Import`.
         :param pulumi.Input[builtins.str] username: The username used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
         """
         pulumi.set(__self__, "init_type", init_type)
-        if password is not None:
-            pulumi.set(__self__, "password", password)
         if service_connection_id is not None:
             pulumi.set(__self__, "service_connection_id", service_connection_id)
         if source_type is not None:
@@ -3752,20 +3748,6 @@ class GitInitializationArgs:
     @init_type.setter
     def init_type(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "init_type", value)
-
-    @property
-    @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
-
-        ~>**Note** At least `service_connection_id` or `username/password` needs to be set to import private repository.
-        """
-        return pulumi.get(self, "password")
-
-    @password.setter
-    def password(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "password", value)
 
     @property
     @pulumi.getter(name="serviceConnectionId")
@@ -4082,6 +4064,37 @@ class ServiceEndpointGitHubAuthPersonalArgs:
     @personal_access_token.setter
     def personal_access_token(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "personal_access_token", value)
+
+
+if not MYPY:
+    class ServiceEndpointGitHubEnterpriseAuthOauthArgsDict(TypedDict):
+        oauth_configuration_id: pulumi.Input[builtins.str]
+        """
+        The OAuth Configuration ID.
+        """
+elif False:
+    ServiceEndpointGitHubEnterpriseAuthOauthArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceEndpointGitHubEnterpriseAuthOauthArgs:
+    def __init__(__self__, *,
+                 oauth_configuration_id: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] oauth_configuration_id: The OAuth Configuration ID.
+        """
+        pulumi.set(__self__, "oauth_configuration_id", oauth_configuration_id)
+
+    @property
+    @pulumi.getter(name="oauthConfigurationId")
+    def oauth_configuration_id(self) -> pulumi.Input[builtins.str]:
+        """
+        The OAuth Configuration ID.
+        """
+        return pulumi.get(self, "oauth_configuration_id")
+
+    @oauth_configuration_id.setter
+    def oauth_configuration_id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "oauth_configuration_id", value)
 
 
 if not MYPY:
@@ -5234,6 +5247,119 @@ class ServiceendpointMavenAuthenticationTokenArgs:
     def token(self) -> pulumi.Input[builtins.str]:
         """
         Authentication Token generated through maven repository.
+        """
+        return pulumi.get(self, "token")
+
+    @token.setter
+    def token(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "token", value)
+
+
+if not MYPY:
+    class ServiceendpointOpenshiftAuthBasicArgsDict(TypedDict):
+        password: pulumi.Input[builtins.str]
+        """
+        The password of the user.
+        """
+        username: pulumi.Input[builtins.str]
+        """
+        The name of the user.
+        """
+elif False:
+    ServiceendpointOpenshiftAuthBasicArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceendpointOpenshiftAuthBasicArgs:
+    def __init__(__self__, *,
+                 password: pulumi.Input[builtins.str],
+                 username: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] password: The password of the user.
+        :param pulumi.Input[builtins.str] username: The name of the user.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[builtins.str]:
+        """
+        The password of the user.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the user.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "username", value)
+
+
+if not MYPY:
+    class ServiceendpointOpenshiftAuthNoneArgsDict(TypedDict):
+        kube_config: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The kubectl config
+        """
+elif False:
+    ServiceendpointOpenshiftAuthNoneArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceendpointOpenshiftAuthNoneArgs:
+    def __init__(__self__, *,
+                 kube_config: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] kube_config: The kubectl config
+        """
+        if kube_config is not None:
+            pulumi.set(__self__, "kube_config", kube_config)
+
+    @property
+    @pulumi.getter(name="kubeConfig")
+    def kube_config(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The kubectl config
+        """
+        return pulumi.get(self, "kube_config")
+
+    @kube_config.setter
+    def kube_config(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "kube_config", value)
+
+
+if not MYPY:
+    class ServiceendpointOpenshiftAuthTokenArgsDict(TypedDict):
+        token: pulumi.Input[builtins.str]
+        """
+        The API token.
+        """
+elif False:
+    ServiceendpointOpenshiftAuthTokenArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceendpointOpenshiftAuthTokenArgs:
+    def __init__(__self__, *,
+                 token: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] token: The API token.
+        """
+        pulumi.set(__self__, "token", token)
+
+    @property
+    @pulumi.getter
+    def token(self) -> pulumi.Input[builtins.str]:
+        """
+        The API token.
         """
         return pulumi.get(self, "token")
 

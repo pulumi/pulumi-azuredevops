@@ -820,12 +820,6 @@ export interface GitInitialization {
      */
     initType: pulumi.Input<string>;
     /**
-     * The password used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`.
-     *
-     * ~>**Note** At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
-     */
-    password?: pulumi.Input<string>;
-    /**
      * The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
      */
     serviceConnectionId?: pulumi.Input<string>;
@@ -899,6 +893,13 @@ export interface ServiceEndpointGitHubAuthPersonal {
      * The Personal Access Token for GitHub.
      */
     personalAccessToken: pulumi.Input<string>;
+}
+
+export interface ServiceEndpointGitHubEnterpriseAuthOauth {
+    /**
+     * The OAuth Configuration ID.
+     */
+    oauthConfigurationId: pulumi.Input<string>;
 }
 
 export interface ServiceEndpointGitHubEnterpriseAuthPersonal {
@@ -1148,6 +1149,31 @@ export interface ServiceendpointMavenAuthenticationBasic {
 export interface ServiceendpointMavenAuthenticationToken {
     /**
      * Authentication Token generated through maven repository.
+     */
+    token: pulumi.Input<string>;
+}
+
+export interface ServiceendpointOpenshiftAuthBasic {
+    /**
+     * The password of the user.
+     */
+    password: pulumi.Input<string>;
+    /**
+     * The name of the user.
+     */
+    username: pulumi.Input<string>;
+}
+
+export interface ServiceendpointOpenshiftAuthNone {
+    /**
+     * The kubectl config
+     */
+    kubeConfig?: pulumi.Input<string>;
+}
+
+export interface ServiceendpointOpenshiftAuthToken {
+    /**
+     * The API token.
      */
     token: pulumi.Input<string>;
 }

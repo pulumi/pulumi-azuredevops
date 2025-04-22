@@ -78,6 +78,80 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Author Email Pattern
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
+ * import com.pulumi.azuredevops.Git;
+ * import com.pulumi.azuredevops.GitArgs;
+ * import com.pulumi.azuredevops.inputs.GitInitializationArgs;
+ * import com.pulumi.azuredevops.RepositoryPolicyAuthorEmailPattern;
+ * import com.pulumi.azuredevops.RepositoryPolicyAuthorEmailPatternArgs;
+ * import com.pulumi.azuredevops.GitRepositoryFile;
+ * import com.pulumi.azuredevops.GitRepositoryFileArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         var example = new Project("example", ProjectArgs.builder()
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .build());
+ * 
+ *         var exampleGit = new Git("exampleGit", GitArgs.builder()
+ *             .projectId(example.id())
+ *             .name("Example Git Repository")
+ *             .initialization(GitInitializationArgs.builder()
+ *                 .initType("Clean")
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleRepositoryPolicyAuthorEmailPattern = new RepositoryPolicyAuthorEmailPattern("exampleRepositoryPolicyAuthorEmailPattern", RepositoryPolicyAuthorEmailPatternArgs.builder()
+ *             .projectId(example.id())
+ *             .enabled(true)
+ *             .blocking(true)
+ *             .authorEmailPatterns("auhtor}{@literal @}{@code test.com")
+ *             .repositoryIds(exampleGit.id())
+ *             .build());
+ * 
+ *         var exampleGitRepositoryFile = new GitRepositoryFile("exampleGitRepositoryFile", GitRepositoryFileArgs.builder()
+ *             .repositoryId(exampleGit.id())
+ *             .file(".gitignore")
+ *             .content("**}&#47;{@code *.tfstate")
+ *             .branch("refs/heads/master")
+ *             .commitMessage("First commit")
+ *             .overwriteOnCreate(false)
+ *             .authorName("authorname")
+ *             .authorEmail("auhtor}{@literal @}{@code test.com")
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleRepositoryPolicyAuthorEmailPattern)
+ *                 .build());
+ * 
+ *     }}{@code
+ * }}{@code
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Relevant Links
  * 
  * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
@@ -99,6 +173,34 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azuredevops:index/gitRepositoryFile:GitRepositoryFile")
 public class GitRepositoryFile extends com.pulumi.resources.CustomResource {
+    /**
+     * The email of the author.
+     * 
+     */
+    @Export(name="authorEmail", refs={String.class}, tree="[0]")
+    private Output<String> authorEmail;
+
+    /**
+     * @return The email of the author.
+     * 
+     */
+    public Output<String> authorEmail() {
+        return this.authorEmail;
+    }
+    /**
+     * The name of the author.
+     * 
+     */
+    @Export(name="authorName", refs={String.class}, tree="[0]")
+    private Output<String> authorName;
+
+    /**
+     * @return The name of the author.
+     * 
+     */
+    public Output<String> authorName() {
+        return this.authorName;
+    }
     /**
      * Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
      * 
@@ -126,6 +228,34 @@ public class GitRepositoryFile extends com.pulumi.resources.CustomResource {
      */
     public Output<String> commitMessage() {
         return this.commitMessage;
+    }
+    /**
+     * The email of the committer.
+     * 
+     */
+    @Export(name="committerEmail", refs={String.class}, tree="[0]")
+    private Output<String> committerEmail;
+
+    /**
+     * @return The email of the committer.
+     * 
+     */
+    public Output<String> committerEmail() {
+        return this.committerEmail;
+    }
+    /**
+     * The name of the committer.
+     * 
+     */
+    @Export(name="committerName", refs={String.class}, tree="[0]")
+    private Output<String> committerName;
+
+    /**
+     * @return The name of the committer.
+     * 
+     */
+    public Output<String> committerName() {
+        return this.committerName;
     }
     /**
      * The file content.

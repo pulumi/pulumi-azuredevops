@@ -19,14 +19,6 @@ namespace Pulumi.AzureDevOps.Inputs
         public Input<string> InitType { get; set; } = null!;
 
         /// <summary>
-        /// The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
-        /// 
-        /// ~&gt;**Note** At least `service_connection_id` or `username/password` needs to be set to import private repository.
-        /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        /// <summary>
         /// The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
         /// </summary>
         [Input("serviceConnectionId")]

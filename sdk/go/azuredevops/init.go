@@ -65,6 +65,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Environment{}
 	case "azuredevops:index/environmentResourceKubernetes:EnvironmentResourceKubernetes":
 		r = &EnvironmentResourceKubernetes{}
+	case "azuredevops:index/extension:Extension":
+		r = &Extension{}
 	case "azuredevops:index/feed:Feed":
 		r = &Feed{}
 	case "azuredevops:index/feedPermission:FeedPermission":
@@ -199,6 +201,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServiceendpointNuget{}
 	case "azuredevops:index/serviceendpointOctopusdeploy:ServiceendpointOctopusdeploy":
 		r = &ServiceendpointOctopusdeploy{}
+	case "azuredevops:index/serviceendpointOpenshift:ServiceendpointOpenshift":
+		r = &ServiceendpointOpenshift{}
 	case "azuredevops:index/serviceendpointPermissions:ServiceendpointPermissions":
 		r = &ServiceendpointPermissions{}
 	case "azuredevops:index/serviceendpointSnyk:ServiceendpointSnyk":
@@ -370,6 +374,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/environmentResourceKubernetes",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/extension",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -705,6 +714,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/serviceendpointOctopusdeploy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/serviceendpointOpenshift",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

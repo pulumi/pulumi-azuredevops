@@ -52,6 +52,7 @@ public final class BuildFolderPermissionsState extends com.pulumi.resources.Reso
      * | DeleteBuildDefinition          | Delete build pipeline                 |
      * | OverrideBuildCheckInValidation | Override check-in validation by build |
      * | AdministerBuildPermissions     | Administer build permissions          |
+     * | CreateBuildDefinition          | Create build pipeline                 |
      * 
      */
     @Import(name="permissions")
@@ -77,6 +78,7 @@ public final class BuildFolderPermissionsState extends com.pulumi.resources.Reso
      * | DeleteBuildDefinition          | Delete build pipeline                 |
      * | OverrideBuildCheckInValidation | Override check-in validation by build |
      * | AdministerBuildPermissions     | Administer build permissions          |
+     * | CreateBuildDefinition          | Create build pipeline                 |
      * 
      */
     public Optional<Output<Map<String,String>>> permissions() {
@@ -197,6 +199,7 @@ public final class BuildFolderPermissionsState extends com.pulumi.resources.Reso
          * | DeleteBuildDefinition          | Delete build pipeline                 |
          * | OverrideBuildCheckInValidation | Override check-in validation by build |
          * | AdministerBuildPermissions     | Administer build permissions          |
+         * | CreateBuildDefinition          | Create build pipeline                 |
          * 
          * @return builder
          * 
@@ -226,6 +229,7 @@ public final class BuildFolderPermissionsState extends com.pulumi.resources.Reso
          * | DeleteBuildDefinition          | Delete build pipeline                 |
          * | OverrideBuildCheckInValidation | Override check-in validation by build |
          * | AdministerBuildPermissions     | Administer build permissions          |
+         * | CreateBuildDefinition          | Create build pipeline                 |
          * 
          * @return builder
          * 

@@ -243,6 +243,20 @@ class FeedPermission(pulumi.CustomResource):
 
         - [Azure DevOps Service REST API 7.0 - Feed Management](https://learn.microsoft.com/en-us/rest/api/azure/devops/artifacts/feed-management?view=azure-devops-rest-7.0)
 
+        ## Import
+
+        Azure DevOps Feed Permission can be imported using the `Project ID/Feed ID/Identity Descriptor` or `Feed ID/Identity Descriptor` e.g.:
+
+        ```sh
+        $ pulumi import azuredevops:index/feedPermission:FeedPermission permission 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000/vssgp.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+        ```
+
+        or
+
+        ```sh
+        $ pulumi import azuredevops:index/feedPermission:FeedPermission permission 00000000-0000-0000-0000-000000000000/vssgp.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] display_name: The display name of the assignment
@@ -282,6 +296,20 @@ class FeedPermission(pulumi.CustomResource):
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Feed Management](https://learn.microsoft.com/en-us/rest/api/azure/devops/artifacts/feed-management?view=azure-devops-rest-7.0)
+
+        ## Import
+
+        Azure DevOps Feed Permission can be imported using the `Project ID/Feed ID/Identity Descriptor` or `Feed ID/Identity Descriptor` e.g.:
+
+        ```sh
+        $ pulumi import azuredevops:index/feedPermission:FeedPermission permission 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000/vssgp.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+        ```
+
+        or
+
+        ```sh
+        $ pulumi import azuredevops:index/feedPermission:FeedPermission permission 00000000-0000-0000-0000-000000000000/vssgp.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+        ```
 
         :param str resource_name: The name of the resource.
         :param FeedPermissionArgs args: The arguments to use to populate this resource's properties.

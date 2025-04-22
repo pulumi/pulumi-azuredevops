@@ -66,6 +66,20 @@ import (
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 7.0 - Feed Management](https://learn.microsoft.com/en-us/rest/api/azure/devops/artifacts/feed-management?view=azure-devops-rest-7.0)
+//
+// ## Import
+//
+// Azure DevOps Feed Permission can be imported using the `Project ID/Feed ID/Identity Descriptor` or `Feed ID/Identity Descriptor` e.g.:
+//
+// ```sh
+// $ pulumi import azuredevops:index/feedPermission:FeedPermission permission 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000/vssgp.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+// ```
+//
+// or
+//
+// ```sh
+// $ pulumi import azuredevops:index/feedPermission:FeedPermission permission 00000000-0000-0000-0000-000000000000/vssgp.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+// ```
 type FeedPermission struct {
 	pulumi.CustomResourceState
 
