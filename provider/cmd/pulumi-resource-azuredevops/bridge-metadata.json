@@ -378,6 +378,15 @@
                     }
                 }
             },
+            "azuredevops_extension": {
+                "current": "azuredevops:index/extension:Extension",
+                "majorVersion": 3,
+                "fields": {
+                    "scope": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azuredevops_feed": {
                 "current": "azuredevops:index/feed:Feed",
                 "majorVersion": 3,
@@ -681,6 +690,9 @@
                 "current": "azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise",
                 "majorVersion": 3,
                 "fields": {
+                    "auth_oauth": {
+                        "maxItemsOne": true
+                    },
                     "auth_personal": {
                         "maxItemsOne": true
                     }
@@ -788,6 +800,21 @@
             "azuredevops_serviceendpoint_octopusdeploy": {
                 "current": "azuredevops:index/serviceendpointOctopusdeploy:ServiceendpointOctopusdeploy",
                 "majorVersion": 3
+            },
+            "azuredevops_serviceendpoint_openshift": {
+                "current": "azuredevops:index/serviceendpointOpenshift:ServiceendpointOpenshift",
+                "majorVersion": 3,
+                "fields": {
+                    "auth_basic": {
+                        "maxItemsOne": true
+                    },
+                    "auth_none": {
+                        "maxItemsOne": true
+                    },
+                    "auth_token": {
+                        "maxItemsOne": true
+                    }
+                }
             },
             "azuredevops_serviceendpoint_permissions": {
                 "current": "azuredevops:index/serviceendpointPermissions:ServiceendpointPermissions",
@@ -1135,6 +1162,10 @@
             },
             "azuredevops_git_repository": {
                 "current": "azuredevops:index/getGitRepository:getGitRepository",
+                "majorVersion": 3
+            },
+            "azuredevops_git_repository_file": {
+                "current": "azuredevops:index/getGitRepositoryFile:getGitRepositoryFile",
                 "majorVersion": 3
             },
             "azuredevops_group": {

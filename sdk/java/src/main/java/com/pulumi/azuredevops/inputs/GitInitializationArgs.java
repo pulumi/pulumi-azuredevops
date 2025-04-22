@@ -32,25 +32,6 @@ public final class GitInitializationArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
-     * 
-     * ~&gt;**Note** At least `service_connection_id` or `username/password` needs to be set to import private repository.
-     * 
-     */
-    @Import(name="password")
-    private @Nullable Output<String> password;
-
-    /**
-     * @return The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
-     * 
-     * ~&gt;**Note** At least `service_connection_id` or `username/password` needs to be set to import private repository.
-     * 
-     */
-    public Optional<Output<String>> password() {
-        return Optional.ofNullable(this.password);
-    }
-
-    /**
      * The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
      * 
      */
@@ -114,7 +95,6 @@ public final class GitInitializationArgs extends com.pulumi.resources.ResourceAr
 
     private GitInitializationArgs(GitInitializationArgs $) {
         this.initType = $.initType;
-        this.password = $.password;
         this.serviceConnectionId = $.serviceConnectionId;
         this.sourceType = $.sourceType;
         this.sourceUrl = $.sourceUrl;
@@ -158,31 +138,6 @@ public final class GitInitializationArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder initType(String initType) {
             return initType(Output.of(initType));
-        }
-
-        /**
-         * @param password The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
-         * 
-         * ~&gt;**Note** At least `service_connection_id` or `username/password` needs to be set to import private repository.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder password(@Nullable Output<String> password) {
-            $.password = password;
-            return this;
-        }
-
-        /**
-         * @param password The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
-         * 
-         * ~&gt;**Note** At least `service_connection_id` or `username/password` needs to be set to import private repository.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder password(String password) {
-            return password(Output.of(password));
         }
 
         /**

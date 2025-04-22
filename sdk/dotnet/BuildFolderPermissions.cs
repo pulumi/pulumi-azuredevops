@@ -153,6 +153,7 @@ namespace Pulumi.AzureDevOps
         /// | DeleteBuildDefinition          | Delete build pipeline                 |
         /// | OverrideBuildCheckInValidation | Override check-in validation by build |
         /// | AdministerBuildPermissions     | Administer build permissions          |
+        /// | CreateBuildDefinition          | Create build pipeline                 |
         /// </summary>
         [Output("permissions")]
         public Output<ImmutableDictionary<string, string>> Permissions { get; private set; } = null!;
@@ -250,6 +251,7 @@ namespace Pulumi.AzureDevOps
         /// | DeleteBuildDefinition          | Delete build pipeline                 |
         /// | OverrideBuildCheckInValidation | Override check-in validation by build |
         /// | AdministerBuildPermissions     | Administer build permissions          |
+        /// | CreateBuildDefinition          | Create build pipeline                 |
         /// </summary>
         public InputMap<string> Permissions
         {
@@ -312,6 +314,7 @@ namespace Pulumi.AzureDevOps
         /// | DeleteBuildDefinition          | Delete build pipeline                 |
         /// | OverrideBuildCheckInValidation | Override check-in validation by build |
         /// | AdministerBuildPermissions     | Administer build permissions          |
+        /// | CreateBuildDefinition          | Create build pipeline                 |
         /// </summary>
         public InputMap<string> Permissions
         {

@@ -28,6 +28,7 @@ from .dashboard import *
 from .elastic_pool import *
 from .environment import *
 from .environment_resource_kubernetes import *
+from .extension import *
 from .feed import *
 from .feed_permission import *
 from .feed_retention_policy import *
@@ -39,6 +40,7 @@ from .get_descriptor import *
 from .get_environment import *
 from .get_feed import *
 from .get_git_repository import *
+from .get_git_repository_file import *
 from .get_group import *
 from .get_group_membership import *
 from .get_groups import *
@@ -130,6 +132,7 @@ from .serviceendpoint_maven import *
 from .serviceendpoint_nexus import *
 from .serviceendpoint_nuget import *
 from .serviceendpoint_octopusdeploy import *
+from .serviceendpoint_openshift import *
 from .serviceendpoint_permissions import *
 from .serviceendpoint_snyk import *
 from .serviceendpoint_visualstudiomarketplace import *
@@ -333,6 +336,14 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/environmentResourceKubernetes:EnvironmentResourceKubernetes": "EnvironmentResourceKubernetes"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/extension",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/extension:Extension": "Extension"
   }
  },
  {
@@ -869,6 +880,14 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/serviceendpointOctopusdeploy:ServiceendpointOctopusdeploy": "ServiceendpointOctopusdeploy"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/serviceendpointOpenshift",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/serviceendpointOpenshift:ServiceendpointOpenshift": "ServiceendpointOpenshift"
   }
  },
  {

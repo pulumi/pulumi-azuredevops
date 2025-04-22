@@ -166,6 +166,7 @@ type BuildFolderPermissions struct {
 	// | DeleteBuildDefinition          | Delete build pipeline                 |
 	// | OverrideBuildCheckInValidation | Override check-in validation by build |
 	// | AdministerBuildPermissions     | Administer build permissions          |
+	// | CreateBuildDefinition          | Create build pipeline                 |
 	Permissions pulumi.StringMapOutput `pulumi:"permissions"`
 	// The **group** principal to assign the permissions.
 	Principal pulumi.StringOutput `pulumi:"principal"`
@@ -238,6 +239,7 @@ type buildFolderPermissionsState struct {
 	// | DeleteBuildDefinition          | Delete build pipeline                 |
 	// | OverrideBuildCheckInValidation | Override check-in validation by build |
 	// | AdministerBuildPermissions     | Administer build permissions          |
+	// | CreateBuildDefinition          | Create build pipeline                 |
 	Permissions map[string]string `pulumi:"permissions"`
 	// The **group** principal to assign the permissions.
 	Principal *string `pulumi:"principal"`
@@ -269,6 +271,7 @@ type BuildFolderPermissionsState struct {
 	// | DeleteBuildDefinition          | Delete build pipeline                 |
 	// | OverrideBuildCheckInValidation | Override check-in validation by build |
 	// | AdministerBuildPermissions     | Administer build permissions          |
+	// | CreateBuildDefinition          | Create build pipeline                 |
 	Permissions pulumi.StringMapInput
 	// The **group** principal to assign the permissions.
 	Principal pulumi.StringPtrInput
@@ -304,6 +307,7 @@ type buildFolderPermissionsArgs struct {
 	// | DeleteBuildDefinition          | Delete build pipeline                 |
 	// | OverrideBuildCheckInValidation | Override check-in validation by build |
 	// | AdministerBuildPermissions     | Administer build permissions          |
+	// | CreateBuildDefinition          | Create build pipeline                 |
 	Permissions map[string]string `pulumi:"permissions"`
 	// The **group** principal to assign the permissions.
 	Principal string `pulumi:"principal"`
@@ -336,6 +340,7 @@ type BuildFolderPermissionsArgs struct {
 	// | DeleteBuildDefinition          | Delete build pipeline                 |
 	// | OverrideBuildCheckInValidation | Override check-in validation by build |
 	// | AdministerBuildPermissions     | Administer build permissions          |
+	// | CreateBuildDefinition          | Create build pipeline                 |
 	Permissions pulumi.StringMapInput
 	// The **group** principal to assign the permissions.
 	Principal pulumi.StringInput
@@ -456,6 +461,7 @@ func (o BuildFolderPermissionsOutput) Path() pulumi.StringOutput {
 // | DeleteBuildDefinition          | Delete build pipeline                 |
 // | OverrideBuildCheckInValidation | Override check-in validation by build |
 // | AdministerBuildPermissions     | Administer build permissions          |
+// | CreateBuildDefinition          | Create build pipeline                 |
 func (o BuildFolderPermissionsOutput) Permissions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BuildFolderPermissions) pulumi.StringMapOutput { return v.Permissions }).(pulumi.StringMapOutput)
 }

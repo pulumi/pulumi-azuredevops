@@ -5796,10 +5796,6 @@ func (o FeedFeatureArrayOutput) Index(i pulumi.IntInput) FeedFeatureOutput {
 type GitInitialization struct {
 	// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
 	InitType string `pulumi:"initType"`
-	// The password used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`.
-	//
-	// ~>**Note** At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
-	Password *string `pulumi:"password"`
 	// The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
 	ServiceConnectionId *string `pulumi:"serviceConnectionId"`
 	// Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`.
@@ -5824,10 +5820,6 @@ type GitInitializationInput interface {
 type GitInitializationArgs struct {
 	// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
 	InitType pulumi.StringInput `pulumi:"initType"`
-	// The password used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`.
-	//
-	// ~>**Note** At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
-	Password pulumi.StringPtrInput `pulumi:"password"`
 	// The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
 	ServiceConnectionId pulumi.StringPtrInput `pulumi:"serviceConnectionId"`
 	// Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`.
@@ -5920,13 +5912,6 @@ func (o GitInitializationOutput) InitType() pulumi.StringOutput {
 	return o.ApplyT(func(v GitInitialization) string { return v.InitType }).(pulumi.StringOutput)
 }
 
-// The password used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`.
-//
-// ~>**Note** At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
-func (o GitInitializationOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GitInitialization) *string { return v.Password }).(pulumi.StringPtrOutput)
-}
-
 // The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
 func (o GitInitializationOutput) ServiceConnectionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GitInitialization) *string { return v.ServiceConnectionId }).(pulumi.StringPtrOutput)
@@ -5978,18 +5963,6 @@ func (o GitInitializationPtrOutput) InitType() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.InitType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The password used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`.
-//
-// ~>**Note** At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
-func (o GitInitializationPtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GitInitialization) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7042,6 +7015,143 @@ func (o ServiceEndpointGitHubAuthPersonalPtrOutput) PersonalAccessToken() pulumi
 			return nil
 		}
 		return &v.PersonalAccessToken
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceEndpointGitHubEnterpriseAuthOauth struct {
+	// The OAuth Configuration ID.
+	OauthConfigurationId string `pulumi:"oauthConfigurationId"`
+}
+
+// ServiceEndpointGitHubEnterpriseAuthOauthInput is an input type that accepts ServiceEndpointGitHubEnterpriseAuthOauthArgs and ServiceEndpointGitHubEnterpriseAuthOauthOutput values.
+// You can construct a concrete instance of `ServiceEndpointGitHubEnterpriseAuthOauthInput` via:
+//
+//	ServiceEndpointGitHubEnterpriseAuthOauthArgs{...}
+type ServiceEndpointGitHubEnterpriseAuthOauthInput interface {
+	pulumi.Input
+
+	ToServiceEndpointGitHubEnterpriseAuthOauthOutput() ServiceEndpointGitHubEnterpriseAuthOauthOutput
+	ToServiceEndpointGitHubEnterpriseAuthOauthOutputWithContext(context.Context) ServiceEndpointGitHubEnterpriseAuthOauthOutput
+}
+
+type ServiceEndpointGitHubEnterpriseAuthOauthArgs struct {
+	// The OAuth Configuration ID.
+	OauthConfigurationId pulumi.StringInput `pulumi:"oauthConfigurationId"`
+}
+
+func (ServiceEndpointGitHubEnterpriseAuthOauthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointGitHubEnterpriseAuthOauth)(nil)).Elem()
+}
+
+func (i ServiceEndpointGitHubEnterpriseAuthOauthArgs) ToServiceEndpointGitHubEnterpriseAuthOauthOutput() ServiceEndpointGitHubEnterpriseAuthOauthOutput {
+	return i.ToServiceEndpointGitHubEnterpriseAuthOauthOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointGitHubEnterpriseAuthOauthArgs) ToServiceEndpointGitHubEnterpriseAuthOauthOutputWithContext(ctx context.Context) ServiceEndpointGitHubEnterpriseAuthOauthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointGitHubEnterpriseAuthOauthOutput)
+}
+
+func (i ServiceEndpointGitHubEnterpriseAuthOauthArgs) ToServiceEndpointGitHubEnterpriseAuthOauthPtrOutput() ServiceEndpointGitHubEnterpriseAuthOauthPtrOutput {
+	return i.ToServiceEndpointGitHubEnterpriseAuthOauthPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointGitHubEnterpriseAuthOauthArgs) ToServiceEndpointGitHubEnterpriseAuthOauthPtrOutputWithContext(ctx context.Context) ServiceEndpointGitHubEnterpriseAuthOauthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointGitHubEnterpriseAuthOauthOutput).ToServiceEndpointGitHubEnterpriseAuthOauthPtrOutputWithContext(ctx)
+}
+
+// ServiceEndpointGitHubEnterpriseAuthOauthPtrInput is an input type that accepts ServiceEndpointGitHubEnterpriseAuthOauthArgs, ServiceEndpointGitHubEnterpriseAuthOauthPtr and ServiceEndpointGitHubEnterpriseAuthOauthPtrOutput values.
+// You can construct a concrete instance of `ServiceEndpointGitHubEnterpriseAuthOauthPtrInput` via:
+//
+//	        ServiceEndpointGitHubEnterpriseAuthOauthArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceEndpointGitHubEnterpriseAuthOauthPtrInput interface {
+	pulumi.Input
+
+	ToServiceEndpointGitHubEnterpriseAuthOauthPtrOutput() ServiceEndpointGitHubEnterpriseAuthOauthPtrOutput
+	ToServiceEndpointGitHubEnterpriseAuthOauthPtrOutputWithContext(context.Context) ServiceEndpointGitHubEnterpriseAuthOauthPtrOutput
+}
+
+type serviceEndpointGitHubEnterpriseAuthOauthPtrType ServiceEndpointGitHubEnterpriseAuthOauthArgs
+
+func ServiceEndpointGitHubEnterpriseAuthOauthPtr(v *ServiceEndpointGitHubEnterpriseAuthOauthArgs) ServiceEndpointGitHubEnterpriseAuthOauthPtrInput {
+	return (*serviceEndpointGitHubEnterpriseAuthOauthPtrType)(v)
+}
+
+func (*serviceEndpointGitHubEnterpriseAuthOauthPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointGitHubEnterpriseAuthOauth)(nil)).Elem()
+}
+
+func (i *serviceEndpointGitHubEnterpriseAuthOauthPtrType) ToServiceEndpointGitHubEnterpriseAuthOauthPtrOutput() ServiceEndpointGitHubEnterpriseAuthOauthPtrOutput {
+	return i.ToServiceEndpointGitHubEnterpriseAuthOauthPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceEndpointGitHubEnterpriseAuthOauthPtrType) ToServiceEndpointGitHubEnterpriseAuthOauthPtrOutputWithContext(ctx context.Context) ServiceEndpointGitHubEnterpriseAuthOauthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointGitHubEnterpriseAuthOauthPtrOutput)
+}
+
+type ServiceEndpointGitHubEnterpriseAuthOauthOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointGitHubEnterpriseAuthOauthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointGitHubEnterpriseAuthOauth)(nil)).Elem()
+}
+
+func (o ServiceEndpointGitHubEnterpriseAuthOauthOutput) ToServiceEndpointGitHubEnterpriseAuthOauthOutput() ServiceEndpointGitHubEnterpriseAuthOauthOutput {
+	return o
+}
+
+func (o ServiceEndpointGitHubEnterpriseAuthOauthOutput) ToServiceEndpointGitHubEnterpriseAuthOauthOutputWithContext(ctx context.Context) ServiceEndpointGitHubEnterpriseAuthOauthOutput {
+	return o
+}
+
+func (o ServiceEndpointGitHubEnterpriseAuthOauthOutput) ToServiceEndpointGitHubEnterpriseAuthOauthPtrOutput() ServiceEndpointGitHubEnterpriseAuthOauthPtrOutput {
+	return o.ToServiceEndpointGitHubEnterpriseAuthOauthPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceEndpointGitHubEnterpriseAuthOauthOutput) ToServiceEndpointGitHubEnterpriseAuthOauthPtrOutputWithContext(ctx context.Context) ServiceEndpointGitHubEnterpriseAuthOauthPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEndpointGitHubEnterpriseAuthOauth) *ServiceEndpointGitHubEnterpriseAuthOauth {
+		return &v
+	}).(ServiceEndpointGitHubEnterpriseAuthOauthPtrOutput)
+}
+
+// The OAuth Configuration ID.
+func (o ServiceEndpointGitHubEnterpriseAuthOauthOutput) OauthConfigurationId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceEndpointGitHubEnterpriseAuthOauth) string { return v.OauthConfigurationId }).(pulumi.StringOutput)
+}
+
+type ServiceEndpointGitHubEnterpriseAuthOauthPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointGitHubEnterpriseAuthOauthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointGitHubEnterpriseAuthOauth)(nil)).Elem()
+}
+
+func (o ServiceEndpointGitHubEnterpriseAuthOauthPtrOutput) ToServiceEndpointGitHubEnterpriseAuthOauthPtrOutput() ServiceEndpointGitHubEnterpriseAuthOauthPtrOutput {
+	return o
+}
+
+func (o ServiceEndpointGitHubEnterpriseAuthOauthPtrOutput) ToServiceEndpointGitHubEnterpriseAuthOauthPtrOutputWithContext(ctx context.Context) ServiceEndpointGitHubEnterpriseAuthOauthPtrOutput {
+	return o
+}
+
+func (o ServiceEndpointGitHubEnterpriseAuthOauthPtrOutput) Elem() ServiceEndpointGitHubEnterpriseAuthOauthOutput {
+	return o.ApplyT(func(v *ServiceEndpointGitHubEnterpriseAuthOauth) ServiceEndpointGitHubEnterpriseAuthOauth {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceEndpointGitHubEnterpriseAuthOauth
+		return ret
+	}).(ServiceEndpointGitHubEnterpriseAuthOauthOutput)
+}
+
+// The OAuth Configuration ID.
+func (o ServiceEndpointGitHubEnterpriseAuthOauthPtrOutput) OauthConfigurationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointGitHubEnterpriseAuthOauth) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OauthConfigurationId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -10299,6 +10409,436 @@ func (o ServiceendpointMavenAuthenticationTokenPtrOutput) Elem() Serviceendpoint
 // Authentication Token generated through maven repository.
 func (o ServiceendpointMavenAuthenticationTokenPtrOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointMavenAuthenticationToken) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Token
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceendpointOpenshiftAuthBasic struct {
+	// The password of the user.
+	Password string `pulumi:"password"`
+	// The name of the user.
+	Username string `pulumi:"username"`
+}
+
+// ServiceendpointOpenshiftAuthBasicInput is an input type that accepts ServiceendpointOpenshiftAuthBasicArgs and ServiceendpointOpenshiftAuthBasicOutput values.
+// You can construct a concrete instance of `ServiceendpointOpenshiftAuthBasicInput` via:
+//
+//	ServiceendpointOpenshiftAuthBasicArgs{...}
+type ServiceendpointOpenshiftAuthBasicInput interface {
+	pulumi.Input
+
+	ToServiceendpointOpenshiftAuthBasicOutput() ServiceendpointOpenshiftAuthBasicOutput
+	ToServiceendpointOpenshiftAuthBasicOutputWithContext(context.Context) ServiceendpointOpenshiftAuthBasicOutput
+}
+
+type ServiceendpointOpenshiftAuthBasicArgs struct {
+	// The password of the user.
+	Password pulumi.StringInput `pulumi:"password"`
+	// The name of the user.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (ServiceendpointOpenshiftAuthBasicArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointOpenshiftAuthBasic)(nil)).Elem()
+}
+
+func (i ServiceendpointOpenshiftAuthBasicArgs) ToServiceendpointOpenshiftAuthBasicOutput() ServiceendpointOpenshiftAuthBasicOutput {
+	return i.ToServiceendpointOpenshiftAuthBasicOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointOpenshiftAuthBasicArgs) ToServiceendpointOpenshiftAuthBasicOutputWithContext(ctx context.Context) ServiceendpointOpenshiftAuthBasicOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointOpenshiftAuthBasicOutput)
+}
+
+func (i ServiceendpointOpenshiftAuthBasicArgs) ToServiceendpointOpenshiftAuthBasicPtrOutput() ServiceendpointOpenshiftAuthBasicPtrOutput {
+	return i.ToServiceendpointOpenshiftAuthBasicPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointOpenshiftAuthBasicArgs) ToServiceendpointOpenshiftAuthBasicPtrOutputWithContext(ctx context.Context) ServiceendpointOpenshiftAuthBasicPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointOpenshiftAuthBasicOutput).ToServiceendpointOpenshiftAuthBasicPtrOutputWithContext(ctx)
+}
+
+// ServiceendpointOpenshiftAuthBasicPtrInput is an input type that accepts ServiceendpointOpenshiftAuthBasicArgs, ServiceendpointOpenshiftAuthBasicPtr and ServiceendpointOpenshiftAuthBasicPtrOutput values.
+// You can construct a concrete instance of `ServiceendpointOpenshiftAuthBasicPtrInput` via:
+//
+//	        ServiceendpointOpenshiftAuthBasicArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceendpointOpenshiftAuthBasicPtrInput interface {
+	pulumi.Input
+
+	ToServiceendpointOpenshiftAuthBasicPtrOutput() ServiceendpointOpenshiftAuthBasicPtrOutput
+	ToServiceendpointOpenshiftAuthBasicPtrOutputWithContext(context.Context) ServiceendpointOpenshiftAuthBasicPtrOutput
+}
+
+type serviceendpointOpenshiftAuthBasicPtrType ServiceendpointOpenshiftAuthBasicArgs
+
+func ServiceendpointOpenshiftAuthBasicPtr(v *ServiceendpointOpenshiftAuthBasicArgs) ServiceendpointOpenshiftAuthBasicPtrInput {
+	return (*serviceendpointOpenshiftAuthBasicPtrType)(v)
+}
+
+func (*serviceendpointOpenshiftAuthBasicPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointOpenshiftAuthBasic)(nil)).Elem()
+}
+
+func (i *serviceendpointOpenshiftAuthBasicPtrType) ToServiceendpointOpenshiftAuthBasicPtrOutput() ServiceendpointOpenshiftAuthBasicPtrOutput {
+	return i.ToServiceendpointOpenshiftAuthBasicPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceendpointOpenshiftAuthBasicPtrType) ToServiceendpointOpenshiftAuthBasicPtrOutputWithContext(ctx context.Context) ServiceendpointOpenshiftAuthBasicPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointOpenshiftAuthBasicPtrOutput)
+}
+
+type ServiceendpointOpenshiftAuthBasicOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointOpenshiftAuthBasicOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointOpenshiftAuthBasic)(nil)).Elem()
+}
+
+func (o ServiceendpointOpenshiftAuthBasicOutput) ToServiceendpointOpenshiftAuthBasicOutput() ServiceendpointOpenshiftAuthBasicOutput {
+	return o
+}
+
+func (o ServiceendpointOpenshiftAuthBasicOutput) ToServiceendpointOpenshiftAuthBasicOutputWithContext(ctx context.Context) ServiceendpointOpenshiftAuthBasicOutput {
+	return o
+}
+
+func (o ServiceendpointOpenshiftAuthBasicOutput) ToServiceendpointOpenshiftAuthBasicPtrOutput() ServiceendpointOpenshiftAuthBasicPtrOutput {
+	return o.ToServiceendpointOpenshiftAuthBasicPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceendpointOpenshiftAuthBasicOutput) ToServiceendpointOpenshiftAuthBasicPtrOutputWithContext(ctx context.Context) ServiceendpointOpenshiftAuthBasicPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceendpointOpenshiftAuthBasic) *ServiceendpointOpenshiftAuthBasic {
+		return &v
+	}).(ServiceendpointOpenshiftAuthBasicPtrOutput)
+}
+
+// The password of the user.
+func (o ServiceendpointOpenshiftAuthBasicOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceendpointOpenshiftAuthBasic) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// The name of the user.
+func (o ServiceendpointOpenshiftAuthBasicOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceendpointOpenshiftAuthBasic) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type ServiceendpointOpenshiftAuthBasicPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointOpenshiftAuthBasicPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointOpenshiftAuthBasic)(nil)).Elem()
+}
+
+func (o ServiceendpointOpenshiftAuthBasicPtrOutput) ToServiceendpointOpenshiftAuthBasicPtrOutput() ServiceendpointOpenshiftAuthBasicPtrOutput {
+	return o
+}
+
+func (o ServiceendpointOpenshiftAuthBasicPtrOutput) ToServiceendpointOpenshiftAuthBasicPtrOutputWithContext(ctx context.Context) ServiceendpointOpenshiftAuthBasicPtrOutput {
+	return o
+}
+
+func (o ServiceendpointOpenshiftAuthBasicPtrOutput) Elem() ServiceendpointOpenshiftAuthBasicOutput {
+	return o.ApplyT(func(v *ServiceendpointOpenshiftAuthBasic) ServiceendpointOpenshiftAuthBasic {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceendpointOpenshiftAuthBasic
+		return ret
+	}).(ServiceendpointOpenshiftAuthBasicOutput)
+}
+
+// The password of the user.
+func (o ServiceendpointOpenshiftAuthBasicPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceendpointOpenshiftAuthBasic) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the user.
+func (o ServiceendpointOpenshiftAuthBasicPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceendpointOpenshiftAuthBasic) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceendpointOpenshiftAuthNone struct {
+	// The kubectl config
+	KubeConfig *string `pulumi:"kubeConfig"`
+}
+
+// ServiceendpointOpenshiftAuthNoneInput is an input type that accepts ServiceendpointOpenshiftAuthNoneArgs and ServiceendpointOpenshiftAuthNoneOutput values.
+// You can construct a concrete instance of `ServiceendpointOpenshiftAuthNoneInput` via:
+//
+//	ServiceendpointOpenshiftAuthNoneArgs{...}
+type ServiceendpointOpenshiftAuthNoneInput interface {
+	pulumi.Input
+
+	ToServiceendpointOpenshiftAuthNoneOutput() ServiceendpointOpenshiftAuthNoneOutput
+	ToServiceendpointOpenshiftAuthNoneOutputWithContext(context.Context) ServiceendpointOpenshiftAuthNoneOutput
+}
+
+type ServiceendpointOpenshiftAuthNoneArgs struct {
+	// The kubectl config
+	KubeConfig pulumi.StringPtrInput `pulumi:"kubeConfig"`
+}
+
+func (ServiceendpointOpenshiftAuthNoneArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointOpenshiftAuthNone)(nil)).Elem()
+}
+
+func (i ServiceendpointOpenshiftAuthNoneArgs) ToServiceendpointOpenshiftAuthNoneOutput() ServiceendpointOpenshiftAuthNoneOutput {
+	return i.ToServiceendpointOpenshiftAuthNoneOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointOpenshiftAuthNoneArgs) ToServiceendpointOpenshiftAuthNoneOutputWithContext(ctx context.Context) ServiceendpointOpenshiftAuthNoneOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointOpenshiftAuthNoneOutput)
+}
+
+func (i ServiceendpointOpenshiftAuthNoneArgs) ToServiceendpointOpenshiftAuthNonePtrOutput() ServiceendpointOpenshiftAuthNonePtrOutput {
+	return i.ToServiceendpointOpenshiftAuthNonePtrOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointOpenshiftAuthNoneArgs) ToServiceendpointOpenshiftAuthNonePtrOutputWithContext(ctx context.Context) ServiceendpointOpenshiftAuthNonePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointOpenshiftAuthNoneOutput).ToServiceendpointOpenshiftAuthNonePtrOutputWithContext(ctx)
+}
+
+// ServiceendpointOpenshiftAuthNonePtrInput is an input type that accepts ServiceendpointOpenshiftAuthNoneArgs, ServiceendpointOpenshiftAuthNonePtr and ServiceendpointOpenshiftAuthNonePtrOutput values.
+// You can construct a concrete instance of `ServiceendpointOpenshiftAuthNonePtrInput` via:
+//
+//	        ServiceendpointOpenshiftAuthNoneArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceendpointOpenshiftAuthNonePtrInput interface {
+	pulumi.Input
+
+	ToServiceendpointOpenshiftAuthNonePtrOutput() ServiceendpointOpenshiftAuthNonePtrOutput
+	ToServiceendpointOpenshiftAuthNonePtrOutputWithContext(context.Context) ServiceendpointOpenshiftAuthNonePtrOutput
+}
+
+type serviceendpointOpenshiftAuthNonePtrType ServiceendpointOpenshiftAuthNoneArgs
+
+func ServiceendpointOpenshiftAuthNonePtr(v *ServiceendpointOpenshiftAuthNoneArgs) ServiceendpointOpenshiftAuthNonePtrInput {
+	return (*serviceendpointOpenshiftAuthNonePtrType)(v)
+}
+
+func (*serviceendpointOpenshiftAuthNonePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointOpenshiftAuthNone)(nil)).Elem()
+}
+
+func (i *serviceendpointOpenshiftAuthNonePtrType) ToServiceendpointOpenshiftAuthNonePtrOutput() ServiceendpointOpenshiftAuthNonePtrOutput {
+	return i.ToServiceendpointOpenshiftAuthNonePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceendpointOpenshiftAuthNonePtrType) ToServiceendpointOpenshiftAuthNonePtrOutputWithContext(ctx context.Context) ServiceendpointOpenshiftAuthNonePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointOpenshiftAuthNonePtrOutput)
+}
+
+type ServiceendpointOpenshiftAuthNoneOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointOpenshiftAuthNoneOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointOpenshiftAuthNone)(nil)).Elem()
+}
+
+func (o ServiceendpointOpenshiftAuthNoneOutput) ToServiceendpointOpenshiftAuthNoneOutput() ServiceendpointOpenshiftAuthNoneOutput {
+	return o
+}
+
+func (o ServiceendpointOpenshiftAuthNoneOutput) ToServiceendpointOpenshiftAuthNoneOutputWithContext(ctx context.Context) ServiceendpointOpenshiftAuthNoneOutput {
+	return o
+}
+
+func (o ServiceendpointOpenshiftAuthNoneOutput) ToServiceendpointOpenshiftAuthNonePtrOutput() ServiceendpointOpenshiftAuthNonePtrOutput {
+	return o.ToServiceendpointOpenshiftAuthNonePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceendpointOpenshiftAuthNoneOutput) ToServiceendpointOpenshiftAuthNonePtrOutputWithContext(ctx context.Context) ServiceendpointOpenshiftAuthNonePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceendpointOpenshiftAuthNone) *ServiceendpointOpenshiftAuthNone {
+		return &v
+	}).(ServiceendpointOpenshiftAuthNonePtrOutput)
+}
+
+// The kubectl config
+func (o ServiceendpointOpenshiftAuthNoneOutput) KubeConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceendpointOpenshiftAuthNone) *string { return v.KubeConfig }).(pulumi.StringPtrOutput)
+}
+
+type ServiceendpointOpenshiftAuthNonePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointOpenshiftAuthNonePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointOpenshiftAuthNone)(nil)).Elem()
+}
+
+func (o ServiceendpointOpenshiftAuthNonePtrOutput) ToServiceendpointOpenshiftAuthNonePtrOutput() ServiceendpointOpenshiftAuthNonePtrOutput {
+	return o
+}
+
+func (o ServiceendpointOpenshiftAuthNonePtrOutput) ToServiceendpointOpenshiftAuthNonePtrOutputWithContext(ctx context.Context) ServiceendpointOpenshiftAuthNonePtrOutput {
+	return o
+}
+
+func (o ServiceendpointOpenshiftAuthNonePtrOutput) Elem() ServiceendpointOpenshiftAuthNoneOutput {
+	return o.ApplyT(func(v *ServiceendpointOpenshiftAuthNone) ServiceendpointOpenshiftAuthNone {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceendpointOpenshiftAuthNone
+		return ret
+	}).(ServiceendpointOpenshiftAuthNoneOutput)
+}
+
+// The kubectl config
+func (o ServiceendpointOpenshiftAuthNonePtrOutput) KubeConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceendpointOpenshiftAuthNone) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KubeConfig
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceendpointOpenshiftAuthToken struct {
+	// The API token.
+	Token string `pulumi:"token"`
+}
+
+// ServiceendpointOpenshiftAuthTokenInput is an input type that accepts ServiceendpointOpenshiftAuthTokenArgs and ServiceendpointOpenshiftAuthTokenOutput values.
+// You can construct a concrete instance of `ServiceendpointOpenshiftAuthTokenInput` via:
+//
+//	ServiceendpointOpenshiftAuthTokenArgs{...}
+type ServiceendpointOpenshiftAuthTokenInput interface {
+	pulumi.Input
+
+	ToServiceendpointOpenshiftAuthTokenOutput() ServiceendpointOpenshiftAuthTokenOutput
+	ToServiceendpointOpenshiftAuthTokenOutputWithContext(context.Context) ServiceendpointOpenshiftAuthTokenOutput
+}
+
+type ServiceendpointOpenshiftAuthTokenArgs struct {
+	// The API token.
+	Token pulumi.StringInput `pulumi:"token"`
+}
+
+func (ServiceendpointOpenshiftAuthTokenArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointOpenshiftAuthToken)(nil)).Elem()
+}
+
+func (i ServiceendpointOpenshiftAuthTokenArgs) ToServiceendpointOpenshiftAuthTokenOutput() ServiceendpointOpenshiftAuthTokenOutput {
+	return i.ToServiceendpointOpenshiftAuthTokenOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointOpenshiftAuthTokenArgs) ToServiceendpointOpenshiftAuthTokenOutputWithContext(ctx context.Context) ServiceendpointOpenshiftAuthTokenOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointOpenshiftAuthTokenOutput)
+}
+
+func (i ServiceendpointOpenshiftAuthTokenArgs) ToServiceendpointOpenshiftAuthTokenPtrOutput() ServiceendpointOpenshiftAuthTokenPtrOutput {
+	return i.ToServiceendpointOpenshiftAuthTokenPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointOpenshiftAuthTokenArgs) ToServiceendpointOpenshiftAuthTokenPtrOutputWithContext(ctx context.Context) ServiceendpointOpenshiftAuthTokenPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointOpenshiftAuthTokenOutput).ToServiceendpointOpenshiftAuthTokenPtrOutputWithContext(ctx)
+}
+
+// ServiceendpointOpenshiftAuthTokenPtrInput is an input type that accepts ServiceendpointOpenshiftAuthTokenArgs, ServiceendpointOpenshiftAuthTokenPtr and ServiceendpointOpenshiftAuthTokenPtrOutput values.
+// You can construct a concrete instance of `ServiceendpointOpenshiftAuthTokenPtrInput` via:
+//
+//	        ServiceendpointOpenshiftAuthTokenArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceendpointOpenshiftAuthTokenPtrInput interface {
+	pulumi.Input
+
+	ToServiceendpointOpenshiftAuthTokenPtrOutput() ServiceendpointOpenshiftAuthTokenPtrOutput
+	ToServiceendpointOpenshiftAuthTokenPtrOutputWithContext(context.Context) ServiceendpointOpenshiftAuthTokenPtrOutput
+}
+
+type serviceendpointOpenshiftAuthTokenPtrType ServiceendpointOpenshiftAuthTokenArgs
+
+func ServiceendpointOpenshiftAuthTokenPtr(v *ServiceendpointOpenshiftAuthTokenArgs) ServiceendpointOpenshiftAuthTokenPtrInput {
+	return (*serviceendpointOpenshiftAuthTokenPtrType)(v)
+}
+
+func (*serviceendpointOpenshiftAuthTokenPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointOpenshiftAuthToken)(nil)).Elem()
+}
+
+func (i *serviceendpointOpenshiftAuthTokenPtrType) ToServiceendpointOpenshiftAuthTokenPtrOutput() ServiceendpointOpenshiftAuthTokenPtrOutput {
+	return i.ToServiceendpointOpenshiftAuthTokenPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceendpointOpenshiftAuthTokenPtrType) ToServiceendpointOpenshiftAuthTokenPtrOutputWithContext(ctx context.Context) ServiceendpointOpenshiftAuthTokenPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointOpenshiftAuthTokenPtrOutput)
+}
+
+type ServiceendpointOpenshiftAuthTokenOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointOpenshiftAuthTokenOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointOpenshiftAuthToken)(nil)).Elem()
+}
+
+func (o ServiceendpointOpenshiftAuthTokenOutput) ToServiceendpointOpenshiftAuthTokenOutput() ServiceendpointOpenshiftAuthTokenOutput {
+	return o
+}
+
+func (o ServiceendpointOpenshiftAuthTokenOutput) ToServiceendpointOpenshiftAuthTokenOutputWithContext(ctx context.Context) ServiceendpointOpenshiftAuthTokenOutput {
+	return o
+}
+
+func (o ServiceendpointOpenshiftAuthTokenOutput) ToServiceendpointOpenshiftAuthTokenPtrOutput() ServiceendpointOpenshiftAuthTokenPtrOutput {
+	return o.ToServiceendpointOpenshiftAuthTokenPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceendpointOpenshiftAuthTokenOutput) ToServiceendpointOpenshiftAuthTokenPtrOutputWithContext(ctx context.Context) ServiceendpointOpenshiftAuthTokenPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceendpointOpenshiftAuthToken) *ServiceendpointOpenshiftAuthToken {
+		return &v
+	}).(ServiceendpointOpenshiftAuthTokenPtrOutput)
+}
+
+// The API token.
+func (o ServiceendpointOpenshiftAuthTokenOutput) Token() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceendpointOpenshiftAuthToken) string { return v.Token }).(pulumi.StringOutput)
+}
+
+type ServiceendpointOpenshiftAuthTokenPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointOpenshiftAuthTokenPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointOpenshiftAuthToken)(nil)).Elem()
+}
+
+func (o ServiceendpointOpenshiftAuthTokenPtrOutput) ToServiceendpointOpenshiftAuthTokenPtrOutput() ServiceendpointOpenshiftAuthTokenPtrOutput {
+	return o
+}
+
+func (o ServiceendpointOpenshiftAuthTokenPtrOutput) ToServiceendpointOpenshiftAuthTokenPtrOutputWithContext(ctx context.Context) ServiceendpointOpenshiftAuthTokenPtrOutput {
+	return o
+}
+
+func (o ServiceendpointOpenshiftAuthTokenPtrOutput) Elem() ServiceendpointOpenshiftAuthTokenOutput {
+	return o.ApplyT(func(v *ServiceendpointOpenshiftAuthToken) ServiceendpointOpenshiftAuthToken {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceendpointOpenshiftAuthToken
+		return ret
+	}).(ServiceendpointOpenshiftAuthTokenOutput)
+}
+
+// The API token.
+func (o ServiceendpointOpenshiftAuthTokenPtrOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceendpointOpenshiftAuthToken) *string {
 		if v == nil {
 			return nil
 		}
@@ -15343,6 +15883,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointGitHubAuthOauthPtrInput)(nil)).Elem(), ServiceEndpointGitHubAuthOauthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointGitHubAuthPersonalInput)(nil)).Elem(), ServiceEndpointGitHubAuthPersonalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointGitHubAuthPersonalPtrInput)(nil)).Elem(), ServiceEndpointGitHubAuthPersonalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointGitHubEnterpriseAuthOauthInput)(nil)).Elem(), ServiceEndpointGitHubEnterpriseAuthOauthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointGitHubEnterpriseAuthOauthPtrInput)(nil)).Elem(), ServiceEndpointGitHubEnterpriseAuthOauthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointGitHubEnterpriseAuthPersonalInput)(nil)).Elem(), ServiceEndpointGitHubEnterpriseAuthPersonalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointGitHubEnterpriseAuthPersonalPtrInput)(nil)).Elem(), ServiceEndpointGitHubEnterpriseAuthPersonalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointKubernetesAzureSubscriptionInput)(nil)).Elem(), ServiceEndpointKubernetesAzureSubscriptionArgs{})
@@ -15385,6 +15927,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointMavenAuthenticationBasicPtrInput)(nil)).Elem(), ServiceendpointMavenAuthenticationBasicArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointMavenAuthenticationTokenInput)(nil)).Elem(), ServiceendpointMavenAuthenticationTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointMavenAuthenticationTokenPtrInput)(nil)).Elem(), ServiceendpointMavenAuthenticationTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointOpenshiftAuthBasicInput)(nil)).Elem(), ServiceendpointOpenshiftAuthBasicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointOpenshiftAuthBasicPtrInput)(nil)).Elem(), ServiceendpointOpenshiftAuthBasicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointOpenshiftAuthNoneInput)(nil)).Elem(), ServiceendpointOpenshiftAuthNoneArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointOpenshiftAuthNonePtrInput)(nil)).Elem(), ServiceendpointOpenshiftAuthNoneArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointOpenshiftAuthTokenInput)(nil)).Elem(), ServiceendpointOpenshiftAuthTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointOpenshiftAuthTokenPtrInput)(nil)).Elem(), ServiceendpointOpenshiftAuthTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointVisualstudiomarketplaceAuthenticationBasicInput)(nil)).Elem(), ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrInput)(nil)).Elem(), ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointVisualstudiomarketplaceAuthenticationTokenInput)(nil)).Elem(), ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs{})
@@ -15543,6 +16091,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceEndpointGitHubAuthOauthPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointGitHubAuthPersonalOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointGitHubAuthPersonalPtrOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointGitHubEnterpriseAuthOauthOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointGitHubEnterpriseAuthOauthPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointGitHubEnterpriseAuthPersonalOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointKubernetesAzureSubscriptionOutput{})
@@ -15585,6 +16135,12 @@ func init() {
 	pulumi.RegisterOutputType(ServiceendpointMavenAuthenticationBasicPtrOutput{})
 	pulumi.RegisterOutputType(ServiceendpointMavenAuthenticationTokenOutput{})
 	pulumi.RegisterOutputType(ServiceendpointMavenAuthenticationTokenPtrOutput{})
+	pulumi.RegisterOutputType(ServiceendpointOpenshiftAuthBasicOutput{})
+	pulumi.RegisterOutputType(ServiceendpointOpenshiftAuthBasicPtrOutput{})
+	pulumi.RegisterOutputType(ServiceendpointOpenshiftAuthNoneOutput{})
+	pulumi.RegisterOutputType(ServiceendpointOpenshiftAuthNonePtrOutput{})
+	pulumi.RegisterOutputType(ServiceendpointOpenshiftAuthTokenOutput{})
+	pulumi.RegisterOutputType(ServiceendpointOpenshiftAuthTokenPtrOutput{})
 	pulumi.RegisterOutputType(ServiceendpointVisualstudiomarketplaceAuthenticationBasicOutput{})
 	pulumi.RegisterOutputType(ServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrOutput{})
 	pulumi.RegisterOutputType(ServiceendpointVisualstudiomarketplaceAuthenticationTokenOutput{})

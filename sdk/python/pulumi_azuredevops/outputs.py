@@ -61,6 +61,7 @@ __all__ = [
     'ServiceEndpointAzureRMFeatures',
     'ServiceEndpointGitHubAuthOauth',
     'ServiceEndpointGitHubAuthPersonal',
+    'ServiceEndpointGitHubEnterpriseAuthOauth',
     'ServiceEndpointGitHubEnterpriseAuthPersonal',
     'ServiceEndpointKubernetesAzureSubscription',
     'ServiceEndpointKubernetesKubeconfig',
@@ -82,6 +83,9 @@ __all__ = [
     'ServiceendpointJfrogXrayV2AuthenticationToken',
     'ServiceendpointMavenAuthenticationBasic',
     'ServiceendpointMavenAuthenticationToken',
+    'ServiceendpointOpenshiftAuthBasic',
+    'ServiceendpointOpenshiftAuthNone',
+    'ServiceendpointOpenshiftAuthToken',
     'ServiceendpointVisualstudiomarketplaceAuthenticationBasic',
     'ServiceendpointVisualstudiomarketplaceAuthenticationToken',
     'ServicehookStorageQueuePipelinesRunStateChangedEvent',
@@ -2856,24 +2860,18 @@ class GitInitialization(dict):
 
     def __init__(__self__, *,
                  init_type: builtins.str,
-                 password: Optional[builtins.str] = None,
                  service_connection_id: Optional[builtins.str] = None,
                  source_type: Optional[builtins.str] = None,
                  source_url: Optional[builtins.str] = None,
                  username: Optional[builtins.str] = None):
         """
         :param builtins.str init_type: The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
-        :param builtins.str password: The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
-               
-               ~>**Note** At least `service_connection_id` or `username/password` needs to be set to import private repository.
         :param builtins.str service_connection_id: The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
         :param builtins.str source_type: Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`.
         :param builtins.str source_url: The URL of the source repository. Used if the `init_type` is `Import`.
         :param builtins.str username: The username used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
         """
         pulumi.set(__self__, "init_type", init_type)
-        if password is not None:
-            pulumi.set(__self__, "password", password)
         if service_connection_id is not None:
             pulumi.set(__self__, "service_connection_id", service_connection_id)
         if source_type is not None:
@@ -2890,16 +2888,6 @@ class GitInitialization(dict):
         The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
         """
         return pulumi.get(self, "init_type")
-
-    @property
-    @pulumi.getter
-    def password(self) -> Optional[builtins.str]:
-        """
-        The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
-
-        ~>**Note** At least `service_connection_id` or `username/password` needs to be set to import private repository.
-        """
-        return pulumi.get(self, "password")
 
     @property
     @pulumi.getter(name="serviceConnectionId")
@@ -3122,6 +3110,41 @@ class ServiceEndpointGitHubAuthPersonal(dict):
         The Personal Access Token for GitHub.
         """
         return pulumi.get(self, "personal_access_token")
+
+
+@pulumi.output_type
+class ServiceEndpointGitHubEnterpriseAuthOauth(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oauthConfigurationId":
+            suggest = "oauth_configuration_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceEndpointGitHubEnterpriseAuthOauth. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceEndpointGitHubEnterpriseAuthOauth.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceEndpointGitHubEnterpriseAuthOauth.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oauth_configuration_id: builtins.str):
+        """
+        :param builtins.str oauth_configuration_id: The OAuth Configuration ID.
+        """
+        pulumi.set(__self__, "oauth_configuration_id", oauth_configuration_id)
+
+    @property
+    @pulumi.getter(name="oauthConfigurationId")
+    def oauth_configuration_id(self) -> builtins.str:
+        """
+        The OAuth Configuration ID.
+        """
+        return pulumi.get(self, "oauth_configuration_id")
 
 
 @pulumi.output_type
@@ -3980,6 +4003,89 @@ class ServiceendpointMavenAuthenticationToken(dict):
     def token(self) -> builtins.str:
         """
         Authentication Token generated through maven repository.
+        """
+        return pulumi.get(self, "token")
+
+
+@pulumi.output_type
+class ServiceendpointOpenshiftAuthBasic(dict):
+    def __init__(__self__, *,
+                 password: builtins.str,
+                 username: builtins.str):
+        """
+        :param builtins.str password: The password of the user.
+        :param builtins.str username: The name of the user.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> builtins.str:
+        """
+        The password of the user.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def username(self) -> builtins.str:
+        """
+        The name of the user.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class ServiceendpointOpenshiftAuthNone(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kubeConfig":
+            suggest = "kube_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceendpointOpenshiftAuthNone. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceendpointOpenshiftAuthNone.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceendpointOpenshiftAuthNone.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kube_config: Optional[builtins.str] = None):
+        """
+        :param builtins.str kube_config: The kubectl config
+        """
+        if kube_config is not None:
+            pulumi.set(__self__, "kube_config", kube_config)
+
+    @property
+    @pulumi.getter(name="kubeConfig")
+    def kube_config(self) -> Optional[builtins.str]:
+        """
+        The kubectl config
+        """
+        return pulumi.get(self, "kube_config")
+
+
+@pulumi.output_type
+class ServiceendpointOpenshiftAuthToken(dict):
+    def __init__(__self__, *,
+                 token: builtins.str):
+        """
+        :param builtins.str token: The API token.
+        """
+        pulumi.set(__self__, "token", token)
+
+    @property
+    @pulumi.getter
+    def token(self) -> builtins.str:
+        """
+        The API token.
         """
         return pulumi.get(self, "token")
 

@@ -53,6 +53,69 @@ namespace Pulumi.AzureDevOps
     /// });
     /// ```
     /// 
+    /// ### Author Email Pattern
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new AzureDevOps.Project("example", new()
+    ///     {
+    ///         Name = "Example Project",
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///     });
+    /// 
+    ///     var exampleGit = new AzureDevOps.Git("example", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Example Git Repository",
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///         {
+    ///             InitType = "Clean",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRepositoryPolicyAuthorEmailPattern = new AzureDevOps.RepositoryPolicyAuthorEmailPattern("example", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Enabled = true,
+    ///         Blocking = true,
+    ///         AuthorEmailPatterns = new[]
+    ///         {
+    ///             "auhtor@test.com",
+    ///         },
+    ///         RepositoryIds = new[]
+    ///         {
+    ///             exampleGit.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleGitRepositoryFile = new AzureDevOps.GitRepositoryFile("example", new()
+    ///     {
+    ///         RepositoryId = exampleGit.Id,
+    ///         File = ".gitignore",
+    ///         Content = "**/*.tfstate",
+    ///         Branch = "refs/heads/master",
+    ///         CommitMessage = "First commit",
+    ///         OverwriteOnCreate = false,
+    ///         AuthorName = "authorname",
+    ///         AuthorEmail = "auhtor@test.com",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleRepositoryPolicyAuthorEmailPattern,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
@@ -75,6 +138,18 @@ namespace Pulumi.AzureDevOps
     public partial class GitRepositoryFile : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The email of the author.
+        /// </summary>
+        [Output("authorEmail")]
+        public Output<string> AuthorEmail { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the author.
+        /// </summary>
+        [Output("authorName")]
+        public Output<string> AuthorName { get; private set; } = null!;
+
+        /// <summary>
         /// Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
         /// </summary>
         [Output("branch")]
@@ -85,6 +160,18 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Output("commitMessage")]
         public Output<string> CommitMessage { get; private set; } = null!;
+
+        /// <summary>
+        /// The email of the committer.
+        /// </summary>
+        [Output("committerEmail")]
+        public Output<string> CommitterEmail { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the committer.
+        /// </summary>
+        [Output("committerName")]
+        public Output<string> CommitterName { get; private set; } = null!;
 
         /// <summary>
         /// The file content.
@@ -157,6 +244,18 @@ namespace Pulumi.AzureDevOps
     public sealed class GitRepositoryFileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The email of the author.
+        /// </summary>
+        [Input("authorEmail")]
+        public Input<string>? AuthorEmail { get; set; }
+
+        /// <summary>
+        /// The name of the author.
+        /// </summary>
+        [Input("authorName")]
+        public Input<string>? AuthorName { get; set; }
+
+        /// <summary>
         /// Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
         /// </summary>
         [Input("branch")]
@@ -167,6 +266,18 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Input("commitMessage")]
         public Input<string>? CommitMessage { get; set; }
+
+        /// <summary>
+        /// The email of the committer.
+        /// </summary>
+        [Input("committerEmail")]
+        public Input<string>? CommitterEmail { get; set; }
+
+        /// <summary>
+        /// The name of the committer.
+        /// </summary>
+        [Input("committerName")]
+        public Input<string>? CommitterName { get; set; }
 
         /// <summary>
         /// The file content.
@@ -201,6 +312,18 @@ namespace Pulumi.AzureDevOps
     public sealed class GitRepositoryFileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The email of the author.
+        /// </summary>
+        [Input("authorEmail")]
+        public Input<string>? AuthorEmail { get; set; }
+
+        /// <summary>
+        /// The name of the author.
+        /// </summary>
+        [Input("authorName")]
+        public Input<string>? AuthorName { get; set; }
+
+        /// <summary>
         /// Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
         /// </summary>
         [Input("branch")]
@@ -211,6 +334,18 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Input("commitMessage")]
         public Input<string>? CommitMessage { get; set; }
+
+        /// <summary>
+        /// The email of the committer.
+        /// </summary>
+        [Input("committerEmail")]
+        public Input<string>? CommitterEmail { get; set; }
+
+        /// <summary>
+        /// The name of the committer.
+        /// </summary>
+        [Input("committerName")]
+        public Input<string>? CommitterName { get; set; }
 
         /// <summary>
         /// The file content.

@@ -11,6 +11,8 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * ### With token
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -33,6 +35,29 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
+ * ### With OAuth
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ *     description: "Managed by Pulumi",
+ * });
+ * const exampleServiceEndpointGitHubEnterprise = new azuredevops.ServiceEndpointGitHubEnterprise("example", {
+ *     projectId: example.id,
+ *     serviceEndpointName: "Example GitHub Enterprise",
+ *     description: "Managed by Pulumi",
+ *     authOauth: {
+ *         oauthConfigurationId: "00000000-0000-0000-0000-000000000000",
+ *     },
+ * });
+ * ```
+ * ss
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
@@ -74,9 +99,13 @@ export class ServiceEndpointGitHubEnterprise extends pulumi.CustomResource {
     }
 
     /**
+     * An `authOauth` block as documented below. Allows connecting using an Oauth token.
+     */
+    public readonly authOauth!: pulumi.Output<outputs.ServiceEndpointGitHubEnterpriseAuthOauth | undefined>;
+    /**
      * An `authPersonal` block as documented below. Allows connecting using a personal access token.
      */
-    public readonly authPersonal!: pulumi.Output<outputs.ServiceEndpointGitHubEnterpriseAuthPersonal>;
+    public readonly authPersonal!: pulumi.Output<outputs.ServiceEndpointGitHubEnterpriseAuthPersonal | undefined>;
     public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -90,7 +119,7 @@ export class ServiceEndpointGitHubEnterprise extends pulumi.CustomResource {
     /**
      * GitHub Enterprise Server Url.
      */
-    public readonly url!: pulumi.Output<string>;
+    public readonly url!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ServiceEndpointGitHubEnterprise resource with the given unique name, arguments, and options.
@@ -105,6 +134,7 @@ export class ServiceEndpointGitHubEnterprise extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceEndpointGitHubEnterpriseState | undefined;
+            resourceInputs["authOauth"] = state ? state.authOauth : undefined;
             resourceInputs["authPersonal"] = state ? state.authPersonal : undefined;
             resourceInputs["authorization"] = state ? state.authorization : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
@@ -113,18 +143,13 @@ export class ServiceEndpointGitHubEnterprise extends pulumi.CustomResource {
             resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as ServiceEndpointGitHubEnterpriseArgs | undefined;
-            if ((!args || args.authPersonal === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'authPersonal'");
-            }
             if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
             if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            if ((!args || args.url === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'url'");
-            }
+            resourceInputs["authOauth"] = args ? args.authOauth : undefined;
             resourceInputs["authPersonal"] = args ? args.authPersonal : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
@@ -141,6 +166,10 @@ export class ServiceEndpointGitHubEnterprise extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceEndpointGitHubEnterprise resources.
  */
 export interface ServiceEndpointGitHubEnterpriseState {
+    /**
+     * An `authOauth` block as documented below. Allows connecting using an Oauth token.
+     */
+    authOauth?: pulumi.Input<inputs.ServiceEndpointGitHubEnterpriseAuthOauth>;
     /**
      * An `authPersonal` block as documented below. Allows connecting using a personal access token.
      */
@@ -166,9 +195,13 @@ export interface ServiceEndpointGitHubEnterpriseState {
  */
 export interface ServiceEndpointGitHubEnterpriseArgs {
     /**
+     * An `authOauth` block as documented below. Allows connecting using an Oauth token.
+     */
+    authOauth?: pulumi.Input<inputs.ServiceEndpointGitHubEnterpriseAuthOauth>;
+    /**
      * An `authPersonal` block as documented below. Allows connecting using a personal access token.
      */
-    authPersonal: pulumi.Input<inputs.ServiceEndpointGitHubEnterpriseAuthPersonal>;
+    authPersonal?: pulumi.Input<inputs.ServiceEndpointGitHubEnterpriseAuthPersonal>;
     description?: pulumi.Input<string>;
     /**
      * The ID of the project.
@@ -181,5 +214,5 @@ export interface ServiceEndpointGitHubEnterpriseArgs {
     /**
      * GitHub Enterprise Server Url.
      */
-    url: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
 }

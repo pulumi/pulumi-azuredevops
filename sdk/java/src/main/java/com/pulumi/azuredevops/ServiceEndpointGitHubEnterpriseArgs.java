@@ -3,6 +3,7 @@
 
 package com.pulumi.azuredevops;
 
+import com.pulumi.azuredevops.inputs.ServiceEndpointGitHubEnterpriseAuthOauthArgs;
 import com.pulumi.azuredevops.inputs.ServiceEndpointGitHubEnterpriseAuthPersonalArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -18,18 +19,33 @@ public final class ServiceEndpointGitHubEnterpriseArgs extends com.pulumi.resour
     public static final ServiceEndpointGitHubEnterpriseArgs Empty = new ServiceEndpointGitHubEnterpriseArgs();
 
     /**
+     * An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+     * 
+     */
+    @Import(name="authOauth")
+    private @Nullable Output<ServiceEndpointGitHubEnterpriseAuthOauthArgs> authOauth;
+
+    /**
+     * @return An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+     * 
+     */
+    public Optional<Output<ServiceEndpointGitHubEnterpriseAuthOauthArgs>> authOauth() {
+        return Optional.ofNullable(this.authOauth);
+    }
+
+    /**
      * An `auth_personal` block as documented below. Allows connecting using a personal access token.
      * 
      */
-    @Import(name="authPersonal", required=true)
-    private Output<ServiceEndpointGitHubEnterpriseAuthPersonalArgs> authPersonal;
+    @Import(name="authPersonal")
+    private @Nullable Output<ServiceEndpointGitHubEnterpriseAuthPersonalArgs> authPersonal;
 
     /**
      * @return An `auth_personal` block as documented below. Allows connecting using a personal access token.
      * 
      */
-    public Output<ServiceEndpointGitHubEnterpriseAuthPersonalArgs> authPersonal() {
-        return this.authPersonal;
+    public Optional<Output<ServiceEndpointGitHubEnterpriseAuthPersonalArgs>> authPersonal() {
+        return Optional.ofNullable(this.authPersonal);
     }
 
     @Import(name="description")
@@ -73,20 +89,21 @@ public final class ServiceEndpointGitHubEnterpriseArgs extends com.pulumi.resour
      * GitHub Enterprise Server Url.
      * 
      */
-    @Import(name="url", required=true)
-    private Output<String> url;
+    @Import(name="url")
+    private @Nullable Output<String> url;
 
     /**
      * @return GitHub Enterprise Server Url.
      * 
      */
-    public Output<String> url() {
-        return this.url;
+    public Optional<Output<String>> url() {
+        return Optional.ofNullable(this.url);
     }
 
     private ServiceEndpointGitHubEnterpriseArgs() {}
 
     private ServiceEndpointGitHubEnterpriseArgs(ServiceEndpointGitHubEnterpriseArgs $) {
+        this.authOauth = $.authOauth;
         this.authPersonal = $.authPersonal;
         this.description = $.description;
         this.projectId = $.projectId;
@@ -113,12 +130,33 @@ public final class ServiceEndpointGitHubEnterpriseArgs extends com.pulumi.resour
         }
 
         /**
+         * @param authOauth An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authOauth(@Nullable Output<ServiceEndpointGitHubEnterpriseAuthOauthArgs> authOauth) {
+            $.authOauth = authOauth;
+            return this;
+        }
+
+        /**
+         * @param authOauth An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authOauth(ServiceEndpointGitHubEnterpriseAuthOauthArgs authOauth) {
+            return authOauth(Output.of(authOauth));
+        }
+
+        /**
          * @param authPersonal An `auth_personal` block as documented below. Allows connecting using a personal access token.
          * 
          * @return builder
          * 
          */
-        public Builder authPersonal(Output<ServiceEndpointGitHubEnterpriseAuthPersonalArgs> authPersonal) {
+        public Builder authPersonal(@Nullable Output<ServiceEndpointGitHubEnterpriseAuthPersonalArgs> authPersonal) {
             $.authPersonal = authPersonal;
             return this;
         }
@@ -190,7 +228,7 @@ public final class ServiceEndpointGitHubEnterpriseArgs extends com.pulumi.resour
          * @return builder
          * 
          */
-        public Builder url(Output<String> url) {
+        public Builder url(@Nullable Output<String> url) {
             $.url = url;
             return this;
         }
@@ -206,17 +244,11 @@ public final class ServiceEndpointGitHubEnterpriseArgs extends com.pulumi.resour
         }
 
         public ServiceEndpointGitHubEnterpriseArgs build() {
-            if ($.authPersonal == null) {
-                throw new MissingRequiredPropertyException("ServiceEndpointGitHubEnterpriseArgs", "authPersonal");
-            }
             if ($.projectId == null) {
                 throw new MissingRequiredPropertyException("ServiceEndpointGitHubEnterpriseArgs", "projectId");
             }
             if ($.serviceEndpointName == null) {
                 throw new MissingRequiredPropertyException("ServiceEndpointGitHubEnterpriseArgs", "serviceEndpointName");
-            }
-            if ($.url == null) {
-                throw new MissingRequiredPropertyException("ServiceEndpointGitHubEnterpriseArgs", "url");
             }
             return $;
         }

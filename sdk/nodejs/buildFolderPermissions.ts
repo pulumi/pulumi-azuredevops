@@ -145,6 +145,7 @@ export class BuildFolderPermissions extends pulumi.CustomResource {
      * | DeleteBuildDefinition          | Delete build pipeline                 |
      * | OverrideBuildCheckInValidation | Override check-in validation by build |
      * | AdministerBuildPermissions     | Administer build permissions          |
+     * | CreateBuildDefinition          | Create build pipeline                 |
      */
     public readonly permissions!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -231,6 +232,7 @@ export interface BuildFolderPermissionsState {
      * | DeleteBuildDefinition          | Delete build pipeline                 |
      * | OverrideBuildCheckInValidation | Override check-in validation by build |
      * | AdministerBuildPermissions     | Administer build permissions          |
+     * | CreateBuildDefinition          | Create build pipeline                 |
      */
     permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -275,6 +277,7 @@ export interface BuildFolderPermissionsArgs {
      * | DeleteBuildDefinition          | Delete build pipeline                 |
      * | OverrideBuildCheckInValidation | Override check-in validation by build |
      * | AdministerBuildPermissions     | Administer build permissions          |
+     * | CreateBuildDefinition          | Create build pipeline                 |
      */
     permissions: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

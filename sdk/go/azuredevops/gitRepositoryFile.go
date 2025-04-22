@@ -64,6 +64,73 @@ import (
 //
 // ```
 //
+// ### Author Email Pattern
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleGit, err := azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
+//				ProjectId: example.ID(),
+//				Name:      pulumi.String("Example Git Repository"),
+//				Initialization: &azuredevops.GitInitializationArgs{
+//					InitType: pulumi.String("Clean"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleRepositoryPolicyAuthorEmailPattern, err := azuredevops.NewRepositoryPolicyAuthorEmailPattern(ctx, "example", &azuredevops.RepositoryPolicyAuthorEmailPatternArgs{
+//				ProjectId: example.ID(),
+//				Enabled:   pulumi.Bool(true),
+//				Blocking:  pulumi.Bool(true),
+//				AuthorEmailPatterns: pulumi.StringArray{
+//					pulumi.String("auhtor@test.com"),
+//				},
+//				RepositoryIds: pulumi.StringArray{
+//					exampleGit.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewGitRepositoryFile(ctx, "example", &azuredevops.GitRepositoryFileArgs{
+//				RepositoryId:      exampleGit.ID(),
+//				File:              pulumi.String(".gitignore"),
+//				Content:           pulumi.String("**/*.tfstate"),
+//				Branch:            pulumi.String("refs/heads/master"),
+//				CommitMessage:     pulumi.String("First commit"),
+//				OverwriteOnCreate: pulumi.Bool(false),
+//				AuthorName:        pulumi.String("authorname"),
+//				AuthorEmail:       pulumi.String("auhtor@test.com"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleRepositoryPolicyAuthorEmailPattern,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
@@ -84,10 +151,18 @@ import (
 type GitRepositoryFile struct {
 	pulumi.CustomResourceState
 
+	// The email of the author.
+	AuthorEmail pulumi.StringOutput `pulumi:"authorEmail"`
+	// The name of the author.
+	AuthorName pulumi.StringOutput `pulumi:"authorName"`
 	// Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
 	Branch pulumi.StringPtrOutput `pulumi:"branch"`
 	// Commit message when adding or updating the managed file.
 	CommitMessage pulumi.StringOutput `pulumi:"commitMessage"`
+	// The email of the committer.
+	CommitterEmail pulumi.StringOutput `pulumi:"committerEmail"`
+	// The name of the committer.
+	CommitterName pulumi.StringOutput `pulumi:"committerName"`
 	// The file content.
 	Content pulumi.StringOutput `pulumi:"content"`
 	// The path of the file to manage.
@@ -137,10 +212,18 @@ func GetGitRepositoryFile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GitRepositoryFile resources.
 type gitRepositoryFileState struct {
+	// The email of the author.
+	AuthorEmail *string `pulumi:"authorEmail"`
+	// The name of the author.
+	AuthorName *string `pulumi:"authorName"`
 	// Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
 	Branch *string `pulumi:"branch"`
 	// Commit message when adding or updating the managed file.
 	CommitMessage *string `pulumi:"commitMessage"`
+	// The email of the committer.
+	CommitterEmail *string `pulumi:"committerEmail"`
+	// The name of the committer.
+	CommitterName *string `pulumi:"committerName"`
 	// The file content.
 	Content *string `pulumi:"content"`
 	// The path of the file to manage.
@@ -152,10 +235,18 @@ type gitRepositoryFileState struct {
 }
 
 type GitRepositoryFileState struct {
+	// The email of the author.
+	AuthorEmail pulumi.StringPtrInput
+	// The name of the author.
+	AuthorName pulumi.StringPtrInput
 	// Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
 	Branch pulumi.StringPtrInput
 	// Commit message when adding or updating the managed file.
 	CommitMessage pulumi.StringPtrInput
+	// The email of the committer.
+	CommitterEmail pulumi.StringPtrInput
+	// The name of the committer.
+	CommitterName pulumi.StringPtrInput
 	// The file content.
 	Content pulumi.StringPtrInput
 	// The path of the file to manage.
@@ -171,10 +262,18 @@ func (GitRepositoryFileState) ElementType() reflect.Type {
 }
 
 type gitRepositoryFileArgs struct {
+	// The email of the author.
+	AuthorEmail *string `pulumi:"authorEmail"`
+	// The name of the author.
+	AuthorName *string `pulumi:"authorName"`
 	// Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
 	Branch *string `pulumi:"branch"`
 	// Commit message when adding or updating the managed file.
 	CommitMessage *string `pulumi:"commitMessage"`
+	// The email of the committer.
+	CommitterEmail *string `pulumi:"committerEmail"`
+	// The name of the committer.
+	CommitterName *string `pulumi:"committerName"`
 	// The file content.
 	Content string `pulumi:"content"`
 	// The path of the file to manage.
@@ -187,10 +286,18 @@ type gitRepositoryFileArgs struct {
 
 // The set of arguments for constructing a GitRepositoryFile resource.
 type GitRepositoryFileArgs struct {
+	// The email of the author.
+	AuthorEmail pulumi.StringPtrInput
+	// The name of the author.
+	AuthorName pulumi.StringPtrInput
 	// Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
 	Branch pulumi.StringPtrInput
 	// Commit message when adding or updating the managed file.
 	CommitMessage pulumi.StringPtrInput
+	// The email of the committer.
+	CommitterEmail pulumi.StringPtrInput
+	// The name of the committer.
+	CommitterName pulumi.StringPtrInput
 	// The file content.
 	Content pulumi.StringInput
 	// The path of the file to manage.
@@ -288,6 +395,16 @@ func (o GitRepositoryFileOutput) ToGitRepositoryFileOutputWithContext(ctx contex
 	return o
 }
 
+// The email of the author.
+func (o GitRepositoryFileOutput) AuthorEmail() pulumi.StringOutput {
+	return o.ApplyT(func(v *GitRepositoryFile) pulumi.StringOutput { return v.AuthorEmail }).(pulumi.StringOutput)
+}
+
+// The name of the author.
+func (o GitRepositoryFileOutput) AuthorName() pulumi.StringOutput {
+	return o.ApplyT(func(v *GitRepositoryFile) pulumi.StringOutput { return v.AuthorName }).(pulumi.StringOutput)
+}
+
 // Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
 func (o GitRepositoryFileOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GitRepositoryFile) pulumi.StringPtrOutput { return v.Branch }).(pulumi.StringPtrOutput)
@@ -296,6 +413,16 @@ func (o GitRepositoryFileOutput) Branch() pulumi.StringPtrOutput {
 // Commit message when adding or updating the managed file.
 func (o GitRepositoryFileOutput) CommitMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *GitRepositoryFile) pulumi.StringOutput { return v.CommitMessage }).(pulumi.StringOutput)
+}
+
+// The email of the committer.
+func (o GitRepositoryFileOutput) CommitterEmail() pulumi.StringOutput {
+	return o.ApplyT(func(v *GitRepositoryFile) pulumi.StringOutput { return v.CommitterEmail }).(pulumi.StringOutput)
+}
+
+// The name of the committer.
+func (o GitRepositoryFileOutput) CommitterName() pulumi.StringOutput {
+	return o.ApplyT(func(v *GitRepositoryFile) pulumi.StringOutput { return v.CommitterName }).(pulumi.StringOutput)
 }
 
 // The file content.

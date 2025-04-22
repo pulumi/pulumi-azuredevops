@@ -203,6 +203,7 @@ public class BuildFolderPermissions extends com.pulumi.resources.CustomResource 
      * | DeleteBuildDefinition          | Delete build pipeline                 |
      * | OverrideBuildCheckInValidation | Override check-in validation by build |
      * | AdministerBuildPermissions     | Administer build permissions          |
+     * | CreateBuildDefinition          | Create build pipeline                 |
      * 
      */
     @Export(name="permissions", refs={Map.class,String.class}, tree="[0,1,1]")
@@ -228,6 +229,7 @@ public class BuildFolderPermissions extends com.pulumi.resources.CustomResource 
      * | DeleteBuildDefinition          | Delete build pipeline                 |
      * | OverrideBuildCheckInValidation | Override check-in validation by build |
      * | AdministerBuildPermissions     | Administer build permissions          |
+     * | CreateBuildDefinition          | Create build pipeline                 |
      * 
      */
     public Output<Map<String,String>> permissions() {

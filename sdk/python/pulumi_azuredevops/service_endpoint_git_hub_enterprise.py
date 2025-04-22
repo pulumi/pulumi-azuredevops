@@ -22,36 +22,30 @@ __all__ = ['ServiceEndpointGitHubEnterpriseArgs', 'ServiceEndpointGitHubEnterpri
 @pulumi.input_type
 class ServiceEndpointGitHubEnterpriseArgs:
     def __init__(__self__, *,
-                 auth_personal: pulumi.Input['ServiceEndpointGitHubEnterpriseAuthPersonalArgs'],
                  project_id: pulumi.Input[builtins.str],
                  service_endpoint_name: pulumi.Input[builtins.str],
-                 url: pulumi.Input[builtins.str],
-                 description: Optional[pulumi.Input[builtins.str]] = None):
+                 auth_oauth: Optional[pulumi.Input['ServiceEndpointGitHubEnterpriseAuthOauthArgs']] = None,
+                 auth_personal: Optional[pulumi.Input['ServiceEndpointGitHubEnterpriseAuthPersonalArgs']] = None,
+                 description: Optional[pulumi.Input[builtins.str]] = None,
+                 url: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceEndpointGitHubEnterprise resource.
-        :param pulumi.Input['ServiceEndpointGitHubEnterpriseAuthPersonalArgs'] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[builtins.str] project_id: The ID of the project.
         :param pulumi.Input[builtins.str] service_endpoint_name: The Service Endpoint name.
+        :param pulumi.Input['ServiceEndpointGitHubEnterpriseAuthOauthArgs'] auth_oauth: An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+        :param pulumi.Input['ServiceEndpointGitHubEnterpriseAuthPersonalArgs'] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[builtins.str] url: GitHub Enterprise Server Url.
         """
-        pulumi.set(__self__, "auth_personal", auth_personal)
         pulumi.set(__self__, "project_id", project_id)
         pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
-        pulumi.set(__self__, "url", url)
+        if auth_oauth is not None:
+            pulumi.set(__self__, "auth_oauth", auth_oauth)
+        if auth_personal is not None:
+            pulumi.set(__self__, "auth_personal", auth_personal)
         if description is not None:
             pulumi.set(__self__, "description", description)
-
-    @property
-    @pulumi.getter(name="authPersonal")
-    def auth_personal(self) -> pulumi.Input['ServiceEndpointGitHubEnterpriseAuthPersonalArgs']:
-        """
-        An `auth_personal` block as documented below. Allows connecting using a personal access token.
-        """
-        return pulumi.get(self, "auth_personal")
-
-    @auth_personal.setter
-    def auth_personal(self, value: pulumi.Input['ServiceEndpointGitHubEnterpriseAuthPersonalArgs']):
-        pulumi.set(self, "auth_personal", value)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter(name="projectId")
@@ -78,16 +72,28 @@ class ServiceEndpointGitHubEnterpriseArgs:
         pulumi.set(self, "service_endpoint_name", value)
 
     @property
-    @pulumi.getter
-    def url(self) -> pulumi.Input[builtins.str]:
+    @pulumi.getter(name="authOauth")
+    def auth_oauth(self) -> Optional[pulumi.Input['ServiceEndpointGitHubEnterpriseAuthOauthArgs']]:
         """
-        GitHub Enterprise Server Url.
+        An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
         """
-        return pulumi.get(self, "url")
+        return pulumi.get(self, "auth_oauth")
 
-    @url.setter
-    def url(self, value: pulumi.Input[builtins.str]):
-        pulumi.set(self, "url", value)
+    @auth_oauth.setter
+    def auth_oauth(self, value: Optional[pulumi.Input['ServiceEndpointGitHubEnterpriseAuthOauthArgs']]):
+        pulumi.set(self, "auth_oauth", value)
+
+    @property
+    @pulumi.getter(name="authPersonal")
+    def auth_personal(self) -> Optional[pulumi.Input['ServiceEndpointGitHubEnterpriseAuthPersonalArgs']]:
+        """
+        An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        """
+        return pulumi.get(self, "auth_personal")
+
+    @auth_personal.setter
+    def auth_personal(self, value: Optional[pulumi.Input['ServiceEndpointGitHubEnterpriseAuthPersonalArgs']]):
+        pulumi.set(self, "auth_personal", value)
 
     @property
     @pulumi.getter
@@ -98,10 +104,23 @@ class ServiceEndpointGitHubEnterpriseArgs:
     def description(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "description", value)
 
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        GitHub Enterprise Server Url.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "url", value)
+
 
 @pulumi.input_type
 class _ServiceEndpointGitHubEnterpriseState:
     def __init__(__self__, *,
+                 auth_oauth: Optional[pulumi.Input['ServiceEndpointGitHubEnterpriseAuthOauthArgs']] = None,
                  auth_personal: Optional[pulumi.Input['ServiceEndpointGitHubEnterpriseAuthPersonalArgs']] = None,
                  authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
@@ -110,11 +129,14 @@ class _ServiceEndpointGitHubEnterpriseState:
                  url: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceEndpointGitHubEnterprise resources.
+        :param pulumi.Input['ServiceEndpointGitHubEnterpriseAuthOauthArgs'] auth_oauth: An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
         :param pulumi.Input['ServiceEndpointGitHubEnterpriseAuthPersonalArgs'] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[builtins.str] project_id: The ID of the project.
         :param pulumi.Input[builtins.str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[builtins.str] url: GitHub Enterprise Server Url.
         """
+        if auth_oauth is not None:
+            pulumi.set(__self__, "auth_oauth", auth_oauth)
         if auth_personal is not None:
             pulumi.set(__self__, "auth_personal", auth_personal)
         if authorization is not None:
@@ -127,6 +149,18 @@ class _ServiceEndpointGitHubEnterpriseState:
             pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
         if url is not None:
             pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter(name="authOauth")
+    def auth_oauth(self) -> Optional[pulumi.Input['ServiceEndpointGitHubEnterpriseAuthOauthArgs']]:
+        """
+        An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+        """
+        return pulumi.get(self, "auth_oauth")
+
+    @auth_oauth.setter
+    def auth_oauth(self, value: Optional[pulumi.Input['ServiceEndpointGitHubEnterpriseAuthOauthArgs']]):
+        pulumi.set(self, "auth_oauth", value)
 
     @property
     @pulumi.getter(name="authPersonal")
@@ -200,6 +234,7 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auth_oauth: Optional[pulumi.Input[Union['ServiceEndpointGitHubEnterpriseAuthOauthArgs', 'ServiceEndpointGitHubEnterpriseAuthOauthArgsDict']]] = None,
                  auth_personal: Optional[pulumi.Input[Union['ServiceEndpointGitHubEnterpriseAuthPersonalArgs', 'ServiceEndpointGitHubEnterpriseAuthPersonalArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  project_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -210,6 +245,8 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
         Manages a GitHub Enterprise Server service endpoint within Azure DevOps.
 
         ## Example Usage
+
+        ### With token
 
         ```python
         import pulumi
@@ -231,6 +268,27 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
             })
         ```
 
+        ### With OAuth
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            name="Example Project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Pulumi")
+        example_service_endpoint_git_hub_enterprise = azuredevops.ServiceEndpointGitHubEnterprise("example",
+            project_id=example.id,
+            service_endpoint_name="Example GitHub Enterprise",
+            description="Managed by Pulumi",
+            auth_oauth={
+                "oauth_configuration_id": "00000000-0000-0000-0000-000000000000",
+            })
+        ```
+        ss
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
@@ -245,6 +303,7 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['ServiceEndpointGitHubEnterpriseAuthOauthArgs', 'ServiceEndpointGitHubEnterpriseAuthOauthArgsDict']] auth_oauth: An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
         :param pulumi.Input[Union['ServiceEndpointGitHubEnterpriseAuthPersonalArgs', 'ServiceEndpointGitHubEnterpriseAuthPersonalArgsDict']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[builtins.str] project_id: The ID of the project.
         :param pulumi.Input[builtins.str] service_endpoint_name: The Service Endpoint name.
@@ -261,6 +320,8 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### With token
+
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
@@ -281,6 +342,27 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
             })
         ```
 
+        ### With OAuth
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            name="Example Project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Pulumi")
+        example_service_endpoint_git_hub_enterprise = azuredevops.ServiceEndpointGitHubEnterprise("example",
+            project_id=example.id,
+            service_endpoint_name="Example GitHub Enterprise",
+            description="Managed by Pulumi",
+            auth_oauth={
+                "oauth_configuration_id": "00000000-0000-0000-0000-000000000000",
+            })
+        ```
+        ss
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
@@ -308,6 +390,7 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auth_oauth: Optional[pulumi.Input[Union['ServiceEndpointGitHubEnterpriseAuthOauthArgs', 'ServiceEndpointGitHubEnterpriseAuthOauthArgsDict']]] = None,
                  auth_personal: Optional[pulumi.Input[Union['ServiceEndpointGitHubEnterpriseAuthPersonalArgs', 'ServiceEndpointGitHubEnterpriseAuthPersonalArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  project_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -322,8 +405,7 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceEndpointGitHubEnterpriseArgs.__new__(ServiceEndpointGitHubEnterpriseArgs)
 
-            if auth_personal is None and not opts.urn:
-                raise TypeError("Missing required property 'auth_personal'")
+            __props__.__dict__["auth_oauth"] = auth_oauth
             __props__.__dict__["auth_personal"] = auth_personal
             __props__.__dict__["description"] = description
             if project_id is None and not opts.urn:
@@ -332,8 +414,6 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
             if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")
             __props__.__dict__["service_endpoint_name"] = service_endpoint_name
-            if url is None and not opts.urn:
-                raise TypeError("Missing required property 'url'")
             __props__.__dict__["url"] = url
             __props__.__dict__["authorization"] = None
         super(ServiceEndpointGitHubEnterprise, __self__).__init__(
@@ -346,6 +426,7 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            auth_oauth: Optional[pulumi.Input[Union['ServiceEndpointGitHubEnterpriseAuthOauthArgs', 'ServiceEndpointGitHubEnterpriseAuthOauthArgsDict']]] = None,
             auth_personal: Optional[pulumi.Input[Union['ServiceEndpointGitHubEnterpriseAuthPersonalArgs', 'ServiceEndpointGitHubEnterpriseAuthPersonalArgsDict']]] = None,
             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
@@ -359,6 +440,7 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['ServiceEndpointGitHubEnterpriseAuthOauthArgs', 'ServiceEndpointGitHubEnterpriseAuthOauthArgsDict']] auth_oauth: An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
         :param pulumi.Input[Union['ServiceEndpointGitHubEnterpriseAuthPersonalArgs', 'ServiceEndpointGitHubEnterpriseAuthPersonalArgsDict']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[builtins.str] project_id: The ID of the project.
         :param pulumi.Input[builtins.str] service_endpoint_name: The Service Endpoint name.
@@ -368,6 +450,7 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
 
         __props__ = _ServiceEndpointGitHubEnterpriseState.__new__(_ServiceEndpointGitHubEnterpriseState)
 
+        __props__.__dict__["auth_oauth"] = auth_oauth
         __props__.__dict__["auth_personal"] = auth_personal
         __props__.__dict__["authorization"] = authorization
         __props__.__dict__["description"] = description
@@ -377,8 +460,16 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
         return ServiceEndpointGitHubEnterprise(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="authOauth")
+    def auth_oauth(self) -> pulumi.Output[Optional['outputs.ServiceEndpointGitHubEnterpriseAuthOauth']]:
+        """
+        An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+        """
+        return pulumi.get(self, "auth_oauth")
+
+    @property
     @pulumi.getter(name="authPersonal")
-    def auth_personal(self) -> pulumi.Output['outputs.ServiceEndpointGitHubEnterpriseAuthPersonal']:
+    def auth_personal(self) -> pulumi.Output[Optional['outputs.ServiceEndpointGitHubEnterpriseAuthPersonal']]:
         """
         An `auth_personal` block as documented below. Allows connecting using a personal access token.
         """
@@ -412,7 +503,7 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def url(self) -> pulumi.Output[builtins.str]:
+    def url(self) -> pulumi.Output[Optional[builtins.str]]:
         """
         GitHub Enterprise Server Url.
         """

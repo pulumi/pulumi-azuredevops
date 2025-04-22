@@ -16,6 +16,8 @@ import (
 //
 // ## Example Usage
 //
+// ### With token
+//
 // ```go
 // package main
 //
@@ -56,6 +58,47 @@ import (
 //
 // ```
 //
+// ### With OAuth
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Pulumi"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceEndpointGitHubEnterprise(ctx, "example", &azuredevops.ServiceEndpointGitHubEnterpriseArgs{
+//				ProjectId:           example.ID(),
+//				ServiceEndpointName: pulumi.String("Example GitHub Enterprise"),
+//				Description:         pulumi.String("Managed by Pulumi"),
+//				AuthOauth: &azuredevops.ServiceEndpointGitHubEnterpriseAuthOauthArgs{
+//					OauthConfigurationId: pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ss
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
@@ -70,16 +113,18 @@ import (
 type ServiceEndpointGitHubEnterprise struct {
 	pulumi.CustomResourceState
 
+	// An `authOauth` block as documented below. Allows connecting using an Oauth token.
+	AuthOauth ServiceEndpointGitHubEnterpriseAuthOauthPtrOutput `pulumi:"authOauth"`
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
-	AuthPersonal  ServiceEndpointGitHubEnterpriseAuthPersonalOutput `pulumi:"authPersonal"`
-	Authorization pulumi.StringMapOutput                            `pulumi:"authorization"`
-	Description   pulumi.StringPtrOutput                            `pulumi:"description"`
+	AuthPersonal  ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput `pulumi:"authPersonal"`
+	Authorization pulumi.StringMapOutput                               `pulumi:"authorization"`
+	Description   pulumi.StringPtrOutput                               `pulumi:"description"`
 	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringOutput `pulumi:"serviceEndpointName"`
 	// GitHub Enterprise Server Url.
-	Url pulumi.StringOutput `pulumi:"url"`
+	Url pulumi.StringPtrOutput `pulumi:"url"`
 }
 
 // NewServiceEndpointGitHubEnterprise registers a new resource with the given unique name, arguments, and options.
@@ -89,17 +134,11 @@ func NewServiceEndpointGitHubEnterprise(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AuthPersonal == nil {
-		return nil, errors.New("invalid value for required argument 'AuthPersonal'")
-	}
 	if args.ProjectId == nil {
 		return nil, errors.New("invalid value for required argument 'ProjectId'")
 	}
 	if args.ServiceEndpointName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceEndpointName'")
-	}
-	if args.Url == nil {
-		return nil, errors.New("invalid value for required argument 'Url'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceEndpointGitHubEnterprise
@@ -124,6 +163,8 @@ func GetServiceEndpointGitHubEnterprise(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceEndpointGitHubEnterprise resources.
 type serviceEndpointGitHubEnterpriseState struct {
+	// An `authOauth` block as documented below. Allows connecting using an Oauth token.
+	AuthOauth *ServiceEndpointGitHubEnterpriseAuthOauth `pulumi:"authOauth"`
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal  *ServiceEndpointGitHubEnterpriseAuthPersonal `pulumi:"authPersonal"`
 	Authorization map[string]string                            `pulumi:"authorization"`
@@ -137,6 +178,8 @@ type serviceEndpointGitHubEnterpriseState struct {
 }
 
 type ServiceEndpointGitHubEnterpriseState struct {
+	// An `authOauth` block as documented below. Allows connecting using an Oauth token.
+	AuthOauth ServiceEndpointGitHubEnterpriseAuthOauthPtrInput
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal  ServiceEndpointGitHubEnterpriseAuthPersonalPtrInput
 	Authorization pulumi.StringMapInput
@@ -154,28 +197,32 @@ func (ServiceEndpointGitHubEnterpriseState) ElementType() reflect.Type {
 }
 
 type serviceEndpointGitHubEnterpriseArgs struct {
+	// An `authOauth` block as documented below. Allows connecting using an Oauth token.
+	AuthOauth *ServiceEndpointGitHubEnterpriseAuthOauth `pulumi:"authOauth"`
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
-	AuthPersonal ServiceEndpointGitHubEnterpriseAuthPersonal `pulumi:"authPersonal"`
-	Description  *string                                     `pulumi:"description"`
+	AuthPersonal *ServiceEndpointGitHubEnterpriseAuthPersonal `pulumi:"authPersonal"`
+	Description  *string                                      `pulumi:"description"`
 	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// The Service Endpoint name.
 	ServiceEndpointName string `pulumi:"serviceEndpointName"`
 	// GitHub Enterprise Server Url.
-	Url string `pulumi:"url"`
+	Url *string `pulumi:"url"`
 }
 
 // The set of arguments for constructing a ServiceEndpointGitHubEnterprise resource.
 type ServiceEndpointGitHubEnterpriseArgs struct {
+	// An `authOauth` block as documented below. Allows connecting using an Oauth token.
+	AuthOauth ServiceEndpointGitHubEnterpriseAuthOauthPtrInput
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
-	AuthPersonal ServiceEndpointGitHubEnterpriseAuthPersonalInput
+	AuthPersonal ServiceEndpointGitHubEnterpriseAuthPersonalPtrInput
 	Description  pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringInput
 	// GitHub Enterprise Server Url.
-	Url pulumi.StringInput
+	Url pulumi.StringPtrInput
 }
 
 func (ServiceEndpointGitHubEnterpriseArgs) ElementType() reflect.Type {
@@ -265,11 +312,18 @@ func (o ServiceEndpointGitHubEnterpriseOutput) ToServiceEndpointGitHubEnterprise
 	return o
 }
 
+// An `authOauth` block as documented below. Allows connecting using an Oauth token.
+func (o ServiceEndpointGitHubEnterpriseOutput) AuthOauth() ServiceEndpointGitHubEnterpriseAuthOauthPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointGitHubEnterprise) ServiceEndpointGitHubEnterpriseAuthOauthPtrOutput {
+		return v.AuthOauth
+	}).(ServiceEndpointGitHubEnterpriseAuthOauthPtrOutput)
+}
+
 // An `authPersonal` block as documented below. Allows connecting using a personal access token.
-func (o ServiceEndpointGitHubEnterpriseOutput) AuthPersonal() ServiceEndpointGitHubEnterpriseAuthPersonalOutput {
-	return o.ApplyT(func(v *ServiceEndpointGitHubEnterprise) ServiceEndpointGitHubEnterpriseAuthPersonalOutput {
+func (o ServiceEndpointGitHubEnterpriseOutput) AuthPersonal() ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointGitHubEnterprise) ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput {
 		return v.AuthPersonal
-	}).(ServiceEndpointGitHubEnterpriseAuthPersonalOutput)
+	}).(ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput)
 }
 
 func (o ServiceEndpointGitHubEnterpriseOutput) Authorization() pulumi.StringMapOutput {
@@ -291,8 +345,8 @@ func (o ServiceEndpointGitHubEnterpriseOutput) ServiceEndpointName() pulumi.Stri
 }
 
 // GitHub Enterprise Server Url.
-func (o ServiceEndpointGitHubEnterpriseOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServiceEndpointGitHubEnterprise) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+func (o ServiceEndpointGitHubEnterpriseOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointGitHubEnterprise) pulumi.StringPtrOutput { return v.Url }).(pulumi.StringPtrOutput)
 }
 
 type ServiceEndpointGitHubEnterpriseArrayOutput struct{ *pulumi.OutputState }

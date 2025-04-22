@@ -36,6 +36,45 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
+ * ### Author Email Pattern
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ * });
+ * const exampleGit = new azuredevops.Git("example", {
+ *     projectId: example.id,
+ *     name: "Example Git Repository",
+ *     initialization: {
+ *         initType: "Clean",
+ *     },
+ * });
+ * const exampleRepositoryPolicyAuthorEmailPattern = new azuredevops.RepositoryPolicyAuthorEmailPattern("example", {
+ *     projectId: example.id,
+ *     enabled: true,
+ *     blocking: true,
+ *     authorEmailPatterns: ["auhtor@test.com"],
+ *     repositoryIds: [exampleGit.id],
+ * });
+ * const exampleGitRepositoryFile = new azuredevops.GitRepositoryFile("example", {
+ *     repositoryId: exampleGit.id,
+ *     file: ".gitignore",
+ *     content: "**&#47;*.tfstate",
+ *     branch: "refs/heads/master",
+ *     commitMessage: "First commit",
+ *     overwriteOnCreate: false,
+ *     authorName: "authorname",
+ *     authorEmail: "auhtor@test.com",
+ * }, {
+ *     dependsOn: [exampleRepositoryPolicyAuthorEmailPattern],
+ * });
+ * ```
+ *
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
@@ -83,6 +122,14 @@ export class GitRepositoryFile extends pulumi.CustomResource {
     }
 
     /**
+     * The email of the author.
+     */
+    public readonly authorEmail!: pulumi.Output<string>;
+    /**
+     * The name of the author.
+     */
+    public readonly authorName!: pulumi.Output<string>;
+    /**
      * Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
      */
     public readonly branch!: pulumi.Output<string | undefined>;
@@ -90,6 +137,14 @@ export class GitRepositoryFile extends pulumi.CustomResource {
      * Commit message when adding or updating the managed file.
      */
     public readonly commitMessage!: pulumi.Output<string>;
+    /**
+     * The email of the committer.
+     */
+    public readonly committerEmail!: pulumi.Output<string>;
+    /**
+     * The name of the committer.
+     */
+    public readonly committerName!: pulumi.Output<string>;
     /**
      * The file content.
      */
@@ -120,8 +175,12 @@ export class GitRepositoryFile extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GitRepositoryFileState | undefined;
+            resourceInputs["authorEmail"] = state ? state.authorEmail : undefined;
+            resourceInputs["authorName"] = state ? state.authorName : undefined;
             resourceInputs["branch"] = state ? state.branch : undefined;
             resourceInputs["commitMessage"] = state ? state.commitMessage : undefined;
+            resourceInputs["committerEmail"] = state ? state.committerEmail : undefined;
+            resourceInputs["committerName"] = state ? state.committerName : undefined;
             resourceInputs["content"] = state ? state.content : undefined;
             resourceInputs["file"] = state ? state.file : undefined;
             resourceInputs["overwriteOnCreate"] = state ? state.overwriteOnCreate : undefined;
@@ -137,8 +196,12 @@ export class GitRepositoryFile extends pulumi.CustomResource {
             if ((!args || args.repositoryId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repositoryId'");
             }
+            resourceInputs["authorEmail"] = args ? args.authorEmail : undefined;
+            resourceInputs["authorName"] = args ? args.authorName : undefined;
             resourceInputs["branch"] = args ? args.branch : undefined;
             resourceInputs["commitMessage"] = args ? args.commitMessage : undefined;
+            resourceInputs["committerEmail"] = args ? args.committerEmail : undefined;
+            resourceInputs["committerName"] = args ? args.committerName : undefined;
             resourceInputs["content"] = args ? args.content : undefined;
             resourceInputs["file"] = args ? args.file : undefined;
             resourceInputs["overwriteOnCreate"] = args ? args.overwriteOnCreate : undefined;
@@ -154,6 +217,14 @@ export class GitRepositoryFile extends pulumi.CustomResource {
  */
 export interface GitRepositoryFileState {
     /**
+     * The email of the author.
+     */
+    authorEmail?: pulumi.Input<string>;
+    /**
+     * The name of the author.
+     */
+    authorName?: pulumi.Input<string>;
+    /**
      * Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
      */
     branch?: pulumi.Input<string>;
@@ -161,6 +232,14 @@ export interface GitRepositoryFileState {
      * Commit message when adding or updating the managed file.
      */
     commitMessage?: pulumi.Input<string>;
+    /**
+     * The email of the committer.
+     */
+    committerEmail?: pulumi.Input<string>;
+    /**
+     * The name of the committer.
+     */
+    committerName?: pulumi.Input<string>;
     /**
      * The file content.
      */
@@ -184,6 +263,14 @@ export interface GitRepositoryFileState {
  */
 export interface GitRepositoryFileArgs {
     /**
+     * The email of the author.
+     */
+    authorEmail?: pulumi.Input<string>;
+    /**
+     * The name of the author.
+     */
+    authorName?: pulumi.Input<string>;
+    /**
      * Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
      */
     branch?: pulumi.Input<string>;
@@ -191,6 +278,14 @@ export interface GitRepositoryFileArgs {
      * Commit message when adding or updating the managed file.
      */
     commitMessage?: pulumi.Input<string>;
+    /**
+     * The email of the committer.
+     */
+    committerEmail?: pulumi.Input<string>;
+    /**
+     * The name of the committer.
+     */
+    committerName?: pulumi.Input<string>;
     /**
      * The file content.
      */
