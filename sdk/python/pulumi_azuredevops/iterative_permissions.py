@@ -219,6 +219,9 @@ class _IterativePermissionsState:
 
 
 class IterativePermissions(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/iterativePermissions:IterativePermissions"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

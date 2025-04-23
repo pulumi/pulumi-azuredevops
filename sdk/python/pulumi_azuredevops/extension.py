@@ -208,6 +208,9 @@ class _ExtensionState:
 
 
 class Extension(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/extension:Extension"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

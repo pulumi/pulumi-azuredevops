@@ -245,6 +245,9 @@ class _ServiceendpointJfrogPlatformV2State:
 
 
 class ServiceendpointJfrogPlatformV2(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/serviceendpointJfrogPlatformV2:ServiceendpointJfrogPlatformV2"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -557,6 +557,9 @@ class _ServiceEndpointAzureRMState:
 
 
 class ServiceEndpointAzureRM(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/serviceEndpointAzureRM:ServiceEndpointAzureRM"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

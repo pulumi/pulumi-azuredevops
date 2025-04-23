@@ -194,6 +194,9 @@ class _ServiceendpointSnykState:
 
 
 class ServiceendpointSnyk(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/serviceendpointSnyk:ServiceendpointSnyk"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

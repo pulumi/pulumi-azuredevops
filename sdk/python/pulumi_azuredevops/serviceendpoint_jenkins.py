@@ -257,6 +257,9 @@ class _ServiceendpointJenkinsState:
 
 
 class ServiceendpointJenkins(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/serviceendpointJenkins:ServiceendpointJenkins"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

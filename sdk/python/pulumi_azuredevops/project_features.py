@@ -136,6 +136,9 @@ class _ProjectFeaturesState:
 
 
 class ProjectFeatures(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/projectFeatures:ProjectFeatures"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

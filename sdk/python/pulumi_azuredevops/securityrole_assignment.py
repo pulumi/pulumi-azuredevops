@@ -158,6 +158,9 @@ class _SecurityroleAssignmentState:
 
 
 class SecurityroleAssignment(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/securityroleAssignment:SecurityroleAssignment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

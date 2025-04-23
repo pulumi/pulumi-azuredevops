@@ -202,6 +202,9 @@ class _ServiceEndpointNpmState:
 
 
 class ServiceEndpointNpm(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/serviceEndpointNpm:ServiceEndpointNpm"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

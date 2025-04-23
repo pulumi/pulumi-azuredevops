@@ -287,6 +287,9 @@ class _WorkitemState:
 
 
 class Workitem(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/workitem:Workitem"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

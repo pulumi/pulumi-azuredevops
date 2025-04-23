@@ -260,6 +260,9 @@ class _ServiceendpointMavenState:
 
 
 class ServiceendpointMaven(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/serviceendpointMaven:ServiceendpointMaven"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

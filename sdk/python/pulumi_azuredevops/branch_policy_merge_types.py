@@ -162,6 +162,9 @@ class _BranchPolicyMergeTypesState:
 
 
 class BranchPolicyMergeTypes(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/branchPolicyMergeTypes:BranchPolicyMergeTypes"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

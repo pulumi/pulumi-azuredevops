@@ -192,6 +192,9 @@ class _RepositoryPolicyMaxFileSizeState:
 
 
 class RepositoryPolicyMaxFileSize(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/repositoryPolicyMaxFileSize:RepositoryPolicyMaxFileSize"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

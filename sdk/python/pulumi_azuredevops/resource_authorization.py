@@ -191,6 +191,9 @@ class _ResourceAuthorizationState:
 
 
 class ResourceAuthorization(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/resourceAuthorization:ResourceAuthorization"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

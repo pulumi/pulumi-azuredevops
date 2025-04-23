@@ -350,6 +350,9 @@ class _ServiceendpointCheckmarxScaState:
 
 
 class ServiceendpointCheckmarxSca(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/serviceendpointCheckmarxSca:ServiceendpointCheckmarxSca"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

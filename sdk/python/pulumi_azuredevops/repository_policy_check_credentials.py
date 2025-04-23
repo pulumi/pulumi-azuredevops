@@ -161,6 +161,9 @@ class _RepositoryPolicyCheckCredentialsState:
 
 
 class RepositoryPolicyCheckCredentials(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/repositoryPolicyCheckCredentials:RepositoryPolicyCheckCredentials"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

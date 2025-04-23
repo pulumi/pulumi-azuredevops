@@ -194,6 +194,9 @@ class _ServiceEndpointBitBucketState:
 
 
 class ServiceEndpointBitBucket(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/serviceEndpointBitBucket:ServiceEndpointBitBucket"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

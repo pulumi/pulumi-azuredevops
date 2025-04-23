@@ -289,6 +289,9 @@ class _ServiceendpointCheckmarxSastState:
 
 
 class ServiceendpointCheckmarxSast(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/serviceendpointCheckmarxSast:ServiceendpointCheckmarxSast"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
