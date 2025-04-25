@@ -261,6 +261,9 @@ class _ServiceEndpointServiceFabricState:
 
 
 class ServiceEndpointServiceFabric(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

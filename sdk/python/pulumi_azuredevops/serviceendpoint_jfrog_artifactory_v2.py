@@ -245,6 +245,9 @@ class _ServiceendpointJfrogArtifactoryV2State:
 
 
 class ServiceendpointJfrogArtifactoryV2(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/serviceendpointJfrogArtifactoryV2:ServiceendpointJfrogArtifactoryV2"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

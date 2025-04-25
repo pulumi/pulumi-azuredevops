@@ -202,6 +202,9 @@ class _ServiceEndpointSonarQubeState:
 
 
 class ServiceEndpointSonarQube(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

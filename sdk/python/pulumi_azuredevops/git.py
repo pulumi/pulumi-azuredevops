@@ -322,6 +322,9 @@ class _GitState:
 
 
 class Git(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/git:Git"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

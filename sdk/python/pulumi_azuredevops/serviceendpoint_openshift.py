@@ -326,6 +326,9 @@ class _ServiceendpointOpenshiftState:
 
 
 class ServiceendpointOpenshift(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/serviceendpointOpenshift:ServiceendpointOpenshift"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

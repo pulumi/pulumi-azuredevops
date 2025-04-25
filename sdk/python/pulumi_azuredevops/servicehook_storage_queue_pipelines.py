@@ -296,6 +296,9 @@ class _ServicehookStorageQueuePipelinesState:
 
 
 class ServicehookStorageQueuePipelines(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/servicehookStorageQueuePipelines:ServicehookStorageQueuePipelines"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

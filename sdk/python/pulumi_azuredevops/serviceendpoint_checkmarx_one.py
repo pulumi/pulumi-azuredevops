@@ -299,6 +299,9 @@ class _ServiceendpointCheckmarxOneState:
 
 
 class ServiceendpointCheckmarxOne(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/serviceendpointCheckmarxOne:ServiceendpointCheckmarxOne"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

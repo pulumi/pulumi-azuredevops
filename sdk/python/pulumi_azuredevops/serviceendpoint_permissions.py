@@ -223,6 +223,9 @@ class _ServiceendpointPermissionsState:
 
 
 class ServiceendpointPermissions(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/serviceendpointPermissions:ServiceendpointPermissions"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

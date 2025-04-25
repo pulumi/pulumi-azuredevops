@@ -161,6 +161,9 @@ class _RepositoryPolicyReservedNamesState:
 
 
 class RepositoryPolicyReservedNames(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/repositoryPolicyReservedNames:RepositoryPolicyReservedNames"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

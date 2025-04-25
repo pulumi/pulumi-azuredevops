@@ -524,6 +524,9 @@ class _CheckBusinessHoursState:
 
 
 class CheckBusinessHours(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/checkBusinessHours:CheckBusinessHours"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -162,6 +162,9 @@ class _PoolState:
 
 
 class Pool(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/pool:Pool"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
