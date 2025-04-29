@@ -303,6 +303,9 @@ class _CheckBranchControlState:
 
 
 class CheckBranchControl(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/checkBranchControl:CheckBranchControl"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

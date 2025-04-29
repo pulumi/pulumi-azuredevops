@@ -257,6 +257,9 @@ class _WikiState:
 
 
 class Wiki(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/wiki:Wiki"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

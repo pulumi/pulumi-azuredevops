@@ -195,6 +195,9 @@ class _LibraryPermissionsState:
 
 
 class LibraryPermissions(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/libraryPermissions:LibraryPermissions"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

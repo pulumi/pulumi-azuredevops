@@ -239,6 +239,9 @@ class _AreaPermissionsState:
 
 
 class AreaPermissions(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/areaPermissions:AreaPermissions"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

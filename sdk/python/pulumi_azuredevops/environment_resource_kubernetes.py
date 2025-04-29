@@ -254,6 +254,9 @@ class _EnvironmentResourceKubernetesState:
 
 
 class EnvironmentResourceKubernetes(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/environmentResourceKubernetes:EnvironmentResourceKubernetes"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

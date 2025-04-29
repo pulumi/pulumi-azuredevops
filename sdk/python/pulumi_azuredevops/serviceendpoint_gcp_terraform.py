@@ -289,6 +289,9 @@ class _ServiceendpointGcpTerraformState:
 
 
 class ServiceendpointGcpTerraform(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/serviceendpointGcpTerraform:ServiceendpointGcpTerraform"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

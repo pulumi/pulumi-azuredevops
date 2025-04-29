@@ -128,6 +128,9 @@ class _BuildFolderState:
 
 
 class BuildFolder(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/buildFolder:BuildFolder"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

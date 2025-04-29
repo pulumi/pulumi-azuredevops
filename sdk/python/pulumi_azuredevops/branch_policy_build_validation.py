@@ -162,6 +162,9 @@ class _BranchPolicyBuildValidationState:
 
 
 class BranchPolicyBuildValidation(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/branchPolicyBuildValidation:BranchPolicyBuildValidation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

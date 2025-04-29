@@ -450,6 +450,9 @@ class _ServiceEndpointAzureEcrState:
 
 
 class ServiceEndpointAzureEcr(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

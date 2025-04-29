@@ -413,6 +413,9 @@ class _ElasticPoolState:
 
 
 class ElasticPool(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/elasticPool:ElasticPool"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

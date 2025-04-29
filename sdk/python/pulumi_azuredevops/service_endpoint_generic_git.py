@@ -267,6 +267,9 @@ class _ServiceEndpointGenericGitState:
 
 
 class ServiceEndpointGenericGit(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/serviceEndpointGenericGit:ServiceEndpointGenericGit"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

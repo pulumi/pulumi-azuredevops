@@ -237,6 +237,9 @@ class _ServiceendpointVisualstudiomarketplaceState:
 
 
 class ServiceendpointVisualstudiomarketplace(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/serviceendpointVisualstudiomarketplace:ServiceendpointVisualstudiomarketplace"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

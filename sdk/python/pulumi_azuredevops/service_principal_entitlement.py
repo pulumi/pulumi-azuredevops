@@ -193,6 +193,9 @@ class _ServicePrincipalEntitlementState:
 
 
 class ServicePrincipalEntitlement(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/servicePrincipalEntitlement:ServicePrincipalEntitlement"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

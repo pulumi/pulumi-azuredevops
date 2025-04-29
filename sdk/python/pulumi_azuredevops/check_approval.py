@@ -302,6 +302,9 @@ class _CheckApprovalState:
 
 
 class CheckApproval(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/checkApproval:CheckApproval"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

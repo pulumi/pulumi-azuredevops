@@ -192,6 +192,9 @@ class _RepositoryPolicyMaxPathLengthState:
 
 
 class RepositoryPolicyMaxPathLength(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/repositoryPolicyMaxPathLength:RepositoryPolicyMaxPathLength"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

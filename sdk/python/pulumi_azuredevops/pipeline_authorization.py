@@ -211,6 +211,9 @@ class _PipelineAuthorizationState:
 
 
 class PipelineAuthorization(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/pipelineAuthorization:PipelineAuthorization"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
