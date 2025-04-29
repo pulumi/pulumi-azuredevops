@@ -226,6 +226,9 @@ class _VariableGroupPermissionsState:
 
 
 class VariableGroupPermissions(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/variableGroupPermissions:VariableGroupPermissions"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

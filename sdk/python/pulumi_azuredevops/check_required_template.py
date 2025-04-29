@@ -176,6 +176,9 @@ class _CheckRequiredTemplateState:
 
 
 class CheckRequiredTemplate(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/checkRequiredTemplate:CheckRequiredTemplate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

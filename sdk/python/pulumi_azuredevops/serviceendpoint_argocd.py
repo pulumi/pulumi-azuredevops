@@ -245,6 +245,9 @@ class _ServiceendpointArgocdState:
 
 
 class ServiceendpointArgocd(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/serviceendpointArgocd:ServiceendpointArgocd"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -290,6 +290,9 @@ class _ServiceEndpointSshState:
 
 
 class ServiceEndpointSsh(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

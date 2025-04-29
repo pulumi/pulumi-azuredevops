@@ -159,6 +159,9 @@ class _FeedRetentionPolicyState:
 
 
 class FeedRetentionPolicy(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/feedRetentionPolicy:FeedRetentionPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

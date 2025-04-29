@@ -196,6 +196,9 @@ class _ServiceEndpointPipelineState:
 
 
 class ServiceEndpointPipeline(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

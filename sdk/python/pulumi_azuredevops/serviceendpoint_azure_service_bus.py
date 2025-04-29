@@ -194,6 +194,9 @@ class _ServiceendpointAzureServiceBusState:
 
 
 class ServiceendpointAzureServiceBus(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/serviceendpointAzureServiceBus:ServiceendpointAzureServiceBus"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

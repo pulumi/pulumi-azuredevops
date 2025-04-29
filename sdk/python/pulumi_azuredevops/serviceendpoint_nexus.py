@@ -225,6 +225,9 @@ class _ServiceendpointNexusState:
 
 
 class ServiceendpointNexus(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/serviceendpointNexus:ServiceendpointNexus"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

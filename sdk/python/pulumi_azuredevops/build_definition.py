@@ -562,6 +562,9 @@ class _BuildDefinitionState:
 
 
 class BuildDefinition(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/buildDefinition:BuildDefinition"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

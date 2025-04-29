@@ -191,6 +191,9 @@ class _TeamAdministratorsState:
 
 
 class TeamAdministrators(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/teamAdministrators:TeamAdministrators"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

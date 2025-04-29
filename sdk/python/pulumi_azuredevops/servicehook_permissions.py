@@ -188,6 +188,9 @@ class _ServicehookPermissionsState:
 
 
 class ServicehookPermissions(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/servicehookPermissions:ServicehookPermissions"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -141,6 +141,9 @@ class _QueueState:
 
 
 class Queue(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/queue:Queue"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

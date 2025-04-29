@@ -227,6 +227,9 @@ class _ServiceEndpointGenericState:
 
 
 class ServiceEndpointGeneric(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/serviceEndpointGeneric:ServiceEndpointGeneric"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -192,6 +192,9 @@ class _RepositoryPolicyFilePathPatternState:
 
 
 class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/repositoryPolicyFilePathPattern:RepositoryPolicyFilePathPattern"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

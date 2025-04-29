@@ -356,6 +356,9 @@ class _ServiceEndpointAwsState:
 
 
 class ServiceEndpointAws(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/serviceEndpointAws:ServiceEndpointAws"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -140,6 +140,9 @@ class _FeedState:
 
 
 class Feed(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/feed:Feed"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

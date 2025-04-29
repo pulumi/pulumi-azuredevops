@@ -198,6 +198,9 @@ class _ServiceEndpointGitHubState:
 
 
 class ServiceEndpointGitHub(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/serviceEndpointGitHub:ServiceEndpointGitHub"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

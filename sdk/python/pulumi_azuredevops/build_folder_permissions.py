@@ -266,6 +266,9 @@ class _BuildFolderPermissionsState:
 
 
 class BuildFolderPermissions(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/buildFolderPermissions:BuildFolderPermissions"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

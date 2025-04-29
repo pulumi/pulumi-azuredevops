@@ -196,6 +196,9 @@ class _ServiceendpointExternaltfsState:
 
 
 class ServiceendpointExternaltfs(pulumi.CustomResource):
+
+    pulumi_type = "azuredevops:index/serviceendpointExternaltfs:ServiceendpointExternaltfs"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
