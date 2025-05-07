@@ -161,10 +161,8 @@ class _PoolState:
         pulumi.set(self, "pool_type", value)
 
 
+@pulumi.type_token("azuredevops:index/pool:Pool")
 class Pool(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/pool:Pool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

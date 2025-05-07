@@ -208,10 +208,8 @@ class _GitRepositoryBranchState:
         pulumi.set(self, "repository_id", value)
 
 
+@pulumi.type_token("azuredevops:index/gitRepositoryBranch:GitRepositoryBranch")
 class GitRepositoryBranch(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/gitRepositoryBranch:GitRepositoryBranch"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

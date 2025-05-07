@@ -229,10 +229,8 @@ class _ServiceEndpointGitHubEnterpriseState:
         pulumi.set(self, "url", value)
 
 
+@pulumi.type_token("azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise")
 class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

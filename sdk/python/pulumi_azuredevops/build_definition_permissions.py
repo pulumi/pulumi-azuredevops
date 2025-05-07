@@ -269,10 +269,8 @@ class _BuildDefinitionPermissionsState:
         pulumi.set(self, "replace", value)
 
 
+@pulumi.type_token("azuredevops:index/buildDefinitionPermissions:BuildDefinitionPermissions")
 class BuildDefinitionPermissions(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/buildDefinitionPermissions:BuildDefinitionPermissions"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

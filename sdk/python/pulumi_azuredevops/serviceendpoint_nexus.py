@@ -224,10 +224,8 @@ class _ServiceendpointNexusState:
         pulumi.set(self, "username", value)
 
 
+@pulumi.type_token("azuredevops:index/serviceendpointNexus:ServiceendpointNexus")
 class ServiceendpointNexus(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/serviceendpointNexus:ServiceendpointNexus"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

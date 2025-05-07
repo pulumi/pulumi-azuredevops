@@ -301,10 +301,8 @@ class _CheckApprovalState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azuredevops:index/checkApproval:CheckApproval")
 class CheckApproval(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/checkApproval:CheckApproval"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

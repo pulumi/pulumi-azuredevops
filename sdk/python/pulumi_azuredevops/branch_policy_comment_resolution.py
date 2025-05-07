@@ -161,10 +161,8 @@ class _BranchPolicyCommentResolutionState:
         pulumi.set(self, "settings", value)
 
 
+@pulumi.type_token("azuredevops:index/branchPolicyCommentResolution:BranchPolicyCommentResolution")
 class BranchPolicyCommentResolution(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/branchPolicyCommentResolution:BranchPolicyCommentResolution"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -336,9 +336,6 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
             resourceInputs["workloadIdentityFederationSubject"] = state ? state.workloadIdentityFederationSubject : undefined;
         } else {
             const args = argsOrState as ServiceEndpointAzureRMArgs | undefined;
-            if ((!args || args.azurermSpnTenantid === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'azurermSpnTenantid'");
-            }
             if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
@@ -463,7 +460,7 @@ export interface ServiceEndpointAzureRMArgs {
     /**
      * The Tenant ID of the service principal.
      */
-    azurermSpnTenantid: pulumi.Input<string>;
+    azurermSpnTenantid?: pulumi.Input<string>;
     /**
      * The Subscription ID of the Azure targets.
      */

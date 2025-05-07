@@ -155,10 +155,8 @@ class _GroupMembershipState:
         pulumi.set(self, "mode", value)
 
 
+@pulumi.type_token("azuredevops:index/groupMembership:GroupMembership")
 class GroupMembership(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/groupMembership:GroupMembership"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

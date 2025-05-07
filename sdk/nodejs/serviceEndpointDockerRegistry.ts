@@ -136,14 +136,8 @@ export class ServiceEndpointDockerRegistry extends pulumi.CustomResource {
             resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
         } else {
             const args = argsOrState as ServiceEndpointDockerRegistryArgs | undefined;
-            if ((!args || args.dockerRegistry === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dockerRegistry'");
-            }
             if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
-            }
-            if ((!args || args.registryType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'registryType'");
             }
             if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
@@ -217,7 +211,7 @@ export interface ServiceEndpointDockerRegistryArgs {
     /**
      * The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
      */
-    dockerRegistry: pulumi.Input<string>;
+    dockerRegistry?: pulumi.Input<string>;
     /**
      * The identifier of the Docker account user.
      */
@@ -229,7 +223,7 @@ export interface ServiceEndpointDockerRegistryArgs {
     /**
      * Can be "DockerHub" or "Others" (Default "DockerHub")
      */
-    registryType: pulumi.Input<string>;
+    registryType?: pulumi.Input<string>;
     /**
      * The name you will use to refer to this service connection in task inputs.
      */

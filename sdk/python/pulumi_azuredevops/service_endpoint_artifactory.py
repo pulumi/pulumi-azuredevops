@@ -236,10 +236,8 @@ class _ServiceEndpointArtifactoryState:
         pulumi.set(self, "url", value)
 
 
+@pulumi.type_token("azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory")
 class ServiceEndpointArtifactory(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -191,10 +191,8 @@ class _RepositoryPolicyMaxPathLengthState:
         pulumi.set(self, "repository_ids", value)
 
 
+@pulumi.type_token("azuredevops:index/repositoryPolicyMaxPathLength:RepositoryPolicyMaxPathLength")
 class RepositoryPolicyMaxPathLength(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/repositoryPolicyMaxPathLength:RepositoryPolicyMaxPathLength"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

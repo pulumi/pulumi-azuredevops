@@ -233,10 +233,8 @@ class _GroupEntitlementState:
         pulumi.set(self, "principal_name", value)
 
 
+@pulumi.type_token("azuredevops:index/groupEntitlement:GroupEntitlement")
 class GroupEntitlement(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/groupEntitlement:GroupEntitlement"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -272,10 +272,8 @@ class _ProjectPipelineSettingsState:
         pulumi.set(self, "status_badges_are_private", value)
 
 
+@pulumi.type_token("azuredevops:index/projectPipelineSettings:ProjectPipelineSettings")
 class ProjectPipelineSettings(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/projectPipelineSettings:ProjectPipelineSettings"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

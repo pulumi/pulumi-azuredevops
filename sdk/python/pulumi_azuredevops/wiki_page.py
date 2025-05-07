@@ -181,10 +181,8 @@ class _WikiPageState:
         pulumi.set(self, "wiki_id", value)
 
 
+@pulumi.type_token("azuredevops:index/wikiPage:WikiPage")
 class WikiPage(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/wikiPage:WikiPage"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

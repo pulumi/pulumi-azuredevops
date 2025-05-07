@@ -95,10 +95,8 @@ class _ProjectTagsState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azuredevops:index/projectTags:ProjectTags")
 class ProjectTags(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/projectTags:ProjectTags"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

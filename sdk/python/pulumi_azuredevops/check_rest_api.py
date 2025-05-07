@@ -542,10 +542,8 @@ class _CheckRestApiState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azuredevops:index/checkRestApi:CheckRestApi")
 class CheckRestApi(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/checkRestApi:CheckRestApi"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

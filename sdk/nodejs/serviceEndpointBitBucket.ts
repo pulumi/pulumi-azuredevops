@@ -109,17 +109,11 @@ export class ServiceEndpointBitBucket extends pulumi.CustomResource {
             resourceInputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as ServiceEndpointBitBucketArgs | undefined;
-            if ((!args || args.password === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'password'");
-            }
             if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
             if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
-            }
-            if ((!args || args.username === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'username'");
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
@@ -167,7 +161,7 @@ export interface ServiceEndpointBitBucketArgs {
     /**
      * Bitbucket account password.
      */
-    password: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * The ID of the project.
      */
@@ -179,5 +173,5 @@ export interface ServiceEndpointBitBucketArgs {
     /**
      * Bitbucket account username.
      */
-    username: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
 }

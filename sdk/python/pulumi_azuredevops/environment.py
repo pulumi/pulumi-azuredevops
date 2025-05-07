@@ -128,10 +128,8 @@ class _EnvironmentState:
         pulumi.set(self, "project_id", value)
 
 
+@pulumi.type_token("azuredevops:index/environment:Environment")
 class Environment(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/environment:Environment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -270,10 +270,8 @@ class _ProjectPermissionsState:
         pulumi.set(self, "replace", value)
 
 
+@pulumi.type_token("azuredevops:index/projectPermissions:ProjectPermissions")
 class ProjectPermissions(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/projectPermissions:ProjectPermissions"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

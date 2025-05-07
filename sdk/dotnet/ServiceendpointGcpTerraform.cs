@@ -168,10 +168,10 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// GCP project associated with the Service Connection.
         /// </summary>
-        [Input("gcpProjectId", required: true)]
-        public Input<string> GcpProjectId { get; set; } = null!;
+        [Input("gcpProjectId")]
+        public Input<string>? GcpProjectId { get; set; }
 
-        [Input("privateKey", required: true)]
+        [Input("privateKey")]
         private Input<string>? _privateKey;
 
         /// <summary>
@@ -208,8 +208,8 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The token uri field in the JSON key file for creating the JSON Web Token.
         /// </summary>
-        [Input("tokenUri", required: true)]
-        public Input<string> TokenUri { get; set; } = null!;
+        [Input("tokenUri")]
+        public Input<string>? TokenUri { get; set; }
 
         public ServiceendpointGcpTerraformArgs()
         {

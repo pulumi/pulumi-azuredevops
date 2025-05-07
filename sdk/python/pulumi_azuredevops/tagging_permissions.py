@@ -187,10 +187,8 @@ class _TaggingPermissionsState:
         pulumi.set(self, "replace", value)
 
 
+@pulumi.type_token("azuredevops:index/taggingPermissions:TaggingPermissions")
 class TaggingPermissions(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/taggingPermissions:TaggingPermissions"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

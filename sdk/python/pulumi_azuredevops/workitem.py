@@ -286,10 +286,8 @@ class _WorkitemState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("azuredevops:index/workitem:Workitem")
 class Workitem(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/workitem:Workitem"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

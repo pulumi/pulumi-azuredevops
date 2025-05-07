@@ -298,10 +298,8 @@ class _ServiceendpointNugetState:
         pulumi.set(self, "username", value)
 
 
+@pulumi.type_token("azuredevops:index/serviceendpointNuget:ServiceendpointNuget")
 class ServiceendpointNuget(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/serviceendpointNuget:ServiceendpointNuget"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

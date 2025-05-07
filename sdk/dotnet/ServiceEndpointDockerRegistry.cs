@@ -198,8 +198,8 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
         /// </summary>
-        [Input("dockerRegistry", required: true)]
-        public Input<string> DockerRegistryUrl { get; set; } = null!;
+        [Input("dockerRegistry")]
+        public Input<string>? DockerRegistryUrl { get; set; }
 
         /// <summary>
         /// The identifier of the Docker account user.
@@ -216,8 +216,8 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Can be "DockerHub" or "Others" (Default "DockerHub")
         /// </summary>
-        [Input("registryType", required: true)]
-        public Input<string> RegistryType { get; set; } = null!;
+        [Input("registryType")]
+        public Input<string>? RegistryType { get; set; }
 
         /// <summary>
         /// The name you will use to refer to this service connection in task inputs.

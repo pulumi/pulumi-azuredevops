@@ -321,10 +321,8 @@ class _GitState:
         pulumi.set(self, "web_url", value)
 
 
+@pulumi.type_token("azuredevops:index/git:Git")
 class Git(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/git:Git"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

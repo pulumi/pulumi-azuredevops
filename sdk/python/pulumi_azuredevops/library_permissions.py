@@ -194,10 +194,8 @@ class _LibraryPermissionsState:
         pulumi.set(self, "replace", value)
 
 
+@pulumi.type_token("azuredevops:index/libraryPermissions:LibraryPermissions")
 class LibraryPermissions(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/libraryPermissions:LibraryPermissions"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

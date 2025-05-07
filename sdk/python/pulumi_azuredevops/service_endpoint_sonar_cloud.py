@@ -170,10 +170,8 @@ class _ServiceEndpointSonarCloudState:
         pulumi.set(self, "token", value)
 
 
+@pulumi.type_token("azuredevops:index/serviceEndpointSonarCloud:ServiceEndpointSonarCloud")
 class ServiceEndpointSonarCloud(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/serviceEndpointSonarCloud:ServiceEndpointSonarCloud"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
