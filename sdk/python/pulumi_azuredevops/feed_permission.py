@@ -206,10 +206,8 @@ class _FeedPermissionState:
         pulumi.set(self, "role", value)
 
 
+@pulumi.type_token("azuredevops:index/feedPermission:FeedPermission")
 class FeedPermission(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/feedPermission:FeedPermission"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

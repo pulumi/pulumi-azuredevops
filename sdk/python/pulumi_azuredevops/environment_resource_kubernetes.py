@@ -253,10 +253,8 @@ class _EnvironmentResourceKubernetesState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azuredevops:index/environmentResourceKubernetes:EnvironmentResourceKubernetes")
 class EnvironmentResourceKubernetes(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/environmentResourceKubernetes:EnvironmentResourceKubernetes"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -161,10 +161,8 @@ class _BranchPolicyMinReviewersState:
         pulumi.set(self, "settings", value)
 
 
+@pulumi.type_token("azuredevops:index/branchPolicyMinReviewers:BranchPolicyMinReviewers")
 class BranchPolicyMinReviewers(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/branchPolicyMinReviewers:BranchPolicyMinReviewers"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

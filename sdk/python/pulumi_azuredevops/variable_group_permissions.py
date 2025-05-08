@@ -225,10 +225,8 @@ class _VariableGroupPermissionsState:
         pulumi.set(self, "variable_group_id", value)
 
 
+@pulumi.type_token("azuredevops:index/variableGroupPermissions:VariableGroupPermissions")
 class VariableGroupPermissions(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/variableGroupPermissions:VariableGroupPermissions"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

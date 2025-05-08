@@ -135,10 +135,8 @@ class _ProjectFeaturesState:
         pulumi.set(self, "project_id", value)
 
 
+@pulumi.type_token("azuredevops:index/projectFeatures:ProjectFeatures")
 class ProjectFeatures(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/projectFeatures:ProjectFeatures"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

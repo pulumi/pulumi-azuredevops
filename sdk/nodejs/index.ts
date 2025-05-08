@@ -390,10 +390,8 @@ export type ProjectTags = import("./projectTags").ProjectTags;
 export const ProjectTags: typeof import("./projectTags").ProjectTags = null as any;
 utilities.lazyLoad(exports, ["ProjectTags"], () => require("./projectTags"));
 
-export { ProviderArgs } from "./provider";
-export type Provider = import("./provider").Provider;
-export const Provider: typeof import("./provider").Provider = null as any;
-utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
+export * from "./provider";
+import { Provider } from "./provider";
 
 export { QueueArgs, QueueState } from "./queue";
 export type Queue = import("./queue").Queue;

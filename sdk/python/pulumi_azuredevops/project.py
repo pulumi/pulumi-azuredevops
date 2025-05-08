@@ -293,10 +293,8 @@ class _ProjectState:
         pulumi.set(self, "work_item_template", value)
 
 
+@pulumi.type_token("azuredevops:index/project:Project")
 class Project(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/project:Project"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

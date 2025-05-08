@@ -350,10 +350,8 @@ class _GitRepositoryFileState:
         pulumi.set(self, "repository_id", value)
 
 
+@pulumi.type_token("azuredevops:index/gitRepositoryFile:GitRepositoryFile")
 class GitRepositoryFile(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/gitRepositoryFile:GitRepositoryFile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -208,10 +208,8 @@ class _DashboardState:
         pulumi.set(self, "team_id", value)
 
 
+@pulumi.type_token("azuredevops:index/dashboard:Dashboard")
 class Dashboard(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/dashboard:Dashboard"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

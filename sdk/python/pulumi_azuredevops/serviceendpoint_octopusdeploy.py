@@ -225,10 +225,8 @@ class _ServiceendpointOctopusdeployState:
         pulumi.set(self, "url", value)
 
 
+@pulumi.type_token("azuredevops:index/serviceendpointOctopusdeploy:ServiceendpointOctopusdeploy")
 class ServiceendpointOctopusdeploy(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/serviceendpointOctopusdeploy:ServiceendpointOctopusdeploy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

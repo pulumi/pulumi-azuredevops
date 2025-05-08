@@ -449,10 +449,8 @@ class _ServiceEndpointAzureEcrState:
         pulumi.set(self, "workload_identity_federation_subject", value)
 
 
+@pulumi.type_token("azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr")
 class ServiceEndpointAzureEcr(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

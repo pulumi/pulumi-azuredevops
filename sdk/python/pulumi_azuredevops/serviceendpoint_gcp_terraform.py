@@ -288,10 +288,8 @@ class _ServiceendpointGcpTerraformState:
         pulumi.set(self, "token_uri", value)
 
 
+@pulumi.type_token("azuredevops:index/serviceendpointGcpTerraform:ServiceendpointGcpTerraform")
 class ServiceendpointGcpTerraform(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/serviceendpointGcpTerraform:ServiceendpointGcpTerraform"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

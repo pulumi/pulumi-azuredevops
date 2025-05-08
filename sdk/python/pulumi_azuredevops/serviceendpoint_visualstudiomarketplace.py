@@ -236,10 +236,8 @@ class _ServiceendpointVisualstudiomarketplaceState:
         pulumi.set(self, "url", value)
 
 
+@pulumi.type_token("azuredevops:index/serviceendpointVisualstudiomarketplace:ServiceendpointVisualstudiomarketplace")
 class ServiceendpointVisualstudiomarketplace(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/serviceendpointVisualstudiomarketplace:ServiceendpointVisualstudiomarketplace"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

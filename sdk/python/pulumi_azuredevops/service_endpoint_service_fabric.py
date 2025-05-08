@@ -260,10 +260,8 @@ class _ServiceEndpointServiceFabricState:
         pulumi.set(self, "service_endpoint_name", value)
 
 
+@pulumi.type_token("azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric")
 class ServiceEndpointServiceFabric(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

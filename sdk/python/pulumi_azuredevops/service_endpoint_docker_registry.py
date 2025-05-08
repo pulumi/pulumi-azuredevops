@@ -289,10 +289,8 @@ class _ServiceEndpointDockerRegistryState:
         pulumi.set(self, "service_endpoint_name", value)
 
 
+@pulumi.type_token("azuredevops:index/serviceEndpointDockerRegistry:ServiceEndpointDockerRegistry")
 class ServiceEndpointDockerRegistry(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/serviceEndpointDockerRegistry:ServiceEndpointDockerRegistry"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -161,10 +161,8 @@ class _BranchPolicyWorkItemLinkingState:
         pulumi.set(self, "settings", value)
 
 
+@pulumi.type_token("azuredevops:index/branchPolicyWorkItemLinking:BranchPolicyWorkItemLinking")
 class BranchPolicyWorkItemLinking(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/branchPolicyWorkItemLinking:BranchPolicyWorkItemLinking"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

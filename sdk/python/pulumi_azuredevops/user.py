@@ -217,10 +217,8 @@ class _UserState:
         pulumi.set(self, "principal_name", value)
 
 
+@pulumi.type_token("azuredevops:index/user:User")
 class User(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/user:User"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

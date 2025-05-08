@@ -193,10 +193,8 @@ class _ServiceEndpointBitBucketState:
         pulumi.set(self, "username", value)
 
 
+@pulumi.type_token("azuredevops:index/serviceEndpointBitBucket:ServiceEndpointBitBucket")
 class ServiceEndpointBitBucket(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/serviceEndpointBitBucket:ServiceEndpointBitBucket"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -556,10 +556,8 @@ class _ServiceEndpointAzureRMState:
         pulumi.set(self, "workload_identity_federation_subject", value)
 
 
+@pulumi.type_token("azuredevops:index/serviceEndpointAzureRM:ServiceEndpointAzureRM")
 class ServiceEndpointAzureRM(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/serviceEndpointAzureRM:ServiceEndpointAzureRM"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
