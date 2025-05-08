@@ -207,10 +207,8 @@ class _ExtensionState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azuredevops:index/extension:Extension")
 class Extension(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/extension:Extension"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -161,10 +161,8 @@ class _BranchPolicyBuildValidationState:
         pulumi.set(self, "settings", value)
 
 
+@pulumi.type_token("azuredevops:index/branchPolicyBuildValidation:BranchPolicyBuildValidation")
 class BranchPolicyBuildValidation(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/branchPolicyBuildValidation:BranchPolicyBuildValidation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

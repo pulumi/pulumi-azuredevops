@@ -218,10 +218,8 @@ class _IterativePermissionsState:
         pulumi.set(self, "replace", value)
 
 
+@pulumi.type_token("azuredevops:index/iterativePermissions:IterativePermissions")
 class IterativePermissions(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/iterativePermissions:IterativePermissions"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

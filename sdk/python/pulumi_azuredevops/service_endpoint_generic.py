@@ -226,10 +226,8 @@ class _ServiceEndpointGenericState:
         pulumi.set(self, "username", value)
 
 
+@pulumi.type_token("azuredevops:index/serviceEndpointGeneric:ServiceEndpointGeneric")
 class ServiceEndpointGeneric(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/serviceEndpointGeneric:ServiceEndpointGeneric"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

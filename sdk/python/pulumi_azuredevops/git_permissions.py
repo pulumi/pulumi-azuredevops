@@ -306,10 +306,8 @@ class _GitPermissionsState:
         pulumi.set(self, "repository_id", value)
 
 
+@pulumi.type_token("azuredevops:index/gitPermissions:GitPermissions")
 class GitPermissions(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/gitPermissions:GitPermissions"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

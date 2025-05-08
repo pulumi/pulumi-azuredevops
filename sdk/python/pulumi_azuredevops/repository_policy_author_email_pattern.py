@@ -199,10 +199,8 @@ class _RepositoryPolicyAuthorEmailPatternState:
         pulumi.set(self, "repository_ids", value)
 
 
+@pulumi.type_token("azuredevops:index/repositoryPolicyAuthorEmailPattern:RepositoryPolicyAuthorEmailPattern")
 class RepositoryPolicyAuthorEmailPattern(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/repositoryPolicyAuthorEmailPattern:RepositoryPolicyAuthorEmailPattern"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

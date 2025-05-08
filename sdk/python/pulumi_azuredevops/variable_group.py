@@ -225,10 +225,8 @@ class _VariableGroupState:
         pulumi.set(self, "variables", value)
 
 
+@pulumi.type_token("azuredevops:index/variableGroup:VariableGroup")
 class VariableGroup(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/variableGroup:VariableGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -157,10 +157,8 @@ class _SecurityroleAssignmentState:
         pulumi.set(self, "scope", value)
 
 
+@pulumi.type_token("azuredevops:index/securityroleAssignment:SecurityroleAssignment")
 class SecurityroleAssignment(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/securityroleAssignment:SecurityroleAssignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

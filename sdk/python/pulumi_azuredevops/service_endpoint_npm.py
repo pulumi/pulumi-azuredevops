@@ -201,10 +201,8 @@ class _ServiceEndpointNpmState:
         pulumi.set(self, "url", value)
 
 
+@pulumi.type_token("azuredevops:index/serviceEndpointNpm:ServiceEndpointNpm")
 class ServiceEndpointNpm(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/serviceEndpointNpm:ServiceEndpointNpm"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

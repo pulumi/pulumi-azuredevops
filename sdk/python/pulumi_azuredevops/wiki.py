@@ -256,10 +256,8 @@ class _WikiState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azuredevops:index/wiki:Wiki")
 class Wiki(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/wiki:Wiki"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

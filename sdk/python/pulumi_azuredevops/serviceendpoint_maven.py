@@ -259,10 +259,8 @@ class _ServiceendpointMavenState:
         pulumi.set(self, "url", value)
 
 
+@pulumi.type_token("azuredevops:index/serviceendpointMaven:ServiceendpointMaven")
 class ServiceendpointMaven(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/serviceendpointMaven:ServiceendpointMaven"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

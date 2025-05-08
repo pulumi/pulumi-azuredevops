@@ -349,10 +349,8 @@ class _ServiceendpointCheckmarxScaState:
         pulumi.set(self, "web_app_url", value)
 
 
+@pulumi.type_token("azuredevops:index/serviceendpointCheckmarxSca:ServiceendpointCheckmarxSca")
 class ServiceendpointCheckmarxSca(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/serviceendpointCheckmarxSca:ServiceendpointCheckmarxSca"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

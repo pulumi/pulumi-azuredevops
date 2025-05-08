@@ -286,10 +286,8 @@ class _ServiceendpointDynamicsLifecycleServicesState:
         pulumi.set(self, "username", value)
 
 
+@pulumi.type_token("azuredevops:index/serviceendpointDynamicsLifecycleServices:ServiceendpointDynamicsLifecycleServices")
 class ServiceendpointDynamicsLifecycleServices(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/serviceendpointDynamicsLifecycleServices:ServiceendpointDynamicsLifecycleServices"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

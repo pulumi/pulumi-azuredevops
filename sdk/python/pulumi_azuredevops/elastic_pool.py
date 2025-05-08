@@ -412,10 +412,8 @@ class _ElasticPoolState:
         pulumi.set(self, "time_to_live_minutes", value)
 
 
+@pulumi.type_token("azuredevops:index/elasticPool:ElasticPool")
 class ElasticPool(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/elasticPool:ElasticPool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

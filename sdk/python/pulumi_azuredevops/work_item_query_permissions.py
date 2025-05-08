@@ -218,10 +218,8 @@ class _WorkItemQueryPermissionsState:
         pulumi.set(self, "replace", value)
 
 
+@pulumi.type_token("azuredevops:index/workItemQueryPermissions:WorkItemQueryPermissions")
 class WorkItemQueryPermissions(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/workItemQueryPermissions:WorkItemQueryPermissions"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

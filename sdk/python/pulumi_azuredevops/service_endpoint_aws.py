@@ -355,10 +355,8 @@ class _ServiceEndpointAwsState:
         pulumi.set(self, "use_oidc", value)
 
 
+@pulumi.type_token("azuredevops:index/serviceEndpointAws:ServiceEndpointAws")
 class ServiceEndpointAws(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/serviceEndpointAws:ServiceEndpointAws"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

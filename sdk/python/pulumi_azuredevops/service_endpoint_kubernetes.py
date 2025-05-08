@@ -291,10 +291,8 @@ class _ServiceEndpointKubernetesState:
         pulumi.set(self, "service_endpoint_name", value)
 
 
+@pulumi.type_token("azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes")
 class ServiceEndpointKubernetes(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

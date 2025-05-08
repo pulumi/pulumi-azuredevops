@@ -295,10 +295,8 @@ class _ServicehookStorageQueuePipelinesState:
         pulumi.set(self, "visi_timeout", value)
 
 
+@pulumi.type_token("azuredevops:index/servicehookStorageQueuePipelines:ServicehookStorageQueuePipelines")
 class ServicehookStorageQueuePipelines(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/servicehookStorageQueuePipelines:ServicehookStorageQueuePipelines"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -192,10 +192,8 @@ class _ServicePrincipalEntitlementState:
         pulumi.set(self, "origin_id", value)
 
 
+@pulumi.type_token("azuredevops:index/servicePrincipalEntitlement:ServicePrincipalEntitlement")
 class ServicePrincipalEntitlement(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/servicePrincipalEntitlement:ServicePrincipalEntitlement"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

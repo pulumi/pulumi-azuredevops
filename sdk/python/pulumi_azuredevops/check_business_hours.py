@@ -523,10 +523,8 @@ class _CheckBusinessHoursState:
         pulumi.set(self, "wednesday", value)
 
 
+@pulumi.type_token("azuredevops:index/checkBusinessHours:CheckBusinessHours")
 class CheckBusinessHours(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/checkBusinessHours:CheckBusinessHours"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

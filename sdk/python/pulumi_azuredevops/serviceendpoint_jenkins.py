@@ -256,10 +256,8 @@ class _ServiceendpointJenkinsState:
         pulumi.set(self, "username", value)
 
 
+@pulumi.type_token("azuredevops:index/serviceendpointJenkins:ServiceendpointJenkins")
 class ServiceendpointJenkins(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/serviceendpointJenkins:ServiceendpointJenkins"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

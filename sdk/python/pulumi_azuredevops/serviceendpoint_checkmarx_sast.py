@@ -288,10 +288,8 @@ class _ServiceendpointCheckmarxSastState:
         pulumi.set(self, "username", value)
 
 
+@pulumi.type_token("azuredevops:index/serviceendpointCheckmarxSast:ServiceendpointCheckmarxSast")
 class ServiceendpointCheckmarxSast(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/serviceendpointCheckmarxSast:ServiceendpointCheckmarxSast"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

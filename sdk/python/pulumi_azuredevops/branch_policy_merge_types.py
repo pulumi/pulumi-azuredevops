@@ -161,10 +161,8 @@ class _BranchPolicyMergeTypesState:
         pulumi.set(self, "settings", value)
 
 
+@pulumi.type_token("azuredevops:index/branchPolicyMergeTypes:BranchPolicyMergeTypes")
 class BranchPolicyMergeTypes(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/branchPolicyMergeTypes:BranchPolicyMergeTypes"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

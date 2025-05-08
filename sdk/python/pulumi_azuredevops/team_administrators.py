@@ -190,10 +190,8 @@ class _TeamAdministratorsState:
         pulumi.set(self, "team_id", value)
 
 
+@pulumi.type_token("azuredevops:index/teamAdministrators:TeamAdministrators")
 class TeamAdministrators(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/teamAdministrators:TeamAdministrators"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

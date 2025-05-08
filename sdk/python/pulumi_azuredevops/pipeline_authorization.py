@@ -210,10 +210,8 @@ class _PipelineAuthorizationState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("azuredevops:index/pipelineAuthorization:PipelineAuthorization")
 class PipelineAuthorization(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/pipelineAuthorization:PipelineAuthorization"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

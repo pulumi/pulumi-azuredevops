@@ -226,10 +226,8 @@ class _ServiceendpointIncomingwebhookState:
         pulumi.set(self, "webhook_name", value)
 
 
+@pulumi.type_token("azuredevops:index/serviceendpointIncomingwebhook:ServiceendpointIncomingwebhook")
 class ServiceendpointIncomingwebhook(pulumi.CustomResource):
-
-    pulumi_type = "azuredevops:index/serviceendpointIncomingwebhook:ServiceendpointIncomingwebhook"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
