@@ -3064,6 +3064,9 @@
                 "type": "boolean",
                 "description": "Use an OIDC token to authenticate to a service principal.\n"
             }
+        },
+        "methods": {
+            "terraformConfig": "pulumi:providers:azuredevops/terraformConfig"
         }
     },
     "resources": {
@@ -16964,6 +16967,35 @@
                     "projectId",
                     "variables",
                     "id"
+                ],
+                "type": "object"
+            }
+        },
+        "pulumi:providers:azuredevops/terraformConfig": {
+            "description": "This function returns a Terraform config object with terraform-namecased keys,to be used with the Terraform Module Provider.",
+            "inputs": {
+                "properties": {
+                    "__self__": {
+                        "type": "ref",
+                        "$ref": "#/resources/pulumi:providers:azuredevops"
+                    }
+                },
+                "type": "pulumi:providers:azuredevops/terraformConfig",
+                "required": [
+                    "__self__"
+                ]
+            },
+            "outputs": {
+                "properties": {
+                    "result": {
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "type": "object"
+                    }
+                },
+                "required": [
+                    "result"
                 ],
                 "type": "object"
             }
