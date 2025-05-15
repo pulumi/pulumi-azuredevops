@@ -181,8 +181,8 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The name of the WebHook.
         /// </summary>
-        [Input("webhookName", required: true)]
-        public Input<string> WebhookName { get; set; } = null!;
+        [Input("webhookName")]
+        public Input<string>? WebhookName { get; set; }
 
         public ServiceendpointIncomingwebhookArgs()
         {

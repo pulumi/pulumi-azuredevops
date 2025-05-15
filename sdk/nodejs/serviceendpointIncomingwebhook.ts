@@ -117,9 +117,6 @@ export class ServiceendpointIncomingwebhook extends pulumi.CustomResource {
             if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            if ((!args || args.webhookName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'webhookName'");
-            }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["httpHeader"] = args ? args.httpHeader : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
@@ -187,5 +184,5 @@ export interface ServiceendpointIncomingwebhookArgs {
     /**
      * The name of the WebHook.
      */
-    webhookName: pulumi.Input<string>;
+    webhookName?: pulumi.Input<string>;
 }

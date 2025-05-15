@@ -57,15 +57,15 @@ public final class ServiceEndpointDockerRegistryArgs extends com.pulumi.resource
      * The URL of the Docker registry. (Default: &#34;https://index.docker.io/v1/&#34;)
      * 
      */
-    @Import(name="dockerRegistry", required=true)
-    private Output<String> dockerRegistry;
+    @Import(name="dockerRegistry")
+    private @Nullable Output<String> dockerRegistry;
 
     /**
      * @return The URL of the Docker registry. (Default: &#34;https://index.docker.io/v1/&#34;)
      * 
      */
-    public Output<String> dockerRegistry() {
-        return this.dockerRegistry;
+    public Optional<Output<String>> dockerRegistry() {
+        return Optional.ofNullable(this.dockerRegistry);
     }
 
     /**
@@ -102,15 +102,15 @@ public final class ServiceEndpointDockerRegistryArgs extends com.pulumi.resource
      * Can be &#34;DockerHub&#34; or &#34;Others&#34; (Default &#34;DockerHub&#34;)
      * 
      */
-    @Import(name="registryType", required=true)
-    private Output<String> registryType;
+    @Import(name="registryType")
+    private @Nullable Output<String> registryType;
 
     /**
      * @return Can be &#34;DockerHub&#34; or &#34;Others&#34; (Default &#34;DockerHub&#34;)
      * 
      */
-    public Output<String> registryType() {
-        return this.registryType;
+    public Optional<Output<String>> registryType() {
+        return Optional.ofNullable(this.registryType);
     }
 
     /**
@@ -216,7 +216,7 @@ public final class ServiceEndpointDockerRegistryArgs extends com.pulumi.resource
          * @return builder
          * 
          */
-        public Builder dockerRegistry(Output<String> dockerRegistry) {
+        public Builder dockerRegistry(@Nullable Output<String> dockerRegistry) {
             $.dockerRegistry = dockerRegistry;
             return this;
         }
@@ -279,7 +279,7 @@ public final class ServiceEndpointDockerRegistryArgs extends com.pulumi.resource
          * @return builder
          * 
          */
-        public Builder registryType(Output<String> registryType) {
+        public Builder registryType(@Nullable Output<String> registryType) {
             $.registryType = registryType;
             return this;
         }
@@ -316,14 +316,8 @@ public final class ServiceEndpointDockerRegistryArgs extends com.pulumi.resource
         }
 
         public ServiceEndpointDockerRegistryArgs build() {
-            if ($.dockerRegistry == null) {
-                throw new MissingRequiredPropertyException("ServiceEndpointDockerRegistryArgs", "dockerRegistry");
-            }
             if ($.projectId == null) {
                 throw new MissingRequiredPropertyException("ServiceEndpointDockerRegistryArgs", "projectId");
-            }
-            if ($.registryType == null) {
-                throw new MissingRequiredPropertyException("ServiceEndpointDockerRegistryArgs", "registryType");
             }
             if ($.serviceEndpointName == null) {
                 throw new MissingRequiredPropertyException("ServiceEndpointDockerRegistryArgs", "serviceEndpointName");

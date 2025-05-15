@@ -93,23 +93,14 @@ func NewServiceendpointGcpTerraform(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.GcpProjectId == nil {
-		return nil, errors.New("invalid value for required argument 'GcpProjectId'")
-	}
-	if args.PrivateKey == nil {
-		return nil, errors.New("invalid value for required argument 'PrivateKey'")
-	}
 	if args.ProjectId == nil {
 		return nil, errors.New("invalid value for required argument 'ProjectId'")
 	}
 	if args.ServiceEndpointName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceEndpointName'")
 	}
-	if args.TokenUri == nil {
-		return nil, errors.New("invalid value for required argument 'TokenUri'")
-	}
 	if args.PrivateKey != nil {
-		args.PrivateKey = pulumi.ToSecret(args.PrivateKey).(pulumi.StringInput)
+		args.PrivateKey = pulumi.ToSecret(args.PrivateKey).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"privateKey",
@@ -184,9 +175,9 @@ type serviceendpointGcpTerraformArgs struct {
 	ClientEmail *string `pulumi:"clientEmail"`
 	Description *string `pulumi:"description"`
 	// GCP project associated with the Service Connection.
-	GcpProjectId string `pulumi:"gcpProjectId"`
+	GcpProjectId *string `pulumi:"gcpProjectId"`
 	// The client email field in the JSON key file for creating the JSON Web Token.
-	PrivateKey string `pulumi:"privateKey"`
+	PrivateKey *string `pulumi:"privateKey"`
 	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// Scope to be provided.
@@ -194,7 +185,7 @@ type serviceendpointGcpTerraformArgs struct {
 	// The Service Endpoint name.
 	ServiceEndpointName string `pulumi:"serviceEndpointName"`
 	// The token uri field in the JSON key file for creating the JSON Web Token.
-	TokenUri string `pulumi:"tokenUri"`
+	TokenUri *string `pulumi:"tokenUri"`
 }
 
 // The set of arguments for constructing a ServiceendpointGcpTerraform resource.
@@ -203,9 +194,9 @@ type ServiceendpointGcpTerraformArgs struct {
 	ClientEmail pulumi.StringPtrInput
 	Description pulumi.StringPtrInput
 	// GCP project associated with the Service Connection.
-	GcpProjectId pulumi.StringInput
+	GcpProjectId pulumi.StringPtrInput
 	// The client email field in the JSON key file for creating the JSON Web Token.
-	PrivateKey pulumi.StringInput
+	PrivateKey pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// Scope to be provided.
@@ -213,7 +204,7 @@ type ServiceendpointGcpTerraformArgs struct {
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringInput
 	// The token uri field in the JSON key file for creating the JSON Web Token.
-	TokenUri pulumi.StringInput
+	TokenUri pulumi.StringPtrInput
 }
 
 func (ServiceendpointGcpTerraformArgs) ElementType() reflect.Type {

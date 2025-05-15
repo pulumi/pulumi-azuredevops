@@ -20,36 +20,26 @@ __all__ = ['ServiceEndpointBitBucketArgs', 'ServiceEndpointBitBucket']
 @pulumi.input_type
 class ServiceEndpointBitBucketArgs:
     def __init__(__self__, *,
-                 password: pulumi.Input[builtins.str],
                  project_id: pulumi.Input[builtins.str],
                  service_endpoint_name: pulumi.Input[builtins.str],
-                 username: pulumi.Input[builtins.str],
-                 description: Optional[pulumi.Input[builtins.str]] = None):
+                 description: Optional[pulumi.Input[builtins.str]] = None,
+                 password: Optional[pulumi.Input[builtins.str]] = None,
+                 username: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceEndpointBitBucket resource.
-        :param pulumi.Input[builtins.str] password: Bitbucket account password.
         :param pulumi.Input[builtins.str] project_id: The ID of the project.
         :param pulumi.Input[builtins.str] service_endpoint_name: The Service Endpoint name.
+        :param pulumi.Input[builtins.str] password: Bitbucket account password.
         :param pulumi.Input[builtins.str] username: Bitbucket account username.
         """
-        pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "project_id", project_id)
         pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
-        pulumi.set(__self__, "username", username)
         if description is not None:
             pulumi.set(__self__, "description", description)
-
-    @property
-    @pulumi.getter
-    def password(self) -> pulumi.Input[builtins.str]:
-        """
-        Bitbucket account password.
-        """
-        return pulumi.get(self, "password")
-
-    @password.setter
-    def password(self, value: pulumi.Input[builtins.str]):
-        pulumi.set(self, "password", value)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter(name="projectId")
@@ -77,24 +67,36 @@ class ServiceEndpointBitBucketArgs:
 
     @property
     @pulumi.getter
-    def username(self) -> pulumi.Input[builtins.str]:
-        """
-        Bitbucket account username.
-        """
-        return pulumi.get(self, "username")
-
-    @username.setter
-    def username(self, value: pulumi.Input[builtins.str]):
-        pulumi.set(self, "username", value)
-
-    @property
-    @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
     def description(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Bitbucket account password.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Bitbucket account username.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "username", value)
 
 
 @pulumi.input_type
@@ -318,8 +320,6 @@ class ServiceEndpointBitBucket(pulumi.CustomResource):
             __props__ = ServiceEndpointBitBucketArgs.__new__(ServiceEndpointBitBucketArgs)
 
             __props__.__dict__["description"] = description
-            if password is None and not opts.urn:
-                raise TypeError("Missing required property 'password'")
             __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
@@ -327,8 +327,6 @@ class ServiceEndpointBitBucket(pulumi.CustomResource):
             if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")
             __props__.__dict__["service_endpoint_name"] = service_endpoint_name
-            if username is None and not opts.urn:
-                raise TypeError("Missing required property 'username'")
             __props__.__dict__["username"] = username
             __props__.__dict__["authorization"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
