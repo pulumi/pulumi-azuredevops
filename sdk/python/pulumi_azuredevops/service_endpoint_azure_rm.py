@@ -22,11 +22,11 @@ __all__ = ['ServiceEndpointAzureRMArgs', 'ServiceEndpointAzureRM']
 @pulumi.input_type
 class ServiceEndpointAzureRMArgs:
     def __init__(__self__, *,
-                 azurerm_spn_tenantid: pulumi.Input[builtins.str],
                  project_id: pulumi.Input[builtins.str],
                  service_endpoint_name: pulumi.Input[builtins.str],
                  azurerm_management_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  azurerm_management_group_name: Optional[pulumi.Input[builtins.str]] = None,
+                 azurerm_spn_tenantid: Optional[pulumi.Input[builtins.str]] = None,
                  azurerm_subscription_id: Optional[pulumi.Input[builtins.str]] = None,
                  azurerm_subscription_name: Optional[pulumi.Input[builtins.str]] = None,
                  credentials: Optional[pulumi.Input['ServiceEndpointAzureRMCredentialsArgs']] = None,
@@ -38,11 +38,11 @@ class ServiceEndpointAzureRMArgs:
                  service_endpoint_authentication_scheme: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceEndpointAzureRM resource.
-        :param pulumi.Input[builtins.str] azurerm_spn_tenantid: The Tenant ID of the service principal.
         :param pulumi.Input[builtins.str] project_id: The ID of the project.
         :param pulumi.Input[builtins.str] service_endpoint_name: The Service Endpoint Name.
         :param pulumi.Input[builtins.str] azurerm_management_group_id: The Management group ID of the Azure targets.
         :param pulumi.Input[builtins.str] azurerm_management_group_name: The Management group Name of the targets.
+        :param pulumi.Input[builtins.str] azurerm_spn_tenantid: The Tenant ID of the service principal.
         :param pulumi.Input[builtins.str] azurerm_subscription_id: The Subscription ID of the Azure targets.
         :param pulumi.Input[builtins.str] azurerm_subscription_name: The Subscription Name of the targets.
         :param pulumi.Input['ServiceEndpointAzureRMCredentialsArgs'] credentials: A `credentials` block as defined below.
@@ -57,13 +57,14 @@ class ServiceEndpointAzureRMArgs:
                
                > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
         """
-        pulumi.set(__self__, "azurerm_spn_tenantid", azurerm_spn_tenantid)
         pulumi.set(__self__, "project_id", project_id)
         pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
         if azurerm_management_group_id is not None:
             pulumi.set(__self__, "azurerm_management_group_id", azurerm_management_group_id)
         if azurerm_management_group_name is not None:
             pulumi.set(__self__, "azurerm_management_group_name", azurerm_management_group_name)
+        if azurerm_spn_tenantid is not None:
+            pulumi.set(__self__, "azurerm_spn_tenantid", azurerm_spn_tenantid)
         if azurerm_subscription_id is not None:
             pulumi.set(__self__, "azurerm_subscription_id", azurerm_subscription_id)
         if azurerm_subscription_name is not None:
@@ -82,18 +83,6 @@ class ServiceEndpointAzureRMArgs:
             pulumi.set(__self__, "server_url", server_url)
         if service_endpoint_authentication_scheme is not None:
             pulumi.set(__self__, "service_endpoint_authentication_scheme", service_endpoint_authentication_scheme)
-
-    @property
-    @pulumi.getter(name="azurermSpnTenantid")
-    def azurerm_spn_tenantid(self) -> pulumi.Input[builtins.str]:
-        """
-        The Tenant ID of the service principal.
-        """
-        return pulumi.get(self, "azurerm_spn_tenantid")
-
-    @azurerm_spn_tenantid.setter
-    def azurerm_spn_tenantid(self, value: pulumi.Input[builtins.str]):
-        pulumi.set(self, "azurerm_spn_tenantid", value)
 
     @property
     @pulumi.getter(name="projectId")
@@ -142,6 +131,18 @@ class ServiceEndpointAzureRMArgs:
     @azurerm_management_group_name.setter
     def azurerm_management_group_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "azurerm_management_group_name", value)
+
+    @property
+    @pulumi.getter(name="azurermSpnTenantid")
+    def azurerm_spn_tenantid(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The Tenant ID of the service principal.
+        """
+        return pulumi.get(self, "azurerm_spn_tenantid")
+
+    @azurerm_spn_tenantid.setter
+    def azurerm_spn_tenantid(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "azurerm_spn_tenantid", value)
 
     @property
     @pulumi.getter(name="azurermSubscriptionId")
@@ -1004,8 +1005,6 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
 
             __props__.__dict__["azurerm_management_group_id"] = azurerm_management_group_id
             __props__.__dict__["azurerm_management_group_name"] = azurerm_management_group_name
-            if azurerm_spn_tenantid is None and not opts.urn:
-                raise TypeError("Missing required property 'azurerm_spn_tenantid'")
             __props__.__dict__["azurerm_spn_tenantid"] = azurerm_spn_tenantid
             __props__.__dict__["azurerm_subscription_id"] = azurerm_subscription_id
             __props__.__dict__["azurerm_subscription_name"] = azurerm_subscription_name

@@ -155,10 +155,10 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The organization URL.
         /// </summary>
-        [Input("orgUrl", required: true)]
-        public Input<string> OrgUrl { get; set; } = null!;
+        [Input("orgUrl")]
+        public Input<string>? OrgUrl { get; set; }
 
-        [Input("personalAccessToken", required: true)]
+        [Input("personalAccessToken")]
         private Input<string>? _personalAccessToken;
 
         /// <summary>
@@ -183,8 +183,8 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The URL of the release API.
         /// </summary>
-        [Input("releaseApiUrl", required: true)]
-        public Input<string> ReleaseApiUrl { get; set; } = null!;
+        [Input("releaseApiUrl")]
+        public Input<string>? ReleaseApiUrl { get; set; }
 
         /// <summary>
         /// The Service Endpoint name.

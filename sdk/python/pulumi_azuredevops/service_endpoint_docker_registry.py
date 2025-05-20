@@ -20,27 +20,25 @@ __all__ = ['ServiceEndpointDockerRegistryArgs', 'ServiceEndpointDockerRegistry']
 @pulumi.input_type
 class ServiceEndpointDockerRegistryArgs:
     def __init__(__self__, *,
-                 docker_registry: pulumi.Input[builtins.str],
                  project_id: pulumi.Input[builtins.str],
-                 registry_type: pulumi.Input[builtins.str],
                  service_endpoint_name: pulumi.Input[builtins.str],
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  docker_email: Optional[pulumi.Input[builtins.str]] = None,
                  docker_password: Optional[pulumi.Input[builtins.str]] = None,
-                 docker_username: Optional[pulumi.Input[builtins.str]] = None):
+                 docker_registry: Optional[pulumi.Input[builtins.str]] = None,
+                 docker_username: Optional[pulumi.Input[builtins.str]] = None,
+                 registry_type: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceEndpointDockerRegistry resource.
-        :param pulumi.Input[builtins.str] docker_registry: The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
         :param pulumi.Input[builtins.str] project_id: The ID of the project.
-        :param pulumi.Input[builtins.str] registry_type: Can be "DockerHub" or "Others" (Default "DockerHub")
         :param pulumi.Input[builtins.str] service_endpoint_name: The name you will use to refer to this service connection in task inputs.
         :param pulumi.Input[builtins.str] docker_email: The email for Docker account user.
         :param pulumi.Input[builtins.str] docker_password: The password for the account user identified above.
+        :param pulumi.Input[builtins.str] docker_registry: The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
         :param pulumi.Input[builtins.str] docker_username: The identifier of the Docker account user.
+        :param pulumi.Input[builtins.str] registry_type: Can be "DockerHub" or "Others" (Default "DockerHub")
         """
-        pulumi.set(__self__, "docker_registry", docker_registry)
         pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "registry_type", registry_type)
         pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -48,20 +46,12 @@ class ServiceEndpointDockerRegistryArgs:
             pulumi.set(__self__, "docker_email", docker_email)
         if docker_password is not None:
             pulumi.set(__self__, "docker_password", docker_password)
+        if docker_registry is not None:
+            pulumi.set(__self__, "docker_registry", docker_registry)
         if docker_username is not None:
             pulumi.set(__self__, "docker_username", docker_username)
-
-    @property
-    @pulumi.getter(name="dockerRegistry")
-    def docker_registry(self) -> pulumi.Input[builtins.str]:
-        """
-        The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
-        """
-        return pulumi.get(self, "docker_registry")
-
-    @docker_registry.setter
-    def docker_registry(self, value: pulumi.Input[builtins.str]):
-        pulumi.set(self, "docker_registry", value)
+        if registry_type is not None:
+            pulumi.set(__self__, "registry_type", registry_type)
 
     @property
     @pulumi.getter(name="projectId")
@@ -74,18 +64,6 @@ class ServiceEndpointDockerRegistryArgs:
     @project_id.setter
     def project_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "project_id", value)
-
-    @property
-    @pulumi.getter(name="registryType")
-    def registry_type(self) -> pulumi.Input[builtins.str]:
-        """
-        Can be "DockerHub" or "Others" (Default "DockerHub")
-        """
-        return pulumi.get(self, "registry_type")
-
-    @registry_type.setter
-    def registry_type(self, value: pulumi.Input[builtins.str]):
-        pulumi.set(self, "registry_type", value)
 
     @property
     @pulumi.getter(name="serviceEndpointName")
@@ -133,6 +111,18 @@ class ServiceEndpointDockerRegistryArgs:
         pulumi.set(self, "docker_password", value)
 
     @property
+    @pulumi.getter(name="dockerRegistry")
+    def docker_registry(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
+        """
+        return pulumi.get(self, "docker_registry")
+
+    @docker_registry.setter
+    def docker_registry(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "docker_registry", value)
+
+    @property
     @pulumi.getter(name="dockerUsername")
     def docker_username(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -143,6 +133,18 @@ class ServiceEndpointDockerRegistryArgs:
     @docker_username.setter
     def docker_username(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "docker_username", value)
+
+    @property
+    @pulumi.getter(name="registryType")
+    def registry_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Can be "DockerHub" or "Others" (Default "DockerHub")
+        """
+        return pulumi.get(self, "registry_type")
+
+    @registry_type.setter
+    def registry_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "registry_type", value)
 
 
 @pulumi.input_type
@@ -447,15 +449,11 @@ class ServiceEndpointDockerRegistry(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["docker_email"] = docker_email
             __props__.__dict__["docker_password"] = None if docker_password is None else pulumi.Output.secret(docker_password)
-            if docker_registry is None and not opts.urn:
-                raise TypeError("Missing required property 'docker_registry'")
             __props__.__dict__["docker_registry"] = docker_registry
             __props__.__dict__["docker_username"] = docker_username
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__.__dict__["project_id"] = project_id
-            if registry_type is None and not opts.urn:
-                raise TypeError("Missing required property 'registry_type'")
             __props__.__dict__["registry_type"] = registry_type
             if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")

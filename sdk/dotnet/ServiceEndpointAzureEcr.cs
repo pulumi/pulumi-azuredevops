@@ -265,26 +265,26 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The Azure container registry name.
         /// </summary>
-        [Input("azurecrName", required: true)]
-        public Input<string> AzurecrName { get; set; } = null!;
+        [Input("azurecrName")]
+        public Input<string>? AzurecrName { get; set; }
 
         /// <summary>
         /// The tenant id of the service principal.
         /// </summary>
-        [Input("azurecrSpnTenantid", required: true)]
-        public Input<string> AzurecrSpnTenantid { get; set; } = null!;
+        [Input("azurecrSpnTenantid")]
+        public Input<string>? AzurecrSpnTenantid { get; set; }
 
         /// <summary>
         /// The subscription id of the Azure targets.
         /// </summary>
-        [Input("azurecrSubscriptionId", required: true)]
-        public Input<string> AzurecrSubscriptionId { get; set; } = null!;
+        [Input("azurecrSubscriptionId")]
+        public Input<string>? AzurecrSubscriptionId { get; set; }
 
         /// <summary>
         /// The subscription name of the Azure targets.
         /// </summary>
-        [Input("azurecrSubscriptionName", required: true)]
-        public Input<string> AzurecrSubscriptionName { get; set; } = null!;
+        [Input("azurecrSubscriptionName")]
+        public Input<string>? AzurecrSubscriptionName { get; set; }
 
         /// <summary>
         /// A `credentials` block as defined below.

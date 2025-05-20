@@ -141,7 +141,7 @@ namespace Pulumi.AzureDevOps
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("password", required: true)]
+        [Input("password")]
         private Input<string>? _password;
 
         /// <summary>
@@ -172,8 +172,8 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Bitbucket account username.
         /// </summary>
-        [Input("username", required: true)]
-        public Input<string> Username { get; set; } = null!;
+        [Input("username")]
+        public Input<string>? Username { get; set; }
 
         public ServiceEndpointBitBucketArgs()
         {

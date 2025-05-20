@@ -42,30 +42,30 @@ public final class ServiceendpointGcpTerraformArgs extends com.pulumi.resources.
      * GCP project associated with the Service Connection.
      * 
      */
-    @Import(name="gcpProjectId", required=true)
-    private Output<String> gcpProjectId;
+    @Import(name="gcpProjectId")
+    private @Nullable Output<String> gcpProjectId;
 
     /**
      * @return GCP project associated with the Service Connection.
      * 
      */
-    public Output<String> gcpProjectId() {
-        return this.gcpProjectId;
+    public Optional<Output<String>> gcpProjectId() {
+        return Optional.ofNullable(this.gcpProjectId);
     }
 
     /**
      * The client email field in the JSON key file for creating the JSON Web Token.
      * 
      */
-    @Import(name="privateKey", required=true)
-    private Output<String> privateKey;
+    @Import(name="privateKey")
+    private @Nullable Output<String> privateKey;
 
     /**
      * @return The client email field in the JSON key file for creating the JSON Web Token.
      * 
      */
-    public Output<String> privateKey() {
-        return this.privateKey;
+    public Optional<Output<String>> privateKey() {
+        return Optional.ofNullable(this.privateKey);
     }
 
     /**
@@ -117,15 +117,15 @@ public final class ServiceendpointGcpTerraformArgs extends com.pulumi.resources.
      * The token uri field in the JSON key file for creating the JSON Web Token.
      * 
      */
-    @Import(name="tokenUri", required=true)
-    private Output<String> tokenUri;
+    @Import(name="tokenUri")
+    private @Nullable Output<String> tokenUri;
 
     /**
      * @return The token uri field in the JSON key file for creating the JSON Web Token.
      * 
      */
-    public Output<String> tokenUri() {
-        return this.tokenUri;
+    public Optional<Output<String>> tokenUri() {
+        return Optional.ofNullable(this.tokenUri);
     }
 
     private ServiceendpointGcpTerraformArgs() {}
@@ -195,7 +195,7 @@ public final class ServiceendpointGcpTerraformArgs extends com.pulumi.resources.
          * @return builder
          * 
          */
-        public Builder gcpProjectId(Output<String> gcpProjectId) {
+        public Builder gcpProjectId(@Nullable Output<String> gcpProjectId) {
             $.gcpProjectId = gcpProjectId;
             return this;
         }
@@ -216,7 +216,7 @@ public final class ServiceendpointGcpTerraformArgs extends com.pulumi.resources.
          * @return builder
          * 
          */
-        public Builder privateKey(Output<String> privateKey) {
+        public Builder privateKey(@Nullable Output<String> privateKey) {
             $.privateKey = privateKey;
             return this;
         }
@@ -300,7 +300,7 @@ public final class ServiceendpointGcpTerraformArgs extends com.pulumi.resources.
          * @return builder
          * 
          */
-        public Builder tokenUri(Output<String> tokenUri) {
+        public Builder tokenUri(@Nullable Output<String> tokenUri) {
             $.tokenUri = tokenUri;
             return this;
         }
@@ -316,20 +316,11 @@ public final class ServiceendpointGcpTerraformArgs extends com.pulumi.resources.
         }
 
         public ServiceendpointGcpTerraformArgs build() {
-            if ($.gcpProjectId == null) {
-                throw new MissingRequiredPropertyException("ServiceendpointGcpTerraformArgs", "gcpProjectId");
-            }
-            if ($.privateKey == null) {
-                throw new MissingRequiredPropertyException("ServiceendpointGcpTerraformArgs", "privateKey");
-            }
             if ($.projectId == null) {
                 throw new MissingRequiredPropertyException("ServiceendpointGcpTerraformArgs", "projectId");
             }
             if ($.serviceEndpointName == null) {
                 throw new MissingRequiredPropertyException("ServiceendpointGcpTerraformArgs", "serviceEndpointName");
-            }
-            if ($.tokenUri == null) {
-                throw new MissingRequiredPropertyException("ServiceendpointGcpTerraformArgs", "tokenUri");
             }
             return $;
         }

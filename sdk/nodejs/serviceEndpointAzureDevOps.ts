@@ -119,17 +119,8 @@ export class ServiceEndpointAzureDevOps extends pulumi.CustomResource {
             resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
         } else {
             const args = argsOrState as ServiceEndpointAzureDevOpsArgs | undefined;
-            if ((!args || args.orgUrl === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'orgUrl'");
-            }
-            if ((!args || args.personalAccessToken === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'personalAccessToken'");
-            }
             if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
-            }
-            if ((!args || args.releaseApiUrl === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'releaseApiUrl'");
             }
             if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
@@ -185,11 +176,11 @@ export interface ServiceEndpointAzureDevOpsArgs {
     /**
      * The organization URL.
      */
-    orgUrl: pulumi.Input<string>;
+    orgUrl?: pulumi.Input<string>;
     /**
      * The Azure DevOps personal access token.
      */
-    personalAccessToken: pulumi.Input<string>;
+    personalAccessToken?: pulumi.Input<string>;
     /**
      * The ID of the project.
      */
@@ -197,7 +188,7 @@ export interface ServiceEndpointAzureDevOpsArgs {
     /**
      * The URL of the release API.
      */
-    releaseApiUrl: pulumi.Input<string>;
+    releaseApiUrl?: pulumi.Input<string>;
     /**
      * The Service Endpoint name.
      */

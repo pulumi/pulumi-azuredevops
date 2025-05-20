@@ -211,18 +211,6 @@ export class ServiceEndpointAzureEcr extends pulumi.CustomResource {
             resourceInputs["workloadIdentityFederationSubject"] = state ? state.workloadIdentityFederationSubject : undefined;
         } else {
             const args = argsOrState as ServiceEndpointAzureEcrArgs | undefined;
-            if ((!args || args.azurecrName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'azurecrName'");
-            }
-            if ((!args || args.azurecrSpnTenantid === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'azurecrSpnTenantid'");
-            }
-            if ((!args || args.azurecrSubscriptionId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'azurecrSubscriptionId'");
-            }
-            if ((!args || args.azurecrSubscriptionName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'azurecrSubscriptionName'");
-            }
             if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
@@ -320,19 +308,19 @@ export interface ServiceEndpointAzureEcrArgs {
     /**
      * The Azure container registry name.
      */
-    azurecrName: pulumi.Input<string>;
+    azurecrName?: pulumi.Input<string>;
     /**
      * The tenant id of the service principal.
      */
-    azurecrSpnTenantid: pulumi.Input<string>;
+    azurecrSpnTenantid?: pulumi.Input<string>;
     /**
      * The subscription id of the Azure targets.
      */
-    azurecrSubscriptionId: pulumi.Input<string>;
+    azurecrSubscriptionId?: pulumi.Input<string>;
     /**
      * The subscription name of the Azure targets.
      */
-    azurecrSubscriptionName: pulumi.Input<string>;
+    azurecrSubscriptionName?: pulumi.Input<string>;
     /**
      * A `credentials` block as defined below.
      */

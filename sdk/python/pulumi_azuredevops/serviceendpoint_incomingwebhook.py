@@ -22,27 +22,28 @@ class ServiceendpointIncomingwebhookArgs:
     def __init__(__self__, *,
                  project_id: pulumi.Input[builtins.str],
                  service_endpoint_name: pulumi.Input[builtins.str],
-                 webhook_name: pulumi.Input[builtins.str],
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  http_header: Optional[pulumi.Input[builtins.str]] = None,
-                 secret: Optional[pulumi.Input[builtins.str]] = None):
+                 secret: Optional[pulumi.Input[builtins.str]] = None,
+                 webhook_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceendpointIncomingwebhook resource.
         :param pulumi.Input[builtins.str] project_id: The ID of the project. Changing this forces a new Service Connection Incoming WebHook to be created.
         :param pulumi.Input[builtins.str] service_endpoint_name: The name of the service endpoint. Changing this forces a new Service Connection Incoming WebHook to be created.
-        :param pulumi.Input[builtins.str] webhook_name: The name of the WebHook.
         :param pulumi.Input[builtins.str] http_header: Http header name on which checksum will be sent.
         :param pulumi.Input[builtins.str] secret: Secret for the WebHook. WebHook service will use this secret to calculate the payload checksum.
+        :param pulumi.Input[builtins.str] webhook_name: The name of the WebHook.
         """
         pulumi.set(__self__, "project_id", project_id)
         pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
-        pulumi.set(__self__, "webhook_name", webhook_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if http_header is not None:
             pulumi.set(__self__, "http_header", http_header)
         if secret is not None:
             pulumi.set(__self__, "secret", secret)
+        if webhook_name is not None:
+            pulumi.set(__self__, "webhook_name", webhook_name)
 
     @property
     @pulumi.getter(name="projectId")
@@ -67,18 +68,6 @@ class ServiceendpointIncomingwebhookArgs:
     @service_endpoint_name.setter
     def service_endpoint_name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "service_endpoint_name", value)
-
-    @property
-    @pulumi.getter(name="webhookName")
-    def webhook_name(self) -> pulumi.Input[builtins.str]:
-        """
-        The name of the WebHook.
-        """
-        return pulumi.get(self, "webhook_name")
-
-    @webhook_name.setter
-    def webhook_name(self, value: pulumi.Input[builtins.str]):
-        pulumi.set(self, "webhook_name", value)
 
     @property
     @pulumi.getter
@@ -112,6 +101,18 @@ class ServiceendpointIncomingwebhookArgs:
     @secret.setter
     def secret(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "secret", value)
+
+    @property
+    @pulumi.getter(name="webhookName")
+    def webhook_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name of the WebHook.
+        """
+        return pulumi.get(self, "webhook_name")
+
+    @webhook_name.setter
+    def webhook_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "webhook_name", value)
 
 
 @pulumi.input_type
@@ -356,8 +357,6 @@ class ServiceendpointIncomingwebhook(pulumi.CustomResource):
             if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")
             __props__.__dict__["service_endpoint_name"] = service_endpoint_name
-            if webhook_name is None and not opts.urn:
-                raise TypeError("Missing required property 'webhook_name'")
             __props__.__dict__["webhook_name"] = webhook_name
             __props__.__dict__["authorization"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["secret"])

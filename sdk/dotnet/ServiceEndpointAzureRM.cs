@@ -441,8 +441,8 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The Tenant ID of the service principal.
         /// </summary>
-        [Input("azurermSpnTenantid", required: true)]
-        public Input<string> AzurermSpnTenantid { get; set; } = null!;
+        [Input("azurermSpnTenantid")]
+        public Input<string>? AzurermSpnTenantid { get; set; }
 
         /// <summary>
         /// The Subscription ID of the Azure targets.

@@ -375,9 +375,6 @@ func NewServiceEndpointAzureRM(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AzurermSpnTenantid == nil {
-		return nil, errors.New("invalid value for required argument 'AzurermSpnTenantid'")
-	}
 	if args.ProjectId == nil {
 		return nil, errors.New("invalid value for required argument 'ProjectId'")
 	}
@@ -500,7 +497,7 @@ type serviceEndpointAzureRMArgs struct {
 	// The Management group Name of the targets.
 	AzurermManagementGroupName *string `pulumi:"azurermManagementGroupName"`
 	// The Tenant ID of the service principal.
-	AzurermSpnTenantid string `pulumi:"azurermSpnTenantid"`
+	AzurermSpnTenantid *string `pulumi:"azurermSpnTenantid"`
 	// The Subscription ID of the Azure targets.
 	AzurermSubscriptionId *string `pulumi:"azurermSubscriptionId"`
 	// The Subscription Name of the targets.
@@ -536,7 +533,7 @@ type ServiceEndpointAzureRMArgs struct {
 	// The Management group Name of the targets.
 	AzurermManagementGroupName pulumi.StringPtrInput
 	// The Tenant ID of the service principal.
-	AzurermSpnTenantid pulumi.StringInput
+	AzurermSpnTenantid pulumi.StringPtrInput
 	// The Subscription ID of the Azure targets.
 	AzurermSubscriptionId pulumi.StringPtrInput
 	// The Subscription Name of the targets.
