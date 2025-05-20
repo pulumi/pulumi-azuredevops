@@ -8727,10 +8727,7 @@
                 }
             },
             "requiredInputs": [
-                "orgUrl",
-                "personalAccessToken",
                 "projectId",
-                "releaseApiUrl",
                 "serviceEndpointName"
             ],
             "stateInputs": {
@@ -8906,10 +8903,6 @@
                 }
             },
             "requiredInputs": [
-                "azurecrName",
-                "azurecrSpnTenantid",
-                "azurecrSubscriptionId",
-                "azurecrSubscriptionName",
                 "projectId",
                 "serviceEndpointName"
             ],
@@ -9145,7 +9138,6 @@
                 }
             },
             "requiredInputs": [
-                "azurermSpnTenantid",
                 "projectId",
                 "serviceEndpointName"
             ],
@@ -9296,10 +9288,8 @@
                 }
             },
             "requiredInputs": [
-                "password",
                 "projectId",
-                "serviceEndpointName",
-                "username"
+                "serviceEndpointName"
             ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering ServiceEndpointBitBucket resources.\n",
@@ -9431,9 +9421,7 @@
                 }
             },
             "requiredInputs": [
-                "dockerRegistry",
                 "projectId",
-                "registryType",
                 "serviceEndpointName"
             ],
             "stateInputs": {
@@ -11892,11 +11880,8 @@
                 }
             },
             "requiredInputs": [
-                "gcpProjectId",
-                "privateKey",
                 "projectId",
-                "serviceEndpointName",
-                "tokenUri"
+                "serviceEndpointName"
             ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering ServiceendpointGcpTerraform resources.\n",
@@ -12013,8 +11998,7 @@
             },
             "requiredInputs": [
                 "projectId",
-                "serviceEndpointName",
-                "webhookName"
+                "serviceEndpointName"
             ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering ServiceendpointIncomingwebhook resources.\n",
