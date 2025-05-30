@@ -52,15 +52,15 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
      * The Tenant ID of the service principal.
      * 
      */
-    @Import(name="azurermSpnTenantid", required=true)
-    private Output<String> azurermSpnTenantid;
+    @Import(name="azurermSpnTenantid")
+    private @Nullable Output<String> azurermSpnTenantid;
 
     /**
      * @return The Tenant ID of the service principal.
      * 
      */
-    public Output<String> azurermSpnTenantid() {
-        return this.azurermSpnTenantid;
+    public Optional<Output<String>> azurermSpnTenantid() {
+        return Optional.ofNullable(this.azurermSpnTenantid);
     }
 
     /**
@@ -321,7 +321,7 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
          * @return builder
          * 
          */
-        public Builder azurermSpnTenantid(Output<String> azurermSpnTenantid) {
+        public Builder azurermSpnTenantid(@Nullable Output<String> azurermSpnTenantid) {
             $.azurermSpnTenantid = azurermSpnTenantid;
             return this;
         }
@@ -576,9 +576,6 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
         }
 
         public ServiceEndpointAzureRMArgs build() {
-            if ($.azurermSpnTenantid == null) {
-                throw new MissingRequiredPropertyException("ServiceEndpointAzureRMArgs", "azurermSpnTenantid");
-            }
             if ($.projectId == null) {
                 throw new MissingRequiredPropertyException("ServiceEndpointAzureRMArgs", "projectId");
             }
