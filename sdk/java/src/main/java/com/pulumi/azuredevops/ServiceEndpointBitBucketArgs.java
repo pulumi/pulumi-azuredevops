@@ -27,15 +27,15 @@ public final class ServiceEndpointBitBucketArgs extends com.pulumi.resources.Res
      * Bitbucket account password.
      * 
      */
-    @Import(name="password", required=true)
-    private Output<String> password;
+    @Import(name="password")
+    private @Nullable Output<String> password;
 
     /**
      * @return Bitbucket account password.
      * 
      */
-    public Output<String> password() {
-        return this.password;
+    public Optional<Output<String>> password() {
+        return Optional.ofNullable(this.password);
     }
 
     /**
@@ -72,15 +72,15 @@ public final class ServiceEndpointBitBucketArgs extends com.pulumi.resources.Res
      * Bitbucket account username.
      * 
      */
-    @Import(name="username", required=true)
-    private Output<String> username;
+    @Import(name="username")
+    private @Nullable Output<String> username;
 
     /**
      * @return Bitbucket account username.
      * 
      */
-    public Output<String> username() {
-        return this.username;
+    public Optional<Output<String>> username() {
+        return Optional.ofNullable(this.username);
     }
 
     private ServiceEndpointBitBucketArgs() {}
@@ -126,7 +126,7 @@ public final class ServiceEndpointBitBucketArgs extends com.pulumi.resources.Res
          * @return builder
          * 
          */
-        public Builder password(Output<String> password) {
+        public Builder password(@Nullable Output<String> password) {
             $.password = password;
             return this;
         }
@@ -189,7 +189,7 @@ public final class ServiceEndpointBitBucketArgs extends com.pulumi.resources.Res
          * @return builder
          * 
          */
-        public Builder username(Output<String> username) {
+        public Builder username(@Nullable Output<String> username) {
             $.username = username;
             return this;
         }
@@ -205,17 +205,11 @@ public final class ServiceEndpointBitBucketArgs extends com.pulumi.resources.Res
         }
 
         public ServiceEndpointBitBucketArgs build() {
-            if ($.password == null) {
-                throw new MissingRequiredPropertyException("ServiceEndpointBitBucketArgs", "password");
-            }
             if ($.projectId == null) {
                 throw new MissingRequiredPropertyException("ServiceEndpointBitBucketArgs", "projectId");
             }
             if ($.serviceEndpointName == null) {
                 throw new MissingRequiredPropertyException("ServiceEndpointBitBucketArgs", "serviceEndpointName");
-            }
-            if ($.username == null) {
-                throw new MissingRequiredPropertyException("ServiceEndpointBitBucketArgs", "username");
             }
             return $;
         }

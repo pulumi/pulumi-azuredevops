@@ -27,30 +27,30 @@ public final class ServiceEndpointAzureDevOpsArgs extends com.pulumi.resources.R
      * The organization URL.
      * 
      */
-    @Import(name="orgUrl", required=true)
-    private Output<String> orgUrl;
+    @Import(name="orgUrl")
+    private @Nullable Output<String> orgUrl;
 
     /**
      * @return The organization URL.
      * 
      */
-    public Output<String> orgUrl() {
-        return this.orgUrl;
+    public Optional<Output<String>> orgUrl() {
+        return Optional.ofNullable(this.orgUrl);
     }
 
     /**
      * The Azure DevOps personal access token.
      * 
      */
-    @Import(name="personalAccessToken", required=true)
-    private Output<String> personalAccessToken;
+    @Import(name="personalAccessToken")
+    private @Nullable Output<String> personalAccessToken;
 
     /**
      * @return The Azure DevOps personal access token.
      * 
      */
-    public Output<String> personalAccessToken() {
-        return this.personalAccessToken;
+    public Optional<Output<String>> personalAccessToken() {
+        return Optional.ofNullable(this.personalAccessToken);
     }
 
     /**
@@ -72,15 +72,15 @@ public final class ServiceEndpointAzureDevOpsArgs extends com.pulumi.resources.R
      * The URL of the release API.
      * 
      */
-    @Import(name="releaseApiUrl", required=true)
-    private Output<String> releaseApiUrl;
+    @Import(name="releaseApiUrl")
+    private @Nullable Output<String> releaseApiUrl;
 
     /**
      * @return The URL of the release API.
      * 
      */
-    public Output<String> releaseApiUrl() {
-        return this.releaseApiUrl;
+    public Optional<Output<String>> releaseApiUrl() {
+        return Optional.ofNullable(this.releaseApiUrl);
     }
 
     /**
@@ -142,7 +142,7 @@ public final class ServiceEndpointAzureDevOpsArgs extends com.pulumi.resources.R
          * @return builder
          * 
          */
-        public Builder orgUrl(Output<String> orgUrl) {
+        public Builder orgUrl(@Nullable Output<String> orgUrl) {
             $.orgUrl = orgUrl;
             return this;
         }
@@ -163,7 +163,7 @@ public final class ServiceEndpointAzureDevOpsArgs extends com.pulumi.resources.R
          * @return builder
          * 
          */
-        public Builder personalAccessToken(Output<String> personalAccessToken) {
+        public Builder personalAccessToken(@Nullable Output<String> personalAccessToken) {
             $.personalAccessToken = personalAccessToken;
             return this;
         }
@@ -205,7 +205,7 @@ public final class ServiceEndpointAzureDevOpsArgs extends com.pulumi.resources.R
          * @return builder
          * 
          */
-        public Builder releaseApiUrl(Output<String> releaseApiUrl) {
+        public Builder releaseApiUrl(@Nullable Output<String> releaseApiUrl) {
             $.releaseApiUrl = releaseApiUrl;
             return this;
         }
@@ -242,17 +242,8 @@ public final class ServiceEndpointAzureDevOpsArgs extends com.pulumi.resources.R
         }
 
         public ServiceEndpointAzureDevOpsArgs build() {
-            if ($.orgUrl == null) {
-                throw new MissingRequiredPropertyException("ServiceEndpointAzureDevOpsArgs", "orgUrl");
-            }
-            if ($.personalAccessToken == null) {
-                throw new MissingRequiredPropertyException("ServiceEndpointAzureDevOpsArgs", "personalAccessToken");
-            }
             if ($.projectId == null) {
                 throw new MissingRequiredPropertyException("ServiceEndpointAzureDevOpsArgs", "projectId");
-            }
-            if ($.releaseApiUrl == null) {
-                throw new MissingRequiredPropertyException("ServiceEndpointAzureDevOpsArgs", "releaseApiUrl");
             }
             if ($.serviceEndpointName == null) {
                 throw new MissingRequiredPropertyException("ServiceEndpointAzureDevOpsArgs", "serviceEndpointName");

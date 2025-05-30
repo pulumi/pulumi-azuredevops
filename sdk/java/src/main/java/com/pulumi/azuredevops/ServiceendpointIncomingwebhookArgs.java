@@ -87,15 +87,15 @@ public final class ServiceendpointIncomingwebhookArgs extends com.pulumi.resourc
      * The name of the WebHook.
      * 
      */
-    @Import(name="webhookName", required=true)
-    private Output<String> webhookName;
+    @Import(name="webhookName")
+    private @Nullable Output<String> webhookName;
 
     /**
      * @return The name of the WebHook.
      * 
      */
-    public Output<String> webhookName() {
-        return this.webhookName;
+    public Optional<Output<String>> webhookName() {
+        return Optional.ofNullable(this.webhookName);
     }
 
     private ServiceendpointIncomingwebhookArgs() {}
@@ -226,7 +226,7 @@ public final class ServiceendpointIncomingwebhookArgs extends com.pulumi.resourc
          * @return builder
          * 
          */
-        public Builder webhookName(Output<String> webhookName) {
+        public Builder webhookName(@Nullable Output<String> webhookName) {
             $.webhookName = webhookName;
             return this;
         }
@@ -247,9 +247,6 @@ public final class ServiceendpointIncomingwebhookArgs extends com.pulumi.resourc
             }
             if ($.serviceEndpointName == null) {
                 throw new MissingRequiredPropertyException("ServiceendpointIncomingwebhookArgs", "serviceEndpointName");
-            }
-            if ($.webhookName == null) {
-                throw new MissingRequiredPropertyException("ServiceendpointIncomingwebhookArgs", "webhookName");
             }
             return $;
         }

@@ -21,60 +21,60 @@ public final class ServiceEndpointAzureEcrArgs extends com.pulumi.resources.Reso
      * The Azure container registry name.
      * 
      */
-    @Import(name="azurecrName", required=true)
-    private Output<String> azurecrName;
+    @Import(name="azurecrName")
+    private @Nullable Output<String> azurecrName;
 
     /**
      * @return The Azure container registry name.
      * 
      */
-    public Output<String> azurecrName() {
-        return this.azurecrName;
+    public Optional<Output<String>> azurecrName() {
+        return Optional.ofNullable(this.azurecrName);
     }
 
     /**
      * The tenant id of the service principal.
      * 
      */
-    @Import(name="azurecrSpnTenantid", required=true)
-    private Output<String> azurecrSpnTenantid;
+    @Import(name="azurecrSpnTenantid")
+    private @Nullable Output<String> azurecrSpnTenantid;
 
     /**
      * @return The tenant id of the service principal.
      * 
      */
-    public Output<String> azurecrSpnTenantid() {
-        return this.azurecrSpnTenantid;
+    public Optional<Output<String>> azurecrSpnTenantid() {
+        return Optional.ofNullable(this.azurecrSpnTenantid);
     }
 
     /**
      * The subscription id of the Azure targets.
      * 
      */
-    @Import(name="azurecrSubscriptionId", required=true)
-    private Output<String> azurecrSubscriptionId;
+    @Import(name="azurecrSubscriptionId")
+    private @Nullable Output<String> azurecrSubscriptionId;
 
     /**
      * @return The subscription id of the Azure targets.
      * 
      */
-    public Output<String> azurecrSubscriptionId() {
-        return this.azurecrSubscriptionId;
+    public Optional<Output<String>> azurecrSubscriptionId() {
+        return Optional.ofNullable(this.azurecrSubscriptionId);
     }
 
     /**
      * The subscription name of the Azure targets.
      * 
      */
-    @Import(name="azurecrSubscriptionName", required=true)
-    private Output<String> azurecrSubscriptionName;
+    @Import(name="azurecrSubscriptionName")
+    private @Nullable Output<String> azurecrSubscriptionName;
 
     /**
      * @return The subscription name of the Azure targets.
      * 
      */
-    public Output<String> azurecrSubscriptionName() {
-        return this.azurecrSubscriptionName;
+    public Optional<Output<String>> azurecrSubscriptionName() {
+        return Optional.ofNullable(this.azurecrSubscriptionName);
     }
 
     /**
@@ -198,7 +198,7 @@ public final class ServiceEndpointAzureEcrArgs extends com.pulumi.resources.Reso
          * @return builder
          * 
          */
-        public Builder azurecrName(Output<String> azurecrName) {
+        public Builder azurecrName(@Nullable Output<String> azurecrName) {
             $.azurecrName = azurecrName;
             return this;
         }
@@ -219,7 +219,7 @@ public final class ServiceEndpointAzureEcrArgs extends com.pulumi.resources.Reso
          * @return builder
          * 
          */
-        public Builder azurecrSpnTenantid(Output<String> azurecrSpnTenantid) {
+        public Builder azurecrSpnTenantid(@Nullable Output<String> azurecrSpnTenantid) {
             $.azurecrSpnTenantid = azurecrSpnTenantid;
             return this;
         }
@@ -240,7 +240,7 @@ public final class ServiceEndpointAzureEcrArgs extends com.pulumi.resources.Reso
          * @return builder
          * 
          */
-        public Builder azurecrSubscriptionId(Output<String> azurecrSubscriptionId) {
+        public Builder azurecrSubscriptionId(@Nullable Output<String> azurecrSubscriptionId) {
             $.azurecrSubscriptionId = azurecrSubscriptionId;
             return this;
         }
@@ -261,7 +261,7 @@ public final class ServiceEndpointAzureEcrArgs extends com.pulumi.resources.Reso
          * @return builder
          * 
          */
-        public Builder azurecrSubscriptionName(Output<String> azurecrSubscriptionName) {
+        public Builder azurecrSubscriptionName(@Nullable Output<String> azurecrSubscriptionName) {
             $.azurecrSubscriptionName = azurecrSubscriptionName;
             return this;
         }
@@ -391,18 +391,6 @@ public final class ServiceEndpointAzureEcrArgs extends com.pulumi.resources.Reso
         }
 
         public ServiceEndpointAzureEcrArgs build() {
-            if ($.azurecrName == null) {
-                throw new MissingRequiredPropertyException("ServiceEndpointAzureEcrArgs", "azurecrName");
-            }
-            if ($.azurecrSpnTenantid == null) {
-                throw new MissingRequiredPropertyException("ServiceEndpointAzureEcrArgs", "azurecrSpnTenantid");
-            }
-            if ($.azurecrSubscriptionId == null) {
-                throw new MissingRequiredPropertyException("ServiceEndpointAzureEcrArgs", "azurecrSubscriptionId");
-            }
-            if ($.azurecrSubscriptionName == null) {
-                throw new MissingRequiredPropertyException("ServiceEndpointAzureEcrArgs", "azurecrSubscriptionName");
-            }
             if ($.projectId == null) {
                 throw new MissingRequiredPropertyException("ServiceEndpointAzureEcrArgs", "projectId");
             }
