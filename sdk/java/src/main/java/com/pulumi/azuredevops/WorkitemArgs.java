@@ -6,6 +6,7 @@ package com.pulumi.azuredevops;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -61,6 +62,21 @@ public final class WorkitemArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> iterationPath() {
         return Optional.ofNullable(this.iterationPath);
+    }
+
+    /**
+     * The parent work item.
+     * 
+     */
+    @Import(name="parentId")
+    private @Nullable Output<Integer> parentId;
+
+    /**
+     * @return The parent work item.
+     * 
+     */
+    public Optional<Output<Integer>> parentId() {
+        return Optional.ofNullable(this.parentId);
     }
 
     /**
@@ -144,6 +160,7 @@ public final class WorkitemArgs extends com.pulumi.resources.ResourceArgs {
         this.areaPath = $.areaPath;
         this.customFields = $.customFields;
         this.iterationPath = $.iterationPath;
+        this.parentId = $.parentId;
         this.projectId = $.projectId;
         this.state = $.state;
         this.tags = $.tags;
@@ -230,6 +247,27 @@ public final class WorkitemArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder iterationPath(String iterationPath) {
             return iterationPath(Output.of(iterationPath));
+        }
+
+        /**
+         * @param parentId The parent work item.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parentId(@Nullable Output<Integer> parentId) {
+            $.parentId = parentId;
+            return this;
+        }
+
+        /**
+         * @param parentId The parent work item.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parentId(Integer parentId) {
+            return parentId(Output.of(parentId));
         }
 
         /**

@@ -33,7 +33,7 @@ public final class GetGroupsGroup {
      */
     private String domain;
     /**
-     * @return The ID of the group.
+     * @return The ID(UUID format) of the group.
      * 
      */
     private String id;
@@ -93,7 +93,7 @@ public final class GetGroupsGroup {
         return this.domain;
     }
     /**
-     * @return The ID of the group.
+     * @return The ID(UUID format) of the group.
      * 
      */
     public String id() {

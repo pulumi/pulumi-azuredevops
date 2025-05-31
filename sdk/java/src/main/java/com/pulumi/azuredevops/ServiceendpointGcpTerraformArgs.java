@@ -54,14 +54,14 @@ public final class ServiceendpointGcpTerraformArgs extends com.pulumi.resources.
     }
 
     /**
-     * The client email field in the JSON key file for creating the JSON Web Token.
+     * The Private Key for connecting to the endpoint.
      * 
      */
     @Import(name="privateKey", required=true)
     private Output<String> privateKey;
 
     /**
-     * @return The client email field in the JSON key file for creating the JSON Web Token.
+     * @return The Private Key for connecting to the endpoint.
      * 
      */
     public Output<String> privateKey() {
@@ -211,7 +211,7 @@ public final class ServiceendpointGcpTerraformArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param privateKey The client email field in the JSON key file for creating the JSON Web Token.
+         * @param privateKey The Private Key for connecting to the endpoint.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class ServiceendpointGcpTerraformArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param privateKey The client email field in the JSON key file for creating the JSON Web Token.
+         * @param privateKey The Private Key for connecting to the endpoint.
          * 
          * @return builder
          * 

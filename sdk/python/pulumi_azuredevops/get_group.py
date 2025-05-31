@@ -54,7 +54,7 @@ class GetGroupResult:
     @pulumi.getter
     def descriptor(self) -> builtins.str:
         """
-        The Descriptor is the primary way to reference the graph subject. This field will uniquely identify the same graph subject across both Accounts and Organizations.
+        The Descriptor is the primary way to reference the graph subject. This field will uniquely identify the same graph subject across both Accounts and Organizations. In format of `vssgp.xxxxxxxxxxxxxxxxxxx`
         """
         return pulumi.get(self, "descriptor")
 

@@ -31,7 +31,7 @@ class ServiceendpointGcpTerraformArgs:
         """
         The set of arguments for constructing a ServiceendpointGcpTerraform resource.
         :param pulumi.Input[builtins.str] gcp_project_id: GCP project associated with the Service Connection.
-        :param pulumi.Input[builtins.str] private_key: The client email field in the JSON key file for creating the JSON Web Token.
+        :param pulumi.Input[builtins.str] private_key: The Private Key for connecting to the endpoint.
         :param pulumi.Input[builtins.str] project_id: The ID of the project.
         :param pulumi.Input[builtins.str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[builtins.str] token_uri: The token uri field in the JSON key file for creating the JSON Web Token.
@@ -66,7 +66,7 @@ class ServiceendpointGcpTerraformArgs:
     @pulumi.getter(name="privateKey")
     def private_key(self) -> pulumi.Input[builtins.str]:
         """
-        The client email field in the JSON key file for creating the JSON Web Token.
+        The Private Key for connecting to the endpoint.
         """
         return pulumi.get(self, "private_key")
 
@@ -160,7 +160,7 @@ class _ServiceendpointGcpTerraformState:
         Input properties used for looking up and filtering ServiceendpointGcpTerraform resources.
         :param pulumi.Input[builtins.str] client_email: The client email field in the JSON key file for creating the JSON Web Token.
         :param pulumi.Input[builtins.str] gcp_project_id: GCP project associated with the Service Connection.
-        :param pulumi.Input[builtins.str] private_key: The client email field in the JSON key file for creating the JSON Web Token.
+        :param pulumi.Input[builtins.str] private_key: The Private Key for connecting to the endpoint.
         :param pulumi.Input[builtins.str] project_id: The ID of the project.
         :param pulumi.Input[builtins.str] scope: Scope to be provided.
         :param pulumi.Input[builtins.str] service_endpoint_name: The Service Endpoint name.
@@ -231,7 +231,7 @@ class _ServiceendpointGcpTerraformState:
     @pulumi.getter(name="privateKey")
     def private_key(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The client email field in the JSON key file for creating the JSON Web Token.
+        The Private Key for connecting to the endpoint.
         """
         return pulumi.get(self, "private_key")
 
@@ -342,7 +342,7 @@ class ServiceendpointGcpTerraform(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] client_email: The client email field in the JSON key file for creating the JSON Web Token.
         :param pulumi.Input[builtins.str] gcp_project_id: GCP project associated with the Service Connection.
-        :param pulumi.Input[builtins.str] private_key: The client email field in the JSON key file for creating the JSON Web Token.
+        :param pulumi.Input[builtins.str] private_key: The Private Key for connecting to the endpoint.
         :param pulumi.Input[builtins.str] project_id: The ID of the project.
         :param pulumi.Input[builtins.str] scope: Scope to be provided.
         :param pulumi.Input[builtins.str] service_endpoint_name: The Service Endpoint name.
@@ -470,7 +470,7 @@ class ServiceendpointGcpTerraform(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] client_email: The client email field in the JSON key file for creating the JSON Web Token.
         :param pulumi.Input[builtins.str] gcp_project_id: GCP project associated with the Service Connection.
-        :param pulumi.Input[builtins.str] private_key: The client email field in the JSON key file for creating the JSON Web Token.
+        :param pulumi.Input[builtins.str] private_key: The Private Key for connecting to the endpoint.
         :param pulumi.Input[builtins.str] project_id: The ID of the project.
         :param pulumi.Input[builtins.str] scope: Scope to be provided.
         :param pulumi.Input[builtins.str] service_endpoint_name: The Service Endpoint name.
@@ -521,7 +521,7 @@ class ServiceendpointGcpTerraform(pulumi.CustomResource):
     @pulumi.getter(name="privateKey")
     def private_key(self) -> pulumi.Output[builtins.str]:
         """
-        The client email field in the JSON key file for creating the JSON Web Token.
+        The Private Key for connecting to the endpoint.
         """
         return pulumi.get(self, "private_key")
 

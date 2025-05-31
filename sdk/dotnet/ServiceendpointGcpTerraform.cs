@@ -77,7 +77,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> GcpProjectId { get; private set; } = null!;
 
         /// <summary>
-        /// The client email field in the JSON key file for creating the JSON Web Token.
+        /// The Private Key for connecting to the endpoint.
         /// </summary>
         [Output("privateKey")]
         public Output<string> PrivateKey { get; private set; } = null!;
@@ -175,7 +175,7 @@ namespace Pulumi.AzureDevOps
         private Input<string>? _privateKey;
 
         /// <summary>
-        /// The client email field in the JSON key file for creating the JSON Web Token.
+        /// The Private Key for connecting to the endpoint.
         /// </summary>
         public Input<string>? PrivateKey
         {
@@ -246,7 +246,7 @@ namespace Pulumi.AzureDevOps
         private Input<string>? _privateKey;
 
         /// <summary>
-        /// The client email field in the JSON key file for creating the JSON Web Token.
+        /// The Private Key for connecting to the endpoint.
         /// </summary>
         public Input<string>? PrivateKey
         {

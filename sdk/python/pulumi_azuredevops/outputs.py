@@ -92,6 +92,7 @@ __all__ = [
     'ServicehookStorageQueuePipelinesStageStateChangedEvent',
     'VariableGroupKeyVault',
     'VariableGroupVariable',
+    'WorkitemRelation',
     'GetAreaChildrenResult',
     'GetBuildDefinitionCiTriggerResult',
     'GetBuildDefinitionCiTriggerOverrideResult',
@@ -4439,6 +4440,37 @@ class VariableGroupVariable(dict):
 
 
 @pulumi.output_type
+class WorkitemRelation(dict):
+    def __init__(__self__, *,
+                 rel: Optional[builtins.str] = None,
+                 url: Optional[builtins.str] = None):
+        """
+        :param builtins.str rel: The type of relationship. For example: `System.LinkTypes.Hierarchy-Reverse` is a parent relationship. More details [item link type](https://learn.microsoft.com/en-us/azure/devops/boards/queries/link-type-reference?view=azure-devops#example).
+        :param builtins.str url: The URL of the Work Item.
+        """
+        if rel is not None:
+            pulumi.set(__self__, "rel", rel)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def rel(self) -> Optional[builtins.str]:
+        """
+        The type of relationship. For example: `System.LinkTypes.Hierarchy-Reverse` is a parent relationship. More details [item link type](https://learn.microsoft.com/en-us/azure/devops/boards/queries/link-type-reference?view=azure-devops#example).
+        """
+        return pulumi.get(self, "rel")
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[builtins.str]:
+        """
+        The URL of the Work Item.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
 class GetAreaChildrenResult(dict):
     def __init__(__self__, *,
                  has_children: builtins.bool,
@@ -5346,7 +5378,7 @@ class GetGroupsGroupResult(dict):
         """
         :param builtins.str descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
         :param builtins.str domain: This represents the name of the container of origin for a graph member. (For MSA this is "Windows Live ID", for AD the name of the domain, for AAD the tenantID of the directory, for VSTS groups the ScopeId, etc)
-        :param builtins.str id: The ID of the group.
+        :param builtins.str id: The ID(UUID format) of the group.
         :param builtins.str origin: The type of source provider for the origin identifier (ex:AD, AAD, MSA)
         :param builtins.str principal_name: This is the PrincipalName of this graph member from the source provider. The source provider may change this field over time and it is not guaranteed to be immutable for the life of the graph member by VSTS.
         :param builtins.str url: This url is the full route to the source resource of this graph subject.
@@ -5390,7 +5422,7 @@ class GetGroupsGroupResult(dict):
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        The ID of the group.
+        The ID(UUID format) of the group.
         """
         return pulumi.get(self, "id")
 

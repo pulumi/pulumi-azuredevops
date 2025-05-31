@@ -166,6 +166,8 @@ __all__ = [
     'VariableGroupKeyVaultArgsDict',
     'VariableGroupVariableArgs',
     'VariableGroupVariableArgsDict',
+    'WorkitemRelationArgs',
+    'WorkitemRelationArgsDict',
     'GetUsersFeaturesArgs',
     'GetUsersFeaturesArgsDict',
 ]
@@ -5811,6 +5813,58 @@ class VariableGroupVariableArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class WorkitemRelationArgsDict(TypedDict):
+        rel: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The type of relationship. For example: `System.LinkTypes.Hierarchy-Reverse` is a parent relationship. More details [item link type](https://learn.microsoft.com/en-us/azure/devops/boards/queries/link-type-reference?view=azure-devops#example).
+        """
+        url: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The URL of the Work Item.
+        """
+elif False:
+    WorkitemRelationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkitemRelationArgs:
+    def __init__(__self__, *,
+                 rel: Optional[pulumi.Input[builtins.str]] = None,
+                 url: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] rel: The type of relationship. For example: `System.LinkTypes.Hierarchy-Reverse` is a parent relationship. More details [item link type](https://learn.microsoft.com/en-us/azure/devops/boards/queries/link-type-reference?view=azure-devops#example).
+        :param pulumi.Input[builtins.str] url: The URL of the Work Item.
+        """
+        if rel is not None:
+            pulumi.set(__self__, "rel", rel)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def rel(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The type of relationship. For example: `System.LinkTypes.Hierarchy-Reverse` is a parent relationship. More details [item link type](https://learn.microsoft.com/en-us/azure/devops/boards/queries/link-type-reference?view=azure-devops#example).
+        """
+        return pulumi.get(self, "rel")
+
+    @rel.setter
+    def rel(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "rel", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The URL of the Work Item.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "url", value)
 
 
 if not MYPY:

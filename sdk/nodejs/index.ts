@@ -270,6 +270,11 @@ export const getServiceendpointBitbucket: typeof import("./getServiceendpointBit
 export const getServiceendpointBitbucketOutput: typeof import("./getServiceendpointBitbucket").getServiceendpointBitbucketOutput = null as any;
 utilities.lazyLoad(exports, ["getServiceendpointBitbucket","getServiceendpointBitbucketOutput"], () => require("./getServiceendpointBitbucket"));
 
+export { GetServiceendpointDockerregistryArgs, GetServiceendpointDockerregistryResult, GetServiceendpointDockerregistryOutputArgs } from "./getServiceendpointDockerregistry";
+export const getServiceendpointDockerregistry: typeof import("./getServiceendpointDockerregistry").getServiceendpointDockerregistry = null as any;
+export const getServiceendpointDockerregistryOutput: typeof import("./getServiceendpointDockerregistry").getServiceendpointDockerregistryOutput = null as any;
+utilities.lazyLoad(exports, ["getServiceendpointDockerregistry","getServiceendpointDockerregistryOutput"], () => require("./getServiceendpointDockerregistry"));
+
 export { GetServiceendpointNpmArgs, GetServiceendpointNpmResult, GetServiceendpointNpmOutputArgs } from "./getServiceendpointNpm";
 export const getServiceendpointNpm: typeof import("./getServiceendpointNpm").getServiceendpointNpm = null as any;
 export const getServiceendpointNpmOutput: typeof import("./getServiceendpointNpm").getServiceendpointNpmOutput = null as any;
@@ -552,6 +557,11 @@ export { ServiceendpointAzureServiceBusArgs, ServiceendpointAzureServiceBusState
 export type ServiceendpointAzureServiceBus = import("./serviceendpointAzureServiceBus").ServiceendpointAzureServiceBus;
 export const ServiceendpointAzureServiceBus: typeof import("./serviceendpointAzureServiceBus").ServiceendpointAzureServiceBus = null as any;
 utilities.lazyLoad(exports, ["ServiceendpointAzureServiceBus"], () => require("./serviceendpointAzureServiceBus"));
+
+export { ServiceendpointBlackDuckArgs, ServiceendpointBlackDuckState } from "./serviceendpointBlackDuck";
+export type ServiceendpointBlackDuck = import("./serviceendpointBlackDuck").ServiceendpointBlackDuck;
+export const ServiceendpointBlackDuck: typeof import("./serviceendpointBlackDuck").ServiceendpointBlackDuck = null as any;
+utilities.lazyLoad(exports, ["ServiceendpointBlackDuck"], () => require("./serviceendpointBlackDuck"));
 
 export { ServiceendpointCheckmarxOneArgs, ServiceendpointCheckmarxOneState } from "./serviceendpointCheckmarxOne";
 export type ServiceendpointCheckmarxOne = import("./serviceendpointCheckmarxOne").ServiceendpointCheckmarxOne;
@@ -880,6 +890,8 @@ const _module = {
                 return new ServiceendpointArgocd(name, <any>undefined, { urn })
             case "azuredevops:index/serviceendpointAzureServiceBus:ServiceendpointAzureServiceBus":
                 return new ServiceendpointAzureServiceBus(name, <any>undefined, { urn })
+            case "azuredevops:index/serviceendpointBlackDuck:ServiceendpointBlackDuck":
+                return new ServiceendpointBlackDuck(name, <any>undefined, { urn })
             case "azuredevops:index/serviceendpointCheckmarxOne:ServiceendpointCheckmarxOne":
                 return new ServiceendpointCheckmarxOne(name, <any>undefined, { urn })
             case "azuredevops:index/serviceendpointCheckmarxSast:ServiceendpointCheckmarxSast":
@@ -1025,6 +1037,7 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointSsh",
 pulumi.runtime.registerResourceModule("azuredevops", "index/servicePrincipalEntitlement", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointArgocd", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointAzureServiceBus", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointBlackDuck", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointCheckmarxOne", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointCheckmarxSast", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointCheckmarxSca", _module)

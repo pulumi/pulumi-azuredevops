@@ -93,12 +93,18 @@ public final class GitPermissionsArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * The **group** principal to assign the permissions.
      * 
+     * &gt; **Note**  The `descriptor` of the user/group not the `ID`. Some resources in this provider use the `descriptor`
+     * as resource ID. It is recommended to check before use.
+     * 
      */
     @Import(name="principal", required=true)
     private Output<String> principal;
 
     /**
      * @return The **group** principal to assign the permissions.
+     * 
+     * &gt; **Note**  The `descriptor` of the user/group not the `ID`. Some resources in this provider use the `descriptor`
+     * as resource ID. It is recommended to check before use.
      * 
      */
     public Output<String> principal() {
@@ -266,6 +272,9 @@ public final class GitPermissionsArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param principal The **group** principal to assign the permissions.
          * 
+         * &gt; **Note**  The `descriptor` of the user/group not the `ID`. Some resources in this provider use the `descriptor`
+         * as resource ID. It is recommended to check before use.
+         * 
          * @return builder
          * 
          */
@@ -276,6 +285,9 @@ public final class GitPermissionsArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param principal The **group** principal to assign the permissions.
+         * 
+         * &gt; **Note**  The `descriptor` of the user/group not the `ID`. Some resources in this provider use the `descriptor`
+         * as resource ID. It is recommended to check before use.
          * 
          * @return builder
          * 

@@ -49,6 +49,9 @@ class GitPermissionsArgs:
                | PullRequestContribute   | Contribute to pull requests                            |
                | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
         :param pulumi.Input[builtins.str] principal: The **group** principal to assign the permissions.
+               
+               > **Note**  The `descriptor` of the user/group not the `ID`. Some resources in this provider use the `descriptor`
+               as resource ID. It is recommended to check before use.
         :param pulumi.Input[builtins.str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[builtins.str] branch_name: The name of the branch to assign the permissions.
                
@@ -102,6 +105,9 @@ class GitPermissionsArgs:
     def principal(self) -> pulumi.Input[builtins.str]:
         """
         The **group** principal to assign the permissions.
+
+        > **Note**  The `descriptor` of the user/group not the `ID`. Some resources in this provider use the `descriptor`
+        as resource ID. It is recommended to check before use.
         """
         return pulumi.get(self, "principal")
 
@@ -195,6 +201,9 @@ class _GitPermissionsState:
                | PullRequestContribute   | Contribute to pull requests                            |
                | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
         :param pulumi.Input[builtins.str] principal: The **group** principal to assign the permissions.
+               
+               > **Note**  The `descriptor` of the user/group not the `ID`. Some resources in this provider use the `descriptor`
+               as resource ID. It is recommended to check before use.
         :param pulumi.Input[builtins.str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[builtins.bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
         :param pulumi.Input[builtins.str] repository_id: The ID of the GIT repository to assign the permissions
@@ -262,6 +271,9 @@ class _GitPermissionsState:
     def principal(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The **group** principal to assign the permissions.
+
+        > **Note**  The `descriptor` of the user/group not the `ID`. Some resources in this provider use the `descriptor`
+        as resource ID. It is recommended to check before use.
         """
         return pulumi.get(self, "principal")
 
@@ -518,6 +530,9 @@ class GitPermissions(pulumi.CustomResource):
                | PullRequestContribute   | Contribute to pull requests                            |
                | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
         :param pulumi.Input[builtins.str] principal: The **group** principal to assign the permissions.
+               
+               > **Note**  The `descriptor` of the user/group not the `ID`. Some resources in this provider use the `descriptor`
+               as resource ID. It is recommended to check before use.
         :param pulumi.Input[builtins.str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[builtins.bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
         :param pulumi.Input[builtins.str] repository_id: The ID of the GIT repository to assign the permissions
@@ -790,6 +805,9 @@ class GitPermissions(pulumi.CustomResource):
                | PullRequestContribute   | Contribute to pull requests                            |
                | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
         :param pulumi.Input[builtins.str] principal: The **group** principal to assign the permissions.
+               
+               > **Note**  The `descriptor` of the user/group not the `ID`. Some resources in this provider use the `descriptor`
+               as resource ID. It is recommended to check before use.
         :param pulumi.Input[builtins.str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[builtins.bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
         :param pulumi.Input[builtins.str] repository_id: The ID of the GIT repository to assign the permissions
@@ -848,6 +866,9 @@ class GitPermissions(pulumi.CustomResource):
     def principal(self) -> pulumi.Output[builtins.str]:
         """
         The **group** principal to assign the permissions.
+
+        > **Note**  The `descriptor` of the user/group not the `ID`. Some resources in this provider use the `descriptor`
+        as resource ID. It is recommended to check before use.
         """
         return pulumi.get(self, "principal")
 

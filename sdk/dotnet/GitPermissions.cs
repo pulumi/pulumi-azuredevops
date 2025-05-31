@@ -312,6 +312,9 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// The **group** principal to assign the permissions.
+        /// 
+        /// &gt; **Note**  The `descriptor` of the user/group not the `ID`. Some resources in this provider use the `descriptor`
+        /// as resource ID. It is recommended to check before use.
         /// </summary>
         [Output("principal")]
         public Output<string> Principal { get; private set; } = null!;
@@ -421,6 +424,9 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// The **group** principal to assign the permissions.
+        /// 
+        /// &gt; **Note**  The `descriptor` of the user/group not the `ID`. Some resources in this provider use the `descriptor`
+        /// as resource ID. It is recommended to check before use.
         /// </summary>
         [Input("principal", required: true)]
         public Input<string> Principal { get; set; } = null!;
@@ -492,6 +498,9 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// The **group** principal to assign the permissions.
+        /// 
+        /// &gt; **Note**  The `descriptor` of the user/group not the `ID`. Some resources in this provider use the `descriptor`
+        /// as resource ID. It is recommended to check before use.
         /// </summary>
         [Input("principal")]
         public Input<string>? Principal { get; set; }

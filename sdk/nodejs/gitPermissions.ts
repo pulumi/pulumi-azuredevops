@@ -261,6 +261,9 @@ export class GitPermissions extends pulumi.CustomResource {
     public readonly permissions!: pulumi.Output<{[key: string]: string}>;
     /**
      * The **group** principal to assign the permissions.
+     *
+     * > **Note**  The `descriptor` of the user/group not the `ID`. Some resources in this provider use the `descriptor`
+     * as resource ID. It is recommended to check before use.
      */
     public readonly principal!: pulumi.Output<string>;
     /**
@@ -353,6 +356,9 @@ export interface GitPermissionsState {
     permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The **group** principal to assign the permissions.
+     *
+     * > **Note**  The `descriptor` of the user/group not the `ID`. Some resources in this provider use the `descriptor`
+     * as resource ID. It is recommended to check before use.
      */
     principal?: pulumi.Input<string>;
     /**
@@ -404,6 +410,9 @@ export interface GitPermissionsArgs {
     permissions: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The **group** principal to assign the permissions.
+     *
+     * > **Note**  The `descriptor` of the user/group not the `ID`. Some resources in this provider use the `descriptor`
+     * as resource ID. It is recommended to check before use.
      */
     principal: pulumi.Input<string>;
     /**

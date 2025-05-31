@@ -211,7 +211,7 @@ namespace Pulumi.AzureDevOps
     public sealed class GetGroupResult
     {
         /// <summary>
-        /// The Descriptor is the primary way to reference the graph subject. This field will uniquely identify the same graph subject across both Accounts and Organizations.
+        /// The Descriptor is the primary way to reference the graph subject. This field will uniquely identify the same graph subject across both Accounts and Organizations. In format of `vssgp.xxxxxxxxxxxxxxxxxxx`
         /// </summary>
         public readonly string Descriptor;
         /// <summary>

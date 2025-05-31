@@ -11825,6 +11825,112 @@ func (o VariableGroupVariableArrayOutput) Index(i pulumi.IntInput) VariableGroup
 	}).(VariableGroupVariableOutput)
 }
 
+type WorkitemRelation struct {
+	// The type of relationship. For example: `System.LinkTypes.Hierarchy-Reverse` is a parent relationship. More details [item link type](https://learn.microsoft.com/en-us/azure/devops/boards/queries/link-type-reference?view=azure-devops#example).
+	Rel *string `pulumi:"rel"`
+	// The URL of the Work Item.
+	Url *string `pulumi:"url"`
+}
+
+// WorkitemRelationInput is an input type that accepts WorkitemRelationArgs and WorkitemRelationOutput values.
+// You can construct a concrete instance of `WorkitemRelationInput` via:
+//
+//	WorkitemRelationArgs{...}
+type WorkitemRelationInput interface {
+	pulumi.Input
+
+	ToWorkitemRelationOutput() WorkitemRelationOutput
+	ToWorkitemRelationOutputWithContext(context.Context) WorkitemRelationOutput
+}
+
+type WorkitemRelationArgs struct {
+	// The type of relationship. For example: `System.LinkTypes.Hierarchy-Reverse` is a parent relationship. More details [item link type](https://learn.microsoft.com/en-us/azure/devops/boards/queries/link-type-reference?view=azure-devops#example).
+	Rel pulumi.StringPtrInput `pulumi:"rel"`
+	// The URL of the Work Item.
+	Url pulumi.StringPtrInput `pulumi:"url"`
+}
+
+func (WorkitemRelationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkitemRelation)(nil)).Elem()
+}
+
+func (i WorkitemRelationArgs) ToWorkitemRelationOutput() WorkitemRelationOutput {
+	return i.ToWorkitemRelationOutputWithContext(context.Background())
+}
+
+func (i WorkitemRelationArgs) ToWorkitemRelationOutputWithContext(ctx context.Context) WorkitemRelationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkitemRelationOutput)
+}
+
+// WorkitemRelationArrayInput is an input type that accepts WorkitemRelationArray and WorkitemRelationArrayOutput values.
+// You can construct a concrete instance of `WorkitemRelationArrayInput` via:
+//
+//	WorkitemRelationArray{ WorkitemRelationArgs{...} }
+type WorkitemRelationArrayInput interface {
+	pulumi.Input
+
+	ToWorkitemRelationArrayOutput() WorkitemRelationArrayOutput
+	ToWorkitemRelationArrayOutputWithContext(context.Context) WorkitemRelationArrayOutput
+}
+
+type WorkitemRelationArray []WorkitemRelationInput
+
+func (WorkitemRelationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkitemRelation)(nil)).Elem()
+}
+
+func (i WorkitemRelationArray) ToWorkitemRelationArrayOutput() WorkitemRelationArrayOutput {
+	return i.ToWorkitemRelationArrayOutputWithContext(context.Background())
+}
+
+func (i WorkitemRelationArray) ToWorkitemRelationArrayOutputWithContext(ctx context.Context) WorkitemRelationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkitemRelationArrayOutput)
+}
+
+type WorkitemRelationOutput struct{ *pulumi.OutputState }
+
+func (WorkitemRelationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkitemRelation)(nil)).Elem()
+}
+
+func (o WorkitemRelationOutput) ToWorkitemRelationOutput() WorkitemRelationOutput {
+	return o
+}
+
+func (o WorkitemRelationOutput) ToWorkitemRelationOutputWithContext(ctx context.Context) WorkitemRelationOutput {
+	return o
+}
+
+// The type of relationship. For example: `System.LinkTypes.Hierarchy-Reverse` is a parent relationship. More details [item link type](https://learn.microsoft.com/en-us/azure/devops/boards/queries/link-type-reference?view=azure-devops#example).
+func (o WorkitemRelationOutput) Rel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkitemRelation) *string { return v.Rel }).(pulumi.StringPtrOutput)
+}
+
+// The URL of the Work Item.
+func (o WorkitemRelationOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkitemRelation) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+type WorkitemRelationArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkitemRelationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkitemRelation)(nil)).Elem()
+}
+
+func (o WorkitemRelationArrayOutput) ToWorkitemRelationArrayOutput() WorkitemRelationArrayOutput {
+	return o
+}
+
+func (o WorkitemRelationArrayOutput) ToWorkitemRelationArrayOutputWithContext(ctx context.Context) WorkitemRelationArrayOutput {
+	return o
+}
+
+func (o WorkitemRelationArrayOutput) Index(i pulumi.IntInput) WorkitemRelationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkitemRelation {
+		return vs[0].([]WorkitemRelation)[vs[1].(int)]
+	}).(WorkitemRelationOutput)
+}
+
 type GetAreaChildren struct {
 	// Indicator if the child Area node has child nodes
 	HasChildren bool `pulumi:"hasChildren"`
@@ -14059,7 +14165,7 @@ type GetGroupsGroup struct {
 	DisplayName *string `pulumi:"displayName"`
 	// This represents the name of the container of origin for a graph member. (For MSA this is "Windows Live ID", for AD the name of the domain, for AAD the tenantID of the directory, for VSTS groups the ScopeId, etc)
 	Domain string `pulumi:"domain"`
-	// The ID of the group.
+	// The ID(UUID format) of the group.
 	Id string `pulumi:"id"`
 	// The email address of record for a given graph member. This may be different than the principal name.
 	MailAddress *string `pulumi:"mailAddress"`
@@ -14093,7 +14199,7 @@ type GetGroupsGroupArgs struct {
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// This represents the name of the container of origin for a graph member. (For MSA this is "Windows Live ID", for AD the name of the domain, for AAD the tenantID of the directory, for VSTS groups the ScopeId, etc)
 	Domain pulumi.StringInput `pulumi:"domain"`
-	// The ID of the group.
+	// The ID(UUID format) of the group.
 	Id pulumi.StringInput `pulumi:"id"`
 	// The email address of record for a given graph member. This may be different than the principal name.
 	MailAddress pulumi.StringPtrInput `pulumi:"mailAddress"`
@@ -14178,7 +14284,7 @@ func (o GetGroupsGroupOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupsGroup) string { return v.Domain }).(pulumi.StringOutput)
 }
 
-// The ID of the group.
+// The ID(UUID format) of the group.
 func (o GetGroupsGroupOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupsGroup) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -15945,6 +16051,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupKeyVaultPtrInput)(nil)).Elem(), VariableGroupKeyVaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupVariableInput)(nil)).Elem(), VariableGroupVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupVariableArrayInput)(nil)).Elem(), VariableGroupVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemRelationInput)(nil)).Elem(), WorkitemRelationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemRelationArrayInput)(nil)).Elem(), WorkitemRelationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAreaChildrenInput)(nil)).Elem(), GetAreaChildrenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAreaChildrenArrayInput)(nil)).Elem(), GetAreaChildrenArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBuildDefinitionCiTriggerInput)(nil)).Elem(), GetBuildDefinitionCiTriggerArgs{})
@@ -16153,6 +16261,8 @@ func init() {
 	pulumi.RegisterOutputType(VariableGroupKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(VariableGroupVariableOutput{})
 	pulumi.RegisterOutputType(VariableGroupVariableArrayOutput{})
+	pulumi.RegisterOutputType(WorkitemRelationOutput{})
+	pulumi.RegisterOutputType(WorkitemRelationArrayOutput{})
 	pulumi.RegisterOutputType(GetAreaChildrenOutput{})
 	pulumi.RegisterOutputType(GetAreaChildrenArrayOutput{})
 	pulumi.RegisterOutputType(GetBuildDefinitionCiTriggerOutput{})

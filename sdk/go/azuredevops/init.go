@@ -169,6 +169,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServiceendpointArgocd{}
 	case "azuredevops:index/serviceendpointAzureServiceBus:ServiceendpointAzureServiceBus":
 		r = &ServiceendpointAzureServiceBus{}
+	case "azuredevops:index/serviceendpointBlackDuck:ServiceendpointBlackDuck":
+		r = &ServiceendpointBlackDuck{}
 	case "azuredevops:index/serviceendpointCheckmarxOne:ServiceendpointCheckmarxOne":
 		r = &ServiceendpointCheckmarxOne{}
 	case "azuredevops:index/serviceendpointCheckmarxSast:ServiceendpointCheckmarxSast":
@@ -634,6 +636,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/serviceendpointAzureServiceBus",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/serviceendpointBlackDuck",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

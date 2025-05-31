@@ -74,7 +74,7 @@ type ServiceendpointGcpTerraform struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// GCP project associated with the Service Connection.
 	GcpProjectId pulumi.StringOutput `pulumi:"gcpProjectId"`
-	// The client email field in the JSON key file for creating the JSON Web Token.
+	// The Private Key for connecting to the endpoint.
 	PrivateKey pulumi.StringOutput `pulumi:"privateKey"`
 	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
@@ -144,7 +144,7 @@ type serviceendpointGcpTerraformState struct {
 	Description *string `pulumi:"description"`
 	// GCP project associated with the Service Connection.
 	GcpProjectId *string `pulumi:"gcpProjectId"`
-	// The client email field in the JSON key file for creating the JSON Web Token.
+	// The Private Key for connecting to the endpoint.
 	PrivateKey *string `pulumi:"privateKey"`
 	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
@@ -163,7 +163,7 @@ type ServiceendpointGcpTerraformState struct {
 	Description pulumi.StringPtrInput
 	// GCP project associated with the Service Connection.
 	GcpProjectId pulumi.StringPtrInput
-	// The client email field in the JSON key file for creating the JSON Web Token.
+	// The Private Key for connecting to the endpoint.
 	PrivateKey pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
@@ -185,7 +185,7 @@ type serviceendpointGcpTerraformArgs struct {
 	Description *string `pulumi:"description"`
 	// GCP project associated with the Service Connection.
 	GcpProjectId string `pulumi:"gcpProjectId"`
-	// The client email field in the JSON key file for creating the JSON Web Token.
+	// The Private Key for connecting to the endpoint.
 	PrivateKey string `pulumi:"privateKey"`
 	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
@@ -204,7 +204,7 @@ type ServiceendpointGcpTerraformArgs struct {
 	Description pulumi.StringPtrInput
 	// GCP project associated with the Service Connection.
 	GcpProjectId pulumi.StringInput
-	// The client email field in the JSON key file for creating the JSON Web Token.
+	// The Private Key for connecting to the endpoint.
 	PrivateKey pulumi.StringInput
 	// The ID of the project.
 	ProjectId pulumi.StringInput
@@ -321,7 +321,7 @@ func (o ServiceendpointGcpTerraformOutput) GcpProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceendpointGcpTerraform) pulumi.StringOutput { return v.GcpProjectId }).(pulumi.StringOutput)
 }
 
-// The client email field in the JSON key file for creating the JSON Web Token.
+// The Private Key for connecting to the endpoint.
 func (o ServiceendpointGcpTerraformOutput) PrivateKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceendpointGcpTerraform) pulumi.StringOutput { return v.PrivateKey }).(pulumi.StringOutput)
 }

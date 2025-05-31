@@ -59,6 +59,7 @@ from .get_service_endpoint_github import *
 from .get_service_principal import *
 from .get_serviceendpoint_azurecr import *
 from .get_serviceendpoint_bitbucket import *
+from .get_serviceendpoint_dockerregistry import *
 from .get_serviceendpoint_npm import *
 from .get_serviceendpoint_sonarcloud import *
 from .get_storage_key import *
@@ -116,6 +117,7 @@ from .service_endpoint_ssh import *
 from .service_principal_entitlement import *
 from .serviceendpoint_argocd import *
 from .serviceendpoint_azure_service_bus import *
+from .serviceendpoint_black_duck import *
 from .serviceendpoint_checkmarx_one import *
 from .serviceendpoint_checkmarx_sast import *
 from .serviceendpoint_checkmarx_sca import *
@@ -752,6 +754,14 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/serviceendpointAzureServiceBus:ServiceendpointAzureServiceBus": "ServiceendpointAzureServiceBus"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/serviceendpointBlackDuck",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/serviceendpointBlackDuck:ServiceendpointBlackDuck": "ServiceendpointBlackDuck"
   }
  },
  {
