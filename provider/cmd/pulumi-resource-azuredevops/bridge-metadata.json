@@ -633,6 +633,10 @@
                 "current": "azuredevops:index/serviceEndpointBitBucket:ServiceEndpointBitBucket",
                 "majorVersion": 3
             },
+            "azuredevops_serviceendpoint_black_duck": {
+                "current": "azuredevops:index/serviceendpointBlackDuck:ServiceendpointBlackDuck",
+                "majorVersion": 3
+            },
             "azuredevops_serviceendpoint_checkmarx_one": {
                 "current": "azuredevops:index/serviceendpointCheckmarxOne:ServiceendpointCheckmarxOne",
                 "majorVersion": 3
@@ -954,6 +958,9 @@
                 "current": "azuredevops:index/workitem:Workitem",
                 "majorVersion": 3,
                 "fields": {
+                    "relations": {
+                        "maxItemsOne": false
+                    },
                     "tags": {
                         "maxItemsOne": false
                     }
@@ -1252,6 +1259,10 @@
             },
             "azuredevops_serviceendpoint_bitbucket": {
                 "current": "azuredevops:index/getServiceendpointBitbucket:getServiceendpointBitbucket",
+                "majorVersion": 3
+            },
+            "azuredevops_serviceendpoint_dockerregistry": {
+                "current": "azuredevops:index/getServiceendpointDockerregistry:getServiceendpointDockerregistry",
                 "majorVersion": 3
             },
             "azuredevops_serviceendpoint_github": {
