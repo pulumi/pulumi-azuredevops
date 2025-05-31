@@ -1145,7 +1145,7 @@ export interface GetGroupsGroup {
      */
     domain: string;
     /**
-     * The ID of the group.
+     * The ID(UUID format) of the group.
      */
     id: string;
     /**
@@ -1892,5 +1892,16 @@ export interface VariableGroupVariable {
      * The value of the variable. If omitted, it will default to empty string.
      */
     value?: string;
+}
+
+export interface WorkitemRelation {
+    /**
+     * The type of relationship. For example: `System.LinkTypes.Hierarchy-Reverse` is a parent relationship. More details [item link type](https://learn.microsoft.com/en-us/azure/devops/boards/queries/link-type-reference?view=azure-devops#example).
+     */
+    rel: string;
+    /**
+     * The URL of the Work Item.
+     */
+    url: string;
 }
 

@@ -85,10 +85,55 @@ namespace Pulumi.AzureDevOps
     /// 
     /// });
     /// ```
+    /// ### With Parent Work Item
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new AzureDevOps.Project("example", new()
+    ///     {
+    ///         Name = "Example Project",
+    ///         WorkItemTemplate = "Agile",
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///     });
+    /// 
+    ///     var epic = new AzureDevOps.Workitem("epic", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Title = "Example EPIC Title",
+    ///         Type = "Epic",
+    ///         State = "New",
+    ///     });
+    /// 
+    ///     var exampleWorkitem = new AzureDevOps.Workitem("example", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Title = "Example Work Item",
+    ///         Type = "Issue",
+    ///         State = "Active",
+    ///         Tags = new[]
+    ///         {
+    ///             "Tag",
+    ///         },
+    ///         ParentId = epic.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
-    /// Work Item resource does not support import.
+    /// Azure DevOps Work Item can be imported using the Project ID and Work Item ID, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azuredevops:index/workitem:Workitem example 00000000-0000-0000-0000-000000000000/0
+    /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/workitem:Workitem")]
     public partial class Workitem : global::Pulumi.CustomResource
@@ -112,10 +157,22 @@ namespace Pulumi.AzureDevOps
         public Output<string> IterationPath { get; private set; } = null!;
 
         /// <summary>
+        /// The parent work item.
+        /// </summary>
+        [Output("parentId")]
+        public Output<int?> ParentId { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Project.
         /// </summary>
         [Output("projectId")]
         public Output<string> ProjectId { get; private set; } = null!;
+
+        /// <summary>
+        /// A `relations` blocks as documented below.
+        /// </summary>
+        [Output("relations")]
+        public Output<ImmutableArray<Outputs.WorkitemRelation>> Relations { get; private set; } = null!;
 
         /// <summary>
         /// The state of the Work Item. The four main states that are defined for the User Story (`Agile`) are `New`, `Active`, `Resolved`, and `Closed`. See [Workflow states](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories?view=azure-devops&amp;tabs=agile-process#workflow-states) for more details.
@@ -140,6 +197,12 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The URL of the Work Item.
+        /// </summary>
+        [Output("url")]
+        public Output<string> Url { get; private set; } = null!;
 
 
         /// <summary>
@@ -212,6 +275,12 @@ namespace Pulumi.AzureDevOps
         public Input<string>? IterationPath { get; set; }
 
         /// <summary>
+        /// The parent work item.
+        /// </summary>
+        [Input("parentId")]
+        public Input<int>? ParentId { get; set; }
+
+        /// <summary>
         /// The ID of the Project.
         /// </summary>
         [Input("projectId", required: true)]
@@ -280,10 +349,28 @@ namespace Pulumi.AzureDevOps
         public Input<string>? IterationPath { get; set; }
 
         /// <summary>
+        /// The parent work item.
+        /// </summary>
+        [Input("parentId")]
+        public Input<int>? ParentId { get; set; }
+
+        /// <summary>
         /// The ID of the Project.
         /// </summary>
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }
+
+        [Input("relations")]
+        private InputList<Inputs.WorkitemRelationGetArgs>? _relations;
+
+        /// <summary>
+        /// A `relations` blocks as documented below.
+        /// </summary>
+        public InputList<Inputs.WorkitemRelationGetArgs> Relations
+        {
+            get => _relations ?? (_relations = new InputList<Inputs.WorkitemRelationGetArgs>());
+            set => _relations = value;
+        }
 
         /// <summary>
         /// The state of the Work Item. The four main states that are defined for the User Story (`Agile`) are `New`, `Active`, `Resolved`, and `Closed`. See [Workflow states](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories?view=azure-devops&amp;tabs=agile-process#workflow-states) for more details.
@@ -314,6 +401,12 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// The URL of the Work Item.
+        /// </summary>
+        [Input("url")]
+        public Input<string>? Url { get; set; }
 
         public WorkitemState()
         {

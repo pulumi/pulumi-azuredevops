@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -55,10 +57,41 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ * ### With Parent Work Item
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
+ *     workItemTemplate: "Agile",
+ *     versionControl: "Git",
+ *     visibility: "private",
+ * });
+ * const epic = new azuredevops.Workitem("epic", {
+ *     projectId: example.id,
+ *     title: "Example EPIC Title",
+ *     type: "Epic",
+ *     state: "New",
+ * });
+ * const exampleWorkitem = new azuredevops.Workitem("example", {
+ *     projectId: example.id,
+ *     title: "Example Work Item",
+ *     type: "Issue",
+ *     state: "Active",
+ *     tags: ["Tag"],
+ *     parentId: epic.id,
+ * });
+ * ```
  *
  * ## Import
  *
- * Work Item resource does not support import.
+ * Azure DevOps Work Item can be imported using the Project ID and Work Item ID, e.g.
+ *
+ * ```sh
+ * $ pulumi import azuredevops:index/workitem:Workitem example 00000000-0000-0000-0000-000000000000/0
+ * ```
  */
 export class Workitem extends pulumi.CustomResource {
     /**
@@ -101,9 +134,17 @@ export class Workitem extends pulumi.CustomResource {
      */
     public readonly iterationPath!: pulumi.Output<string>;
     /**
+     * The parent work item.
+     */
+    public readonly parentId!: pulumi.Output<number | undefined>;
+    /**
      * The ID of the Project.
      */
     public readonly projectId!: pulumi.Output<string>;
+    /**
+     * A `relations` blocks as documented below.
+     */
+    public /*out*/ readonly relations!: pulumi.Output<outputs.WorkitemRelation[]>;
     /**
      * The state of the Work Item. The four main states that are defined for the User Story (`Agile`) are `New`, `Active`, `Resolved`, and `Closed`. See [Workflow states](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories?view=azure-devops&tabs=agile-process#workflow-states) for more details.
      */
@@ -120,6 +161,10 @@ export class Workitem extends pulumi.CustomResource {
      * The Type of the Work Item. The work item type varies depending on the process used when creating the project(`Agile`, `Basic`, `Scrum`, `Scrum`). See [Work Item Types](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/about-work-items?view=azure-devops) for more details.
      */
     public readonly type!: pulumi.Output<string>;
+    /**
+     * The URL of the Work Item.
+     */
+    public /*out*/ readonly url!: pulumi.Output<string>;
 
     /**
      * Create a Workitem resource with the given unique name, arguments, and options.
@@ -137,11 +182,14 @@ export class Workitem extends pulumi.CustomResource {
             resourceInputs["areaPath"] = state ? state.areaPath : undefined;
             resourceInputs["customFields"] = state ? state.customFields : undefined;
             resourceInputs["iterationPath"] = state ? state.iterationPath : undefined;
+            resourceInputs["parentId"] = state ? state.parentId : undefined;
             resourceInputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["relations"] = state ? state.relations : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["title"] = state ? state.title : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as WorkitemArgs | undefined;
             if ((!args || args.projectId === undefined) && !opts.urn) {
@@ -156,11 +204,14 @@ export class Workitem extends pulumi.CustomResource {
             resourceInputs["areaPath"] = args ? args.areaPath : undefined;
             resourceInputs["customFields"] = args ? args.customFields : undefined;
             resourceInputs["iterationPath"] = args ? args.iterationPath : undefined;
+            resourceInputs["parentId"] = args ? args.parentId : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["title"] = args ? args.title : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["relations"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Workitem.__pulumiType, name, resourceInputs, opts);
@@ -184,9 +235,17 @@ export interface WorkitemState {
      */
     iterationPath?: pulumi.Input<string>;
     /**
+     * The parent work item.
+     */
+    parentId?: pulumi.Input<number>;
+    /**
      * The ID of the Project.
      */
     projectId?: pulumi.Input<string>;
+    /**
+     * A `relations` blocks as documented below.
+     */
+    relations?: pulumi.Input<pulumi.Input<inputs.WorkitemRelation>[]>;
     /**
      * The state of the Work Item. The four main states that are defined for the User Story (`Agile`) are `New`, `Active`, `Resolved`, and `Closed`. See [Workflow states](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories?view=azure-devops&tabs=agile-process#workflow-states) for more details.
      */
@@ -203,6 +262,10 @@ export interface WorkitemState {
      * The Type of the Work Item. The work item type varies depending on the process used when creating the project(`Agile`, `Basic`, `Scrum`, `Scrum`). See [Work Item Types](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/about-work-items?view=azure-devops) for more details.
      */
     type?: pulumi.Input<string>;
+    /**
+     * The URL of the Work Item.
+     */
+    url?: pulumi.Input<string>;
 }
 
 /**
@@ -221,6 +284,10 @@ export interface WorkitemArgs {
      * Specifies the iteration in which the Work Item is used.
      */
     iterationPath?: pulumi.Input<string>;
+    /**
+     * The parent work item.
+     */
+    parentId?: pulumi.Input<number>;
     /**
      * The ID of the Project.
      */

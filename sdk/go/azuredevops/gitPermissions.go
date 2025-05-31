@@ -338,6 +338,9 @@ type GitPermissions struct {
 	// | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
 	Permissions pulumi.StringMapOutput `pulumi:"permissions"`
 	// The **group** principal to assign the permissions.
+	//
+	// > **Note**  The `descriptor` of the user/group not the `ID`. Some resources in this provider use the `descriptor`
+	// as resource ID. It is recommended to check before use.
 	Principal pulumi.StringOutput `pulumi:"principal"`
 	// The ID of the project to assign the permissions.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
@@ -412,6 +415,9 @@ type gitPermissionsState struct {
 	// | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
 	Permissions map[string]string `pulumi:"permissions"`
 	// The **group** principal to assign the permissions.
+	//
+	// > **Note**  The `descriptor` of the user/group not the `ID`. Some resources in this provider use the `descriptor`
+	// as resource ID. It is recommended to check before use.
 	Principal *string `pulumi:"principal"`
 	// The ID of the project to assign the permissions.
 	ProjectId *string `pulumi:"projectId"`
@@ -448,6 +454,9 @@ type GitPermissionsState struct {
 	// | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
 	Permissions pulumi.StringMapInput
 	// The **group** principal to assign the permissions.
+	//
+	// > **Note**  The `descriptor` of the user/group not the `ID`. Some resources in this provider use the `descriptor`
+	// as resource ID. It is recommended to check before use.
 	Principal pulumi.StringPtrInput
 	// The ID of the project to assign the permissions.
 	ProjectId pulumi.StringPtrInput
@@ -488,6 +497,9 @@ type gitPermissionsArgs struct {
 	// | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
 	Permissions map[string]string `pulumi:"permissions"`
 	// The **group** principal to assign the permissions.
+	//
+	// > **Note**  The `descriptor` of the user/group not the `ID`. Some resources in this provider use the `descriptor`
+	// as resource ID. It is recommended to check before use.
 	Principal string `pulumi:"principal"`
 	// The ID of the project to assign the permissions.
 	ProjectId string `pulumi:"projectId"`
@@ -525,6 +537,9 @@ type GitPermissionsArgs struct {
 	// | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
 	Permissions pulumi.StringMapInput
 	// The **group** principal to assign the permissions.
+	//
+	// > **Note**  The `descriptor` of the user/group not the `ID`. Some resources in this provider use the `descriptor`
+	// as resource ID. It is recommended to check before use.
 	Principal pulumi.StringInput
 	// The ID of the project to assign the permissions.
 	ProjectId pulumi.StringInput
@@ -653,6 +668,9 @@ func (o GitPermissionsOutput) Permissions() pulumi.StringMapOutput {
 }
 
 // The **group** principal to assign the permissions.
+//
+// > **Note**  The `descriptor` of the user/group not the `ID`. Some resources in this provider use the `descriptor`
+// as resource ID. It is recommended to check before use.
 func (o GitPermissionsOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v *GitPermissions) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
 }

@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetGroupResult {
     /**
-     * @return The Descriptor is the primary way to reference the graph subject. This field will uniquely identify the same graph subject across both Accounts and Organizations.
+     * @return The Descriptor is the primary way to reference the graph subject. This field will uniquely identify the same graph subject across both Accounts and Organizations. In format of `vssgp.xxxxxxxxxxxxxxxxxxx`
      * 
      */
     private String descriptor;
@@ -42,7 +42,7 @@ public final class GetGroupResult {
 
     private GetGroupResult() {}
     /**
-     * @return The Descriptor is the primary way to reference the graph subject. This field will uniquely identify the same graph subject across both Accounts and Organizations.
+     * @return The Descriptor is the primary way to reference the graph subject. This field will uniquely identify the same graph subject across both Accounts and Organizations. In format of `vssgp.xxxxxxxxxxxxxxxxxxx`
      * 
      */
     public String descriptor() {

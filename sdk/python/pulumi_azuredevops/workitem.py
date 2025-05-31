@@ -14,6 +14,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['WorkitemArgs', 'Workitem']
 
@@ -26,6 +28,7 @@ class WorkitemArgs:
                  area_path: Optional[pulumi.Input[builtins.str]] = None,
                  custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  iteration_path: Optional[pulumi.Input[builtins.str]] = None,
+                 parent_id: Optional[pulumi.Input[builtins.int]] = None,
                  state: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
@@ -36,6 +39,7 @@ class WorkitemArgs:
         :param pulumi.Input[builtins.str] area_path: Specifies the area where the Work Item is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] custom_fields: Specifies a list with Custom Fields for the Work Item.
         :param pulumi.Input[builtins.str] iteration_path: Specifies the iteration in which the Work Item is used.
+        :param pulumi.Input[builtins.int] parent_id: The parent work item.
         :param pulumi.Input[builtins.str] state: The state of the Work Item. The four main states that are defined for the User Story (`Agile`) are `New`, `Active`, `Resolved`, and `Closed`. See [Workflow states](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories?view=azure-devops&tabs=agile-process#workflow-states) for more details.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: Specifies a list of Tags.
         """
@@ -48,6 +52,8 @@ class WorkitemArgs:
             pulumi.set(__self__, "custom_fields", custom_fields)
         if iteration_path is not None:
             pulumi.set(__self__, "iteration_path", iteration_path)
+        if parent_id is not None:
+            pulumi.set(__self__, "parent_id", parent_id)
         if state is not None:
             pulumi.set(__self__, "state", state)
         if tags is not None:
@@ -126,6 +132,18 @@ class WorkitemArgs:
         pulumi.set(self, "iteration_path", value)
 
     @property
+    @pulumi.getter(name="parentId")
+    def parent_id(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The parent work item.
+        """
+        return pulumi.get(self, "parent_id")
+
+    @parent_id.setter
+    def parent_id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "parent_id", value)
+
+    @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -156,21 +174,27 @@ class _WorkitemState:
                  area_path: Optional[pulumi.Input[builtins.str]] = None,
                  custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  iteration_path: Optional[pulumi.Input[builtins.str]] = None,
+                 parent_id: Optional[pulumi.Input[builtins.int]] = None,
                  project_id: Optional[pulumi.Input[builtins.str]] = None,
+                 relations: Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemRelationArgs']]]] = None,
                  state: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  title: Optional[pulumi.Input[builtins.str]] = None,
-                 type: Optional[pulumi.Input[builtins.str]] = None):
+                 type: Optional[pulumi.Input[builtins.str]] = None,
+                 url: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Workitem resources.
         :param pulumi.Input[builtins.str] area_path: Specifies the area where the Work Item is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] custom_fields: Specifies a list with Custom Fields for the Work Item.
         :param pulumi.Input[builtins.str] iteration_path: Specifies the iteration in which the Work Item is used.
+        :param pulumi.Input[builtins.int] parent_id: The parent work item.
         :param pulumi.Input[builtins.str] project_id: The ID of the Project.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkitemRelationArgs']]] relations: A `relations` blocks as documented below.
         :param pulumi.Input[builtins.str] state: The state of the Work Item. The four main states that are defined for the User Story (`Agile`) are `New`, `Active`, `Resolved`, and `Closed`. See [Workflow states](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories?view=azure-devops&tabs=agile-process#workflow-states) for more details.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: Specifies a list of Tags.
         :param pulumi.Input[builtins.str] title: The Title of the Work Item.
         :param pulumi.Input[builtins.str] type: The Type of the Work Item. The work item type varies depending on the process used when creating the project(`Agile`, `Basic`, `Scrum`, `Scrum`). See [Work Item Types](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/about-work-items?view=azure-devops) for more details.
+        :param pulumi.Input[builtins.str] url: The URL of the Work Item.
         """
         if area_path is not None:
             pulumi.set(__self__, "area_path", area_path)
@@ -178,8 +202,12 @@ class _WorkitemState:
             pulumi.set(__self__, "custom_fields", custom_fields)
         if iteration_path is not None:
             pulumi.set(__self__, "iteration_path", iteration_path)
+        if parent_id is not None:
+            pulumi.set(__self__, "parent_id", parent_id)
         if project_id is not None:
             pulumi.set(__self__, "project_id", project_id)
+        if relations is not None:
+            pulumi.set(__self__, "relations", relations)
         if state is not None:
             pulumi.set(__self__, "state", state)
         if tags is not None:
@@ -188,6 +216,8 @@ class _WorkitemState:
             pulumi.set(__self__, "title", title)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter(name="areaPath")
@@ -226,6 +256,18 @@ class _WorkitemState:
         pulumi.set(self, "iteration_path", value)
 
     @property
+    @pulumi.getter(name="parentId")
+    def parent_id(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The parent work item.
+        """
+        return pulumi.get(self, "parent_id")
+
+    @parent_id.setter
+    def parent_id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "parent_id", value)
+
+    @property
     @pulumi.getter(name="projectId")
     def project_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -236,6 +278,18 @@ class _WorkitemState:
     @project_id.setter
     def project_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "project_id", value)
+
+    @property
+    @pulumi.getter
+    def relations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemRelationArgs']]]]:
+        """
+        A `relations` blocks as documented below.
+        """
+        return pulumi.get(self, "relations")
+
+    @relations.setter
+    def relations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemRelationArgs']]]]):
+        pulumi.set(self, "relations", value)
 
     @property
     @pulumi.getter
@@ -285,6 +339,18 @@ class _WorkitemState:
     def type(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "type", value)
 
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The URL of the Work Item.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "url", value)
+
 
 @pulumi.type_token("azuredevops:index/workitem:Workitem")
 class Workitem(pulumi.CustomResource):
@@ -295,6 +361,7 @@ class Workitem(pulumi.CustomResource):
                  area_path: Optional[pulumi.Input[builtins.str]] = None,
                  custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  iteration_path: Optional[pulumi.Input[builtins.str]] = None,
+                 parent_id: Optional[pulumi.Input[builtins.int]] = None,
                  project_id: Optional[pulumi.Input[builtins.str]] = None,
                  state: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -348,16 +415,45 @@ class Workitem(pulumi.CustomResource):
                 "example": "example",
             })
         ```
+        ### With Parent Work Item
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            name="Example Project",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private")
+        epic = azuredevops.Workitem("epic",
+            project_id=example.id,
+            title="Example EPIC Title",
+            type="Epic",
+            state="New")
+        example_workitem = azuredevops.Workitem("example",
+            project_id=example.id,
+            title="Example Work Item",
+            type="Issue",
+            state="Active",
+            tags=["Tag"],
+            parent_id=epic.id)
+        ```
 
         ## Import
 
-        Work Item resource does not support import.
+        Azure DevOps Work Item can be imported using the Project ID and Work Item ID, e.g.
+
+        ```sh
+        $ pulumi import azuredevops:index/workitem:Workitem example 00000000-0000-0000-0000-000000000000/0
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] area_path: Specifies the area where the Work Item is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] custom_fields: Specifies a list with Custom Fields for the Work Item.
         :param pulumi.Input[builtins.str] iteration_path: Specifies the iteration in which the Work Item is used.
+        :param pulumi.Input[builtins.int] parent_id: The parent work item.
         :param pulumi.Input[builtins.str] project_id: The ID of the Project.
         :param pulumi.Input[builtins.str] state: The state of the Work Item. The four main states that are defined for the User Story (`Agile`) are `New`, `Active`, `Resolved`, and `Closed`. See [Workflow states](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories?view=azure-devops&tabs=agile-process#workflow-states) for more details.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: Specifies a list of Tags.
@@ -417,10 +513,38 @@ class Workitem(pulumi.CustomResource):
                 "example": "example",
             })
         ```
+        ### With Parent Work Item
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            name="Example Project",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private")
+        epic = azuredevops.Workitem("epic",
+            project_id=example.id,
+            title="Example EPIC Title",
+            type="Epic",
+            state="New")
+        example_workitem = azuredevops.Workitem("example",
+            project_id=example.id,
+            title="Example Work Item",
+            type="Issue",
+            state="Active",
+            tags=["Tag"],
+            parent_id=epic.id)
+        ```
 
         ## Import
 
-        Work Item resource does not support import.
+        Azure DevOps Work Item can be imported using the Project ID and Work Item ID, e.g.
+
+        ```sh
+        $ pulumi import azuredevops:index/workitem:Workitem example 00000000-0000-0000-0000-000000000000/0
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkitemArgs args: The arguments to use to populate this resource's properties.
@@ -440,6 +564,7 @@ class Workitem(pulumi.CustomResource):
                  area_path: Optional[pulumi.Input[builtins.str]] = None,
                  custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  iteration_path: Optional[pulumi.Input[builtins.str]] = None,
+                 parent_id: Optional[pulumi.Input[builtins.int]] = None,
                  project_id: Optional[pulumi.Input[builtins.str]] = None,
                  state: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -457,6 +582,7 @@ class Workitem(pulumi.CustomResource):
             __props__.__dict__["area_path"] = area_path
             __props__.__dict__["custom_fields"] = custom_fields
             __props__.__dict__["iteration_path"] = iteration_path
+            __props__.__dict__["parent_id"] = parent_id
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__.__dict__["project_id"] = project_id
@@ -468,6 +594,8 @@ class Workitem(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+            __props__.__dict__["relations"] = None
+            __props__.__dict__["url"] = None
         super(Workitem, __self__).__init__(
             'azuredevops:index/workitem:Workitem',
             resource_name,
@@ -481,11 +609,14 @@ class Workitem(pulumi.CustomResource):
             area_path: Optional[pulumi.Input[builtins.str]] = None,
             custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             iteration_path: Optional[pulumi.Input[builtins.str]] = None,
+            parent_id: Optional[pulumi.Input[builtins.int]] = None,
             project_id: Optional[pulumi.Input[builtins.str]] = None,
+            relations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkitemRelationArgs', 'WorkitemRelationArgsDict']]]]] = None,
             state: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             title: Optional[pulumi.Input[builtins.str]] = None,
-            type: Optional[pulumi.Input[builtins.str]] = None) -> 'Workitem':
+            type: Optional[pulumi.Input[builtins.str]] = None,
+            url: Optional[pulumi.Input[builtins.str]] = None) -> 'Workitem':
         """
         Get an existing Workitem resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -496,11 +627,14 @@ class Workitem(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] area_path: Specifies the area where the Work Item is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] custom_fields: Specifies a list with Custom Fields for the Work Item.
         :param pulumi.Input[builtins.str] iteration_path: Specifies the iteration in which the Work Item is used.
+        :param pulumi.Input[builtins.int] parent_id: The parent work item.
         :param pulumi.Input[builtins.str] project_id: The ID of the Project.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkitemRelationArgs', 'WorkitemRelationArgsDict']]]] relations: A `relations` blocks as documented below.
         :param pulumi.Input[builtins.str] state: The state of the Work Item. The four main states that are defined for the User Story (`Agile`) are `New`, `Active`, `Resolved`, and `Closed`. See [Workflow states](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories?view=azure-devops&tabs=agile-process#workflow-states) for more details.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: Specifies a list of Tags.
         :param pulumi.Input[builtins.str] title: The Title of the Work Item.
         :param pulumi.Input[builtins.str] type: The Type of the Work Item. The work item type varies depending on the process used when creating the project(`Agile`, `Basic`, `Scrum`, `Scrum`). See [Work Item Types](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/about-work-items?view=azure-devops) for more details.
+        :param pulumi.Input[builtins.str] url: The URL of the Work Item.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -509,11 +643,14 @@ class Workitem(pulumi.CustomResource):
         __props__.__dict__["area_path"] = area_path
         __props__.__dict__["custom_fields"] = custom_fields
         __props__.__dict__["iteration_path"] = iteration_path
+        __props__.__dict__["parent_id"] = parent_id
         __props__.__dict__["project_id"] = project_id
+        __props__.__dict__["relations"] = relations
         __props__.__dict__["state"] = state
         __props__.__dict__["tags"] = tags
         __props__.__dict__["title"] = title
         __props__.__dict__["type"] = type
+        __props__.__dict__["url"] = url
         return Workitem(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -541,12 +678,28 @@ class Workitem(pulumi.CustomResource):
         return pulumi.get(self, "iteration_path")
 
     @property
+    @pulumi.getter(name="parentId")
+    def parent_id(self) -> pulumi.Output[Optional[builtins.int]]:
+        """
+        The parent work item.
+        """
+        return pulumi.get(self, "parent_id")
+
+    @property
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Output[builtins.str]:
         """
         The ID of the Project.
         """
         return pulumi.get(self, "project_id")
+
+    @property
+    @pulumi.getter
+    def relations(self) -> pulumi.Output[Sequence['outputs.WorkitemRelation']]:
+        """
+        A `relations` blocks as documented below.
+        """
+        return pulumi.get(self, "relations")
 
     @property
     @pulumi.getter
@@ -579,4 +732,12 @@ class Workitem(pulumi.CustomResource):
         The Type of the Work Item. The work item type varies depending on the process used when creating the project(`Agile`, `Basic`, `Scrum`, `Scrum`). See [Work Item Types](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/about-work-items?view=azure-devops) for more details.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Output[builtins.str]:
+        """
+        The URL of the Work Item.
+        """
+        return pulumi.get(self, "url")
 

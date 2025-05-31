@@ -426,12 +426,18 @@ public class GitPermissions extends com.pulumi.resources.CustomResource {
     /**
      * The **group** principal to assign the permissions.
      * 
+     * &gt; **Note**  The `descriptor` of the user/group not the `ID`. Some resources in this provider use the `descriptor`
+     * as resource ID. It is recommended to check before use.
+     * 
      */
     @Export(name="principal", refs={String.class}, tree="[0]")
     private Output<String> principal;
 
     /**
      * @return The **group** principal to assign the permissions.
+     * 
+     * &gt; **Note**  The `descriptor` of the user/group not the `ID`. Some resources in this provider use the `descriptor`
+     * as resource ID. It is recommended to check before use.
      * 
      */
     public Output<String> principal() {

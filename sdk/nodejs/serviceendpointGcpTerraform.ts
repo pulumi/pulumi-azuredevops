@@ -80,7 +80,7 @@ export class ServiceendpointGcpTerraform extends pulumi.CustomResource {
      */
     public readonly gcpProjectId!: pulumi.Output<string>;
     /**
-     * The client email field in the JSON key file for creating the JSON Web Token.
+     * The Private Key for connecting to the endpoint.
      */
     public readonly privateKey!: pulumi.Output<string>;
     /**
@@ -171,7 +171,7 @@ export interface ServiceendpointGcpTerraformState {
      */
     gcpProjectId?: pulumi.Input<string>;
     /**
-     * The client email field in the JSON key file for creating the JSON Web Token.
+     * The Private Key for connecting to the endpoint.
      */
     privateKey?: pulumi.Input<string>;
     /**
@@ -206,7 +206,7 @@ export interface ServiceendpointGcpTerraformArgs {
      */
     gcpProjectId: pulumi.Input<string>;
     /**
-     * The client email field in the JSON key file for creating the JSON Web Token.
+     * The Private Key for connecting to the endpoint.
      */
     privateKey: pulumi.Input<string>;
     /**

@@ -1266,3 +1266,14 @@ export interface VariableGroupVariable {
      */
     value?: pulumi.Input<string>;
 }
+
+export interface WorkitemRelation {
+    /**
+     * The type of relationship. For example: `System.LinkTypes.Hierarchy-Reverse` is a parent relationship. More details [item link type](https://learn.microsoft.com/en-us/azure/devops/boards/queries/link-type-reference?view=azure-devops#example).
+     */
+    rel?: pulumi.Input<string>;
+    /**
+     * The URL of the Work Item.
+     */
+    url?: pulumi.Input<string>;
+}

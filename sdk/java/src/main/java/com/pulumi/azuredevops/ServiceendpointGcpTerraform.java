@@ -124,14 +124,14 @@ public class ServiceendpointGcpTerraform extends com.pulumi.resources.CustomReso
         return this.gcpProjectId;
     }
     /**
-     * The client email field in the JSON key file for creating the JSON Web Token.
+     * The Private Key for connecting to the endpoint.
      * 
      */
     @Export(name="privateKey", refs={String.class}, tree="[0]")
     private Output<String> privateKey;
 
     /**
-     * @return The client email field in the JSON key file for creating the JSON Web Token.
+     * @return The Private Key for connecting to the endpoint.
      * 
      */
     public Output<String> privateKey() {

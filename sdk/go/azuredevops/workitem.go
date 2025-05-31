@@ -102,10 +102,64 @@ import (
 //	}
 //
 // ```
+// ### With Parent Work Item
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				VersionControl:   pulumi.String("Git"),
+//				Visibility:       pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			epic, err := azuredevops.NewWorkitem(ctx, "epic", &azuredevops.WorkitemArgs{
+//				ProjectId: example.ID(),
+//				Title:     pulumi.String("Example EPIC Title"),
+//				Type:      pulumi.String("Epic"),
+//				State:     pulumi.String("New"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewWorkitem(ctx, "example", &azuredevops.WorkitemArgs{
+//				ProjectId: example.ID(),
+//				Title:     pulumi.String("Example Work Item"),
+//				Type:      pulumi.String("Issue"),
+//				State:     pulumi.String("Active"),
+//				Tags: pulumi.StringArray{
+//					pulumi.String("Tag"),
+//				},
+//				ParentId: epic.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
-// Work Item resource does not support import.
+// Azure DevOps Work Item can be imported using the Project ID and Work Item ID, e.g.
+//
+// ```sh
+// $ pulumi import azuredevops:index/workitem:Workitem example 00000000-0000-0000-0000-000000000000/0
+// ```
 type Workitem struct {
 	pulumi.CustomResourceState
 
@@ -115,8 +169,12 @@ type Workitem struct {
 	CustomFields pulumi.StringMapOutput `pulumi:"customFields"`
 	// Specifies the iteration in which the Work Item is used.
 	IterationPath pulumi.StringOutput `pulumi:"iterationPath"`
+	// The parent work item.
+	ParentId pulumi.IntPtrOutput `pulumi:"parentId"`
 	// The ID of the Project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
+	// A `relations` blocks as documented below.
+	Relations WorkitemRelationArrayOutput `pulumi:"relations"`
 	// The state of the Work Item. The four main states that are defined for the User Story (`Agile`) are `New`, `Active`, `Resolved`, and `Closed`. See [Workflow states](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories?view=azure-devops&tabs=agile-process#workflow-states) for more details.
 	State pulumi.StringOutput `pulumi:"state"`
 	// Specifies a list of Tags.
@@ -125,6 +183,8 @@ type Workitem struct {
 	Title pulumi.StringOutput `pulumi:"title"`
 	// The Type of the Work Item. The work item type varies depending on the process used when creating the project(`Agile`, `Basic`, `Scrum`, `Scrum`). See [Work Item Types](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/about-work-items?view=azure-devops) for more details.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The URL of the Work Item.
+	Url pulumi.StringOutput `pulumi:"url"`
 }
 
 // NewWorkitem registers a new resource with the given unique name, arguments, and options.
@@ -172,8 +232,12 @@ type workitemState struct {
 	CustomFields map[string]string `pulumi:"customFields"`
 	// Specifies the iteration in which the Work Item is used.
 	IterationPath *string `pulumi:"iterationPath"`
+	// The parent work item.
+	ParentId *int `pulumi:"parentId"`
 	// The ID of the Project.
 	ProjectId *string `pulumi:"projectId"`
+	// A `relations` blocks as documented below.
+	Relations []WorkitemRelation `pulumi:"relations"`
 	// The state of the Work Item. The four main states that are defined for the User Story (`Agile`) are `New`, `Active`, `Resolved`, and `Closed`. See [Workflow states](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories?view=azure-devops&tabs=agile-process#workflow-states) for more details.
 	State *string `pulumi:"state"`
 	// Specifies a list of Tags.
@@ -182,6 +246,8 @@ type workitemState struct {
 	Title *string `pulumi:"title"`
 	// The Type of the Work Item. The work item type varies depending on the process used when creating the project(`Agile`, `Basic`, `Scrum`, `Scrum`). See [Work Item Types](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/about-work-items?view=azure-devops) for more details.
 	Type *string `pulumi:"type"`
+	// The URL of the Work Item.
+	Url *string `pulumi:"url"`
 }
 
 type WorkitemState struct {
@@ -191,8 +257,12 @@ type WorkitemState struct {
 	CustomFields pulumi.StringMapInput
 	// Specifies the iteration in which the Work Item is used.
 	IterationPath pulumi.StringPtrInput
+	// The parent work item.
+	ParentId pulumi.IntPtrInput
 	// The ID of the Project.
 	ProjectId pulumi.StringPtrInput
+	// A `relations` blocks as documented below.
+	Relations WorkitemRelationArrayInput
 	// The state of the Work Item. The four main states that are defined for the User Story (`Agile`) are `New`, `Active`, `Resolved`, and `Closed`. See [Workflow states](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories?view=azure-devops&tabs=agile-process#workflow-states) for more details.
 	State pulumi.StringPtrInput
 	// Specifies a list of Tags.
@@ -201,6 +271,8 @@ type WorkitemState struct {
 	Title pulumi.StringPtrInput
 	// The Type of the Work Item. The work item type varies depending on the process used when creating the project(`Agile`, `Basic`, `Scrum`, `Scrum`). See [Work Item Types](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/about-work-items?view=azure-devops) for more details.
 	Type pulumi.StringPtrInput
+	// The URL of the Work Item.
+	Url pulumi.StringPtrInput
 }
 
 func (WorkitemState) ElementType() reflect.Type {
@@ -214,6 +286,8 @@ type workitemArgs struct {
 	CustomFields map[string]string `pulumi:"customFields"`
 	// Specifies the iteration in which the Work Item is used.
 	IterationPath *string `pulumi:"iterationPath"`
+	// The parent work item.
+	ParentId *int `pulumi:"parentId"`
 	// The ID of the Project.
 	ProjectId string `pulumi:"projectId"`
 	// The state of the Work Item. The four main states that are defined for the User Story (`Agile`) are `New`, `Active`, `Resolved`, and `Closed`. See [Workflow states](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories?view=azure-devops&tabs=agile-process#workflow-states) for more details.
@@ -234,6 +308,8 @@ type WorkitemArgs struct {
 	CustomFields pulumi.StringMapInput
 	// Specifies the iteration in which the Work Item is used.
 	IterationPath pulumi.StringPtrInput
+	// The parent work item.
+	ParentId pulumi.IntPtrInput
 	// The ID of the Project.
 	ProjectId pulumi.StringInput
 	// The state of the Work Item. The four main states that are defined for the User Story (`Agile`) are `New`, `Active`, `Resolved`, and `Closed`. See [Workflow states](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories?view=azure-devops&tabs=agile-process#workflow-states) for more details.
@@ -348,9 +424,19 @@ func (o WorkitemOutput) IterationPath() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workitem) pulumi.StringOutput { return v.IterationPath }).(pulumi.StringOutput)
 }
 
+// The parent work item.
+func (o WorkitemOutput) ParentId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Workitem) pulumi.IntPtrOutput { return v.ParentId }).(pulumi.IntPtrOutput)
+}
+
 // The ID of the Project.
 func (o WorkitemOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workitem) pulumi.StringOutput { return v.ProjectId }).(pulumi.StringOutput)
+}
+
+// A `relations` blocks as documented below.
+func (o WorkitemOutput) Relations() WorkitemRelationArrayOutput {
+	return o.ApplyT(func(v *Workitem) WorkitemRelationArrayOutput { return v.Relations }).(WorkitemRelationArrayOutput)
 }
 
 // The state of the Work Item. The four main states that are defined for the User Story (`Agile`) are `New`, `Active`, `Resolved`, and `Closed`. See [Workflow states](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories?view=azure-devops&tabs=agile-process#workflow-states) for more details.
@@ -371,6 +457,11 @@ func (o WorkitemOutput) Title() pulumi.StringOutput {
 // The Type of the Work Item. The work item type varies depending on the process used when creating the project(`Agile`, `Basic`, `Scrum`, `Scrum`). See [Work Item Types](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/about-work-items?view=azure-devops) for more details.
 func (o WorkitemOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workitem) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The URL of the Work Item.
+func (o WorkitemOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workitem) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }
 
 type WorkitemArrayOutput struct{ *pulumi.OutputState }

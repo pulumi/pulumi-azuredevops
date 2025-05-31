@@ -3,8 +3,10 @@
 
 package com.pulumi.azuredevops.inputs;
 
+import com.pulumi.azuredevops.inputs.WorkitemRelationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -63,6 +65,21 @@ public final class WorkitemState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The parent work item.
+     * 
+     */
+    @Import(name="parentId")
+    private @Nullable Output<Integer> parentId;
+
+    /**
+     * @return The parent work item.
+     * 
+     */
+    public Optional<Output<Integer>> parentId() {
+        return Optional.ofNullable(this.parentId);
+    }
+
+    /**
      * The ID of the Project.
      * 
      */
@@ -75,6 +92,21 @@ public final class WorkitemState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> projectId() {
         return Optional.ofNullable(this.projectId);
+    }
+
+    /**
+     * A `relations` blocks as documented below.
+     * 
+     */
+    @Import(name="relations")
+    private @Nullable Output<List<WorkitemRelationArgs>> relations;
+
+    /**
+     * @return A `relations` blocks as documented below.
+     * 
+     */
+    public Optional<Output<List<WorkitemRelationArgs>>> relations() {
+        return Optional.ofNullable(this.relations);
     }
 
     /**
@@ -137,17 +169,35 @@ public final class WorkitemState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.type);
     }
 
+    /**
+     * The URL of the Work Item.
+     * 
+     */
+    @Import(name="url")
+    private @Nullable Output<String> url;
+
+    /**
+     * @return The URL of the Work Item.
+     * 
+     */
+    public Optional<Output<String>> url() {
+        return Optional.ofNullable(this.url);
+    }
+
     private WorkitemState() {}
 
     private WorkitemState(WorkitemState $) {
         this.areaPath = $.areaPath;
         this.customFields = $.customFields;
         this.iterationPath = $.iterationPath;
+        this.parentId = $.parentId;
         this.projectId = $.projectId;
+        this.relations = $.relations;
         this.state = $.state;
         this.tags = $.tags;
         this.title = $.title;
         this.type = $.type;
+        this.url = $.url;
     }
 
     public static Builder builder() {
@@ -232,6 +282,27 @@ public final class WorkitemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param parentId The parent work item.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parentId(@Nullable Output<Integer> parentId) {
+            $.parentId = parentId;
+            return this;
+        }
+
+        /**
+         * @param parentId The parent work item.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parentId(Integer parentId) {
+            return parentId(Output.of(parentId));
+        }
+
+        /**
          * @param projectId The ID of the Project.
          * 
          * @return builder
@@ -250,6 +321,37 @@ public final class WorkitemState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder projectId(String projectId) {
             return projectId(Output.of(projectId));
+        }
+
+        /**
+         * @param relations A `relations` blocks as documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder relations(@Nullable Output<List<WorkitemRelationArgs>> relations) {
+            $.relations = relations;
+            return this;
+        }
+
+        /**
+         * @param relations A `relations` blocks as documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder relations(List<WorkitemRelationArgs> relations) {
+            return relations(Output.of(relations));
+        }
+
+        /**
+         * @param relations A `relations` blocks as documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder relations(WorkitemRelationArgs... relations) {
+            return relations(List.of(relations));
         }
 
         /**
@@ -344,6 +446,27 @@ public final class WorkitemState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder type(String type) {
             return type(Output.of(type));
+        }
+
+        /**
+         * @param url The URL of the Work Item.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder url(@Nullable Output<String> url) {
+            $.url = url;
+            return this;
+        }
+
+        /**
+         * @param url The URL of the Work Item.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder url(String url) {
+            return url(Output.of(url));
         }
 
         public WorkitemState build() {

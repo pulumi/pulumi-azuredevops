@@ -54,6 +54,8 @@ import com.pulumi.azuredevops.inputs.GetServiceendpointAzurecrArgs;
 import com.pulumi.azuredevops.inputs.GetServiceendpointAzurecrPlainArgs;
 import com.pulumi.azuredevops.inputs.GetServiceendpointBitbucketArgs;
 import com.pulumi.azuredevops.inputs.GetServiceendpointBitbucketPlainArgs;
+import com.pulumi.azuredevops.inputs.GetServiceendpointDockerregistryArgs;
+import com.pulumi.azuredevops.inputs.GetServiceendpointDockerregistryPlainArgs;
 import com.pulumi.azuredevops.inputs.GetServiceendpointNpmArgs;
 import com.pulumi.azuredevops.inputs.GetServiceendpointNpmPlainArgs;
 import com.pulumi.azuredevops.inputs.GetServiceendpointSonarcloudArgs;
@@ -97,6 +99,7 @@ import com.pulumi.azuredevops.outputs.GetServiceEndpointGithubResult;
 import com.pulumi.azuredevops.outputs.GetServicePrincipalResult;
 import com.pulumi.azuredevops.outputs.GetServiceendpointAzurecrResult;
 import com.pulumi.azuredevops.outputs.GetServiceendpointBitbucketResult;
+import com.pulumi.azuredevops.outputs.GetServiceendpointDockerregistryResult;
 import com.pulumi.azuredevops.outputs.GetServiceendpointNpmResult;
 import com.pulumi.azuredevops.outputs.GetServiceendpointSonarcloudResult;
 import com.pulumi.azuredevops.outputs.GetStorageKeyResult;
@@ -8741,6 +8744,471 @@ public final class AzuredevopsFunctions {
      */
     public static CompletableFuture<GetServiceendpointBitbucketResult> getServiceendpointBitbucketPlain(GetServiceendpointBitbucketPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azuredevops:index/getServiceendpointBitbucket:getServiceendpointBitbucket", TypeShape.of(GetServiceendpointBitbucketResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Docker Registry Service Endpoint.
+     * 
+     * ## Example Usage
+     * 
+     * ### By Service Endpoint ID
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointDockerregistryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetServiceendpointDockerregistry = AzuredevopsFunctions.getServiceendpointDockerregistry(GetServiceendpointDockerregistryArgs.builder()
+     *             .projectId(example.id())
+     *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *         ctx.export("serviceEndpointName", exampleGetServiceendpointDockerregistry.serviceEndpointName());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### By Service Endpoint Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointDockerregistryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetServiceendpointDockerregistry = AzuredevopsFunctions.getServiceendpointDockerregistry(GetServiceendpointDockerregistryArgs.builder()
+     *             .projectId(example.id())
+     *             .serviceEndpointName("Example-Service-Endpoint")
+     *             .build());
+     * 
+     *         ctx.export("serviceEndpointId", serviceendpoint.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetServiceendpointDockerregistryResult> getServiceendpointDockerregistry(GetServiceendpointDockerregistryArgs args) {
+        return getServiceendpointDockerregistry(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Docker Registry Service Endpoint.
+     * 
+     * ## Example Usage
+     * 
+     * ### By Service Endpoint ID
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointDockerregistryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetServiceendpointDockerregistry = AzuredevopsFunctions.getServiceendpointDockerregistry(GetServiceendpointDockerregistryArgs.builder()
+     *             .projectId(example.id())
+     *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *         ctx.export("serviceEndpointName", exampleGetServiceendpointDockerregistry.serviceEndpointName());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### By Service Endpoint Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointDockerregistryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetServiceendpointDockerregistry = AzuredevopsFunctions.getServiceendpointDockerregistry(GetServiceendpointDockerregistryArgs.builder()
+     *             .projectId(example.id())
+     *             .serviceEndpointName("Example-Service-Endpoint")
+     *             .build());
+     * 
+     *         ctx.export("serviceEndpointId", serviceendpoint.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetServiceendpointDockerregistryResult> getServiceendpointDockerregistryPlain(GetServiceendpointDockerregistryPlainArgs args) {
+        return getServiceendpointDockerregistryPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Docker Registry Service Endpoint.
+     * 
+     * ## Example Usage
+     * 
+     * ### By Service Endpoint ID
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointDockerregistryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetServiceendpointDockerregistry = AzuredevopsFunctions.getServiceendpointDockerregistry(GetServiceendpointDockerregistryArgs.builder()
+     *             .projectId(example.id())
+     *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *         ctx.export("serviceEndpointName", exampleGetServiceendpointDockerregistry.serviceEndpointName());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### By Service Endpoint Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointDockerregistryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetServiceendpointDockerregistry = AzuredevopsFunctions.getServiceendpointDockerregistry(GetServiceendpointDockerregistryArgs.builder()
+     *             .projectId(example.id())
+     *             .serviceEndpointName("Example-Service-Endpoint")
+     *             .build());
+     * 
+     *         ctx.export("serviceEndpointId", serviceendpoint.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetServiceendpointDockerregistryResult> getServiceendpointDockerregistry(GetServiceendpointDockerregistryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getServiceendpointDockerregistry:getServiceendpointDockerregistry", TypeShape.of(GetServiceendpointDockerregistryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Docker Registry Service Endpoint.
+     * 
+     * ## Example Usage
+     * 
+     * ### By Service Endpoint ID
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointDockerregistryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetServiceendpointDockerregistry = AzuredevopsFunctions.getServiceendpointDockerregistry(GetServiceendpointDockerregistryArgs.builder()
+     *             .projectId(example.id())
+     *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *         ctx.export("serviceEndpointName", exampleGetServiceendpointDockerregistry.serviceEndpointName());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### By Service Endpoint Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointDockerregistryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetServiceendpointDockerregistry = AzuredevopsFunctions.getServiceendpointDockerregistry(GetServiceendpointDockerregistryArgs.builder()
+     *             .projectId(example.id())
+     *             .serviceEndpointName("Example-Service-Endpoint")
+     *             .build());
+     * 
+     *         ctx.export("serviceEndpointId", serviceendpoint.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetServiceendpointDockerregistryResult> getServiceendpointDockerregistry(GetServiceendpointDockerregistryArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getServiceendpointDockerregistry:getServiceendpointDockerregistry", TypeShape.of(GetServiceendpointDockerregistryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Docker Registry Service Endpoint.
+     * 
+     * ## Example Usage
+     * 
+     * ### By Service Endpoint ID
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointDockerregistryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetServiceendpointDockerregistry = AzuredevopsFunctions.getServiceendpointDockerregistry(GetServiceendpointDockerregistryArgs.builder()
+     *             .projectId(example.id())
+     *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *         ctx.export("serviceEndpointName", exampleGetServiceendpointDockerregistry.serviceEndpointName());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### By Service Endpoint Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointDockerregistryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetServiceendpointDockerregistry = AzuredevopsFunctions.getServiceendpointDockerregistry(GetServiceendpointDockerregistryArgs.builder()
+     *             .projectId(example.id())
+     *             .serviceEndpointName("Example-Service-Endpoint")
+     *             .build());
+     * 
+     *         ctx.export("serviceEndpointId", serviceendpoint.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetServiceendpointDockerregistryResult> getServiceendpointDockerregistryPlain(GetServiceendpointDockerregistryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azuredevops:index/getServiceendpointDockerregistry:getServiceendpointDockerregistry", TypeShape.of(GetServiceendpointDockerregistryResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing NPM Service Endpoint.

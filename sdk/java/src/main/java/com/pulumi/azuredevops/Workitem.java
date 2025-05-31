@@ -6,10 +6,12 @@ package com.pulumi.azuredevops;
 import com.pulumi.azuredevops.Utilities;
 import com.pulumi.azuredevops.WorkitemArgs;
 import com.pulumi.azuredevops.inputs.WorkitemState;
+import com.pulumi.azuredevops.outputs.WorkitemRelation;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -119,10 +121,69 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * ### With Parent Work Item
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
+ * import com.pulumi.azuredevops.Workitem;
+ * import com.pulumi.azuredevops.WorkitemArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Project("example", ProjectArgs.builder()
+ *             .name("Example Project")
+ *             .workItemTemplate("Agile")
+ *             .versionControl("Git")
+ *             .visibility("private")
+ *             .build());
+ * 
+ *         var epic = new Workitem("epic", WorkitemArgs.builder()
+ *             .projectId(example.id())
+ *             .title("Example EPIC Title")
+ *             .type("Epic")
+ *             .state("New")
+ *             .build());
+ * 
+ *         var exampleWorkitem = new Workitem("exampleWorkitem", WorkitemArgs.builder()
+ *             .projectId(example.id())
+ *             .title("Example Work Item")
+ *             .type("Issue")
+ *             .state("Active")
+ *             .tags("Tag")
+ *             .parentId(epic.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
- * Work Item resource does not support import.
+ * Azure DevOps Work Item can be imported using the Project ID and Work Item ID, e.g.
+ * 
+ * ```sh
+ * $ pulumi import azuredevops:index/workitem:Workitem example 00000000-0000-0000-0000-000000000000/0
+ * ```
  * 
  */
 @ResourceType(type="azuredevops:index/workitem:Workitem")
@@ -170,6 +231,20 @@ public class Workitem extends com.pulumi.resources.CustomResource {
         return this.iterationPath;
     }
     /**
+     * The parent work item.
+     * 
+     */
+    @Export(name="parentId", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> parentId;
+
+    /**
+     * @return The parent work item.
+     * 
+     */
+    public Output<Optional<Integer>> parentId() {
+        return Codegen.optional(this.parentId);
+    }
+    /**
      * The ID of the Project.
      * 
      */
@@ -182,6 +257,20 @@ public class Workitem extends com.pulumi.resources.CustomResource {
      */
     public Output<String> projectId() {
         return this.projectId;
+    }
+    /**
+     * A `relations` blocks as documented below.
+     * 
+     */
+    @Export(name="relations", refs={List.class,WorkitemRelation.class}, tree="[0,1]")
+    private Output<List<WorkitemRelation>> relations;
+
+    /**
+     * @return A `relations` blocks as documented below.
+     * 
+     */
+    public Output<List<WorkitemRelation>> relations() {
+        return this.relations;
     }
     /**
      * The state of the Work Item. The four main states that are defined for the User Story (`Agile`) are `New`, `Active`, `Resolved`, and `Closed`. See [Workflow states](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories?view=azure-devops&amp;tabs=agile-process#workflow-states) for more details.
@@ -238,6 +327,20 @@ public class Workitem extends com.pulumi.resources.CustomResource {
      */
     public Output<String> type() {
         return this.type;
+    }
+    /**
+     * The URL of the Work Item.
+     * 
+     */
+    @Export(name="url", refs={String.class}, tree="[0]")
+    private Output<String> url;
+
+    /**
+     * @return The URL of the Work Item.
+     * 
+     */
+    public Output<String> url() {
+        return this.url;
     }
 
     /**
