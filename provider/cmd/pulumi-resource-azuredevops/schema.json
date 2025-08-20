@@ -17205,7 +17205,7 @@
                 "properties": {
                     "__self__": {
                         "type": "ref",
-                        "$ref": "#/resources/pulumi:providers:azuredevops"
+                        "$ref": "#/provider"
                     }
                 },
                 "type": "pulumi:providers:azuredevops/terraformConfig",
