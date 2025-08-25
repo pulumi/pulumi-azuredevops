@@ -53,6 +53,13 @@
     },
     "config": {
         "variables": {
+            "auxiliaryTenantIds": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "List of auxiliary Tenant IDs required for multi-tenancy and cross-tenant scenarios.\n"
+            },
             "clientCertificate": {
                 "type": "string",
                 "description": "Base64 encoded certificate to use to authenticate to the service principal.\n",
@@ -69,13 +76,11 @@
             },
             "clientId": {
                 "type": "string",
-                "description": "The service principal client or managed service principal id which should be used.\n"
+                "description": "The service principal client id which should be used for AAD auth.\n"
             },
-            "clientIdApply": {
-                "type": "string"
-            },
-            "clientIdPlan": {
-                "type": "string"
+            "clientIdFilePath": {
+                "type": "string",
+                "description": "The path to a file containing the Client ID which should be used.\n"
             },
             "clientSecret": {
                 "type": "string",
@@ -86,9 +91,9 @@
                 "type": "string",
                 "description": "Path to a file containing a client secret for authenticating to a service principal.\n"
             },
-            "oidcAudience": {
+            "oidcAzureServiceConnectionId": {
                 "type": "string",
-                "description": "Set the audience when requesting OIDC tokens.\n"
+                "description": "The Azure Pipelines Service Connection ID to use for authentication.\n"
             },
             "oidcRequestToken": {
                 "type": "string",
@@ -97,9 +102,6 @@
             "oidcRequestUrl": {
                 "type": "string",
                 "description": "The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal\nusing OpenID Connect.\n"
-            },
-            "oidcTfcTag": {
-                "type": "string"
             },
             "oidcToken": {
                 "type": "string",
@@ -126,21 +128,19 @@
             },
             "tenantId": {
                 "type": "string",
-                "description": "The service principal tenant id which should be used.\n"
+                "description": "The service principal tenant id which should be used for AAD auth.\n"
             },
-            "tenantIdApply": {
-                "type": "string"
-            },
-            "tenantIdPlan": {
-                "type": "string"
+            "useCli": {
+                "type": "boolean",
+                "description": "Use Azure CLI to authenticate. Defaults to `true`.\n"
             },
             "useMsi": {
                 "type": "boolean",
-                "description": "Use an Azure Managed Service Identity.\n"
+                "description": "Use an Azure Managed Service Identity. Defaults to `false`.\n"
             },
             "useOidc": {
                 "type": "boolean",
-                "description": "Use an OIDC token to authenticate to a service principal.\n"
+                "description": "Use an OIDC token to authenticate to a service principal. Defaults to `false`.\n"
             }
         }
     },
@@ -2910,6 +2910,13 @@
     "provider": {
         "description": "The provider type for the azuredevops package. By default, resources use package-wide configuration\nsettings, however an explicit `Provider` instance may be created and passed during resource\nconstruction to achieve fine-grained programmatic control over provider settings. See the\n[documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.\n",
         "properties": {
+            "auxiliaryTenantIds": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "List of auxiliary Tenant IDs required for multi-tenancy and cross-tenant scenarios.\n"
+            },
             "clientCertificate": {
                 "type": "string",
                 "description": "Base64 encoded certificate to use to authenticate to the service principal.\n",
@@ -2926,13 +2933,11 @@
             },
             "clientId": {
                 "type": "string",
-                "description": "The service principal client or managed service principal id which should be used.\n"
+                "description": "The service principal client id which should be used for AAD auth.\n"
             },
-            "clientIdApply": {
-                "type": "string"
-            },
-            "clientIdPlan": {
-                "type": "string"
+            "clientIdFilePath": {
+                "type": "string",
+                "description": "The path to a file containing the Client ID which should be used.\n"
             },
             "clientSecret": {
                 "type": "string",
@@ -2943,9 +2948,9 @@
                 "type": "string",
                 "description": "Path to a file containing a client secret for authenticating to a service principal.\n"
             },
-            "oidcAudience": {
+            "oidcAzureServiceConnectionId": {
                 "type": "string",
-                "description": "Set the audience when requesting OIDC tokens.\n"
+                "description": "The Azure Pipelines Service Connection ID to use for authentication.\n"
             },
             "oidcRequestToken": {
                 "type": "string",
@@ -2954,9 +2959,6 @@
             "oidcRequestUrl": {
                 "type": "string",
                 "description": "The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal\nusing OpenID Connect.\n"
-            },
-            "oidcTfcTag": {
-                "type": "string"
             },
             "oidcToken": {
                 "type": "string",
@@ -2978,24 +2980,29 @@
             },
             "tenantId": {
                 "type": "string",
-                "description": "The service principal tenant id which should be used.\n"
+                "description": "The service principal tenant id which should be used for AAD auth.\n"
             },
-            "tenantIdApply": {
-                "type": "string"
-            },
-            "tenantIdPlan": {
-                "type": "string"
+            "useCli": {
+                "type": "boolean",
+                "description": "Use Azure CLI to authenticate. Defaults to `true`.\n"
             },
             "useMsi": {
                 "type": "boolean",
-                "description": "Use an Azure Managed Service Identity.\n"
+                "description": "Use an Azure Managed Service Identity. Defaults to `false`.\n"
             },
             "useOidc": {
                 "type": "boolean",
-                "description": "Use an OIDC token to authenticate to a service principal.\n"
+                "description": "Use an OIDC token to authenticate to a service principal. Defaults to `false`.\n"
             }
         },
         "inputProperties": {
+            "auxiliaryTenantIds": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "List of auxiliary Tenant IDs required for multi-tenancy and cross-tenant scenarios.\n"
+            },
             "clientCertificate": {
                 "type": "string",
                 "description": "Base64 encoded certificate to use to authenticate to the service principal.\n",
@@ -3012,13 +3019,11 @@
             },
             "clientId": {
                 "type": "string",
-                "description": "The service principal client or managed service principal id which should be used.\n"
+                "description": "The service principal client id which should be used for AAD auth.\n"
             },
-            "clientIdApply": {
-                "type": "string"
-            },
-            "clientIdPlan": {
-                "type": "string"
+            "clientIdFilePath": {
+                "type": "string",
+                "description": "The path to a file containing the Client ID which should be used.\n"
             },
             "clientSecret": {
                 "type": "string",
@@ -3029,9 +3034,9 @@
                 "type": "string",
                 "description": "Path to a file containing a client secret for authenticating to a service principal.\n"
             },
-            "oidcAudience": {
+            "oidcAzureServiceConnectionId": {
                 "type": "string",
-                "description": "Set the audience when requesting OIDC tokens.\n"
+                "description": "The Azure Pipelines Service Connection ID to use for authentication.\n"
             },
             "oidcRequestToken": {
                 "type": "string",
@@ -3040,9 +3045,6 @@
             "oidcRequestUrl": {
                 "type": "string",
                 "description": "The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal\nusing OpenID Connect.\n"
-            },
-            "oidcTfcTag": {
-                "type": "string"
             },
             "oidcToken": {
                 "type": "string",
@@ -3069,21 +3071,19 @@
             },
             "tenantId": {
                 "type": "string",
-                "description": "The service principal tenant id which should be used.\n"
+                "description": "The service principal tenant id which should be used for AAD auth.\n"
             },
-            "tenantIdApply": {
-                "type": "string"
-            },
-            "tenantIdPlan": {
-                "type": "string"
+            "useCli": {
+                "type": "boolean",
+                "description": "Use Azure CLI to authenticate. Defaults to `true`.\n"
             },
             "useMsi": {
                 "type": "boolean",
-                "description": "Use an Azure Managed Service Identity.\n"
+                "description": "Use an Azure Managed Service Identity. Defaults to `false`.\n"
             },
             "useOidc": {
                 "type": "boolean",
-                "description": "Use an OIDC token to authenticate to a service principal.\n"
+                "description": "Use an OIDC token to authenticate to a service principal. Defaults to `false`.\n"
             }
         },
         "methods": {
@@ -6204,7 +6204,7 @@
             }
         },
         "azuredevops:index/gitRepositoryBranch:GitRepositoryBranch": {
-            "description": "Manages a Git Repository Branch.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = new azuredevops.Project(\"example\", {\n    name: \"Example Project\",\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n});\nconst exampleGit = new azuredevops.Git(\"example\", {\n    projectId: example.id,\n    name: \"Example Git Repository\",\n    initialization: {\n        initType: \"Clean\",\n    },\n});\nconst exampleGitRepositoryBranch = new azuredevops.GitRepositoryBranch(\"example\", {\n    repositoryId: exampleGit.id,\n    name: \"example-branch-name\",\n    refBranch: exampleGit.defaultBranch,\n});\nconst exampleFromCommitId = new azuredevops.GitRepositoryBranch(\"example_from_commit_id\", {\n    repositoryId: exampleGit.id,\n    name: \"example-from-commit-id\",\n    refCommitId: exampleGitRepositoryBranch.lastCommitId,\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.Project(\"example\",\n    name=\"Example Project\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\")\nexample_git = azuredevops.Git(\"example\",\n    project_id=example.id,\n    name=\"Example Git Repository\",\n    initialization={\n        \"init_type\": \"Clean\",\n    })\nexample_git_repository_branch = azuredevops.GitRepositoryBranch(\"example\",\n    repository_id=example_git.id,\n    name=\"example-branch-name\",\n    ref_branch=example_git.default_branch)\nexample_from_commit_id = azuredevops.GitRepositoryBranch(\"example_from_commit_id\",\n    repository_id=example_git.id,\n    name=\"example-from-commit-id\",\n    ref_commit_id=example_git_repository_branch.last_commit_id)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new AzureDevOps.Project(\"example\", new()\n    {\n        Name = \"Example Project\",\n        Visibility = \"private\",\n        VersionControl = \"Git\",\n        WorkItemTemplate = \"Agile\",\n    });\n\n    var exampleGit = new AzureDevOps.Git(\"example\", new()\n    {\n        ProjectId = example.Id,\n        Name = \"Example Git Repository\",\n        Initialization = new AzureDevOps.Inputs.GitInitializationArgs\n        {\n            InitType = \"Clean\",\n        },\n    });\n\n    var exampleGitRepositoryBranch = new AzureDevOps.GitRepositoryBranch(\"example\", new()\n    {\n        RepositoryId = exampleGit.Id,\n        Name = \"example-branch-name\",\n        RefBranch = exampleGit.DefaultBranch,\n    });\n\n    var exampleFromCommitId = new AzureDevOps.GitRepositoryBranch(\"example_from_commit_id\", new()\n    {\n        RepositoryId = exampleGit.Id,\n        Name = \"example-from-commit-id\",\n        RefCommitId = exampleGitRepositoryBranch.LastCommitId,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := azuredevops.NewProject(ctx, \"example\", \u0026azuredevops.ProjectArgs{\n\t\t\tName:             pulumi.String(\"Example Project\"),\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleGit, err := azuredevops.NewGit(ctx, \"example\", \u0026azuredevops.GitArgs{\n\t\t\tProjectId: example.ID(),\n\t\t\tName:      pulumi.String(\"Example Git Repository\"),\n\t\t\tInitialization: \u0026azuredevops.GitInitializationArgs{\n\t\t\t\tInitType: pulumi.String(\"Clean\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleGitRepositoryBranch, err := azuredevops.NewGitRepositoryBranch(ctx, \"example\", \u0026azuredevops.GitRepositoryBranchArgs{\n\t\t\tRepositoryId: exampleGit.ID(),\n\t\t\tName:         pulumi.String(\"example-branch-name\"),\n\t\t\tRefBranch:    exampleGit.DefaultBranch,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewGitRepositoryBranch(ctx, \"example_from_commit_id\", \u0026azuredevops.GitRepositoryBranchArgs{\n\t\t\tRepositoryId: exampleGit.ID(),\n\t\t\tName:         pulumi.String(\"example-from-commit-id\"),\n\t\t\tRefCommitId:  exampleGitRepositoryBranch.LastCommitId,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Project;\nimport com.pulumi.azuredevops.ProjectArgs;\nimport com.pulumi.azuredevops.Git;\nimport com.pulumi.azuredevops.GitArgs;\nimport com.pulumi.azuredevops.inputs.GitInitializationArgs;\nimport com.pulumi.azuredevops.GitRepositoryBranch;\nimport com.pulumi.azuredevops.GitRepositoryBranchArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Project(\"example\", ProjectArgs.builder()\n            .name(\"Example Project\")\n            .visibility(\"private\")\n            .versionControl(\"Git\")\n            .workItemTemplate(\"Agile\")\n            .build());\n\n        var exampleGit = new Git(\"exampleGit\", GitArgs.builder()\n            .projectId(example.id())\n            .name(\"Example Git Repository\")\n            .initialization(GitInitializationArgs.builder()\n                .initType(\"Clean\")\n                .build())\n            .build());\n\n        var exampleGitRepositoryBranch = new GitRepositoryBranch(\"exampleGitRepositoryBranch\", GitRepositoryBranchArgs.builder()\n            .repositoryId(exampleGit.id())\n            .name(\"example-branch-name\")\n            .refBranch(exampleGit.defaultBranch())\n            .build());\n\n        var exampleFromCommitId = new GitRepositoryBranch(\"exampleFromCommitId\", GitRepositoryBranchArgs.builder()\n            .repositoryId(exampleGit.id())\n            .name(\"example-from-commit-id\")\n            .refCommitId(exampleGitRepositoryBranch.lastCommitId())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: azuredevops:Project\n    properties:\n      name: Example Project\n      visibility: private\n      versionControl: Git\n      workItemTemplate: Agile\n  exampleGit:\n    type: azuredevops:Git\n    name: example\n    properties:\n      projectId: ${example.id}\n      name: Example Git Repository\n      initialization:\n        initType: Clean\n  exampleGitRepositoryBranch:\n    type: azuredevops:GitRepositoryBranch\n    name: example\n    properties:\n      repositoryId: ${exampleGit.id}\n      name: example-branch-name\n      refBranch: ${exampleGit.defaultBranch}\n  exampleFromCommitId:\n    type: azuredevops:GitRepositoryBranch\n    name: example_from_commit_id\n    properties:\n      repositoryId: ${exampleGit.id}\n      name: example-from-commit-id\n      refCommitId: ${exampleGitRepositoryBranch.lastCommitId}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "description": "Manages a Git Repository Branch.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = new azuredevops.Project(\"example\", {\n    name: \"Example Project\",\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n});\nconst exampleGit = new azuredevops.Git(\"example\", {\n    projectId: example.id,\n    name: \"Example Git Repository\",\n    initialization: {\n        initType: \"Clean\",\n    },\n});\nconst exampleGitRepositoryBranch = new azuredevops.GitRepositoryBranch(\"example\", {\n    repositoryId: exampleGit.id,\n    name: \"example-branch-name\",\n    refBranch: exampleGit.defaultBranch,\n});\nconst exampleFromCommitId = new azuredevops.GitRepositoryBranch(\"example_from_commit_id\", {\n    repositoryId: exampleGit.id,\n    name: \"example-from-commit-id\",\n    refCommitId: exampleGitRepositoryBranch.lastCommitId,\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.Project(\"example\",\n    name=\"Example Project\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\")\nexample_git = azuredevops.Git(\"example\",\n    project_id=example.id,\n    name=\"Example Git Repository\",\n    initialization={\n        \"init_type\": \"Clean\",\n    })\nexample_git_repository_branch = azuredevops.GitRepositoryBranch(\"example\",\n    repository_id=example_git.id,\n    name=\"example-branch-name\",\n    ref_branch=example_git.default_branch)\nexample_from_commit_id = azuredevops.GitRepositoryBranch(\"example_from_commit_id\",\n    repository_id=example_git.id,\n    name=\"example-from-commit-id\",\n    ref_commit_id=example_git_repository_branch.last_commit_id)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new AzureDevOps.Project(\"example\", new()\n    {\n        Name = \"Example Project\",\n        Visibility = \"private\",\n        VersionControl = \"Git\",\n        WorkItemTemplate = \"Agile\",\n    });\n\n    var exampleGit = new AzureDevOps.Git(\"example\", new()\n    {\n        ProjectId = example.Id,\n        Name = \"Example Git Repository\",\n        Initialization = new AzureDevOps.Inputs.GitInitializationArgs\n        {\n            InitType = \"Clean\",\n        },\n    });\n\n    var exampleGitRepositoryBranch = new AzureDevOps.GitRepositoryBranch(\"example\", new()\n    {\n        RepositoryId = exampleGit.Id,\n        Name = \"example-branch-name\",\n        RefBranch = exampleGit.DefaultBranch,\n    });\n\n    var exampleFromCommitId = new AzureDevOps.GitRepositoryBranch(\"example_from_commit_id\", new()\n    {\n        RepositoryId = exampleGit.Id,\n        Name = \"example-from-commit-id\",\n        RefCommitId = exampleGitRepositoryBranch.LastCommitId,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := azuredevops.NewProject(ctx, \"example\", \u0026azuredevops.ProjectArgs{\n\t\t\tName:             pulumi.String(\"Example Project\"),\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleGit, err := azuredevops.NewGit(ctx, \"example\", \u0026azuredevops.GitArgs{\n\t\t\tProjectId: example.ID(),\n\t\t\tName:      pulumi.String(\"Example Git Repository\"),\n\t\t\tInitialization: \u0026azuredevops.GitInitializationArgs{\n\t\t\t\tInitType: pulumi.String(\"Clean\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleGitRepositoryBranch, err := azuredevops.NewGitRepositoryBranch(ctx, \"example\", \u0026azuredevops.GitRepositoryBranchArgs{\n\t\t\tRepositoryId: exampleGit.ID(),\n\t\t\tName:         pulumi.String(\"example-branch-name\"),\n\t\t\tRefBranch:    exampleGit.DefaultBranch,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewGitRepositoryBranch(ctx, \"example_from_commit_id\", \u0026azuredevops.GitRepositoryBranchArgs{\n\t\t\tRepositoryId: exampleGit.ID(),\n\t\t\tName:         pulumi.String(\"example-from-commit-id\"),\n\t\t\tRefCommitId:  exampleGitRepositoryBranch.LastCommitId,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Project;\nimport com.pulumi.azuredevops.ProjectArgs;\nimport com.pulumi.azuredevops.Git;\nimport com.pulumi.azuredevops.GitArgs;\nimport com.pulumi.azuredevops.inputs.GitInitializationArgs;\nimport com.pulumi.azuredevops.GitRepositoryBranch;\nimport com.pulumi.azuredevops.GitRepositoryBranchArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Project(\"example\", ProjectArgs.builder()\n            .name(\"Example Project\")\n            .visibility(\"private\")\n            .versionControl(\"Git\")\n            .workItemTemplate(\"Agile\")\n            .build());\n\n        var exampleGit = new Git(\"exampleGit\", GitArgs.builder()\n            .projectId(example.id())\n            .name(\"Example Git Repository\")\n            .initialization(GitInitializationArgs.builder()\n                .initType(\"Clean\")\n                .build())\n            .build());\n\n        var exampleGitRepositoryBranch = new GitRepositoryBranch(\"exampleGitRepositoryBranch\", GitRepositoryBranchArgs.builder()\n            .repositoryId(exampleGit.id())\n            .name(\"example-branch-name\")\n            .refBranch(exampleGit.defaultBranch())\n            .build());\n\n        var exampleFromCommitId = new GitRepositoryBranch(\"exampleFromCommitId\", GitRepositoryBranchArgs.builder()\n            .repositoryId(exampleGit.id())\n            .name(\"example-from-commit-id\")\n            .refCommitId(exampleGitRepositoryBranch.lastCommitId())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: azuredevops:Project\n    properties:\n      name: Example Project\n      visibility: private\n      versionControl: Git\n      workItemTemplate: Agile\n  exampleGit:\n    type: azuredevops:Git\n    name: example\n    properties:\n      projectId: ${example.id}\n      name: Example Git Repository\n      initialization:\n        initType: Clean\n  exampleGitRepositoryBranch:\n    type: azuredevops:GitRepositoryBranch\n    name: example\n    properties:\n      repositoryId: ${exampleGit.id}\n      name: example-branch-name\n      refBranch: ${exampleGit.defaultBranch}\n  exampleFromCommitId:\n    type: azuredevops:GitRepositoryBranch\n    name: example_from_commit_id\n    properties:\n      repositoryId: ${exampleGit.id}\n      name: example-from-commit-id\n      refCommitId: ${exampleGitRepositoryBranch.lastCommitId}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nAzure DevOps Git Repository Branch can be imported using the `repository ID:branchName`.\n\n```sh\n$ pulumi import azuredevops:index/gitRepositoryBranch:GitRepositoryBranch example \"00000000-0000-0000-0000-000000000000:main\"\n```\n\n",
             "properties": {
                 "lastCommitId": {
                     "type": "string",
@@ -16989,7 +16989,7 @@
             }
         },
         "azuredevops:index/getUser:getUser": {
-            "description": "Use this data source to access information about an existing user within Azure DevOps.\n\n~\u003e**NOTE:** If you only have the Storage Key(UUID) of the user, you can use `azuredevops.getDescriptor` to resolve the Storage Key(UUID) to a `descriptor`.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: azuredevops:getUser\n      arguments:\n        principalName: example@example.com\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Relevant Links\n\n- [Azure DevOps Service REST API 7.1 - Graph Users API](https://learn.microsoft.com/en-us/rest/api/azure/devops/graph/users/get?view=azure-devops-rest-7.1)\n",
+            "description": "Use this data source to access information about an existing user within Azure DevOps.\n\n~\u003e**NOTE:** If you only have the Storage Key(UUID) of the user, you can use `azuredevops.getDescriptor` to resolve the Storage Key(UUID) to a `descriptor`.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = azuredevops.getUser({\n    descriptor: \"descriptor\",\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.get_user(descriptor=\"descriptor\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = AzureDevOps.GetUser.Invoke(new()\n    {\n        Descriptor = \"descriptor\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := azuredevops.LookupUser(ctx, \u0026azuredevops.LookupUserArgs{\n\t\t\tDescriptor: \"descriptor\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.AzuredevopsFunctions;\nimport com.pulumi.azuredevops.inputs.GetUserArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = AzuredevopsFunctions.getUser(GetUserArgs.builder()\n            .descriptor(\"descriptor\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: azuredevops:getUser\n      arguments:\n        descriptor: descriptor\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Relevant Links\n\n- [Azure DevOps Service REST API 7.1 - Graph Users API](https://learn.microsoft.com/en-us/rest/api/azure/devops/graph/users/get?view=azure-devops-rest-7.1)\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getUser.\n",
                 "properties": {

@@ -11,10 +11,10 @@ This can be removed once https://github.com/pulumi/pulumi-terraform-bridge/issue
 Original customer issue: https://github.com/pulumi/pulumi-azuredevops/issues/514
 
 diff --git a/azuredevops/internal/service/taskagent/resource_variable_group.go b/azuredevops/internal/service/taskagent/resource_variable_group.go
-index 71d53d3fe..45f164c31 100644
+index dd0674e5..421bd968 100644
 --- a/azuredevops/internal/service/taskagent/resource_variable_group.go
 +++ b/azuredevops/internal/service/taskagent/resource_variable_group.go
-@@ -362,21 +362,6 @@ func expandVariableGroupParameters(clients *client.AggregatedClient, d *schema.R
+@@ -358,21 +358,6 @@ func expandVariableGroupParameters(clients *client.AggregatedClient, d *schema.R
  	description := converter.String(d.Get("description").(string))
  	variables := d.Get("variable").(*schema.Set).List()
  

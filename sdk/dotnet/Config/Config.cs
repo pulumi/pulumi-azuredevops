@@ -32,6 +32,16 @@ namespace Pulumi.AzureDevOps
 
         private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("azuredevops");
 
+        private static readonly __Value<ImmutableArray<string>> _auxiliaryTenantIds = new __Value<ImmutableArray<string>>(() => __config.GetObject<ImmutableArray<string>>("auxiliaryTenantIds"));
+        /// <summary>
+        /// List of auxiliary Tenant IDs required for multi-tenancy and cross-tenant scenarios.
+        /// </summary>
+        public static ImmutableArray<string> AuxiliaryTenantIds
+        {
+            get => _auxiliaryTenantIds.Get();
+            set => _auxiliaryTenantIds.Set(value);
+        }
+
         private static readonly __Value<string?> _clientCertificate = new __Value<string?>(() => __config.Get("clientCertificate"));
         /// <summary>
         /// Base64 encoded certificate to use to authenticate to the service principal.
@@ -64,7 +74,7 @@ namespace Pulumi.AzureDevOps
 
         private static readonly __Value<string?> _clientId = new __Value<string?>(() => __config.Get("clientId"));
         /// <summary>
-        /// The service principal client or managed service principal id which should be used.
+        /// The service principal client id which should be used for AAD auth.
         /// </summary>
         public static string? ClientId
         {
@@ -72,18 +82,14 @@ namespace Pulumi.AzureDevOps
             set => _clientId.Set(value);
         }
 
-        private static readonly __Value<string?> _clientIdApply = new __Value<string?>(() => __config.Get("clientIdApply"));
-        public static string? ClientIdApply
+        private static readonly __Value<string?> _clientIdFilePath = new __Value<string?>(() => __config.Get("clientIdFilePath"));
+        /// <summary>
+        /// The path to a file containing the Client ID which should be used.
+        /// </summary>
+        public static string? ClientIdFilePath
         {
-            get => _clientIdApply.Get();
-            set => _clientIdApply.Set(value);
-        }
-
-        private static readonly __Value<string?> _clientIdPlan = new __Value<string?>(() => __config.Get("clientIdPlan"));
-        public static string? ClientIdPlan
-        {
-            get => _clientIdPlan.Get();
-            set => _clientIdPlan.Set(value);
+            get => _clientIdFilePath.Get();
+            set => _clientIdFilePath.Set(value);
         }
 
         private static readonly __Value<string?> _clientSecret = new __Value<string?>(() => __config.Get("clientSecret"));
@@ -106,14 +112,14 @@ namespace Pulumi.AzureDevOps
             set => _clientSecretPath.Set(value);
         }
 
-        private static readonly __Value<string?> _oidcAudience = new __Value<string?>(() => __config.Get("oidcAudience"));
+        private static readonly __Value<string?> _oidcAzureServiceConnectionId = new __Value<string?>(() => __config.Get("oidcAzureServiceConnectionId"));
         /// <summary>
-        /// Set the audience when requesting OIDC tokens.
+        /// The Azure Pipelines Service Connection ID to use for authentication.
         /// </summary>
-        public static string? OidcAudience
+        public static string? OidcAzureServiceConnectionId
         {
-            get => _oidcAudience.Get();
-            set => _oidcAudience.Set(value);
+            get => _oidcAzureServiceConnectionId.Get();
+            set => _oidcAzureServiceConnectionId.Set(value);
         }
 
         private static readonly __Value<string?> _oidcRequestToken = new __Value<string?>(() => __config.Get("oidcRequestToken"));
@@ -136,13 +142,6 @@ namespace Pulumi.AzureDevOps
         {
             get => _oidcRequestUrl.Get();
             set => _oidcRequestUrl.Set(value);
-        }
-
-        private static readonly __Value<string?> _oidcTfcTag = new __Value<string?>(() => __config.Get("oidcTfcTag"));
-        public static string? OidcTfcTag
-        {
-            get => _oidcTfcTag.Get();
-            set => _oidcTfcTag.Set(value);
         }
 
         private static readonly __Value<string?> _oidcToken = new __Value<string?>(() => __config.Get("oidcToken"));
@@ -187,7 +186,7 @@ namespace Pulumi.AzureDevOps
 
         private static readonly __Value<string?> _tenantId = new __Value<string?>(() => __config.Get("tenantId"));
         /// <summary>
-        /// The service principal tenant id which should be used.
+        /// The service principal tenant id which should be used for AAD auth.
         /// </summary>
         public static string? TenantId
         {
@@ -195,23 +194,19 @@ namespace Pulumi.AzureDevOps
             set => _tenantId.Set(value);
         }
 
-        private static readonly __Value<string?> _tenantIdApply = new __Value<string?>(() => __config.Get("tenantIdApply"));
-        public static string? TenantIdApply
+        private static readonly __Value<bool?> _useCli = new __Value<bool?>(() => __config.GetBoolean("useCli"));
+        /// <summary>
+        /// Use Azure CLI to authenticate. Defaults to `true`.
+        /// </summary>
+        public static bool? UseCli
         {
-            get => _tenantIdApply.Get();
-            set => _tenantIdApply.Set(value);
-        }
-
-        private static readonly __Value<string?> _tenantIdPlan = new __Value<string?>(() => __config.Get("tenantIdPlan"));
-        public static string? TenantIdPlan
-        {
-            get => _tenantIdPlan.Get();
-            set => _tenantIdPlan.Set(value);
+            get => _useCli.Get();
+            set => _useCli.Set(value);
         }
 
         private static readonly __Value<bool?> _useMsi = new __Value<bool?>(() => __config.GetBoolean("useMsi"));
         /// <summary>
-        /// Use an Azure Managed Service Identity.
+        /// Use an Azure Managed Service Identity. Defaults to `false`.
         /// </summary>
         public static bool? UseMsi
         {
@@ -221,7 +216,7 @@ namespace Pulumi.AzureDevOps
 
         private static readonly __Value<bool?> _useOidc = new __Value<bool?>(() => __config.GetBoolean("useOidc"));
         /// <summary>
-        /// Use an OIDC token to authenticate to a service principal.
+        /// Use an OIDC token to authenticate to a service principal. Defaults to `false`.
         /// </summary>
         public static bool? UseOidc
         {

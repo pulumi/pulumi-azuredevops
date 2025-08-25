@@ -15,6 +15,28 @@ namespace Pulumi.AzureDevOps
         /// Use this data source to access information about an existing user within Azure DevOps.
         /// 
         /// ~&gt;**NOTE:** If you only have the Storage Key(UUID) of the user, you can use `azuredevops.getDescriptor` to resolve the Storage Key(UUID) to a `descriptor`.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = AzureDevOps.GetUser.Invoke(new()
+        ///     {
+        ///         Descriptor = "descriptor",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ## Relevant Links
+        /// 
+        /// - [Azure DevOps Service REST API 7.1 - Graph Users API](https://learn.microsoft.com/en-us/rest/api/azure/devops/graph/users/get?view=azure-devops-rest-7.1)
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azuredevops:index/getUser:getUser", args ?? new GetUserArgs(), options.WithDefaults());
@@ -23,6 +45,28 @@ namespace Pulumi.AzureDevOps
         /// Use this data source to access information about an existing user within Azure DevOps.
         /// 
         /// ~&gt;**NOTE:** If you only have the Storage Key(UUID) of the user, you can use `azuredevops.getDescriptor` to resolve the Storage Key(UUID) to a `descriptor`.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = AzureDevOps.GetUser.Invoke(new()
+        ///     {
+        ///         Descriptor = "descriptor",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ## Relevant Links
+        /// 
+        /// - [Azure DevOps Service REST API 7.1 - Graph Users API](https://learn.microsoft.com/en-us/rest/api/azure/devops/graph/users/get?view=azure-devops-rest-7.1)
         /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("azuredevops:index/getUser:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
@@ -31,6 +75,28 @@ namespace Pulumi.AzureDevOps
         /// Use this data source to access information about an existing user within Azure DevOps.
         /// 
         /// ~&gt;**NOTE:** If you only have the Storage Key(UUID) of the user, you can use `azuredevops.getDescriptor` to resolve the Storage Key(UUID) to a `descriptor`.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = AzureDevOps.GetUser.Invoke(new()
+        ///     {
+        ///         Descriptor = "descriptor",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ## Relevant Links
+        /// 
+        /// - [Azure DevOps Service REST API 7.1 - Graph Users API](https://learn.microsoft.com/en-us/rest/api/azure/devops/graph/users/get?view=azure-devops-rest-7.1)
         /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("azuredevops:index/getUser:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());

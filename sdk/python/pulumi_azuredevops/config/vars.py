@@ -21,6 +21,13 @@ __config__ = pulumi.Config('azuredevops')
 
 class _ExportableConfig(types.ModuleType):
     @_builtins.property
+    def auxiliary_tenant_ids(self) -> Optional[str]:
+        """
+        List of auxiliary Tenant IDs required for multi-tenancy and cross-tenant scenarios.
+        """
+        return __config__.get('auxiliaryTenantIds')
+
+    @_builtins.property
     def client_certificate(self) -> Optional[str]:
         """
         Base64 encoded certificate to use to authenticate to the service principal.
@@ -44,17 +51,16 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def client_id(self) -> Optional[str]:
         """
-        The service principal client or managed service principal id which should be used.
+        The service principal client id which should be used for AAD auth.
         """
         return __config__.get('clientId')
 
     @_builtins.property
-    def client_id_apply(self) -> Optional[str]:
-        return __config__.get('clientIdApply')
-
-    @_builtins.property
-    def client_id_plan(self) -> Optional[str]:
-        return __config__.get('clientIdPlan')
+    def client_id_file_path(self) -> Optional[str]:
+        """
+        The path to a file containing the Client ID which should be used.
+        """
+        return __config__.get('clientIdFilePath')
 
     @_builtins.property
     def client_secret(self) -> Optional[str]:
@@ -71,11 +77,11 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('clientSecretPath')
 
     @_builtins.property
-    def oidc_audience(self) -> Optional[str]:
+    def oidc_azure_service_connection_id(self) -> Optional[str]:
         """
-        Set the audience when requesting OIDC tokens.
+        The Azure Pipelines Service Connection ID to use for authentication.
         """
-        return __config__.get('oidcAudience')
+        return __config__.get('oidcAzureServiceConnectionId')
 
     @_builtins.property
     def oidc_request_token(self) -> Optional[str]:
@@ -92,10 +98,6 @@ class _ExportableConfig(types.ModuleType):
         using OpenID Connect.
         """
         return __config__.get('oidcRequestUrl')
-
-    @_builtins.property
-    def oidc_tfc_tag(self) -> Optional[str]:
-        return __config__.get('oidcTfcTag')
 
     @_builtins.property
     def oidc_token(self) -> Optional[str]:
@@ -128,29 +130,28 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def tenant_id(self) -> Optional[str]:
         """
-        The service principal tenant id which should be used.
+        The service principal tenant id which should be used for AAD auth.
         """
         return __config__.get('tenantId')
 
     @_builtins.property
-    def tenant_id_apply(self) -> Optional[str]:
-        return __config__.get('tenantIdApply')
-
-    @_builtins.property
-    def tenant_id_plan(self) -> Optional[str]:
-        return __config__.get('tenantIdPlan')
+    def use_cli(self) -> Optional[bool]:
+        """
+        Use Azure CLI to authenticate. Defaults to `true`.
+        """
+        return __config__.get_bool('useCli')
 
     @_builtins.property
     def use_msi(self) -> Optional[bool]:
         """
-        Use an Azure Managed Service Identity.
+        Use an Azure Managed Service Identity. Defaults to `false`.
         """
         return __config__.get_bool('useMsi')
 
     @_builtins.property
     def use_oidc(self) -> Optional[bool]:
         """
-        Use an OIDC token to authenticate to a service principal.
+        Use an OIDC token to authenticate to a service principal. Defaults to `false`.
         """
         return __config__.get_bool('useOidc')
 

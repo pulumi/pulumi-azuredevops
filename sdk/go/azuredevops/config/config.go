@@ -11,6 +11,11 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// List of auxiliary Tenant IDs required for multi-tenancy and cross-tenant scenarios.
+func GetAuxiliaryTenantIds(ctx *pulumi.Context) string {
+	return config.Get(ctx, "azuredevops:auxiliaryTenantIds")
+}
+
 // Base64 encoded certificate to use to authenticate to the service principal.
 func GetClientCertificate(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azuredevops:clientCertificate")
@@ -26,15 +31,14 @@ func GetClientCertificatePath(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azuredevops:clientCertificatePath")
 }
 
-// The service principal client or managed service principal id which should be used.
+// The service principal client id which should be used for AAD auth.
 func GetClientId(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azuredevops:clientId")
 }
-func GetClientIdApply(ctx *pulumi.Context) string {
-	return config.Get(ctx, "azuredevops:clientIdApply")
-}
-func GetClientIdPlan(ctx *pulumi.Context) string {
-	return config.Get(ctx, "azuredevops:clientIdPlan")
+
+// The path to a file containing the Client ID which should be used.
+func GetClientIdFilePath(ctx *pulumi.Context) string {
+	return config.Get(ctx, "azuredevops:clientIdFilePath")
 }
 
 // Client secret for authenticating to a service principal.
@@ -47,9 +51,9 @@ func GetClientSecretPath(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azuredevops:clientSecretPath")
 }
 
-// Set the audience when requesting OIDC tokens.
-func GetOidcAudience(ctx *pulumi.Context) string {
-	return config.Get(ctx, "azuredevops:oidcAudience")
+// The Azure Pipelines Service Connection ID to use for authentication.
+func GetOidcAzureServiceConnectionId(ctx *pulumi.Context) string {
+	return config.Get(ctx, "azuredevops:oidcAzureServiceConnectionId")
 }
 
 // The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
@@ -62,9 +66,6 @@ func GetOidcRequestToken(ctx *pulumi.Context) string {
 // using OpenID Connect.
 func GetOidcRequestUrl(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azuredevops:oidcRequestUrl")
-}
-func GetOidcTfcTag(ctx *pulumi.Context) string {
-	return config.Get(ctx, "azuredevops:oidcTfcTag")
 }
 
 // OIDC token to authenticate as a service principal.
@@ -95,23 +96,22 @@ func GetPersonalAccessToken(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azuredevops:personalAccessToken")
 }
 
-// The service principal tenant id which should be used.
+// The service principal tenant id which should be used for AAD auth.
 func GetTenantId(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azuredevops:tenantId")
 }
-func GetTenantIdApply(ctx *pulumi.Context) string {
-	return config.Get(ctx, "azuredevops:tenantIdApply")
-}
-func GetTenantIdPlan(ctx *pulumi.Context) string {
-	return config.Get(ctx, "azuredevops:tenantIdPlan")
+
+// Use Azure CLI to authenticate. Defaults to `true`.
+func GetUseCli(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "azuredevops:useCli")
 }
 
-// Use an Azure Managed Service Identity.
+// Use an Azure Managed Service Identity. Defaults to `false`.
 func GetUseMsi(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "azuredevops:useMsi")
 }
 
-// Use an OIDC token to authenticate to a service principal.
+// Use an OIDC token to authenticate to a service principal. Defaults to `false`.
 func GetUseOidc(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "azuredevops:useOidc")
 }

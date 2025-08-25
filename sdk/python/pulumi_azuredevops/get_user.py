@@ -149,6 +149,19 @@ def get_user(descriptor: Optional[_builtins.str] = None,
 
     ~>**NOTE:** If you only have the Storage Key(UUID) of the user, you can use `get_descriptor` to resolve the Storage Key(UUID) to a `descriptor`.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    example = azuredevops.get_user(descriptor="descriptor")
+    ```
+
+    ## Relevant Links
+
+    - [Azure DevOps Service REST API 7.1 - Graph Users API](https://learn.microsoft.com/en-us/rest/api/azure/devops/graph/users/get?view=azure-devops-rest-7.1)
+
 
     :param _builtins.str descriptor: The descriptor of the user.
     """
@@ -173,6 +186,19 @@ def get_user_output(descriptor: Optional[pulumi.Input[_builtins.str]] = None,
     Use this data source to access information about an existing user within Azure DevOps.
 
     ~>**NOTE:** If you only have the Storage Key(UUID) of the user, you can use `get_descriptor` to resolve the Storage Key(UUID) to a `descriptor`.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    example = azuredevops.get_user(descriptor="descriptor")
+    ```
+
+    ## Relevant Links
+
+    - [Azure DevOps Service REST API 7.1 - Graph Users API](https://learn.microsoft.com/en-us/rest/api/azure/devops/graph/users/get?view=azure-devops-rest-7.1)
 
 
     :param _builtins.str descriptor: The descriptor of the user.

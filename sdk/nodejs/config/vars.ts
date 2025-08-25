@@ -8,6 +8,17 @@ declare var exports: any;
 const __config = new pulumi.Config("azuredevops");
 
 /**
+ * List of auxiliary Tenant IDs required for multi-tenancy and cross-tenant scenarios.
+ */
+export declare const auxiliaryTenantIds: string[] | undefined;
+Object.defineProperty(exports, "auxiliaryTenantIds", {
+    get() {
+        return __config.getObject<string[]>("auxiliaryTenantIds");
+    },
+    enumerable: true,
+});
+
+/**
  * Base64 encoded certificate to use to authenticate to the service principal.
  */
 export declare const clientCertificate: string | undefined;
@@ -41,7 +52,7 @@ Object.defineProperty(exports, "clientCertificatePath", {
 });
 
 /**
- * The service principal client or managed service principal id which should be used.
+ * The service principal client id which should be used for AAD auth.
  */
 export declare const clientId: string | undefined;
 Object.defineProperty(exports, "clientId", {
@@ -51,18 +62,13 @@ Object.defineProperty(exports, "clientId", {
     enumerable: true,
 });
 
-export declare const clientIdApply: string | undefined;
-Object.defineProperty(exports, "clientIdApply", {
+/**
+ * The path to a file containing the Client ID which should be used.
+ */
+export declare const clientIdFilePath: string | undefined;
+Object.defineProperty(exports, "clientIdFilePath", {
     get() {
-        return __config.get("clientIdApply");
-    },
-    enumerable: true,
-});
-
-export declare const clientIdPlan: string | undefined;
-Object.defineProperty(exports, "clientIdPlan", {
-    get() {
-        return __config.get("clientIdPlan");
+        return __config.get("clientIdFilePath");
     },
     enumerable: true,
 });
@@ -90,12 +96,12 @@ Object.defineProperty(exports, "clientSecretPath", {
 });
 
 /**
- * Set the audience when requesting OIDC tokens.
+ * The Azure Pipelines Service Connection ID to use for authentication.
  */
-export declare const oidcAudience: string | undefined;
-Object.defineProperty(exports, "oidcAudience", {
+export declare const oidcAzureServiceConnectionId: string | undefined;
+Object.defineProperty(exports, "oidcAzureServiceConnectionId", {
     get() {
-        return __config.get("oidcAudience");
+        return __config.get("oidcAzureServiceConnectionId");
     },
     enumerable: true,
 });
@@ -120,14 +126,6 @@ export declare const oidcRequestUrl: string | undefined;
 Object.defineProperty(exports, "oidcRequestUrl", {
     get() {
         return __config.get("oidcRequestUrl");
-    },
-    enumerable: true,
-});
-
-export declare const oidcTfcTag: string | undefined;
-Object.defineProperty(exports, "oidcTfcTag", {
-    get() {
-        return __config.get("oidcTfcTag");
     },
     enumerable: true,
 });
@@ -177,7 +175,7 @@ Object.defineProperty(exports, "personalAccessToken", {
 });
 
 /**
- * The service principal tenant id which should be used.
+ * The service principal tenant id which should be used for AAD auth.
  */
 export declare const tenantId: string | undefined;
 Object.defineProperty(exports, "tenantId", {
@@ -187,24 +185,19 @@ Object.defineProperty(exports, "tenantId", {
     enumerable: true,
 });
 
-export declare const tenantIdApply: string | undefined;
-Object.defineProperty(exports, "tenantIdApply", {
+/**
+ * Use Azure CLI to authenticate. Defaults to `true`.
+ */
+export declare const useCli: boolean | undefined;
+Object.defineProperty(exports, "useCli", {
     get() {
-        return __config.get("tenantIdApply");
-    },
-    enumerable: true,
-});
-
-export declare const tenantIdPlan: string | undefined;
-Object.defineProperty(exports, "tenantIdPlan", {
-    get() {
-        return __config.get("tenantIdPlan");
+        return __config.getObject<boolean>("useCli");
     },
     enumerable: true,
 });
 
 /**
- * Use an Azure Managed Service Identity.
+ * Use an Azure Managed Service Identity. Defaults to `false`.
  */
 export declare const useMsi: boolean | undefined;
 Object.defineProperty(exports, "useMsi", {
@@ -215,7 +208,7 @@ Object.defineProperty(exports, "useMsi", {
 });
 
 /**
- * Use an OIDC token to authenticate to a service principal.
+ * Use an OIDC token to authenticate to a service principal. Defaults to `false`.
  */
 export declare const useOidc: boolean | undefined;
 Object.defineProperty(exports, "useOidc", {

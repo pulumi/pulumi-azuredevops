@@ -68,6 +68,14 @@ import (
 //	}
 //
 // ```
+//
+// ## Import
+//
+// Azure DevOps Git Repository Branch can be imported using the `repository ID:branchName`.
+//
+// ```sh
+// $ pulumi import azuredevops:index/gitRepositoryBranch:GitRepositoryBranch example "00000000-0000-0000-0000-000000000000:main"
+// ```
 type GitRepositoryBranch struct {
 	pulumi.CustomResourceState
 
