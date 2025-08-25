@@ -37,16 +37,16 @@ namespace Pulumi.AzureDevOps
         public Output<string?> ClientCertificatePath { get; private set; } = null!;
 
         /// <summary>
-        /// The service principal client or managed service principal id which should be used.
+        /// The service principal client id which should be used for AAD auth.
         /// </summary>
         [Output("clientId")]
         public Output<string?> ClientId { get; private set; } = null!;
 
-        [Output("clientIdApply")]
-        public Output<string?> ClientIdApply { get; private set; } = null!;
-
-        [Output("clientIdPlan")]
-        public Output<string?> ClientIdPlan { get; private set; } = null!;
+        /// <summary>
+        /// The path to a file containing the Client ID which should be used.
+        /// </summary>
+        [Output("clientIdFilePath")]
+        public Output<string?> ClientIdFilePath { get; private set; } = null!;
 
         /// <summary>
         /// Client secret for authenticating to a service principal.
@@ -61,10 +61,10 @@ namespace Pulumi.AzureDevOps
         public Output<string?> ClientSecretPath { get; private set; } = null!;
 
         /// <summary>
-        /// Set the audience when requesting OIDC tokens.
+        /// The Azure Pipelines Service Connection ID to use for authentication.
         /// </summary>
-        [Output("oidcAudience")]
-        public Output<string?> OidcAudience { get; private set; } = null!;
+        [Output("oidcAzureServiceConnectionId")]
+        public Output<string?> OidcAzureServiceConnectionId { get; private set; } = null!;
 
         /// <summary>
         /// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
@@ -79,9 +79,6 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Output("oidcRequestUrl")]
         public Output<string?> OidcRequestUrl { get; private set; } = null!;
-
-        [Output("oidcTfcTag")]
-        public Output<string?> OidcTfcTag { get; private set; } = null!;
 
         /// <summary>
         /// OIDC token to authenticate as a service principal.
@@ -108,16 +105,10 @@ namespace Pulumi.AzureDevOps
         public Output<string?> PersonalAccessToken { get; private set; } = null!;
 
         /// <summary>
-        /// The service principal tenant id which should be used.
+        /// The service principal tenant id which should be used for AAD auth.
         /// </summary>
         [Output("tenantId")]
         public Output<string?> TenantId { get; private set; } = null!;
-
-        [Output("tenantIdApply")]
-        public Output<string?> TenantIdApply { get; private set; } = null!;
-
-        [Output("tenantIdPlan")]
-        public Output<string?> TenantIdPlan { get; private set; } = null!;
 
 
         /// <summary>
@@ -161,6 +152,18 @@ namespace Pulumi.AzureDevOps
 
     public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
+        [Input("auxiliaryTenantIds", json: true)]
+        private InputList<string>? _auxiliaryTenantIds;
+
+        /// <summary>
+        /// List of auxiliary Tenant IDs required for multi-tenancy and cross-tenant scenarios.
+        /// </summary>
+        public InputList<string> AuxiliaryTenantIds
+        {
+            get => _auxiliaryTenantIds ?? (_auxiliaryTenantIds = new InputList<string>());
+            set => _auxiliaryTenantIds = value;
+        }
+
         [Input("clientCertificate")]
         private Input<string>? _clientCertificate;
 
@@ -200,16 +203,16 @@ namespace Pulumi.AzureDevOps
         public Input<string>? ClientCertificatePath { get; set; }
 
         /// <summary>
-        /// The service principal client or managed service principal id which should be used.
+        /// The service principal client id which should be used for AAD auth.
         /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
-        [Input("clientIdApply")]
-        public Input<string>? ClientIdApply { get; set; }
-
-        [Input("clientIdPlan")]
-        public Input<string>? ClientIdPlan { get; set; }
+        /// <summary>
+        /// The path to a file containing the Client ID which should be used.
+        /// </summary>
+        [Input("clientIdFilePath")]
+        public Input<string>? ClientIdFilePath { get; set; }
 
         [Input("clientSecret")]
         private Input<string>? _clientSecret;
@@ -234,10 +237,10 @@ namespace Pulumi.AzureDevOps
         public Input<string>? ClientSecretPath { get; set; }
 
         /// <summary>
-        /// Set the audience when requesting OIDC tokens.
+        /// The Azure Pipelines Service Connection ID to use for authentication.
         /// </summary>
-        [Input("oidcAudience")]
-        public Input<string>? OidcAudience { get; set; }
+        [Input("oidcAzureServiceConnectionId")]
+        public Input<string>? OidcAzureServiceConnectionId { get; set; }
 
         /// <summary>
         /// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
@@ -252,9 +255,6 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Input("oidcRequestUrl")]
         public Input<string>? OidcRequestUrl { get; set; }
-
-        [Input("oidcTfcTag")]
-        public Input<string>? OidcTfcTag { get; set; }
 
         [Input("oidcToken")]
         private Input<string>? _oidcToken;
@@ -301,25 +301,25 @@ namespace Pulumi.AzureDevOps
         }
 
         /// <summary>
-        /// The service principal tenant id which should be used.
+        /// The service principal tenant id which should be used for AAD auth.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
-        [Input("tenantIdApply")]
-        public Input<string>? TenantIdApply { get; set; }
-
-        [Input("tenantIdPlan")]
-        public Input<string>? TenantIdPlan { get; set; }
+        /// <summary>
+        /// Use Azure CLI to authenticate. Defaults to `true`.
+        /// </summary>
+        [Input("useCli", json: true)]
+        public Input<bool>? UseCli { get; set; }
 
         /// <summary>
-        /// Use an Azure Managed Service Identity.
+        /// Use an Azure Managed Service Identity. Defaults to `false`.
         /// </summary>
         [Input("useMsi", json: true)]
         public Input<bool>? UseMsi { get; set; }
 
         /// <summary>
-        /// Use an OIDC token to authenticate to a service principal.
+        /// Use an OIDC token to authenticate to a service principal. Defaults to `false`.
         /// </summary>
         [Input("useOidc", json: true)]
         public Input<bool>? UseOidc { get; set; }

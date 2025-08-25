@@ -24,23 +24,22 @@ type Provider struct {
 	ClientCertificatePassword pulumi.StringPtrOutput `pulumi:"clientCertificatePassword"`
 	// Path to a certificate to use to authenticate to the service principal.
 	ClientCertificatePath pulumi.StringPtrOutput `pulumi:"clientCertificatePath"`
-	// The service principal client or managed service principal id which should be used.
-	ClientId      pulumi.StringPtrOutput `pulumi:"clientId"`
-	ClientIdApply pulumi.StringPtrOutput `pulumi:"clientIdApply"`
-	ClientIdPlan  pulumi.StringPtrOutput `pulumi:"clientIdPlan"`
+	// The service principal client id which should be used for AAD auth.
+	ClientId pulumi.StringPtrOutput `pulumi:"clientId"`
+	// The path to a file containing the Client ID which should be used.
+	ClientIdFilePath pulumi.StringPtrOutput `pulumi:"clientIdFilePath"`
 	// Client secret for authenticating to a service principal.
 	ClientSecret pulumi.StringPtrOutput `pulumi:"clientSecret"`
 	// Path to a file containing a client secret for authenticating to a service principal.
 	ClientSecretPath pulumi.StringPtrOutput `pulumi:"clientSecretPath"`
-	// Set the audience when requesting OIDC tokens.
-	OidcAudience pulumi.StringPtrOutput `pulumi:"oidcAudience"`
+	// The Azure Pipelines Service Connection ID to use for authentication.
+	OidcAzureServiceConnectionId pulumi.StringPtrOutput `pulumi:"oidcAzureServiceConnectionId"`
 	// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
 	// Connect.
 	OidcRequestToken pulumi.StringPtrOutput `pulumi:"oidcRequestToken"`
 	// The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
 	// using OpenID Connect.
 	OidcRequestUrl pulumi.StringPtrOutput `pulumi:"oidcRequestUrl"`
-	OidcTfcTag     pulumi.StringPtrOutput `pulumi:"oidcTfcTag"`
 	// OIDC token to authenticate as a service principal.
 	OidcToken pulumi.StringPtrOutput `pulumi:"oidcToken"`
 	// OIDC token from file to authenticate as a service principal.
@@ -49,10 +48,8 @@ type Provider struct {
 	OrgServiceUrl pulumi.StringPtrOutput `pulumi:"orgServiceUrl"`
 	// The personal access token which should be used.
 	PersonalAccessToken pulumi.StringPtrOutput `pulumi:"personalAccessToken"`
-	// The service principal tenant id which should be used.
-	TenantId      pulumi.StringPtrOutput `pulumi:"tenantId"`
-	TenantIdApply pulumi.StringPtrOutput `pulumi:"tenantIdApply"`
-	TenantIdPlan  pulumi.StringPtrOutput `pulumi:"tenantIdPlan"`
+	// The service principal tenant id which should be used for AAD auth.
+	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
 }
 
 // NewProvider registers a new resource with the given unique name, arguments, and options.
@@ -100,29 +97,30 @@ func NewProvider(ctx *pulumi.Context,
 }
 
 type providerArgs struct {
+	// List of auxiliary Tenant IDs required for multi-tenancy and cross-tenant scenarios.
+	AuxiliaryTenantIds []string `pulumi:"auxiliaryTenantIds"`
 	// Base64 encoded certificate to use to authenticate to the service principal.
 	ClientCertificate *string `pulumi:"clientCertificate"`
 	// Password for a client certificate password.
 	ClientCertificatePassword *string `pulumi:"clientCertificatePassword"`
 	// Path to a certificate to use to authenticate to the service principal.
 	ClientCertificatePath *string `pulumi:"clientCertificatePath"`
-	// The service principal client or managed service principal id which should be used.
-	ClientId      *string `pulumi:"clientId"`
-	ClientIdApply *string `pulumi:"clientIdApply"`
-	ClientIdPlan  *string `pulumi:"clientIdPlan"`
+	// The service principal client id which should be used for AAD auth.
+	ClientId *string `pulumi:"clientId"`
+	// The path to a file containing the Client ID which should be used.
+	ClientIdFilePath *string `pulumi:"clientIdFilePath"`
 	// Client secret for authenticating to a service principal.
 	ClientSecret *string `pulumi:"clientSecret"`
 	// Path to a file containing a client secret for authenticating to a service principal.
 	ClientSecretPath *string `pulumi:"clientSecretPath"`
-	// Set the audience when requesting OIDC tokens.
-	OidcAudience *string `pulumi:"oidcAudience"`
+	// The Azure Pipelines Service Connection ID to use for authentication.
+	OidcAzureServiceConnectionId *string `pulumi:"oidcAzureServiceConnectionId"`
 	// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
 	// Connect.
 	OidcRequestToken *string `pulumi:"oidcRequestToken"`
 	// The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
 	// using OpenID Connect.
 	OidcRequestUrl *string `pulumi:"oidcRequestUrl"`
-	OidcTfcTag     *string `pulumi:"oidcTfcTag"`
 	// OIDC token to authenticate as a service principal.
 	OidcToken *string `pulumi:"oidcToken"`
 	// OIDC token from file to authenticate as a service principal.
@@ -131,41 +129,42 @@ type providerArgs struct {
 	OrgServiceUrl *string `pulumi:"orgServiceUrl"`
 	// The personal access token which should be used.
 	PersonalAccessToken *string `pulumi:"personalAccessToken"`
-	// The service principal tenant id which should be used.
-	TenantId      *string `pulumi:"tenantId"`
-	TenantIdApply *string `pulumi:"tenantIdApply"`
-	TenantIdPlan  *string `pulumi:"tenantIdPlan"`
-	// Use an Azure Managed Service Identity.
+	// The service principal tenant id which should be used for AAD auth.
+	TenantId *string `pulumi:"tenantId"`
+	// Use Azure CLI to authenticate. Defaults to `true`.
+	UseCli *bool `pulumi:"useCli"`
+	// Use an Azure Managed Service Identity. Defaults to `false`.
 	UseMsi *bool `pulumi:"useMsi"`
-	// Use an OIDC token to authenticate to a service principal.
+	// Use an OIDC token to authenticate to a service principal. Defaults to `false`.
 	UseOidc *bool `pulumi:"useOidc"`
 }
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
+	// List of auxiliary Tenant IDs required for multi-tenancy and cross-tenant scenarios.
+	AuxiliaryTenantIds pulumi.StringArrayInput
 	// Base64 encoded certificate to use to authenticate to the service principal.
 	ClientCertificate pulumi.StringPtrInput
 	// Password for a client certificate password.
 	ClientCertificatePassword pulumi.StringPtrInput
 	// Path to a certificate to use to authenticate to the service principal.
 	ClientCertificatePath pulumi.StringPtrInput
-	// The service principal client or managed service principal id which should be used.
-	ClientId      pulumi.StringPtrInput
-	ClientIdApply pulumi.StringPtrInput
-	ClientIdPlan  pulumi.StringPtrInput
+	// The service principal client id which should be used for AAD auth.
+	ClientId pulumi.StringPtrInput
+	// The path to a file containing the Client ID which should be used.
+	ClientIdFilePath pulumi.StringPtrInput
 	// Client secret for authenticating to a service principal.
 	ClientSecret pulumi.StringPtrInput
 	// Path to a file containing a client secret for authenticating to a service principal.
 	ClientSecretPath pulumi.StringPtrInput
-	// Set the audience when requesting OIDC tokens.
-	OidcAudience pulumi.StringPtrInput
+	// The Azure Pipelines Service Connection ID to use for authentication.
+	OidcAzureServiceConnectionId pulumi.StringPtrInput
 	// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
 	// Connect.
 	OidcRequestToken pulumi.StringPtrInput
 	// The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
 	// using OpenID Connect.
 	OidcRequestUrl pulumi.StringPtrInput
-	OidcTfcTag     pulumi.StringPtrInput
 	// OIDC token to authenticate as a service principal.
 	OidcToken pulumi.StringPtrInput
 	// OIDC token from file to authenticate as a service principal.
@@ -174,13 +173,13 @@ type ProviderArgs struct {
 	OrgServiceUrl pulumi.StringPtrInput
 	// The personal access token which should be used.
 	PersonalAccessToken pulumi.StringPtrInput
-	// The service principal tenant id which should be used.
-	TenantId      pulumi.StringPtrInput
-	TenantIdApply pulumi.StringPtrInput
-	TenantIdPlan  pulumi.StringPtrInput
-	// Use an Azure Managed Service Identity.
+	// The service principal tenant id which should be used for AAD auth.
+	TenantId pulumi.StringPtrInput
+	// Use Azure CLI to authenticate. Defaults to `true`.
+	UseCli pulumi.BoolPtrInput
+	// Use an Azure Managed Service Identity. Defaults to `false`.
 	UseMsi pulumi.BoolPtrInput
-	// Use an OIDC token to authenticate to a service principal.
+	// Use an OIDC token to authenticate to a service principal. Defaults to `false`.
 	UseOidc pulumi.BoolPtrInput
 }
 
@@ -259,17 +258,14 @@ func (o ProviderOutput) ClientCertificatePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientCertificatePath }).(pulumi.StringPtrOutput)
 }
 
-// The service principal client or managed service principal id which should be used.
+// The service principal client id which should be used for AAD auth.
 func (o ProviderOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-func (o ProviderOutput) ClientIdApply() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientIdApply }).(pulumi.StringPtrOutput)
-}
-
-func (o ProviderOutput) ClientIdPlan() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientIdPlan }).(pulumi.StringPtrOutput)
+// The path to a file containing the Client ID which should be used.
+func (o ProviderOutput) ClientIdFilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientIdFilePath }).(pulumi.StringPtrOutput)
 }
 
 // Client secret for authenticating to a service principal.
@@ -282,9 +278,9 @@ func (o ProviderOutput) ClientSecretPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientSecretPath }).(pulumi.StringPtrOutput)
 }
 
-// Set the audience when requesting OIDC tokens.
-func (o ProviderOutput) OidcAudience() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.OidcAudience }).(pulumi.StringPtrOutput)
+// The Azure Pipelines Service Connection ID to use for authentication.
+func (o ProviderOutput) OidcAzureServiceConnectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.OidcAzureServiceConnectionId }).(pulumi.StringPtrOutput)
 }
 
 // The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
@@ -297,10 +293,6 @@ func (o ProviderOutput) OidcRequestToken() pulumi.StringPtrOutput {
 // using OpenID Connect.
 func (o ProviderOutput) OidcRequestUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.OidcRequestUrl }).(pulumi.StringPtrOutput)
-}
-
-func (o ProviderOutput) OidcTfcTag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.OidcTfcTag }).(pulumi.StringPtrOutput)
 }
 
 // OIDC token to authenticate as a service principal.
@@ -323,17 +315,9 @@ func (o ProviderOutput) PersonalAccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.PersonalAccessToken }).(pulumi.StringPtrOutput)
 }
 
-// The service principal tenant id which should be used.
+// The service principal tenant id which should be used for AAD auth.
 func (o ProviderOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.TenantId }).(pulumi.StringPtrOutput)
-}
-
-func (o ProviderOutput) TenantIdApply() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.TenantIdApply }).(pulumi.StringPtrOutput)
-}
-
-func (o ProviderOutput) TenantIdPlan() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.TenantIdPlan }).(pulumi.StringPtrOutput)
 }
 
 func init() {

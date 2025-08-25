@@ -14,6 +14,36 @@ import (
 // Use this data source to access information about an existing user within Azure DevOps.
 //
 // ~>**NOTE:** If you only have the Storage Key(UUID) of the user, you can use `getDescriptor` to resolve the Storage Key(UUID) to a `descriptor`.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := azuredevops.LookupUser(ctx, &azuredevops.LookupUserArgs{
+//				Descriptor: "descriptor",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Relevant Links
+//
+// - [Azure DevOps Service REST API 7.1 - Graph Users API](https://learn.microsoft.com/en-us/rest/api/azure/devops/graph/users/get?view=azure-devops-rest-7.1)
 func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.InvokeOption) (*LookupUserResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUserResult

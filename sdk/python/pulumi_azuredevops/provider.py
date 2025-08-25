@@ -19,36 +19,36 @@ __all__ = ['ProviderArgs', 'Provider']
 @pulumi.input_type
 class ProviderArgs:
     def __init__(__self__, *,
+                 auxiliary_tenant_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  client_certificate: Optional[pulumi.Input[_builtins.str]] = None,
                  client_certificate_password: Optional[pulumi.Input[_builtins.str]] = None,
                  client_certificate_path: Optional[pulumi.Input[_builtins.str]] = None,
                  client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id_apply: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id_plan: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_id_file_path: Optional[pulumi.Input[_builtins.str]] = None,
                  client_secret: Optional[pulumi.Input[_builtins.str]] = None,
                  client_secret_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 oidc_audience: Optional[pulumi.Input[_builtins.str]] = None,
+                 oidc_azure_service_connection_id: Optional[pulumi.Input[_builtins.str]] = None,
                  oidc_request_token: Optional[pulumi.Input[_builtins.str]] = None,
                  oidc_request_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 oidc_tfc_tag: Optional[pulumi.Input[_builtins.str]] = None,
                  oidc_token: Optional[pulumi.Input[_builtins.str]] = None,
                  oidc_token_file_path: Optional[pulumi.Input[_builtins.str]] = None,
                  org_service_url: Optional[pulumi.Input[_builtins.str]] = None,
                  personal_access_token: Optional[pulumi.Input[_builtins.str]] = None,
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id_apply: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id_plan: Optional[pulumi.Input[_builtins.str]] = None,
+                 use_cli: Optional[pulumi.Input[_builtins.bool]] = None,
                  use_msi: Optional[pulumi.Input[_builtins.bool]] = None,
                  use_oidc: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Provider resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] auxiliary_tenant_ids: List of auxiliary Tenant IDs required for multi-tenancy and cross-tenant scenarios.
         :param pulumi.Input[_builtins.str] client_certificate: Base64 encoded certificate to use to authenticate to the service principal.
         :param pulumi.Input[_builtins.str] client_certificate_password: Password for a client certificate password.
         :param pulumi.Input[_builtins.str] client_certificate_path: Path to a certificate to use to authenticate to the service principal.
-        :param pulumi.Input[_builtins.str] client_id: The service principal client or managed service principal id which should be used.
+        :param pulumi.Input[_builtins.str] client_id: The service principal client id which should be used for AAD auth.
+        :param pulumi.Input[_builtins.str] client_id_file_path: The path to a file containing the Client ID which should be used.
         :param pulumi.Input[_builtins.str] client_secret: Client secret for authenticating to a service principal.
         :param pulumi.Input[_builtins.str] client_secret_path: Path to a file containing a client secret for authenticating to a service principal.
-        :param pulumi.Input[_builtins.str] oidc_audience: Set the audience when requesting OIDC tokens.
+        :param pulumi.Input[_builtins.str] oidc_azure_service_connection_id: The Azure Pipelines Service Connection ID to use for authentication.
         :param pulumi.Input[_builtins.str] oidc_request_token: The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
                Connect.
         :param pulumi.Input[_builtins.str] oidc_request_url: The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
@@ -57,10 +57,13 @@ class ProviderArgs:
         :param pulumi.Input[_builtins.str] oidc_token_file_path: OIDC token from file to authenticate as a service principal.
         :param pulumi.Input[_builtins.str] org_service_url: The url of the Azure DevOps instance which should be used.
         :param pulumi.Input[_builtins.str] personal_access_token: The personal access token which should be used.
-        :param pulumi.Input[_builtins.str] tenant_id: The service principal tenant id which should be used.
-        :param pulumi.Input[_builtins.bool] use_msi: Use an Azure Managed Service Identity.
-        :param pulumi.Input[_builtins.bool] use_oidc: Use an OIDC token to authenticate to a service principal.
+        :param pulumi.Input[_builtins.str] tenant_id: The service principal tenant id which should be used for AAD auth.
+        :param pulumi.Input[_builtins.bool] use_cli: Use Azure CLI to authenticate. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] use_msi: Use an Azure Managed Service Identity. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] use_oidc: Use an OIDC token to authenticate to a service principal. Defaults to `false`.
         """
+        if auxiliary_tenant_ids is not None:
+            pulumi.set(__self__, "auxiliary_tenant_ids", auxiliary_tenant_ids)
         if client_certificate is not None:
             pulumi.set(__self__, "client_certificate", client_certificate)
         if client_certificate_password is not None:
@@ -69,22 +72,18 @@ class ProviderArgs:
             pulumi.set(__self__, "client_certificate_path", client_certificate_path)
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
-        if client_id_apply is not None:
-            pulumi.set(__self__, "client_id_apply", client_id_apply)
-        if client_id_plan is not None:
-            pulumi.set(__self__, "client_id_plan", client_id_plan)
+        if client_id_file_path is not None:
+            pulumi.set(__self__, "client_id_file_path", client_id_file_path)
         if client_secret is not None:
             pulumi.set(__self__, "client_secret", client_secret)
         if client_secret_path is not None:
             pulumi.set(__self__, "client_secret_path", client_secret_path)
-        if oidc_audience is not None:
-            pulumi.set(__self__, "oidc_audience", oidc_audience)
+        if oidc_azure_service_connection_id is not None:
+            pulumi.set(__self__, "oidc_azure_service_connection_id", oidc_azure_service_connection_id)
         if oidc_request_token is not None:
             pulumi.set(__self__, "oidc_request_token", oidc_request_token)
         if oidc_request_url is not None:
             pulumi.set(__self__, "oidc_request_url", oidc_request_url)
-        if oidc_tfc_tag is not None:
-            pulumi.set(__self__, "oidc_tfc_tag", oidc_tfc_tag)
         if oidc_token is not None:
             pulumi.set(__self__, "oidc_token", oidc_token)
         if oidc_token_file_path is not None:
@@ -97,14 +96,24 @@ class ProviderArgs:
             pulumi.set(__self__, "personal_access_token", personal_access_token)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
-        if tenant_id_apply is not None:
-            pulumi.set(__self__, "tenant_id_apply", tenant_id_apply)
-        if tenant_id_plan is not None:
-            pulumi.set(__self__, "tenant_id_plan", tenant_id_plan)
+        if use_cli is not None:
+            pulumi.set(__self__, "use_cli", use_cli)
         if use_msi is not None:
             pulumi.set(__self__, "use_msi", use_msi)
         if use_oidc is not None:
             pulumi.set(__self__, "use_oidc", use_oidc)
+
+    @_builtins.property
+    @pulumi.getter(name="auxiliaryTenantIds")
+    def auxiliary_tenant_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of auxiliary Tenant IDs required for multi-tenancy and cross-tenant scenarios.
+        """
+        return pulumi.get(self, "auxiliary_tenant_ids")
+
+    @auxiliary_tenant_ids.setter
+    def auxiliary_tenant_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "auxiliary_tenant_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificate")
@@ -146,7 +155,7 @@ class ProviderArgs:
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The service principal client or managed service principal id which should be used.
+        The service principal client id which should be used for AAD auth.
         """
         return pulumi.get(self, "client_id")
 
@@ -155,22 +164,16 @@ class ProviderArgs:
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
-    @pulumi.getter(name="clientIdApply")
-    def client_id_apply(self) -> Optional[pulumi.Input[_builtins.str]]:
-        return pulumi.get(self, "client_id_apply")
+    @pulumi.getter(name="clientIdFilePath")
+    def client_id_file_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The path to a file containing the Client ID which should be used.
+        """
+        return pulumi.get(self, "client_id_file_path")
 
-    @client_id_apply.setter
-    def client_id_apply(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "client_id_apply", value)
-
-    @_builtins.property
-    @pulumi.getter(name="clientIdPlan")
-    def client_id_plan(self) -> Optional[pulumi.Input[_builtins.str]]:
-        return pulumi.get(self, "client_id_plan")
-
-    @client_id_plan.setter
-    def client_id_plan(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "client_id_plan", value)
+    @client_id_file_path.setter
+    def client_id_file_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "client_id_file_path", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
@@ -197,16 +200,16 @@ class ProviderArgs:
         pulumi.set(self, "client_secret_path", value)
 
     @_builtins.property
-    @pulumi.getter(name="oidcAudience")
-    def oidc_audience(self) -> Optional[pulumi.Input[_builtins.str]]:
+    @pulumi.getter(name="oidcAzureServiceConnectionId")
+    def oidc_azure_service_connection_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Set the audience when requesting OIDC tokens.
+        The Azure Pipelines Service Connection ID to use for authentication.
         """
-        return pulumi.get(self, "oidc_audience")
+        return pulumi.get(self, "oidc_azure_service_connection_id")
 
-    @oidc_audience.setter
-    def oidc_audience(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "oidc_audience", value)
+    @oidc_azure_service_connection_id.setter
+    def oidc_azure_service_connection_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "oidc_azure_service_connection_id", value)
 
     @_builtins.property
     @pulumi.getter(name="oidcRequestToken")
@@ -233,15 +236,6 @@ class ProviderArgs:
     @oidc_request_url.setter
     def oidc_request_url(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "oidc_request_url", value)
-
-    @_builtins.property
-    @pulumi.getter(name="oidcTfcTag")
-    def oidc_tfc_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
-        return pulumi.get(self, "oidc_tfc_tag")
-
-    @oidc_tfc_tag.setter
-    def oidc_tfc_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "oidc_tfc_tag", value)
 
     @_builtins.property
     @pulumi.getter(name="oidcToken")
@@ -295,7 +289,7 @@ class ProviderArgs:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The service principal tenant id which should be used.
+        The service principal tenant id which should be used for AAD auth.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -304,28 +298,22 @@ class ProviderArgs:
         pulumi.set(self, "tenant_id", value)
 
     @_builtins.property
-    @pulumi.getter(name="tenantIdApply")
-    def tenant_id_apply(self) -> Optional[pulumi.Input[_builtins.str]]:
-        return pulumi.get(self, "tenant_id_apply")
+    @pulumi.getter(name="useCli")
+    def use_cli(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Use Azure CLI to authenticate. Defaults to `true`.
+        """
+        return pulumi.get(self, "use_cli")
 
-    @tenant_id_apply.setter
-    def tenant_id_apply(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "tenant_id_apply", value)
-
-    @_builtins.property
-    @pulumi.getter(name="tenantIdPlan")
-    def tenant_id_plan(self) -> Optional[pulumi.Input[_builtins.str]]:
-        return pulumi.get(self, "tenant_id_plan")
-
-    @tenant_id_plan.setter
-    def tenant_id_plan(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "tenant_id_plan", value)
+    @use_cli.setter
+    def use_cli(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "use_cli", value)
 
     @_builtins.property
     @pulumi.getter(name="useMsi")
     def use_msi(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Use an Azure Managed Service Identity.
+        Use an Azure Managed Service Identity. Defaults to `false`.
         """
         return pulumi.get(self, "use_msi")
 
@@ -337,7 +325,7 @@ class ProviderArgs:
     @pulumi.getter(name="useOidc")
     def use_oidc(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Use an OIDC token to authenticate to a service principal.
+        Use an OIDC token to authenticate to a service principal. Defaults to `false`.
         """
         return pulumi.get(self, "use_oidc")
 
@@ -352,25 +340,23 @@ class Provider(pulumi.ProviderResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auxiliary_tenant_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  client_certificate: Optional[pulumi.Input[_builtins.str]] = None,
                  client_certificate_password: Optional[pulumi.Input[_builtins.str]] = None,
                  client_certificate_path: Optional[pulumi.Input[_builtins.str]] = None,
                  client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id_apply: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id_plan: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_id_file_path: Optional[pulumi.Input[_builtins.str]] = None,
                  client_secret: Optional[pulumi.Input[_builtins.str]] = None,
                  client_secret_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 oidc_audience: Optional[pulumi.Input[_builtins.str]] = None,
+                 oidc_azure_service_connection_id: Optional[pulumi.Input[_builtins.str]] = None,
                  oidc_request_token: Optional[pulumi.Input[_builtins.str]] = None,
                  oidc_request_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 oidc_tfc_tag: Optional[pulumi.Input[_builtins.str]] = None,
                  oidc_token: Optional[pulumi.Input[_builtins.str]] = None,
                  oidc_token_file_path: Optional[pulumi.Input[_builtins.str]] = None,
                  org_service_url: Optional[pulumi.Input[_builtins.str]] = None,
                  personal_access_token: Optional[pulumi.Input[_builtins.str]] = None,
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id_apply: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id_plan: Optional[pulumi.Input[_builtins.str]] = None,
+                 use_cli: Optional[pulumi.Input[_builtins.bool]] = None,
                  use_msi: Optional[pulumi.Input[_builtins.bool]] = None,
                  use_oidc: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
@@ -382,13 +368,15 @@ class Provider(pulumi.ProviderResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] auxiliary_tenant_ids: List of auxiliary Tenant IDs required for multi-tenancy and cross-tenant scenarios.
         :param pulumi.Input[_builtins.str] client_certificate: Base64 encoded certificate to use to authenticate to the service principal.
         :param pulumi.Input[_builtins.str] client_certificate_password: Password for a client certificate password.
         :param pulumi.Input[_builtins.str] client_certificate_path: Path to a certificate to use to authenticate to the service principal.
-        :param pulumi.Input[_builtins.str] client_id: The service principal client or managed service principal id which should be used.
+        :param pulumi.Input[_builtins.str] client_id: The service principal client id which should be used for AAD auth.
+        :param pulumi.Input[_builtins.str] client_id_file_path: The path to a file containing the Client ID which should be used.
         :param pulumi.Input[_builtins.str] client_secret: Client secret for authenticating to a service principal.
         :param pulumi.Input[_builtins.str] client_secret_path: Path to a file containing a client secret for authenticating to a service principal.
-        :param pulumi.Input[_builtins.str] oidc_audience: Set the audience when requesting OIDC tokens.
+        :param pulumi.Input[_builtins.str] oidc_azure_service_connection_id: The Azure Pipelines Service Connection ID to use for authentication.
         :param pulumi.Input[_builtins.str] oidc_request_token: The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
                Connect.
         :param pulumi.Input[_builtins.str] oidc_request_url: The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
@@ -397,9 +385,10 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[_builtins.str] oidc_token_file_path: OIDC token from file to authenticate as a service principal.
         :param pulumi.Input[_builtins.str] org_service_url: The url of the Azure DevOps instance which should be used.
         :param pulumi.Input[_builtins.str] personal_access_token: The personal access token which should be used.
-        :param pulumi.Input[_builtins.str] tenant_id: The service principal tenant id which should be used.
-        :param pulumi.Input[_builtins.bool] use_msi: Use an Azure Managed Service Identity.
-        :param pulumi.Input[_builtins.bool] use_oidc: Use an OIDC token to authenticate to a service principal.
+        :param pulumi.Input[_builtins.str] tenant_id: The service principal tenant id which should be used for AAD auth.
+        :param pulumi.Input[_builtins.bool] use_cli: Use Azure CLI to authenticate. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] use_msi: Use an Azure Managed Service Identity. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] use_oidc: Use an OIDC token to authenticate to a service principal. Defaults to `false`.
         """
         ...
     @overload
@@ -428,25 +417,23 @@ class Provider(pulumi.ProviderResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auxiliary_tenant_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  client_certificate: Optional[pulumi.Input[_builtins.str]] = None,
                  client_certificate_password: Optional[pulumi.Input[_builtins.str]] = None,
                  client_certificate_path: Optional[pulumi.Input[_builtins.str]] = None,
                  client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id_apply: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id_plan: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_id_file_path: Optional[pulumi.Input[_builtins.str]] = None,
                  client_secret: Optional[pulumi.Input[_builtins.str]] = None,
                  client_secret_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 oidc_audience: Optional[pulumi.Input[_builtins.str]] = None,
+                 oidc_azure_service_connection_id: Optional[pulumi.Input[_builtins.str]] = None,
                  oidc_request_token: Optional[pulumi.Input[_builtins.str]] = None,
                  oidc_request_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 oidc_tfc_tag: Optional[pulumi.Input[_builtins.str]] = None,
                  oidc_token: Optional[pulumi.Input[_builtins.str]] = None,
                  oidc_token_file_path: Optional[pulumi.Input[_builtins.str]] = None,
                  org_service_url: Optional[pulumi.Input[_builtins.str]] = None,
                  personal_access_token: Optional[pulumi.Input[_builtins.str]] = None,
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id_apply: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id_plan: Optional[pulumi.Input[_builtins.str]] = None,
+                 use_cli: Optional[pulumi.Input[_builtins.bool]] = None,
                  use_msi: Optional[pulumi.Input[_builtins.bool]] = None,
                  use_oidc: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
@@ -458,18 +445,17 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProviderArgs.__new__(ProviderArgs)
 
+            __props__.__dict__["auxiliary_tenant_ids"] = pulumi.Output.from_input(auxiliary_tenant_ids).apply(pulumi.runtime.to_json) if auxiliary_tenant_ids is not None else None
             __props__.__dict__["client_certificate"] = None if client_certificate is None else pulumi.Output.secret(client_certificate)
             __props__.__dict__["client_certificate_password"] = None if client_certificate_password is None else pulumi.Output.secret(client_certificate_password)
             __props__.__dict__["client_certificate_path"] = client_certificate_path
             __props__.__dict__["client_id"] = client_id
-            __props__.__dict__["client_id_apply"] = client_id_apply
-            __props__.__dict__["client_id_plan"] = client_id_plan
+            __props__.__dict__["client_id_file_path"] = client_id_file_path
             __props__.__dict__["client_secret"] = None if client_secret is None else pulumi.Output.secret(client_secret)
             __props__.__dict__["client_secret_path"] = client_secret_path
-            __props__.__dict__["oidc_audience"] = oidc_audience
+            __props__.__dict__["oidc_azure_service_connection_id"] = oidc_azure_service_connection_id
             __props__.__dict__["oidc_request_token"] = oidc_request_token
             __props__.__dict__["oidc_request_url"] = oidc_request_url
-            __props__.__dict__["oidc_tfc_tag"] = oidc_tfc_tag
             __props__.__dict__["oidc_token"] = None if oidc_token is None else pulumi.Output.secret(oidc_token)
             __props__.__dict__["oidc_token_file_path"] = oidc_token_file_path
             if org_service_url is None:
@@ -477,8 +463,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["org_service_url"] = org_service_url
             __props__.__dict__["personal_access_token"] = None if personal_access_token is None else pulumi.Output.secret(personal_access_token)
             __props__.__dict__["tenant_id"] = tenant_id
-            __props__.__dict__["tenant_id_apply"] = tenant_id_apply
-            __props__.__dict__["tenant_id_plan"] = tenant_id_plan
+            __props__.__dict__["use_cli"] = pulumi.Output.from_input(use_cli).apply(pulumi.runtime.to_json) if use_cli is not None else None
             __props__.__dict__["use_msi"] = pulumi.Output.from_input(use_msi).apply(pulumi.runtime.to_json) if use_msi is not None else None
             __props__.__dict__["use_oidc"] = pulumi.Output.from_input(use_oidc).apply(pulumi.runtime.to_json) if use_oidc is not None else None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["clientCertificate", "clientCertificatePassword", "clientSecret", "oidcToken", "personalAccessToken"])
@@ -517,19 +502,17 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The service principal client or managed service principal id which should be used.
+        The service principal client id which should be used for AAD auth.
         """
         return pulumi.get(self, "client_id")
 
     @_builtins.property
-    @pulumi.getter(name="clientIdApply")
-    def client_id_apply(self) -> pulumi.Output[Optional[_builtins.str]]:
-        return pulumi.get(self, "client_id_apply")
-
-    @_builtins.property
-    @pulumi.getter(name="clientIdPlan")
-    def client_id_plan(self) -> pulumi.Output[Optional[_builtins.str]]:
-        return pulumi.get(self, "client_id_plan")
+    @pulumi.getter(name="clientIdFilePath")
+    def client_id_file_path(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The path to a file containing the Client ID which should be used.
+        """
+        return pulumi.get(self, "client_id_file_path")
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
@@ -548,12 +531,12 @@ class Provider(pulumi.ProviderResource):
         return pulumi.get(self, "client_secret_path")
 
     @_builtins.property
-    @pulumi.getter(name="oidcAudience")
-    def oidc_audience(self) -> pulumi.Output[Optional[_builtins.str]]:
+    @pulumi.getter(name="oidcAzureServiceConnectionId")
+    def oidc_azure_service_connection_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Set the audience when requesting OIDC tokens.
+        The Azure Pipelines Service Connection ID to use for authentication.
         """
-        return pulumi.get(self, "oidc_audience")
+        return pulumi.get(self, "oidc_azure_service_connection_id")
 
     @_builtins.property
     @pulumi.getter(name="oidcRequestToken")
@@ -572,11 +555,6 @@ class Provider(pulumi.ProviderResource):
         using OpenID Connect.
         """
         return pulumi.get(self, "oidc_request_url")
-
-    @_builtins.property
-    @pulumi.getter(name="oidcTfcTag")
-    def oidc_tfc_tag(self) -> pulumi.Output[Optional[_builtins.str]]:
-        return pulumi.get(self, "oidc_tfc_tag")
 
     @_builtins.property
     @pulumi.getter(name="oidcToken")
@@ -614,19 +592,9 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The service principal tenant id which should be used.
+        The service principal tenant id which should be used for AAD auth.
         """
         return pulumi.get(self, "tenant_id")
-
-    @_builtins.property
-    @pulumi.getter(name="tenantIdApply")
-    def tenant_id_apply(self) -> pulumi.Output[Optional[_builtins.str]]:
-        return pulumi.get(self, "tenant_id_apply")
-
-    @_builtins.property
-    @pulumi.getter(name="tenantIdPlan")
-    def tenant_id_plan(self) -> pulumi.Output[Optional[_builtins.str]]:
-        return pulumi.get(self, "tenant_id_plan")
 
     @pulumi.output_type
     class TerraformConfigResult:

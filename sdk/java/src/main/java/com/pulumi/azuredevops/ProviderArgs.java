@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ProviderArgs Empty = new ProviderArgs();
+
+    /**
+     * List of auxiliary Tenant IDs required for multi-tenancy and cross-tenant scenarios.
+     * 
+     */
+    @Import(name="auxiliaryTenantIds", json=true)
+    private @Nullable Output<List<String>> auxiliaryTenantIds;
+
+    /**
+     * @return List of auxiliary Tenant IDs required for multi-tenancy and cross-tenant scenarios.
+     * 
+     */
+    public Optional<Output<List<String>>> auxiliaryTenantIds() {
+        return Optional.ofNullable(this.auxiliaryTenantIds);
+    }
 
     /**
      * Base64 encoded certificate to use to authenticate to the service principal.
@@ -63,32 +79,33 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The service principal client or managed service principal id which should be used.
+     * The service principal client id which should be used for AAD auth.
      * 
      */
     @Import(name="clientId")
     private @Nullable Output<String> clientId;
 
     /**
-     * @return The service principal client or managed service principal id which should be used.
+     * @return The service principal client id which should be used for AAD auth.
      * 
      */
     public Optional<Output<String>> clientId() {
         return Optional.ofNullable(this.clientId);
     }
 
-    @Import(name="clientIdApply")
-    private @Nullable Output<String> clientIdApply;
+    /**
+     * The path to a file containing the Client ID which should be used.
+     * 
+     */
+    @Import(name="clientIdFilePath")
+    private @Nullable Output<String> clientIdFilePath;
 
-    public Optional<Output<String>> clientIdApply() {
-        return Optional.ofNullable(this.clientIdApply);
-    }
-
-    @Import(name="clientIdPlan")
-    private @Nullable Output<String> clientIdPlan;
-
-    public Optional<Output<String>> clientIdPlan() {
-        return Optional.ofNullable(this.clientIdPlan);
+    /**
+     * @return The path to a file containing the Client ID which should be used.
+     * 
+     */
+    public Optional<Output<String>> clientIdFilePath() {
+        return Optional.ofNullable(this.clientIdFilePath);
     }
 
     /**
@@ -122,18 +139,18 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Set the audience when requesting OIDC tokens.
+     * The Azure Pipelines Service Connection ID to use for authentication.
      * 
      */
-    @Import(name="oidcAudience")
-    private @Nullable Output<String> oidcAudience;
+    @Import(name="oidcAzureServiceConnectionId")
+    private @Nullable Output<String> oidcAzureServiceConnectionId;
 
     /**
-     * @return Set the audience when requesting OIDC tokens.
+     * @return The Azure Pipelines Service Connection ID to use for authentication.
      * 
      */
-    public Optional<Output<String>> oidcAudience() {
-        return Optional.ofNullable(this.oidcAudience);
+    public Optional<Output<String>> oidcAzureServiceConnectionId() {
+        return Optional.ofNullable(this.oidcAzureServiceConnectionId);
     }
 
     /**
@@ -168,13 +185,6 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> oidcRequestUrl() {
         return Optional.ofNullable(this.oidcRequestUrl);
-    }
-
-    @Import(name="oidcTfcTag")
-    private @Nullable Output<String> oidcTfcTag;
-
-    public Optional<Output<String>> oidcTfcTag() {
-        return Optional.ofNullable(this.oidcTfcTag);
     }
 
     /**
@@ -238,43 +248,44 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The service principal tenant id which should be used.
+     * The service principal tenant id which should be used for AAD auth.
      * 
      */
     @Import(name="tenantId")
     private @Nullable Output<String> tenantId;
 
     /**
-     * @return The service principal tenant id which should be used.
+     * @return The service principal tenant id which should be used for AAD auth.
      * 
      */
     public Optional<Output<String>> tenantId() {
         return Optional.ofNullable(this.tenantId);
     }
 
-    @Import(name="tenantIdApply")
-    private @Nullable Output<String> tenantIdApply;
+    /**
+     * Use Azure CLI to authenticate. Defaults to `true`.
+     * 
+     */
+    @Import(name="useCli", json=true)
+    private @Nullable Output<Boolean> useCli;
 
-    public Optional<Output<String>> tenantIdApply() {
-        return Optional.ofNullable(this.tenantIdApply);
-    }
-
-    @Import(name="tenantIdPlan")
-    private @Nullable Output<String> tenantIdPlan;
-
-    public Optional<Output<String>> tenantIdPlan() {
-        return Optional.ofNullable(this.tenantIdPlan);
+    /**
+     * @return Use Azure CLI to authenticate. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> useCli() {
+        return Optional.ofNullable(this.useCli);
     }
 
     /**
-     * Use an Azure Managed Service Identity.
+     * Use an Azure Managed Service Identity. Defaults to `false`.
      * 
      */
     @Import(name="useMsi", json=true)
     private @Nullable Output<Boolean> useMsi;
 
     /**
-     * @return Use an Azure Managed Service Identity.
+     * @return Use an Azure Managed Service Identity. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> useMsi() {
@@ -282,14 +293,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Use an OIDC token to authenticate to a service principal.
+     * Use an OIDC token to authenticate to a service principal. Defaults to `false`.
      * 
      */
     @Import(name="useOidc", json=true)
     private @Nullable Output<Boolean> useOidc;
 
     /**
-     * @return Use an OIDC token to authenticate to a service principal.
+     * @return Use an OIDC token to authenticate to a service principal. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> useOidc() {
@@ -299,25 +310,23 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     private ProviderArgs() {}
 
     private ProviderArgs(ProviderArgs $) {
+        this.auxiliaryTenantIds = $.auxiliaryTenantIds;
         this.clientCertificate = $.clientCertificate;
         this.clientCertificatePassword = $.clientCertificatePassword;
         this.clientCertificatePath = $.clientCertificatePath;
         this.clientId = $.clientId;
-        this.clientIdApply = $.clientIdApply;
-        this.clientIdPlan = $.clientIdPlan;
+        this.clientIdFilePath = $.clientIdFilePath;
         this.clientSecret = $.clientSecret;
         this.clientSecretPath = $.clientSecretPath;
-        this.oidcAudience = $.oidcAudience;
+        this.oidcAzureServiceConnectionId = $.oidcAzureServiceConnectionId;
         this.oidcRequestToken = $.oidcRequestToken;
         this.oidcRequestUrl = $.oidcRequestUrl;
-        this.oidcTfcTag = $.oidcTfcTag;
         this.oidcToken = $.oidcToken;
         this.oidcTokenFilePath = $.oidcTokenFilePath;
         this.orgServiceUrl = $.orgServiceUrl;
         this.personalAccessToken = $.personalAccessToken;
         this.tenantId = $.tenantId;
-        this.tenantIdApply = $.tenantIdApply;
-        this.tenantIdPlan = $.tenantIdPlan;
+        this.useCli = $.useCli;
         this.useMsi = $.useMsi;
         this.useOidc = $.useOidc;
     }
@@ -338,6 +347,37 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ProviderArgs defaults) {
             $ = new ProviderArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param auxiliaryTenantIds List of auxiliary Tenant IDs required for multi-tenancy and cross-tenant scenarios.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder auxiliaryTenantIds(@Nullable Output<List<String>> auxiliaryTenantIds) {
+            $.auxiliaryTenantIds = auxiliaryTenantIds;
+            return this;
+        }
+
+        /**
+         * @param auxiliaryTenantIds List of auxiliary Tenant IDs required for multi-tenancy and cross-tenant scenarios.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder auxiliaryTenantIds(List<String> auxiliaryTenantIds) {
+            return auxiliaryTenantIds(Output.of(auxiliaryTenantIds));
+        }
+
+        /**
+         * @param auxiliaryTenantIds List of auxiliary Tenant IDs required for multi-tenancy and cross-tenant scenarios.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder auxiliaryTenantIds(String... auxiliaryTenantIds) {
+            return auxiliaryTenantIds(List.of(auxiliaryTenantIds));
         }
 
         /**
@@ -404,7 +444,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientId The service principal client or managed service principal id which should be used.
+         * @param clientId The service principal client id which should be used for AAD auth.
          * 
          * @return builder
          * 
@@ -415,7 +455,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientId The service principal client or managed service principal id which should be used.
+         * @param clientId The service principal client id which should be used for AAD auth.
          * 
          * @return builder
          * 
@@ -424,22 +464,25 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
             return clientId(Output.of(clientId));
         }
 
-        public Builder clientIdApply(@Nullable Output<String> clientIdApply) {
-            $.clientIdApply = clientIdApply;
+        /**
+         * @param clientIdFilePath The path to a file containing the Client ID which should be used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientIdFilePath(@Nullable Output<String> clientIdFilePath) {
+            $.clientIdFilePath = clientIdFilePath;
             return this;
         }
 
-        public Builder clientIdApply(String clientIdApply) {
-            return clientIdApply(Output.of(clientIdApply));
-        }
-
-        public Builder clientIdPlan(@Nullable Output<String> clientIdPlan) {
-            $.clientIdPlan = clientIdPlan;
-            return this;
-        }
-
-        public Builder clientIdPlan(String clientIdPlan) {
-            return clientIdPlan(Output.of(clientIdPlan));
+        /**
+         * @param clientIdFilePath The path to a file containing the Client ID which should be used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientIdFilePath(String clientIdFilePath) {
+            return clientIdFilePath(Output.of(clientIdFilePath));
         }
 
         /**
@@ -485,24 +528,24 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param oidcAudience Set the audience when requesting OIDC tokens.
+         * @param oidcAzureServiceConnectionId The Azure Pipelines Service Connection ID to use for authentication.
          * 
          * @return builder
          * 
          */
-        public Builder oidcAudience(@Nullable Output<String> oidcAudience) {
-            $.oidcAudience = oidcAudience;
+        public Builder oidcAzureServiceConnectionId(@Nullable Output<String> oidcAzureServiceConnectionId) {
+            $.oidcAzureServiceConnectionId = oidcAzureServiceConnectionId;
             return this;
         }
 
         /**
-         * @param oidcAudience Set the audience when requesting OIDC tokens.
+         * @param oidcAzureServiceConnectionId The Azure Pipelines Service Connection ID to use for authentication.
          * 
          * @return builder
          * 
          */
-        public Builder oidcAudience(String oidcAudience) {
-            return oidcAudience(Output.of(oidcAudience));
+        public Builder oidcAzureServiceConnectionId(String oidcAzureServiceConnectionId) {
+            return oidcAzureServiceConnectionId(Output.of(oidcAzureServiceConnectionId));
         }
 
         /**
@@ -549,15 +592,6 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder oidcRequestUrl(String oidcRequestUrl) {
             return oidcRequestUrl(Output.of(oidcRequestUrl));
-        }
-
-        public Builder oidcTfcTag(@Nullable Output<String> oidcTfcTag) {
-            $.oidcTfcTag = oidcTfcTag;
-            return this;
-        }
-
-        public Builder oidcTfcTag(String oidcTfcTag) {
-            return oidcTfcTag(Output.of(oidcTfcTag));
         }
 
         /**
@@ -645,7 +679,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tenantId The service principal tenant id which should be used.
+         * @param tenantId The service principal tenant id which should be used for AAD auth.
          * 
          * @return builder
          * 
@@ -656,7 +690,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tenantId The service principal tenant id which should be used.
+         * @param tenantId The service principal tenant id which should be used for AAD auth.
          * 
          * @return builder
          * 
@@ -665,26 +699,29 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
             return tenantId(Output.of(tenantId));
         }
 
-        public Builder tenantIdApply(@Nullable Output<String> tenantIdApply) {
-            $.tenantIdApply = tenantIdApply;
+        /**
+         * @param useCli Use Azure CLI to authenticate. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useCli(@Nullable Output<Boolean> useCli) {
+            $.useCli = useCli;
             return this;
-        }
-
-        public Builder tenantIdApply(String tenantIdApply) {
-            return tenantIdApply(Output.of(tenantIdApply));
-        }
-
-        public Builder tenantIdPlan(@Nullable Output<String> tenantIdPlan) {
-            $.tenantIdPlan = tenantIdPlan;
-            return this;
-        }
-
-        public Builder tenantIdPlan(String tenantIdPlan) {
-            return tenantIdPlan(Output.of(tenantIdPlan));
         }
 
         /**
-         * @param useMsi Use an Azure Managed Service Identity.
+         * @param useCli Use Azure CLI to authenticate. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useCli(Boolean useCli) {
+            return useCli(Output.of(useCli));
+        }
+
+        /**
+         * @param useMsi Use an Azure Managed Service Identity. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -695,7 +732,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param useMsi Use an Azure Managed Service Identity.
+         * @param useMsi Use an Azure Managed Service Identity. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -705,7 +742,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param useOidc Use an OIDC token to authenticate to a service principal.
+         * @param useOidc Use an OIDC token to authenticate to a service principal. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -716,7 +753,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param useOidc Use an OIDC token to authenticate to a service principal.
+         * @param useOidc Use an OIDC token to authenticate to a service principal. Defaults to `false`.
          * 
          * @return builder
          * 

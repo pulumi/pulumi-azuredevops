@@ -14,6 +14,11 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
+auxiliaryTenantIds: Optional[str]
+"""
+List of auxiliary Tenant IDs required for multi-tenancy and cross-tenant scenarios.
+"""
+
 clientCertificate: Optional[str]
 """
 Base64 encoded certificate to use to authenticate to the service principal.
@@ -31,12 +36,13 @@ Path to a certificate to use to authenticate to the service principal.
 
 clientId: Optional[str]
 """
-The service principal client or managed service principal id which should be used.
+The service principal client id which should be used for AAD auth.
 """
 
-clientIdApply: Optional[str]
-
-clientIdPlan: Optional[str]
+clientIdFilePath: Optional[str]
+"""
+The path to a file containing the Client ID which should be used.
+"""
 
 clientSecret: Optional[str]
 """
@@ -48,9 +54,9 @@ clientSecretPath: Optional[str]
 Path to a file containing a client secret for authenticating to a service principal.
 """
 
-oidcAudience: Optional[str]
+oidcAzureServiceConnectionId: Optional[str]
 """
-Set the audience when requesting OIDC tokens.
+The Azure Pipelines Service Connection ID to use for authentication.
 """
 
 oidcRequestToken: Optional[str]
@@ -64,8 +70,6 @@ oidcRequestUrl: Optional[str]
 The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
 using OpenID Connect.
 """
-
-oidcTfcTag: Optional[str]
 
 oidcToken: Optional[str]
 """
@@ -89,20 +93,21 @@ The personal access token which should be used.
 
 tenantId: Optional[str]
 """
-The service principal tenant id which should be used.
+The service principal tenant id which should be used for AAD auth.
 """
 
-tenantIdApply: Optional[str]
-
-tenantIdPlan: Optional[str]
+useCli: Optional[bool]
+"""
+Use Azure CLI to authenticate. Defaults to `true`.
+"""
 
 useMsi: Optional[bool]
 """
-Use an Azure Managed Service Identity.
+Use an Azure Managed Service Identity. Defaults to `false`.
 """
 
 useOidc: Optional[bool]
 """
-Use an OIDC token to authenticate to a service principal.
+Use an OIDC token to authenticate to a service principal. Defaults to `false`.
 """
 

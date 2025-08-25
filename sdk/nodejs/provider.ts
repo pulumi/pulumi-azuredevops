@@ -38,11 +38,13 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly clientCertificatePath!: pulumi.Output<string | undefined>;
     /**
-     * The service principal client or managed service principal id which should be used.
+     * The service principal client id which should be used for AAD auth.
      */
     public readonly clientId!: pulumi.Output<string | undefined>;
-    public readonly clientIdApply!: pulumi.Output<string | undefined>;
-    public readonly clientIdPlan!: pulumi.Output<string | undefined>;
+    /**
+     * The path to a file containing the Client ID which should be used.
+     */
+    public readonly clientIdFilePath!: pulumi.Output<string | undefined>;
     /**
      * Client secret for authenticating to a service principal.
      */
@@ -52,9 +54,9 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly clientSecretPath!: pulumi.Output<string | undefined>;
     /**
-     * Set the audience when requesting OIDC tokens.
+     * The Azure Pipelines Service Connection ID to use for authentication.
      */
-    public readonly oidcAudience!: pulumi.Output<string | undefined>;
+    public readonly oidcAzureServiceConnectionId!: pulumi.Output<string | undefined>;
     /**
      * The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
      * Connect.
@@ -65,7 +67,6 @@ export class Provider extends pulumi.ProviderResource {
      * using OpenID Connect.
      */
     public readonly oidcRequestUrl!: pulumi.Output<string | undefined>;
-    public readonly oidcTfcTag!: pulumi.Output<string | undefined>;
     /**
      * OIDC token to authenticate as a service principal.
      */
@@ -83,11 +84,9 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly personalAccessToken!: pulumi.Output<string | undefined>;
     /**
-     * The service principal tenant id which should be used.
+     * The service principal tenant id which should be used for AAD auth.
      */
     public readonly tenantId!: pulumi.Output<string | undefined>;
-    public readonly tenantIdApply!: pulumi.Output<string | undefined>;
-    public readonly tenantIdPlan!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -100,25 +99,23 @@ export class Provider extends pulumi.ProviderResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
+            resourceInputs["auxiliaryTenantIds"] = pulumi.output(args ? args.auxiliaryTenantIds : undefined).apply(JSON.stringify);
             resourceInputs["clientCertificate"] = args?.clientCertificate ? pulumi.secret(args.clientCertificate) : undefined;
             resourceInputs["clientCertificatePassword"] = args?.clientCertificatePassword ? pulumi.secret(args.clientCertificatePassword) : undefined;
             resourceInputs["clientCertificatePath"] = args ? args.clientCertificatePath : undefined;
             resourceInputs["clientId"] = args ? args.clientId : undefined;
-            resourceInputs["clientIdApply"] = args ? args.clientIdApply : undefined;
-            resourceInputs["clientIdPlan"] = args ? args.clientIdPlan : undefined;
+            resourceInputs["clientIdFilePath"] = args ? args.clientIdFilePath : undefined;
             resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
             resourceInputs["clientSecretPath"] = args ? args.clientSecretPath : undefined;
-            resourceInputs["oidcAudience"] = args ? args.oidcAudience : undefined;
+            resourceInputs["oidcAzureServiceConnectionId"] = args ? args.oidcAzureServiceConnectionId : undefined;
             resourceInputs["oidcRequestToken"] = args ? args.oidcRequestToken : undefined;
             resourceInputs["oidcRequestUrl"] = args ? args.oidcRequestUrl : undefined;
-            resourceInputs["oidcTfcTag"] = args ? args.oidcTfcTag : undefined;
             resourceInputs["oidcToken"] = args?.oidcToken ? pulumi.secret(args.oidcToken) : undefined;
             resourceInputs["oidcTokenFilePath"] = args ? args.oidcTokenFilePath : undefined;
             resourceInputs["orgServiceUrl"] = (args ? args.orgServiceUrl : undefined) ?? utilities.getEnv("AZDO_ORG_SERVICE_URL");
             resourceInputs["personalAccessToken"] = args?.personalAccessToken ? pulumi.secret(args.personalAccessToken) : undefined;
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
-            resourceInputs["tenantIdApply"] = args ? args.tenantIdApply : undefined;
-            resourceInputs["tenantIdPlan"] = args ? args.tenantIdPlan : undefined;
+            resourceInputs["useCli"] = pulumi.output(args ? args.useCli : undefined).apply(JSON.stringify);
             resourceInputs["useMsi"] = pulumi.output(args ? args.useMsi : undefined).apply(JSON.stringify);
             resourceInputs["useOidc"] = pulumi.output(args ? args.useOidc : undefined).apply(JSON.stringify);
         }
@@ -143,6 +140,10 @@ export class Provider extends pulumi.ProviderResource {
  */
 export interface ProviderArgs {
     /**
+     * List of auxiliary Tenant IDs required for multi-tenancy and cross-tenant scenarios.
+     */
+    auxiliaryTenantIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Base64 encoded certificate to use to authenticate to the service principal.
      */
     clientCertificate?: pulumi.Input<string>;
@@ -155,11 +156,13 @@ export interface ProviderArgs {
      */
     clientCertificatePath?: pulumi.Input<string>;
     /**
-     * The service principal client or managed service principal id which should be used.
+     * The service principal client id which should be used for AAD auth.
      */
     clientId?: pulumi.Input<string>;
-    clientIdApply?: pulumi.Input<string>;
-    clientIdPlan?: pulumi.Input<string>;
+    /**
+     * The path to a file containing the Client ID which should be used.
+     */
+    clientIdFilePath?: pulumi.Input<string>;
     /**
      * Client secret for authenticating to a service principal.
      */
@@ -169,9 +172,9 @@ export interface ProviderArgs {
      */
     clientSecretPath?: pulumi.Input<string>;
     /**
-     * Set the audience when requesting OIDC tokens.
+     * The Azure Pipelines Service Connection ID to use for authentication.
      */
-    oidcAudience?: pulumi.Input<string>;
+    oidcAzureServiceConnectionId?: pulumi.Input<string>;
     /**
      * The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
      * Connect.
@@ -182,7 +185,6 @@ export interface ProviderArgs {
      * using OpenID Connect.
      */
     oidcRequestUrl?: pulumi.Input<string>;
-    oidcTfcTag?: pulumi.Input<string>;
     /**
      * OIDC token to authenticate as a service principal.
      */
@@ -200,17 +202,19 @@ export interface ProviderArgs {
      */
     personalAccessToken?: pulumi.Input<string>;
     /**
-     * The service principal tenant id which should be used.
+     * The service principal tenant id which should be used for AAD auth.
      */
     tenantId?: pulumi.Input<string>;
-    tenantIdApply?: pulumi.Input<string>;
-    tenantIdPlan?: pulumi.Input<string>;
     /**
-     * Use an Azure Managed Service Identity.
+     * Use Azure CLI to authenticate. Defaults to `true`.
+     */
+    useCli?: pulumi.Input<boolean>;
+    /**
+     * Use an Azure Managed Service Identity. Defaults to `false`.
      */
     useMsi?: pulumi.Input<boolean>;
     /**
-     * Use an OIDC token to authenticate to a service principal.
+     * Use an OIDC token to authenticate to a service principal. Defaults to `false`.
      */
     useOidc?: pulumi.Input<boolean>;
 }

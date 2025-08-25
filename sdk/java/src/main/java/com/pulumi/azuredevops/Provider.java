@@ -66,30 +66,32 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.clientCertificatePath);
     }
     /**
-     * The service principal client or managed service principal id which should be used.
+     * The service principal client id which should be used for AAD auth.
      * 
      */
     @Export(name="clientId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientId;
 
     /**
-     * @return The service principal client or managed service principal id which should be used.
+     * @return The service principal client id which should be used for AAD auth.
      * 
      */
     public Output<Optional<String>> clientId() {
         return Codegen.optional(this.clientId);
     }
-    @Export(name="clientIdApply", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> clientIdApply;
+    /**
+     * The path to a file containing the Client ID which should be used.
+     * 
+     */
+    @Export(name="clientIdFilePath", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> clientIdFilePath;
 
-    public Output<Optional<String>> clientIdApply() {
-        return Codegen.optional(this.clientIdApply);
-    }
-    @Export(name="clientIdPlan", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> clientIdPlan;
-
-    public Output<Optional<String>> clientIdPlan() {
-        return Codegen.optional(this.clientIdPlan);
+    /**
+     * @return The path to a file containing the Client ID which should be used.
+     * 
+     */
+    public Output<Optional<String>> clientIdFilePath() {
+        return Codegen.optional(this.clientIdFilePath);
     }
     /**
      * Client secret for authenticating to a service principal.
@@ -120,18 +122,18 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.clientSecretPath);
     }
     /**
-     * Set the audience when requesting OIDC tokens.
+     * The Azure Pipelines Service Connection ID to use for authentication.
      * 
      */
-    @Export(name="oidcAudience", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> oidcAudience;
+    @Export(name="oidcAzureServiceConnectionId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> oidcAzureServiceConnectionId;
 
     /**
-     * @return Set the audience when requesting OIDC tokens.
+     * @return The Azure Pipelines Service Connection ID to use for authentication.
      * 
      */
-    public Output<Optional<String>> oidcAudience() {
-        return Codegen.optional(this.oidcAudience);
+    public Output<Optional<String>> oidcAzureServiceConnectionId() {
+        return Codegen.optional(this.oidcAzureServiceConnectionId);
     }
     /**
      * The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
@@ -164,12 +166,6 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      */
     public Output<Optional<String>> oidcRequestUrl() {
         return Codegen.optional(this.oidcRequestUrl);
-    }
-    @Export(name="oidcTfcTag", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> oidcTfcTag;
-
-    public Output<Optional<String>> oidcTfcTag() {
-        return Codegen.optional(this.oidcTfcTag);
     }
     /**
      * OIDC token to authenticate as a service principal.
@@ -228,30 +224,18 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.personalAccessToken);
     }
     /**
-     * The service principal tenant id which should be used.
+     * The service principal tenant id which should be used for AAD auth.
      * 
      */
     @Export(name="tenantId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tenantId;
 
     /**
-     * @return The service principal tenant id which should be used.
+     * @return The service principal tenant id which should be used for AAD auth.
      * 
      */
     public Output<Optional<String>> tenantId() {
         return Codegen.optional(this.tenantId);
-    }
-    @Export(name="tenantIdApply", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> tenantIdApply;
-
-    public Output<Optional<String>> tenantIdApply() {
-        return Codegen.optional(this.tenantIdApply);
-    }
-    @Export(name="tenantIdPlan", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> tenantIdPlan;
-
-    public Output<Optional<String>> tenantIdPlan() {
-        return Codegen.optional(this.tenantIdPlan);
     }
 
     /**

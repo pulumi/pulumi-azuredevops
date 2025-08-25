@@ -80,6 +80,14 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## Import
+ * 
+ * Azure DevOps Git Repository Branch can be imported using the `repository ID:branchName`.
+ * 
+ * ```sh
+ * $ pulumi import azuredevops:index/gitRepositoryBranch:GitRepositoryBranch example &#34;00000000-0000-0000-0000-000000000000:main&#34;
+ * ```
+ * 
  */
 @ResourceType(type="azuredevops:index/gitRepositoryBranch:GitRepositoryBranch")
 public class GitRepositoryBranch extends com.pulumi.resources.CustomResource {

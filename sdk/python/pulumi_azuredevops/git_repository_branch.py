@@ -249,6 +249,14 @@ class GitRepositoryBranch(pulumi.CustomResource):
             ref_commit_id=example_git_repository_branch.last_commit_id)
         ```
 
+        ## Import
+
+        Azure DevOps Git Repository Branch can be imported using the `repository ID:branchName`.
+
+        ```sh
+        $ pulumi import azuredevops:index/gitRepositoryBranch:GitRepositoryBranch example "00000000-0000-0000-0000-000000000000:main"
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the branch in short format not prefixed with `refs/heads/`.
@@ -291,6 +299,14 @@ class GitRepositoryBranch(pulumi.CustomResource):
             repository_id=example_git.id,
             name="example-from-commit-id",
             ref_commit_id=example_git_repository_branch.last_commit_id)
+        ```
+
+        ## Import
+
+        Azure DevOps Git Repository Branch can be imported using the `repository ID:branchName`.
+
+        ```sh
+        $ pulumi import azuredevops:index/gitRepositoryBranch:GitRepositoryBranch example "00000000-0000-0000-0000-000000000000:main"
         ```
 
         :param str resource_name: The name of the resource.
