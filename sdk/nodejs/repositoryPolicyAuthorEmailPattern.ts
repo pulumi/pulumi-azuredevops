@@ -108,23 +108,23 @@ export class RepositoryPolicyAuthorEmailPattern extends pulumi.CustomResource {
      *
      * ~>**NOTE:** Email patterns prefixed with `!` are excluded. Order is important.
      */
-    public readonly authorEmailPatterns!: pulumi.Output<string[]>;
+    declare public readonly authorEmailPatterns: pulumi.Output<string[]>;
     /**
      * A flag indicating if the policy should be blocking. Defaults to `true`.
      */
-    public readonly blocking!: pulumi.Output<boolean | undefined>;
+    declare public readonly blocking: pulumi.Output<boolean | undefined>;
     /**
      * A flag indicating if the policy should be enabled. Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the project in which the policy will be created.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * Control whether the policy is enabled for the repository or the project. If `repositoryIds` not configured, the policy will be set to the project.
      */
-    public readonly repositoryIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly repositoryIds: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a RepositoryPolicyAuthorEmailPattern resource with the given unique name, arguments, and options.
@@ -139,24 +139,24 @@ export class RepositoryPolicyAuthorEmailPattern extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryPolicyAuthorEmailPatternState | undefined;
-            resourceInputs["authorEmailPatterns"] = state ? state.authorEmailPatterns : undefined;
-            resourceInputs["blocking"] = state ? state.blocking : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["repositoryIds"] = state ? state.repositoryIds : undefined;
+            resourceInputs["authorEmailPatterns"] = state?.authorEmailPatterns;
+            resourceInputs["blocking"] = state?.blocking;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["repositoryIds"] = state?.repositoryIds;
         } else {
             const args = argsOrState as RepositoryPolicyAuthorEmailPatternArgs | undefined;
-            if ((!args || args.authorEmailPatterns === undefined) && !opts.urn) {
+            if (args?.authorEmailPatterns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authorEmailPatterns'");
             }
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            resourceInputs["authorEmailPatterns"] = args ? args.authorEmailPatterns : undefined;
-            resourceInputs["blocking"] = args ? args.blocking : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["repositoryIds"] = args ? args.repositoryIds : undefined;
+            resourceInputs["authorEmailPatterns"] = args?.authorEmailPatterns;
+            resourceInputs["blocking"] = args?.blocking;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["repositoryIds"] = args?.repositoryIds;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RepositoryPolicyAuthorEmailPattern.__pulumiType, name, resourceInputs, opts);

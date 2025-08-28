@@ -70,29 +70,29 @@ export class User extends pulumi.CustomResource {
     /**
      * Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
      */
-    public readonly accountLicenseType!: pulumi.Output<string | undefined>;
+    declare public readonly accountLicenseType: pulumi.Output<string | undefined>;
     /**
      * The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the user graph subject.
      */
-    public /*out*/ readonly descriptor!: pulumi.Output<string>;
+    declare public /*out*/ readonly descriptor: pulumi.Output<string>;
     /**
      * The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
      *
      * > **NOTE:** A user can only be referenced by it's `principalName` or by the combination of `originId` and `origin`.
      */
-    public readonly licensingSource!: pulumi.Output<string | undefined>;
+    declare public readonly licensingSource: pulumi.Output<string | undefined>;
     /**
      * The type of source provider for the origin identifier.
      */
-    public readonly origin!: pulumi.Output<string>;
+    declare public readonly origin: pulumi.Output<string>;
     /**
      * The unique identifier from the system of origin. Typically a sid, object id or Guid. e.g. Used for member of other tenant on Azure Active Directory.
      */
-    public readonly originId!: pulumi.Output<string>;
+    declare public readonly originId: pulumi.Output<string>;
     /**
      * The principal name is the PrincipalName of a graph member from the source provider. Usually, e-mail address.
      */
-    public readonly principalName!: pulumi.Output<string>;
+    declare public readonly principalName: pulumi.Output<string>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -107,19 +107,19 @@ export class User extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
-            resourceInputs["accountLicenseType"] = state ? state.accountLicenseType : undefined;
-            resourceInputs["descriptor"] = state ? state.descriptor : undefined;
-            resourceInputs["licensingSource"] = state ? state.licensingSource : undefined;
-            resourceInputs["origin"] = state ? state.origin : undefined;
-            resourceInputs["originId"] = state ? state.originId : undefined;
-            resourceInputs["principalName"] = state ? state.principalName : undefined;
+            resourceInputs["accountLicenseType"] = state?.accountLicenseType;
+            resourceInputs["descriptor"] = state?.descriptor;
+            resourceInputs["licensingSource"] = state?.licensingSource;
+            resourceInputs["origin"] = state?.origin;
+            resourceInputs["originId"] = state?.originId;
+            resourceInputs["principalName"] = state?.principalName;
         } else {
             const args = argsOrState as UserArgs | undefined;
-            resourceInputs["accountLicenseType"] = args ? args.accountLicenseType : undefined;
-            resourceInputs["licensingSource"] = args ? args.licensingSource : undefined;
-            resourceInputs["origin"] = args ? args.origin : undefined;
-            resourceInputs["originId"] = args ? args.originId : undefined;
-            resourceInputs["principalName"] = args ? args.principalName : undefined;
+            resourceInputs["accountLicenseType"] = args?.accountLicenseType;
+            resourceInputs["licensingSource"] = args?.licensingSource;
+            resourceInputs["origin"] = args?.origin;
+            resourceInputs["originId"] = args?.originId;
+            resourceInputs["principalName"] = args?.principalName;
             resourceInputs["descriptor"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

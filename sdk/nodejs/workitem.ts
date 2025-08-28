@@ -124,47 +124,47 @@ export class Workitem extends pulumi.CustomResource {
     /**
      * Specifies the area where the Work Item is used.
      */
-    public readonly areaPath!: pulumi.Output<string>;
+    declare public readonly areaPath: pulumi.Output<string>;
     /**
      * Specifies a list with Custom Fields for the Work Item.
      */
-    public readonly customFields!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly customFields: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the iteration in which the Work Item is used.
      */
-    public readonly iterationPath!: pulumi.Output<string>;
+    declare public readonly iterationPath: pulumi.Output<string>;
     /**
      * The parent work item.
      */
-    public readonly parentId!: pulumi.Output<number | undefined>;
+    declare public readonly parentId: pulumi.Output<number | undefined>;
     /**
      * The ID of the Project.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * A `relations` blocks as documented below.
      */
-    public /*out*/ readonly relations!: pulumi.Output<outputs.WorkitemRelation[]>;
+    declare public /*out*/ readonly relations: pulumi.Output<outputs.WorkitemRelation[]>;
     /**
      * The state of the Work Item. The four main states that are defined for the User Story (`Agile`) are `New`, `Active`, `Resolved`, and `Closed`. See [Workflow states](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories?view=azure-devops&tabs=agile-process#workflow-states) for more details.
      */
-    public readonly state!: pulumi.Output<string>;
+    declare public readonly state: pulumi.Output<string>;
     /**
      * Specifies a list of Tags.
      */
-    public readonly tags!: pulumi.Output<string[] | undefined>;
+    declare public readonly tags: pulumi.Output<string[] | undefined>;
     /**
      * The Title of the Work Item.
      */
-    public readonly title!: pulumi.Output<string>;
+    declare public readonly title: pulumi.Output<string>;
     /**
      * The Type of the Work Item. The work item type varies depending on the process used when creating the project(`Agile`, `Basic`, `Scrum`, `Scrum`). See [Work Item Types](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/about-work-items?view=azure-devops) for more details.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * The URL of the Work Item.
      */
-    public /*out*/ readonly url!: pulumi.Output<string>;
+    declare public /*out*/ readonly url: pulumi.Output<string>;
 
     /**
      * Create a Workitem resource with the given unique name, arguments, and options.
@@ -179,37 +179,37 @@ export class Workitem extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkitemState | undefined;
-            resourceInputs["areaPath"] = state ? state.areaPath : undefined;
-            resourceInputs["customFields"] = state ? state.customFields : undefined;
-            resourceInputs["iterationPath"] = state ? state.iterationPath : undefined;
-            resourceInputs["parentId"] = state ? state.parentId : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["relations"] = state ? state.relations : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["title"] = state ? state.title : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["areaPath"] = state?.areaPath;
+            resourceInputs["customFields"] = state?.customFields;
+            resourceInputs["iterationPath"] = state?.iterationPath;
+            resourceInputs["parentId"] = state?.parentId;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["relations"] = state?.relations;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["title"] = state?.title;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["url"] = state?.url;
         } else {
             const args = argsOrState as WorkitemArgs | undefined;
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.title === undefined) && !opts.urn) {
+            if (args?.title === undefined && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["areaPath"] = args ? args.areaPath : undefined;
-            resourceInputs["customFields"] = args ? args.customFields : undefined;
-            resourceInputs["iterationPath"] = args ? args.iterationPath : undefined;
-            resourceInputs["parentId"] = args ? args.parentId : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["title"] = args ? args.title : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["areaPath"] = args?.areaPath;
+            resourceInputs["customFields"] = args?.customFields;
+            resourceInputs["iterationPath"] = args?.iterationPath;
+            resourceInputs["parentId"] = args?.parentId;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["title"] = args?.title;
+            resourceInputs["type"] = args?.type;
             resourceInputs["relations"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
         }

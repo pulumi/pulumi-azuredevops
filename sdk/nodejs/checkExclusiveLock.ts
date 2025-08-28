@@ -110,23 +110,23 @@ export class CheckExclusiveLock extends pulumi.CustomResource {
     /**
      * The project ID. Changing this forces a new Exclusive Lock Check to be created.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * The ID of the resource being protected by the check. Changing this forces a new Exclusive Lock to be created.
      */
-    public readonly targetResourceId!: pulumi.Output<string>;
+    declare public readonly targetResourceId: pulumi.Output<string>;
     /**
      * The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
      */
-    public readonly targetResourceType!: pulumi.Output<string>;
+    declare public readonly targetResourceType: pulumi.Output<string>;
     /**
      * The timeout in minutes for the exclusive lock. Defaults to `43200`.
      */
-    public readonly timeout!: pulumi.Output<number | undefined>;
+    declare public readonly timeout: pulumi.Output<number | undefined>;
     /**
      * The version of the check.
      */
-    public /*out*/ readonly version!: pulumi.Output<number>;
+    declare public /*out*/ readonly version: pulumi.Output<number>;
 
     /**
      * Create a CheckExclusiveLock resource with the given unique name, arguments, and options.
@@ -141,26 +141,26 @@ export class CheckExclusiveLock extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CheckExclusiveLockState | undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
-            resourceInputs["targetResourceType"] = state ? state.targetResourceType : undefined;
-            resourceInputs["timeout"] = state ? state.timeout : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["targetResourceId"] = state?.targetResourceId;
+            resourceInputs["targetResourceType"] = state?.targetResourceType;
+            resourceInputs["timeout"] = state?.timeout;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as CheckExclusiveLockArgs | undefined;
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.targetResourceId === undefined) && !opts.urn) {
+            if (args?.targetResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
-            if ((!args || args.targetResourceType === undefined) && !opts.urn) {
+            if (args?.targetResourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceType'");
             }
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
-            resourceInputs["targetResourceType"] = args ? args.targetResourceType : undefined;
-            resourceInputs["timeout"] = args ? args.timeout : undefined;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["targetResourceId"] = args?.targetResourceId;
+            resourceInputs["targetResourceType"] = args?.targetResourceType;
+            resourceInputs["timeout"] = args?.timeout;
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

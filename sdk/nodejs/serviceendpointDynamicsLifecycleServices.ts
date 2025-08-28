@@ -72,36 +72,36 @@ export class ServiceendpointDynamicsLifecycleServices extends pulumi.CustomResou
         return obj['__pulumiType'] === ServiceendpointDynamicsLifecycleServices.__pulumiType;
     }
 
-    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
     /**
      * The URL of the Authentication Endpoint.
      */
-    public readonly authorizationEndpoint!: pulumi.Output<string>;
+    declare public readonly authorizationEndpoint: pulumi.Output<string>;
     /**
      * The client ID for a native application registration in Azure Active Directory with API permissions for Dynamics Lifecycle Services.
      */
-    public readonly clientId!: pulumi.Output<string>;
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly clientId: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The URL of the Lifecycle Services API Endpoint.
      */
-    public readonly lifecycleServicesApiEndpoint!: pulumi.Output<string>;
+    declare public readonly lifecycleServicesApiEndpoint: pulumi.Output<string>;
     /**
      * The Password for the Azure Active Directory account.
      */
-    public readonly password!: pulumi.Output<string>;
+    declare public readonly password: pulumi.Output<string>;
     /**
      * The ID of the project.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * The Service Endpoint name.
      */
-    public readonly serviceEndpointName!: pulumi.Output<string>;
+    declare public readonly serviceEndpointName: pulumi.Output<string>;
     /**
      * The E-mail address of user with sufficient permissions to interact with LCS asset library and environments.
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
 
     /**
      * Create a ServiceendpointDynamicsLifecycleServices resource with the given unique name, arguments, and options.
@@ -116,46 +116,46 @@ export class ServiceendpointDynamicsLifecycleServices extends pulumi.CustomResou
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceendpointDynamicsLifecycleServicesState | undefined;
-            resourceInputs["authorization"] = state ? state.authorization : undefined;
-            resourceInputs["authorizationEndpoint"] = state ? state.authorizationEndpoint : undefined;
-            resourceInputs["clientId"] = state ? state.clientId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["lifecycleServicesApiEndpoint"] = state ? state.lifecycleServicesApiEndpoint : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["authorization"] = state?.authorization;
+            resourceInputs["authorizationEndpoint"] = state?.authorizationEndpoint;
+            resourceInputs["clientId"] = state?.clientId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["lifecycleServicesApiEndpoint"] = state?.lifecycleServicesApiEndpoint;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["serviceEndpointName"] = state?.serviceEndpointName;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as ServiceendpointDynamicsLifecycleServicesArgs | undefined;
-            if ((!args || args.authorizationEndpoint === undefined) && !opts.urn) {
+            if (args?.authorizationEndpoint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authorizationEndpoint'");
             }
-            if ((!args || args.clientId === undefined) && !opts.urn) {
+            if (args?.clientId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if ((!args || args.lifecycleServicesApiEndpoint === undefined) && !opts.urn) {
+            if (args?.lifecycleServicesApiEndpoint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'lifecycleServicesApiEndpoint'");
             }
-            if ((!args || args.password === undefined) && !opts.urn) {
+            if (args?.password === undefined && !opts.urn) {
                 throw new Error("Missing required property 'password'");
             }
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
+            if (args?.serviceEndpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            if ((!args || args.username === undefined) && !opts.urn) {
+            if (args?.username === undefined && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            resourceInputs["authorizationEndpoint"] = args ? args.authorizationEndpoint : undefined;
-            resourceInputs["clientId"] = args ? args.clientId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["lifecycleServicesApiEndpoint"] = args ? args.lifecycleServicesApiEndpoint : undefined;
+            resourceInputs["authorizationEndpoint"] = args?.authorizationEndpoint;
+            resourceInputs["clientId"] = args?.clientId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["lifecycleServicesApiEndpoint"] = args?.lifecycleServicesApiEndpoint;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["serviceEndpointName"] = args?.serviceEndpointName;
+            resourceInputs["username"] = args?.username;
             resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

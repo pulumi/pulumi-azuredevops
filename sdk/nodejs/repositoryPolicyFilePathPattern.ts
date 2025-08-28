@@ -105,23 +105,23 @@ export class RepositoryPolicyFilePathPattern extends pulumi.CustomResource {
     /**
      * A flag indicating if the policy should be blocking. Defaults to `true`.
      */
-    public readonly blocking!: pulumi.Output<boolean | undefined>;
+    declare public readonly blocking: pulumi.Output<boolean | undefined>;
     /**
      * A flag indicating if the policy should be enabled. Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
      */
-    public readonly filepathPatterns!: pulumi.Output<string[]>;
+    declare public readonly filepathPatterns: pulumi.Output<string[]>;
     /**
      * The ID of the project in which the policy will be created.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * Control whether the policy is enabled for the repository or the project. If `repositoryIds` not configured, the policy will be set to the project.
      */
-    public readonly repositoryIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly repositoryIds: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a RepositoryPolicyFilePathPattern resource with the given unique name, arguments, and options.
@@ -136,24 +136,24 @@ export class RepositoryPolicyFilePathPattern extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryPolicyFilePathPatternState | undefined;
-            resourceInputs["blocking"] = state ? state.blocking : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["filepathPatterns"] = state ? state.filepathPatterns : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["repositoryIds"] = state ? state.repositoryIds : undefined;
+            resourceInputs["blocking"] = state?.blocking;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["filepathPatterns"] = state?.filepathPatterns;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["repositoryIds"] = state?.repositoryIds;
         } else {
             const args = argsOrState as RepositoryPolicyFilePathPatternArgs | undefined;
-            if ((!args || args.filepathPatterns === undefined) && !opts.urn) {
+            if (args?.filepathPatterns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filepathPatterns'");
             }
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            resourceInputs["blocking"] = args ? args.blocking : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["filepathPatterns"] = args ? args.filepathPatterns : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["repositoryIds"] = args ? args.repositoryIds : undefined;
+            resourceInputs["blocking"] = args?.blocking;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["filepathPatterns"] = args?.filepathPatterns;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["repositoryIds"] = args?.repositoryIds;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RepositoryPolicyFilePathPattern.__pulumiType, name, resourceInputs, opts);

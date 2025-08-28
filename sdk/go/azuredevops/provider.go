@@ -28,17 +28,15 @@ type Provider struct {
 	ClientId pulumi.StringPtrOutput `pulumi:"clientId"`
 	// The path to a file containing the Client ID which should be used.
 	ClientIdFilePath pulumi.StringPtrOutput `pulumi:"clientIdFilePath"`
-	// Client secret for authenticating to a service principal.
+	// Client secret for authenticating to  a service principal.
 	ClientSecret pulumi.StringPtrOutput `pulumi:"clientSecret"`
-	// Path to a file containing a client secret for authenticating to a service principal.
+	// Path to a file containing a client secret for authenticating to  a service principal.
 	ClientSecretPath pulumi.StringPtrOutput `pulumi:"clientSecretPath"`
 	// The Azure Pipelines Service Connection ID to use for authentication.
 	OidcAzureServiceConnectionId pulumi.StringPtrOutput `pulumi:"oidcAzureServiceConnectionId"`
-	// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
-	// Connect.
+	// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
 	OidcRequestToken pulumi.StringPtrOutput `pulumi:"oidcRequestToken"`
-	// The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
-	// using OpenID Connect.
+	// The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
 	OidcRequestUrl pulumi.StringPtrOutput `pulumi:"oidcRequestUrl"`
 	// OIDC token to authenticate as a service principal.
 	OidcToken pulumi.StringPtrOutput `pulumi:"oidcToken"`
@@ -109,17 +107,15 @@ type providerArgs struct {
 	ClientId *string `pulumi:"clientId"`
 	// The path to a file containing the Client ID which should be used.
 	ClientIdFilePath *string `pulumi:"clientIdFilePath"`
-	// Client secret for authenticating to a service principal.
+	// Client secret for authenticating to  a service principal.
 	ClientSecret *string `pulumi:"clientSecret"`
-	// Path to a file containing a client secret for authenticating to a service principal.
+	// Path to a file containing a client secret for authenticating to  a service principal.
 	ClientSecretPath *string `pulumi:"clientSecretPath"`
 	// The Azure Pipelines Service Connection ID to use for authentication.
 	OidcAzureServiceConnectionId *string `pulumi:"oidcAzureServiceConnectionId"`
-	// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
-	// Connect.
+	// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
 	OidcRequestToken *string `pulumi:"oidcRequestToken"`
-	// The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
-	// using OpenID Connect.
+	// The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
 	OidcRequestUrl *string `pulumi:"oidcRequestUrl"`
 	// OIDC token to authenticate as a service principal.
 	OidcToken *string `pulumi:"oidcToken"`
@@ -153,17 +149,15 @@ type ProviderArgs struct {
 	ClientId pulumi.StringPtrInput
 	// The path to a file containing the Client ID which should be used.
 	ClientIdFilePath pulumi.StringPtrInput
-	// Client secret for authenticating to a service principal.
+	// Client secret for authenticating to  a service principal.
 	ClientSecret pulumi.StringPtrInput
-	// Path to a file containing a client secret for authenticating to a service principal.
+	// Path to a file containing a client secret for authenticating to  a service principal.
 	ClientSecretPath pulumi.StringPtrInput
 	// The Azure Pipelines Service Connection ID to use for authentication.
 	OidcAzureServiceConnectionId pulumi.StringPtrInput
-	// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
-	// Connect.
+	// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
 	OidcRequestToken pulumi.StringPtrInput
-	// The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
-	// using OpenID Connect.
+	// The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
 	OidcRequestUrl pulumi.StringPtrInput
 	// OIDC token to authenticate as a service principal.
 	OidcToken pulumi.StringPtrInput
@@ -268,12 +262,12 @@ func (o ProviderOutput) ClientIdFilePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientIdFilePath }).(pulumi.StringPtrOutput)
 }
 
-// Client secret for authenticating to a service principal.
+// Client secret for authenticating to  a service principal.
 func (o ProviderOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
 
-// Path to a file containing a client secret for authenticating to a service principal.
+// Path to a file containing a client secret for authenticating to  a service principal.
 func (o ProviderOutput) ClientSecretPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientSecretPath }).(pulumi.StringPtrOutput)
 }
@@ -283,14 +277,12 @@ func (o ProviderOutput) OidcAzureServiceConnectionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.OidcAzureServiceConnectionId }).(pulumi.StringPtrOutput)
 }
 
-// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
-// Connect.
+// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
 func (o ProviderOutput) OidcRequestToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.OidcRequestToken }).(pulumi.StringPtrOutput)
 }
 
-// The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
-// using OpenID Connect.
+// The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
 func (o ProviderOutput) OidcRequestUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.OidcRequestUrl }).(pulumi.StringPtrOutput)
 }

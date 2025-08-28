@@ -46,12 +46,12 @@ The path to a file containing the Client ID which should be used.
 
 clientSecret: Optional[str]
 """
-Client secret for authenticating to a service principal.
+Client secret for authenticating to  a service principal.
 """
 
 clientSecretPath: Optional[str]
 """
-Path to a file containing a client secret for authenticating to a service principal.
+Path to a file containing a client secret for authenticating to  a service principal.
 """
 
 oidcAzureServiceConnectionId: Optional[str]
@@ -61,14 +61,12 @@ The Azure Pipelines Service Connection ID to use for authentication.
 
 oidcRequestToken: Optional[str]
 """
-The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
-Connect.
+The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
 """
 
 oidcRequestUrl: Optional[str]
 """
-The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
-using OpenID Connect.
+The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
 """
 
 oidcToken: Optional[str]

@@ -65,14 +65,14 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def client_secret(self) -> Optional[str]:
         """
-        Client secret for authenticating to a service principal.
+        Client secret for authenticating to  a service principal.
         """
         return __config__.get('clientSecret')
 
     @_builtins.property
     def client_secret_path(self) -> Optional[str]:
         """
-        Path to a file containing a client secret for authenticating to a service principal.
+        Path to a file containing a client secret for authenticating to  a service principal.
         """
         return __config__.get('clientSecretPath')
 
@@ -86,16 +86,14 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def oidc_request_token(self) -> Optional[str]:
         """
-        The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
-        Connect.
+        The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
         """
         return __config__.get('oidcRequestToken')
 
     @_builtins.property
     def oidc_request_url(self) -> Optional[str]:
         """
-        The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
-        using OpenID Connect.
+        The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
         """
         return __config__.get('oidcRequestUrl')
 

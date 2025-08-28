@@ -96,72 +96,72 @@ export class CheckRestApi extends pulumi.CustomResource {
     /**
      * The Rest API request body.
      */
-    public readonly body!: pulumi.Output<string | undefined>;
+    declare public readonly body: pulumi.Output<string | undefined>;
     /**
      * The completion event of the Rest API call. Possible values: `Callback`, `ApiResponse`. Defaults to `Callback`.
      */
-    public readonly completionEvent!: pulumi.Output<string | undefined>;
+    declare public readonly completionEvent: pulumi.Output<string | undefined>;
     /**
      * The name of the Service Connection.
      */
-    public readonly connectedServiceName!: pulumi.Output<string>;
+    declare public readonly connectedServiceName: pulumi.Output<string>;
     /**
      * The type of the Service Connection used to invoke the REST API. Possible values: `connectedServiceName`(**Generic** type service connection) and `connectedServiceNameARM`(**Azure Resource Manager** type service connection).
      */
-    public readonly connectedServiceNameSelector!: pulumi.Output<string>;
+    declare public readonly connectedServiceNameSelector: pulumi.Output<string>;
     /**
      * The Name of the Rest API check.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The headers of the request in JSON format.
      */
-    public readonly headers!: pulumi.Output<string | undefined>;
+    declare public readonly headers: pulumi.Output<string | undefined>;
     /**
      * The HTTP method of the request. Possible values: `OPTIONS`, `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `TRACE`, `PATCH`
      */
-    public readonly method!: pulumi.Output<string>;
+    declare public readonly method: pulumi.Output<string>;
     /**
      * The ID of the project. Changing this forces a new resource to be created.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * The time between evaluations (minutes). 
      *
      * ~>**NOTE** 1. The retry times should less them 10 based on the timeout. For example: `timeout` is `4000` then `retryInterval` should be `0` or no less then `400`.
      * <br>2. `retryInterval` is not required when `completion_event=Callback`.
      */
-    public readonly retryInterval!: pulumi.Output<number | undefined>;
+    declare public readonly retryInterval: pulumi.Output<number | undefined>;
     /**
      * The Criteria which defines when to pass the task. No criteria means response content does not influence the result.
      *
      * ~>**NOTE** `successCriteria` is used when `completion_event=ApiResponse`
      */
-    public readonly successCriteria!: pulumi.Output<string | undefined>;
+    declare public readonly successCriteria: pulumi.Output<string | undefined>;
     /**
      * The ID of the resource being protected by the check. Changing this forces a new resource to be created
      */
-    public readonly targetResourceId!: pulumi.Output<string>;
+    declare public readonly targetResourceId: pulumi.Output<string>;
     /**
      * The type of resource being protected by the check. Possible values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new resource to be created.
      */
-    public readonly targetResourceType!: pulumi.Output<string>;
+    declare public readonly targetResourceType: pulumi.Output<string>;
     /**
      * The timeout in minutes for the Rest API check. Defaults to `1440`.
      */
-    public readonly timeout!: pulumi.Output<number | undefined>;
+    declare public readonly timeout: pulumi.Output<number | undefined>;
     /**
      * The URL suffix and parameters.
      */
-    public readonly urlSuffix!: pulumi.Output<string | undefined>;
+    declare public readonly urlSuffix: pulumi.Output<string | undefined>;
     /**
      * The name of the Variable Group.
      */
-    public readonly variableGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly variableGroupName: pulumi.Output<string | undefined>;
     /**
      * The version of the Rest API check.
      */
-    public /*out*/ readonly version!: pulumi.Output<number>;
+    declare public /*out*/ readonly version: pulumi.Output<number>;
 
     /**
      * Create a CheckRestApi resource with the given unique name, arguments, and options.
@@ -176,60 +176,60 @@ export class CheckRestApi extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CheckRestApiState | undefined;
-            resourceInputs["body"] = state ? state.body : undefined;
-            resourceInputs["completionEvent"] = state ? state.completionEvent : undefined;
-            resourceInputs["connectedServiceName"] = state ? state.connectedServiceName : undefined;
-            resourceInputs["connectedServiceNameSelector"] = state ? state.connectedServiceNameSelector : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["headers"] = state ? state.headers : undefined;
-            resourceInputs["method"] = state ? state.method : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["retryInterval"] = state ? state.retryInterval : undefined;
-            resourceInputs["successCriteria"] = state ? state.successCriteria : undefined;
-            resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
-            resourceInputs["targetResourceType"] = state ? state.targetResourceType : undefined;
-            resourceInputs["timeout"] = state ? state.timeout : undefined;
-            resourceInputs["urlSuffix"] = state ? state.urlSuffix : undefined;
-            resourceInputs["variableGroupName"] = state ? state.variableGroupName : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["body"] = state?.body;
+            resourceInputs["completionEvent"] = state?.completionEvent;
+            resourceInputs["connectedServiceName"] = state?.connectedServiceName;
+            resourceInputs["connectedServiceNameSelector"] = state?.connectedServiceNameSelector;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["headers"] = state?.headers;
+            resourceInputs["method"] = state?.method;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["retryInterval"] = state?.retryInterval;
+            resourceInputs["successCriteria"] = state?.successCriteria;
+            resourceInputs["targetResourceId"] = state?.targetResourceId;
+            resourceInputs["targetResourceType"] = state?.targetResourceType;
+            resourceInputs["timeout"] = state?.timeout;
+            resourceInputs["urlSuffix"] = state?.urlSuffix;
+            resourceInputs["variableGroupName"] = state?.variableGroupName;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as CheckRestApiArgs | undefined;
-            if ((!args || args.connectedServiceName === undefined) && !opts.urn) {
+            if (args?.connectedServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectedServiceName'");
             }
-            if ((!args || args.connectedServiceNameSelector === undefined) && !opts.urn) {
+            if (args?.connectedServiceNameSelector === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectedServiceNameSelector'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.method === undefined) && !opts.urn) {
+            if (args?.method === undefined && !opts.urn) {
                 throw new Error("Missing required property 'method'");
             }
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.targetResourceId === undefined) && !opts.urn) {
+            if (args?.targetResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
-            if ((!args || args.targetResourceType === undefined) && !opts.urn) {
+            if (args?.targetResourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceType'");
             }
-            resourceInputs["body"] = args ? args.body : undefined;
-            resourceInputs["completionEvent"] = args ? args.completionEvent : undefined;
-            resourceInputs["connectedServiceName"] = args ? args.connectedServiceName : undefined;
-            resourceInputs["connectedServiceNameSelector"] = args ? args.connectedServiceNameSelector : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["headers"] = args ? args.headers : undefined;
-            resourceInputs["method"] = args ? args.method : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["retryInterval"] = args ? args.retryInterval : undefined;
-            resourceInputs["successCriteria"] = args ? args.successCriteria : undefined;
-            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
-            resourceInputs["targetResourceType"] = args ? args.targetResourceType : undefined;
-            resourceInputs["timeout"] = args ? args.timeout : undefined;
-            resourceInputs["urlSuffix"] = args ? args.urlSuffix : undefined;
-            resourceInputs["variableGroupName"] = args ? args.variableGroupName : undefined;
+            resourceInputs["body"] = args?.body;
+            resourceInputs["completionEvent"] = args?.completionEvent;
+            resourceInputs["connectedServiceName"] = args?.connectedServiceName;
+            resourceInputs["connectedServiceNameSelector"] = args?.connectedServiceNameSelector;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["headers"] = args?.headers;
+            resourceInputs["method"] = args?.method;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["retryInterval"] = args?.retryInterval;
+            resourceInputs["successCriteria"] = args?.successCriteria;
+            resourceInputs["targetResourceId"] = args?.targetResourceId;
+            resourceInputs["targetResourceType"] = args?.targetResourceType;
+            resourceInputs["timeout"] = args?.timeout;
+            resourceInputs["urlSuffix"] = args?.urlSuffix;
+            resourceInputs["variableGroupName"] = args?.variableGroupName;
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

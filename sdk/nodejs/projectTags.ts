@@ -72,11 +72,11 @@ export class ProjectTags extends pulumi.CustomResource {
     /**
      * The ID of the Project. Changing this forces a new resource to be created.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * A mapping of tags assigned to the Project.
      */
-    public readonly tags!: pulumi.Output<string[]>;
+    declare public readonly tags: pulumi.Output<string[]>;
 
     /**
      * Create a ProjectTags resource with the given unique name, arguments, and options.
@@ -91,18 +91,18 @@ export class ProjectTags extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProjectTagsState | undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ProjectTagsArgs | undefined;
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.tags === undefined) && !opts.urn) {
+            if (args?.tags === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tags'");
             }
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProjectTags.__pulumiType, name, resourceInputs, opts);

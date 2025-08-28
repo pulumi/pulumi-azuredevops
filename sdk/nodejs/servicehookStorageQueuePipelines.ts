@@ -100,37 +100,37 @@ export class ServicehookStorageQueuePipelines extends pulumi.CustomResource {
     /**
      * A valid account key from the queue's storage account.
      */
-    public readonly accountKey!: pulumi.Output<string>;
+    declare public readonly accountKey: pulumi.Output<string>;
     /**
      * The queue's storage account name.
      */
-    public readonly accountName!: pulumi.Output<string>;
+    declare public readonly accountName: pulumi.Output<string>;
     /**
      * The ID of the associated project. Changing this forces a new Service Hook Storage Queue Pipelines to be created.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * The name of the queue that will store the events.
      */
-    public readonly queueName!: pulumi.Output<string>;
+    declare public readonly queueName: pulumi.Output<string>;
     /**
      * A `runStateChangedEvent` block as defined below. Conflicts with `stageStateChangedEvent`
      */
-    public readonly runStateChangedEvent!: pulumi.Output<outputs.ServicehookStorageQueuePipelinesRunStateChangedEvent | undefined>;
+    declare public readonly runStateChangedEvent: pulumi.Output<outputs.ServicehookStorageQueuePipelinesRunStateChangedEvent | undefined>;
     /**
      * A `stageStateChangedEvent` block as defined below. Conflicts with `runStateChangedEvent`
      *
      * > **Note** At least one of `runStateChangedEvent` and `stageStateChangedEvent` has to be set.
      */
-    public readonly stageStateChangedEvent!: pulumi.Output<outputs.ServicehookStorageQueuePipelinesStageStateChangedEvent | undefined>;
+    declare public readonly stageStateChangedEvent: pulumi.Output<outputs.ServicehookStorageQueuePipelinesStageStateChangedEvent | undefined>;
     /**
      * event time-to-live - the duration a message can remain in the queue before it's automatically removed. Defaults to `604800`.
      */
-    public readonly ttl!: pulumi.Output<number | undefined>;
+    declare public readonly ttl: pulumi.Output<number | undefined>;
     /**
      * event visibility timout - how long a message is invisible to other consumers after it's been dequeued. Defaults to `0`.
      */
-    public readonly visiTimeout!: pulumi.Output<number | undefined>;
+    declare public readonly visiTimeout: pulumi.Output<number | undefined>;
 
     /**
      * Create a ServicehookStorageQueuePipelines resource with the given unique name, arguments, and options.
@@ -145,36 +145,36 @@ export class ServicehookStorageQueuePipelines extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServicehookStorageQueuePipelinesState | undefined;
-            resourceInputs["accountKey"] = state ? state.accountKey : undefined;
-            resourceInputs["accountName"] = state ? state.accountName : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["queueName"] = state ? state.queueName : undefined;
-            resourceInputs["runStateChangedEvent"] = state ? state.runStateChangedEvent : undefined;
-            resourceInputs["stageStateChangedEvent"] = state ? state.stageStateChangedEvent : undefined;
-            resourceInputs["ttl"] = state ? state.ttl : undefined;
-            resourceInputs["visiTimeout"] = state ? state.visiTimeout : undefined;
+            resourceInputs["accountKey"] = state?.accountKey;
+            resourceInputs["accountName"] = state?.accountName;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["queueName"] = state?.queueName;
+            resourceInputs["runStateChangedEvent"] = state?.runStateChangedEvent;
+            resourceInputs["stageStateChangedEvent"] = state?.stageStateChangedEvent;
+            resourceInputs["ttl"] = state?.ttl;
+            resourceInputs["visiTimeout"] = state?.visiTimeout;
         } else {
             const args = argsOrState as ServicehookStorageQueuePipelinesArgs | undefined;
-            if ((!args || args.accountKey === undefined) && !opts.urn) {
+            if (args?.accountKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountKey'");
             }
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.queueName === undefined) && !opts.urn) {
+            if (args?.queueName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'queueName'");
             }
             resourceInputs["accountKey"] = args?.accountKey ? pulumi.secret(args.accountKey) : undefined;
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["queueName"] = args ? args.queueName : undefined;
-            resourceInputs["runStateChangedEvent"] = args ? args.runStateChangedEvent : undefined;
-            resourceInputs["stageStateChangedEvent"] = args ? args.stageStateChangedEvent : undefined;
-            resourceInputs["ttl"] = args ? args.ttl : undefined;
-            resourceInputs["visiTimeout"] = args ? args.visiTimeout : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["queueName"] = args?.queueName;
+            resourceInputs["runStateChangedEvent"] = args?.runStateChangedEvent;
+            resourceInputs["stageStateChangedEvent"] = args?.stageStateChangedEvent;
+            resourceInputs["ttl"] = args?.ttl;
+            resourceInputs["visiTimeout"] = args?.visiTimeout;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["accountKey"] };

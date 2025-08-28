@@ -108,23 +108,23 @@ export class VariableGroupPermissions extends pulumi.CustomResource {
      * | Use         | Use library item          |
      * | Owner       | Owner library item        |
      */
-    public readonly permissions!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly permissions: pulumi.Output<{[key: string]: string}>;
     /**
      * The **group** principal to assign the permissions.
      */
-    public readonly principal!: pulumi.Output<string>;
+    declare public readonly principal: pulumi.Output<string>;
     /**
      * The ID of the project.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      */
-    public readonly replace!: pulumi.Output<boolean | undefined>;
+    declare public readonly replace: pulumi.Output<boolean | undefined>;
     /**
      * The id of the variable group to assign the permissions.
      */
-    public readonly variableGroupId!: pulumi.Output<string>;
+    declare public readonly variableGroupId: pulumi.Output<string>;
 
     /**
      * Create a VariableGroupPermissions resource with the given unique name, arguments, and options.
@@ -139,30 +139,30 @@ export class VariableGroupPermissions extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VariableGroupPermissionsState | undefined;
-            resourceInputs["permissions"] = state ? state.permissions : undefined;
-            resourceInputs["principal"] = state ? state.principal : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["replace"] = state ? state.replace : undefined;
-            resourceInputs["variableGroupId"] = state ? state.variableGroupId : undefined;
+            resourceInputs["permissions"] = state?.permissions;
+            resourceInputs["principal"] = state?.principal;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["replace"] = state?.replace;
+            resourceInputs["variableGroupId"] = state?.variableGroupId;
         } else {
             const args = argsOrState as VariableGroupPermissionsArgs | undefined;
-            if ((!args || args.permissions === undefined) && !opts.urn) {
+            if (args?.permissions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'permissions'");
             }
-            if ((!args || args.principal === undefined) && !opts.urn) {
+            if (args?.principal === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.variableGroupId === undefined) && !opts.urn) {
+            if (args?.variableGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'variableGroupId'");
             }
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["principal"] = args ? args.principal : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["replace"] = args ? args.replace : undefined;
-            resourceInputs["variableGroupId"] = args ? args.variableGroupId : undefined;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["principal"] = args?.principal;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["replace"] = args?.replace;
+            resourceInputs["variableGroupId"] = args?.variableGroupId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VariableGroupPermissions.__pulumiType, name, resourceInputs, opts);

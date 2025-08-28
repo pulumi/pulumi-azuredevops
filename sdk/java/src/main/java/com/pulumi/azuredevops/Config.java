@@ -56,14 +56,14 @@ public final class Config {
         return Codegen.stringProp("clientIdFilePath").config(config).get();
     }
 /**
- * Client secret for authenticating to a service principal.
+ * Client secret for authenticating to  a service principal.
  * 
  */
     public Optional<String> clientSecret() {
         return Codegen.stringProp("clientSecret").config(config).get();
     }
 /**
- * Path to a file containing a client secret for authenticating to a service principal.
+ * Path to a file containing a client secret for authenticating to  a service principal.
  * 
  */
     public Optional<String> clientSecretPath() {
@@ -77,16 +77,14 @@ public final class Config {
         return Codegen.stringProp("oidcAzureServiceConnectionId").config(config).get();
     }
 /**
- * The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
- * Connect.
+ * The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
  * 
  */
     public Optional<String> oidcRequestToken() {
         return Codegen.stringProp("oidcRequestToken").config(config).get();
     }
 /**
- * The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
- * using OpenID Connect.
+ * The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
  * 
  */
     public Optional<String> oidcRequestUrl() {

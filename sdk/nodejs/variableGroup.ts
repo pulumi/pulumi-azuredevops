@@ -148,27 +148,27 @@ export class VariableGroup extends pulumi.CustomResource {
     /**
      * Boolean that indicate if this variable group is shared by all pipelines of this project.
      */
-    public readonly allowAccess!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowAccess: pulumi.Output<boolean | undefined>;
     /**
      * The description of the Variable Group.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A list of `keyVault` blocks as documented below.
      */
-    public readonly keyVault!: pulumi.Output<outputs.VariableGroupKeyVault | undefined>;
+    declare public readonly keyVault: pulumi.Output<outputs.VariableGroupKeyVault | undefined>;
     /**
      * The name of the Variable Group.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the project.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * One or more `variable` blocks as documented below.
      */
-    public readonly variables!: pulumi.Output<outputs.VariableGroupVariable[]>;
+    declare public readonly variables: pulumi.Output<outputs.VariableGroupVariable[]>;
 
     /**
      * Create a VariableGroup resource with the given unique name, arguments, and options.
@@ -183,26 +183,26 @@ export class VariableGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VariableGroupState | undefined;
-            resourceInputs["allowAccess"] = state ? state.allowAccess : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["keyVault"] = state ? state.keyVault : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["variables"] = state ? state.variables : undefined;
+            resourceInputs["allowAccess"] = state?.allowAccess;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["keyVault"] = state?.keyVault;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["variables"] = state?.variables;
         } else {
             const args = argsOrState as VariableGroupArgs | undefined;
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.variables === undefined) && !opts.urn) {
+            if (args?.variables === undefined && !opts.urn) {
                 throw new Error("Missing required property 'variables'");
             }
-            resourceInputs["allowAccess"] = args ? args.allowAccess : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["keyVault"] = args ? args.keyVault : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["variables"] = args ? args.variables : undefined;
+            resourceInputs["allowAccess"] = args?.allowAccess;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["keyVault"] = args?.keyVault;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["variables"] = args?.variables;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VariableGroup.__pulumiType, name, resourceInputs, opts);

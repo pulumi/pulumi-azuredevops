@@ -94,7 +94,7 @@ namespace Pulumi.AzureDevOps
 
         private static readonly __Value<string?> _clientSecret = new __Value<string?>(() => __config.Get("clientSecret"));
         /// <summary>
-        /// Client secret for authenticating to a service principal.
+        /// Client secret for authenticating to  a service principal.
         /// </summary>
         public static string? ClientSecret
         {
@@ -104,7 +104,7 @@ namespace Pulumi.AzureDevOps
 
         private static readonly __Value<string?> _clientSecretPath = new __Value<string?>(() => __config.Get("clientSecretPath"));
         /// <summary>
-        /// Path to a file containing a client secret for authenticating to a service principal.
+        /// Path to a file containing a client secret for authenticating to  a service principal.
         /// </summary>
         public static string? ClientSecretPath
         {
@@ -124,8 +124,7 @@ namespace Pulumi.AzureDevOps
 
         private static readonly __Value<string?> _oidcRequestToken = new __Value<string?>(() => __config.Get("oidcRequestToken"));
         /// <summary>
-        /// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
-        /// Connect.
+        /// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
         /// </summary>
         public static string? OidcRequestToken
         {
@@ -135,8 +134,7 @@ namespace Pulumi.AzureDevOps
 
         private static readonly __Value<string?> _oidcRequestUrl = new __Value<string?>(() => __config.Get("oidcRequestUrl"));
         /// <summary>
-        /// The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
-        /// using OpenID Connect.
+        /// The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
         /// </summary>
         public static string? OidcRequestUrl
         {

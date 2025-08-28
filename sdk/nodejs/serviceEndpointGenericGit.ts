@@ -71,34 +71,34 @@ export class ServiceEndpointGenericGit extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceEndpointGenericGit.__pulumiType;
     }
 
-    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
      */
-    public readonly enablePipelinesAccess!: pulumi.Output<boolean | undefined>;
+    declare public readonly enablePipelinesAccess: pulumi.Output<boolean | undefined>;
     /**
      * The PAT or password used to authenticate to the git repository.
      *
      * > **Note** For AzureDevOps Git, PAT should be used as the password.
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * The ID of the project.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * The URL of the repository associated with the service endpoint.
      */
-    public readonly repositoryUrl!: pulumi.Output<string>;
+    declare public readonly repositoryUrl: pulumi.Output<string>;
     /**
      * The name of the service endpoint.
      */
-    public readonly serviceEndpointName!: pulumi.Output<string>;
+    declare public readonly serviceEndpointName: pulumi.Output<string>;
     /**
      * The username used to authenticate to the git repository.
      */
-    public readonly username!: pulumi.Output<string | undefined>;
+    declare public readonly username: pulumi.Output<string | undefined>;
 
     /**
      * Create a ServiceEndpointGenericGit resource with the given unique name, arguments, and options.
@@ -113,32 +113,32 @@ export class ServiceEndpointGenericGit extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceEndpointGenericGitState | undefined;
-            resourceInputs["authorization"] = state ? state.authorization : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["enablePipelinesAccess"] = state ? state.enablePipelinesAccess : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["repositoryUrl"] = state ? state.repositoryUrl : undefined;
-            resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["authorization"] = state?.authorization;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["enablePipelinesAccess"] = state?.enablePipelinesAccess;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["repositoryUrl"] = state?.repositoryUrl;
+            resourceInputs["serviceEndpointName"] = state?.serviceEndpointName;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as ServiceEndpointGenericGitArgs | undefined;
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.repositoryUrl === undefined) && !opts.urn) {
+            if (args?.repositoryUrl === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repositoryUrl'");
             }
-            if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
+            if (args?.serviceEndpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enablePipelinesAccess"] = args ? args.enablePipelinesAccess : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enablePipelinesAccess"] = args?.enablePipelinesAccess;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["repositoryUrl"] = args ? args.repositoryUrl : undefined;
-            resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["repositoryUrl"] = args?.repositoryUrl;
+            resourceInputs["serviceEndpointName"] = args?.serviceEndpointName;
+            resourceInputs["username"] = args?.username;
             resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

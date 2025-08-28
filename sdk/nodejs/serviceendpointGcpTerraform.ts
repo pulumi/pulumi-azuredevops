@@ -69,36 +69,36 @@ export class ServiceendpointGcpTerraform extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceendpointGcpTerraform.__pulumiType;
     }
 
-    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
     /**
      * The client email field in the JSON key file for creating the JSON Web Token.
      */
-    public readonly clientEmail!: pulumi.Output<string | undefined>;
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly clientEmail: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * GCP project associated with the Service Connection.
      */
-    public readonly gcpProjectId!: pulumi.Output<string>;
+    declare public readonly gcpProjectId: pulumi.Output<string>;
     /**
      * The Private Key for connecting to the endpoint.
      */
-    public readonly privateKey!: pulumi.Output<string>;
+    declare public readonly privateKey: pulumi.Output<string>;
     /**
      * The ID of the project.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * Scope to be provided.
      */
-    public readonly scope!: pulumi.Output<string | undefined>;
+    declare public readonly scope: pulumi.Output<string | undefined>;
     /**
      * The Service Endpoint name.
      */
-    public readonly serviceEndpointName!: pulumi.Output<string>;
+    declare public readonly serviceEndpointName: pulumi.Output<string>;
     /**
      * The token uri field in the JSON key file for creating the JSON Web Token.
      */
-    public readonly tokenUri!: pulumi.Output<string>;
+    declare public readonly tokenUri: pulumi.Output<string>;
 
     /**
      * Create a ServiceendpointGcpTerraform resource with the given unique name, arguments, and options.
@@ -113,31 +113,31 @@ export class ServiceendpointGcpTerraform extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceendpointGcpTerraformState | undefined;
-            resourceInputs["authorization"] = state ? state.authorization : undefined;
-            resourceInputs["clientEmail"] = state ? state.clientEmail : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["gcpProjectId"] = state ? state.gcpProjectId : undefined;
-            resourceInputs["privateKey"] = state ? state.privateKey : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["scope"] = state ? state.scope : undefined;
-            resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
-            resourceInputs["tokenUri"] = state ? state.tokenUri : undefined;
+            resourceInputs["authorization"] = state?.authorization;
+            resourceInputs["clientEmail"] = state?.clientEmail;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["gcpProjectId"] = state?.gcpProjectId;
+            resourceInputs["privateKey"] = state?.privateKey;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["scope"] = state?.scope;
+            resourceInputs["serviceEndpointName"] = state?.serviceEndpointName;
+            resourceInputs["tokenUri"] = state?.tokenUri;
         } else {
             const args = argsOrState as ServiceendpointGcpTerraformArgs | undefined;
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
+            if (args?.serviceEndpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            resourceInputs["clientEmail"] = args ? args.clientEmail : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["gcpProjectId"] = args ? args.gcpProjectId : undefined;
+            resourceInputs["clientEmail"] = args?.clientEmail;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["gcpProjectId"] = args?.gcpProjectId;
             resourceInputs["privateKey"] = args?.privateKey ? pulumi.secret(args.privateKey) : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
-            resourceInputs["tokenUri"] = args ? args.tokenUri : undefined;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["serviceEndpointName"] = args?.serviceEndpointName;
+            resourceInputs["tokenUri"] = args?.tokenUri;
             resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

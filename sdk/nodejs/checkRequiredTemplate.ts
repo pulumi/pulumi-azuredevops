@@ -104,23 +104,23 @@ export class CheckRequiredTemplate extends pulumi.CustomResource {
     /**
      * The project ID. Changing this forces a new Required Template Check to be created.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * One or more `requiredTemplate` blocks documented below.
      */
-    public readonly requiredTemplates!: pulumi.Output<outputs.CheckRequiredTemplateRequiredTemplate[]>;
+    declare public readonly requiredTemplates: pulumi.Output<outputs.CheckRequiredTemplateRequiredTemplate[]>;
     /**
      * The ID of the resource being protected by the check. Changing this forces a new Required Template Check to be created.
      */
-    public readonly targetResourceId!: pulumi.Output<string>;
+    declare public readonly targetResourceId: pulumi.Output<string>;
     /**
      * The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Required Template Check to be created.
      */
-    public readonly targetResourceType!: pulumi.Output<string>;
+    declare public readonly targetResourceType: pulumi.Output<string>;
     /**
      * The version of the check.
      */
-    public /*out*/ readonly version!: pulumi.Output<number>;
+    declare public /*out*/ readonly version: pulumi.Output<number>;
 
     /**
      * Create a CheckRequiredTemplate resource with the given unique name, arguments, and options.
@@ -135,29 +135,29 @@ export class CheckRequiredTemplate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CheckRequiredTemplateState | undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["requiredTemplates"] = state ? state.requiredTemplates : undefined;
-            resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
-            resourceInputs["targetResourceType"] = state ? state.targetResourceType : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["requiredTemplates"] = state?.requiredTemplates;
+            resourceInputs["targetResourceId"] = state?.targetResourceId;
+            resourceInputs["targetResourceType"] = state?.targetResourceType;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as CheckRequiredTemplateArgs | undefined;
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.requiredTemplates === undefined) && !opts.urn) {
+            if (args?.requiredTemplates === undefined && !opts.urn) {
                 throw new Error("Missing required property 'requiredTemplates'");
             }
-            if ((!args || args.targetResourceId === undefined) && !opts.urn) {
+            if (args?.targetResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
-            if ((!args || args.targetResourceType === undefined) && !opts.urn) {
+            if (args?.targetResourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceType'");
             }
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["requiredTemplates"] = args ? args.requiredTemplates : undefined;
-            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
-            resourceInputs["targetResourceType"] = args ? args.targetResourceType : undefined;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["requiredTemplates"] = args?.requiredTemplates;
+            resourceInputs["targetResourceId"] = args?.targetResourceId;
+            resourceInputs["targetResourceType"] = args?.targetResourceType;
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
