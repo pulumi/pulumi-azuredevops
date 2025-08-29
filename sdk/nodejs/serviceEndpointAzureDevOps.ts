@@ -74,28 +74,28 @@ export class ServiceEndpointAzureDevOps extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceEndpointAzureDevOps.__pulumiType;
     }
 
-    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The organization URL.
      */
-    public readonly orgUrl!: pulumi.Output<string>;
+    declare public readonly orgUrl: pulumi.Output<string>;
     /**
      * The Azure DevOps personal access token.
      */
-    public readonly personalAccessToken!: pulumi.Output<string>;
+    declare public readonly personalAccessToken: pulumi.Output<string>;
     /**
      * The ID of the project.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * The URL of the release API.
      */
-    public readonly releaseApiUrl!: pulumi.Output<string>;
+    declare public readonly releaseApiUrl: pulumi.Output<string>;
     /**
      * The Service Endpoint name.
      */
-    public readonly serviceEndpointName!: pulumi.Output<string>;
+    declare public readonly serviceEndpointName: pulumi.Output<string>;
 
     /**
      * Create a ServiceEndpointAzureDevOps resource with the given unique name, arguments, and options.
@@ -110,27 +110,27 @@ export class ServiceEndpointAzureDevOps extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceEndpointAzureDevOpsState | undefined;
-            resourceInputs["authorization"] = state ? state.authorization : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["orgUrl"] = state ? state.orgUrl : undefined;
-            resourceInputs["personalAccessToken"] = state ? state.personalAccessToken : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["releaseApiUrl"] = state ? state.releaseApiUrl : undefined;
-            resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
+            resourceInputs["authorization"] = state?.authorization;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["orgUrl"] = state?.orgUrl;
+            resourceInputs["personalAccessToken"] = state?.personalAccessToken;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["releaseApiUrl"] = state?.releaseApiUrl;
+            resourceInputs["serviceEndpointName"] = state?.serviceEndpointName;
         } else {
             const args = argsOrState as ServiceEndpointAzureDevOpsArgs | undefined;
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
+            if (args?.serviceEndpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["orgUrl"] = args ? args.orgUrl : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["orgUrl"] = args?.orgUrl;
             resourceInputs["personalAccessToken"] = args?.personalAccessToken ? pulumi.secret(args.personalAccessToken) : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["releaseApiUrl"] = args ? args.releaseApiUrl : undefined;
-            resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["releaseApiUrl"] = args?.releaseApiUrl;
+            resourceInputs["serviceEndpointName"] = args?.serviceEndpointName;
             resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -69,24 +69,24 @@ export class ServiceEndpointBitBucket extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceEndpointBitBucket.__pulumiType;
     }
 
-    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Bitbucket account password.
      */
-    public readonly password!: pulumi.Output<string>;
+    declare public readonly password: pulumi.Output<string>;
     /**
      * The ID of the project.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * The Service Endpoint name.
      */
-    public readonly serviceEndpointName!: pulumi.Output<string>;
+    declare public readonly serviceEndpointName: pulumi.Output<string>;
     /**
      * Bitbucket account username.
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
 
     /**
      * Create a ServiceEndpointBitBucket resource with the given unique name, arguments, and options.
@@ -101,25 +101,25 @@ export class ServiceEndpointBitBucket extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceEndpointBitBucketState | undefined;
-            resourceInputs["authorization"] = state ? state.authorization : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["authorization"] = state?.authorization;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["serviceEndpointName"] = state?.serviceEndpointName;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as ServiceEndpointBitBucketArgs | undefined;
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
+            if (args?.serviceEndpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["description"] = args?.description;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["serviceEndpointName"] = args?.serviceEndpointName;
+            resourceInputs["username"] = args?.username;
             resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -101,32 +101,32 @@ export class ServiceEndpointServiceFabric extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceEndpointServiceFabric.__pulumiType;
     }
 
-    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
     /**
      * An `azureActiveDirectory` block as documented below.
      */
-    public readonly azureActiveDirectory!: pulumi.Output<outputs.ServiceEndpointServiceFabricAzureActiveDirectory | undefined>;
+    declare public readonly azureActiveDirectory: pulumi.Output<outputs.ServiceEndpointServiceFabricAzureActiveDirectory | undefined>;
     /**
      * A `certificate` block as documented below.
      */
-    public readonly certificate!: pulumi.Output<outputs.ServiceEndpointServiceFabricCertificate | undefined>;
+    declare public readonly certificate: pulumi.Output<outputs.ServiceEndpointServiceFabricCertificate | undefined>;
     /**
      * Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
      */
-    public readonly clusterEndpoint!: pulumi.Output<string>;
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly clusterEndpoint: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A `none` block as documented below.
      */
-    public readonly none!: pulumi.Output<outputs.ServiceEndpointServiceFabricNone | undefined>;
+    declare public readonly none: pulumi.Output<outputs.ServiceEndpointServiceFabricNone | undefined>;
     /**
      * The ID of the project.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * The Service Endpoint name.
      */
-    public readonly serviceEndpointName!: pulumi.Output<string>;
+    declare public readonly serviceEndpointName: pulumi.Output<string>;
 
     /**
      * Create a ServiceEndpointServiceFabric resource with the given unique name, arguments, and options.
@@ -141,32 +141,32 @@ export class ServiceEndpointServiceFabric extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceEndpointServiceFabricState | undefined;
-            resourceInputs["authorization"] = state ? state.authorization : undefined;
-            resourceInputs["azureActiveDirectory"] = state ? state.azureActiveDirectory : undefined;
-            resourceInputs["certificate"] = state ? state.certificate : undefined;
-            resourceInputs["clusterEndpoint"] = state ? state.clusterEndpoint : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["none"] = state ? state.none : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
+            resourceInputs["authorization"] = state?.authorization;
+            resourceInputs["azureActiveDirectory"] = state?.azureActiveDirectory;
+            resourceInputs["certificate"] = state?.certificate;
+            resourceInputs["clusterEndpoint"] = state?.clusterEndpoint;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["none"] = state?.none;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["serviceEndpointName"] = state?.serviceEndpointName;
         } else {
             const args = argsOrState as ServiceEndpointServiceFabricArgs | undefined;
-            if ((!args || args.clusterEndpoint === undefined) && !opts.urn) {
+            if (args?.clusterEndpoint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterEndpoint'");
             }
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
+            if (args?.serviceEndpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            resourceInputs["azureActiveDirectory"] = args ? args.azureActiveDirectory : undefined;
-            resourceInputs["certificate"] = args ? args.certificate : undefined;
-            resourceInputs["clusterEndpoint"] = args ? args.clusterEndpoint : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["none"] = args ? args.none : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["azureActiveDirectory"] = args?.azureActiveDirectory;
+            resourceInputs["certificate"] = args?.certificate;
+            resourceInputs["clusterEndpoint"] = args?.clusterEndpoint;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["none"] = args?.none;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["serviceEndpointName"] = args?.serviceEndpointName;
             resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

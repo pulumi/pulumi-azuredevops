@@ -76,33 +76,33 @@ export class GroupEntitlement extends pulumi.CustomResource {
     /**
      * Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
      */
-    public readonly accountLicenseType!: pulumi.Output<string | undefined>;
+    declare public readonly accountLicenseType: pulumi.Output<string | undefined>;
     /**
      * The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the group graph subject.
      */
-    public /*out*/ readonly descriptor!: pulumi.Output<string>;
+    declare public /*out*/ readonly descriptor: pulumi.Output<string>;
     /**
      * The display name is the name used in Azure DevOps UI. Cannot be set together with `originId` and `origin`.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
      *
      * > **NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
      */
-    public readonly licensingSource!: pulumi.Output<string | undefined>;
+    declare public readonly licensingSource: pulumi.Output<string | undefined>;
     /**
      * The type of source provider for the origin identifier.
      */
-    public readonly origin!: pulumi.Output<string>;
+    declare public readonly origin: pulumi.Output<string>;
     /**
      * The unique identifier from the system of origin. Typically, a sid, object id or Guid. e.g. Used for member of other tenant on Azure Active Directory.
      */
-    public readonly originId!: pulumi.Output<string>;
+    declare public readonly originId: pulumi.Output<string>;
     /**
      * The principal name of a graph member on Azure DevOps
      */
-    public /*out*/ readonly principalName!: pulumi.Output<string>;
+    declare public /*out*/ readonly principalName: pulumi.Output<string>;
 
     /**
      * Create a GroupEntitlement resource with the given unique name, arguments, and options.
@@ -117,20 +117,20 @@ export class GroupEntitlement extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupEntitlementState | undefined;
-            resourceInputs["accountLicenseType"] = state ? state.accountLicenseType : undefined;
-            resourceInputs["descriptor"] = state ? state.descriptor : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["licensingSource"] = state ? state.licensingSource : undefined;
-            resourceInputs["origin"] = state ? state.origin : undefined;
-            resourceInputs["originId"] = state ? state.originId : undefined;
-            resourceInputs["principalName"] = state ? state.principalName : undefined;
+            resourceInputs["accountLicenseType"] = state?.accountLicenseType;
+            resourceInputs["descriptor"] = state?.descriptor;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["licensingSource"] = state?.licensingSource;
+            resourceInputs["origin"] = state?.origin;
+            resourceInputs["originId"] = state?.originId;
+            resourceInputs["principalName"] = state?.principalName;
         } else {
             const args = argsOrState as GroupEntitlementArgs | undefined;
-            resourceInputs["accountLicenseType"] = args ? args.accountLicenseType : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["licensingSource"] = args ? args.licensingSource : undefined;
-            resourceInputs["origin"] = args ? args.origin : undefined;
-            resourceInputs["originId"] = args ? args.originId : undefined;
+            resourceInputs["accountLicenseType"] = args?.accountLicenseType;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["licensingSource"] = args?.licensingSource;
+            resourceInputs["origin"] = args?.origin;
+            resourceInputs["originId"] = args?.originId;
             resourceInputs["descriptor"] = undefined /*out*/;
             resourceInputs["principalName"] = undefined /*out*/;
         }

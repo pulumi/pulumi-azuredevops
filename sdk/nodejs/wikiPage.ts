@@ -65,20 +65,20 @@ export class WikiPage extends pulumi.CustomResource {
     /**
      * The content of the wiki page.
      */
-    public readonly content!: pulumi.Output<string>;
-    public readonly etag!: pulumi.Output<string>;
+    declare public readonly content: pulumi.Output<string>;
+    declare public readonly etag: pulumi.Output<string>;
     /**
      * The path of the wiki page.
      */
-    public readonly path!: pulumi.Output<string>;
+    declare public readonly path: pulumi.Output<string>;
     /**
      * The ID of the Project.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * The ID of the Wiki.
      */
-    public readonly wikiId!: pulumi.Output<string>;
+    declare public readonly wikiId: pulumi.Output<string>;
 
     /**
      * Create a WikiPage resource with the given unique name, arguments, and options.
@@ -93,30 +93,30 @@ export class WikiPage extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WikiPageState | undefined;
-            resourceInputs["content"] = state ? state.content : undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["path"] = state ? state.path : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["wikiId"] = state ? state.wikiId : undefined;
+            resourceInputs["content"] = state?.content;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["path"] = state?.path;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["wikiId"] = state?.wikiId;
         } else {
             const args = argsOrState as WikiPageArgs | undefined;
-            if ((!args || args.content === undefined) && !opts.urn) {
+            if (args?.content === undefined && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            if ((!args || args.path === undefined) && !opts.urn) {
+            if (args?.path === undefined && !opts.urn) {
                 throw new Error("Missing required property 'path'");
             }
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.wikiId === undefined) && !opts.urn) {
+            if (args?.wikiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'wikiId'");
             }
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
-            resourceInputs["path"] = args ? args.path : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["wikiId"] = args ? args.wikiId : undefined;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["etag"] = args?.etag;
+            resourceInputs["path"] = args?.path;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["wikiId"] = args?.wikiId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(WikiPage.__pulumiType, name, resourceInputs, opts);

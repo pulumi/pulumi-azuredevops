@@ -88,8 +88,8 @@ export class ProjectFeatures extends pulumi.CustomResource {
      * via the `features` block by using the `azuredevops.Project` resource.
      * However it's not possible to use both methods to manage features, since there'll be conflicts.
      */
-    public readonly features!: pulumi.Output<{[key: string]: string}>;
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly features: pulumi.Output<{[key: string]: string}>;
+    declare public readonly projectId: pulumi.Output<string>;
 
     /**
      * Create a ProjectFeatures resource with the given unique name, arguments, and options.
@@ -104,18 +104,18 @@ export class ProjectFeatures extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProjectFeaturesState | undefined;
-            resourceInputs["features"] = state ? state.features : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["features"] = state?.features;
+            resourceInputs["projectId"] = state?.projectId;
         } else {
             const args = argsOrState as ProjectFeaturesArgs | undefined;
-            if ((!args || args.features === undefined) && !opts.urn) {
+            if (args?.features === undefined && !opts.urn) {
                 throw new Error("Missing required property 'features'");
             }
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            resourceInputs["features"] = args ? args.features : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["features"] = args?.features;
+            resourceInputs["projectId"] = args?.projectId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProjectFeatures.__pulumiType, name, resourceInputs, opts);

@@ -74,24 +74,24 @@ export class ServiceEndpointNpm extends pulumi.CustomResource {
     /**
      * The access token for npm registry.
      */
-    public readonly accessToken!: pulumi.Output<string>;
-    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly accessToken: pulumi.Output<string>;
+    declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
     /**
      * The Service Endpoint description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the project.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * The Service Endpoint name.
      */
-    public readonly serviceEndpointName!: pulumi.Output<string>;
+    declare public readonly serviceEndpointName: pulumi.Output<string>;
     /**
      * URL of the npm registry to connect with.
      */
-    public readonly url!: pulumi.Output<string>;
+    declare public readonly url: pulumi.Output<string>;
 
     /**
      * Create a ServiceEndpointNpm resource with the given unique name, arguments, and options.
@@ -106,31 +106,31 @@ export class ServiceEndpointNpm extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceEndpointNpmState | undefined;
-            resourceInputs["accessToken"] = state ? state.accessToken : undefined;
-            resourceInputs["authorization"] = state ? state.authorization : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["accessToken"] = state?.accessToken;
+            resourceInputs["authorization"] = state?.authorization;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["serviceEndpointName"] = state?.serviceEndpointName;
+            resourceInputs["url"] = state?.url;
         } else {
             const args = argsOrState as ServiceEndpointNpmArgs | undefined;
-            if ((!args || args.accessToken === undefined) && !opts.urn) {
+            if (args?.accessToken === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessToken'");
             }
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
+            if (args?.serviceEndpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            if ((!args || args.url === undefined) && !opts.urn) {
+            if (args?.url === undefined && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
             resourceInputs["accessToken"] = args?.accessToken ? pulumi.secret(args.accessToken) : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
-            resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["serviceEndpointName"] = args?.serviceEndpointName;
+            resourceInputs["url"] = args?.url;
             resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

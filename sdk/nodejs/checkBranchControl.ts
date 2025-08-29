@@ -170,39 +170,39 @@ export class CheckBranchControl extends pulumi.CustomResource {
     /**
      * The branches allowed to use the resource. Specify a comma separated list of allowed branches in `refs/heads/branch_name` format. To allow deployments from all branches, specify ` * ` . `refs/heads/features/* , refs/heads/releases/*` restricts deployments to all branches under features/ or releases/ . Defaults to `*`.
      */
-    public readonly allowedBranches!: pulumi.Output<string | undefined>;
+    declare public readonly allowedBranches: pulumi.Output<string | undefined>;
     /**
      * The name of the branch control check displayed in the web UI.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * Allow deployment from branches for which protection status could not be obtained. Only relevant when verifyBranchProtection is `true`. Defaults to `false`.
      */
-    public readonly ignoreUnknownProtectionStatus!: pulumi.Output<boolean | undefined>;
+    declare public readonly ignoreUnknownProtectionStatus: pulumi.Output<boolean | undefined>;
     /**
      * The project ID.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * The ID of the resource being protected by the check.
      */
-    public readonly targetResourceId!: pulumi.Output<string>;
+    declare public readonly targetResourceId: pulumi.Output<string>;
     /**
      * The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
      */
-    public readonly targetResourceType!: pulumi.Output<string>;
+    declare public readonly targetResourceType: pulumi.Output<string>;
     /**
      * The timeout in minutes for the branch control check. Defaults to `1440`.
      */
-    public readonly timeout!: pulumi.Output<number | undefined>;
+    declare public readonly timeout: pulumi.Output<number | undefined>;
     /**
      * Validate the branches being deployed are protected. Defaults to `false`.
      */
-    public readonly verifyBranchProtection!: pulumi.Output<boolean | undefined>;
+    declare public readonly verifyBranchProtection: pulumi.Output<boolean | undefined>;
     /**
      * The version of the check.
      */
-    public /*out*/ readonly version!: pulumi.Output<number>;
+    declare public /*out*/ readonly version: pulumi.Output<number>;
 
     /**
      * Create a CheckBranchControl resource with the given unique name, arguments, and options.
@@ -217,34 +217,34 @@ export class CheckBranchControl extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CheckBranchControlState | undefined;
-            resourceInputs["allowedBranches"] = state ? state.allowedBranches : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["ignoreUnknownProtectionStatus"] = state ? state.ignoreUnknownProtectionStatus : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
-            resourceInputs["targetResourceType"] = state ? state.targetResourceType : undefined;
-            resourceInputs["timeout"] = state ? state.timeout : undefined;
-            resourceInputs["verifyBranchProtection"] = state ? state.verifyBranchProtection : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["allowedBranches"] = state?.allowedBranches;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["ignoreUnknownProtectionStatus"] = state?.ignoreUnknownProtectionStatus;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["targetResourceId"] = state?.targetResourceId;
+            resourceInputs["targetResourceType"] = state?.targetResourceType;
+            resourceInputs["timeout"] = state?.timeout;
+            resourceInputs["verifyBranchProtection"] = state?.verifyBranchProtection;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as CheckBranchControlArgs | undefined;
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.targetResourceId === undefined) && !opts.urn) {
+            if (args?.targetResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
-            if ((!args || args.targetResourceType === undefined) && !opts.urn) {
+            if (args?.targetResourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceType'");
             }
-            resourceInputs["allowedBranches"] = args ? args.allowedBranches : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["ignoreUnknownProtectionStatus"] = args ? args.ignoreUnknownProtectionStatus : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
-            resourceInputs["targetResourceType"] = args ? args.targetResourceType : undefined;
-            resourceInputs["timeout"] = args ? args.timeout : undefined;
-            resourceInputs["verifyBranchProtection"] = args ? args.verifyBranchProtection : undefined;
+            resourceInputs["allowedBranches"] = args?.allowedBranches;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["ignoreUnknownProtectionStatus"] = args?.ignoreUnknownProtectionStatus;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["targetResourceId"] = args?.targetResourceId;
+            resourceInputs["targetResourceType"] = args?.targetResourceType;
+            resourceInputs["timeout"] = args?.timeout;
+            resourceInputs["verifyBranchProtection"] = args?.verifyBranchProtection;
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

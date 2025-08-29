@@ -52,51 +52,51 @@ export class Git extends pulumi.CustomResource {
     /**
      * The ref of the default branch. Will be used as the branch name for initialized repositories.
      */
-    public readonly defaultBranch!: pulumi.Output<string>;
+    declare public readonly defaultBranch: pulumi.Output<string>;
     /**
      * The ability to disable or enable the repository. Defaults to `false`.
      */
-    public readonly disabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly disabled: pulumi.Output<boolean | undefined>;
     /**
      * A `initialization` block as documented below.
      */
-    public readonly initialization!: pulumi.Output<outputs.GitInitialization>;
+    declare public readonly initialization: pulumi.Output<outputs.GitInitialization>;
     /**
      * True if the repository was created as a fork.
      */
-    public /*out*/ readonly isFork!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isFork: pulumi.Output<boolean>;
     /**
      * The name of the git repository.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of a Git project from which a fork is to be created.
      */
-    public readonly parentRepositoryId!: pulumi.Output<string | undefined>;
+    declare public readonly parentRepositoryId: pulumi.Output<string | undefined>;
     /**
      * The project ID or project name.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * Git HTTPS URL of the repository
      */
-    public /*out*/ readonly remoteUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly remoteUrl: pulumi.Output<string>;
     /**
      * Size in bytes.
      */
-    public /*out*/ readonly size!: pulumi.Output<number>;
+    declare public /*out*/ readonly size: pulumi.Output<number>;
     /**
      * Git SSH URL of the repository.
      */
-    public /*out*/ readonly sshUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly sshUrl: pulumi.Output<string>;
     /**
      * REST API URL of the repository.
      */
-    public /*out*/ readonly url!: pulumi.Output<string>;
+    declare public /*out*/ readonly url: pulumi.Output<string>;
     /**
      * Web link to the repository.
      */
-    public /*out*/ readonly webUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly webUrl: pulumi.Output<string>;
 
     /**
      * Create a Git resource with the given unique name, arguments, and options.
@@ -111,32 +111,32 @@ export class Git extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GitState | undefined;
-            resourceInputs["defaultBranch"] = state ? state.defaultBranch : undefined;
-            resourceInputs["disabled"] = state ? state.disabled : undefined;
-            resourceInputs["initialization"] = state ? state.initialization : undefined;
-            resourceInputs["isFork"] = state ? state.isFork : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parentRepositoryId"] = state ? state.parentRepositoryId : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["remoteUrl"] = state ? state.remoteUrl : undefined;
-            resourceInputs["size"] = state ? state.size : undefined;
-            resourceInputs["sshUrl"] = state ? state.sshUrl : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
-            resourceInputs["webUrl"] = state ? state.webUrl : undefined;
+            resourceInputs["defaultBranch"] = state?.defaultBranch;
+            resourceInputs["disabled"] = state?.disabled;
+            resourceInputs["initialization"] = state?.initialization;
+            resourceInputs["isFork"] = state?.isFork;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parentRepositoryId"] = state?.parentRepositoryId;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["remoteUrl"] = state?.remoteUrl;
+            resourceInputs["size"] = state?.size;
+            resourceInputs["sshUrl"] = state?.sshUrl;
+            resourceInputs["url"] = state?.url;
+            resourceInputs["webUrl"] = state?.webUrl;
         } else {
             const args = argsOrState as GitArgs | undefined;
-            if ((!args || args.initialization === undefined) && !opts.urn) {
+            if (args?.initialization === undefined && !opts.urn) {
                 throw new Error("Missing required property 'initialization'");
             }
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            resourceInputs["defaultBranch"] = args ? args.defaultBranch : undefined;
-            resourceInputs["disabled"] = args ? args.disabled : undefined;
-            resourceInputs["initialization"] = args ? args.initialization : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parentRepositoryId"] = args ? args.parentRepositoryId : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["defaultBranch"] = args?.defaultBranch;
+            resourceInputs["disabled"] = args?.disabled;
+            resourceInputs["initialization"] = args?.initialization;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parentRepositoryId"] = args?.parentRepositoryId;
+            resourceInputs["projectId"] = args?.projectId;
             resourceInputs["isFork"] = undefined /*out*/;
             resourceInputs["remoteUrl"] = undefined /*out*/;
             resourceInputs["size"] = undefined /*out*/;

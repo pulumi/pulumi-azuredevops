@@ -358,70 +358,70 @@ export class BuildDefinition extends pulumi.CustomResource {
     /**
      * The agent pool that should execute the build. Defaults to `Azure Pipelines`.
      */
-    public readonly agentPoolName!: pulumi.Output<string | undefined>;
+    declare public readonly agentPoolName: pulumi.Output<string | undefined>;
     /**
      * The Agent Specification to run the pipelines. Required when `repoType` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
      */
-    public readonly agentSpecification!: pulumi.Output<string | undefined>;
+    declare public readonly agentSpecification: pulumi.Output<string | undefined>;
     /**
      * A `buildCompletionTrigger` block as documented below.
      */
-    public readonly buildCompletionTriggers!: pulumi.Output<outputs.BuildDefinitionBuildCompletionTrigger[] | undefined>;
+    declare public readonly buildCompletionTriggers: pulumi.Output<outputs.BuildDefinitionBuildCompletionTrigger[] | undefined>;
     /**
      * A `ciTrigger` block as documented below.
      */
-    public readonly ciTrigger!: pulumi.Output<outputs.BuildDefinitionCiTrigger | undefined>;
+    declare public readonly ciTrigger: pulumi.Output<outputs.BuildDefinitionCiTrigger | undefined>;
     /**
      * A `features` blocks as documented below.
      */
-    public readonly features!: pulumi.Output<outputs.BuildDefinitionFeature[] | undefined>;
+    declare public readonly features: pulumi.Output<outputs.BuildDefinitionFeature[] | undefined>;
     /**
      * The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
      */
-    public readonly jobAuthorizationScope!: pulumi.Output<string | undefined>;
+    declare public readonly jobAuthorizationScope: pulumi.Output<string | undefined>;
     /**
      * A `jobs` blocks as documented below.
      *
      * > **NOTE:** The `jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
      */
-    public readonly jobs!: pulumi.Output<outputs.BuildDefinitionJob[] | undefined>;
+    declare public readonly jobs: pulumi.Output<outputs.BuildDefinitionJob[] | undefined>;
     /**
      * The name of the build definition.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The folder path of the build definition.
      */
-    public readonly path!: pulumi.Output<string | undefined>;
+    declare public readonly path: pulumi.Output<string | undefined>;
     /**
      * The project ID or project name.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * A `pullRequestTrigger` block as documented below.
      */
-    public readonly pullRequestTrigger!: pulumi.Output<outputs.BuildDefinitionPullRequestTrigger | undefined>;
+    declare public readonly pullRequestTrigger: pulumi.Output<outputs.BuildDefinitionPullRequestTrigger | undefined>;
     /**
      * The queue status of the build definition. Possible values are: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
      */
-    public readonly queueStatus!: pulumi.Output<string | undefined>;
+    declare public readonly queueStatus: pulumi.Output<string | undefined>;
     /**
      * A `repository` block as documented below.
      */
-    public readonly repository!: pulumi.Output<outputs.BuildDefinitionRepository>;
+    declare public readonly repository: pulumi.Output<outputs.BuildDefinitionRepository>;
     /**
      * The revision of the build definition
      */
-    public /*out*/ readonly revision!: pulumi.Output<number>;
-    public readonly schedules!: pulumi.Output<outputs.BuildDefinitionSchedule[] | undefined>;
+    declare public /*out*/ readonly revision: pulumi.Output<number>;
+    declare public readonly schedules: pulumi.Output<outputs.BuildDefinitionSchedule[] | undefined>;
     /**
      * A list of variable group IDs (integers) to link to the build definition.
      */
-    public readonly variableGroups!: pulumi.Output<number[] | undefined>;
+    declare public readonly variableGroups: pulumi.Output<number[] | undefined>;
     /**
      * A list of `variable` blocks, as documented below.
      */
-    public readonly variables!: pulumi.Output<outputs.BuildDefinitionVariable[] | undefined>;
+    declare public readonly variables: pulumi.Output<outputs.BuildDefinitionVariable[] | undefined>;
 
     /**
      * Create a BuildDefinition resource with the given unique name, arguments, and options.
@@ -436,47 +436,47 @@ export class BuildDefinition extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BuildDefinitionState | undefined;
-            resourceInputs["agentPoolName"] = state ? state.agentPoolName : undefined;
-            resourceInputs["agentSpecification"] = state ? state.agentSpecification : undefined;
-            resourceInputs["buildCompletionTriggers"] = state ? state.buildCompletionTriggers : undefined;
-            resourceInputs["ciTrigger"] = state ? state.ciTrigger : undefined;
-            resourceInputs["features"] = state ? state.features : undefined;
-            resourceInputs["jobAuthorizationScope"] = state ? state.jobAuthorizationScope : undefined;
-            resourceInputs["jobs"] = state ? state.jobs : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["path"] = state ? state.path : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["pullRequestTrigger"] = state ? state.pullRequestTrigger : undefined;
-            resourceInputs["queueStatus"] = state ? state.queueStatus : undefined;
-            resourceInputs["repository"] = state ? state.repository : undefined;
-            resourceInputs["revision"] = state ? state.revision : undefined;
-            resourceInputs["schedules"] = state ? state.schedules : undefined;
-            resourceInputs["variableGroups"] = state ? state.variableGroups : undefined;
-            resourceInputs["variables"] = state ? state.variables : undefined;
+            resourceInputs["agentPoolName"] = state?.agentPoolName;
+            resourceInputs["agentSpecification"] = state?.agentSpecification;
+            resourceInputs["buildCompletionTriggers"] = state?.buildCompletionTriggers;
+            resourceInputs["ciTrigger"] = state?.ciTrigger;
+            resourceInputs["features"] = state?.features;
+            resourceInputs["jobAuthorizationScope"] = state?.jobAuthorizationScope;
+            resourceInputs["jobs"] = state?.jobs;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["path"] = state?.path;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["pullRequestTrigger"] = state?.pullRequestTrigger;
+            resourceInputs["queueStatus"] = state?.queueStatus;
+            resourceInputs["repository"] = state?.repository;
+            resourceInputs["revision"] = state?.revision;
+            resourceInputs["schedules"] = state?.schedules;
+            resourceInputs["variableGroups"] = state?.variableGroups;
+            resourceInputs["variables"] = state?.variables;
         } else {
             const args = argsOrState as BuildDefinitionArgs | undefined;
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.repository === undefined) && !opts.urn) {
+            if (args?.repository === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            resourceInputs["agentPoolName"] = args ? args.agentPoolName : undefined;
-            resourceInputs["agentSpecification"] = args ? args.agentSpecification : undefined;
-            resourceInputs["buildCompletionTriggers"] = args ? args.buildCompletionTriggers : undefined;
-            resourceInputs["ciTrigger"] = args ? args.ciTrigger : undefined;
-            resourceInputs["features"] = args ? args.features : undefined;
-            resourceInputs["jobAuthorizationScope"] = args ? args.jobAuthorizationScope : undefined;
-            resourceInputs["jobs"] = args ? args.jobs : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["path"] = args ? args.path : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["pullRequestTrigger"] = args ? args.pullRequestTrigger : undefined;
-            resourceInputs["queueStatus"] = args ? args.queueStatus : undefined;
-            resourceInputs["repository"] = args ? args.repository : undefined;
-            resourceInputs["schedules"] = args ? args.schedules : undefined;
-            resourceInputs["variableGroups"] = args ? args.variableGroups : undefined;
-            resourceInputs["variables"] = args ? args.variables : undefined;
+            resourceInputs["agentPoolName"] = args?.agentPoolName;
+            resourceInputs["agentSpecification"] = args?.agentSpecification;
+            resourceInputs["buildCompletionTriggers"] = args?.buildCompletionTriggers;
+            resourceInputs["ciTrigger"] = args?.ciTrigger;
+            resourceInputs["features"] = args?.features;
+            resourceInputs["jobAuthorizationScope"] = args?.jobAuthorizationScope;
+            resourceInputs["jobs"] = args?.jobs;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["path"] = args?.path;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["pullRequestTrigger"] = args?.pullRequestTrigger;
+            resourceInputs["queueStatus"] = args?.queueStatus;
+            resourceInputs["repository"] = args?.repository;
+            resourceInputs["schedules"] = args?.schedules;
+            resourceInputs["variableGroups"] = args?.variableGroups;
+            resourceInputs["variables"] = args?.variables;
             resourceInputs["revision"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -81,7 +81,7 @@ export class Project extends pulumi.CustomResource {
      * The Description of the Project.
      * *
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Defines the status (`enabled`, `disabled`) of the project features. Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
      *
@@ -97,27 +97,27 @@ export class Project extends pulumi.CustomResource {
      * via the `features` block by using the `azuredevops.Project` resource.
      * However it's not possible to use both methods to manage features, since there'll be conflicts.
      */
-    public readonly features!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly features: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Project Name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Process Template ID used by the Project.
      */
-    public /*out*/ readonly processTemplateId!: pulumi.Output<string>;
+    declare public /*out*/ readonly processTemplateId: pulumi.Output<string>;
     /**
      * Specifies the version control system. Possbile values are: `Git` or `Tfvc`. Defaults to `Git`.
      */
-    public readonly versionControl!: pulumi.Output<string | undefined>;
+    declare public readonly versionControl: pulumi.Output<string | undefined>;
     /**
      * Specifies the visibility of the Project. Possible values are: `private` or `public`. Defaults to `private`.
      */
-    public readonly visibility!: pulumi.Output<string | undefined>;
+    declare public readonly visibility: pulumi.Output<string | undefined>;
     /**
      * Specifies the work item template. Possible values are: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
      */
-    public readonly workItemTemplate!: pulumi.Output<string | undefined>;
+    declare public readonly workItemTemplate: pulumi.Output<string | undefined>;
 
     /**
      * Create a Project resource with the given unique name, arguments, and options.
@@ -132,21 +132,21 @@ export class Project extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProjectState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["features"] = state ? state.features : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["processTemplateId"] = state ? state.processTemplateId : undefined;
-            resourceInputs["versionControl"] = state ? state.versionControl : undefined;
-            resourceInputs["visibility"] = state ? state.visibility : undefined;
-            resourceInputs["workItemTemplate"] = state ? state.workItemTemplate : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["features"] = state?.features;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["processTemplateId"] = state?.processTemplateId;
+            resourceInputs["versionControl"] = state?.versionControl;
+            resourceInputs["visibility"] = state?.visibility;
+            resourceInputs["workItemTemplate"] = state?.workItemTemplate;
         } else {
             const args = argsOrState as ProjectArgs | undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["features"] = args ? args.features : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["versionControl"] = args ? args.versionControl : undefined;
-            resourceInputs["visibility"] = args ? args.visibility : undefined;
-            resourceInputs["workItemTemplate"] = args ? args.workItemTemplate : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["features"] = args?.features;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["versionControl"] = args?.versionControl;
+            resourceInputs["visibility"] = args?.visibility;
+            resourceInputs["workItemTemplate"] = args?.workItemTemplate;
             resourceInputs["processTemplateId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -64,14 +64,14 @@ export class GroupMembership extends pulumi.CustomResource {
     /**
      * The descriptor of the group being managed.
      */
-    public readonly group!: pulumi.Output<string>;
+    declare public readonly group: pulumi.Output<string>;
     /**
      * A list of user or group descriptors that will become members of the group.
      *
      * > **NOTE** 1. It's possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
      * <br>2. The `members` uses `descriptor` as the identifier not Resource ID or others.
      */
-    public readonly members!: pulumi.Output<string[]>;
+    declare public readonly members: pulumi.Output<string[]>;
     /**
      * The mode how the resource manages group members.
      *
@@ -79,7 +79,7 @@ export class GroupMembership extends pulumi.CustomResource {
      * <br>2. `mode = overwrite`: the resource will replace all existing members with the members specified within the `members` block
      * <br>3. To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
      */
-    public readonly mode!: pulumi.Output<string | undefined>;
+    declare public readonly mode: pulumi.Output<string | undefined>;
 
     /**
      * Create a GroupMembership resource with the given unique name, arguments, and options.
@@ -94,20 +94,20 @@ export class GroupMembership extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupMembershipState | undefined;
-            resourceInputs["group"] = state ? state.group : undefined;
-            resourceInputs["members"] = state ? state.members : undefined;
-            resourceInputs["mode"] = state ? state.mode : undefined;
+            resourceInputs["group"] = state?.group;
+            resourceInputs["members"] = state?.members;
+            resourceInputs["mode"] = state?.mode;
         } else {
             const args = argsOrState as GroupMembershipArgs | undefined;
-            if ((!args || args.group === undefined) && !opts.urn) {
+            if (args?.group === undefined && !opts.urn) {
                 throw new Error("Missing required property 'group'");
             }
-            if ((!args || args.members === undefined) && !opts.urn) {
+            if (args?.members === undefined && !opts.urn) {
                 throw new Error("Missing required property 'members'");
             }
-            resourceInputs["group"] = args ? args.group : undefined;
-            resourceInputs["members"] = args ? args.members : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
+            resourceInputs["group"] = args?.group;
+            resourceInputs["members"] = args?.members;
+            resourceInputs["mode"] = args?.mode;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GroupMembership.__pulumiType, name, resourceInputs, opts);

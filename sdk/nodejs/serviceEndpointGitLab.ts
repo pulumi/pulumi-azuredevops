@@ -73,25 +73,25 @@ export class ServiceEndpointGitLab extends pulumi.CustomResource {
     /**
      * The API token of the GitLab.
      */
-    public readonly apiToken!: pulumi.Output<string>;
-    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly apiToken: pulumi.Output<string>;
+    declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the project.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * The Service Endpoint name.
      */
-    public readonly serviceEndpointName!: pulumi.Output<string>;
+    declare public readonly serviceEndpointName: pulumi.Output<string>;
     /**
      * The server URL for GitLab. Example: `https://gitlab.com`.
      */
-    public readonly url!: pulumi.Output<string>;
+    declare public readonly url: pulumi.Output<string>;
     /**
      * The username used to login to GitLab.
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
 
     /**
      * Create a ServiceEndpointGitLab resource with the given unique name, arguments, and options.
@@ -106,36 +106,36 @@ export class ServiceEndpointGitLab extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceEndpointGitLabState | undefined;
-            resourceInputs["apiToken"] = state ? state.apiToken : undefined;
-            resourceInputs["authorization"] = state ? state.authorization : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["apiToken"] = state?.apiToken;
+            resourceInputs["authorization"] = state?.authorization;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["serviceEndpointName"] = state?.serviceEndpointName;
+            resourceInputs["url"] = state?.url;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as ServiceEndpointGitLabArgs | undefined;
-            if ((!args || args.apiToken === undefined) && !opts.urn) {
+            if (args?.apiToken === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiToken'");
             }
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
+            if (args?.serviceEndpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            if ((!args || args.url === undefined) && !opts.urn) {
+            if (args?.url === undefined && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
-            if ((!args || args.username === undefined) && !opts.urn) {
+            if (args?.username === undefined && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
             resourceInputs["apiToken"] = args?.apiToken ? pulumi.secret(args.apiToken) : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
-            resourceInputs["url"] = args ? args.url : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["serviceEndpointName"] = args?.serviceEndpointName;
+            resourceInputs["url"] = args?.url;
+            resourceInputs["username"] = args?.username;
             resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

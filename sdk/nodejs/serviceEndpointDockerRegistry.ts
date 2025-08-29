@@ -81,36 +81,36 @@ export class ServiceEndpointDockerRegistry extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceEndpointDockerRegistry.__pulumiType;
     }
 
-    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The email for Docker account user.
      */
-    public readonly dockerEmail!: pulumi.Output<string | undefined>;
+    declare public readonly dockerEmail: pulumi.Output<string | undefined>;
     /**
      * The password for the account user identified above.
      */
-    public readonly dockerPassword!: pulumi.Output<string | undefined>;
+    declare public readonly dockerPassword: pulumi.Output<string | undefined>;
     /**
      * The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
      */
-    public readonly dockerRegistry!: pulumi.Output<string>;
+    declare public readonly dockerRegistry: pulumi.Output<string>;
     /**
      * The identifier of the Docker account user.
      */
-    public readonly dockerUsername!: pulumi.Output<string | undefined>;
+    declare public readonly dockerUsername: pulumi.Output<string | undefined>;
     /**
      * The ID of the project.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * Can be "DockerHub" or "Others" (Default "DockerHub")
      */
-    public readonly registryType!: pulumi.Output<string>;
+    declare public readonly registryType: pulumi.Output<string>;
     /**
      * The name you will use to refer to this service connection in task inputs.
      */
-    public readonly serviceEndpointName!: pulumi.Output<string>;
+    declare public readonly serviceEndpointName: pulumi.Output<string>;
 
     /**
      * Create a ServiceEndpointDockerRegistry resource with the given unique name, arguments, and options.
@@ -125,31 +125,31 @@ export class ServiceEndpointDockerRegistry extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceEndpointDockerRegistryState | undefined;
-            resourceInputs["authorization"] = state ? state.authorization : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["dockerEmail"] = state ? state.dockerEmail : undefined;
-            resourceInputs["dockerPassword"] = state ? state.dockerPassword : undefined;
-            resourceInputs["dockerRegistry"] = state ? state.dockerRegistry : undefined;
-            resourceInputs["dockerUsername"] = state ? state.dockerUsername : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["registryType"] = state ? state.registryType : undefined;
-            resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
+            resourceInputs["authorization"] = state?.authorization;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["dockerEmail"] = state?.dockerEmail;
+            resourceInputs["dockerPassword"] = state?.dockerPassword;
+            resourceInputs["dockerRegistry"] = state?.dockerRegistry;
+            resourceInputs["dockerUsername"] = state?.dockerUsername;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["registryType"] = state?.registryType;
+            resourceInputs["serviceEndpointName"] = state?.serviceEndpointName;
         } else {
             const args = argsOrState as ServiceEndpointDockerRegistryArgs | undefined;
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
+            if (args?.serviceEndpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["dockerEmail"] = args ? args.dockerEmail : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["dockerEmail"] = args?.dockerEmail;
             resourceInputs["dockerPassword"] = args?.dockerPassword ? pulumi.secret(args.dockerPassword) : undefined;
-            resourceInputs["dockerRegistry"] = args ? args.dockerRegistry : undefined;
-            resourceInputs["dockerUsername"] = args ? args.dockerUsername : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["registryType"] = args ? args.registryType : undefined;
-            resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["dockerRegistry"] = args?.dockerRegistry;
+            resourceInputs["dockerUsername"] = args?.dockerUsername;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["registryType"] = args?.registryType;
+            resourceInputs["serviceEndpointName"] = args?.serviceEndpointName;
             resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

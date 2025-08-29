@@ -65,39 +65,39 @@ export class CheckApproval extends pulumi.CustomResource {
     /**
      * Specifies a list of approver IDs.
      */
-    public readonly approvers!: pulumi.Output<string[]>;
+    declare public readonly approvers: pulumi.Output<string[]>;
     /**
      * The instructions for the approvers.
      */
-    public readonly instructions!: pulumi.Output<string | undefined>;
+    declare public readonly instructions: pulumi.Output<string | undefined>;
     /**
      * The minimum number of approvers. This property is applicable when there is more than 1 approver.
      */
-    public readonly minimumRequiredApprovers!: pulumi.Output<number | undefined>;
+    declare public readonly minimumRequiredApprovers: pulumi.Output<number | undefined>;
     /**
      * The project ID. Changing this forces a new Approval Check to be created.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * Can the requestor approve? Defaults to `false`.
      */
-    public readonly requesterCanApprove!: pulumi.Output<boolean | undefined>;
+    declare public readonly requesterCanApprove: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the resource being protected by the check. Changing this forces a new Approval Check to be created.
      */
-    public readonly targetResourceId!: pulumi.Output<string>;
+    declare public readonly targetResourceId: pulumi.Output<string>;
     /**
      * The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Approval Check to be created.
      */
-    public readonly targetResourceType!: pulumi.Output<string>;
+    declare public readonly targetResourceType: pulumi.Output<string>;
     /**
      * The timeout in minutes for the approval.  Defaults to `43200`.
      */
-    public readonly timeout!: pulumi.Output<number | undefined>;
+    declare public readonly timeout: pulumi.Output<number | undefined>;
     /**
      * The version of the check.
      */
-    public /*out*/ readonly version!: pulumi.Output<number>;
+    declare public /*out*/ readonly version: pulumi.Output<number>;
 
     /**
      * Create a CheckApproval resource with the given unique name, arguments, and options.
@@ -112,37 +112,37 @@ export class CheckApproval extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CheckApprovalState | undefined;
-            resourceInputs["approvers"] = state ? state.approvers : undefined;
-            resourceInputs["instructions"] = state ? state.instructions : undefined;
-            resourceInputs["minimumRequiredApprovers"] = state ? state.minimumRequiredApprovers : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["requesterCanApprove"] = state ? state.requesterCanApprove : undefined;
-            resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
-            resourceInputs["targetResourceType"] = state ? state.targetResourceType : undefined;
-            resourceInputs["timeout"] = state ? state.timeout : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["approvers"] = state?.approvers;
+            resourceInputs["instructions"] = state?.instructions;
+            resourceInputs["minimumRequiredApprovers"] = state?.minimumRequiredApprovers;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["requesterCanApprove"] = state?.requesterCanApprove;
+            resourceInputs["targetResourceId"] = state?.targetResourceId;
+            resourceInputs["targetResourceType"] = state?.targetResourceType;
+            resourceInputs["timeout"] = state?.timeout;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as CheckApprovalArgs | undefined;
-            if ((!args || args.approvers === undefined) && !opts.urn) {
+            if (args?.approvers === undefined && !opts.urn) {
                 throw new Error("Missing required property 'approvers'");
             }
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.targetResourceId === undefined) && !opts.urn) {
+            if (args?.targetResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
-            if ((!args || args.targetResourceType === undefined) && !opts.urn) {
+            if (args?.targetResourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceType'");
             }
-            resourceInputs["approvers"] = args ? args.approvers : undefined;
-            resourceInputs["instructions"] = args ? args.instructions : undefined;
-            resourceInputs["minimumRequiredApprovers"] = args ? args.minimumRequiredApprovers : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["requesterCanApprove"] = args ? args.requesterCanApprove : undefined;
-            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
-            resourceInputs["targetResourceType"] = args ? args.targetResourceType : undefined;
-            resourceInputs["timeout"] = args ? args.timeout : undefined;
+            resourceInputs["approvers"] = args?.approvers;
+            resourceInputs["instructions"] = args?.instructions;
+            resourceInputs["minimumRequiredApprovers"] = args?.minimumRequiredApprovers;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["requesterCanApprove"] = args?.requesterCanApprove;
+            resourceInputs["targetResourceId"] = args?.targetResourceId;
+            resourceInputs["targetResourceType"] = args?.targetResourceType;
+            resourceInputs["timeout"] = args?.timeout;
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

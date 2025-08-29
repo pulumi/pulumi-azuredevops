@@ -86,51 +86,51 @@ export class ElasticPool extends pulumi.CustomResource {
     /**
      * Set whether agents should be configured to run with interactive UI. Defaults to `false`.
      */
-    public readonly agentInteractiveUi!: pulumi.Output<boolean | undefined>;
+    declare public readonly agentInteractiveUi: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
      */
-    public readonly autoProvision!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoProvision: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
      */
-    public readonly autoUpdate!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoUpdate: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Azure resource.
      */
-    public readonly azureResourceId!: pulumi.Output<string>;
+    declare public readonly azureResourceId: pulumi.Output<string>;
     /**
      * Number of agents to keep on standby.
      */
-    public readonly desiredIdle!: pulumi.Output<number>;
+    declare public readonly desiredIdle: pulumi.Output<number>;
     /**
      * Maximum number of virtual machines in the scale set.
      */
-    public readonly maxCapacity!: pulumi.Output<number>;
+    declare public readonly maxCapacity: pulumi.Output<number>;
     /**
      * The name of the Elastic pool.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the project where a new Elastic Pool will be created.
      */
-    public readonly projectId!: pulumi.Output<string | undefined>;
+    declare public readonly projectId: pulumi.Output<string | undefined>;
     /**
      * Tear down virtual machines after every use. Defaults to `false`.
      */
-    public readonly recycleAfterEachUse!: pulumi.Output<boolean | undefined>;
+    declare public readonly recycleAfterEachUse: pulumi.Output<boolean | undefined>;
     /**
      * The ID of Service Endpoint used to connect to Azure.
      */
-    public readonly serviceEndpointId!: pulumi.Output<string>;
+    declare public readonly serviceEndpointId: pulumi.Output<string>;
     /**
      * The Project ID of Service Endpoint belongs to.
      */
-    public readonly serviceEndpointScope!: pulumi.Output<string>;
+    declare public readonly serviceEndpointScope: pulumi.Output<string>;
     /**
      * Delay in minutes before deleting excess idle agents. Defaults to `30`.
      */
-    public readonly timeToLiveMinutes!: pulumi.Output<number | undefined>;
+    declare public readonly timeToLiveMinutes: pulumi.Output<number | undefined>;
 
     /**
      * Create a ElasticPool resource with the given unique name, arguments, and options.
@@ -145,47 +145,47 @@ export class ElasticPool extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ElasticPoolState | undefined;
-            resourceInputs["agentInteractiveUi"] = state ? state.agentInteractiveUi : undefined;
-            resourceInputs["autoProvision"] = state ? state.autoProvision : undefined;
-            resourceInputs["autoUpdate"] = state ? state.autoUpdate : undefined;
-            resourceInputs["azureResourceId"] = state ? state.azureResourceId : undefined;
-            resourceInputs["desiredIdle"] = state ? state.desiredIdle : undefined;
-            resourceInputs["maxCapacity"] = state ? state.maxCapacity : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["recycleAfterEachUse"] = state ? state.recycleAfterEachUse : undefined;
-            resourceInputs["serviceEndpointId"] = state ? state.serviceEndpointId : undefined;
-            resourceInputs["serviceEndpointScope"] = state ? state.serviceEndpointScope : undefined;
-            resourceInputs["timeToLiveMinutes"] = state ? state.timeToLiveMinutes : undefined;
+            resourceInputs["agentInteractiveUi"] = state?.agentInteractiveUi;
+            resourceInputs["autoProvision"] = state?.autoProvision;
+            resourceInputs["autoUpdate"] = state?.autoUpdate;
+            resourceInputs["azureResourceId"] = state?.azureResourceId;
+            resourceInputs["desiredIdle"] = state?.desiredIdle;
+            resourceInputs["maxCapacity"] = state?.maxCapacity;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["recycleAfterEachUse"] = state?.recycleAfterEachUse;
+            resourceInputs["serviceEndpointId"] = state?.serviceEndpointId;
+            resourceInputs["serviceEndpointScope"] = state?.serviceEndpointScope;
+            resourceInputs["timeToLiveMinutes"] = state?.timeToLiveMinutes;
         } else {
             const args = argsOrState as ElasticPoolArgs | undefined;
-            if ((!args || args.azureResourceId === undefined) && !opts.urn) {
+            if (args?.azureResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'azureResourceId'");
             }
-            if ((!args || args.desiredIdle === undefined) && !opts.urn) {
+            if (args?.desiredIdle === undefined && !opts.urn) {
                 throw new Error("Missing required property 'desiredIdle'");
             }
-            if ((!args || args.maxCapacity === undefined) && !opts.urn) {
+            if (args?.maxCapacity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'maxCapacity'");
             }
-            if ((!args || args.serviceEndpointId === undefined) && !opts.urn) {
+            if (args?.serviceEndpointId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointId'");
             }
-            if ((!args || args.serviceEndpointScope === undefined) && !opts.urn) {
+            if (args?.serviceEndpointScope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointScope'");
             }
-            resourceInputs["agentInteractiveUi"] = args ? args.agentInteractiveUi : undefined;
-            resourceInputs["autoProvision"] = args ? args.autoProvision : undefined;
-            resourceInputs["autoUpdate"] = args ? args.autoUpdate : undefined;
-            resourceInputs["azureResourceId"] = args ? args.azureResourceId : undefined;
-            resourceInputs["desiredIdle"] = args ? args.desiredIdle : undefined;
-            resourceInputs["maxCapacity"] = args ? args.maxCapacity : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["recycleAfterEachUse"] = args ? args.recycleAfterEachUse : undefined;
-            resourceInputs["serviceEndpointId"] = args ? args.serviceEndpointId : undefined;
-            resourceInputs["serviceEndpointScope"] = args ? args.serviceEndpointScope : undefined;
-            resourceInputs["timeToLiveMinutes"] = args ? args.timeToLiveMinutes : undefined;
+            resourceInputs["agentInteractiveUi"] = args?.agentInteractiveUi;
+            resourceInputs["autoProvision"] = args?.autoProvision;
+            resourceInputs["autoUpdate"] = args?.autoUpdate;
+            resourceInputs["azureResourceId"] = args?.azureResourceId;
+            resourceInputs["desiredIdle"] = args?.desiredIdle;
+            resourceInputs["maxCapacity"] = args?.maxCapacity;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["recycleAfterEachUse"] = args?.recycleAfterEachUse;
+            resourceInputs["serviceEndpointId"] = args?.serviceEndpointId;
+            resourceInputs["serviceEndpointScope"] = args?.serviceEndpointScope;
+            resourceInputs["timeToLiveMinutes"] = args?.timeToLiveMinutes;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ElasticPool.__pulumiType, name, resourceInputs, opts);

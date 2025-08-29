@@ -101,23 +101,23 @@ export class RepositoryPolicyMaxFileSize extends pulumi.CustomResource {
     /**
      * A flag indicating if the policy should be blocking. Defaults to `true`.
      */
-    public readonly blocking!: pulumi.Output<boolean | undefined>;
+    declare public readonly blocking: pulumi.Output<boolean | undefined>;
     /**
      * A flag indicating if the policy should be enabled. Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Block pushes that contain new or updated files larger than this limit. Possible values are: `1, 2, 5, 10, 50, 100, 200` (MB).
      */
-    public readonly maxFileSize!: pulumi.Output<number>;
+    declare public readonly maxFileSize: pulumi.Output<number>;
     /**
      * The ID of the project in which the policy will be created.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * Control whether the policy is enabled for the repository or the project. If `repositoryIds` not configured, the policy will be set to the project.
      */
-    public readonly repositoryIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly repositoryIds: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a RepositoryPolicyMaxFileSize resource with the given unique name, arguments, and options.
@@ -132,24 +132,24 @@ export class RepositoryPolicyMaxFileSize extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryPolicyMaxFileSizeState | undefined;
-            resourceInputs["blocking"] = state ? state.blocking : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["maxFileSize"] = state ? state.maxFileSize : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["repositoryIds"] = state ? state.repositoryIds : undefined;
+            resourceInputs["blocking"] = state?.blocking;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["maxFileSize"] = state?.maxFileSize;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["repositoryIds"] = state?.repositoryIds;
         } else {
             const args = argsOrState as RepositoryPolicyMaxFileSizeArgs | undefined;
-            if ((!args || args.maxFileSize === undefined) && !opts.urn) {
+            if (args?.maxFileSize === undefined && !opts.urn) {
                 throw new Error("Missing required property 'maxFileSize'");
             }
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            resourceInputs["blocking"] = args ? args.blocking : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["maxFileSize"] = args ? args.maxFileSize : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["repositoryIds"] = args ? args.repositoryIds : undefined;
+            resourceInputs["blocking"] = args?.blocking;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["maxFileSize"] = args?.maxFileSize;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["repositoryIds"] = args?.repositoryIds;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RepositoryPolicyMaxFileSize.__pulumiType, name, resourceInputs, opts);

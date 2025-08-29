@@ -71,15 +71,15 @@ export class BuildFolder extends pulumi.CustomResource {
     /**
      * Folder Description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The folder path.
      */
-    public readonly path!: pulumi.Output<string>;
+    declare public readonly path: pulumi.Output<string>;
     /**
      * The ID of the project in which the folder will be created.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
 
     /**
      * Create a BuildFolder resource with the given unique name, arguments, and options.
@@ -94,20 +94,20 @@ export class BuildFolder extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BuildFolderState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["path"] = state ? state.path : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["path"] = state?.path;
+            resourceInputs["projectId"] = state?.projectId;
         } else {
             const args = argsOrState as BuildFolderArgs | undefined;
-            if ((!args || args.path === undefined) && !opts.urn) {
+            if (args?.path === undefined && !opts.urn) {
                 throw new Error("Missing required property 'path'");
             }
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["path"] = args ? args.path : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["path"] = args?.path;
+            resourceInputs["projectId"] = args?.projectId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BuildFolder.__pulumiType, name, resourceInputs, opts);

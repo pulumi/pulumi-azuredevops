@@ -334,67 +334,67 @@ export class CheckBusinessHours extends pulumi.CustomResource {
     /**
      * The name of the business hours check displayed in the web UI.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The end of the time period that this check will be allowed to pass, specified as 24-hour time with leading zeros.
      */
-    public readonly endTime!: pulumi.Output<string>;
+    declare public readonly endTime: pulumi.Output<string>;
     /**
      * This check will pass on Fridays. Defaults to `false`.
      */
-    public readonly friday!: pulumi.Output<boolean | undefined>;
+    declare public readonly friday: pulumi.Output<boolean | undefined>;
     /**
      * This check will pass on Mondays. Defaults to `false`.
      */
-    public readonly monday!: pulumi.Output<boolean | undefined>;
+    declare public readonly monday: pulumi.Output<boolean | undefined>;
     /**
      * The project ID.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * This check will pass on Saturdays. Defaults to `false`.
      */
-    public readonly saturday!: pulumi.Output<boolean | undefined>;
+    declare public readonly saturday: pulumi.Output<boolean | undefined>;
     /**
      * The beginning of the time period that this check will be allowed to pass, specified as 24-hour time with leading zeros.
      */
-    public readonly startTime!: pulumi.Output<string>;
+    declare public readonly startTime: pulumi.Output<string>;
     /**
      * This check will pass on Sundays. Defaults to `false`.
      */
-    public readonly sunday!: pulumi.Output<boolean | undefined>;
+    declare public readonly sunday: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the resource being protected by the check.
      */
-    public readonly targetResourceId!: pulumi.Output<string>;
+    declare public readonly targetResourceId: pulumi.Output<string>;
     /**
      * The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
      */
-    public readonly targetResourceType!: pulumi.Output<string>;
+    declare public readonly targetResourceType: pulumi.Output<string>;
     /**
      * This check will pass on Thursdays. Defaults to `false`.
      */
-    public readonly thursday!: pulumi.Output<boolean | undefined>;
+    declare public readonly thursday: pulumi.Output<boolean | undefined>;
     /**
      * The time zone this check will be evaluated in. See below for supported values.
      */
-    public readonly timeZone!: pulumi.Output<string>;
+    declare public readonly timeZone: pulumi.Output<string>;
     /**
      * The timeout in minutes for the business hours check. Defaults to `1440`.
      */
-    public readonly timeout!: pulumi.Output<number | undefined>;
+    declare public readonly timeout: pulumi.Output<number | undefined>;
     /**
      * This check will pass on Tuesday. Defaults to `false`.
      */
-    public readonly tuesday!: pulumi.Output<boolean | undefined>;
+    declare public readonly tuesday: pulumi.Output<boolean | undefined>;
     /**
      * The version of the check.
      */
-    public /*out*/ readonly version!: pulumi.Output<number>;
+    declare public /*out*/ readonly version: pulumi.Output<number>;
     /**
      * This check will pass on Wednesdays. Defaults to `false`.
      */
-    public readonly wednesday!: pulumi.Output<boolean | undefined>;
+    declare public readonly wednesday: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a CheckBusinessHours resource with the given unique name, arguments, and options.
@@ -409,57 +409,57 @@ export class CheckBusinessHours extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CheckBusinessHoursState | undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["endTime"] = state ? state.endTime : undefined;
-            resourceInputs["friday"] = state ? state.friday : undefined;
-            resourceInputs["monday"] = state ? state.monday : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["saturday"] = state ? state.saturday : undefined;
-            resourceInputs["startTime"] = state ? state.startTime : undefined;
-            resourceInputs["sunday"] = state ? state.sunday : undefined;
-            resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
-            resourceInputs["targetResourceType"] = state ? state.targetResourceType : undefined;
-            resourceInputs["thursday"] = state ? state.thursday : undefined;
-            resourceInputs["timeZone"] = state ? state.timeZone : undefined;
-            resourceInputs["timeout"] = state ? state.timeout : undefined;
-            resourceInputs["tuesday"] = state ? state.tuesday : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
-            resourceInputs["wednesday"] = state ? state.wednesday : undefined;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["endTime"] = state?.endTime;
+            resourceInputs["friday"] = state?.friday;
+            resourceInputs["monday"] = state?.monday;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["saturday"] = state?.saturday;
+            resourceInputs["startTime"] = state?.startTime;
+            resourceInputs["sunday"] = state?.sunday;
+            resourceInputs["targetResourceId"] = state?.targetResourceId;
+            resourceInputs["targetResourceType"] = state?.targetResourceType;
+            resourceInputs["thursday"] = state?.thursday;
+            resourceInputs["timeZone"] = state?.timeZone;
+            resourceInputs["timeout"] = state?.timeout;
+            resourceInputs["tuesday"] = state?.tuesday;
+            resourceInputs["version"] = state?.version;
+            resourceInputs["wednesday"] = state?.wednesday;
         } else {
             const args = argsOrState as CheckBusinessHoursArgs | undefined;
-            if ((!args || args.endTime === undefined) && !opts.urn) {
+            if (args?.endTime === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endTime'");
             }
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.startTime === undefined) && !opts.urn) {
+            if (args?.startTime === undefined && !opts.urn) {
                 throw new Error("Missing required property 'startTime'");
             }
-            if ((!args || args.targetResourceId === undefined) && !opts.urn) {
+            if (args?.targetResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
-            if ((!args || args.targetResourceType === undefined) && !opts.urn) {
+            if (args?.targetResourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceType'");
             }
-            if ((!args || args.timeZone === undefined) && !opts.urn) {
+            if (args?.timeZone === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timeZone'");
             }
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["endTime"] = args ? args.endTime : undefined;
-            resourceInputs["friday"] = args ? args.friday : undefined;
-            resourceInputs["monday"] = args ? args.monday : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["saturday"] = args ? args.saturday : undefined;
-            resourceInputs["startTime"] = args ? args.startTime : undefined;
-            resourceInputs["sunday"] = args ? args.sunday : undefined;
-            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
-            resourceInputs["targetResourceType"] = args ? args.targetResourceType : undefined;
-            resourceInputs["thursday"] = args ? args.thursday : undefined;
-            resourceInputs["timeZone"] = args ? args.timeZone : undefined;
-            resourceInputs["timeout"] = args ? args.timeout : undefined;
-            resourceInputs["tuesday"] = args ? args.tuesday : undefined;
-            resourceInputs["wednesday"] = args ? args.wednesday : undefined;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["endTime"] = args?.endTime;
+            resourceInputs["friday"] = args?.friday;
+            resourceInputs["monday"] = args?.monday;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["saturday"] = args?.saturday;
+            resourceInputs["startTime"] = args?.startTime;
+            resourceInputs["sunday"] = args?.sunday;
+            resourceInputs["targetResourceId"] = args?.targetResourceId;
+            resourceInputs["targetResourceType"] = args?.targetResourceType;
+            resourceInputs["thursday"] = args?.thursday;
+            resourceInputs["timeZone"] = args?.timeZone;
+            resourceInputs["timeout"] = args?.timeout;
+            resourceInputs["tuesday"] = args?.tuesday;
+            resourceInputs["wednesday"] = args?.wednesday;
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

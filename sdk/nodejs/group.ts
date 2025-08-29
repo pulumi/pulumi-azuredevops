@@ -80,57 +80,57 @@ export class Group extends pulumi.CustomResource {
     /**
      * The Description of the Project.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The identity (subject) descriptor of the Group.
      */
-    public /*out*/ readonly descriptor!: pulumi.Output<string>;
+    declare public /*out*/ readonly descriptor: pulumi.Output<string>;
     /**
      * The name of a new Azure DevOps group that is not backed by an external provider. The `originId` and `mail` arguments cannot be used simultaneously with `displayName`.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * This represents the name of the container of origin for a graph member.
      */
-    public /*out*/ readonly domain!: pulumi.Output<string>;
+    declare public /*out*/ readonly domain: pulumi.Output<string>;
     /**
      * The ID of the Group.
      */
-    public /*out*/ readonly groupId!: pulumi.Output<string>;
+    declare public /*out*/ readonly groupId: pulumi.Output<string>;
     /**
      * The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `originId` and `displayName` arguments cannot be used simultaneously with `mail`.
      */
-    public readonly mail!: pulumi.Output<string>;
+    declare public readonly mail: pulumi.Output<string>;
     /**
      * The member of the Group.
      *
      * > **NOTE:** It's possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
      */
-    public readonly members!: pulumi.Output<string[]>;
+    declare public readonly members: pulumi.Output<string[]>;
     /**
      * The type of source provider for the origin identifier (ex:AD, AAD, MSA)
      */
-    public /*out*/ readonly origin!: pulumi.Output<string>;
+    declare public /*out*/ readonly origin: pulumi.Output<string>;
     /**
      * The OriginID as a reference to a group from an external AD or AAD backed provider. The `scope`, `mail` and `displayName` arguments cannot be used simultaneously with `originId`.
      */
-    public readonly originId!: pulumi.Output<string>;
+    declare public readonly originId: pulumi.Output<string>;
     /**
      * This is the PrincipalName of this graph member from the source provider.
      */
-    public /*out*/ readonly principalName!: pulumi.Output<string>;
+    declare public /*out*/ readonly principalName: pulumi.Output<string>;
     /**
      * The scope of the group. A descriptor referencing the scope (collection, project) in which the group should be created. If omitted, will be created in the scope of the enclosing account or organization.x
      */
-    public readonly scope!: pulumi.Output<string | undefined>;
+    declare public readonly scope: pulumi.Output<string | undefined>;
     /**
      * This field identifies the type of the graph subject (ex: Group, Scope, User).
      */
-    public /*out*/ readonly subjectKind!: pulumi.Output<string>;
+    declare public /*out*/ readonly subjectKind: pulumi.Output<string>;
     /**
      * This url is the full route to the source resource of this graph subject.
      */
-    public /*out*/ readonly url!: pulumi.Output<string>;
+    declare public /*out*/ readonly url: pulumi.Output<string>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -145,27 +145,27 @@ export class Group extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["descriptor"] = state ? state.descriptor : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["domain"] = state ? state.domain : undefined;
-            resourceInputs["groupId"] = state ? state.groupId : undefined;
-            resourceInputs["mail"] = state ? state.mail : undefined;
-            resourceInputs["members"] = state ? state.members : undefined;
-            resourceInputs["origin"] = state ? state.origin : undefined;
-            resourceInputs["originId"] = state ? state.originId : undefined;
-            resourceInputs["principalName"] = state ? state.principalName : undefined;
-            resourceInputs["scope"] = state ? state.scope : undefined;
-            resourceInputs["subjectKind"] = state ? state.subjectKind : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["descriptor"] = state?.descriptor;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["domain"] = state?.domain;
+            resourceInputs["groupId"] = state?.groupId;
+            resourceInputs["mail"] = state?.mail;
+            resourceInputs["members"] = state?.members;
+            resourceInputs["origin"] = state?.origin;
+            resourceInputs["originId"] = state?.originId;
+            resourceInputs["principalName"] = state?.principalName;
+            resourceInputs["scope"] = state?.scope;
+            resourceInputs["subjectKind"] = state?.subjectKind;
+            resourceInputs["url"] = state?.url;
         } else {
             const args = argsOrState as GroupArgs | undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["mail"] = args ? args.mail : undefined;
-            resourceInputs["members"] = args ? args.members : undefined;
-            resourceInputs["originId"] = args ? args.originId : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["mail"] = args?.mail;
+            resourceInputs["members"] = args?.members;
+            resourceInputs["originId"] = args?.originId;
+            resourceInputs["scope"] = args?.scope;
             resourceInputs["descriptor"] = undefined /*out*/;
             resourceInputs["domain"] = undefined /*out*/;
             resourceInputs["groupId"] = undefined /*out*/;

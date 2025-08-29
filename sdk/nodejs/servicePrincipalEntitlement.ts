@@ -57,27 +57,27 @@ export class ServicePrincipalEntitlement extends pulumi.CustomResource {
     /**
      * Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
      */
-    public readonly accountLicenseType!: pulumi.Output<string | undefined>;
+    declare public readonly accountLicenseType: pulumi.Output<string | undefined>;
     /**
      * The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the user graph subject.
      */
-    public /*out*/ readonly descriptor!: pulumi.Output<string>;
+    declare public /*out*/ readonly descriptor: pulumi.Output<string>;
     /**
      * The display name of service principal.
      */
-    public /*out*/ readonly displayName!: pulumi.Output<string>;
+    declare public /*out*/ readonly displayName: pulumi.Output<string>;
     /**
      * The source of the licensing (e.g. Account. MSDN etc.) Possible values are: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
      */
-    public readonly licensingSource!: pulumi.Output<string | undefined>;
+    declare public readonly licensingSource: pulumi.Output<string | undefined>;
     /**
      * The type of source provider for the origin identifier.
      */
-    public readonly origin!: pulumi.Output<string>;
+    declare public readonly origin: pulumi.Output<string>;
     /**
      * The Object ID of the service principal in Entra ID. Changing this forces a new Service Principal Entitlement to be created.
      */
-    public readonly originId!: pulumi.Output<string>;
+    declare public readonly originId: pulumi.Output<string>;
 
     /**
      * Create a ServicePrincipalEntitlement resource with the given unique name, arguments, and options.
@@ -92,21 +92,21 @@ export class ServicePrincipalEntitlement extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServicePrincipalEntitlementState | undefined;
-            resourceInputs["accountLicenseType"] = state ? state.accountLicenseType : undefined;
-            resourceInputs["descriptor"] = state ? state.descriptor : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["licensingSource"] = state ? state.licensingSource : undefined;
-            resourceInputs["origin"] = state ? state.origin : undefined;
-            resourceInputs["originId"] = state ? state.originId : undefined;
+            resourceInputs["accountLicenseType"] = state?.accountLicenseType;
+            resourceInputs["descriptor"] = state?.descriptor;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["licensingSource"] = state?.licensingSource;
+            resourceInputs["origin"] = state?.origin;
+            resourceInputs["originId"] = state?.originId;
         } else {
             const args = argsOrState as ServicePrincipalEntitlementArgs | undefined;
-            if ((!args || args.originId === undefined) && !opts.urn) {
+            if (args?.originId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'originId'");
             }
-            resourceInputs["accountLicenseType"] = args ? args.accountLicenseType : undefined;
-            resourceInputs["licensingSource"] = args ? args.licensingSource : undefined;
-            resourceInputs["origin"] = args ? args.origin : undefined;
-            resourceInputs["originId"] = args ? args.originId : undefined;
+            resourceInputs["accountLicenseType"] = args?.accountLicenseType;
+            resourceInputs["licensingSource"] = args?.licensingSource;
+            resourceInputs["origin"] = args?.origin;
+            resourceInputs["originId"] = args?.originId;
             resourceInputs["descriptor"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
         }

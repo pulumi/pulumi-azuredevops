@@ -69,24 +69,24 @@ export class ServiceendpointAzureServiceBus extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceendpointAzureServiceBus.__pulumiType;
     }
 
-    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
     /**
      * The  Azure Service Bus Connection string.
      */
-    public readonly connectionString!: pulumi.Output<string>;
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly connectionString: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the project.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * The Azure Service Bus Queue Name.
      */
-    public readonly queueName!: pulumi.Output<string>;
+    declare public readonly queueName: pulumi.Output<string>;
     /**
      * The Service Endpoint name.
      */
-    public readonly serviceEndpointName!: pulumi.Output<string>;
+    declare public readonly serviceEndpointName: pulumi.Output<string>;
 
     /**
      * Create a ServiceendpointAzureServiceBus resource with the given unique name, arguments, and options.
@@ -101,31 +101,31 @@ export class ServiceendpointAzureServiceBus extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceendpointAzureServiceBusState | undefined;
-            resourceInputs["authorization"] = state ? state.authorization : undefined;
-            resourceInputs["connectionString"] = state ? state.connectionString : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["queueName"] = state ? state.queueName : undefined;
-            resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
+            resourceInputs["authorization"] = state?.authorization;
+            resourceInputs["connectionString"] = state?.connectionString;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["queueName"] = state?.queueName;
+            resourceInputs["serviceEndpointName"] = state?.serviceEndpointName;
         } else {
             const args = argsOrState as ServiceendpointAzureServiceBusArgs | undefined;
-            if ((!args || args.connectionString === undefined) && !opts.urn) {
+            if (args?.connectionString === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionString'");
             }
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.queueName === undefined) && !opts.urn) {
+            if (args?.queueName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'queueName'");
             }
-            if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
+            if (args?.serviceEndpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
             resourceInputs["connectionString"] = args?.connectionString ? pulumi.secret(args.connectionString) : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["queueName"] = args ? args.queueName : undefined;
-            resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["queueName"] = args?.queueName;
+            resourceInputs["serviceEndpointName"] = args?.serviceEndpointName;
             resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

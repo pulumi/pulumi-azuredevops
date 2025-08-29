@@ -87,7 +87,7 @@ export class AreaPermissions extends pulumi.CustomResource {
     /**
      * The name of the branch to assign the permissions.
      */
-    public readonly path!: pulumi.Output<string | undefined>;
+    declare public readonly path: pulumi.Output<string | undefined>;
     /**
      * the permissions to assign. The following permissions are available.
      *
@@ -103,19 +103,19 @@ export class AreaPermissions extends pulumi.CustomResource {
      * | MANAGE_TEST_SUITES     | Manage test suites                   |
      * | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
      */
-    public readonly permissions!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly permissions: pulumi.Output<{[key: string]: string}>;
     /**
      * The **group** principal to assign the permissions.
      */
-    public readonly principal!: pulumi.Output<string>;
+    declare public readonly principal: pulumi.Output<string>;
     /**
      * The ID of the project to assign the permissions.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`.
      */
-    public readonly replace!: pulumi.Output<boolean | undefined>;
+    declare public readonly replace: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a AreaPermissions resource with the given unique name, arguments, and options.
@@ -130,27 +130,27 @@ export class AreaPermissions extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AreaPermissionsState | undefined;
-            resourceInputs["path"] = state ? state.path : undefined;
-            resourceInputs["permissions"] = state ? state.permissions : undefined;
-            resourceInputs["principal"] = state ? state.principal : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["replace"] = state ? state.replace : undefined;
+            resourceInputs["path"] = state?.path;
+            resourceInputs["permissions"] = state?.permissions;
+            resourceInputs["principal"] = state?.principal;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["replace"] = state?.replace;
         } else {
             const args = argsOrState as AreaPermissionsArgs | undefined;
-            if ((!args || args.permissions === undefined) && !opts.urn) {
+            if (args?.permissions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'permissions'");
             }
-            if ((!args || args.principal === undefined) && !opts.urn) {
+            if (args?.principal === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            resourceInputs["path"] = args ? args.path : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["principal"] = args ? args.principal : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["replace"] = args ? args.replace : undefined;
+            resourceInputs["path"] = args?.path;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["principal"] = args?.principal;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["replace"] = args?.replace;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AreaPermissions.__pulumiType, name, resourceInputs, opts);

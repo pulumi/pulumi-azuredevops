@@ -235,7 +235,7 @@ export class GitPermissions extends pulumi.CustomResource {
      *
      * > **Note** To assign permissions to a branch, the `repositoryId` must be set as well.
      */
-    public readonly branchName!: pulumi.Output<string | undefined>;
+    declare public readonly branchName: pulumi.Output<string | undefined>;
     /**
      * the permissions to assign. The following permissions are available
      *
@@ -258,26 +258,26 @@ export class GitPermissions extends pulumi.CustomResource {
      * | PullRequestContribute   | Contribute to pull requests                            |
      * | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
      */
-    public readonly permissions!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly permissions: pulumi.Output<{[key: string]: string}>;
     /**
      * The **group** principal to assign the permissions.
      *
      * > **Note**  The `descriptor` of the user/group not the `ID`. Some resources in this provider use the `descriptor`
      * as resource ID. It is recommended to check before use.
      */
-    public readonly principal!: pulumi.Output<string>;
+    declare public readonly principal: pulumi.Output<string>;
     /**
      * The ID of the project to assign the permissions.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      */
-    public readonly replace!: pulumi.Output<boolean | undefined>;
+    declare public readonly replace: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the GIT repository to assign the permissions
      */
-    public readonly repositoryId!: pulumi.Output<string | undefined>;
+    declare public readonly repositoryId: pulumi.Output<string | undefined>;
 
     /**
      * Create a GitPermissions resource with the given unique name, arguments, and options.
@@ -292,29 +292,29 @@ export class GitPermissions extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GitPermissionsState | undefined;
-            resourceInputs["branchName"] = state ? state.branchName : undefined;
-            resourceInputs["permissions"] = state ? state.permissions : undefined;
-            resourceInputs["principal"] = state ? state.principal : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["replace"] = state ? state.replace : undefined;
-            resourceInputs["repositoryId"] = state ? state.repositoryId : undefined;
+            resourceInputs["branchName"] = state?.branchName;
+            resourceInputs["permissions"] = state?.permissions;
+            resourceInputs["principal"] = state?.principal;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["replace"] = state?.replace;
+            resourceInputs["repositoryId"] = state?.repositoryId;
         } else {
             const args = argsOrState as GitPermissionsArgs | undefined;
-            if ((!args || args.permissions === undefined) && !opts.urn) {
+            if (args?.permissions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'permissions'");
             }
-            if ((!args || args.principal === undefined) && !opts.urn) {
+            if (args?.principal === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            resourceInputs["branchName"] = args ? args.branchName : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["principal"] = args ? args.principal : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["replace"] = args ? args.replace : undefined;
-            resourceInputs["repositoryId"] = args ? args.repositoryId : undefined;
+            resourceInputs["branchName"] = args?.branchName;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["principal"] = args?.principal;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["replace"] = args?.replace;
+            resourceInputs["repositoryId"] = args?.repositoryId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GitPermissions.__pulumiType, name, resourceInputs, opts);

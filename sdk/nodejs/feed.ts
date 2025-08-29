@@ -101,15 +101,15 @@ export class Feed extends pulumi.CustomResource {
      *
      * > **Note** *Because of ADO limitations feed name can be **reserved** for up to 15 minutes after permanent delete of the feed*
      */
-    public readonly features!: pulumi.Output<outputs.FeedFeature[] | undefined>;
+    declare public readonly features: pulumi.Output<outputs.FeedFeature[] | undefined>;
     /**
      * The name of the Feed.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Project Feed is created in. If not specified, feed will be created at the organization level.
      */
-    public readonly projectId!: pulumi.Output<string | undefined>;
+    declare public readonly projectId: pulumi.Output<string | undefined>;
 
     /**
      * Create a Feed resource with the given unique name, arguments, and options.
@@ -124,14 +124,14 @@ export class Feed extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FeedState | undefined;
-            resourceInputs["features"] = state ? state.features : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["features"] = state?.features;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["projectId"] = state?.projectId;
         } else {
             const args = argsOrState as FeedArgs | undefined;
-            resourceInputs["features"] = args ? args.features : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["features"] = args?.features;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["projectId"] = args?.projectId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Feed.__pulumiType, name, resourceInputs, opts);

@@ -63,19 +63,19 @@ export class Pool extends pulumi.CustomResource {
     /**
      * Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
      */
-    public readonly autoProvision!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoProvision: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
      */
-    public readonly autoUpdate!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoUpdate: pulumi.Output<boolean | undefined>;
     /**
      * The name of the agent pool.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
      */
-    public readonly poolType!: pulumi.Output<string | undefined>;
+    declare public readonly poolType: pulumi.Output<string | undefined>;
 
     /**
      * Create a Pool resource with the given unique name, arguments, and options.
@@ -90,16 +90,16 @@ export class Pool extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PoolState | undefined;
-            resourceInputs["autoProvision"] = state ? state.autoProvision : undefined;
-            resourceInputs["autoUpdate"] = state ? state.autoUpdate : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["poolType"] = state ? state.poolType : undefined;
+            resourceInputs["autoProvision"] = state?.autoProvision;
+            resourceInputs["autoUpdate"] = state?.autoUpdate;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["poolType"] = state?.poolType;
         } else {
             const args = argsOrState as PoolArgs | undefined;
-            resourceInputs["autoProvision"] = args ? args.autoProvision : undefined;
-            resourceInputs["autoUpdate"] = args ? args.autoUpdate : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["poolType"] = args ? args.poolType : undefined;
+            resourceInputs["autoProvision"] = args?.autoProvision;
+            resourceInputs["autoUpdate"] = args?.autoUpdate;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["poolType"] = args?.poolType;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Pool.__pulumiType, name, resourceInputs, opts);

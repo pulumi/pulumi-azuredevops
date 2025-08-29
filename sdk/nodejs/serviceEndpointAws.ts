@@ -73,41 +73,41 @@ export class ServiceEndpointAws extends pulumi.CustomResource {
     /**
      * The AWS access key ID for signing programmatic requests.
      */
-    public readonly accessKeyId!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly accessKeyId: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
      */
-    public readonly externalId!: pulumi.Output<string | undefined>;
+    declare public readonly externalId: pulumi.Output<string | undefined>;
     /**
      * The ID of the project.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * Optional identifier for the assumed role session.
      */
-    public readonly roleSessionName!: pulumi.Output<string | undefined>;
+    declare public readonly roleSessionName: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the role to assume.
      */
-    public readonly roleToAssume!: pulumi.Output<string | undefined>;
+    declare public readonly roleToAssume: pulumi.Output<string | undefined>;
     /**
      * The AWS secret access key for signing programmatic requests.
      */
-    public readonly secretAccessKey!: pulumi.Output<string | undefined>;
+    declare public readonly secretAccessKey: pulumi.Output<string | undefined>;
     /**
      * The Service Endpoint name.
      */
-    public readonly serviceEndpointName!: pulumi.Output<string>;
+    declare public readonly serviceEndpointName: pulumi.Output<string>;
     /**
      * The AWS session token for signing programmatic requests.
      */
-    public readonly sessionToken!: pulumi.Output<string | undefined>;
+    declare public readonly sessionToken: pulumi.Output<string | undefined>;
     /**
      * Enable this to attempt getting credentials with OIDC token from Azure Devops.
      */
-    public readonly useOidc!: pulumi.Output<boolean | undefined>;
+    declare public readonly useOidc: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a ServiceEndpointAws resource with the given unique name, arguments, and options.
@@ -122,35 +122,35 @@ export class ServiceEndpointAws extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceEndpointAwsState | undefined;
-            resourceInputs["accessKeyId"] = state ? state.accessKeyId : undefined;
-            resourceInputs["authorization"] = state ? state.authorization : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["externalId"] = state ? state.externalId : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["roleSessionName"] = state ? state.roleSessionName : undefined;
-            resourceInputs["roleToAssume"] = state ? state.roleToAssume : undefined;
-            resourceInputs["secretAccessKey"] = state ? state.secretAccessKey : undefined;
-            resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
-            resourceInputs["sessionToken"] = state ? state.sessionToken : undefined;
-            resourceInputs["useOidc"] = state ? state.useOidc : undefined;
+            resourceInputs["accessKeyId"] = state?.accessKeyId;
+            resourceInputs["authorization"] = state?.authorization;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["externalId"] = state?.externalId;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["roleSessionName"] = state?.roleSessionName;
+            resourceInputs["roleToAssume"] = state?.roleToAssume;
+            resourceInputs["secretAccessKey"] = state?.secretAccessKey;
+            resourceInputs["serviceEndpointName"] = state?.serviceEndpointName;
+            resourceInputs["sessionToken"] = state?.sessionToken;
+            resourceInputs["useOidc"] = state?.useOidc;
         } else {
             const args = argsOrState as ServiceEndpointAwsArgs | undefined;
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
+            if (args?.serviceEndpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            resourceInputs["accessKeyId"] = args ? args.accessKeyId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["externalId"] = args ? args.externalId : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["roleSessionName"] = args ? args.roleSessionName : undefined;
-            resourceInputs["roleToAssume"] = args ? args.roleToAssume : undefined;
+            resourceInputs["accessKeyId"] = args?.accessKeyId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["externalId"] = args?.externalId;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["roleSessionName"] = args?.roleSessionName;
+            resourceInputs["roleToAssume"] = args?.roleToAssume;
             resourceInputs["secretAccessKey"] = args?.secretAccessKey ? pulumi.secret(args.secretAccessKey) : undefined;
-            resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["serviceEndpointName"] = args?.serviceEndpointName;
             resourceInputs["sessionToken"] = args?.sessionToken ? pulumi.secret(args.sessionToken) : undefined;
-            resourceInputs["useOidc"] = args ? args.useOidc : undefined;
+            resourceInputs["useOidc"] = args?.useOidc;
             resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

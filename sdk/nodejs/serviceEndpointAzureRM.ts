@@ -229,79 +229,79 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceEndpointAzureRM.__pulumiType;
     }
 
-    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
     /**
      * The Management group ID of the Azure targets.
      */
-    public readonly azurermManagementGroupId!: pulumi.Output<string | undefined>;
+    declare public readonly azurermManagementGroupId: pulumi.Output<string | undefined>;
     /**
      * The Management group Name of the targets.
      */
-    public readonly azurermManagementGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly azurermManagementGroupName: pulumi.Output<string | undefined>;
     /**
      * The Tenant ID of the service principal.
      */
-    public readonly azurermSpnTenantid!: pulumi.Output<string>;
+    declare public readonly azurermSpnTenantid: pulumi.Output<string>;
     /**
      * The Subscription ID of the Azure targets.
      */
-    public readonly azurermSubscriptionId!: pulumi.Output<string | undefined>;
+    declare public readonly azurermSubscriptionId: pulumi.Output<string | undefined>;
     /**
      * The Subscription Name of the targets.
      */
-    public readonly azurermSubscriptionName!: pulumi.Output<string | undefined>;
+    declare public readonly azurermSubscriptionName: pulumi.Output<string | undefined>;
     /**
      * A `credentials` block as defined below.
      */
-    public readonly credentials!: pulumi.Output<outputs.ServiceEndpointAzureRMCredentials | undefined>;
+    declare public readonly credentials: pulumi.Output<outputs.ServiceEndpointAzureRMCredentials | undefined>;
     /**
      * Service connection description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud` and `AzureStack`. Changing this forces a new resource to be created.
      */
-    public readonly environment!: pulumi.Output<string | undefined>;
+    declare public readonly environment: pulumi.Output<string | undefined>;
     /**
      * A `features` block as defined below.
      */
-    public readonly features!: pulumi.Output<outputs.ServiceEndpointAzureRMFeatures | undefined>;
+    declare public readonly features: pulumi.Output<outputs.ServiceEndpointAzureRMFeatures | undefined>;
     /**
      * The ID of the project.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * The resource group used for scope of automatic service endpoint.
      */
-    public readonly resourceGroup!: pulumi.Output<string | undefined>;
+    declare public readonly resourceGroup: pulumi.Output<string | undefined>;
     /**
      * The server URL of the service endpoint. Changing this forces a new resource to be created.
      *
      * > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
      */
-    public readonly serverUrl!: pulumi.Output<string>;
+    declare public readonly serverUrl: pulumi.Output<string>;
     /**
      * Specifies the type of Azure Resource Manager Service Endpoint. Possible values are `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
      *
      * > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
      */
-    public readonly serviceEndpointAuthenticationScheme!: pulumi.Output<string | undefined>;
+    declare public readonly serviceEndpointAuthenticationScheme: pulumi.Output<string | undefined>;
     /**
      * The Service Endpoint Name.
      */
-    public readonly serviceEndpointName!: pulumi.Output<string>;
+    declare public readonly serviceEndpointName: pulumi.Output<string>;
     /**
      * The Application(Client) ID of the Service Principal.
      */
-    public /*out*/ readonly servicePrincipalId!: pulumi.Output<string>;
+    declare public /*out*/ readonly servicePrincipalId: pulumi.Output<string>;
     /**
      * The issuer if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
      */
-    public /*out*/ readonly workloadIdentityFederationIssuer!: pulumi.Output<string>;
+    declare public /*out*/ readonly workloadIdentityFederationIssuer: pulumi.Output<string>;
     /**
      * The subject if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `sc://<organisation>/<project>/<service-connection-name>`.
      */
-    public /*out*/ readonly workloadIdentityFederationSubject!: pulumi.Output<string>;
+    declare public /*out*/ readonly workloadIdentityFederationSubject: pulumi.Output<string>;
 
     /**
      * Create a ServiceEndpointAzureRM resource with the given unique name, arguments, and options.
@@ -316,46 +316,46 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceEndpointAzureRMState | undefined;
-            resourceInputs["authorization"] = state ? state.authorization : undefined;
-            resourceInputs["azurermManagementGroupId"] = state ? state.azurermManagementGroupId : undefined;
-            resourceInputs["azurermManagementGroupName"] = state ? state.azurermManagementGroupName : undefined;
-            resourceInputs["azurermSpnTenantid"] = state ? state.azurermSpnTenantid : undefined;
-            resourceInputs["azurermSubscriptionId"] = state ? state.azurermSubscriptionId : undefined;
-            resourceInputs["azurermSubscriptionName"] = state ? state.azurermSubscriptionName : undefined;
-            resourceInputs["credentials"] = state ? state.credentials : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["environment"] = state ? state.environment : undefined;
-            resourceInputs["features"] = state ? state.features : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["resourceGroup"] = state ? state.resourceGroup : undefined;
-            resourceInputs["serverUrl"] = state ? state.serverUrl : undefined;
-            resourceInputs["serviceEndpointAuthenticationScheme"] = state ? state.serviceEndpointAuthenticationScheme : undefined;
-            resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
-            resourceInputs["servicePrincipalId"] = state ? state.servicePrincipalId : undefined;
-            resourceInputs["workloadIdentityFederationIssuer"] = state ? state.workloadIdentityFederationIssuer : undefined;
-            resourceInputs["workloadIdentityFederationSubject"] = state ? state.workloadIdentityFederationSubject : undefined;
+            resourceInputs["authorization"] = state?.authorization;
+            resourceInputs["azurermManagementGroupId"] = state?.azurermManagementGroupId;
+            resourceInputs["azurermManagementGroupName"] = state?.azurermManagementGroupName;
+            resourceInputs["azurermSpnTenantid"] = state?.azurermSpnTenantid;
+            resourceInputs["azurermSubscriptionId"] = state?.azurermSubscriptionId;
+            resourceInputs["azurermSubscriptionName"] = state?.azurermSubscriptionName;
+            resourceInputs["credentials"] = state?.credentials;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["environment"] = state?.environment;
+            resourceInputs["features"] = state?.features;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["resourceGroup"] = state?.resourceGroup;
+            resourceInputs["serverUrl"] = state?.serverUrl;
+            resourceInputs["serviceEndpointAuthenticationScheme"] = state?.serviceEndpointAuthenticationScheme;
+            resourceInputs["serviceEndpointName"] = state?.serviceEndpointName;
+            resourceInputs["servicePrincipalId"] = state?.servicePrincipalId;
+            resourceInputs["workloadIdentityFederationIssuer"] = state?.workloadIdentityFederationIssuer;
+            resourceInputs["workloadIdentityFederationSubject"] = state?.workloadIdentityFederationSubject;
         } else {
             const args = argsOrState as ServiceEndpointAzureRMArgs | undefined;
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
+            if (args?.serviceEndpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            resourceInputs["azurermManagementGroupId"] = args ? args.azurermManagementGroupId : undefined;
-            resourceInputs["azurermManagementGroupName"] = args ? args.azurermManagementGroupName : undefined;
-            resourceInputs["azurermSpnTenantid"] = args ? args.azurermSpnTenantid : undefined;
-            resourceInputs["azurermSubscriptionId"] = args ? args.azurermSubscriptionId : undefined;
-            resourceInputs["azurermSubscriptionName"] = args ? args.azurermSubscriptionName : undefined;
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["features"] = args ? args.features : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
-            resourceInputs["serverUrl"] = args ? args.serverUrl : undefined;
-            resourceInputs["serviceEndpointAuthenticationScheme"] = args ? args.serviceEndpointAuthenticationScheme : undefined;
-            resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["azurermManagementGroupId"] = args?.azurermManagementGroupId;
+            resourceInputs["azurermManagementGroupName"] = args?.azurermManagementGroupName;
+            resourceInputs["azurermSpnTenantid"] = args?.azurermSpnTenantid;
+            resourceInputs["azurermSubscriptionId"] = args?.azurermSubscriptionId;
+            resourceInputs["azurermSubscriptionName"] = args?.azurermSubscriptionName;
+            resourceInputs["credentials"] = args?.credentials;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["features"] = args?.features;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["resourceGroup"] = args?.resourceGroup;
+            resourceInputs["serverUrl"] = args?.serverUrl;
+            resourceInputs["serviceEndpointAuthenticationScheme"] = args?.serviceEndpointAuthenticationScheme;
+            resourceInputs["serviceEndpointName"] = args?.serviceEndpointName;
             resourceInputs["authorization"] = undefined /*out*/;
             resourceInputs["servicePrincipalId"] = undefined /*out*/;
             resourceInputs["workloadIdentityFederationIssuer"] = undefined /*out*/;

@@ -99,29 +99,29 @@ export class ServiceendpointMaven extends pulumi.CustomResource {
     /**
      * A `authenticationBasic` block as documented below.
      */
-    public readonly authenticationBasic!: pulumi.Output<outputs.ServiceendpointMavenAuthenticationBasic | undefined>;
+    declare public readonly authenticationBasic: pulumi.Output<outputs.ServiceendpointMavenAuthenticationBasic | undefined>;
     /**
      * A `authenticationToken` block as documented below.
      */
-    public readonly authenticationToken!: pulumi.Output<outputs.ServiceendpointMavenAuthenticationToken | undefined>;
-    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly authenticationToken: pulumi.Output<outputs.ServiceendpointMavenAuthenticationToken | undefined>;
+    declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the project. Changing this forces a new Service Connection Maven to be created.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * The ID of the server that matches the id element of the `repository/mirror` that Maven tries to connect to.
      */
-    public readonly repositoryId!: pulumi.Output<string>;
+    declare public readonly repositoryId: pulumi.Output<string>;
     /**
      * The name of the service endpoint. Changing this forces a new Service Connection Maven to be created.
      */
-    public readonly serviceEndpointName!: pulumi.Output<string>;
+    declare public readonly serviceEndpointName: pulumi.Output<string>;
     /**
      * The URL of the Maven Repository.
      */
-    public readonly url!: pulumi.Output<string>;
+    declare public readonly url: pulumi.Output<string>;
 
     /**
      * Create a ServiceendpointMaven resource with the given unique name, arguments, and options.
@@ -136,35 +136,35 @@ export class ServiceendpointMaven extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceendpointMavenState | undefined;
-            resourceInputs["authenticationBasic"] = state ? state.authenticationBasic : undefined;
-            resourceInputs["authenticationToken"] = state ? state.authenticationToken : undefined;
-            resourceInputs["authorization"] = state ? state.authorization : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["repositoryId"] = state ? state.repositoryId : undefined;
-            resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["authenticationBasic"] = state?.authenticationBasic;
+            resourceInputs["authenticationToken"] = state?.authenticationToken;
+            resourceInputs["authorization"] = state?.authorization;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["repositoryId"] = state?.repositoryId;
+            resourceInputs["serviceEndpointName"] = state?.serviceEndpointName;
+            resourceInputs["url"] = state?.url;
         } else {
             const args = argsOrState as ServiceendpointMavenArgs | undefined;
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.repositoryId === undefined) && !opts.urn) {
+            if (args?.repositoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repositoryId'");
             }
-            if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
+            if (args?.serviceEndpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            if ((!args || args.url === undefined) && !opts.urn) {
+            if (args?.url === undefined && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
-            resourceInputs["authenticationBasic"] = args ? args.authenticationBasic : undefined;
-            resourceInputs["authenticationToken"] = args ? args.authenticationToken : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["repositoryId"] = args ? args.repositoryId : undefined;
-            resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
-            resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["authenticationBasic"] = args?.authenticationBasic;
+            resourceInputs["authenticationToken"] = args?.authenticationToken;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["repositoryId"] = args?.repositoryId;
+            resourceInputs["serviceEndpointName"] = args?.serviceEndpointName;
+            resourceInputs["url"] = args?.url;
             resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
