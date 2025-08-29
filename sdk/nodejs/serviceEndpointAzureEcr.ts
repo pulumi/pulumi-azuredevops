@@ -123,60 +123,60 @@ export class ServiceEndpointAzureEcr extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceEndpointAzureEcr.__pulumiType;
     }
 
-    public /*out*/ readonly appObjectId!: pulumi.Output<string>;
-    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
-    public /*out*/ readonly azSpnRoleAssignmentId!: pulumi.Output<string>;
-    public /*out*/ readonly azSpnRolePermissions!: pulumi.Output<string>;
+    declare public /*out*/ readonly appObjectId: pulumi.Output<string>;
+    declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly azSpnRoleAssignmentId: pulumi.Output<string>;
+    declare public /*out*/ readonly azSpnRolePermissions: pulumi.Output<string>;
     /**
      * The Azure container registry name.
      */
-    public readonly azurecrName!: pulumi.Output<string>;
+    declare public readonly azurecrName: pulumi.Output<string>;
     /**
      * The tenant id of the service principal.
      */
-    public readonly azurecrSpnTenantid!: pulumi.Output<string>;
+    declare public readonly azurecrSpnTenantid: pulumi.Output<string>;
     /**
      * The subscription id of the Azure targets.
      */
-    public readonly azurecrSubscriptionId!: pulumi.Output<string>;
+    declare public readonly azurecrSubscriptionId: pulumi.Output<string>;
     /**
      * The subscription name of the Azure targets.
      */
-    public readonly azurecrSubscriptionName!: pulumi.Output<string>;
+    declare public readonly azurecrSubscriptionName: pulumi.Output<string>;
     /**
      * A `credentials` block as defined below.
      */
-    public readonly credentials!: pulumi.Output<outputs.ServiceEndpointAzureEcrCredentials | undefined>;
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly credentials: pulumi.Output<outputs.ServiceEndpointAzureEcrCredentials | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the project.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * The resource group to which the container registry belongs.
      */
-    public readonly resourceGroup!: pulumi.Output<string | undefined>;
+    declare public readonly resourceGroup: pulumi.Output<string | undefined>;
     /**
      * Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
      */
-    public readonly serviceEndpointAuthenticationScheme!: pulumi.Output<string | undefined>;
+    declare public readonly serviceEndpointAuthenticationScheme: pulumi.Output<string | undefined>;
     /**
      * The name you will use to refer to this service connection in task inputs.
      */
-    public readonly serviceEndpointName!: pulumi.Output<string>;
+    declare public readonly serviceEndpointName: pulumi.Output<string>;
     /**
      * The Application(Client) ID of the Service Principal.
      */
-    public /*out*/ readonly servicePrincipalId!: pulumi.Output<string>;
-    public /*out*/ readonly spnObjectId!: pulumi.Output<string>;
+    declare public /*out*/ readonly servicePrincipalId: pulumi.Output<string>;
+    declare public /*out*/ readonly spnObjectId: pulumi.Output<string>;
     /**
      * The issuer if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
      */
-    public /*out*/ readonly workloadIdentityFederationIssuer!: pulumi.Output<string>;
+    declare public /*out*/ readonly workloadIdentityFederationIssuer: pulumi.Output<string>;
     /**
      * The subject if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `sc://<organisation>/<project>/<service-connection-name>`.
      */
-    public /*out*/ readonly workloadIdentityFederationSubject!: pulumi.Output<string>;
+    declare public /*out*/ readonly workloadIdentityFederationSubject: pulumi.Output<string>;
 
     /**
      * Create a ServiceEndpointAzureEcr resource with the given unique name, arguments, and options.
@@ -191,42 +191,42 @@ export class ServiceEndpointAzureEcr extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceEndpointAzureEcrState | undefined;
-            resourceInputs["appObjectId"] = state ? state.appObjectId : undefined;
-            resourceInputs["authorization"] = state ? state.authorization : undefined;
-            resourceInputs["azSpnRoleAssignmentId"] = state ? state.azSpnRoleAssignmentId : undefined;
-            resourceInputs["azSpnRolePermissions"] = state ? state.azSpnRolePermissions : undefined;
-            resourceInputs["azurecrName"] = state ? state.azurecrName : undefined;
-            resourceInputs["azurecrSpnTenantid"] = state ? state.azurecrSpnTenantid : undefined;
-            resourceInputs["azurecrSubscriptionId"] = state ? state.azurecrSubscriptionId : undefined;
-            resourceInputs["azurecrSubscriptionName"] = state ? state.azurecrSubscriptionName : undefined;
-            resourceInputs["credentials"] = state ? state.credentials : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["resourceGroup"] = state ? state.resourceGroup : undefined;
-            resourceInputs["serviceEndpointAuthenticationScheme"] = state ? state.serviceEndpointAuthenticationScheme : undefined;
-            resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
-            resourceInputs["servicePrincipalId"] = state ? state.servicePrincipalId : undefined;
-            resourceInputs["spnObjectId"] = state ? state.spnObjectId : undefined;
-            resourceInputs["workloadIdentityFederationIssuer"] = state ? state.workloadIdentityFederationIssuer : undefined;
-            resourceInputs["workloadIdentityFederationSubject"] = state ? state.workloadIdentityFederationSubject : undefined;
+            resourceInputs["appObjectId"] = state?.appObjectId;
+            resourceInputs["authorization"] = state?.authorization;
+            resourceInputs["azSpnRoleAssignmentId"] = state?.azSpnRoleAssignmentId;
+            resourceInputs["azSpnRolePermissions"] = state?.azSpnRolePermissions;
+            resourceInputs["azurecrName"] = state?.azurecrName;
+            resourceInputs["azurecrSpnTenantid"] = state?.azurecrSpnTenantid;
+            resourceInputs["azurecrSubscriptionId"] = state?.azurecrSubscriptionId;
+            resourceInputs["azurecrSubscriptionName"] = state?.azurecrSubscriptionName;
+            resourceInputs["credentials"] = state?.credentials;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["resourceGroup"] = state?.resourceGroup;
+            resourceInputs["serviceEndpointAuthenticationScheme"] = state?.serviceEndpointAuthenticationScheme;
+            resourceInputs["serviceEndpointName"] = state?.serviceEndpointName;
+            resourceInputs["servicePrincipalId"] = state?.servicePrincipalId;
+            resourceInputs["spnObjectId"] = state?.spnObjectId;
+            resourceInputs["workloadIdentityFederationIssuer"] = state?.workloadIdentityFederationIssuer;
+            resourceInputs["workloadIdentityFederationSubject"] = state?.workloadIdentityFederationSubject;
         } else {
             const args = argsOrState as ServiceEndpointAzureEcrArgs | undefined;
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
+            if (args?.serviceEndpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            resourceInputs["azurecrName"] = args ? args.azurecrName : undefined;
-            resourceInputs["azurecrSpnTenantid"] = args ? args.azurecrSpnTenantid : undefined;
-            resourceInputs["azurecrSubscriptionId"] = args ? args.azurecrSubscriptionId : undefined;
-            resourceInputs["azurecrSubscriptionName"] = args ? args.azurecrSubscriptionName : undefined;
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
-            resourceInputs["serviceEndpointAuthenticationScheme"] = args ? args.serviceEndpointAuthenticationScheme : undefined;
-            resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["azurecrName"] = args?.azurecrName;
+            resourceInputs["azurecrSpnTenantid"] = args?.azurecrSpnTenantid;
+            resourceInputs["azurecrSubscriptionId"] = args?.azurecrSubscriptionId;
+            resourceInputs["azurecrSubscriptionName"] = args?.azurecrSubscriptionName;
+            resourceInputs["credentials"] = args?.credentials;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["resourceGroup"] = args?.resourceGroup;
+            resourceInputs["serviceEndpointAuthenticationScheme"] = args?.serviceEndpointAuthenticationScheme;
+            resourceInputs["serviceEndpointName"] = args?.serviceEndpointName;
             resourceInputs["appObjectId"] = undefined /*out*/;
             resourceInputs["authorization"] = undefined /*out*/;
             resourceInputs["azSpnRoleAssignmentId"] = undefined /*out*/;

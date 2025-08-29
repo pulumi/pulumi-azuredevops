@@ -121,37 +121,37 @@ export class ServiceendpointOpenshift extends pulumi.CustomResource {
     /**
      * Set this option to allow clients to accept a self-signed certificate. Available when using `authBasic` or `authToken` authorization.
      */
-    public readonly acceptUntrustedCerts!: pulumi.Output<boolean | undefined>;
+    declare public readonly acceptUntrustedCerts: pulumi.Output<boolean | undefined>;
     /**
      * An `authBasic` block as documented below.
      */
-    public readonly authBasic!: pulumi.Output<outputs.ServiceendpointOpenshiftAuthBasic | undefined>;
+    declare public readonly authBasic: pulumi.Output<outputs.ServiceendpointOpenshiftAuthBasic | undefined>;
     /**
      * An `authNone` block as documented below.
      */
-    public readonly authNone!: pulumi.Output<outputs.ServiceendpointOpenshiftAuthNone | undefined>;
+    declare public readonly authNone: pulumi.Output<outputs.ServiceendpointOpenshiftAuthNone | undefined>;
     /**
      * An `authToken` block as documented below.
      */
-    public readonly authToken!: pulumi.Output<outputs.ServiceendpointOpenshiftAuthToken | undefined>;
-    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly authToken: pulumi.Output<outputs.ServiceendpointOpenshiftAuthToken | undefined>;
+    declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
     /**
      * The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `authBasic` or `authToken` authorization.
      */
-    public readonly certificateAuthorityFile!: pulumi.Output<string | undefined>;
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly certificateAuthorityFile: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the project.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * The URL for the OpenShift cluster to connect to.
      */
-    public readonly serverUrl!: pulumi.Output<string | undefined>;
+    declare public readonly serverUrl: pulumi.Output<string | undefined>;
     /**
      * The Service Endpoint name.
      */
-    public readonly serviceEndpointName!: pulumi.Output<string>;
+    declare public readonly serviceEndpointName: pulumi.Output<string>;
 
     /**
      * Create a ServiceendpointOpenshift resource with the given unique name, arguments, and options.
@@ -166,33 +166,33 @@ export class ServiceendpointOpenshift extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceendpointOpenshiftState | undefined;
-            resourceInputs["acceptUntrustedCerts"] = state ? state.acceptUntrustedCerts : undefined;
-            resourceInputs["authBasic"] = state ? state.authBasic : undefined;
-            resourceInputs["authNone"] = state ? state.authNone : undefined;
-            resourceInputs["authToken"] = state ? state.authToken : undefined;
-            resourceInputs["authorization"] = state ? state.authorization : undefined;
-            resourceInputs["certificateAuthorityFile"] = state ? state.certificateAuthorityFile : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["serverUrl"] = state ? state.serverUrl : undefined;
-            resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
+            resourceInputs["acceptUntrustedCerts"] = state?.acceptUntrustedCerts;
+            resourceInputs["authBasic"] = state?.authBasic;
+            resourceInputs["authNone"] = state?.authNone;
+            resourceInputs["authToken"] = state?.authToken;
+            resourceInputs["authorization"] = state?.authorization;
+            resourceInputs["certificateAuthorityFile"] = state?.certificateAuthorityFile;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["serverUrl"] = state?.serverUrl;
+            resourceInputs["serviceEndpointName"] = state?.serviceEndpointName;
         } else {
             const args = argsOrState as ServiceendpointOpenshiftArgs | undefined;
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
+            if (args?.serviceEndpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            resourceInputs["acceptUntrustedCerts"] = args ? args.acceptUntrustedCerts : undefined;
-            resourceInputs["authBasic"] = args ? args.authBasic : undefined;
-            resourceInputs["authNone"] = args ? args.authNone : undefined;
-            resourceInputs["authToken"] = args ? args.authToken : undefined;
-            resourceInputs["certificateAuthorityFile"] = args ? args.certificateAuthorityFile : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["serverUrl"] = args ? args.serverUrl : undefined;
-            resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["acceptUntrustedCerts"] = args?.acceptUntrustedCerts;
+            resourceInputs["authBasic"] = args?.authBasic;
+            resourceInputs["authNone"] = args?.authNone;
+            resourceInputs["authToken"] = args?.authToken;
+            resourceInputs["certificateAuthorityFile"] = args?.certificateAuthorityFile;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["serverUrl"] = args?.serverUrl;
+            resourceInputs["serviceEndpointName"] = args?.serviceEndpointName;
             resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

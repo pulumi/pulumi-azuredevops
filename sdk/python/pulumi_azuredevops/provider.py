@@ -46,13 +46,11 @@ class ProviderArgs:
         :param pulumi.Input[_builtins.str] client_certificate_path: Path to a certificate to use to authenticate to the service principal.
         :param pulumi.Input[_builtins.str] client_id: The service principal client id which should be used for AAD auth.
         :param pulumi.Input[_builtins.str] client_id_file_path: The path to a file containing the Client ID which should be used.
-        :param pulumi.Input[_builtins.str] client_secret: Client secret for authenticating to a service principal.
-        :param pulumi.Input[_builtins.str] client_secret_path: Path to a file containing a client secret for authenticating to a service principal.
+        :param pulumi.Input[_builtins.str] client_secret: Client secret for authenticating to  a service principal.
+        :param pulumi.Input[_builtins.str] client_secret_path: Path to a file containing a client secret for authenticating to  a service principal.
         :param pulumi.Input[_builtins.str] oidc_azure_service_connection_id: The Azure Pipelines Service Connection ID to use for authentication.
-        :param pulumi.Input[_builtins.str] oidc_request_token: The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
-               Connect.
-        :param pulumi.Input[_builtins.str] oidc_request_url: The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
-               using OpenID Connect.
+        :param pulumi.Input[_builtins.str] oidc_request_token: The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
+        :param pulumi.Input[_builtins.str] oidc_request_url: The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
         :param pulumi.Input[_builtins.str] oidc_token: OIDC token to authenticate as a service principal.
         :param pulumi.Input[_builtins.str] oidc_token_file_path: OIDC token from file to authenticate as a service principal.
         :param pulumi.Input[_builtins.str] org_service_url: The url of the Azure DevOps instance which should be used.
@@ -179,7 +177,7 @@ class ProviderArgs:
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Client secret for authenticating to a service principal.
+        Client secret for authenticating to  a service principal.
         """
         return pulumi.get(self, "client_secret")
 
@@ -191,7 +189,7 @@ class ProviderArgs:
     @pulumi.getter(name="clientSecretPath")
     def client_secret_path(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Path to a file containing a client secret for authenticating to a service principal.
+        Path to a file containing a client secret for authenticating to  a service principal.
         """
         return pulumi.get(self, "client_secret_path")
 
@@ -215,8 +213,7 @@ class ProviderArgs:
     @pulumi.getter(name="oidcRequestToken")
     def oidc_request_token(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
-        Connect.
+        The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
         """
         return pulumi.get(self, "oidc_request_token")
 
@@ -228,8 +225,7 @@ class ProviderArgs:
     @pulumi.getter(name="oidcRequestUrl")
     def oidc_request_url(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
-        using OpenID Connect.
+        The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
         """
         return pulumi.get(self, "oidc_request_url")
 
@@ -374,13 +370,11 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[_builtins.str] client_certificate_path: Path to a certificate to use to authenticate to the service principal.
         :param pulumi.Input[_builtins.str] client_id: The service principal client id which should be used for AAD auth.
         :param pulumi.Input[_builtins.str] client_id_file_path: The path to a file containing the Client ID which should be used.
-        :param pulumi.Input[_builtins.str] client_secret: Client secret for authenticating to a service principal.
-        :param pulumi.Input[_builtins.str] client_secret_path: Path to a file containing a client secret for authenticating to a service principal.
+        :param pulumi.Input[_builtins.str] client_secret: Client secret for authenticating to  a service principal.
+        :param pulumi.Input[_builtins.str] client_secret_path: Path to a file containing a client secret for authenticating to  a service principal.
         :param pulumi.Input[_builtins.str] oidc_azure_service_connection_id: The Azure Pipelines Service Connection ID to use for authentication.
-        :param pulumi.Input[_builtins.str] oidc_request_token: The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
-               Connect.
-        :param pulumi.Input[_builtins.str] oidc_request_url: The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
-               using OpenID Connect.
+        :param pulumi.Input[_builtins.str] oidc_request_token: The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
+        :param pulumi.Input[_builtins.str] oidc_request_url: The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
         :param pulumi.Input[_builtins.str] oidc_token: OIDC token to authenticate as a service principal.
         :param pulumi.Input[_builtins.str] oidc_token_file_path: OIDC token from file to authenticate as a service principal.
         :param pulumi.Input[_builtins.str] org_service_url: The url of the Azure DevOps instance which should be used.
@@ -518,7 +512,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Client secret for authenticating to a service principal.
+        Client secret for authenticating to  a service principal.
         """
         return pulumi.get(self, "client_secret")
 
@@ -526,7 +520,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="clientSecretPath")
     def client_secret_path(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Path to a file containing a client secret for authenticating to a service principal.
+        Path to a file containing a client secret for authenticating to  a service principal.
         """
         return pulumi.get(self, "client_secret_path")
 
@@ -542,8 +536,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="oidcRequestToken")
     def oidc_request_token(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
-        Connect.
+        The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
         """
         return pulumi.get(self, "oidc_request_token")
 
@@ -551,8 +544,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="oidcRequestUrl")
     def oidc_request_url(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
-        using OpenID Connect.
+        The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
         """
         return pulumi.get(self, "oidc_request_url")
 

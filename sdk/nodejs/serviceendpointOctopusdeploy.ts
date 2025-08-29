@@ -72,25 +72,25 @@ export class ServiceendpointOctopusdeploy extends pulumi.CustomResource {
     /**
      * API key to connect to Octopus Deploy.
      */
-    public readonly apiKey!: pulumi.Output<string>;
-    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly apiKey: pulumi.Output<string>;
+    declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Whether to ignore SSL errors when connecting to the Octopus server from the agent. Default to `false`.
      */
-    public readonly ignoreSslError!: pulumi.Output<boolean | undefined>;
+    declare public readonly ignoreSslError: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the project.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * The Service Endpoint name.
      */
-    public readonly serviceEndpointName!: pulumi.Output<string>;
+    declare public readonly serviceEndpointName: pulumi.Output<string>;
     /**
      * Octopus Server url.
      */
-    public readonly url!: pulumi.Output<string>;
+    declare public readonly url: pulumi.Output<string>;
 
     /**
      * Create a ServiceendpointOctopusdeploy resource with the given unique name, arguments, and options.
@@ -105,33 +105,33 @@ export class ServiceendpointOctopusdeploy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceendpointOctopusdeployState | undefined;
-            resourceInputs["apiKey"] = state ? state.apiKey : undefined;
-            resourceInputs["authorization"] = state ? state.authorization : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["ignoreSslError"] = state ? state.ignoreSslError : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["apiKey"] = state?.apiKey;
+            resourceInputs["authorization"] = state?.authorization;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["ignoreSslError"] = state?.ignoreSslError;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["serviceEndpointName"] = state?.serviceEndpointName;
+            resourceInputs["url"] = state?.url;
         } else {
             const args = argsOrState as ServiceendpointOctopusdeployArgs | undefined;
-            if ((!args || args.apiKey === undefined) && !opts.urn) {
+            if (args?.apiKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiKey'");
             }
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
+            if (args?.serviceEndpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            if ((!args || args.url === undefined) && !opts.urn) {
+            if (args?.url === undefined && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
-            resourceInputs["apiKey"] = args ? args.apiKey : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["ignoreSslError"] = args ? args.ignoreSslError : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
-            resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["apiKey"] = args?.apiKey;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["ignoreSslError"] = args?.ignoreSslError;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["serviceEndpointName"] = args?.serviceEndpointName;
+            resourceInputs["url"] = args?.url;
             resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -91,31 +91,31 @@ export class EnvironmentResourceKubernetes extends pulumi.CustomResource {
     /**
      * A cluster name for the Kubernetes Resource.
      */
-    public readonly clusterName!: pulumi.Output<string | undefined>;
+    declare public readonly clusterName: pulumi.Output<string | undefined>;
     /**
      * The ID of the environment under which to create the Kubernetes Resource.
      */
-    public readonly environmentId!: pulumi.Output<number>;
+    declare public readonly environmentId: pulumi.Output<number>;
     /**
      * The name for the Kubernetes Resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The namespace for the Kubernetes Resource.
      */
-    public readonly namespace!: pulumi.Output<string>;
+    declare public readonly namespace: pulumi.Output<string>;
     /**
      * The ID of the project.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * The ID of the service endpoint to associate with the Kubernetes Resource.
      */
-    public readonly serviceEndpointId!: pulumi.Output<string>;
+    declare public readonly serviceEndpointId: pulumi.Output<string>;
     /**
      * A set of tags for the Kubernetes Resource.
      */
-    public readonly tags!: pulumi.Output<string[] | undefined>;
+    declare public readonly tags: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a EnvironmentResourceKubernetes resource with the given unique name, arguments, and options.
@@ -130,34 +130,34 @@ export class EnvironmentResourceKubernetes extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnvironmentResourceKubernetesState | undefined;
-            resourceInputs["clusterName"] = state ? state.clusterName : undefined;
-            resourceInputs["environmentId"] = state ? state.environmentId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namespace"] = state ? state.namespace : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["serviceEndpointId"] = state ? state.serviceEndpointId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["clusterName"] = state?.clusterName;
+            resourceInputs["environmentId"] = state?.environmentId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namespace"] = state?.namespace;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["serviceEndpointId"] = state?.serviceEndpointId;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as EnvironmentResourceKubernetesArgs | undefined;
-            if ((!args || args.environmentId === undefined) && !opts.urn) {
+            if (args?.environmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentId'");
             }
-            if ((!args || args.namespace === undefined) && !opts.urn) {
+            if (args?.namespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespace'");
             }
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.serviceEndpointId === undefined) && !opts.urn) {
+            if (args?.serviceEndpointId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointId'");
             }
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namespace"] = args ? args.namespace : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["serviceEndpointId"] = args ? args.serviceEndpointId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["environmentId"] = args?.environmentId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namespace"] = args?.namespace;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["serviceEndpointId"] = args?.serviceEndpointId;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EnvironmentResourceKubernetes.__pulumiType, name, resourceInputs, opts);

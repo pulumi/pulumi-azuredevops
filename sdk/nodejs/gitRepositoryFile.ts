@@ -124,43 +124,43 @@ export class GitRepositoryFile extends pulumi.CustomResource {
     /**
      * The email of the author.
      */
-    public readonly authorEmail!: pulumi.Output<string>;
+    declare public readonly authorEmail: pulumi.Output<string>;
     /**
      * The name of the author.
      */
-    public readonly authorName!: pulumi.Output<string>;
+    declare public readonly authorName: pulumi.Output<string>;
     /**
      * Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
      */
-    public readonly branch!: pulumi.Output<string | undefined>;
+    declare public readonly branch: pulumi.Output<string | undefined>;
     /**
      * Commit message when adding or updating the managed file.
      */
-    public readonly commitMessage!: pulumi.Output<string>;
+    declare public readonly commitMessage: pulumi.Output<string>;
     /**
      * The email of the committer.
      */
-    public readonly committerEmail!: pulumi.Output<string>;
+    declare public readonly committerEmail: pulumi.Output<string>;
     /**
      * The name of the committer.
      */
-    public readonly committerName!: pulumi.Output<string>;
+    declare public readonly committerName: pulumi.Output<string>;
     /**
      * The file content.
      */
-    public readonly content!: pulumi.Output<string>;
+    declare public readonly content: pulumi.Output<string>;
     /**
      * The path of the file to manage.
      */
-    public readonly file!: pulumi.Output<string>;
+    declare public readonly file: pulumi.Output<string>;
     /**
      * Enable overwriting existing files (defaults to `false`).
      */
-    public readonly overwriteOnCreate!: pulumi.Output<boolean | undefined>;
+    declare public readonly overwriteOnCreate: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Git repository.
      */
-    public readonly repositoryId!: pulumi.Output<string>;
+    declare public readonly repositoryId: pulumi.Output<string>;
 
     /**
      * Create a GitRepositoryFile resource with the given unique name, arguments, and options.
@@ -175,37 +175,37 @@ export class GitRepositoryFile extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GitRepositoryFileState | undefined;
-            resourceInputs["authorEmail"] = state ? state.authorEmail : undefined;
-            resourceInputs["authorName"] = state ? state.authorName : undefined;
-            resourceInputs["branch"] = state ? state.branch : undefined;
-            resourceInputs["commitMessage"] = state ? state.commitMessage : undefined;
-            resourceInputs["committerEmail"] = state ? state.committerEmail : undefined;
-            resourceInputs["committerName"] = state ? state.committerName : undefined;
-            resourceInputs["content"] = state ? state.content : undefined;
-            resourceInputs["file"] = state ? state.file : undefined;
-            resourceInputs["overwriteOnCreate"] = state ? state.overwriteOnCreate : undefined;
-            resourceInputs["repositoryId"] = state ? state.repositoryId : undefined;
+            resourceInputs["authorEmail"] = state?.authorEmail;
+            resourceInputs["authorName"] = state?.authorName;
+            resourceInputs["branch"] = state?.branch;
+            resourceInputs["commitMessage"] = state?.commitMessage;
+            resourceInputs["committerEmail"] = state?.committerEmail;
+            resourceInputs["committerName"] = state?.committerName;
+            resourceInputs["content"] = state?.content;
+            resourceInputs["file"] = state?.file;
+            resourceInputs["overwriteOnCreate"] = state?.overwriteOnCreate;
+            resourceInputs["repositoryId"] = state?.repositoryId;
         } else {
             const args = argsOrState as GitRepositoryFileArgs | undefined;
-            if ((!args || args.content === undefined) && !opts.urn) {
+            if (args?.content === undefined && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            if ((!args || args.file === undefined) && !opts.urn) {
+            if (args?.file === undefined && !opts.urn) {
                 throw new Error("Missing required property 'file'");
             }
-            if ((!args || args.repositoryId === undefined) && !opts.urn) {
+            if (args?.repositoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repositoryId'");
             }
-            resourceInputs["authorEmail"] = args ? args.authorEmail : undefined;
-            resourceInputs["authorName"] = args ? args.authorName : undefined;
-            resourceInputs["branch"] = args ? args.branch : undefined;
-            resourceInputs["commitMessage"] = args ? args.commitMessage : undefined;
-            resourceInputs["committerEmail"] = args ? args.committerEmail : undefined;
-            resourceInputs["committerName"] = args ? args.committerName : undefined;
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["file"] = args ? args.file : undefined;
-            resourceInputs["overwriteOnCreate"] = args ? args.overwriteOnCreate : undefined;
-            resourceInputs["repositoryId"] = args ? args.repositoryId : undefined;
+            resourceInputs["authorEmail"] = args?.authorEmail;
+            resourceInputs["authorName"] = args?.authorName;
+            resourceInputs["branch"] = args?.branch;
+            resourceInputs["commitMessage"] = args?.commitMessage;
+            resourceInputs["committerEmail"] = args?.committerEmail;
+            resourceInputs["committerName"] = args?.committerName;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["file"] = args?.file;
+            resourceInputs["overwriteOnCreate"] = args?.overwriteOnCreate;
+            resourceInputs["repositoryId"] = args?.repositoryId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GitRepositoryFile.__pulumiType, name, resourceInputs, opts);

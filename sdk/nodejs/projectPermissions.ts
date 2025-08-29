@@ -109,19 +109,19 @@ export class ProjectPermissions extends pulumi.CustomResource {
      * | AGILETOOLS_BACKLOG           | Agile backlog management.                    |
      * | AGILETOOLS_PLANS             | Agile plans.                                 |
      */
-    public readonly permissions!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly permissions: pulumi.Output<{[key: string]: string}>;
     /**
      * The `group` principal to assign the permissions.
      */
-    public readonly principal!: pulumi.Output<string>;
+    declare public readonly principal: pulumi.Output<string>;
     /**
      * The ID of the project to assign the permissions.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      */
-    public readonly replace!: pulumi.Output<boolean | undefined>;
+    declare public readonly replace: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a ProjectPermissions resource with the given unique name, arguments, and options.
@@ -136,25 +136,25 @@ export class ProjectPermissions extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProjectPermissionsState | undefined;
-            resourceInputs["permissions"] = state ? state.permissions : undefined;
-            resourceInputs["principal"] = state ? state.principal : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["replace"] = state ? state.replace : undefined;
+            resourceInputs["permissions"] = state?.permissions;
+            resourceInputs["principal"] = state?.principal;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["replace"] = state?.replace;
         } else {
             const args = argsOrState as ProjectPermissionsArgs | undefined;
-            if ((!args || args.permissions === undefined) && !opts.urn) {
+            if (args?.permissions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'permissions'");
             }
-            if ((!args || args.principal === undefined) && !opts.urn) {
+            if (args?.principal === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["principal"] = args ? args.principal : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["replace"] = args ? args.replace : undefined;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["principal"] = args?.principal;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["replace"] = args?.replace;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProjectPermissions.__pulumiType, name, resourceInputs, opts);

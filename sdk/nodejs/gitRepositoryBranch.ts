@@ -77,27 +77,27 @@ export class GitRepositoryBranch extends pulumi.CustomResource {
     /**
      * The commit object ID of last commit on the branch.
      */
-    public /*out*/ readonly lastCommitId!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastCommitId: pulumi.Output<string>;
     /**
      * The name of the branch in short format not prefixed with `refs/heads/`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The reference to the source branch to create the branch from, in `<name>` or `refs/heads/<name>` format. Conflict with `refTag`, `refCommitId`.
      */
-    public readonly refBranch!: pulumi.Output<string | undefined>;
+    declare public readonly refBranch: pulumi.Output<string | undefined>;
     /**
      * The commit object ID to create the branch from. Conflict with `refBranch`, `refTag`.
      */
-    public readonly refCommitId!: pulumi.Output<string | undefined>;
+    declare public readonly refCommitId: pulumi.Output<string | undefined>;
     /**
      * The reference to the tag to create the branch from, in `<name>` or `refs/tags/<name>` format. Conflict with `refBranch`, `refCommitId`.
      */
-    public readonly refTag!: pulumi.Output<string | undefined>;
+    declare public readonly refTag: pulumi.Output<string | undefined>;
     /**
      * The ID of the repository the branch is created against.
      */
-    public readonly repositoryId!: pulumi.Output<string>;
+    declare public readonly repositoryId: pulumi.Output<string>;
 
     /**
      * Create a GitRepositoryBranch resource with the given unique name, arguments, and options.
@@ -112,22 +112,22 @@ export class GitRepositoryBranch extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GitRepositoryBranchState | undefined;
-            resourceInputs["lastCommitId"] = state ? state.lastCommitId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["refBranch"] = state ? state.refBranch : undefined;
-            resourceInputs["refCommitId"] = state ? state.refCommitId : undefined;
-            resourceInputs["refTag"] = state ? state.refTag : undefined;
-            resourceInputs["repositoryId"] = state ? state.repositoryId : undefined;
+            resourceInputs["lastCommitId"] = state?.lastCommitId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["refBranch"] = state?.refBranch;
+            resourceInputs["refCommitId"] = state?.refCommitId;
+            resourceInputs["refTag"] = state?.refTag;
+            resourceInputs["repositoryId"] = state?.repositoryId;
         } else {
             const args = argsOrState as GitRepositoryBranchArgs | undefined;
-            if ((!args || args.repositoryId === undefined) && !opts.urn) {
+            if (args?.repositoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repositoryId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["refBranch"] = args ? args.refBranch : undefined;
-            resourceInputs["refCommitId"] = args ? args.refCommitId : undefined;
-            resourceInputs["refTag"] = args ? args.refTag : undefined;
-            resourceInputs["repositoryId"] = args ? args.repositoryId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["refBranch"] = args?.refBranch;
+            resourceInputs["refCommitId"] = args?.refCommitId;
+            resourceInputs["refTag"] = args?.refTag;
+            resourceInputs["repositoryId"] = args?.repositoryId;
             resourceInputs["lastCommitId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

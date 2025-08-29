@@ -77,7 +77,7 @@ export class ProjectPipelineSettings extends pulumi.CustomResource {
     /**
      * Limit job authorization scope to current project for non-release pipelines.
      */
-    public readonly enforceJobScope!: pulumi.Output<boolean>;
+    declare public readonly enforceJobScope: pulumi.Output<boolean>;
     /**
      * Limit job authorization scope to current project for release pipelines.
      *
@@ -85,27 +85,27 @@ export class ProjectPipelineSettings extends pulumi.CustomResource {
      * For example, if `enforceJobScope` is true at the organization, the `azuredevops.ProjectPipelineSettings` resource cannot set it to false.
      * In this scenario, the plan will always show that the resource is trying to change `enforceJobScope` from `true` to `false`.
      */
-    public readonly enforceJobScopeForRelease!: pulumi.Output<boolean>;
+    declare public readonly enforceJobScopeForRelease: pulumi.Output<boolean>;
     /**
      * Protect access to repositories in YAML pipelines.
      */
-    public readonly enforceReferencedRepoScopedToken!: pulumi.Output<boolean>;
+    declare public readonly enforceReferencedRepoScopedToken: pulumi.Output<boolean>;
     /**
      * Limit variables that can be set at queue time.
      */
-    public readonly enforceSettableVar!: pulumi.Output<boolean>;
+    declare public readonly enforceSettableVar: pulumi.Output<boolean>;
     /**
      * The ID of the project for which the project pipeline settings will be managed.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * Publish metadata from pipelines.
      */
-    public readonly publishPipelineMetadata!: pulumi.Output<boolean>;
+    declare public readonly publishPipelineMetadata: pulumi.Output<boolean>;
     /**
      * Disable anonymous access to badges.
      */
-    public readonly statusBadgesArePrivate!: pulumi.Output<boolean>;
+    declare public readonly statusBadgesArePrivate: pulumi.Output<boolean>;
 
     /**
      * Create a ProjectPipelineSettings resource with the given unique name, arguments, and options.
@@ -120,25 +120,25 @@ export class ProjectPipelineSettings extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProjectPipelineSettingsState | undefined;
-            resourceInputs["enforceJobScope"] = state ? state.enforceJobScope : undefined;
-            resourceInputs["enforceJobScopeForRelease"] = state ? state.enforceJobScopeForRelease : undefined;
-            resourceInputs["enforceReferencedRepoScopedToken"] = state ? state.enforceReferencedRepoScopedToken : undefined;
-            resourceInputs["enforceSettableVar"] = state ? state.enforceSettableVar : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["publishPipelineMetadata"] = state ? state.publishPipelineMetadata : undefined;
-            resourceInputs["statusBadgesArePrivate"] = state ? state.statusBadgesArePrivate : undefined;
+            resourceInputs["enforceJobScope"] = state?.enforceJobScope;
+            resourceInputs["enforceJobScopeForRelease"] = state?.enforceJobScopeForRelease;
+            resourceInputs["enforceReferencedRepoScopedToken"] = state?.enforceReferencedRepoScopedToken;
+            resourceInputs["enforceSettableVar"] = state?.enforceSettableVar;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["publishPipelineMetadata"] = state?.publishPipelineMetadata;
+            resourceInputs["statusBadgesArePrivate"] = state?.statusBadgesArePrivate;
         } else {
             const args = argsOrState as ProjectPipelineSettingsArgs | undefined;
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            resourceInputs["enforceJobScope"] = args ? args.enforceJobScope : undefined;
-            resourceInputs["enforceJobScopeForRelease"] = args ? args.enforceJobScopeForRelease : undefined;
-            resourceInputs["enforceReferencedRepoScopedToken"] = args ? args.enforceReferencedRepoScopedToken : undefined;
-            resourceInputs["enforceSettableVar"] = args ? args.enforceSettableVar : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["publishPipelineMetadata"] = args ? args.publishPipelineMetadata : undefined;
-            resourceInputs["statusBadgesArePrivate"] = args ? args.statusBadgesArePrivate : undefined;
+            resourceInputs["enforceJobScope"] = args?.enforceJobScope;
+            resourceInputs["enforceJobScopeForRelease"] = args?.enforceJobScopeForRelease;
+            resourceInputs["enforceReferencedRepoScopedToken"] = args?.enforceReferencedRepoScopedToken;
+            resourceInputs["enforceSettableVar"] = args?.enforceSettableVar;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["publishPipelineMetadata"] = args?.publishPipelineMetadata;
+            resourceInputs["statusBadgesArePrivate"] = args?.statusBadgesArePrivate;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProjectPipelineSettings.__pulumiType, name, resourceInputs, opts);

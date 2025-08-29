@@ -58,63 +58,63 @@
                 "items": {
                     "type": "string"
                 },
-                "description": "List of auxiliary Tenant IDs required for multi-tenancy and cross-tenant scenarios.\n"
+                "description": "List of auxiliary Tenant IDs required for multi-tenancy and cross-tenant scenarios."
             },
             "clientCertificate": {
                 "type": "string",
-                "description": "Base64 encoded certificate to use to authenticate to the service principal.\n",
+                "description": "Base64 encoded certificate to use to authenticate to the service principal.",
                 "secret": true
             },
             "clientCertificatePassword": {
                 "type": "string",
-                "description": "Password for a client certificate password.\n",
+                "description": "Password for a client certificate password.",
                 "secret": true
             },
             "clientCertificatePath": {
                 "type": "string",
-                "description": "Path to a certificate to use to authenticate to the service principal.\n"
+                "description": "Path to a certificate to use to authenticate to the service principal."
             },
             "clientId": {
                 "type": "string",
-                "description": "The service principal client id which should be used for AAD auth.\n"
+                "description": "The service principal client id which should be used for AAD auth."
             },
             "clientIdFilePath": {
                 "type": "string",
-                "description": "The path to a file containing the Client ID which should be used.\n"
+                "description": "The path to a file containing the Client ID which should be used."
             },
             "clientSecret": {
                 "type": "string",
-                "description": "Client secret for authenticating to a service principal.\n",
+                "description": "Client secret for authenticating to  a service principal.",
                 "secret": true
             },
             "clientSecretPath": {
                 "type": "string",
-                "description": "Path to a file containing a client secret for authenticating to a service principal.\n"
+                "description": "Path to a file containing a client secret for authenticating to  a service principal."
             },
             "oidcAzureServiceConnectionId": {
                 "type": "string",
-                "description": "The Azure Pipelines Service Connection ID to use for authentication.\n"
+                "description": "The Azure Pipelines Service Connection ID to use for authentication."
             },
             "oidcRequestToken": {
                 "type": "string",
-                "description": "The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID\nConnect.\n"
+                "description": "The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect."
             },
             "oidcRequestUrl": {
                 "type": "string",
-                "description": "The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal\nusing OpenID Connect.\n"
+                "description": "The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect."
             },
             "oidcToken": {
                 "type": "string",
-                "description": "OIDC token to authenticate as a service principal.\n",
+                "description": "OIDC token to authenticate as a service principal.",
                 "secret": true
             },
             "oidcTokenFilePath": {
                 "type": "string",
-                "description": "OIDC token from file to authenticate as a service principal.\n"
+                "description": "OIDC token from file to authenticate as a service principal."
             },
             "orgServiceUrl": {
                 "type": "string",
-                "description": "The url of the Azure DevOps instance which should be used.\n",
+                "description": "The url of the Azure DevOps instance which should be used.",
                 "defaultInfo": {
                     "environment": [
                         "AZDO_ORG_SERVICE_URL"
@@ -123,24 +123,24 @@
             },
             "personalAccessToken": {
                 "type": "string",
-                "description": "The personal access token which should be used.\n",
+                "description": "The personal access token which should be used.",
                 "secret": true
             },
             "tenantId": {
                 "type": "string",
-                "description": "The service principal tenant id which should be used for AAD auth.\n"
+                "description": "The service principal tenant id which should be used for AAD auth."
             },
             "useCli": {
                 "type": "boolean",
-                "description": "Use Azure CLI to authenticate. Defaults to `true`.\n"
+                "description": "Use Azure CLI to authenticate. Defaults to `true`."
             },
             "useMsi": {
                 "type": "boolean",
-                "description": "Use an Azure Managed Service Identity. Defaults to `false`.\n"
+                "description": "Use an Azure Managed Service Identity. Defaults to `false`."
             },
             "useOidc": {
                 "type": "boolean",
-                "description": "Use an OIDC token to authenticate to a service principal. Defaults to `false`.\n"
+                "description": "Use an OIDC token to authenticate to a service principal. Defaults to `false`."
             }
         }
     },
@@ -2915,84 +2915,84 @@
                 "items": {
                     "type": "string"
                 },
-                "description": "List of auxiliary Tenant IDs required for multi-tenancy and cross-tenant scenarios.\n"
+                "description": "List of auxiliary Tenant IDs required for multi-tenancy and cross-tenant scenarios."
             },
             "clientCertificate": {
                 "type": "string",
-                "description": "Base64 encoded certificate to use to authenticate to the service principal.\n",
+                "description": "Base64 encoded certificate to use to authenticate to the service principal.",
                 "secret": true
             },
             "clientCertificatePassword": {
                 "type": "string",
-                "description": "Password for a client certificate password.\n",
+                "description": "Password for a client certificate password.",
                 "secret": true
             },
             "clientCertificatePath": {
                 "type": "string",
-                "description": "Path to a certificate to use to authenticate to the service principal.\n"
+                "description": "Path to a certificate to use to authenticate to the service principal."
             },
             "clientId": {
                 "type": "string",
-                "description": "The service principal client id which should be used for AAD auth.\n"
+                "description": "The service principal client id which should be used for AAD auth."
             },
             "clientIdFilePath": {
                 "type": "string",
-                "description": "The path to a file containing the Client ID which should be used.\n"
+                "description": "The path to a file containing the Client ID which should be used."
             },
             "clientSecret": {
                 "type": "string",
-                "description": "Client secret for authenticating to a service principal.\n",
+                "description": "Client secret for authenticating to  a service principal.",
                 "secret": true
             },
             "clientSecretPath": {
                 "type": "string",
-                "description": "Path to a file containing a client secret for authenticating to a service principal.\n"
+                "description": "Path to a file containing a client secret for authenticating to  a service principal."
             },
             "oidcAzureServiceConnectionId": {
                 "type": "string",
-                "description": "The Azure Pipelines Service Connection ID to use for authentication.\n"
+                "description": "The Azure Pipelines Service Connection ID to use for authentication."
             },
             "oidcRequestToken": {
                 "type": "string",
-                "description": "The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID\nConnect.\n"
+                "description": "The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect."
             },
             "oidcRequestUrl": {
                 "type": "string",
-                "description": "The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal\nusing OpenID Connect.\n"
+                "description": "The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect."
             },
             "oidcToken": {
                 "type": "string",
-                "description": "OIDC token to authenticate as a service principal.\n",
+                "description": "OIDC token to authenticate as a service principal.",
                 "secret": true
             },
             "oidcTokenFilePath": {
                 "type": "string",
-                "description": "OIDC token from file to authenticate as a service principal.\n"
+                "description": "OIDC token from file to authenticate as a service principal."
             },
             "orgServiceUrl": {
                 "type": "string",
-                "description": "The url of the Azure DevOps instance which should be used.\n"
+                "description": "The url of the Azure DevOps instance which should be used."
             },
             "personalAccessToken": {
                 "type": "string",
-                "description": "The personal access token which should be used.\n",
+                "description": "The personal access token which should be used.",
                 "secret": true
             },
             "tenantId": {
                 "type": "string",
-                "description": "The service principal tenant id which should be used for AAD auth.\n"
+                "description": "The service principal tenant id which should be used for AAD auth."
             },
             "useCli": {
                 "type": "boolean",
-                "description": "Use Azure CLI to authenticate. Defaults to `true`.\n"
+                "description": "Use Azure CLI to authenticate. Defaults to `true`."
             },
             "useMsi": {
                 "type": "boolean",
-                "description": "Use an Azure Managed Service Identity. Defaults to `false`.\n"
+                "description": "Use an Azure Managed Service Identity. Defaults to `false`."
             },
             "useOidc": {
                 "type": "boolean",
-                "description": "Use an OIDC token to authenticate to a service principal. Defaults to `false`.\n"
+                "description": "Use an OIDC token to authenticate to a service principal. Defaults to `false`."
             }
         },
         "inputProperties": {
@@ -3001,63 +3001,63 @@
                 "items": {
                     "type": "string"
                 },
-                "description": "List of auxiliary Tenant IDs required for multi-tenancy and cross-tenant scenarios.\n"
+                "description": "List of auxiliary Tenant IDs required for multi-tenancy and cross-tenant scenarios."
             },
             "clientCertificate": {
                 "type": "string",
-                "description": "Base64 encoded certificate to use to authenticate to the service principal.\n",
+                "description": "Base64 encoded certificate to use to authenticate to the service principal.",
                 "secret": true
             },
             "clientCertificatePassword": {
                 "type": "string",
-                "description": "Password for a client certificate password.\n",
+                "description": "Password for a client certificate password.",
                 "secret": true
             },
             "clientCertificatePath": {
                 "type": "string",
-                "description": "Path to a certificate to use to authenticate to the service principal.\n"
+                "description": "Path to a certificate to use to authenticate to the service principal."
             },
             "clientId": {
                 "type": "string",
-                "description": "The service principal client id which should be used for AAD auth.\n"
+                "description": "The service principal client id which should be used for AAD auth."
             },
             "clientIdFilePath": {
                 "type": "string",
-                "description": "The path to a file containing the Client ID which should be used.\n"
+                "description": "The path to a file containing the Client ID which should be used."
             },
             "clientSecret": {
                 "type": "string",
-                "description": "Client secret for authenticating to a service principal.\n",
+                "description": "Client secret for authenticating to  a service principal.",
                 "secret": true
             },
             "clientSecretPath": {
                 "type": "string",
-                "description": "Path to a file containing a client secret for authenticating to a service principal.\n"
+                "description": "Path to a file containing a client secret for authenticating to  a service principal."
             },
             "oidcAzureServiceConnectionId": {
                 "type": "string",
-                "description": "The Azure Pipelines Service Connection ID to use for authentication.\n"
+                "description": "The Azure Pipelines Service Connection ID to use for authentication."
             },
             "oidcRequestToken": {
                 "type": "string",
-                "description": "The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID\nConnect.\n"
+                "description": "The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect."
             },
             "oidcRequestUrl": {
                 "type": "string",
-                "description": "The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal\nusing OpenID Connect.\n"
+                "description": "The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect."
             },
             "oidcToken": {
                 "type": "string",
-                "description": "OIDC token to authenticate as a service principal.\n",
+                "description": "OIDC token to authenticate as a service principal.",
                 "secret": true
             },
             "oidcTokenFilePath": {
                 "type": "string",
-                "description": "OIDC token from file to authenticate as a service principal.\n"
+                "description": "OIDC token from file to authenticate as a service principal."
             },
             "orgServiceUrl": {
                 "type": "string",
-                "description": "The url of the Azure DevOps instance which should be used.\n",
+                "description": "The url of the Azure DevOps instance which should be used.",
                 "defaultInfo": {
                     "environment": [
                         "AZDO_ORG_SERVICE_URL"
@@ -3066,24 +3066,24 @@
             },
             "personalAccessToken": {
                 "type": "string",
-                "description": "The personal access token which should be used.\n",
+                "description": "The personal access token which should be used.",
                 "secret": true
             },
             "tenantId": {
                 "type": "string",
-                "description": "The service principal tenant id which should be used for AAD auth.\n"
+                "description": "The service principal tenant id which should be used for AAD auth."
             },
             "useCli": {
                 "type": "boolean",
-                "description": "Use Azure CLI to authenticate. Defaults to `true`.\n"
+                "description": "Use Azure CLI to authenticate. Defaults to `true`."
             },
             "useMsi": {
                 "type": "boolean",
-                "description": "Use an Azure Managed Service Identity. Defaults to `false`.\n"
+                "description": "Use an Azure Managed Service Identity. Defaults to `false`."
             },
             "useOidc": {
                 "type": "boolean",
-                "description": "Use an OIDC token to authenticate to a service principal. Defaults to `false`.\n"
+                "description": "Use an OIDC token to authenticate to a service principal. Defaults to `false`."
             }
         },
         "methods": {
@@ -15026,7 +15026,7 @@
                         "type": "integer"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -15088,7 +15088,7 @@
                         "type": "boolean"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -15158,7 +15158,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "jobAuthorizationScope": {
@@ -15252,7 +15252,7 @@
                 "description": "A collection of values returned by getClientConfig.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -15310,7 +15310,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "storageKey": {
@@ -15359,7 +15359,7 @@
                         "type": "integer"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -15407,7 +15407,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -15457,7 +15457,7 @@
                         "type": "boolean"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "isFork": {
@@ -15550,7 +15550,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "lastCommitMessage": {
@@ -15605,7 +15605,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -15656,7 +15656,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "members": {
@@ -15698,7 +15698,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "projectId": {
@@ -15740,7 +15740,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -15788,7 +15788,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "projectId": {
@@ -15829,7 +15829,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -15893,7 +15893,7 @@
                         "type": "boolean"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -15947,7 +15947,7 @@
                         "type": "boolean"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -15982,7 +15982,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     }
                 },
@@ -16023,7 +16023,7 @@
                         "type": "object"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -16084,7 +16084,7 @@
                 "description": "A collection of values returned by getProjects.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -16134,7 +16134,7 @@
                 "description": "A collection of values returned by getRepositories.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "includeHidden": {
@@ -16189,7 +16189,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "scope": {
@@ -16267,7 +16267,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "projectId": {
@@ -16365,7 +16365,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "projectId": {
@@ -16416,7 +16416,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "origin": {
@@ -16504,7 +16504,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "projectId": {
@@ -16588,7 +16588,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "projectId": {
@@ -16666,7 +16666,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "projectId": {
@@ -16737,7 +16737,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "projectId": {
@@ -16804,7 +16804,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "projectId": {
@@ -16850,7 +16850,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "storageKey": {
@@ -16910,7 +16910,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "members": {
@@ -16963,7 +16963,7 @@
                 "description": "A collection of values returned by getTeams.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "projectId": {
@@ -17018,7 +17018,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "mailAddress": {
@@ -17094,7 +17094,7 @@
                         "$ref": "#/types/azuredevops:index/getUsersFeatures:getUsersFeatures"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "origin": {
@@ -17162,7 +17162,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "keyVaults": {

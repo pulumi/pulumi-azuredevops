@@ -76,21 +76,21 @@ export class ServiceendpointExternaltfs extends pulumi.CustomResource {
     /**
      * An `authPersonal` block as documented below. Allows connecting using a personal access token.
      */
-    public readonly authPersonal!: pulumi.Output<outputs.ServiceendpointExternaltfsAuthPersonal>;
-    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly authPersonal: pulumi.Output<outputs.ServiceendpointExternaltfsAuthPersonal>;
+    declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
     /**
      * Azure DevOps Organization or TFS Project Collection Url.
      */
-    public readonly connectionUrl!: pulumi.Output<string>;
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly connectionUrl: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the project.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * The Service Endpoint name.
      */
-    public readonly serviceEndpointName!: pulumi.Output<string>;
+    declare public readonly serviceEndpointName: pulumi.Output<string>;
 
     /**
      * Create a ServiceendpointExternaltfs resource with the given unique name, arguments, and options.
@@ -105,31 +105,31 @@ export class ServiceendpointExternaltfs extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceendpointExternaltfsState | undefined;
-            resourceInputs["authPersonal"] = state ? state.authPersonal : undefined;
-            resourceInputs["authorization"] = state ? state.authorization : undefined;
-            resourceInputs["connectionUrl"] = state ? state.connectionUrl : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
+            resourceInputs["authPersonal"] = state?.authPersonal;
+            resourceInputs["authorization"] = state?.authorization;
+            resourceInputs["connectionUrl"] = state?.connectionUrl;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["serviceEndpointName"] = state?.serviceEndpointName;
         } else {
             const args = argsOrState as ServiceendpointExternaltfsArgs | undefined;
-            if ((!args || args.authPersonal === undefined) && !opts.urn) {
+            if (args?.authPersonal === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authPersonal'");
             }
-            if ((!args || args.connectionUrl === undefined) && !opts.urn) {
+            if (args?.connectionUrl === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionUrl'");
             }
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
+            if (args?.serviceEndpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            resourceInputs["authPersonal"] = args ? args.authPersonal : undefined;
-            resourceInputs["connectionUrl"] = args ? args.connectionUrl : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["authPersonal"] = args?.authPersonal;
+            resourceInputs["connectionUrl"] = args?.connectionUrl;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["serviceEndpointName"] = args?.serviceEndpointName;
             resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

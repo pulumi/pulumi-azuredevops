@@ -74,7 +74,7 @@ Object.defineProperty(exports, "clientIdFilePath", {
 });
 
 /**
- * Client secret for authenticating to a service principal.
+ * Client secret for authenticating to  a service principal.
  */
 export declare const clientSecret: string | undefined;
 Object.defineProperty(exports, "clientSecret", {
@@ -85,7 +85,7 @@ Object.defineProperty(exports, "clientSecret", {
 });
 
 /**
- * Path to a file containing a client secret for authenticating to a service principal.
+ * Path to a file containing a client secret for authenticating to  a service principal.
  */
 export declare const clientSecretPath: string | undefined;
 Object.defineProperty(exports, "clientSecretPath", {
@@ -107,8 +107,7 @@ Object.defineProperty(exports, "oidcAzureServiceConnectionId", {
 });
 
 /**
- * The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
- * Connect.
+ * The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
  */
 export declare const oidcRequestToken: string | undefined;
 Object.defineProperty(exports, "oidcRequestToken", {
@@ -119,8 +118,7 @@ Object.defineProperty(exports, "oidcRequestToken", {
 });
 
 /**
- * The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
- * using OpenID Connect.
+ * The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
  */
 export declare const oidcRequestUrl: string | undefined;
 Object.defineProperty(exports, "oidcRequestUrl", {

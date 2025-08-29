@@ -98,15 +98,15 @@ export class Team extends pulumi.CustomResource {
      * `azuredevops.TeamAdministrators` resource. However it's not possible to use
      * both methods to manage team administrators, since there'll be conflicts.
      */
-    public readonly administrators!: pulumi.Output<string[]>;
+    declare public readonly administrators: pulumi.Output<string[]>;
     /**
      * The description of the Team.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The descriptor of the Team.
      */
-    public /*out*/ readonly descriptor!: pulumi.Output<string>;
+    declare public /*out*/ readonly descriptor: pulumi.Output<string>;
     /**
      * List of subject descriptors to define members of the team.
      *
@@ -115,15 +115,15 @@ export class Team extends pulumi.CustomResource {
      * `azuredevops.TeamMembers` resource. However it's not possible to use
      * both methods to manage team members, since there'll be conflicts.
      */
-    public readonly members!: pulumi.Output<string[]>;
+    declare public readonly members: pulumi.Output<string[]>;
     /**
      * The name of the Team.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Project ID.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
 
     /**
      * Create a Team resource with the given unique name, arguments, and options.
@@ -138,22 +138,22 @@ export class Team extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TeamState | undefined;
-            resourceInputs["administrators"] = state ? state.administrators : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["descriptor"] = state ? state.descriptor : undefined;
-            resourceInputs["members"] = state ? state.members : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["administrators"] = state?.administrators;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["descriptor"] = state?.descriptor;
+            resourceInputs["members"] = state?.members;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["projectId"] = state?.projectId;
         } else {
             const args = argsOrState as TeamArgs | undefined;
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            resourceInputs["administrators"] = args ? args.administrators : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["members"] = args ? args.members : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["administrators"] = args?.administrators;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["members"] = args?.members;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["projectId"] = args?.projectId;
             resourceInputs["descriptor"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

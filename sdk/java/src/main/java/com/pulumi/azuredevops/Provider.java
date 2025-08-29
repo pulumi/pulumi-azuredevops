@@ -94,28 +94,28 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.clientIdFilePath);
     }
     /**
-     * Client secret for authenticating to a service principal.
+     * Client secret for authenticating to  a service principal.
      * 
      */
     @Export(name="clientSecret", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientSecret;
 
     /**
-     * @return Client secret for authenticating to a service principal.
+     * @return Client secret for authenticating to  a service principal.
      * 
      */
     public Output<Optional<String>> clientSecret() {
         return Codegen.optional(this.clientSecret);
     }
     /**
-     * Path to a file containing a client secret for authenticating to a service principal.
+     * Path to a file containing a client secret for authenticating to  a service principal.
      * 
      */
     @Export(name="clientSecretPath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientSecretPath;
 
     /**
-     * @return Path to a file containing a client secret for authenticating to a service principal.
+     * @return Path to a file containing a client secret for authenticating to  a service principal.
      * 
      */
     public Output<Optional<String>> clientSecretPath() {
@@ -136,32 +136,28 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.oidcAzureServiceConnectionId);
     }
     /**
-     * The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
-     * Connect.
+     * The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
      * 
      */
     @Export(name="oidcRequestToken", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oidcRequestToken;
 
     /**
-     * @return The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
-     * Connect.
+     * @return The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
      * 
      */
     public Output<Optional<String>> oidcRequestToken() {
         return Codegen.optional(this.oidcRequestToken);
     }
     /**
-     * The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
-     * using OpenID Connect.
+     * The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
      * 
      */
     @Export(name="oidcRequestUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oidcRequestUrl;
 
     /**
-     * @return The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
-     * using OpenID Connect.
+     * @return The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
      * 
      */
     public Output<Optional<String>> oidcRequestUrl() {

@@ -41,12 +41,12 @@ func GetClientIdFilePath(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azuredevops:clientIdFilePath")
 }
 
-// Client secret for authenticating to a service principal.
+// Client secret for authenticating to  a service principal.
 func GetClientSecret(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azuredevops:clientSecret")
 }
 
-// Path to a file containing a client secret for authenticating to a service principal.
+// Path to a file containing a client secret for authenticating to  a service principal.
 func GetClientSecretPath(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azuredevops:clientSecretPath")
 }
@@ -56,14 +56,12 @@ func GetOidcAzureServiceConnectionId(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azuredevops:oidcAzureServiceConnectionId")
 }
 
-// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
-// Connect.
+// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
 func GetOidcRequestToken(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azuredevops:oidcRequestToken")
 }
 
-// The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
-// using OpenID Connect.
+// The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
 func GetOidcRequestUrl(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azuredevops:oidcRequestUrl")
 }

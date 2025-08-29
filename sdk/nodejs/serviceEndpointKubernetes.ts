@@ -122,33 +122,33 @@ export class ServiceEndpointKubernetes extends pulumi.CustomResource {
     /**
      * The hostname (in form of URI) of the Kubernetes API.
      */
-    public readonly apiserverUrl!: pulumi.Output<string>;
-    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly apiserverUrl: pulumi.Output<string>;
+    declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
     /**
      * The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.
      */
-    public readonly authorizationType!: pulumi.Output<string>;
+    declare public readonly authorizationType: pulumi.Output<string>;
     /**
      * An `azureSubscription` block as defined below.
      */
-    public readonly azureSubscriptions!: pulumi.Output<outputs.ServiceEndpointKubernetesAzureSubscription[] | undefined>;
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly azureSubscriptions: pulumi.Output<outputs.ServiceEndpointKubernetesAzureSubscription[] | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A `kubeconfig` block as defined below.
      */
-    public readonly kubeconfig!: pulumi.Output<outputs.ServiceEndpointKubernetesKubeconfig | undefined>;
+    declare public readonly kubeconfig: pulumi.Output<outputs.ServiceEndpointKubernetesKubeconfig | undefined>;
     /**
      * The ID of the project.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * A `serviceAccount` block as defined below.
      */
-    public readonly serviceAccount!: pulumi.Output<outputs.ServiceEndpointKubernetesServiceAccount | undefined>;
+    declare public readonly serviceAccount: pulumi.Output<outputs.ServiceEndpointKubernetesServiceAccount | undefined>;
     /**
      * The Service Endpoint name.
      */
-    public readonly serviceEndpointName!: pulumi.Output<string>;
+    declare public readonly serviceEndpointName: pulumi.Output<string>;
 
     /**
      * Create a ServiceEndpointKubernetes resource with the given unique name, arguments, and options.
@@ -163,37 +163,37 @@ export class ServiceEndpointKubernetes extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceEndpointKubernetesState | undefined;
-            resourceInputs["apiserverUrl"] = state ? state.apiserverUrl : undefined;
-            resourceInputs["authorization"] = state ? state.authorization : undefined;
-            resourceInputs["authorizationType"] = state ? state.authorizationType : undefined;
-            resourceInputs["azureSubscriptions"] = state ? state.azureSubscriptions : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["kubeconfig"] = state ? state.kubeconfig : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["serviceAccount"] = state ? state.serviceAccount : undefined;
-            resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
+            resourceInputs["apiserverUrl"] = state?.apiserverUrl;
+            resourceInputs["authorization"] = state?.authorization;
+            resourceInputs["authorizationType"] = state?.authorizationType;
+            resourceInputs["azureSubscriptions"] = state?.azureSubscriptions;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["kubeconfig"] = state?.kubeconfig;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["serviceAccount"] = state?.serviceAccount;
+            resourceInputs["serviceEndpointName"] = state?.serviceEndpointName;
         } else {
             const args = argsOrState as ServiceEndpointKubernetesArgs | undefined;
-            if ((!args || args.apiserverUrl === undefined) && !opts.urn) {
+            if (args?.apiserverUrl === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiserverUrl'");
             }
-            if ((!args || args.authorizationType === undefined) && !opts.urn) {
+            if (args?.authorizationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authorizationType'");
             }
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
+            if (args?.serviceEndpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            resourceInputs["apiserverUrl"] = args ? args.apiserverUrl : undefined;
-            resourceInputs["authorizationType"] = args ? args.authorizationType : undefined;
-            resourceInputs["azureSubscriptions"] = args ? args.azureSubscriptions : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["kubeconfig"] = args ? args.kubeconfig : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["serviceAccount"] = args ? args.serviceAccount : undefined;
-            resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["apiserverUrl"] = args?.apiserverUrl;
+            resourceInputs["authorizationType"] = args?.authorizationType;
+            resourceInputs["azureSubscriptions"] = args?.azureSubscriptions;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["kubeconfig"] = args?.kubeconfig;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["serviceAccount"] = args?.serviceAccount;
+            resourceInputs["serviceEndpointName"] = args?.serviceEndpointName;
             resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

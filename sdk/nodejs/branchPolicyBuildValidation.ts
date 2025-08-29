@@ -108,19 +108,19 @@ export class BranchPolicyBuildValidation extends pulumi.CustomResource {
     /**
      * A flag indicating if the policy should be blocking. Defaults to `true`.
      */
-    public readonly blocking!: pulumi.Output<boolean | undefined>;
+    declare public readonly blocking: pulumi.Output<boolean | undefined>;
     /**
      * A flag indicating if the policy should be enabled. Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the project in which the policy will be created.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
      */
-    public readonly settings!: pulumi.Output<outputs.BranchPolicyBuildValidationSettings>;
+    declare public readonly settings: pulumi.Output<outputs.BranchPolicyBuildValidationSettings>;
 
     /**
      * Create a BranchPolicyBuildValidation resource with the given unique name, arguments, and options.
@@ -135,22 +135,22 @@ export class BranchPolicyBuildValidation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BranchPolicyBuildValidationState | undefined;
-            resourceInputs["blocking"] = state ? state.blocking : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["settings"] = state ? state.settings : undefined;
+            resourceInputs["blocking"] = state?.blocking;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["settings"] = state?.settings;
         } else {
             const args = argsOrState as BranchPolicyBuildValidationArgs | undefined;
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.settings === undefined) && !opts.urn) {
+            if (args?.settings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'settings'");
             }
-            resourceInputs["blocking"] = args ? args.blocking : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["settings"] = args ? args.settings : undefined;
+            resourceInputs["blocking"] = args?.blocking;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["settings"] = args?.settings;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azuredevops:Policy/branchPolicyBuildValidation:BranchPolicyBuildValidation" }] };

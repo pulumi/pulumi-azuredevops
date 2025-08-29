@@ -63,31 +63,31 @@ export class Extension extends pulumi.CustomResource {
     /**
      * Whether to disable the extension.
      */
-    public readonly disabled!: pulumi.Output<boolean>;
+    declare public readonly disabled: pulumi.Output<boolean>;
     /**
      * The publisher ID of the extension.
      */
-    public readonly extensionId!: pulumi.Output<string>;
+    declare public readonly extensionId: pulumi.Output<string>;
     /**
      * The name of the extension.
      */
-    public /*out*/ readonly extensionName!: pulumi.Output<string>;
+    declare public /*out*/ readonly extensionName: pulumi.Output<string>;
     /**
      * The extension ID of the extension.
      */
-    public readonly publisherId!: pulumi.Output<string>;
+    declare public readonly publisherId: pulumi.Output<string>;
     /**
      * The name of the publisher.
      */
-    public /*out*/ readonly publisherName!: pulumi.Output<string>;
+    declare public /*out*/ readonly publisherName: pulumi.Output<string>;
     /**
      * List of all oauth scopes required by this extension.
      */
-    public /*out*/ readonly scopes!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly scopes: pulumi.Output<string[]>;
     /**
      * The version of the extension.
      */
-    public readonly version!: pulumi.Output<string>;
+    declare public readonly version: pulumi.Output<string>;
 
     /**
      * Create a Extension resource with the given unique name, arguments, and options.
@@ -102,25 +102,25 @@ export class Extension extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExtensionState | undefined;
-            resourceInputs["disabled"] = state ? state.disabled : undefined;
-            resourceInputs["extensionId"] = state ? state.extensionId : undefined;
-            resourceInputs["extensionName"] = state ? state.extensionName : undefined;
-            resourceInputs["publisherId"] = state ? state.publisherId : undefined;
-            resourceInputs["publisherName"] = state ? state.publisherName : undefined;
-            resourceInputs["scopes"] = state ? state.scopes : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["disabled"] = state?.disabled;
+            resourceInputs["extensionId"] = state?.extensionId;
+            resourceInputs["extensionName"] = state?.extensionName;
+            resourceInputs["publisherId"] = state?.publisherId;
+            resourceInputs["publisherName"] = state?.publisherName;
+            resourceInputs["scopes"] = state?.scopes;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as ExtensionArgs | undefined;
-            if ((!args || args.extensionId === undefined) && !opts.urn) {
+            if (args?.extensionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extensionId'");
             }
-            if ((!args || args.publisherId === undefined) && !opts.urn) {
+            if (args?.publisherId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publisherId'");
             }
-            resourceInputs["disabled"] = args ? args.disabled : undefined;
-            resourceInputs["extensionId"] = args ? args.extensionId : undefined;
-            resourceInputs["publisherId"] = args ? args.publisherId : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["disabled"] = args?.disabled;
+            resourceInputs["extensionId"] = args?.extensionId;
+            resourceInputs["publisherId"] = args?.publisherId;
+            resourceInputs["version"] = args?.version;
             resourceInputs["extensionName"] = undefined /*out*/;
             resourceInputs["publisherName"] = undefined /*out*/;
             resourceInputs["scopes"] = undefined /*out*/;

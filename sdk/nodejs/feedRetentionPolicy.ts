@@ -95,19 +95,19 @@ export class FeedRetentionPolicy extends pulumi.CustomResource {
     /**
      * The maximum number of versions per package.
      */
-    public readonly countLimit!: pulumi.Output<number>;
+    declare public readonly countLimit: pulumi.Output<number>;
     /**
      * The days to keep recently downloaded packages.
      */
-    public readonly daysToKeepRecentlyDownloadedPackages!: pulumi.Output<number>;
+    declare public readonly daysToKeepRecentlyDownloadedPackages: pulumi.Output<number>;
     /**
      * The ID of the Feed. Changing this forces a new resource to be created.
      */
-    public readonly feedId!: pulumi.Output<string>;
+    declare public readonly feedId: pulumi.Output<string>;
     /**
      * The ID of the Project. If not specified, Feed will be created at the organization level. Changing this forces a new resource to be created.
      */
-    public readonly projectId!: pulumi.Output<string | undefined>;
+    declare public readonly projectId: pulumi.Output<string | undefined>;
 
     /**
      * Create a FeedRetentionPolicy resource with the given unique name, arguments, and options.
@@ -122,25 +122,25 @@ export class FeedRetentionPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FeedRetentionPolicyState | undefined;
-            resourceInputs["countLimit"] = state ? state.countLimit : undefined;
-            resourceInputs["daysToKeepRecentlyDownloadedPackages"] = state ? state.daysToKeepRecentlyDownloadedPackages : undefined;
-            resourceInputs["feedId"] = state ? state.feedId : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["countLimit"] = state?.countLimit;
+            resourceInputs["daysToKeepRecentlyDownloadedPackages"] = state?.daysToKeepRecentlyDownloadedPackages;
+            resourceInputs["feedId"] = state?.feedId;
+            resourceInputs["projectId"] = state?.projectId;
         } else {
             const args = argsOrState as FeedRetentionPolicyArgs | undefined;
-            if ((!args || args.countLimit === undefined) && !opts.urn) {
+            if (args?.countLimit === undefined && !opts.urn) {
                 throw new Error("Missing required property 'countLimit'");
             }
-            if ((!args || args.daysToKeepRecentlyDownloadedPackages === undefined) && !opts.urn) {
+            if (args?.daysToKeepRecentlyDownloadedPackages === undefined && !opts.urn) {
                 throw new Error("Missing required property 'daysToKeepRecentlyDownloadedPackages'");
             }
-            if ((!args || args.feedId === undefined) && !opts.urn) {
+            if (args?.feedId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'feedId'");
             }
-            resourceInputs["countLimit"] = args ? args.countLimit : undefined;
-            resourceInputs["daysToKeepRecentlyDownloadedPackages"] = args ? args.daysToKeepRecentlyDownloadedPackages : undefined;
-            resourceInputs["feedId"] = args ? args.feedId : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["countLimit"] = args?.countLimit;
+            resourceInputs["daysToKeepRecentlyDownloadedPackages"] = args?.daysToKeepRecentlyDownloadedPackages;
+            resourceInputs["feedId"] = args?.feedId;
+            resourceInputs["projectId"] = args?.projectId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FeedRetentionPolicy.__pulumiType, name, resourceInputs, opts);

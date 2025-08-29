@@ -97,15 +97,15 @@ export class Queue extends pulumi.CustomResource {
      * > **NOTE:** One of `name` or `agentPoolId` must be specified, but not both.
      * When `agentPoolId` is specified, the agent queue name will be derived from the agent pool name.
      */
-    public readonly agentPoolId!: pulumi.Output<number>;
+    declare public readonly agentPoolId: pulumi.Output<number>;
     /**
      * The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agentPoolId`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the project in which to create the resource.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
 
     /**
      * Create a Queue resource with the given unique name, arguments, and options.
@@ -120,17 +120,17 @@ export class Queue extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as QueueState | undefined;
-            resourceInputs["agentPoolId"] = state ? state.agentPoolId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["agentPoolId"] = state?.agentPoolId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["projectId"] = state?.projectId;
         } else {
             const args = argsOrState as QueueArgs | undefined;
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            resourceInputs["agentPoolId"] = args ? args.agentPoolId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["agentPoolId"] = args?.agentPoolId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["projectId"] = args?.projectId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Queue.__pulumiType, name, resourceInputs, opts);

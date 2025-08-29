@@ -71,23 +71,23 @@ export class ResourceAuthorization extends pulumi.CustomResource {
     /**
      * Set to true to allow public access in the project.
      */
-    public readonly authorized!: pulumi.Output<boolean>;
+    declare public readonly authorized: pulumi.Output<boolean>;
     /**
      * The ID of the build definition to authorize.
      */
-    public readonly definitionId!: pulumi.Output<number | undefined>;
+    declare public readonly definitionId: pulumi.Output<number | undefined>;
     /**
      * The project ID or project name.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * The ID of the resource to authorize.
      */
-    public readonly resourceId!: pulumi.Output<string>;
+    declare public readonly resourceId: pulumi.Output<string>;
     /**
      * The type of the resource to authorize. Possible values: `endpoint`, `queue`, `variablegroup`. Defaults to value: `endpoint`.
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
 
     /**
      * Create a ResourceAuthorization resource with the given unique name, arguments, and options.
@@ -102,27 +102,27 @@ export class ResourceAuthorization extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceAuthorizationState | undefined;
-            resourceInputs["authorized"] = state ? state.authorized : undefined;
-            resourceInputs["definitionId"] = state ? state.definitionId : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["authorized"] = state?.authorized;
+            resourceInputs["definitionId"] = state?.definitionId;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["resourceId"] = state?.resourceId;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as ResourceAuthorizationArgs | undefined;
-            if ((!args || args.authorized === undefined) && !opts.urn) {
+            if (args?.authorized === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authorized'");
             }
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
+            if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            resourceInputs["authorized"] = args ? args.authorized : undefined;
-            resourceInputs["definitionId"] = args ? args.definitionId : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["authorized"] = args?.authorized;
+            resourceInputs["definitionId"] = args?.definitionId;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["type"] = args?.type;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azuredevops:Security/resourceAuthorization:ResourceAuthorization" }] };

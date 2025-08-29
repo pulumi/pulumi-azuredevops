@@ -96,35 +96,35 @@ export class ServiceendpointCheckmarxOne extends pulumi.CustomResource {
     /**
      * The account of the Checkmarx One. Conflict with `clientId` and `clientSecret`.
      */
-    public readonly apiKey!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly apiKey: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
     /**
      * The URL of Checkmarx Authorization. Used when using `clientId` and `clientSecret` authorization.
      */
-    public readonly authorizationUrl!: pulumi.Output<string | undefined>;
+    declare public readonly authorizationUrl: pulumi.Output<string | undefined>;
     /**
      * The Client ID of the Checkmarx One. Conflict with `apiKey`
      */
-    public readonly clientId!: pulumi.Output<string | undefined>;
+    declare public readonly clientId: pulumi.Output<string | undefined>;
     /**
      * The Client Secret of the Checkmarx One. Conflict with `apiKey`
      *
      * > **Note** At least one of `apiKey` and `clientId`, `clientSecret` must be set
      */
-    public readonly clientSecret!: pulumi.Output<string | undefined>;
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly clientSecret: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the project.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * The Server URL of the Checkmarx One Service.
      */
-    public readonly serverUrl!: pulumi.Output<string>;
+    declare public readonly serverUrl: pulumi.Output<string>;
     /**
      * The Service Endpoint name.
      */
-    public readonly serviceEndpointName!: pulumi.Output<string>;
+    declare public readonly serviceEndpointName: pulumi.Output<string>;
 
     /**
      * Create a ServiceendpointCheckmarxOne resource with the given unique name, arguments, and options.
@@ -139,34 +139,34 @@ export class ServiceendpointCheckmarxOne extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceendpointCheckmarxOneState | undefined;
-            resourceInputs["apiKey"] = state ? state.apiKey : undefined;
-            resourceInputs["authorization"] = state ? state.authorization : undefined;
-            resourceInputs["authorizationUrl"] = state ? state.authorizationUrl : undefined;
-            resourceInputs["clientId"] = state ? state.clientId : undefined;
-            resourceInputs["clientSecret"] = state ? state.clientSecret : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["serverUrl"] = state ? state.serverUrl : undefined;
-            resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
+            resourceInputs["apiKey"] = state?.apiKey;
+            resourceInputs["authorization"] = state?.authorization;
+            resourceInputs["authorizationUrl"] = state?.authorizationUrl;
+            resourceInputs["clientId"] = state?.clientId;
+            resourceInputs["clientSecret"] = state?.clientSecret;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["serverUrl"] = state?.serverUrl;
+            resourceInputs["serviceEndpointName"] = state?.serviceEndpointName;
         } else {
             const args = argsOrState as ServiceendpointCheckmarxOneArgs | undefined;
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.serverUrl === undefined) && !opts.urn) {
+            if (args?.serverUrl === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverUrl'");
             }
-            if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
+            if (args?.serviceEndpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
             resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
-            resourceInputs["authorizationUrl"] = args ? args.authorizationUrl : undefined;
-            resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["authorizationUrl"] = args?.authorizationUrl;
+            resourceInputs["clientId"] = args?.clientId;
             resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["serverUrl"] = args ? args.serverUrl : undefined;
-            resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["serverUrl"] = args?.serverUrl;
+            resourceInputs["serviceEndpointName"] = args?.serviceEndpointName;
             resourceInputs["authorization"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -84,22 +84,22 @@ export class TeamMembers extends pulumi.CustomResource {
      * `azuredevops.TeamMembers` resource. However, it's not possible to use
      * both methods to manage team members, since there'll be conflicts.
      */
-    public readonly members!: pulumi.Output<string[]>;
+    declare public readonly members: pulumi.Output<string[]>;
     /**
      * The mode how the resource manages team members. Possible values: `add`, `overwrite`. Defaults to `add`.
      *
      * > **NOTE:** 1. `mode = add`: the resource will ensure that all specified members will be part of the referenced team
      * <br>2. `mode = overwrite`: the resource will replace all existing members with the members specified within the `members` block
      */
-    public readonly mode!: pulumi.Output<string | undefined>;
+    declare public readonly mode: pulumi.Output<string | undefined>;
     /**
      * The Project ID.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * The ID of the Team.
      */
-    public readonly teamId!: pulumi.Output<string>;
+    declare public readonly teamId: pulumi.Output<string>;
 
     /**
      * Create a TeamMembers resource with the given unique name, arguments, and options.
@@ -114,25 +114,25 @@ export class TeamMembers extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TeamMembersState | undefined;
-            resourceInputs["members"] = state ? state.members : undefined;
-            resourceInputs["mode"] = state ? state.mode : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["teamId"] = state ? state.teamId : undefined;
+            resourceInputs["members"] = state?.members;
+            resourceInputs["mode"] = state?.mode;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["teamId"] = state?.teamId;
         } else {
             const args = argsOrState as TeamMembersArgs | undefined;
-            if ((!args || args.members === undefined) && !opts.urn) {
+            if (args?.members === undefined && !opts.urn) {
                 throw new Error("Missing required property 'members'");
             }
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.teamId === undefined) && !opts.urn) {
+            if (args?.teamId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'teamId'");
             }
-            resourceInputs["members"] = args ? args.members : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["teamId"] = args ? args.teamId : undefined;
+            resourceInputs["members"] = args?.members;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["teamId"] = args?.teamId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TeamMembers.__pulumiType, name, resourceInputs, opts);

@@ -38,19 +38,19 @@ export class SecurityroleAssignment extends pulumi.CustomResource {
     /**
      * The ID of the identity to authorize.
      */
-    public readonly identityId!: pulumi.Output<string>;
+    declare public readonly identityId: pulumi.Output<string>;
     /**
      * The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
      */
-    public readonly resourceId!: pulumi.Output<string>;
+    declare public readonly resourceId: pulumi.Output<string>;
     /**
      * Name of the role to assign.
      */
-    public readonly roleName!: pulumi.Output<string>;
+    declare public readonly roleName: pulumi.Output<string>;
     /**
      * The scope in which this assignment should exist.
      */
-    public readonly scope!: pulumi.Output<string>;
+    declare public readonly scope: pulumi.Output<string>;
 
     /**
      * Create a SecurityroleAssignment resource with the given unique name, arguments, and options.
@@ -65,28 +65,28 @@ export class SecurityroleAssignment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecurityroleAssignmentState | undefined;
-            resourceInputs["identityId"] = state ? state.identityId : undefined;
-            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
-            resourceInputs["roleName"] = state ? state.roleName : undefined;
-            resourceInputs["scope"] = state ? state.scope : undefined;
+            resourceInputs["identityId"] = state?.identityId;
+            resourceInputs["resourceId"] = state?.resourceId;
+            resourceInputs["roleName"] = state?.roleName;
+            resourceInputs["scope"] = state?.scope;
         } else {
             const args = argsOrState as SecurityroleAssignmentArgs | undefined;
-            if ((!args || args.identityId === undefined) && !opts.urn) {
+            if (args?.identityId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityId'");
             }
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
+            if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if ((!args || args.roleName === undefined) && !opts.urn) {
+            if (args?.roleName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleName'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["identityId"] = args ? args.identityId : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["roleName"] = args ? args.roleName : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["identityId"] = args?.identityId;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["roleName"] = args?.roleName;
+            resourceInputs["scope"] = args?.scope;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SecurityroleAssignment.__pulumiType, name, resourceInputs, opts);

@@ -120,19 +120,19 @@ export class PipelineAuthorization extends pulumi.CustomResource {
     /**
      * The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
      */
-    public readonly pipelineId!: pulumi.Output<number | undefined>;
+    declare public readonly pipelineId: pulumi.Output<number | undefined>;
     /**
      * The ID of the project where the pipeline exists. Defaults to `projectId` if not specified. Changing this forces a new resource to be created
      */
-    public readonly pipelineProjectId!: pulumi.Output<string | undefined>;
+    declare public readonly pipelineProjectId: pulumi.Output<string | undefined>;
     /**
      * The  ID of the project. Changing this forces a new resource to be created
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * The ID of the resource to authorize. Changing this forces a new resource to be created
      */
-    public readonly resourceId!: pulumi.Output<string>;
+    declare public readonly resourceId: pulumi.Output<string>;
     /**
      * The type of the resource to authorize. Possible values are: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
      *
@@ -141,7 +141,7 @@ export class PipelineAuthorization extends pulumi.CustomResource {
      * Typical process for connecting to GitHub:
      * **Pipeline  <----> Service Connection(`endpoint`) <----> GitHub Repository**
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a PipelineAuthorization resource with the given unique name, arguments, and options.
@@ -156,27 +156,27 @@ export class PipelineAuthorization extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PipelineAuthorizationState | undefined;
-            resourceInputs["pipelineId"] = state ? state.pipelineId : undefined;
-            resourceInputs["pipelineProjectId"] = state ? state.pipelineProjectId : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["pipelineId"] = state?.pipelineId;
+            resourceInputs["pipelineProjectId"] = state?.pipelineProjectId;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["resourceId"] = state?.resourceId;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as PipelineAuthorizationArgs | undefined;
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
+            if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["pipelineId"] = args ? args.pipelineId : undefined;
-            resourceInputs["pipelineProjectId"] = args ? args.pipelineProjectId : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["pipelineId"] = args?.pipelineId;
+            resourceInputs["pipelineProjectId"] = args?.pipelineProjectId;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["type"] = args?.type;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PipelineAuthorization.__pulumiType, name, resourceInputs, opts);

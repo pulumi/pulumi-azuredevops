@@ -82,35 +82,35 @@ export class Wiki extends pulumi.CustomResource {
     /**
      * Folder path inside repository which is shown as Wiki.
      */
-    public readonly mappedPath!: pulumi.Output<string>;
+    declare public readonly mappedPath: pulumi.Output<string>;
     /**
      * The name of the Wiki.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Project.
      */
-    public readonly projectId!: pulumi.Output<string | undefined>;
+    declare public readonly projectId: pulumi.Output<string | undefined>;
     /**
      * The remote web url to the wiki.
      */
-    public /*out*/ readonly remoteUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly remoteUrl: pulumi.Output<string>;
     /**
      * The ID of the repository.
      */
-    public readonly repositoryId!: pulumi.Output<string>;
+    declare public readonly repositoryId: pulumi.Output<string>;
     /**
      * The type of the wiki. Possible values are `codeWiki`, `projectWiki`.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * The REST url for this wiki.
      */
-    public /*out*/ readonly url!: pulumi.Output<string>;
+    declare public /*out*/ readonly url: pulumi.Output<string>;
     /**
      * Version of the wiki.
      */
-    public readonly version!: pulumi.Output<string>;
+    declare public readonly version: pulumi.Output<string>;
 
     /**
      * Create a Wiki resource with the given unique name, arguments, and options.
@@ -125,25 +125,25 @@ export class Wiki extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WikiState | undefined;
-            resourceInputs["mappedPath"] = state ? state.mappedPath : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["remoteUrl"] = state ? state.remoteUrl : undefined;
-            resourceInputs["repositoryId"] = state ? state.repositoryId : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["mappedPath"] = state?.mappedPath;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["remoteUrl"] = state?.remoteUrl;
+            resourceInputs["repositoryId"] = state?.repositoryId;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["url"] = state?.url;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as WikiArgs | undefined;
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["mappedPath"] = args ? args.mappedPath : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["repositoryId"] = args ? args.repositoryId : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["mappedPath"] = args?.mappedPath;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["repositoryId"] = args?.repositoryId;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["version"] = args?.version;
             resourceInputs["remoteUrl"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
         }

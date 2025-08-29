@@ -77,27 +77,27 @@ export class FeedPermission extends pulumi.CustomResource {
     /**
      * The display name of the assignment
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The ID of the Feed.
      */
-    public readonly feedId!: pulumi.Output<string>;
+    declare public readonly feedId: pulumi.Output<string>;
     /**
      * The Descriptor of identity you want to assign a role.
      */
-    public readonly identityDescriptor!: pulumi.Output<string>;
+    declare public readonly identityDescriptor: pulumi.Output<string>;
     /**
      * The ID of the identity.
      */
-    public /*out*/ readonly identityId!: pulumi.Output<string>;
+    declare public /*out*/ readonly identityId: pulumi.Output<string>;
     /**
      * The ID of the Project Feed is created in. If not specified, feed will be created at the organization level.
      */
-    public readonly projectId!: pulumi.Output<string | undefined>;
+    declare public readonly projectId: pulumi.Output<string | undefined>;
     /**
      * The role to be assigned. Possible values are: `reader`, `contributor`, `collaborator`, `administrator`
      */
-    public readonly role!: pulumi.Output<string>;
+    declare public readonly role: pulumi.Output<string>;
 
     /**
      * Create a FeedPermission resource with the given unique name, arguments, and options.
@@ -112,28 +112,28 @@ export class FeedPermission extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FeedPermissionState | undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["feedId"] = state ? state.feedId : undefined;
-            resourceInputs["identityDescriptor"] = state ? state.identityDescriptor : undefined;
-            resourceInputs["identityId"] = state ? state.identityId : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["role"] = state ? state.role : undefined;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["feedId"] = state?.feedId;
+            resourceInputs["identityDescriptor"] = state?.identityDescriptor;
+            resourceInputs["identityId"] = state?.identityId;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["role"] = state?.role;
         } else {
             const args = argsOrState as FeedPermissionArgs | undefined;
-            if ((!args || args.feedId === undefined) && !opts.urn) {
+            if (args?.feedId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'feedId'");
             }
-            if ((!args || args.identityDescriptor === undefined) && !opts.urn) {
+            if (args?.identityDescriptor === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityDescriptor'");
             }
-            if ((!args || args.role === undefined) && !opts.urn) {
+            if (args?.role === undefined && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["feedId"] = args ? args.feedId : undefined;
-            resourceInputs["identityDescriptor"] = args ? args.identityDescriptor : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["role"] = args ? args.role : undefined;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["feedId"] = args?.feedId;
+            resourceInputs["identityDescriptor"] = args?.identityDescriptor;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["role"] = args?.role;
             resourceInputs["identityId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
