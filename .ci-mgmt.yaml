@@ -1,18 +1,17 @@
 provider: azuredevops
 major-version: 3
 esc:
-  enabled: true
+    enabled: true
 env:
-  AZDO_ORG_SERVICE_URL: ${{ secrets.AZDO_ORG_SERVICE_URL }}
-  AZDO_PERSONAL_ACCESS_TOKEN: ${{ secrets.AZDO_PERSONAL_ACCESS_TOKEN }}
+    AZDO_ORG_SERVICE_URL: ${{ secrets.AZDO_ORG_SERVICE_URL }}
+    AZDO_PERSONAL_ACCESS_TOKEN: ${{ secrets.AZDO_PERSONAL_ACCESS_TOKEN }}
 makeTemplate: bridged
 checkoutSubmodules: true
 plugins:
-  - name: terraform
-    version: "1.0.16"
-    kind: converter
-
-  - name: azure
-    version: "5.66.1"
+    - name: terraform
+      version: "1.0.16"
+      kind: converter
+    - name: azure
+      version: "5.66.1"
 pulumiConvert: 1
 registryDocs: true
