@@ -303,19 +303,19 @@ namespace Pulumi.AzureDevOps
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Use Azure CLI to authenticate. Defaults to `true`.
+        /// Use Azure CLI to authenticate. Defaults to `True`.
         /// </summary>
         [Input("useCli", json: true)]
         public Input<bool>? UseCli { get; set; }
 
         /// <summary>
-        /// Use an Azure Managed Service Identity. Defaults to `false`.
+        /// Use an Azure Managed Service Identity. Defaults to `False`.
         /// </summary>
         [Input("useMsi", json: true)]
         public Input<bool>? UseMsi { get; set; }
 
         /// <summary>
-        /// Use an OIDC token to authenticate to a service principal. Defaults to `false`.
+        /// Use an OIDC token to authenticate to a service principal. Defaults to `False`.
         /// </summary>
         [Input("useOidc", json: true)]
         public Input<bool>? UseOidc { get; set; }

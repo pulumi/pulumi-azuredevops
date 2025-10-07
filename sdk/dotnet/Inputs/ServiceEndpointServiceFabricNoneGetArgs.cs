@@ -13,7 +13,7 @@ namespace Pulumi.AzureDevOps.Inputs
     public sealed class ServiceEndpointServiceFabricNoneGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Fully qualified domain SPN for gMSA account. This is applicable only if `unsecured` option is disabled.
+        /// Fully qualified domain SPN for gMSA account. This is applicable only if `Unsecured` option is disabled.
         /// </summary>
         [Input("clusterSpn")]
         public Input<string>? ClusterSpn { get; set; }

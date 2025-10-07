@@ -210,14 +210,14 @@ public final class ServiceEndpointAzureEcrState extends com.pulumi.resources.Res
     }
 
     /**
-     * The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+     * The issuer if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
      * 
      */
     @Import(name="workloadIdentityFederationIssuer")
     private @Nullable Output<String> workloadIdentityFederationIssuer;
 
     /**
-     * @return The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+     * @return The issuer if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
      * 
      */
     public Optional<Output<String>> workloadIdentityFederationIssuer() {
@@ -225,14 +225,14 @@ public final class ServiceEndpointAzureEcrState extends com.pulumi.resources.Res
     }
 
     /**
-     * The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://&lt;organisation&gt;/&lt;project&gt;/&lt;service-connection-name&gt;`.
+     * The subject if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `sc://&lt;organisation&gt;/&lt;project&gt;/&lt;service-connection-name&gt;`.
      * 
      */
     @Import(name="workloadIdentityFederationSubject")
     private @Nullable Output<String> workloadIdentityFederationSubject;
 
     /**
-     * @return The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://&lt;organisation&gt;/&lt;project&gt;/&lt;service-connection-name&gt;`.
+     * @return The subject if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `sc://&lt;organisation&gt;/&lt;project&gt;/&lt;service-connection-name&gt;`.
      * 
      */
     public Optional<Output<String>> workloadIdentityFederationSubject() {
@@ -545,7 +545,7 @@ public final class ServiceEndpointAzureEcrState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param workloadIdentityFederationIssuer The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+         * @param workloadIdentityFederationIssuer The issuer if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
          * 
          * @return builder
          * 
@@ -556,7 +556,7 @@ public final class ServiceEndpointAzureEcrState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param workloadIdentityFederationIssuer The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+         * @param workloadIdentityFederationIssuer The issuer if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
          * 
          * @return builder
          * 
@@ -566,7 +566,7 @@ public final class ServiceEndpointAzureEcrState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param workloadIdentityFederationSubject The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://&lt;organisation&gt;/&lt;project&gt;/&lt;service-connection-name&gt;`.
+         * @param workloadIdentityFederationSubject The subject if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `sc://&lt;organisation&gt;/&lt;project&gt;/&lt;service-connection-name&gt;`.
          * 
          * @return builder
          * 
@@ -577,7 +577,7 @@ public final class ServiceEndpointAzureEcrState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param workloadIdentityFederationSubject The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://&lt;organisation&gt;/&lt;project&gt;/&lt;service-connection-name&gt;`.
+         * @param workloadIdentityFederationSubject The subject if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `sc://&lt;organisation&gt;/&lt;project&gt;/&lt;service-connection-name&gt;`.
          * 
          * @return builder
          * 

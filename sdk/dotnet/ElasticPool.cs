@@ -76,19 +76,19 @@ namespace Pulumi.AzureDevOps
     public partial class ElasticPool : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Set whether agents should be configured to run with interactive UI. Defaults to `false`.
+        /// Set whether agents should be configured to run with interactive UI. Defaults to `False`.
         /// </summary>
         [Output("agentInteractiveUi")]
         public Output<bool?> AgentInteractiveUi { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
+        /// Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `False`.
         /// </summary>
         [Output("autoProvision")]
         public Output<bool?> AutoProvision { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
+        /// Specifies whether or not agents within the pool should be automatically updated. Defaults to `True`.
         /// </summary>
         [Output("autoUpdate")]
         public Output<bool?> AutoUpdate { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.AzureDevOps
         public Output<string?> ProjectId { get; private set; } = null!;
 
         /// <summary>
-        /// Tear down virtual machines after every use. Defaults to `false`.
+        /// Tear down virtual machines after every use. Defaults to `False`.
         /// </summary>
         [Output("recycleAfterEachUse")]
         public Output<bool?> RecycleAfterEachUse { get; private set; } = null!;
@@ -194,19 +194,19 @@ namespace Pulumi.AzureDevOps
     public sealed class ElasticPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Set whether agents should be configured to run with interactive UI. Defaults to `false`.
+        /// Set whether agents should be configured to run with interactive UI. Defaults to `False`.
         /// </summary>
         [Input("agentInteractiveUi")]
         public Input<bool>? AgentInteractiveUi { get; set; }
 
         /// <summary>
-        /// Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
+        /// Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `False`.
         /// </summary>
         [Input("autoProvision")]
         public Input<bool>? AutoProvision { get; set; }
 
         /// <summary>
-        /// Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
+        /// Specifies whether or not agents within the pool should be automatically updated. Defaults to `True`.
         /// </summary>
         [Input("autoUpdate")]
         public Input<bool>? AutoUpdate { get; set; }
@@ -242,7 +242,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? ProjectId { get; set; }
 
         /// <summary>
-        /// Tear down virtual machines after every use. Defaults to `false`.
+        /// Tear down virtual machines after every use. Defaults to `False`.
         /// </summary>
         [Input("recycleAfterEachUse")]
         public Input<bool>? RecycleAfterEachUse { get; set; }
@@ -274,19 +274,19 @@ namespace Pulumi.AzureDevOps
     public sealed class ElasticPoolState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Set whether agents should be configured to run with interactive UI. Defaults to `false`.
+        /// Set whether agents should be configured to run with interactive UI. Defaults to `False`.
         /// </summary>
         [Input("agentInteractiveUi")]
         public Input<bool>? AgentInteractiveUi { get; set; }
 
         /// <summary>
-        /// Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
+        /// Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `False`.
         /// </summary>
         [Input("autoProvision")]
         public Input<bool>? AutoProvision { get; set; }
 
         /// <summary>
-        /// Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
+        /// Specifies whether or not agents within the pool should be automatically updated. Defaults to `True`.
         /// </summary>
         [Input("autoUpdate")]
         public Input<bool>? AutoUpdate { get; set; }
@@ -322,7 +322,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? ProjectId { get; set; }
 
         /// <summary>
-        /// Tear down virtual machines after every use. Defaults to `false`.
+        /// Tear down virtual machines after every use. Defaults to `False`.
         /// </summary>
         [Input("recycleAfterEachUse")]
         public Input<bool>? RecycleAfterEachUse { get; set; }

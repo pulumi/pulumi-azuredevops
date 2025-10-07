@@ -99,13 +99,13 @@ namespace Pulumi.AzureDevOps
     public partial class ServiceendpointJfrogDistributionV2 : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `authentication_basic` block as documented below.
+        /// An `AuthenticationBasic` block as documented below.
         /// </summary>
         [Output("authenticationBasic")]
         public Output<Outputs.ServiceendpointJfrogDistributionV2AuthenticationBasic?> AuthenticationBasic { get; private set; } = null!;
 
         /// <summary>
-        /// An `authentication_token` block as documented below.
+        /// An `AuthenticationToken` block as documented below.
         /// </summary>
         [Output("authenticationToken")]
         public Output<Outputs.ServiceendpointJfrogDistributionV2AuthenticationToken?> AuthenticationToken { get; private set; } = null!;
@@ -186,13 +186,13 @@ namespace Pulumi.AzureDevOps
     public sealed class ServiceendpointJfrogDistributionV2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `authentication_basic` block as documented below.
+        /// An `AuthenticationBasic` block as documented below.
         /// </summary>
         [Input("authenticationBasic")]
         public Input<Inputs.ServiceendpointJfrogDistributionV2AuthenticationBasicArgs>? AuthenticationBasic { get; set; }
 
         /// <summary>
-        /// An `authentication_token` block as documented below.
+        /// An `AuthenticationToken` block as documented below.
         /// </summary>
         [Input("authenticationToken")]
         public Input<Inputs.ServiceendpointJfrogDistributionV2AuthenticationTokenArgs>? AuthenticationToken { get; set; }
@@ -232,13 +232,13 @@ namespace Pulumi.AzureDevOps
     public sealed class ServiceendpointJfrogDistributionV2State : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `authentication_basic` block as documented below.
+        /// An `AuthenticationBasic` block as documented below.
         /// </summary>
         [Input("authenticationBasic")]
         public Input<Inputs.ServiceendpointJfrogDistributionV2AuthenticationBasicGetArgs>? AuthenticationBasic { get; set; }
 
         /// <summary>
-        /// An `authentication_token` block as documented below.
+        /// An `AuthenticationToken` block as documented below.
         /// </summary>
         [Input("authenticationToken")]
         public Input<Inputs.ServiceendpointJfrogDistributionV2AuthenticationTokenGetArgs>? AuthenticationToken { get; set; }

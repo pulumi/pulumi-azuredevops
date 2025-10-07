@@ -81,19 +81,19 @@ namespace Pulumi.AzureDevOps
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The reference to the source branch to create the branch from, in `&lt;name&gt;` or `refs/heads/&lt;name&gt;` format. Conflict with `ref_tag`, `ref_commit_id`.
+        /// The reference to the source branch to create the branch from, in `&lt;name&gt;` or `refs/heads/&lt;name&gt;` format. Conflict with `RefTag`, `RefCommitId`.
         /// </summary>
         [Output("refBranch")]
         public Output<string?> RefBranch { get; private set; } = null!;
 
         /// <summary>
-        /// The commit object ID to create the branch from. Conflict with `ref_branch`, `ref_tag`.
+        /// The commit object ID to create the branch from. Conflict with `RefBranch`, `RefTag`.
         /// </summary>
         [Output("refCommitId")]
         public Output<string?> RefCommitId { get; private set; } = null!;
 
         /// <summary>
-        /// The reference to the tag to create the branch from, in `&lt;name&gt;` or `refs/tags/&lt;name&gt;` format. Conflict with `ref_branch`, `ref_commit_id`.
+        /// The reference to the tag to create the branch from, in `&lt;name&gt;` or `refs/tags/&lt;name&gt;` format. Conflict with `RefBranch`, `RefCommitId`.
         /// </summary>
         [Output("refTag")]
         public Output<string?> RefTag { get; private set; } = null!;
@@ -157,19 +157,19 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The reference to the source branch to create the branch from, in `&lt;name&gt;` or `refs/heads/&lt;name&gt;` format. Conflict with `ref_tag`, `ref_commit_id`.
+        /// The reference to the source branch to create the branch from, in `&lt;name&gt;` or `refs/heads/&lt;name&gt;` format. Conflict with `RefTag`, `RefCommitId`.
         /// </summary>
         [Input("refBranch")]
         public Input<string>? RefBranch { get; set; }
 
         /// <summary>
-        /// The commit object ID to create the branch from. Conflict with `ref_branch`, `ref_tag`.
+        /// The commit object ID to create the branch from. Conflict with `RefBranch`, `RefTag`.
         /// </summary>
         [Input("refCommitId")]
         public Input<string>? RefCommitId { get; set; }
 
         /// <summary>
-        /// The reference to the tag to create the branch from, in `&lt;name&gt;` or `refs/tags/&lt;name&gt;` format. Conflict with `ref_branch`, `ref_commit_id`.
+        /// The reference to the tag to create the branch from, in `&lt;name&gt;` or `refs/tags/&lt;name&gt;` format. Conflict with `RefBranch`, `RefCommitId`.
         /// </summary>
         [Input("refTag")]
         public Input<string>? RefTag { get; set; }
@@ -201,19 +201,19 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The reference to the source branch to create the branch from, in `&lt;name&gt;` or `refs/heads/&lt;name&gt;` format. Conflict with `ref_tag`, `ref_commit_id`.
+        /// The reference to the source branch to create the branch from, in `&lt;name&gt;` or `refs/heads/&lt;name&gt;` format. Conflict with `RefTag`, `RefCommitId`.
         /// </summary>
         [Input("refBranch")]
         public Input<string>? RefBranch { get; set; }
 
         /// <summary>
-        /// The commit object ID to create the branch from. Conflict with `ref_branch`, `ref_tag`.
+        /// The commit object ID to create the branch from. Conflict with `RefBranch`, `RefTag`.
         /// </summary>
         [Input("refCommitId")]
         public Input<string>? RefCommitId { get; set; }
 
         /// <summary>
-        /// The reference to the tag to create the branch from, in `&lt;name&gt;` or `refs/tags/&lt;name&gt;` format. Conflict with `ref_branch`, `ref_commit_id`.
+        /// The reference to the tag to create the branch from, in `&lt;name&gt;` or `refs/tags/&lt;name&gt;` format. Conflict with `RefBranch`, `RefCommitId`.
         /// </summary>
         [Input("refTag")]
         public Input<string>? RefTag { get; set; }

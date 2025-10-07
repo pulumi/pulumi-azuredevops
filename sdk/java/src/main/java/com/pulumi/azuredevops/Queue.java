@@ -137,8 +137,8 @@ public class Queue extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the organization agent pool. Conflicts with `name`.
      * 
-     * &gt; **NOTE:** One of `name` or `agent_pool_id` must be specified, but not both.
-     * When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
+     * &gt; **NOTE:** One of `name` or `agentPoolId` must be specified, but not both.
+     * When `agentPoolId` is specified, the agent queue name will be derived from the agent pool name.
      * 
      */
     @Export(name="agentPoolId", refs={Integer.class}, tree="[0]")
@@ -147,22 +147,22 @@ public class Queue extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the organization agent pool. Conflicts with `name`.
      * 
-     * &gt; **NOTE:** One of `name` or `agent_pool_id` must be specified, but not both.
-     * When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
+     * &gt; **NOTE:** One of `name` or `agentPoolId` must be specified, but not both.
+     * When `agentPoolId` is specified, the agent queue name will be derived from the agent pool name.
      * 
      */
     public Output<Integer> agentPoolId() {
         return this.agentPoolId;
     }
     /**
-     * The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.
+     * The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agentPoolId`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.
+     * @return The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agentPoolId`.
      * 
      */
     public Output<String> name() {

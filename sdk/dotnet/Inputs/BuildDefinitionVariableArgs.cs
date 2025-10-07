@@ -13,13 +13,13 @@ namespace Pulumi.AzureDevOps.Inputs
     public sealed class BuildDefinitionVariableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// True if the variable can be overridden. Defaults to `true`.
+        /// True if the variable can be overridden. Defaults to `True`.
         /// </summary>
         [Input("allowOverride")]
         public Input<bool>? AllowOverride { get; set; }
 
         /// <summary>
-        /// True if the variable is a secret. Defaults to `false`.
+        /// True if the variable is a secret. Defaults to `False`.
         /// </summary>
         [Input("isSecret")]
         public Input<bool>? IsSecret { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.AzureDevOps.Inputs
         private Input<string>? _secretValue;
 
         /// <summary>
-        /// The secret value of the variable. Used when `is_secret` set to `true`.
+        /// The secret value of the variable. Used when `IsSecret` set to `True`.
         /// </summary>
         public Input<string>? SecretValue
         {

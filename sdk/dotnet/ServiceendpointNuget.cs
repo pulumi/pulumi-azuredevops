@@ -78,7 +78,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The account password used to connect to the endpoint
         /// 
-        /// &gt; **Note** Only one of `api_key` or `personal_access_token` or  `username`, `password` can be set at the same time.
+        /// &gt; **Note** Only one of `ApiKey` or `PersonalAccessToken` or  `Username`, `Password` can be set at the same time.
         /// </summary>
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
@@ -190,7 +190,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The account password used to connect to the endpoint
         /// 
-        /// &gt; **Note** Only one of `api_key` or `personal_access_token` or  `username`, `password` can be set at the same time.
+        /// &gt; **Note** Only one of `ApiKey` or `PersonalAccessToken` or  `Username`, `Password` can be set at the same time.
         /// </summary>
         public Input<string>? Password
         {
@@ -283,7 +283,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The account password used to connect to the endpoint
         /// 
-        /// &gt; **Note** Only one of `api_key` or `personal_access_token` or  `username`, `password` can be set at the same time.
+        /// &gt; **Note** Only one of `ApiKey` or `PersonalAccessToken` or  `Username`, `Password` can be set at the same time.
         /// </summary>
         public Input<string>? Password
         {

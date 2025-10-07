@@ -21,7 +21,7 @@ public final class GitPermissionsArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * The name of the branch to assign the permissions.
      * 
-     * &gt; **Note** To assign permissions to a branch, the `repository_id` must be set as well.
+     * &gt; **Note** To assign permissions to a branch, the `repositoryId` must be set as well.
      * 
      */
     @Import(name="branchName")
@@ -30,7 +30,7 @@ public final class GitPermissionsArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * @return The name of the branch to assign the permissions.
      * 
-     * &gt; **Note** To assign permissions to a branch, the `repository_id` must be set as well.
+     * &gt; **Note** To assign permissions to a branch, the `repositoryId` must be set as well.
      * 
      */
     public Optional<Output<String>> branchName() {
@@ -188,7 +188,7 @@ public final class GitPermissionsArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param branchName The name of the branch to assign the permissions.
          * 
-         * &gt; **Note** To assign permissions to a branch, the `repository_id` must be set as well.
+         * &gt; **Note** To assign permissions to a branch, the `repositoryId` must be set as well.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class GitPermissionsArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param branchName The name of the branch to assign the permissions.
          * 
-         * &gt; **Note** To assign permissions to a branch, the `repository_id` must be set as well.
+         * &gt; **Note** To assign permissions to a branch, the `repositoryId` must be set as well.
          * 
          * @return builder
          * 

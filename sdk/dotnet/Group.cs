@@ -86,7 +86,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> Descriptor { get; private set; } = null!;
 
         /// <summary>
-        /// The name of a new Azure DevOps group that is not backed by an external provider. The `origin_id` and `mail` arguments cannot be used simultaneously with `display_name`.
+        /// The name of a new Azure DevOps group that is not backed by an external provider. The `OriginId` and `Mail` arguments cannot be used simultaneously with `DisplayName`.
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> GroupId { get; private set; } = null!;
 
         /// <summary>
-        /// The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `origin_id` and `display_name` arguments cannot be used simultaneously with `mail`.
+        /// The mail address as a reference to an existing group from an external AD or AAD backed provider. The `Scope`, `OriginId` and `DisplayName` arguments cannot be used simultaneously with `Mail`.
         /// </summary>
         [Output("mail")]
         public Output<string> Mail { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> Origin { get; private set; } = null!;
 
         /// <summary>
-        /// The OriginID as a reference to a group from an external AD or AAD backed provider. The `scope`, `mail` and `display_name` arguments cannot be used simultaneously with `origin_id`.
+        /// The OriginID as a reference to a group from an external AD or AAD backed provider. The `Scope`, `Mail` and `DisplayName` arguments cannot be used simultaneously with `OriginId`.
         /// </summary>
         [Output("originId")]
         public Output<string> OriginId { get; private set; } = null!;
@@ -206,13 +206,13 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of a new Azure DevOps group that is not backed by an external provider. The `origin_id` and `mail` arguments cannot be used simultaneously with `display_name`.
+        /// The name of a new Azure DevOps group that is not backed by an external provider. The `OriginId` and `Mail` arguments cannot be used simultaneously with `DisplayName`.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `origin_id` and `display_name` arguments cannot be used simultaneously with `mail`.
+        /// The mail address as a reference to an existing group from an external AD or AAD backed provider. The `Scope`, `OriginId` and `DisplayName` arguments cannot be used simultaneously with `Mail`.
         /// </summary>
         [Input("mail")]
         public Input<string>? Mail { get; set; }
@@ -232,7 +232,7 @@ namespace Pulumi.AzureDevOps
         }
 
         /// <summary>
-        /// The OriginID as a reference to a group from an external AD or AAD backed provider. The `scope`, `mail` and `display_name` arguments cannot be used simultaneously with `origin_id`.
+        /// The OriginID as a reference to a group from an external AD or AAD backed provider. The `Scope`, `Mail` and `DisplayName` arguments cannot be used simultaneously with `OriginId`.
         /// </summary>
         [Input("originId")]
         public Input<string>? OriginId { get; set; }
@@ -264,7 +264,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Descriptor { get; set; }
 
         /// <summary>
-        /// The name of a new Azure DevOps group that is not backed by an external provider. The `origin_id` and `mail` arguments cannot be used simultaneously with `display_name`.
+        /// The name of a new Azure DevOps group that is not backed by an external provider. The `OriginId` and `Mail` arguments cannot be used simultaneously with `DisplayName`.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -282,7 +282,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? GroupId { get; set; }
 
         /// <summary>
-        /// The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `origin_id` and `display_name` arguments cannot be used simultaneously with `mail`.
+        /// The mail address as a reference to an existing group from an external AD or AAD backed provider. The `Scope`, `OriginId` and `DisplayName` arguments cannot be used simultaneously with `Mail`.
         /// </summary>
         [Input("mail")]
         public Input<string>? Mail { get; set; }
@@ -308,7 +308,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Origin { get; set; }
 
         /// <summary>
-        /// The OriginID as a reference to a group from an external AD or AAD backed provider. The `scope`, `mail` and `display_name` arguments cannot be used simultaneously with `origin_id`.
+        /// The OriginID as a reference to a group from an external AD or AAD backed provider. The `Scope`, `Mail` and `DisplayName` arguments cannot be used simultaneously with `OriginId`.
         /// </summary>
         [Input("originId")]
         public Input<string>? OriginId { get; set; }

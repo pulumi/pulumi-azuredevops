@@ -35,7 +35,7 @@ public final class GetEnvironmentArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Name of the Environment.
      * 
-     * &gt; **NOTE:** One of either `environment_id` or `name` must be specified.
+     * &gt; **NOTE:** One of either `environmentId` or `name` must be specified.
      * 
      */
     @Import(name="name")
@@ -44,7 +44,7 @@ public final class GetEnvironmentArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return Name of the Environment.
      * 
-     * &gt; **NOTE:** One of either `environment_id` or `name` must be specified.
+     * &gt; **NOTE:** One of either `environmentId` or `name` must be specified.
      * 
      */
     public Optional<Output<String>> name() {
@@ -116,7 +116,7 @@ public final class GetEnvironmentArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param name Name of the Environment.
          * 
-         * &gt; **NOTE:** One of either `environment_id` or `name` must be specified.
+         * &gt; **NOTE:** One of either `environmentId` or `name` must be specified.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class GetEnvironmentArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param name Name of the Environment.
          * 
-         * &gt; **NOTE:** One of either `environment_id` or `name` must be specified.
+         * &gt; **NOTE:** One of either `environmentId` or `name` must be specified.
          * 
          * @return builder
          * 

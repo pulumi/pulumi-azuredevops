@@ -14,7 +14,7 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class ServiceEndpointAzureRMCredentials
     {
         /// <summary>
-        /// The service principal certificate. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
+        /// The service principal certificate. This not required if `ServiceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
         /// </summary>
         public readonly string? Serviceprincipalcertificate;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly string Serviceprincipalid;
         /// <summary>
-        /// The service principal secret. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
+        /// The service principal secret. This not required if `ServiceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
         /// </summary>
         public readonly string? Serviceprincipalkey;
 

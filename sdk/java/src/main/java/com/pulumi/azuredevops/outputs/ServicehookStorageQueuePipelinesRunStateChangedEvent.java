@@ -17,12 +17,12 @@ public final class ServicehookStorageQueuePipelinesRunStateChangedEvent {
      */
     private @Nullable String pipelineId;
     /**
-     * @return Which run result should generate an event. Only valid if published_event is `RunStateChanged`. If not specified, all results will trigger the event.
+     * @return Which run result should generate an event. Only valid if publishedEvent is `RunStateChanged`. If not specified, all results will trigger the event.
      * 
      */
     private @Nullable String runResultFilter;
     /**
-     * @return Which run state should generate an event. Only valid if published_event is `RunStateChanged`. If not specified, all states will trigger the event.
+     * @return Which run state should generate an event. Only valid if publishedEvent is `RunStateChanged`. If not specified, all states will trigger the event.
      * 
      */
     private @Nullable String runStateFilter;
@@ -36,14 +36,14 @@ public final class ServicehookStorageQueuePipelinesRunStateChangedEvent {
         return Optional.ofNullable(this.pipelineId);
     }
     /**
-     * @return Which run result should generate an event. Only valid if published_event is `RunStateChanged`. If not specified, all results will trigger the event.
+     * @return Which run result should generate an event. Only valid if publishedEvent is `RunStateChanged`. If not specified, all results will trigger the event.
      * 
      */
     public Optional<String> runResultFilter() {
         return Optional.ofNullable(this.runResultFilter);
     }
     /**
-     * @return Which run state should generate an event. Only valid if published_event is `RunStateChanged`. If not specified, all states will trigger the event.
+     * @return Which run state should generate an event. Only valid if publishedEvent is `RunStateChanged`. If not specified, all states will trigger the event.
      * 
      */
     public Optional<String> runStateFilter() {

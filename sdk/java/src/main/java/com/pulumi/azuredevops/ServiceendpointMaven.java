@@ -135,28 +135,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="azuredevops:index/serviceendpointMaven:ServiceendpointMaven")
 public class ServiceendpointMaven extends com.pulumi.resources.CustomResource {
     /**
-     * A `authentication_basic` block as documented below.
+     * A `authenticationBasic` block as documented below.
      * 
      */
     @Export(name="authenticationBasic", refs={ServiceendpointMavenAuthenticationBasic.class}, tree="[0]")
     private Output</* @Nullable */ ServiceendpointMavenAuthenticationBasic> authenticationBasic;
 
     /**
-     * @return A `authentication_basic` block as documented below.
+     * @return A `authenticationBasic` block as documented below.
      * 
      */
     public Output<Optional<ServiceendpointMavenAuthenticationBasic>> authenticationBasic() {
         return Codegen.optional(this.authenticationBasic);
     }
     /**
-     * A `authentication_token` block as documented below.
+     * A `authenticationToken` block as documented below.
      * 
      */
     @Export(name="authenticationToken", refs={ServiceendpointMavenAuthenticationToken.class}, tree="[0]")
     private Output</* @Nullable */ ServiceendpointMavenAuthenticationToken> authenticationToken;
 
     /**
-     * @return A `authentication_token` block as documented below.
+     * @return A `authenticationToken` block as documented below.
      * 
      */
     public Output<Optional<ServiceendpointMavenAuthenticationToken>> authenticationToken() {

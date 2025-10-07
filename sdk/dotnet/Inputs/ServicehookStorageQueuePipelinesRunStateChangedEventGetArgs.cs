@@ -19,13 +19,13 @@ namespace Pulumi.AzureDevOps.Inputs
         public Input<string>? PipelineId { get; set; }
 
         /// <summary>
-        /// Which run result should generate an event. Only valid if published_event is `RunStateChanged`. If not specified, all results will trigger the event.
+        /// Which run result should generate an event. Only valid if PublishedEvent is `RunStateChanged`. If not specified, all results will trigger the event.
         /// </summary>
         [Input("runResultFilter")]
         public Input<string>? RunResultFilter { get; set; }
 
         /// <summary>
-        /// Which run state should generate an event. Only valid if published_event is `RunStateChanged`. If not specified, all states will trigger the event.
+        /// Which run state should generate an event. Only valid if PublishedEvent is `RunStateChanged`. If not specified, all states will trigger the event.
         /// </summary>
         [Input("runStateFilter")]
         public Input<string>? RunStateFilter { get; set; }

@@ -18,7 +18,7 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly bool Batch;
         /// <summary>
-        /// A `branch_filter` block as defined above.
+        /// A `BranchFilter` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBuildDefinitionCiTriggerOverrideBranchFilterResult> BranchFilters;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly int MaxConcurrentBuildsPerBranch;
         /// <summary>
-        /// The file paths to include or exclude. A `path_filter` block as defined above.
+        /// The file paths to include or exclude. A `PathFilter` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBuildDefinitionCiTriggerOverridePathFilterResult> PathFilters;
         /// <summary>

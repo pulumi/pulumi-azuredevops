@@ -145,8 +145,8 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The time between evaluations (minutes). 
         /// 
-        /// ~&gt;**NOTE** 1. The retry times should less them 10 based on the timeout. For example: `timeout` is `4000` then `retry_interval` should be `0` or no less then `400`.
-        /// &lt;br&gt;2. `retry_interval` is not required when `completion_event=Callback`.
+        /// ~&gt;**NOTE** 1. The retry times should less them 10 based on the timeout. For example: `Timeout` is `4000` then `RetryInterval` should be `0` or no less then `400`.
+        /// &lt;br&gt;2. `RetryInterval` is not required when `completion_event=Callback`.
         /// </summary>
         [Output("retryInterval")]
         public Output<int?> RetryInterval { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The Criteria which defines when to pass the task. No criteria means response content does not influence the result.
         /// 
-        /// ~&gt;**NOTE** `success_criteria` is used when `completion_event=ApiResponse`
+        /// ~&gt;**NOTE** `SuccessCriteria` is used when `completion_event=ApiResponse`
         /// </summary>
         [Output("successCriteria")]
         public Output<string?> SuccessCriteria { get; private set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> TargetResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of resource being protected by the check. Possible values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new resource to be created.
+        /// The type of resource being protected by the check. Possible values: `Endpoint`, `Environment`, `Queue`, `Repository`, `Securefile`, `Variablegroup`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("targetResourceType")]
         public Output<string> TargetResourceType { get; private set; } = null!;
@@ -292,8 +292,8 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The time between evaluations (minutes). 
         /// 
-        /// ~&gt;**NOTE** 1. The retry times should less them 10 based on the timeout. For example: `timeout` is `4000` then `retry_interval` should be `0` or no less then `400`.
-        /// &lt;br&gt;2. `retry_interval` is not required when `completion_event=Callback`.
+        /// ~&gt;**NOTE** 1. The retry times should less them 10 based on the timeout. For example: `Timeout` is `4000` then `RetryInterval` should be `0` or no less then `400`.
+        /// &lt;br&gt;2. `RetryInterval` is not required when `completion_event=Callback`.
         /// </summary>
         [Input("retryInterval")]
         public Input<int>? RetryInterval { get; set; }
@@ -301,7 +301,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The Criteria which defines when to pass the task. No criteria means response content does not influence the result.
         /// 
-        /// ~&gt;**NOTE** `success_criteria` is used when `completion_event=ApiResponse`
+        /// ~&gt;**NOTE** `SuccessCriteria` is used when `completion_event=ApiResponse`
         /// </summary>
         [Input("successCriteria")]
         public Input<string>? SuccessCriteria { get; set; }
@@ -313,7 +313,7 @@ namespace Pulumi.AzureDevOps
         public Input<string> TargetResourceId { get; set; } = null!;
 
         /// <summary>
-        /// The type of resource being protected by the check. Possible values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new resource to be created.
+        /// The type of resource being protected by the check. Possible values: `Endpoint`, `Environment`, `Queue`, `Repository`, `Securefile`, `Variablegroup`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("targetResourceType", required: true)]
         public Input<string> TargetResourceType { get; set; } = null!;
@@ -395,8 +395,8 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The time between evaluations (minutes). 
         /// 
-        /// ~&gt;**NOTE** 1. The retry times should less them 10 based on the timeout. For example: `timeout` is `4000` then `retry_interval` should be `0` or no less then `400`.
-        /// &lt;br&gt;2. `retry_interval` is not required when `completion_event=Callback`.
+        /// ~&gt;**NOTE** 1. The retry times should less them 10 based on the timeout. For example: `Timeout` is `4000` then `RetryInterval` should be `0` or no less then `400`.
+        /// &lt;br&gt;2. `RetryInterval` is not required when `completion_event=Callback`.
         /// </summary>
         [Input("retryInterval")]
         public Input<int>? RetryInterval { get; set; }
@@ -404,7 +404,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The Criteria which defines when to pass the task. No criteria means response content does not influence the result.
         /// 
-        /// ~&gt;**NOTE** `success_criteria` is used when `completion_event=ApiResponse`
+        /// ~&gt;**NOTE** `SuccessCriteria` is used when `completion_event=ApiResponse`
         /// </summary>
         [Input("successCriteria")]
         public Input<string>? SuccessCriteria { get; set; }
@@ -416,7 +416,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? TargetResourceId { get; set; }
 
         /// <summary>
-        /// The type of resource being protected by the check. Possible values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new resource to be created.
+        /// The type of resource being protected by the check. Possible values: `Endpoint`, `Environment`, `Queue`, `Repository`, `Securefile`, `Variablegroup`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("targetResourceType")]
         public Input<string>? TargetResourceType { get; set; }

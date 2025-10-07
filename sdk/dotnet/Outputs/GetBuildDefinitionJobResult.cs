@@ -22,7 +22,7 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly string Condition;
         /// <summary>
-        /// A `dependencies` blocks as documented below. Define the job dependencies.
+        /// A `Dependencies` blocks as documented below. Define the job dependencies.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBuildDefinitionJobDependencyResult> Dependencies;
         /// <summary>
@@ -46,7 +46,7 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly string RefName;
         /// <summary>
-        /// A `target` blocks as documented below.
+        /// A `Target` blocks as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBuildDefinitionJobTargetResult> Targets;
 

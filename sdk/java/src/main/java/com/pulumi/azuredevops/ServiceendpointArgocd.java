@@ -136,32 +136,32 @@ import javax.annotation.Nullable;
 @ResourceType(type="azuredevops:index/serviceendpointArgocd:ServiceendpointArgocd")
 public class ServiceendpointArgocd extends com.pulumi.resources.CustomResource {
     /**
-     * An `authentication_basic` block for the ArgoCD as documented below.
+     * An `authenticationBasic` block for the ArgoCD as documented below.
      * 
-     * &gt; **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
+     * &gt; **NOTE:** `authenticationBasic` and `authenticationToken` conflict with each other, only one is required.
      * 
      */
     @Export(name="authenticationBasic", refs={ServiceendpointArgocdAuthenticationBasic.class}, tree="[0]")
     private Output</* @Nullable */ ServiceendpointArgocdAuthenticationBasic> authenticationBasic;
 
     /**
-     * @return An `authentication_basic` block for the ArgoCD as documented below.
+     * @return An `authenticationBasic` block for the ArgoCD as documented below.
      * 
-     * &gt; **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
+     * &gt; **NOTE:** `authenticationBasic` and `authenticationToken` conflict with each other, only one is required.
      * 
      */
     public Output<Optional<ServiceendpointArgocdAuthenticationBasic>> authenticationBasic() {
         return Codegen.optional(this.authenticationBasic);
     }
     /**
-     * An `authentication_token` block for the ArgoCD as documented below.
+     * An `authenticationToken` block for the ArgoCD as documented below.
      * 
      */
     @Export(name="authenticationToken", refs={ServiceendpointArgocdAuthenticationToken.class}, tree="[0]")
     private Output</* @Nullable */ ServiceendpointArgocdAuthenticationToken> authenticationToken;
 
     /**
-     * @return An `authentication_token` block for the ArgoCD as documented below.
+     * @return An `authenticationToken` block for the ArgoCD as documented below.
      * 
      */
     public Output<Optional<ServiceendpointArgocdAuthenticationToken>> authenticationToken() {

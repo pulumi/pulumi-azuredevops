@@ -26,14 +26,14 @@ public final class ServiceEndpointArtifactoryArgs extends com.pulumi.resources.R
     }
 
     /**
-     * A `authentication_basic` block as defined below.
+     * A `authenticationBasic` block as defined below.
      * 
      */
     @Import(name="authenticationToken")
     private @Nullable Output<ServiceEndpointArtifactoryAuthenticationTokenArgs> authenticationToken;
 
     /**
-     * @return A `authentication_basic` block as defined below.
+     * @return A `authenticationBasic` block as defined below.
      * 
      */
     public Optional<Output<ServiceEndpointArtifactoryAuthenticationTokenArgs>> authenticationToken() {
@@ -143,7 +143,7 @@ public final class ServiceEndpointArtifactoryArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param authenticationToken A `authentication_basic` block as defined below.
+         * @param authenticationToken A `authenticationBasic` block as defined below.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class ServiceEndpointArtifactoryArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param authenticationToken A `authentication_basic` block as defined below.
+         * @param authenticationToken A `authenticationBasic` block as defined below.
          * 
          * @return builder
          * 

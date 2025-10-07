@@ -31,14 +31,14 @@ public final class GroupEntitlementArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The display name is the name used in Azure DevOps UI. Cannot be set together with `origin_id` and `origin`.
+     * The display name is the name used in Azure DevOps UI. Cannot be set together with `originId` and `origin`.
      * 
      */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
     /**
-     * @return The display name is the name used in Azure DevOps UI. Cannot be set together with `origin_id` and `origin`.
+     * @return The display name is the name used in Azure DevOps UI. Cannot be set together with `originId` and `origin`.
      * 
      */
     public Optional<Output<String>> displayName() {
@@ -48,7 +48,7 @@ public final class GroupEntitlementArgs extends com.pulumi.resources.ResourceArg
     /**
      * The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
      * 
-     * &gt; **NOTE:** A existing group in Azure AD can only be referenced by the combination of `origin_id` and `origin`.
+     * &gt; **NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
      * 
      */
     @Import(name="licensingSource")
@@ -57,7 +57,7 @@ public final class GroupEntitlementArgs extends com.pulumi.resources.ResourceArg
     /**
      * @return The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
      * 
-     * &gt; **NOTE:** A existing group in Azure AD can only be referenced by the combination of `origin_id` and `origin`.
+     * &gt; **NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
      * 
      */
     public Optional<Output<String>> licensingSource() {
@@ -144,7 +144,7 @@ public final class GroupEntitlementArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param displayName The display name is the name used in Azure DevOps UI. Cannot be set together with `origin_id` and `origin`.
+         * @param displayName The display name is the name used in Azure DevOps UI. Cannot be set together with `originId` and `origin`.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class GroupEntitlementArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param displayName The display name is the name used in Azure DevOps UI. Cannot be set together with `origin_id` and `origin`.
+         * @param displayName The display name is the name used in Azure DevOps UI. Cannot be set together with `originId` and `origin`.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class GroupEntitlementArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param licensingSource The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
          * 
-         * &gt; **NOTE:** A existing group in Azure AD can only be referenced by the combination of `origin_id` and `origin`.
+         * &gt; **NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class GroupEntitlementArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param licensingSource The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
          * 
-         * &gt; **NOTE:** A existing group in Azure AD can only be referenced by the combination of `origin_id` and `origin`.
+         * &gt; **NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
          * 
          * @return builder
          * 

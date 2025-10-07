@@ -24,7 +24,7 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly Outputs.BuildDefinitionPullRequestTriggerOverride? Override;
         /// <summary>
-        /// Use the azure-pipeline file for the build configuration. Defaults to `false`.
+        /// Use the azure-pipeline file for the build configuration. Defaults to `False`.
         /// </summary>
         public readonly bool? UseYaml;
 

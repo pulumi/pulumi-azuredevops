@@ -13,13 +13,13 @@ namespace Pulumi.AzureDevOps.Inputs
     public sealed class FeedFeatureGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Determines if Feed should be Permanently removed, Defaults to `false`
+        /// Determines if Feed should be Permanently removed, Defaults to `False`
         /// </summary>
         [Input("permanentDelete")]
         public Input<bool>? PermanentDelete { get; set; }
 
         /// <summary>
-        /// Determines if Feed should be Restored during creation (if possible), Defaults to `false`
+        /// Determines if Feed should be Restored during creation (if possible), Defaults to `False`
         /// </summary>
         [Input("restore")]
         public Input<bool>? Restore { get; set; }
