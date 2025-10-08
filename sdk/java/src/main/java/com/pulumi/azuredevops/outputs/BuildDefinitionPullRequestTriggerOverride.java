@@ -21,7 +21,7 @@ public final class BuildDefinitionPullRequestTriggerOverride {
      */
     private @Nullable Boolean autoCancel;
     /**
-     * @return The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
+     * @return The branches to include and exclude from the trigger. A `branchFilter` block as documented below.
      * 
      */
     private List<BuildDefinitionPullRequestTriggerOverrideBranchFilter> branchFilters;
@@ -40,7 +40,7 @@ public final class BuildDefinitionPullRequestTriggerOverride {
         return Optional.ofNullable(this.autoCancel);
     }
     /**
-     * @return The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
+     * @return The branches to include and exclude from the trigger. A `branchFilter` block as documented below.
      * 
      */
     public List<BuildDefinitionPullRequestTriggerOverrideBranchFilter> branchFilters() {

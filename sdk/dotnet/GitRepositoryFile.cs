@@ -186,7 +186,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> File { get; private set; } = null!;
 
         /// <summary>
-        /// Enable overwriting existing files (defaults to `false`).
+        /// Enable overwriting existing files (defaults to `False`).
         /// </summary>
         [Output("overwriteOnCreate")]
         public Output<bool?> OverwriteOnCreate { get; private set; } = null!;
@@ -292,7 +292,7 @@ namespace Pulumi.AzureDevOps
         public Input<string> File { get; set; } = null!;
 
         /// <summary>
-        /// Enable overwriting existing files (defaults to `false`).
+        /// Enable overwriting existing files (defaults to `False`).
         /// </summary>
         [Input("overwriteOnCreate")]
         public Input<bool>? OverwriteOnCreate { get; set; }
@@ -360,7 +360,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? File { get; set; }
 
         /// <summary>
-        /// Enable overwriting existing files (defaults to `false`).
+        /// Enable overwriting existing files (defaults to `False`).
         /// </summary>
         [Input("overwriteOnCreate")]
         public Input<bool>? OverwriteOnCreate { get; set; }

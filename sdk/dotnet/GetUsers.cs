@@ -40,13 +40,13 @@ namespace Pulumi.AzureDevOps
     public sealed class GetUsersArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// A `features` block as defined below.
+        /// A `Features` block as defined below.
         /// </summary>
         [Input("features")]
         public Inputs.GetUsersFeaturesArgs? Features { get; set; }
 
         /// <summary>
-        /// The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+        /// The type of source provider for the `OriginId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
         /// &lt;pre&gt;List of possible origins
         /// ```hcl
         /// ActiveDirectory          = "ad"   # Windows Active Directory
@@ -76,7 +76,7 @@ namespace Pulumi.AzureDevOps
         private List<string>? _subjectTypes;
 
         /// <summary>
-        /// A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
+        /// A list of user subject subtypes to reduce the retrieved results, e.g. `Msa`, `Aad`, `Svc` (service identity), `Imp` (imported identity), etc. The supported subject types are listed below.
         /// &lt;pre&gt;List of possible subject types
         /// ```hcl
         /// AadUser                 = "aad" # Azure Active Directory Tenant
@@ -117,13 +117,13 @@ namespace Pulumi.AzureDevOps
     public sealed class GetUsersInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// A `features` block as defined below.
+        /// A `Features` block as defined below.
         /// </summary>
         [Input("features")]
         public Input<Inputs.GetUsersFeaturesInputArgs>? Features { get; set; }
 
         /// <summary>
-        /// The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+        /// The type of source provider for the `OriginId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
         /// &lt;pre&gt;List of possible origins
         /// ```hcl
         /// ActiveDirectory          = "ad"   # Windows Active Directory
@@ -153,7 +153,7 @@ namespace Pulumi.AzureDevOps
         private InputList<string>? _subjectTypes;
 
         /// <summary>
-        /// A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
+        /// A list of user subject subtypes to reduce the retrieved results, e.g. `Msa`, `Aad`, `Svc` (service identity), `Imp` (imported identity), etc. The supported subject types are listed below.
         /// &lt;pre&gt;List of possible subject types
         /// ```hcl
         /// AadUser                 = "aad" # Azure Active Directory Tenant
@@ -214,7 +214,7 @@ namespace Pulumi.AzureDevOps
         public readonly string? PrincipalName;
         public readonly ImmutableArray<string> SubjectTypes;
         /// <summary>
-        /// A `users` block as defined below. A set of existing users in your Azure DevOps Organization with details about every single user.
+        /// A `Users` block as defined below. A set of existing users in your Azure DevOps Organization with details about every single user.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetUsersUserResult> Users;
 

@@ -113,7 +113,7 @@ namespace Pulumi.AzureDevOps
     public sealed class GetPoolsResult
     {
         /// <summary>
-        /// An `agent_pools` blocks as documented below. A list of existing agent pools in your Azure DevOps Organization with the following details about every agent pool:
+        /// An `AgentPools` blocks as documented below. A list of existing agent pools in your Azure DevOps Organization with the following details about every agent pool:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPoolsAgentPoolResult> AgentPools;
         /// <summary>

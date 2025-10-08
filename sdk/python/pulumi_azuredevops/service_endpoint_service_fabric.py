@@ -278,6 +278,32 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Client Certificate Authentication
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+        import pulumi_std as std
+
+        example = azuredevops.Project("example",
+            name="Example Project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Pulumi")
+        example_service_endpoint_service_fabric = azuredevops.ServiceEndpointServiceFabric("example",
+            project_id=example.id,
+            service_endpoint_name="Example Service Fabric",
+            description="Managed by Pulumi",
+            cluster_endpoint="tcp://test",
+            certificate={
+                "server_certificate_lookup": "Thumbprint",
+                "server_certificate_thumbprint": "0000000000000000000000000000000000000000",
+                "client_certificate": std.index.filebase64(input="certificate.pfx")["result"],
+                "client_certificate_password": "password",
+            })
+        ```
+
         ### Azure Active Directory Authentication
 
         ```python
@@ -355,6 +381,32 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
         Manages a Service Fabric service endpoint within Azure DevOps.
 
         ## Example Usage
+
+        ### Client Certificate Authentication
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+        import pulumi_std as std
+
+        example = azuredevops.Project("example",
+            name="Example Project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Pulumi")
+        example_service_endpoint_service_fabric = azuredevops.ServiceEndpointServiceFabric("example",
+            project_id=example.id,
+            service_endpoint_name="Example Service Fabric",
+            description="Managed by Pulumi",
+            cluster_endpoint="tcp://test",
+            certificate={
+                "server_certificate_lookup": "Thumbprint",
+                "server_certificate_thumbprint": "0000000000000000000000000000000000000000",
+                "client_certificate": std.index.filebase64(input="certificate.pfx")["result"],
+                "client_certificate_password": "password",
+            })
+        ```
 
         ### Azure Active Directory Authentication
 

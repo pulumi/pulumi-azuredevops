@@ -17,12 +17,12 @@ public final class BranchPolicyCommentResolutionSettingsScope {
      */
     private @Nullable String matchType;
     /**
-     * @return The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
+     * @return The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
      * 
      */
     private @Nullable String repositoryId;
     /**
-     * @return The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+     * @return The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
      * 
      */
     private @Nullable String repositoryRef;
@@ -36,14 +36,14 @@ public final class BranchPolicyCommentResolutionSettingsScope {
         return Optional.ofNullable(this.matchType);
     }
     /**
-     * @return The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
+     * @return The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
      * 
      */
     public Optional<String> repositoryId() {
         return Optional.ofNullable(this.repositoryId);
     }
     /**
-     * @return The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+     * @return The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
      * 
      */
     public Optional<String> repositoryRef() {

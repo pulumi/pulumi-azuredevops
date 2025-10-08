@@ -16,7 +16,7 @@ namespace Pulumi.AzureDevOps.Inputs
         private Input<string>? _serviceprincipalcertificate;
 
         /// <summary>
-        /// The service principal certificate. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
+        /// The service principal certificate. This not required if `ServiceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
         /// </summary>
         public Input<string>? Serviceprincipalcertificate
         {
@@ -38,7 +38,7 @@ namespace Pulumi.AzureDevOps.Inputs
         private Input<string>? _serviceprincipalkey;
 
         /// <summary>
-        /// The service principal secret. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
+        /// The service principal secret. This not required if `ServiceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
         /// </summary>
         public Input<string>? Serviceprincipalkey
         {

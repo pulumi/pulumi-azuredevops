@@ -50,14 +50,14 @@ public final class VariableGroupState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A list of `key_vault` blocks as documented below.
+     * A list of `keyVault` blocks as documented below.
      * 
      */
     @Import(name="keyVault")
     private @Nullable Output<VariableGroupKeyVaultArgs> keyVault;
 
     /**
-     * @return A list of `key_vault` blocks as documented below.
+     * @return A list of `keyVault` blocks as documented below.
      * 
      */
     public Optional<Output<VariableGroupKeyVaultArgs>> keyVault() {
@@ -181,7 +181,7 @@ public final class VariableGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param keyVault A list of `key_vault` blocks as documented below.
+         * @param keyVault A list of `keyVault` blocks as documented below.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class VariableGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param keyVault A list of `key_vault` blocks as documented below.
+         * @param keyVault A list of `keyVault` blocks as documented below.
          * 
          * @return builder
          * 

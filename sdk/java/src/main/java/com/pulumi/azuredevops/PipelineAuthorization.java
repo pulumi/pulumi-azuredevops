@@ -187,14 +187,14 @@ public class PipelineAuthorization extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.pipelineId);
     }
     /**
-     * The ID of the project where the pipeline exists. Defaults to `project_id` if not specified. Changing this forces a new resource to be created
+     * The ID of the project where the pipeline exists. Defaults to `projectId` if not specified. Changing this forces a new resource to be created
      * 
      */
     @Export(name="pipelineProjectId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> pipelineProjectId;
 
     /**
-     * @return The ID of the project where the pipeline exists. Defaults to `project_id` if not specified. Changing this forces a new resource to be created
+     * @return The ID of the project where the pipeline exists. Defaults to `projectId` if not specified. Changing this forces a new resource to be created
      * 
      */
     public Output<Optional<String>> pipelineProjectId() {

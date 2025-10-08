@@ -196,7 +196,7 @@ namespace Pulumi.AzureDevOps
     public sealed class GetTeamResult
     {
         /// <summary>
-        /// List of subject descriptors for `administrators` of the team.
+        /// List of subject descriptors for `Administrators` of the team.
         /// </summary>
         public readonly ImmutableArray<string> Administrators;
         /// <summary>
@@ -212,7 +212,7 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// List of subject descriptors for `members` of the team.
+        /// List of subject descriptors for `Members` of the team.
         /// </summary>
         public readonly ImmutableArray<string> Members;
         public readonly string Name;

@@ -18,15 +18,15 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly string? PipelineId;
         /// <summary>
-        /// Which stage should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all stages will trigger the event.
+        /// Which stage should generate an event. Only valid if PublishedEvent is `StageStateChanged`. If not specified, all stages will trigger the event.
         /// </summary>
         public readonly string? StageName;
         /// <summary>
-        /// Which stage result should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all results will trigger the event.
+        /// Which stage result should generate an event. Only valid if PublishedEvent is `StageStateChanged`. If not specified, all results will trigger the event.
         /// </summary>
         public readonly string? StageResultFilter;
         /// <summary>
-        /// Which stage state should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all states will trigger the event.
+        /// Which stage state should generate an event. Only valid if PublishedEvent is `StageStateChanged`. If not specified, all states will trigger the event.
         /// </summary>
         public readonly string? StageStateFilter;
 

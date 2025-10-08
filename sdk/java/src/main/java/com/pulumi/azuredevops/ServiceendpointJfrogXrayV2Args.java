@@ -19,14 +19,14 @@ public final class ServiceendpointJfrogXrayV2Args extends com.pulumi.resources.R
     public static final ServiceendpointJfrogXrayV2Args Empty = new ServiceendpointJfrogXrayV2Args();
 
     /**
-     * An `authentication_basic` block as documented below.
+     * An `authenticationBasic` block as documented below.
      * 
      */
     @Import(name="authenticationBasic")
     private @Nullable Output<ServiceendpointJfrogXrayV2AuthenticationBasicArgs> authenticationBasic;
 
     /**
-     * @return An `authentication_basic` block as documented below.
+     * @return An `authenticationBasic` block as documented below.
      * 
      */
     public Optional<Output<ServiceendpointJfrogXrayV2AuthenticationBasicArgs>> authenticationBasic() {
@@ -34,14 +34,14 @@ public final class ServiceendpointJfrogXrayV2Args extends com.pulumi.resources.R
     }
 
     /**
-     * An `authentication_token` block as documented below.
+     * An `authenticationToken` block as documented below.
      * 
      */
     @Import(name="authenticationToken")
     private @Nullable Output<ServiceendpointJfrogXrayV2AuthenticationTokenArgs> authenticationToken;
 
     /**
-     * @return An `authentication_token` block as documented below.
+     * @return An `authenticationToken` block as documented below.
      * 
      */
     public Optional<Output<ServiceendpointJfrogXrayV2AuthenticationTokenArgs>> authenticationToken() {
@@ -142,7 +142,7 @@ public final class ServiceendpointJfrogXrayV2Args extends com.pulumi.resources.R
         }
 
         /**
-         * @param authenticationBasic An `authentication_basic` block as documented below.
+         * @param authenticationBasic An `authenticationBasic` block as documented below.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class ServiceendpointJfrogXrayV2Args extends com.pulumi.resources.R
         }
 
         /**
-         * @param authenticationBasic An `authentication_basic` block as documented below.
+         * @param authenticationBasic An `authenticationBasic` block as documented below.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class ServiceendpointJfrogXrayV2Args extends com.pulumi.resources.R
         }
 
         /**
-         * @param authenticationToken An `authentication_token` block as documented below.
+         * @param authenticationToken An `authenticationToken` block as documented below.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class ServiceendpointJfrogXrayV2Args extends com.pulumi.resources.R
         }
 
         /**
-         * @param authenticationToken An `authentication_token` block as documented below.
+         * @param authenticationToken An `authenticationToken` block as documented below.
          * 
          * @return builder
          * 

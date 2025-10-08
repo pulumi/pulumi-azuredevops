@@ -19,14 +19,14 @@ public final class ServiceendpointJfrogArtifactoryV2State extends com.pulumi.res
     public static final ServiceendpointJfrogArtifactoryV2State Empty = new ServiceendpointJfrogArtifactoryV2State();
 
     /**
-     * An `authentication_basic` block as documented below.
+     * An `authenticationBasic` block as documented below.
      * 
      */
     @Import(name="authenticationBasic")
     private @Nullable Output<ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs> authenticationBasic;
 
     /**
-     * @return An `authentication_basic` block as documented below.
+     * @return An `authenticationBasic` block as documented below.
      * 
      */
     public Optional<Output<ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs>> authenticationBasic() {
@@ -34,14 +34,14 @@ public final class ServiceendpointJfrogArtifactoryV2State extends com.pulumi.res
     }
 
     /**
-     * An `authentication_token` block as documented below.
+     * An `authenticationToken` block as documented below.
      * 
      */
     @Import(name="authenticationToken")
     private @Nullable Output<ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs> authenticationToken;
 
     /**
-     * @return An `authentication_token` block as documented below.
+     * @return An `authenticationToken` block as documented below.
      * 
      */
     public Optional<Output<ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs>> authenticationToken() {
@@ -150,7 +150,7 @@ public final class ServiceendpointJfrogArtifactoryV2State extends com.pulumi.res
         }
 
         /**
-         * @param authenticationBasic An `authentication_basic` block as documented below.
+         * @param authenticationBasic An `authenticationBasic` block as documented below.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class ServiceendpointJfrogArtifactoryV2State extends com.pulumi.res
         }
 
         /**
-         * @param authenticationBasic An `authentication_basic` block as documented below.
+         * @param authenticationBasic An `authenticationBasic` block as documented below.
          * 
          * @return builder
          * 
@@ -171,7 +171,7 @@ public final class ServiceendpointJfrogArtifactoryV2State extends com.pulumi.res
         }
 
         /**
-         * @param authenticationToken An `authentication_token` block as documented below.
+         * @param authenticationToken An `authenticationToken` block as documented below.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class ServiceendpointJfrogArtifactoryV2State extends com.pulumi.res
         }
 
         /**
-         * @param authenticationToken An `authentication_token` block as documented below.
+         * @param authenticationToken An `authenticationToken` block as documented below.
          * 
          * @return builder
          * 

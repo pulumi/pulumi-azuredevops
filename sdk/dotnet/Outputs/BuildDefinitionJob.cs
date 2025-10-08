@@ -14,7 +14,7 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class BuildDefinitionJob
     {
         /// <summary>
-        /// Enables scripts and other processes launched by tasks to access the OAuth token through the `System.AccessToken` variable. Possible values: `true`, `false`. Defaults to `false`. Available when Job type is `AgentJob`
+        /// Enables scripts and other processes launched by tasks to access the OAuth token through the `System.AccessToken` variable. Possible values: `True`, `False`. Defaults to `False`. Available when Job type is `AgentJob`
         /// </summary>
         public readonly bool? AllowScriptsAuthAccessOption;
         /// <summary>
@@ -22,11 +22,11 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly string Condition;
         /// <summary>
-        /// A `dependencies` blocks as documented below. Define the job dependencies.
+        /// A `Dependencies` blocks as documented below. Define the job dependencies.
         /// </summary>
         public readonly ImmutableArray<Outputs.BuildDefinitionJobDependency> Dependencies;
         /// <summary>
-        /// The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+        /// The job authorization scope for builds queued against this definition. Possible values are: `Project`, `projectCollection`. Defaults to `projectCollection`.
         /// </summary>
         public readonly string? JobAuthorizationScope;
         /// <summary>
@@ -46,7 +46,7 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly string RefName;
         /// <summary>
-        /// A `target` blocks as documented below.
+        /// A `Target` blocks as documented below.
         /// </summary>
         public readonly Outputs.BuildDefinitionJobTarget Target;
 

@@ -32,7 +32,7 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+     * The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
      * &lt;pre&gt;List of possible origins
      * ```hcl
      * ActiveDirectory          = &#34;ad&#34;   # Windows Active Directory
@@ -48,7 +48,7 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
     private @Nullable String origin;
 
     /**
-     * @return The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+     * @return The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
      * &lt;pre&gt;List of possible origins
      * ```hcl
      * ActiveDirectory          = &#34;ad&#34;   # Windows Active Directory
@@ -197,7 +197,7 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param origin The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+         * @param origin The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
          * &lt;pre&gt;List of possible origins
          * ```hcl
          * ActiveDirectory          = &#34;ad&#34;   # Windows Active Directory

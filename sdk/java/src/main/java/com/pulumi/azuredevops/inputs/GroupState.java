@@ -47,14 +47,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of a new Azure DevOps group that is not backed by an external provider. The `origin_id` and `mail` arguments cannot be used simultaneously with `display_name`.
+     * The name of a new Azure DevOps group that is not backed by an external provider. The `originId` and `mail` arguments cannot be used simultaneously with `displayName`.
      * 
      */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
     /**
-     * @return The name of a new Azure DevOps group that is not backed by an external provider. The `origin_id` and `mail` arguments cannot be used simultaneously with `display_name`.
+     * @return The name of a new Azure DevOps group that is not backed by an external provider. The `originId` and `mail` arguments cannot be used simultaneously with `displayName`.
      * 
      */
     public Optional<Output<String>> displayName() {
@@ -92,14 +92,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `origin_id` and `display_name` arguments cannot be used simultaneously with `mail`.
+     * The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `originId` and `displayName` arguments cannot be used simultaneously with `mail`.
      * 
      */
     @Import(name="mail")
     private @Nullable Output<String> mail;
 
     /**
-     * @return The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `origin_id` and `display_name` arguments cannot be used simultaneously with `mail`.
+     * @return The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `originId` and `displayName` arguments cannot be used simultaneously with `mail`.
      * 
      */
     public Optional<Output<String>> mail() {
@@ -141,14 +141,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The OriginID as a reference to a group from an external AD or AAD backed provider. The `scope`, `mail` and `display_name` arguments cannot be used simultaneously with `origin_id`.
+     * The OriginID as a reference to a group from an external AD or AAD backed provider. The `scope`, `mail` and `displayName` arguments cannot be used simultaneously with `originId`.
      * 
      */
     @Import(name="originId")
     private @Nullable Output<String> originId;
 
     /**
-     * @return The OriginID as a reference to a group from an external AD or AAD backed provider. The `scope`, `mail` and `display_name` arguments cannot be used simultaneously with `origin_id`.
+     * @return The OriginID as a reference to a group from an external AD or AAD backed provider. The `scope`, `mail` and `displayName` arguments cannot be used simultaneously with `originId`.
      * 
      */
     public Optional<Output<String>> originId() {
@@ -294,7 +294,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param displayName The name of a new Azure DevOps group that is not backed by an external provider. The `origin_id` and `mail` arguments cannot be used simultaneously with `display_name`.
+         * @param displayName The name of a new Azure DevOps group that is not backed by an external provider. The `originId` and `mail` arguments cannot be used simultaneously with `displayName`.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param displayName The name of a new Azure DevOps group that is not backed by an external provider. The `origin_id` and `mail` arguments cannot be used simultaneously with `display_name`.
+         * @param displayName The name of a new Azure DevOps group that is not backed by an external provider. The `originId` and `mail` arguments cannot be used simultaneously with `displayName`.
          * 
          * @return builder
          * 
@@ -357,7 +357,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mail The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `origin_id` and `display_name` arguments cannot be used simultaneously with `mail`.
+         * @param mail The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `originId` and `displayName` arguments cannot be used simultaneously with `mail`.
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mail The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `origin_id` and `display_name` arguments cannot be used simultaneously with `mail`.
+         * @param mail The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `originId` and `displayName` arguments cannot be used simultaneously with `mail`.
          * 
          * @return builder
          * 
@@ -436,7 +436,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param originId The OriginID as a reference to a group from an external AD or AAD backed provider. The `scope`, `mail` and `display_name` arguments cannot be used simultaneously with `origin_id`.
+         * @param originId The OriginID as a reference to a group from an external AD or AAD backed provider. The `scope`, `mail` and `displayName` arguments cannot be used simultaneously with `originId`.
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param originId The OriginID as a reference to a group from an external AD or AAD backed provider. The `scope`, `mail` and `display_name` arguments cannot be used simultaneously with `origin_id`.
+         * @param originId The OriginID as a reference to a group from an external AD or AAD backed provider. The `scope`, `mail` and `displayName` arguments cannot be used simultaneously with `originId`.
          * 
          * @return builder
          * 

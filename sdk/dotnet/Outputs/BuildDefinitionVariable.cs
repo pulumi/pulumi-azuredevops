@@ -14,11 +14,11 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class BuildDefinitionVariable
     {
         /// <summary>
-        /// True if the variable can be overridden. Defaults to `true`.
+        /// True if the variable can be overridden. Defaults to `True`.
         /// </summary>
         public readonly bool? AllowOverride;
         /// <summary>
-        /// True if the variable is a secret. Defaults to `false`.
+        /// True if the variable is a secret. Defaults to `False`.
         /// </summary>
         public readonly bool? IsSecret;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The secret value of the variable. Used when `is_secret` set to `true`.
+        /// The secret value of the variable. Used when `IsSecret` set to `True`.
         /// </summary>
         public readonly string? SecretValue;
         /// <summary>

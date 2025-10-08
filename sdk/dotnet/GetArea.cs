@@ -145,7 +145,7 @@ namespace Pulumi.AzureDevOps
     public sealed class GetAreaArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Read children nodes, _Depth_: 1, _Default_: `true`
+        /// Read children nodes, _Depth_: 1, _Default_: `True`
         /// </summary>
         [Input("fetchChildren")]
         public bool? FetchChildren { get; set; }
@@ -171,7 +171,7 @@ namespace Pulumi.AzureDevOps
     public sealed class GetAreaInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Read children nodes, _Depth_: 1, _Default_: `true`
+        /// Read children nodes, _Depth_: 1, _Default_: `True`
         /// </summary>
         [Input("fetchChildren")]
         public Input<bool>? FetchChildren { get; set; }
@@ -199,7 +199,7 @@ namespace Pulumi.AzureDevOps
     public sealed class GetAreaResult
     {
         /// <summary>
-        /// A list of `children` blocks as defined below, empty if `has_children == false`
+        /// A list of `Children` blocks as defined below, empty if `HasChildren == false`
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAreaChildrenResult> Childrens;
         public readonly bool? FetchChildren;

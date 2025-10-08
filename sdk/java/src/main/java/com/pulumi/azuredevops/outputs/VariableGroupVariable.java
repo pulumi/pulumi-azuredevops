@@ -27,7 +27,7 @@ public final class VariableGroupVariable {
      */
     private String name;
     /**
-     * @return The secret value of the variable. If omitted, it will default to empty string. Used when `is_secret` set to `true`.
+     * @return The secret value of the variable. If omitted, it will default to empty string. Used when `isSecret` set to `true`.
      * 
      */
     private @Nullable String secretValue;
@@ -62,7 +62,7 @@ public final class VariableGroupVariable {
         return this.name;
     }
     /**
-     * @return The secret value of the variable. If omitted, it will default to empty string. Used when `is_secret` set to `true`.
+     * @return The secret value of the variable. If omitted, it will default to empty string. Used when `isSecret` set to `true`.
      * 
      */
     public Optional<String> secretValue() {

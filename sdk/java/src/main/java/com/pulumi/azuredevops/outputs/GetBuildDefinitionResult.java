@@ -31,7 +31,7 @@ public final class GetBuildDefinitionResult {
      */
     private String agentSpecification;
     /**
-     * @return A `ci_trigger` block as defined below.
+     * @return A `ciTrigger` block as defined below.
      * 
      */
     private List<GetBuildDefinitionCiTrigger> ciTriggers;
@@ -58,7 +58,7 @@ public final class GetBuildDefinitionResult {
     private @Nullable String path;
     private String projectId;
     /**
-     * @return A `pull_request_trigger` block as defined below.
+     * @return A `pullRequestTrigger` block as defined below.
      * 
      */
     private List<GetBuildDefinitionPullRequestTrigger> pullRequestTriggers;
@@ -109,7 +109,7 @@ public final class GetBuildDefinitionResult {
         return this.agentSpecification;
     }
     /**
-     * @return A `ci_trigger` block as defined below.
+     * @return A `ciTrigger` block as defined below.
      * 
      */
     public List<GetBuildDefinitionCiTrigger> ciTriggers() {
@@ -150,7 +150,7 @@ public final class GetBuildDefinitionResult {
         return this.projectId;
     }
     /**
-     * @return A `pull_request_trigger` block as defined below.
+     * @return A `pullRequestTrigger` block as defined below.
      * 
      */
     public List<GetBuildDefinitionPullRequestTrigger> pullRequestTriggers() {

@@ -62,7 +62,7 @@ namespace Pulumi.AzureDevOps
     public partial class ServiceendpointExternaltfs : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        /// An `AuthPersonal` block as documented below. Allows connecting using a personal access token.
         /// </summary>
         [Output("authPersonal")]
         public Output<Outputs.ServiceendpointExternaltfsAuthPersonal> AuthPersonal { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.AzureDevOps
     public sealed class ServiceendpointExternaltfsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        /// An `AuthPersonal` block as documented below. Allows connecting using a personal access token.
         /// </summary>
         [Input("authPersonal", required: true)]
         public Input<Inputs.ServiceendpointExternaltfsAuthPersonalArgs> AuthPersonal { get; set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.AzureDevOps
     public sealed class ServiceendpointExternaltfsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        /// An `AuthPersonal` block as documented below. Allows connecting using a personal access token.
         /// </summary>
         [Input("authPersonal")]
         public Input<Inputs.ServiceendpointExternaltfsAuthPersonalGetArgs>? AuthPersonal { get; set; }

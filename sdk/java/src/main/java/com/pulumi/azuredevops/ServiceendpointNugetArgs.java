@@ -56,7 +56,7 @@ public final class ServiceendpointNugetArgs extends com.pulumi.resources.Resourc
     /**
      * The account password used to connect to the endpoint
      * 
-     * &gt; **Note** Only one of `api_key` or `personal_access_token` or  `username`, `password` can be set at the same time.
+     * &gt; **Note** Only one of `apiKey` or `personalAccessToken` or  `username`, `password` can be set at the same time.
      * 
      */
     @Import(name="password")
@@ -65,7 +65,7 @@ public final class ServiceendpointNugetArgs extends com.pulumi.resources.Resourc
     /**
      * @return The account password used to connect to the endpoint
      * 
-     * &gt; **Note** Only one of `api_key` or `personal_access_token` or  `username`, `password` can be set at the same time.
+     * &gt; **Note** Only one of `apiKey` or `personalAccessToken` or  `username`, `password` can be set at the same time.
      * 
      */
     public Optional<Output<String>> password() {
@@ -217,7 +217,7 @@ public final class ServiceendpointNugetArgs extends com.pulumi.resources.Resourc
         /**
          * @param password The account password used to connect to the endpoint
          * 
-         * &gt; **Note** Only one of `api_key` or `personal_access_token` or  `username`, `password` can be set at the same time.
+         * &gt; **Note** Only one of `apiKey` or `personalAccessToken` or  `username`, `password` can be set at the same time.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class ServiceendpointNugetArgs extends com.pulumi.resources.Resourc
         /**
          * @param password The account password used to connect to the endpoint
          * 
-         * &gt; **Note** Only one of `api_key` or `personal_access_token` or  `username`, `password` can be set at the same time.
+         * &gt; **Note** Only one of `apiKey` or `personalAccessToken` or  `username`, `password` can be set at the same time.
          * 
          * @return builder
          * 

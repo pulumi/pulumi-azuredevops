@@ -484,39 +484,39 @@ namespace Pulumi.AzureDevOps
         public Output<string?> AgentPoolName { get; private set; } = null!;
 
         /// <summary>
-        /// The Agent Specification to run the pipelines. Required when `repo_type` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+        /// The Agent Specification to run the pipelines. Required when `RepoType` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
         /// </summary>
         [Output("agentSpecification")]
         public Output<string?> AgentSpecification { get; private set; } = null!;
 
         /// <summary>
-        /// A `build_completion_trigger` block as documented below.
+        /// A `BuildCompletionTrigger` block as documented below.
         /// </summary>
         [Output("buildCompletionTriggers")]
         public Output<ImmutableArray<Outputs.BuildDefinitionBuildCompletionTrigger>> BuildCompletionTriggers { get; private set; } = null!;
 
         /// <summary>
-        /// A `ci_trigger` block as documented below.
+        /// A `CiTrigger` block as documented below.
         /// </summary>
         [Output("ciTrigger")]
         public Output<Outputs.BuildDefinitionCiTrigger?> CiTrigger { get; private set; } = null!;
 
         /// <summary>
-        /// A `features` blocks as documented below.
+        /// A `Features` blocks as documented below.
         /// </summary>
         [Output("features")]
         public Output<ImmutableArray<Outputs.BuildDefinitionFeature>> Features { get; private set; } = null!;
 
         /// <summary>
-        /// The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+        /// The job authorization scope for builds queued against this definition. Possible values are: `Project`, `projectCollection`. Defaults to `projectCollection`.
         /// </summary>
         [Output("jobAuthorizationScope")]
         public Output<string?> JobAuthorizationScope { get; private set; } = null!;
 
         /// <summary>
-        /// A `jobs` blocks as documented below.
+        /// A `Jobs` blocks as documented below.
         /// 
-        /// &gt; **NOTE:** The `jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
+        /// &gt; **NOTE:** The `Jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
         /// </summary>
         [Output("jobs")]
         public Output<ImmutableArray<Outputs.BuildDefinitionJob>> Jobs { get; private set; } = null!;
@@ -540,19 +540,19 @@ namespace Pulumi.AzureDevOps
         public Output<string> ProjectId { get; private set; } = null!;
 
         /// <summary>
-        /// A `pull_request_trigger` block as documented below.
+        /// A `PullRequestTrigger` block as documented below.
         /// </summary>
         [Output("pullRequestTrigger")]
         public Output<Outputs.BuildDefinitionPullRequestTrigger?> PullRequestTrigger { get; private set; } = null!;
 
         /// <summary>
-        /// The queue status of the build definition. Possible values are: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+        /// The queue status of the build definition. Possible values are: `Enabled` or `Paused` or `Disabled`. Defaults to `Enabled`.
         /// </summary>
         [Output("queueStatus")]
         public Output<string?> QueueStatus { get; private set; } = null!;
 
         /// <summary>
-        /// A `repository` block as documented below.
+        /// A `Repository` block as documented below.
         /// </summary>
         [Output("repository")]
         public Output<Outputs.BuildDefinitionRepository> Repository { get; private set; } = null!;
@@ -573,7 +573,7 @@ namespace Pulumi.AzureDevOps
         public Output<ImmutableArray<int>> VariableGroups { get; private set; } = null!;
 
         /// <summary>
-        /// A list of `variable` blocks, as documented below.
+        /// A list of `Variable` blocks, as documented below.
         /// </summary>
         [Output("variables")]
         public Output<ImmutableArray<Outputs.BuildDefinitionVariable>> Variables { get; private set; } = null!;
@@ -631,7 +631,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? AgentPoolName { get; set; }
 
         /// <summary>
-        /// The Agent Specification to run the pipelines. Required when `repo_type` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+        /// The Agent Specification to run the pipelines. Required when `RepoType` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
         /// </summary>
         [Input("agentSpecification")]
         public Input<string>? AgentSpecification { get; set; }
@@ -640,7 +640,7 @@ namespace Pulumi.AzureDevOps
         private InputList<Inputs.BuildDefinitionBuildCompletionTriggerArgs>? _buildCompletionTriggers;
 
         /// <summary>
-        /// A `build_completion_trigger` block as documented below.
+        /// A `BuildCompletionTrigger` block as documented below.
         /// </summary>
         public InputList<Inputs.BuildDefinitionBuildCompletionTriggerArgs> BuildCompletionTriggers
         {
@@ -649,7 +649,7 @@ namespace Pulumi.AzureDevOps
         }
 
         /// <summary>
-        /// A `ci_trigger` block as documented below.
+        /// A `CiTrigger` block as documented below.
         /// </summary>
         [Input("ciTrigger")]
         public Input<Inputs.BuildDefinitionCiTriggerArgs>? CiTrigger { get; set; }
@@ -658,7 +658,7 @@ namespace Pulumi.AzureDevOps
         private InputList<Inputs.BuildDefinitionFeatureArgs>? _features;
 
         /// <summary>
-        /// A `features` blocks as documented below.
+        /// A `Features` blocks as documented below.
         /// </summary>
         public InputList<Inputs.BuildDefinitionFeatureArgs> Features
         {
@@ -667,7 +667,7 @@ namespace Pulumi.AzureDevOps
         }
 
         /// <summary>
-        /// The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+        /// The job authorization scope for builds queued against this definition. Possible values are: `Project`, `projectCollection`. Defaults to `projectCollection`.
         /// </summary>
         [Input("jobAuthorizationScope")]
         public Input<string>? JobAuthorizationScope { get; set; }
@@ -676,9 +676,9 @@ namespace Pulumi.AzureDevOps
         private InputList<Inputs.BuildDefinitionJobArgs>? _jobs;
 
         /// <summary>
-        /// A `jobs` blocks as documented below.
+        /// A `Jobs` blocks as documented below.
         /// 
-        /// &gt; **NOTE:** The `jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
+        /// &gt; **NOTE:** The `Jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
         /// </summary>
         public InputList<Inputs.BuildDefinitionJobArgs> Jobs
         {
@@ -705,19 +705,19 @@ namespace Pulumi.AzureDevOps
         public Input<string> ProjectId { get; set; } = null!;
 
         /// <summary>
-        /// A `pull_request_trigger` block as documented below.
+        /// A `PullRequestTrigger` block as documented below.
         /// </summary>
         [Input("pullRequestTrigger")]
         public Input<Inputs.BuildDefinitionPullRequestTriggerArgs>? PullRequestTrigger { get; set; }
 
         /// <summary>
-        /// The queue status of the build definition. Possible values are: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+        /// The queue status of the build definition. Possible values are: `Enabled` or `Paused` or `Disabled`. Defaults to `Enabled`.
         /// </summary>
         [Input("queueStatus")]
         public Input<string>? QueueStatus { get; set; }
 
         /// <summary>
-        /// A `repository` block as documented below.
+        /// A `Repository` block as documented below.
         /// </summary>
         [Input("repository", required: true)]
         public Input<Inputs.BuildDefinitionRepositoryArgs> Repository { get; set; } = null!;
@@ -746,7 +746,7 @@ namespace Pulumi.AzureDevOps
         private InputList<Inputs.BuildDefinitionVariableArgs>? _variables;
 
         /// <summary>
-        /// A list of `variable` blocks, as documented below.
+        /// A list of `Variable` blocks, as documented below.
         /// </summary>
         public InputList<Inputs.BuildDefinitionVariableArgs> Variables
         {
@@ -769,7 +769,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? AgentPoolName { get; set; }
 
         /// <summary>
-        /// The Agent Specification to run the pipelines. Required when `repo_type` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+        /// The Agent Specification to run the pipelines. Required when `RepoType` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
         /// </summary>
         [Input("agentSpecification")]
         public Input<string>? AgentSpecification { get; set; }
@@ -778,7 +778,7 @@ namespace Pulumi.AzureDevOps
         private InputList<Inputs.BuildDefinitionBuildCompletionTriggerGetArgs>? _buildCompletionTriggers;
 
         /// <summary>
-        /// A `build_completion_trigger` block as documented below.
+        /// A `BuildCompletionTrigger` block as documented below.
         /// </summary>
         public InputList<Inputs.BuildDefinitionBuildCompletionTriggerGetArgs> BuildCompletionTriggers
         {
@@ -787,7 +787,7 @@ namespace Pulumi.AzureDevOps
         }
 
         /// <summary>
-        /// A `ci_trigger` block as documented below.
+        /// A `CiTrigger` block as documented below.
         /// </summary>
         [Input("ciTrigger")]
         public Input<Inputs.BuildDefinitionCiTriggerGetArgs>? CiTrigger { get; set; }
@@ -796,7 +796,7 @@ namespace Pulumi.AzureDevOps
         private InputList<Inputs.BuildDefinitionFeatureGetArgs>? _features;
 
         /// <summary>
-        /// A `features` blocks as documented below.
+        /// A `Features` blocks as documented below.
         /// </summary>
         public InputList<Inputs.BuildDefinitionFeatureGetArgs> Features
         {
@@ -805,7 +805,7 @@ namespace Pulumi.AzureDevOps
         }
 
         /// <summary>
-        /// The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+        /// The job authorization scope for builds queued against this definition. Possible values are: `Project`, `projectCollection`. Defaults to `projectCollection`.
         /// </summary>
         [Input("jobAuthorizationScope")]
         public Input<string>? JobAuthorizationScope { get; set; }
@@ -814,9 +814,9 @@ namespace Pulumi.AzureDevOps
         private InputList<Inputs.BuildDefinitionJobGetArgs>? _jobs;
 
         /// <summary>
-        /// A `jobs` blocks as documented below.
+        /// A `Jobs` blocks as documented below.
         /// 
-        /// &gt; **NOTE:** The `jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
+        /// &gt; **NOTE:** The `Jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
         /// </summary>
         public InputList<Inputs.BuildDefinitionJobGetArgs> Jobs
         {
@@ -843,19 +843,19 @@ namespace Pulumi.AzureDevOps
         public Input<string>? ProjectId { get; set; }
 
         /// <summary>
-        /// A `pull_request_trigger` block as documented below.
+        /// A `PullRequestTrigger` block as documented below.
         /// </summary>
         [Input("pullRequestTrigger")]
         public Input<Inputs.BuildDefinitionPullRequestTriggerGetArgs>? PullRequestTrigger { get; set; }
 
         /// <summary>
-        /// The queue status of the build definition. Possible values are: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
+        /// The queue status of the build definition. Possible values are: `Enabled` or `Paused` or `Disabled`. Defaults to `Enabled`.
         /// </summary>
         [Input("queueStatus")]
         public Input<string>? QueueStatus { get; set; }
 
         /// <summary>
-        /// A `repository` block as documented below.
+        /// A `Repository` block as documented below.
         /// </summary>
         [Input("repository")]
         public Input<Inputs.BuildDefinitionRepositoryGetArgs>? Repository { get; set; }
@@ -890,7 +890,7 @@ namespace Pulumi.AzureDevOps
         private InputList<Inputs.BuildDefinitionVariableGetArgs>? _variables;
 
         /// <summary>
-        /// A list of `variable` blocks, as documented below.
+        /// A list of `Variable` blocks, as documented below.
         /// </summary>
         public InputList<Inputs.BuildDefinitionVariableGetArgs> Variables
         {

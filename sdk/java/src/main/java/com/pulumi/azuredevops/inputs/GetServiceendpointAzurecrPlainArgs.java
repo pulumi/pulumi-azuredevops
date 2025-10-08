@@ -48,7 +48,7 @@ public final class GetServiceendpointAzurecrPlainArgs extends com.pulumi.resourc
     /**
      * the Name of the Service Endpoint.
      * 
-     * &gt; **NOTE:** One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
+     * &gt; **NOTE:** One of either `serviceEndpointId` or `serviceEndpointName` must be specified.
      * 
      */
     @Import(name="serviceEndpointName")
@@ -57,7 +57,7 @@ public final class GetServiceendpointAzurecrPlainArgs extends com.pulumi.resourc
     /**
      * @return the Name of the Service Endpoint.
      * 
-     * &gt; **NOTE:** One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
+     * &gt; **NOTE:** One of either `serviceEndpointId` or `serviceEndpointName` must be specified.
      * 
      */
     public Optional<String> serviceEndpointName() {
@@ -115,7 +115,7 @@ public final class GetServiceendpointAzurecrPlainArgs extends com.pulumi.resourc
         /**
          * @param serviceEndpointName the Name of the Service Endpoint.
          * 
-         * &gt; **NOTE:** One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
+         * &gt; **NOTE:** One of either `serviceEndpointId` or `serviceEndpointName` must be specified.
          * 
          * @return builder
          * 

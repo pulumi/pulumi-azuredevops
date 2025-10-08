@@ -98,15 +98,15 @@ namespace Pulumi.AzureDevOps
     public partial class ServiceendpointVisualstudiomarketplace : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `authentication_basic` block as documented below.
+        /// An `AuthenticationBasic` block as documented below.
         /// 
-        /// &gt; **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
+        /// &gt; **NOTE:** `AuthenticationBasic` and `AuthenticationToken` conflict with each other, only one is required.
         /// </summary>
         [Output("authenticationBasic")]
         public Output<Outputs.ServiceendpointVisualstudiomarketplaceAuthenticationBasic?> AuthenticationBasic { get; private set; } = null!;
 
         /// <summary>
-        /// An `authentication_token` block as documented below.
+        /// An `AuthenticationToken` block as documented below.
         /// </summary>
         [Output("authenticationToken")]
         public Output<Outputs.ServiceendpointVisualstudiomarketplaceAuthenticationToken?> AuthenticationToken { get; private set; } = null!;
@@ -182,15 +182,15 @@ namespace Pulumi.AzureDevOps
     public sealed class ServiceendpointVisualstudiomarketplaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `authentication_basic` block as documented below.
+        /// An `AuthenticationBasic` block as documented below.
         /// 
-        /// &gt; **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
+        /// &gt; **NOTE:** `AuthenticationBasic` and `AuthenticationToken` conflict with each other, only one is required.
         /// </summary>
         [Input("authenticationBasic")]
         public Input<Inputs.ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs>? AuthenticationBasic { get; set; }
 
         /// <summary>
-        /// An `authentication_token` block as documented below.
+        /// An `AuthenticationToken` block as documented below.
         /// </summary>
         [Input("authenticationToken")]
         public Input<Inputs.ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs>? AuthenticationToken { get; set; }
@@ -225,15 +225,15 @@ namespace Pulumi.AzureDevOps
     public sealed class ServiceendpointVisualstudiomarketplaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `authentication_basic` block as documented below.
+        /// An `AuthenticationBasic` block as documented below.
         /// 
-        /// &gt; **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
+        /// &gt; **NOTE:** `AuthenticationBasic` and `AuthenticationToken` conflict with each other, only one is required.
         /// </summary>
         [Input("authenticationBasic")]
         public Input<Inputs.ServiceendpointVisualstudiomarketplaceAuthenticationBasicGetArgs>? AuthenticationBasic { get; set; }
 
         /// <summary>
-        /// An `authentication_token` block as documented below.
+        /// An `AuthenticationToken` block as documented below.
         /// </summary>
         [Input("authenticationToken")]
         public Input<Inputs.ServiceendpointVisualstudiomarketplaceAuthenticationTokenGetArgs>? AuthenticationToken { get; set; }
