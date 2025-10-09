@@ -19,7 +19,7 @@ public final class BuildDefinitionRepository {
      */
     private @Nullable String branchName;
     /**
-     * @return The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`. Conflict with `url`
+     * @return The Github Enterprise URL. Used if `repoType` is `GithubEnterprise`. Conflict with `url`
      * 
      */
     private @Nullable String githubEnterpriseUrl;
@@ -29,7 +29,7 @@ public final class BuildDefinitionRepository {
      */
     private String repoId;
     /**
-     * @return The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise` or `Git`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+     * @return The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise` or `Git`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
      * 
      */
     private String repoType;
@@ -39,12 +39,12 @@ public final class BuildDefinitionRepository {
      */
     private @Nullable Boolean reportBuildStatus;
     /**
-     * @return The service connection ID. Used if the `repo_type` is `GitHub` or `GitHubEnterprise`.
+     * @return The service connection ID. Used if the `repoType` is `GitHub` or `GitHubEnterprise`.
      * 
      */
     private @Nullable String serviceConnectionId;
     /**
-     * @return The URL of the Git repository. Used if `repo_type` is `Git`. Conflict with `github_enterprise_url`
+     * @return The URL of the Git repository. Used if `repoType` is `Git`. Conflict with `githubEnterpriseUrl`
      * 
      */
     private @Nullable String url;
@@ -63,7 +63,7 @@ public final class BuildDefinitionRepository {
         return Optional.ofNullable(this.branchName);
     }
     /**
-     * @return The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`. Conflict with `url`
+     * @return The Github Enterprise URL. Used if `repoType` is `GithubEnterprise`. Conflict with `url`
      * 
      */
     public Optional<String> githubEnterpriseUrl() {
@@ -77,7 +77,7 @@ public final class BuildDefinitionRepository {
         return this.repoId;
     }
     /**
-     * @return The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise` or `Git`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+     * @return The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise` or `Git`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
      * 
      */
     public String repoType() {
@@ -91,14 +91,14 @@ public final class BuildDefinitionRepository {
         return Optional.ofNullable(this.reportBuildStatus);
     }
     /**
-     * @return The service connection ID. Used if the `repo_type` is `GitHub` or `GitHubEnterprise`.
+     * @return The service connection ID. Used if the `repoType` is `GitHub` or `GitHubEnterprise`.
      * 
      */
     public Optional<String> serviceConnectionId() {
         return Optional.ofNullable(this.serviceConnectionId);
     }
     /**
-     * @return The URL of the Git repository. Used if `repo_type` is `Git`. Conflict with `github_enterprise_url`
+     * @return The URL of the Git repository. Used if `repoType` is `Git`. Conflict with `githubEnterpriseUrl`
      * 
      */
     public Optional<String> url() {

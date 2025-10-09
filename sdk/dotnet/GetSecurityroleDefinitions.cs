@@ -146,7 +146,7 @@ namespace Pulumi.AzureDevOps
     public sealed class GetSecurityroleDefinitionsResult
     {
         /// <summary>
-        /// A list of existing Security Role Definitions in a Scope in your Azure DevOps Organization with details about every definition which includes. A `definitions` block as defined below.
+        /// A list of existing Security Role Definitions in a Scope in your Azure DevOps Organization with details about every definition which includes. A `Definitions` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSecurityroleDefinitionsDefinitionResult> Definitions;
         /// <summary>

@@ -14,7 +14,7 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class BuildDefinitionJobTargetExecutionOptions
     {
         /// <summary>
-        /// Whether to continue the job when an error occurs. Possible values are: `true`, `false`.
+        /// Whether to continue the job when an error occurs. Possible values are: `True`, `False`.
         /// </summary>
         public readonly bool? ContinueOnError;
         /// <summary>

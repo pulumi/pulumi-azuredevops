@@ -23,7 +23,7 @@ public final class BuildDefinitionCiTriggerOverride {
      */
     private @Nullable Boolean batch;
     /**
-     * @return The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
+     * @return The branches to include and exclude from the trigger. A `branchFilter` block as documented below.
      * 
      */
     private List<BuildDefinitionCiTriggerOverrideBranchFilter> branchFilters;
@@ -57,7 +57,7 @@ public final class BuildDefinitionCiTriggerOverride {
         return Optional.ofNullable(this.batch);
     }
     /**
-     * @return The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
+     * @return The branches to include and exclude from the trigger. A `branchFilter` block as documented below.
      * 
      */
     public List<BuildDefinitionCiTriggerOverrideBranchFilter> branchFilters() {

@@ -13,33 +13,33 @@ namespace Pulumi.AzureDevOps.Inputs
     public sealed class BranchPolicyMinReviewersSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
+        /// Allow completion even if some reviewers vote to wait or reject. Defaults to `False`.
         /// </summary>
         [Input("allowCompletionWithRejectsOrWaits")]
         public Input<bool>? AllowCompletionWithRejectsOrWaits { get; set; }
 
         /// <summary>
-        /// Prohibit the most recent pusher from approving their own changes. Defaults to `false`.
+        /// Prohibit the most recent pusher from approving their own changes. Defaults to `False`.
         /// </summary>
         [Input("lastPusherCannotApprove")]
         public Input<bool>? LastPusherCannotApprove { get; set; }
 
         /// <summary>
-        /// On last iteration require vote. Defaults to `false`.
+        /// On last iteration require vote. Defaults to `False`.
         /// </summary>
         [Input("onLastIterationRequireVote")]
         public Input<bool>? OnLastIterationRequireVote { get; set; }
 
         /// <summary>
-        /// When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+        /// When new changes are pushed reset all code reviewer votes. Defaults to `False`.
         /// 
-        /// &gt; **Note:** If `on_push_reset_all_votes` is `true` then `on_push_reset_approved_votes` will be set to `true`. To enable `on_push_reset_approved_votes`, you need explicitly set `on_push_reset_all_votes` `false` or not configure.
+        /// &gt; **Note:** If `OnPushResetAllVotes` is `True` then `OnPushResetApprovedVotes` will be set to `True`. To enable `OnPushResetApprovedVotes`, you need explicitly set `OnPushResetAllVotes` `False` or not configure.
         /// </summary>
         [Input("onPushResetAllVotes")]
         public Input<bool>? OnPushResetAllVotes { get; set; }
 
         /// <summary>
-        /// When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
+        /// When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `False`.
         /// </summary>
         [Input("onPushResetApprovedVotes")]
         public Input<bool>? OnPushResetApprovedVotes { get; set; }
@@ -54,7 +54,7 @@ namespace Pulumi.AzureDevOps.Inputs
         private InputList<Inputs.BranchPolicyMinReviewersSettingsScopeArgs>? _scopes;
 
         /// <summary>
-        /// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        /// A `Scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         /// </summary>
         public InputList<Inputs.BranchPolicyMinReviewersSettingsScopeArgs> Scopes
         {
@@ -63,7 +63,7 @@ namespace Pulumi.AzureDevOps.Inputs
         }
 
         /// <summary>
-        /// Allow requesters to approve their own changes. Defaults to `false`.
+        /// Allow requesters to approve their own changes. Defaults to `False`.
         /// </summary>
         [Input("submitterCanVote")]
         public Input<bool>? SubmitterCanVote { get; set; }

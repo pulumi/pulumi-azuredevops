@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetIterationResult {
     /**
-     * @return A list of `children` blocks as defined below, empty if `has_children == false`
+     * @return A list of `children` blocks as defined below, empty if `hasChildren == false`
      * 
      */
     private List<GetIterationChildren> childrens;
@@ -49,7 +49,7 @@ public final class GetIterationResult {
 
     private GetIterationResult() {}
     /**
-     * @return A list of `children` blocks as defined below, empty if `has_children == false`
+     * @return A list of `children` blocks as defined below, empty if `hasChildren == false`
      * 
      */
     public List<GetIterationChildren> childrens() {

@@ -69,14 +69,14 @@ public final class VariableGroupVariableArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The secret value of the variable. If omitted, it will default to empty string. Used when `is_secret` set to `true`.
+     * The secret value of the variable. If omitted, it will default to empty string. Used when `isSecret` set to `true`.
      * 
      */
     @Import(name="secretValue")
     private @Nullable Output<String> secretValue;
 
     /**
-     * @return The secret value of the variable. If omitted, it will default to empty string. Used when `is_secret` set to `true`.
+     * @return The secret value of the variable. If omitted, it will default to empty string. Used when `isSecret` set to `true`.
      * 
      */
     public Optional<Output<String>> secretValue() {
@@ -198,7 +198,7 @@ public final class VariableGroupVariableArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param secretValue The secret value of the variable. If omitted, it will default to empty string. Used when `is_secret` set to `true`.
+         * @param secretValue The secret value of the variable. If omitted, it will default to empty string. Used when `isSecret` set to `true`.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class VariableGroupVariableArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param secretValue The secret value of the variable. If omitted, it will default to empty string. Used when `is_secret` set to `true`.
+         * @param secretValue The secret value of the variable. If omitted, it will default to empty string. Used when `isSecret` set to `true`.
          * 
          * @return builder
          * 

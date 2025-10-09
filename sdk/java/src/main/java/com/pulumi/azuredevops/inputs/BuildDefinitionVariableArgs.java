@@ -63,14 +63,14 @@ public final class BuildDefinitionVariableArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The secret value of the variable. Used when `is_secret` set to `true`.
+     * The secret value of the variable. Used when `isSecret` set to `true`.
      * 
      */
     @Import(name="secretValue")
     private @Nullable Output<String> secretValue;
 
     /**
-     * @return The secret value of the variable. Used when `is_secret` set to `true`.
+     * @return The secret value of the variable. Used when `isSecret` set to `true`.
      * 
      */
     public Optional<Output<String>> secretValue() {
@@ -184,7 +184,7 @@ public final class BuildDefinitionVariableArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param secretValue The secret value of the variable. Used when `is_secret` set to `true`.
+         * @param secretValue The secret value of the variable. Used when `isSecret` set to `true`.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class BuildDefinitionVariableArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param secretValue The secret value of the variable. Used when `is_secret` set to `true`.
+         * @param secretValue The secret value of the variable. Used when `isSecret` set to `true`.
          * 
          * @return builder
          * 

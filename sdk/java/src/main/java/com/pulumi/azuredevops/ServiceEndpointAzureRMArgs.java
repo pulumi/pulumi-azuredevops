@@ -186,7 +186,7 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
     /**
      * The server URL of the service endpoint. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+     * &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
      * 
      */
     @Import(name="serverUrl")
@@ -195,7 +195,7 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
     /**
      * @return The server URL of the service endpoint. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+     * &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
      * 
      */
     public Optional<Output<String>> serverUrl() {
@@ -507,7 +507,7 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
         /**
          * @param serverUrl The server URL of the service endpoint. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+         * &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
          * 
          * @return builder
          * 
@@ -520,7 +520,7 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
         /**
          * @param serverUrl The server URL of the service endpoint. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+         * &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
          * 
          * @return builder
          * 

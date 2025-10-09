@@ -21,14 +21,14 @@ public final class ServiceendpointOpenshiftArgs extends com.pulumi.resources.Res
     public static final ServiceendpointOpenshiftArgs Empty = new ServiceendpointOpenshiftArgs();
 
     /**
-     * Set this option to allow clients to accept a self-signed certificate. Available when using `auth_basic` or `auth_token` authorization.
+     * Set this option to allow clients to accept a self-signed certificate. Available when using `authBasic` or `authToken` authorization.
      * 
      */
     @Import(name="acceptUntrustedCerts")
     private @Nullable Output<Boolean> acceptUntrustedCerts;
 
     /**
-     * @return Set this option to allow clients to accept a self-signed certificate. Available when using `auth_basic` or `auth_token` authorization.
+     * @return Set this option to allow clients to accept a self-signed certificate. Available when using `authBasic` or `authToken` authorization.
      * 
      */
     public Optional<Output<Boolean>> acceptUntrustedCerts() {
@@ -36,14 +36,14 @@ public final class ServiceendpointOpenshiftArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * An `auth_basic` block as documented below.
+     * An `authBasic` block as documented below.
      * 
      */
     @Import(name="authBasic")
     private @Nullable Output<ServiceendpointOpenshiftAuthBasicArgs> authBasic;
 
     /**
-     * @return An `auth_basic` block as documented below.
+     * @return An `authBasic` block as documented below.
      * 
      */
     public Optional<Output<ServiceendpointOpenshiftAuthBasicArgs>> authBasic() {
@@ -51,14 +51,14 @@ public final class ServiceendpointOpenshiftArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * An `auth_none` block as documented below.
+     * An `authNone` block as documented below.
      * 
      */
     @Import(name="authNone")
     private @Nullable Output<ServiceendpointOpenshiftAuthNoneArgs> authNone;
 
     /**
-     * @return An `auth_none` block as documented below.
+     * @return An `authNone` block as documented below.
      * 
      */
     public Optional<Output<ServiceendpointOpenshiftAuthNoneArgs>> authNone() {
@@ -66,14 +66,14 @@ public final class ServiceendpointOpenshiftArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * An `auth_token` block as documented below.
+     * An `authToken` block as documented below.
      * 
      */
     @Import(name="authToken")
     private @Nullable Output<ServiceendpointOpenshiftAuthTokenArgs> authToken;
 
     /**
-     * @return An `auth_token` block as documented below.
+     * @return An `authToken` block as documented below.
      * 
      */
     public Optional<Output<ServiceendpointOpenshiftAuthTokenArgs>> authToken() {
@@ -81,14 +81,14 @@ public final class ServiceendpointOpenshiftArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `auth_basic` or `auth_token` authorization.
+     * The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `authBasic` or `authToken` authorization.
      * 
      */
     @Import(name="certificateAuthorityFile")
     private @Nullable Output<String> certificateAuthorityFile;
 
     /**
-     * @return The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `auth_basic` or `auth_token` authorization.
+     * @return The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `authBasic` or `authToken` authorization.
      * 
      */
     public Optional<Output<String>> certificateAuthorityFile() {
@@ -180,7 +180,7 @@ public final class ServiceendpointOpenshiftArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param acceptUntrustedCerts Set this option to allow clients to accept a self-signed certificate. Available when using `auth_basic` or `auth_token` authorization.
+         * @param acceptUntrustedCerts Set this option to allow clients to accept a self-signed certificate. Available when using `authBasic` or `authToken` authorization.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class ServiceendpointOpenshiftArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param acceptUntrustedCerts Set this option to allow clients to accept a self-signed certificate. Available when using `auth_basic` or `auth_token` authorization.
+         * @param acceptUntrustedCerts Set this option to allow clients to accept a self-signed certificate. Available when using `authBasic` or `authToken` authorization.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class ServiceendpointOpenshiftArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param authBasic An `auth_basic` block as documented below.
+         * @param authBasic An `authBasic` block as documented below.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class ServiceendpointOpenshiftArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param authBasic An `auth_basic` block as documented below.
+         * @param authBasic An `authBasic` block as documented below.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class ServiceendpointOpenshiftArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param authNone An `auth_none` block as documented below.
+         * @param authNone An `authNone` block as documented below.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class ServiceendpointOpenshiftArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param authNone An `auth_none` block as documented below.
+         * @param authNone An `authNone` block as documented below.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class ServiceendpointOpenshiftArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param authToken An `auth_token` block as documented below.
+         * @param authToken An `authToken` block as documented below.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class ServiceendpointOpenshiftArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param authToken An `auth_token` block as documented below.
+         * @param authToken An `authToken` block as documented below.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class ServiceendpointOpenshiftArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param certificateAuthorityFile The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `auth_basic` or `auth_token` authorization.
+         * @param certificateAuthorityFile The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `authBasic` or `authToken` authorization.
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class ServiceendpointOpenshiftArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param certificateAuthorityFile The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `auth_basic` or `auth_token` authorization.
+         * @param certificateAuthorityFile The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `authBasic` or `authToken` authorization.
          * 
          * @return builder
          * 

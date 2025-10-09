@@ -31,14 +31,14 @@ public final class ServicehookStorageQueuePipelinesStageStateChangedEventArgs ex
     }
 
     /**
-     * Which stage should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all stages will trigger the event.
+     * Which stage should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all stages will trigger the event.
      * 
      */
     @Import(name="stageName")
     private @Nullable Output<String> stageName;
 
     /**
-     * @return Which stage should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all stages will trigger the event.
+     * @return Which stage should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all stages will trigger the event.
      * 
      */
     public Optional<Output<String>> stageName() {
@@ -46,14 +46,14 @@ public final class ServicehookStorageQueuePipelinesStageStateChangedEventArgs ex
     }
 
     /**
-     * Which stage result should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all results will trigger the event.
+     * Which stage result should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all results will trigger the event.
      * 
      */
     @Import(name="stageResultFilter")
     private @Nullable Output<String> stageResultFilter;
 
     /**
-     * @return Which stage result should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all results will trigger the event.
+     * @return Which stage result should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all results will trigger the event.
      * 
      */
     public Optional<Output<String>> stageResultFilter() {
@@ -61,14 +61,14 @@ public final class ServicehookStorageQueuePipelinesStageStateChangedEventArgs ex
     }
 
     /**
-     * Which stage state should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all states will trigger the event.
+     * Which stage state should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all states will trigger the event.
      * 
      */
     @Import(name="stageStateFilter")
     private @Nullable Output<String> stageStateFilter;
 
     /**
-     * @return Which stage state should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all states will trigger the event.
+     * @return Which stage state should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all states will trigger the event.
      * 
      */
     public Optional<Output<String>> stageStateFilter() {
@@ -124,7 +124,7 @@ public final class ServicehookStorageQueuePipelinesStageStateChangedEventArgs ex
         }
 
         /**
-         * @param stageName Which stage should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all stages will trigger the event.
+         * @param stageName Which stage should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all stages will trigger the event.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class ServicehookStorageQueuePipelinesStageStateChangedEventArgs ex
         }
 
         /**
-         * @param stageName Which stage should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all stages will trigger the event.
+         * @param stageName Which stage should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all stages will trigger the event.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class ServicehookStorageQueuePipelinesStageStateChangedEventArgs ex
         }
 
         /**
-         * @param stageResultFilter Which stage result should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all results will trigger the event.
+         * @param stageResultFilter Which stage result should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all results will trigger the event.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class ServicehookStorageQueuePipelinesStageStateChangedEventArgs ex
         }
 
         /**
-         * @param stageResultFilter Which stage result should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all results will trigger the event.
+         * @param stageResultFilter Which stage result should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all results will trigger the event.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class ServicehookStorageQueuePipelinesStageStateChangedEventArgs ex
         }
 
         /**
-         * @param stageStateFilter Which stage state should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all states will trigger the event.
+         * @param stageStateFilter Which stage state should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all states will trigger the event.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class ServicehookStorageQueuePipelinesStageStateChangedEventArgs ex
         }
 
         /**
-         * @param stageStateFilter Which stage state should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all states will trigger the event.
+         * @param stageStateFilter Which stage state should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all states will trigger the event.
          * 
          * @return builder
          * 

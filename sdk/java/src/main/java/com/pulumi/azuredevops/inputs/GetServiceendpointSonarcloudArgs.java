@@ -49,7 +49,7 @@ public final class GetServiceendpointSonarcloudArgs extends com.pulumi.resources
     /**
      * the Name of the Service Endpoint.
      * 
-     * &gt; **NOTE:** One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
+     * &gt; **NOTE:** One of either `serviceEndpointId` or `serviceEndpointName` must be specified.
      * 
      */
     @Import(name="serviceEndpointName")
@@ -58,7 +58,7 @@ public final class GetServiceendpointSonarcloudArgs extends com.pulumi.resources
     /**
      * @return the Name of the Service Endpoint.
      * 
-     * &gt; **NOTE:** One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
+     * &gt; **NOTE:** One of either `serviceEndpointId` or `serviceEndpointName` must be specified.
      * 
      */
     public Optional<Output<String>> serviceEndpointName() {
@@ -136,7 +136,7 @@ public final class GetServiceendpointSonarcloudArgs extends com.pulumi.resources
         /**
          * @param serviceEndpointName the Name of the Service Endpoint.
          * 
-         * &gt; **NOTE:** One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
+         * &gt; **NOTE:** One of either `serviceEndpointId` or `serviceEndpointName` must be specified.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class GetServiceendpointSonarcloudArgs extends com.pulumi.resources
         /**
          * @param serviceEndpointName the Name of the Service Endpoint.
          * 
-         * &gt; **NOTE:** One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
+         * &gt; **NOTE:** One of either `serviceEndpointId` or `serviceEndpointName` must be specified.
          * 
          * @return builder
          * 

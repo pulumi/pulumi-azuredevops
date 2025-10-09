@@ -122,14 +122,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return this.descriptor;
     }
     /**
-     * The name of a new Azure DevOps group that is not backed by an external provider. The `origin_id` and `mail` arguments cannot be used simultaneously with `display_name`.
+     * The name of a new Azure DevOps group that is not backed by an external provider. The `originId` and `mail` arguments cannot be used simultaneously with `displayName`.
      * 
      */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
-     * @return The name of a new Azure DevOps group that is not backed by an external provider. The `origin_id` and `mail` arguments cannot be used simultaneously with `display_name`.
+     * @return The name of a new Azure DevOps group that is not backed by an external provider. The `originId` and `mail` arguments cannot be used simultaneously with `displayName`.
      * 
      */
     public Output<String> displayName() {
@@ -164,14 +164,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return this.groupId;
     }
     /**
-     * The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `origin_id` and `display_name` arguments cannot be used simultaneously with `mail`.
+     * The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `originId` and `displayName` arguments cannot be used simultaneously with `mail`.
      * 
      */
     @Export(name="mail", refs={String.class}, tree="[0]")
     private Output<String> mail;
 
     /**
-     * @return The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `origin_id` and `display_name` arguments cannot be used simultaneously with `mail`.
+     * @return The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `originId` and `displayName` arguments cannot be used simultaneously with `mail`.
      * 
      */
     public Output<String> mail() {
@@ -210,14 +210,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return this.origin;
     }
     /**
-     * The OriginID as a reference to a group from an external AD or AAD backed provider. The `scope`, `mail` and `display_name` arguments cannot be used simultaneously with `origin_id`.
+     * The OriginID as a reference to a group from an external AD or AAD backed provider. The `scope`, `mail` and `displayName` arguments cannot be used simultaneously with `originId`.
      * 
      */
     @Export(name="originId", refs={String.class}, tree="[0]")
     private Output<String> originId;
 
     /**
-     * @return The OriginID as a reference to a group from an external AD or AAD backed provider. The `scope`, `mail` and `display_name` arguments cannot be used simultaneously with `origin_id`.
+     * @return The OriginID as a reference to a group from an external AD or AAD backed provider. The `scope`, `mail` and `displayName` arguments cannot be used simultaneously with `originId`.
      * 
      */
     public Output<String> originId() {

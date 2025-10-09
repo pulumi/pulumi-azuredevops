@@ -26,21 +26,21 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly ImmutableArray<string> FilenamePatterns;
         /// <summary>
-        /// If set to true, the build will need to be manually queued. Defaults to `false`
+        /// If set to true, the build will need to be manually queued. Defaults to `False`
         /// </summary>
         public readonly bool? ManualQueueOnly;
         /// <summary>
-        /// True if the build should queue on source updates only. Defaults to `true`.
+        /// True if the build should queue on source updates only. Defaults to `True`.
         /// </summary>
         public readonly bool? QueueOnSourceUpdateOnly;
         /// <summary>
-        /// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        /// A `Scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         /// </summary>
         public readonly ImmutableArray<Outputs.BranchPolicyBuildValidationSettingsScope> Scopes;
         /// <summary>
         /// The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
         /// 
-        /// &gt; **Note** Combine `valid_duration` and `queue_on_source_update_only` to set the build expiration.
+        /// &gt; **Note** Combine `ValidDuration` and `QueueOnSourceUpdateOnly` to set the build expiration.
         /// 1.  Expire immediately when branch is updated: `valid_duration=0` and `queue_on_source_update_only=false`
         /// 2.  Expire after a period of time : `valid_duration=360` and `queue_on_source_update_only=true`
         /// 3.  Never expire: `valid_duration=0` and `queue_on_source_update_only=true`

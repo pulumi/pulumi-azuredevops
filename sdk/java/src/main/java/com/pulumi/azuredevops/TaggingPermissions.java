@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Permission levels
  * 
  * Permissions for tagging within Azure DevOps can be applied only on Organizational and Project level.
- * The project level is reflected by specifying the argument `project_id`, otherwise the permissions are set on the organizational level.
+ * The project level is reflected by specifying the argument `projectId`, otherwise the permissions are set on the organizational level.
  * 
  * ## Example Usage
  * 

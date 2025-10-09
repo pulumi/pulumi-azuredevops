@@ -135,7 +135,7 @@ namespace Pulumi.AzureDevOps
         public Output<int?> PipelineId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the project where the pipeline exists. Defaults to `project_id` if not specified. Changing this forces a new resource to be created
+        /// The ID of the project where the pipeline exists. Defaults to `ProjectId` if not specified. Changing this forces a new resource to be created
         /// </summary>
         [Output("pipelineProjectId")]
         public Output<string?> PipelineProjectId { get; private set; } = null!;
@@ -153,12 +153,12 @@ namespace Pulumi.AzureDevOps
         public Output<string> ResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource to authorize. Possible values are: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
+        /// The type of the resource to authorize. Possible values are: `Endpoint`, `Queue`, `Variablegroup`, `Environment`, `Repository`. Changing this forces a new resource to be created
         /// 
-        /// &gt; **Note** `repository` is for AzureDevOps repository. To authorize repository other than
-        /// Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.
+        /// &gt; **Note** `Repository` is for AzureDevOps repository. To authorize repository other than
+        /// Azure DevOps like GitHub you need to use service connection(`Endpoint`)  to connect and authorize.
         /// Typical process for connecting to GitHub:
-        /// **Pipeline  &lt;----&gt; Service Connection(`endpoint`) &lt;----&gt; GitHub Repository**
+        /// **Pipeline  &lt;----&gt; Service Connection(`Endpoint`) &lt;----&gt; GitHub Repository**
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -216,7 +216,7 @@ namespace Pulumi.AzureDevOps
         public Input<int>? PipelineId { get; set; }
 
         /// <summary>
-        /// The ID of the project where the pipeline exists. Defaults to `project_id` if not specified. Changing this forces a new resource to be created
+        /// The ID of the project where the pipeline exists. Defaults to `ProjectId` if not specified. Changing this forces a new resource to be created
         /// </summary>
         [Input("pipelineProjectId")]
         public Input<string>? PipelineProjectId { get; set; }
@@ -234,12 +234,12 @@ namespace Pulumi.AzureDevOps
         public Input<string> ResourceId { get; set; } = null!;
 
         /// <summary>
-        /// The type of the resource to authorize. Possible values are: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
+        /// The type of the resource to authorize. Possible values are: `Endpoint`, `Queue`, `Variablegroup`, `Environment`, `Repository`. Changing this forces a new resource to be created
         /// 
-        /// &gt; **Note** `repository` is for AzureDevOps repository. To authorize repository other than
-        /// Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.
+        /// &gt; **Note** `Repository` is for AzureDevOps repository. To authorize repository other than
+        /// Azure DevOps like GitHub you need to use service connection(`Endpoint`)  to connect and authorize.
         /// Typical process for connecting to GitHub:
-        /// **Pipeline  &lt;----&gt; Service Connection(`endpoint`) &lt;----&gt; GitHub Repository**
+        /// **Pipeline  &lt;----&gt; Service Connection(`Endpoint`) &lt;----&gt; GitHub Repository**
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -259,7 +259,7 @@ namespace Pulumi.AzureDevOps
         public Input<int>? PipelineId { get; set; }
 
         /// <summary>
-        /// The ID of the project where the pipeline exists. Defaults to `project_id` if not specified. Changing this forces a new resource to be created
+        /// The ID of the project where the pipeline exists. Defaults to `ProjectId` if not specified. Changing this forces a new resource to be created
         /// </summary>
         [Input("pipelineProjectId")]
         public Input<string>? PipelineProjectId { get; set; }
@@ -277,12 +277,12 @@ namespace Pulumi.AzureDevOps
         public Input<string>? ResourceId { get; set; }
 
         /// <summary>
-        /// The type of the resource to authorize. Possible values are: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
+        /// The type of the resource to authorize. Possible values are: `Endpoint`, `Queue`, `Variablegroup`, `Environment`, `Repository`. Changing this forces a new resource to be created
         /// 
-        /// &gt; **Note** `repository` is for AzureDevOps repository. To authorize repository other than
-        /// Azure DevOps like GitHub you need to use service connection(`endpoint`)  to connect and authorize.
+        /// &gt; **Note** `Repository` is for AzureDevOps repository. To authorize repository other than
+        /// Azure DevOps like GitHub you need to use service connection(`Endpoint`)  to connect and authorize.
         /// Typical process for connecting to GitHub:
-        /// **Pipeline  &lt;----&gt; Service Connection(`endpoint`) &lt;----&gt; GitHub Repository**
+        /// **Pipeline  &lt;----&gt; Service Connection(`Endpoint`) &lt;----&gt; GitHub Repository**
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

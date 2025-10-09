@@ -14,11 +14,11 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class GetBuildDefinitionJobTargetResult
     {
         /// <summary>
-        /// A list of demands that represents the agent capabilities required by this build. Example: `git`
+        /// A list of demands that represents the agent capabilities required by this build. Example: `Git`
         /// </summary>
         public readonly ImmutableArray<string> Demands;
         /// <summary>
-        /// A `execution_options` blocks as documented below.
+        /// A `ExecutionOptions` blocks as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBuildDefinitionJobTargetExecutionOptionResult> ExecutionOptions;
         /// <summary>

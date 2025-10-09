@@ -30,7 +30,7 @@ public final class GetVariableGroupResult {
      */
     private String id;
     /**
-     * @return A list of `key_vault` blocks as documented below.
+     * @return A list of `keyVault` blocks as documented below.
      * 
      */
     private List<GetVariableGroupKeyVault> keyVaults;
@@ -69,7 +69,7 @@ public final class GetVariableGroupResult {
         return this.id;
     }
     /**
-     * @return A list of `key_vault` blocks as documented below.
+     * @return A list of `keyVault` blocks as documented below.
      * 
      */
     public List<GetVariableGroupKeyVault> keyVaults() {

@@ -14,11 +14,11 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class GetBuildDefinitionVariableResult
     {
         /// <summary>
-        /// `true` if the variable can be overridden.
+        /// `True` if the variable can be overridden.
         /// </summary>
         public readonly bool AllowOverride;
         /// <summary>
-        /// `true` if the variable is a secret.
+        /// `True` if the variable is a secret.
         /// </summary>
         public readonly bool IsSecret;
         /// <summary>

@@ -22,7 +22,7 @@ namespace Pulumi.AzureDevOps.Inputs
         public Input<string>? Expires { get; set; }
 
         /// <summary>
-        /// A boolean flag describing if the variable value is sensitive. Defaults to `false`.
+        /// A boolean flag describing if the variable value is sensitive. Defaults to `False`.
         /// </summary>
         [Input("isSecret")]
         public Input<bool>? IsSecret { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.AzureDevOps.Inputs
         private Input<string>? _secretValue;
 
         /// <summary>
-        /// The secret value of the variable. If omitted, it will default to empty string. Used when `is_secret` set to `true`.
+        /// The secret value of the variable. If omitted, it will default to empty string. Used when `IsSecret` set to `True`.
         /// </summary>
         public Input<string>? SecretValue
         {

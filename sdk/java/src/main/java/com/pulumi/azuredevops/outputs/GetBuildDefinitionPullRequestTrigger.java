@@ -25,7 +25,7 @@ public final class GetBuildDefinitionPullRequestTrigger {
      */
     private List<GetBuildDefinitionPullRequestTriggerFork> forks;
     /**
-     * @return When use_yaml is true set this to the name of the branch that the azure-pipelines.yml exists on.
+     * @return When useYaml is true set this to the name of the branch that the azure-pipelines.yml exists on.
      * 
      */
     private String initialBranch;
@@ -56,7 +56,7 @@ public final class GetBuildDefinitionPullRequestTrigger {
         return this.forks;
     }
     /**
-     * @return When use_yaml is true set this to the name of the branch that the azure-pipelines.yml exists on.
+     * @return When useYaml is true set this to the name of the branch that the azure-pipelines.yml exists on.
      * 
      */
     public String initialBranch() {

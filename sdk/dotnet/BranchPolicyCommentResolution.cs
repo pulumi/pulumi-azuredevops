@@ -85,13 +85,13 @@ namespace Pulumi.AzureDevOps
     public partial class BranchPolicyCommentResolution : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A flag indicating if the policy should be blocking. Defaults to `true`.
+        /// A flag indicating if the policy should be blocking. Defaults to `True`.
         /// </summary>
         [Output("blocking")]
         public Output<bool?> Blocking { get; private set; } = null!;
 
         /// <summary>
-        /// A flag indicating if the policy should be enabled. Defaults to `true`.
+        /// A flag indicating if the policy should be enabled. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> ProjectId { get; private set; } = null!;
 
         /// <summary>
-        /// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
+        /// A `Settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
         /// </summary>
         [Output("settings")]
         public Output<Outputs.BranchPolicyCommentResolutionSettings> Settings { get; private set; } = null!;
@@ -155,13 +155,13 @@ namespace Pulumi.AzureDevOps
     public sealed class BranchPolicyCommentResolutionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A flag indicating if the policy should be blocking. Defaults to `true`.
+        /// A flag indicating if the policy should be blocking. Defaults to `True`.
         /// </summary>
         [Input("blocking")]
         public Input<bool>? Blocking { get; set; }
 
         /// <summary>
-        /// A flag indicating if the policy should be enabled. Defaults to `true`.
+        /// A flag indicating if the policy should be enabled. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -173,7 +173,7 @@ namespace Pulumi.AzureDevOps
         public Input<string> ProjectId { get; set; } = null!;
 
         /// <summary>
-        /// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
+        /// A `Settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
         /// </summary>
         [Input("settings", required: true)]
         public Input<Inputs.BranchPolicyCommentResolutionSettingsArgs> Settings { get; set; } = null!;
@@ -187,13 +187,13 @@ namespace Pulumi.AzureDevOps
     public sealed class BranchPolicyCommentResolutionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A flag indicating if the policy should be blocking. Defaults to `true`.
+        /// A flag indicating if the policy should be blocking. Defaults to `True`.
         /// </summary>
         [Input("blocking")]
         public Input<bool>? Blocking { get; set; }
 
         /// <summary>
-        /// A flag indicating if the policy should be enabled. Defaults to `true`.
+        /// A flag indicating if the policy should be enabled. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -205,7 +205,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? ProjectId { get; set; }
 
         /// <summary>
-        /// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
+        /// A `Settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
         /// </summary>
         [Input("settings")]
         public Input<Inputs.BranchPolicyCommentResolutionSettingsGetArgs>? Settings { get; set; }

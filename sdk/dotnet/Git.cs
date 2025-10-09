@@ -34,13 +34,13 @@ namespace Pulumi.AzureDevOps
         public Output<string> DefaultBranch { get; private set; } = null!;
 
         /// <summary>
-        /// The ability to disable or enable the repository. Defaults to `false`.
+        /// The ability to disable or enable the repository. Defaults to `False`.
         /// </summary>
         [Output("disabled")]
         public Output<bool?> Disabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `initialization` block as documented below.
+        /// A `Initialization` block as documented below.
         /// </summary>
         [Output("initialization")]
         public Output<Outputs.GitInitialization> Initialization { get; private set; } = null!;
@@ -152,13 +152,13 @@ namespace Pulumi.AzureDevOps
         public Input<string>? DefaultBranch { get; set; }
 
         /// <summary>
-        /// The ability to disable or enable the repository. Defaults to `false`.
+        /// The ability to disable or enable the repository. Defaults to `False`.
         /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
 
         /// <summary>
-        /// A `initialization` block as documented below.
+        /// A `Initialization` block as documented below.
         /// </summary>
         [Input("initialization", required: true)]
         public Input<Inputs.GitInitializationArgs> Initialization { get; set; } = null!;
@@ -196,13 +196,13 @@ namespace Pulumi.AzureDevOps
         public Input<string>? DefaultBranch { get; set; }
 
         /// <summary>
-        /// The ability to disable or enable the repository. Defaults to `false`.
+        /// The ability to disable or enable the repository. Defaults to `False`.
         /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
 
         /// <summary>
-        /// A `initialization` block as documented below.
+        /// A `Initialization` block as documented below.
         /// </summary>
         [Input("initialization")]
         public Input<Inputs.GitInitializationGetArgs>? Initialization { get; set; }
