@@ -175,7 +175,7 @@ namespace Pulumi.AzureDevOps
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Project. If `project_id` is not specified the project collection groups will be searched.
+        /// The ID of the Project. If `ProjectId` is not specified the project collection groups will be searched.
         /// </summary>
         [Input("projectId")]
         public string? ProjectId { get; set; }
@@ -195,7 +195,7 @@ namespace Pulumi.AzureDevOps
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Project. If `project_id` is not specified the project collection groups will be searched.
+        /// The ID of the Project. If `ProjectId` is not specified the project collection groups will be searched.
         /// </summary>
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }

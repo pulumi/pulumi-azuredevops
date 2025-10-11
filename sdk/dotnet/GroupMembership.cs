@@ -71,7 +71,7 @@ namespace Pulumi.AzureDevOps
         /// A list of user or group descriptors that will become members of the group.
         /// 
         /// &gt; **NOTE** 1. It's possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
-        /// &lt;br&gt;2. The `members` uses `descriptor` as the identifier not Resource ID or others.
+        /// &lt;br&gt;2. The `Members` uses `Descriptor` as the identifier not Resource ID or others.
         /// </summary>
         [Output("members")]
         public Output<ImmutableArray<string>> Members { get; private set; } = null!;
@@ -80,8 +80,8 @@ namespace Pulumi.AzureDevOps
         /// The mode how the resource manages group members.
         /// 
         /// ~&gt;**NOTE** 1. `mode = add`: the resource will ensure that all specified members will be part of the referenced group
-        /// &lt;br&gt;2. `mode = overwrite`: the resource will replace all existing members with the members specified within the `members` block
-        /// &lt;br&gt;3. To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
+        /// &lt;br&gt;2. `mode = overwrite`: the resource will replace all existing members with the members specified within the `Members` block
+        /// &lt;br&gt;3. To clear all members from a group, specify an empty list of descriptors in the `Members` attribute and set the `Mode` member to `Overwrite`.
         /// </summary>
         [Output("mode")]
         public Output<string?> Mode { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.AzureDevOps
         /// A list of user or group descriptors that will become members of the group.
         /// 
         /// &gt; **NOTE** 1. It's possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
-        /// &lt;br&gt;2. The `members` uses `descriptor` as the identifier not Resource ID or others.
+        /// &lt;br&gt;2. The `Members` uses `Descriptor` as the identifier not Resource ID or others.
         /// </summary>
         public InputList<string> Members
         {
@@ -157,8 +157,8 @@ namespace Pulumi.AzureDevOps
         /// The mode how the resource manages group members.
         /// 
         /// ~&gt;**NOTE** 1. `mode = add`: the resource will ensure that all specified members will be part of the referenced group
-        /// &lt;br&gt;2. `mode = overwrite`: the resource will replace all existing members with the members specified within the `members` block
-        /// &lt;br&gt;3. To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
+        /// &lt;br&gt;2. `mode = overwrite`: the resource will replace all existing members with the members specified within the `Members` block
+        /// &lt;br&gt;3. To clear all members from a group, specify an empty list of descriptors in the `Members` attribute and set the `Mode` member to `Overwrite`.
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
@@ -184,7 +184,7 @@ namespace Pulumi.AzureDevOps
         /// A list of user or group descriptors that will become members of the group.
         /// 
         /// &gt; **NOTE** 1. It's possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
-        /// &lt;br&gt;2. The `members` uses `descriptor` as the identifier not Resource ID or others.
+        /// &lt;br&gt;2. The `Members` uses `Descriptor` as the identifier not Resource ID or others.
         /// </summary>
         public InputList<string> Members
         {
@@ -196,8 +196,8 @@ namespace Pulumi.AzureDevOps
         /// The mode how the resource manages group members.
         /// 
         /// ~&gt;**NOTE** 1. `mode = add`: the resource will ensure that all specified members will be part of the referenced group
-        /// &lt;br&gt;2. `mode = overwrite`: the resource will replace all existing members with the members specified within the `members` block
-        /// &lt;br&gt;3. To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
+        /// &lt;br&gt;2. `mode = overwrite`: the resource will replace all existing members with the members specified within the `Members` block
+        /// &lt;br&gt;3. To clear all members from a group, specify an empty list of descriptors in the `Members` attribute and set the `Mode` member to `Overwrite`.
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }

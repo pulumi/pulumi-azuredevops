@@ -190,7 +190,7 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A list of `key_vault` blocks as documented below.
+        /// A list of `KeyVault` blocks as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVariableGroupKeyVaultResult> KeyVaults;
         /// <summary>
@@ -199,7 +199,7 @@ namespace Pulumi.AzureDevOps
         public readonly string Name;
         public readonly string ProjectId;
         /// <summary>
-        /// One or more `variable` blocks as documented below.
+        /// One or more `Variable` blocks as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVariableGroupVariableResult> Variables;
 

@@ -15,7 +15,7 @@ import java.util.Objects;
 @CustomType
 public final class GetBuildDefinitionSchedule {
     /**
-     * @return A `branch_filter` block as defined above.
+     * @return A `branchFilter` block as defined above.
      * 
      */
     private List<GetBuildDefinitionScheduleBranchFilter> branchFilters;
@@ -52,7 +52,7 @@ public final class GetBuildDefinitionSchedule {
 
     private GetBuildDefinitionSchedule() {}
     /**
-     * @return A `branch_filter` block as defined above.
+     * @return A `branchFilter` block as defined above.
      * 
      */
     public List<GetBuildDefinitionScheduleBranchFilter> branchFilters() {

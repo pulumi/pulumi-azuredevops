@@ -201,32 +201,32 @@ public class ServicehookStorageQueuePipelines extends com.pulumi.resources.Custo
         return this.queueName;
     }
     /**
-     * A `run_state_changed_event` block as defined below. Conflicts with `stage_state_changed_event`
+     * A `runStateChangedEvent` block as defined below. Conflicts with `stageStateChangedEvent`
      * 
      */
     @Export(name="runStateChangedEvent", refs={ServicehookStorageQueuePipelinesRunStateChangedEvent.class}, tree="[0]")
     private Output</* @Nullable */ ServicehookStorageQueuePipelinesRunStateChangedEvent> runStateChangedEvent;
 
     /**
-     * @return A `run_state_changed_event` block as defined below. Conflicts with `stage_state_changed_event`
+     * @return A `runStateChangedEvent` block as defined below. Conflicts with `stageStateChangedEvent`
      * 
      */
     public Output<Optional<ServicehookStorageQueuePipelinesRunStateChangedEvent>> runStateChangedEvent() {
         return Codegen.optional(this.runStateChangedEvent);
     }
     /**
-     * A `stage_state_changed_event` block as defined below. Conflicts with `run_state_changed_event`
+     * A `stageStateChangedEvent` block as defined below. Conflicts with `runStateChangedEvent`
      * 
-     * &gt; **Note** At least one of `run_state_changed_event` and `stage_state_changed_event` has to be set.
+     * &gt; **Note** At least one of `runStateChangedEvent` and `stageStateChangedEvent` has to be set.
      * 
      */
     @Export(name="stageStateChangedEvent", refs={ServicehookStorageQueuePipelinesStageStateChangedEvent.class}, tree="[0]")
     private Output</* @Nullable */ ServicehookStorageQueuePipelinesStageStateChangedEvent> stageStateChangedEvent;
 
     /**
-     * @return A `stage_state_changed_event` block as defined below. Conflicts with `run_state_changed_event`
+     * @return A `stageStateChangedEvent` block as defined below. Conflicts with `runStateChangedEvent`
      * 
-     * &gt; **Note** At least one of `run_state_changed_event` and `stage_state_changed_event` has to be set.
+     * &gt; **Note** At least one of `runStateChangedEvent` and `stageStateChangedEvent` has to be set.
      * 
      */
     public Output<Optional<ServicehookStorageQueuePipelinesStageStateChangedEvent>> stageStateChangedEvent() {

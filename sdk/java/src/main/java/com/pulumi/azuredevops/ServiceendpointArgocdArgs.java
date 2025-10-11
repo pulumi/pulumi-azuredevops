@@ -19,18 +19,18 @@ public final class ServiceendpointArgocdArgs extends com.pulumi.resources.Resour
     public static final ServiceendpointArgocdArgs Empty = new ServiceendpointArgocdArgs();
 
     /**
-     * An `authentication_basic` block for the ArgoCD as documented below.
+     * An `authenticationBasic` block for the ArgoCD as documented below.
      * 
-     * &gt; **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
+     * &gt; **NOTE:** `authenticationBasic` and `authenticationToken` conflict with each other, only one is required.
      * 
      */
     @Import(name="authenticationBasic")
     private @Nullable Output<ServiceendpointArgocdAuthenticationBasicArgs> authenticationBasic;
 
     /**
-     * @return An `authentication_basic` block for the ArgoCD as documented below.
+     * @return An `authenticationBasic` block for the ArgoCD as documented below.
      * 
-     * &gt; **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
+     * &gt; **NOTE:** `authenticationBasic` and `authenticationToken` conflict with each other, only one is required.
      * 
      */
     public Optional<Output<ServiceendpointArgocdAuthenticationBasicArgs>> authenticationBasic() {
@@ -38,14 +38,14 @@ public final class ServiceendpointArgocdArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * An `authentication_token` block for the ArgoCD as documented below.
+     * An `authenticationToken` block for the ArgoCD as documented below.
      * 
      */
     @Import(name="authenticationToken")
     private @Nullable Output<ServiceendpointArgocdAuthenticationTokenArgs> authenticationToken;
 
     /**
-     * @return An `authentication_token` block for the ArgoCD as documented below.
+     * @return An `authenticationToken` block for the ArgoCD as documented below.
      * 
      */
     public Optional<Output<ServiceendpointArgocdAuthenticationTokenArgs>> authenticationToken() {
@@ -142,9 +142,9 @@ public final class ServiceendpointArgocdArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param authenticationBasic An `authentication_basic` block for the ArgoCD as documented below.
+         * @param authenticationBasic An `authenticationBasic` block for the ArgoCD as documented below.
          * 
-         * &gt; **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
+         * &gt; **NOTE:** `authenticationBasic` and `authenticationToken` conflict with each other, only one is required.
          * 
          * @return builder
          * 
@@ -155,9 +155,9 @@ public final class ServiceendpointArgocdArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param authenticationBasic An `authentication_basic` block for the ArgoCD as documented below.
+         * @param authenticationBasic An `authenticationBasic` block for the ArgoCD as documented below.
          * 
-         * &gt; **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
+         * &gt; **NOTE:** `authenticationBasic` and `authenticationToken` conflict with each other, only one is required.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class ServiceendpointArgocdArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param authenticationToken An `authentication_token` block for the ArgoCD as documented below.
+         * @param authenticationToken An `authenticationToken` block for the ArgoCD as documented below.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class ServiceendpointArgocdArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param authenticationToken An `authentication_token` block for the ArgoCD as documented below.
+         * @param authenticationToken An `authenticationToken` block for the ArgoCD as documented below.
          * 
          * @return builder
          * 

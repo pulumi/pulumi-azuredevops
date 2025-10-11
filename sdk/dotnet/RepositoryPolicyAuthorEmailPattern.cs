@@ -118,13 +118,13 @@ namespace Pulumi.AzureDevOps
         public Output<ImmutableArray<string>> AuthorEmailPatterns { get; private set; } = null!;
 
         /// <summary>
-        /// A flag indicating if the policy should be blocking. Defaults to `true`.
+        /// A flag indicating if the policy should be blocking. Defaults to `True`.
         /// </summary>
         [Output("blocking")]
         public Output<bool?> Blocking { get; private set; } = null!;
 
         /// <summary>
-        /// A flag indicating if the policy should be enabled. Defaults to `true`.
+        /// A flag indicating if the policy should be enabled. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> ProjectId { get; private set; } = null!;
 
         /// <summary>
-        /// Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
+        /// Control whether the policy is enabled for the repository or the project. If `RepositoryIds` not configured, the policy will be set to the project.
         /// </summary>
         [Output("repositoryIds")]
         public Output<ImmutableArray<string>> RepositoryIds { get; private set; } = null!;
@@ -202,13 +202,13 @@ namespace Pulumi.AzureDevOps
         }
 
         /// <summary>
-        /// A flag indicating if the policy should be blocking. Defaults to `true`.
+        /// A flag indicating if the policy should be blocking. Defaults to `True`.
         /// </summary>
         [Input("blocking")]
         public Input<bool>? Blocking { get; set; }
 
         /// <summary>
-        /// A flag indicating if the policy should be enabled. Defaults to `true`.
+        /// A flag indicating if the policy should be enabled. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -223,7 +223,7 @@ namespace Pulumi.AzureDevOps
         private InputList<string>? _repositoryIds;
 
         /// <summary>
-        /// Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
+        /// Control whether the policy is enabled for the repository or the project. If `RepositoryIds` not configured, the policy will be set to the project.
         /// </summary>
         public InputList<string> RepositoryIds
         {
@@ -254,13 +254,13 @@ namespace Pulumi.AzureDevOps
         }
 
         /// <summary>
-        /// A flag indicating if the policy should be blocking. Defaults to `true`.
+        /// A flag indicating if the policy should be blocking. Defaults to `True`.
         /// </summary>
         [Input("blocking")]
         public Input<bool>? Blocking { get; set; }
 
         /// <summary>
-        /// A flag indicating if the policy should be enabled. Defaults to `true`.
+        /// A flag indicating if the policy should be enabled. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -275,7 +275,7 @@ namespace Pulumi.AzureDevOps
         private InputList<string>? _repositoryIds;
 
         /// <summary>
-        /// Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
+        /// Control whether the policy is enabled for the repository or the project. If `RepositoryIds` not configured, the policy will be set to the project.
         /// </summary>
         public InputList<string> RepositoryIds
         {

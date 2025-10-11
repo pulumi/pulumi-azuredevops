@@ -130,7 +130,7 @@ namespace Pulumi.AzureDevOps
         public string? Name { get; set; }
 
         /// <summary>
-        /// State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
+        /// State of the Project, if not specified all projects will be returned. Valid values are `All`, `Deleting`, `New`, `wellFormed`, `createPending`, `Unchanged`,`Deleted`.
         /// 
         /// &gt; **NOTE:** DataSource without specifying any arguments will return all projects.
         /// </summary>
@@ -152,7 +152,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
+        /// State of the Project, if not specified all projects will be returned. Valid values are `All`, `Deleting`, `New`, `wellFormed`, `createPending`, `Unchanged`,`Deleted`.
         /// 
         /// &gt; **NOTE:** DataSource without specifying any arguments will return all projects.
         /// </summary>
@@ -178,7 +178,7 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// A list of `projects` blocks as documented below. A list of existing projects in your Azure DevOps Organization with details about every project which includes:
+        /// A list of `Projects` blocks as documented below. A list of existing projects in your Azure DevOps Organization with details about every project which includes:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetProjectsProjectResult> Projects;
         /// <summary>

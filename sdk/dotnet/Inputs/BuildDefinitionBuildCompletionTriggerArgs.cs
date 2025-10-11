@@ -16,7 +16,7 @@ namespace Pulumi.AzureDevOps.Inputs
         private InputList<Inputs.BuildDefinitionBuildCompletionTriggerBranchFilterArgs>? _branchFilters;
 
         /// <summary>
-        /// The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
+        /// The branches to include and exclude from the trigger. A `BranchFilter` block as documented below.
         /// </summary>
         public InputList<Inputs.BuildDefinitionBuildCompletionTriggerBranchFilterArgs> BranchFilters
         {

@@ -99,13 +99,13 @@ namespace Pulumi.AzureDevOps
     public partial class ServiceendpointJfrogXrayV2 : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `authentication_basic` block as documented below.
+        /// An `AuthenticationBasic` block as documented below.
         /// </summary>
         [Output("authenticationBasic")]
         public Output<Outputs.ServiceendpointJfrogXrayV2AuthenticationBasic?> AuthenticationBasic { get; private set; } = null!;
 
         /// <summary>
-        /// An `authentication_token` block as documented below.
+        /// An `AuthenticationToken` block as documented below.
         /// </summary>
         [Output("authenticationToken")]
         public Output<Outputs.ServiceendpointJfrogXrayV2AuthenticationToken?> AuthenticationToken { get; private set; } = null!;
@@ -186,13 +186,13 @@ namespace Pulumi.AzureDevOps
     public sealed class ServiceendpointJfrogXrayV2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `authentication_basic` block as documented below.
+        /// An `AuthenticationBasic` block as documented below.
         /// </summary>
         [Input("authenticationBasic")]
         public Input<Inputs.ServiceendpointJfrogXrayV2AuthenticationBasicArgs>? AuthenticationBasic { get; set; }
 
         /// <summary>
-        /// An `authentication_token` block as documented below.
+        /// An `AuthenticationToken` block as documented below.
         /// </summary>
         [Input("authenticationToken")]
         public Input<Inputs.ServiceendpointJfrogXrayV2AuthenticationTokenArgs>? AuthenticationToken { get; set; }
@@ -232,13 +232,13 @@ namespace Pulumi.AzureDevOps
     public sealed class ServiceendpointJfrogXrayV2State : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `authentication_basic` block as documented below.
+        /// An `AuthenticationBasic` block as documented below.
         /// </summary>
         [Input("authenticationBasic")]
         public Input<Inputs.ServiceendpointJfrogXrayV2AuthenticationBasicGetArgs>? AuthenticationBasic { get; set; }
 
         /// <summary>
-        /// An `authentication_token` block as documented below.
+        /// An `AuthenticationToken` block as documented below.
         /// </summary>
         [Input("authenticationToken")]
         public Input<Inputs.ServiceendpointJfrogXrayV2AuthenticationTokenGetArgs>? AuthenticationToken { get; set; }

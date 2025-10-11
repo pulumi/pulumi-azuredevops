@@ -71,7 +71,7 @@ namespace Pulumi.AzureDevOps
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to ignore SSL errors when connecting to the Octopus server from the agent. Default to `false`.
+        /// Whether to ignore SSL errors when connecting to the Octopus server from the agent. Default to `False`.
         /// </summary>
         [Output("ignoreSslError")]
         public Output<bool?> IgnoreSslError { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Whether to ignore SSL errors when connecting to the Octopus server from the agent. Default to `false`.
+        /// Whether to ignore SSL errors when connecting to the Octopus server from the agent. Default to `False`.
         /// </summary>
         [Input("ignoreSslError")]
         public Input<bool>? IgnoreSslError { get; set; }
@@ -199,7 +199,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Whether to ignore SSL errors when connecting to the Octopus server from the agent. Default to `false`.
+        /// Whether to ignore SSL errors when connecting to the Octopus server from the agent. Default to `False`.
         /// </summary>
         [Input("ignoreSslError")]
         public Input<bool>? IgnoreSslError { get; set; }

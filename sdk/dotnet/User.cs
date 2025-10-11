@@ -57,7 +57,7 @@ namespace Pulumi.AzureDevOps
     public partial class User : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+        /// Type of Account License. Valid values: `Advanced`, `earlyAdopter`, `Express`, `None`, `Professional`, or `Stakeholder`. Defaults to `Express`. In addition the value `Basic` is allowed which is an alias for `Express` and reflects the name of the `Express` license used in the Azure DevOps web interface.
         /// </summary>
         [Output("accountLicenseType")]
         public Output<string?> AccountLicenseType { get; private set; } = null!;
@@ -69,9 +69,9 @@ namespace Pulumi.AzureDevOps
         public Output<string> Descriptor { get; private set; } = null!;
 
         /// <summary>
-        /// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+        /// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `Account` (Default), `Auto`, `Msdn`, `None`, `Profile`, `Trial`
         /// 
-        /// &gt; **NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.
+        /// &gt; **NOTE:** A user can only be referenced by it's `PrincipalName` or by the combination of `OriginId` and `Origin`.
         /// </summary>
         [Output("licensingSource")]
         public Output<string?> LicensingSource { get; private set; } = null!;
@@ -141,15 +141,15 @@ namespace Pulumi.AzureDevOps
     public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+        /// Type of Account License. Valid values: `Advanced`, `earlyAdopter`, `Express`, `None`, `Professional`, or `Stakeholder`. Defaults to `Express`. In addition the value `Basic` is allowed which is an alias for `Express` and reflects the name of the `Express` license used in the Azure DevOps web interface.
         /// </summary>
         [Input("accountLicenseType")]
         public Input<string>? AccountLicenseType { get; set; }
 
         /// <summary>
-        /// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+        /// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `Account` (Default), `Auto`, `Msdn`, `None`, `Profile`, `Trial`
         /// 
-        /// &gt; **NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.
+        /// &gt; **NOTE:** A user can only be referenced by it's `PrincipalName` or by the combination of `OriginId` and `Origin`.
         /// </summary>
         [Input("licensingSource")]
         public Input<string>? LicensingSource { get; set; }
@@ -181,7 +181,7 @@ namespace Pulumi.AzureDevOps
     public sealed class UserState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+        /// Type of Account License. Valid values: `Advanced`, `earlyAdopter`, `Express`, `None`, `Professional`, or `Stakeholder`. Defaults to `Express`. In addition the value `Basic` is allowed which is an alias for `Express` and reflects the name of the `Express` license used in the Azure DevOps web interface.
         /// </summary>
         [Input("accountLicenseType")]
         public Input<string>? AccountLicenseType { get; set; }
@@ -193,9 +193,9 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Descriptor { get; set; }
 
         /// <summary>
-        /// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+        /// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `Account` (Default), `Auto`, `Msdn`, `None`, `Profile`, `Trial`
         /// 
-        /// &gt; **NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.
+        /// &gt; **NOTE:** A user can only be referenced by it's `PrincipalName` or by the combination of `OriginId` and `Origin`.
         /// </summary>
         [Input("licensingSource")]
         public Input<string>? LicensingSource { get; set; }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class GetBuildDefinitionCiTriggerResult
     {
         /// <summary>
-        /// A `override` block as defined below.
+        /// A `Override` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBuildDefinitionCiTriggerOverrideResult> Overrides;
         /// <summary>

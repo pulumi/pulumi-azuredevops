@@ -138,32 +138,32 @@ import javax.annotation.Nullable;
 @ResourceType(type="azuredevops:index/serviceendpointVisualstudiomarketplace:ServiceendpointVisualstudiomarketplace")
 public class ServiceendpointVisualstudiomarketplace extends com.pulumi.resources.CustomResource {
     /**
-     * An `authentication_basic` block as documented below.
+     * An `authenticationBasic` block as documented below.
      * 
-     * &gt; **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
+     * &gt; **NOTE:** `authenticationBasic` and `authenticationToken` conflict with each other, only one is required.
      * 
      */
     @Export(name="authenticationBasic", refs={ServiceendpointVisualstudiomarketplaceAuthenticationBasic.class}, tree="[0]")
     private Output</* @Nullable */ ServiceendpointVisualstudiomarketplaceAuthenticationBasic> authenticationBasic;
 
     /**
-     * @return An `authentication_basic` block as documented below.
+     * @return An `authenticationBasic` block as documented below.
      * 
-     * &gt; **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
+     * &gt; **NOTE:** `authenticationBasic` and `authenticationToken` conflict with each other, only one is required.
      * 
      */
     public Output<Optional<ServiceendpointVisualstudiomarketplaceAuthenticationBasic>> authenticationBasic() {
         return Codegen.optional(this.authenticationBasic);
     }
     /**
-     * An `authentication_token` block as documented below.
+     * An `authenticationToken` block as documented below.
      * 
      */
     @Export(name="authenticationToken", refs={ServiceendpointVisualstudiomarketplaceAuthenticationToken.class}, tree="[0]")
     private Output</* @Nullable */ ServiceendpointVisualstudiomarketplaceAuthenticationToken> authenticationToken;
 
     /**
-     * @return An `authentication_token` block as documented below.
+     * @return An `authenticationToken` block as documented below.
      * 
      */
     public Output<Optional<ServiceendpointVisualstudiomarketplaceAuthenticationToken>> authenticationToken() {

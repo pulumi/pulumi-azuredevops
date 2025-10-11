@@ -185,56 +185,56 @@ import javax.annotation.Nullable;
 @ResourceType(type="azuredevops:index/serviceendpointOpenshift:ServiceendpointOpenshift")
 public class ServiceendpointOpenshift extends com.pulumi.resources.CustomResource {
     /**
-     * Set this option to allow clients to accept a self-signed certificate. Available when using `auth_basic` or `auth_token` authorization.
+     * Set this option to allow clients to accept a self-signed certificate. Available when using `authBasic` or `authToken` authorization.
      * 
      */
     @Export(name="acceptUntrustedCerts", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> acceptUntrustedCerts;
 
     /**
-     * @return Set this option to allow clients to accept a self-signed certificate. Available when using `auth_basic` or `auth_token` authorization.
+     * @return Set this option to allow clients to accept a self-signed certificate. Available when using `authBasic` or `authToken` authorization.
      * 
      */
     public Output<Optional<Boolean>> acceptUntrustedCerts() {
         return Codegen.optional(this.acceptUntrustedCerts);
     }
     /**
-     * An `auth_basic` block as documented below.
+     * An `authBasic` block as documented below.
      * 
      */
     @Export(name="authBasic", refs={ServiceendpointOpenshiftAuthBasic.class}, tree="[0]")
     private Output</* @Nullable */ ServiceendpointOpenshiftAuthBasic> authBasic;
 
     /**
-     * @return An `auth_basic` block as documented below.
+     * @return An `authBasic` block as documented below.
      * 
      */
     public Output<Optional<ServiceendpointOpenshiftAuthBasic>> authBasic() {
         return Codegen.optional(this.authBasic);
     }
     /**
-     * An `auth_none` block as documented below.
+     * An `authNone` block as documented below.
      * 
      */
     @Export(name="authNone", refs={ServiceendpointOpenshiftAuthNone.class}, tree="[0]")
     private Output</* @Nullable */ ServiceendpointOpenshiftAuthNone> authNone;
 
     /**
-     * @return An `auth_none` block as documented below.
+     * @return An `authNone` block as documented below.
      * 
      */
     public Output<Optional<ServiceendpointOpenshiftAuthNone>> authNone() {
         return Codegen.optional(this.authNone);
     }
     /**
-     * An `auth_token` block as documented below.
+     * An `authToken` block as documented below.
      * 
      */
     @Export(name="authToken", refs={ServiceendpointOpenshiftAuthToken.class}, tree="[0]")
     private Output</* @Nullable */ ServiceendpointOpenshiftAuthToken> authToken;
 
     /**
-     * @return An `auth_token` block as documented below.
+     * @return An `authToken` block as documented below.
      * 
      */
     public Output<Optional<ServiceendpointOpenshiftAuthToken>> authToken() {
@@ -247,14 +247,14 @@ public class ServiceendpointOpenshift extends com.pulumi.resources.CustomResourc
         return this.authorization;
     }
     /**
-     * The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `auth_basic` or `auth_token` authorization.
+     * The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `authBasic` or `authToken` authorization.
      * 
      */
     @Export(name="certificateAuthorityFile", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certificateAuthorityFile;
 
     /**
-     * @return The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `auth_basic` or `auth_token` authorization.
+     * @return The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `authBasic` or `authToken` authorization.
      * 
      */
     public Output<Optional<String>> certificateAuthorityFile() {

@@ -173,14 +173,14 @@ public class ServiceEndpointKubernetes extends com.pulumi.resources.CustomResour
         return this.authorizationType;
     }
     /**
-     * An `azure_subscription` block as defined below.
+     * An `azureSubscription` block as defined below.
      * 
      */
     @Export(name="azureSubscriptions", refs={List.class,ServiceEndpointKubernetesAzureSubscription.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ServiceEndpointKubernetesAzureSubscription>> azureSubscriptions;
 
     /**
-     * @return An `azure_subscription` block as defined below.
+     * @return An `azureSubscription` block as defined below.
      * 
      */
     public Output<Optional<List<ServiceEndpointKubernetesAzureSubscription>>> azureSubscriptions() {
@@ -221,14 +221,14 @@ public class ServiceEndpointKubernetes extends com.pulumi.resources.CustomResour
         return this.projectId;
     }
     /**
-     * A `service_account` block as defined below.
+     * A `serviceAccount` block as defined below.
      * 
      */
     @Export(name="serviceAccount", refs={ServiceEndpointKubernetesServiceAccount.class}, tree="[0]")
     private Output</* @Nullable */ ServiceEndpointKubernetesServiceAccount> serviceAccount;
 
     /**
-     * @return A `service_account` block as defined below.
+     * @return A `serviceAccount` block as defined below.
      * 
      */
     public Output<Optional<ServiceEndpointKubernetesServiceAccount>> serviceAccount() {

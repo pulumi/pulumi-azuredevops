@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * ## Permission levels
  * 
  * Permission for Service Endpoints within Azure DevOps can be applied on two different levels.
- * Those levels are reflected by specifying (or omitting) values for the arguments `project_id` and `serviceendpoint_id`.
+ * Those levels are reflected by specifying (or omitting) values for the arguments `projectId` and `serviceendpointId`.
  * 
  * ## Example Usage
  * 

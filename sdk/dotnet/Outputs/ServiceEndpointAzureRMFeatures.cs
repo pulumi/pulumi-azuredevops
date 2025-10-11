@@ -14,7 +14,7 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class ServiceEndpointAzureRMFeatures
     {
         /// <summary>
-        /// Whether or not to validate connection with Azure after create or update operations. Defaults to `false`
+        /// Whether or not to validate connection with Azure after create or update operations. Defaults to `False`
         /// </summary>
         public readonly bool? Validate;
 

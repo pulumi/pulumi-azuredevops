@@ -13,7 +13,7 @@ namespace Pulumi.AzureDevOps.Inputs
     public sealed class ServiceEndpointKubernetesServiceAccountGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Set this option to allow clients to accept a self-signed certificate. Defaults to `false`.
+        /// Set this option to allow clients to accept a self-signed certificate. Defaults to `False`.
         /// </summary>
         [Input("acceptUntrustedCerts")]
         public Input<bool>? AcceptUntrustedCerts { get; set; }

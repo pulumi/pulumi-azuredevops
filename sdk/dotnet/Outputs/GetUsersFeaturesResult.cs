@@ -16,7 +16,7 @@ namespace Pulumi.AzureDevOps.Outputs
         /// <summary>
         /// Number of workers to process user data concurrently.
         /// 
-        /// &gt; **Note** Setting `concurrent_workers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
+        /// &gt; **Note** Setting `ConcurrentWorkers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
         /// </summary>
         public readonly int? ConcurrentWorkers;
 

@@ -19,7 +19,7 @@ public final class BuildDefinitionJobTarget {
      */
     private @Nullable List<String> demands;
     /**
-     * @return A `execution_options` blocks as documented below.
+     * @return A `executionOptions` blocks as documented below.
      * 
      */
     private BuildDefinitionJobTargetExecutionOptions executionOptions;
@@ -38,7 +38,7 @@ public final class BuildDefinitionJobTarget {
         return this.demands == null ? List.of() : this.demands;
     }
     /**
-     * @return A `execution_options` blocks as documented below.
+     * @return A `executionOptions` blocks as documented below.
      * 
      */
     public BuildDefinitionJobTargetExecutionOptions executionOptions() {
