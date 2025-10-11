@@ -133,14 +133,14 @@ public class GroupEntitlement extends com.pulumi.resources.CustomResource {
         return this.descriptor;
     }
     /**
-     * The display name is the name used in Azure DevOps UI. Cannot be set together with `origin_id` and `origin`.
+     * The display name is the name used in Azure DevOps UI. Cannot be set together with `originId` and `origin`.
      * 
      */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
-     * @return The display name is the name used in Azure DevOps UI. Cannot be set together with `origin_id` and `origin`.
+     * @return The display name is the name used in Azure DevOps UI. Cannot be set together with `originId` and `origin`.
      * 
      */
     public Output<String> displayName() {
@@ -149,7 +149,7 @@ public class GroupEntitlement extends com.pulumi.resources.CustomResource {
     /**
      * The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
      * 
-     * &gt; **NOTE:** A existing group in Azure AD can only be referenced by the combination of `origin_id` and `origin`.
+     * &gt; **NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
      * 
      */
     @Export(name="licensingSource", refs={String.class}, tree="[0]")
@@ -158,7 +158,7 @@ public class GroupEntitlement extends com.pulumi.resources.CustomResource {
     /**
      * @return The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
      * 
-     * &gt; **NOTE:** A existing group in Azure AD can only be referenced by the combination of `origin_id` and `origin`.
+     * &gt; **NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
      * 
      */
     public Output<Optional<String>> licensingSource() {

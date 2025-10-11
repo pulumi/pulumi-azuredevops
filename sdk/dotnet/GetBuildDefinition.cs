@@ -180,7 +180,7 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public readonly string AgentSpecification;
         /// <summary>
-        /// A `ci_trigger` block as defined below.
+        /// A `CiTrigger` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBuildDefinitionCiTriggerResult> CiTriggers;
         /// <summary>
@@ -192,7 +192,7 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public readonly string JobAuthorizationScope;
         /// <summary>
-        /// A `jobs` blocks as documented below.
+        /// A `Jobs` blocks as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBuildDefinitionJobResult> Jobs;
         /// <summary>
@@ -202,7 +202,7 @@ namespace Pulumi.AzureDevOps
         public readonly string? Path;
         public readonly string ProjectId;
         /// <summary>
-        /// A `pull_request_trigger` block as defined below.
+        /// A `PullRequestTrigger` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBuildDefinitionPullRequestTriggerResult> PullRequestTriggers;
         /// <summary>
@@ -210,7 +210,7 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public readonly string QueueStatus;
         /// <summary>
-        /// A `repository` block as defined below.
+        /// A `Repository` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBuildDefinitionRepositoryResult> Repositories;
         /// <summary>
@@ -218,7 +218,7 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public readonly int Revision;
         /// <summary>
-        /// A `schedules` block as defined below.
+        /// A `Schedules` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBuildDefinitionScheduleResult> Schedules;
         /// <summary>
@@ -226,7 +226,7 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public readonly ImmutableArray<int> VariableGroups;
         /// <summary>
-        /// A `variable` block as defined below.
+        /// A `Variable` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBuildDefinitionVariableResult> Variables;
 

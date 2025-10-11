@@ -17,14 +17,14 @@ public final class ServiceendpointCheckmarxOneArgs extends com.pulumi.resources.
     public static final ServiceendpointCheckmarxOneArgs Empty = new ServiceendpointCheckmarxOneArgs();
 
     /**
-     * The account of the Checkmarx One. Conflict with `client_id` and `client_secret`.
+     * The account of the Checkmarx One. Conflict with `clientId` and `clientSecret`.
      * 
      */
     @Import(name="apiKey")
     private @Nullable Output<String> apiKey;
 
     /**
-     * @return The account of the Checkmarx One. Conflict with `client_id` and `client_secret`.
+     * @return The account of the Checkmarx One. Conflict with `clientId` and `clientSecret`.
      * 
      */
     public Optional<Output<String>> apiKey() {
@@ -32,14 +32,14 @@ public final class ServiceendpointCheckmarxOneArgs extends com.pulumi.resources.
     }
 
     /**
-     * The URL of Checkmarx Authorization. Used when using `client_id` and `client_secret` authorization.
+     * The URL of Checkmarx Authorization. Used when using `clientId` and `clientSecret` authorization.
      * 
      */
     @Import(name="authorizationUrl")
     private @Nullable Output<String> authorizationUrl;
 
     /**
-     * @return The URL of Checkmarx Authorization. Used when using `client_id` and `client_secret` authorization.
+     * @return The URL of Checkmarx Authorization. Used when using `clientId` and `clientSecret` authorization.
      * 
      */
     public Optional<Output<String>> authorizationUrl() {
@@ -47,14 +47,14 @@ public final class ServiceendpointCheckmarxOneArgs extends com.pulumi.resources.
     }
 
     /**
-     * The Client ID of the Checkmarx One. Conflict with `api_key`
+     * The Client ID of the Checkmarx One. Conflict with `apiKey`
      * 
      */
     @Import(name="clientId")
     private @Nullable Output<String> clientId;
 
     /**
-     * @return The Client ID of the Checkmarx One. Conflict with `api_key`
+     * @return The Client ID of the Checkmarx One. Conflict with `apiKey`
      * 
      */
     public Optional<Output<String>> clientId() {
@@ -62,18 +62,18 @@ public final class ServiceendpointCheckmarxOneArgs extends com.pulumi.resources.
     }
 
     /**
-     * The Client Secret of the Checkmarx One. Conflict with `api_key`
+     * The Client Secret of the Checkmarx One. Conflict with `apiKey`
      * 
-     * &gt; **Note** At least one of `api_key` and `client_id`, `client_secret` must be set
+     * &gt; **Note** At least one of `apiKey` and `clientId`, `clientSecret` must be set
      * 
      */
     @Import(name="clientSecret")
     private @Nullable Output<String> clientSecret;
 
     /**
-     * @return The Client Secret of the Checkmarx One. Conflict with `api_key`
+     * @return The Client Secret of the Checkmarx One. Conflict with `apiKey`
      * 
-     * &gt; **Note** At least one of `api_key` and `client_id`, `client_secret` must be set
+     * &gt; **Note** At least one of `apiKey` and `clientId`, `clientSecret` must be set
      * 
      */
     public Optional<Output<String>> clientSecret() {
@@ -164,7 +164,7 @@ public final class ServiceendpointCheckmarxOneArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param apiKey The account of the Checkmarx One. Conflict with `client_id` and `client_secret`.
+         * @param apiKey The account of the Checkmarx One. Conflict with `clientId` and `clientSecret`.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class ServiceendpointCheckmarxOneArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param apiKey The account of the Checkmarx One. Conflict with `client_id` and `client_secret`.
+         * @param apiKey The account of the Checkmarx One. Conflict with `clientId` and `clientSecret`.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class ServiceendpointCheckmarxOneArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param authorizationUrl The URL of Checkmarx Authorization. Used when using `client_id` and `client_secret` authorization.
+         * @param authorizationUrl The URL of Checkmarx Authorization. Used when using `clientId` and `clientSecret` authorization.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class ServiceendpointCheckmarxOneArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param authorizationUrl The URL of Checkmarx Authorization. Used when using `client_id` and `client_secret` authorization.
+         * @param authorizationUrl The URL of Checkmarx Authorization. Used when using `clientId` and `clientSecret` authorization.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class ServiceendpointCheckmarxOneArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param clientId The Client ID of the Checkmarx One. Conflict with `api_key`
+         * @param clientId The Client ID of the Checkmarx One. Conflict with `apiKey`
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class ServiceendpointCheckmarxOneArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param clientId The Client ID of the Checkmarx One. Conflict with `api_key`
+         * @param clientId The Client ID of the Checkmarx One. Conflict with `apiKey`
          * 
          * @return builder
          * 
@@ -227,9 +227,9 @@ public final class ServiceendpointCheckmarxOneArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param clientSecret The Client Secret of the Checkmarx One. Conflict with `api_key`
+         * @param clientSecret The Client Secret of the Checkmarx One. Conflict with `apiKey`
          * 
-         * &gt; **Note** At least one of `api_key` and `client_id`, `client_secret` must be set
+         * &gt; **Note** At least one of `apiKey` and `clientId`, `clientSecret` must be set
          * 
          * @return builder
          * 
@@ -240,9 +240,9 @@ public final class ServiceendpointCheckmarxOneArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param clientSecret The Client Secret of the Checkmarx One. Conflict with `api_key`
+         * @param clientSecret The Client Secret of the Checkmarx One. Conflict with `apiKey`
          * 
-         * &gt; **Note** At least one of `api_key` and `client_id`, `client_secret` must be set
+         * &gt; **Note** At least one of `apiKey` and `clientId`, `clientSecret` must be set
          * 
          * @return builder
          * 

@@ -92,7 +92,7 @@ namespace Pulumi.AzureDevOps
     public partial class ServiceendpointCheckmarxOne : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The account of the Checkmarx One. Conflict with `client_id` and `client_secret`.
+        /// The account of the Checkmarx One. Conflict with `ClientId` and `ClientSecret`.
         /// </summary>
         [Output("apiKey")]
         public Output<string?> ApiKey { get; private set; } = null!;
@@ -101,21 +101,21 @@ namespace Pulumi.AzureDevOps
         public Output<ImmutableDictionary<string, string>> Authorization { get; private set; } = null!;
 
         /// <summary>
-        /// The URL of Checkmarx Authorization. Used when using `client_id` and `client_secret` authorization.
+        /// The URL of Checkmarx Authorization. Used when using `ClientId` and `ClientSecret` authorization.
         /// </summary>
         [Output("authorizationUrl")]
         public Output<string?> AuthorizationUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The Client ID of the Checkmarx One. Conflict with `api_key`
+        /// The Client ID of the Checkmarx One. Conflict with `ApiKey`
         /// </summary>
         [Output("clientId")]
         public Output<string?> ClientId { get; private set; } = null!;
 
         /// <summary>
-        /// The Client Secret of the Checkmarx One. Conflict with `api_key`
+        /// The Client Secret of the Checkmarx One. Conflict with `ApiKey`
         /// 
-        /// &gt; **Note** At least one of `api_key` and `client_id`, `client_secret` must be set
+        /// &gt; **Note** At least one of `ApiKey` and `ClientId`, `ClientSecret` must be set
         /// </summary>
         [Output("clientSecret")]
         public Output<string?> ClientSecret { get; private set; } = null!;
@@ -196,7 +196,7 @@ namespace Pulumi.AzureDevOps
         private Input<string>? _apiKey;
 
         /// <summary>
-        /// The account of the Checkmarx One. Conflict with `client_id` and `client_secret`.
+        /// The account of the Checkmarx One. Conflict with `ClientId` and `ClientSecret`.
         /// </summary>
         public Input<string>? ApiKey
         {
@@ -209,13 +209,13 @@ namespace Pulumi.AzureDevOps
         }
 
         /// <summary>
-        /// The URL of Checkmarx Authorization. Used when using `client_id` and `client_secret` authorization.
+        /// The URL of Checkmarx Authorization. Used when using `ClientId` and `ClientSecret` authorization.
         /// </summary>
         [Input("authorizationUrl")]
         public Input<string>? AuthorizationUrl { get; set; }
 
         /// <summary>
-        /// The Client ID of the Checkmarx One. Conflict with `api_key`
+        /// The Client ID of the Checkmarx One. Conflict with `ApiKey`
         /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
@@ -224,9 +224,9 @@ namespace Pulumi.AzureDevOps
         private Input<string>? _clientSecret;
 
         /// <summary>
-        /// The Client Secret of the Checkmarx One. Conflict with `api_key`
+        /// The Client Secret of the Checkmarx One. Conflict with `ApiKey`
         /// 
-        /// &gt; **Note** At least one of `api_key` and `client_id`, `client_secret` must be set
+        /// &gt; **Note** At least one of `ApiKey` and `ClientId`, `ClientSecret` must be set
         /// </summary>
         public Input<string>? ClientSecret
         {
@@ -271,7 +271,7 @@ namespace Pulumi.AzureDevOps
         private Input<string>? _apiKey;
 
         /// <summary>
-        /// The account of the Checkmarx One. Conflict with `client_id` and `client_secret`.
+        /// The account of the Checkmarx One. Conflict with `ClientId` and `ClientSecret`.
         /// </summary>
         public Input<string>? ApiKey
         {
@@ -292,13 +292,13 @@ namespace Pulumi.AzureDevOps
         }
 
         /// <summary>
-        /// The URL of Checkmarx Authorization. Used when using `client_id` and `client_secret` authorization.
+        /// The URL of Checkmarx Authorization. Used when using `ClientId` and `ClientSecret` authorization.
         /// </summary>
         [Input("authorizationUrl")]
         public Input<string>? AuthorizationUrl { get; set; }
 
         /// <summary>
-        /// The Client ID of the Checkmarx One. Conflict with `api_key`
+        /// The Client ID of the Checkmarx One. Conflict with `ApiKey`
         /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
@@ -307,9 +307,9 @@ namespace Pulumi.AzureDevOps
         private Input<string>? _clientSecret;
 
         /// <summary>
-        /// The Client Secret of the Checkmarx One. Conflict with `api_key`
+        /// The Client Secret of the Checkmarx One. Conflict with `ApiKey`
         /// 
-        /// &gt; **Note** At least one of `api_key` and `client_id`, `client_secret` must be set
+        /// &gt; **Note** At least one of `ApiKey` and `ClientId`, `ClientSecret` must be set
         /// </summary>
         public Input<string>? ClientSecret
         {

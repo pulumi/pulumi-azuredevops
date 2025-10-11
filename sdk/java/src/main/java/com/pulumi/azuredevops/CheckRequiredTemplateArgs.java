@@ -32,14 +32,14 @@ public final class CheckRequiredTemplateArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * One or more `required_template` blocks documented below.
+     * One or more `requiredTemplate` blocks documented below.
      * 
      */
     @Import(name="requiredTemplates", required=true)
     private Output<List<CheckRequiredTemplateRequiredTemplateArgs>> requiredTemplates;
 
     /**
-     * @return One or more `required_template` blocks documented below.
+     * @return One or more `requiredTemplate` blocks documented below.
      * 
      */
     public Output<List<CheckRequiredTemplateRequiredTemplateArgs>> requiredTemplates() {
@@ -125,7 +125,7 @@ public final class CheckRequiredTemplateArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param requiredTemplates One or more `required_template` blocks documented below.
+         * @param requiredTemplates One or more `requiredTemplate` blocks documented below.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class CheckRequiredTemplateArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param requiredTemplates One or more `required_template` blocks documented below.
+         * @param requiredTemplates One or more `requiredTemplate` blocks documented below.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class CheckRequiredTemplateArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param requiredTemplates One or more `required_template` blocks documented below.
+         * @param requiredTemplates One or more `requiredTemplate` blocks documented below.
          * 
          * @return builder
          * 

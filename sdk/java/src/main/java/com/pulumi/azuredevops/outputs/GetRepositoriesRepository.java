@@ -28,7 +28,7 @@ public final class GetRepositoriesRepository {
      */
     private String id;
     /**
-     * @return Name of the Git repository to retrieve; requires `project_id` to be specified as well
+     * @return Name of the Git repository to retrieve; requires `projectId` to be specified as well
      * 
      */
     private String name;
@@ -86,7 +86,7 @@ public final class GetRepositoriesRepository {
         return this.id;
     }
     /**
-     * @return Name of the Git repository to retrieve; requires `project_id` to be specified as well
+     * @return Name of the Git repository to retrieve; requires `projectId` to be specified as well
      * 
      */
     public String name() {

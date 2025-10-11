@@ -96,16 +96,16 @@ namespace Pulumi.AzureDevOps
     public partial class Queue : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the organization agent pool. Conflicts with `name`.
+        /// The ID of the organization agent pool. Conflicts with `Name`.
         /// 
-        /// &gt; **NOTE:** One of `name` or `agent_pool_id` must be specified, but not both.
-        /// When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
+        /// &gt; **NOTE:** One of `Name` or `AgentPoolId` must be specified, but not both.
+        /// When `AgentPoolId` is specified, the agent queue name will be derived from the agent pool name.
         /// </summary>
         [Output("agentPoolId")]
         public Output<int> AgentPoolId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.
+        /// The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `AgentPoolId`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -163,16 +163,16 @@ namespace Pulumi.AzureDevOps
     public sealed class QueueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the organization agent pool. Conflicts with `name`.
+        /// The ID of the organization agent pool. Conflicts with `Name`.
         /// 
-        /// &gt; **NOTE:** One of `name` or `agent_pool_id` must be specified, but not both.
-        /// When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
+        /// &gt; **NOTE:** One of `Name` or `AgentPoolId` must be specified, but not both.
+        /// When `AgentPoolId` is specified, the agent queue name will be derived from the agent pool name.
         /// </summary>
         [Input("agentPoolId")]
         public Input<int>? AgentPoolId { get; set; }
 
         /// <summary>
-        /// The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.
+        /// The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `AgentPoolId`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -192,16 +192,16 @@ namespace Pulumi.AzureDevOps
     public sealed class QueueState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the organization agent pool. Conflicts with `name`.
+        /// The ID of the organization agent pool. Conflicts with `Name`.
         /// 
-        /// &gt; **NOTE:** One of `name` or `agent_pool_id` must be specified, but not both.
-        /// When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
+        /// &gt; **NOTE:** One of `Name` or `AgentPoolId` must be specified, but not both.
+        /// When `AgentPoolId` is specified, the agent queue name will be derived from the agent pool name.
         /// </summary>
         [Input("agentPoolId")]
         public Input<int>? AgentPoolId { get; set; }
 
         /// <summary>
-        /// The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.
+        /// The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `AgentPoolId`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

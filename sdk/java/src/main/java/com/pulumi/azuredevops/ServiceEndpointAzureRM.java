@@ -540,7 +540,7 @@ public class ServiceEndpointAzureRM extends com.pulumi.resources.CustomResource 
     /**
      * The server URL of the service endpoint. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+     * &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
      * 
      */
     @Export(name="serverUrl", refs={String.class}, tree="[0]")
@@ -549,7 +549,7 @@ public class ServiceEndpointAzureRM extends com.pulumi.resources.CustomResource 
     /**
      * @return The server URL of the service endpoint. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+     * &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
      * 
      */
     public Output<String> serverUrl() {
@@ -602,28 +602,28 @@ public class ServiceEndpointAzureRM extends com.pulumi.resources.CustomResource 
         return this.servicePrincipalId;
     }
     /**
-     * The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+     * The issuer if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
      * 
      */
     @Export(name="workloadIdentityFederationIssuer", refs={String.class}, tree="[0]")
     private Output<String> workloadIdentityFederationIssuer;
 
     /**
-     * @return The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+     * @return The issuer if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
      * 
      */
     public Output<String> workloadIdentityFederationIssuer() {
         return this.workloadIdentityFederationIssuer;
     }
     /**
-     * The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://&lt;organisation&gt;/&lt;project&gt;/&lt;service-connection-name&gt;`.
+     * The subject if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `sc://&lt;organisation&gt;/&lt;project&gt;/&lt;service-connection-name&gt;`.
      * 
      */
     @Export(name="workloadIdentityFederationSubject", refs={String.class}, tree="[0]")
     private Output<String> workloadIdentityFederationSubject;
 
     /**
-     * @return The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://&lt;organisation&gt;/&lt;project&gt;/&lt;service-connection-name&gt;`.
+     * @return The subject if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `sc://&lt;organisation&gt;/&lt;project&gt;/&lt;service-connection-name&gt;`.
      * 
      */
     public Output<String> workloadIdentityFederationSubject() {

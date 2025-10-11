@@ -42,14 +42,14 @@ public final class BuildDefinitionArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The Agent Specification to run the pipelines. Required when `repo_type` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+     * The Agent Specification to run the pipelines. Required when `repoType` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
      * 
      */
     @Import(name="agentSpecification")
     private @Nullable Output<String> agentSpecification;
 
     /**
-     * @return The Agent Specification to run the pipelines. Required when `repo_type` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+     * @return The Agent Specification to run the pipelines. Required when `repoType` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
      * 
      */
     public Optional<Output<String>> agentSpecification() {
@@ -57,14 +57,14 @@ public final class BuildDefinitionArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A `build_completion_trigger` block as documented below.
+     * A `buildCompletionTrigger` block as documented below.
      * 
      */
     @Import(name="buildCompletionTriggers")
     private @Nullable Output<List<BuildDefinitionBuildCompletionTriggerArgs>> buildCompletionTriggers;
 
     /**
-     * @return A `build_completion_trigger` block as documented below.
+     * @return A `buildCompletionTrigger` block as documented below.
      * 
      */
     public Optional<Output<List<BuildDefinitionBuildCompletionTriggerArgs>>> buildCompletionTriggers() {
@@ -72,14 +72,14 @@ public final class BuildDefinitionArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A `ci_trigger` block as documented below.
+     * A `ciTrigger` block as documented below.
      * 
      */
     @Import(name="ciTrigger")
     private @Nullable Output<BuildDefinitionCiTriggerArgs> ciTrigger;
 
     /**
-     * @return A `ci_trigger` block as documented below.
+     * @return A `ciTrigger` block as documented below.
      * 
      */
     public Optional<Output<BuildDefinitionCiTriggerArgs>> ciTrigger() {
@@ -181,14 +181,14 @@ public final class BuildDefinitionArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A `pull_request_trigger` block as documented below.
+     * A `pullRequestTrigger` block as documented below.
      * 
      */
     @Import(name="pullRequestTrigger")
     private @Nullable Output<BuildDefinitionPullRequestTriggerArgs> pullRequestTrigger;
 
     /**
-     * @return A `pull_request_trigger` block as documented below.
+     * @return A `pullRequestTrigger` block as documented below.
      * 
      */
     public Optional<Output<BuildDefinitionPullRequestTriggerArgs>> pullRequestTrigger() {
@@ -323,7 +323,7 @@ public final class BuildDefinitionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param agentSpecification The Agent Specification to run the pipelines. Required when `repo_type` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+         * @param agentSpecification The Agent Specification to run the pipelines. Required when `repoType` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
          * 
          * @return builder
          * 
@@ -334,7 +334,7 @@ public final class BuildDefinitionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param agentSpecification The Agent Specification to run the pipelines. Required when `repo_type` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+         * @param agentSpecification The Agent Specification to run the pipelines. Required when `repoType` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
          * 
          * @return builder
          * 
@@ -344,7 +344,7 @@ public final class BuildDefinitionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param buildCompletionTriggers A `build_completion_trigger` block as documented below.
+         * @param buildCompletionTriggers A `buildCompletionTrigger` block as documented below.
          * 
          * @return builder
          * 
@@ -355,7 +355,7 @@ public final class BuildDefinitionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param buildCompletionTriggers A `build_completion_trigger` block as documented below.
+         * @param buildCompletionTriggers A `buildCompletionTrigger` block as documented below.
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class BuildDefinitionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param buildCompletionTriggers A `build_completion_trigger` block as documented below.
+         * @param buildCompletionTriggers A `buildCompletionTrigger` block as documented below.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class BuildDefinitionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ciTrigger A `ci_trigger` block as documented below.
+         * @param ciTrigger A `ciTrigger` block as documented below.
          * 
          * @return builder
          * 
@@ -386,7 +386,7 @@ public final class BuildDefinitionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ciTrigger A `ci_trigger` block as documented below.
+         * @param ciTrigger A `ciTrigger` block as documented below.
          * 
          * @return builder
          * 
@@ -548,7 +548,7 @@ public final class BuildDefinitionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param pullRequestTrigger A `pull_request_trigger` block as documented below.
+         * @param pullRequestTrigger A `pullRequestTrigger` block as documented below.
          * 
          * @return builder
          * 
@@ -559,7 +559,7 @@ public final class BuildDefinitionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param pullRequestTrigger A `pull_request_trigger` block as documented below.
+         * @param pullRequestTrigger A `pullRequestTrigger` block as documented below.
          * 
          * @return builder
          * 

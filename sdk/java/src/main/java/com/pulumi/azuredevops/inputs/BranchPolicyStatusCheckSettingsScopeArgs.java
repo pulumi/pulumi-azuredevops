@@ -46,14 +46,14 @@ public final class BranchPolicyStatusCheckSettingsScopeArgs extends com.pulumi.r
     }
 
     /**
-     * The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type=Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type=Prefix`, this should be a ref path such as `refs/heads/releases`.
+     * The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `match_type=Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type=Prefix`, this should be a ref path such as `refs/heads/releases`.
      * 
      */
     @Import(name="repositoryRef")
     private @Nullable Output<String> repositoryRef;
 
     /**
-     * @return The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type=Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type=Prefix`, this should be a ref path such as `refs/heads/releases`.
+     * @return The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `match_type=Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type=Prefix`, this should be a ref path such as `refs/heads/releases`.
      * 
      */
     public Optional<Output<String>> repositoryRef() {
@@ -129,7 +129,7 @@ public final class BranchPolicyStatusCheckSettingsScopeArgs extends com.pulumi.r
         }
 
         /**
-         * @param repositoryRef The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type=Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type=Prefix`, this should be a ref path such as `refs/heads/releases`.
+         * @param repositoryRef The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `match_type=Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type=Prefix`, this should be a ref path such as `refs/heads/releases`.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class BranchPolicyStatusCheckSettingsScopeArgs extends com.pulumi.r
         }
 
         /**
-         * @param repositoryRef The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type=Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type=Prefix`, this should be a ref path such as `refs/heads/releases`.
+         * @param repositoryRef The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `match_type=Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type=Prefix`, this should be a ref path such as `refs/heads/releases`.
          * 
          * @return builder
          * 

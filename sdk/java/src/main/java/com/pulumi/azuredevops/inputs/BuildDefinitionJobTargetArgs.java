@@ -34,14 +34,14 @@ public final class BuildDefinitionJobTargetArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * A `execution_options` blocks as documented below.
+     * A `executionOptions` blocks as documented below.
      * 
      */
     @Import(name="executionOptions", required=true)
     private Output<BuildDefinitionJobTargetExecutionOptionsArgs> executionOptions;
 
     /**
-     * @return A `execution_options` blocks as documented below.
+     * @return A `executionOptions` blocks as documented below.
      * 
      */
     public Output<BuildDefinitionJobTargetExecutionOptionsArgs> executionOptions() {
@@ -121,7 +121,7 @@ public final class BuildDefinitionJobTargetArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param executionOptions A `execution_options` blocks as documented below.
+         * @param executionOptions A `executionOptions` blocks as documented below.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class BuildDefinitionJobTargetArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param executionOptions A `execution_options` blocks as documented below.
+         * @param executionOptions A `executionOptions` blocks as documented below.
          * 
          * @return builder
          * 

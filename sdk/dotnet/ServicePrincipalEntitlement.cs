@@ -44,7 +44,7 @@ namespace Pulumi.AzureDevOps
     public partial class ServicePrincipalEntitlement : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+        /// Type of Account License. Possible values are: `Advanced`, `earlyAdopter`, `Express`, `None`, `Professional`, or `Stakeholder`. Defaults to `Express`. In addition the value `Basic` is allowed which is an alias for `Express` and reflects the name of the `Express` license used in the Azure DevOps web interface.
         /// </summary>
         [Output("accountLicenseType")]
         public Output<string?> AccountLicenseType { get; private set; } = null!;
@@ -62,7 +62,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// The source of the licensing (e.g. Account. MSDN etc.) Possible values are: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+        /// The source of the licensing (e.g. Account. MSDN etc.) Possible values are: `Account` (Default), `Auto`, `Msdn`, `None`, `Profile`, `Trial`
         /// </summary>
         [Output("licensingSource")]
         public Output<string?> LicensingSource { get; private set; } = null!;
@@ -126,13 +126,13 @@ namespace Pulumi.AzureDevOps
     public sealed class ServicePrincipalEntitlementArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+        /// Type of Account License. Possible values are: `Advanced`, `earlyAdopter`, `Express`, `None`, `Professional`, or `Stakeholder`. Defaults to `Express`. In addition the value `Basic` is allowed which is an alias for `Express` and reflects the name of the `Express` license used in the Azure DevOps web interface.
         /// </summary>
         [Input("accountLicenseType")]
         public Input<string>? AccountLicenseType { get; set; }
 
         /// <summary>
-        /// The source of the licensing (e.g. Account. MSDN etc.) Possible values are: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+        /// The source of the licensing (e.g. Account. MSDN etc.) Possible values are: `Account` (Default), `Auto`, `Msdn`, `None`, `Profile`, `Trial`
         /// </summary>
         [Input("licensingSource")]
         public Input<string>? LicensingSource { get; set; }
@@ -158,7 +158,7 @@ namespace Pulumi.AzureDevOps
     public sealed class ServicePrincipalEntitlementState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+        /// Type of Account License. Possible values are: `Advanced`, `earlyAdopter`, `Express`, `None`, `Professional`, or `Stakeholder`. Defaults to `Express`. In addition the value `Basic` is allowed which is an alias for `Express` and reflects the name of the `Express` license used in the Azure DevOps web interface.
         /// </summary>
         [Input("accountLicenseType")]
         public Input<string>? AccountLicenseType { get; set; }
@@ -176,7 +176,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// The source of the licensing (e.g. Account. MSDN etc.) Possible values are: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+        /// The source of the licensing (e.g. Account. MSDN etc.) Possible values are: `Account` (Default), `Auto`, `Msdn`, `None`, `Profile`, `Trial`
         /// </summary>
         [Input("licensingSource")]
         public Input<string>? LicensingSource { get; set; }

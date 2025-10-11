@@ -30,7 +30,7 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly string MailAddress;
         /// <summary>
-        /// The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+        /// The type of source provider for the `OriginId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
         /// &lt;pre&gt;List of possible origins
         /// ```hcl
         /// ActiveDirectory          = "ad"   # Windows Active Directory

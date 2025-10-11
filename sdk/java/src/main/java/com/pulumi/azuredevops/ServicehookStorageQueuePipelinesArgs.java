@@ -80,14 +80,14 @@ public final class ServicehookStorageQueuePipelinesArgs extends com.pulumi.resou
     }
 
     /**
-     * A `run_state_changed_event` block as defined below. Conflicts with `stage_state_changed_event`
+     * A `runStateChangedEvent` block as defined below. Conflicts with `stageStateChangedEvent`
      * 
      */
     @Import(name="runStateChangedEvent")
     private @Nullable Output<ServicehookStorageQueuePipelinesRunStateChangedEventArgs> runStateChangedEvent;
 
     /**
-     * @return A `run_state_changed_event` block as defined below. Conflicts with `stage_state_changed_event`
+     * @return A `runStateChangedEvent` block as defined below. Conflicts with `stageStateChangedEvent`
      * 
      */
     public Optional<Output<ServicehookStorageQueuePipelinesRunStateChangedEventArgs>> runStateChangedEvent() {
@@ -95,18 +95,18 @@ public final class ServicehookStorageQueuePipelinesArgs extends com.pulumi.resou
     }
 
     /**
-     * A `stage_state_changed_event` block as defined below. Conflicts with `run_state_changed_event`
+     * A `stageStateChangedEvent` block as defined below. Conflicts with `runStateChangedEvent`
      * 
-     * &gt; **Note** At least one of `run_state_changed_event` and `stage_state_changed_event` has to be set.
+     * &gt; **Note** At least one of `runStateChangedEvent` and `stageStateChangedEvent` has to be set.
      * 
      */
     @Import(name="stageStateChangedEvent")
     private @Nullable Output<ServicehookStorageQueuePipelinesStageStateChangedEventArgs> stageStateChangedEvent;
 
     /**
-     * @return A `stage_state_changed_event` block as defined below. Conflicts with `run_state_changed_event`
+     * @return A `stageStateChangedEvent` block as defined below. Conflicts with `runStateChangedEvent`
      * 
-     * &gt; **Note** At least one of `run_state_changed_event` and `stage_state_changed_event` has to be set.
+     * &gt; **Note** At least one of `runStateChangedEvent` and `stageStateChangedEvent` has to be set.
      * 
      */
     public Optional<Output<ServicehookStorageQueuePipelinesStageStateChangedEventArgs>> stageStateChangedEvent() {
@@ -259,7 +259,7 @@ public final class ServicehookStorageQueuePipelinesArgs extends com.pulumi.resou
         }
 
         /**
-         * @param runStateChangedEvent A `run_state_changed_event` block as defined below. Conflicts with `stage_state_changed_event`
+         * @param runStateChangedEvent A `runStateChangedEvent` block as defined below. Conflicts with `stageStateChangedEvent`
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class ServicehookStorageQueuePipelinesArgs extends com.pulumi.resou
         }
 
         /**
-         * @param runStateChangedEvent A `run_state_changed_event` block as defined below. Conflicts with `stage_state_changed_event`
+         * @param runStateChangedEvent A `runStateChangedEvent` block as defined below. Conflicts with `stageStateChangedEvent`
          * 
          * @return builder
          * 
@@ -280,9 +280,9 @@ public final class ServicehookStorageQueuePipelinesArgs extends com.pulumi.resou
         }
 
         /**
-         * @param stageStateChangedEvent A `stage_state_changed_event` block as defined below. Conflicts with `run_state_changed_event`
+         * @param stageStateChangedEvent A `stageStateChangedEvent` block as defined below. Conflicts with `runStateChangedEvent`
          * 
-         * &gt; **Note** At least one of `run_state_changed_event` and `stage_state_changed_event` has to be set.
+         * &gt; **Note** At least one of `runStateChangedEvent` and `stageStateChangedEvent` has to be set.
          * 
          * @return builder
          * 
@@ -293,9 +293,9 @@ public final class ServicehookStorageQueuePipelinesArgs extends com.pulumi.resou
         }
 
         /**
-         * @param stageStateChangedEvent A `stage_state_changed_event` block as defined below. Conflicts with `run_state_changed_event`
+         * @param stageStateChangedEvent A `stageStateChangedEvent` block as defined below. Conflicts with `runStateChangedEvent`
          * 
-         * &gt; **Note** At least one of `run_state_changed_event` and `stage_state_changed_event` has to be set.
+         * &gt; **Note** At least one of `runStateChangedEvent` and `stageStateChangedEvent` has to be set.
          * 
          * @return builder
          * 

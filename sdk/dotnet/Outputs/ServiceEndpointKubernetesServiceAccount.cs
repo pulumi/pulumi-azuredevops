@@ -14,7 +14,7 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class ServiceEndpointKubernetesServiceAccount
     {
         /// <summary>
-        /// Set this option to allow clients to accept a self-signed certificate. Defaults to `false`.
+        /// Set this option to allow clients to accept a self-signed certificate. Defaults to `False`.
         /// </summary>
         public readonly bool? AcceptUntrustedCerts;
         /// <summary>

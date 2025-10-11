@@ -14,23 +14,23 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class BranchPolicyMergeTypesSettings
     {
         /// <summary>
-        /// Allow basic merge with no fast forward. Defaults to `false`.
+        /// Allow basic merge with no fast forward. Defaults to `False`.
         /// </summary>
         public readonly bool? AllowBasicNoFastForward;
         /// <summary>
-        /// Allow rebase with fast forward. Defaults to `false`.
+        /// Allow rebase with fast forward. Defaults to `False`.
         /// </summary>
         public readonly bool? AllowRebaseAndFastForward;
         /// <summary>
-        /// Allow rebase with merge commit. Defaults to `false`.
+        /// Allow rebase with merge commit. Defaults to `False`.
         /// </summary>
         public readonly bool? AllowRebaseWithMerge;
         /// <summary>
-        /// Allow squash merge. Defaults to `false`
+        /// Allow squash merge. Defaults to `False`
         /// </summary>
         public readonly bool? AllowSquash;
         /// <summary>
-        /// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        /// A `Scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         /// </summary>
         public readonly ImmutableArray<Outputs.BranchPolicyMergeTypesSettingsScope> Scopes;
 

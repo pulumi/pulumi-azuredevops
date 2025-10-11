@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceEndpointAzureRMCredentials {
     /**
-     * @return The service principal certificate. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
+     * @return The service principal certificate. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
      * 
      */
     private @Nullable String serviceprincipalcertificate;
@@ -23,14 +23,14 @@ public final class ServiceEndpointAzureRMCredentials {
      */
     private String serviceprincipalid;
     /**
-     * @return The service principal secret. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
+     * @return The service principal secret. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
      * 
      */
     private @Nullable String serviceprincipalkey;
 
     private ServiceEndpointAzureRMCredentials() {}
     /**
-     * @return The service principal certificate. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
+     * @return The service principal certificate. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
      * 
      */
     public Optional<String> serviceprincipalcertificate() {
@@ -44,7 +44,7 @@ public final class ServiceEndpointAzureRMCredentials {
         return this.serviceprincipalid;
     }
     /**
-     * @return The service principal secret. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
+     * @return The service principal secret. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
      * 
      */
     public Optional<String> serviceprincipalkey() {

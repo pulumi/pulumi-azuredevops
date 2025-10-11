@@ -53,7 +53,7 @@ public final class BranchPolicyAutoReviewersSettingsArgs extends com.pulumi.reso
     /**
      * Minimum number of required reviewers. Defaults to `1`.
      * 
-     * &gt; **Note** Has to be greater than `0`. Can only be greater than `1` when attribute `auto_reviewer_ids` contains exactly one group! Only has an effect when attribute `blocking` is set to `true`.
+     * &gt; **Note** Has to be greater than `0`. Can only be greater than `1` when attribute `autoReviewerIds` contains exactly one group! Only has an effect when attribute `blocking` is set to `true`.
      * 
      */
     @Import(name="minimumNumberOfReviewers")
@@ -62,7 +62,7 @@ public final class BranchPolicyAutoReviewersSettingsArgs extends com.pulumi.reso
     /**
      * @return Minimum number of required reviewers. Defaults to `1`.
      * 
-     * &gt; **Note** Has to be greater than `0`. Can only be greater than `1` when attribute `auto_reviewer_ids` contains exactly one group! Only has an effect when attribute `blocking` is set to `true`.
+     * &gt; **Note** Has to be greater than `0`. Can only be greater than `1` when attribute `autoReviewerIds` contains exactly one group! Only has an effect when attribute `blocking` is set to `true`.
      * 
      */
     public Optional<Output<Integer>> minimumNumberOfReviewers() {
@@ -198,7 +198,7 @@ public final class BranchPolicyAutoReviewersSettingsArgs extends com.pulumi.reso
         /**
          * @param minimumNumberOfReviewers Minimum number of required reviewers. Defaults to `1`.
          * 
-         * &gt; **Note** Has to be greater than `0`. Can only be greater than `1` when attribute `auto_reviewer_ids` contains exactly one group! Only has an effect when attribute `blocking` is set to `true`.
+         * &gt; **Note** Has to be greater than `0`. Can only be greater than `1` when attribute `autoReviewerIds` contains exactly one group! Only has an effect when attribute `blocking` is set to `true`.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class BranchPolicyAutoReviewersSettingsArgs extends com.pulumi.reso
         /**
          * @param minimumNumberOfReviewers Minimum number of required reviewers. Defaults to `1`.
          * 
-         * &gt; **Note** Has to be greater than `0`. Can only be greater than `1` when attribute `auto_reviewer_ids` contains exactly one group! Only has an effect when attribute `blocking` is set to `true`.
+         * &gt; **Note** Has to be greater than `0`. Can only be greater than `1` when attribute `autoReviewerIds` contains exactly one group! Only has an effect when attribute `blocking` is set to `true`.
          * 
          * @return builder
          * 

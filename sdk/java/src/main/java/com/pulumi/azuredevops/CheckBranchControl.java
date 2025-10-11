@@ -343,14 +343,14 @@ public class CheckBranchControl extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.displayName);
     }
     /**
-     * Allow deployment from branches for which protection status could not be obtained. Only relevant when verify_branch_protection is `true`. Defaults to `false`.
+     * Allow deployment from branches for which protection status could not be obtained. Only relevant when verifyBranchProtection is `true`. Defaults to `false`.
      * 
      */
     @Export(name="ignoreUnknownProtectionStatus", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ignoreUnknownProtectionStatus;
 
     /**
-     * @return Allow deployment from branches for which protection status could not be obtained. Only relevant when verify_branch_protection is `true`. Defaults to `false`.
+     * @return Allow deployment from branches for which protection status could not be obtained. Only relevant when verifyBranchProtection is `true`. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> ignoreUnknownProtectionStatus() {

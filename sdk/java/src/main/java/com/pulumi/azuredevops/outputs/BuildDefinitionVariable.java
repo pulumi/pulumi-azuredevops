@@ -29,7 +29,7 @@ public final class BuildDefinitionVariable {
      */
     private String name;
     /**
-     * @return The secret value of the variable. Used when `is_secret` set to `true`.
+     * @return The secret value of the variable. Used when `isSecret` set to `true`.
      * 
      */
     private @Nullable String secretValue;
@@ -62,7 +62,7 @@ public final class BuildDefinitionVariable {
         return this.name;
     }
     /**
-     * @return The secret value of the variable. Used when `is_secret` set to `true`.
+     * @return The secret value of the variable. Used when `isSecret` set to `true`.
      * 
      */
     public Optional<String> secretValue() {

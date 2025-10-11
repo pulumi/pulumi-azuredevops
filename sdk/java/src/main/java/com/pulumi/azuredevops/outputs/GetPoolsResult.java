@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetPoolsResult {
     /**
-     * @return An `agent_pools` blocks as documented below. A list of existing agent pools in your Azure DevOps Organization with the following details about every agent pool:
+     * @return An `agentPools` blocks as documented below. A list of existing agent pools in your Azure DevOps Organization with the following details about every agent pool:
      * 
      */
     private List<GetPoolsAgentPool> agentPools;
@@ -25,7 +25,7 @@ public final class GetPoolsResult {
 
     private GetPoolsResult() {}
     /**
-     * @return An `agent_pools` blocks as documented below. A list of existing agent pools in your Azure DevOps Organization with the following details about every agent pool:
+     * @return An `agentPools` blocks as documented below. A list of existing agent pools in your Azure DevOps Organization with the following details about every agent pool:
      * 
      */
     public List<GetPoolsAgentPool> agentPools() {

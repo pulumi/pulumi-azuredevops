@@ -162,14 +162,14 @@ public class CheckRequiredTemplate extends com.pulumi.resources.CustomResource {
         return this.projectId;
     }
     /**
-     * One or more `required_template` blocks documented below.
+     * One or more `requiredTemplate` blocks documented below.
      * 
      */
     @Export(name="requiredTemplates", refs={List.class,CheckRequiredTemplateRequiredTemplate.class}, tree="[0,1]")
     private Output<List<CheckRequiredTemplateRequiredTemplate>> requiredTemplates;
 
     /**
-     * @return One or more `required_template` blocks documented below.
+     * @return One or more `requiredTemplate` blocks documented below.
      * 
      */
     public Output<List<CheckRequiredTemplateRequiredTemplate>> requiredTemplates() {

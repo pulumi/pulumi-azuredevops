@@ -18,7 +18,7 @@ public final class GetUsersFeaturesArgs extends com.pulumi.resources.ResourceArg
     /**
      * Number of workers to process user data concurrently.
      * 
-     * &gt; **Note** Setting `concurrent_workers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
+     * &gt; **Note** Setting `concurrentWorkers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
      * 
      */
     @Import(name="concurrentWorkers")
@@ -27,7 +27,7 @@ public final class GetUsersFeaturesArgs extends com.pulumi.resources.ResourceArg
     /**
      * @return Number of workers to process user data concurrently.
      * 
-     * &gt; **Note** Setting `concurrent_workers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
+     * &gt; **Note** Setting `concurrentWorkers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
      * 
      */
     public Optional<Output<Integer>> concurrentWorkers() {
@@ -61,7 +61,7 @@ public final class GetUsersFeaturesArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param concurrentWorkers Number of workers to process user data concurrently.
          * 
-         * &gt; **Note** Setting `concurrent_workers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
+         * &gt; **Note** Setting `concurrentWorkers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
          * 
          * @return builder
          * 
@@ -74,7 +74,7 @@ public final class GetUsersFeaturesArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param concurrentWorkers Number of workers to process user data concurrently.
          * 
-         * &gt; **Note** Setting `concurrent_workers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
+         * &gt; **Note** Setting `concurrentWorkers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
          * 
          * @return builder
          * 

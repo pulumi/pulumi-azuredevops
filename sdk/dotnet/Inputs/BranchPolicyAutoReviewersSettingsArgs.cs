@@ -33,7 +33,7 @@ namespace Pulumi.AzureDevOps.Inputs
         /// <summary>
         /// Minimum number of required reviewers. Defaults to `1`.
         /// 
-        /// &gt; **Note** Has to be greater than `0`. Can only be greater than `1` when attribute `auto_reviewer_ids` contains exactly one group! Only has an effect when attribute `blocking` is set to `true`.
+        /// &gt; **Note** Has to be greater than `0`. Can only be greater than `1` when attribute `AutoReviewerIds` contains exactly one group! Only has an effect when attribute `Blocking` is set to `True`.
         /// </summary>
         [Input("minimumNumberOfReviewers")]
         public Input<int>? MinimumNumberOfReviewers { get; set; }
@@ -54,7 +54,7 @@ namespace Pulumi.AzureDevOps.Inputs
         private InputList<Inputs.BranchPolicyAutoReviewersSettingsScopeArgs>? _scopes;
 
         /// <summary>
-        /// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        /// A `Scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         /// </summary>
         public InputList<Inputs.BranchPolicyAutoReviewersSettingsScopeArgs> Scopes
         {
@@ -63,7 +63,7 @@ namespace Pulumi.AzureDevOps.Inputs
         }
 
         /// <summary>
-        /// Controls whether or not the submitter's vote counts. Defaults to `false`.
+        /// Controls whether or not the submitter's vote counts. Defaults to `False`.
         /// </summary>
         [Input("submitterCanVote")]
         public Input<bool>? SubmitterCanVote { get; set; }

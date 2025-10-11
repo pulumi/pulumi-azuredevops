@@ -14,7 +14,7 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class GetBuildDefinitionScheduleResult
     {
         /// <summary>
-        /// A `branch_filter` block as defined above.
+        /// A `BranchFilter` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBuildDefinitionScheduleBranchFilterResult> BranchFilters;
         /// <summary>

@@ -143,14 +143,14 @@ public class ServiceEndpointArtifactory extends com.pulumi.resources.CustomResou
         return Codegen.optional(this.authenticationBasic);
     }
     /**
-     * A `authentication_basic` block as defined below.
+     * A `authenticationBasic` block as defined below.
      * 
      */
     @Export(name="authenticationToken", refs={ServiceEndpointArtifactoryAuthenticationToken.class}, tree="[0]")
     private Output</* @Nullable */ ServiceEndpointArtifactoryAuthenticationToken> authenticationToken;
 
     /**
-     * @return A `authentication_basic` block as defined below.
+     * @return A `authenticationBasic` block as defined below.
      * 
      */
     public Output<Optional<ServiceEndpointArtifactoryAuthenticationToken>> authenticationToken() {

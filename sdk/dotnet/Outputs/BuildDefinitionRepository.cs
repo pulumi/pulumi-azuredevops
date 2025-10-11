@@ -14,11 +14,11 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class BuildDefinitionRepository
     {
         /// <summary>
-        /// The branch name for which builds are triggered. Defaults to `master`.
+        /// The branch name for which builds are triggered. Defaults to `Master`.
         /// </summary>
         public readonly string? BranchName;
         /// <summary>
-        /// The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`. Conflict with `url`
+        /// The Github Enterprise URL. Used if `RepoType` is `GithubEnterprise`. Conflict with `Url`
         /// </summary>
         public readonly string? GithubEnterpriseUrl;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly string RepoId;
         /// <summary>
-        /// The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise` or `Git`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+        /// The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise` or `Git`. Defaults to `GitHub`. If `RepoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
         /// </summary>
         public readonly string RepoType;
         /// <summary>
@@ -34,11 +34,11 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly bool? ReportBuildStatus;
         /// <summary>
-        /// The service connection ID. Used if the `repo_type` is `GitHub` or `GitHubEnterprise`.
+        /// The service connection ID. Used if the `RepoType` is `GitHub` or `GitHubEnterprise`.
         /// </summary>
         public readonly string? ServiceConnectionId;
         /// <summary>
-        /// The URL of the Git repository. Used if `repo_type` is `Git`. Conflict with `github_enterprise_url`
+        /// The URL of the Git repository. Used if `RepoType` is `Git`. Conflict with `GithubEnterpriseUrl`
         /// </summary>
         public readonly string? Url;
         /// <summary>

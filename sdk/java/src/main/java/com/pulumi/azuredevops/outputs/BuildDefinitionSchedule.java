@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BuildDefinitionSchedule {
     /**
-     * @return A `branch_filter` block as defined below.
+     * @return A `branchFilter` block as defined below.
      * 
      */
     private List<BuildDefinitionScheduleBranchFilter> branchFilters;
@@ -195,7 +195,7 @@ public final class BuildDefinitionSchedule {
 
     private BuildDefinitionSchedule() {}
     /**
-     * @return A `branch_filter` block as defined below.
+     * @return A `branchFilter` block as defined below.
      * 
      */
     public List<BuildDefinitionScheduleBranchFilter> branchFilters() {

@@ -18,14 +18,14 @@ public final class ServiceendpointExternaltfsArgs extends com.pulumi.resources.R
     public static final ServiceendpointExternaltfsArgs Empty = new ServiceendpointExternaltfsArgs();
 
     /**
-     * An `auth_personal` block as documented below. Allows connecting using a personal access token.
+     * An `authPersonal` block as documented below. Allows connecting using a personal access token.
      * 
      */
     @Import(name="authPersonal", required=true)
     private Output<ServiceendpointExternaltfsAuthPersonalArgs> authPersonal;
 
     /**
-     * @return An `auth_personal` block as documented below. Allows connecting using a personal access token.
+     * @return An `authPersonal` block as documented below. Allows connecting using a personal access token.
      * 
      */
     public Output<ServiceendpointExternaltfsAuthPersonalArgs> authPersonal() {
@@ -113,7 +113,7 @@ public final class ServiceendpointExternaltfsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param authPersonal An `auth_personal` block as documented below. Allows connecting using a personal access token.
+         * @param authPersonal An `authPersonal` block as documented below. Allows connecting using a personal access token.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class ServiceendpointExternaltfsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param authPersonal An `auth_personal` block as documented below. Allows connecting using a personal access token.
+         * @param authPersonal An `authPersonal` block as documented below. Allows connecting using a personal access token.
          * 
          * @return builder
          * 

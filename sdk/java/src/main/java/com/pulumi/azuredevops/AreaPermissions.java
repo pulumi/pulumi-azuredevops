@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * ## Permission levels
  * 
  * Permission for Areas within Azure DevOps can be applied on two different levels.
- * Those levels are reflected by specifying (or omitting) values for the arguments `project_id` and `path`.
+ * Those levels are reflected by specifying (or omitting) values for the arguments `projectId` and `path`.
  * 
  * ## Example Usage
  * 

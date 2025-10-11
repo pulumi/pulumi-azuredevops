@@ -102,7 +102,7 @@ namespace Pulumi.AzureDevOps
         public Output<string?> ProjectId { get; private set; } = null!;
 
         /// <summary>
-        /// The role to be assigned. Possible values are: `reader`, `contributor`, `collaborator`, `administrator`
+        /// The role to be assigned. Possible values are: `Reader`, `Contributor`, `Collaborator`, `Administrator`
         /// </summary>
         [Output("role")]
         public Output<string> Role { get; private set; } = null!;
@@ -178,7 +178,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? ProjectId { get; set; }
 
         /// <summary>
-        /// The role to be assigned. Possible values are: `reader`, `contributor`, `collaborator`, `administrator`
+        /// The role to be assigned. Possible values are: `Reader`, `Contributor`, `Collaborator`, `Administrator`
         /// </summary>
         [Input("role", required: true)]
         public Input<string> Role { get; set; } = null!;
@@ -222,7 +222,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? ProjectId { get; set; }
 
         /// <summary>
-        /// The role to be assigned. Possible values are: `reader`, `contributor`, `collaborator`, `administrator`
+        /// The role to be assigned. Possible values are: `Reader`, `Contributor`, `Collaborator`, `Administrator`
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }

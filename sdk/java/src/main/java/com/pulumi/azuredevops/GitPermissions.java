@@ -24,11 +24,11 @@ import javax.annotation.Nullable;
  * ## Permission levels
  * 
  * Permission for Git Repositories within Azure DevOps can be applied on three different levels.
- * Those levels are reflected by specifying (or omitting) values for the arguments `project_id`, `repository_id` and `branch_name`.
+ * Those levels are reflected by specifying (or omitting) values for the arguments `projectId`, `repositoryId` and `branchName`.
  * 
  * ### Project level
  * 
- * Permissions for all Git Repositories inside a project (existing or newly created ones) are specified, if only the argument `project_id` has a value.
+ * Permissions for all Git Repositories inside a project (existing or newly created ones) are specified, if only the argument `projectId` has a value.
  * 
  * #### Example usage
  * 
@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  * 
  * ### Repository level
  * 
- * Permissions for a specific Git Repository and all existing or newly created branches are specified if the arguments `project_id` and `repository_id` are set.
+ * Permissions for a specific Git Repository and all existing or newly created branches are specified if the arguments `projectId` and `repositoryId` are set.
  * 
  * #### Example usage
  * 
@@ -348,7 +348,7 @@ public class GitPermissions extends com.pulumi.resources.CustomResource {
     /**
      * The name of the branch to assign the permissions.
      * 
-     * &gt; **Note** To assign permissions to a branch, the `repository_id` must be set as well.
+     * &gt; **Note** To assign permissions to a branch, the `repositoryId` must be set as well.
      * 
      */
     @Export(name="branchName", refs={String.class}, tree="[0]")
@@ -357,7 +357,7 @@ public class GitPermissions extends com.pulumi.resources.CustomResource {
     /**
      * @return The name of the branch to assign the permissions.
      * 
-     * &gt; **Note** To assign permissions to a branch, the `repository_id` must be set as well.
+     * &gt; **Note** To assign permissions to a branch, the `repositoryId` must be set as well.
      * 
      */
     public Output<Optional<String>> branchName() {

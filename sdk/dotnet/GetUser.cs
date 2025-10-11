@@ -14,7 +14,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Use this data source to access information about an existing user within Azure DevOps.
         /// 
-        /// ~&gt;**NOTE:** If you only have the Storage Key(UUID) of the user, you can use `azuredevops.getDescriptor` to resolve the Storage Key(UUID) to a `descriptor`.
+        /// ~&gt;**NOTE:** If you only have the Storage Key(UUID) of the user, you can use `azuredevops.getDescriptor` to resolve the Storage Key(UUID) to a `Descriptor`.
         /// 
         /// ## Example Usage
         /// 
@@ -44,7 +44,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Use this data source to access information about an existing user within Azure DevOps.
         /// 
-        /// ~&gt;**NOTE:** If you only have the Storage Key(UUID) of the user, you can use `azuredevops.getDescriptor` to resolve the Storage Key(UUID) to a `descriptor`.
+        /// ~&gt;**NOTE:** If you only have the Storage Key(UUID) of the user, you can use `azuredevops.getDescriptor` to resolve the Storage Key(UUID) to a `Descriptor`.
         /// 
         /// ## Example Usage
         /// 
@@ -74,7 +74,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Use this data source to access information about an existing user within Azure DevOps.
         /// 
-        /// ~&gt;**NOTE:** If you only have the Storage Key(UUID) of the user, you can use `azuredevops.getDescriptor` to resolve the Storage Key(UUID) to a `descriptor`.
+        /// ~&gt;**NOTE:** If you only have the Storage Key(UUID) of the user, you can use `azuredevops.getDescriptor` to resolve the Storage Key(UUID) to a `Descriptor`.
         /// 
         /// ## Example Usage
         /// 

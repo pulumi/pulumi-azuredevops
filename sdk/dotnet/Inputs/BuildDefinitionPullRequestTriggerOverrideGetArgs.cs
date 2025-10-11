@@ -13,7 +13,7 @@ namespace Pulumi.AzureDevOps.Inputs
     public sealed class BuildDefinitionPullRequestTriggerOverrideGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// . Defaults to `true`.
+        /// . Defaults to `True`.
         /// </summary>
         [Input("autoCancel")]
         public Input<bool>? AutoCancel { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.AzureDevOps.Inputs
         private InputList<Inputs.BuildDefinitionPullRequestTriggerOverrideBranchFilterGetArgs>? _branchFilters;
 
         /// <summary>
-        /// The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
+        /// The branches to include and exclude from the trigger. A `BranchFilter` block as documented below.
         /// </summary>
         public InputList<Inputs.BuildDefinitionPullRequestTriggerOverrideBranchFilterGetArgs> BranchFilters
         {

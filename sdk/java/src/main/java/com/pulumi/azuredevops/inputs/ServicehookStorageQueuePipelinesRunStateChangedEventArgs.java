@@ -31,14 +31,14 @@ public final class ServicehookStorageQueuePipelinesRunStateChangedEventArgs exte
     }
 
     /**
-     * Which run result should generate an event. Only valid if published_event is `RunStateChanged`. If not specified, all results will trigger the event.
+     * Which run result should generate an event. Only valid if publishedEvent is `RunStateChanged`. If not specified, all results will trigger the event.
      * 
      */
     @Import(name="runResultFilter")
     private @Nullable Output<String> runResultFilter;
 
     /**
-     * @return Which run result should generate an event. Only valid if published_event is `RunStateChanged`. If not specified, all results will trigger the event.
+     * @return Which run result should generate an event. Only valid if publishedEvent is `RunStateChanged`. If not specified, all results will trigger the event.
      * 
      */
     public Optional<Output<String>> runResultFilter() {
@@ -46,14 +46,14 @@ public final class ServicehookStorageQueuePipelinesRunStateChangedEventArgs exte
     }
 
     /**
-     * Which run state should generate an event. Only valid if published_event is `RunStateChanged`. If not specified, all states will trigger the event.
+     * Which run state should generate an event. Only valid if publishedEvent is `RunStateChanged`. If not specified, all states will trigger the event.
      * 
      */
     @Import(name="runStateFilter")
     private @Nullable Output<String> runStateFilter;
 
     /**
-     * @return Which run state should generate an event. Only valid if published_event is `RunStateChanged`. If not specified, all states will trigger the event.
+     * @return Which run state should generate an event. Only valid if publishedEvent is `RunStateChanged`. If not specified, all states will trigger the event.
      * 
      */
     public Optional<Output<String>> runStateFilter() {
@@ -108,7 +108,7 @@ public final class ServicehookStorageQueuePipelinesRunStateChangedEventArgs exte
         }
 
         /**
-         * @param runResultFilter Which run result should generate an event. Only valid if published_event is `RunStateChanged`. If not specified, all results will trigger the event.
+         * @param runResultFilter Which run result should generate an event. Only valid if publishedEvent is `RunStateChanged`. If not specified, all results will trigger the event.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class ServicehookStorageQueuePipelinesRunStateChangedEventArgs exte
         }
 
         /**
-         * @param runResultFilter Which run result should generate an event. Only valid if published_event is `RunStateChanged`. If not specified, all results will trigger the event.
+         * @param runResultFilter Which run result should generate an event. Only valid if publishedEvent is `RunStateChanged`. If not specified, all results will trigger the event.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class ServicehookStorageQueuePipelinesRunStateChangedEventArgs exte
         }
 
         /**
-         * @param runStateFilter Which run state should generate an event. Only valid if published_event is `RunStateChanged`. If not specified, all states will trigger the event.
+         * @param runStateFilter Which run state should generate an event. Only valid if publishedEvent is `RunStateChanged`. If not specified, all states will trigger the event.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ServicehookStorageQueuePipelinesRunStateChangedEventArgs exte
         }
 
         /**
-         * @param runStateFilter Which run state should generate an event. Only valid if published_event is `RunStateChanged`. If not specified, all states will trigger the event.
+         * @param runStateFilter Which run state should generate an event. Only valid if publishedEvent is `RunStateChanged`. If not specified, all states will trigger the event.
          * 
          * @return builder
          * 

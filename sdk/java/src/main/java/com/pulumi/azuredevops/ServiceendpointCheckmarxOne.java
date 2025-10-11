@@ -131,14 +131,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azuredevops:index/serviceendpointCheckmarxOne:ServiceendpointCheckmarxOne")
 public class ServiceendpointCheckmarxOne extends com.pulumi.resources.CustomResource {
     /**
-     * The account of the Checkmarx One. Conflict with `client_id` and `client_secret`.
+     * The account of the Checkmarx One. Conflict with `clientId` and `clientSecret`.
      * 
      */
     @Export(name="apiKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apiKey;
 
     /**
-     * @return The account of the Checkmarx One. Conflict with `client_id` and `client_secret`.
+     * @return The account of the Checkmarx One. Conflict with `clientId` and `clientSecret`.
      * 
      */
     public Output<Optional<String>> apiKey() {
@@ -151,46 +151,46 @@ public class ServiceendpointCheckmarxOne extends com.pulumi.resources.CustomReso
         return this.authorization;
     }
     /**
-     * The URL of Checkmarx Authorization. Used when using `client_id` and `client_secret` authorization.
+     * The URL of Checkmarx Authorization. Used when using `clientId` and `clientSecret` authorization.
      * 
      */
     @Export(name="authorizationUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authorizationUrl;
 
     /**
-     * @return The URL of Checkmarx Authorization. Used when using `client_id` and `client_secret` authorization.
+     * @return The URL of Checkmarx Authorization. Used when using `clientId` and `clientSecret` authorization.
      * 
      */
     public Output<Optional<String>> authorizationUrl() {
         return Codegen.optional(this.authorizationUrl);
     }
     /**
-     * The Client ID of the Checkmarx One. Conflict with `api_key`
+     * The Client ID of the Checkmarx One. Conflict with `apiKey`
      * 
      */
     @Export(name="clientId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientId;
 
     /**
-     * @return The Client ID of the Checkmarx One. Conflict with `api_key`
+     * @return The Client ID of the Checkmarx One. Conflict with `apiKey`
      * 
      */
     public Output<Optional<String>> clientId() {
         return Codegen.optional(this.clientId);
     }
     /**
-     * The Client Secret of the Checkmarx One. Conflict with `api_key`
+     * The Client Secret of the Checkmarx One. Conflict with `apiKey`
      * 
-     * &gt; **Note** At least one of `api_key` and `client_id`, `client_secret` must be set
+     * &gt; **Note** At least one of `apiKey` and `clientId`, `clientSecret` must be set
      * 
      */
     @Export(name="clientSecret", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientSecret;
 
     /**
-     * @return The Client Secret of the Checkmarx One. Conflict with `api_key`
+     * @return The Client Secret of the Checkmarx One. Conflict with `apiKey`
      * 
-     * &gt; **Note** At least one of `api_key` and `client_id`, `client_secret` must be set
+     * &gt; **Note** At least one of `apiKey` and `clientId`, `clientSecret` must be set
      * 
      */
     public Output<Optional<String>> clientSecret() {

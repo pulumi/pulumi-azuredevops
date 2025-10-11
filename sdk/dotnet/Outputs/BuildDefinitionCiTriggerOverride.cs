@@ -14,11 +14,11 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class BuildDefinitionCiTriggerOverride
     {
         /// <summary>
-        /// If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.
+        /// If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `True`.
         /// </summary>
         public readonly bool? Batch;
         /// <summary>
-        /// The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
+        /// The branches to include and exclude from the trigger. A `BranchFilter` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.BuildDefinitionCiTriggerOverrideBranchFilter> BranchFilters;
         /// <summary>

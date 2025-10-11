@@ -19,14 +19,14 @@ public final class ServiceendpointMavenState extends com.pulumi.resources.Resour
     public static final ServiceendpointMavenState Empty = new ServiceendpointMavenState();
 
     /**
-     * A `authentication_basic` block as documented below.
+     * A `authenticationBasic` block as documented below.
      * 
      */
     @Import(name="authenticationBasic")
     private @Nullable Output<ServiceendpointMavenAuthenticationBasicArgs> authenticationBasic;
 
     /**
-     * @return A `authentication_basic` block as documented below.
+     * @return A `authenticationBasic` block as documented below.
      * 
      */
     public Optional<Output<ServiceendpointMavenAuthenticationBasicArgs>> authenticationBasic() {
@@ -34,14 +34,14 @@ public final class ServiceendpointMavenState extends com.pulumi.resources.Resour
     }
 
     /**
-     * A `authentication_token` block as documented below.
+     * A `authenticationToken` block as documented below.
      * 
      */
     @Import(name="authenticationToken")
     private @Nullable Output<ServiceendpointMavenAuthenticationTokenArgs> authenticationToken;
 
     /**
-     * @return A `authentication_token` block as documented below.
+     * @return A `authenticationToken` block as documented below.
      * 
      */
     public Optional<Output<ServiceendpointMavenAuthenticationTokenArgs>> authenticationToken() {
@@ -154,7 +154,7 @@ public final class ServiceendpointMavenState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param authenticationBasic A `authentication_basic` block as documented below.
+         * @param authenticationBasic A `authenticationBasic` block as documented below.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class ServiceendpointMavenState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param authenticationBasic A `authentication_basic` block as documented below.
+         * @param authenticationBasic A `authenticationBasic` block as documented below.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class ServiceendpointMavenState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param authenticationToken A `authentication_token` block as documented below.
+         * @param authenticationToken A `authenticationToken` block as documented below.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class ServiceendpointMavenState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param authenticationToken A `authentication_token` block as documented below.
+         * @param authenticationToken A `authenticationToken` block as documented below.
          * 
          * @return builder
          * 

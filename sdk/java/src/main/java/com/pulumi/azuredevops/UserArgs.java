@@ -33,7 +33,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
      * 
-     * &gt; **NOTE:** A user can only be referenced by it&#39;s `principal_name` or by the combination of `origin_id` and `origin`.
+     * &gt; **NOTE:** A user can only be referenced by it&#39;s `principalName` or by the combination of `originId` and `origin`.
      * 
      */
     @Import(name="licensingSource")
@@ -42,7 +42,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
      * 
-     * &gt; **NOTE:** A user can only be referenced by it&#39;s `principal_name` or by the combination of `origin_id` and `origin`.
+     * &gt; **NOTE:** A user can only be referenced by it&#39;s `principalName` or by the combination of `originId` and `origin`.
      * 
      */
     public Optional<Output<String>> licensingSource() {
@@ -146,7 +146,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param licensingSource The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
          * 
-         * &gt; **NOTE:** A user can only be referenced by it&#39;s `principal_name` or by the combination of `origin_id` and `origin`.
+         * &gt; **NOTE:** A user can only be referenced by it&#39;s `principalName` or by the combination of `originId` and `origin`.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param licensingSource The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
          * 
-         * &gt; **NOTE:** A user can only be referenced by it&#39;s `principal_name` or by the combination of `origin_id` and `origin`.
+         * &gt; **NOTE:** A user can only be referenced by it&#39;s `principalName` or by the combination of `originId` and `origin`.
          * 
          * @return builder
          * 

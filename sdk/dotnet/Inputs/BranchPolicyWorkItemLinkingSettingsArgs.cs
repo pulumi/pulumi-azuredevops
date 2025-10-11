@@ -16,7 +16,7 @@ namespace Pulumi.AzureDevOps.Inputs
         private InputList<Inputs.BranchPolicyWorkItemLinkingSettingsScopeArgs>? _scopes;
 
         /// <summary>
-        /// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        /// A `Scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         /// </summary>
         public InputList<Inputs.BranchPolicyWorkItemLinkingSettingsScopeArgs> Scopes
         {

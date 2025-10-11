@@ -164,7 +164,7 @@ namespace Pulumi.AzureDevOps
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A list of `key_vault` blocks as documented below.
+        /// A list of `KeyVault` blocks as documented below.
         /// </summary>
         [Output("keyVault")]
         public Output<Outputs.VariableGroupKeyVault?> KeyVault { get; private set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> ProjectId { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `variable` blocks as documented below.
+        /// One or more `Variable` blocks as documented below.
         /// </summary>
         [Output("variables")]
         public Output<ImmutableArray<Outputs.VariableGroupVariable>> Variables { get; private set; } = null!;
@@ -246,7 +246,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A list of `key_vault` blocks as documented below.
+        /// A list of `KeyVault` blocks as documented below.
         /// </summary>
         [Input("keyVault")]
         public Input<Inputs.VariableGroupKeyVaultArgs>? KeyVault { get; set; }
@@ -267,7 +267,7 @@ namespace Pulumi.AzureDevOps
         private InputList<Inputs.VariableGroupVariableArgs>? _variables;
 
         /// <summary>
-        /// One or more `variable` blocks as documented below.
+        /// One or more `Variable` blocks as documented below.
         /// </summary>
         public InputList<Inputs.VariableGroupVariableArgs> Variables
         {
@@ -296,7 +296,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A list of `key_vault` blocks as documented below.
+        /// A list of `KeyVault` blocks as documented below.
         /// </summary>
         [Input("keyVault")]
         public Input<Inputs.VariableGroupKeyVaultGetArgs>? KeyVault { get; set; }
@@ -317,7 +317,7 @@ namespace Pulumi.AzureDevOps
         private InputList<Inputs.VariableGroupVariableGetArgs>? _variables;
 
         /// <summary>
-        /// One or more `variable` blocks as documented below.
+        /// One or more `Variable` blocks as documented below.
         /// </summary>
         public InputList<Inputs.VariableGroupVariableGetArgs> Variables
         {

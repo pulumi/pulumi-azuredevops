@@ -305,7 +305,7 @@ namespace Pulumi.AzureDevOps
         public Output<string?> AzurermSubscriptionName { get; private set; } = null!;
 
         /// <summary>
-        /// A `credentials` block as defined below.
+        /// A `Credentials` block as defined below.
         /// </summary>
         [Output("credentials")]
         public Output<Outputs.ServiceEndpointAzureRMCredentials?> Credentials { get; private set; } = null!;
@@ -323,7 +323,7 @@ namespace Pulumi.AzureDevOps
         public Output<string?> Environment { get; private set; } = null!;
 
         /// <summary>
-        /// A `features` block as defined below.
+        /// A `Features` block as defined below.
         /// </summary>
         [Output("features")]
         public Output<Outputs.ServiceEndpointAzureRMFeatures?> Features { get; private set; } = null!;
@@ -343,7 +343,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The server URL of the service endpoint. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+        /// &gt; **NOTE:** One of either `Subscription` scoped i.e. `AzurermSubscriptionId`, `AzurermSubscriptionName` or `ManagementGroup` scoped i.e. `AzurermManagementGroupId`, `AzurermManagementGroupName` values must be specified.
         /// </summary>
         [Output("serverUrl")]
         public Output<string> ServerUrl { get; private set; } = null!;
@@ -369,13 +369,13 @@ namespace Pulumi.AzureDevOps
         public Output<string> ServicePrincipalId { get; private set; } = null!;
 
         /// <summary>
-        /// The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+        /// The issuer if `ServiceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
         /// </summary>
         [Output("workloadIdentityFederationIssuer")]
         public Output<string> WorkloadIdentityFederationIssuer { get; private set; } = null!;
 
         /// <summary>
-        /// The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://&lt;organisation&gt;/&lt;project&gt;/&lt;service-connection-name&gt;`.
+        /// The subject if `ServiceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `sc://&lt;organisation&gt;/&lt;project&gt;/&lt;service-connection-name&gt;`.
         /// </summary>
         [Output("workloadIdentityFederationSubject")]
         public Output<string> WorkloadIdentityFederationSubject { get; private set; } = null!;
@@ -457,7 +457,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? AzurermSubscriptionName { get; set; }
 
         /// <summary>
-        /// A `credentials` block as defined below.
+        /// A `Credentials` block as defined below.
         /// </summary>
         [Input("credentials")]
         public Input<Inputs.ServiceEndpointAzureRMCredentialsArgs>? Credentials { get; set; }
@@ -475,7 +475,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Environment { get; set; }
 
         /// <summary>
-        /// A `features` block as defined below.
+        /// A `Features` block as defined below.
         /// </summary>
         [Input("features")]
         public Input<Inputs.ServiceEndpointAzureRMFeaturesArgs>? Features { get; set; }
@@ -495,7 +495,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The server URL of the service endpoint. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+        /// &gt; **NOTE:** One of either `Subscription` scoped i.e. `AzurermSubscriptionId`, `AzurermSubscriptionName` or `ManagementGroup` scoped i.e. `AzurermManagementGroupId`, `AzurermManagementGroupName` values must be specified.
         /// </summary>
         [Input("serverUrl")]
         public Input<string>? ServerUrl { get; set; }
@@ -561,7 +561,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? AzurermSubscriptionName { get; set; }
 
         /// <summary>
-        /// A `credentials` block as defined below.
+        /// A `Credentials` block as defined below.
         /// </summary>
         [Input("credentials")]
         public Input<Inputs.ServiceEndpointAzureRMCredentialsGetArgs>? Credentials { get; set; }
@@ -579,7 +579,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Environment { get; set; }
 
         /// <summary>
-        /// A `features` block as defined below.
+        /// A `Features` block as defined below.
         /// </summary>
         [Input("features")]
         public Input<Inputs.ServiceEndpointAzureRMFeaturesGetArgs>? Features { get; set; }
@@ -599,7 +599,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The server URL of the service endpoint. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+        /// &gt; **NOTE:** One of either `Subscription` scoped i.e. `AzurermSubscriptionId`, `AzurermSubscriptionName` or `ManagementGroup` scoped i.e. `AzurermManagementGroupId`, `AzurermManagementGroupName` values must be specified.
         /// </summary>
         [Input("serverUrl")]
         public Input<string>? ServerUrl { get; set; }
@@ -625,13 +625,13 @@ namespace Pulumi.AzureDevOps
         public Input<string>? ServicePrincipalId { get; set; }
 
         /// <summary>
-        /// The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+        /// The issuer if `ServiceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
         /// </summary>
         [Input("workloadIdentityFederationIssuer")]
         public Input<string>? WorkloadIdentityFederationIssuer { get; set; }
 
         /// <summary>
-        /// The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://&lt;organisation&gt;/&lt;project&gt;/&lt;service-connection-name&gt;`.
+        /// The subject if `ServiceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `sc://&lt;organisation&gt;/&lt;project&gt;/&lt;service-connection-name&gt;`.
         /// </summary>
         [Input("workloadIdentityFederationSubject")]
         public Input<string>? WorkloadIdentityFederationSubject { get; set; }

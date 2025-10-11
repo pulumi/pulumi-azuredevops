@@ -17,17 +17,17 @@ public final class ServicehookStorageQueuePipelinesStageStateChangedEvent {
      */
     private @Nullable String pipelineId;
     /**
-     * @return Which stage should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all stages will trigger the event.
+     * @return Which stage should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all stages will trigger the event.
      * 
      */
     private @Nullable String stageName;
     /**
-     * @return Which stage result should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all results will trigger the event.
+     * @return Which stage result should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all results will trigger the event.
      * 
      */
     private @Nullable String stageResultFilter;
     /**
-     * @return Which stage state should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all states will trigger the event.
+     * @return Which stage state should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all states will trigger the event.
      * 
      */
     private @Nullable String stageStateFilter;
@@ -41,21 +41,21 @@ public final class ServicehookStorageQueuePipelinesStageStateChangedEvent {
         return Optional.ofNullable(this.pipelineId);
     }
     /**
-     * @return Which stage should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all stages will trigger the event.
+     * @return Which stage should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all stages will trigger the event.
      * 
      */
     public Optional<String> stageName() {
         return Optional.ofNullable(this.stageName);
     }
     /**
-     * @return Which stage result should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all results will trigger the event.
+     * @return Which stage result should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all results will trigger the event.
      * 
      */
     public Optional<String> stageResultFilter() {
         return Optional.ofNullable(this.stageResultFilter);
     }
     /**
-     * @return Which stage state should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all states will trigger the event.
+     * @return Which stage state should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all states will trigger the event.
      * 
      */
     public Optional<String> stageStateFilter() {

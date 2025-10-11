@@ -22,7 +22,7 @@ public final class BranchPolicyStatusCheckSettingsScope {
      */
     private @Nullable String repositoryId;
     /**
-     * @return The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type=Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type=Prefix`, this should be a ref path such as `refs/heads/releases`.
+     * @return The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `match_type=Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type=Prefix`, this should be a ref path such as `refs/heads/releases`.
      * 
      */
     private @Nullable String repositoryRef;
@@ -43,7 +43,7 @@ public final class BranchPolicyStatusCheckSettingsScope {
         return Optional.ofNullable(this.repositoryId);
     }
     /**
-     * @return The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type=Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type=Prefix`, this should be a ref path such as `refs/heads/releases`.
+     * @return The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `match_type=Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type=Prefix`, this should be a ref path such as `refs/heads/releases`.
      * 
      */
     public Optional<String> repositoryRef() {

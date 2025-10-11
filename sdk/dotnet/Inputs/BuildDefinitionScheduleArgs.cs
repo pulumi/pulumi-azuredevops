@@ -16,7 +16,7 @@ namespace Pulumi.AzureDevOps.Inputs
         private InputList<Inputs.BuildDefinitionScheduleBranchFilterArgs>? _branchFilters;
 
         /// <summary>
-        /// A `branch_filter` block as defined below.
+        /// A `BranchFilter` block as defined below.
         /// </summary>
         public InputList<Inputs.BuildDefinitionScheduleBranchFilterArgs> BranchFilters
         {
@@ -43,7 +43,7 @@ namespace Pulumi.AzureDevOps.Inputs
         public Input<string>? ScheduleJobId { get; set; }
 
         /// <summary>
-        /// Schedule builds if the source or pipeline has changed. Defaults to `true`.
+        /// Schedule builds if the source or pipeline has changed. Defaults to `True`.
         /// </summary>
         [Input("scheduleOnlyWithChanges")]
         public Input<bool>? ScheduleOnlyWithChanges { get; set; }

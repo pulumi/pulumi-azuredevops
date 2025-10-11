@@ -18,14 +18,14 @@ public final class ServiceEndpointPipelineState extends com.pulumi.resources.Res
     public static final ServiceEndpointPipelineState Empty = new ServiceEndpointPipelineState();
 
     /**
-     * An `auth_personal` block as documented below. Allows connecting using a personal access token.
+     * An `authPersonal` block as documented below. Allows connecting using a personal access token.
      * 
      */
     @Import(name="authPersonal")
     private @Nullable Output<ServiceEndpointPipelineAuthPersonalArgs> authPersonal;
 
     /**
-     * @return An `auth_personal` block as documented below. Allows connecting using a personal access token.
+     * @return An `authPersonal` block as documented below. Allows connecting using a personal access token.
      * 
      */
     public Optional<Output<ServiceEndpointPipelineAuthPersonalArgs>> authPersonal() {
@@ -121,7 +121,7 @@ public final class ServiceEndpointPipelineState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param authPersonal An `auth_personal` block as documented below. Allows connecting using a personal access token.
+         * @param authPersonal An `authPersonal` block as documented below. Allows connecting using a personal access token.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class ServiceEndpointPipelineState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param authPersonal An `auth_personal` block as documented below. Allows connecting using a personal access token.
+         * @param authPersonal An `authPersonal` block as documented below. Allows connecting using a personal access token.
          * 
          * @return builder
          * 

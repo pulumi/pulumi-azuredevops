@@ -103,13 +103,13 @@ namespace Pulumi.AzureDevOps
         public Output<ImmutableDictionary<string, string>> Authorization { get; private set; } = null!;
 
         /// <summary>
-        /// An `azure_active_directory` block as documented below.
+        /// An `AzureActiveDirectory` block as documented below.
         /// </summary>
         [Output("azureActiveDirectory")]
         public Output<Outputs.ServiceEndpointServiceFabricAzureActiveDirectory?> AzureActiveDirectory { get; private set; } = null!;
 
         /// <summary>
-        /// A `certificate` block as documented below.
+        /// A `Certificate` block as documented below.
         /// </summary>
         [Output("certificate")]
         public Output<Outputs.ServiceEndpointServiceFabricCertificate?> Certificate { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.AzureDevOps
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A `none` block as documented below.
+        /// A `None` block as documented below.
         /// </summary>
         [Output("none")]
         public Output<Outputs.ServiceEndpointServiceFabricNone?> None { get; private set; } = null!;
@@ -188,13 +188,13 @@ namespace Pulumi.AzureDevOps
     public sealed class ServiceEndpointServiceFabricArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `azure_active_directory` block as documented below.
+        /// An `AzureActiveDirectory` block as documented below.
         /// </summary>
         [Input("azureActiveDirectory")]
         public Input<Inputs.ServiceEndpointServiceFabricAzureActiveDirectoryArgs>? AzureActiveDirectory { get; set; }
 
         /// <summary>
-        /// A `certificate` block as documented below.
+        /// A `Certificate` block as documented below.
         /// </summary>
         [Input("certificate")]
         public Input<Inputs.ServiceEndpointServiceFabricCertificateArgs>? Certificate { get; set; }
@@ -209,7 +209,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A `none` block as documented below.
+        /// A `None` block as documented below.
         /// </summary>
         [Input("none")]
         public Input<Inputs.ServiceEndpointServiceFabricNoneArgs>? None { get; set; }
@@ -243,13 +243,13 @@ namespace Pulumi.AzureDevOps
         }
 
         /// <summary>
-        /// An `azure_active_directory` block as documented below.
+        /// An `AzureActiveDirectory` block as documented below.
         /// </summary>
         [Input("azureActiveDirectory")]
         public Input<Inputs.ServiceEndpointServiceFabricAzureActiveDirectoryGetArgs>? AzureActiveDirectory { get; set; }
 
         /// <summary>
-        /// A `certificate` block as documented below.
+        /// A `Certificate` block as documented below.
         /// </summary>
         [Input("certificate")]
         public Input<Inputs.ServiceEndpointServiceFabricCertificateGetArgs>? Certificate { get; set; }
@@ -264,7 +264,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A `none` block as documented below.
+        /// A `None` block as documented below.
         /// </summary>
         [Input("none")]
         public Input<Inputs.ServiceEndpointServiceFabricNoneGetArgs>? None { get; set; }

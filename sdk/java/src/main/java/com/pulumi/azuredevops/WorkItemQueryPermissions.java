@@ -24,11 +24,11 @@ import javax.annotation.Nullable;
  * ## Permission levels
  * 
  * Permission for Work Item Queries within Azure DevOps can be applied on two different levels.
- * Those levels are reflected by specifying (or omitting) values for the arguments `project_id` and `path`.
+ * Those levels are reflected by specifying (or omitting) values for the arguments `projectId` and `path`.
  * 
  * ### Project level
  * 
- * Permissions for all Work Item Queries inside a project (existing or newly created ones) are specified, if only the argument `project_id` has a value.
+ * Permissions for all Work Item Queries inside a project (existing or newly created ones) are specified, if only the argument `projectId` has a value.
  * 
  * #### Example usage
  * 
@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  * 
  * ### Shared Queries folder level
  * 
- * Permissions for a specific folder inside Shared Queries are specified if the arguments `project_id` and `path` are set.
+ * Permissions for a specific folder inside Shared Queries are specified if the arguments `projectId` and `path` are set.
  * 
  * &gt; **Note** To set permissions for the Shared Queries folder itself use `/` as path value
  * 

@@ -125,15 +125,15 @@ namespace Pulumi.AzureDevOps
         public Output<string> QueueName { get; private set; } = null!;
 
         /// <summary>
-        /// A `run_state_changed_event` block as defined below. Conflicts with `stage_state_changed_event`
+        /// A `RunStateChangedEvent` block as defined below. Conflicts with `StageStateChangedEvent`
         /// </summary>
         [Output("runStateChangedEvent")]
         public Output<Outputs.ServicehookStorageQueuePipelinesRunStateChangedEvent?> RunStateChangedEvent { get; private set; } = null!;
 
         /// <summary>
-        /// A `stage_state_changed_event` block as defined below. Conflicts with `run_state_changed_event`
+        /// A `StageStateChangedEvent` block as defined below. Conflicts with `RunStateChangedEvent`
         /// 
-        /// &gt; **Note** At least one of `run_state_changed_event` and `stage_state_changed_event` has to be set.
+        /// &gt; **Note** At least one of `RunStateChangedEvent` and `StageStateChangedEvent` has to be set.
         /// </summary>
         [Output("stageStateChangedEvent")]
         public Output<Outputs.ServicehookStorageQueuePipelinesStageStateChangedEvent?> StageStateChangedEvent { get; private set; } = null!;
@@ -235,15 +235,15 @@ namespace Pulumi.AzureDevOps
         public Input<string> QueueName { get; set; } = null!;
 
         /// <summary>
-        /// A `run_state_changed_event` block as defined below. Conflicts with `stage_state_changed_event`
+        /// A `RunStateChangedEvent` block as defined below. Conflicts with `StageStateChangedEvent`
         /// </summary>
         [Input("runStateChangedEvent")]
         public Input<Inputs.ServicehookStorageQueuePipelinesRunStateChangedEventArgs>? RunStateChangedEvent { get; set; }
 
         /// <summary>
-        /// A `stage_state_changed_event` block as defined below. Conflicts with `run_state_changed_event`
+        /// A `StageStateChangedEvent` block as defined below. Conflicts with `RunStateChangedEvent`
         /// 
-        /// &gt; **Note** At least one of `run_state_changed_event` and `stage_state_changed_event` has to be set.
+        /// &gt; **Note** At least one of `RunStateChangedEvent` and `StageStateChangedEvent` has to be set.
         /// </summary>
         [Input("stageStateChangedEvent")]
         public Input<Inputs.ServicehookStorageQueuePipelinesStageStateChangedEventArgs>? StageStateChangedEvent { get; set; }
@@ -303,15 +303,15 @@ namespace Pulumi.AzureDevOps
         public Input<string>? QueueName { get; set; }
 
         /// <summary>
-        /// A `run_state_changed_event` block as defined below. Conflicts with `stage_state_changed_event`
+        /// A `RunStateChangedEvent` block as defined below. Conflicts with `StageStateChangedEvent`
         /// </summary>
         [Input("runStateChangedEvent")]
         public Input<Inputs.ServicehookStorageQueuePipelinesRunStateChangedEventGetArgs>? RunStateChangedEvent { get; set; }
 
         /// <summary>
-        /// A `stage_state_changed_event` block as defined below. Conflicts with `run_state_changed_event`
+        /// A `StageStateChangedEvent` block as defined below. Conflicts with `RunStateChangedEvent`
         /// 
-        /// &gt; **Note** At least one of `run_state_changed_event` and `stage_state_changed_event` has to be set.
+        /// &gt; **Note** At least one of `RunStateChangedEvent` and `StageStateChangedEvent` has to be set.
         /// </summary>
         [Input("stageStateChangedEvent")]
         public Input<Inputs.ServicehookStorageQueuePipelinesStageStateChangedEventGetArgs>? StageStateChangedEvent { get; set; }

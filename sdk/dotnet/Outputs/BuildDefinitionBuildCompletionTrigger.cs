@@ -14,7 +14,7 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class BuildDefinitionBuildCompletionTrigger
     {
         /// <summary>
-        /// The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
+        /// The branches to include and exclude from the trigger. A `BranchFilter` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.BuildDefinitionBuildCompletionTriggerBranchFilter> BranchFilters;
         /// <summary>

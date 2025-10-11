@@ -14,7 +14,7 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class BuildDefinitionSchedule
     {
         /// <summary>
-        /// A `branch_filter` block as defined below.
+        /// A `BranchFilter` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.BuildDefinitionScheduleBranchFilter> BranchFilters;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly string? ScheduleJobId;
         /// <summary>
-        /// Schedule builds if the source or pipeline has changed. Defaults to `true`.
+        /// Schedule builds if the source or pipeline has changed. Defaults to `True`.
         /// </summary>
         public readonly bool? ScheduleOnlyWithChanges;
         /// <summary>

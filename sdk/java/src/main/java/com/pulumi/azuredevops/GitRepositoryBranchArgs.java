@@ -32,14 +32,14 @@ public final class GitRepositoryBranchArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The reference to the source branch to create the branch from, in `&lt;name&gt;` or `refs/heads/&lt;name&gt;` format. Conflict with `ref_tag`, `ref_commit_id`.
+     * The reference to the source branch to create the branch from, in `&lt;name&gt;` or `refs/heads/&lt;name&gt;` format. Conflict with `refTag`, `refCommitId`.
      * 
      */
     @Import(name="refBranch")
     private @Nullable Output<String> refBranch;
 
     /**
-     * @return The reference to the source branch to create the branch from, in `&lt;name&gt;` or `refs/heads/&lt;name&gt;` format. Conflict with `ref_tag`, `ref_commit_id`.
+     * @return The reference to the source branch to create the branch from, in `&lt;name&gt;` or `refs/heads/&lt;name&gt;` format. Conflict with `refTag`, `refCommitId`.
      * 
      */
     public Optional<Output<String>> refBranch() {
@@ -47,14 +47,14 @@ public final class GitRepositoryBranchArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The commit object ID to create the branch from. Conflict with `ref_branch`, `ref_tag`.
+     * The commit object ID to create the branch from. Conflict with `refBranch`, `refTag`.
      * 
      */
     @Import(name="refCommitId")
     private @Nullable Output<String> refCommitId;
 
     /**
-     * @return The commit object ID to create the branch from. Conflict with `ref_branch`, `ref_tag`.
+     * @return The commit object ID to create the branch from. Conflict with `refBranch`, `refTag`.
      * 
      */
     public Optional<Output<String>> refCommitId() {
@@ -62,14 +62,14 @@ public final class GitRepositoryBranchArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The reference to the tag to create the branch from, in `&lt;name&gt;` or `refs/tags/&lt;name&gt;` format. Conflict with `ref_branch`, `ref_commit_id`.
+     * The reference to the tag to create the branch from, in `&lt;name&gt;` or `refs/tags/&lt;name&gt;` format. Conflict with `refBranch`, `refCommitId`.
      * 
      */
     @Import(name="refTag")
     private @Nullable Output<String> refTag;
 
     /**
-     * @return The reference to the tag to create the branch from, in `&lt;name&gt;` or `refs/tags/&lt;name&gt;` format. Conflict with `ref_branch`, `ref_commit_id`.
+     * @return The reference to the tag to create the branch from, in `&lt;name&gt;` or `refs/tags/&lt;name&gt;` format. Conflict with `refBranch`, `refCommitId`.
      * 
      */
     public Optional<Output<String>> refTag() {
@@ -141,7 +141,7 @@ public final class GitRepositoryBranchArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param refBranch The reference to the source branch to create the branch from, in `&lt;name&gt;` or `refs/heads/&lt;name&gt;` format. Conflict with `ref_tag`, `ref_commit_id`.
+         * @param refBranch The reference to the source branch to create the branch from, in `&lt;name&gt;` or `refs/heads/&lt;name&gt;` format. Conflict with `refTag`, `refCommitId`.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class GitRepositoryBranchArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param refBranch The reference to the source branch to create the branch from, in `&lt;name&gt;` or `refs/heads/&lt;name&gt;` format. Conflict with `ref_tag`, `ref_commit_id`.
+         * @param refBranch The reference to the source branch to create the branch from, in `&lt;name&gt;` or `refs/heads/&lt;name&gt;` format. Conflict with `refTag`, `refCommitId`.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class GitRepositoryBranchArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param refCommitId The commit object ID to create the branch from. Conflict with `ref_branch`, `ref_tag`.
+         * @param refCommitId The commit object ID to create the branch from. Conflict with `refBranch`, `refTag`.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class GitRepositoryBranchArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param refCommitId The commit object ID to create the branch from. Conflict with `ref_branch`, `ref_tag`.
+         * @param refCommitId The commit object ID to create the branch from. Conflict with `refBranch`, `refTag`.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class GitRepositoryBranchArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param refTag The reference to the tag to create the branch from, in `&lt;name&gt;` or `refs/tags/&lt;name&gt;` format. Conflict with `ref_branch`, `ref_commit_id`.
+         * @param refTag The reference to the tag to create the branch from, in `&lt;name&gt;` or `refs/tags/&lt;name&gt;` format. Conflict with `refBranch`, `refCommitId`.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class GitRepositoryBranchArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param refTag The reference to the tag to create the branch from, in `&lt;name&gt;` or `refs/tags/&lt;name&gt;` format. Conflict with `ref_branch`, `ref_commit_id`.
+         * @param refTag The reference to the tag to create the branch from, in `&lt;name&gt;` or `refs/tags/&lt;name&gt;` format. Conflict with `refBranch`, `refCommitId`.
          * 
          * @return builder
          * 

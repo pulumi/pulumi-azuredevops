@@ -19,7 +19,7 @@ namespace Pulumi.AzureDevOps.Inputs
         public Input<Inputs.BuildDefinitionCiTriggerOverrideGetArgs>? Override { get; set; }
 
         /// <summary>
-        /// Use the azure-pipeline file for the build configuration. Defaults to `false`.
+        /// Use the azure-pipeline file for the build configuration. Defaults to `False`.
         /// </summary>
         [Input("useYaml")]
         public Input<bool>? UseYaml { get; set; }

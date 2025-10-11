@@ -19,12 +19,12 @@ public final class GetBuildDefinitionPullRequestTriggerOverride {
      */
     private Boolean autoCancel;
     /**
-     * @return A `branch_filter` block as defined above.
+     * @return A `branchFilter` block as defined above.
      * 
      */
     private List<GetBuildDefinitionPullRequestTriggerOverrideBranchFilter> branchFilters;
     /**
-     * @return The file paths to include or exclude. A `path_filter` block as defined above.
+     * @return The file paths to include or exclude. A `pathFilter` block as defined above.
      * 
      */
     private List<GetBuildDefinitionPullRequestTriggerOverridePathFilter> pathFilters;
@@ -38,14 +38,14 @@ public final class GetBuildDefinitionPullRequestTriggerOverride {
         return this.autoCancel;
     }
     /**
-     * @return A `branch_filter` block as defined above.
+     * @return A `branchFilter` block as defined above.
      * 
      */
     public List<GetBuildDefinitionPullRequestTriggerOverrideBranchFilter> branchFilters() {
         return this.branchFilters;
     }
     /**
-     * @return The file paths to include or exclude. A `path_filter` block as defined above.
+     * @return The file paths to include or exclude. A `pathFilter` block as defined above.
      * 
      */
     public List<GetBuildDefinitionPullRequestTriggerOverridePathFilter> pathFilters() {

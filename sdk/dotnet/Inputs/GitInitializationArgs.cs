@@ -19,25 +19,25 @@ namespace Pulumi.AzureDevOps.Inputs
         public Input<string> InitType { get; set; } = null!;
 
         /// <summary>
-        /// The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
+        /// The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `Username` and `Password`.
         /// </summary>
         [Input("serviceConnectionId")]
         public Input<string>? ServiceConnectionId { get; set; }
 
         /// <summary>
-        /// Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`.
+        /// Type of the source repository. Used if the `InitType` is `Import`. Valid values: `Git`.
         /// </summary>
         [Input("sourceType")]
         public Input<string>? SourceType { get; set; }
 
         /// <summary>
-        /// The URL of the source repository. Used if the `init_type` is `Import`.
+        /// The URL of the source repository. Used if the `InitType` is `Import`.
         /// </summary>
         [Input("sourceUrl")]
         public Input<string>? SourceUrl { get; set; }
 
         /// <summary>
-        /// The username used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
+        /// The username used to authenticate to a private repository for import initialization. Conflicts with `ServiceConnectionId`.
         /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }

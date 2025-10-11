@@ -100,7 +100,7 @@ namespace Pulumi.AzureDevOps
         public Output<Outputs.ServiceEndpointArtifactoryAuthenticationBasic?> AuthenticationBasic { get; private set; } = null!;
 
         /// <summary>
-        /// A `authentication_basic` block as defined below.
+        /// A `AuthenticationBasic` block as defined below.
         /// </summary>
         [Output("authenticationToken")]
         public Output<Outputs.ServiceEndpointArtifactoryAuthenticationToken?> AuthenticationToken { get; private set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.AzureDevOps
         public Input<Inputs.ServiceEndpointArtifactoryAuthenticationBasicArgs>? AuthenticationBasic { get; set; }
 
         /// <summary>
-        /// A `authentication_basic` block as defined below.
+        /// A `AuthenticationBasic` block as defined below.
         /// </summary>
         [Input("authenticationToken")]
         public Input<Inputs.ServiceEndpointArtifactoryAuthenticationTokenArgs>? AuthenticationToken { get; set; }
@@ -227,7 +227,7 @@ namespace Pulumi.AzureDevOps
         public Input<Inputs.ServiceEndpointArtifactoryAuthenticationBasicGetArgs>? AuthenticationBasic { get; set; }
 
         /// <summary>
-        /// A `authentication_basic` block as defined below.
+        /// A `AuthenticationBasic` block as defined below.
         /// </summary>
         [Input("authenticationToken")]
         public Input<Inputs.ServiceEndpointArtifactoryAuthenticationTokenGetArgs>? AuthenticationToken { get; set; }

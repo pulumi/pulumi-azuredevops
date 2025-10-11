@@ -13,7 +13,7 @@ namespace Pulumi.AzureDevOps.Inputs
     public sealed class BuildDefinitionJobTargetExecutionOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to continue the job when an error occurs. Possible values are: `true`, `false`.
+        /// Whether to continue the job when an error occurs. Possible values are: `True`, `False`.
         /// </summary>
         [Input("continueOnError")]
         public Input<bool>? ContinueOnError { get; set; }

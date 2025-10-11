@@ -35,14 +35,14 @@ public final class GetRepositoriesPlainArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
-     * Name of the Git repository to retrieve; requires `project_id` to be specified as well
+     * Name of the Git repository to retrieve; requires `projectId` to be specified as well
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return Name of the Git repository to retrieve; requires `project_id` to be specified as well
+     * @return Name of the Git repository to retrieve; requires `projectId` to be specified as well
      * 
      */
     public Optional<String> name() {
@@ -104,7 +104,7 @@ public final class GetRepositoriesPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param name Name of the Git repository to retrieve; requires `project_id` to be specified as well
+         * @param name Name of the Git repository to retrieve; requires `projectId` to be specified as well
          * 
          * @return builder
          * 

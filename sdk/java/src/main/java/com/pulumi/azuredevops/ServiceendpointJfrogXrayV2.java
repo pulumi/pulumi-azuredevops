@@ -139,28 +139,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="azuredevops:index/serviceendpointJfrogXrayV2:ServiceendpointJfrogXrayV2")
 public class ServiceendpointJfrogXrayV2 extends com.pulumi.resources.CustomResource {
     /**
-     * An `authentication_basic` block as documented below.
+     * An `authenticationBasic` block as documented below.
      * 
      */
     @Export(name="authenticationBasic", refs={ServiceendpointJfrogXrayV2AuthenticationBasic.class}, tree="[0]")
     private Output</* @Nullable */ ServiceendpointJfrogXrayV2AuthenticationBasic> authenticationBasic;
 
     /**
-     * @return An `authentication_basic` block as documented below.
+     * @return An `authenticationBasic` block as documented below.
      * 
      */
     public Output<Optional<ServiceendpointJfrogXrayV2AuthenticationBasic>> authenticationBasic() {
         return Codegen.optional(this.authenticationBasic);
     }
     /**
-     * An `authentication_token` block as documented below.
+     * An `authenticationToken` block as documented below.
      * 
      */
     @Export(name="authenticationToken", refs={ServiceendpointJfrogXrayV2AuthenticationToken.class}, tree="[0]")
     private Output</* @Nullable */ ServiceendpointJfrogXrayV2AuthenticationToken> authenticationToken;
 
     /**
-     * @return An `authentication_token` block as documented below.
+     * @return An `authenticationToken` block as documented below.
      * 
      */
     public Output<Optional<ServiceendpointJfrogXrayV2AuthenticationToken>> authenticationToken() {

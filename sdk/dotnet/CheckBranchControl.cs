@@ -238,7 +238,7 @@ namespace Pulumi.AzureDevOps
         public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// Allow deployment from branches for which protection status could not be obtained. Only relevant when verify_branch_protection is `true`. Defaults to `false`.
+        /// Allow deployment from branches for which protection status could not be obtained. Only relevant when VerifyBranchProtection is `True`. Defaults to `False`.
         /// </summary>
         [Output("ignoreUnknownProtectionStatus")]
         public Output<bool?> IgnoreUnknownProtectionStatus { get; private set; } = null!;
@@ -256,7 +256,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> TargetResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+        /// The type of resource being protected by the check. Possible values are: `Endpoint`, `Environment`, `Queue`, `Repository`, `Securefile`, `Variablegroup`.
         /// </summary>
         [Output("targetResourceType")]
         public Output<string> TargetResourceType { get; private set; } = null!;
@@ -268,7 +268,7 @@ namespace Pulumi.AzureDevOps
         public Output<int?> Timeout { get; private set; } = null!;
 
         /// <summary>
-        /// Validate the branches being deployed are protected. Defaults to `false`.
+        /// Validate the branches being deployed are protected. Defaults to `False`.
         /// </summary>
         [Output("verifyBranchProtection")]
         public Output<bool?> VerifyBranchProtection { get; private set; } = null!;
@@ -338,7 +338,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Allow deployment from branches for which protection status could not be obtained. Only relevant when verify_branch_protection is `true`. Defaults to `false`.
+        /// Allow deployment from branches for which protection status could not be obtained. Only relevant when VerifyBranchProtection is `True`. Defaults to `False`.
         /// </summary>
         [Input("ignoreUnknownProtectionStatus")]
         public Input<bool>? IgnoreUnknownProtectionStatus { get; set; }
@@ -356,7 +356,7 @@ namespace Pulumi.AzureDevOps
         public Input<string> TargetResourceId { get; set; } = null!;
 
         /// <summary>
-        /// The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+        /// The type of resource being protected by the check. Possible values are: `Endpoint`, `Environment`, `Queue`, `Repository`, `Securefile`, `Variablegroup`.
         /// </summary>
         [Input("targetResourceType", required: true)]
         public Input<string> TargetResourceType { get; set; } = null!;
@@ -368,7 +368,7 @@ namespace Pulumi.AzureDevOps
         public Input<int>? Timeout { get; set; }
 
         /// <summary>
-        /// Validate the branches being deployed are protected. Defaults to `false`.
+        /// Validate the branches being deployed are protected. Defaults to `False`.
         /// </summary>
         [Input("verifyBranchProtection")]
         public Input<bool>? VerifyBranchProtection { get; set; }
@@ -394,7 +394,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Allow deployment from branches for which protection status could not be obtained. Only relevant when verify_branch_protection is `true`. Defaults to `false`.
+        /// Allow deployment from branches for which protection status could not be obtained. Only relevant when VerifyBranchProtection is `True`. Defaults to `False`.
         /// </summary>
         [Input("ignoreUnknownProtectionStatus")]
         public Input<bool>? IgnoreUnknownProtectionStatus { get; set; }
@@ -412,7 +412,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? TargetResourceId { get; set; }
 
         /// <summary>
-        /// The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+        /// The type of resource being protected by the check. Possible values are: `Endpoint`, `Environment`, `Queue`, `Repository`, `Securefile`, `Variablegroup`.
         /// </summary>
         [Input("targetResourceType")]
         public Input<string>? TargetResourceType { get; set; }
@@ -424,7 +424,7 @@ namespace Pulumi.AzureDevOps
         public Input<int>? Timeout { get; set; }
 
         /// <summary>
-        /// Validate the branches being deployed are protected. Defaults to `false`.
+        /// Validate the branches being deployed are protected. Defaults to `False`.
         /// </summary>
         [Input("verifyBranchProtection")]
         public Input<bool>? VerifyBranchProtection { get; set; }

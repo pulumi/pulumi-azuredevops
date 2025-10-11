@@ -48,13 +48,13 @@ namespace Pulumi.AzureDevOps
     public partial class Pool : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
+        /// Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `False`.
         /// </summary>
         [Output("autoProvision")]
         public Output<bool?> AutoProvision { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
+        /// Specifies whether or not agents within the pool should be automatically updated. Defaults to `True`.
         /// </summary>
         [Output("autoUpdate")]
         public Output<bool?> AutoUpdate { get; private set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
+        /// Specifies whether the agent pool type is Automation or Deployment. Defaults to `Automation`.
         /// </summary>
         [Output("poolType")]
         public Output<string?> PoolType { get; private set; } = null!;
@@ -118,13 +118,13 @@ namespace Pulumi.AzureDevOps
     public sealed class PoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
+        /// Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `False`.
         /// </summary>
         [Input("autoProvision")]
         public Input<bool>? AutoProvision { get; set; }
 
         /// <summary>
-        /// Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
+        /// Specifies whether or not agents within the pool should be automatically updated. Defaults to `True`.
         /// </summary>
         [Input("autoUpdate")]
         public Input<bool>? AutoUpdate { get; set; }
@@ -136,7 +136,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
+        /// Specifies whether the agent pool type is Automation or Deployment. Defaults to `Automation`.
         /// </summary>
         [Input("poolType")]
         public Input<string>? PoolType { get; set; }
@@ -150,13 +150,13 @@ namespace Pulumi.AzureDevOps
     public sealed class PoolState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
+        /// Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `False`.
         /// </summary>
         [Input("autoProvision")]
         public Input<bool>? AutoProvision { get; set; }
 
         /// <summary>
-        /// Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
+        /// Specifies whether or not agents within the pool should be automatically updated. Defaults to `True`.
         /// </summary>
         [Input("autoUpdate")]
         public Input<bool>? AutoUpdate { get; set; }
@@ -168,7 +168,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
+        /// Specifies whether the agent pool type is Automation or Deployment. Defaults to `Automation`.
         /// </summary>
         [Input("poolType")]
         public Input<string>? PoolType { get; set; }

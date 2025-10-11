@@ -17,11 +17,11 @@ namespace Pulumi.AzureDevOps
     /// ## Permission levels
     /// 
     /// Permission for Work Item Queries within Azure DevOps can be applied on two different levels.
-    /// Those levels are reflected by specifying (or omitting) values for the arguments `project_id` and `path`.
+    /// Those levels are reflected by specifying (or omitting) values for the arguments `ProjectId` and `Path`.
     /// 
     /// ### Project level
     /// 
-    /// Permissions for all Work Item Queries inside a project (existing or newly created ones) are specified, if only the argument `project_id` has a value.
+    /// Permissions for all Work Item Queries inside a project (existing or newly created ones) are specified, if only the argument `ProjectId` has a value.
     /// 
     /// #### Example usage
     /// 
@@ -65,7 +65,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ### Shared Queries folder level
     /// 
-    /// Permissions for a specific folder inside Shared Queries are specified if the arguments `project_id` and `path` are set.
+    /// Permissions for a specific folder inside Shared Queries are specified if the arguments `ProjectId` and `Path` are set.
     /// 
     /// &gt; **Note** To set permissions for the Shared Queries folder itself use `/` as path value
     /// 
@@ -216,7 +216,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> ProjectId { get; private set; } = null!;
 
         /// <summary>
-        /// Replace (`true`) or merge (`false`) the permissions. Defaults to `true`
+        /// Replace (`True`) or merge (`False`) the permissions. Defaults to `True`
         /// </summary>
         [Output("replace")]
         public Output<bool?> Replace { get; private set; } = null!;
@@ -305,7 +305,7 @@ namespace Pulumi.AzureDevOps
         public Input<string> ProjectId { get; set; } = null!;
 
         /// <summary>
-        /// Replace (`true`) or merge (`false`) the permissions. Defaults to `true`
+        /// Replace (`True`) or merge (`False`) the permissions. Defaults to `True`
         /// </summary>
         [Input("replace")]
         public Input<bool>? Replace { get; set; }
@@ -356,7 +356,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? ProjectId { get; set; }
 
         /// <summary>
-        /// Replace (`true`) or merge (`false`) the permissions. Defaults to `true`
+        /// Replace (`True`) or merge (`False`) the permissions. Defaults to `True`
         /// </summary>
         [Input("replace")]
         public Input<bool>? Replace { get; set; }

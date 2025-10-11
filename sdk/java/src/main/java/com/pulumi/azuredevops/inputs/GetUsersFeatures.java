@@ -17,7 +17,7 @@ public final class GetUsersFeatures extends com.pulumi.resources.InvokeArgs {
     /**
      * Number of workers to process user data concurrently.
      * 
-     * &gt; **Note** Setting `concurrent_workers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
+     * &gt; **Note** Setting `concurrentWorkers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
      * 
      */
     @Import(name="concurrentWorkers")
@@ -26,7 +26,7 @@ public final class GetUsersFeatures extends com.pulumi.resources.InvokeArgs {
     /**
      * @return Number of workers to process user data concurrently.
      * 
-     * &gt; **Note** Setting `concurrent_workers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
+     * &gt; **Note** Setting `concurrentWorkers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
      * 
      */
     public Optional<Integer> concurrentWorkers() {
@@ -60,7 +60,7 @@ public final class GetUsersFeatures extends com.pulumi.resources.InvokeArgs {
         /**
          * @param concurrentWorkers Number of workers to process user data concurrently.
          * 
-         * &gt; **Note** Setting `concurrent_workers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
+         * &gt; **Note** Setting `concurrentWorkers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
          * 
          * @return builder
          * 

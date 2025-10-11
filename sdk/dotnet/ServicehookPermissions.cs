@@ -14,8 +14,8 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ## Permission levels
     /// 
-    /// Permissions for service hooks within Azure DevOps can be applied on the Organizational level or, if the optional attribute `project_id` is specified, on Project level.
-    /// Those levels are reflected by specifying (or omitting) values for the argument `project_id`.
+    /// Permissions for service hooks within Azure DevOps can be applied on the Organizational level or, if the optional attribute `ProjectId` is specified, on Project level.
+    /// Those levels are reflected by specifying (or omitting) values for the argument `ProjectId`.
     /// 
     /// ## Example Usage
     /// 
@@ -99,7 +99,7 @@ namespace Pulumi.AzureDevOps
         public Output<string?> ProjectId { get; private set; } = null!;
 
         /// <summary>
-        /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+        /// Replace (`True`) or merge (`False`) the permissions. Default: `True`
         /// </summary>
         [Output("replace")]
         public Output<bool?> Replace { get; private set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? ProjectId { get; set; }
 
         /// <summary>
-        /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+        /// Replace (`True`) or merge (`False`) the permissions. Default: `True`
         /// </summary>
         [Input("replace")]
         public Input<bool>? Replace { get; set; }
@@ -227,7 +227,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? ProjectId { get; set; }
 
         /// <summary>
-        /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+        /// Replace (`True`) or merge (`False`) the permissions. Default: `True`
         /// </summary>
         [Input("replace")]
         public Input<bool>? Replace { get; set; }

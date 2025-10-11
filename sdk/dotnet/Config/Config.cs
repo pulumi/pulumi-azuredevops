@@ -194,7 +194,7 @@ namespace Pulumi.AzureDevOps
 
         private static readonly __Value<bool?> _useCli = new __Value<bool?>(() => __config.GetBoolean("useCli"));
         /// <summary>
-        /// Use Azure CLI to authenticate. Defaults to `true`.
+        /// Use Azure CLI to authenticate. Defaults to `True`.
         /// </summary>
         public static bool? UseCli
         {
@@ -204,7 +204,7 @@ namespace Pulumi.AzureDevOps
 
         private static readonly __Value<bool?> _useMsi = new __Value<bool?>(() => __config.GetBoolean("useMsi"));
         /// <summary>
-        /// Use an Azure Managed Service Identity. Defaults to `false`.
+        /// Use an Azure Managed Service Identity. Defaults to `False`.
         /// </summary>
         public static bool? UseMsi
         {
@@ -214,7 +214,7 @@ namespace Pulumi.AzureDevOps
 
         private static readonly __Value<bool?> _useOidc = new __Value<bool?>(() => __config.GetBoolean("useOidc"));
         /// <summary>
-        /// Use an OIDC token to authenticate to a service principal. Defaults to `false`.
+        /// Use an OIDC token to authenticate to a service principal. Defaults to `False`.
         /// </summary>
         public static bool? UseOidc
         {

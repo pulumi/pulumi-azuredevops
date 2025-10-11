@@ -58,14 +58,14 @@ public final class ServiceEndpointKubernetesState extends com.pulumi.resources.R
     }
 
     /**
-     * An `azure_subscription` block as defined below.
+     * An `azureSubscription` block as defined below.
      * 
      */
     @Import(name="azureSubscriptions")
     private @Nullable Output<List<ServiceEndpointKubernetesAzureSubscriptionArgs>> azureSubscriptions;
 
     /**
-     * @return An `azure_subscription` block as defined below.
+     * @return An `azureSubscription` block as defined below.
      * 
      */
     public Optional<Output<List<ServiceEndpointKubernetesAzureSubscriptionArgs>>> azureSubscriptions() {
@@ -110,14 +110,14 @@ public final class ServiceEndpointKubernetesState extends com.pulumi.resources.R
     }
 
     /**
-     * A `service_account` block as defined below.
+     * A `serviceAccount` block as defined below.
      * 
      */
     @Import(name="serviceAccount")
     private @Nullable Output<ServiceEndpointKubernetesServiceAccountArgs> serviceAccount;
 
     /**
-     * @return A `service_account` block as defined below.
+     * @return A `serviceAccount` block as defined below.
      * 
      */
     public Optional<Output<ServiceEndpointKubernetesServiceAccountArgs>> serviceAccount() {
@@ -223,7 +223,7 @@ public final class ServiceEndpointKubernetesState extends com.pulumi.resources.R
         }
 
         /**
-         * @param azureSubscriptions An `azure_subscription` block as defined below.
+         * @param azureSubscriptions An `azureSubscription` block as defined below.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class ServiceEndpointKubernetesState extends com.pulumi.resources.R
         }
 
         /**
-         * @param azureSubscriptions An `azure_subscription` block as defined below.
+         * @param azureSubscriptions An `azureSubscription` block as defined below.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class ServiceEndpointKubernetesState extends com.pulumi.resources.R
         }
 
         /**
-         * @param azureSubscriptions An `azure_subscription` block as defined below.
+         * @param azureSubscriptions An `azureSubscription` block as defined below.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class ServiceEndpointKubernetesState extends com.pulumi.resources.R
         }
 
         /**
-         * @param serviceAccount A `service_account` block as defined below.
+         * @param serviceAccount A `serviceAccount` block as defined below.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class ServiceEndpointKubernetesState extends com.pulumi.resources.R
         }
 
         /**
-         * @param serviceAccount A `service_account` block as defined below.
+         * @param serviceAccount A `serviceAccount` block as defined below.
          * 
          * @return builder
          * 

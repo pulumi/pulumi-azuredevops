@@ -17,7 +17,7 @@ public final class GetFeedPlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * The ID of the Feed.
      * 
-     * &gt; **Note** Only one of `name` or `feed_id` can be set at the same time.
+     * &gt; **Note** Only one of `name` or `feedId` can be set at the same time.
      * 
      */
     @Import(name="feedId")
@@ -26,7 +26,7 @@ public final class GetFeedPlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return The ID of the Feed.
      * 
-     * &gt; **Note** Only one of `name` or `feed_id` can be set at the same time.
+     * &gt; **Note** Only one of `name` or `feedId` can be set at the same time.
      * 
      */
     public Optional<String> feedId() {
@@ -92,7 +92,7 @@ public final class GetFeedPlainArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param feedId The ID of the Feed.
          * 
-         * &gt; **Note** Only one of `name` or `feed_id` can be set at the same time.
+         * &gt; **Note** Only one of `name` or `feedId` can be set at the same time.
          * 
          * @return builder
          * 

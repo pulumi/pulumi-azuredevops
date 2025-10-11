@@ -20,8 +20,8 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of the organization agent pool. Conflicts with `name`.
      * 
-     * &gt; **NOTE:** One of `name` or `agent_pool_id` must be specified, but not both.
-     * When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
+     * &gt; **NOTE:** One of `name` or `agentPoolId` must be specified, but not both.
+     * When `agentPoolId` is specified, the agent queue name will be derived from the agent pool name.
      * 
      */
     @Import(name="agentPoolId")
@@ -30,8 +30,8 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The ID of the organization agent pool. Conflicts with `name`.
      * 
-     * &gt; **NOTE:** One of `name` or `agent_pool_id` must be specified, but not both.
-     * When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
+     * &gt; **NOTE:** One of `name` or `agentPoolId` must be specified, but not both.
+     * When `agentPoolId` is specified, the agent queue name will be derived from the agent pool name.
      * 
      */
     public Optional<Output<Integer>> agentPoolId() {
@@ -39,14 +39,14 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.
+     * The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agentPoolId`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.
+     * @return The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agentPoolId`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -97,8 +97,8 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param agentPoolId The ID of the organization agent pool. Conflicts with `name`.
          * 
-         * &gt; **NOTE:** One of `name` or `agent_pool_id` must be specified, but not both.
-         * When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
+         * &gt; **NOTE:** One of `name` or `agentPoolId` must be specified, but not both.
+         * When `agentPoolId` is specified, the agent queue name will be derived from the agent pool name.
          * 
          * @return builder
          * 
@@ -111,8 +111,8 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param agentPoolId The ID of the organization agent pool. Conflicts with `name`.
          * 
-         * &gt; **NOTE:** One of `name` or `agent_pool_id` must be specified, but not both.
-         * When `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.
+         * &gt; **NOTE:** One of `name` or `agentPoolId` must be specified, but not both.
+         * When `agentPoolId` is specified, the agent queue name will be derived from the agent pool name.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.
+         * @param name The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agentPoolId`.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.
+         * @param name The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agentPoolId`.
          * 
          * @return builder
          * 

@@ -35,14 +35,14 @@ public final class BuildDefinitionPullRequestTriggerOverrideArgs extends com.pul
     }
 
     /**
-     * The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
+     * The branches to include and exclude from the trigger. A `branchFilter` block as documented below.
      * 
      */
     @Import(name="branchFilters", required=true)
     private Output<List<BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs>> branchFilters;
 
     /**
-     * @return The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
+     * @return The branches to include and exclude from the trigger. A `branchFilter` block as documented below.
      * 
      */
     public Output<List<BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs>> branchFilters() {
@@ -112,7 +112,7 @@ public final class BuildDefinitionPullRequestTriggerOverrideArgs extends com.pul
         }
 
         /**
-         * @param branchFilters The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
+         * @param branchFilters The branches to include and exclude from the trigger. A `branchFilter` block as documented below.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class BuildDefinitionPullRequestTriggerOverrideArgs extends com.pul
         }
 
         /**
-         * @param branchFilters The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
+         * @param branchFilters The branches to include and exclude from the trigger. A `branchFilter` block as documented below.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class BuildDefinitionPullRequestTriggerOverrideArgs extends com.pul
         }
 
         /**
-         * @param branchFilters The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
+         * @param branchFilters The branches to include and exclude from the trigger. A `branchFilter` block as documented below.
          * 
          * @return builder
          * 

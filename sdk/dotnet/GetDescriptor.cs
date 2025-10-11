@@ -112,7 +112,7 @@ namespace Pulumi.AzureDevOps
     public sealed class GetDescriptorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the resource(`user`, `group`, `scope`, etc.) that will be resolved to a descriptor.
+        /// The ID of the resource(`User`, `Group`, `Scope`, etc.) that will be resolved to a descriptor.
         /// </summary>
         [Input("storageKey", required: true)]
         public string StorageKey { get; set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.AzureDevOps
     public sealed class GetDescriptorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the resource(`user`, `group`, `scope`, etc.) that will be resolved to a descriptor.
+        /// The ID of the resource(`User`, `Group`, `Scope`, etc.) that will be resolved to a descriptor.
         /// </summary>
         [Input("storageKey", required: true)]
         public Input<string> StorageKey { get; set; } = null!;

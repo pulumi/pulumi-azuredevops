@@ -510,42 +510,42 @@ public class BuildDefinition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.agentPoolName);
     }
     /**
-     * The Agent Specification to run the pipelines. Required when `repo_type` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+     * The Agent Specification to run the pipelines. Required when `repoType` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
      * 
      */
     @Export(name="agentSpecification", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> agentSpecification;
 
     /**
-     * @return The Agent Specification to run the pipelines. Required when `repo_type` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
+     * @return The Agent Specification to run the pipelines. Required when `repoType` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
      * 
      */
     public Output<Optional<String>> agentSpecification() {
         return Codegen.optional(this.agentSpecification);
     }
     /**
-     * A `build_completion_trigger` block as documented below.
+     * A `buildCompletionTrigger` block as documented below.
      * 
      */
     @Export(name="buildCompletionTriggers", refs={List.class,BuildDefinitionBuildCompletionTrigger.class}, tree="[0,1]")
     private Output</* @Nullable */ List<BuildDefinitionBuildCompletionTrigger>> buildCompletionTriggers;
 
     /**
-     * @return A `build_completion_trigger` block as documented below.
+     * @return A `buildCompletionTrigger` block as documented below.
      * 
      */
     public Output<Optional<List<BuildDefinitionBuildCompletionTrigger>>> buildCompletionTriggers() {
         return Codegen.optional(this.buildCompletionTriggers);
     }
     /**
-     * A `ci_trigger` block as documented below.
+     * A `ciTrigger` block as documented below.
      * 
      */
     @Export(name="ciTrigger", refs={BuildDefinitionCiTrigger.class}, tree="[0]")
     private Output</* @Nullable */ BuildDefinitionCiTrigger> ciTrigger;
 
     /**
-     * @return A `ci_trigger` block as documented below.
+     * @return A `ciTrigger` block as documented below.
      * 
      */
     public Output<Optional<BuildDefinitionCiTrigger>> ciTrigger() {
@@ -640,14 +640,14 @@ public class BuildDefinition extends com.pulumi.resources.CustomResource {
         return this.projectId;
     }
     /**
-     * A `pull_request_trigger` block as documented below.
+     * A `pullRequestTrigger` block as documented below.
      * 
      */
     @Export(name="pullRequestTrigger", refs={BuildDefinitionPullRequestTrigger.class}, tree="[0]")
     private Output</* @Nullable */ BuildDefinitionPullRequestTrigger> pullRequestTrigger;
 
     /**
-     * @return A `pull_request_trigger` block as documented below.
+     * @return A `pullRequestTrigger` block as documented below.
      * 
      */
     public Output<Optional<BuildDefinitionPullRequestTrigger>> pullRequestTrigger() {

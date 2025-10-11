@@ -49,14 +49,14 @@ public final class CheckBranchControlArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Allow deployment from branches for which protection status could not be obtained. Only relevant when verify_branch_protection is `true`. Defaults to `false`.
+     * Allow deployment from branches for which protection status could not be obtained. Only relevant when verifyBranchProtection is `true`. Defaults to `false`.
      * 
      */
     @Import(name="ignoreUnknownProtectionStatus")
     private @Nullable Output<Boolean> ignoreUnknownProtectionStatus;
 
     /**
-     * @return Allow deployment from branches for which protection status could not be obtained. Only relevant when verify_branch_protection is `true`. Defaults to `false`.
+     * @return Allow deployment from branches for which protection status could not be obtained. Only relevant when verifyBranchProtection is `true`. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> ignoreUnknownProtectionStatus() {
@@ -212,7 +212,7 @@ public final class CheckBranchControlArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param ignoreUnknownProtectionStatus Allow deployment from branches for which protection status could not be obtained. Only relevant when verify_branch_protection is `true`. Defaults to `false`.
+         * @param ignoreUnknownProtectionStatus Allow deployment from branches for which protection status could not be obtained. Only relevant when verifyBranchProtection is `true`. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class CheckBranchControlArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param ignoreUnknownProtectionStatus Allow deployment from branches for which protection status could not be obtained. Only relevant when verify_branch_protection is `true`. Defaults to `false`.
+         * @param ignoreUnknownProtectionStatus Allow deployment from branches for which protection status could not be obtained. Only relevant when verifyBranchProtection is `true`. Defaults to `false`.
          * 
          * @return builder
          * 

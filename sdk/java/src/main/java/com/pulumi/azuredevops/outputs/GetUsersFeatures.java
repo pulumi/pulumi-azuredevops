@@ -14,7 +14,7 @@ public final class GetUsersFeatures {
     /**
      * @return Number of workers to process user data concurrently.
      * 
-     * &gt; **Note** Setting `concurrent_workers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
+     * &gt; **Note** Setting `concurrentWorkers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
      * 
      */
     private @Nullable Integer concurrentWorkers;
@@ -23,7 +23,7 @@ public final class GetUsersFeatures {
     /**
      * @return Number of workers to process user data concurrently.
      * 
-     * &gt; **Note** Setting `concurrent_workers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
+     * &gt; **Note** Setting `concurrentWorkers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
      * 
      */
     public Optional<Integer> concurrentWorkers() {

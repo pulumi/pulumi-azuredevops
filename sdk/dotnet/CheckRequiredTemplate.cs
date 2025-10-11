@@ -119,7 +119,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> ProjectId { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `required_template` blocks documented below.
+        /// One or more `RequiredTemplate` blocks documented below.
         /// </summary>
         [Output("requiredTemplates")]
         public Output<ImmutableArray<Outputs.CheckRequiredTemplateRequiredTemplate>> RequiredTemplates { get; private set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> TargetResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Required Template Check to be created.
+        /// The type of resource being protected by the check. Valid values: `Endpoint`, `Environment`, `Queue`, `Repository`, `Securefile`, `Variablegroup`. Changing this forces a new Required Template Check to be created.
         /// </summary>
         [Output("targetResourceType")]
         public Output<string> TargetResourceType { get; private set; } = null!;
@@ -198,7 +198,7 @@ namespace Pulumi.AzureDevOps
         private InputList<Inputs.CheckRequiredTemplateRequiredTemplateArgs>? _requiredTemplates;
 
         /// <summary>
-        /// One or more `required_template` blocks documented below.
+        /// One or more `RequiredTemplate` blocks documented below.
         /// </summary>
         public InputList<Inputs.CheckRequiredTemplateRequiredTemplateArgs> RequiredTemplates
         {
@@ -213,7 +213,7 @@ namespace Pulumi.AzureDevOps
         public Input<string> TargetResourceId { get; set; } = null!;
 
         /// <summary>
-        /// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Required Template Check to be created.
+        /// The type of resource being protected by the check. Valid values: `Endpoint`, `Environment`, `Queue`, `Repository`, `Securefile`, `Variablegroup`. Changing this forces a new Required Template Check to be created.
         /// </summary>
         [Input("targetResourceType", required: true)]
         public Input<string> TargetResourceType { get; set; } = null!;
@@ -236,7 +236,7 @@ namespace Pulumi.AzureDevOps
         private InputList<Inputs.CheckRequiredTemplateRequiredTemplateGetArgs>? _requiredTemplates;
 
         /// <summary>
-        /// One or more `required_template` blocks documented below.
+        /// One or more `RequiredTemplate` blocks documented below.
         /// </summary>
         public InputList<Inputs.CheckRequiredTemplateRequiredTemplateGetArgs> RequiredTemplates
         {
@@ -251,7 +251,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? TargetResourceId { get; set; }
 
         /// <summary>
-        /// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Required Template Check to be created.
+        /// The type of resource being protected by the check. Valid values: `Endpoint`, `Environment`, `Queue`, `Repository`, `Securefile`, `Variablegroup`. Changing this forces a new Required Template Check to be created.
         /// </summary>
         [Input("targetResourceType")]
         public Input<string>? TargetResourceType { get; set; }

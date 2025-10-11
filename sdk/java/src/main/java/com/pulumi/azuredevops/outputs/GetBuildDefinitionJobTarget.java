@@ -18,7 +18,7 @@ public final class GetBuildDefinitionJobTarget {
      */
     private List<String> demands;
     /**
-     * @return A `execution_options` blocks as documented below.
+     * @return A `executionOptions` blocks as documented below.
      * 
      */
     private List<GetBuildDefinitionJobTargetExecutionOption> executionOptions;
@@ -37,7 +37,7 @@ public final class GetBuildDefinitionJobTarget {
         return this.demands;
     }
     /**
-     * @return A `execution_options` blocks as documented below.
+     * @return A `executionOptions` blocks as documented below.
      * 
      */
     public List<GetBuildDefinitionJobTargetExecutionOption> executionOptions() {

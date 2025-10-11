@@ -18,14 +18,14 @@ public final class ServiceendpointExternaltfsState extends com.pulumi.resources.
     public static final ServiceendpointExternaltfsState Empty = new ServiceendpointExternaltfsState();
 
     /**
-     * An `auth_personal` block as documented below. Allows connecting using a personal access token.
+     * An `authPersonal` block as documented below. Allows connecting using a personal access token.
      * 
      */
     @Import(name="authPersonal")
     private @Nullable Output<ServiceendpointExternaltfsAuthPersonalArgs> authPersonal;
 
     /**
-     * @return An `auth_personal` block as documented below. Allows connecting using a personal access token.
+     * @return An `authPersonal` block as documented below. Allows connecting using a personal access token.
      * 
      */
     public Optional<Output<ServiceendpointExternaltfsAuthPersonalArgs>> authPersonal() {
@@ -121,7 +121,7 @@ public final class ServiceendpointExternaltfsState extends com.pulumi.resources.
         }
 
         /**
-         * @param authPersonal An `auth_personal` block as documented below. Allows connecting using a personal access token.
+         * @param authPersonal An `authPersonal` block as documented below. Allows connecting using a personal access token.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class ServiceendpointExternaltfsState extends com.pulumi.resources.
         }
 
         /**
-         * @param authPersonal An `auth_personal` block as documented below. Allows connecting using a personal access token.
+         * @param authPersonal An `authPersonal` block as documented below. Allows connecting using a personal access token.
          * 
          * @return builder
          * 

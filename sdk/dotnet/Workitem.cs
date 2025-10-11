@@ -169,7 +169,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> ProjectId { get; private set; } = null!;
 
         /// <summary>
-        /// A `relations` blocks as documented below.
+        /// A `Relations` blocks as documented below.
         /// </summary>
         [Output("relations")]
         public Output<ImmutableArray<Outputs.WorkitemRelation>> Relations { get; private set; } = null!;
@@ -364,7 +364,7 @@ namespace Pulumi.AzureDevOps
         private InputList<Inputs.WorkitemRelationGetArgs>? _relations;
 
         /// <summary>
-        /// A `relations` blocks as documented below.
+        /// A `Relations` blocks as documented below.
         /// </summary>
         public InputList<Inputs.WorkitemRelationGetArgs> Relations
         {

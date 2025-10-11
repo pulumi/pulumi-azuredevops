@@ -26,7 +26,7 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly string ProjectUrl;
         /// <summary>
-        /// State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
+        /// State of the Project, if not specified all projects will be returned. Valid values are `All`, `Deleting`, `New`, `wellFormed`, `createPending`, `Unchanged`,`Deleted`.
         /// 
         /// &gt; **NOTE:** DataSource without specifying any arguments will return all projects.
         /// </summary>

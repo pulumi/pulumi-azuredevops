@@ -21,8 +21,8 @@ import javax.annotation.Nullable;
  * 
  * ## Permission levels
  * 
- * Permissions for service hooks within Azure DevOps can be applied on the Organizational level or, if the optional attribute `project_id` is specified, on Project level.
- * Those levels are reflected by specifying (or omitting) values for the argument `project_id`.
+ * Permissions for service hooks within Azure DevOps can be applied on the Organizational level or, if the optional attribute `projectId` is specified, on Project level.
+ * Those levels are reflected by specifying (or omitting) values for the argument `projectId`.
  * 
  * ## Example Usage
  * 

@@ -15,7 +15,7 @@ namespace Pulumi.AzureDevOps.Inputs
         /// <summary>
         /// Policy applicability. If policy `applicability=default`, apply unless "Not Applicable"
         /// status is posted to the pull request. If policy `applicability=conditional`, policy is applied only after a status
-        /// is posted to the pull request. Possible values `default`, `conditional`. Defaults to `default`.
+        /// is posted to the pull request. Possible values `Default`, `Conditional`. Defaults to `Default`.
         /// </summary>
         [Input("applicability")]
         public Input<string>? Applicability { get; set; }
@@ -69,7 +69,7 @@ namespace Pulumi.AzureDevOps.Inputs
         private InputList<Inputs.BranchPolicyStatusCheckSettingsScopeArgs>? _scopes;
 
         /// <summary>
-        /// A `scope` block as defined below.
+        /// A `Scope` block as defined below.
         /// </summary>
         public InputList<Inputs.BranchPolicyStatusCheckSettingsScopeArgs> Scopes
         {

@@ -18,11 +18,11 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly bool AutoCancel;
         /// <summary>
-        /// A `branch_filter` block as defined above.
+        /// A `BranchFilter` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBuildDefinitionPullRequestTriggerOverrideBranchFilterResult> BranchFilters;
         /// <summary>
-        /// The file paths to include or exclude. A `path_filter` block as defined above.
+        /// The file paths to include or exclude. A `PathFilter` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBuildDefinitionPullRequestTriggerOverridePathFilterResult> PathFilters;
 

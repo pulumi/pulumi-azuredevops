@@ -402,13 +402,13 @@ namespace Pulumi.AzureDevOps
         public Output<string> EndTime { get; private set; } = null!;
 
         /// <summary>
-        /// This check will pass on Fridays. Defaults to `false`.
+        /// This check will pass on Fridays. Defaults to `False`.
         /// </summary>
         [Output("friday")]
         public Output<bool?> Friday { get; private set; } = null!;
 
         /// <summary>
-        /// This check will pass on Mondays. Defaults to `false`.
+        /// This check will pass on Mondays. Defaults to `False`.
         /// </summary>
         [Output("monday")]
         public Output<bool?> Monday { get; private set; } = null!;
@@ -420,7 +420,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> ProjectId { get; private set; } = null!;
 
         /// <summary>
-        /// This check will pass on Saturdays. Defaults to `false`.
+        /// This check will pass on Saturdays. Defaults to `False`.
         /// </summary>
         [Output("saturday")]
         public Output<bool?> Saturday { get; private set; } = null!;
@@ -432,7 +432,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> StartTime { get; private set; } = null!;
 
         /// <summary>
-        /// This check will pass on Sundays. Defaults to `false`.
+        /// This check will pass on Sundays. Defaults to `False`.
         /// </summary>
         [Output("sunday")]
         public Output<bool?> Sunday { get; private set; } = null!;
@@ -444,13 +444,13 @@ namespace Pulumi.AzureDevOps
         public Output<string> TargetResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+        /// The type of resource being protected by the check. Possible values are: `Endpoint`, `Environment`, `Queue`, `Repository`, `Securefile`, `Variablegroup`.
         /// </summary>
         [Output("targetResourceType")]
         public Output<string> TargetResourceType { get; private set; } = null!;
 
         /// <summary>
-        /// This check will pass on Thursdays. Defaults to `false`.
+        /// This check will pass on Thursdays. Defaults to `False`.
         /// </summary>
         [Output("thursday")]
         public Output<bool?> Thursday { get; private set; } = null!;
@@ -468,7 +468,7 @@ namespace Pulumi.AzureDevOps
         public Output<int?> Timeout { get; private set; } = null!;
 
         /// <summary>
-        /// This check will pass on Tuesday. Defaults to `false`.
+        /// This check will pass on Tuesday. Defaults to `False`.
         /// </summary>
         [Output("tuesday")]
         public Output<bool?> Tuesday { get; private set; } = null!;
@@ -480,7 +480,7 @@ namespace Pulumi.AzureDevOps
         public Output<int> Version { get; private set; } = null!;
 
         /// <summary>
-        /// This check will pass on Wednesdays. Defaults to `false`.
+        /// This check will pass on Wednesdays. Defaults to `False`.
         /// </summary>
         [Output("wednesday")]
         public Output<bool?> Wednesday { get; private set; } = null!;
@@ -544,13 +544,13 @@ namespace Pulumi.AzureDevOps
         public Input<string> EndTime { get; set; } = null!;
 
         /// <summary>
-        /// This check will pass on Fridays. Defaults to `false`.
+        /// This check will pass on Fridays. Defaults to `False`.
         /// </summary>
         [Input("friday")]
         public Input<bool>? Friday { get; set; }
 
         /// <summary>
-        /// This check will pass on Mondays. Defaults to `false`.
+        /// This check will pass on Mondays. Defaults to `False`.
         /// </summary>
         [Input("monday")]
         public Input<bool>? Monday { get; set; }
@@ -562,7 +562,7 @@ namespace Pulumi.AzureDevOps
         public Input<string> ProjectId { get; set; } = null!;
 
         /// <summary>
-        /// This check will pass on Saturdays. Defaults to `false`.
+        /// This check will pass on Saturdays. Defaults to `False`.
         /// </summary>
         [Input("saturday")]
         public Input<bool>? Saturday { get; set; }
@@ -574,7 +574,7 @@ namespace Pulumi.AzureDevOps
         public Input<string> StartTime { get; set; } = null!;
 
         /// <summary>
-        /// This check will pass on Sundays. Defaults to `false`.
+        /// This check will pass on Sundays. Defaults to `False`.
         /// </summary>
         [Input("sunday")]
         public Input<bool>? Sunday { get; set; }
@@ -586,13 +586,13 @@ namespace Pulumi.AzureDevOps
         public Input<string> TargetResourceId { get; set; } = null!;
 
         /// <summary>
-        /// The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+        /// The type of resource being protected by the check. Possible values are: `Endpoint`, `Environment`, `Queue`, `Repository`, `Securefile`, `Variablegroup`.
         /// </summary>
         [Input("targetResourceType", required: true)]
         public Input<string> TargetResourceType { get; set; } = null!;
 
         /// <summary>
-        /// This check will pass on Thursdays. Defaults to `false`.
+        /// This check will pass on Thursdays. Defaults to `False`.
         /// </summary>
         [Input("thursday")]
         public Input<bool>? Thursday { get; set; }
@@ -610,13 +610,13 @@ namespace Pulumi.AzureDevOps
         public Input<int>? Timeout { get; set; }
 
         /// <summary>
-        /// This check will pass on Tuesday. Defaults to `false`.
+        /// This check will pass on Tuesday. Defaults to `False`.
         /// </summary>
         [Input("tuesday")]
         public Input<bool>? Tuesday { get; set; }
 
         /// <summary>
-        /// This check will pass on Wednesdays. Defaults to `false`.
+        /// This check will pass on Wednesdays. Defaults to `False`.
         /// </summary>
         [Input("wednesday")]
         public Input<bool>? Wednesday { get; set; }
@@ -642,13 +642,13 @@ namespace Pulumi.AzureDevOps
         public Input<string>? EndTime { get; set; }
 
         /// <summary>
-        /// This check will pass on Fridays. Defaults to `false`.
+        /// This check will pass on Fridays. Defaults to `False`.
         /// </summary>
         [Input("friday")]
         public Input<bool>? Friday { get; set; }
 
         /// <summary>
-        /// This check will pass on Mondays. Defaults to `false`.
+        /// This check will pass on Mondays. Defaults to `False`.
         /// </summary>
         [Input("monday")]
         public Input<bool>? Monday { get; set; }
@@ -660,7 +660,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? ProjectId { get; set; }
 
         /// <summary>
-        /// This check will pass on Saturdays. Defaults to `false`.
+        /// This check will pass on Saturdays. Defaults to `False`.
         /// </summary>
         [Input("saturday")]
         public Input<bool>? Saturday { get; set; }
@@ -672,7 +672,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? StartTime { get; set; }
 
         /// <summary>
-        /// This check will pass on Sundays. Defaults to `false`.
+        /// This check will pass on Sundays. Defaults to `False`.
         /// </summary>
         [Input("sunday")]
         public Input<bool>? Sunday { get; set; }
@@ -684,13 +684,13 @@ namespace Pulumi.AzureDevOps
         public Input<string>? TargetResourceId { get; set; }
 
         /// <summary>
-        /// The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
+        /// The type of resource being protected by the check. Possible values are: `Endpoint`, `Environment`, `Queue`, `Repository`, `Securefile`, `Variablegroup`.
         /// </summary>
         [Input("targetResourceType")]
         public Input<string>? TargetResourceType { get; set; }
 
         /// <summary>
-        /// This check will pass on Thursdays. Defaults to `false`.
+        /// This check will pass on Thursdays. Defaults to `False`.
         /// </summary>
         [Input("thursday")]
         public Input<bool>? Thursday { get; set; }
@@ -708,7 +708,7 @@ namespace Pulumi.AzureDevOps
         public Input<int>? Timeout { get; set; }
 
         /// <summary>
-        /// This check will pass on Tuesday. Defaults to `false`.
+        /// This check will pass on Tuesday. Defaults to `False`.
         /// </summary>
         [Input("tuesday")]
         public Input<bool>? Tuesday { get; set; }
@@ -720,7 +720,7 @@ namespace Pulumi.AzureDevOps
         public Input<int>? Version { get; set; }
 
         /// <summary>
-        /// This check will pass on Wednesdays. Defaults to `false`.
+        /// This check will pass on Wednesdays. Defaults to `False`.
         /// </summary>
         [Input("wednesday")]
         public Input<bool>? Wednesday { get; set; }

@@ -159,7 +159,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Name of the Environment.
         /// 
-        /// &gt; **NOTE:** One of either `environment_id` or `name` must be specified.
+        /// &gt; **NOTE:** One of either `EnvironmentId` or `Name` must be specified.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -187,7 +187,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Name of the Environment.
         /// 
-        /// &gt; **NOTE:** One of either `environment_id` or `name` must be specified.
+        /// &gt; **NOTE:** One of either `EnvironmentId` or `Name` must be specified.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

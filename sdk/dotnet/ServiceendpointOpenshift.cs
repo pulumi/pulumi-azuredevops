@@ -127,25 +127,25 @@ namespace Pulumi.AzureDevOps
     public partial class ServiceendpointOpenshift : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Set this option to allow clients to accept a self-signed certificate. Available when using `auth_basic` or `auth_token` authorization.
+        /// Set this option to allow clients to accept a self-signed certificate. Available when using `AuthBasic` or `AuthToken` authorization.
         /// </summary>
         [Output("acceptUntrustedCerts")]
         public Output<bool?> AcceptUntrustedCerts { get; private set; } = null!;
 
         /// <summary>
-        /// An `auth_basic` block as documented below.
+        /// An `AuthBasic` block as documented below.
         /// </summary>
         [Output("authBasic")]
         public Output<Outputs.ServiceendpointOpenshiftAuthBasic?> AuthBasic { get; private set; } = null!;
 
         /// <summary>
-        /// An `auth_none` block as documented below.
+        /// An `AuthNone` block as documented below.
         /// </summary>
         [Output("authNone")]
         public Output<Outputs.ServiceendpointOpenshiftAuthNone?> AuthNone { get; private set; } = null!;
 
         /// <summary>
-        /// An `auth_token` block as documented below.
+        /// An `AuthToken` block as documented below.
         /// </summary>
         [Output("authToken")]
         public Output<Outputs.ServiceendpointOpenshiftAuthToken?> AuthToken { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.AzureDevOps
         public Output<ImmutableDictionary<string, string>> Authorization { get; private set; } = null!;
 
         /// <summary>
-        /// The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `auth_basic` or `auth_token` authorization.
+        /// The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `AuthBasic` or `AuthToken` authorization.
         /// </summary>
         [Output("certificateAuthorityFile")]
         public Output<string?> CertificateAuthorityFile { get; private set; } = null!;
@@ -227,31 +227,31 @@ namespace Pulumi.AzureDevOps
     public sealed class ServiceendpointOpenshiftArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Set this option to allow clients to accept a self-signed certificate. Available when using `auth_basic` or `auth_token` authorization.
+        /// Set this option to allow clients to accept a self-signed certificate. Available when using `AuthBasic` or `AuthToken` authorization.
         /// </summary>
         [Input("acceptUntrustedCerts")]
         public Input<bool>? AcceptUntrustedCerts { get; set; }
 
         /// <summary>
-        /// An `auth_basic` block as documented below.
+        /// An `AuthBasic` block as documented below.
         /// </summary>
         [Input("authBasic")]
         public Input<Inputs.ServiceendpointOpenshiftAuthBasicArgs>? AuthBasic { get; set; }
 
         /// <summary>
-        /// An `auth_none` block as documented below.
+        /// An `AuthNone` block as documented below.
         /// </summary>
         [Input("authNone")]
         public Input<Inputs.ServiceendpointOpenshiftAuthNoneArgs>? AuthNone { get; set; }
 
         /// <summary>
-        /// An `auth_token` block as documented below.
+        /// An `AuthToken` block as documented below.
         /// </summary>
         [Input("authToken")]
         public Input<Inputs.ServiceendpointOpenshiftAuthTokenArgs>? AuthToken { get; set; }
 
         /// <summary>
-        /// The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `auth_basic` or `auth_token` authorization.
+        /// The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `AuthBasic` or `AuthToken` authorization.
         /// </summary>
         [Input("certificateAuthorityFile")]
         public Input<string>? CertificateAuthorityFile { get; set; }
@@ -286,25 +286,25 @@ namespace Pulumi.AzureDevOps
     public sealed class ServiceendpointOpenshiftState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Set this option to allow clients to accept a self-signed certificate. Available when using `auth_basic` or `auth_token` authorization.
+        /// Set this option to allow clients to accept a self-signed certificate. Available when using `AuthBasic` or `AuthToken` authorization.
         /// </summary>
         [Input("acceptUntrustedCerts")]
         public Input<bool>? AcceptUntrustedCerts { get; set; }
 
         /// <summary>
-        /// An `auth_basic` block as documented below.
+        /// An `AuthBasic` block as documented below.
         /// </summary>
         [Input("authBasic")]
         public Input<Inputs.ServiceendpointOpenshiftAuthBasicGetArgs>? AuthBasic { get; set; }
 
         /// <summary>
-        /// An `auth_none` block as documented below.
+        /// An `AuthNone` block as documented below.
         /// </summary>
         [Input("authNone")]
         public Input<Inputs.ServiceendpointOpenshiftAuthNoneGetArgs>? AuthNone { get; set; }
 
         /// <summary>
-        /// An `auth_token` block as documented below.
+        /// An `AuthToken` block as documented below.
         /// </summary>
         [Input("authToken")]
         public Input<Inputs.ServiceendpointOpenshiftAuthTokenGetArgs>? AuthToken { get; set; }
@@ -318,7 +318,7 @@ namespace Pulumi.AzureDevOps
         }
 
         /// <summary>
-        /// The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `auth_basic` or `auth_token` authorization.
+        /// The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `AuthBasic` or `AuthToken` authorization.
         /// </summary>
         [Input("certificateAuthorityFile")]
         public Input<string>? CertificateAuthorityFile { get; set; }

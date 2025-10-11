@@ -47,14 +47,14 @@ public final class GitInitializationArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`.
+     * Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`.
      * 
      */
     @Import(name="sourceType")
     private @Nullable Output<String> sourceType;
 
     /**
-     * @return Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`.
+     * @return Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`.
      * 
      */
     public Optional<Output<String>> sourceType() {
@@ -62,14 +62,14 @@ public final class GitInitializationArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The URL of the source repository. Used if the `init_type` is `Import`.
+     * The URL of the source repository. Used if the `initType` is `Import`.
      * 
      */
     @Import(name="sourceUrl")
     private @Nullable Output<String> sourceUrl;
 
     /**
-     * @return The URL of the source repository. Used if the `init_type` is `Import`.
+     * @return The URL of the source repository. Used if the `initType` is `Import`.
      * 
      */
     public Optional<Output<String>> sourceUrl() {
@@ -77,14 +77,14 @@ public final class GitInitializationArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The username used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
+     * The username used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`.
      * 
      */
     @Import(name="username")
     private @Nullable Output<String> username;
 
     /**
-     * @return The username used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
+     * @return The username used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`.
      * 
      */
     public Optional<Output<String>> username() {
@@ -162,7 +162,7 @@ public final class GitInitializationArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param sourceType Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`.
+         * @param sourceType Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class GitInitializationArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param sourceType Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`.
+         * @param sourceType Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class GitInitializationArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param sourceUrl The URL of the source repository. Used if the `init_type` is `Import`.
+         * @param sourceUrl The URL of the source repository. Used if the `initType` is `Import`.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class GitInitializationArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param sourceUrl The URL of the source repository. Used if the `init_type` is `Import`.
+         * @param sourceUrl The URL of the source repository. Used if the `initType` is `Import`.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class GitInitializationArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param username The username used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
+         * @param username The username used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class GitInitializationArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param username The username used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
+         * @param username The username used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`.
          * 
          * @return builder
          * 

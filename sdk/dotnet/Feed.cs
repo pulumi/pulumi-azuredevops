@@ -104,7 +104,7 @@ namespace Pulumi.AzureDevOps
     public partial class Feed : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `features` blocks as documented below.
+        /// A `Features` blocks as documented below.
         /// 
         /// &gt; **Note** *Because of ADO limitations feed name can be **reserved** for up to 15 minutes after permanent delete of the feed*
         /// </summary>
@@ -173,7 +173,7 @@ namespace Pulumi.AzureDevOps
         private InputList<Inputs.FeedFeatureArgs>? _features;
 
         /// <summary>
-        /// A `features` blocks as documented below.
+        /// A `Features` blocks as documented below.
         /// 
         /// &gt; **Note** *Because of ADO limitations feed name can be **reserved** for up to 15 minutes after permanent delete of the feed*
         /// </summary>
@@ -207,7 +207,7 @@ namespace Pulumi.AzureDevOps
         private InputList<Inputs.FeedFeatureGetArgs>? _features;
 
         /// <summary>
-        /// A `features` blocks as documented below.
+        /// A `Features` blocks as documented below.
         /// 
         /// &gt; **Note** *Because of ADO limitations feed name can be **reserved** for up to 15 minutes after permanent delete of the feed*
         /// </summary>

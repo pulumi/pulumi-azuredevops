@@ -85,14 +85,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline")
 public class ServiceEndpointPipeline extends com.pulumi.resources.CustomResource {
     /**
-     * An `auth_personal` block as documented below. Allows connecting using a personal access token.
+     * An `authPersonal` block as documented below. Allows connecting using a personal access token.
      * 
      */
     @Export(name="authPersonal", refs={ServiceEndpointPipelineAuthPersonal.class}, tree="[0]")
     private Output<ServiceEndpointPipelineAuthPersonal> authPersonal;
 
     /**
-     * @return An `auth_personal` block as documented below. Allows connecting using a personal access token.
+     * @return An `authPersonal` block as documented below. Allows connecting using a personal access token.
      * 
      */
     public Output<ServiceEndpointPipelineAuthPersonal> authPersonal() {

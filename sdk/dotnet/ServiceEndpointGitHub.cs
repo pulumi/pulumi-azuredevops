@@ -117,13 +117,13 @@ namespace Pulumi.AzureDevOps
     public partial class ServiceEndpointGitHub : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+        /// An `AuthOauth` block as documented below. Allows connecting using an Oauth token.
         /// </summary>
         [Output("authOauth")]
         public Output<Outputs.ServiceEndpointGitHubAuthOauth?> AuthOauth { get; private set; } = null!;
 
         /// <summary>
-        /// An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        /// An `AuthPersonal` block as documented below. Allows connecting using a personal access token.
         /// </summary>
         [Output("authPersonal")]
         public Output<Outputs.ServiceEndpointGitHubAuthPersonal?> AuthPersonal { get; private set; } = null!;
@@ -193,13 +193,13 @@ namespace Pulumi.AzureDevOps
     public sealed class ServiceEndpointGitHubArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+        /// An `AuthOauth` block as documented below. Allows connecting using an Oauth token.
         /// </summary>
         [Input("authOauth")]
         public Input<Inputs.ServiceEndpointGitHubAuthOauthArgs>? AuthOauth { get; set; }
 
         /// <summary>
-        /// An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        /// An `AuthPersonal` block as documented below. Allows connecting using a personal access token.
         /// </summary>
         [Input("authPersonal")]
         public Input<Inputs.ServiceEndpointGitHubAuthPersonalArgs>? AuthPersonal { get; set; }
@@ -228,13 +228,13 @@ namespace Pulumi.AzureDevOps
     public sealed class ServiceEndpointGitHubState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+        /// An `AuthOauth` block as documented below. Allows connecting using an Oauth token.
         /// </summary>
         [Input("authOauth")]
         public Input<Inputs.ServiceEndpointGitHubAuthOauthGetArgs>? AuthOauth { get; set; }
 
         /// <summary>
-        /// An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        /// An `AuthPersonal` block as documented below. Allows connecting using a personal access token.
         /// </summary>
         [Input("authPersonal")]
         public Input<Inputs.ServiceEndpointGitHubAuthPersonalGetArgs>? AuthPersonal { get; set; }

@@ -17,11 +17,11 @@ namespace Pulumi.AzureDevOps
     /// ## Permission levels
     /// 
     /// Permission for Git Repositories within Azure DevOps can be applied on three different levels.
-    /// Those levels are reflected by specifying (or omitting) values for the arguments `project_id`, `repository_id` and `branch_name`.
+    /// Those levels are reflected by specifying (or omitting) values for the arguments `ProjectId`, `RepositoryId` and `BranchName`.
     /// 
     /// ### Project level
     /// 
-    /// Permissions for all Git Repositories inside a project (existing or newly created ones) are specified, if only the argument `project_id` has a value.
+    /// Permissions for all Git Repositories inside a project (existing or newly created ones) are specified, if only the argument `ProjectId` has a value.
     /// 
     /// #### Example usage
     /// 
@@ -65,7 +65,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ### Repository level
     /// 
-    /// Permissions for a specific Git Repository and all existing or newly created branches are specified if the arguments `project_id` and `repository_id` are set.
+    /// Permissions for a specific Git Repository and all existing or newly created branches are specified if the arguments `ProjectId` and `RepositoryId` are set.
     /// 
     /// #### Example usage
     /// 
@@ -280,7 +280,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The name of the branch to assign the permissions.
         /// 
-        /// &gt; **Note** To assign permissions to a branch, the `repository_id` must be set as well.
+        /// &gt; **Note** To assign permissions to a branch, the `RepositoryId` must be set as well.
         /// </summary>
         [Output("branchName")]
         public Output<string?> BranchName { get; private set; } = null!;
@@ -313,7 +313,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The **group** principal to assign the permissions.
         /// 
-        /// &gt; **Note**  The `descriptor` of the user/group not the `ID`. Some resources in this provider use the `descriptor`
+        /// &gt; **Note**  The `Descriptor` of the user/group not the `ID`. Some resources in this provider use the `Descriptor`
         /// as resource ID. It is recommended to check before use.
         /// </summary>
         [Output("principal")]
@@ -326,7 +326,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> ProjectId { get; private set; } = null!;
 
         /// <summary>
-        /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+        /// Replace (`True`) or merge (`False`) the permissions. Default: `True`
         /// </summary>
         [Output("replace")]
         public Output<bool?> Replace { get; private set; } = null!;
@@ -386,7 +386,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The name of the branch to assign the permissions.
         /// 
-        /// &gt; **Note** To assign permissions to a branch, the `repository_id` must be set as well.
+        /// &gt; **Note** To assign permissions to a branch, the `RepositoryId` must be set as well.
         /// </summary>
         [Input("branchName")]
         public Input<string>? BranchName { get; set; }
@@ -425,7 +425,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The **group** principal to assign the permissions.
         /// 
-        /// &gt; **Note**  The `descriptor` of the user/group not the `ID`. Some resources in this provider use the `descriptor`
+        /// &gt; **Note**  The `Descriptor` of the user/group not the `ID`. Some resources in this provider use the `Descriptor`
         /// as resource ID. It is recommended to check before use.
         /// </summary>
         [Input("principal", required: true)]
@@ -438,7 +438,7 @@ namespace Pulumi.AzureDevOps
         public Input<string> ProjectId { get; set; } = null!;
 
         /// <summary>
-        /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+        /// Replace (`True`) or merge (`False`) the permissions. Default: `True`
         /// </summary>
         [Input("replace")]
         public Input<bool>? Replace { get; set; }
@@ -460,7 +460,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The name of the branch to assign the permissions.
         /// 
-        /// &gt; **Note** To assign permissions to a branch, the `repository_id` must be set as well.
+        /// &gt; **Note** To assign permissions to a branch, the `RepositoryId` must be set as well.
         /// </summary>
         [Input("branchName")]
         public Input<string>? BranchName { get; set; }
@@ -499,7 +499,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The **group** principal to assign the permissions.
         /// 
-        /// &gt; **Note**  The `descriptor` of the user/group not the `ID`. Some resources in this provider use the `descriptor`
+        /// &gt; **Note**  The `Descriptor` of the user/group not the `ID`. Some resources in this provider use the `Descriptor`
         /// as resource ID. It is recommended to check before use.
         /// </summary>
         [Input("principal")]
@@ -512,7 +512,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? ProjectId { get; set; }
 
         /// <summary>
-        /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+        /// Replace (`True`) or merge (`False`) the permissions. Default: `True`
         /// </summary>
         [Input("replace")]
         public Input<bool>? Replace { get; set; }

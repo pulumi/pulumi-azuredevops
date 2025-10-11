@@ -32,14 +32,14 @@ public final class PipelineAuthorizationState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The ID of the project where the pipeline exists. Defaults to `project_id` if not specified. Changing this forces a new resource to be created
+     * The ID of the project where the pipeline exists. Defaults to `projectId` if not specified. Changing this forces a new resource to be created
      * 
      */
     @Import(name="pipelineProjectId")
     private @Nullable Output<String> pipelineProjectId;
 
     /**
-     * @return The ID of the project where the pipeline exists. Defaults to `project_id` if not specified. Changing this forces a new resource to be created
+     * @return The ID of the project where the pipeline exists. Defaults to `projectId` if not specified. Changing this forces a new resource to be created
      * 
      */
     public Optional<Output<String>> pipelineProjectId() {
@@ -151,7 +151,7 @@ public final class PipelineAuthorizationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param pipelineProjectId The ID of the project where the pipeline exists. Defaults to `project_id` if not specified. Changing this forces a new resource to be created
+         * @param pipelineProjectId The ID of the project where the pipeline exists. Defaults to `projectId` if not specified. Changing this forces a new resource to be created
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class PipelineAuthorizationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param pipelineProjectId The ID of the project where the pipeline exists. Defaults to `project_id` if not specified. Changing this forces a new resource to be created
+         * @param pipelineProjectId The ID of the project where the pipeline exists. Defaults to `projectId` if not specified. Changing this forces a new resource to be created
          * 
          * @return builder
          * 

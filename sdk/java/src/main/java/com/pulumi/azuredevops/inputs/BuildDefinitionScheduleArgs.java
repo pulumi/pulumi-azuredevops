@@ -21,14 +21,14 @@ public final class BuildDefinitionScheduleArgs extends com.pulumi.resources.Reso
     public static final BuildDefinitionScheduleArgs Empty = new BuildDefinitionScheduleArgs();
 
     /**
-     * A `branch_filter` block as defined below.
+     * A `branchFilter` block as defined below.
      * 
      */
     @Import(name="branchFilters", required=true)
     private Output<List<BuildDefinitionScheduleBranchFilterArgs>> branchFilters;
 
     /**
-     * @return A `branch_filter` block as defined below.
+     * @return A `branchFilter` block as defined below.
      * 
      */
     public Output<List<BuildDefinitionScheduleBranchFilterArgs>> branchFilters() {
@@ -438,7 +438,7 @@ public final class BuildDefinitionScheduleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param branchFilters A `branch_filter` block as defined below.
+         * @param branchFilters A `branchFilter` block as defined below.
          * 
          * @return builder
          * 
@@ -449,7 +449,7 @@ public final class BuildDefinitionScheduleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param branchFilters A `branch_filter` block as defined below.
+         * @param branchFilters A `branchFilter` block as defined below.
          * 
          * @return builder
          * 
@@ -459,7 +459,7 @@ public final class BuildDefinitionScheduleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param branchFilters A `branch_filter` block as defined below.
+         * @param branchFilters A `branchFilter` block as defined below.
          * 
          * @return builder
          * 
