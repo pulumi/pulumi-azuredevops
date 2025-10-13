@@ -18,15 +18,15 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly string CommentRequired;
         /// <summary>
-        /// A `forks` block as defined above.
+        /// A `Forks` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBuildDefinitionPullRequestTriggerForkResult> Forks;
         /// <summary>
-        /// When use_yaml is true set this to the name of the branch that the azure-pipelines.yml exists on.
+        /// When UseYaml is true set this to the name of the branch that the azure-pipelines.yml exists on.
         /// </summary>
         public readonly string InitialBranch;
         /// <summary>
-        /// A `override` block as defined below.
+        /// A `Override` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBuildDefinitionPullRequestTriggerOverrideResult> Overrides;
         /// <summary>

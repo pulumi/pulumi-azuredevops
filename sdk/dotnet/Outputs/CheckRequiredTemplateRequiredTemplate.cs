@@ -22,7 +22,7 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly string RepositoryRef;
         /// <summary>
-        /// The type of the repository storing the template. Possible values are: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
+        /// The type of the repository storing the template. Possible values are: `Azuregit`, `Github`, `Githubenterprise`, `Bitbucket`. Defaults to `Azuregit`.
         /// </summary>
         public readonly string? RepositoryType;
         /// <summary>

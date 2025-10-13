@@ -95,13 +95,13 @@ namespace Pulumi.AzureDevOps
     public partial class ServiceendpointMaven : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `authentication_basic` block as documented below.
+        /// A `AuthenticationBasic` block as documented below.
         /// </summary>
         [Output("authenticationBasic")]
         public Output<Outputs.ServiceendpointMavenAuthenticationBasic?> AuthenticationBasic { get; private set; } = null!;
 
         /// <summary>
-        /// A `authentication_token` block as documented below.
+        /// A `AuthenticationToken` block as documented below.
         /// </summary>
         [Output("authenticationToken")]
         public Output<Outputs.ServiceendpointMavenAuthenticationToken?> AuthenticationToken { get; private set; } = null!;
@@ -183,13 +183,13 @@ namespace Pulumi.AzureDevOps
     public sealed class ServiceendpointMavenArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `authentication_basic` block as documented below.
+        /// A `AuthenticationBasic` block as documented below.
         /// </summary>
         [Input("authenticationBasic")]
         public Input<Inputs.ServiceendpointMavenAuthenticationBasicArgs>? AuthenticationBasic { get; set; }
 
         /// <summary>
-        /// A `authentication_token` block as documented below.
+        /// A `AuthenticationToken` block as documented below.
         /// </summary>
         [Input("authenticationToken")]
         public Input<Inputs.ServiceendpointMavenAuthenticationTokenArgs>? AuthenticationToken { get; set; }
@@ -230,13 +230,13 @@ namespace Pulumi.AzureDevOps
     public sealed class ServiceendpointMavenState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `authentication_basic` block as documented below.
+        /// A `AuthenticationBasic` block as documented below.
         /// </summary>
         [Input("authenticationBasic")]
         public Input<Inputs.ServiceendpointMavenAuthenticationBasicGetArgs>? AuthenticationBasic { get; set; }
 
         /// <summary>
-        /// A `authentication_token` block as documented below.
+        /// A `AuthenticationToken` block as documented below.
         /// </summary>
         [Input("authenticationToken")]
         public Input<Inputs.ServiceendpointMavenAuthenticationTokenGetArgs>? AuthenticationToken { get; set; }

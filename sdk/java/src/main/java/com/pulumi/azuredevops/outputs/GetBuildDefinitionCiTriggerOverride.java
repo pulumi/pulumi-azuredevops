@@ -21,7 +21,7 @@ public final class GetBuildDefinitionCiTriggerOverride {
      */
     private Boolean batch;
     /**
-     * @return A `branch_filter` block as defined above.
+     * @return A `branchFilter` block as defined above.
      * 
      */
     private List<GetBuildDefinitionCiTriggerOverrideBranchFilter> branchFilters;
@@ -31,7 +31,7 @@ public final class GetBuildDefinitionCiTriggerOverride {
      */
     private Integer maxConcurrentBuildsPerBranch;
     /**
-     * @return The file paths to include or exclude. A `path_filter` block as defined above.
+     * @return The file paths to include or exclude. A `pathFilter` block as defined above.
      * 
      */
     private List<GetBuildDefinitionCiTriggerOverridePathFilter> pathFilters;
@@ -55,7 +55,7 @@ public final class GetBuildDefinitionCiTriggerOverride {
         return this.batch;
     }
     /**
-     * @return A `branch_filter` block as defined above.
+     * @return A `branchFilter` block as defined above.
      * 
      */
     public List<GetBuildDefinitionCiTriggerOverrideBranchFilter> branchFilters() {
@@ -69,7 +69,7 @@ public final class GetBuildDefinitionCiTriggerOverride {
         return this.maxConcurrentBuildsPerBranch;
     }
     /**
-     * @return The file paths to include or exclude. A `path_filter` block as defined above.
+     * @return The file paths to include or exclude. A `pathFilter` block as defined above.
      * 
      */
     public List<GetBuildDefinitionCiTriggerOverridePathFilter> pathFilters() {

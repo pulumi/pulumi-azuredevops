@@ -49,8 +49,8 @@ public final class GetServiceendpointDockerregistryArgs extends com.pulumi.resou
     /**
      * the Name of the Service Endpoint.
      * 
-     * &gt; **NOTE:** 1. One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
-     * &lt;br&gt;2. When supplying `service_endpoint_name`, take care to ensure that this is a unique name.
+     * &gt; **NOTE:** 1. One of either `serviceEndpointId` or `serviceEndpointName` must be specified.
+     * &lt;br&gt;2. When supplying `serviceEndpointName`, take care to ensure that this is a unique name.
      * 
      */
     @Import(name="serviceEndpointName")
@@ -59,8 +59,8 @@ public final class GetServiceendpointDockerregistryArgs extends com.pulumi.resou
     /**
      * @return the Name of the Service Endpoint.
      * 
-     * &gt; **NOTE:** 1. One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
-     * &lt;br&gt;2. When supplying `service_endpoint_name`, take care to ensure that this is a unique name.
+     * &gt; **NOTE:** 1. One of either `serviceEndpointId` or `serviceEndpointName` must be specified.
+     * &lt;br&gt;2. When supplying `serviceEndpointName`, take care to ensure that this is a unique name.
      * 
      */
     public Optional<Output<String>> serviceEndpointName() {
@@ -138,8 +138,8 @@ public final class GetServiceendpointDockerregistryArgs extends com.pulumi.resou
         /**
          * @param serviceEndpointName the Name of the Service Endpoint.
          * 
-         * &gt; **NOTE:** 1. One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
-         * &lt;br&gt;2. When supplying `service_endpoint_name`, take care to ensure that this is a unique name.
+         * &gt; **NOTE:** 1. One of either `serviceEndpointId` or `serviceEndpointName` must be specified.
+         * &lt;br&gt;2. When supplying `serviceEndpointName`, take care to ensure that this is a unique name.
          * 
          * @return builder
          * 
@@ -152,8 +152,8 @@ public final class GetServiceendpointDockerregistryArgs extends com.pulumi.resou
         /**
          * @param serviceEndpointName the Name of the Service Endpoint.
          * 
-         * &gt; **NOTE:** 1. One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
-         * &lt;br&gt;2. When supplying `service_endpoint_name`, take care to ensure that this is a unique name.
+         * &gt; **NOTE:** 1. One of either `serviceEndpointId` or `serviceEndpointName` must be specified.
+         * &lt;br&gt;2. When supplying `serviceEndpointName`, take care to ensure that this is a unique name.
          * 
          * @return builder
          * 

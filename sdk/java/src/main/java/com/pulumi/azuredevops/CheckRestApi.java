@@ -229,8 +229,8 @@ public class CheckRestApi extends com.pulumi.resources.CustomResource {
     /**
      * The time between evaluations (minutes).
      * 
-     * ~&gt;**NOTE** 1. The retry times should less them 10 based on the timeout. For example: `timeout` is `4000` then `retry_interval` should be `0` or no less then `400`.
-     * &lt;br&gt;2. `retry_interval` is not required when `completion_event=Callback`.
+     * ~&gt;**NOTE** 1. The retry times should less them 10 based on the timeout. For example: `timeout` is `4000` then `retryInterval` should be `0` or no less then `400`.
+     * &lt;br&gt;2. `retryInterval` is not required when `completion_event=Callback`.
      * 
      */
     @Export(name="retryInterval", refs={Integer.class}, tree="[0]")
@@ -239,8 +239,8 @@ public class CheckRestApi extends com.pulumi.resources.CustomResource {
     /**
      * @return The time between evaluations (minutes).
      * 
-     * ~&gt;**NOTE** 1. The retry times should less them 10 based on the timeout. For example: `timeout` is `4000` then `retry_interval` should be `0` or no less then `400`.
-     * &lt;br&gt;2. `retry_interval` is not required when `completion_event=Callback`.
+     * ~&gt;**NOTE** 1. The retry times should less them 10 based on the timeout. For example: `timeout` is `4000` then `retryInterval` should be `0` or no less then `400`.
+     * &lt;br&gt;2. `retryInterval` is not required when `completion_event=Callback`.
      * 
      */
     public Output<Optional<Integer>> retryInterval() {
@@ -249,7 +249,7 @@ public class CheckRestApi extends com.pulumi.resources.CustomResource {
     /**
      * The Criteria which defines when to pass the task. No criteria means response content does not influence the result.
      * 
-     * ~&gt;**NOTE** `success_criteria` is used when `completion_event=ApiResponse`
+     * ~&gt;**NOTE** `successCriteria` is used when `completion_event=ApiResponse`
      * 
      */
     @Export(name="successCriteria", refs={String.class}, tree="[0]")
@@ -258,7 +258,7 @@ public class CheckRestApi extends com.pulumi.resources.CustomResource {
     /**
      * @return The Criteria which defines when to pass the task. No criteria means response content does not influence the result.
      * 
-     * ~&gt;**NOTE** `success_criteria` is used when `completion_event=ApiResponse`
+     * ~&gt;**NOTE** `successCriteria` is used when `completion_event=ApiResponse`
      * 
      */
     public Output<Optional<String>> successCriteria() {

@@ -145,7 +145,7 @@ namespace Pulumi.AzureDevOps
     public sealed class GetRepositoriesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Defaults to `false`.
+        /// Defaults to `False`.
         /// 
         /// DataSource without specifying any arguments will return all Git repositories of an organization.
         /// </summary>
@@ -153,7 +153,7 @@ namespace Pulumi.AzureDevOps
         public bool? IncludeHidden { get; set; }
 
         /// <summary>
-        /// Name of the Git repository to retrieve; requires `project_id` to be specified as well
+        /// Name of the Git repository to retrieve; requires `ProjectId` to be specified as well
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -173,7 +173,7 @@ namespace Pulumi.AzureDevOps
     public sealed class GetRepositoriesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Defaults to `false`.
+        /// Defaults to `False`.
         /// 
         /// DataSource without specifying any arguments will return all Git repositories of an organization.
         /// </summary>
@@ -181,7 +181,7 @@ namespace Pulumi.AzureDevOps
         public Input<bool>? IncludeHidden { get; set; }
 
         /// <summary>
-        /// Name of the Git repository to retrieve; requires `project_id` to be specified as well
+        /// Name of the Git repository to retrieve; requires `ProjectId` to be specified as well
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -216,7 +216,7 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public readonly string? ProjectId;
         /// <summary>
-        /// A `repositories` blocks as documented below. A list of existing projects in your Azure DevOps Organization with details about every project.
+        /// A `Repositories` blocks as documented below. A list of existing projects in your Azure DevOps Organization with details about every project.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRepositoriesRepositoryResult> Repositories;
 

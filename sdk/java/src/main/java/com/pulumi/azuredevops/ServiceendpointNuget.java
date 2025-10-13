@@ -123,7 +123,7 @@ public class ServiceendpointNuget extends com.pulumi.resources.CustomResource {
     /**
      * The account password used to connect to the endpoint
      * 
-     * &gt; **Note** Only one of `api_key` or `personal_access_token` or  `username`, `password` can be set at the same time.
+     * &gt; **Note** Only one of `apiKey` or `personalAccessToken` or  `username`, `password` can be set at the same time.
      * 
      */
     @Export(name="password", refs={String.class}, tree="[0]")
@@ -132,7 +132,7 @@ public class ServiceendpointNuget extends com.pulumi.resources.CustomResource {
     /**
      * @return The account password used to connect to the endpoint
      * 
-     * &gt; **Note** Only one of `api_key` or `personal_access_token` or  `username`, `password` can be set at the same time.
+     * &gt; **Note** Only one of `apiKey` or `personalAccessToken` or  `username`, `password` can be set at the same time.
      * 
      */
     public Output<Optional<String>> password() {

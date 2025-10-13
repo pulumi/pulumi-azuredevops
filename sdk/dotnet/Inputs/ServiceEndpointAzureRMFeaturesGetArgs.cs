@@ -13,7 +13,7 @@ namespace Pulumi.AzureDevOps.Inputs
     public sealed class ServiceEndpointAzureRMFeaturesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether or not to validate connection with Azure after create or update operations. Defaults to `false`
+        /// Whether or not to validate connection with Azure after create or update operations. Defaults to `False`
         /// </summary>
         [Input("validate")]
         public Input<bool>? Validate { get; set; }

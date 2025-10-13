@@ -19,19 +19,19 @@ namespace Pulumi.AzureDevOps.Inputs
         public Input<string>? PipelineId { get; set; }
 
         /// <summary>
-        /// Which stage should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all stages will trigger the event.
+        /// Which stage should generate an event. Only valid if PublishedEvent is `StageStateChanged`. If not specified, all stages will trigger the event.
         /// </summary>
         [Input("stageName")]
         public Input<string>? StageName { get; set; }
 
         /// <summary>
-        /// Which stage result should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all results will trigger the event.
+        /// Which stage result should generate an event. Only valid if PublishedEvent is `StageStateChanged`. If not specified, all results will trigger the event.
         /// </summary>
         [Input("stageResultFilter")]
         public Input<string>? StageResultFilter { get; set; }
 
         /// <summary>
-        /// Which stage state should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all states will trigger the event.
+        /// Which stage state should generate an event. Only valid if PublishedEvent is `StageStateChanged`. If not specified, all states will trigger the event.
         /// </summary>
         [Input("stageStateFilter")]
         public Input<string>? StageStateFilter { get; set; }

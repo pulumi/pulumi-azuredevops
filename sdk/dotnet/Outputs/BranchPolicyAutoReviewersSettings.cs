@@ -24,7 +24,7 @@ namespace Pulumi.AzureDevOps.Outputs
         /// <summary>
         /// Minimum number of required reviewers. Defaults to `1`.
         /// 
-        /// &gt; **Note** Has to be greater than `0`. Can only be greater than `1` when attribute `auto_reviewer_ids` contains exactly one group! Only has an effect when attribute `blocking` is set to `true`.
+        /// &gt; **Note** Has to be greater than `0`. Can only be greater than `1` when attribute `AutoReviewerIds` contains exactly one group! Only has an effect when attribute `Blocking` is set to `True`.
         /// </summary>
         public readonly int? MinimumNumberOfReviewers;
         /// <summary>
@@ -32,11 +32,11 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly ImmutableArray<string> PathFilters;
         /// <summary>
-        /// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        /// A `Scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         /// </summary>
         public readonly ImmutableArray<Outputs.BranchPolicyAutoReviewersSettingsScope> Scopes;
         /// <summary>
-        /// Controls whether or not the submitter's vote counts. Defaults to `false`.
+        /// Controls whether or not the submitter's vote counts. Defaults to `False`.
         /// </summary>
         public readonly bool? SubmitterCanVote;
 

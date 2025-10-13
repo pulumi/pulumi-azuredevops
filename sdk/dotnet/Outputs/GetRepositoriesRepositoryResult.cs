@@ -26,7 +26,7 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Name of the Git repository to retrieve; requires `project_id` to be specified as well
+        /// Name of the Git repository to retrieve; requires `ProjectId` to be specified as well
         /// </summary>
         public readonly string Name;
         /// <summary>

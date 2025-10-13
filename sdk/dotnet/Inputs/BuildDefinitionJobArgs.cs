@@ -13,7 +13,7 @@ namespace Pulumi.AzureDevOps.Inputs
     public sealed class BuildDefinitionJobArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enables scripts and other processes launched by tasks to access the OAuth token through the `System.AccessToken` variable. Possible values: `true`, `false`. Defaults to `false`. Available when Job type is `AgentJob`
+        /// Enables scripts and other processes launched by tasks to access the OAuth token through the `System.AccessToken` variable. Possible values: `True`, `False`. Defaults to `False`. Available when Job type is `AgentJob`
         /// </summary>
         [Input("allowScriptsAuthAccessOption")]
         public Input<bool>? AllowScriptsAuthAccessOption { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.AzureDevOps.Inputs
         private InputList<Inputs.BuildDefinitionJobDependencyArgs>? _dependencies;
 
         /// <summary>
-        /// A `dependencies` blocks as documented below. Define the job dependencies.
+        /// A `Dependencies` blocks as documented below. Define the job dependencies.
         /// </summary>
         public InputList<Inputs.BuildDefinitionJobDependencyArgs> Dependencies
         {
@@ -37,7 +37,7 @@ namespace Pulumi.AzureDevOps.Inputs
         }
 
         /// <summary>
-        /// The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+        /// The job authorization scope for builds queued against this definition. Possible values are: `Project`, `projectCollection`. Defaults to `projectCollection`.
         /// </summary>
         [Input("jobAuthorizationScope")]
         public Input<string>? JobAuthorizationScope { get; set; }
@@ -67,7 +67,7 @@ namespace Pulumi.AzureDevOps.Inputs
         public Input<string> RefName { get; set; } = null!;
 
         /// <summary>
-        /// A `target` blocks as documented below.
+        /// A `Target` blocks as documented below.
         /// </summary>
         [Input("target", required: true)]
         public Input<Inputs.BuildDefinitionJobTargetArgs> Target { get; set; } = null!;

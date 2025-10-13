@@ -62,7 +62,7 @@ namespace Pulumi.AzureDevOps
     public partial class ServiceEndpointPipeline : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        /// An `AuthPersonal` block as documented below. Allows connecting using a personal access token.
         /// </summary>
         [Output("authPersonal")]
         public Output<Outputs.ServiceEndpointPipelineAuthPersonal> AuthPersonal { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.AzureDevOps
     public sealed class ServiceEndpointPipelineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        /// An `AuthPersonal` block as documented below. Allows connecting using a personal access token.
         /// </summary>
         [Input("authPersonal", required: true)]
         public Input<Inputs.ServiceEndpointPipelineAuthPersonalArgs> AuthPersonal { get; set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.AzureDevOps
     public sealed class ServiceEndpointPipelineState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        /// An `AuthPersonal` block as documented below. Allows connecting using a personal access token.
         /// </summary>
         [Input("authPersonal")]
         public Input<Inputs.ServiceEndpointPipelineAuthPersonalGetArgs>? AuthPersonal { get; set; }

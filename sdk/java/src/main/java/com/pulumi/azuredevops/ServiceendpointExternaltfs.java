@@ -85,14 +85,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azuredevops:index/serviceendpointExternaltfs:ServiceendpointExternaltfs")
 public class ServiceendpointExternaltfs extends com.pulumi.resources.CustomResource {
     /**
-     * An `auth_personal` block as documented below. Allows connecting using a personal access token.
+     * An `authPersonal` block as documented below. Allows connecting using a personal access token.
      * 
      */
     @Export(name="authPersonal", refs={ServiceendpointExternaltfsAuthPersonal.class}, tree="[0]")
     private Output<ServiceendpointExternaltfsAuthPersonal> authPersonal;
 
     /**
-     * @return An `auth_personal` block as documented below. Allows connecting using a personal access token.
+     * @return An `authPersonal` block as documented below. Allows connecting using a personal access token.
      * 
      */
     public Output<ServiceendpointExternaltfsAuthPersonal> authPersonal() {

@@ -118,42 +118,42 @@ public class GitRepositoryBranch extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The reference to the source branch to create the branch from, in `&lt;name&gt;` or `refs/heads/&lt;name&gt;` format. Conflict with `ref_tag`, `ref_commit_id`.
+     * The reference to the source branch to create the branch from, in `&lt;name&gt;` or `refs/heads/&lt;name&gt;` format. Conflict with `refTag`, `refCommitId`.
      * 
      */
     @Export(name="refBranch", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> refBranch;
 
     /**
-     * @return The reference to the source branch to create the branch from, in `&lt;name&gt;` or `refs/heads/&lt;name&gt;` format. Conflict with `ref_tag`, `ref_commit_id`.
+     * @return The reference to the source branch to create the branch from, in `&lt;name&gt;` or `refs/heads/&lt;name&gt;` format. Conflict with `refTag`, `refCommitId`.
      * 
      */
     public Output<Optional<String>> refBranch() {
         return Codegen.optional(this.refBranch);
     }
     /**
-     * The commit object ID to create the branch from. Conflict with `ref_branch`, `ref_tag`.
+     * The commit object ID to create the branch from. Conflict with `refBranch`, `refTag`.
      * 
      */
     @Export(name="refCommitId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> refCommitId;
 
     /**
-     * @return The commit object ID to create the branch from. Conflict with `ref_branch`, `ref_tag`.
+     * @return The commit object ID to create the branch from. Conflict with `refBranch`, `refTag`.
      * 
      */
     public Output<Optional<String>> refCommitId() {
         return Codegen.optional(this.refCommitId);
     }
     /**
-     * The reference to the tag to create the branch from, in `&lt;name&gt;` or `refs/tags/&lt;name&gt;` format. Conflict with `ref_branch`, `ref_commit_id`.
+     * The reference to the tag to create the branch from, in `&lt;name&gt;` or `refs/tags/&lt;name&gt;` format. Conflict with `refBranch`, `refCommitId`.
      * 
      */
     @Export(name="refTag", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> refTag;
 
     /**
-     * @return The reference to the tag to create the branch from, in `&lt;name&gt;` or `refs/tags/&lt;name&gt;` format. Conflict with `ref_branch`, `ref_commit_id`.
+     * @return The reference to the tag to create the branch from, in `&lt;name&gt;` or `refs/tags/&lt;name&gt;` format. Conflict with `refBranch`, `refCommitId`.
      * 
      */
     public Output<Optional<String>> refTag() {

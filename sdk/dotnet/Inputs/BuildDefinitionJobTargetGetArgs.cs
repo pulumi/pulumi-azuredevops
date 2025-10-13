@@ -16,7 +16,7 @@ namespace Pulumi.AzureDevOps.Inputs
         private InputList<string>? _demands;
 
         /// <summary>
-        /// A list of demands that represents the agent capabilities required by this build. Example: `git`
+        /// A list of demands that represents the agent capabilities required by this build. Example: `Git`
         /// </summary>
         public InputList<string> Demands
         {
@@ -25,7 +25,7 @@ namespace Pulumi.AzureDevOps.Inputs
         }
 
         /// <summary>
-        /// A `execution_options` blocks as documented below.
+        /// A `ExecutionOptions` blocks as documented below.
         /// </summary>
         [Input("executionOptions", required: true)]
         public Input<Inputs.BuildDefinitionJobTargetExecutionOptionsGetArgs> ExecutionOptions { get; set; } = null!;
