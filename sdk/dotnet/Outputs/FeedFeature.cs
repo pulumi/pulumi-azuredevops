@@ -14,11 +14,11 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class FeedFeature
     {
         /// <summary>
-        /// Determines if Feed should be Permanently removed, Defaults to `false`
+        /// Determines if Feed should be Permanently removed, Defaults to `False`
         /// </summary>
         public readonly bool? PermanentDelete;
         /// <summary>
-        /// Determines if Feed should be Restored during creation (if possible), Defaults to `false`
+        /// Determines if Feed should be Restored during creation (if possible), Defaults to `False`
         /// </summary>
         public readonly bool? Restore;
 

@@ -17,7 +17,7 @@ namespace Pulumi.AzureDevOps.Outputs
         public readonly bool? Enabled;
         public readonly string? Expires;
         /// <summary>
-        /// A boolean flag describing if the variable value is sensitive. Defaults to `false`.
+        /// A boolean flag describing if the variable value is sensitive. Defaults to `False`.
         /// </summary>
         public readonly bool? IsSecret;
         /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The secret value of the variable. If omitted, it will default to empty string. Used when `is_secret` set to `true`.
+        /// The secret value of the variable. If omitted, it will default to empty string. Used when `IsSecret` set to `True`.
         /// </summary>
         public readonly string? SecretValue;
         /// <summary>

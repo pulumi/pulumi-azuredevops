@@ -13,25 +13,25 @@ namespace Pulumi.AzureDevOps.Inputs
     public sealed class BranchPolicyMergeTypesSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Allow basic merge with no fast forward. Defaults to `false`.
+        /// Allow basic merge with no fast forward. Defaults to `False`.
         /// </summary>
         [Input("allowBasicNoFastForward")]
         public Input<bool>? AllowBasicNoFastForward { get; set; }
 
         /// <summary>
-        /// Allow rebase with fast forward. Defaults to `false`.
+        /// Allow rebase with fast forward. Defaults to `False`.
         /// </summary>
         [Input("allowRebaseAndFastForward")]
         public Input<bool>? AllowRebaseAndFastForward { get; set; }
 
         /// <summary>
-        /// Allow rebase with merge commit. Defaults to `false`.
+        /// Allow rebase with merge commit. Defaults to `False`.
         /// </summary>
         [Input("allowRebaseWithMerge")]
         public Input<bool>? AllowRebaseWithMerge { get; set; }
 
         /// <summary>
-        /// Allow squash merge. Defaults to `false`
+        /// Allow squash merge. Defaults to `False`
         /// </summary>
         [Input("allowSquash")]
         public Input<bool>? AllowSquash { get; set; }
@@ -40,7 +40,7 @@ namespace Pulumi.AzureDevOps.Inputs
         private InputList<Inputs.BranchPolicyMergeTypesSettingsScopeGetArgs>? _scopes;
 
         /// <summary>
-        /// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        /// A `Scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         /// </summary>
         public InputList<Inputs.BranchPolicyMergeTypesSettingsScopeGetArgs> Scopes
         {

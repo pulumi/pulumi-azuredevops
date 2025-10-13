@@ -17,14 +17,14 @@ public final class BuildDefinitionBuildCompletionTriggerArgs extends com.pulumi.
     public static final BuildDefinitionBuildCompletionTriggerArgs Empty = new BuildDefinitionBuildCompletionTriggerArgs();
 
     /**
-     * The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
+     * The branches to include and exclude from the trigger. A `branchFilter` block as documented below.
      * 
      */
     @Import(name="branchFilters", required=true)
     private Output<List<BuildDefinitionBuildCompletionTriggerBranchFilterArgs>> branchFilters;
 
     /**
-     * @return The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
+     * @return The branches to include and exclude from the trigger. A `branchFilter` block as documented below.
      * 
      */
     public Output<List<BuildDefinitionBuildCompletionTriggerBranchFilterArgs>> branchFilters() {
@@ -72,7 +72,7 @@ public final class BuildDefinitionBuildCompletionTriggerArgs extends com.pulumi.
         }
 
         /**
-         * @param branchFilters The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
+         * @param branchFilters The branches to include and exclude from the trigger. A `branchFilter` block as documented below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class BuildDefinitionBuildCompletionTriggerArgs extends com.pulumi.
         }
 
         /**
-         * @param branchFilters The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
+         * @param branchFilters The branches to include and exclude from the trigger. A `branchFilter` block as documented below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class BuildDefinitionBuildCompletionTriggerArgs extends com.pulumi.
         }
 
         /**
-         * @param branchFilters The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
+         * @param branchFilters The branches to include and exclude from the trigger. A `branchFilter` block as documented below.
          * 
          * @return builder
          * 

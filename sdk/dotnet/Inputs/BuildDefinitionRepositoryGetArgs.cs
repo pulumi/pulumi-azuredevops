@@ -13,13 +13,13 @@ namespace Pulumi.AzureDevOps.Inputs
     public sealed class BuildDefinitionRepositoryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The branch name for which builds are triggered. Defaults to `master`.
+        /// The branch name for which builds are triggered. Defaults to `Master`.
         /// </summary>
         [Input("branchName")]
         public Input<string>? BranchName { get; set; }
 
         /// <summary>
-        /// The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`. Conflict with `url`
+        /// The Github Enterprise URL. Used if `RepoType` is `GithubEnterprise`. Conflict with `Url`
         /// </summary>
         [Input("githubEnterpriseUrl")]
         public Input<string>? GithubEnterpriseUrl { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.AzureDevOps.Inputs
         public Input<string> RepoId { get; set; } = null!;
 
         /// <summary>
-        /// The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise` or `Git`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+        /// The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise` or `Git`. Defaults to `GitHub`. If `RepoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
         /// </summary>
         [Input("repoType", required: true)]
         public Input<string> RepoType { get; set; } = null!;
@@ -43,13 +43,13 @@ namespace Pulumi.AzureDevOps.Inputs
         public Input<bool>? ReportBuildStatus { get; set; }
 
         /// <summary>
-        /// The service connection ID. Used if the `repo_type` is `GitHub` or `GitHubEnterprise`.
+        /// The service connection ID. Used if the `RepoType` is `GitHub` or `GitHubEnterprise`.
         /// </summary>
         [Input("serviceConnectionId")]
         public Input<string>? ServiceConnectionId { get; set; }
 
         /// <summary>
-        /// The URL of the Git repository. Used if `repo_type` is `Git`. Conflict with `github_enterprise_url`
+        /// The URL of the Git repository. Used if `RepoType` is `Git`. Conflict with `GithubEnterpriseUrl`
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }

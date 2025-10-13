@@ -87,7 +87,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> ProjectId { get; private set; } = null!;
 
         /// <summary>
-        /// Can the requestor approve? Defaults to `false`.
+        /// Can the requestor approve? Defaults to `False`.
         /// </summary>
         [Output("requesterCanApprove")]
         public Output<bool?> RequesterCanApprove { get; private set; } = null!;
@@ -99,7 +99,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> TargetResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Approval Check to be created.
+        /// The type of resource being protected by the check. Valid values: `Endpoint`, `Environment`, `Queue`, `Repository`, `Securefile`, `Variablegroup`. Changing this forces a new Approval Check to be created.
         /// </summary>
         [Output("targetResourceType")]
         public Output<string> TargetResourceType { get; private set; } = null!;
@@ -193,7 +193,7 @@ namespace Pulumi.AzureDevOps
         public Input<string> ProjectId { get; set; } = null!;
 
         /// <summary>
-        /// Can the requestor approve? Defaults to `false`.
+        /// Can the requestor approve? Defaults to `False`.
         /// </summary>
         [Input("requesterCanApprove")]
         public Input<bool>? RequesterCanApprove { get; set; }
@@ -205,7 +205,7 @@ namespace Pulumi.AzureDevOps
         public Input<string> TargetResourceId { get; set; } = null!;
 
         /// <summary>
-        /// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Approval Check to be created.
+        /// The type of resource being protected by the check. Valid values: `Endpoint`, `Environment`, `Queue`, `Repository`, `Securefile`, `Variablegroup`. Changing this forces a new Approval Check to be created.
         /// </summary>
         [Input("targetResourceType", required: true)]
         public Input<string> TargetResourceType { get; set; } = null!;
@@ -255,7 +255,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? ProjectId { get; set; }
 
         /// <summary>
-        /// Can the requestor approve? Defaults to `false`.
+        /// Can the requestor approve? Defaults to `False`.
         /// </summary>
         [Input("requesterCanApprove")]
         public Input<bool>? RequesterCanApprove { get; set; }
@@ -267,7 +267,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? TargetResourceId { get; set; }
 
         /// <summary>
-        /// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Approval Check to be created.
+        /// The type of resource being protected by the check. Valid values: `Endpoint`, `Environment`, `Queue`, `Repository`, `Securefile`, `Variablegroup`. Changing this forces a new Approval Check to be created.
         /// </summary>
         [Input("targetResourceType")]
         public Input<string>? TargetResourceType { get; set; }

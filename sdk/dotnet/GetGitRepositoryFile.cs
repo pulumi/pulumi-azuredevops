@@ -130,7 +130,7 @@ namespace Pulumi.AzureDevOps
     public sealed class GetGitRepositoryFileArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The git branch to use. Conflicts with `tag`; one or the other must be specified.
+        /// The git branch to use. Conflicts with `Tag`; one or the other must be specified.
         /// </summary>
         [Input("branch")]
         public string? Branch { get; set; }
@@ -148,7 +148,7 @@ namespace Pulumi.AzureDevOps
         public string RepositoryId { get; set; } = null!;
 
         /// <summary>
-        /// The tag to use.Conflicts with `branch`; one or the other must be specified.
+        /// The tag to use.Conflicts with `Branch`; one or the other must be specified.
         /// </summary>
         [Input("tag")]
         public string? Tag { get; set; }
@@ -162,7 +162,7 @@ namespace Pulumi.AzureDevOps
     public sealed class GetGitRepositoryFileInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The git branch to use. Conflicts with `tag`; one or the other must be specified.
+        /// The git branch to use. Conflicts with `Tag`; one or the other must be specified.
         /// </summary>
         [Input("branch")]
         public Input<string>? Branch { get; set; }
@@ -180,7 +180,7 @@ namespace Pulumi.AzureDevOps
         public Input<string> RepositoryId { get; set; } = null!;
 
         /// <summary>
-        /// The tag to use.Conflicts with `branch`; one or the other must be specified.
+        /// The tag to use.Conflicts with `Branch`; one or the other must be specified.
         /// </summary>
         [Input("tag")]
         public Input<string>? Tag { get; set; }

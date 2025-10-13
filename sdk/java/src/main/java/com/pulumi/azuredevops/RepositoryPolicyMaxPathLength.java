@@ -197,14 +197,14 @@ public class RepositoryPolicyMaxPathLength extends com.pulumi.resources.CustomRe
         return this.projectId;
     }
     /**
-     * Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
+     * Control whether the policy is enabled for the repository or the project. If `repositoryIds` not configured, the policy will be set to the project.
      * 
      */
     @Export(name="repositoryIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> repositoryIds;
 
     /**
-     * @return Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
+     * @return Control whether the policy is enabled for the repository or the project. If `repositoryIds` not configured, the policy will be set to the project.
      * 
      */
     public Output<Optional<List<String>>> repositoryIds() {

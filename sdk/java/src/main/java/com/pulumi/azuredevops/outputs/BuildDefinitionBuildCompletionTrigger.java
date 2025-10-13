@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class BuildDefinitionBuildCompletionTrigger {
     /**
-     * @return The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
+     * @return The branches to include and exclude from the trigger. A `branchFilter` block as documented below.
      * 
      */
     private List<BuildDefinitionBuildCompletionTriggerBranchFilter> branchFilters;
@@ -25,7 +25,7 @@ public final class BuildDefinitionBuildCompletionTrigger {
 
     private BuildDefinitionBuildCompletionTrigger() {}
     /**
-     * @return The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
+     * @return The branches to include and exclude from the trigger. A `branchFilter` block as documented below.
      * 
      */
     public List<BuildDefinitionBuildCompletionTriggerBranchFilter> branchFilters() {

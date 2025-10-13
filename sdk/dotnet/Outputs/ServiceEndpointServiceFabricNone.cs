@@ -14,7 +14,7 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class ServiceEndpointServiceFabricNone
     {
         /// <summary>
-        /// Fully qualified domain SPN for gMSA account. This is applicable only if `unsecured` option is disabled.
+        /// Fully qualified domain SPN for gMSA account. This is applicable only if `Unsecured` option is disabled.
         /// </summary>
         public readonly string? ClusterSpn;
         /// <summary>

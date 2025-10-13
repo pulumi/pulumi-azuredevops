@@ -34,14 +34,14 @@ public final class CheckRequiredTemplateState extends com.pulumi.resources.Resou
     }
 
     /**
-     * One or more `required_template` blocks documented below.
+     * One or more `requiredTemplate` blocks documented below.
      * 
      */
     @Import(name="requiredTemplates")
     private @Nullable Output<List<CheckRequiredTemplateRequiredTemplateArgs>> requiredTemplates;
 
     /**
-     * @return One or more `required_template` blocks documented below.
+     * @return One or more `requiredTemplate` blocks documented below.
      * 
      */
     public Optional<Output<List<CheckRequiredTemplateRequiredTemplateArgs>>> requiredTemplates() {
@@ -143,7 +143,7 @@ public final class CheckRequiredTemplateState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param requiredTemplates One or more `required_template` blocks documented below.
+         * @param requiredTemplates One or more `requiredTemplate` blocks documented below.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class CheckRequiredTemplateState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param requiredTemplates One or more `required_template` blocks documented below.
+         * @param requiredTemplates One or more `requiredTemplate` blocks documented below.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class CheckRequiredTemplateState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param requiredTemplates One or more `required_template` blocks documented below.
+         * @param requiredTemplates One or more `requiredTemplate` blocks documented below.
          * 
          * @return builder
          * 

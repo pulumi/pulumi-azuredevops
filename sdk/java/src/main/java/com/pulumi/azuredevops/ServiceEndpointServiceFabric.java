@@ -147,14 +147,14 @@ public class ServiceEndpointServiceFabric extends com.pulumi.resources.CustomRes
         return this.authorization;
     }
     /**
-     * An `azure_active_directory` block as documented below.
+     * An `azureActiveDirectory` block as documented below.
      * 
      */
     @Export(name="azureActiveDirectory", refs={ServiceEndpointServiceFabricAzureActiveDirectory.class}, tree="[0]")
     private Output</* @Nullable */ ServiceEndpointServiceFabricAzureActiveDirectory> azureActiveDirectory;
 
     /**
-     * @return An `azure_active_directory` block as documented below.
+     * @return An `azureActiveDirectory` block as documented below.
      * 
      */
     public Output<Optional<ServiceEndpointServiceFabricAzureActiveDirectory>> azureActiveDirectory() {

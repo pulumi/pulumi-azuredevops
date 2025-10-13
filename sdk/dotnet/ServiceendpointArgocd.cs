@@ -96,15 +96,15 @@ namespace Pulumi.AzureDevOps
     public partial class ServiceendpointArgocd : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `authentication_basic` block for the ArgoCD as documented below.
+        /// An `AuthenticationBasic` block for the ArgoCD as documented below.
         /// 
-        /// &gt; **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
+        /// &gt; **NOTE:** `AuthenticationBasic` and `AuthenticationToken` conflict with each other, only one is required.
         /// </summary>
         [Output("authenticationBasic")]
         public Output<Outputs.ServiceendpointArgocdAuthenticationBasic?> AuthenticationBasic { get; private set; } = null!;
 
         /// <summary>
-        /// An `authentication_token` block for the ArgoCD as documented below.
+        /// An `AuthenticationToken` block for the ArgoCD as documented below.
         /// </summary>
         [Output("authenticationToken")]
         public Output<Outputs.ServiceendpointArgocdAuthenticationToken?> AuthenticationToken { get; private set; } = null!;
@@ -183,15 +183,15 @@ namespace Pulumi.AzureDevOps
     public sealed class ServiceendpointArgocdArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `authentication_basic` block for the ArgoCD as documented below.
+        /// An `AuthenticationBasic` block for the ArgoCD as documented below.
         /// 
-        /// &gt; **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
+        /// &gt; **NOTE:** `AuthenticationBasic` and `AuthenticationToken` conflict with each other, only one is required.
         /// </summary>
         [Input("authenticationBasic")]
         public Input<Inputs.ServiceendpointArgocdAuthenticationBasicArgs>? AuthenticationBasic { get; set; }
 
         /// <summary>
-        /// An `authentication_token` block for the ArgoCD as documented below.
+        /// An `AuthenticationToken` block for the ArgoCD as documented below.
         /// </summary>
         [Input("authenticationToken")]
         public Input<Inputs.ServiceendpointArgocdAuthenticationTokenArgs>? AuthenticationToken { get; set; }
@@ -229,15 +229,15 @@ namespace Pulumi.AzureDevOps
     public sealed class ServiceendpointArgocdState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `authentication_basic` block for the ArgoCD as documented below.
+        /// An `AuthenticationBasic` block for the ArgoCD as documented below.
         /// 
-        /// &gt; **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
+        /// &gt; **NOTE:** `AuthenticationBasic` and `AuthenticationToken` conflict with each other, only one is required.
         /// </summary>
         [Input("authenticationBasic")]
         public Input<Inputs.ServiceendpointArgocdAuthenticationBasicGetArgs>? AuthenticationBasic { get; set; }
 
         /// <summary>
-        /// An `authentication_token` block for the ArgoCD as documented below.
+        /// An `AuthenticationToken` block for the ArgoCD as documented below.
         /// </summary>
         [Input("authenticationToken")]
         public Input<Inputs.ServiceendpointArgocdAuthenticationTokenGetArgs>? AuthenticationToken { get; set; }

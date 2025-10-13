@@ -177,7 +177,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The ID of the Feed.
         /// 
-        /// &gt; **Note** Only one of `name` or `feed_id` can be set at the same time.
+        /// &gt; **Note** Only one of `Name` or `FeedId` can be set at the same time.
         /// </summary>
         [Input("feedId")]
         public string? FeedId { get; set; }
@@ -205,7 +205,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The ID of the Feed.
         /// 
-        /// &gt; **Note** Only one of `name` or `feed_id` can be set at the same time.
+        /// &gt; **Note** Only one of `Name` or `FeedId` can be set at the same time.
         /// </summary>
         [Input("feedId")]
         public Input<string>? FeedId { get; set; }

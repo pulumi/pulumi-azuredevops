@@ -20,14 +20,14 @@ public final class ServiceEndpointServiceFabricArgs extends com.pulumi.resources
     public static final ServiceEndpointServiceFabricArgs Empty = new ServiceEndpointServiceFabricArgs();
 
     /**
-     * An `azure_active_directory` block as documented below.
+     * An `azureActiveDirectory` block as documented below.
      * 
      */
     @Import(name="azureActiveDirectory")
     private @Nullable Output<ServiceEndpointServiceFabricAzureActiveDirectoryArgs> azureActiveDirectory;
 
     /**
-     * @return An `azure_active_directory` block as documented below.
+     * @return An `azureActiveDirectory` block as documented below.
      * 
      */
     public Optional<Output<ServiceEndpointServiceFabricAzureActiveDirectoryArgs>> azureActiveDirectory() {
@@ -147,7 +147,7 @@ public final class ServiceEndpointServiceFabricArgs extends com.pulumi.resources
         }
 
         /**
-         * @param azureActiveDirectory An `azure_active_directory` block as documented below.
+         * @param azureActiveDirectory An `azureActiveDirectory` block as documented below.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class ServiceEndpointServiceFabricArgs extends com.pulumi.resources
         }
 
         /**
-         * @param azureActiveDirectory An `azure_active_directory` block as documented below.
+         * @param azureActiveDirectory An `azureActiveDirectory` block as documented below.
          * 
          * @return builder
          * 

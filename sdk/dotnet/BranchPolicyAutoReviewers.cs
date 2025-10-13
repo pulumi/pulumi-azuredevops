@@ -91,13 +91,13 @@ namespace Pulumi.AzureDevOps
     public partial class BranchPolicyAutoReviewers : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A flag indicating if the policy should be blocking. This relates to the Azure DevOps terms "optional" and "required" reviewers. Defaults to `true`.
+        /// A flag indicating if the policy should be blocking. This relates to the Azure DevOps terms "optional" and "required" reviewers. Defaults to `True`.
         /// </summary>
         [Output("blocking")]
         public Output<bool?> Blocking { get; private set; } = null!;
 
         /// <summary>
-        /// A flag indicating if the policy should be enabled. Defaults to `true`.
+        /// A flag indicating if the policy should be enabled. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -109,7 +109,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> ProjectId { get; private set; } = null!;
 
         /// <summary>
-        /// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
+        /// A `Settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
         /// </summary>
         [Output("settings")]
         public Output<Outputs.BranchPolicyAutoReviewersSettings> Settings { get; private set; } = null!;
@@ -161,13 +161,13 @@ namespace Pulumi.AzureDevOps
     public sealed class BranchPolicyAutoReviewersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A flag indicating if the policy should be blocking. This relates to the Azure DevOps terms "optional" and "required" reviewers. Defaults to `true`.
+        /// A flag indicating if the policy should be blocking. This relates to the Azure DevOps terms "optional" and "required" reviewers. Defaults to `True`.
         /// </summary>
         [Input("blocking")]
         public Input<bool>? Blocking { get; set; }
 
         /// <summary>
-        /// A flag indicating if the policy should be enabled. Defaults to `true`.
+        /// A flag indicating if the policy should be enabled. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -179,7 +179,7 @@ namespace Pulumi.AzureDevOps
         public Input<string> ProjectId { get; set; } = null!;
 
         /// <summary>
-        /// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
+        /// A `Settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
         /// </summary>
         [Input("settings", required: true)]
         public Input<Inputs.BranchPolicyAutoReviewersSettingsArgs> Settings { get; set; } = null!;
@@ -193,13 +193,13 @@ namespace Pulumi.AzureDevOps
     public sealed class BranchPolicyAutoReviewersState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A flag indicating if the policy should be blocking. This relates to the Azure DevOps terms "optional" and "required" reviewers. Defaults to `true`.
+        /// A flag indicating if the policy should be blocking. This relates to the Azure DevOps terms "optional" and "required" reviewers. Defaults to `True`.
         /// </summary>
         [Input("blocking")]
         public Input<bool>? Blocking { get; set; }
 
         /// <summary>
-        /// A flag indicating if the policy should be enabled. Defaults to `true`.
+        /// A flag indicating if the policy should be enabled. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -211,7 +211,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? ProjectId { get; set; }
 
         /// <summary>
-        /// A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
+        /// A `Settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
         /// </summary>
         [Input("settings")]
         public Input<Inputs.BranchPolicyAutoReviewersSettingsGetArgs>? Settings { get; set; }

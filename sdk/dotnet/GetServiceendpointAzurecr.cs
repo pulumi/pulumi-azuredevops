@@ -117,7 +117,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// the Name of the Service Endpoint.
         /// 
-        /// &gt; **NOTE:** One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
+        /// &gt; **NOTE:** One of either `ServiceEndpointId` or `ServiceEndpointName` must be specified.
         /// </summary>
         [Input("serviceEndpointName")]
         public string? ServiceEndpointName { get; set; }
@@ -145,7 +145,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// the Name of the Service Endpoint.
         /// 
-        /// &gt; **NOTE:** One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
+        /// &gt; **NOTE:** One of either `ServiceEndpointId` or `ServiceEndpointName` must be specified.
         /// </summary>
         [Input("serviceEndpointName")]
         public Input<string>? ServiceEndpointName { get; set; }

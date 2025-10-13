@@ -67,7 +67,7 @@ public final class BranchPolicyMinReviewersSettingsArgs extends com.pulumi.resou
     /**
      * When new changes are pushed reset all code reviewer votes. Defaults to `false`.
      * 
-     * &gt; **Note:** If `on_push_reset_all_votes` is `true` then `on_push_reset_approved_votes` will be set to `true`. To enable `on_push_reset_approved_votes`, you need explicitly set `on_push_reset_all_votes` `false` or not configure.
+     * &gt; **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
      * 
      */
     @Import(name="onPushResetAllVotes")
@@ -76,7 +76,7 @@ public final class BranchPolicyMinReviewersSettingsArgs extends com.pulumi.resou
     /**
      * @return When new changes are pushed reset all code reviewer votes. Defaults to `false`.
      * 
-     * &gt; **Note:** If `on_push_reset_all_votes` is `true` then `on_push_reset_approved_votes` will be set to `true`. To enable `on_push_reset_approved_votes`, you need explicitly set `on_push_reset_all_votes` `false` or not configure.
+     * &gt; **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
      * 
      */
     public Optional<Output<Boolean>> onPushResetAllVotes() {
@@ -240,7 +240,7 @@ public final class BranchPolicyMinReviewersSettingsArgs extends com.pulumi.resou
         /**
          * @param onPushResetAllVotes When new changes are pushed reset all code reviewer votes. Defaults to `false`.
          * 
-         * &gt; **Note:** If `on_push_reset_all_votes` is `true` then `on_push_reset_approved_votes` will be set to `true`. To enable `on_push_reset_approved_votes`, you need explicitly set `on_push_reset_all_votes` `false` or not configure.
+         * &gt; **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class BranchPolicyMinReviewersSettingsArgs extends com.pulumi.resou
         /**
          * @param onPushResetAllVotes When new changes are pushed reset all code reviewer votes. Defaults to `false`.
          * 
-         * &gt; **Note:** If `on_push_reset_all_votes` is `true` then `on_push_reset_approved_votes` will be set to `true`. To enable `on_push_reset_approved_votes`, you need explicitly set `on_push_reset_all_votes` `false` or not configure.
+         * &gt; **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
          * 
          * @return builder
          * 

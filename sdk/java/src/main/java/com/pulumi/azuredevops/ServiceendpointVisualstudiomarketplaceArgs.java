@@ -19,18 +19,18 @@ public final class ServiceendpointVisualstudiomarketplaceArgs extends com.pulumi
     public static final ServiceendpointVisualstudiomarketplaceArgs Empty = new ServiceendpointVisualstudiomarketplaceArgs();
 
     /**
-     * An `authentication_basic` block as documented below.
+     * An `authenticationBasic` block as documented below.
      * 
-     * &gt; **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
+     * &gt; **NOTE:** `authenticationBasic` and `authenticationToken` conflict with each other, only one is required.
      * 
      */
     @Import(name="authenticationBasic")
     private @Nullable Output<ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs> authenticationBasic;
 
     /**
-     * @return An `authentication_basic` block as documented below.
+     * @return An `authenticationBasic` block as documented below.
      * 
-     * &gt; **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
+     * &gt; **NOTE:** `authenticationBasic` and `authenticationToken` conflict with each other, only one is required.
      * 
      */
     public Optional<Output<ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs>> authenticationBasic() {
@@ -38,14 +38,14 @@ public final class ServiceendpointVisualstudiomarketplaceArgs extends com.pulumi
     }
 
     /**
-     * An `authentication_token` block as documented below.
+     * An `authenticationToken` block as documented below.
      * 
      */
     @Import(name="authenticationToken")
     private @Nullable Output<ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs> authenticationToken;
 
     /**
-     * @return An `authentication_token` block as documented below.
+     * @return An `authenticationToken` block as documented below.
      * 
      */
     public Optional<Output<ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs>> authenticationToken() {
@@ -134,9 +134,9 @@ public final class ServiceendpointVisualstudiomarketplaceArgs extends com.pulumi
         }
 
         /**
-         * @param authenticationBasic An `authentication_basic` block as documented below.
+         * @param authenticationBasic An `authenticationBasic` block as documented below.
          * 
-         * &gt; **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
+         * &gt; **NOTE:** `authenticationBasic` and `authenticationToken` conflict with each other, only one is required.
          * 
          * @return builder
          * 
@@ -147,9 +147,9 @@ public final class ServiceendpointVisualstudiomarketplaceArgs extends com.pulumi
         }
 
         /**
-         * @param authenticationBasic An `authentication_basic` block as documented below.
+         * @param authenticationBasic An `authenticationBasic` block as documented below.
          * 
-         * &gt; **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
+         * &gt; **NOTE:** `authenticationBasic` and `authenticationToken` conflict with each other, only one is required.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class ServiceendpointVisualstudiomarketplaceArgs extends com.pulumi
         }
 
         /**
-         * @param authenticationToken An `authentication_token` block as documented below.
+         * @param authenticationToken An `authenticationToken` block as documented below.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class ServiceendpointVisualstudiomarketplaceArgs extends com.pulumi
         }
 
         /**
-         * @param authenticationToken An `authentication_token` block as documented below.
+         * @param authenticationToken An `authenticationToken` block as documented below.
          * 
          * @return builder
          * 

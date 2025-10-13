@@ -135,7 +135,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// ID of the Project.
         /// 
-        /// &gt; **NOTE:** One of either `project_id` or `name` must be specified.
+        /// &gt; **NOTE:** One of either `ProjectId` or `Name` must be specified.
         /// </summary>
         [Input("projectId")]
         public string? ProjectId { get; set; }
@@ -157,7 +157,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// ID of the Project.
         /// 
-        /// &gt; **NOTE:** One of either `project_id` or `name` must be specified.
+        /// &gt; **NOTE:** One of either `ProjectId` or `Name` must be specified.
         /// </summary>
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }

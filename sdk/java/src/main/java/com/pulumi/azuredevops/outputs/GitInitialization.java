@@ -23,17 +23,17 @@ public final class GitInitialization {
      */
     private @Nullable String serviceConnectionId;
     /**
-     * @return Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`.
+     * @return Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`.
      * 
      */
     private @Nullable String sourceType;
     /**
-     * @return The URL of the source repository. Used if the `init_type` is `Import`.
+     * @return The URL of the source repository. Used if the `initType` is `Import`.
      * 
      */
     private @Nullable String sourceUrl;
     /**
-     * @return The username used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
+     * @return The username used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`.
      * 
      */
     private @Nullable String username;
@@ -54,21 +54,21 @@ public final class GitInitialization {
         return Optional.ofNullable(this.serviceConnectionId);
     }
     /**
-     * @return Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`.
+     * @return Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`.
      * 
      */
     public Optional<String> sourceType() {
         return Optional.ofNullable(this.sourceType);
     }
     /**
-     * @return The URL of the source repository. Used if the `init_type` is `Import`.
+     * @return The URL of the source repository. Used if the `initType` is `Import`.
      * 
      */
     public Optional<String> sourceUrl() {
         return Optional.ofNullable(this.sourceUrl);
     }
     /**
-     * @return The username used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
+     * @return The username used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`.
      * 
      */
     public Optional<String> username() {

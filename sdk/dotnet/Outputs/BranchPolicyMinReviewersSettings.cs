@@ -14,25 +14,25 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class BranchPolicyMinReviewersSettings
     {
         /// <summary>
-        /// Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
+        /// Allow completion even if some reviewers vote to wait or reject. Defaults to `False`.
         /// </summary>
         public readonly bool? AllowCompletionWithRejectsOrWaits;
         /// <summary>
-        /// Prohibit the most recent pusher from approving their own changes. Defaults to `false`.
+        /// Prohibit the most recent pusher from approving their own changes. Defaults to `False`.
         /// </summary>
         public readonly bool? LastPusherCannotApprove;
         /// <summary>
-        /// On last iteration require vote. Defaults to `false`.
+        /// On last iteration require vote. Defaults to `False`.
         /// </summary>
         public readonly bool? OnLastIterationRequireVote;
         /// <summary>
-        /// When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+        /// When new changes are pushed reset all code reviewer votes. Defaults to `False`.
         /// 
-        /// &gt; **Note:** If `on_push_reset_all_votes` is `true` then `on_push_reset_approved_votes` will be set to `true`. To enable `on_push_reset_approved_votes`, you need explicitly set `on_push_reset_all_votes` `false` or not configure.
+        /// &gt; **Note:** If `OnPushResetAllVotes` is `True` then `OnPushResetApprovedVotes` will be set to `True`. To enable `OnPushResetApprovedVotes`, you need explicitly set `OnPushResetAllVotes` `False` or not configure.
         /// </summary>
         public readonly bool? OnPushResetAllVotes;
         /// <summary>
-        /// When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
+        /// When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `False`.
         /// </summary>
         public readonly bool? OnPushResetApprovedVotes;
         /// <summary>
@@ -40,11 +40,11 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly int? ReviewerCount;
         /// <summary>
-        /// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        /// A `Scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         /// </summary>
         public readonly ImmutableArray<Outputs.BranchPolicyMinReviewersSettingsScope> Scopes;
         /// <summary>
-        /// Allow requesters to approve their own changes. Defaults to `false`.
+        /// Allow requesters to approve their own changes. Defaults to `False`.
         /// </summary>
         public readonly bool? SubmitterCanVote;
 

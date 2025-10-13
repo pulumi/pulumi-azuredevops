@@ -19,14 +19,14 @@ public final class ServiceEndpointGitHubEnterpriseArgs extends com.pulumi.resour
     public static final ServiceEndpointGitHubEnterpriseArgs Empty = new ServiceEndpointGitHubEnterpriseArgs();
 
     /**
-     * An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+     * An `authOauth` block as documented below. Allows connecting using an Oauth token.
      * 
      */
     @Import(name="authOauth")
     private @Nullable Output<ServiceEndpointGitHubEnterpriseAuthOauthArgs> authOauth;
 
     /**
-     * @return An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+     * @return An `authOauth` block as documented below. Allows connecting using an Oauth token.
      * 
      */
     public Optional<Output<ServiceEndpointGitHubEnterpriseAuthOauthArgs>> authOauth() {
@@ -34,14 +34,14 @@ public final class ServiceEndpointGitHubEnterpriseArgs extends com.pulumi.resour
     }
 
     /**
-     * An `auth_personal` block as documented below. Allows connecting using a personal access token.
+     * An `authPersonal` block as documented below. Allows connecting using a personal access token.
      * 
      */
     @Import(name="authPersonal")
     private @Nullable Output<ServiceEndpointGitHubEnterpriseAuthPersonalArgs> authPersonal;
 
     /**
-     * @return An `auth_personal` block as documented below. Allows connecting using a personal access token.
+     * @return An `authPersonal` block as documented below. Allows connecting using a personal access token.
      * 
      */
     public Optional<Output<ServiceEndpointGitHubEnterpriseAuthPersonalArgs>> authPersonal() {
@@ -130,7 +130,7 @@ public final class ServiceEndpointGitHubEnterpriseArgs extends com.pulumi.resour
         }
 
         /**
-         * @param authOauth An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+         * @param authOauth An `authOauth` block as documented below. Allows connecting using an Oauth token.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ServiceEndpointGitHubEnterpriseArgs extends com.pulumi.resour
         }
 
         /**
-         * @param authOauth An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+         * @param authOauth An `authOauth` block as documented below. Allows connecting using an Oauth token.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class ServiceEndpointGitHubEnterpriseArgs extends com.pulumi.resour
         }
 
         /**
-         * @param authPersonal An `auth_personal` block as documented below. Allows connecting using a personal access token.
+         * @param authPersonal An `authPersonal` block as documented below. Allows connecting using a personal access token.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class ServiceEndpointGitHubEnterpriseArgs extends com.pulumi.resour
         }
 
         /**
-         * @param authPersonal An `auth_personal` block as documented below. Allows connecting using a personal access token.
+         * @param authPersonal An `authPersonal` block as documented below. Allows connecting using a personal access token.
          * 
          * @return builder
          * 
