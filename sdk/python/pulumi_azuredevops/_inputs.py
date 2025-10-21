@@ -3694,6 +3694,13 @@ if not MYPY:
         """
         The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
         """
+        password: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`. Note: This is a write-only attribute, which allows ephemeral resources to be used.
+
+        ~>**Note** At least `service_connection_id` or `username/password` needs to be set to import private repository.
+        """
         service_connection_id: NotRequired[pulumi.Input[_builtins.str]]
         """
         The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
@@ -3717,18 +3724,25 @@ elif False:
 class GitInitializationArgs:
     def __init__(__self__, *,
                  init_type: pulumi.Input[_builtins.str],
+                 password: Optional[pulumi.Input[_builtins.str]] = None,
                  service_connection_id: Optional[pulumi.Input[_builtins.str]] = None,
                  source_type: Optional[pulumi.Input[_builtins.str]] = None,
                  source_url: Optional[pulumi.Input[_builtins.str]] = None,
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] init_type: The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
+        :param pulumi.Input[_builtins.str] password: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`. Note: This is a write-only attribute, which allows ephemeral resources to be used.
+               
+               ~>**Note** At least `service_connection_id` or `username/password` needs to be set to import private repository.
         :param pulumi.Input[_builtins.str] service_connection_id: The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
         :param pulumi.Input[_builtins.str] source_type: Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`.
         :param pulumi.Input[_builtins.str] source_url: The URL of the source repository. Used if the `init_type` is `Import`.
         :param pulumi.Input[_builtins.str] username: The username used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
         """
         pulumi.set(__self__, "init_type", init_type)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
         if service_connection_id is not None:
             pulumi.set(__self__, "service_connection_id", service_connection_id)
         if source_type is not None:
@@ -3749,6 +3763,21 @@ class GitInitializationArgs:
     @init_type.setter
     def init_type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "init_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`. Note: This is a write-only attribute, which allows ephemeral resources to be used.
+
+        ~>**Note** At least `service_connection_id` or `username/password` needs to be set to import private repository.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceConnectionId")
