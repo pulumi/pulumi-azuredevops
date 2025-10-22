@@ -6,7 +6,7 @@ toolchain go1.24.2
 
 require (
 	github.com/pulumi/pulumi-azuredevops/provider/v3 v3.0.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.115.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.116.0
 	github.com/pulumi/pulumi/pkg/v3 v3.190.0
 )
 

@@ -1066,6 +1066,11 @@
                     "type": "string",
                     "description": "The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.\n"
                 },
+                "password": {
+                    "type": "string",
+                    "description": "**NOTE:** This field is write-only and its value will not be updated in state as part of read operations.\nThe password used to authenticate to a private repository for import initialization. Conflicts with \u003cspan pulumi-lang-nodejs=\"`serviceConnectionId`\" pulumi-lang-dotnet=\"`ServiceConnectionId`\" pulumi-lang-go=\"`serviceConnectionId`\" pulumi-lang-python=\"`service_connection_id`\" pulumi-lang-yaml=\"`serviceConnectionId`\" pulumi-lang-java=\"`serviceConnectionId`\"\u003e`service_connection_id`\u003c/span\u003e. Note: This is a write-only attribute, which allows ephemeral resources to be used.\n\n~\u003e**Note** At least \u003cspan pulumi-lang-nodejs=\"`serviceConnectionId`\" pulumi-lang-dotnet=\"`ServiceConnectionId`\" pulumi-lang-go=\"`serviceConnectionId`\" pulumi-lang-python=\"`service_connection_id`\" pulumi-lang-yaml=\"`serviceConnectionId`\" pulumi-lang-java=\"`serviceConnectionId`\"\u003e`service_connection_id`\u003c/span\u003e or `username/password` needs to be set to import private repository.\n",
+                    "secret": true
+                },
                 "serviceConnectionId": {
                     "type": "string",
                     "description": "The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with \u003cspan pulumi-lang-nodejs=\"`username`\" pulumi-lang-dotnet=\"`Username`\" pulumi-lang-go=\"`username`\" pulumi-lang-python=\"`username`\" pulumi-lang-yaml=\"`username`\" pulumi-lang-java=\"`username`\"\u003e`username`\u003c/span\u003e and \u003cspan pulumi-lang-nodejs=\"`password`\" pulumi-lang-dotnet=\"`Password`\" pulumi-lang-go=\"`password`\" pulumi-lang-python=\"`password`\" pulumi-lang-yaml=\"`password`\" pulumi-lang-java=\"`password`\"\u003e`password`\u003c/span\u003e.\n"

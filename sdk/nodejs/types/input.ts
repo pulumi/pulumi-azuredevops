@@ -820,6 +820,13 @@ export interface GitInitialization {
      */
     initType: pulumi.Input<string>;
     /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * The password used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`. Note: This is a write-only attribute, which allows ephemeral resources to be used.
+     *
+     * ~>**Note** At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
+     */
+    password?: pulumi.Input<string>;
+    /**
      * The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
      */
     serviceConnectionId?: pulumi.Input<string>;
