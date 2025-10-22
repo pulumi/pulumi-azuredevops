@@ -5796,6 +5796,11 @@ func (o FeedFeatureArrayOutput) Index(i pulumi.IntInput) FeedFeatureOutput {
 type GitInitialization struct {
 	// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
 	InitType string `pulumi:"initType"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// The password used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`. Note: This is a write-only attribute, which allows ephemeral resources to be used.
+	//
+	// ~>**Note** At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
+	Password *string `pulumi:"password"`
 	// The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
 	ServiceConnectionId *string `pulumi:"serviceConnectionId"`
 	// Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`.
@@ -5820,6 +5825,11 @@ type GitInitializationInput interface {
 type GitInitializationArgs struct {
 	// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
 	InitType pulumi.StringInput `pulumi:"initType"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// The password used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`. Note: This is a write-only attribute, which allows ephemeral resources to be used.
+	//
+	// ~>**Note** At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
+	Password pulumi.StringPtrInput `pulumi:"password"`
 	// The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
 	ServiceConnectionId pulumi.StringPtrInput `pulumi:"serviceConnectionId"`
 	// Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`.
@@ -5912,6 +5922,14 @@ func (o GitInitializationOutput) InitType() pulumi.StringOutput {
 	return o.ApplyT(func(v GitInitialization) string { return v.InitType }).(pulumi.StringOutput)
 }
 
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+// The password used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`. Note: This is a write-only attribute, which allows ephemeral resources to be used.
+//
+// ~>**Note** At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
+func (o GitInitializationOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitInitialization) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
 // The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
 func (o GitInitializationOutput) ServiceConnectionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GitInitialization) *string { return v.ServiceConnectionId }).(pulumi.StringPtrOutput)
@@ -5963,6 +5981,19 @@ func (o GitInitializationPtrOutput) InitType() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.InitType
+	}).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+// The password used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`. Note: This is a write-only attribute, which allows ephemeral resources to be used.
+//
+// ~>**Note** At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
+func (o GitInitializationPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GitInitialization) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Password
 	}).(pulumi.StringPtrOutput)
 }
 

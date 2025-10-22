@@ -32,6 +32,27 @@ public final class GitInitializationArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * The password used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`. Note: This is a write-only attribute, which allows ephemeral resources to be used.
+     * 
+     * ~&gt;**Note** At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
+     * 
+     */
+    @Import(name="password")
+    private @Nullable Output<String> password;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * The password used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`. Note: This is a write-only attribute, which allows ephemeral resources to be used.
+     * 
+     * ~&gt;**Note** At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
+     * 
+     */
+    public Optional<Output<String>> password() {
+        return Optional.ofNullable(this.password);
+    }
+
+    /**
      * The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
      * 
      */
@@ -95,6 +116,7 @@ public final class GitInitializationArgs extends com.pulumi.resources.ResourceAr
 
     private GitInitializationArgs(GitInitializationArgs $) {
         this.initType = $.initType;
+        this.password = $.password;
         this.serviceConnectionId = $.serviceConnectionId;
         this.sourceType = $.sourceType;
         this.sourceUrl = $.sourceUrl;
@@ -138,6 +160,33 @@ public final class GitInitializationArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder initType(String initType) {
             return initType(Output.of(initType));
+        }
+
+        /**
+         * @param password **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * The password used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`. Note: This is a write-only attribute, which allows ephemeral resources to be used.
+         * 
+         * ~&gt;**Note** At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder password(@Nullable Output<String> password) {
+            $.password = password;
+            return this;
+        }
+
+        /**
+         * @param password **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * The password used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`. Note: This is a write-only attribute, which allows ephemeral resources to be used.
+         * 
+         * ~&gt;**Note** At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder password(String password) {
+            return password(Output.of(password));
         }
 
         /**

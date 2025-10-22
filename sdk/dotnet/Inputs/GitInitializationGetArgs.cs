@@ -18,6 +18,25 @@ namespace Pulumi.AzureDevOps.Inputs
         [Input("initType", required: true)]
         public Input<string> InitType { get; set; } = null!;
 
+        [Input("password")]
+        private Input<string>? _password;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// The password used to authenticate to a private repository for import initialization. Conflicts with `ServiceConnectionId`. Note: This is a write-only attribute, which allows ephemeral resources to be used.
+        /// 
+        /// ~&gt;**Note** At least `ServiceConnectionId` or `username/password` needs to be set to import private repository.
+        /// </summary>
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
         /// <summary>
         /// The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `Username` and `Password`.
         /// </summary>

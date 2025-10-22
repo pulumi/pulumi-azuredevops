@@ -18,6 +18,14 @@ public final class GitInitialization {
      */
     private String initType;
     /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * The password used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`. Note: This is a write-only attribute, which allows ephemeral resources to be used.
+     * 
+     * ~&gt;**Note** At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
+     * 
+     */
+    private @Nullable String password;
+    /**
      * @return The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
      * 
      */
@@ -45,6 +53,16 @@ public final class GitInitialization {
      */
     public String initType() {
         return this.initType;
+    }
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * The password used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`. Note: This is a write-only attribute, which allows ephemeral resources to be used.
+     * 
+     * ~&gt;**Note** At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
+     * 
+     */
+    public Optional<String> password() {
+        return Optional.ofNullable(this.password);
     }
     /**
      * @return The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
@@ -85,6 +103,7 @@ public final class GitInitialization {
     @CustomType.Builder
     public static final class Builder {
         private String initType;
+        private @Nullable String password;
         private @Nullable String serviceConnectionId;
         private @Nullable String sourceType;
         private @Nullable String sourceUrl;
@@ -93,6 +112,7 @@ public final class GitInitialization {
         public Builder(GitInitialization defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.initType = defaults.initType;
+    	      this.password = defaults.password;
     	      this.serviceConnectionId = defaults.serviceConnectionId;
     	      this.sourceType = defaults.sourceType;
     	      this.sourceUrl = defaults.sourceUrl;
@@ -105,6 +125,12 @@ public final class GitInitialization {
               throw new MissingRequiredPropertyException("GitInitialization", "initType");
             }
             this.initType = initType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder password(@Nullable String password) {
+
+            this.password = password;
             return this;
         }
         @CustomType.Setter
@@ -134,6 +160,7 @@ public final class GitInitialization {
         public GitInitialization build() {
             final var _resultValue = new GitInitialization();
             _resultValue.initType = initType;
+            _resultValue.password = password;
             _resultValue.serviceConnectionId = serviceConnectionId;
             _resultValue.sourceType = sourceType;
             _resultValue.sourceUrl = sourceUrl;
