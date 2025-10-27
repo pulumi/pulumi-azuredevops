@@ -7,11 +7,5 @@ env:
     AZDO_PERSONAL_ACCESS_TOKEN: ${{ secrets.AZDO_PERSONAL_ACCESS_TOKEN }}
 makeTemplate: bridged
 checkoutSubmodules: true
-plugins:
-    - name: terraform
-      version: "1.0.16"
-      kind: converter
-    - name: azure
-      version: "5.66.1"
 pulumiConvert: 1
 registryDocs: true
