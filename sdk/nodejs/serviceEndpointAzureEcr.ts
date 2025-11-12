@@ -39,8 +39,8 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
  * import * as azuredevops from "@pulumi/azuredevops";
+ * import * as azurerm from "@pulumi/azurerm";
  *
  * const example = new azuredevops.Project("example", {
  *     name: "Example Project",
@@ -49,11 +49,11 @@ import * as utilities from "./utilities";
  *     workItemTemplate: "Agile",
  *     description: "Managed by Pulumi",
  * });
- * const identity = new azure.core.ResourceGroup("identity", {
+ * const identity = new azurerm.index.ResourceGroup("identity", {
  *     name: "identity",
  *     location: "UK South",
  * });
- * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+ * const exampleUserAssignedIdentity = new azurerm.index.UserAssignedIdentity("example", {
  *     location: identity.location,
  *     name: "example-identity",
  *     resourceGroupName: identity.name,
@@ -72,11 +72,11 @@ import * as utilities from "./utilities";
  *         serviceprincipalid: exampleUserAssignedIdentity.clientId,
  *     },
  * });
- * const exampleFederatedIdentityCredential = new azure.armmsi.FederatedIdentityCredential("example", {
+ * const exampleFederatedIdentityCredential = new azurerm.index.FederatedIdentityCredential("example", {
  *     name: "example-federated-credential",
  *     resourceGroupName: identity.name,
  *     parentId: exampleUserAssignedIdentity.id,
- *     audience: "api://AzureADTokenExchange",
+ *     audience: ["api://AzureADTokenExchange"],
  *     issuer: exampleServiceEndpointAzureEcr.workloadIdentityFederationIssuer,
  *     subject: exampleServiceEndpointAzureEcr.workloadIdentityFederationSubject,
  * });

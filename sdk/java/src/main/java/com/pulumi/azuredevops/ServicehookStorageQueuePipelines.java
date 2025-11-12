@@ -32,12 +32,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azuredevops.Project;
  * import com.pulumi.azuredevops.ProjectArgs;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.storage.Account;
- * import com.pulumi.azure.storage.AccountArgs;
- * import com.pulumi.azure.storage.Queue;
- * import com.pulumi.azure.storage.QueueArgs;
+ * import com.pulumi.azurerm.ResourceGroup;
+ * import com.pulumi.azurerm.ResourceGroupArgs;
+ * import com.pulumi.azurerm.StorageAccount;
+ * import com.pulumi.azurerm.StorageAccountArgs;
+ * import com.pulumi.azurerm.StorageQueue;
+ * import com.pulumi.azurerm.StorageQueueArgs;
  * import com.pulumi.azuredevops.ServicehookStorageQueuePipelines;
  * import com.pulumi.azuredevops.ServicehookStorageQueuePipelinesArgs;
  * import com.pulumi.azuredevops.inputs.ServicehookStorageQueuePipelinesRunStateChangedEventArgs;
@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
+ *         var exampleStorageAccount = new StorageAccount("exampleStorageAccount", StorageAccountArgs.builder()
  *             .name("servicehookexamplestacc")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
@@ -71,16 +71,16 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()
+ *         var exampleStorageQueue = new StorageQueue("exampleStorageQueue", StorageQueueArgs.builder()
  *             .name("examplequeue")
- *             .storageAccountName(exampleAccount.name())
+ *             .storageAccountName(exampleStorageAccount.name())
  *             .build());
  * 
  *         var exampleServicehookStorageQueuePipelines = new ServicehookStorageQueuePipelines("exampleServicehookStorageQueuePipelines", ServicehookStorageQueuePipelinesArgs.builder()
  *             .projectId(example.id())
- *             .accountName(exampleAccount.name())
- *             .accountKey(exampleAccount.primaryAccessKey())
- *             .queueName(exampleQueue.name())
+ *             .accountName(exampleStorageAccount.name())
+ *             .accountKey(exampleStorageAccount.primaryAccessKey())
+ *             .queueName(exampleStorageQueue.name())
  *             .visiTimeout(30)
  *             .runStateChangedEvent(ServicehookStorageQueuePipelinesRunStateChangedEventArgs.builder()
  *                 .runStateFilter("Completed")

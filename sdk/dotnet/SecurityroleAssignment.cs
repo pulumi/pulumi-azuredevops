@@ -11,6 +11,63 @@ namespace Pulumi.AzureDevOps
 {
     /// <summary>
     /// Manages assignment of security roles to various resources within Azure DevOps organization.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new AzureDevOps.Project("example", new()
+    ///     {
+    ///         Name = "Example Project",
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Pulumi",
+    ///     });
+    /// 
+    ///     var exampleEnvironment = new AzureDevOps.Environment("example", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Example Environment",
+    ///         Description = "Example pipeline deployment environment",
+    ///     });
+    /// 
+    ///     var exampleGroup = new AzureDevOps.Group("example", new()
+    ///     {
+    ///         Scope = example.Id,
+    ///         DisplayName = "Example group",
+    ///         Description = "Description of example group",
+    ///     });
+    /// 
+    ///     var exampleSecurityroleAssignment = new AzureDevOps.SecurityroleAssignment("example", new()
+    ///     {
+    ///         Scope = "distributedtask.environmentreferencerole",
+    ///         ResourceId = Std.Index.Format.Invoke(new()
+    ///         {
+    ///             Input = "%s_%s",
+    ///             Args = new[]
+    ///             {
+    ///                 example.Id,
+    ///                 exampleEnvironment.Id,
+    ///             },
+    ///         }).Result,
+    ///         IdentityId = exampleGroup.OriginId,
+    ///         RoleName = "Administrator",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Relevant Links
+    /// 
+    /// - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-7.0)
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/securityroleAssignment:SecurityroleAssignment")]
     public partial class SecurityroleAssignment : global::Pulumi.CustomResource

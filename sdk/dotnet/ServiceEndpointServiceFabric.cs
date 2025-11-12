@@ -14,6 +14,47 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ## Example Usage
     /// 
+    /// ### Client Certificate Authentication
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new AzureDevOps.Project("example", new()
+    ///     {
+    ///         Name = "Example Project",
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Pulumi",
+    ///     });
+    /// 
+    ///     var exampleServiceEndpointServiceFabric = new AzureDevOps.ServiceEndpointServiceFabric("example", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         ServiceEndpointName = "Example Service Fabric",
+    ///         Description = "Managed by Pulumi",
+    ///         ClusterEndpoint = "tcp://test",
+    ///         Certificate = new AzureDevOps.Inputs.ServiceEndpointServiceFabricCertificateArgs
+    ///         {
+    ///             ServerCertificateLookup = "Thumbprint",
+    ///             ServerCertificateThumbprint = "0000000000000000000000000000000000000000",
+    ///             ClientCertificate = Std.Index.Filebase64.Invoke(new()
+    ///             {
+    ///                 Input = "certificate.pfx",
+    ///             }).Result,
+    ///             ClientCertificatePassword = "password",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Azure Active Directory Authentication
     /// 
     /// ```csharp
