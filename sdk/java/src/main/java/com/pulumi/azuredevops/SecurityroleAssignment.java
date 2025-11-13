@@ -16,6 +16,78 @@ import javax.annotation.Nullable;
 /**
  * Manages assignment of security roles to various resources within Azure DevOps organization.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
+ * import com.pulumi.azuredevops.Environment;
+ * import com.pulumi.azuredevops.EnvironmentArgs;
+ * import com.pulumi.azuredevops.Group;
+ * import com.pulumi.azuredevops.GroupArgs;
+ * import com.pulumi.azuredevops.SecurityroleAssignment;
+ * import com.pulumi.azuredevops.SecurityroleAssignmentArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Project("example", ProjectArgs.builder()
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .description("Managed by Pulumi")
+ *             .build());
+ * 
+ *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()
+ *             .projectId(example.id())
+ *             .name("Example Environment")
+ *             .description("Example pipeline deployment environment")
+ *             .build());
+ * 
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
+ *             .scope(example.id())
+ *             .displayName("Example group")
+ *             .description("Description of example group")
+ *             .build());
+ * 
+ *         var exampleSecurityroleAssignment = new SecurityroleAssignment("exampleSecurityroleAssignment", SecurityroleAssignmentArgs.builder()
+ *             .scope("distributedtask.environmentreferencerole")
+ *             .resourceId(StdFunctions.format(Map.ofEntries(
+ *                 Map.entry("input", "%s_%s"),
+ *                 Map.entry("args",                 
+ *                     example.id(),
+ *                     exampleEnvironment.id())
+ *             )).result())
+ *             .identityId(exampleGroup.originId())
+ *             .roleName("Administrator")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Relevant Links
+ * 
+ * - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-7.0)
+ * 
  */
 @ResourceType(type="azuredevops:index/securityroleAssignment:SecurityroleAssignment")
 public class SecurityroleAssignment extends com.pulumi.resources.CustomResource {

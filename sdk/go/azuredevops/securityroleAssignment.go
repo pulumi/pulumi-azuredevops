@@ -13,6 +13,76 @@ import (
 )
 
 // Manages assignment of security roles to various resources within Azure DevOps organization.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Pulumi"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEnvironment, err := azuredevops.NewEnvironment(ctx, "example", &azuredevops.EnvironmentArgs{
+//				ProjectId:   example.ID(),
+//				Name:        pulumi.String("Example Environment"),
+//				Description: pulumi.String("Example pipeline deployment environment"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleGroup, err := azuredevops.NewGroup(ctx, "example", &azuredevops.GroupArgs{
+//				Scope:       example.ID(),
+//				DisplayName: pulumi.String("Example group"),
+//				Description: pulumi.String("Description of example group"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			invokeFormat, err := std.Format(ctx, map[string]interface{}{
+//				"input": "%s_%s",
+//				"args": pulumi.StringArray{
+//					example.ID(),
+//					exampleEnvironment.ID(),
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewSecurityroleAssignment(ctx, "example", &azuredevops.SecurityroleAssignmentArgs{
+//				Scope:      pulumi.String("distributedtask.environmentreferencerole"),
+//				ResourceId: invokeFormat.Result,
+//				IdentityId: exampleGroup.OriginId,
+//				RoleName:   pulumi.String("Administrator"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Relevant Links
+//
+// - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-7.0)
 type SecurityroleAssignment struct {
 	pulumi.CustomResourceState
 

@@ -23,6 +23,60 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Client Certificate Authentication
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
+ * import com.pulumi.azuredevops.ServiceEndpointServiceFabric;
+ * import com.pulumi.azuredevops.ServiceEndpointServiceFabricArgs;
+ * import com.pulumi.azuredevops.inputs.ServiceEndpointServiceFabricCertificateArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Project("example", ProjectArgs.builder()
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .description("Managed by Pulumi")
+ *             .build());
+ * 
+ *         var exampleServiceEndpointServiceFabric = new ServiceEndpointServiceFabric("exampleServiceEndpointServiceFabric", ServiceEndpointServiceFabricArgs.builder()
+ *             .projectId(example.id())
+ *             .serviceEndpointName("Example Service Fabric")
+ *             .description("Managed by Pulumi")
+ *             .clusterEndpoint("tcp://test")
+ *             .certificate(ServiceEndpointServiceFabricCertificateArgs.builder()
+ *                 .serverCertificateLookup("Thumbprint")
+ *                 .serverCertificateThumbprint("0000000000000000000000000000000000000000")
+ *                 .clientCertificate(StdFunctions.filebase64(Map.of("input", "certificate.pfx")).result())
+ *                 .clientCertificatePassword("password")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ### Azure Active Directory Authentication
  * 
  * <pre>

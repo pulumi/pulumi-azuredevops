@@ -53,8 +53,8 @@ namespace Pulumi.AzureDevOps
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
     /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// using Azurerm = Pulumi.Azurerm;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -67,13 +67,13 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var identity = new Azure.Core.ResourceGroup("identity", new()
+    ///     var identity = new Azurerm.Index.ResourceGroup("identity", new()
     ///     {
     ///         Name = "identity",
     ///         Location = "UK South",
     ///     });
     /// 
-    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
+    ///     var exampleUserAssignedIdentity = new Azurerm.Index.UserAssignedIdentity("example", new()
     ///     {
     ///         Location = identity.Location,
     ///         Name = "example-identity",
@@ -97,12 +97,15 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var exampleFederatedIdentityCredential = new Azure.ArmMsi.FederatedIdentityCredential("example", new()
+    ///     var exampleFederatedIdentityCredential = new Azurerm.Index.FederatedIdentityCredential("example", new()
     ///     {
     ///         Name = "example-federated-credential",
     ///         ResourceGroupName = identity.Name,
     ///         ParentId = exampleUserAssignedIdentity.Id,
-    ///         Audience = "api://AzureADTokenExchange",
+    ///         Audience = new[]
+    ///         {
+    ///             "api://AzureADTokenExchange",
+    ///         },
     ///         Issuer = exampleServiceEndpointAzureEcr.WorkloadIdentityFederationIssuer,
     ///         Subject = exampleServiceEndpointAzureEcr.WorkloadIdentityFederationSubject,
     ///     });

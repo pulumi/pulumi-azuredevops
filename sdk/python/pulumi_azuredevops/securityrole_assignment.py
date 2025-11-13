@@ -170,6 +170,42 @@ class SecurityroleAssignment(pulumi.CustomResource):
         """
         Manages assignment of security roles to various resources within Azure DevOps organization.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+        import pulumi_std as std
+
+        example = azuredevops.Project("example",
+            name="Example Project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Pulumi")
+        example_environment = azuredevops.Environment("example",
+            project_id=example.id,
+            name="Example Environment",
+            description="Example pipeline deployment environment")
+        example_group = azuredevops.Group("example",
+            scope=example.id,
+            display_name="Example group",
+            description="Description of example group")
+        example_securityrole_assignment = azuredevops.SecurityroleAssignment("example",
+            scope="distributedtask.environmentreferencerole",
+            resource_id=std.index.format(input="%s_%s",
+                args=[
+                    example.id,
+                    example_environment.id,
+                ])["result"],
+            identity_id=example_group.origin_id,
+            role_name="Administrator")
+        ```
+
+        ## Relevant Links
+
+        - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-7.0)
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] identity_id: The ID of the identity to authorize.
@@ -185,6 +221,42 @@ class SecurityroleAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages assignment of security roles to various resources within Azure DevOps organization.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+        import pulumi_std as std
+
+        example = azuredevops.Project("example",
+            name="Example Project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Pulumi")
+        example_environment = azuredevops.Environment("example",
+            project_id=example.id,
+            name="Example Environment",
+            description="Example pipeline deployment environment")
+        example_group = azuredevops.Group("example",
+            scope=example.id,
+            display_name="Example group",
+            description="Description of example group")
+        example_securityrole_assignment = azuredevops.SecurityroleAssignment("example",
+            scope="distributedtask.environmentreferencerole",
+            resource_id=std.index.format(input="%s_%s",
+                args=[
+                    example.id,
+                    example_environment.id,
+                ])["result"],
+            identity_id=example_group.origin_id,
+            role_name="Administrator")
+        ```
+
+        ## Relevant Links
+
+        - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-7.0)
 
         :param str resource_name: The name of the resource.
         :param SecurityroleAssignmentArgs args: The arguments to use to populate this resource's properties.

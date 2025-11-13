@@ -38,10 +38,10 @@ import (
 //				return err
 //			}
 //			_ = exampleProject.ID().ApplyT(func(id string) (azuredevops.GetAreaResult, error) {
-//				return azuredevops.GetAreaResult(interface{}(azuredevops.GetAreaOutput(ctx, azuredevops.GetAreaOutputArgs{
+//				return azuredevops.GetAreaResult(interface{}(azuredevops.GetArea(ctx, &azuredevops.GetAreaArgs{
 //					ProjectId:     id,
-//					Path:          "/",
-//					FetchChildren: false,
+//					Path:          pulumi.StringRef(pulumi.StringRef("/")),
+//					FetchChildren: pulumi.BoolRef(pulumi.BoolRef(false)),
 //				}, nil))), nil
 //			}).(azuredevops.GetAreaResultOutput)
 //			return nil

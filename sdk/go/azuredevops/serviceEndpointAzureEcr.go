@@ -65,10 +65,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/armmsi"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
+//	"github.com/pulumi/pulumi-azurerm/sdk/go/azurerm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,16 +83,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			identity, err := core.NewResourceGroup(ctx, "identity", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("identity"),
-//				Location: pulumi.String("UK South"),
+//			identity, err := azurerm.NewResourceGroup(ctx, "identity", &azurerm.ResourceGroupArgs{
+//				Name:     "identity",
+//				Location: "UK South",
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
+//			exampleUserAssignedIdentity, err := azurerm.NewUserAssignedIdentity(ctx, "example", &azurerm.UserAssignedIdentityArgs{
 //				Location:          identity.Location,
-//				Name:              pulumi.String("example-identity"),
+//				Name:              "example-identity",
 //				ResourceGroupName: identity.Name,
 //			})
 //			if err != nil {
@@ -117,13 +115,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = armmsi.NewFederatedIdentityCredential(ctx, "example", &armmsi.FederatedIdentityCredentialArgs{
-//				Name:              pulumi.String("example-federated-credential"),
+//			_, err = azurerm.NewFederatedIdentityCredential(ctx, "example", &azurerm.FederatedIdentityCredentialArgs{
+//				Name:              "example-federated-credential",
 //				ResourceGroupName: identity.Name,
-//				ParentId:          exampleUserAssignedIdentity.ID(),
-//				Audience:          pulumi.String("api://AzureADTokenExchange"),
-//				Issuer:            exampleServiceEndpointAzureEcr.WorkloadIdentityFederationIssuer,
-//				Subject:           exampleServiceEndpointAzureEcr.WorkloadIdentityFederationSubject,
+//				ParentId:          exampleUserAssignedIdentity.Id,
+//				Audience: []string{
+//					"api://AzureADTokenExchange",
+//				},
+//				Issuer:  exampleServiceEndpointAzureEcr.WorkloadIdentityFederationIssuer,
+//				Subject: exampleServiceEndpointAzureEcr.WorkloadIdentityFederationSubject,
 //			})
 //			if err != nil {
 //				return err

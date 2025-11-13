@@ -48,9 +48,9 @@ import (
 //			_ = pulumi.All(exampleProject.ID(), exampleEnvironment.ID()).ApplyT(func(_args []interface{}) (azuredevops.GetEnvironmentResult, error) {
 //				exampleProjectId := _args[0].(string)
 //				exampleEnvironmentId := _args[1].(string)
-//				return azuredevops.GetEnvironmentResult(interface{}(azuredevops.LookupEnvironmentOutput(ctx, azuredevops.GetEnvironmentOutputArgs{
+//				return azuredevops.GetEnvironmentResult(interface{}(azuredevops.LookupEnvironment(ctx, &azuredevops.LookupEnvironmentArgs{
 //					ProjectId:     exampleProjectId,
-//					EnvironmentId: exampleEnvironmentId,
+//					EnvironmentId: pulumi.IntRef(pulumi.IntRef(int(exampleEnvironmentId))),
 //				}, nil))), nil
 //			}).(azuredevops.GetEnvironmentResultOutput)
 //			return nil

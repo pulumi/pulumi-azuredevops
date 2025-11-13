@@ -6,6 +6,48 @@ import * as utilities from "./utilities";
 
 /**
  * Manages assignment of security roles to various resources within Azure DevOps organization.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ *     description: "Managed by Pulumi",
+ * });
+ * const exampleEnvironment = new azuredevops.Environment("example", {
+ *     projectId: example.id,
+ *     name: "Example Environment",
+ *     description: "Example pipeline deployment environment",
+ * });
+ * const exampleGroup = new azuredevops.Group("example", {
+ *     scope: example.id,
+ *     displayName: "Example group",
+ *     description: "Description of example group",
+ * });
+ * const exampleSecurityroleAssignment = new azuredevops.SecurityroleAssignment("example", {
+ *     scope: "distributedtask.environmentreferencerole",
+ *     resourceId: std.index.format({
+ *         input: "%s_%s",
+ *         args: [
+ *             example.id,
+ *             exampleEnvironment.id,
+ *         ],
+ *     }).result,
+ *     identityId: exampleGroup.originId,
+ *     roleName: "Administrator",
+ * });
+ * ```
+ *
+ * ## Relevant Links
+ *
+ * - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-7.0)
  */
 export class SecurityroleAssignment extends pulumi.CustomResource {
     /**

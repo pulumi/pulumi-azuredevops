@@ -11,6 +11,36 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * ### Client Certificate Authentication
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ *     description: "Managed by Pulumi",
+ * });
+ * const exampleServiceEndpointServiceFabric = new azuredevops.ServiceEndpointServiceFabric("example", {
+ *     projectId: example.id,
+ *     serviceEndpointName: "Example Service Fabric",
+ *     description: "Managed by Pulumi",
+ *     clusterEndpoint: "tcp://test",
+ *     certificate: {
+ *         serverCertificateLookup: "Thumbprint",
+ *         serverCertificateThumbprint: "0000000000000000000000000000000000000000",
+ *         clientCertificate: std.index.filebase64({
+ *             input: "certificate.pfx",
+ *         }).result,
+ *         clientCertificatePassword: "password",
+ *     },
+ * });
+ * ```
+ *
  * ### Azure Active Directory Authentication
  *
  * ```typescript

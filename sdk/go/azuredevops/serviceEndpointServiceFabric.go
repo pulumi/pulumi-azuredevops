@@ -16,6 +16,58 @@ import (
 //
 // ## Example Usage
 //
+// ### Client Certificate Authentication
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Pulumi"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			invokeFilebase64, err := std.Filebase64(ctx, map[string]interface{}{
+//				"input": "certificate.pfx",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceEndpointServiceFabric(ctx, "example", &azuredevops.ServiceEndpointServiceFabricArgs{
+//				ProjectId:           example.ID(),
+//				ServiceEndpointName: pulumi.String("Example Service Fabric"),
+//				Description:         pulumi.String("Managed by Pulumi"),
+//				ClusterEndpoint:     pulumi.String("tcp://test"),
+//				Certificate: &azuredevops.ServiceEndpointServiceFabricCertificateArgs{
+//					ServerCertificateLookup:     pulumi.String("Thumbprint"),
+//					ServerCertificateThumbprint: pulumi.String("0000000000000000000000000000000000000000"),
+//					ClientCertificate:           invokeFilebase64.Result,
+//					ClientCertificatePassword:   pulumi.String("password"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### Azure Active Directory Authentication
 //
 // ```go
