@@ -35,6 +35,7 @@ const project = new azuredevops.Project("project", {
     description: "Project Description",
 });
 ```
+
 {{% /choosable %}}
 {{% choosable language python %}}
 ```python
@@ -45,6 +46,7 @@ project = azuredevops.Project("project",
     name="Project Name",
     description="Project Description")
 ```
+
 {{% /choosable %}}
 {{% choosable language csharp %}}
 ```csharp
@@ -64,6 +66,7 @@ return await Deployment.RunAsync(() =>
 });
 
 ```
+
 {{% /choosable %}}
 {{% choosable language go %}}
 ```go
@@ -87,6 +90,7 @@ func main() {
 	})
 }
 ```
+
 {{% /choosable %}}
 {{% choosable language yaml %}}
 ```yaml
@@ -97,6 +101,7 @@ resources:
       name: Project Name
       description: Project Description
 ```
+
 {{% /choosable %}}
 {{% choosable language java %}}
 ```java
@@ -128,6 +133,7 @@ public class App {
     }
 }
 ```
+
 {{% /choosable %}}
 {{< /chooser >}}
 ## Configuration Reference
