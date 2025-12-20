@@ -161,6 +161,44 @@ __all__ = [
     'ServicehookStorageQueuePipelinesRunStateChangedEventArgsDict',
     'ServicehookStorageQueuePipelinesStageStateChangedEventArgs',
     'ServicehookStorageQueuePipelinesStageStateChangedEventArgsDict',
+    'ServicehookWebhookTfsBuildCompletedArgs',
+    'ServicehookWebhookTfsBuildCompletedArgsDict',
+    'ServicehookWebhookTfsGitPullRequestCommentedArgs',
+    'ServicehookWebhookTfsGitPullRequestCommentedArgsDict',
+    'ServicehookWebhookTfsGitPullRequestCreatedArgs',
+    'ServicehookWebhookTfsGitPullRequestCreatedArgsDict',
+    'ServicehookWebhookTfsGitPullRequestMergeAttemptedArgs',
+    'ServicehookWebhookTfsGitPullRequestMergeAttemptedArgsDict',
+    'ServicehookWebhookTfsGitPullRequestUpdatedArgs',
+    'ServicehookWebhookTfsGitPullRequestUpdatedArgsDict',
+    'ServicehookWebhookTfsGitPushArgs',
+    'ServicehookWebhookTfsGitPushArgsDict',
+    'ServicehookWebhookTfsRepositoryCreatedArgs',
+    'ServicehookWebhookTfsRepositoryCreatedArgsDict',
+    'ServicehookWebhookTfsRepositoryDeletedArgs',
+    'ServicehookWebhookTfsRepositoryDeletedArgsDict',
+    'ServicehookWebhookTfsRepositoryForkedArgs',
+    'ServicehookWebhookTfsRepositoryForkedArgsDict',
+    'ServicehookWebhookTfsRepositoryRenamedArgs',
+    'ServicehookWebhookTfsRepositoryRenamedArgsDict',
+    'ServicehookWebhookTfsRepositoryStatusChangedArgs',
+    'ServicehookWebhookTfsRepositoryStatusChangedArgsDict',
+    'ServicehookWebhookTfsServiceConnectionCreatedArgs',
+    'ServicehookWebhookTfsServiceConnectionCreatedArgsDict',
+    'ServicehookWebhookTfsServiceConnectionUpdatedArgs',
+    'ServicehookWebhookTfsServiceConnectionUpdatedArgsDict',
+    'ServicehookWebhookTfsTfvcCheckinArgs',
+    'ServicehookWebhookTfsTfvcCheckinArgsDict',
+    'ServicehookWebhookTfsWorkItemCommentedArgs',
+    'ServicehookWebhookTfsWorkItemCommentedArgsDict',
+    'ServicehookWebhookTfsWorkItemCreatedArgs',
+    'ServicehookWebhookTfsWorkItemCreatedArgsDict',
+    'ServicehookWebhookTfsWorkItemDeletedArgs',
+    'ServicehookWebhookTfsWorkItemDeletedArgsDict',
+    'ServicehookWebhookTfsWorkItemRestoredArgs',
+    'ServicehookWebhookTfsWorkItemRestoredArgsDict',
+    'ServicehookWebhookTfsWorkItemUpdatedArgs',
+    'ServicehookWebhookTfsWorkItemUpdatedArgsDict',
     'VariableGroupKeyVaultArgs',
     'VariableGroupKeyVaultArgsDict',
     'VariableGroupVariableArgs',
@@ -5641,6 +5679,1193 @@ class ServicehookStorageQueuePipelinesStageStateChangedEventArgs:
     @stage_state_filter.setter
     def stage_state_filter(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "stage_state_filter", value)
+
+
+if not MYPY:
+    class ServicehookWebhookTfsBuildCompletedArgsDict(TypedDict):
+        build_status: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for completed builds that have a specific completion status. Valid values: `Succeeded`, `PartiallySucceeded`, `Failed`, `Stopped`.
+        """
+        definition_name: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for completed builds for a specific pipeline.
+        """
+elif False:
+    ServicehookWebhookTfsBuildCompletedArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServicehookWebhookTfsBuildCompletedArgs:
+    def __init__(__self__, *,
+                 build_status: Optional[pulumi.Input[_builtins.str]] = None,
+                 definition_name: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] build_status: Include only events for completed builds that have a specific completion status. Valid values: `Succeeded`, `PartiallySucceeded`, `Failed`, `Stopped`.
+        :param pulumi.Input[_builtins.str] definition_name: Include only events for completed builds for a specific pipeline.
+        """
+        if build_status is not None:
+            pulumi.set(__self__, "build_status", build_status)
+        if definition_name is not None:
+            pulumi.set(__self__, "definition_name", definition_name)
+
+    @_builtins.property
+    @pulumi.getter(name="buildStatus")
+    def build_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for completed builds that have a specific completion status. Valid values: `Succeeded`, `PartiallySucceeded`, `Failed`, `Stopped`.
+        """
+        return pulumi.get(self, "build_status")
+
+    @build_status.setter
+    def build_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "build_status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="definitionName")
+    def definition_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for completed builds for a specific pipeline.
+        """
+        return pulumi.get(self, "definition_name")
+
+    @definition_name.setter
+    def definition_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "definition_name", value)
+
+
+if not MYPY:
+    class ServicehookWebhookTfsGitPullRequestCommentedArgsDict(TypedDict):
+        branch: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for pull requests in a specific branch.
+        """
+        repository_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+        """
+elif False:
+    ServicehookWebhookTfsGitPullRequestCommentedArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServicehookWebhookTfsGitPullRequestCommentedArgs:
+    def __init__(__self__, *,
+                 branch: Optional[pulumi.Input[_builtins.str]] = None,
+                 repository_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] branch: Include only events for pull requests in a specific branch.
+        :param pulumi.Input[_builtins.str] repository_id: Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+        """
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for pull requests in a specific branch.
+        """
+        return pulumi.get(self, "branch")
+
+    @branch.setter
+    def branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "branch", value)
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+        """
+        return pulumi.get(self, "repository_id")
+
+    @repository_id.setter
+    def repository_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "repository_id", value)
+
+
+if not MYPY:
+    class ServicehookWebhookTfsGitPullRequestCreatedArgsDict(TypedDict):
+        branch: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for pull requests in a specific branch.
+        """
+        pull_request_created_by: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for pull requests created by users in a specific group.
+        """
+        pull_request_reviewers_contains: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for pull requests with reviewers in a specific group.
+        """
+        repository_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+        """
+elif False:
+    ServicehookWebhookTfsGitPullRequestCreatedArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServicehookWebhookTfsGitPullRequestCreatedArgs:
+    def __init__(__self__, *,
+                 branch: Optional[pulumi.Input[_builtins.str]] = None,
+                 pull_request_created_by: Optional[pulumi.Input[_builtins.str]] = None,
+                 pull_request_reviewers_contains: Optional[pulumi.Input[_builtins.str]] = None,
+                 repository_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] branch: Include only events for pull requests in a specific branch.
+        :param pulumi.Input[_builtins.str] pull_request_created_by: Include only events for pull requests created by users in a specific group.
+        :param pulumi.Input[_builtins.str] pull_request_reviewers_contains: Include only events for pull requests with reviewers in a specific group.
+        :param pulumi.Input[_builtins.str] repository_id: Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+        """
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if pull_request_created_by is not None:
+            pulumi.set(__self__, "pull_request_created_by", pull_request_created_by)
+        if pull_request_reviewers_contains is not None:
+            pulumi.set(__self__, "pull_request_reviewers_contains", pull_request_reviewers_contains)
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for pull requests in a specific branch.
+        """
+        return pulumi.get(self, "branch")
+
+    @branch.setter
+    def branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "branch", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pullRequestCreatedBy")
+    def pull_request_created_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for pull requests created by users in a specific group.
+        """
+        return pulumi.get(self, "pull_request_created_by")
+
+    @pull_request_created_by.setter
+    def pull_request_created_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "pull_request_created_by", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pullRequestReviewersContains")
+    def pull_request_reviewers_contains(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for pull requests with reviewers in a specific group.
+        """
+        return pulumi.get(self, "pull_request_reviewers_contains")
+
+    @pull_request_reviewers_contains.setter
+    def pull_request_reviewers_contains(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "pull_request_reviewers_contains", value)
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+        """
+        return pulumi.get(self, "repository_id")
+
+    @repository_id.setter
+    def repository_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "repository_id", value)
+
+
+if not MYPY:
+    class ServicehookWebhookTfsGitPullRequestMergeAttemptedArgsDict(TypedDict):
+        branch: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for pull requests in a specific branch.
+        """
+        merge_result: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for pull requests with a specific merge result. Valid values: `Succeeded`, `Unsuccessful`, `Conflicts`, `Failure`, `RejectedByPolicy`.
+        """
+        pull_request_created_by: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for pull requests created by users in a specific group.
+        """
+        pull_request_reviewers_contains: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for pull requests with reviewers in a specific group.
+        """
+        repository_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+        """
+elif False:
+    ServicehookWebhookTfsGitPullRequestMergeAttemptedArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServicehookWebhookTfsGitPullRequestMergeAttemptedArgs:
+    def __init__(__self__, *,
+                 branch: Optional[pulumi.Input[_builtins.str]] = None,
+                 merge_result: Optional[pulumi.Input[_builtins.str]] = None,
+                 pull_request_created_by: Optional[pulumi.Input[_builtins.str]] = None,
+                 pull_request_reviewers_contains: Optional[pulumi.Input[_builtins.str]] = None,
+                 repository_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] branch: Include only events for pull requests in a specific branch.
+        :param pulumi.Input[_builtins.str] merge_result: Include only events for pull requests with a specific merge result. Valid values: `Succeeded`, `Unsuccessful`, `Conflicts`, `Failure`, `RejectedByPolicy`.
+        :param pulumi.Input[_builtins.str] pull_request_created_by: Include only events for pull requests created by users in a specific group.
+        :param pulumi.Input[_builtins.str] pull_request_reviewers_contains: Include only events for pull requests with reviewers in a specific group.
+        :param pulumi.Input[_builtins.str] repository_id: Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+        """
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if merge_result is not None:
+            pulumi.set(__self__, "merge_result", merge_result)
+        if pull_request_created_by is not None:
+            pulumi.set(__self__, "pull_request_created_by", pull_request_created_by)
+        if pull_request_reviewers_contains is not None:
+            pulumi.set(__self__, "pull_request_reviewers_contains", pull_request_reviewers_contains)
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for pull requests in a specific branch.
+        """
+        return pulumi.get(self, "branch")
+
+    @branch.setter
+    def branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "branch", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mergeResult")
+    def merge_result(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for pull requests with a specific merge result. Valid values: `Succeeded`, `Unsuccessful`, `Conflicts`, `Failure`, `RejectedByPolicy`.
+        """
+        return pulumi.get(self, "merge_result")
+
+    @merge_result.setter
+    def merge_result(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "merge_result", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pullRequestCreatedBy")
+    def pull_request_created_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for pull requests created by users in a specific group.
+        """
+        return pulumi.get(self, "pull_request_created_by")
+
+    @pull_request_created_by.setter
+    def pull_request_created_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "pull_request_created_by", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pullRequestReviewersContains")
+    def pull_request_reviewers_contains(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for pull requests with reviewers in a specific group.
+        """
+        return pulumi.get(self, "pull_request_reviewers_contains")
+
+    @pull_request_reviewers_contains.setter
+    def pull_request_reviewers_contains(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "pull_request_reviewers_contains", value)
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+        """
+        return pulumi.get(self, "repository_id")
+
+    @repository_id.setter
+    def repository_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "repository_id", value)
+
+
+if not MYPY:
+    class ServicehookWebhookTfsGitPullRequestUpdatedArgsDict(TypedDict):
+        branch: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for pull requests in a specific branch.
+        """
+        notification_type: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for pull requests with a specific change. Valid values: `PushNotification`, `ReviewersUpdateNotification`, `StatusUpdateNotification`, `ReviewerVoteNotification`.
+        """
+        pull_request_created_by: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for pull requests created by users in a specific group.
+        """
+        pull_request_reviewers_contains: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for pull requests with reviewers in a specific group.
+        """
+        repository_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+        """
+elif False:
+    ServicehookWebhookTfsGitPullRequestUpdatedArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServicehookWebhookTfsGitPullRequestUpdatedArgs:
+    def __init__(__self__, *,
+                 branch: Optional[pulumi.Input[_builtins.str]] = None,
+                 notification_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 pull_request_created_by: Optional[pulumi.Input[_builtins.str]] = None,
+                 pull_request_reviewers_contains: Optional[pulumi.Input[_builtins.str]] = None,
+                 repository_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] branch: Include only events for pull requests in a specific branch.
+        :param pulumi.Input[_builtins.str] notification_type: Include only events for pull requests with a specific change. Valid values: `PushNotification`, `ReviewersUpdateNotification`, `StatusUpdateNotification`, `ReviewerVoteNotification`.
+        :param pulumi.Input[_builtins.str] pull_request_created_by: Include only events for pull requests created by users in a specific group.
+        :param pulumi.Input[_builtins.str] pull_request_reviewers_contains: Include only events for pull requests with reviewers in a specific group.
+        :param pulumi.Input[_builtins.str] repository_id: Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+        """
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if notification_type is not None:
+            pulumi.set(__self__, "notification_type", notification_type)
+        if pull_request_created_by is not None:
+            pulumi.set(__self__, "pull_request_created_by", pull_request_created_by)
+        if pull_request_reviewers_contains is not None:
+            pulumi.set(__self__, "pull_request_reviewers_contains", pull_request_reviewers_contains)
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for pull requests in a specific branch.
+        """
+        return pulumi.get(self, "branch")
+
+    @branch.setter
+    def branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "branch", value)
+
+    @_builtins.property
+    @pulumi.getter(name="notificationType")
+    def notification_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for pull requests with a specific change. Valid values: `PushNotification`, `ReviewersUpdateNotification`, `StatusUpdateNotification`, `ReviewerVoteNotification`.
+        """
+        return pulumi.get(self, "notification_type")
+
+    @notification_type.setter
+    def notification_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "notification_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pullRequestCreatedBy")
+    def pull_request_created_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for pull requests created by users in a specific group.
+        """
+        return pulumi.get(self, "pull_request_created_by")
+
+    @pull_request_created_by.setter
+    def pull_request_created_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "pull_request_created_by", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pullRequestReviewersContains")
+    def pull_request_reviewers_contains(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for pull requests with reviewers in a specific group.
+        """
+        return pulumi.get(self, "pull_request_reviewers_contains")
+
+    @pull_request_reviewers_contains.setter
+    def pull_request_reviewers_contains(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "pull_request_reviewers_contains", value)
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+        """
+        return pulumi.get(self, "repository_id")
+
+    @repository_id.setter
+    def repository_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "repository_id", value)
+
+
+if not MYPY:
+    class ServicehookWebhookTfsGitPushArgsDict(TypedDict):
+        branch: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for code pushes to a specific branch.
+        """
+        pushed_by: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for code pushes by users in a specific group.
+        """
+        repository_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for code pushes to a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+        """
+elif False:
+    ServicehookWebhookTfsGitPushArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServicehookWebhookTfsGitPushArgs:
+    def __init__(__self__, *,
+                 branch: Optional[pulumi.Input[_builtins.str]] = None,
+                 pushed_by: Optional[pulumi.Input[_builtins.str]] = None,
+                 repository_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] branch: Include only events for code pushes to a specific branch.
+        :param pulumi.Input[_builtins.str] pushed_by: Include only events for code pushes by users in a specific group.
+        :param pulumi.Input[_builtins.str] repository_id: Include only events for code pushes to a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+        """
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if pushed_by is not None:
+            pulumi.set(__self__, "pushed_by", pushed_by)
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for code pushes to a specific branch.
+        """
+        return pulumi.get(self, "branch")
+
+    @branch.setter
+    def branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "branch", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pushedBy")
+    def pushed_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for code pushes by users in a specific group.
+        """
+        return pulumi.get(self, "pushed_by")
+
+    @pushed_by.setter
+    def pushed_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "pushed_by", value)
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for code pushes to a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+        """
+        return pulumi.get(self, "repository_id")
+
+    @repository_id.setter
+    def repository_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "repository_id", value)
+
+
+if not MYPY:
+    class ServicehookWebhookTfsRepositoryCreatedArgsDict(TypedDict):
+        project_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for repositories created in a specific project.
+        """
+elif False:
+    ServicehookWebhookTfsRepositoryCreatedArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServicehookWebhookTfsRepositoryCreatedArgs:
+    def __init__(__self__, *,
+                 project_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] project_id: Include only events for repositories created in a specific project.
+        """
+        if project_id is not None:
+            pulumi.set(__self__, "project_id", project_id)
+
+    @_builtins.property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for repositories created in a specific project.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "project_id", value)
+
+
+if not MYPY:
+    class ServicehookWebhookTfsRepositoryDeletedArgsDict(TypedDict):
+        repository_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for repositories with a specific repository ID.
+        """
+elif False:
+    ServicehookWebhookTfsRepositoryDeletedArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServicehookWebhookTfsRepositoryDeletedArgs:
+    def __init__(__self__, *,
+                 repository_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] repository_id: Include only events for repositories with a specific repository ID.
+        """
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for repositories with a specific repository ID.
+        """
+        return pulumi.get(self, "repository_id")
+
+    @repository_id.setter
+    def repository_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "repository_id", value)
+
+
+if not MYPY:
+    class ServicehookWebhookTfsRepositoryForkedArgsDict(TypedDict):
+        repository_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for repositories with a specific repository ID.
+        """
+elif False:
+    ServicehookWebhookTfsRepositoryForkedArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServicehookWebhookTfsRepositoryForkedArgs:
+    def __init__(__self__, *,
+                 repository_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] repository_id: Include only events for repositories with a specific repository ID.
+        """
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for repositories with a specific repository ID.
+        """
+        return pulumi.get(self, "repository_id")
+
+    @repository_id.setter
+    def repository_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "repository_id", value)
+
+
+if not MYPY:
+    class ServicehookWebhookTfsRepositoryRenamedArgsDict(TypedDict):
+        repository_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for repositories with a specific repository ID.
+        """
+elif False:
+    ServicehookWebhookTfsRepositoryRenamedArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServicehookWebhookTfsRepositoryRenamedArgs:
+    def __init__(__self__, *,
+                 repository_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] repository_id: Include only events for repositories with a specific repository ID.
+        """
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for repositories with a specific repository ID.
+        """
+        return pulumi.get(self, "repository_id")
+
+    @repository_id.setter
+    def repository_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "repository_id", value)
+
+
+if not MYPY:
+    class ServicehookWebhookTfsRepositoryStatusChangedArgsDict(TypedDict):
+        repository_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for repositories with a specific repository ID.
+        """
+elif False:
+    ServicehookWebhookTfsRepositoryStatusChangedArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServicehookWebhookTfsRepositoryStatusChangedArgs:
+    def __init__(__self__, *,
+                 repository_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] repository_id: Include only events for repositories with a specific repository ID.
+        """
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for repositories with a specific repository ID.
+        """
+        return pulumi.get(self, "repository_id")
+
+    @repository_id.setter
+    def repository_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "repository_id", value)
+
+
+if not MYPY:
+    class ServicehookWebhookTfsServiceConnectionCreatedArgsDict(TypedDict):
+        project_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for service connections created in a specific project.
+        """
+elif False:
+    ServicehookWebhookTfsServiceConnectionCreatedArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServicehookWebhookTfsServiceConnectionCreatedArgs:
+    def __init__(__self__, *,
+                 project_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] project_id: Include only events for service connections created in a specific project.
+        """
+        if project_id is not None:
+            pulumi.set(__self__, "project_id", project_id)
+
+    @_builtins.property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for service connections created in a specific project.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "project_id", value)
+
+
+if not MYPY:
+    class ServicehookWebhookTfsServiceConnectionUpdatedArgsDict(TypedDict):
+        project_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for service connections updated in a specific project.
+        """
+elif False:
+    ServicehookWebhookTfsServiceConnectionUpdatedArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServicehookWebhookTfsServiceConnectionUpdatedArgs:
+    def __init__(__self__, *,
+                 project_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] project_id: Include only events for service connections updated in a specific project.
+        """
+        if project_id is not None:
+            pulumi.set(__self__, "project_id", project_id)
+
+    @_builtins.property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for service connections updated in a specific project.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "project_id", value)
+
+
+if not MYPY:
+    class ServicehookWebhookTfsTfvcCheckinArgsDict(TypedDict):
+        path: pulumi.Input[_builtins.str]
+        """
+        Include only events for check-ins that change files under a specific path.
+        """
+elif False:
+    ServicehookWebhookTfsTfvcCheckinArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServicehookWebhookTfsTfvcCheckinArgs:
+    def __init__(__self__, *,
+                 path: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] path: Include only events for check-ins that change files under a specific path.
+        """
+        pulumi.set(__self__, "path", path)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[_builtins.str]:
+        """
+        Include only events for check-ins that change files under a specific path.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "path", value)
+
+
+if not MYPY:
+    class ServicehookWebhookTfsWorkItemCommentedArgsDict(TypedDict):
+        area_path: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for work items under a specific area path.
+        """
+        comment_pattern: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for work items with a comment that contains a specific string.
+        """
+        tag: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for work items that contain a specific tag.
+        """
+        work_item_type: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for work items of a specific type.
+        """
+elif False:
+    ServicehookWebhookTfsWorkItemCommentedArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServicehookWebhookTfsWorkItemCommentedArgs:
+    def __init__(__self__, *,
+                 area_path: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment_pattern: Optional[pulumi.Input[_builtins.str]] = None,
+                 tag: Optional[pulumi.Input[_builtins.str]] = None,
+                 work_item_type: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] area_path: Include only events for work items under a specific area path.
+        :param pulumi.Input[_builtins.str] comment_pattern: Include only events for work items with a comment that contains a specific string.
+        :param pulumi.Input[_builtins.str] tag: Include only events for work items that contain a specific tag.
+        :param pulumi.Input[_builtins.str] work_item_type: Include only events for work items of a specific type.
+        """
+        if area_path is not None:
+            pulumi.set(__self__, "area_path", area_path)
+        if comment_pattern is not None:
+            pulumi.set(__self__, "comment_pattern", comment_pattern)
+        if tag is not None:
+            pulumi.set(__self__, "tag", tag)
+        if work_item_type is not None:
+            pulumi.set(__self__, "work_item_type", work_item_type)
+
+    @_builtins.property
+    @pulumi.getter(name="areaPath")
+    def area_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for work items under a specific area path.
+        """
+        return pulumi.get(self, "area_path")
+
+    @area_path.setter
+    def area_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "area_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="commentPattern")
+    def comment_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for work items with a comment that contains a specific string.
+        """
+        return pulumi.get(self, "comment_pattern")
+
+    @comment_pattern.setter
+    def comment_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "comment_pattern", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for work items that contain a specific tag.
+        """
+        return pulumi.get(self, "tag")
+
+    @tag.setter
+    def tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "tag", value)
+
+    @_builtins.property
+    @pulumi.getter(name="workItemType")
+    def work_item_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for work items of a specific type.
+        """
+        return pulumi.get(self, "work_item_type")
+
+    @work_item_type.setter
+    def work_item_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "work_item_type", value)
+
+
+if not MYPY:
+    class ServicehookWebhookTfsWorkItemCreatedArgsDict(TypedDict):
+        area_path: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for work items under a specific area path.
+        """
+        links_changed: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Include only events for work items with one or more links added or removed.
+        """
+        tag: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for work items that contain a specific tag.
+        """
+        work_item_type: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for work items of a specific type.
+        """
+elif False:
+    ServicehookWebhookTfsWorkItemCreatedArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServicehookWebhookTfsWorkItemCreatedArgs:
+    def __init__(__self__, *,
+                 area_path: Optional[pulumi.Input[_builtins.str]] = None,
+                 links_changed: Optional[pulumi.Input[_builtins.bool]] = None,
+                 tag: Optional[pulumi.Input[_builtins.str]] = None,
+                 work_item_type: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] area_path: Include only events for work items under a specific area path.
+        :param pulumi.Input[_builtins.bool] links_changed: Include only events for work items with one or more links added or removed.
+        :param pulumi.Input[_builtins.str] tag: Include only events for work items that contain a specific tag.
+        :param pulumi.Input[_builtins.str] work_item_type: Include only events for work items of a specific type.
+        """
+        if area_path is not None:
+            pulumi.set(__self__, "area_path", area_path)
+        if links_changed is not None:
+            pulumi.set(__self__, "links_changed", links_changed)
+        if tag is not None:
+            pulumi.set(__self__, "tag", tag)
+        if work_item_type is not None:
+            pulumi.set(__self__, "work_item_type", work_item_type)
+
+    @_builtins.property
+    @pulumi.getter(name="areaPath")
+    def area_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for work items under a specific area path.
+        """
+        return pulumi.get(self, "area_path")
+
+    @area_path.setter
+    def area_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "area_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="linksChanged")
+    def links_changed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Include only events for work items with one or more links added or removed.
+        """
+        return pulumi.get(self, "links_changed")
+
+    @links_changed.setter
+    def links_changed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "links_changed", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for work items that contain a specific tag.
+        """
+        return pulumi.get(self, "tag")
+
+    @tag.setter
+    def tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "tag", value)
+
+    @_builtins.property
+    @pulumi.getter(name="workItemType")
+    def work_item_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for work items of a specific type.
+        """
+        return pulumi.get(self, "work_item_type")
+
+    @work_item_type.setter
+    def work_item_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "work_item_type", value)
+
+
+if not MYPY:
+    class ServicehookWebhookTfsWorkItemDeletedArgsDict(TypedDict):
+        area_path: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for work items under a specific area path.
+        """
+        tag: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for work items that contain a specific tag.
+        """
+        work_item_type: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for work items of a specific type.
+        """
+elif False:
+    ServicehookWebhookTfsWorkItemDeletedArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServicehookWebhookTfsWorkItemDeletedArgs:
+    def __init__(__self__, *,
+                 area_path: Optional[pulumi.Input[_builtins.str]] = None,
+                 tag: Optional[pulumi.Input[_builtins.str]] = None,
+                 work_item_type: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] area_path: Include only events for work items under a specific area path.
+        :param pulumi.Input[_builtins.str] tag: Include only events for work items that contain a specific tag.
+        :param pulumi.Input[_builtins.str] work_item_type: Include only events for work items of a specific type.
+        """
+        if area_path is not None:
+            pulumi.set(__self__, "area_path", area_path)
+        if tag is not None:
+            pulumi.set(__self__, "tag", tag)
+        if work_item_type is not None:
+            pulumi.set(__self__, "work_item_type", work_item_type)
+
+    @_builtins.property
+    @pulumi.getter(name="areaPath")
+    def area_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for work items under a specific area path.
+        """
+        return pulumi.get(self, "area_path")
+
+    @area_path.setter
+    def area_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "area_path", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for work items that contain a specific tag.
+        """
+        return pulumi.get(self, "tag")
+
+    @tag.setter
+    def tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "tag", value)
+
+    @_builtins.property
+    @pulumi.getter(name="workItemType")
+    def work_item_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for work items of a specific type.
+        """
+        return pulumi.get(self, "work_item_type")
+
+    @work_item_type.setter
+    def work_item_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "work_item_type", value)
+
+
+if not MYPY:
+    class ServicehookWebhookTfsWorkItemRestoredArgsDict(TypedDict):
+        area_path: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for work items under a specific area path.
+        """
+        tag: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for work items that contain a specific tag.
+        """
+        work_item_type: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for work items of a specific type.
+        """
+elif False:
+    ServicehookWebhookTfsWorkItemRestoredArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServicehookWebhookTfsWorkItemRestoredArgs:
+    def __init__(__self__, *,
+                 area_path: Optional[pulumi.Input[_builtins.str]] = None,
+                 tag: Optional[pulumi.Input[_builtins.str]] = None,
+                 work_item_type: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] area_path: Include only events for work items under a specific area path.
+        :param pulumi.Input[_builtins.str] tag: Include only events for work items that contain a specific tag.
+        :param pulumi.Input[_builtins.str] work_item_type: Include only events for work items of a specific type.
+        """
+        if area_path is not None:
+            pulumi.set(__self__, "area_path", area_path)
+        if tag is not None:
+            pulumi.set(__self__, "tag", tag)
+        if work_item_type is not None:
+            pulumi.set(__self__, "work_item_type", work_item_type)
+
+    @_builtins.property
+    @pulumi.getter(name="areaPath")
+    def area_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for work items under a specific area path.
+        """
+        return pulumi.get(self, "area_path")
+
+    @area_path.setter
+    def area_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "area_path", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for work items that contain a specific tag.
+        """
+        return pulumi.get(self, "tag")
+
+    @tag.setter
+    def tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "tag", value)
+
+    @_builtins.property
+    @pulumi.getter(name="workItemType")
+    def work_item_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for work items of a specific type.
+        """
+        return pulumi.get(self, "work_item_type")
+
+    @work_item_type.setter
+    def work_item_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "work_item_type", value)
+
+
+if not MYPY:
+    class ServicehookWebhookTfsWorkItemUpdatedArgsDict(TypedDict):
+        area_path: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for work items under a specific area path.
+        """
+        changed_fields: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for work items with a change in a specific field.
+        """
+        links_changed: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Include only events for work items with one or more links added or removed.
+        """
+        tag: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for work items that contain a specific tag.
+        """
+        work_item_type: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Include only events for work items of a specific type.
+        """
+elif False:
+    ServicehookWebhookTfsWorkItemUpdatedArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServicehookWebhookTfsWorkItemUpdatedArgs:
+    def __init__(__self__, *,
+                 area_path: Optional[pulumi.Input[_builtins.str]] = None,
+                 changed_fields: Optional[pulumi.Input[_builtins.str]] = None,
+                 links_changed: Optional[pulumi.Input[_builtins.bool]] = None,
+                 tag: Optional[pulumi.Input[_builtins.str]] = None,
+                 work_item_type: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] area_path: Include only events for work items under a specific area path.
+        :param pulumi.Input[_builtins.str] changed_fields: Include only events for work items with a change in a specific field.
+        :param pulumi.Input[_builtins.bool] links_changed: Include only events for work items with one or more links added or removed.
+        :param pulumi.Input[_builtins.str] tag: Include only events for work items that contain a specific tag.
+        :param pulumi.Input[_builtins.str] work_item_type: Include only events for work items of a specific type.
+        """
+        if area_path is not None:
+            pulumi.set(__self__, "area_path", area_path)
+        if changed_fields is not None:
+            pulumi.set(__self__, "changed_fields", changed_fields)
+        if links_changed is not None:
+            pulumi.set(__self__, "links_changed", links_changed)
+        if tag is not None:
+            pulumi.set(__self__, "tag", tag)
+        if work_item_type is not None:
+            pulumi.set(__self__, "work_item_type", work_item_type)
+
+    @_builtins.property
+    @pulumi.getter(name="areaPath")
+    def area_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for work items under a specific area path.
+        """
+        return pulumi.get(self, "area_path")
+
+    @area_path.setter
+    def area_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "area_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="changedFields")
+    def changed_fields(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for work items with a change in a specific field.
+        """
+        return pulumi.get(self, "changed_fields")
+
+    @changed_fields.setter
+    def changed_fields(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "changed_fields", value)
+
+    @_builtins.property
+    @pulumi.getter(name="linksChanged")
+    def links_changed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Include only events for work items with one or more links added or removed.
+        """
+        return pulumi.get(self, "links_changed")
+
+    @links_changed.setter
+    def links_changed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "links_changed", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for work items that contain a specific tag.
+        """
+        return pulumi.get(self, "tag")
+
+    @tag.setter
+    def tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "tag", value)
+
+    @_builtins.property
+    @pulumi.getter(name="workItemType")
+    def work_item_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Include only events for work items of a specific type.
+        """
+        return pulumi.get(self, "work_item_type")
+
+    @work_item_type.setter
+    def work_item_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "work_item_type", value)
 
 
 if not MYPY:

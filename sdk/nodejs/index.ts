@@ -275,6 +275,11 @@ export const getServiceendpointDockerregistry: typeof import("./getServiceendpoi
 export const getServiceendpointDockerregistryOutput: typeof import("./getServiceendpointDockerregistry").getServiceendpointDockerregistryOutput = null as any;
 utilities.lazyLoad(exports, ["getServiceendpointDockerregistry","getServiceendpointDockerregistryOutput"], () => require("./getServiceendpointDockerregistry"));
 
+export { GetServiceendpointGenericV2Args, GetServiceendpointGenericV2Result, GetServiceendpointGenericV2OutputArgs } from "./getServiceendpointGenericV2";
+export const getServiceendpointGenericV2: typeof import("./getServiceendpointGenericV2").getServiceendpointGenericV2 = null as any;
+export const getServiceendpointGenericV2Output: typeof import("./getServiceendpointGenericV2").getServiceendpointGenericV2Output = null as any;
+utilities.lazyLoad(exports, ["getServiceendpointGenericV2","getServiceendpointGenericV2Output"], () => require("./getServiceendpointGenericV2"));
+
 export { GetServiceendpointNpmArgs, GetServiceendpointNpmResult, GetServiceendpointNpmOutputArgs } from "./getServiceendpointNpm";
 export const getServiceendpointNpm: typeof import("./getServiceendpointNpm").getServiceendpointNpm = null as any;
 export const getServiceendpointNpmOutput: typeof import("./getServiceendpointNpm").getServiceendpointNpmOutput = null as any;
@@ -314,6 +319,16 @@ export { GetVariableGroupArgs, GetVariableGroupResult, GetVariableGroupOutputArg
 export const getVariableGroup: typeof import("./getVariableGroup").getVariableGroup = null as any;
 export const getVariableGroupOutput: typeof import("./getVariableGroup").getVariableGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getVariableGroup","getVariableGroupOutput"], () => require("./getVariableGroup"));
+
+export { GetWorkitemtrackingprocessProcessArgs, GetWorkitemtrackingprocessProcessResult, GetWorkitemtrackingprocessProcessOutputArgs } from "./getWorkitemtrackingprocessProcess";
+export const getWorkitemtrackingprocessProcess: typeof import("./getWorkitemtrackingprocessProcess").getWorkitemtrackingprocessProcess = null as any;
+export const getWorkitemtrackingprocessProcessOutput: typeof import("./getWorkitemtrackingprocessProcess").getWorkitemtrackingprocessProcessOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkitemtrackingprocessProcess","getWorkitemtrackingprocessProcessOutput"], () => require("./getWorkitemtrackingprocessProcess"));
+
+export { GetWorkitemtrackingprocessProcessesArgs, GetWorkitemtrackingprocessProcessesResult, GetWorkitemtrackingprocessProcessesOutputArgs } from "./getWorkitemtrackingprocessProcesses";
+export const getWorkitemtrackingprocessProcesses: typeof import("./getWorkitemtrackingprocessProcesses").getWorkitemtrackingprocessProcesses = null as any;
+export const getWorkitemtrackingprocessProcessesOutput: typeof import("./getWorkitemtrackingprocessProcesses").getWorkitemtrackingprocessProcessesOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkitemtrackingprocessProcesses","getWorkitemtrackingprocessProcessesOutput"], () => require("./getWorkitemtrackingprocessProcesses"));
 
 export { GitArgs, GitState } from "./git";
 export type Git = import("./git").Git;
@@ -593,6 +608,11 @@ export type ServiceendpointGcpTerraform = import("./serviceendpointGcpTerraform"
 export const ServiceendpointGcpTerraform: typeof import("./serviceendpointGcpTerraform").ServiceendpointGcpTerraform = null as any;
 utilities.lazyLoad(exports, ["ServiceendpointGcpTerraform"], () => require("./serviceendpointGcpTerraform"));
 
+export { ServiceendpointGenericV2Args, ServiceendpointGenericV2State } from "./serviceendpointGenericV2";
+export type ServiceendpointGenericV2 = import("./serviceendpointGenericV2").ServiceendpointGenericV2;
+export const ServiceendpointGenericV2: typeof import("./serviceendpointGenericV2").ServiceendpointGenericV2 = null as any;
+utilities.lazyLoad(exports, ["ServiceendpointGenericV2"], () => require("./serviceendpointGenericV2"));
+
 export { ServiceendpointIncomingwebhookArgs, ServiceendpointIncomingwebhookState } from "./serviceendpointIncomingwebhook";
 export type ServiceendpointIncomingwebhook = import("./serviceendpointIncomingwebhook").ServiceendpointIncomingwebhook;
 export const ServiceendpointIncomingwebhook: typeof import("./serviceendpointIncomingwebhook").ServiceendpointIncomingwebhook = null as any;
@@ -673,6 +693,11 @@ export type ServicehookStorageQueuePipelines = import("./servicehookStorageQueue
 export const ServicehookStorageQueuePipelines: typeof import("./servicehookStorageQueuePipelines").ServicehookStorageQueuePipelines = null as any;
 utilities.lazyLoad(exports, ["ServicehookStorageQueuePipelines"], () => require("./servicehookStorageQueuePipelines"));
 
+export { ServicehookWebhookTfsArgs, ServicehookWebhookTfsState } from "./servicehookWebhookTfs";
+export type ServicehookWebhookTfs = import("./servicehookWebhookTfs").ServicehookWebhookTfs;
+export const ServicehookWebhookTfs: typeof import("./servicehookWebhookTfs").ServicehookWebhookTfs = null as any;
+utilities.lazyLoad(exports, ["ServicehookWebhookTfs"], () => require("./servicehookWebhookTfs"));
+
 export { TaggingPermissionsArgs, TaggingPermissionsState } from "./taggingPermissions";
 export type TaggingPermissions = import("./taggingPermissions").TaggingPermissions;
 export const TaggingPermissions: typeof import("./taggingPermissions").TaggingPermissions = null as any;
@@ -727,6 +752,21 @@ export { WorkitemArgs, WorkitemState } from "./workitem";
 export type Workitem = import("./workitem").Workitem;
 export const Workitem: typeof import("./workitem").Workitem = null as any;
 utilities.lazyLoad(exports, ["Workitem"], () => require("./workitem"));
+
+export { WorkitemqueryArgs, WorkitemqueryState } from "./workitemquery";
+export type Workitemquery = import("./workitemquery").Workitemquery;
+export const Workitemquery: typeof import("./workitemquery").Workitemquery = null as any;
+utilities.lazyLoad(exports, ["Workitemquery"], () => require("./workitemquery"));
+
+export { WorkitemqueryFolderArgs, WorkitemqueryFolderState } from "./workitemqueryFolder";
+export type WorkitemqueryFolder = import("./workitemqueryFolder").WorkitemqueryFolder;
+export const WorkitemqueryFolder: typeof import("./workitemqueryFolder").WorkitemqueryFolder = null as any;
+utilities.lazyLoad(exports, ["WorkitemqueryFolder"], () => require("./workitemqueryFolder"));
+
+export { WorkitemtrackingprocessProcessArgs, WorkitemtrackingprocessProcessState } from "./workitemtrackingprocessProcess";
+export type WorkitemtrackingprocessProcess = import("./workitemtrackingprocessProcess").WorkitemtrackingprocessProcess;
+export const WorkitemtrackingprocessProcess: typeof import("./workitemtrackingprocessProcess").WorkitemtrackingprocessProcess = null as any;
+utilities.lazyLoad(exports, ["WorkitemtrackingprocessProcess"], () => require("./workitemtrackingprocessProcess"));
 
 
 // Export sub-modules:
@@ -904,6 +944,8 @@ const _module = {
                 return new ServiceendpointExternaltfs(name, <any>undefined, { urn })
             case "azuredevops:index/serviceendpointGcpTerraform:ServiceendpointGcpTerraform":
                 return new ServiceendpointGcpTerraform(name, <any>undefined, { urn })
+            case "azuredevops:index/serviceendpointGenericV2:ServiceendpointGenericV2":
+                return new ServiceendpointGenericV2(name, <any>undefined, { urn })
             case "azuredevops:index/serviceendpointIncomingwebhook:ServiceendpointIncomingwebhook":
                 return new ServiceendpointIncomingwebhook(name, <any>undefined, { urn })
             case "azuredevops:index/serviceendpointJenkins:ServiceendpointJenkins":
@@ -936,6 +978,8 @@ const _module = {
                 return new ServicehookPermissions(name, <any>undefined, { urn })
             case "azuredevops:index/servicehookStorageQueuePipelines:ServicehookStorageQueuePipelines":
                 return new ServicehookStorageQueuePipelines(name, <any>undefined, { urn })
+            case "azuredevops:index/servicehookWebhookTfs:ServicehookWebhookTfs":
+                return new ServicehookWebhookTfs(name, <any>undefined, { urn })
             case "azuredevops:index/taggingPermissions:TaggingPermissions":
                 return new TaggingPermissions(name, <any>undefined, { urn })
             case "azuredevops:index/team:Team":
@@ -958,6 +1002,12 @@ const _module = {
                 return new WorkItemQueryPermissions(name, <any>undefined, { urn })
             case "azuredevops:index/workitem:Workitem":
                 return new Workitem(name, <any>undefined, { urn })
+            case "azuredevops:index/workitemquery:Workitemquery":
+                return new Workitemquery(name, <any>undefined, { urn })
+            case "azuredevops:index/workitemqueryFolder:WorkitemqueryFolder":
+                return new WorkitemqueryFolder(name, <any>undefined, { urn })
+            case "azuredevops:index/workitemtrackingprocessProcess:WorkitemtrackingprocessProcess":
+                return new WorkitemtrackingprocessProcess(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -1044,6 +1094,7 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointCheck
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointDynamicsLifecycleServices", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointExternaltfs", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointGcpTerraform", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointGenericV2", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointIncomingwebhook", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointJenkins", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointJfrogArtifactoryV2", _module)
@@ -1060,6 +1111,7 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointSnyk"
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointVisualstudiomarketplace", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/servicehookPermissions", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/servicehookStorageQueuePipelines", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/servicehookWebhookTfs", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/taggingPermissions", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/team", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/teamAdministrators", _module)
@@ -1071,6 +1123,9 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/wiki", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/wikiPage", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/workItemQueryPermissions", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/workitem", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/workitemquery", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/workitemqueryFolder", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/workitemtrackingprocessProcess", _module)
 pulumi.runtime.registerResourcePackage("azuredevops", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {

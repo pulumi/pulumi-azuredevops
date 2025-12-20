@@ -68,7 +68,7 @@ import (
 //			_, err = azuredevops.NewSecurityroleAssignment(ctx, "example", &azuredevops.SecurityroleAssignmentArgs{
 //				Scope:      pulumi.String("distributedtask.environmentreferencerole"),
 //				ResourceId: invokeFormat.Result,
-//				IdentityId: exampleGroup.OriginId,
+//				IdentityId: exampleGroup.GroupId,
 //				RoleName:   pulumi.String("Administrator"),
 //			})
 //			if err != nil {
@@ -82,7 +82,7 @@ import (
 //
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-7.0)
+// - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roleassignments/set-role-assignments?view=azure-devops-rest-7.0&tabs=HTTP)
 type SecurityroleAssignment struct {
 	pulumi.CustomResourceState
 

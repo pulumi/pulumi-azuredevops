@@ -198,13 +198,13 @@ class SecurityroleAssignment(pulumi.CustomResource):
                     example.id,
                     example_environment.id,
                 ])["result"],
-            identity_id=example_group.origin_id,
+            identity_id=example_group.group_id,
             role_name="Administrator")
         ```
 
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-7.0)
+        - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roleassignments/set-role-assignments?view=azure-devops-rest-7.0&tabs=HTTP)
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -250,13 +250,13 @@ class SecurityroleAssignment(pulumi.CustomResource):
                     example.id,
                     example_environment.id,
                 ])["result"],
-            identity_id=example_group.origin_id,
+            identity_id=example_group.group_id,
             role_name="Administrator")
         ```
 
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-7.0)
+        - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roleassignments/set-role-assignments?view=azure-devops-rest-7.0&tabs=HTTP)
 
         :param str resource_name: The name of the resource.
         :param SecurityroleAssignmentArgs args: The arguments to use to populate this resource's properties.

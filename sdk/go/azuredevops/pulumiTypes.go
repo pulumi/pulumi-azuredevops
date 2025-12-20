@@ -11539,6 +11539,3162 @@ func (o ServicehookStorageQueuePipelinesStageStateChangedEventPtrOutput) StageSt
 	}).(pulumi.StringPtrOutput)
 }
 
+type ServicehookWebhookTfsBuildCompleted struct {
+	// Include only events for completed builds that have a specific completion status. Valid values: `Succeeded`, `PartiallySucceeded`, `Failed`, `Stopped`.
+	BuildStatus *string `pulumi:"buildStatus"`
+	// Include only events for completed builds for a specific pipeline.
+	DefinitionName *string `pulumi:"definitionName"`
+}
+
+// ServicehookWebhookTfsBuildCompletedInput is an input type that accepts ServicehookWebhookTfsBuildCompletedArgs and ServicehookWebhookTfsBuildCompletedOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsBuildCompletedInput` via:
+//
+//	ServicehookWebhookTfsBuildCompletedArgs{...}
+type ServicehookWebhookTfsBuildCompletedInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsBuildCompletedOutput() ServicehookWebhookTfsBuildCompletedOutput
+	ToServicehookWebhookTfsBuildCompletedOutputWithContext(context.Context) ServicehookWebhookTfsBuildCompletedOutput
+}
+
+type ServicehookWebhookTfsBuildCompletedArgs struct {
+	// Include only events for completed builds that have a specific completion status. Valid values: `Succeeded`, `PartiallySucceeded`, `Failed`, `Stopped`.
+	BuildStatus pulumi.StringPtrInput `pulumi:"buildStatus"`
+	// Include only events for completed builds for a specific pipeline.
+	DefinitionName pulumi.StringPtrInput `pulumi:"definitionName"`
+}
+
+func (ServicehookWebhookTfsBuildCompletedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsBuildCompleted)(nil)).Elem()
+}
+
+func (i ServicehookWebhookTfsBuildCompletedArgs) ToServicehookWebhookTfsBuildCompletedOutput() ServicehookWebhookTfsBuildCompletedOutput {
+	return i.ToServicehookWebhookTfsBuildCompletedOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsBuildCompletedArgs) ToServicehookWebhookTfsBuildCompletedOutputWithContext(ctx context.Context) ServicehookWebhookTfsBuildCompletedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsBuildCompletedOutput)
+}
+
+func (i ServicehookWebhookTfsBuildCompletedArgs) ToServicehookWebhookTfsBuildCompletedPtrOutput() ServicehookWebhookTfsBuildCompletedPtrOutput {
+	return i.ToServicehookWebhookTfsBuildCompletedPtrOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsBuildCompletedArgs) ToServicehookWebhookTfsBuildCompletedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsBuildCompletedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsBuildCompletedOutput).ToServicehookWebhookTfsBuildCompletedPtrOutputWithContext(ctx)
+}
+
+// ServicehookWebhookTfsBuildCompletedPtrInput is an input type that accepts ServicehookWebhookTfsBuildCompletedArgs, ServicehookWebhookTfsBuildCompletedPtr and ServicehookWebhookTfsBuildCompletedPtrOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsBuildCompletedPtrInput` via:
+//
+//	        ServicehookWebhookTfsBuildCompletedArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServicehookWebhookTfsBuildCompletedPtrInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsBuildCompletedPtrOutput() ServicehookWebhookTfsBuildCompletedPtrOutput
+	ToServicehookWebhookTfsBuildCompletedPtrOutputWithContext(context.Context) ServicehookWebhookTfsBuildCompletedPtrOutput
+}
+
+type servicehookWebhookTfsBuildCompletedPtrType ServicehookWebhookTfsBuildCompletedArgs
+
+func ServicehookWebhookTfsBuildCompletedPtr(v *ServicehookWebhookTfsBuildCompletedArgs) ServicehookWebhookTfsBuildCompletedPtrInput {
+	return (*servicehookWebhookTfsBuildCompletedPtrType)(v)
+}
+
+func (*servicehookWebhookTfsBuildCompletedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsBuildCompleted)(nil)).Elem()
+}
+
+func (i *servicehookWebhookTfsBuildCompletedPtrType) ToServicehookWebhookTfsBuildCompletedPtrOutput() ServicehookWebhookTfsBuildCompletedPtrOutput {
+	return i.ToServicehookWebhookTfsBuildCompletedPtrOutputWithContext(context.Background())
+}
+
+func (i *servicehookWebhookTfsBuildCompletedPtrType) ToServicehookWebhookTfsBuildCompletedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsBuildCompletedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsBuildCompletedPtrOutput)
+}
+
+type ServicehookWebhookTfsBuildCompletedOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsBuildCompletedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsBuildCompleted)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsBuildCompletedOutput) ToServicehookWebhookTfsBuildCompletedOutput() ServicehookWebhookTfsBuildCompletedOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsBuildCompletedOutput) ToServicehookWebhookTfsBuildCompletedOutputWithContext(ctx context.Context) ServicehookWebhookTfsBuildCompletedOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsBuildCompletedOutput) ToServicehookWebhookTfsBuildCompletedPtrOutput() ServicehookWebhookTfsBuildCompletedPtrOutput {
+	return o.ToServicehookWebhookTfsBuildCompletedPtrOutputWithContext(context.Background())
+}
+
+func (o ServicehookWebhookTfsBuildCompletedOutput) ToServicehookWebhookTfsBuildCompletedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsBuildCompletedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicehookWebhookTfsBuildCompleted) *ServicehookWebhookTfsBuildCompleted {
+		return &v
+	}).(ServicehookWebhookTfsBuildCompletedPtrOutput)
+}
+
+// Include only events for completed builds that have a specific completion status. Valid values: `Succeeded`, `PartiallySucceeded`, `Failed`, `Stopped`.
+func (o ServicehookWebhookTfsBuildCompletedOutput) BuildStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsBuildCompleted) *string { return v.BuildStatus }).(pulumi.StringPtrOutput)
+}
+
+// Include only events for completed builds for a specific pipeline.
+func (o ServicehookWebhookTfsBuildCompletedOutput) DefinitionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsBuildCompleted) *string { return v.DefinitionName }).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsBuildCompletedPtrOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsBuildCompletedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsBuildCompleted)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsBuildCompletedPtrOutput) ToServicehookWebhookTfsBuildCompletedPtrOutput() ServicehookWebhookTfsBuildCompletedPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsBuildCompletedPtrOutput) ToServicehookWebhookTfsBuildCompletedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsBuildCompletedPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsBuildCompletedPtrOutput) Elem() ServicehookWebhookTfsBuildCompletedOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsBuildCompleted) ServicehookWebhookTfsBuildCompleted {
+		if v != nil {
+			return *v
+		}
+		var ret ServicehookWebhookTfsBuildCompleted
+		return ret
+	}).(ServicehookWebhookTfsBuildCompletedOutput)
+}
+
+// Include only events for completed builds that have a specific completion status. Valid values: `Succeeded`, `PartiallySucceeded`, `Failed`, `Stopped`.
+func (o ServicehookWebhookTfsBuildCompletedPtrOutput) BuildStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsBuildCompleted) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BuildStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// Include only events for completed builds for a specific pipeline.
+func (o ServicehookWebhookTfsBuildCompletedPtrOutput) DefinitionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsBuildCompleted) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefinitionName
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsGitPullRequestCommented struct {
+	// Include only events for pull requests in a specific branch.
+	Branch *string `pulumi:"branch"`
+	// Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+	RepositoryId *string `pulumi:"repositoryId"`
+}
+
+// ServicehookWebhookTfsGitPullRequestCommentedInput is an input type that accepts ServicehookWebhookTfsGitPullRequestCommentedArgs and ServicehookWebhookTfsGitPullRequestCommentedOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsGitPullRequestCommentedInput` via:
+//
+//	ServicehookWebhookTfsGitPullRequestCommentedArgs{...}
+type ServicehookWebhookTfsGitPullRequestCommentedInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsGitPullRequestCommentedOutput() ServicehookWebhookTfsGitPullRequestCommentedOutput
+	ToServicehookWebhookTfsGitPullRequestCommentedOutputWithContext(context.Context) ServicehookWebhookTfsGitPullRequestCommentedOutput
+}
+
+type ServicehookWebhookTfsGitPullRequestCommentedArgs struct {
+	// Include only events for pull requests in a specific branch.
+	Branch pulumi.StringPtrInput `pulumi:"branch"`
+	// Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+	RepositoryId pulumi.StringPtrInput `pulumi:"repositoryId"`
+}
+
+func (ServicehookWebhookTfsGitPullRequestCommentedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsGitPullRequestCommented)(nil)).Elem()
+}
+
+func (i ServicehookWebhookTfsGitPullRequestCommentedArgs) ToServicehookWebhookTfsGitPullRequestCommentedOutput() ServicehookWebhookTfsGitPullRequestCommentedOutput {
+	return i.ToServicehookWebhookTfsGitPullRequestCommentedOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsGitPullRequestCommentedArgs) ToServicehookWebhookTfsGitPullRequestCommentedOutputWithContext(ctx context.Context) ServicehookWebhookTfsGitPullRequestCommentedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsGitPullRequestCommentedOutput)
+}
+
+func (i ServicehookWebhookTfsGitPullRequestCommentedArgs) ToServicehookWebhookTfsGitPullRequestCommentedPtrOutput() ServicehookWebhookTfsGitPullRequestCommentedPtrOutput {
+	return i.ToServicehookWebhookTfsGitPullRequestCommentedPtrOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsGitPullRequestCommentedArgs) ToServicehookWebhookTfsGitPullRequestCommentedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsGitPullRequestCommentedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsGitPullRequestCommentedOutput).ToServicehookWebhookTfsGitPullRequestCommentedPtrOutputWithContext(ctx)
+}
+
+// ServicehookWebhookTfsGitPullRequestCommentedPtrInput is an input type that accepts ServicehookWebhookTfsGitPullRequestCommentedArgs, ServicehookWebhookTfsGitPullRequestCommentedPtr and ServicehookWebhookTfsGitPullRequestCommentedPtrOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsGitPullRequestCommentedPtrInput` via:
+//
+//	        ServicehookWebhookTfsGitPullRequestCommentedArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServicehookWebhookTfsGitPullRequestCommentedPtrInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsGitPullRequestCommentedPtrOutput() ServicehookWebhookTfsGitPullRequestCommentedPtrOutput
+	ToServicehookWebhookTfsGitPullRequestCommentedPtrOutputWithContext(context.Context) ServicehookWebhookTfsGitPullRequestCommentedPtrOutput
+}
+
+type servicehookWebhookTfsGitPullRequestCommentedPtrType ServicehookWebhookTfsGitPullRequestCommentedArgs
+
+func ServicehookWebhookTfsGitPullRequestCommentedPtr(v *ServicehookWebhookTfsGitPullRequestCommentedArgs) ServicehookWebhookTfsGitPullRequestCommentedPtrInput {
+	return (*servicehookWebhookTfsGitPullRequestCommentedPtrType)(v)
+}
+
+func (*servicehookWebhookTfsGitPullRequestCommentedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsGitPullRequestCommented)(nil)).Elem()
+}
+
+func (i *servicehookWebhookTfsGitPullRequestCommentedPtrType) ToServicehookWebhookTfsGitPullRequestCommentedPtrOutput() ServicehookWebhookTfsGitPullRequestCommentedPtrOutput {
+	return i.ToServicehookWebhookTfsGitPullRequestCommentedPtrOutputWithContext(context.Background())
+}
+
+func (i *servicehookWebhookTfsGitPullRequestCommentedPtrType) ToServicehookWebhookTfsGitPullRequestCommentedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsGitPullRequestCommentedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsGitPullRequestCommentedPtrOutput)
+}
+
+type ServicehookWebhookTfsGitPullRequestCommentedOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsGitPullRequestCommentedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsGitPullRequestCommented)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsGitPullRequestCommentedOutput) ToServicehookWebhookTfsGitPullRequestCommentedOutput() ServicehookWebhookTfsGitPullRequestCommentedOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsGitPullRequestCommentedOutput) ToServicehookWebhookTfsGitPullRequestCommentedOutputWithContext(ctx context.Context) ServicehookWebhookTfsGitPullRequestCommentedOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsGitPullRequestCommentedOutput) ToServicehookWebhookTfsGitPullRequestCommentedPtrOutput() ServicehookWebhookTfsGitPullRequestCommentedPtrOutput {
+	return o.ToServicehookWebhookTfsGitPullRequestCommentedPtrOutputWithContext(context.Background())
+}
+
+func (o ServicehookWebhookTfsGitPullRequestCommentedOutput) ToServicehookWebhookTfsGitPullRequestCommentedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsGitPullRequestCommentedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicehookWebhookTfsGitPullRequestCommented) *ServicehookWebhookTfsGitPullRequestCommented {
+		return &v
+	}).(ServicehookWebhookTfsGitPullRequestCommentedPtrOutput)
+}
+
+// Include only events for pull requests in a specific branch.
+func (o ServicehookWebhookTfsGitPullRequestCommentedOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsGitPullRequestCommented) *string { return v.Branch }).(pulumi.StringPtrOutput)
+}
+
+// Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+func (o ServicehookWebhookTfsGitPullRequestCommentedOutput) RepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsGitPullRequestCommented) *string { return v.RepositoryId }).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsGitPullRequestCommentedPtrOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsGitPullRequestCommentedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsGitPullRequestCommented)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsGitPullRequestCommentedPtrOutput) ToServicehookWebhookTfsGitPullRequestCommentedPtrOutput() ServicehookWebhookTfsGitPullRequestCommentedPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsGitPullRequestCommentedPtrOutput) ToServicehookWebhookTfsGitPullRequestCommentedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsGitPullRequestCommentedPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsGitPullRequestCommentedPtrOutput) Elem() ServicehookWebhookTfsGitPullRequestCommentedOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsGitPullRequestCommented) ServicehookWebhookTfsGitPullRequestCommented {
+		if v != nil {
+			return *v
+		}
+		var ret ServicehookWebhookTfsGitPullRequestCommented
+		return ret
+	}).(ServicehookWebhookTfsGitPullRequestCommentedOutput)
+}
+
+// Include only events for pull requests in a specific branch.
+func (o ServicehookWebhookTfsGitPullRequestCommentedPtrOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsGitPullRequestCommented) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Branch
+	}).(pulumi.StringPtrOutput)
+}
+
+// Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+func (o ServicehookWebhookTfsGitPullRequestCommentedPtrOutput) RepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsGitPullRequestCommented) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsGitPullRequestCreated struct {
+	// Include only events for pull requests in a specific branch.
+	Branch *string `pulumi:"branch"`
+	// Include only events for pull requests created by users in a specific group.
+	PullRequestCreatedBy *string `pulumi:"pullRequestCreatedBy"`
+	// Include only events for pull requests with reviewers in a specific group.
+	PullRequestReviewersContains *string `pulumi:"pullRequestReviewersContains"`
+	// Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+	RepositoryId *string `pulumi:"repositoryId"`
+}
+
+// ServicehookWebhookTfsGitPullRequestCreatedInput is an input type that accepts ServicehookWebhookTfsGitPullRequestCreatedArgs and ServicehookWebhookTfsGitPullRequestCreatedOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsGitPullRequestCreatedInput` via:
+//
+//	ServicehookWebhookTfsGitPullRequestCreatedArgs{...}
+type ServicehookWebhookTfsGitPullRequestCreatedInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsGitPullRequestCreatedOutput() ServicehookWebhookTfsGitPullRequestCreatedOutput
+	ToServicehookWebhookTfsGitPullRequestCreatedOutputWithContext(context.Context) ServicehookWebhookTfsGitPullRequestCreatedOutput
+}
+
+type ServicehookWebhookTfsGitPullRequestCreatedArgs struct {
+	// Include only events for pull requests in a specific branch.
+	Branch pulumi.StringPtrInput `pulumi:"branch"`
+	// Include only events for pull requests created by users in a specific group.
+	PullRequestCreatedBy pulumi.StringPtrInput `pulumi:"pullRequestCreatedBy"`
+	// Include only events for pull requests with reviewers in a specific group.
+	PullRequestReviewersContains pulumi.StringPtrInput `pulumi:"pullRequestReviewersContains"`
+	// Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+	RepositoryId pulumi.StringPtrInput `pulumi:"repositoryId"`
+}
+
+func (ServicehookWebhookTfsGitPullRequestCreatedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsGitPullRequestCreated)(nil)).Elem()
+}
+
+func (i ServicehookWebhookTfsGitPullRequestCreatedArgs) ToServicehookWebhookTfsGitPullRequestCreatedOutput() ServicehookWebhookTfsGitPullRequestCreatedOutput {
+	return i.ToServicehookWebhookTfsGitPullRequestCreatedOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsGitPullRequestCreatedArgs) ToServicehookWebhookTfsGitPullRequestCreatedOutputWithContext(ctx context.Context) ServicehookWebhookTfsGitPullRequestCreatedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsGitPullRequestCreatedOutput)
+}
+
+func (i ServicehookWebhookTfsGitPullRequestCreatedArgs) ToServicehookWebhookTfsGitPullRequestCreatedPtrOutput() ServicehookWebhookTfsGitPullRequestCreatedPtrOutput {
+	return i.ToServicehookWebhookTfsGitPullRequestCreatedPtrOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsGitPullRequestCreatedArgs) ToServicehookWebhookTfsGitPullRequestCreatedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsGitPullRequestCreatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsGitPullRequestCreatedOutput).ToServicehookWebhookTfsGitPullRequestCreatedPtrOutputWithContext(ctx)
+}
+
+// ServicehookWebhookTfsGitPullRequestCreatedPtrInput is an input type that accepts ServicehookWebhookTfsGitPullRequestCreatedArgs, ServicehookWebhookTfsGitPullRequestCreatedPtr and ServicehookWebhookTfsGitPullRequestCreatedPtrOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsGitPullRequestCreatedPtrInput` via:
+//
+//	        ServicehookWebhookTfsGitPullRequestCreatedArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServicehookWebhookTfsGitPullRequestCreatedPtrInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsGitPullRequestCreatedPtrOutput() ServicehookWebhookTfsGitPullRequestCreatedPtrOutput
+	ToServicehookWebhookTfsGitPullRequestCreatedPtrOutputWithContext(context.Context) ServicehookWebhookTfsGitPullRequestCreatedPtrOutput
+}
+
+type servicehookWebhookTfsGitPullRequestCreatedPtrType ServicehookWebhookTfsGitPullRequestCreatedArgs
+
+func ServicehookWebhookTfsGitPullRequestCreatedPtr(v *ServicehookWebhookTfsGitPullRequestCreatedArgs) ServicehookWebhookTfsGitPullRequestCreatedPtrInput {
+	return (*servicehookWebhookTfsGitPullRequestCreatedPtrType)(v)
+}
+
+func (*servicehookWebhookTfsGitPullRequestCreatedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsGitPullRequestCreated)(nil)).Elem()
+}
+
+func (i *servicehookWebhookTfsGitPullRequestCreatedPtrType) ToServicehookWebhookTfsGitPullRequestCreatedPtrOutput() ServicehookWebhookTfsGitPullRequestCreatedPtrOutput {
+	return i.ToServicehookWebhookTfsGitPullRequestCreatedPtrOutputWithContext(context.Background())
+}
+
+func (i *servicehookWebhookTfsGitPullRequestCreatedPtrType) ToServicehookWebhookTfsGitPullRequestCreatedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsGitPullRequestCreatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsGitPullRequestCreatedPtrOutput)
+}
+
+type ServicehookWebhookTfsGitPullRequestCreatedOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsGitPullRequestCreatedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsGitPullRequestCreated)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsGitPullRequestCreatedOutput) ToServicehookWebhookTfsGitPullRequestCreatedOutput() ServicehookWebhookTfsGitPullRequestCreatedOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsGitPullRequestCreatedOutput) ToServicehookWebhookTfsGitPullRequestCreatedOutputWithContext(ctx context.Context) ServicehookWebhookTfsGitPullRequestCreatedOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsGitPullRequestCreatedOutput) ToServicehookWebhookTfsGitPullRequestCreatedPtrOutput() ServicehookWebhookTfsGitPullRequestCreatedPtrOutput {
+	return o.ToServicehookWebhookTfsGitPullRequestCreatedPtrOutputWithContext(context.Background())
+}
+
+func (o ServicehookWebhookTfsGitPullRequestCreatedOutput) ToServicehookWebhookTfsGitPullRequestCreatedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsGitPullRequestCreatedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicehookWebhookTfsGitPullRequestCreated) *ServicehookWebhookTfsGitPullRequestCreated {
+		return &v
+	}).(ServicehookWebhookTfsGitPullRequestCreatedPtrOutput)
+}
+
+// Include only events for pull requests in a specific branch.
+func (o ServicehookWebhookTfsGitPullRequestCreatedOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsGitPullRequestCreated) *string { return v.Branch }).(pulumi.StringPtrOutput)
+}
+
+// Include only events for pull requests created by users in a specific group.
+func (o ServicehookWebhookTfsGitPullRequestCreatedOutput) PullRequestCreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsGitPullRequestCreated) *string { return v.PullRequestCreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// Include only events for pull requests with reviewers in a specific group.
+func (o ServicehookWebhookTfsGitPullRequestCreatedOutput) PullRequestReviewersContains() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsGitPullRequestCreated) *string { return v.PullRequestReviewersContains }).(pulumi.StringPtrOutput)
+}
+
+// Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+func (o ServicehookWebhookTfsGitPullRequestCreatedOutput) RepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsGitPullRequestCreated) *string { return v.RepositoryId }).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsGitPullRequestCreatedPtrOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsGitPullRequestCreatedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsGitPullRequestCreated)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsGitPullRequestCreatedPtrOutput) ToServicehookWebhookTfsGitPullRequestCreatedPtrOutput() ServicehookWebhookTfsGitPullRequestCreatedPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsGitPullRequestCreatedPtrOutput) ToServicehookWebhookTfsGitPullRequestCreatedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsGitPullRequestCreatedPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsGitPullRequestCreatedPtrOutput) Elem() ServicehookWebhookTfsGitPullRequestCreatedOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsGitPullRequestCreated) ServicehookWebhookTfsGitPullRequestCreated {
+		if v != nil {
+			return *v
+		}
+		var ret ServicehookWebhookTfsGitPullRequestCreated
+		return ret
+	}).(ServicehookWebhookTfsGitPullRequestCreatedOutput)
+}
+
+// Include only events for pull requests in a specific branch.
+func (o ServicehookWebhookTfsGitPullRequestCreatedPtrOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsGitPullRequestCreated) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Branch
+	}).(pulumi.StringPtrOutput)
+}
+
+// Include only events for pull requests created by users in a specific group.
+func (o ServicehookWebhookTfsGitPullRequestCreatedPtrOutput) PullRequestCreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsGitPullRequestCreated) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PullRequestCreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Include only events for pull requests with reviewers in a specific group.
+func (o ServicehookWebhookTfsGitPullRequestCreatedPtrOutput) PullRequestReviewersContains() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsGitPullRequestCreated) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PullRequestReviewersContains
+	}).(pulumi.StringPtrOutput)
+}
+
+// Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+func (o ServicehookWebhookTfsGitPullRequestCreatedPtrOutput) RepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsGitPullRequestCreated) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsGitPullRequestMergeAttempted struct {
+	// Include only events for pull requests in a specific branch.
+	Branch *string `pulumi:"branch"`
+	// Include only events for pull requests with a specific merge result. Valid values: `Succeeded`, `Unsuccessful`, `Conflicts`, `Failure`, `RejectedByPolicy`.
+	MergeResult *string `pulumi:"mergeResult"`
+	// Include only events for pull requests created by users in a specific group.
+	PullRequestCreatedBy *string `pulumi:"pullRequestCreatedBy"`
+	// Include only events for pull requests with reviewers in a specific group.
+	PullRequestReviewersContains *string `pulumi:"pullRequestReviewersContains"`
+	// Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+	RepositoryId *string `pulumi:"repositoryId"`
+}
+
+// ServicehookWebhookTfsGitPullRequestMergeAttemptedInput is an input type that accepts ServicehookWebhookTfsGitPullRequestMergeAttemptedArgs and ServicehookWebhookTfsGitPullRequestMergeAttemptedOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsGitPullRequestMergeAttemptedInput` via:
+//
+//	ServicehookWebhookTfsGitPullRequestMergeAttemptedArgs{...}
+type ServicehookWebhookTfsGitPullRequestMergeAttemptedInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsGitPullRequestMergeAttemptedOutput() ServicehookWebhookTfsGitPullRequestMergeAttemptedOutput
+	ToServicehookWebhookTfsGitPullRequestMergeAttemptedOutputWithContext(context.Context) ServicehookWebhookTfsGitPullRequestMergeAttemptedOutput
+}
+
+type ServicehookWebhookTfsGitPullRequestMergeAttemptedArgs struct {
+	// Include only events for pull requests in a specific branch.
+	Branch pulumi.StringPtrInput `pulumi:"branch"`
+	// Include only events for pull requests with a specific merge result. Valid values: `Succeeded`, `Unsuccessful`, `Conflicts`, `Failure`, `RejectedByPolicy`.
+	MergeResult pulumi.StringPtrInput `pulumi:"mergeResult"`
+	// Include only events for pull requests created by users in a specific group.
+	PullRequestCreatedBy pulumi.StringPtrInput `pulumi:"pullRequestCreatedBy"`
+	// Include only events for pull requests with reviewers in a specific group.
+	PullRequestReviewersContains pulumi.StringPtrInput `pulumi:"pullRequestReviewersContains"`
+	// Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+	RepositoryId pulumi.StringPtrInput `pulumi:"repositoryId"`
+}
+
+func (ServicehookWebhookTfsGitPullRequestMergeAttemptedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsGitPullRequestMergeAttempted)(nil)).Elem()
+}
+
+func (i ServicehookWebhookTfsGitPullRequestMergeAttemptedArgs) ToServicehookWebhookTfsGitPullRequestMergeAttemptedOutput() ServicehookWebhookTfsGitPullRequestMergeAttemptedOutput {
+	return i.ToServicehookWebhookTfsGitPullRequestMergeAttemptedOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsGitPullRequestMergeAttemptedArgs) ToServicehookWebhookTfsGitPullRequestMergeAttemptedOutputWithContext(ctx context.Context) ServicehookWebhookTfsGitPullRequestMergeAttemptedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsGitPullRequestMergeAttemptedOutput)
+}
+
+func (i ServicehookWebhookTfsGitPullRequestMergeAttemptedArgs) ToServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutput() ServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutput {
+	return i.ToServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsGitPullRequestMergeAttemptedArgs) ToServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsGitPullRequestMergeAttemptedOutput).ToServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutputWithContext(ctx)
+}
+
+// ServicehookWebhookTfsGitPullRequestMergeAttemptedPtrInput is an input type that accepts ServicehookWebhookTfsGitPullRequestMergeAttemptedArgs, ServicehookWebhookTfsGitPullRequestMergeAttemptedPtr and ServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsGitPullRequestMergeAttemptedPtrInput` via:
+//
+//	        ServicehookWebhookTfsGitPullRequestMergeAttemptedArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServicehookWebhookTfsGitPullRequestMergeAttemptedPtrInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutput() ServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutput
+	ToServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutputWithContext(context.Context) ServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutput
+}
+
+type servicehookWebhookTfsGitPullRequestMergeAttemptedPtrType ServicehookWebhookTfsGitPullRequestMergeAttemptedArgs
+
+func ServicehookWebhookTfsGitPullRequestMergeAttemptedPtr(v *ServicehookWebhookTfsGitPullRequestMergeAttemptedArgs) ServicehookWebhookTfsGitPullRequestMergeAttemptedPtrInput {
+	return (*servicehookWebhookTfsGitPullRequestMergeAttemptedPtrType)(v)
+}
+
+func (*servicehookWebhookTfsGitPullRequestMergeAttemptedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsGitPullRequestMergeAttempted)(nil)).Elem()
+}
+
+func (i *servicehookWebhookTfsGitPullRequestMergeAttemptedPtrType) ToServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutput() ServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutput {
+	return i.ToServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutputWithContext(context.Background())
+}
+
+func (i *servicehookWebhookTfsGitPullRequestMergeAttemptedPtrType) ToServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutput)
+}
+
+type ServicehookWebhookTfsGitPullRequestMergeAttemptedOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsGitPullRequestMergeAttemptedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsGitPullRequestMergeAttempted)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsGitPullRequestMergeAttemptedOutput) ToServicehookWebhookTfsGitPullRequestMergeAttemptedOutput() ServicehookWebhookTfsGitPullRequestMergeAttemptedOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsGitPullRequestMergeAttemptedOutput) ToServicehookWebhookTfsGitPullRequestMergeAttemptedOutputWithContext(ctx context.Context) ServicehookWebhookTfsGitPullRequestMergeAttemptedOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsGitPullRequestMergeAttemptedOutput) ToServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutput() ServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutput {
+	return o.ToServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutputWithContext(context.Background())
+}
+
+func (o ServicehookWebhookTfsGitPullRequestMergeAttemptedOutput) ToServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicehookWebhookTfsGitPullRequestMergeAttempted) *ServicehookWebhookTfsGitPullRequestMergeAttempted {
+		return &v
+	}).(ServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutput)
+}
+
+// Include only events for pull requests in a specific branch.
+func (o ServicehookWebhookTfsGitPullRequestMergeAttemptedOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsGitPullRequestMergeAttempted) *string { return v.Branch }).(pulumi.StringPtrOutput)
+}
+
+// Include only events for pull requests with a specific merge result. Valid values: `Succeeded`, `Unsuccessful`, `Conflicts`, `Failure`, `RejectedByPolicy`.
+func (o ServicehookWebhookTfsGitPullRequestMergeAttemptedOutput) MergeResult() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsGitPullRequestMergeAttempted) *string { return v.MergeResult }).(pulumi.StringPtrOutput)
+}
+
+// Include only events for pull requests created by users in a specific group.
+func (o ServicehookWebhookTfsGitPullRequestMergeAttemptedOutput) PullRequestCreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsGitPullRequestMergeAttempted) *string { return v.PullRequestCreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// Include only events for pull requests with reviewers in a specific group.
+func (o ServicehookWebhookTfsGitPullRequestMergeAttemptedOutput) PullRequestReviewersContains() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsGitPullRequestMergeAttempted) *string {
+		return v.PullRequestReviewersContains
+	}).(pulumi.StringPtrOutput)
+}
+
+// Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+func (o ServicehookWebhookTfsGitPullRequestMergeAttemptedOutput) RepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsGitPullRequestMergeAttempted) *string { return v.RepositoryId }).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsGitPullRequestMergeAttempted)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutput) ToServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutput() ServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutput) ToServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutput) Elem() ServicehookWebhookTfsGitPullRequestMergeAttemptedOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsGitPullRequestMergeAttempted) ServicehookWebhookTfsGitPullRequestMergeAttempted {
+		if v != nil {
+			return *v
+		}
+		var ret ServicehookWebhookTfsGitPullRequestMergeAttempted
+		return ret
+	}).(ServicehookWebhookTfsGitPullRequestMergeAttemptedOutput)
+}
+
+// Include only events for pull requests in a specific branch.
+func (o ServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsGitPullRequestMergeAttempted) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Branch
+	}).(pulumi.StringPtrOutput)
+}
+
+// Include only events for pull requests with a specific merge result. Valid values: `Succeeded`, `Unsuccessful`, `Conflicts`, `Failure`, `RejectedByPolicy`.
+func (o ServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutput) MergeResult() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsGitPullRequestMergeAttempted) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MergeResult
+	}).(pulumi.StringPtrOutput)
+}
+
+// Include only events for pull requests created by users in a specific group.
+func (o ServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutput) PullRequestCreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsGitPullRequestMergeAttempted) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PullRequestCreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Include only events for pull requests with reviewers in a specific group.
+func (o ServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutput) PullRequestReviewersContains() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsGitPullRequestMergeAttempted) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PullRequestReviewersContains
+	}).(pulumi.StringPtrOutput)
+}
+
+// Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+func (o ServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutput) RepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsGitPullRequestMergeAttempted) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsGitPullRequestUpdated struct {
+	// Include only events for pull requests in a specific branch.
+	Branch *string `pulumi:"branch"`
+	// Include only events for pull requests with a specific change. Valid values: `PushNotification`, `ReviewersUpdateNotification`, `StatusUpdateNotification`, `ReviewerVoteNotification`.
+	NotificationType *string `pulumi:"notificationType"`
+	// Include only events for pull requests created by users in a specific group.
+	PullRequestCreatedBy *string `pulumi:"pullRequestCreatedBy"`
+	// Include only events for pull requests with reviewers in a specific group.
+	PullRequestReviewersContains *string `pulumi:"pullRequestReviewersContains"`
+	// Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+	RepositoryId *string `pulumi:"repositoryId"`
+}
+
+// ServicehookWebhookTfsGitPullRequestUpdatedInput is an input type that accepts ServicehookWebhookTfsGitPullRequestUpdatedArgs and ServicehookWebhookTfsGitPullRequestUpdatedOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsGitPullRequestUpdatedInput` via:
+//
+//	ServicehookWebhookTfsGitPullRequestUpdatedArgs{...}
+type ServicehookWebhookTfsGitPullRequestUpdatedInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsGitPullRequestUpdatedOutput() ServicehookWebhookTfsGitPullRequestUpdatedOutput
+	ToServicehookWebhookTfsGitPullRequestUpdatedOutputWithContext(context.Context) ServicehookWebhookTfsGitPullRequestUpdatedOutput
+}
+
+type ServicehookWebhookTfsGitPullRequestUpdatedArgs struct {
+	// Include only events for pull requests in a specific branch.
+	Branch pulumi.StringPtrInput `pulumi:"branch"`
+	// Include only events for pull requests with a specific change. Valid values: `PushNotification`, `ReviewersUpdateNotification`, `StatusUpdateNotification`, `ReviewerVoteNotification`.
+	NotificationType pulumi.StringPtrInput `pulumi:"notificationType"`
+	// Include only events for pull requests created by users in a specific group.
+	PullRequestCreatedBy pulumi.StringPtrInput `pulumi:"pullRequestCreatedBy"`
+	// Include only events for pull requests with reviewers in a specific group.
+	PullRequestReviewersContains pulumi.StringPtrInput `pulumi:"pullRequestReviewersContains"`
+	// Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+	RepositoryId pulumi.StringPtrInput `pulumi:"repositoryId"`
+}
+
+func (ServicehookWebhookTfsGitPullRequestUpdatedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsGitPullRequestUpdated)(nil)).Elem()
+}
+
+func (i ServicehookWebhookTfsGitPullRequestUpdatedArgs) ToServicehookWebhookTfsGitPullRequestUpdatedOutput() ServicehookWebhookTfsGitPullRequestUpdatedOutput {
+	return i.ToServicehookWebhookTfsGitPullRequestUpdatedOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsGitPullRequestUpdatedArgs) ToServicehookWebhookTfsGitPullRequestUpdatedOutputWithContext(ctx context.Context) ServicehookWebhookTfsGitPullRequestUpdatedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsGitPullRequestUpdatedOutput)
+}
+
+func (i ServicehookWebhookTfsGitPullRequestUpdatedArgs) ToServicehookWebhookTfsGitPullRequestUpdatedPtrOutput() ServicehookWebhookTfsGitPullRequestUpdatedPtrOutput {
+	return i.ToServicehookWebhookTfsGitPullRequestUpdatedPtrOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsGitPullRequestUpdatedArgs) ToServicehookWebhookTfsGitPullRequestUpdatedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsGitPullRequestUpdatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsGitPullRequestUpdatedOutput).ToServicehookWebhookTfsGitPullRequestUpdatedPtrOutputWithContext(ctx)
+}
+
+// ServicehookWebhookTfsGitPullRequestUpdatedPtrInput is an input type that accepts ServicehookWebhookTfsGitPullRequestUpdatedArgs, ServicehookWebhookTfsGitPullRequestUpdatedPtr and ServicehookWebhookTfsGitPullRequestUpdatedPtrOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsGitPullRequestUpdatedPtrInput` via:
+//
+//	        ServicehookWebhookTfsGitPullRequestUpdatedArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServicehookWebhookTfsGitPullRequestUpdatedPtrInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsGitPullRequestUpdatedPtrOutput() ServicehookWebhookTfsGitPullRequestUpdatedPtrOutput
+	ToServicehookWebhookTfsGitPullRequestUpdatedPtrOutputWithContext(context.Context) ServicehookWebhookTfsGitPullRequestUpdatedPtrOutput
+}
+
+type servicehookWebhookTfsGitPullRequestUpdatedPtrType ServicehookWebhookTfsGitPullRequestUpdatedArgs
+
+func ServicehookWebhookTfsGitPullRequestUpdatedPtr(v *ServicehookWebhookTfsGitPullRequestUpdatedArgs) ServicehookWebhookTfsGitPullRequestUpdatedPtrInput {
+	return (*servicehookWebhookTfsGitPullRequestUpdatedPtrType)(v)
+}
+
+func (*servicehookWebhookTfsGitPullRequestUpdatedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsGitPullRequestUpdated)(nil)).Elem()
+}
+
+func (i *servicehookWebhookTfsGitPullRequestUpdatedPtrType) ToServicehookWebhookTfsGitPullRequestUpdatedPtrOutput() ServicehookWebhookTfsGitPullRequestUpdatedPtrOutput {
+	return i.ToServicehookWebhookTfsGitPullRequestUpdatedPtrOutputWithContext(context.Background())
+}
+
+func (i *servicehookWebhookTfsGitPullRequestUpdatedPtrType) ToServicehookWebhookTfsGitPullRequestUpdatedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsGitPullRequestUpdatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsGitPullRequestUpdatedPtrOutput)
+}
+
+type ServicehookWebhookTfsGitPullRequestUpdatedOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsGitPullRequestUpdatedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsGitPullRequestUpdated)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsGitPullRequestUpdatedOutput) ToServicehookWebhookTfsGitPullRequestUpdatedOutput() ServicehookWebhookTfsGitPullRequestUpdatedOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsGitPullRequestUpdatedOutput) ToServicehookWebhookTfsGitPullRequestUpdatedOutputWithContext(ctx context.Context) ServicehookWebhookTfsGitPullRequestUpdatedOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsGitPullRequestUpdatedOutput) ToServicehookWebhookTfsGitPullRequestUpdatedPtrOutput() ServicehookWebhookTfsGitPullRequestUpdatedPtrOutput {
+	return o.ToServicehookWebhookTfsGitPullRequestUpdatedPtrOutputWithContext(context.Background())
+}
+
+func (o ServicehookWebhookTfsGitPullRequestUpdatedOutput) ToServicehookWebhookTfsGitPullRequestUpdatedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsGitPullRequestUpdatedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicehookWebhookTfsGitPullRequestUpdated) *ServicehookWebhookTfsGitPullRequestUpdated {
+		return &v
+	}).(ServicehookWebhookTfsGitPullRequestUpdatedPtrOutput)
+}
+
+// Include only events for pull requests in a specific branch.
+func (o ServicehookWebhookTfsGitPullRequestUpdatedOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsGitPullRequestUpdated) *string { return v.Branch }).(pulumi.StringPtrOutput)
+}
+
+// Include only events for pull requests with a specific change. Valid values: `PushNotification`, `ReviewersUpdateNotification`, `StatusUpdateNotification`, `ReviewerVoteNotification`.
+func (o ServicehookWebhookTfsGitPullRequestUpdatedOutput) NotificationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsGitPullRequestUpdated) *string { return v.NotificationType }).(pulumi.StringPtrOutput)
+}
+
+// Include only events for pull requests created by users in a specific group.
+func (o ServicehookWebhookTfsGitPullRequestUpdatedOutput) PullRequestCreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsGitPullRequestUpdated) *string { return v.PullRequestCreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// Include only events for pull requests with reviewers in a specific group.
+func (o ServicehookWebhookTfsGitPullRequestUpdatedOutput) PullRequestReviewersContains() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsGitPullRequestUpdated) *string { return v.PullRequestReviewersContains }).(pulumi.StringPtrOutput)
+}
+
+// Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+func (o ServicehookWebhookTfsGitPullRequestUpdatedOutput) RepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsGitPullRequestUpdated) *string { return v.RepositoryId }).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsGitPullRequestUpdatedPtrOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsGitPullRequestUpdatedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsGitPullRequestUpdated)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsGitPullRequestUpdatedPtrOutput) ToServicehookWebhookTfsGitPullRequestUpdatedPtrOutput() ServicehookWebhookTfsGitPullRequestUpdatedPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsGitPullRequestUpdatedPtrOutput) ToServicehookWebhookTfsGitPullRequestUpdatedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsGitPullRequestUpdatedPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsGitPullRequestUpdatedPtrOutput) Elem() ServicehookWebhookTfsGitPullRequestUpdatedOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsGitPullRequestUpdated) ServicehookWebhookTfsGitPullRequestUpdated {
+		if v != nil {
+			return *v
+		}
+		var ret ServicehookWebhookTfsGitPullRequestUpdated
+		return ret
+	}).(ServicehookWebhookTfsGitPullRequestUpdatedOutput)
+}
+
+// Include only events for pull requests in a specific branch.
+func (o ServicehookWebhookTfsGitPullRequestUpdatedPtrOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsGitPullRequestUpdated) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Branch
+	}).(pulumi.StringPtrOutput)
+}
+
+// Include only events for pull requests with a specific change. Valid values: `PushNotification`, `ReviewersUpdateNotification`, `StatusUpdateNotification`, `ReviewerVoteNotification`.
+func (o ServicehookWebhookTfsGitPullRequestUpdatedPtrOutput) NotificationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsGitPullRequestUpdated) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NotificationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Include only events for pull requests created by users in a specific group.
+func (o ServicehookWebhookTfsGitPullRequestUpdatedPtrOutput) PullRequestCreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsGitPullRequestUpdated) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PullRequestCreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Include only events for pull requests with reviewers in a specific group.
+func (o ServicehookWebhookTfsGitPullRequestUpdatedPtrOutput) PullRequestReviewersContains() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsGitPullRequestUpdated) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PullRequestReviewersContains
+	}).(pulumi.StringPtrOutput)
+}
+
+// Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+func (o ServicehookWebhookTfsGitPullRequestUpdatedPtrOutput) RepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsGitPullRequestUpdated) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsGitPush struct {
+	// Include only events for code pushes to a specific branch.
+	Branch *string `pulumi:"branch"`
+	// Include only events for code pushes by users in a specific group.
+	PushedBy *string `pulumi:"pushedBy"`
+	// Include only events for code pushes to a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+	RepositoryId *string `pulumi:"repositoryId"`
+}
+
+// ServicehookWebhookTfsGitPushInput is an input type that accepts ServicehookWebhookTfsGitPushArgs and ServicehookWebhookTfsGitPushOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsGitPushInput` via:
+//
+//	ServicehookWebhookTfsGitPushArgs{...}
+type ServicehookWebhookTfsGitPushInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsGitPushOutput() ServicehookWebhookTfsGitPushOutput
+	ToServicehookWebhookTfsGitPushOutputWithContext(context.Context) ServicehookWebhookTfsGitPushOutput
+}
+
+type ServicehookWebhookTfsGitPushArgs struct {
+	// Include only events for code pushes to a specific branch.
+	Branch pulumi.StringPtrInput `pulumi:"branch"`
+	// Include only events for code pushes by users in a specific group.
+	PushedBy pulumi.StringPtrInput `pulumi:"pushedBy"`
+	// Include only events for code pushes to a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+	RepositoryId pulumi.StringPtrInput `pulumi:"repositoryId"`
+}
+
+func (ServicehookWebhookTfsGitPushArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsGitPush)(nil)).Elem()
+}
+
+func (i ServicehookWebhookTfsGitPushArgs) ToServicehookWebhookTfsGitPushOutput() ServicehookWebhookTfsGitPushOutput {
+	return i.ToServicehookWebhookTfsGitPushOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsGitPushArgs) ToServicehookWebhookTfsGitPushOutputWithContext(ctx context.Context) ServicehookWebhookTfsGitPushOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsGitPushOutput)
+}
+
+func (i ServicehookWebhookTfsGitPushArgs) ToServicehookWebhookTfsGitPushPtrOutput() ServicehookWebhookTfsGitPushPtrOutput {
+	return i.ToServicehookWebhookTfsGitPushPtrOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsGitPushArgs) ToServicehookWebhookTfsGitPushPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsGitPushPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsGitPushOutput).ToServicehookWebhookTfsGitPushPtrOutputWithContext(ctx)
+}
+
+// ServicehookWebhookTfsGitPushPtrInput is an input type that accepts ServicehookWebhookTfsGitPushArgs, ServicehookWebhookTfsGitPushPtr and ServicehookWebhookTfsGitPushPtrOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsGitPushPtrInput` via:
+//
+//	        ServicehookWebhookTfsGitPushArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServicehookWebhookTfsGitPushPtrInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsGitPushPtrOutput() ServicehookWebhookTfsGitPushPtrOutput
+	ToServicehookWebhookTfsGitPushPtrOutputWithContext(context.Context) ServicehookWebhookTfsGitPushPtrOutput
+}
+
+type servicehookWebhookTfsGitPushPtrType ServicehookWebhookTfsGitPushArgs
+
+func ServicehookWebhookTfsGitPushPtr(v *ServicehookWebhookTfsGitPushArgs) ServicehookWebhookTfsGitPushPtrInput {
+	return (*servicehookWebhookTfsGitPushPtrType)(v)
+}
+
+func (*servicehookWebhookTfsGitPushPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsGitPush)(nil)).Elem()
+}
+
+func (i *servicehookWebhookTfsGitPushPtrType) ToServicehookWebhookTfsGitPushPtrOutput() ServicehookWebhookTfsGitPushPtrOutput {
+	return i.ToServicehookWebhookTfsGitPushPtrOutputWithContext(context.Background())
+}
+
+func (i *servicehookWebhookTfsGitPushPtrType) ToServicehookWebhookTfsGitPushPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsGitPushPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsGitPushPtrOutput)
+}
+
+type ServicehookWebhookTfsGitPushOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsGitPushOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsGitPush)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsGitPushOutput) ToServicehookWebhookTfsGitPushOutput() ServicehookWebhookTfsGitPushOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsGitPushOutput) ToServicehookWebhookTfsGitPushOutputWithContext(ctx context.Context) ServicehookWebhookTfsGitPushOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsGitPushOutput) ToServicehookWebhookTfsGitPushPtrOutput() ServicehookWebhookTfsGitPushPtrOutput {
+	return o.ToServicehookWebhookTfsGitPushPtrOutputWithContext(context.Background())
+}
+
+func (o ServicehookWebhookTfsGitPushOutput) ToServicehookWebhookTfsGitPushPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsGitPushPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicehookWebhookTfsGitPush) *ServicehookWebhookTfsGitPush {
+		return &v
+	}).(ServicehookWebhookTfsGitPushPtrOutput)
+}
+
+// Include only events for code pushes to a specific branch.
+func (o ServicehookWebhookTfsGitPushOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsGitPush) *string { return v.Branch }).(pulumi.StringPtrOutput)
+}
+
+// Include only events for code pushes by users in a specific group.
+func (o ServicehookWebhookTfsGitPushOutput) PushedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsGitPush) *string { return v.PushedBy }).(pulumi.StringPtrOutput)
+}
+
+// Include only events for code pushes to a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+func (o ServicehookWebhookTfsGitPushOutput) RepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsGitPush) *string { return v.RepositoryId }).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsGitPushPtrOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsGitPushPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsGitPush)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsGitPushPtrOutput) ToServicehookWebhookTfsGitPushPtrOutput() ServicehookWebhookTfsGitPushPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsGitPushPtrOutput) ToServicehookWebhookTfsGitPushPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsGitPushPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsGitPushPtrOutput) Elem() ServicehookWebhookTfsGitPushOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsGitPush) ServicehookWebhookTfsGitPush {
+		if v != nil {
+			return *v
+		}
+		var ret ServicehookWebhookTfsGitPush
+		return ret
+	}).(ServicehookWebhookTfsGitPushOutput)
+}
+
+// Include only events for code pushes to a specific branch.
+func (o ServicehookWebhookTfsGitPushPtrOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsGitPush) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Branch
+	}).(pulumi.StringPtrOutput)
+}
+
+// Include only events for code pushes by users in a specific group.
+func (o ServicehookWebhookTfsGitPushPtrOutput) PushedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsGitPush) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PushedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Include only events for code pushes to a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+func (o ServicehookWebhookTfsGitPushPtrOutput) RepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsGitPush) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsRepositoryCreated struct {
+	// Include only events for repositories created in a specific project.
+	ProjectId *string `pulumi:"projectId"`
+}
+
+// ServicehookWebhookTfsRepositoryCreatedInput is an input type that accepts ServicehookWebhookTfsRepositoryCreatedArgs and ServicehookWebhookTfsRepositoryCreatedOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsRepositoryCreatedInput` via:
+//
+//	ServicehookWebhookTfsRepositoryCreatedArgs{...}
+type ServicehookWebhookTfsRepositoryCreatedInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsRepositoryCreatedOutput() ServicehookWebhookTfsRepositoryCreatedOutput
+	ToServicehookWebhookTfsRepositoryCreatedOutputWithContext(context.Context) ServicehookWebhookTfsRepositoryCreatedOutput
+}
+
+type ServicehookWebhookTfsRepositoryCreatedArgs struct {
+	// Include only events for repositories created in a specific project.
+	ProjectId pulumi.StringPtrInput `pulumi:"projectId"`
+}
+
+func (ServicehookWebhookTfsRepositoryCreatedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsRepositoryCreated)(nil)).Elem()
+}
+
+func (i ServicehookWebhookTfsRepositoryCreatedArgs) ToServicehookWebhookTfsRepositoryCreatedOutput() ServicehookWebhookTfsRepositoryCreatedOutput {
+	return i.ToServicehookWebhookTfsRepositoryCreatedOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsRepositoryCreatedArgs) ToServicehookWebhookTfsRepositoryCreatedOutputWithContext(ctx context.Context) ServicehookWebhookTfsRepositoryCreatedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsRepositoryCreatedOutput)
+}
+
+func (i ServicehookWebhookTfsRepositoryCreatedArgs) ToServicehookWebhookTfsRepositoryCreatedPtrOutput() ServicehookWebhookTfsRepositoryCreatedPtrOutput {
+	return i.ToServicehookWebhookTfsRepositoryCreatedPtrOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsRepositoryCreatedArgs) ToServicehookWebhookTfsRepositoryCreatedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsRepositoryCreatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsRepositoryCreatedOutput).ToServicehookWebhookTfsRepositoryCreatedPtrOutputWithContext(ctx)
+}
+
+// ServicehookWebhookTfsRepositoryCreatedPtrInput is an input type that accepts ServicehookWebhookTfsRepositoryCreatedArgs, ServicehookWebhookTfsRepositoryCreatedPtr and ServicehookWebhookTfsRepositoryCreatedPtrOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsRepositoryCreatedPtrInput` via:
+//
+//	        ServicehookWebhookTfsRepositoryCreatedArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServicehookWebhookTfsRepositoryCreatedPtrInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsRepositoryCreatedPtrOutput() ServicehookWebhookTfsRepositoryCreatedPtrOutput
+	ToServicehookWebhookTfsRepositoryCreatedPtrOutputWithContext(context.Context) ServicehookWebhookTfsRepositoryCreatedPtrOutput
+}
+
+type servicehookWebhookTfsRepositoryCreatedPtrType ServicehookWebhookTfsRepositoryCreatedArgs
+
+func ServicehookWebhookTfsRepositoryCreatedPtr(v *ServicehookWebhookTfsRepositoryCreatedArgs) ServicehookWebhookTfsRepositoryCreatedPtrInput {
+	return (*servicehookWebhookTfsRepositoryCreatedPtrType)(v)
+}
+
+func (*servicehookWebhookTfsRepositoryCreatedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsRepositoryCreated)(nil)).Elem()
+}
+
+func (i *servicehookWebhookTfsRepositoryCreatedPtrType) ToServicehookWebhookTfsRepositoryCreatedPtrOutput() ServicehookWebhookTfsRepositoryCreatedPtrOutput {
+	return i.ToServicehookWebhookTfsRepositoryCreatedPtrOutputWithContext(context.Background())
+}
+
+func (i *servicehookWebhookTfsRepositoryCreatedPtrType) ToServicehookWebhookTfsRepositoryCreatedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsRepositoryCreatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsRepositoryCreatedPtrOutput)
+}
+
+type ServicehookWebhookTfsRepositoryCreatedOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsRepositoryCreatedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsRepositoryCreated)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsRepositoryCreatedOutput) ToServicehookWebhookTfsRepositoryCreatedOutput() ServicehookWebhookTfsRepositoryCreatedOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsRepositoryCreatedOutput) ToServicehookWebhookTfsRepositoryCreatedOutputWithContext(ctx context.Context) ServicehookWebhookTfsRepositoryCreatedOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsRepositoryCreatedOutput) ToServicehookWebhookTfsRepositoryCreatedPtrOutput() ServicehookWebhookTfsRepositoryCreatedPtrOutput {
+	return o.ToServicehookWebhookTfsRepositoryCreatedPtrOutputWithContext(context.Background())
+}
+
+func (o ServicehookWebhookTfsRepositoryCreatedOutput) ToServicehookWebhookTfsRepositoryCreatedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsRepositoryCreatedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicehookWebhookTfsRepositoryCreated) *ServicehookWebhookTfsRepositoryCreated {
+		return &v
+	}).(ServicehookWebhookTfsRepositoryCreatedPtrOutput)
+}
+
+// Include only events for repositories created in a specific project.
+func (o ServicehookWebhookTfsRepositoryCreatedOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsRepositoryCreated) *string { return v.ProjectId }).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsRepositoryCreatedPtrOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsRepositoryCreatedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsRepositoryCreated)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsRepositoryCreatedPtrOutput) ToServicehookWebhookTfsRepositoryCreatedPtrOutput() ServicehookWebhookTfsRepositoryCreatedPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsRepositoryCreatedPtrOutput) ToServicehookWebhookTfsRepositoryCreatedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsRepositoryCreatedPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsRepositoryCreatedPtrOutput) Elem() ServicehookWebhookTfsRepositoryCreatedOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsRepositoryCreated) ServicehookWebhookTfsRepositoryCreated {
+		if v != nil {
+			return *v
+		}
+		var ret ServicehookWebhookTfsRepositoryCreated
+		return ret
+	}).(ServicehookWebhookTfsRepositoryCreatedOutput)
+}
+
+// Include only events for repositories created in a specific project.
+func (o ServicehookWebhookTfsRepositoryCreatedPtrOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsRepositoryCreated) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsRepositoryDeleted struct {
+	// Include only events for repositories with a specific repository ID.
+	RepositoryId *string `pulumi:"repositoryId"`
+}
+
+// ServicehookWebhookTfsRepositoryDeletedInput is an input type that accepts ServicehookWebhookTfsRepositoryDeletedArgs and ServicehookWebhookTfsRepositoryDeletedOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsRepositoryDeletedInput` via:
+//
+//	ServicehookWebhookTfsRepositoryDeletedArgs{...}
+type ServicehookWebhookTfsRepositoryDeletedInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsRepositoryDeletedOutput() ServicehookWebhookTfsRepositoryDeletedOutput
+	ToServicehookWebhookTfsRepositoryDeletedOutputWithContext(context.Context) ServicehookWebhookTfsRepositoryDeletedOutput
+}
+
+type ServicehookWebhookTfsRepositoryDeletedArgs struct {
+	// Include only events for repositories with a specific repository ID.
+	RepositoryId pulumi.StringPtrInput `pulumi:"repositoryId"`
+}
+
+func (ServicehookWebhookTfsRepositoryDeletedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsRepositoryDeleted)(nil)).Elem()
+}
+
+func (i ServicehookWebhookTfsRepositoryDeletedArgs) ToServicehookWebhookTfsRepositoryDeletedOutput() ServicehookWebhookTfsRepositoryDeletedOutput {
+	return i.ToServicehookWebhookTfsRepositoryDeletedOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsRepositoryDeletedArgs) ToServicehookWebhookTfsRepositoryDeletedOutputWithContext(ctx context.Context) ServicehookWebhookTfsRepositoryDeletedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsRepositoryDeletedOutput)
+}
+
+func (i ServicehookWebhookTfsRepositoryDeletedArgs) ToServicehookWebhookTfsRepositoryDeletedPtrOutput() ServicehookWebhookTfsRepositoryDeletedPtrOutput {
+	return i.ToServicehookWebhookTfsRepositoryDeletedPtrOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsRepositoryDeletedArgs) ToServicehookWebhookTfsRepositoryDeletedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsRepositoryDeletedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsRepositoryDeletedOutput).ToServicehookWebhookTfsRepositoryDeletedPtrOutputWithContext(ctx)
+}
+
+// ServicehookWebhookTfsRepositoryDeletedPtrInput is an input type that accepts ServicehookWebhookTfsRepositoryDeletedArgs, ServicehookWebhookTfsRepositoryDeletedPtr and ServicehookWebhookTfsRepositoryDeletedPtrOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsRepositoryDeletedPtrInput` via:
+//
+//	        ServicehookWebhookTfsRepositoryDeletedArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServicehookWebhookTfsRepositoryDeletedPtrInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsRepositoryDeletedPtrOutput() ServicehookWebhookTfsRepositoryDeletedPtrOutput
+	ToServicehookWebhookTfsRepositoryDeletedPtrOutputWithContext(context.Context) ServicehookWebhookTfsRepositoryDeletedPtrOutput
+}
+
+type servicehookWebhookTfsRepositoryDeletedPtrType ServicehookWebhookTfsRepositoryDeletedArgs
+
+func ServicehookWebhookTfsRepositoryDeletedPtr(v *ServicehookWebhookTfsRepositoryDeletedArgs) ServicehookWebhookTfsRepositoryDeletedPtrInput {
+	return (*servicehookWebhookTfsRepositoryDeletedPtrType)(v)
+}
+
+func (*servicehookWebhookTfsRepositoryDeletedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsRepositoryDeleted)(nil)).Elem()
+}
+
+func (i *servicehookWebhookTfsRepositoryDeletedPtrType) ToServicehookWebhookTfsRepositoryDeletedPtrOutput() ServicehookWebhookTfsRepositoryDeletedPtrOutput {
+	return i.ToServicehookWebhookTfsRepositoryDeletedPtrOutputWithContext(context.Background())
+}
+
+func (i *servicehookWebhookTfsRepositoryDeletedPtrType) ToServicehookWebhookTfsRepositoryDeletedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsRepositoryDeletedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsRepositoryDeletedPtrOutput)
+}
+
+type ServicehookWebhookTfsRepositoryDeletedOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsRepositoryDeletedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsRepositoryDeleted)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsRepositoryDeletedOutput) ToServicehookWebhookTfsRepositoryDeletedOutput() ServicehookWebhookTfsRepositoryDeletedOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsRepositoryDeletedOutput) ToServicehookWebhookTfsRepositoryDeletedOutputWithContext(ctx context.Context) ServicehookWebhookTfsRepositoryDeletedOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsRepositoryDeletedOutput) ToServicehookWebhookTfsRepositoryDeletedPtrOutput() ServicehookWebhookTfsRepositoryDeletedPtrOutput {
+	return o.ToServicehookWebhookTfsRepositoryDeletedPtrOutputWithContext(context.Background())
+}
+
+func (o ServicehookWebhookTfsRepositoryDeletedOutput) ToServicehookWebhookTfsRepositoryDeletedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsRepositoryDeletedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicehookWebhookTfsRepositoryDeleted) *ServicehookWebhookTfsRepositoryDeleted {
+		return &v
+	}).(ServicehookWebhookTfsRepositoryDeletedPtrOutput)
+}
+
+// Include only events for repositories with a specific repository ID.
+func (o ServicehookWebhookTfsRepositoryDeletedOutput) RepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsRepositoryDeleted) *string { return v.RepositoryId }).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsRepositoryDeletedPtrOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsRepositoryDeletedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsRepositoryDeleted)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsRepositoryDeletedPtrOutput) ToServicehookWebhookTfsRepositoryDeletedPtrOutput() ServicehookWebhookTfsRepositoryDeletedPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsRepositoryDeletedPtrOutput) ToServicehookWebhookTfsRepositoryDeletedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsRepositoryDeletedPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsRepositoryDeletedPtrOutput) Elem() ServicehookWebhookTfsRepositoryDeletedOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsRepositoryDeleted) ServicehookWebhookTfsRepositoryDeleted {
+		if v != nil {
+			return *v
+		}
+		var ret ServicehookWebhookTfsRepositoryDeleted
+		return ret
+	}).(ServicehookWebhookTfsRepositoryDeletedOutput)
+}
+
+// Include only events for repositories with a specific repository ID.
+func (o ServicehookWebhookTfsRepositoryDeletedPtrOutput) RepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsRepositoryDeleted) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsRepositoryForked struct {
+	// Include only events for repositories with a specific repository ID.
+	RepositoryId *string `pulumi:"repositoryId"`
+}
+
+// ServicehookWebhookTfsRepositoryForkedInput is an input type that accepts ServicehookWebhookTfsRepositoryForkedArgs and ServicehookWebhookTfsRepositoryForkedOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsRepositoryForkedInput` via:
+//
+//	ServicehookWebhookTfsRepositoryForkedArgs{...}
+type ServicehookWebhookTfsRepositoryForkedInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsRepositoryForkedOutput() ServicehookWebhookTfsRepositoryForkedOutput
+	ToServicehookWebhookTfsRepositoryForkedOutputWithContext(context.Context) ServicehookWebhookTfsRepositoryForkedOutput
+}
+
+type ServicehookWebhookTfsRepositoryForkedArgs struct {
+	// Include only events for repositories with a specific repository ID.
+	RepositoryId pulumi.StringPtrInput `pulumi:"repositoryId"`
+}
+
+func (ServicehookWebhookTfsRepositoryForkedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsRepositoryForked)(nil)).Elem()
+}
+
+func (i ServicehookWebhookTfsRepositoryForkedArgs) ToServicehookWebhookTfsRepositoryForkedOutput() ServicehookWebhookTfsRepositoryForkedOutput {
+	return i.ToServicehookWebhookTfsRepositoryForkedOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsRepositoryForkedArgs) ToServicehookWebhookTfsRepositoryForkedOutputWithContext(ctx context.Context) ServicehookWebhookTfsRepositoryForkedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsRepositoryForkedOutput)
+}
+
+func (i ServicehookWebhookTfsRepositoryForkedArgs) ToServicehookWebhookTfsRepositoryForkedPtrOutput() ServicehookWebhookTfsRepositoryForkedPtrOutput {
+	return i.ToServicehookWebhookTfsRepositoryForkedPtrOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsRepositoryForkedArgs) ToServicehookWebhookTfsRepositoryForkedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsRepositoryForkedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsRepositoryForkedOutput).ToServicehookWebhookTfsRepositoryForkedPtrOutputWithContext(ctx)
+}
+
+// ServicehookWebhookTfsRepositoryForkedPtrInput is an input type that accepts ServicehookWebhookTfsRepositoryForkedArgs, ServicehookWebhookTfsRepositoryForkedPtr and ServicehookWebhookTfsRepositoryForkedPtrOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsRepositoryForkedPtrInput` via:
+//
+//	        ServicehookWebhookTfsRepositoryForkedArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServicehookWebhookTfsRepositoryForkedPtrInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsRepositoryForkedPtrOutput() ServicehookWebhookTfsRepositoryForkedPtrOutput
+	ToServicehookWebhookTfsRepositoryForkedPtrOutputWithContext(context.Context) ServicehookWebhookTfsRepositoryForkedPtrOutput
+}
+
+type servicehookWebhookTfsRepositoryForkedPtrType ServicehookWebhookTfsRepositoryForkedArgs
+
+func ServicehookWebhookTfsRepositoryForkedPtr(v *ServicehookWebhookTfsRepositoryForkedArgs) ServicehookWebhookTfsRepositoryForkedPtrInput {
+	return (*servicehookWebhookTfsRepositoryForkedPtrType)(v)
+}
+
+func (*servicehookWebhookTfsRepositoryForkedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsRepositoryForked)(nil)).Elem()
+}
+
+func (i *servicehookWebhookTfsRepositoryForkedPtrType) ToServicehookWebhookTfsRepositoryForkedPtrOutput() ServicehookWebhookTfsRepositoryForkedPtrOutput {
+	return i.ToServicehookWebhookTfsRepositoryForkedPtrOutputWithContext(context.Background())
+}
+
+func (i *servicehookWebhookTfsRepositoryForkedPtrType) ToServicehookWebhookTfsRepositoryForkedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsRepositoryForkedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsRepositoryForkedPtrOutput)
+}
+
+type ServicehookWebhookTfsRepositoryForkedOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsRepositoryForkedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsRepositoryForked)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsRepositoryForkedOutput) ToServicehookWebhookTfsRepositoryForkedOutput() ServicehookWebhookTfsRepositoryForkedOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsRepositoryForkedOutput) ToServicehookWebhookTfsRepositoryForkedOutputWithContext(ctx context.Context) ServicehookWebhookTfsRepositoryForkedOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsRepositoryForkedOutput) ToServicehookWebhookTfsRepositoryForkedPtrOutput() ServicehookWebhookTfsRepositoryForkedPtrOutput {
+	return o.ToServicehookWebhookTfsRepositoryForkedPtrOutputWithContext(context.Background())
+}
+
+func (o ServicehookWebhookTfsRepositoryForkedOutput) ToServicehookWebhookTfsRepositoryForkedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsRepositoryForkedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicehookWebhookTfsRepositoryForked) *ServicehookWebhookTfsRepositoryForked {
+		return &v
+	}).(ServicehookWebhookTfsRepositoryForkedPtrOutput)
+}
+
+// Include only events for repositories with a specific repository ID.
+func (o ServicehookWebhookTfsRepositoryForkedOutput) RepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsRepositoryForked) *string { return v.RepositoryId }).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsRepositoryForkedPtrOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsRepositoryForkedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsRepositoryForked)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsRepositoryForkedPtrOutput) ToServicehookWebhookTfsRepositoryForkedPtrOutput() ServicehookWebhookTfsRepositoryForkedPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsRepositoryForkedPtrOutput) ToServicehookWebhookTfsRepositoryForkedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsRepositoryForkedPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsRepositoryForkedPtrOutput) Elem() ServicehookWebhookTfsRepositoryForkedOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsRepositoryForked) ServicehookWebhookTfsRepositoryForked {
+		if v != nil {
+			return *v
+		}
+		var ret ServicehookWebhookTfsRepositoryForked
+		return ret
+	}).(ServicehookWebhookTfsRepositoryForkedOutput)
+}
+
+// Include only events for repositories with a specific repository ID.
+func (o ServicehookWebhookTfsRepositoryForkedPtrOutput) RepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsRepositoryForked) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsRepositoryRenamed struct {
+	// Include only events for repositories with a specific repository ID.
+	RepositoryId *string `pulumi:"repositoryId"`
+}
+
+// ServicehookWebhookTfsRepositoryRenamedInput is an input type that accepts ServicehookWebhookTfsRepositoryRenamedArgs and ServicehookWebhookTfsRepositoryRenamedOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsRepositoryRenamedInput` via:
+//
+//	ServicehookWebhookTfsRepositoryRenamedArgs{...}
+type ServicehookWebhookTfsRepositoryRenamedInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsRepositoryRenamedOutput() ServicehookWebhookTfsRepositoryRenamedOutput
+	ToServicehookWebhookTfsRepositoryRenamedOutputWithContext(context.Context) ServicehookWebhookTfsRepositoryRenamedOutput
+}
+
+type ServicehookWebhookTfsRepositoryRenamedArgs struct {
+	// Include only events for repositories with a specific repository ID.
+	RepositoryId pulumi.StringPtrInput `pulumi:"repositoryId"`
+}
+
+func (ServicehookWebhookTfsRepositoryRenamedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsRepositoryRenamed)(nil)).Elem()
+}
+
+func (i ServicehookWebhookTfsRepositoryRenamedArgs) ToServicehookWebhookTfsRepositoryRenamedOutput() ServicehookWebhookTfsRepositoryRenamedOutput {
+	return i.ToServicehookWebhookTfsRepositoryRenamedOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsRepositoryRenamedArgs) ToServicehookWebhookTfsRepositoryRenamedOutputWithContext(ctx context.Context) ServicehookWebhookTfsRepositoryRenamedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsRepositoryRenamedOutput)
+}
+
+func (i ServicehookWebhookTfsRepositoryRenamedArgs) ToServicehookWebhookTfsRepositoryRenamedPtrOutput() ServicehookWebhookTfsRepositoryRenamedPtrOutput {
+	return i.ToServicehookWebhookTfsRepositoryRenamedPtrOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsRepositoryRenamedArgs) ToServicehookWebhookTfsRepositoryRenamedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsRepositoryRenamedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsRepositoryRenamedOutput).ToServicehookWebhookTfsRepositoryRenamedPtrOutputWithContext(ctx)
+}
+
+// ServicehookWebhookTfsRepositoryRenamedPtrInput is an input type that accepts ServicehookWebhookTfsRepositoryRenamedArgs, ServicehookWebhookTfsRepositoryRenamedPtr and ServicehookWebhookTfsRepositoryRenamedPtrOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsRepositoryRenamedPtrInput` via:
+//
+//	        ServicehookWebhookTfsRepositoryRenamedArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServicehookWebhookTfsRepositoryRenamedPtrInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsRepositoryRenamedPtrOutput() ServicehookWebhookTfsRepositoryRenamedPtrOutput
+	ToServicehookWebhookTfsRepositoryRenamedPtrOutputWithContext(context.Context) ServicehookWebhookTfsRepositoryRenamedPtrOutput
+}
+
+type servicehookWebhookTfsRepositoryRenamedPtrType ServicehookWebhookTfsRepositoryRenamedArgs
+
+func ServicehookWebhookTfsRepositoryRenamedPtr(v *ServicehookWebhookTfsRepositoryRenamedArgs) ServicehookWebhookTfsRepositoryRenamedPtrInput {
+	return (*servicehookWebhookTfsRepositoryRenamedPtrType)(v)
+}
+
+func (*servicehookWebhookTfsRepositoryRenamedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsRepositoryRenamed)(nil)).Elem()
+}
+
+func (i *servicehookWebhookTfsRepositoryRenamedPtrType) ToServicehookWebhookTfsRepositoryRenamedPtrOutput() ServicehookWebhookTfsRepositoryRenamedPtrOutput {
+	return i.ToServicehookWebhookTfsRepositoryRenamedPtrOutputWithContext(context.Background())
+}
+
+func (i *servicehookWebhookTfsRepositoryRenamedPtrType) ToServicehookWebhookTfsRepositoryRenamedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsRepositoryRenamedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsRepositoryRenamedPtrOutput)
+}
+
+type ServicehookWebhookTfsRepositoryRenamedOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsRepositoryRenamedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsRepositoryRenamed)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsRepositoryRenamedOutput) ToServicehookWebhookTfsRepositoryRenamedOutput() ServicehookWebhookTfsRepositoryRenamedOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsRepositoryRenamedOutput) ToServicehookWebhookTfsRepositoryRenamedOutputWithContext(ctx context.Context) ServicehookWebhookTfsRepositoryRenamedOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsRepositoryRenamedOutput) ToServicehookWebhookTfsRepositoryRenamedPtrOutput() ServicehookWebhookTfsRepositoryRenamedPtrOutput {
+	return o.ToServicehookWebhookTfsRepositoryRenamedPtrOutputWithContext(context.Background())
+}
+
+func (o ServicehookWebhookTfsRepositoryRenamedOutput) ToServicehookWebhookTfsRepositoryRenamedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsRepositoryRenamedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicehookWebhookTfsRepositoryRenamed) *ServicehookWebhookTfsRepositoryRenamed {
+		return &v
+	}).(ServicehookWebhookTfsRepositoryRenamedPtrOutput)
+}
+
+// Include only events for repositories with a specific repository ID.
+func (o ServicehookWebhookTfsRepositoryRenamedOutput) RepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsRepositoryRenamed) *string { return v.RepositoryId }).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsRepositoryRenamedPtrOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsRepositoryRenamedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsRepositoryRenamed)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsRepositoryRenamedPtrOutput) ToServicehookWebhookTfsRepositoryRenamedPtrOutput() ServicehookWebhookTfsRepositoryRenamedPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsRepositoryRenamedPtrOutput) ToServicehookWebhookTfsRepositoryRenamedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsRepositoryRenamedPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsRepositoryRenamedPtrOutput) Elem() ServicehookWebhookTfsRepositoryRenamedOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsRepositoryRenamed) ServicehookWebhookTfsRepositoryRenamed {
+		if v != nil {
+			return *v
+		}
+		var ret ServicehookWebhookTfsRepositoryRenamed
+		return ret
+	}).(ServicehookWebhookTfsRepositoryRenamedOutput)
+}
+
+// Include only events for repositories with a specific repository ID.
+func (o ServicehookWebhookTfsRepositoryRenamedPtrOutput) RepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsRepositoryRenamed) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsRepositoryStatusChanged struct {
+	// Include only events for repositories with a specific repository ID.
+	RepositoryId *string `pulumi:"repositoryId"`
+}
+
+// ServicehookWebhookTfsRepositoryStatusChangedInput is an input type that accepts ServicehookWebhookTfsRepositoryStatusChangedArgs and ServicehookWebhookTfsRepositoryStatusChangedOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsRepositoryStatusChangedInput` via:
+//
+//	ServicehookWebhookTfsRepositoryStatusChangedArgs{...}
+type ServicehookWebhookTfsRepositoryStatusChangedInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsRepositoryStatusChangedOutput() ServicehookWebhookTfsRepositoryStatusChangedOutput
+	ToServicehookWebhookTfsRepositoryStatusChangedOutputWithContext(context.Context) ServicehookWebhookTfsRepositoryStatusChangedOutput
+}
+
+type ServicehookWebhookTfsRepositoryStatusChangedArgs struct {
+	// Include only events for repositories with a specific repository ID.
+	RepositoryId pulumi.StringPtrInput `pulumi:"repositoryId"`
+}
+
+func (ServicehookWebhookTfsRepositoryStatusChangedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsRepositoryStatusChanged)(nil)).Elem()
+}
+
+func (i ServicehookWebhookTfsRepositoryStatusChangedArgs) ToServicehookWebhookTfsRepositoryStatusChangedOutput() ServicehookWebhookTfsRepositoryStatusChangedOutput {
+	return i.ToServicehookWebhookTfsRepositoryStatusChangedOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsRepositoryStatusChangedArgs) ToServicehookWebhookTfsRepositoryStatusChangedOutputWithContext(ctx context.Context) ServicehookWebhookTfsRepositoryStatusChangedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsRepositoryStatusChangedOutput)
+}
+
+func (i ServicehookWebhookTfsRepositoryStatusChangedArgs) ToServicehookWebhookTfsRepositoryStatusChangedPtrOutput() ServicehookWebhookTfsRepositoryStatusChangedPtrOutput {
+	return i.ToServicehookWebhookTfsRepositoryStatusChangedPtrOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsRepositoryStatusChangedArgs) ToServicehookWebhookTfsRepositoryStatusChangedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsRepositoryStatusChangedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsRepositoryStatusChangedOutput).ToServicehookWebhookTfsRepositoryStatusChangedPtrOutputWithContext(ctx)
+}
+
+// ServicehookWebhookTfsRepositoryStatusChangedPtrInput is an input type that accepts ServicehookWebhookTfsRepositoryStatusChangedArgs, ServicehookWebhookTfsRepositoryStatusChangedPtr and ServicehookWebhookTfsRepositoryStatusChangedPtrOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsRepositoryStatusChangedPtrInput` via:
+//
+//	        ServicehookWebhookTfsRepositoryStatusChangedArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServicehookWebhookTfsRepositoryStatusChangedPtrInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsRepositoryStatusChangedPtrOutput() ServicehookWebhookTfsRepositoryStatusChangedPtrOutput
+	ToServicehookWebhookTfsRepositoryStatusChangedPtrOutputWithContext(context.Context) ServicehookWebhookTfsRepositoryStatusChangedPtrOutput
+}
+
+type servicehookWebhookTfsRepositoryStatusChangedPtrType ServicehookWebhookTfsRepositoryStatusChangedArgs
+
+func ServicehookWebhookTfsRepositoryStatusChangedPtr(v *ServicehookWebhookTfsRepositoryStatusChangedArgs) ServicehookWebhookTfsRepositoryStatusChangedPtrInput {
+	return (*servicehookWebhookTfsRepositoryStatusChangedPtrType)(v)
+}
+
+func (*servicehookWebhookTfsRepositoryStatusChangedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsRepositoryStatusChanged)(nil)).Elem()
+}
+
+func (i *servicehookWebhookTfsRepositoryStatusChangedPtrType) ToServicehookWebhookTfsRepositoryStatusChangedPtrOutput() ServicehookWebhookTfsRepositoryStatusChangedPtrOutput {
+	return i.ToServicehookWebhookTfsRepositoryStatusChangedPtrOutputWithContext(context.Background())
+}
+
+func (i *servicehookWebhookTfsRepositoryStatusChangedPtrType) ToServicehookWebhookTfsRepositoryStatusChangedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsRepositoryStatusChangedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsRepositoryStatusChangedPtrOutput)
+}
+
+type ServicehookWebhookTfsRepositoryStatusChangedOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsRepositoryStatusChangedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsRepositoryStatusChanged)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsRepositoryStatusChangedOutput) ToServicehookWebhookTfsRepositoryStatusChangedOutput() ServicehookWebhookTfsRepositoryStatusChangedOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsRepositoryStatusChangedOutput) ToServicehookWebhookTfsRepositoryStatusChangedOutputWithContext(ctx context.Context) ServicehookWebhookTfsRepositoryStatusChangedOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsRepositoryStatusChangedOutput) ToServicehookWebhookTfsRepositoryStatusChangedPtrOutput() ServicehookWebhookTfsRepositoryStatusChangedPtrOutput {
+	return o.ToServicehookWebhookTfsRepositoryStatusChangedPtrOutputWithContext(context.Background())
+}
+
+func (o ServicehookWebhookTfsRepositoryStatusChangedOutput) ToServicehookWebhookTfsRepositoryStatusChangedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsRepositoryStatusChangedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicehookWebhookTfsRepositoryStatusChanged) *ServicehookWebhookTfsRepositoryStatusChanged {
+		return &v
+	}).(ServicehookWebhookTfsRepositoryStatusChangedPtrOutput)
+}
+
+// Include only events for repositories with a specific repository ID.
+func (o ServicehookWebhookTfsRepositoryStatusChangedOutput) RepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsRepositoryStatusChanged) *string { return v.RepositoryId }).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsRepositoryStatusChangedPtrOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsRepositoryStatusChangedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsRepositoryStatusChanged)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsRepositoryStatusChangedPtrOutput) ToServicehookWebhookTfsRepositoryStatusChangedPtrOutput() ServicehookWebhookTfsRepositoryStatusChangedPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsRepositoryStatusChangedPtrOutput) ToServicehookWebhookTfsRepositoryStatusChangedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsRepositoryStatusChangedPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsRepositoryStatusChangedPtrOutput) Elem() ServicehookWebhookTfsRepositoryStatusChangedOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsRepositoryStatusChanged) ServicehookWebhookTfsRepositoryStatusChanged {
+		if v != nil {
+			return *v
+		}
+		var ret ServicehookWebhookTfsRepositoryStatusChanged
+		return ret
+	}).(ServicehookWebhookTfsRepositoryStatusChangedOutput)
+}
+
+// Include only events for repositories with a specific repository ID.
+func (o ServicehookWebhookTfsRepositoryStatusChangedPtrOutput) RepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsRepositoryStatusChanged) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsServiceConnectionCreated struct {
+	// Include only events for service connections created in a specific project.
+	ProjectId *string `pulumi:"projectId"`
+}
+
+// ServicehookWebhookTfsServiceConnectionCreatedInput is an input type that accepts ServicehookWebhookTfsServiceConnectionCreatedArgs and ServicehookWebhookTfsServiceConnectionCreatedOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsServiceConnectionCreatedInput` via:
+//
+//	ServicehookWebhookTfsServiceConnectionCreatedArgs{...}
+type ServicehookWebhookTfsServiceConnectionCreatedInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsServiceConnectionCreatedOutput() ServicehookWebhookTfsServiceConnectionCreatedOutput
+	ToServicehookWebhookTfsServiceConnectionCreatedOutputWithContext(context.Context) ServicehookWebhookTfsServiceConnectionCreatedOutput
+}
+
+type ServicehookWebhookTfsServiceConnectionCreatedArgs struct {
+	// Include only events for service connections created in a specific project.
+	ProjectId pulumi.StringPtrInput `pulumi:"projectId"`
+}
+
+func (ServicehookWebhookTfsServiceConnectionCreatedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsServiceConnectionCreated)(nil)).Elem()
+}
+
+func (i ServicehookWebhookTfsServiceConnectionCreatedArgs) ToServicehookWebhookTfsServiceConnectionCreatedOutput() ServicehookWebhookTfsServiceConnectionCreatedOutput {
+	return i.ToServicehookWebhookTfsServiceConnectionCreatedOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsServiceConnectionCreatedArgs) ToServicehookWebhookTfsServiceConnectionCreatedOutputWithContext(ctx context.Context) ServicehookWebhookTfsServiceConnectionCreatedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsServiceConnectionCreatedOutput)
+}
+
+func (i ServicehookWebhookTfsServiceConnectionCreatedArgs) ToServicehookWebhookTfsServiceConnectionCreatedPtrOutput() ServicehookWebhookTfsServiceConnectionCreatedPtrOutput {
+	return i.ToServicehookWebhookTfsServiceConnectionCreatedPtrOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsServiceConnectionCreatedArgs) ToServicehookWebhookTfsServiceConnectionCreatedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsServiceConnectionCreatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsServiceConnectionCreatedOutput).ToServicehookWebhookTfsServiceConnectionCreatedPtrOutputWithContext(ctx)
+}
+
+// ServicehookWebhookTfsServiceConnectionCreatedPtrInput is an input type that accepts ServicehookWebhookTfsServiceConnectionCreatedArgs, ServicehookWebhookTfsServiceConnectionCreatedPtr and ServicehookWebhookTfsServiceConnectionCreatedPtrOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsServiceConnectionCreatedPtrInput` via:
+//
+//	        ServicehookWebhookTfsServiceConnectionCreatedArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServicehookWebhookTfsServiceConnectionCreatedPtrInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsServiceConnectionCreatedPtrOutput() ServicehookWebhookTfsServiceConnectionCreatedPtrOutput
+	ToServicehookWebhookTfsServiceConnectionCreatedPtrOutputWithContext(context.Context) ServicehookWebhookTfsServiceConnectionCreatedPtrOutput
+}
+
+type servicehookWebhookTfsServiceConnectionCreatedPtrType ServicehookWebhookTfsServiceConnectionCreatedArgs
+
+func ServicehookWebhookTfsServiceConnectionCreatedPtr(v *ServicehookWebhookTfsServiceConnectionCreatedArgs) ServicehookWebhookTfsServiceConnectionCreatedPtrInput {
+	return (*servicehookWebhookTfsServiceConnectionCreatedPtrType)(v)
+}
+
+func (*servicehookWebhookTfsServiceConnectionCreatedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsServiceConnectionCreated)(nil)).Elem()
+}
+
+func (i *servicehookWebhookTfsServiceConnectionCreatedPtrType) ToServicehookWebhookTfsServiceConnectionCreatedPtrOutput() ServicehookWebhookTfsServiceConnectionCreatedPtrOutput {
+	return i.ToServicehookWebhookTfsServiceConnectionCreatedPtrOutputWithContext(context.Background())
+}
+
+func (i *servicehookWebhookTfsServiceConnectionCreatedPtrType) ToServicehookWebhookTfsServiceConnectionCreatedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsServiceConnectionCreatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsServiceConnectionCreatedPtrOutput)
+}
+
+type ServicehookWebhookTfsServiceConnectionCreatedOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsServiceConnectionCreatedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsServiceConnectionCreated)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsServiceConnectionCreatedOutput) ToServicehookWebhookTfsServiceConnectionCreatedOutput() ServicehookWebhookTfsServiceConnectionCreatedOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsServiceConnectionCreatedOutput) ToServicehookWebhookTfsServiceConnectionCreatedOutputWithContext(ctx context.Context) ServicehookWebhookTfsServiceConnectionCreatedOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsServiceConnectionCreatedOutput) ToServicehookWebhookTfsServiceConnectionCreatedPtrOutput() ServicehookWebhookTfsServiceConnectionCreatedPtrOutput {
+	return o.ToServicehookWebhookTfsServiceConnectionCreatedPtrOutputWithContext(context.Background())
+}
+
+func (o ServicehookWebhookTfsServiceConnectionCreatedOutput) ToServicehookWebhookTfsServiceConnectionCreatedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsServiceConnectionCreatedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicehookWebhookTfsServiceConnectionCreated) *ServicehookWebhookTfsServiceConnectionCreated {
+		return &v
+	}).(ServicehookWebhookTfsServiceConnectionCreatedPtrOutput)
+}
+
+// Include only events for service connections created in a specific project.
+func (o ServicehookWebhookTfsServiceConnectionCreatedOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsServiceConnectionCreated) *string { return v.ProjectId }).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsServiceConnectionCreatedPtrOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsServiceConnectionCreatedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsServiceConnectionCreated)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsServiceConnectionCreatedPtrOutput) ToServicehookWebhookTfsServiceConnectionCreatedPtrOutput() ServicehookWebhookTfsServiceConnectionCreatedPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsServiceConnectionCreatedPtrOutput) ToServicehookWebhookTfsServiceConnectionCreatedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsServiceConnectionCreatedPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsServiceConnectionCreatedPtrOutput) Elem() ServicehookWebhookTfsServiceConnectionCreatedOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsServiceConnectionCreated) ServicehookWebhookTfsServiceConnectionCreated {
+		if v != nil {
+			return *v
+		}
+		var ret ServicehookWebhookTfsServiceConnectionCreated
+		return ret
+	}).(ServicehookWebhookTfsServiceConnectionCreatedOutput)
+}
+
+// Include only events for service connections created in a specific project.
+func (o ServicehookWebhookTfsServiceConnectionCreatedPtrOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsServiceConnectionCreated) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsServiceConnectionUpdated struct {
+	// Include only events for service connections updated in a specific project.
+	ProjectId *string `pulumi:"projectId"`
+}
+
+// ServicehookWebhookTfsServiceConnectionUpdatedInput is an input type that accepts ServicehookWebhookTfsServiceConnectionUpdatedArgs and ServicehookWebhookTfsServiceConnectionUpdatedOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsServiceConnectionUpdatedInput` via:
+//
+//	ServicehookWebhookTfsServiceConnectionUpdatedArgs{...}
+type ServicehookWebhookTfsServiceConnectionUpdatedInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsServiceConnectionUpdatedOutput() ServicehookWebhookTfsServiceConnectionUpdatedOutput
+	ToServicehookWebhookTfsServiceConnectionUpdatedOutputWithContext(context.Context) ServicehookWebhookTfsServiceConnectionUpdatedOutput
+}
+
+type ServicehookWebhookTfsServiceConnectionUpdatedArgs struct {
+	// Include only events for service connections updated in a specific project.
+	ProjectId pulumi.StringPtrInput `pulumi:"projectId"`
+}
+
+func (ServicehookWebhookTfsServiceConnectionUpdatedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsServiceConnectionUpdated)(nil)).Elem()
+}
+
+func (i ServicehookWebhookTfsServiceConnectionUpdatedArgs) ToServicehookWebhookTfsServiceConnectionUpdatedOutput() ServicehookWebhookTfsServiceConnectionUpdatedOutput {
+	return i.ToServicehookWebhookTfsServiceConnectionUpdatedOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsServiceConnectionUpdatedArgs) ToServicehookWebhookTfsServiceConnectionUpdatedOutputWithContext(ctx context.Context) ServicehookWebhookTfsServiceConnectionUpdatedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsServiceConnectionUpdatedOutput)
+}
+
+func (i ServicehookWebhookTfsServiceConnectionUpdatedArgs) ToServicehookWebhookTfsServiceConnectionUpdatedPtrOutput() ServicehookWebhookTfsServiceConnectionUpdatedPtrOutput {
+	return i.ToServicehookWebhookTfsServiceConnectionUpdatedPtrOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsServiceConnectionUpdatedArgs) ToServicehookWebhookTfsServiceConnectionUpdatedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsServiceConnectionUpdatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsServiceConnectionUpdatedOutput).ToServicehookWebhookTfsServiceConnectionUpdatedPtrOutputWithContext(ctx)
+}
+
+// ServicehookWebhookTfsServiceConnectionUpdatedPtrInput is an input type that accepts ServicehookWebhookTfsServiceConnectionUpdatedArgs, ServicehookWebhookTfsServiceConnectionUpdatedPtr and ServicehookWebhookTfsServiceConnectionUpdatedPtrOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsServiceConnectionUpdatedPtrInput` via:
+//
+//	        ServicehookWebhookTfsServiceConnectionUpdatedArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServicehookWebhookTfsServiceConnectionUpdatedPtrInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsServiceConnectionUpdatedPtrOutput() ServicehookWebhookTfsServiceConnectionUpdatedPtrOutput
+	ToServicehookWebhookTfsServiceConnectionUpdatedPtrOutputWithContext(context.Context) ServicehookWebhookTfsServiceConnectionUpdatedPtrOutput
+}
+
+type servicehookWebhookTfsServiceConnectionUpdatedPtrType ServicehookWebhookTfsServiceConnectionUpdatedArgs
+
+func ServicehookWebhookTfsServiceConnectionUpdatedPtr(v *ServicehookWebhookTfsServiceConnectionUpdatedArgs) ServicehookWebhookTfsServiceConnectionUpdatedPtrInput {
+	return (*servicehookWebhookTfsServiceConnectionUpdatedPtrType)(v)
+}
+
+func (*servicehookWebhookTfsServiceConnectionUpdatedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsServiceConnectionUpdated)(nil)).Elem()
+}
+
+func (i *servicehookWebhookTfsServiceConnectionUpdatedPtrType) ToServicehookWebhookTfsServiceConnectionUpdatedPtrOutput() ServicehookWebhookTfsServiceConnectionUpdatedPtrOutput {
+	return i.ToServicehookWebhookTfsServiceConnectionUpdatedPtrOutputWithContext(context.Background())
+}
+
+func (i *servicehookWebhookTfsServiceConnectionUpdatedPtrType) ToServicehookWebhookTfsServiceConnectionUpdatedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsServiceConnectionUpdatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsServiceConnectionUpdatedPtrOutput)
+}
+
+type ServicehookWebhookTfsServiceConnectionUpdatedOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsServiceConnectionUpdatedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsServiceConnectionUpdated)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsServiceConnectionUpdatedOutput) ToServicehookWebhookTfsServiceConnectionUpdatedOutput() ServicehookWebhookTfsServiceConnectionUpdatedOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsServiceConnectionUpdatedOutput) ToServicehookWebhookTfsServiceConnectionUpdatedOutputWithContext(ctx context.Context) ServicehookWebhookTfsServiceConnectionUpdatedOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsServiceConnectionUpdatedOutput) ToServicehookWebhookTfsServiceConnectionUpdatedPtrOutput() ServicehookWebhookTfsServiceConnectionUpdatedPtrOutput {
+	return o.ToServicehookWebhookTfsServiceConnectionUpdatedPtrOutputWithContext(context.Background())
+}
+
+func (o ServicehookWebhookTfsServiceConnectionUpdatedOutput) ToServicehookWebhookTfsServiceConnectionUpdatedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsServiceConnectionUpdatedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicehookWebhookTfsServiceConnectionUpdated) *ServicehookWebhookTfsServiceConnectionUpdated {
+		return &v
+	}).(ServicehookWebhookTfsServiceConnectionUpdatedPtrOutput)
+}
+
+// Include only events for service connections updated in a specific project.
+func (o ServicehookWebhookTfsServiceConnectionUpdatedOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsServiceConnectionUpdated) *string { return v.ProjectId }).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsServiceConnectionUpdatedPtrOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsServiceConnectionUpdatedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsServiceConnectionUpdated)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsServiceConnectionUpdatedPtrOutput) ToServicehookWebhookTfsServiceConnectionUpdatedPtrOutput() ServicehookWebhookTfsServiceConnectionUpdatedPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsServiceConnectionUpdatedPtrOutput) ToServicehookWebhookTfsServiceConnectionUpdatedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsServiceConnectionUpdatedPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsServiceConnectionUpdatedPtrOutput) Elem() ServicehookWebhookTfsServiceConnectionUpdatedOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsServiceConnectionUpdated) ServicehookWebhookTfsServiceConnectionUpdated {
+		if v != nil {
+			return *v
+		}
+		var ret ServicehookWebhookTfsServiceConnectionUpdated
+		return ret
+	}).(ServicehookWebhookTfsServiceConnectionUpdatedOutput)
+}
+
+// Include only events for service connections updated in a specific project.
+func (o ServicehookWebhookTfsServiceConnectionUpdatedPtrOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsServiceConnectionUpdated) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsTfvcCheckin struct {
+	// Include only events for check-ins that change files under a specific path.
+	Path string `pulumi:"path"`
+}
+
+// ServicehookWebhookTfsTfvcCheckinInput is an input type that accepts ServicehookWebhookTfsTfvcCheckinArgs and ServicehookWebhookTfsTfvcCheckinOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsTfvcCheckinInput` via:
+//
+//	ServicehookWebhookTfsTfvcCheckinArgs{...}
+type ServicehookWebhookTfsTfvcCheckinInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsTfvcCheckinOutput() ServicehookWebhookTfsTfvcCheckinOutput
+	ToServicehookWebhookTfsTfvcCheckinOutputWithContext(context.Context) ServicehookWebhookTfsTfvcCheckinOutput
+}
+
+type ServicehookWebhookTfsTfvcCheckinArgs struct {
+	// Include only events for check-ins that change files under a specific path.
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (ServicehookWebhookTfsTfvcCheckinArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsTfvcCheckin)(nil)).Elem()
+}
+
+func (i ServicehookWebhookTfsTfvcCheckinArgs) ToServicehookWebhookTfsTfvcCheckinOutput() ServicehookWebhookTfsTfvcCheckinOutput {
+	return i.ToServicehookWebhookTfsTfvcCheckinOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsTfvcCheckinArgs) ToServicehookWebhookTfsTfvcCheckinOutputWithContext(ctx context.Context) ServicehookWebhookTfsTfvcCheckinOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsTfvcCheckinOutput)
+}
+
+func (i ServicehookWebhookTfsTfvcCheckinArgs) ToServicehookWebhookTfsTfvcCheckinPtrOutput() ServicehookWebhookTfsTfvcCheckinPtrOutput {
+	return i.ToServicehookWebhookTfsTfvcCheckinPtrOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsTfvcCheckinArgs) ToServicehookWebhookTfsTfvcCheckinPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsTfvcCheckinPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsTfvcCheckinOutput).ToServicehookWebhookTfsTfvcCheckinPtrOutputWithContext(ctx)
+}
+
+// ServicehookWebhookTfsTfvcCheckinPtrInput is an input type that accepts ServicehookWebhookTfsTfvcCheckinArgs, ServicehookWebhookTfsTfvcCheckinPtr and ServicehookWebhookTfsTfvcCheckinPtrOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsTfvcCheckinPtrInput` via:
+//
+//	        ServicehookWebhookTfsTfvcCheckinArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServicehookWebhookTfsTfvcCheckinPtrInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsTfvcCheckinPtrOutput() ServicehookWebhookTfsTfvcCheckinPtrOutput
+	ToServicehookWebhookTfsTfvcCheckinPtrOutputWithContext(context.Context) ServicehookWebhookTfsTfvcCheckinPtrOutput
+}
+
+type servicehookWebhookTfsTfvcCheckinPtrType ServicehookWebhookTfsTfvcCheckinArgs
+
+func ServicehookWebhookTfsTfvcCheckinPtr(v *ServicehookWebhookTfsTfvcCheckinArgs) ServicehookWebhookTfsTfvcCheckinPtrInput {
+	return (*servicehookWebhookTfsTfvcCheckinPtrType)(v)
+}
+
+func (*servicehookWebhookTfsTfvcCheckinPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsTfvcCheckin)(nil)).Elem()
+}
+
+func (i *servicehookWebhookTfsTfvcCheckinPtrType) ToServicehookWebhookTfsTfvcCheckinPtrOutput() ServicehookWebhookTfsTfvcCheckinPtrOutput {
+	return i.ToServicehookWebhookTfsTfvcCheckinPtrOutputWithContext(context.Background())
+}
+
+func (i *servicehookWebhookTfsTfvcCheckinPtrType) ToServicehookWebhookTfsTfvcCheckinPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsTfvcCheckinPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsTfvcCheckinPtrOutput)
+}
+
+type ServicehookWebhookTfsTfvcCheckinOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsTfvcCheckinOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsTfvcCheckin)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsTfvcCheckinOutput) ToServicehookWebhookTfsTfvcCheckinOutput() ServicehookWebhookTfsTfvcCheckinOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsTfvcCheckinOutput) ToServicehookWebhookTfsTfvcCheckinOutputWithContext(ctx context.Context) ServicehookWebhookTfsTfvcCheckinOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsTfvcCheckinOutput) ToServicehookWebhookTfsTfvcCheckinPtrOutput() ServicehookWebhookTfsTfvcCheckinPtrOutput {
+	return o.ToServicehookWebhookTfsTfvcCheckinPtrOutputWithContext(context.Background())
+}
+
+func (o ServicehookWebhookTfsTfvcCheckinOutput) ToServicehookWebhookTfsTfvcCheckinPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsTfvcCheckinPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicehookWebhookTfsTfvcCheckin) *ServicehookWebhookTfsTfvcCheckin {
+		return &v
+	}).(ServicehookWebhookTfsTfvcCheckinPtrOutput)
+}
+
+// Include only events for check-ins that change files under a specific path.
+func (o ServicehookWebhookTfsTfvcCheckinOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsTfvcCheckin) string { return v.Path }).(pulumi.StringOutput)
+}
+
+type ServicehookWebhookTfsTfvcCheckinPtrOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsTfvcCheckinPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsTfvcCheckin)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsTfvcCheckinPtrOutput) ToServicehookWebhookTfsTfvcCheckinPtrOutput() ServicehookWebhookTfsTfvcCheckinPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsTfvcCheckinPtrOutput) ToServicehookWebhookTfsTfvcCheckinPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsTfvcCheckinPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsTfvcCheckinPtrOutput) Elem() ServicehookWebhookTfsTfvcCheckinOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsTfvcCheckin) ServicehookWebhookTfsTfvcCheckin {
+		if v != nil {
+			return *v
+		}
+		var ret ServicehookWebhookTfsTfvcCheckin
+		return ret
+	}).(ServicehookWebhookTfsTfvcCheckinOutput)
+}
+
+// Include only events for check-ins that change files under a specific path.
+func (o ServicehookWebhookTfsTfvcCheckinPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsTfvcCheckin) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsWorkItemCommented struct {
+	// Include only events for work items under a specific area path.
+	AreaPath *string `pulumi:"areaPath"`
+	// Include only events for work items with a comment that contains a specific string.
+	CommentPattern *string `pulumi:"commentPattern"`
+	// Include only events for work items that contain a specific tag.
+	Tag *string `pulumi:"tag"`
+	// Include only events for work items of a specific type.
+	WorkItemType *string `pulumi:"workItemType"`
+}
+
+// ServicehookWebhookTfsWorkItemCommentedInput is an input type that accepts ServicehookWebhookTfsWorkItemCommentedArgs and ServicehookWebhookTfsWorkItemCommentedOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsWorkItemCommentedInput` via:
+//
+//	ServicehookWebhookTfsWorkItemCommentedArgs{...}
+type ServicehookWebhookTfsWorkItemCommentedInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsWorkItemCommentedOutput() ServicehookWebhookTfsWorkItemCommentedOutput
+	ToServicehookWebhookTfsWorkItemCommentedOutputWithContext(context.Context) ServicehookWebhookTfsWorkItemCommentedOutput
+}
+
+type ServicehookWebhookTfsWorkItemCommentedArgs struct {
+	// Include only events for work items under a specific area path.
+	AreaPath pulumi.StringPtrInput `pulumi:"areaPath"`
+	// Include only events for work items with a comment that contains a specific string.
+	CommentPattern pulumi.StringPtrInput `pulumi:"commentPattern"`
+	// Include only events for work items that contain a specific tag.
+	Tag pulumi.StringPtrInput `pulumi:"tag"`
+	// Include only events for work items of a specific type.
+	WorkItemType pulumi.StringPtrInput `pulumi:"workItemType"`
+}
+
+func (ServicehookWebhookTfsWorkItemCommentedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsWorkItemCommented)(nil)).Elem()
+}
+
+func (i ServicehookWebhookTfsWorkItemCommentedArgs) ToServicehookWebhookTfsWorkItemCommentedOutput() ServicehookWebhookTfsWorkItemCommentedOutput {
+	return i.ToServicehookWebhookTfsWorkItemCommentedOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsWorkItemCommentedArgs) ToServicehookWebhookTfsWorkItemCommentedOutputWithContext(ctx context.Context) ServicehookWebhookTfsWorkItemCommentedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsWorkItemCommentedOutput)
+}
+
+func (i ServicehookWebhookTfsWorkItemCommentedArgs) ToServicehookWebhookTfsWorkItemCommentedPtrOutput() ServicehookWebhookTfsWorkItemCommentedPtrOutput {
+	return i.ToServicehookWebhookTfsWorkItemCommentedPtrOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsWorkItemCommentedArgs) ToServicehookWebhookTfsWorkItemCommentedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsWorkItemCommentedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsWorkItemCommentedOutput).ToServicehookWebhookTfsWorkItemCommentedPtrOutputWithContext(ctx)
+}
+
+// ServicehookWebhookTfsWorkItemCommentedPtrInput is an input type that accepts ServicehookWebhookTfsWorkItemCommentedArgs, ServicehookWebhookTfsWorkItemCommentedPtr and ServicehookWebhookTfsWorkItemCommentedPtrOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsWorkItemCommentedPtrInput` via:
+//
+//	        ServicehookWebhookTfsWorkItemCommentedArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServicehookWebhookTfsWorkItemCommentedPtrInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsWorkItemCommentedPtrOutput() ServicehookWebhookTfsWorkItemCommentedPtrOutput
+	ToServicehookWebhookTfsWorkItemCommentedPtrOutputWithContext(context.Context) ServicehookWebhookTfsWorkItemCommentedPtrOutput
+}
+
+type servicehookWebhookTfsWorkItemCommentedPtrType ServicehookWebhookTfsWorkItemCommentedArgs
+
+func ServicehookWebhookTfsWorkItemCommentedPtr(v *ServicehookWebhookTfsWorkItemCommentedArgs) ServicehookWebhookTfsWorkItemCommentedPtrInput {
+	return (*servicehookWebhookTfsWorkItemCommentedPtrType)(v)
+}
+
+func (*servicehookWebhookTfsWorkItemCommentedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsWorkItemCommented)(nil)).Elem()
+}
+
+func (i *servicehookWebhookTfsWorkItemCommentedPtrType) ToServicehookWebhookTfsWorkItemCommentedPtrOutput() ServicehookWebhookTfsWorkItemCommentedPtrOutput {
+	return i.ToServicehookWebhookTfsWorkItemCommentedPtrOutputWithContext(context.Background())
+}
+
+func (i *servicehookWebhookTfsWorkItemCommentedPtrType) ToServicehookWebhookTfsWorkItemCommentedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsWorkItemCommentedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsWorkItemCommentedPtrOutput)
+}
+
+type ServicehookWebhookTfsWorkItemCommentedOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsWorkItemCommentedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsWorkItemCommented)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsWorkItemCommentedOutput) ToServicehookWebhookTfsWorkItemCommentedOutput() ServicehookWebhookTfsWorkItemCommentedOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsWorkItemCommentedOutput) ToServicehookWebhookTfsWorkItemCommentedOutputWithContext(ctx context.Context) ServicehookWebhookTfsWorkItemCommentedOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsWorkItemCommentedOutput) ToServicehookWebhookTfsWorkItemCommentedPtrOutput() ServicehookWebhookTfsWorkItemCommentedPtrOutput {
+	return o.ToServicehookWebhookTfsWorkItemCommentedPtrOutputWithContext(context.Background())
+}
+
+func (o ServicehookWebhookTfsWorkItemCommentedOutput) ToServicehookWebhookTfsWorkItemCommentedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsWorkItemCommentedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicehookWebhookTfsWorkItemCommented) *ServicehookWebhookTfsWorkItemCommented {
+		return &v
+	}).(ServicehookWebhookTfsWorkItemCommentedPtrOutput)
+}
+
+// Include only events for work items under a specific area path.
+func (o ServicehookWebhookTfsWorkItemCommentedOutput) AreaPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsWorkItemCommented) *string { return v.AreaPath }).(pulumi.StringPtrOutput)
+}
+
+// Include only events for work items with a comment that contains a specific string.
+func (o ServicehookWebhookTfsWorkItemCommentedOutput) CommentPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsWorkItemCommented) *string { return v.CommentPattern }).(pulumi.StringPtrOutput)
+}
+
+// Include only events for work items that contain a specific tag.
+func (o ServicehookWebhookTfsWorkItemCommentedOutput) Tag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsWorkItemCommented) *string { return v.Tag }).(pulumi.StringPtrOutput)
+}
+
+// Include only events for work items of a specific type.
+func (o ServicehookWebhookTfsWorkItemCommentedOutput) WorkItemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsWorkItemCommented) *string { return v.WorkItemType }).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsWorkItemCommentedPtrOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsWorkItemCommentedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsWorkItemCommented)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsWorkItemCommentedPtrOutput) ToServicehookWebhookTfsWorkItemCommentedPtrOutput() ServicehookWebhookTfsWorkItemCommentedPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsWorkItemCommentedPtrOutput) ToServicehookWebhookTfsWorkItemCommentedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsWorkItemCommentedPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsWorkItemCommentedPtrOutput) Elem() ServicehookWebhookTfsWorkItemCommentedOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsWorkItemCommented) ServicehookWebhookTfsWorkItemCommented {
+		if v != nil {
+			return *v
+		}
+		var ret ServicehookWebhookTfsWorkItemCommented
+		return ret
+	}).(ServicehookWebhookTfsWorkItemCommentedOutput)
+}
+
+// Include only events for work items under a specific area path.
+func (o ServicehookWebhookTfsWorkItemCommentedPtrOutput) AreaPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsWorkItemCommented) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AreaPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Include only events for work items with a comment that contains a specific string.
+func (o ServicehookWebhookTfsWorkItemCommentedPtrOutput) CommentPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsWorkItemCommented) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CommentPattern
+	}).(pulumi.StringPtrOutput)
+}
+
+// Include only events for work items that contain a specific tag.
+func (o ServicehookWebhookTfsWorkItemCommentedPtrOutput) Tag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsWorkItemCommented) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tag
+	}).(pulumi.StringPtrOutput)
+}
+
+// Include only events for work items of a specific type.
+func (o ServicehookWebhookTfsWorkItemCommentedPtrOutput) WorkItemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsWorkItemCommented) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WorkItemType
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsWorkItemCreated struct {
+	// Include only events for work items under a specific area path.
+	AreaPath *string `pulumi:"areaPath"`
+	// Include only events for work items with one or more links added or removed.
+	LinksChanged *bool `pulumi:"linksChanged"`
+	// Include only events for work items that contain a specific tag.
+	Tag *string `pulumi:"tag"`
+	// Include only events for work items of a specific type.
+	WorkItemType *string `pulumi:"workItemType"`
+}
+
+// ServicehookWebhookTfsWorkItemCreatedInput is an input type that accepts ServicehookWebhookTfsWorkItemCreatedArgs and ServicehookWebhookTfsWorkItemCreatedOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsWorkItemCreatedInput` via:
+//
+//	ServicehookWebhookTfsWorkItemCreatedArgs{...}
+type ServicehookWebhookTfsWorkItemCreatedInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsWorkItemCreatedOutput() ServicehookWebhookTfsWorkItemCreatedOutput
+	ToServicehookWebhookTfsWorkItemCreatedOutputWithContext(context.Context) ServicehookWebhookTfsWorkItemCreatedOutput
+}
+
+type ServicehookWebhookTfsWorkItemCreatedArgs struct {
+	// Include only events for work items under a specific area path.
+	AreaPath pulumi.StringPtrInput `pulumi:"areaPath"`
+	// Include only events for work items with one or more links added or removed.
+	LinksChanged pulumi.BoolPtrInput `pulumi:"linksChanged"`
+	// Include only events for work items that contain a specific tag.
+	Tag pulumi.StringPtrInput `pulumi:"tag"`
+	// Include only events for work items of a specific type.
+	WorkItemType pulumi.StringPtrInput `pulumi:"workItemType"`
+}
+
+func (ServicehookWebhookTfsWorkItemCreatedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsWorkItemCreated)(nil)).Elem()
+}
+
+func (i ServicehookWebhookTfsWorkItemCreatedArgs) ToServicehookWebhookTfsWorkItemCreatedOutput() ServicehookWebhookTfsWorkItemCreatedOutput {
+	return i.ToServicehookWebhookTfsWorkItemCreatedOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsWorkItemCreatedArgs) ToServicehookWebhookTfsWorkItemCreatedOutputWithContext(ctx context.Context) ServicehookWebhookTfsWorkItemCreatedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsWorkItemCreatedOutput)
+}
+
+func (i ServicehookWebhookTfsWorkItemCreatedArgs) ToServicehookWebhookTfsWorkItemCreatedPtrOutput() ServicehookWebhookTfsWorkItemCreatedPtrOutput {
+	return i.ToServicehookWebhookTfsWorkItemCreatedPtrOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsWorkItemCreatedArgs) ToServicehookWebhookTfsWorkItemCreatedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsWorkItemCreatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsWorkItemCreatedOutput).ToServicehookWebhookTfsWorkItemCreatedPtrOutputWithContext(ctx)
+}
+
+// ServicehookWebhookTfsWorkItemCreatedPtrInput is an input type that accepts ServicehookWebhookTfsWorkItemCreatedArgs, ServicehookWebhookTfsWorkItemCreatedPtr and ServicehookWebhookTfsWorkItemCreatedPtrOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsWorkItemCreatedPtrInput` via:
+//
+//	        ServicehookWebhookTfsWorkItemCreatedArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServicehookWebhookTfsWorkItemCreatedPtrInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsWorkItemCreatedPtrOutput() ServicehookWebhookTfsWorkItemCreatedPtrOutput
+	ToServicehookWebhookTfsWorkItemCreatedPtrOutputWithContext(context.Context) ServicehookWebhookTfsWorkItemCreatedPtrOutput
+}
+
+type servicehookWebhookTfsWorkItemCreatedPtrType ServicehookWebhookTfsWorkItemCreatedArgs
+
+func ServicehookWebhookTfsWorkItemCreatedPtr(v *ServicehookWebhookTfsWorkItemCreatedArgs) ServicehookWebhookTfsWorkItemCreatedPtrInput {
+	return (*servicehookWebhookTfsWorkItemCreatedPtrType)(v)
+}
+
+func (*servicehookWebhookTfsWorkItemCreatedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsWorkItemCreated)(nil)).Elem()
+}
+
+func (i *servicehookWebhookTfsWorkItemCreatedPtrType) ToServicehookWebhookTfsWorkItemCreatedPtrOutput() ServicehookWebhookTfsWorkItemCreatedPtrOutput {
+	return i.ToServicehookWebhookTfsWorkItemCreatedPtrOutputWithContext(context.Background())
+}
+
+func (i *servicehookWebhookTfsWorkItemCreatedPtrType) ToServicehookWebhookTfsWorkItemCreatedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsWorkItemCreatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsWorkItemCreatedPtrOutput)
+}
+
+type ServicehookWebhookTfsWorkItemCreatedOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsWorkItemCreatedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsWorkItemCreated)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsWorkItemCreatedOutput) ToServicehookWebhookTfsWorkItemCreatedOutput() ServicehookWebhookTfsWorkItemCreatedOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsWorkItemCreatedOutput) ToServicehookWebhookTfsWorkItemCreatedOutputWithContext(ctx context.Context) ServicehookWebhookTfsWorkItemCreatedOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsWorkItemCreatedOutput) ToServicehookWebhookTfsWorkItemCreatedPtrOutput() ServicehookWebhookTfsWorkItemCreatedPtrOutput {
+	return o.ToServicehookWebhookTfsWorkItemCreatedPtrOutputWithContext(context.Background())
+}
+
+func (o ServicehookWebhookTfsWorkItemCreatedOutput) ToServicehookWebhookTfsWorkItemCreatedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsWorkItemCreatedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicehookWebhookTfsWorkItemCreated) *ServicehookWebhookTfsWorkItemCreated {
+		return &v
+	}).(ServicehookWebhookTfsWorkItemCreatedPtrOutput)
+}
+
+// Include only events for work items under a specific area path.
+func (o ServicehookWebhookTfsWorkItemCreatedOutput) AreaPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsWorkItemCreated) *string { return v.AreaPath }).(pulumi.StringPtrOutput)
+}
+
+// Include only events for work items with one or more links added or removed.
+func (o ServicehookWebhookTfsWorkItemCreatedOutput) LinksChanged() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsWorkItemCreated) *bool { return v.LinksChanged }).(pulumi.BoolPtrOutput)
+}
+
+// Include only events for work items that contain a specific tag.
+func (o ServicehookWebhookTfsWorkItemCreatedOutput) Tag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsWorkItemCreated) *string { return v.Tag }).(pulumi.StringPtrOutput)
+}
+
+// Include only events for work items of a specific type.
+func (o ServicehookWebhookTfsWorkItemCreatedOutput) WorkItemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsWorkItemCreated) *string { return v.WorkItemType }).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsWorkItemCreatedPtrOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsWorkItemCreatedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsWorkItemCreated)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsWorkItemCreatedPtrOutput) ToServicehookWebhookTfsWorkItemCreatedPtrOutput() ServicehookWebhookTfsWorkItemCreatedPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsWorkItemCreatedPtrOutput) ToServicehookWebhookTfsWorkItemCreatedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsWorkItemCreatedPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsWorkItemCreatedPtrOutput) Elem() ServicehookWebhookTfsWorkItemCreatedOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsWorkItemCreated) ServicehookWebhookTfsWorkItemCreated {
+		if v != nil {
+			return *v
+		}
+		var ret ServicehookWebhookTfsWorkItemCreated
+		return ret
+	}).(ServicehookWebhookTfsWorkItemCreatedOutput)
+}
+
+// Include only events for work items under a specific area path.
+func (o ServicehookWebhookTfsWorkItemCreatedPtrOutput) AreaPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsWorkItemCreated) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AreaPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Include only events for work items with one or more links added or removed.
+func (o ServicehookWebhookTfsWorkItemCreatedPtrOutput) LinksChanged() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsWorkItemCreated) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.LinksChanged
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Include only events for work items that contain a specific tag.
+func (o ServicehookWebhookTfsWorkItemCreatedPtrOutput) Tag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsWorkItemCreated) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tag
+	}).(pulumi.StringPtrOutput)
+}
+
+// Include only events for work items of a specific type.
+func (o ServicehookWebhookTfsWorkItemCreatedPtrOutput) WorkItemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsWorkItemCreated) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WorkItemType
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsWorkItemDeleted struct {
+	// Include only events for work items under a specific area path.
+	AreaPath *string `pulumi:"areaPath"`
+	// Include only events for work items that contain a specific tag.
+	Tag *string `pulumi:"tag"`
+	// Include only events for work items of a specific type.
+	WorkItemType *string `pulumi:"workItemType"`
+}
+
+// ServicehookWebhookTfsWorkItemDeletedInput is an input type that accepts ServicehookWebhookTfsWorkItemDeletedArgs and ServicehookWebhookTfsWorkItemDeletedOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsWorkItemDeletedInput` via:
+//
+//	ServicehookWebhookTfsWorkItemDeletedArgs{...}
+type ServicehookWebhookTfsWorkItemDeletedInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsWorkItemDeletedOutput() ServicehookWebhookTfsWorkItemDeletedOutput
+	ToServicehookWebhookTfsWorkItemDeletedOutputWithContext(context.Context) ServicehookWebhookTfsWorkItemDeletedOutput
+}
+
+type ServicehookWebhookTfsWorkItemDeletedArgs struct {
+	// Include only events for work items under a specific area path.
+	AreaPath pulumi.StringPtrInput `pulumi:"areaPath"`
+	// Include only events for work items that contain a specific tag.
+	Tag pulumi.StringPtrInput `pulumi:"tag"`
+	// Include only events for work items of a specific type.
+	WorkItemType pulumi.StringPtrInput `pulumi:"workItemType"`
+}
+
+func (ServicehookWebhookTfsWorkItemDeletedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsWorkItemDeleted)(nil)).Elem()
+}
+
+func (i ServicehookWebhookTfsWorkItemDeletedArgs) ToServicehookWebhookTfsWorkItemDeletedOutput() ServicehookWebhookTfsWorkItemDeletedOutput {
+	return i.ToServicehookWebhookTfsWorkItemDeletedOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsWorkItemDeletedArgs) ToServicehookWebhookTfsWorkItemDeletedOutputWithContext(ctx context.Context) ServicehookWebhookTfsWorkItemDeletedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsWorkItemDeletedOutput)
+}
+
+func (i ServicehookWebhookTfsWorkItemDeletedArgs) ToServicehookWebhookTfsWorkItemDeletedPtrOutput() ServicehookWebhookTfsWorkItemDeletedPtrOutput {
+	return i.ToServicehookWebhookTfsWorkItemDeletedPtrOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsWorkItemDeletedArgs) ToServicehookWebhookTfsWorkItemDeletedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsWorkItemDeletedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsWorkItemDeletedOutput).ToServicehookWebhookTfsWorkItemDeletedPtrOutputWithContext(ctx)
+}
+
+// ServicehookWebhookTfsWorkItemDeletedPtrInput is an input type that accepts ServicehookWebhookTfsWorkItemDeletedArgs, ServicehookWebhookTfsWorkItemDeletedPtr and ServicehookWebhookTfsWorkItemDeletedPtrOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsWorkItemDeletedPtrInput` via:
+//
+//	        ServicehookWebhookTfsWorkItemDeletedArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServicehookWebhookTfsWorkItemDeletedPtrInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsWorkItemDeletedPtrOutput() ServicehookWebhookTfsWorkItemDeletedPtrOutput
+	ToServicehookWebhookTfsWorkItemDeletedPtrOutputWithContext(context.Context) ServicehookWebhookTfsWorkItemDeletedPtrOutput
+}
+
+type servicehookWebhookTfsWorkItemDeletedPtrType ServicehookWebhookTfsWorkItemDeletedArgs
+
+func ServicehookWebhookTfsWorkItemDeletedPtr(v *ServicehookWebhookTfsWorkItemDeletedArgs) ServicehookWebhookTfsWorkItemDeletedPtrInput {
+	return (*servicehookWebhookTfsWorkItemDeletedPtrType)(v)
+}
+
+func (*servicehookWebhookTfsWorkItemDeletedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsWorkItemDeleted)(nil)).Elem()
+}
+
+func (i *servicehookWebhookTfsWorkItemDeletedPtrType) ToServicehookWebhookTfsWorkItemDeletedPtrOutput() ServicehookWebhookTfsWorkItemDeletedPtrOutput {
+	return i.ToServicehookWebhookTfsWorkItemDeletedPtrOutputWithContext(context.Background())
+}
+
+func (i *servicehookWebhookTfsWorkItemDeletedPtrType) ToServicehookWebhookTfsWorkItemDeletedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsWorkItemDeletedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsWorkItemDeletedPtrOutput)
+}
+
+type ServicehookWebhookTfsWorkItemDeletedOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsWorkItemDeletedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsWorkItemDeleted)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsWorkItemDeletedOutput) ToServicehookWebhookTfsWorkItemDeletedOutput() ServicehookWebhookTfsWorkItemDeletedOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsWorkItemDeletedOutput) ToServicehookWebhookTfsWorkItemDeletedOutputWithContext(ctx context.Context) ServicehookWebhookTfsWorkItemDeletedOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsWorkItemDeletedOutput) ToServicehookWebhookTfsWorkItemDeletedPtrOutput() ServicehookWebhookTfsWorkItemDeletedPtrOutput {
+	return o.ToServicehookWebhookTfsWorkItemDeletedPtrOutputWithContext(context.Background())
+}
+
+func (o ServicehookWebhookTfsWorkItemDeletedOutput) ToServicehookWebhookTfsWorkItemDeletedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsWorkItemDeletedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicehookWebhookTfsWorkItemDeleted) *ServicehookWebhookTfsWorkItemDeleted {
+		return &v
+	}).(ServicehookWebhookTfsWorkItemDeletedPtrOutput)
+}
+
+// Include only events for work items under a specific area path.
+func (o ServicehookWebhookTfsWorkItemDeletedOutput) AreaPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsWorkItemDeleted) *string { return v.AreaPath }).(pulumi.StringPtrOutput)
+}
+
+// Include only events for work items that contain a specific tag.
+func (o ServicehookWebhookTfsWorkItemDeletedOutput) Tag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsWorkItemDeleted) *string { return v.Tag }).(pulumi.StringPtrOutput)
+}
+
+// Include only events for work items of a specific type.
+func (o ServicehookWebhookTfsWorkItemDeletedOutput) WorkItemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsWorkItemDeleted) *string { return v.WorkItemType }).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsWorkItemDeletedPtrOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsWorkItemDeletedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsWorkItemDeleted)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsWorkItemDeletedPtrOutput) ToServicehookWebhookTfsWorkItemDeletedPtrOutput() ServicehookWebhookTfsWorkItemDeletedPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsWorkItemDeletedPtrOutput) ToServicehookWebhookTfsWorkItemDeletedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsWorkItemDeletedPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsWorkItemDeletedPtrOutput) Elem() ServicehookWebhookTfsWorkItemDeletedOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsWorkItemDeleted) ServicehookWebhookTfsWorkItemDeleted {
+		if v != nil {
+			return *v
+		}
+		var ret ServicehookWebhookTfsWorkItemDeleted
+		return ret
+	}).(ServicehookWebhookTfsWorkItemDeletedOutput)
+}
+
+// Include only events for work items under a specific area path.
+func (o ServicehookWebhookTfsWorkItemDeletedPtrOutput) AreaPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsWorkItemDeleted) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AreaPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Include only events for work items that contain a specific tag.
+func (o ServicehookWebhookTfsWorkItemDeletedPtrOutput) Tag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsWorkItemDeleted) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tag
+	}).(pulumi.StringPtrOutput)
+}
+
+// Include only events for work items of a specific type.
+func (o ServicehookWebhookTfsWorkItemDeletedPtrOutput) WorkItemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsWorkItemDeleted) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WorkItemType
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsWorkItemRestored struct {
+	// Include only events for work items under a specific area path.
+	AreaPath *string `pulumi:"areaPath"`
+	// Include only events for work items that contain a specific tag.
+	Tag *string `pulumi:"tag"`
+	// Include only events for work items of a specific type.
+	WorkItemType *string `pulumi:"workItemType"`
+}
+
+// ServicehookWebhookTfsWorkItemRestoredInput is an input type that accepts ServicehookWebhookTfsWorkItemRestoredArgs and ServicehookWebhookTfsWorkItemRestoredOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsWorkItemRestoredInput` via:
+//
+//	ServicehookWebhookTfsWorkItemRestoredArgs{...}
+type ServicehookWebhookTfsWorkItemRestoredInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsWorkItemRestoredOutput() ServicehookWebhookTfsWorkItemRestoredOutput
+	ToServicehookWebhookTfsWorkItemRestoredOutputWithContext(context.Context) ServicehookWebhookTfsWorkItemRestoredOutput
+}
+
+type ServicehookWebhookTfsWorkItemRestoredArgs struct {
+	// Include only events for work items under a specific area path.
+	AreaPath pulumi.StringPtrInput `pulumi:"areaPath"`
+	// Include only events for work items that contain a specific tag.
+	Tag pulumi.StringPtrInput `pulumi:"tag"`
+	// Include only events for work items of a specific type.
+	WorkItemType pulumi.StringPtrInput `pulumi:"workItemType"`
+}
+
+func (ServicehookWebhookTfsWorkItemRestoredArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsWorkItemRestored)(nil)).Elem()
+}
+
+func (i ServicehookWebhookTfsWorkItemRestoredArgs) ToServicehookWebhookTfsWorkItemRestoredOutput() ServicehookWebhookTfsWorkItemRestoredOutput {
+	return i.ToServicehookWebhookTfsWorkItemRestoredOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsWorkItemRestoredArgs) ToServicehookWebhookTfsWorkItemRestoredOutputWithContext(ctx context.Context) ServicehookWebhookTfsWorkItemRestoredOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsWorkItemRestoredOutput)
+}
+
+func (i ServicehookWebhookTfsWorkItemRestoredArgs) ToServicehookWebhookTfsWorkItemRestoredPtrOutput() ServicehookWebhookTfsWorkItemRestoredPtrOutput {
+	return i.ToServicehookWebhookTfsWorkItemRestoredPtrOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsWorkItemRestoredArgs) ToServicehookWebhookTfsWorkItemRestoredPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsWorkItemRestoredPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsWorkItemRestoredOutput).ToServicehookWebhookTfsWorkItemRestoredPtrOutputWithContext(ctx)
+}
+
+// ServicehookWebhookTfsWorkItemRestoredPtrInput is an input type that accepts ServicehookWebhookTfsWorkItemRestoredArgs, ServicehookWebhookTfsWorkItemRestoredPtr and ServicehookWebhookTfsWorkItemRestoredPtrOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsWorkItemRestoredPtrInput` via:
+//
+//	        ServicehookWebhookTfsWorkItemRestoredArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServicehookWebhookTfsWorkItemRestoredPtrInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsWorkItemRestoredPtrOutput() ServicehookWebhookTfsWorkItemRestoredPtrOutput
+	ToServicehookWebhookTfsWorkItemRestoredPtrOutputWithContext(context.Context) ServicehookWebhookTfsWorkItemRestoredPtrOutput
+}
+
+type servicehookWebhookTfsWorkItemRestoredPtrType ServicehookWebhookTfsWorkItemRestoredArgs
+
+func ServicehookWebhookTfsWorkItemRestoredPtr(v *ServicehookWebhookTfsWorkItemRestoredArgs) ServicehookWebhookTfsWorkItemRestoredPtrInput {
+	return (*servicehookWebhookTfsWorkItemRestoredPtrType)(v)
+}
+
+func (*servicehookWebhookTfsWorkItemRestoredPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsWorkItemRestored)(nil)).Elem()
+}
+
+func (i *servicehookWebhookTfsWorkItemRestoredPtrType) ToServicehookWebhookTfsWorkItemRestoredPtrOutput() ServicehookWebhookTfsWorkItemRestoredPtrOutput {
+	return i.ToServicehookWebhookTfsWorkItemRestoredPtrOutputWithContext(context.Background())
+}
+
+func (i *servicehookWebhookTfsWorkItemRestoredPtrType) ToServicehookWebhookTfsWorkItemRestoredPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsWorkItemRestoredPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsWorkItemRestoredPtrOutput)
+}
+
+type ServicehookWebhookTfsWorkItemRestoredOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsWorkItemRestoredOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsWorkItemRestored)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsWorkItemRestoredOutput) ToServicehookWebhookTfsWorkItemRestoredOutput() ServicehookWebhookTfsWorkItemRestoredOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsWorkItemRestoredOutput) ToServicehookWebhookTfsWorkItemRestoredOutputWithContext(ctx context.Context) ServicehookWebhookTfsWorkItemRestoredOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsWorkItemRestoredOutput) ToServicehookWebhookTfsWorkItemRestoredPtrOutput() ServicehookWebhookTfsWorkItemRestoredPtrOutput {
+	return o.ToServicehookWebhookTfsWorkItemRestoredPtrOutputWithContext(context.Background())
+}
+
+func (o ServicehookWebhookTfsWorkItemRestoredOutput) ToServicehookWebhookTfsWorkItemRestoredPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsWorkItemRestoredPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicehookWebhookTfsWorkItemRestored) *ServicehookWebhookTfsWorkItemRestored {
+		return &v
+	}).(ServicehookWebhookTfsWorkItemRestoredPtrOutput)
+}
+
+// Include only events for work items under a specific area path.
+func (o ServicehookWebhookTfsWorkItemRestoredOutput) AreaPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsWorkItemRestored) *string { return v.AreaPath }).(pulumi.StringPtrOutput)
+}
+
+// Include only events for work items that contain a specific tag.
+func (o ServicehookWebhookTfsWorkItemRestoredOutput) Tag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsWorkItemRestored) *string { return v.Tag }).(pulumi.StringPtrOutput)
+}
+
+// Include only events for work items of a specific type.
+func (o ServicehookWebhookTfsWorkItemRestoredOutput) WorkItemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsWorkItemRestored) *string { return v.WorkItemType }).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsWorkItemRestoredPtrOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsWorkItemRestoredPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsWorkItemRestored)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsWorkItemRestoredPtrOutput) ToServicehookWebhookTfsWorkItemRestoredPtrOutput() ServicehookWebhookTfsWorkItemRestoredPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsWorkItemRestoredPtrOutput) ToServicehookWebhookTfsWorkItemRestoredPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsWorkItemRestoredPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsWorkItemRestoredPtrOutput) Elem() ServicehookWebhookTfsWorkItemRestoredOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsWorkItemRestored) ServicehookWebhookTfsWorkItemRestored {
+		if v != nil {
+			return *v
+		}
+		var ret ServicehookWebhookTfsWorkItemRestored
+		return ret
+	}).(ServicehookWebhookTfsWorkItemRestoredOutput)
+}
+
+// Include only events for work items under a specific area path.
+func (o ServicehookWebhookTfsWorkItemRestoredPtrOutput) AreaPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsWorkItemRestored) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AreaPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Include only events for work items that contain a specific tag.
+func (o ServicehookWebhookTfsWorkItemRestoredPtrOutput) Tag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsWorkItemRestored) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tag
+	}).(pulumi.StringPtrOutput)
+}
+
+// Include only events for work items of a specific type.
+func (o ServicehookWebhookTfsWorkItemRestoredPtrOutput) WorkItemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsWorkItemRestored) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WorkItemType
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsWorkItemUpdated struct {
+	// Include only events for work items under a specific area path.
+	AreaPath *string `pulumi:"areaPath"`
+	// Include only events for work items with a change in a specific field.
+	ChangedFields *string `pulumi:"changedFields"`
+	// Include only events for work items with one or more links added or removed.
+	LinksChanged *bool `pulumi:"linksChanged"`
+	// Include only events for work items that contain a specific tag.
+	Tag *string `pulumi:"tag"`
+	// Include only events for work items of a specific type.
+	WorkItemType *string `pulumi:"workItemType"`
+}
+
+// ServicehookWebhookTfsWorkItemUpdatedInput is an input type that accepts ServicehookWebhookTfsWorkItemUpdatedArgs and ServicehookWebhookTfsWorkItemUpdatedOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsWorkItemUpdatedInput` via:
+//
+//	ServicehookWebhookTfsWorkItemUpdatedArgs{...}
+type ServicehookWebhookTfsWorkItemUpdatedInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsWorkItemUpdatedOutput() ServicehookWebhookTfsWorkItemUpdatedOutput
+	ToServicehookWebhookTfsWorkItemUpdatedOutputWithContext(context.Context) ServicehookWebhookTfsWorkItemUpdatedOutput
+}
+
+type ServicehookWebhookTfsWorkItemUpdatedArgs struct {
+	// Include only events for work items under a specific area path.
+	AreaPath pulumi.StringPtrInput `pulumi:"areaPath"`
+	// Include only events for work items with a change in a specific field.
+	ChangedFields pulumi.StringPtrInput `pulumi:"changedFields"`
+	// Include only events for work items with one or more links added or removed.
+	LinksChanged pulumi.BoolPtrInput `pulumi:"linksChanged"`
+	// Include only events for work items that contain a specific tag.
+	Tag pulumi.StringPtrInput `pulumi:"tag"`
+	// Include only events for work items of a specific type.
+	WorkItemType pulumi.StringPtrInput `pulumi:"workItemType"`
+}
+
+func (ServicehookWebhookTfsWorkItemUpdatedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsWorkItemUpdated)(nil)).Elem()
+}
+
+func (i ServicehookWebhookTfsWorkItemUpdatedArgs) ToServicehookWebhookTfsWorkItemUpdatedOutput() ServicehookWebhookTfsWorkItemUpdatedOutput {
+	return i.ToServicehookWebhookTfsWorkItemUpdatedOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsWorkItemUpdatedArgs) ToServicehookWebhookTfsWorkItemUpdatedOutputWithContext(ctx context.Context) ServicehookWebhookTfsWorkItemUpdatedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsWorkItemUpdatedOutput)
+}
+
+func (i ServicehookWebhookTfsWorkItemUpdatedArgs) ToServicehookWebhookTfsWorkItemUpdatedPtrOutput() ServicehookWebhookTfsWorkItemUpdatedPtrOutput {
+	return i.ToServicehookWebhookTfsWorkItemUpdatedPtrOutputWithContext(context.Background())
+}
+
+func (i ServicehookWebhookTfsWorkItemUpdatedArgs) ToServicehookWebhookTfsWorkItemUpdatedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsWorkItemUpdatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsWorkItemUpdatedOutput).ToServicehookWebhookTfsWorkItemUpdatedPtrOutputWithContext(ctx)
+}
+
+// ServicehookWebhookTfsWorkItemUpdatedPtrInput is an input type that accepts ServicehookWebhookTfsWorkItemUpdatedArgs, ServicehookWebhookTfsWorkItemUpdatedPtr and ServicehookWebhookTfsWorkItemUpdatedPtrOutput values.
+// You can construct a concrete instance of `ServicehookWebhookTfsWorkItemUpdatedPtrInput` via:
+//
+//	        ServicehookWebhookTfsWorkItemUpdatedArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServicehookWebhookTfsWorkItemUpdatedPtrInput interface {
+	pulumi.Input
+
+	ToServicehookWebhookTfsWorkItemUpdatedPtrOutput() ServicehookWebhookTfsWorkItemUpdatedPtrOutput
+	ToServicehookWebhookTfsWorkItemUpdatedPtrOutputWithContext(context.Context) ServicehookWebhookTfsWorkItemUpdatedPtrOutput
+}
+
+type servicehookWebhookTfsWorkItemUpdatedPtrType ServicehookWebhookTfsWorkItemUpdatedArgs
+
+func ServicehookWebhookTfsWorkItemUpdatedPtr(v *ServicehookWebhookTfsWorkItemUpdatedArgs) ServicehookWebhookTfsWorkItemUpdatedPtrInput {
+	return (*servicehookWebhookTfsWorkItemUpdatedPtrType)(v)
+}
+
+func (*servicehookWebhookTfsWorkItemUpdatedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsWorkItemUpdated)(nil)).Elem()
+}
+
+func (i *servicehookWebhookTfsWorkItemUpdatedPtrType) ToServicehookWebhookTfsWorkItemUpdatedPtrOutput() ServicehookWebhookTfsWorkItemUpdatedPtrOutput {
+	return i.ToServicehookWebhookTfsWorkItemUpdatedPtrOutputWithContext(context.Background())
+}
+
+func (i *servicehookWebhookTfsWorkItemUpdatedPtrType) ToServicehookWebhookTfsWorkItemUpdatedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsWorkItemUpdatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicehookWebhookTfsWorkItemUpdatedPtrOutput)
+}
+
+type ServicehookWebhookTfsWorkItemUpdatedOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsWorkItemUpdatedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicehookWebhookTfsWorkItemUpdated)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsWorkItemUpdatedOutput) ToServicehookWebhookTfsWorkItemUpdatedOutput() ServicehookWebhookTfsWorkItemUpdatedOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsWorkItemUpdatedOutput) ToServicehookWebhookTfsWorkItemUpdatedOutputWithContext(ctx context.Context) ServicehookWebhookTfsWorkItemUpdatedOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsWorkItemUpdatedOutput) ToServicehookWebhookTfsWorkItemUpdatedPtrOutput() ServicehookWebhookTfsWorkItemUpdatedPtrOutput {
+	return o.ToServicehookWebhookTfsWorkItemUpdatedPtrOutputWithContext(context.Background())
+}
+
+func (o ServicehookWebhookTfsWorkItemUpdatedOutput) ToServicehookWebhookTfsWorkItemUpdatedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsWorkItemUpdatedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicehookWebhookTfsWorkItemUpdated) *ServicehookWebhookTfsWorkItemUpdated {
+		return &v
+	}).(ServicehookWebhookTfsWorkItemUpdatedPtrOutput)
+}
+
+// Include only events for work items under a specific area path.
+func (o ServicehookWebhookTfsWorkItemUpdatedOutput) AreaPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsWorkItemUpdated) *string { return v.AreaPath }).(pulumi.StringPtrOutput)
+}
+
+// Include only events for work items with a change in a specific field.
+func (o ServicehookWebhookTfsWorkItemUpdatedOutput) ChangedFields() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsWorkItemUpdated) *string { return v.ChangedFields }).(pulumi.StringPtrOutput)
+}
+
+// Include only events for work items with one or more links added or removed.
+func (o ServicehookWebhookTfsWorkItemUpdatedOutput) LinksChanged() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsWorkItemUpdated) *bool { return v.LinksChanged }).(pulumi.BoolPtrOutput)
+}
+
+// Include only events for work items that contain a specific tag.
+func (o ServicehookWebhookTfsWorkItemUpdatedOutput) Tag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsWorkItemUpdated) *string { return v.Tag }).(pulumi.StringPtrOutput)
+}
+
+// Include only events for work items of a specific type.
+func (o ServicehookWebhookTfsWorkItemUpdatedOutput) WorkItemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicehookWebhookTfsWorkItemUpdated) *string { return v.WorkItemType }).(pulumi.StringPtrOutput)
+}
+
+type ServicehookWebhookTfsWorkItemUpdatedPtrOutput struct{ *pulumi.OutputState }
+
+func (ServicehookWebhookTfsWorkItemUpdatedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicehookWebhookTfsWorkItemUpdated)(nil)).Elem()
+}
+
+func (o ServicehookWebhookTfsWorkItemUpdatedPtrOutput) ToServicehookWebhookTfsWorkItemUpdatedPtrOutput() ServicehookWebhookTfsWorkItemUpdatedPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsWorkItemUpdatedPtrOutput) ToServicehookWebhookTfsWorkItemUpdatedPtrOutputWithContext(ctx context.Context) ServicehookWebhookTfsWorkItemUpdatedPtrOutput {
+	return o
+}
+
+func (o ServicehookWebhookTfsWorkItemUpdatedPtrOutput) Elem() ServicehookWebhookTfsWorkItemUpdatedOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsWorkItemUpdated) ServicehookWebhookTfsWorkItemUpdated {
+		if v != nil {
+			return *v
+		}
+		var ret ServicehookWebhookTfsWorkItemUpdated
+		return ret
+	}).(ServicehookWebhookTfsWorkItemUpdatedOutput)
+}
+
+// Include only events for work items under a specific area path.
+func (o ServicehookWebhookTfsWorkItemUpdatedPtrOutput) AreaPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsWorkItemUpdated) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AreaPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Include only events for work items with a change in a specific field.
+func (o ServicehookWebhookTfsWorkItemUpdatedPtrOutput) ChangedFields() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsWorkItemUpdated) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ChangedFields
+	}).(pulumi.StringPtrOutput)
+}
+
+// Include only events for work items with one or more links added or removed.
+func (o ServicehookWebhookTfsWorkItemUpdatedPtrOutput) LinksChanged() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsWorkItemUpdated) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.LinksChanged
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Include only events for work items that contain a specific tag.
+func (o ServicehookWebhookTfsWorkItemUpdatedPtrOutput) Tag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsWorkItemUpdated) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tag
+	}).(pulumi.StringPtrOutput)
+}
+
+// Include only events for work items of a specific type.
+func (o ServicehookWebhookTfsWorkItemUpdatedPtrOutput) WorkItemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfsWorkItemUpdated) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WorkItemType
+	}).(pulumi.StringPtrOutput)
+}
+
 type VariableGroupKeyVault struct {
 	// The name of the Azure key vault to link secrets from as variables.
 	Name string `pulumi:"name"`
@@ -15933,6 +19089,425 @@ func (o GetVariableGroupVariableArrayOutput) Index(i pulumi.IntInput) GetVariabl
 	}).(GetVariableGroupVariableOutput)
 }
 
+type GetWorkitemtrackingprocessProcessProject struct {
+	// Description of the project.
+	Description string `pulumi:"description"`
+	// The ID of the process.
+	Id string `pulumi:"id"`
+	// Name of the project.
+	Name string `pulumi:"name"`
+	// Url of the project.
+	Url string `pulumi:"url"`
+}
+
+// GetWorkitemtrackingprocessProcessProjectInput is an input type that accepts GetWorkitemtrackingprocessProcessProjectArgs and GetWorkitemtrackingprocessProcessProjectOutput values.
+// You can construct a concrete instance of `GetWorkitemtrackingprocessProcessProjectInput` via:
+//
+//	GetWorkitemtrackingprocessProcessProjectArgs{...}
+type GetWorkitemtrackingprocessProcessProjectInput interface {
+	pulumi.Input
+
+	ToGetWorkitemtrackingprocessProcessProjectOutput() GetWorkitemtrackingprocessProcessProjectOutput
+	ToGetWorkitemtrackingprocessProcessProjectOutputWithContext(context.Context) GetWorkitemtrackingprocessProcessProjectOutput
+}
+
+type GetWorkitemtrackingprocessProcessProjectArgs struct {
+	// Description of the project.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The ID of the process.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the project.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Url of the project.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetWorkitemtrackingprocessProcessProjectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWorkitemtrackingprocessProcessProject)(nil)).Elem()
+}
+
+func (i GetWorkitemtrackingprocessProcessProjectArgs) ToGetWorkitemtrackingprocessProcessProjectOutput() GetWorkitemtrackingprocessProcessProjectOutput {
+	return i.ToGetWorkitemtrackingprocessProcessProjectOutputWithContext(context.Background())
+}
+
+func (i GetWorkitemtrackingprocessProcessProjectArgs) ToGetWorkitemtrackingprocessProcessProjectOutputWithContext(ctx context.Context) GetWorkitemtrackingprocessProcessProjectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWorkitemtrackingprocessProcessProjectOutput)
+}
+
+// GetWorkitemtrackingprocessProcessProjectArrayInput is an input type that accepts GetWorkitemtrackingprocessProcessProjectArray and GetWorkitemtrackingprocessProcessProjectArrayOutput values.
+// You can construct a concrete instance of `GetWorkitemtrackingprocessProcessProjectArrayInput` via:
+//
+//	GetWorkitemtrackingprocessProcessProjectArray{ GetWorkitemtrackingprocessProcessProjectArgs{...} }
+type GetWorkitemtrackingprocessProcessProjectArrayInput interface {
+	pulumi.Input
+
+	ToGetWorkitemtrackingprocessProcessProjectArrayOutput() GetWorkitemtrackingprocessProcessProjectArrayOutput
+	ToGetWorkitemtrackingprocessProcessProjectArrayOutputWithContext(context.Context) GetWorkitemtrackingprocessProcessProjectArrayOutput
+}
+
+type GetWorkitemtrackingprocessProcessProjectArray []GetWorkitemtrackingprocessProcessProjectInput
+
+func (GetWorkitemtrackingprocessProcessProjectArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWorkitemtrackingprocessProcessProject)(nil)).Elem()
+}
+
+func (i GetWorkitemtrackingprocessProcessProjectArray) ToGetWorkitemtrackingprocessProcessProjectArrayOutput() GetWorkitemtrackingprocessProcessProjectArrayOutput {
+	return i.ToGetWorkitemtrackingprocessProcessProjectArrayOutputWithContext(context.Background())
+}
+
+func (i GetWorkitemtrackingprocessProcessProjectArray) ToGetWorkitemtrackingprocessProcessProjectArrayOutputWithContext(ctx context.Context) GetWorkitemtrackingprocessProcessProjectArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWorkitemtrackingprocessProcessProjectArrayOutput)
+}
+
+type GetWorkitemtrackingprocessProcessProjectOutput struct{ *pulumi.OutputState }
+
+func (GetWorkitemtrackingprocessProcessProjectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWorkitemtrackingprocessProcessProject)(nil)).Elem()
+}
+
+func (o GetWorkitemtrackingprocessProcessProjectOutput) ToGetWorkitemtrackingprocessProcessProjectOutput() GetWorkitemtrackingprocessProcessProjectOutput {
+	return o
+}
+
+func (o GetWorkitemtrackingprocessProcessProjectOutput) ToGetWorkitemtrackingprocessProcessProjectOutputWithContext(ctx context.Context) GetWorkitemtrackingprocessProcessProjectOutput {
+	return o
+}
+
+// Description of the project.
+func (o GetWorkitemtrackingprocessProcessProjectOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkitemtrackingprocessProcessProject) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The ID of the process.
+func (o GetWorkitemtrackingprocessProcessProjectOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkitemtrackingprocessProcessProject) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Name of the project.
+func (o GetWorkitemtrackingprocessProcessProjectOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkitemtrackingprocessProcessProject) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Url of the project.
+func (o GetWorkitemtrackingprocessProcessProjectOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkitemtrackingprocessProcessProject) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetWorkitemtrackingprocessProcessProjectArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWorkitemtrackingprocessProcessProjectArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWorkitemtrackingprocessProcessProject)(nil)).Elem()
+}
+
+func (o GetWorkitemtrackingprocessProcessProjectArrayOutput) ToGetWorkitemtrackingprocessProcessProjectArrayOutput() GetWorkitemtrackingprocessProcessProjectArrayOutput {
+	return o
+}
+
+func (o GetWorkitemtrackingprocessProcessProjectArrayOutput) ToGetWorkitemtrackingprocessProcessProjectArrayOutputWithContext(ctx context.Context) GetWorkitemtrackingprocessProcessProjectArrayOutput {
+	return o
+}
+
+func (o GetWorkitemtrackingprocessProcessProjectArrayOutput) Index(i pulumi.IntInput) GetWorkitemtrackingprocessProcessProjectOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWorkitemtrackingprocessProcessProject {
+		return vs[0].([]GetWorkitemtrackingprocessProcessProject)[vs[1].(int)]
+	}).(GetWorkitemtrackingprocessProcessProjectOutput)
+}
+
+type GetWorkitemtrackingprocessProcessesProcess struct {
+	// Indicates the type of customization on this process. System Process is default process. Inherited Process is modified process that was System process before.
+	CustomizationType string `pulumi:"customizationType"`
+	// Description of the project.
+	Description string `pulumi:"description"`
+	// The ID of the project.
+	Id string `pulumi:"id"`
+	// Is the process default?
+	IsDefault bool `pulumi:"isDefault"`
+	// Is the process enabled?
+	IsEnabled bool `pulumi:"isEnabled"`
+	// Name of the project.
+	Name string `pulumi:"name"`
+	// ID of the parent process.
+	ParentProcessTypeId string `pulumi:"parentProcessTypeId"`
+	// A `projects` block as defined below. Returns associated projects when using the 'projects' expand option.
+	Projects []GetWorkitemtrackingprocessProcessesProcessProject `pulumi:"projects"`
+	// Reference name of process being created. If not specified, server will assign a unique reference name.
+	ReferenceName string `pulumi:"referenceName"`
+}
+
+// GetWorkitemtrackingprocessProcessesProcessInput is an input type that accepts GetWorkitemtrackingprocessProcessesProcessArgs and GetWorkitemtrackingprocessProcessesProcessOutput values.
+// You can construct a concrete instance of `GetWorkitemtrackingprocessProcessesProcessInput` via:
+//
+//	GetWorkitemtrackingprocessProcessesProcessArgs{...}
+type GetWorkitemtrackingprocessProcessesProcessInput interface {
+	pulumi.Input
+
+	ToGetWorkitemtrackingprocessProcessesProcessOutput() GetWorkitemtrackingprocessProcessesProcessOutput
+	ToGetWorkitemtrackingprocessProcessesProcessOutputWithContext(context.Context) GetWorkitemtrackingprocessProcessesProcessOutput
+}
+
+type GetWorkitemtrackingprocessProcessesProcessArgs struct {
+	// Indicates the type of customization on this process. System Process is default process. Inherited Process is modified process that was System process before.
+	CustomizationType pulumi.StringInput `pulumi:"customizationType"`
+	// Description of the project.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The ID of the project.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Is the process default?
+	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
+	// Is the process enabled?
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+	// Name of the project.
+	Name pulumi.StringInput `pulumi:"name"`
+	// ID of the parent process.
+	ParentProcessTypeId pulumi.StringInput `pulumi:"parentProcessTypeId"`
+	// A `projects` block as defined below. Returns associated projects when using the 'projects' expand option.
+	Projects GetWorkitemtrackingprocessProcessesProcessProjectArrayInput `pulumi:"projects"`
+	// Reference name of process being created. If not specified, server will assign a unique reference name.
+	ReferenceName pulumi.StringInput `pulumi:"referenceName"`
+}
+
+func (GetWorkitemtrackingprocessProcessesProcessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWorkitemtrackingprocessProcessesProcess)(nil)).Elem()
+}
+
+func (i GetWorkitemtrackingprocessProcessesProcessArgs) ToGetWorkitemtrackingprocessProcessesProcessOutput() GetWorkitemtrackingprocessProcessesProcessOutput {
+	return i.ToGetWorkitemtrackingprocessProcessesProcessOutputWithContext(context.Background())
+}
+
+func (i GetWorkitemtrackingprocessProcessesProcessArgs) ToGetWorkitemtrackingprocessProcessesProcessOutputWithContext(ctx context.Context) GetWorkitemtrackingprocessProcessesProcessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWorkitemtrackingprocessProcessesProcessOutput)
+}
+
+// GetWorkitemtrackingprocessProcessesProcessArrayInput is an input type that accepts GetWorkitemtrackingprocessProcessesProcessArray and GetWorkitemtrackingprocessProcessesProcessArrayOutput values.
+// You can construct a concrete instance of `GetWorkitemtrackingprocessProcessesProcessArrayInput` via:
+//
+//	GetWorkitemtrackingprocessProcessesProcessArray{ GetWorkitemtrackingprocessProcessesProcessArgs{...} }
+type GetWorkitemtrackingprocessProcessesProcessArrayInput interface {
+	pulumi.Input
+
+	ToGetWorkitemtrackingprocessProcessesProcessArrayOutput() GetWorkitemtrackingprocessProcessesProcessArrayOutput
+	ToGetWorkitemtrackingprocessProcessesProcessArrayOutputWithContext(context.Context) GetWorkitemtrackingprocessProcessesProcessArrayOutput
+}
+
+type GetWorkitemtrackingprocessProcessesProcessArray []GetWorkitemtrackingprocessProcessesProcessInput
+
+func (GetWorkitemtrackingprocessProcessesProcessArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWorkitemtrackingprocessProcessesProcess)(nil)).Elem()
+}
+
+func (i GetWorkitemtrackingprocessProcessesProcessArray) ToGetWorkitemtrackingprocessProcessesProcessArrayOutput() GetWorkitemtrackingprocessProcessesProcessArrayOutput {
+	return i.ToGetWorkitemtrackingprocessProcessesProcessArrayOutputWithContext(context.Background())
+}
+
+func (i GetWorkitemtrackingprocessProcessesProcessArray) ToGetWorkitemtrackingprocessProcessesProcessArrayOutputWithContext(ctx context.Context) GetWorkitemtrackingprocessProcessesProcessArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWorkitemtrackingprocessProcessesProcessArrayOutput)
+}
+
+type GetWorkitemtrackingprocessProcessesProcessOutput struct{ *pulumi.OutputState }
+
+func (GetWorkitemtrackingprocessProcessesProcessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWorkitemtrackingprocessProcessesProcess)(nil)).Elem()
+}
+
+func (o GetWorkitemtrackingprocessProcessesProcessOutput) ToGetWorkitemtrackingprocessProcessesProcessOutput() GetWorkitemtrackingprocessProcessesProcessOutput {
+	return o
+}
+
+func (o GetWorkitemtrackingprocessProcessesProcessOutput) ToGetWorkitemtrackingprocessProcessesProcessOutputWithContext(ctx context.Context) GetWorkitemtrackingprocessProcessesProcessOutput {
+	return o
+}
+
+// Indicates the type of customization on this process. System Process is default process. Inherited Process is modified process that was System process before.
+func (o GetWorkitemtrackingprocessProcessesProcessOutput) CustomizationType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkitemtrackingprocessProcessesProcess) string { return v.CustomizationType }).(pulumi.StringOutput)
+}
+
+// Description of the project.
+func (o GetWorkitemtrackingprocessProcessesProcessOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkitemtrackingprocessProcessesProcess) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The ID of the project.
+func (o GetWorkitemtrackingprocessProcessesProcessOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkitemtrackingprocessProcessesProcess) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Is the process default?
+func (o GetWorkitemtrackingprocessProcessesProcessOutput) IsDefault() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWorkitemtrackingprocessProcessesProcess) bool { return v.IsDefault }).(pulumi.BoolOutput)
+}
+
+// Is the process enabled?
+func (o GetWorkitemtrackingprocessProcessesProcessOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWorkitemtrackingprocessProcessesProcess) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// Name of the project.
+func (o GetWorkitemtrackingprocessProcessesProcessOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkitemtrackingprocessProcessesProcess) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// ID of the parent process.
+func (o GetWorkitemtrackingprocessProcessesProcessOutput) ParentProcessTypeId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkitemtrackingprocessProcessesProcess) string { return v.ParentProcessTypeId }).(pulumi.StringOutput)
+}
+
+// A `projects` block as defined below. Returns associated projects when using the 'projects' expand option.
+func (o GetWorkitemtrackingprocessProcessesProcessOutput) Projects() GetWorkitemtrackingprocessProcessesProcessProjectArrayOutput {
+	return o.ApplyT(func(v GetWorkitemtrackingprocessProcessesProcess) []GetWorkitemtrackingprocessProcessesProcessProject {
+		return v.Projects
+	}).(GetWorkitemtrackingprocessProcessesProcessProjectArrayOutput)
+}
+
+// Reference name of process being created. If not specified, server will assign a unique reference name.
+func (o GetWorkitemtrackingprocessProcessesProcessOutput) ReferenceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkitemtrackingprocessProcessesProcess) string { return v.ReferenceName }).(pulumi.StringOutput)
+}
+
+type GetWorkitemtrackingprocessProcessesProcessArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWorkitemtrackingprocessProcessesProcessArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWorkitemtrackingprocessProcessesProcess)(nil)).Elem()
+}
+
+func (o GetWorkitemtrackingprocessProcessesProcessArrayOutput) ToGetWorkitemtrackingprocessProcessesProcessArrayOutput() GetWorkitemtrackingprocessProcessesProcessArrayOutput {
+	return o
+}
+
+func (o GetWorkitemtrackingprocessProcessesProcessArrayOutput) ToGetWorkitemtrackingprocessProcessesProcessArrayOutputWithContext(ctx context.Context) GetWorkitemtrackingprocessProcessesProcessArrayOutput {
+	return o
+}
+
+func (o GetWorkitemtrackingprocessProcessesProcessArrayOutput) Index(i pulumi.IntInput) GetWorkitemtrackingprocessProcessesProcessOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWorkitemtrackingprocessProcessesProcess {
+		return vs[0].([]GetWorkitemtrackingprocessProcessesProcess)[vs[1].(int)]
+	}).(GetWorkitemtrackingprocessProcessesProcessOutput)
+}
+
+type GetWorkitemtrackingprocessProcessesProcessProject struct {
+	// Description of the project.
+	Description string `pulumi:"description"`
+	// The ID of the project.
+	Id string `pulumi:"id"`
+	// Name of the project.
+	Name string `pulumi:"name"`
+	// Url of the project.
+	Url string `pulumi:"url"`
+}
+
+// GetWorkitemtrackingprocessProcessesProcessProjectInput is an input type that accepts GetWorkitemtrackingprocessProcessesProcessProjectArgs and GetWorkitemtrackingprocessProcessesProcessProjectOutput values.
+// You can construct a concrete instance of `GetWorkitemtrackingprocessProcessesProcessProjectInput` via:
+//
+//	GetWorkitemtrackingprocessProcessesProcessProjectArgs{...}
+type GetWorkitemtrackingprocessProcessesProcessProjectInput interface {
+	pulumi.Input
+
+	ToGetWorkitemtrackingprocessProcessesProcessProjectOutput() GetWorkitemtrackingprocessProcessesProcessProjectOutput
+	ToGetWorkitemtrackingprocessProcessesProcessProjectOutputWithContext(context.Context) GetWorkitemtrackingprocessProcessesProcessProjectOutput
+}
+
+type GetWorkitemtrackingprocessProcessesProcessProjectArgs struct {
+	// Description of the project.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The ID of the project.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the project.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Url of the project.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetWorkitemtrackingprocessProcessesProcessProjectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWorkitemtrackingprocessProcessesProcessProject)(nil)).Elem()
+}
+
+func (i GetWorkitemtrackingprocessProcessesProcessProjectArgs) ToGetWorkitemtrackingprocessProcessesProcessProjectOutput() GetWorkitemtrackingprocessProcessesProcessProjectOutput {
+	return i.ToGetWorkitemtrackingprocessProcessesProcessProjectOutputWithContext(context.Background())
+}
+
+func (i GetWorkitemtrackingprocessProcessesProcessProjectArgs) ToGetWorkitemtrackingprocessProcessesProcessProjectOutputWithContext(ctx context.Context) GetWorkitemtrackingprocessProcessesProcessProjectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWorkitemtrackingprocessProcessesProcessProjectOutput)
+}
+
+// GetWorkitemtrackingprocessProcessesProcessProjectArrayInput is an input type that accepts GetWorkitemtrackingprocessProcessesProcessProjectArray and GetWorkitemtrackingprocessProcessesProcessProjectArrayOutput values.
+// You can construct a concrete instance of `GetWorkitemtrackingprocessProcessesProcessProjectArrayInput` via:
+//
+//	GetWorkitemtrackingprocessProcessesProcessProjectArray{ GetWorkitemtrackingprocessProcessesProcessProjectArgs{...} }
+type GetWorkitemtrackingprocessProcessesProcessProjectArrayInput interface {
+	pulumi.Input
+
+	ToGetWorkitemtrackingprocessProcessesProcessProjectArrayOutput() GetWorkitemtrackingprocessProcessesProcessProjectArrayOutput
+	ToGetWorkitemtrackingprocessProcessesProcessProjectArrayOutputWithContext(context.Context) GetWorkitemtrackingprocessProcessesProcessProjectArrayOutput
+}
+
+type GetWorkitemtrackingprocessProcessesProcessProjectArray []GetWorkitemtrackingprocessProcessesProcessProjectInput
+
+func (GetWorkitemtrackingprocessProcessesProcessProjectArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWorkitemtrackingprocessProcessesProcessProject)(nil)).Elem()
+}
+
+func (i GetWorkitemtrackingprocessProcessesProcessProjectArray) ToGetWorkitemtrackingprocessProcessesProcessProjectArrayOutput() GetWorkitemtrackingprocessProcessesProcessProjectArrayOutput {
+	return i.ToGetWorkitemtrackingprocessProcessesProcessProjectArrayOutputWithContext(context.Background())
+}
+
+func (i GetWorkitemtrackingprocessProcessesProcessProjectArray) ToGetWorkitemtrackingprocessProcessesProcessProjectArrayOutputWithContext(ctx context.Context) GetWorkitemtrackingprocessProcessesProcessProjectArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWorkitemtrackingprocessProcessesProcessProjectArrayOutput)
+}
+
+type GetWorkitemtrackingprocessProcessesProcessProjectOutput struct{ *pulumi.OutputState }
+
+func (GetWorkitemtrackingprocessProcessesProcessProjectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWorkitemtrackingprocessProcessesProcessProject)(nil)).Elem()
+}
+
+func (o GetWorkitemtrackingprocessProcessesProcessProjectOutput) ToGetWorkitemtrackingprocessProcessesProcessProjectOutput() GetWorkitemtrackingprocessProcessesProcessProjectOutput {
+	return o
+}
+
+func (o GetWorkitemtrackingprocessProcessesProcessProjectOutput) ToGetWorkitemtrackingprocessProcessesProcessProjectOutputWithContext(ctx context.Context) GetWorkitemtrackingprocessProcessesProcessProjectOutput {
+	return o
+}
+
+// Description of the project.
+func (o GetWorkitemtrackingprocessProcessesProcessProjectOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkitemtrackingprocessProcessesProcessProject) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The ID of the project.
+func (o GetWorkitemtrackingprocessProcessesProcessProjectOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkitemtrackingprocessProcessesProcessProject) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Name of the project.
+func (o GetWorkitemtrackingprocessProcessesProcessProjectOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkitemtrackingprocessProcessesProcessProject) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Url of the project.
+func (o GetWorkitemtrackingprocessProcessesProcessProjectOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkitemtrackingprocessProcessesProcessProject) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetWorkitemtrackingprocessProcessesProcessProjectArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWorkitemtrackingprocessProcessesProcessProjectArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWorkitemtrackingprocessProcessesProcessProject)(nil)).Elem()
+}
+
+func (o GetWorkitemtrackingprocessProcessesProcessProjectArrayOutput) ToGetWorkitemtrackingprocessProcessesProcessProjectArrayOutput() GetWorkitemtrackingprocessProcessesProcessProjectArrayOutput {
+	return o
+}
+
+func (o GetWorkitemtrackingprocessProcessesProcessProjectArrayOutput) ToGetWorkitemtrackingprocessProcessesProcessProjectArrayOutputWithContext(ctx context.Context) GetWorkitemtrackingprocessProcessesProcessProjectArrayOutput {
+	return o
+}
+
+func (o GetWorkitemtrackingprocessProcessesProcessProjectArrayOutput) Index(i pulumi.IntInput) GetWorkitemtrackingprocessProcessesProcessProjectOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWorkitemtrackingprocessProcessesProcessProject {
+		return vs[0].([]GetWorkitemtrackingprocessProcessesProcessProject)[vs[1].(int)]
+	}).(GetWorkitemtrackingprocessProcessesProcessProjectOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyAutoReviewersSettingsInput)(nil)).Elem(), BranchPolicyAutoReviewersSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyAutoReviewersSettingsPtrInput)(nil)).Elem(), BranchPolicyAutoReviewersSettingsArgs{})
@@ -16078,6 +19653,44 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookStorageQueuePipelinesRunStateChangedEventPtrInput)(nil)).Elem(), ServicehookStorageQueuePipelinesRunStateChangedEventArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookStorageQueuePipelinesStageStateChangedEventInput)(nil)).Elem(), ServicehookStorageQueuePipelinesStageStateChangedEventArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookStorageQueuePipelinesStageStateChangedEventPtrInput)(nil)).Elem(), ServicehookStorageQueuePipelinesStageStateChangedEventArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsBuildCompletedInput)(nil)).Elem(), ServicehookWebhookTfsBuildCompletedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsBuildCompletedPtrInput)(nil)).Elem(), ServicehookWebhookTfsBuildCompletedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsGitPullRequestCommentedInput)(nil)).Elem(), ServicehookWebhookTfsGitPullRequestCommentedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsGitPullRequestCommentedPtrInput)(nil)).Elem(), ServicehookWebhookTfsGitPullRequestCommentedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsGitPullRequestCreatedInput)(nil)).Elem(), ServicehookWebhookTfsGitPullRequestCreatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsGitPullRequestCreatedPtrInput)(nil)).Elem(), ServicehookWebhookTfsGitPullRequestCreatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsGitPullRequestMergeAttemptedInput)(nil)).Elem(), ServicehookWebhookTfsGitPullRequestMergeAttemptedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsGitPullRequestMergeAttemptedPtrInput)(nil)).Elem(), ServicehookWebhookTfsGitPullRequestMergeAttemptedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsGitPullRequestUpdatedInput)(nil)).Elem(), ServicehookWebhookTfsGitPullRequestUpdatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsGitPullRequestUpdatedPtrInput)(nil)).Elem(), ServicehookWebhookTfsGitPullRequestUpdatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsGitPushInput)(nil)).Elem(), ServicehookWebhookTfsGitPushArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsGitPushPtrInput)(nil)).Elem(), ServicehookWebhookTfsGitPushArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsRepositoryCreatedInput)(nil)).Elem(), ServicehookWebhookTfsRepositoryCreatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsRepositoryCreatedPtrInput)(nil)).Elem(), ServicehookWebhookTfsRepositoryCreatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsRepositoryDeletedInput)(nil)).Elem(), ServicehookWebhookTfsRepositoryDeletedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsRepositoryDeletedPtrInput)(nil)).Elem(), ServicehookWebhookTfsRepositoryDeletedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsRepositoryForkedInput)(nil)).Elem(), ServicehookWebhookTfsRepositoryForkedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsRepositoryForkedPtrInput)(nil)).Elem(), ServicehookWebhookTfsRepositoryForkedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsRepositoryRenamedInput)(nil)).Elem(), ServicehookWebhookTfsRepositoryRenamedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsRepositoryRenamedPtrInput)(nil)).Elem(), ServicehookWebhookTfsRepositoryRenamedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsRepositoryStatusChangedInput)(nil)).Elem(), ServicehookWebhookTfsRepositoryStatusChangedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsRepositoryStatusChangedPtrInput)(nil)).Elem(), ServicehookWebhookTfsRepositoryStatusChangedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsServiceConnectionCreatedInput)(nil)).Elem(), ServicehookWebhookTfsServiceConnectionCreatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsServiceConnectionCreatedPtrInput)(nil)).Elem(), ServicehookWebhookTfsServiceConnectionCreatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsServiceConnectionUpdatedInput)(nil)).Elem(), ServicehookWebhookTfsServiceConnectionUpdatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsServiceConnectionUpdatedPtrInput)(nil)).Elem(), ServicehookWebhookTfsServiceConnectionUpdatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsTfvcCheckinInput)(nil)).Elem(), ServicehookWebhookTfsTfvcCheckinArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsTfvcCheckinPtrInput)(nil)).Elem(), ServicehookWebhookTfsTfvcCheckinArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsWorkItemCommentedInput)(nil)).Elem(), ServicehookWebhookTfsWorkItemCommentedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsWorkItemCommentedPtrInput)(nil)).Elem(), ServicehookWebhookTfsWorkItemCommentedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsWorkItemCreatedInput)(nil)).Elem(), ServicehookWebhookTfsWorkItemCreatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsWorkItemCreatedPtrInput)(nil)).Elem(), ServicehookWebhookTfsWorkItemCreatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsWorkItemDeletedInput)(nil)).Elem(), ServicehookWebhookTfsWorkItemDeletedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsWorkItemDeletedPtrInput)(nil)).Elem(), ServicehookWebhookTfsWorkItemDeletedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsWorkItemRestoredInput)(nil)).Elem(), ServicehookWebhookTfsWorkItemRestoredArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsWorkItemRestoredPtrInput)(nil)).Elem(), ServicehookWebhookTfsWorkItemRestoredArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsWorkItemUpdatedInput)(nil)).Elem(), ServicehookWebhookTfsWorkItemUpdatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsWorkItemUpdatedPtrInput)(nil)).Elem(), ServicehookWebhookTfsWorkItemUpdatedArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupKeyVaultInput)(nil)).Elem(), VariableGroupKeyVaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupKeyVaultPtrInput)(nil)).Elem(), VariableGroupKeyVaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupVariableInput)(nil)).Elem(), VariableGroupVariableArgs{})
@@ -16144,6 +19757,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVariableGroupKeyVaultArrayInput)(nil)).Elem(), GetVariableGroupKeyVaultArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVariableGroupVariableInput)(nil)).Elem(), GetVariableGroupVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVariableGroupVariableArrayInput)(nil)).Elem(), GetVariableGroupVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkitemtrackingprocessProcessProjectInput)(nil)).Elem(), GetWorkitemtrackingprocessProcessProjectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkitemtrackingprocessProcessProjectArrayInput)(nil)).Elem(), GetWorkitemtrackingprocessProcessProjectArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkitemtrackingprocessProcessesProcessInput)(nil)).Elem(), GetWorkitemtrackingprocessProcessesProcessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkitemtrackingprocessProcessesProcessArrayInput)(nil)).Elem(), GetWorkitemtrackingprocessProcessesProcessArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkitemtrackingprocessProcessesProcessProjectInput)(nil)).Elem(), GetWorkitemtrackingprocessProcessesProcessProjectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkitemtrackingprocessProcessesProcessProjectArrayInput)(nil)).Elem(), GetWorkitemtrackingprocessProcessesProcessProjectArray{})
 	pulumi.RegisterOutputType(BranchPolicyAutoReviewersSettingsOutput{})
 	pulumi.RegisterOutputType(BranchPolicyAutoReviewersSettingsPtrOutput{})
 	pulumi.RegisterOutputType(BranchPolicyAutoReviewersSettingsScopeOutput{})
@@ -16288,6 +19907,44 @@ func init() {
 	pulumi.RegisterOutputType(ServicehookStorageQueuePipelinesRunStateChangedEventPtrOutput{})
 	pulumi.RegisterOutputType(ServicehookStorageQueuePipelinesStageStateChangedEventOutput{})
 	pulumi.RegisterOutputType(ServicehookStorageQueuePipelinesStageStateChangedEventPtrOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsBuildCompletedOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsBuildCompletedPtrOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsGitPullRequestCommentedOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsGitPullRequestCommentedPtrOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsGitPullRequestCreatedOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsGitPullRequestCreatedPtrOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsGitPullRequestMergeAttemptedOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsGitPullRequestMergeAttemptedPtrOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsGitPullRequestUpdatedOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsGitPullRequestUpdatedPtrOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsGitPushOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsGitPushPtrOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsRepositoryCreatedOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsRepositoryCreatedPtrOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsRepositoryDeletedOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsRepositoryDeletedPtrOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsRepositoryForkedOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsRepositoryForkedPtrOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsRepositoryRenamedOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsRepositoryRenamedPtrOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsRepositoryStatusChangedOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsRepositoryStatusChangedPtrOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsServiceConnectionCreatedOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsServiceConnectionCreatedPtrOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsServiceConnectionUpdatedOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsServiceConnectionUpdatedPtrOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsTfvcCheckinOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsTfvcCheckinPtrOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsWorkItemCommentedOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsWorkItemCommentedPtrOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsWorkItemCreatedOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsWorkItemCreatedPtrOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsWorkItemDeletedOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsWorkItemDeletedPtrOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsWorkItemRestoredOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsWorkItemRestoredPtrOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsWorkItemUpdatedOutput{})
+	pulumi.RegisterOutputType(ServicehookWebhookTfsWorkItemUpdatedPtrOutput{})
 	pulumi.RegisterOutputType(VariableGroupKeyVaultOutput{})
 	pulumi.RegisterOutputType(VariableGroupKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(VariableGroupVariableOutput{})
@@ -16354,4 +20011,10 @@ func init() {
 	pulumi.RegisterOutputType(GetVariableGroupKeyVaultArrayOutput{})
 	pulumi.RegisterOutputType(GetVariableGroupVariableOutput{})
 	pulumi.RegisterOutputType(GetVariableGroupVariableArrayOutput{})
+	pulumi.RegisterOutputType(GetWorkitemtrackingprocessProcessProjectOutput{})
+	pulumi.RegisterOutputType(GetWorkitemtrackingprocessProcessProjectArrayOutput{})
+	pulumi.RegisterOutputType(GetWorkitemtrackingprocessProcessesProcessOutput{})
+	pulumi.RegisterOutputType(GetWorkitemtrackingprocessProcessesProcessArrayOutput{})
+	pulumi.RegisterOutputType(GetWorkitemtrackingprocessProcessesProcessProjectOutput{})
+	pulumi.RegisterOutputType(GetWorkitemtrackingprocessProcessesProcessProjectArrayOutput{})
 }

@@ -60,6 +60,7 @@ from .get_service_principal import *
 from .get_serviceendpoint_azurecr import *
 from .get_serviceendpoint_bitbucket import *
 from .get_serviceendpoint_dockerregistry import *
+from .get_serviceendpoint_generic_v2 import *
 from .get_serviceendpoint_npm import *
 from .get_serviceendpoint_sonarcloud import *
 from .get_storage_key import *
@@ -68,6 +69,8 @@ from .get_teams import *
 from .get_user import *
 from .get_users import *
 from .get_variable_group import *
+from .get_workitemtrackingprocess_process import *
+from .get_workitemtrackingprocess_processes import *
 from .git import *
 from .git_permissions import *
 from .git_repository_branch import *
@@ -124,6 +127,7 @@ from .serviceendpoint_checkmarx_sca import *
 from .serviceendpoint_dynamics_lifecycle_services import *
 from .serviceendpoint_externaltfs import *
 from .serviceendpoint_gcp_terraform import *
+from .serviceendpoint_generic_v2 import *
 from .serviceendpoint_incomingwebhook import *
 from .serviceendpoint_jenkins import *
 from .serviceendpoint_jfrog_artifactory_v2 import *
@@ -140,6 +144,7 @@ from .serviceendpoint_snyk import *
 from .serviceendpoint_visualstudiomarketplace import *
 from .servicehook_permissions import *
 from .servicehook_storage_queue_pipelines import *
+from .servicehook_webhook_tfs import *
 from .tagging_permissions import *
 from .team import *
 from .team_administrators import *
@@ -151,6 +156,9 @@ from .wiki import *
 from .wiki_page import *
 from .work_item_query_permissions import *
 from .workitem import *
+from .workitemquery import *
+from .workitemquery_folder import *
+from .workitemtrackingprocess_process import *
 from ._inputs import *
 from . import outputs
 
@@ -814,6 +822,14 @@ _utilities.register(
  },
  {
   "pkg": "azuredevops",
+  "mod": "index/serviceendpointGenericV2",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/serviceendpointGenericV2:ServiceendpointGenericV2": "ServiceendpointGenericV2"
+  }
+ },
+ {
+  "pkg": "azuredevops",
   "mod": "index/serviceendpointIncomingwebhook",
   "fqn": "pulumi_azuredevops",
   "classes": {
@@ -942,6 +958,14 @@ _utilities.register(
  },
  {
   "pkg": "azuredevops",
+  "mod": "index/servicehookWebhookTfs",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/servicehookWebhookTfs:ServicehookWebhookTfs": "ServicehookWebhookTfs"
+  }
+ },
+ {
+  "pkg": "azuredevops",
   "mod": "index/taggingPermissions",
   "fqn": "pulumi_azuredevops",
   "classes": {
@@ -1026,6 +1050,30 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/workitem:Workitem": "Workitem"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/workitemquery",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/workitemquery:Workitemquery": "Workitemquery"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/workitemqueryFolder",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/workitemqueryFolder:WorkitemqueryFolder": "WorkitemqueryFolder"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/workitemtrackingprocessProcess",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/workitemtrackingprocessProcess:WorkitemtrackingprocessProcess": "WorkitemtrackingprocessProcess"
   }
  }
 ]
