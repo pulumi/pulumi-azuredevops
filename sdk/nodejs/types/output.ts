@@ -1441,6 +1441,83 @@ export interface GetVariableGroupVariable {
     value: string;
 }
 
+export interface GetWorkitemtrackingprocessProcessProject {
+    /**
+     * Description of the project.
+     */
+    description: string;
+    /**
+     * The ID of the process.
+     */
+    id: string;
+    /**
+     * Name of the project.
+     */
+    name: string;
+    /**
+     * Url of the project.
+     */
+    url: string;
+}
+
+export interface GetWorkitemtrackingprocessProcessesProcess {
+    /**
+     * Indicates the type of customization on this process. System Process is default process. Inherited Process is modified process that was System process before.
+     */
+    customizationType: string;
+    /**
+     * Description of the project.
+     */
+    description: string;
+    /**
+     * The ID of the project.
+     */
+    id: string;
+    /**
+     * Is the process default?
+     */
+    isDefault: boolean;
+    /**
+     * Is the process enabled?
+     */
+    isEnabled: boolean;
+    /**
+     * Name of the project.
+     */
+    name: string;
+    /**
+     * ID of the parent process.
+     */
+    parentProcessTypeId: string;
+    /**
+     * A `projects` block as defined below. Returns associated projects when using the 'projects' expand option.
+     */
+    projects: outputs.GetWorkitemtrackingprocessProcessesProcessProject[];
+    /**
+     * Reference name of process being created. If not specified, server will assign a unique reference name.
+     */
+    referenceName: string;
+}
+
+export interface GetWorkitemtrackingprocessProcessesProcessProject {
+    /**
+     * Description of the project.
+     */
+    description: string;
+    /**
+     * The ID of the project.
+     */
+    id: string;
+    /**
+     * Name of the project.
+     */
+    name: string;
+    /**
+     * Url of the project.
+     */
+    url: string;
+}
+
 export interface GitInitialization {
     /**
      * The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
@@ -1862,6 +1939,255 @@ export interface ServicehookStorageQueuePipelinesStageStateChangedEvent {
      * Which stage state should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all states will trigger the event.
      */
     stageStateFilter?: string;
+}
+
+export interface ServicehookWebhookTfsBuildCompleted {
+    /**
+     * Include only events for completed builds that have a specific completion status. Valid values: `Succeeded`, `PartiallySucceeded`, `Failed`, `Stopped`.
+     */
+    buildStatus?: string;
+    /**
+     * Include only events for completed builds for a specific pipeline.
+     */
+    definitionName?: string;
+}
+
+export interface ServicehookWebhookTfsGitPullRequestCommented {
+    /**
+     * Include only events for pull requests in a specific branch.
+     */
+    branch?: string;
+    /**
+     * Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+     */
+    repositoryId?: string;
+}
+
+export interface ServicehookWebhookTfsGitPullRequestCreated {
+    /**
+     * Include only events for pull requests in a specific branch.
+     */
+    branch?: string;
+    /**
+     * Include only events for pull requests created by users in a specific group.
+     */
+    pullRequestCreatedBy?: string;
+    /**
+     * Include only events for pull requests with reviewers in a specific group.
+     */
+    pullRequestReviewersContains?: string;
+    /**
+     * Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+     */
+    repositoryId?: string;
+}
+
+export interface ServicehookWebhookTfsGitPullRequestMergeAttempted {
+    /**
+     * Include only events for pull requests in a specific branch.
+     */
+    branch?: string;
+    /**
+     * Include only events for pull requests with a specific merge result. Valid values: `Succeeded`, `Unsuccessful`, `Conflicts`, `Failure`, `RejectedByPolicy`.
+     */
+    mergeResult?: string;
+    /**
+     * Include only events for pull requests created by users in a specific group.
+     */
+    pullRequestCreatedBy?: string;
+    /**
+     * Include only events for pull requests with reviewers in a specific group.
+     */
+    pullRequestReviewersContains?: string;
+    /**
+     * Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+     */
+    repositoryId?: string;
+}
+
+export interface ServicehookWebhookTfsGitPullRequestUpdated {
+    /**
+     * Include only events for pull requests in a specific branch.
+     */
+    branch?: string;
+    /**
+     * Include only events for pull requests with a specific change. Valid values: `PushNotification`, `ReviewersUpdateNotification`, `StatusUpdateNotification`, `ReviewerVoteNotification`.
+     */
+    notificationType?: string;
+    /**
+     * Include only events for pull requests created by users in a specific group.
+     */
+    pullRequestCreatedBy?: string;
+    /**
+     * Include only events for pull requests with reviewers in a specific group.
+     */
+    pullRequestReviewersContains?: string;
+    /**
+     * Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+     */
+    repositoryId?: string;
+}
+
+export interface ServicehookWebhookTfsGitPush {
+    /**
+     * Include only events for code pushes to a specific branch.
+     */
+    branch?: string;
+    /**
+     * Include only events for code pushes by users in a specific group.
+     */
+    pushedBy?: string;
+    /**
+     * Include only events for code pushes to a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+     */
+    repositoryId?: string;
+}
+
+export interface ServicehookWebhookTfsRepositoryCreated {
+    /**
+     * Include only events for repositories created in a specific project.
+     */
+    projectId?: string;
+}
+
+export interface ServicehookWebhookTfsRepositoryDeleted {
+    /**
+     * Include only events for repositories with a specific repository ID.
+     */
+    repositoryId?: string;
+}
+
+export interface ServicehookWebhookTfsRepositoryForked {
+    /**
+     * Include only events for repositories with a specific repository ID.
+     */
+    repositoryId?: string;
+}
+
+export interface ServicehookWebhookTfsRepositoryRenamed {
+    /**
+     * Include only events for repositories with a specific repository ID.
+     */
+    repositoryId?: string;
+}
+
+export interface ServicehookWebhookTfsRepositoryStatusChanged {
+    /**
+     * Include only events for repositories with a specific repository ID.
+     */
+    repositoryId?: string;
+}
+
+export interface ServicehookWebhookTfsServiceConnectionCreated {
+    /**
+     * Include only events for service connections created in a specific project.
+     */
+    projectId?: string;
+}
+
+export interface ServicehookWebhookTfsServiceConnectionUpdated {
+    /**
+     * Include only events for service connections updated in a specific project.
+     */
+    projectId?: string;
+}
+
+export interface ServicehookWebhookTfsTfvcCheckin {
+    /**
+     * Include only events for check-ins that change files under a specific path.
+     */
+    path: string;
+}
+
+export interface ServicehookWebhookTfsWorkItemCommented {
+    /**
+     * Include only events for work items under a specific area path.
+     */
+    areaPath?: string;
+    /**
+     * Include only events for work items with a comment that contains a specific string.
+     */
+    commentPattern?: string;
+    /**
+     * Include only events for work items that contain a specific tag.
+     */
+    tag?: string;
+    /**
+     * Include only events for work items of a specific type.
+     */
+    workItemType?: string;
+}
+
+export interface ServicehookWebhookTfsWorkItemCreated {
+    /**
+     * Include only events for work items under a specific area path.
+     */
+    areaPath?: string;
+    /**
+     * Include only events for work items with one or more links added or removed.
+     */
+    linksChanged?: boolean;
+    /**
+     * Include only events for work items that contain a specific tag.
+     */
+    tag?: string;
+    /**
+     * Include only events for work items of a specific type.
+     */
+    workItemType?: string;
+}
+
+export interface ServicehookWebhookTfsWorkItemDeleted {
+    /**
+     * Include only events for work items under a specific area path.
+     */
+    areaPath?: string;
+    /**
+     * Include only events for work items that contain a specific tag.
+     */
+    tag?: string;
+    /**
+     * Include only events for work items of a specific type.
+     */
+    workItemType?: string;
+}
+
+export interface ServicehookWebhookTfsWorkItemRestored {
+    /**
+     * Include only events for work items under a specific area path.
+     */
+    areaPath?: string;
+    /**
+     * Include only events for work items that contain a specific tag.
+     */
+    tag?: string;
+    /**
+     * Include only events for work items of a specific type.
+     */
+    workItemType?: string;
+}
+
+export interface ServicehookWebhookTfsWorkItemUpdated {
+    /**
+     * Include only events for work items under a specific area path.
+     */
+    areaPath?: string;
+    /**
+     * Include only events for work items with a change in a specific field.
+     */
+    changedFields?: string;
+    /**
+     * Include only events for work items with one or more links added or removed.
+     */
+    linksChanged?: boolean;
+    /**
+     * Include only events for work items that contain a specific tag.
+     */
+    tag?: string;
+    /**
+     * Include only events for work items of a specific type.
+     */
+    workItemType?: string;
 }
 
 export interface VariableGroupKeyVault {

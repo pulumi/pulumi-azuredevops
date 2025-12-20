@@ -1716,6 +1716,296 @@
             },
             "type": "object"
         },
+        "azuredevops:index/ServicehookWebhookTfsBuildCompleted:ServicehookWebhookTfsBuildCompleted": {
+            "properties": {
+                "buildStatus": {
+                    "type": "string",
+                    "description": "Include only events for completed builds that have a specific completion status. Valid values: `Succeeded`, `PartiallySucceeded`, `Failed`, `Stopped`.\n"
+                },
+                "definitionName": {
+                    "type": "string",
+                    "description": "Include only events for completed builds for a specific pipeline.\n"
+                }
+            },
+            "type": "object"
+        },
+        "azuredevops:index/ServicehookWebhookTfsGitPullRequestCommented:ServicehookWebhookTfsGitPullRequestCommented": {
+            "properties": {
+                "branch": {
+                    "type": "string",
+                    "description": "Include only events for pull requests in a specific branch.\n"
+                },
+                "repositoryId": {
+                    "type": "string",
+                    "description": "Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.\n"
+                }
+            },
+            "type": "object"
+        },
+        "azuredevops:index/ServicehookWebhookTfsGitPullRequestCreated:ServicehookWebhookTfsGitPullRequestCreated": {
+            "properties": {
+                "branch": {
+                    "type": "string",
+                    "description": "Include only events for pull requests in a specific branch.\n"
+                },
+                "pullRequestCreatedBy": {
+                    "type": "string",
+                    "description": "Include only events for pull requests created by users in a specific group.\n"
+                },
+                "pullRequestReviewersContains": {
+                    "type": "string",
+                    "description": "Include only events for pull requests with reviewers in a specific group.\n"
+                },
+                "repositoryId": {
+                    "type": "string",
+                    "description": "Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.\n"
+                }
+            },
+            "type": "object"
+        },
+        "azuredevops:index/ServicehookWebhookTfsGitPullRequestMergeAttempted:ServicehookWebhookTfsGitPullRequestMergeAttempted": {
+            "properties": {
+                "branch": {
+                    "type": "string",
+                    "description": "Include only events for pull requests in a specific branch.\n"
+                },
+                "mergeResult": {
+                    "type": "string",
+                    "description": "Include only events for pull requests with a specific merge result. Valid values: `Succeeded`, `Unsuccessful`, `Conflicts`, `Failure`, `RejectedByPolicy`.\n"
+                },
+                "pullRequestCreatedBy": {
+                    "type": "string",
+                    "description": "Include only events for pull requests created by users in a specific group.\n"
+                },
+                "pullRequestReviewersContains": {
+                    "type": "string",
+                    "description": "Include only events for pull requests with reviewers in a specific group.\n"
+                },
+                "repositoryId": {
+                    "type": "string",
+                    "description": "Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.\n"
+                }
+            },
+            "type": "object"
+        },
+        "azuredevops:index/ServicehookWebhookTfsGitPullRequestUpdated:ServicehookWebhookTfsGitPullRequestUpdated": {
+            "properties": {
+                "branch": {
+                    "type": "string",
+                    "description": "Include only events for pull requests in a specific branch.\n"
+                },
+                "notificationType": {
+                    "type": "string",
+                    "description": "Include only events for pull requests with a specific change. Valid values: `PushNotification`, `ReviewersUpdateNotification`, `StatusUpdateNotification`, `ReviewerVoteNotification`.\n"
+                },
+                "pullRequestCreatedBy": {
+                    "type": "string",
+                    "description": "Include only events for pull requests created by users in a specific group.\n"
+                },
+                "pullRequestReviewersContains": {
+                    "type": "string",
+                    "description": "Include only events for pull requests with reviewers in a specific group.\n"
+                },
+                "repositoryId": {
+                    "type": "string",
+                    "description": "Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.\n"
+                }
+            },
+            "type": "object"
+        },
+        "azuredevops:index/ServicehookWebhookTfsGitPush:ServicehookWebhookTfsGitPush": {
+            "properties": {
+                "branch": {
+                    "type": "string",
+                    "description": "Include only events for code pushes to a specific branch.\n"
+                },
+                "pushedBy": {
+                    "type": "string",
+                    "description": "Include only events for code pushes by users in a specific group.\n"
+                },
+                "repositoryId": {
+                    "type": "string",
+                    "description": "Include only events for code pushes to a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.\n"
+                }
+            },
+            "type": "object"
+        },
+        "azuredevops:index/ServicehookWebhookTfsRepositoryCreated:ServicehookWebhookTfsRepositoryCreated": {
+            "properties": {
+                "projectId": {
+                    "type": "string",
+                    "description": "Include only events for repositories created in a specific project.\n"
+                }
+            },
+            "type": "object"
+        },
+        "azuredevops:index/ServicehookWebhookTfsRepositoryDeleted:ServicehookWebhookTfsRepositoryDeleted": {
+            "properties": {
+                "repositoryId": {
+                    "type": "string",
+                    "description": "Include only events for repositories with a specific repository ID.\n"
+                }
+            },
+            "type": "object"
+        },
+        "azuredevops:index/ServicehookWebhookTfsRepositoryForked:ServicehookWebhookTfsRepositoryForked": {
+            "properties": {
+                "repositoryId": {
+                    "type": "string",
+                    "description": "Include only events for repositories with a specific repository ID.\n"
+                }
+            },
+            "type": "object"
+        },
+        "azuredevops:index/ServicehookWebhookTfsRepositoryRenamed:ServicehookWebhookTfsRepositoryRenamed": {
+            "properties": {
+                "repositoryId": {
+                    "type": "string",
+                    "description": "Include only events for repositories with a specific repository ID.\n"
+                }
+            },
+            "type": "object"
+        },
+        "azuredevops:index/ServicehookWebhookTfsRepositoryStatusChanged:ServicehookWebhookTfsRepositoryStatusChanged": {
+            "properties": {
+                "repositoryId": {
+                    "type": "string",
+                    "description": "Include only events for repositories with a specific repository ID.\n"
+                }
+            },
+            "type": "object"
+        },
+        "azuredevops:index/ServicehookWebhookTfsServiceConnectionCreated:ServicehookWebhookTfsServiceConnectionCreated": {
+            "properties": {
+                "projectId": {
+                    "type": "string",
+                    "description": "Include only events for service connections created in a specific project.\n"
+                }
+            },
+            "type": "object"
+        },
+        "azuredevops:index/ServicehookWebhookTfsServiceConnectionUpdated:ServicehookWebhookTfsServiceConnectionUpdated": {
+            "properties": {
+                "projectId": {
+                    "type": "string",
+                    "description": "Include only events for service connections updated in a specific project.\n"
+                }
+            },
+            "type": "object"
+        },
+        "azuredevops:index/ServicehookWebhookTfsTfvcCheckin:ServicehookWebhookTfsTfvcCheckin": {
+            "properties": {
+                "path": {
+                    "type": "string",
+                    "description": "Include only events for check-ins that change files under a specific path.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "path"
+            ]
+        },
+        "azuredevops:index/ServicehookWebhookTfsWorkItemCommented:ServicehookWebhookTfsWorkItemCommented": {
+            "properties": {
+                "areaPath": {
+                    "type": "string",
+                    "description": "Include only events for work items under a specific area path.\n"
+                },
+                "commentPattern": {
+                    "type": "string",
+                    "description": "Include only events for work items with a comment that contains a specific string.\n"
+                },
+                "tag": {
+                    "type": "string",
+                    "description": "Include only events for work items that contain a specific tag.\n"
+                },
+                "workItemType": {
+                    "type": "string",
+                    "description": "Include only events for work items of a specific type.\n"
+                }
+            },
+            "type": "object"
+        },
+        "azuredevops:index/ServicehookWebhookTfsWorkItemCreated:ServicehookWebhookTfsWorkItemCreated": {
+            "properties": {
+                "areaPath": {
+                    "type": "string",
+                    "description": "Include only events for work items under a specific area path.\n"
+                },
+                "linksChanged": {
+                    "type": "boolean",
+                    "description": "Include only events for work items with one or more links added or removed.\n"
+                },
+                "tag": {
+                    "type": "string",
+                    "description": "Include only events for work items that contain a specific tag.\n"
+                },
+                "workItemType": {
+                    "type": "string",
+                    "description": "Include only events for work items of a specific type.\n"
+                }
+            },
+            "type": "object"
+        },
+        "azuredevops:index/ServicehookWebhookTfsWorkItemDeleted:ServicehookWebhookTfsWorkItemDeleted": {
+            "properties": {
+                "areaPath": {
+                    "type": "string",
+                    "description": "Include only events for work items under a specific area path.\n"
+                },
+                "tag": {
+                    "type": "string",
+                    "description": "Include only events for work items that contain a specific tag.\n"
+                },
+                "workItemType": {
+                    "type": "string",
+                    "description": "Include only events for work items of a specific type.\n"
+                }
+            },
+            "type": "object"
+        },
+        "azuredevops:index/ServicehookWebhookTfsWorkItemRestored:ServicehookWebhookTfsWorkItemRestored": {
+            "properties": {
+                "areaPath": {
+                    "type": "string",
+                    "description": "Include only events for work items under a specific area path.\n"
+                },
+                "tag": {
+                    "type": "string",
+                    "description": "Include only events for work items that contain a specific tag.\n"
+                },
+                "workItemType": {
+                    "type": "string",
+                    "description": "Include only events for work items of a specific type.\n"
+                }
+            },
+            "type": "object"
+        },
+        "azuredevops:index/ServicehookWebhookTfsWorkItemUpdated:ServicehookWebhookTfsWorkItemUpdated": {
+            "properties": {
+                "areaPath": {
+                    "type": "string",
+                    "description": "Include only events for work items under a specific area path.\n"
+                },
+                "changedFields": {
+                    "type": "string",
+                    "description": "Include only events for work items with a change in a specific field.\n"
+                },
+                "linksChanged": {
+                    "type": "boolean",
+                    "description": "Include only events for work items with one or more links added or removed.\n"
+                },
+                "tag": {
+                    "type": "string",
+                    "description": "Include only events for work items that contain a specific tag.\n"
+                },
+                "workItemType": {
+                    "type": "string",
+                    "description": "Include only events for work items of a specific type.\n"
+                }
+            },
+            "type": "object"
+        },
         "azuredevops:index/VariableGroupKeyVault:VariableGroupKeyVault": {
             "properties": {
                 "name": {
@@ -2904,6 +3194,130 @@
                 "name",
                 "secretValue",
                 "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "azuredevops:index/getWorkitemtrackingprocessProcessProject:getWorkitemtrackingprocessProcessProject": {
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "Description of the project.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the process.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the project.\n"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "Url of the project.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "description",
+                "id",
+                "name",
+                "url"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "azuredevops:index/getWorkitemtrackingprocessProcessesProcess:getWorkitemtrackingprocessProcessesProcess": {
+            "properties": {
+                "customizationType": {
+                    "type": "string",
+                    "description": "Indicates the type of customization on this process. System Process is default process. Inherited Process is modified process that was System process before.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of the project.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the project.\n"
+                },
+                "isDefault": {
+                    "type": "boolean",
+                    "description": "Is the process default?\n"
+                },
+                "isEnabled": {
+                    "type": "boolean",
+                    "description": "Is the process enabled?\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the project.\n"
+                },
+                "parentProcessTypeId": {
+                    "type": "string",
+                    "description": "ID of the parent process.\n"
+                },
+                "projects": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/azuredevops:index/getWorkitemtrackingprocessProcessesProcessProject:getWorkitemtrackingprocessProcessesProcessProject"
+                    },
+                    "description": "A \u003cspan pulumi-lang-nodejs=\"`projects`\" pulumi-lang-dotnet=\"`Projects`\" pulumi-lang-go=\"`projects`\" pulumi-lang-python=\"`projects`\" pulumi-lang-yaml=\"`projects`\" pulumi-lang-java=\"`projects`\"\u003e`projects`\u003c/span\u003e block as defined below. Returns associated projects when using the 'projects' expand option.\n"
+                },
+                "referenceName": {
+                    "type": "string",
+                    "description": "Reference name of process being created. If not specified, server will assign a unique reference name.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "customizationType",
+                "description",
+                "id",
+                "isDefault",
+                "isEnabled",
+                "name",
+                "parentProcessTypeId",
+                "projects",
+                "referenceName"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "azuredevops:index/getWorkitemtrackingprocessProcessesProcessProject:getWorkitemtrackingprocessProcessesProcessProject": {
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "Description of the project.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the project.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the project.\n"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "Url of the project.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "description",
+                "id",
+                "name",
+                "url"
             ],
             "language": {
                 "nodejs": {
@@ -8343,7 +8757,7 @@
             ]
         },
         "azuredevops:index/securityroleAssignment:SecurityroleAssignment": {
-            "description": "Manages assignment of security roles to various resources within Azure DevOps organization.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\nimport * as std from \"@pulumi/std\";\n\nconst example = new azuredevops.Project(\"example\", {\n    name: \"Example Project\",\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n    description: \"Managed by Pulumi\",\n});\nconst exampleEnvironment = new azuredevops.Environment(\"example\", {\n    projectId: example.id,\n    name: \"Example Environment\",\n    description: \"Example pipeline deployment environment\",\n});\nconst exampleGroup = new azuredevops.Group(\"example\", {\n    scope: example.id,\n    displayName: \"Example group\",\n    description: \"Description of example group\",\n});\nconst exampleSecurityroleAssignment = new azuredevops.SecurityroleAssignment(\"example\", {\n    scope: \"distributedtask.environmentreferencerole\",\n    resourceId: std.index.format({\n        input: \"%s_%s\",\n        args: [\n            example.id,\n            exampleEnvironment.id,\n        ],\n    }).result,\n    identityId: exampleGroup.originId,\n    roleName: \"Administrator\",\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\nimport pulumi_std as std\n\nexample = azuredevops.Project(\"example\",\n    name=\"Example Project\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\",\n    description=\"Managed by Pulumi\")\nexample_environment = azuredevops.Environment(\"example\",\n    project_id=example.id,\n    name=\"Example Environment\",\n    description=\"Example pipeline deployment environment\")\nexample_group = azuredevops.Group(\"example\",\n    scope=example.id,\n    display_name=\"Example group\",\n    description=\"Description of example group\")\nexample_securityrole_assignment = azuredevops.SecurityroleAssignment(\"example\",\n    scope=\"distributedtask.environmentreferencerole\",\n    resource_id=std.index.format(input=\"%s_%s\",\n        args=[\n            example.id,\n            example_environment.id,\n        ])[\"result\"],\n    identity_id=example_group.origin_id,\n    role_name=\"Administrator\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\nusing Std = Pulumi.Std;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new AzureDevOps.Project(\"example\", new()\n    {\n        Name = \"Example Project\",\n        Visibility = \"private\",\n        VersionControl = \"Git\",\n        WorkItemTemplate = \"Agile\",\n        Description = \"Managed by Pulumi\",\n    });\n\n    var exampleEnvironment = new AzureDevOps.Environment(\"example\", new()\n    {\n        ProjectId = example.Id,\n        Name = \"Example Environment\",\n        Description = \"Example pipeline deployment environment\",\n    });\n\n    var exampleGroup = new AzureDevOps.Group(\"example\", new()\n    {\n        Scope = example.Id,\n        DisplayName = \"Example group\",\n        Description = \"Description of example group\",\n    });\n\n    var exampleSecurityroleAssignment = new AzureDevOps.SecurityroleAssignment(\"example\", new()\n    {\n        Scope = \"distributedtask.environmentreferencerole\",\n        ResourceId = Std.Index.Format.Invoke(new()\n        {\n            Input = \"%s_%s\",\n            Args = new[]\n            {\n                example.Id,\n                exampleEnvironment.Id,\n            },\n        }).Result,\n        IdentityId = exampleGroup.OriginId,\n        RoleName = \"Administrator\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi-std/sdk/go/std\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := azuredevops.NewProject(ctx, \"example\", \u0026azuredevops.ProjectArgs{\n\t\t\tName:             pulumi.String(\"Example Project\"),\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t\tDescription:      pulumi.String(\"Managed by Pulumi\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleEnvironment, err := azuredevops.NewEnvironment(ctx, \"example\", \u0026azuredevops.EnvironmentArgs{\n\t\t\tProjectId:   example.ID(),\n\t\t\tName:        pulumi.String(\"Example Environment\"),\n\t\t\tDescription: pulumi.String(\"Example pipeline deployment environment\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleGroup, err := azuredevops.NewGroup(ctx, \"example\", \u0026azuredevops.GroupArgs{\n\t\t\tScope:       example.ID(),\n\t\t\tDisplayName: pulumi.String(\"Example group\"),\n\t\t\tDescription: pulumi.String(\"Description of example group\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tinvokeFormat, err := std.Format(ctx, map[string]interface{}{\n\t\t\t\"input\": \"%s_%s\",\n\t\t\t\"args\": pulumi.StringArray{\n\t\t\t\texample.ID(),\n\t\t\t\texampleEnvironment.ID(),\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewSecurityroleAssignment(ctx, \"example\", \u0026azuredevops.SecurityroleAssignmentArgs{\n\t\t\tScope:      pulumi.String(\"distributedtask.environmentreferencerole\"),\n\t\t\tResourceId: invokeFormat.Result,\n\t\t\tIdentityId: exampleGroup.OriginId,\n\t\t\tRoleName:   pulumi.String(\"Administrator\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Project;\nimport com.pulumi.azuredevops.ProjectArgs;\nimport com.pulumi.azuredevops.Environment;\nimport com.pulumi.azuredevops.EnvironmentArgs;\nimport com.pulumi.azuredevops.Group;\nimport com.pulumi.azuredevops.GroupArgs;\nimport com.pulumi.azuredevops.SecurityroleAssignment;\nimport com.pulumi.azuredevops.SecurityroleAssignmentArgs;\nimport com.pulumi.std.StdFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Project(\"example\", ProjectArgs.builder()\n            .name(\"Example Project\")\n            .visibility(\"private\")\n            .versionControl(\"Git\")\n            .workItemTemplate(\"Agile\")\n            .description(\"Managed by Pulumi\")\n            .build());\n\n        var exampleEnvironment = new Environment(\"exampleEnvironment\", EnvironmentArgs.builder()\n            .projectId(example.id())\n            .name(\"Example Environment\")\n            .description(\"Example pipeline deployment environment\")\n            .build());\n\n        var exampleGroup = new Group(\"exampleGroup\", GroupArgs.builder()\n            .scope(example.id())\n            .displayName(\"Example group\")\n            .description(\"Description of example group\")\n            .build());\n\n        var exampleSecurityroleAssignment = new SecurityroleAssignment(\"exampleSecurityroleAssignment\", SecurityroleAssignmentArgs.builder()\n            .scope(\"distributedtask.environmentreferencerole\")\n            .resourceId(StdFunctions.format(Map.ofEntries(\n                Map.entry(\"input\", \"%s_%s\"),\n                Map.entry(\"args\",                 \n                    example.id(),\n                    exampleEnvironment.id())\n            )).result())\n            .identityId(exampleGroup.originId())\n            .roleName(\"Administrator\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: azuredevops:Project\n    properties:\n      name: Example Project\n      visibility: private\n      versionControl: Git\n      workItemTemplate: Agile\n      description: Managed by Pulumi\n  exampleEnvironment:\n    type: azuredevops:Environment\n    name: example\n    properties:\n      projectId: ${example.id}\n      name: Example Environment\n      description: Example pipeline deployment environment\n  exampleGroup:\n    type: azuredevops:Group\n    name: example\n    properties:\n      scope: ${example.id}\n      displayName: Example group\n      description: Description of example group\n  exampleSecurityroleAssignment:\n    type: azuredevops:SecurityroleAssignment\n    name: example\n    properties:\n      scope: distributedtask.environmentreferencerole\n      resourceId:\n        fn::invoke:\n          function: std:format\n          arguments:\n            input: '%s_%s'\n            args:\n              - ${example.id}\n              - ${exampleEnvironment.id}\n          return: result\n      identityId: ${exampleGroup.originId}\n      roleName: Administrator\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Relevant Links\n\n- [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-7.0)\n",
+            "description": "Manages assignment of security roles to various resources within Azure DevOps organization.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\nimport * as std from \"@pulumi/std\";\n\nconst example = new azuredevops.Project(\"example\", {\n    name: \"Example Project\",\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n    description: \"Managed by Pulumi\",\n});\nconst exampleEnvironment = new azuredevops.Environment(\"example\", {\n    projectId: example.id,\n    name: \"Example Environment\",\n    description: \"Example pipeline deployment environment\",\n});\nconst exampleGroup = new azuredevops.Group(\"example\", {\n    scope: example.id,\n    displayName: \"Example group\",\n    description: \"Description of example group\",\n});\nconst exampleSecurityroleAssignment = new azuredevops.SecurityroleAssignment(\"example\", {\n    scope: \"distributedtask.environmentreferencerole\",\n    resourceId: std.index.format({\n        input: \"%s_%s\",\n        args: [\n            example.id,\n            exampleEnvironment.id,\n        ],\n    }).result,\n    identityId: exampleGroup.groupId,\n    roleName: \"Administrator\",\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\nimport pulumi_std as std\n\nexample = azuredevops.Project(\"example\",\n    name=\"Example Project\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\",\n    description=\"Managed by Pulumi\")\nexample_environment = azuredevops.Environment(\"example\",\n    project_id=example.id,\n    name=\"Example Environment\",\n    description=\"Example pipeline deployment environment\")\nexample_group = azuredevops.Group(\"example\",\n    scope=example.id,\n    display_name=\"Example group\",\n    description=\"Description of example group\")\nexample_securityrole_assignment = azuredevops.SecurityroleAssignment(\"example\",\n    scope=\"distributedtask.environmentreferencerole\",\n    resource_id=std.index.format(input=\"%s_%s\",\n        args=[\n            example.id,\n            example_environment.id,\n        ])[\"result\"],\n    identity_id=example_group.group_id,\n    role_name=\"Administrator\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\nusing Std = Pulumi.Std;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new AzureDevOps.Project(\"example\", new()\n    {\n        Name = \"Example Project\",\n        Visibility = \"private\",\n        VersionControl = \"Git\",\n        WorkItemTemplate = \"Agile\",\n        Description = \"Managed by Pulumi\",\n    });\n\n    var exampleEnvironment = new AzureDevOps.Environment(\"example\", new()\n    {\n        ProjectId = example.Id,\n        Name = \"Example Environment\",\n        Description = \"Example pipeline deployment environment\",\n    });\n\n    var exampleGroup = new AzureDevOps.Group(\"example\", new()\n    {\n        Scope = example.Id,\n        DisplayName = \"Example group\",\n        Description = \"Description of example group\",\n    });\n\n    var exampleSecurityroleAssignment = new AzureDevOps.SecurityroleAssignment(\"example\", new()\n    {\n        Scope = \"distributedtask.environmentreferencerole\",\n        ResourceId = Std.Index.Format.Invoke(new()\n        {\n            Input = \"%s_%s\",\n            Args = new[]\n            {\n                example.Id,\n                exampleEnvironment.Id,\n            },\n        }).Result,\n        IdentityId = exampleGroup.GroupId,\n        RoleName = \"Administrator\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi-std/sdk/go/std\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := azuredevops.NewProject(ctx, \"example\", \u0026azuredevops.ProjectArgs{\n\t\t\tName:             pulumi.String(\"Example Project\"),\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t\tDescription:      pulumi.String(\"Managed by Pulumi\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleEnvironment, err := azuredevops.NewEnvironment(ctx, \"example\", \u0026azuredevops.EnvironmentArgs{\n\t\t\tProjectId:   example.ID(),\n\t\t\tName:        pulumi.String(\"Example Environment\"),\n\t\t\tDescription: pulumi.String(\"Example pipeline deployment environment\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleGroup, err := azuredevops.NewGroup(ctx, \"example\", \u0026azuredevops.GroupArgs{\n\t\t\tScope:       example.ID(),\n\t\t\tDisplayName: pulumi.String(\"Example group\"),\n\t\t\tDescription: pulumi.String(\"Description of example group\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tinvokeFormat, err := std.Format(ctx, map[string]interface{}{\n\t\t\t\"input\": \"%s_%s\",\n\t\t\t\"args\": pulumi.StringArray{\n\t\t\t\texample.ID(),\n\t\t\t\texampleEnvironment.ID(),\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewSecurityroleAssignment(ctx, \"example\", \u0026azuredevops.SecurityroleAssignmentArgs{\n\t\t\tScope:      pulumi.String(\"distributedtask.environmentreferencerole\"),\n\t\t\tResourceId: invokeFormat.Result,\n\t\t\tIdentityId: exampleGroup.GroupId,\n\t\t\tRoleName:   pulumi.String(\"Administrator\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Project;\nimport com.pulumi.azuredevops.ProjectArgs;\nimport com.pulumi.azuredevops.Environment;\nimport com.pulumi.azuredevops.EnvironmentArgs;\nimport com.pulumi.azuredevops.Group;\nimport com.pulumi.azuredevops.GroupArgs;\nimport com.pulumi.azuredevops.SecurityroleAssignment;\nimport com.pulumi.azuredevops.SecurityroleAssignmentArgs;\nimport com.pulumi.std.StdFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Project(\"example\", ProjectArgs.builder()\n            .name(\"Example Project\")\n            .visibility(\"private\")\n            .versionControl(\"Git\")\n            .workItemTemplate(\"Agile\")\n            .description(\"Managed by Pulumi\")\n            .build());\n\n        var exampleEnvironment = new Environment(\"exampleEnvironment\", EnvironmentArgs.builder()\n            .projectId(example.id())\n            .name(\"Example Environment\")\n            .description(\"Example pipeline deployment environment\")\n            .build());\n\n        var exampleGroup = new Group(\"exampleGroup\", GroupArgs.builder()\n            .scope(example.id())\n            .displayName(\"Example group\")\n            .description(\"Description of example group\")\n            .build());\n\n        var exampleSecurityroleAssignment = new SecurityroleAssignment(\"exampleSecurityroleAssignment\", SecurityroleAssignmentArgs.builder()\n            .scope(\"distributedtask.environmentreferencerole\")\n            .resourceId(StdFunctions.format(Map.ofEntries(\n                Map.entry(\"input\", \"%s_%s\"),\n                Map.entry(\"args\",                 \n                    example.id(),\n                    exampleEnvironment.id())\n            )).result())\n            .identityId(exampleGroup.groupId())\n            .roleName(\"Administrator\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: azuredevops:Project\n    properties:\n      name: Example Project\n      visibility: private\n      versionControl: Git\n      workItemTemplate: Agile\n      description: Managed by Pulumi\n  exampleEnvironment:\n    type: azuredevops:Environment\n    name: example\n    properties:\n      projectId: ${example.id}\n      name: Example Environment\n      description: Example pipeline deployment environment\n  exampleGroup:\n    type: azuredevops:Group\n    name: example\n    properties:\n      scope: ${example.id}\n      displayName: Example group\n      description: Description of example group\n  exampleSecurityroleAssignment:\n    type: azuredevops:SecurityroleAssignment\n    name: example\n    properties:\n      scope: distributedtask.environmentreferencerole\n      resourceId:\n        fn::invoke:\n          function: std:format\n          arguments:\n            input: '%s_%s'\n            args:\n              - ${example.id}\n              - ${exampleEnvironment.id}\n          return: result\n      identityId: ${exampleGroup.groupId}\n      roleName: Administrator\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Relevant Links\n\n- [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roleassignments/set-role-assignments?view=azure-devops-rest-7.0\u0026tabs=HTTP)\n",
             "properties": {
                 "identityId": {
                     "type": "string",
@@ -12055,6 +12469,176 @@
                 "type": "object"
             }
         },
+        "azuredevops:index/serviceendpointGenericV2:ServiceendpointGenericV2": {
+            "description": "Manages a Generic Service Endpoint (v2) within Azure DevOps, which can be used to connect to various external services with custom authentication mechanisms.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = new azuredevops.Project(\"example\", {\n    name: \"Example Project\",\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n});\n// Basic username/password authentication\nconst exampleServiceendpointGenericV2 = new azuredevops.ServiceendpointGenericV2(\"example\", {\n    projectId: example.id,\n    name: \"Example Generic Service Endpoint\",\n    description: \"Managed by Pulumi\",\n    serviceEndpointType: \"generic\",\n    serverUrl: \"https://example.com\",\n    authorizationScheme: \"UsernamePassword\",\n    authorizationParameters: {\n        username: \"username\",\n        password: \"password\",\n    },\n});\n// Token-based authentication\nconst tokenExample = new azuredevops.ServiceendpointGenericV2(\"token_example\", {\n    projectId: example.id,\n    name: \"Token-based Service Endpoint\",\n    description: \"Managed by Pulumi\",\n    serviceEndpointType: \"generic\",\n    serverUrl: \"https://api.example.com\",\n    authorizationScheme: \"Token\",\n    authorizationParameters: {\n        apitoken: \"your-api-token\",\n    },\n    parameters: {\n        releaseUrl: \"https://releases.example.com\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.Project(\"example\",\n    name=\"Example Project\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\")\n# Basic username/password authentication\nexample_serviceendpoint_generic_v2 = azuredevops.ServiceendpointGenericV2(\"example\",\n    project_id=example.id,\n    name=\"Example Generic Service Endpoint\",\n    description=\"Managed by Pulumi\",\n    service_endpoint_type=\"generic\",\n    server_url=\"https://example.com\",\n    authorization_scheme=\"UsernamePassword\",\n    authorization_parameters={\n        \"username\": \"username\",\n        \"password\": \"password\",\n    })\n# Token-based authentication\ntoken_example = azuredevops.ServiceendpointGenericV2(\"token_example\",\n    project_id=example.id,\n    name=\"Token-based Service Endpoint\",\n    description=\"Managed by Pulumi\",\n    service_endpoint_type=\"generic\",\n    server_url=\"https://api.example.com\",\n    authorization_scheme=\"Token\",\n    authorization_parameters={\n        \"apitoken\": \"your-api-token\",\n    },\n    parameters={\n        \"releaseUrl\": \"https://releases.example.com\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new AzureDevOps.Project(\"example\", new()\n    {\n        Name = \"Example Project\",\n        Visibility = \"private\",\n        VersionControl = \"Git\",\n        WorkItemTemplate = \"Agile\",\n    });\n\n    // Basic username/password authentication\n    var exampleServiceendpointGenericV2 = new AzureDevOps.ServiceendpointGenericV2(\"example\", new()\n    {\n        ProjectId = example.Id,\n        Name = \"Example Generic Service Endpoint\",\n        Description = \"Managed by Pulumi\",\n        ServiceEndpointType = \"generic\",\n        ServerUrl = \"https://example.com\",\n        AuthorizationScheme = \"UsernamePassword\",\n        AuthorizationParameters = \n        {\n            { \"username\", \"username\" },\n            { \"password\", \"password\" },\n        },\n    });\n\n    // Token-based authentication\n    var tokenExample = new AzureDevOps.ServiceendpointGenericV2(\"token_example\", new()\n    {\n        ProjectId = example.Id,\n        Name = \"Token-based Service Endpoint\",\n        Description = \"Managed by Pulumi\",\n        ServiceEndpointType = \"generic\",\n        ServerUrl = \"https://api.example.com\",\n        AuthorizationScheme = \"Token\",\n        AuthorizationParameters = \n        {\n            { \"apitoken\", \"your-api-token\" },\n        },\n        Parameters = \n        {\n            { \"releaseUrl\", \"https://releases.example.com\" },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := azuredevops.NewProject(ctx, \"example\", \u0026azuredevops.ProjectArgs{\n\t\t\tName:             pulumi.String(\"Example Project\"),\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// Basic username/password authentication\n\t\t_, err = azuredevops.NewServiceendpointGenericV2(ctx, \"example\", \u0026azuredevops.ServiceendpointGenericV2Args{\n\t\t\tProjectId:           example.ID(),\n\t\t\tName:                pulumi.String(\"Example Generic Service Endpoint\"),\n\t\t\tDescription:         pulumi.String(\"Managed by Pulumi\"),\n\t\t\tServiceEndpointType: \"generic\",\n\t\t\tServerUrl:           pulumi.String(\"https://example.com\"),\n\t\t\tAuthorizationScheme: pulumi.String(\"UsernamePassword\"),\n\t\t\tAuthorizationParameters: pulumi.StringMap{\n\t\t\t\t\"username\": pulumi.String(\"username\"),\n\t\t\t\t\"password\": pulumi.String(\"password\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// Token-based authentication\n\t\t_, err = azuredevops.NewServiceendpointGenericV2(ctx, \"token_example\", \u0026azuredevops.ServiceendpointGenericV2Args{\n\t\t\tProjectId:           example.ID(),\n\t\t\tName:                pulumi.String(\"Token-based Service Endpoint\"),\n\t\t\tDescription:         pulumi.String(\"Managed by Pulumi\"),\n\t\t\tServiceEndpointType: \"generic\",\n\t\t\tServerUrl:           pulumi.String(\"https://api.example.com\"),\n\t\t\tAuthorizationScheme: pulumi.String(\"Token\"),\n\t\t\tAuthorizationParameters: pulumi.StringMap{\n\t\t\t\t\"apitoken\": pulumi.String(\"your-api-token\"),\n\t\t\t},\n\t\t\tParameters: pulumi.StringMap{\n\t\t\t\t\"releaseUrl\": pulumi.String(\"https://releases.example.com\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Project;\nimport com.pulumi.azuredevops.ProjectArgs;\nimport com.pulumi.azuredevops.ServiceendpointGenericV2;\nimport com.pulumi.azuredevops.ServiceendpointGenericV2Args;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Project(\"example\", ProjectArgs.builder()\n            .name(\"Example Project\")\n            .visibility(\"private\")\n            .versionControl(\"Git\")\n            .workItemTemplate(\"Agile\")\n            .build());\n\n        // Basic username/password authentication\n        var exampleServiceendpointGenericV2 = new ServiceendpointGenericV2(\"exampleServiceendpointGenericV2\", ServiceendpointGenericV2Args.builder()\n            .projectId(example.id())\n            .name(\"Example Generic Service Endpoint\")\n            .description(\"Managed by Pulumi\")\n            .serviceEndpointType(\"generic\")\n            .serverUrl(\"https://example.com\")\n            .authorizationScheme(\"UsernamePassword\")\n            .authorizationParameters(Map.ofEntries(\n                Map.entry(\"username\", \"username\"),\n                Map.entry(\"password\", \"password\")\n            ))\n            .build());\n\n        // Token-based authentication\n        var tokenExample = new ServiceendpointGenericV2(\"tokenExample\", ServiceendpointGenericV2Args.builder()\n            .projectId(example.id())\n            .name(\"Token-based Service Endpoint\")\n            .description(\"Managed by Pulumi\")\n            .serviceEndpointType(\"generic\")\n            .serverUrl(\"https://api.example.com\")\n            .authorizationScheme(\"Token\")\n            .authorizationParameters(Map.of(\"apitoken\", \"your-api-token\"))\n            .parameters(Map.of(\"releaseUrl\", \"https://releases.example.com\"))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: azuredevops:Project\n    properties:\n      name: Example Project\n      visibility: private\n      versionControl: Git\n      workItemTemplate: Agile\n  # Basic username/password authentication\n  exampleServiceendpointGenericV2:\n    type: azuredevops:ServiceendpointGenericV2\n    name: example\n    properties:\n      projectId: ${example.id}\n      name: Example Generic Service Endpoint\n      description: Managed by Pulumi\n      serviceEndpointType: generic\n      serverUrl: https://example.com\n      authorizationScheme: UsernamePassword\n      authorizationParameters:\n        username: username\n        password: password\n  # Token-based authentication\n  tokenExample:\n    type: azuredevops:ServiceendpointGenericV2\n    name: token_example\n    properties:\n      projectId: ${example.id}\n      name: Token-based Service Endpoint\n      description: Managed by Pulumi\n      serviceEndpointType: generic\n      serverUrl: https://api.example.com\n      authorizationScheme: Token\n      authorizationParameters:\n        apitoken: your-api-token\n      parameters:\n        releaseUrl: https://releases.example.com\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nService endpoints can be imported using the project ID and service endpoint ID:\n\n```sh\n$ pulumi import azuredevops:index/serviceendpointGenericV2:ServiceendpointGenericV2 example \u003cproject_id\u003e/\u003cid\u003e\n```\n\n",
+            "properties": {
+                "authorizationParameters": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of key/value pairs for the specific authorization scheme. These often include sensitive data like tokens, usernames, and passwords.\n",
+                    "secret": true
+                },
+                "authorizationScheme": {
+                    "type": "string",
+                    "description": "The authorization scheme to use. Common values include \"UsernamePassword\", \"Token\", \"OAuth\", etc.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the service endpoint. Defaults to \"Managed by Pulumi\".\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the service endpoint.\n"
+                },
+                "parameters": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Additional data associated with the service endpoint. This is a map of key/value pairs.\n"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The ID of the project to which the service endpoint belongs.\n"
+                },
+                "serverUrl": {
+                    "type": "string",
+                    "description": "The URL of the server associated with the service endpoint.\n"
+                },
+                "sharedProjectIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of project IDs where the service endpoint should be shared.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the service endpoint. This can be any valid service endpoint type, such as \"generic\", \"artifactory\", etc.\n"
+                }
+            },
+            "required": [
+                "authorizationScheme",
+                "name",
+                "projectId",
+                "serverUrl",
+                "type"
+            ],
+            "inputProperties": {
+                "authorizationParameters": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of key/value pairs for the specific authorization scheme. These often include sensitive data like tokens, usernames, and passwords.\n",
+                    "secret": true
+                },
+                "authorizationScheme": {
+                    "type": "string",
+                    "description": "The authorization scheme to use. Common values include \"UsernamePassword\", \"Token\", \"OAuth\", etc.\n",
+                    "willReplaceOnChanges": true
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the service endpoint. Defaults to \"Managed by Pulumi\".\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the service endpoint.\n"
+                },
+                "parameters": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Additional data associated with the service endpoint. This is a map of key/value pairs.\n"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The ID of the project to which the service endpoint belongs.\n",
+                    "willReplaceOnChanges": true
+                },
+                "serverUrl": {
+                    "type": "string",
+                    "description": "The URL of the server associated with the service endpoint.\n"
+                },
+                "sharedProjectIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of project IDs where the service endpoint should be shared.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the service endpoint. This can be any valid service endpoint type, such as \"generic\", \"artifactory\", etc.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "authorizationScheme",
+                "projectId",
+                "serverUrl",
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ServiceendpointGenericV2 resources.\n",
+                "properties": {
+                    "authorizationParameters": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of key/value pairs for the specific authorization scheme. These often include sensitive data like tokens, usernames, and passwords.\n",
+                        "secret": true
+                    },
+                    "authorizationScheme": {
+                        "type": "string",
+                        "description": "The authorization scheme to use. Common values include \"UsernamePassword\", \"Token\", \"OAuth\", etc.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The description of the service endpoint. Defaults to \"Managed by Pulumi\".\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the service endpoint.\n"
+                    },
+                    "parameters": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Additional data associated with the service endpoint. This is a map of key/value pairs.\n"
+                    },
+                    "projectId": {
+                        "type": "string",
+                        "description": "The ID of the project to which the service endpoint belongs.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "serverUrl": {
+                        "type": "string",
+                        "description": "The URL of the server associated with the service endpoint.\n"
+                    },
+                    "sharedProjectIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of project IDs where the service endpoint should be shared.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The type of the service endpoint. This can be any valid service endpoint type, such as \"generic\", \"artifactory\", etc.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
         "azuredevops:index/serviceendpointIncomingwebhook:ServiceendpointIncomingwebhook": {
             "description": "Manages an Incoming WebHook service endpoint within Azure DevOps, which can be used as a resource in YAML pipelines to subscribe to a webhook event.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = new azuredevops.Project(\"example\", {\n    name: \"Example Project\",\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n    description: \"Managed by Pulumi\",\n});\nconst exampleServiceendpointIncomingwebhook = new azuredevops.ServiceendpointIncomingwebhook(\"example\", {\n    projectId: example.id,\n    webhookName: \"example_webhook\",\n    secret: \"secret\",\n    httpHeader: \"X-Hub-Signature\",\n    serviceEndpointName: \"Example IncomingWebhook\",\n    description: \"Managed by Pulumi\",\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.Project(\"example\",\n    name=\"Example Project\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\",\n    description=\"Managed by Pulumi\")\nexample_serviceendpoint_incomingwebhook = azuredevops.ServiceendpointIncomingwebhook(\"example\",\n    project_id=example.id,\n    webhook_name=\"example_webhook\",\n    secret=\"secret\",\n    http_header=\"X-Hub-Signature\",\n    service_endpoint_name=\"Example IncomingWebhook\",\n    description=\"Managed by Pulumi\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new AzureDevOps.Project(\"example\", new()\n    {\n        Name = \"Example Project\",\n        Visibility = \"private\",\n        VersionControl = \"Git\",\n        WorkItemTemplate = \"Agile\",\n        Description = \"Managed by Pulumi\",\n    });\n\n    var exampleServiceendpointIncomingwebhook = new AzureDevOps.ServiceendpointIncomingwebhook(\"example\", new()\n    {\n        ProjectId = example.Id,\n        WebhookName = \"example_webhook\",\n        Secret = \"secret\",\n        HttpHeader = \"X-Hub-Signature\",\n        ServiceEndpointName = \"Example IncomingWebhook\",\n        Description = \"Managed by Pulumi\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := azuredevops.NewProject(ctx, \"example\", \u0026azuredevops.ProjectArgs{\n\t\t\tName:             pulumi.String(\"Example Project\"),\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t\tDescription:      pulumi.String(\"Managed by Pulumi\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewServiceendpointIncomingwebhook(ctx, \"example\", \u0026azuredevops.ServiceendpointIncomingwebhookArgs{\n\t\t\tProjectId:           example.ID(),\n\t\t\tWebhookName:         pulumi.String(\"example_webhook\"),\n\t\t\tSecret:              pulumi.String(\"secret\"),\n\t\t\tHttpHeader:          pulumi.String(\"X-Hub-Signature\"),\n\t\t\tServiceEndpointName: pulumi.String(\"Example IncomingWebhook\"),\n\t\t\tDescription:         pulumi.String(\"Managed by Pulumi\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Project;\nimport com.pulumi.azuredevops.ProjectArgs;\nimport com.pulumi.azuredevops.ServiceendpointIncomingwebhook;\nimport com.pulumi.azuredevops.ServiceendpointIncomingwebhookArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Project(\"example\", ProjectArgs.builder()\n            .name(\"Example Project\")\n            .visibility(\"private\")\n            .versionControl(\"Git\")\n            .workItemTemplate(\"Agile\")\n            .description(\"Managed by Pulumi\")\n            .build());\n\n        var exampleServiceendpointIncomingwebhook = new ServiceendpointIncomingwebhook(\"exampleServiceendpointIncomingwebhook\", ServiceendpointIncomingwebhookArgs.builder()\n            .projectId(example.id())\n            .webhookName(\"example_webhook\")\n            .secret(\"secret\")\n            .httpHeader(\"X-Hub-Signature\")\n            .serviceEndpointName(\"Example IncomingWebhook\")\n            .description(\"Managed by Pulumi\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: azuredevops:Project\n    properties:\n      name: Example Project\n      visibility: private\n      versionControl: Git\n      workItemTemplate: Agile\n      description: Managed by Pulumi\n  exampleServiceendpointIncomingwebhook:\n    type: azuredevops:ServiceendpointIncomingwebhook\n    name: example\n    properties:\n      projectId: ${example.id}\n      webhookName: example_webhook\n      secret: secret\n      httpHeader: X-Hub-Signature\n      serviceEndpointName: Example IncomingWebhook\n      description: Managed by Pulumi\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nAzure DevOps Incoming WebHook Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**\n\n```sh\n$ pulumi import azuredevops:index/serviceendpointIncomingwebhook:ServiceendpointIncomingwebhook example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000\n```\n\n",
             "properties": {
@@ -13868,6 +14452,318 @@
                 "type": "object"
             }
         },
+        "azuredevops:index/servicehookWebhookTfs:ServicehookWebhookTfs": {
+            "description": "Manages a Webhook TFS Service Hook that sends HTTP POST requests to a specified URL when Azure DevOps events occur.\n\n## Example Usage\n\n### Git Push Event\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = new azuredevops.Project(\"example\", {name: \"example-project\"});\nconst exampleServicehookWebhookTfs = new azuredevops.ServicehookWebhookTfs(\"example\", {\n    projectId: example.id,\n    url: \"https://example.com/webhook\",\n    gitPush: {\n        branch: \"refs/heads/main\",\n        repositoryId: exampleAzuredevopsGitRepository.id,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.Project(\"example\", name=\"example-project\")\nexample_servicehook_webhook_tfs = azuredevops.ServicehookWebhookTfs(\"example\",\n    project_id=example.id,\n    url=\"https://example.com/webhook\",\n    git_push={\n        \"branch\": \"refs/heads/main\",\n        \"repository_id\": example_azuredevops_git_repository[\"id\"],\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new AzureDevOps.Project(\"example\", new()\n    {\n        Name = \"example-project\",\n    });\n\n    var exampleServicehookWebhookTfs = new AzureDevOps.ServicehookWebhookTfs(\"example\", new()\n    {\n        ProjectId = example.Id,\n        Url = \"https://example.com/webhook\",\n        GitPush = new AzureDevOps.Inputs.ServicehookWebhookTfsGitPushArgs\n        {\n            Branch = \"refs/heads/main\",\n            RepositoryId = exampleAzuredevopsGitRepository.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := azuredevops.NewProject(ctx, \"example\", \u0026azuredevops.ProjectArgs{\n\t\t\tName: pulumi.String(\"example-project\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewServicehookWebhookTfs(ctx, \"example\", \u0026azuredevops.ServicehookWebhookTfsArgs{\n\t\t\tProjectId: example.ID(),\n\t\t\tUrl:       pulumi.String(\"https://example.com/webhook\"),\n\t\t\tGitPush: \u0026azuredevops.ServicehookWebhookTfsGitPushArgs{\n\t\t\t\tBranch:       pulumi.String(\"refs/heads/main\"),\n\t\t\t\tRepositoryId: pulumi.Any(exampleAzuredevopsGitRepository.Id),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Project;\nimport com.pulumi.azuredevops.ProjectArgs;\nimport com.pulumi.azuredevops.ServicehookWebhookTfs;\nimport com.pulumi.azuredevops.ServicehookWebhookTfsArgs;\nimport com.pulumi.azuredevops.inputs.ServicehookWebhookTfsGitPushArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Project(\"example\", ProjectArgs.builder()\n            .name(\"example-project\")\n            .build());\n\n        var exampleServicehookWebhookTfs = new ServicehookWebhookTfs(\"exampleServicehookWebhookTfs\", ServicehookWebhookTfsArgs.builder()\n            .projectId(example.id())\n            .url(\"https://example.com/webhook\")\n            .gitPush(ServicehookWebhookTfsGitPushArgs.builder()\n                .branch(\"refs/heads/main\")\n                .repositoryId(exampleAzuredevopsGitRepository.id())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: azuredevops:Project\n    properties:\n      name: example-project\n  exampleServicehookWebhookTfs:\n    type: azuredevops:ServicehookWebhookTfs\n    name: example\n    properties:\n      projectId: ${example.id}\n      url: https://example.com/webhook\n      gitPush:\n        branch: refs/heads/main\n        repositoryId: ${exampleAzuredevopsGitRepository.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Build Completed Event with Authentication\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = new azuredevops.ServicehookWebhookTfs(\"example\", {\n    projectId: exampleAzuredevopsProject.id,\n    url: \"https://example.com/webhook\",\n    basicAuthUsername: \"webhook_user\",\n    basicAuthPassword: webhookPassword,\n    acceptUntrustedCerts: false,\n    buildCompleted: {\n        definitionName: \"CI Build\",\n        buildStatus: \"Succeeded\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.ServicehookWebhookTfs(\"example\",\n    project_id=example_azuredevops_project[\"id\"],\n    url=\"https://example.com/webhook\",\n    basic_auth_username=\"webhook_user\",\n    basic_auth_password=webhook_password,\n    accept_untrusted_certs=False,\n    build_completed={\n        \"definition_name\": \"CI Build\",\n        \"build_status\": \"Succeeded\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new AzureDevOps.ServicehookWebhookTfs(\"example\", new()\n    {\n        ProjectId = exampleAzuredevopsProject.Id,\n        Url = \"https://example.com/webhook\",\n        BasicAuthUsername = \"webhook_user\",\n        BasicAuthPassword = webhookPassword,\n        AcceptUntrustedCerts = false,\n        BuildCompleted = new AzureDevOps.Inputs.ServicehookWebhookTfsBuildCompletedArgs\n        {\n            DefinitionName = \"CI Build\",\n            BuildStatus = \"Succeeded\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := azuredevops.NewServicehookWebhookTfs(ctx, \"example\", \u0026azuredevops.ServicehookWebhookTfsArgs{\n\t\t\tProjectId:            pulumi.Any(exampleAzuredevopsProject.Id),\n\t\t\tUrl:                  pulumi.String(\"https://example.com/webhook\"),\n\t\t\tBasicAuthUsername:    pulumi.String(\"webhook_user\"),\n\t\t\tBasicAuthPassword:    pulumi.Any(webhookPassword),\n\t\t\tAcceptUntrustedCerts: pulumi.Bool(false),\n\t\t\tBuildCompleted: \u0026azuredevops.ServicehookWebhookTfsBuildCompletedArgs{\n\t\t\t\tDefinitionName: pulumi.String(\"CI Build\"),\n\t\t\t\tBuildStatus:    pulumi.String(\"Succeeded\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.ServicehookWebhookTfs;\nimport com.pulumi.azuredevops.ServicehookWebhookTfsArgs;\nimport com.pulumi.azuredevops.inputs.ServicehookWebhookTfsBuildCompletedArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new ServicehookWebhookTfs(\"example\", ServicehookWebhookTfsArgs.builder()\n            .projectId(exampleAzuredevopsProject.id())\n            .url(\"https://example.com/webhook\")\n            .basicAuthUsername(\"webhook_user\")\n            .basicAuthPassword(webhookPassword)\n            .acceptUntrustedCerts(false)\n            .buildCompleted(ServicehookWebhookTfsBuildCompletedArgs.builder()\n                .definitionName(\"CI Build\")\n                .buildStatus(\"Succeeded\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: azuredevops:ServicehookWebhookTfs\n    properties:\n      projectId: ${exampleAzuredevopsProject.id}\n      url: https://example.com/webhook\n      basicAuthUsername: webhook_user\n      basicAuthPassword: ${webhookPassword}\n      acceptUntrustedCerts: false\n      buildCompleted:\n        definitionName: CI Build\n        buildStatus: Succeeded\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Pull Request Created Event with HTTP Headers\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = new azuredevops.ServicehookWebhookTfs(\"example\", {\n    projectId: exampleAzuredevopsProject.id,\n    url: \"https://example.com/webhook\",\n    httpHeaders: {\n        \"X-Custom-Header\": \"my-value\",\n        Authorization: `Bearer ${apiToken}`,\n    },\n    gitPullRequestCreated: {\n        repositoryId: exampleAzuredevopsGitRepository.id,\n        branch: \"refs/heads/develop\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.ServicehookWebhookTfs(\"example\",\n    project_id=example_azuredevops_project[\"id\"],\n    url=\"https://example.com/webhook\",\n    http_headers={\n        \"X-Custom-Header\": \"my-value\",\n        \"Authorization\": f\"Bearer {api_token}\",\n    },\n    git_pull_request_created={\n        \"repository_id\": example_azuredevops_git_repository[\"id\"],\n        \"branch\": \"refs/heads/develop\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new AzureDevOps.ServicehookWebhookTfs(\"example\", new()\n    {\n        ProjectId = exampleAzuredevopsProject.Id,\n        Url = \"https://example.com/webhook\",\n        HttpHeaders = \n        {\n            { \"X-Custom-Header\", \"my-value\" },\n            { \"Authorization\", $\"Bearer {apiToken}\" },\n        },\n        GitPullRequestCreated = new AzureDevOps.Inputs.ServicehookWebhookTfsGitPullRequestCreatedArgs\n        {\n            RepositoryId = exampleAzuredevopsGitRepository.Id,\n            Branch = \"refs/heads/develop\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := azuredevops.NewServicehookWebhookTfs(ctx, \"example\", \u0026azuredevops.ServicehookWebhookTfsArgs{\n\t\t\tProjectId: pulumi.Any(exampleAzuredevopsProject.Id),\n\t\t\tUrl:       pulumi.String(\"https://example.com/webhook\"),\n\t\t\tHttpHeaders: pulumi.StringMap{\n\t\t\t\t\"X-Custom-Header\": pulumi.String(\"my-value\"),\n\t\t\t\t\"Authorization\":   pulumi.Sprintf(\"Bearer %v\", apiToken),\n\t\t\t},\n\t\t\tGitPullRequestCreated: \u0026azuredevops.ServicehookWebhookTfsGitPullRequestCreatedArgs{\n\t\t\t\tRepositoryId: pulumi.Any(exampleAzuredevopsGitRepository.Id),\n\t\t\t\tBranch:       pulumi.String(\"refs/heads/develop\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.ServicehookWebhookTfs;\nimport com.pulumi.azuredevops.ServicehookWebhookTfsArgs;\nimport com.pulumi.azuredevops.inputs.ServicehookWebhookTfsGitPullRequestCreatedArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new ServicehookWebhookTfs(\"example\", ServicehookWebhookTfsArgs.builder()\n            .projectId(exampleAzuredevopsProject.id())\n            .url(\"https://example.com/webhook\")\n            .httpHeaders(Map.ofEntries(\n                Map.entry(\"X-Custom-Header\", \"my-value\"),\n                Map.entry(\"Authorization\", String.format(\"Bearer %s\", apiToken))\n            ))\n            .gitPullRequestCreated(ServicehookWebhookTfsGitPullRequestCreatedArgs.builder()\n                .repositoryId(exampleAzuredevopsGitRepository.id())\n                .branch(\"refs/heads/develop\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: azuredevops:ServicehookWebhookTfs\n    properties:\n      projectId: ${exampleAzuredevopsProject.id}\n      url: https://example.com/webhook\n      httpHeaders:\n        X-Custom-Header: my-value\n        Authorization: Bearer ${apiToken}\n      gitPullRequestCreated:\n        repositoryId: ${exampleAzuredevopsGitRepository.id}\n        branch: refs/heads/develop\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Work Item Updated Event\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = new azuredevops.ServicehookWebhookTfs(\"example\", {\n    projectId: exampleAzuredevopsProject.id,\n    url: \"https://example.com/webhook\",\n    resourceDetailsToSend: \"all\",\n    messagesToSend: \"text\",\n    detailedMessagesToSend: \"markdown\",\n    workItemUpdated: {\n        workItemType: \"Bug\",\n        areaPath: \"MyProject\\\\Area\",\n        changedFields: \"System.State\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.ServicehookWebhookTfs(\"example\",\n    project_id=example_azuredevops_project[\"id\"],\n    url=\"https://example.com/webhook\",\n    resource_details_to_send=\"all\",\n    messages_to_send=\"text\",\n    detailed_messages_to_send=\"markdown\",\n    work_item_updated={\n        \"work_item_type\": \"Bug\",\n        \"area_path\": \"MyProject\\\\Area\",\n        \"changed_fields\": \"System.State\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new AzureDevOps.ServicehookWebhookTfs(\"example\", new()\n    {\n        ProjectId = exampleAzuredevopsProject.Id,\n        Url = \"https://example.com/webhook\",\n        ResourceDetailsToSend = \"all\",\n        MessagesToSend = \"text\",\n        DetailedMessagesToSend = \"markdown\",\n        WorkItemUpdated = new AzureDevOps.Inputs.ServicehookWebhookTfsWorkItemUpdatedArgs\n        {\n            WorkItemType = \"Bug\",\n            AreaPath = \"MyProject\\\\Area\",\n            ChangedFields = \"System.State\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := azuredevops.NewServicehookWebhookTfs(ctx, \"example\", \u0026azuredevops.ServicehookWebhookTfsArgs{\n\t\t\tProjectId:              pulumi.Any(exampleAzuredevopsProject.Id),\n\t\t\tUrl:                    pulumi.String(\"https://example.com/webhook\"),\n\t\t\tResourceDetailsToSend:  pulumi.String(\"all\"),\n\t\t\tMessagesToSend:         pulumi.String(\"text\"),\n\t\t\tDetailedMessagesToSend: pulumi.String(\"markdown\"),\n\t\t\tWorkItemUpdated: \u0026azuredevops.ServicehookWebhookTfsWorkItemUpdatedArgs{\n\t\t\t\tWorkItemType:  pulumi.String(\"Bug\"),\n\t\t\t\tAreaPath:      pulumi.String(\"MyProject\\\\Area\"),\n\t\t\t\tChangedFields: pulumi.String(\"System.State\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.ServicehookWebhookTfs;\nimport com.pulumi.azuredevops.ServicehookWebhookTfsArgs;\nimport com.pulumi.azuredevops.inputs.ServicehookWebhookTfsWorkItemUpdatedArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new ServicehookWebhookTfs(\"example\", ServicehookWebhookTfsArgs.builder()\n            .projectId(exampleAzuredevopsProject.id())\n            .url(\"https://example.com/webhook\")\n            .resourceDetailsToSend(\"all\")\n            .messagesToSend(\"text\")\n            .detailedMessagesToSend(\"markdown\")\n            .workItemUpdated(ServicehookWebhookTfsWorkItemUpdatedArgs.builder()\n                .workItemType(\"Bug\")\n                .areaPath(\"MyProject\\\\Area\")\n                .changedFields(\"System.State\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: azuredevops:ServicehookWebhookTfs\n    properties:\n      projectId: ${exampleAzuredevopsProject.id}\n      url: https://example.com/webhook\n      resourceDetailsToSend: all\n      messagesToSend: text\n      detailedMessagesToSend: markdown\n      workItemUpdated:\n        workItemType: Bug\n        areaPath: MyProject\\Area\n        changedFields: System.State\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\nAn empty configuration block will trigger on all events of that type:\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = new azuredevops.ServicehookWebhookTfs(\"example\", {\n    projectId: exampleAzuredevopsProject.id,\n    url: \"https://example.com/webhook\",\n    gitPush: {},\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.ServicehookWebhookTfs(\"example\",\n    project_id=example_azuredevops_project[\"id\"],\n    url=\"https://example.com/webhook\",\n    git_push={})\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new AzureDevOps.ServicehookWebhookTfs(\"example\", new()\n    {\n        ProjectId = exampleAzuredevopsProject.Id,\n        Url = \"https://example.com/webhook\",\n        GitPush = null,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := azuredevops.NewServicehookWebhookTfs(ctx, \"example\", \u0026azuredevops.ServicehookWebhookTfsArgs{\n\t\t\tProjectId: pulumi.Any(exampleAzuredevopsProject.Id),\n\t\t\tUrl:       pulumi.String(\"https://example.com/webhook\"),\n\t\t\tGitPush:   \u0026azuredevops.ServicehookWebhookTfsGitPushArgs{},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.ServicehookWebhookTfs;\nimport com.pulumi.azuredevops.ServicehookWebhookTfsArgs;\nimport com.pulumi.azuredevops.inputs.ServicehookWebhookTfsGitPushArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new ServicehookWebhookTfs(\"example\", ServicehookWebhookTfsArgs.builder()\n            .projectId(exampleAzuredevopsProject.id())\n            .url(\"https://example.com/webhook\")\n            .gitPush(ServicehookWebhookTfsGitPushArgs.builder()\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: azuredevops:ServicehookWebhookTfs\n    properties:\n      projectId: ${exampleAzuredevopsProject.id}\n      url: https://example.com/webhook\n      gitPush: {}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nWebhook TFS Service Hook can be imported using the `resource id`, e.g.\n\n```sh\n$ pulumi import azuredevops:index/servicehookWebhookTfs:ServicehookWebhookTfs example 00000000-0000-0000-0000-000000000000\n```\n\n",
+            "properties": {
+                "acceptUntrustedCerts": {
+                    "type": "boolean",
+                    "description": "Accept untrusted SSL certificates. Defaults to \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
+                },
+                "basicAuthPassword": {
+                    "type": "string",
+                    "description": "Basic authentication password.\n",
+                    "secret": true
+                },
+                "basicAuthUsername": {
+                    "type": "string",
+                    "description": "Basic authentication username.\n"
+                },
+                "buildCompleted": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsBuildCompleted:ServicehookWebhookTfsBuildCompleted"
+                },
+                "detailedMessagesToSend": {
+                    "type": "string",
+                    "description": "Detailed messages to send - \u003cspan pulumi-lang-nodejs=\"`all`\" pulumi-lang-dotnet=\"`All`\" pulumi-lang-go=\"`all`\" pulumi-lang-python=\"`all`\" pulumi-lang-yaml=\"`all`\" pulumi-lang-java=\"`all`\"\u003e`all`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`text`\" pulumi-lang-dotnet=\"`Text`\" pulumi-lang-go=\"`text`\" pulumi-lang-python=\"`text`\" pulumi-lang-yaml=\"`text`\" pulumi-lang-java=\"`text`\"\u003e`text`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`html`\" pulumi-lang-dotnet=\"`Html`\" pulumi-lang-go=\"`html`\" pulumi-lang-python=\"`html`\" pulumi-lang-yaml=\"`html`\" pulumi-lang-java=\"`html`\"\u003e`html`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`markdown`\" pulumi-lang-dotnet=\"`Markdown`\" pulumi-lang-go=\"`markdown`\" pulumi-lang-python=\"`markdown`\" pulumi-lang-yaml=\"`markdown`\" pulumi-lang-java=\"`markdown`\"\u003e`markdown`\u003c/span\u003e, or \u003cspan pulumi-lang-nodejs=\"`none`\" pulumi-lang-dotnet=\"`None`\" pulumi-lang-go=\"`none`\" pulumi-lang-python=\"`none`\" pulumi-lang-yaml=\"`none`\" pulumi-lang-java=\"`none`\"\u003e`none`\u003c/span\u003e. Defaults to \u003cspan pulumi-lang-nodejs=\"`all`\" pulumi-lang-dotnet=\"`All`\" pulumi-lang-go=\"`all`\" pulumi-lang-python=\"`all`\" pulumi-lang-yaml=\"`all`\" pulumi-lang-java=\"`all`\"\u003e`all`\u003c/span\u003e.\n"
+                },
+                "gitPullRequestCommented": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsGitPullRequestCommented:ServicehookWebhookTfsGitPullRequestCommented"
+                },
+                "gitPullRequestCreated": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsGitPullRequestCreated:ServicehookWebhookTfsGitPullRequestCreated"
+                },
+                "gitPullRequestMergeAttempted": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsGitPullRequestMergeAttempted:ServicehookWebhookTfsGitPullRequestMergeAttempted"
+                },
+                "gitPullRequestUpdated": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsGitPullRequestUpdated:ServicehookWebhookTfsGitPullRequestUpdated"
+                },
+                "gitPush": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsGitPush:ServicehookWebhookTfsGitPush"
+                },
+                "httpHeaders": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "HTTP headers as key-value pairs to include in the webhook request.\n"
+                },
+                "messagesToSend": {
+                    "type": "string",
+                    "description": "Messages to send - \u003cspan pulumi-lang-nodejs=\"`all`\" pulumi-lang-dotnet=\"`All`\" pulumi-lang-go=\"`all`\" pulumi-lang-python=\"`all`\" pulumi-lang-yaml=\"`all`\" pulumi-lang-java=\"`all`\"\u003e`all`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`text`\" pulumi-lang-dotnet=\"`Text`\" pulumi-lang-go=\"`text`\" pulumi-lang-python=\"`text`\" pulumi-lang-yaml=\"`text`\" pulumi-lang-java=\"`text`\"\u003e`text`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`html`\" pulumi-lang-dotnet=\"`Html`\" pulumi-lang-go=\"`html`\" pulumi-lang-python=\"`html`\" pulumi-lang-yaml=\"`html`\" pulumi-lang-java=\"`html`\"\u003e`html`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`markdown`\" pulumi-lang-dotnet=\"`Markdown`\" pulumi-lang-go=\"`markdown`\" pulumi-lang-python=\"`markdown`\" pulumi-lang-yaml=\"`markdown`\" pulumi-lang-java=\"`markdown`\"\u003e`markdown`\u003c/span\u003e, or \u003cspan pulumi-lang-nodejs=\"`none`\" pulumi-lang-dotnet=\"`None`\" pulumi-lang-go=\"`none`\" pulumi-lang-python=\"`none`\" pulumi-lang-yaml=\"`none`\" pulumi-lang-java=\"`none`\"\u003e`none`\u003c/span\u003e. Defaults to \u003cspan pulumi-lang-nodejs=\"`all`\" pulumi-lang-dotnet=\"`All`\" pulumi-lang-go=\"`all`\" pulumi-lang-python=\"`all`\" pulumi-lang-yaml=\"`all`\" pulumi-lang-java=\"`all`\"\u003e`all`\u003c/span\u003e.\n"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The ID of the project. Changing this forces a new Service Hook Webhook TFS to be created.\n"
+                },
+                "repositoryCreated": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsRepositoryCreated:ServicehookWebhookTfsRepositoryCreated"
+                },
+                "repositoryDeleted": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsRepositoryDeleted:ServicehookWebhookTfsRepositoryDeleted"
+                },
+                "repositoryForked": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsRepositoryForked:ServicehookWebhookTfsRepositoryForked"
+                },
+                "repositoryRenamed": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsRepositoryRenamed:ServicehookWebhookTfsRepositoryRenamed"
+                },
+                "repositoryStatusChanged": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsRepositoryStatusChanged:ServicehookWebhookTfsRepositoryStatusChanged"
+                },
+                "resourceDetailsToSend": {
+                    "type": "string",
+                    "description": "Resource details to send - \u003cspan pulumi-lang-nodejs=\"`all`\" pulumi-lang-dotnet=\"`All`\" pulumi-lang-go=\"`all`\" pulumi-lang-python=\"`all`\" pulumi-lang-yaml=\"`all`\" pulumi-lang-java=\"`all`\"\u003e`all`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`minimal`\" pulumi-lang-dotnet=\"`Minimal`\" pulumi-lang-go=\"`minimal`\" pulumi-lang-python=\"`minimal`\" pulumi-lang-yaml=\"`minimal`\" pulumi-lang-java=\"`minimal`\"\u003e`minimal`\u003c/span\u003e, or \u003cspan pulumi-lang-nodejs=\"`none`\" pulumi-lang-dotnet=\"`None`\" pulumi-lang-go=\"`none`\" pulumi-lang-python=\"`none`\" pulumi-lang-yaml=\"`none`\" pulumi-lang-java=\"`none`\"\u003e`none`\u003c/span\u003e. Defaults to \u003cspan pulumi-lang-nodejs=\"`all`\" pulumi-lang-dotnet=\"`All`\" pulumi-lang-go=\"`all`\" pulumi-lang-python=\"`all`\" pulumi-lang-yaml=\"`all`\" pulumi-lang-java=\"`all`\"\u003e`all`\u003c/span\u003e.\n"
+                },
+                "serviceConnectionCreated": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsServiceConnectionCreated:ServicehookWebhookTfsServiceConnectionCreated"
+                },
+                "serviceConnectionUpdated": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsServiceConnectionUpdated:ServicehookWebhookTfsServiceConnectionUpdated"
+                },
+                "tfvcCheckin": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsTfvcCheckin:ServicehookWebhookTfsTfvcCheckin"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "The URL to send HTTP POST to.\n"
+                },
+                "workItemCommented": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsWorkItemCommented:ServicehookWebhookTfsWorkItemCommented"
+                },
+                "workItemCreated": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsWorkItemCreated:ServicehookWebhookTfsWorkItemCreated"
+                },
+                "workItemDeleted": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsWorkItemDeleted:ServicehookWebhookTfsWorkItemDeleted"
+                },
+                "workItemRestored": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsWorkItemRestored:ServicehookWebhookTfsWorkItemRestored"
+                },
+                "workItemUpdated": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsWorkItemUpdated:ServicehookWebhookTfsWorkItemUpdated"
+                }
+            },
+            "required": [
+                "projectId",
+                "url"
+            ],
+            "inputProperties": {
+                "acceptUntrustedCerts": {
+                    "type": "boolean",
+                    "description": "Accept untrusted SSL certificates. Defaults to \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
+                },
+                "basicAuthPassword": {
+                    "type": "string",
+                    "description": "Basic authentication password.\n",
+                    "secret": true
+                },
+                "basicAuthUsername": {
+                    "type": "string",
+                    "description": "Basic authentication username.\n"
+                },
+                "buildCompleted": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsBuildCompleted:ServicehookWebhookTfsBuildCompleted"
+                },
+                "detailedMessagesToSend": {
+                    "type": "string",
+                    "description": "Detailed messages to send - \u003cspan pulumi-lang-nodejs=\"`all`\" pulumi-lang-dotnet=\"`All`\" pulumi-lang-go=\"`all`\" pulumi-lang-python=\"`all`\" pulumi-lang-yaml=\"`all`\" pulumi-lang-java=\"`all`\"\u003e`all`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`text`\" pulumi-lang-dotnet=\"`Text`\" pulumi-lang-go=\"`text`\" pulumi-lang-python=\"`text`\" pulumi-lang-yaml=\"`text`\" pulumi-lang-java=\"`text`\"\u003e`text`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`html`\" pulumi-lang-dotnet=\"`Html`\" pulumi-lang-go=\"`html`\" pulumi-lang-python=\"`html`\" pulumi-lang-yaml=\"`html`\" pulumi-lang-java=\"`html`\"\u003e`html`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`markdown`\" pulumi-lang-dotnet=\"`Markdown`\" pulumi-lang-go=\"`markdown`\" pulumi-lang-python=\"`markdown`\" pulumi-lang-yaml=\"`markdown`\" pulumi-lang-java=\"`markdown`\"\u003e`markdown`\u003c/span\u003e, or \u003cspan pulumi-lang-nodejs=\"`none`\" pulumi-lang-dotnet=\"`None`\" pulumi-lang-go=\"`none`\" pulumi-lang-python=\"`none`\" pulumi-lang-yaml=\"`none`\" pulumi-lang-java=\"`none`\"\u003e`none`\u003c/span\u003e. Defaults to \u003cspan pulumi-lang-nodejs=\"`all`\" pulumi-lang-dotnet=\"`All`\" pulumi-lang-go=\"`all`\" pulumi-lang-python=\"`all`\" pulumi-lang-yaml=\"`all`\" pulumi-lang-java=\"`all`\"\u003e`all`\u003c/span\u003e.\n"
+                },
+                "gitPullRequestCommented": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsGitPullRequestCommented:ServicehookWebhookTfsGitPullRequestCommented"
+                },
+                "gitPullRequestCreated": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsGitPullRequestCreated:ServicehookWebhookTfsGitPullRequestCreated"
+                },
+                "gitPullRequestMergeAttempted": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsGitPullRequestMergeAttempted:ServicehookWebhookTfsGitPullRequestMergeAttempted"
+                },
+                "gitPullRequestUpdated": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsGitPullRequestUpdated:ServicehookWebhookTfsGitPullRequestUpdated"
+                },
+                "gitPush": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsGitPush:ServicehookWebhookTfsGitPush"
+                },
+                "httpHeaders": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "HTTP headers as key-value pairs to include in the webhook request.\n"
+                },
+                "messagesToSend": {
+                    "type": "string",
+                    "description": "Messages to send - \u003cspan pulumi-lang-nodejs=\"`all`\" pulumi-lang-dotnet=\"`All`\" pulumi-lang-go=\"`all`\" pulumi-lang-python=\"`all`\" pulumi-lang-yaml=\"`all`\" pulumi-lang-java=\"`all`\"\u003e`all`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`text`\" pulumi-lang-dotnet=\"`Text`\" pulumi-lang-go=\"`text`\" pulumi-lang-python=\"`text`\" pulumi-lang-yaml=\"`text`\" pulumi-lang-java=\"`text`\"\u003e`text`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`html`\" pulumi-lang-dotnet=\"`Html`\" pulumi-lang-go=\"`html`\" pulumi-lang-python=\"`html`\" pulumi-lang-yaml=\"`html`\" pulumi-lang-java=\"`html`\"\u003e`html`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`markdown`\" pulumi-lang-dotnet=\"`Markdown`\" pulumi-lang-go=\"`markdown`\" pulumi-lang-python=\"`markdown`\" pulumi-lang-yaml=\"`markdown`\" pulumi-lang-java=\"`markdown`\"\u003e`markdown`\u003c/span\u003e, or \u003cspan pulumi-lang-nodejs=\"`none`\" pulumi-lang-dotnet=\"`None`\" pulumi-lang-go=\"`none`\" pulumi-lang-python=\"`none`\" pulumi-lang-yaml=\"`none`\" pulumi-lang-java=\"`none`\"\u003e`none`\u003c/span\u003e. Defaults to \u003cspan pulumi-lang-nodejs=\"`all`\" pulumi-lang-dotnet=\"`All`\" pulumi-lang-go=\"`all`\" pulumi-lang-python=\"`all`\" pulumi-lang-yaml=\"`all`\" pulumi-lang-java=\"`all`\"\u003e`all`\u003c/span\u003e.\n"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The ID of the project. Changing this forces a new Service Hook Webhook TFS to be created.\n"
+                },
+                "repositoryCreated": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsRepositoryCreated:ServicehookWebhookTfsRepositoryCreated"
+                },
+                "repositoryDeleted": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsRepositoryDeleted:ServicehookWebhookTfsRepositoryDeleted"
+                },
+                "repositoryForked": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsRepositoryForked:ServicehookWebhookTfsRepositoryForked"
+                },
+                "repositoryRenamed": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsRepositoryRenamed:ServicehookWebhookTfsRepositoryRenamed"
+                },
+                "repositoryStatusChanged": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsRepositoryStatusChanged:ServicehookWebhookTfsRepositoryStatusChanged"
+                },
+                "resourceDetailsToSend": {
+                    "type": "string",
+                    "description": "Resource details to send - \u003cspan pulumi-lang-nodejs=\"`all`\" pulumi-lang-dotnet=\"`All`\" pulumi-lang-go=\"`all`\" pulumi-lang-python=\"`all`\" pulumi-lang-yaml=\"`all`\" pulumi-lang-java=\"`all`\"\u003e`all`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`minimal`\" pulumi-lang-dotnet=\"`Minimal`\" pulumi-lang-go=\"`minimal`\" pulumi-lang-python=\"`minimal`\" pulumi-lang-yaml=\"`minimal`\" pulumi-lang-java=\"`minimal`\"\u003e`minimal`\u003c/span\u003e, or \u003cspan pulumi-lang-nodejs=\"`none`\" pulumi-lang-dotnet=\"`None`\" pulumi-lang-go=\"`none`\" pulumi-lang-python=\"`none`\" pulumi-lang-yaml=\"`none`\" pulumi-lang-java=\"`none`\"\u003e`none`\u003c/span\u003e. Defaults to \u003cspan pulumi-lang-nodejs=\"`all`\" pulumi-lang-dotnet=\"`All`\" pulumi-lang-go=\"`all`\" pulumi-lang-python=\"`all`\" pulumi-lang-yaml=\"`all`\" pulumi-lang-java=\"`all`\"\u003e`all`\u003c/span\u003e.\n"
+                },
+                "serviceConnectionCreated": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsServiceConnectionCreated:ServicehookWebhookTfsServiceConnectionCreated"
+                },
+                "serviceConnectionUpdated": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsServiceConnectionUpdated:ServicehookWebhookTfsServiceConnectionUpdated"
+                },
+                "tfvcCheckin": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsTfvcCheckin:ServicehookWebhookTfsTfvcCheckin"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "The URL to send HTTP POST to.\n"
+                },
+                "workItemCommented": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsWorkItemCommented:ServicehookWebhookTfsWorkItemCommented"
+                },
+                "workItemCreated": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsWorkItemCreated:ServicehookWebhookTfsWorkItemCreated"
+                },
+                "workItemDeleted": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsWorkItemDeleted:ServicehookWebhookTfsWorkItemDeleted"
+                },
+                "workItemRestored": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsWorkItemRestored:ServicehookWebhookTfsWorkItemRestored"
+                },
+                "workItemUpdated": {
+                    "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsWorkItemUpdated:ServicehookWebhookTfsWorkItemUpdated"
+                }
+            },
+            "requiredInputs": [
+                "projectId",
+                "url"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ServicehookWebhookTfs resources.\n",
+                "properties": {
+                    "acceptUntrustedCerts": {
+                        "type": "boolean",
+                        "description": "Accept untrusted SSL certificates. Defaults to \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
+                    },
+                    "basicAuthPassword": {
+                        "type": "string",
+                        "description": "Basic authentication password.\n",
+                        "secret": true
+                    },
+                    "basicAuthUsername": {
+                        "type": "string",
+                        "description": "Basic authentication username.\n"
+                    },
+                    "buildCompleted": {
+                        "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsBuildCompleted:ServicehookWebhookTfsBuildCompleted"
+                    },
+                    "detailedMessagesToSend": {
+                        "type": "string",
+                        "description": "Detailed messages to send - \u003cspan pulumi-lang-nodejs=\"`all`\" pulumi-lang-dotnet=\"`All`\" pulumi-lang-go=\"`all`\" pulumi-lang-python=\"`all`\" pulumi-lang-yaml=\"`all`\" pulumi-lang-java=\"`all`\"\u003e`all`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`text`\" pulumi-lang-dotnet=\"`Text`\" pulumi-lang-go=\"`text`\" pulumi-lang-python=\"`text`\" pulumi-lang-yaml=\"`text`\" pulumi-lang-java=\"`text`\"\u003e`text`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`html`\" pulumi-lang-dotnet=\"`Html`\" pulumi-lang-go=\"`html`\" pulumi-lang-python=\"`html`\" pulumi-lang-yaml=\"`html`\" pulumi-lang-java=\"`html`\"\u003e`html`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`markdown`\" pulumi-lang-dotnet=\"`Markdown`\" pulumi-lang-go=\"`markdown`\" pulumi-lang-python=\"`markdown`\" pulumi-lang-yaml=\"`markdown`\" pulumi-lang-java=\"`markdown`\"\u003e`markdown`\u003c/span\u003e, or \u003cspan pulumi-lang-nodejs=\"`none`\" pulumi-lang-dotnet=\"`None`\" pulumi-lang-go=\"`none`\" pulumi-lang-python=\"`none`\" pulumi-lang-yaml=\"`none`\" pulumi-lang-java=\"`none`\"\u003e`none`\u003c/span\u003e. Defaults to \u003cspan pulumi-lang-nodejs=\"`all`\" pulumi-lang-dotnet=\"`All`\" pulumi-lang-go=\"`all`\" pulumi-lang-python=\"`all`\" pulumi-lang-yaml=\"`all`\" pulumi-lang-java=\"`all`\"\u003e`all`\u003c/span\u003e.\n"
+                    },
+                    "gitPullRequestCommented": {
+                        "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsGitPullRequestCommented:ServicehookWebhookTfsGitPullRequestCommented"
+                    },
+                    "gitPullRequestCreated": {
+                        "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsGitPullRequestCreated:ServicehookWebhookTfsGitPullRequestCreated"
+                    },
+                    "gitPullRequestMergeAttempted": {
+                        "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsGitPullRequestMergeAttempted:ServicehookWebhookTfsGitPullRequestMergeAttempted"
+                    },
+                    "gitPullRequestUpdated": {
+                        "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsGitPullRequestUpdated:ServicehookWebhookTfsGitPullRequestUpdated"
+                    },
+                    "gitPush": {
+                        "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsGitPush:ServicehookWebhookTfsGitPush"
+                    },
+                    "httpHeaders": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "HTTP headers as key-value pairs to include in the webhook request.\n"
+                    },
+                    "messagesToSend": {
+                        "type": "string",
+                        "description": "Messages to send - \u003cspan pulumi-lang-nodejs=\"`all`\" pulumi-lang-dotnet=\"`All`\" pulumi-lang-go=\"`all`\" pulumi-lang-python=\"`all`\" pulumi-lang-yaml=\"`all`\" pulumi-lang-java=\"`all`\"\u003e`all`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`text`\" pulumi-lang-dotnet=\"`Text`\" pulumi-lang-go=\"`text`\" pulumi-lang-python=\"`text`\" pulumi-lang-yaml=\"`text`\" pulumi-lang-java=\"`text`\"\u003e`text`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`html`\" pulumi-lang-dotnet=\"`Html`\" pulumi-lang-go=\"`html`\" pulumi-lang-python=\"`html`\" pulumi-lang-yaml=\"`html`\" pulumi-lang-java=\"`html`\"\u003e`html`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`markdown`\" pulumi-lang-dotnet=\"`Markdown`\" pulumi-lang-go=\"`markdown`\" pulumi-lang-python=\"`markdown`\" pulumi-lang-yaml=\"`markdown`\" pulumi-lang-java=\"`markdown`\"\u003e`markdown`\u003c/span\u003e, or \u003cspan pulumi-lang-nodejs=\"`none`\" pulumi-lang-dotnet=\"`None`\" pulumi-lang-go=\"`none`\" pulumi-lang-python=\"`none`\" pulumi-lang-yaml=\"`none`\" pulumi-lang-java=\"`none`\"\u003e`none`\u003c/span\u003e. Defaults to \u003cspan pulumi-lang-nodejs=\"`all`\" pulumi-lang-dotnet=\"`All`\" pulumi-lang-go=\"`all`\" pulumi-lang-python=\"`all`\" pulumi-lang-yaml=\"`all`\" pulumi-lang-java=\"`all`\"\u003e`all`\u003c/span\u003e.\n"
+                    },
+                    "projectId": {
+                        "type": "string",
+                        "description": "The ID of the project. Changing this forces a new Service Hook Webhook TFS to be created.\n"
+                    },
+                    "repositoryCreated": {
+                        "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsRepositoryCreated:ServicehookWebhookTfsRepositoryCreated"
+                    },
+                    "repositoryDeleted": {
+                        "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsRepositoryDeleted:ServicehookWebhookTfsRepositoryDeleted"
+                    },
+                    "repositoryForked": {
+                        "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsRepositoryForked:ServicehookWebhookTfsRepositoryForked"
+                    },
+                    "repositoryRenamed": {
+                        "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsRepositoryRenamed:ServicehookWebhookTfsRepositoryRenamed"
+                    },
+                    "repositoryStatusChanged": {
+                        "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsRepositoryStatusChanged:ServicehookWebhookTfsRepositoryStatusChanged"
+                    },
+                    "resourceDetailsToSend": {
+                        "type": "string",
+                        "description": "Resource details to send - \u003cspan pulumi-lang-nodejs=\"`all`\" pulumi-lang-dotnet=\"`All`\" pulumi-lang-go=\"`all`\" pulumi-lang-python=\"`all`\" pulumi-lang-yaml=\"`all`\" pulumi-lang-java=\"`all`\"\u003e`all`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`minimal`\" pulumi-lang-dotnet=\"`Minimal`\" pulumi-lang-go=\"`minimal`\" pulumi-lang-python=\"`minimal`\" pulumi-lang-yaml=\"`minimal`\" pulumi-lang-java=\"`minimal`\"\u003e`minimal`\u003c/span\u003e, or \u003cspan pulumi-lang-nodejs=\"`none`\" pulumi-lang-dotnet=\"`None`\" pulumi-lang-go=\"`none`\" pulumi-lang-python=\"`none`\" pulumi-lang-yaml=\"`none`\" pulumi-lang-java=\"`none`\"\u003e`none`\u003c/span\u003e. Defaults to \u003cspan pulumi-lang-nodejs=\"`all`\" pulumi-lang-dotnet=\"`All`\" pulumi-lang-go=\"`all`\" pulumi-lang-python=\"`all`\" pulumi-lang-yaml=\"`all`\" pulumi-lang-java=\"`all`\"\u003e`all`\u003c/span\u003e.\n"
+                    },
+                    "serviceConnectionCreated": {
+                        "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsServiceConnectionCreated:ServicehookWebhookTfsServiceConnectionCreated"
+                    },
+                    "serviceConnectionUpdated": {
+                        "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsServiceConnectionUpdated:ServicehookWebhookTfsServiceConnectionUpdated"
+                    },
+                    "tfvcCheckin": {
+                        "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsTfvcCheckin:ServicehookWebhookTfsTfvcCheckin"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "The URL to send HTTP POST to.\n"
+                    },
+                    "workItemCommented": {
+                        "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsWorkItemCommented:ServicehookWebhookTfsWorkItemCommented"
+                    },
+                    "workItemCreated": {
+                        "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsWorkItemCreated:ServicehookWebhookTfsWorkItemCreated"
+                    },
+                    "workItemDeleted": {
+                        "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsWorkItemDeleted:ServicehookWebhookTfsWorkItemDeleted"
+                    },
+                    "workItemRestored": {
+                        "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsWorkItemRestored:ServicehookWebhookTfsWorkItemRestored"
+                    },
+                    "workItemUpdated": {
+                        "$ref": "#/types/azuredevops:index/ServicehookWebhookTfsWorkItemUpdated:ServicehookWebhookTfsWorkItemUpdated"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "azuredevops:index/taggingPermissions:TaggingPermissions": {
             "description": "Manages permissions for tagging\n\n## Permission levels\n\nPermissions for tagging within Azure DevOps can be applied only on Organizational and Project level.\nThe project level is reflected by specifying the argument \u003cspan pulumi-lang-nodejs=\"`projectId`\" pulumi-lang-dotnet=\"`ProjectId`\" pulumi-lang-go=\"`projectId`\" pulumi-lang-python=\"`project_id`\" pulumi-lang-yaml=\"`projectId`\" pulumi-lang-java=\"`projectId`\"\u003e`project_id`\u003c/span\u003e, otherwise the permissions are set on the organizational level.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = new azuredevops.Project(\"example\", {\n    name: \"Example Project\",\n    workItemTemplate: \"Agile\",\n    versionControl: \"Git\",\n    visibility: \"private\",\n    description: \"Managed by Pulumi\",\n});\nconst example_readers = azuredevops.getGroupOutput({\n    projectId: example.id,\n    name: \"Readers\",\n});\nconst example_permissions = new azuredevops.TaggingPermissions(\"example-permissions\", {\n    projectId: example.id,\n    principal: example_readers.apply(example_readers =\u003e example_readers.id),\n    permissions: {\n        Enumerate: \"allow\",\n        Create: \"allow\",\n        Update: \"allow\",\n        Delete: \"allow\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.Project(\"example\",\n    name=\"Example Project\",\n    work_item_template=\"Agile\",\n    version_control=\"Git\",\n    visibility=\"private\",\n    description=\"Managed by Pulumi\")\nexample_readers = azuredevops.get_group_output(project_id=example.id,\n    name=\"Readers\")\nexample_permissions = azuredevops.TaggingPermissions(\"example-permissions\",\n    project_id=example.id,\n    principal=example_readers.id,\n    permissions={\n        \"Enumerate\": \"allow\",\n        \"Create\": \"allow\",\n        \"Update\": \"allow\",\n        \"Delete\": \"allow\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new AzureDevOps.Project(\"example\", new()\n    {\n        Name = \"Example Project\",\n        WorkItemTemplate = \"Agile\",\n        VersionControl = \"Git\",\n        Visibility = \"private\",\n        Description = \"Managed by Pulumi\",\n    });\n\n    var example_readers = AzureDevOps.GetGroup.Invoke(new()\n    {\n        ProjectId = example.Id,\n        Name = \"Readers\",\n    });\n\n    var example_permissions = new AzureDevOps.TaggingPermissions(\"example-permissions\", new()\n    {\n        ProjectId = example.Id,\n        Principal = example_readers.Apply(example_readers =\u003e example_readers.Apply(getGroupResult =\u003e getGroupResult.Id)),\n        Permissions = \n        {\n            { \"Enumerate\", \"allow\" },\n            { \"Create\", \"allow\" },\n            { \"Update\", \"allow\" },\n            { \"Delete\", \"allow\" },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := azuredevops.NewProject(ctx, \"example\", \u0026azuredevops.ProjectArgs{\n\t\t\tName:             pulumi.String(\"Example Project\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tDescription:      pulumi.String(\"Managed by Pulumi\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texample_readers := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{\n\t\t\tProjectId: example.ID(),\n\t\t\tName:      pulumi.String(\"Readers\"),\n\t\t}, nil)\n\t\t_, err = azuredevops.NewTaggingPermissions(ctx, \"example-permissions\", \u0026azuredevops.TaggingPermissionsArgs{\n\t\t\tProjectId: example.ID(),\n\t\t\tPrincipal: pulumi.String(example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {\n\t\t\t\treturn \u0026example_readers.Id, nil\n\t\t\t}).(pulumi.StringPtrOutput)),\n\t\t\tPermissions: pulumi.StringMap{\n\t\t\t\t\"Enumerate\": pulumi.String(\"allow\"),\n\t\t\t\t\"Create\":    pulumi.String(\"allow\"),\n\t\t\t\t\"Update\":    pulumi.String(\"allow\"),\n\t\t\t\t\"Delete\":    pulumi.String(\"allow\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Project;\nimport com.pulumi.azuredevops.ProjectArgs;\nimport com.pulumi.azuredevops.AzuredevopsFunctions;\nimport com.pulumi.azuredevops.inputs.GetGroupArgs;\nimport com.pulumi.azuredevops.TaggingPermissions;\nimport com.pulumi.azuredevops.TaggingPermissionsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Project(\"example\", ProjectArgs.builder()\n            .name(\"Example Project\")\n            .workItemTemplate(\"Agile\")\n            .versionControl(\"Git\")\n            .visibility(\"private\")\n            .description(\"Managed by Pulumi\")\n            .build());\n\n        final var example-readers = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()\n            .projectId(example.id())\n            .name(\"Readers\")\n            .build());\n\n        var example_permissions = new TaggingPermissions(\"example-permissions\", TaggingPermissionsArgs.builder()\n            .projectId(example.id())\n            .principal(example_readers.applyValue(_example_readers -\u003e _example_readers.id()))\n            .permissions(Map.ofEntries(\n                Map.entry(\"Enumerate\", \"allow\"),\n                Map.entry(\"Create\", \"allow\"),\n                Map.entry(\"Update\", \"allow\"),\n                Map.entry(\"Delete\", \"allow\")\n            ))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: azuredevops:Project\n    properties:\n      name: Example Project\n      workItemTemplate: Agile\n      versionControl: Git\n      visibility: private\n      description: Managed by Pulumi\n  example-permissions:\n    type: azuredevops:TaggingPermissions\n    properties:\n      projectId: ${example.id}\n      principal: ${[\"example-readers\"].id}\n      permissions:\n        Enumerate: allow\n        Create: allow\n        Update: allow\n        Delete: allow\nvariables:\n  example-readers:\n    fn::invoke:\n      function: azuredevops:getGroup\n      arguments:\n        projectId: ${example.id}\n        name: Readers\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Relevant Links\n\n* [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)\n\n## PAT Permissions Required\n\n- **Project \u0026 Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.\n\n## Import\n\nThe resource does not support import.\n\n",
             "properties": {
@@ -14996,6 +15892,276 @@
                     "url": {
                         "type": "string",
                         "description": "The URL of the Work Item.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "azuredevops:index/workitemquery:Workitemquery": {
+            "description": "Manages a Work Item Query (WIQL based list / tree query) in Azure DevOps.\n\nA query can live either directly under one of the root areas `Shared Queries` or `My Queries`, or inside another query folder. You must provide exactly one of \u003cspan pulumi-lang-nodejs=\"`area`\" pulumi-lang-dotnet=\"`Area`\" pulumi-lang-go=\"`area`\" pulumi-lang-python=\"`area`\" pulumi-lang-yaml=\"`area`\" pulumi-lang-java=\"`area`\"\u003e`area`\u003c/span\u003e (either `Shared Queries` or `My Queries`) or \u003cspan pulumi-lang-nodejs=\"`parentId`\" pulumi-lang-dotnet=\"`ParentId`\" pulumi-lang-go=\"`parentId`\" pulumi-lang-python=\"`parent_id`\" pulumi-lang-yaml=\"`parentId`\" pulumi-lang-java=\"`parentId`\"\u003e`parent_id`\u003c/span\u003e (an existing folder's ID) when creating a query.\n\nThe WIQL (Work Item Query Language) statement is used to define the query logic. See the [WIQL Syntax Reference](https://learn.microsoft.com/en-us/azure/devops/boards/queries/wiql-syntax?view=azure-devops) for more information.\n\n## Example Usage\n\n### Basic query under Shared Queries\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = new azuredevops.Project(\"example\", {\n    name: \"Example Project\",\n    workItemTemplate: \"Agile\",\n    versionControl: \"Git\",\n    visibility: \"private\",\n});\nconst allIssues = new azuredevops.Workitemquery(\"all_issues\", {\n    projectId: example.id,\n    name: \"All Active Issues\",\n    area: \"Shared Queries\",\n    wiql: `SELECT [System.Id], [System.Title], [System.State]\nFROM WorkItems\nWHERE [System.WorkItemType] = 'Issue'\n  AND [System.State] \u003c\u003e 'Closed'\nORDER BY [System.ChangedDate] DESC\n`,\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.Project(\"example\",\n    name=\"Example Project\",\n    work_item_template=\"Agile\",\n    version_control=\"Git\",\n    visibility=\"private\")\nall_issues = azuredevops.Workitemquery(\"all_issues\",\n    project_id=example.id,\n    name=\"All Active Issues\",\n    area=\"Shared Queries\",\n    wiql=\"\"\"SELECT [System.Id], [System.Title], [System.State]\nFROM WorkItems\nWHERE [System.WorkItemType] = 'Issue'\n  AND [System.State] \u003c\u003e 'Closed'\nORDER BY [System.ChangedDate] DESC\n\"\"\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new AzureDevOps.Project(\"example\", new()\n    {\n        Name = \"Example Project\",\n        WorkItemTemplate = \"Agile\",\n        VersionControl = \"Git\",\n        Visibility = \"private\",\n    });\n\n    var allIssues = new AzureDevOps.Workitemquery(\"all_issues\", new()\n    {\n        ProjectId = example.Id,\n        Name = \"All Active Issues\",\n        Area = \"Shared Queries\",\n        Wiql = @\"SELECT [System.Id], [System.Title], [System.State]\nFROM WorkItems\nWHERE [System.WorkItemType] = 'Issue'\n  AND [System.State] \u003c\u003e 'Closed'\nORDER BY [System.ChangedDate] DESC\n\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := azuredevops.NewProject(ctx, \"example\", \u0026azuredevops.ProjectArgs{\n\t\t\tName:             pulumi.String(\"Example Project\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewWorkitemquery(ctx, \"all_issues\", \u0026azuredevops.WorkitemqueryArgs{\n\t\t\tProjectId: example.ID(),\n\t\t\tName:      pulumi.String(\"All Active Issues\"),\n\t\t\tArea:      pulumi.String(\"Shared Queries\"),\n\t\t\tWiql: pulumi.String(`SELECT [System.Id], [System.Title], [System.State]\nFROM WorkItems\nWHERE [System.WorkItemType] = 'Issue'\n  AND [System.State] \u003c\u003e 'Closed'\nORDER BY [System.ChangedDate] DESC\n`),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Project;\nimport com.pulumi.azuredevops.ProjectArgs;\nimport com.pulumi.azuredevops.Workitemquery;\nimport com.pulumi.azuredevops.WorkitemqueryArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Project(\"example\", ProjectArgs.builder()\n            .name(\"Example Project\")\n            .workItemTemplate(\"Agile\")\n            .versionControl(\"Git\")\n            .visibility(\"private\")\n            .build());\n\n        var allIssues = new Workitemquery(\"allIssues\", WorkitemqueryArgs.builder()\n            .projectId(example.id())\n            .name(\"All Active Issues\")\n            .area(\"Shared Queries\")\n            .wiql(\"\"\"\nSELECT [System.Id], [System.Title], [System.State]\nFROM WorkItems\nWHERE [System.WorkItemType] = 'Issue'\n  AND [System.State] \u003c\u003e 'Closed'\nORDER BY [System.ChangedDate] DESC\n            \"\"\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: azuredevops:Project\n    properties:\n      name: Example Project\n      workItemTemplate: Agile\n      versionControl: Git\n      visibility: private\n  allIssues:\n    type: azuredevops:Workitemquery\n    name: all_issues\n    properties:\n      projectId: ${example.id}\n      name: All Active Issues\n      area: Shared Queries\n      wiql: |\n        SELECT [System.Id], [System.Title], [System.State]\n        FROM WorkItems\n        WHERE [System.WorkItemType] = 'Issue'\n          AND [System.State] \u003c\u003e 'Closed'\n        ORDER BY [System.ChangedDate] DESC\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Query inside a custom folder\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = new azuredevops.Project(\"example\", {\n    name: \"Example Project\",\n    workItemTemplate: \"Agile\",\n    versionControl: \"Git\",\n    visibility: \"private\",\n});\nconst teamFolder = new azuredevops.WorkitemqueryFolder(\"team_folder\", {\n    projectId: example.id,\n    name: \"Team\",\n    area: \"Shared Queries\",\n});\nconst myTeamBugs = new azuredevops.Workitemquery(\"my_team_bugs\", {\n    projectId: example.id,\n    name: \"Team Bugs\",\n    parentId: teamFolder.id,\n    wiql: `SELECT [System.Id], [System.Title], [System.State], [System.AssignedTo]\nFROM WorkItems\nWHERE [System.WorkItemType] = 'Bug'\n  AND [System.State] \u003c\u003e 'Closed'\nORDER BY [System.CreatedDate] DESC\n`,\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.Project(\"example\",\n    name=\"Example Project\",\n    work_item_template=\"Agile\",\n    version_control=\"Git\",\n    visibility=\"private\")\nteam_folder = azuredevops.WorkitemqueryFolder(\"team_folder\",\n    project_id=example.id,\n    name=\"Team\",\n    area=\"Shared Queries\")\nmy_team_bugs = azuredevops.Workitemquery(\"my_team_bugs\",\n    project_id=example.id,\n    name=\"Team Bugs\",\n    parent_id=team_folder.id,\n    wiql=\"\"\"SELECT [System.Id], [System.Title], [System.State], [System.AssignedTo]\nFROM WorkItems\nWHERE [System.WorkItemType] = 'Bug'\n  AND [System.State] \u003c\u003e 'Closed'\nORDER BY [System.CreatedDate] DESC\n\"\"\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new AzureDevOps.Project(\"example\", new()\n    {\n        Name = \"Example Project\",\n        WorkItemTemplate = \"Agile\",\n        VersionControl = \"Git\",\n        Visibility = \"private\",\n    });\n\n    var teamFolder = new AzureDevOps.WorkitemqueryFolder(\"team_folder\", new()\n    {\n        ProjectId = example.Id,\n        Name = \"Team\",\n        Area = \"Shared Queries\",\n    });\n\n    var myTeamBugs = new AzureDevOps.Workitemquery(\"my_team_bugs\", new()\n    {\n        ProjectId = example.Id,\n        Name = \"Team Bugs\",\n        ParentId = teamFolder.Id,\n        Wiql = @\"SELECT [System.Id], [System.Title], [System.State], [System.AssignedTo]\nFROM WorkItems\nWHERE [System.WorkItemType] = 'Bug'\n  AND [System.State] \u003c\u003e 'Closed'\nORDER BY [System.CreatedDate] DESC\n\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := azuredevops.NewProject(ctx, \"example\", \u0026azuredevops.ProjectArgs{\n\t\t\tName:             pulumi.String(\"Example Project\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tteamFolder, err := azuredevops.NewWorkitemqueryFolder(ctx, \"team_folder\", \u0026azuredevops.WorkitemqueryFolderArgs{\n\t\t\tProjectId: example.ID(),\n\t\t\tName:      pulumi.String(\"Team\"),\n\t\t\tArea:      pulumi.String(\"Shared Queries\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewWorkitemquery(ctx, \"my_team_bugs\", \u0026azuredevops.WorkitemqueryArgs{\n\t\t\tProjectId: example.ID(),\n\t\t\tName:      pulumi.String(\"Team Bugs\"),\n\t\t\tParentId:  teamFolder.ID(),\n\t\t\tWiql: pulumi.String(`SELECT [System.Id], [System.Title], [System.State], [System.AssignedTo]\nFROM WorkItems\nWHERE [System.WorkItemType] = 'Bug'\n  AND [System.State] \u003c\u003e 'Closed'\nORDER BY [System.CreatedDate] DESC\n`),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Project;\nimport com.pulumi.azuredevops.ProjectArgs;\nimport com.pulumi.azuredevops.WorkitemqueryFolder;\nimport com.pulumi.azuredevops.WorkitemqueryFolderArgs;\nimport com.pulumi.azuredevops.Workitemquery;\nimport com.pulumi.azuredevops.WorkitemqueryArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Project(\"example\", ProjectArgs.builder()\n            .name(\"Example Project\")\n            .workItemTemplate(\"Agile\")\n            .versionControl(\"Git\")\n            .visibility(\"private\")\n            .build());\n\n        var teamFolder = new WorkitemqueryFolder(\"teamFolder\", WorkitemqueryFolderArgs.builder()\n            .projectId(example.id())\n            .name(\"Team\")\n            .area(\"Shared Queries\")\n            .build());\n\n        var myTeamBugs = new Workitemquery(\"myTeamBugs\", WorkitemqueryArgs.builder()\n            .projectId(example.id())\n            .name(\"Team Bugs\")\n            .parentId(teamFolder.id())\n            .wiql(\"\"\"\nSELECT [System.Id], [System.Title], [System.State], [System.AssignedTo]\nFROM WorkItems\nWHERE [System.WorkItemType] = 'Bug'\n  AND [System.State] \u003c\u003e 'Closed'\nORDER BY [System.CreatedDate] DESC\n            \"\"\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: azuredevops:Project\n    properties:\n      name: Example Project\n      workItemTemplate: Agile\n      versionControl: Git\n      visibility: private\n  teamFolder:\n    type: azuredevops:WorkitemqueryFolder\n    name: team_folder\n    properties:\n      projectId: ${example.id}\n      name: Team\n      area: Shared Queries\n  myTeamBugs:\n    type: azuredevops:Workitemquery\n    name: my_team_bugs\n    properties:\n      projectId: ${example.id}\n      name: Team Bugs\n      parentId: ${teamFolder.id}\n      wiql: |\n        SELECT [System.Id], [System.Title], [System.State], [System.AssignedTo]\n        FROM WorkItems\n        WHERE [System.WorkItemType] = 'Bug'\n          AND [System.State] \u003c\u003e 'Closed'\n        ORDER BY [System.CreatedDate] DESC\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Applying permissions to a query\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\nimport * as std from \"@pulumi/std\";\n\nconst example = new azuredevops.Project(\"example\", {\n    name: \"Example Project\",\n    workItemTemplate: \"Agile\",\n    versionControl: \"Git\",\n    visibility: \"private\",\n});\nconst teamFolder = new azuredevops.WorkitemqueryFolder(\"team_folder\", {\n    projectId: example.id,\n    name: \"Team\",\n    area: \"Shared Queries\",\n});\nconst myTeamBugs = new azuredevops.Workitemquery(\"my_team_bugs\", {\n    projectId: example.id,\n    name: \"Team Bugs\",\n    parentId: teamFolder.id,\n    wiql: `SELECT [System.Id], [System.Title], [System.State], [System.AssignedTo]\nFROM WorkItems\nWHERE [System.WorkItemType] = 'Bug'\n  AND [System.State] \u003c\u003e 'Closed'\nORDER BY [System.CreatedDate] DESC\n`,\n});\nconst example_readers = azuredevops.getGroupOutput({\n    projectId: example.id,\n    name: \"Readers\",\n});\nconst queryPermissions = new azuredevops.WorkItemQueryPermissions(\"query_permissions\", {\n    projectId: example.id,\n    path: std.index.format({\n        input: \"%s/%s\",\n        args: [\n            teamFolder.name,\n            myTeamBugs.name,\n        ],\n    }).result,\n    principal: example_readers.apply(example_readers =\u003e example_readers.id),\n    permissions: {\n        Read: \"Allow\",\n        Contribute: \"Deny\",\n        ManagePermissions: \"Deny\",\n        Delete: \"Deny\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\nimport pulumi_std as std\n\nexample = azuredevops.Project(\"example\",\n    name=\"Example Project\",\n    work_item_template=\"Agile\",\n    version_control=\"Git\",\n    visibility=\"private\")\nteam_folder = azuredevops.WorkitemqueryFolder(\"team_folder\",\n    project_id=example.id,\n    name=\"Team\",\n    area=\"Shared Queries\")\nmy_team_bugs = azuredevops.Workitemquery(\"my_team_bugs\",\n    project_id=example.id,\n    name=\"Team Bugs\",\n    parent_id=team_folder.id,\n    wiql=\"\"\"SELECT [System.Id], [System.Title], [System.State], [System.AssignedTo]\nFROM WorkItems\nWHERE [System.WorkItemType] = 'Bug'\n  AND [System.State] \u003c\u003e 'Closed'\nORDER BY [System.CreatedDate] DESC\n\"\"\")\nexample_readers = azuredevops.get_group_output(project_id=example.id,\n    name=\"Readers\")\nquery_permissions = azuredevops.WorkItemQueryPermissions(\"query_permissions\",\n    project_id=example.id,\n    path=std.index.format(input=\"%s/%s\",\n        args=[\n            team_folder.name,\n            my_team_bugs.name,\n        ])[\"result\"],\n    principal=example_readers.id,\n    permissions={\n        \"Read\": \"Allow\",\n        \"Contribute\": \"Deny\",\n        \"ManagePermissions\": \"Deny\",\n        \"Delete\": \"Deny\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\nusing Std = Pulumi.Std;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new AzureDevOps.Project(\"example\", new()\n    {\n        Name = \"Example Project\",\n        WorkItemTemplate = \"Agile\",\n        VersionControl = \"Git\",\n        Visibility = \"private\",\n    });\n\n    var teamFolder = new AzureDevOps.WorkitemqueryFolder(\"team_folder\", new()\n    {\n        ProjectId = example.Id,\n        Name = \"Team\",\n        Area = \"Shared Queries\",\n    });\n\n    var myTeamBugs = new AzureDevOps.Workitemquery(\"my_team_bugs\", new()\n    {\n        ProjectId = example.Id,\n        Name = \"Team Bugs\",\n        ParentId = teamFolder.Id,\n        Wiql = @\"SELECT [System.Id], [System.Title], [System.State], [System.AssignedTo]\nFROM WorkItems\nWHERE [System.WorkItemType] = 'Bug'\n  AND [System.State] \u003c\u003e 'Closed'\nORDER BY [System.CreatedDate] DESC\n\",\n    });\n\n    var example_readers = AzureDevOps.GetGroup.Invoke(new()\n    {\n        ProjectId = example.Id,\n        Name = \"Readers\",\n    });\n\n    var queryPermissions = new AzureDevOps.WorkItemQueryPermissions(\"query_permissions\", new()\n    {\n        ProjectId = example.Id,\n        Path = Std.Index.Format.Invoke(new()\n        {\n            Input = \"%s/%s\",\n            Args = new[]\n            {\n                teamFolder.Name,\n                myTeamBugs.Name,\n            },\n        }).Result,\n        Principal = example_readers.Apply(example_readers =\u003e example_readers.Apply(getGroupResult =\u003e getGroupResult.Id)),\n        Permissions = \n        {\n            { \"Read\", \"Allow\" },\n            { \"Contribute\", \"Deny\" },\n            { \"ManagePermissions\", \"Deny\" },\n            { \"Delete\", \"Deny\" },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi-std/sdk/go/std\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := azuredevops.NewProject(ctx, \"example\", \u0026azuredevops.ProjectArgs{\n\t\t\tName:             pulumi.String(\"Example Project\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tteamFolder, err := azuredevops.NewWorkitemqueryFolder(ctx, \"team_folder\", \u0026azuredevops.WorkitemqueryFolderArgs{\n\t\t\tProjectId: example.ID(),\n\t\t\tName:      pulumi.String(\"Team\"),\n\t\t\tArea:      pulumi.String(\"Shared Queries\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tmyTeamBugs, err := azuredevops.NewWorkitemquery(ctx, \"my_team_bugs\", \u0026azuredevops.WorkitemqueryArgs{\n\t\t\tProjectId: example.ID(),\n\t\t\tName:      pulumi.String(\"Team Bugs\"),\n\t\t\tParentId:  teamFolder.ID(),\n\t\t\tWiql: pulumi.String(`SELECT [System.Id], [System.Title], [System.State], [System.AssignedTo]\nFROM WorkItems\nWHERE [System.WorkItemType] = 'Bug'\n  AND [System.State] \u003c\u003e 'Closed'\nORDER BY [System.CreatedDate] DESC\n`),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texample_readers := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{\n\t\t\tProjectId: example.ID(),\n\t\t\tName:      pulumi.String(\"Readers\"),\n\t\t}, nil)\n\t\tinvokeFormat, err := std.Format(ctx, map[string]interface{}{\n\t\t\t\"input\": \"%s/%s\",\n\t\t\t\"args\": pulumi.StringArray{\n\t\t\t\tteamFolder.Name,\n\t\t\t\tmyTeamBugs.Name,\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewWorkItemQueryPermissions(ctx, \"query_permissions\", \u0026azuredevops.WorkItemQueryPermissionsArgs{\n\t\t\tProjectId: example.ID(),\n\t\t\tPath:      invokeFormat.Result,\n\t\t\tPrincipal: pulumi.String(example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {\n\t\t\t\treturn \u0026example_readers.Id, nil\n\t\t\t}).(pulumi.StringPtrOutput)),\n\t\t\tPermissions: pulumi.StringMap{\n\t\t\t\t\"Read\":              pulumi.String(\"Allow\"),\n\t\t\t\t\"Contribute\":        pulumi.String(\"Deny\"),\n\t\t\t\t\"ManagePermissions\": pulumi.String(\"Deny\"),\n\t\t\t\t\"Delete\":            pulumi.String(\"Deny\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Project;\nimport com.pulumi.azuredevops.ProjectArgs;\nimport com.pulumi.azuredevops.WorkitemqueryFolder;\nimport com.pulumi.azuredevops.WorkitemqueryFolderArgs;\nimport com.pulumi.azuredevops.Workitemquery;\nimport com.pulumi.azuredevops.WorkitemqueryArgs;\nimport com.pulumi.azuredevops.AzuredevopsFunctions;\nimport com.pulumi.azuredevops.inputs.GetGroupArgs;\nimport com.pulumi.azuredevops.WorkItemQueryPermissions;\nimport com.pulumi.azuredevops.WorkItemQueryPermissionsArgs;\nimport com.pulumi.std.StdFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Project(\"example\", ProjectArgs.builder()\n            .name(\"Example Project\")\n            .workItemTemplate(\"Agile\")\n            .versionControl(\"Git\")\n            .visibility(\"private\")\n            .build());\n\n        var teamFolder = new WorkitemqueryFolder(\"teamFolder\", WorkitemqueryFolderArgs.builder()\n            .projectId(example.id())\n            .name(\"Team\")\n            .area(\"Shared Queries\")\n            .build());\n\n        var myTeamBugs = new Workitemquery(\"myTeamBugs\", WorkitemqueryArgs.builder()\n            .projectId(example.id())\n            .name(\"Team Bugs\")\n            .parentId(teamFolder.id())\n            .wiql(\"\"\"\nSELECT [System.Id], [System.Title], [System.State], [System.AssignedTo]\nFROM WorkItems\nWHERE [System.WorkItemType] = 'Bug'\n  AND [System.State] \u003c\u003e 'Closed'\nORDER BY [System.CreatedDate] DESC\n            \"\"\")\n            .build());\n\n        final var example-readers = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()\n            .projectId(example.id())\n            .name(\"Readers\")\n            .build());\n\n        var queryPermissions = new WorkItemQueryPermissions(\"queryPermissions\", WorkItemQueryPermissionsArgs.builder()\n            .projectId(example.id())\n            .path(StdFunctions.format(Map.ofEntries(\n                Map.entry(\"input\", \"%s/%s\"),\n                Map.entry(\"args\",                 \n                    teamFolder.name(),\n                    myTeamBugs.name())\n            )).result())\n            .principal(example_readers.applyValue(_example_readers -\u003e _example_readers.id()))\n            .permissions(Map.ofEntries(\n                Map.entry(\"Read\", \"Allow\"),\n                Map.entry(\"Contribute\", \"Deny\"),\n                Map.entry(\"ManagePermissions\", \"Deny\"),\n                Map.entry(\"Delete\", \"Deny\")\n            ))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: azuredevops:Project\n    properties:\n      name: Example Project\n      workItemTemplate: Agile\n      versionControl: Git\n      visibility: private\n  teamFolder:\n    type: azuredevops:WorkitemqueryFolder\n    name: team_folder\n    properties:\n      projectId: ${example.id}\n      name: Team\n      area: Shared Queries\n  myTeamBugs:\n    type: azuredevops:Workitemquery\n    name: my_team_bugs\n    properties:\n      projectId: ${example.id}\n      name: Team Bugs\n      parentId: ${teamFolder.id}\n      wiql: |\n        SELECT [System.Id], [System.Title], [System.State], [System.AssignedTo]\n        FROM WorkItems\n        WHERE [System.WorkItemType] = 'Bug'\n          AND [System.State] \u003c\u003e 'Closed'\n        ORDER BY [System.CreatedDate] DESC\n  queryPermissions:\n    type: azuredevops:WorkItemQueryPermissions\n    name: query_permissions\n    properties:\n      projectId: ${example.id}\n      path:\n        fn::invoke:\n          function: std:format\n          arguments:\n            input: '%s/%s'\n            args:\n              - ${teamFolder.name}\n              - ${myTeamBugs.name}\n          return: result\n      principal: ${[\"example-readers\"].id}\n      permissions:\n        Read: Allow\n        Contribute: Deny\n        ManagePermissions: Deny\n        Delete: Deny\nvariables:\n  example-readers:\n    fn::invoke:\n      function: azuredevops:getGroup\n      arguments:\n        projectId: ${example.id}\n        name: Readers\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Relevant Links\n\n* [Azure DevOps REST API - Work Item Query (Queries)](https://learn.microsoft.com/en-us/rest/api/azure/devops/wit/queries?view=azure-devops-rest-7.1)\n* [WIQL Syntax Reference](https://learn.microsoft.com/en-us/azure/devops/boards/queries/wiql-syntax?view=azure-devops)\n\n## PAT Permissions Required\n\n* **Work Items**: Read \u0026 Write\n\n## Import\n\nThe resource does not support import.\n\n",
+            "properties": {
+                "area": {
+                    "type": "string",
+                    "description": "Root folder for the query. Must be one of `Shared Queries` or `My Queries`.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name of the query.\n"
+                },
+                "parentId": {
+                    "type": "string",
+                    "description": "The ID of the parent query folder under which to create the query.\n"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The ID of the Project containing the query.\n"
+                },
+                "wiql": {
+                    "type": "string",
+                    "description": "The WIQL (Work Item Query Language) statement. Length 1–32000 characters.\n"
+                }
+            },
+            "required": [
+                "name",
+                "projectId",
+                "wiql"
+            ],
+            "inputProperties": {
+                "area": {
+                    "type": "string",
+                    "description": "Root folder for the query. Must be one of `Shared Queries` or `My Queries`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name of the query.\n"
+                },
+                "parentId": {
+                    "type": "string",
+                    "description": "The ID of the parent query folder under which to create the query.\n",
+                    "willReplaceOnChanges": true
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The ID of the Project containing the query.\n",
+                    "willReplaceOnChanges": true
+                },
+                "wiql": {
+                    "type": "string",
+                    "description": "The WIQL (Work Item Query Language) statement. Length 1–32000 characters.\n"
+                }
+            },
+            "requiredInputs": [
+                "projectId",
+                "wiql"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Workitemquery resources.\n",
+                "properties": {
+                    "area": {
+                        "type": "string",
+                        "description": "Root folder for the query. Must be one of `Shared Queries` or `My Queries`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The display name of the query.\n"
+                    },
+                    "parentId": {
+                        "type": "string",
+                        "description": "The ID of the parent query folder under which to create the query.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "projectId": {
+                        "type": "string",
+                        "description": "The ID of the Project containing the query.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "wiql": {
+                        "type": "string",
+                        "description": "The WIQL (Work Item Query Language) statement. Length 1–32000 characters.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "azuredevops:index/workitemqueryFolder:WorkitemqueryFolder": {
+            "description": "Manages a Work Item Query Folder in Azure DevOps.\n\nFolders allow you to organize queries in a hierarchy beneath either the `Shared Queries` or `My Queries` root folder (area).\nYou must provide exactly one of \u003cspan pulumi-lang-nodejs=\"`area`\" pulumi-lang-dotnet=\"`Area`\" pulumi-lang-go=\"`area`\" pulumi-lang-python=\"`area`\" pulumi-lang-yaml=\"`area`\" pulumi-lang-java=\"`area`\"\u003e`area`\u003c/span\u003e (either `Shared Queries` or `My Queries`) or \u003cspan pulumi-lang-nodejs=\"`parentId`\" pulumi-lang-dotnet=\"`ParentId`\" pulumi-lang-go=\"`parentId`\" pulumi-lang-python=\"`parent_id`\" pulumi-lang-yaml=\"`parentId`\" pulumi-lang-java=\"`parentId`\"\u003e`parent_id`\u003c/span\u003e (an existing folder's ID) when creating a folder.\n\n## Example Usage\n\n### Basic folder under Shared Queries\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = new azuredevops.Project(\"example\", {\n    name: \"Example Project\",\n    workItemTemplate: \"Agile\",\n    versionControl: \"Git\",\n    visibility: \"private\",\n    description: \"Managed by Pulumi\",\n});\nconst teamFolder = new azuredevops.WorkitemqueryFolder(\"team_folder\", {\n    projectId: example.id,\n    name: \"Team\",\n    area: \"Shared Queries\",\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.Project(\"example\",\n    name=\"Example Project\",\n    work_item_template=\"Agile\",\n    version_control=\"Git\",\n    visibility=\"private\",\n    description=\"Managed by Pulumi\")\nteam_folder = azuredevops.WorkitemqueryFolder(\"team_folder\",\n    project_id=example.id,\n    name=\"Team\",\n    area=\"Shared Queries\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new AzureDevOps.Project(\"example\", new()\n    {\n        Name = \"Example Project\",\n        WorkItemTemplate = \"Agile\",\n        VersionControl = \"Git\",\n        Visibility = \"private\",\n        Description = \"Managed by Pulumi\",\n    });\n\n    var teamFolder = new AzureDevOps.WorkitemqueryFolder(\"team_folder\", new()\n    {\n        ProjectId = example.Id,\n        Name = \"Team\",\n        Area = \"Shared Queries\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := azuredevops.NewProject(ctx, \"example\", \u0026azuredevops.ProjectArgs{\n\t\t\tName:             pulumi.String(\"Example Project\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tDescription:      pulumi.String(\"Managed by Pulumi\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewWorkitemqueryFolder(ctx, \"team_folder\", \u0026azuredevops.WorkitemqueryFolderArgs{\n\t\t\tProjectId: example.ID(),\n\t\t\tName:      pulumi.String(\"Team\"),\n\t\t\tArea:      pulumi.String(\"Shared Queries\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Project;\nimport com.pulumi.azuredevops.ProjectArgs;\nimport com.pulumi.azuredevops.WorkitemqueryFolder;\nimport com.pulumi.azuredevops.WorkitemqueryFolderArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Project(\"example\", ProjectArgs.builder()\n            .name(\"Example Project\")\n            .workItemTemplate(\"Agile\")\n            .versionControl(\"Git\")\n            .visibility(\"private\")\n            .description(\"Managed by Pulumi\")\n            .build());\n\n        var teamFolder = new WorkitemqueryFolder(\"teamFolder\", WorkitemqueryFolderArgs.builder()\n            .projectId(example.id())\n            .name(\"Team\")\n            .area(\"Shared Queries\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: azuredevops:Project\n    properties:\n      name: Example Project\n      workItemTemplate: Agile\n      versionControl: Git\n      visibility: private\n      description: Managed by Pulumi\n  teamFolder:\n    type: azuredevops:WorkitemqueryFolder\n    name: team_folder\n    properties:\n      projectId: ${example.id}\n      name: Team\n      area: Shared Queries\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Nested folder\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst parent = new azuredevops.WorkitemqueryFolder(\"parent\", {\n    projectId: example.id,\n    name: \"Parent\",\n    area: \"Shared Queries\",\n});\nconst child = new azuredevops.WorkitemqueryFolder(\"child\", {\n    projectId: example.id,\n    name: \"Child\",\n    parentId: parent.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nparent = azuredevops.WorkitemqueryFolder(\"parent\",\n    project_id=example[\"id\"],\n    name=\"Parent\",\n    area=\"Shared Queries\")\nchild = azuredevops.WorkitemqueryFolder(\"child\",\n    project_id=example[\"id\"],\n    name=\"Child\",\n    parent_id=parent.id)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var parent = new AzureDevOps.WorkitemqueryFolder(\"parent\", new()\n    {\n        ProjectId = example.Id,\n        Name = \"Parent\",\n        Area = \"Shared Queries\",\n    });\n\n    var child = new AzureDevOps.WorkitemqueryFolder(\"child\", new()\n    {\n        ProjectId = example.Id,\n        Name = \"Child\",\n        ParentId = parent.Id,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tparent, err := azuredevops.NewWorkitemqueryFolder(ctx, \"parent\", \u0026azuredevops.WorkitemqueryFolderArgs{\n\t\t\tProjectId: pulumi.Any(example.Id),\n\t\t\tName:      pulumi.String(\"Parent\"),\n\t\t\tArea:      pulumi.String(\"Shared Queries\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewWorkitemqueryFolder(ctx, \"child\", \u0026azuredevops.WorkitemqueryFolderArgs{\n\t\t\tProjectId: pulumi.Any(example.Id),\n\t\t\tName:      pulumi.String(\"Child\"),\n\t\t\tParentId:  parent.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.WorkitemqueryFolder;\nimport com.pulumi.azuredevops.WorkitemqueryFolderArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var parent = new WorkitemqueryFolder(\"parent\", WorkitemqueryFolderArgs.builder()\n            .projectId(example.id())\n            .name(\"Parent\")\n            .area(\"Shared Queries\")\n            .build());\n\n        var child = new WorkitemqueryFolder(\"child\", WorkitemqueryFolderArgs.builder()\n            .projectId(example.id())\n            .name(\"Child\")\n            .parentId(parent.id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  parent:\n    type: azuredevops:WorkitemqueryFolder\n    properties:\n      projectId: ${example.id}\n      name: Parent\n      area: Shared Queries\n  child:\n    type: azuredevops:WorkitemqueryFolder\n    properties:\n      projectId: ${example.id}\n      name: Child\n      parentId: ${parent.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Relevant Links\n\n* [Azure DevOps REST API - Work Item Query (Queries)](https://learn.microsoft.com/en-us/rest/api/azure/devops/wit/queries?view=azure-devops-rest-7.1)\n\n## PAT Permissions Required\n\n* **Work Items**: Read \u0026 Write\n\n## Import\n\nThe resource does not support import.\n\n",
+            "properties": {
+                "area": {
+                    "type": "string",
+                    "description": "Root folder. Must be one of `Shared Queries` or `My Queries`.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name of the folder.\n"
+                },
+                "parentId": {
+                    "type": "string",
+                    "description": "The ID of the parent query folder.\n"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The ID of the Project containing the folder.\n"
+                }
+            },
+            "required": [
+                "name",
+                "projectId"
+            ],
+            "inputProperties": {
+                "area": {
+                    "type": "string",
+                    "description": "Root folder. Must be one of `Shared Queries` or `My Queries`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name of the folder.\n",
+                    "willReplaceOnChanges": true
+                },
+                "parentId": {
+                    "type": "string",
+                    "description": "The ID of the parent query folder.\n",
+                    "willReplaceOnChanges": true
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The ID of the Project containing the folder.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "projectId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering WorkitemqueryFolder resources.\n",
+                "properties": {
+                    "area": {
+                        "type": "string",
+                        "description": "Root folder. Must be one of `Shared Queries` or `My Queries`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The display name of the folder.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "parentId": {
+                        "type": "string",
+                        "description": "The ID of the parent query folder.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "projectId": {
+                        "type": "string",
+                        "description": "The ID of the Project containing the folder.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "azuredevops:index/workitemtrackingprocessProcess:WorkitemtrackingprocessProcess": {
+            "description": "Manages a process.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst customAgile = new azuredevops.WorkitemtrackingprocessProcess(\"custom_agile\", {\n    name: \"custom_agile\",\n    parentProcessTypeId: \"adcc42ab-9882-485e-a3ed-7678f01f66bc\",\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\ncustom_agile = azuredevops.WorkitemtrackingprocessProcess(\"custom_agile\",\n    name=\"custom_agile\",\n    parent_process_type_id=\"adcc42ab-9882-485e-a3ed-7678f01f66bc\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var customAgile = new AzureDevOps.WorkitemtrackingprocessProcess(\"custom_agile\", new()\n    {\n        Name = \"custom_agile\",\n        ParentProcessTypeId = \"adcc42ab-9882-485e-a3ed-7678f01f66bc\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := azuredevops.NewWorkitemtrackingprocessProcess(ctx, \"custom_agile\", \u0026azuredevops.WorkitemtrackingprocessProcessArgs{\n\t\t\tName:                pulumi.String(\"custom_agile\"),\n\t\t\tParentProcessTypeId: pulumi.String(\"adcc42ab-9882-485e-a3ed-7678f01f66bc\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.WorkitemtrackingprocessProcess;\nimport com.pulumi.azuredevops.WorkitemtrackingprocessProcessArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var customAgile = new WorkitemtrackingprocessProcess(\"customAgile\", WorkitemtrackingprocessProcessArgs.builder()\n            .name(\"custom_agile\")\n            .parentProcessTypeId(\"adcc42ab-9882-485e-a3ed-7678f01f66bc\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  customAgile:\n    type: azuredevops:WorkitemtrackingprocessProcess\n    name: custom_agile\n    properties:\n      name: custom_agile\n      parentProcessTypeId: adcc42ab-9882-485e-a3ed-7678f01f66bc\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Relevant Links\n\n- [Azure DevOps Service REST API 7.1 - Processes](https://learn.microsoft.com/en-us/rest/api/azure/devops/processes/processes?view=azure-devops-rest-7.1)\n\n## Import\n\nA process can be imported using the process id, e.g.\n\n```sh\n$ pulumi import azuredevops:index/workitemtrackingprocessProcess:WorkitemtrackingprocessProcess example 00000000-0000-0000-0000-000000000000\n```\n\n",
+            "properties": {
+                "customizationType": {
+                    "type": "string",
+                    "description": "Indicates the type of customization on this process. System Process is default process. Inherited Process is modified process that was System process before.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of the process. Default: \"\"\n"
+                },
+                "isDefault": {
+                    "type": "boolean",
+                    "description": "Is the process default? Default: false\n"
+                },
+                "isEnabled": {
+                    "type": "boolean",
+                    "description": "Is the process enabled? Default: true\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the process.\n"
+                },
+                "parentProcessTypeId": {
+                    "type": "string",
+                    "description": "ID of the parent process. Changing this forces a new process to be created.\n"
+                },
+                "referenceName": {
+                    "type": "string",
+                    "description": "Reference name of process being created. If not specified, server will assign a unique reference name. Changing this forces a new process to be created.\n"
+                }
+            },
+            "required": [
+                "customizationType",
+                "name",
+                "parentProcessTypeId",
+                "referenceName"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "Description of the process. Default: \"\"\n"
+                },
+                "isDefault": {
+                    "type": "boolean",
+                    "description": "Is the process default? Default: false\n"
+                },
+                "isEnabled": {
+                    "type": "boolean",
+                    "description": "Is the process enabled? Default: true\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the process.\n"
+                },
+                "parentProcessTypeId": {
+                    "type": "string",
+                    "description": "ID of the parent process. Changing this forces a new process to be created.\n",
+                    "willReplaceOnChanges": true
+                },
+                "referenceName": {
+                    "type": "string",
+                    "description": "Reference name of process being created. If not specified, server will assign a unique reference name. Changing this forces a new process to be created.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "parentProcessTypeId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering WorkitemtrackingprocessProcess resources.\n",
+                "properties": {
+                    "customizationType": {
+                        "type": "string",
+                        "description": "Indicates the type of customization on this process. System Process is default process. Inherited Process is modified process that was System process before.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Description of the process. Default: \"\"\n"
+                    },
+                    "isDefault": {
+                        "type": "boolean",
+                        "description": "Is the process default? Default: false\n"
+                    },
+                    "isEnabled": {
+                        "type": "boolean",
+                        "description": "Is the process enabled? Default: true\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the process.\n"
+                    },
+                    "parentProcessTypeId": {
+                        "type": "string",
+                        "description": "ID of the parent process. Changing this forces a new process to be created.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "referenceName": {
+                        "type": "string",
+                        "description": "Reference name of process being created. If not specified, server will assign a unique reference name. Changing this forces a new process to be created.\n",
+                        "willReplaceOnChanges": true
                     }
                 },
                 "type": "object"
@@ -16704,6 +17870,95 @@
                 "type": "object"
             }
         },
+        "azuredevops:index/getServiceendpointGenericV2:getServiceendpointGenericV2": {
+            "description": "Use this data source to access information about an existing Generic Service Endpoint (v2) within Azure DevOps.\n\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getServiceendpointGenericV2.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the service endpoint to retrieve. One of \u003cspan pulumi-lang-nodejs=\"`serviceEndpointId`\" pulumi-lang-dotnet=\"`ServiceEndpointId`\" pulumi-lang-go=\"`serviceEndpointId`\" pulumi-lang-python=\"`service_endpoint_id`\" pulumi-lang-yaml=\"`serviceEndpointId`\" pulumi-lang-java=\"`serviceEndpointId`\"\u003e`service_endpoint_id`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`serviceEndpointName`\" pulumi-lang-dotnet=\"`ServiceEndpointName`\" pulumi-lang-go=\"`serviceEndpointName`\" pulumi-lang-python=\"`service_endpoint_name`\" pulumi-lang-yaml=\"`serviceEndpointName`\" pulumi-lang-java=\"`serviceEndpointName`\"\u003e`service_endpoint_name`\u003c/span\u003e must be specified.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the service endpoint to retrieve. One of \u003cspan pulumi-lang-nodejs=\"`serviceEndpointId`\" pulumi-lang-dotnet=\"`ServiceEndpointId`\" pulumi-lang-go=\"`serviceEndpointId`\" pulumi-lang-python=\"`service_endpoint_id`\" pulumi-lang-yaml=\"`serviceEndpointId`\" pulumi-lang-java=\"`serviceEndpointId`\"\u003e`service_endpoint_id`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`serviceEndpointName`\" pulumi-lang-dotnet=\"`ServiceEndpointName`\" pulumi-lang-go=\"`serviceEndpointName`\" pulumi-lang-python=\"`service_endpoint_name`\" pulumi-lang-yaml=\"`serviceEndpointName`\" pulumi-lang-java=\"`serviceEndpointName`\"\u003e`service_endpoint_name`\u003c/span\u003e must be specified.\n"
+                    },
+                    "projectId": {
+                        "type": "string",
+                        "description": "The ID of the project to which the service endpoint belongs.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "projectId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getServiceendpointGenericV2.\n",
+                "properties": {
+                    "authorizationParameters": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "The authorization parameters of the service endpoint.\n",
+                        "type": "object"
+                    },
+                    "authorizationScheme": {
+                        "description": "The authorization type of the service endpoint.\n",
+                        "type": "string"
+                    },
+                    "data": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Additional data of the service endpoint.\n",
+                        "type": "object"
+                    },
+                    "description": {
+                        "description": "The description of the service endpoint.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The ID of the service endpoint.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "projectId": {
+                        "type": "string"
+                    },
+                    "serverUrl": {
+                        "description": "The URL of the server associated with the service endpoint.\n",
+                        "type": "string"
+                    },
+                    "sharedProjectIds": {
+                        "description": "The list of project IDs where the service endpoint is shared.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "type": {
+                        "description": "The type of the service endpoint.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "authorizationParameters",
+                    "authorizationScheme",
+                    "data",
+                    "description",
+                    "id",
+                    "name",
+                    "projectId",
+                    "serverUrl",
+                    "sharedProjectIds",
+                    "type"
+                ],
+                "type": "object"
+            }
+        },
         "azuredevops:index/getServiceendpointNpm:getServiceendpointNpm": {
             "description": "Use this data source to access information about an existing NPM Service Endpoint.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = azuredevops.getServiceendpointNpm({\n    projectId: exampleAzuredevopsProject.id,\n    serviceEndpointName: \"Example npm\",\n});\nexport const serviceEndpointId = example.then(example =\u003e example.id);\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.get_serviceendpoint_npm(project_id=example_azuredevops_project[\"id\"],\n    service_endpoint_name=\"Example npm\")\npulumi.export(\"serviceEndpointId\", example.id)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = AzureDevOps.GetServiceendpointNpm.Invoke(new()\n    {\n        ProjectId = exampleAzuredevopsProject.Id,\n        ServiceEndpointName = \"Example npm\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"serviceEndpointId\"] = example.Apply(getServiceendpointNpmResult =\u003e getServiceendpointNpmResult.Id),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := azuredevops.GetServiceendpointNpm(ctx, \u0026azuredevops.GetServiceendpointNpmArgs{\n\t\t\tProjectId:           exampleAzuredevopsProject.Id,\n\t\t\tServiceEndpointName: pulumi.StringRef(\"Example npm\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"serviceEndpointId\", example.Id)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.AzuredevopsFunctions;\nimport com.pulumi.azuredevops.inputs.GetServiceendpointNpmArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = AzuredevopsFunctions.getServiceendpointNpm(GetServiceendpointNpmArgs.builder()\n            .projectId(exampleAzuredevopsProject.id())\n            .serviceEndpointName(\"Example npm\")\n            .build());\n\n        ctx.export(\"serviceEndpointId\", example.id());\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: azuredevops:getServiceendpointNpm\n      arguments:\n        projectId: ${exampleAzuredevopsProject.id}\n        serviceEndpointName: Example npm\noutputs:\n  serviceEndpointId: ${example.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
@@ -17199,6 +18454,122 @@
                     "name",
                     "projectId",
                     "variables",
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
+        "azuredevops:index/getWorkitemtrackingprocessProcess:getWorkitemtrackingprocessProcess": {
+            "description": "Use this data source to access information about an existing process.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst example = azuredevops.getWorkitemtrackingprocessProcess({\n    id: \"adcc42ab-9882-485e-a3ed-7678f01f66bc\",\n});\nexport const id = example.then(example =\u003e example.id);\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample = azuredevops.get_workitemtrackingprocess_process(id=\"adcc42ab-9882-485e-a3ed-7678f01f66bc\")\npulumi.export(\"id\", example.id)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = AzureDevOps.GetWorkitemtrackingprocessProcess.Invoke(new()\n    {\n        Id = \"adcc42ab-9882-485e-a3ed-7678f01f66bc\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"id\"] = example.Apply(getWorkitemtrackingprocessProcessResult =\u003e getWorkitemtrackingprocessProcessResult.Id),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := azuredevops.LookupWorkitemtrackingprocessProcess(ctx, \u0026azuredevops.LookupWorkitemtrackingprocessProcessArgs{\n\t\t\tId: \"adcc42ab-9882-485e-a3ed-7678f01f66bc\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"id\", example.Id)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.AzuredevopsFunctions;\nimport com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = AzuredevopsFunctions.getWorkitemtrackingprocessProcess(GetWorkitemtrackingprocessProcessArgs.builder()\n            .id(\"adcc42ab-9882-485e-a3ed-7678f01f66bc\")\n            .build());\n\n        ctx.export(\"id\", example.id());\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: azuredevops:getWorkitemtrackingprocessProcess\n      arguments:\n        id: adcc42ab-9882-485e-a3ed-7678f01f66bc\noutputs:\n  id: ${example.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Relevant Links\n\n- [Azure DevOps Service REST API 7.1 - Process - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/processes/processes/get?view=azure-devops-rest-7.1)\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getWorkitemtrackingprocessProcess.\n",
+                "properties": {
+                    "expand": {
+                        "type": "string",
+                        "description": "Specifies the expand option when getting the processes. Default: \"none\"\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the process.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getWorkitemtrackingprocessProcess.\n",
+                "properties": {
+                    "customizationType": {
+                        "description": "Indicates the type of customization on this process. System Process is default process. Inherited Process is modified process that was System process before.\n",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Description of the project.\n",
+                        "type": "string"
+                    },
+                    "expand": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The ID of the project.\n",
+                        "type": "string"
+                    },
+                    "isDefault": {
+                        "description": "Is the process default?\n",
+                        "type": "boolean"
+                    },
+                    "isEnabled": {
+                        "description": "Is the process enabled?\n",
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "description": "Name of the project.\n",
+                        "type": "string"
+                    },
+                    "parentProcessTypeId": {
+                        "description": "ID of the parent process.\n",
+                        "type": "string"
+                    },
+                    "projects": {
+                        "description": "A \u003cspan pulumi-lang-nodejs=\"`projects`\" pulumi-lang-dotnet=\"`Projects`\" pulumi-lang-go=\"`projects`\" pulumi-lang-python=\"`projects`\" pulumi-lang-yaml=\"`projects`\" pulumi-lang-java=\"`projects`\"\u003e`projects`\u003c/span\u003e block as defined below. Returns associated projects when using the 'projects' expand option.\n",
+                        "items": {
+                            "$ref": "#/types/azuredevops:index/getWorkitemtrackingprocessProcessProject:getWorkitemtrackingprocessProcessProject"
+                        },
+                        "type": "array"
+                    },
+                    "referenceName": {
+                        "description": "Reference name of process being created. If not specified, server will assign a unique reference name.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "customizationType",
+                    "description",
+                    "id",
+                    "isDefault",
+                    "isEnabled",
+                    "name",
+                    "parentProcessTypeId",
+                    "projects",
+                    "referenceName"
+                ],
+                "type": "object"
+            }
+        },
+        "azuredevops:index/getWorkitemtrackingprocessProcesses:getWorkitemtrackingprocessProcesses": {
+            "description": "Use this data source to access information about existing processes.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst all = azuredevops.getWorkitemtrackingprocessProcesses({});\nexport const id = all.then(all =\u003e all.id);\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nall = azuredevops.get_workitemtrackingprocess_processes()\npulumi.export(\"id\", all.id)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var all = AzureDevOps.GetWorkitemtrackingprocessProcesses.Invoke();\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"id\"] = all.Apply(getWorkitemtrackingprocessProcessesResult =\u003e getWorkitemtrackingprocessProcessesResult.Id),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tall, err := azuredevops.GetWorkitemtrackingprocessProcesses(ctx, \u0026azuredevops.GetWorkitemtrackingprocessProcessesArgs{}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"id\", all.Id)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.AzuredevopsFunctions;\nimport com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessesArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var all = AzuredevopsFunctions.getWorkitemtrackingprocessProcesses(GetWorkitemtrackingprocessProcessesArgs.builder()\n            .build());\n\n        ctx.export(\"id\", all.id());\n    }\n}\n```\n```yaml\nvariables:\n  all:\n    fn::invoke:\n      function: azuredevops:getWorkitemtrackingprocessProcesses\n      arguments: {}\noutputs:\n  id: ${all.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Relevant Links\n\n- [Azure DevOps Service REST API 7.1 - Processes - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/processes/processes/list?view=azure-devops-rest-7.1)\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getWorkitemtrackingprocessProcesses.\n",
+                "properties": {
+                    "expand": {
+                        "type": "string",
+                        "description": "Specifies the expand option when getting the processes. Default: \"none\"\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getWorkitemtrackingprocessProcesses.\n",
+                "properties": {
+                    "expand": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.",
+                        "type": "string"
+                    },
+                    "processes": {
+                        "description": "A \u003cspan pulumi-lang-nodejs=\"`processes`\" pulumi-lang-dotnet=\"`Processes`\" pulumi-lang-go=\"`processes`\" pulumi-lang-python=\"`processes`\" pulumi-lang-yaml=\"`processes`\" pulumi-lang-java=\"`processes`\"\u003e`processes`\u003c/span\u003e block as defined below. A list of all processes including system and inherited.\n",
+                        "items": {
+                            "$ref": "#/types/azuredevops:index/getWorkitemtrackingprocessProcessesProcess:getWorkitemtrackingprocessProcessesProcess"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "processes",
                     "id"
                 ],
                 "type": "object"

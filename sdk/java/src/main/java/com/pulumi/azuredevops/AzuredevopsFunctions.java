@@ -56,6 +56,8 @@ import com.pulumi.azuredevops.inputs.GetServiceendpointBitbucketArgs;
 import com.pulumi.azuredevops.inputs.GetServiceendpointBitbucketPlainArgs;
 import com.pulumi.azuredevops.inputs.GetServiceendpointDockerregistryArgs;
 import com.pulumi.azuredevops.inputs.GetServiceendpointDockerregistryPlainArgs;
+import com.pulumi.azuredevops.inputs.GetServiceendpointGenericV2Args;
+import com.pulumi.azuredevops.inputs.GetServiceendpointGenericV2PlainArgs;
 import com.pulumi.azuredevops.inputs.GetServiceendpointNpmArgs;
 import com.pulumi.azuredevops.inputs.GetServiceendpointNpmPlainArgs;
 import com.pulumi.azuredevops.inputs.GetServiceendpointSonarcloudArgs;
@@ -72,6 +74,10 @@ import com.pulumi.azuredevops.inputs.GetUsersArgs;
 import com.pulumi.azuredevops.inputs.GetUsersPlainArgs;
 import com.pulumi.azuredevops.inputs.GetVariableGroupArgs;
 import com.pulumi.azuredevops.inputs.GetVariableGroupPlainArgs;
+import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessArgs;
+import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessPlainArgs;
+import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessesArgs;
+import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessesPlainArgs;
 import com.pulumi.azuredevops.outputs.GetAgentQueueResult;
 import com.pulumi.azuredevops.outputs.GetAreaResult;
 import com.pulumi.azuredevops.outputs.GetBuildDefinitionResult;
@@ -100,6 +106,7 @@ import com.pulumi.azuredevops.outputs.GetServicePrincipalResult;
 import com.pulumi.azuredevops.outputs.GetServiceendpointAzurecrResult;
 import com.pulumi.azuredevops.outputs.GetServiceendpointBitbucketResult;
 import com.pulumi.azuredevops.outputs.GetServiceendpointDockerregistryResult;
+import com.pulumi.azuredevops.outputs.GetServiceendpointGenericV2Result;
 import com.pulumi.azuredevops.outputs.GetServiceendpointNpmResult;
 import com.pulumi.azuredevops.outputs.GetServiceendpointSonarcloudResult;
 import com.pulumi.azuredevops.outputs.GetStorageKeyResult;
@@ -108,6 +115,8 @@ import com.pulumi.azuredevops.outputs.GetTeamsResult;
 import com.pulumi.azuredevops.outputs.GetUserResult;
 import com.pulumi.azuredevops.outputs.GetUsersResult;
 import com.pulumi.azuredevops.outputs.GetVariableGroupResult;
+import com.pulumi.azuredevops.outputs.GetWorkitemtrackingprocessProcessResult;
+import com.pulumi.azuredevops.outputs.GetWorkitemtrackingprocessProcessesResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -8855,6 +8864,41 @@ public final class AzuredevopsFunctions {
         return Deployment.getInstance().invokeAsync("azuredevops:index/getServiceendpointDockerregistry:getServiceendpointDockerregistry", TypeShape.of(GetServiceendpointDockerregistryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing Generic Service Endpoint (v2) within Azure DevOps.
+     * 
+     */
+    public static Output<GetServiceendpointGenericV2Result> getServiceendpointGenericV2(GetServiceendpointGenericV2Args args) {
+        return getServiceendpointGenericV2(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Generic Service Endpoint (v2) within Azure DevOps.
+     * 
+     */
+    public static CompletableFuture<GetServiceendpointGenericV2Result> getServiceendpointGenericV2Plain(GetServiceendpointGenericV2PlainArgs args) {
+        return getServiceendpointGenericV2Plain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Generic Service Endpoint (v2) within Azure DevOps.
+     * 
+     */
+    public static Output<GetServiceendpointGenericV2Result> getServiceendpointGenericV2(GetServiceendpointGenericV2Args args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getServiceendpointGenericV2:getServiceendpointGenericV2", TypeShape.of(GetServiceendpointGenericV2Result.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Generic Service Endpoint (v2) within Azure DevOps.
+     * 
+     */
+    public static Output<GetServiceendpointGenericV2Result> getServiceendpointGenericV2(GetServiceendpointGenericV2Args args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getServiceendpointGenericV2:getServiceendpointGenericV2", TypeShape.of(GetServiceendpointGenericV2Result.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Generic Service Endpoint (v2) within Azure DevOps.
+     * 
+     */
+    public static CompletableFuture<GetServiceendpointGenericV2Result> getServiceendpointGenericV2Plain(GetServiceendpointGenericV2PlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azuredevops:index/getServiceendpointGenericV2:getServiceendpointGenericV2", TypeShape.of(GetServiceendpointGenericV2Result.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to access information about an existing NPM Service Endpoint.
      * 
      * ## Example Usage
@@ -10708,5 +10752,538 @@ public final class AzuredevopsFunctions {
      */
     public static CompletableFuture<GetVariableGroupResult> getVariableGroupPlain(GetVariableGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azuredevops:index/getVariableGroup:getVariableGroup", TypeShape.of(GetVariableGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing process.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getWorkitemtrackingprocessProcess(GetWorkitemtrackingprocessProcessArgs.builder()
+     *             .id("adcc42ab-9882-485e-a3ed-7678f01f66bc")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Process - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/processes/processes/get?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static Output<GetWorkitemtrackingprocessProcessResult> getWorkitemtrackingprocessProcess(GetWorkitemtrackingprocessProcessArgs args) {
+        return getWorkitemtrackingprocessProcess(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing process.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getWorkitemtrackingprocessProcess(GetWorkitemtrackingprocessProcessArgs.builder()
+     *             .id("adcc42ab-9882-485e-a3ed-7678f01f66bc")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Process - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/processes/processes/get?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static CompletableFuture<GetWorkitemtrackingprocessProcessResult> getWorkitemtrackingprocessProcessPlain(GetWorkitemtrackingprocessProcessPlainArgs args) {
+        return getWorkitemtrackingprocessProcessPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing process.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getWorkitemtrackingprocessProcess(GetWorkitemtrackingprocessProcessArgs.builder()
+     *             .id("adcc42ab-9882-485e-a3ed-7678f01f66bc")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Process - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/processes/processes/get?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static Output<GetWorkitemtrackingprocessProcessResult> getWorkitemtrackingprocessProcess(GetWorkitemtrackingprocessProcessArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getWorkitemtrackingprocessProcess:getWorkitemtrackingprocessProcess", TypeShape.of(GetWorkitemtrackingprocessProcessResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing process.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getWorkitemtrackingprocessProcess(GetWorkitemtrackingprocessProcessArgs.builder()
+     *             .id("adcc42ab-9882-485e-a3ed-7678f01f66bc")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Process - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/processes/processes/get?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static Output<GetWorkitemtrackingprocessProcessResult> getWorkitemtrackingprocessProcess(GetWorkitemtrackingprocessProcessArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getWorkitemtrackingprocessProcess:getWorkitemtrackingprocessProcess", TypeShape.of(GetWorkitemtrackingprocessProcessResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing process.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getWorkitemtrackingprocessProcess(GetWorkitemtrackingprocessProcessArgs.builder()
+     *             .id("adcc42ab-9882-485e-a3ed-7678f01f66bc")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Process - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/processes/processes/get?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static CompletableFuture<GetWorkitemtrackingprocessProcessResult> getWorkitemtrackingprocessProcessPlain(GetWorkitemtrackingprocessProcessPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azuredevops:index/getWorkitemtrackingprocessProcess:getWorkitemtrackingprocessProcess", TypeShape.of(GetWorkitemtrackingprocessProcessResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing processes.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = AzuredevopsFunctions.getWorkitemtrackingprocessProcesses(GetWorkitemtrackingprocessProcessesArgs.builder()
+     *             .build());
+     * 
+     *         ctx.export("id", all.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Processes - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/processes/processes/list?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static Output<GetWorkitemtrackingprocessProcessesResult> getWorkitemtrackingprocessProcesses() {
+        return getWorkitemtrackingprocessProcesses(GetWorkitemtrackingprocessProcessesArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about existing processes.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = AzuredevopsFunctions.getWorkitemtrackingprocessProcesses(GetWorkitemtrackingprocessProcessesArgs.builder()
+     *             .build());
+     * 
+     *         ctx.export("id", all.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Processes - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/processes/processes/list?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static CompletableFuture<GetWorkitemtrackingprocessProcessesResult> getWorkitemtrackingprocessProcessesPlain() {
+        return getWorkitemtrackingprocessProcessesPlain(GetWorkitemtrackingprocessProcessesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about existing processes.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = AzuredevopsFunctions.getWorkitemtrackingprocessProcesses(GetWorkitemtrackingprocessProcessesArgs.builder()
+     *             .build());
+     * 
+     *         ctx.export("id", all.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Processes - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/processes/processes/list?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static Output<GetWorkitemtrackingprocessProcessesResult> getWorkitemtrackingprocessProcesses(GetWorkitemtrackingprocessProcessesArgs args) {
+        return getWorkitemtrackingprocessProcesses(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about existing processes.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = AzuredevopsFunctions.getWorkitemtrackingprocessProcesses(GetWorkitemtrackingprocessProcessesArgs.builder()
+     *             .build());
+     * 
+     *         ctx.export("id", all.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Processes - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/processes/processes/list?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static CompletableFuture<GetWorkitemtrackingprocessProcessesResult> getWorkitemtrackingprocessProcessesPlain(GetWorkitemtrackingprocessProcessesPlainArgs args) {
+        return getWorkitemtrackingprocessProcessesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about existing processes.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = AzuredevopsFunctions.getWorkitemtrackingprocessProcesses(GetWorkitemtrackingprocessProcessesArgs.builder()
+     *             .build());
+     * 
+     *         ctx.export("id", all.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Processes - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/processes/processes/list?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static Output<GetWorkitemtrackingprocessProcessesResult> getWorkitemtrackingprocessProcesses(GetWorkitemtrackingprocessProcessesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getWorkitemtrackingprocessProcesses:getWorkitemtrackingprocessProcesses", TypeShape.of(GetWorkitemtrackingprocessProcessesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing processes.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = AzuredevopsFunctions.getWorkitemtrackingprocessProcesses(GetWorkitemtrackingprocessProcessesArgs.builder()
+     *             .build());
+     * 
+     *         ctx.export("id", all.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Processes - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/processes/processes/list?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static Output<GetWorkitemtrackingprocessProcessesResult> getWorkitemtrackingprocessProcesses(GetWorkitemtrackingprocessProcessesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getWorkitemtrackingprocessProcesses:getWorkitemtrackingprocessProcesses", TypeShape.of(GetWorkitemtrackingprocessProcessesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing processes.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = AzuredevopsFunctions.getWorkitemtrackingprocessProcesses(GetWorkitemtrackingprocessProcessesArgs.builder()
+     *             .build());
+     * 
+     *         ctx.export("id", all.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Processes - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/processes/processes/list?view=azure-devops-rest-7.1)
+     * 
+     */
+    public static CompletableFuture<GetWorkitemtrackingprocessProcessesResult> getWorkitemtrackingprocessProcessesPlain(GetWorkitemtrackingprocessProcessesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azuredevops:index/getWorkitemtrackingprocessProcesses:getWorkitemtrackingprocessProcesses", TypeShape.of(GetWorkitemtrackingprocessProcessesResult.class), args, Utilities.withVersion(options));
     }
 }

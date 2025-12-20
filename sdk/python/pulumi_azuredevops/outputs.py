@@ -89,6 +89,25 @@ __all__ = [
     'ServiceendpointVisualstudiomarketplaceAuthenticationToken',
     'ServicehookStorageQueuePipelinesRunStateChangedEvent',
     'ServicehookStorageQueuePipelinesStageStateChangedEvent',
+    'ServicehookWebhookTfsBuildCompleted',
+    'ServicehookWebhookTfsGitPullRequestCommented',
+    'ServicehookWebhookTfsGitPullRequestCreated',
+    'ServicehookWebhookTfsGitPullRequestMergeAttempted',
+    'ServicehookWebhookTfsGitPullRequestUpdated',
+    'ServicehookWebhookTfsGitPush',
+    'ServicehookWebhookTfsRepositoryCreated',
+    'ServicehookWebhookTfsRepositoryDeleted',
+    'ServicehookWebhookTfsRepositoryForked',
+    'ServicehookWebhookTfsRepositoryRenamed',
+    'ServicehookWebhookTfsRepositoryStatusChanged',
+    'ServicehookWebhookTfsServiceConnectionCreated',
+    'ServicehookWebhookTfsServiceConnectionUpdated',
+    'ServicehookWebhookTfsTfvcCheckin',
+    'ServicehookWebhookTfsWorkItemCommented',
+    'ServicehookWebhookTfsWorkItemCreated',
+    'ServicehookWebhookTfsWorkItemDeleted',
+    'ServicehookWebhookTfsWorkItemRestored',
+    'ServicehookWebhookTfsWorkItemUpdated',
     'VariableGroupKeyVault',
     'VariableGroupVariable',
     'WorkitemRelation',
@@ -122,6 +141,9 @@ __all__ = [
     'GetUsersUserResult',
     'GetVariableGroupKeyVaultResult',
     'GetVariableGroupVariableResult',
+    'GetWorkitemtrackingprocessProcessProjectResult',
+    'GetWorkitemtrackingprocessProcessesProcessResult',
+    'GetWorkitemtrackingprocessProcessesProcessProjectResult',
 ]
 
 @pulumi.output_type
@@ -4298,6 +4320,1058 @@ class ServicehookStorageQueuePipelinesStageStateChangedEvent(dict):
 
 
 @pulumi.output_type
+class ServicehookWebhookTfsBuildCompleted(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "buildStatus":
+            suggest = "build_status"
+        elif key == "definitionName":
+            suggest = "definition_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServicehookWebhookTfsBuildCompleted. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServicehookWebhookTfsBuildCompleted.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServicehookWebhookTfsBuildCompleted.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 build_status: Optional[_builtins.str] = None,
+                 definition_name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str build_status: Include only events for completed builds that have a specific completion status. Valid values: `Succeeded`, `PartiallySucceeded`, `Failed`, `Stopped`.
+        :param _builtins.str definition_name: Include only events for completed builds for a specific pipeline.
+        """
+        if build_status is not None:
+            pulumi.set(__self__, "build_status", build_status)
+        if definition_name is not None:
+            pulumi.set(__self__, "definition_name", definition_name)
+
+    @_builtins.property
+    @pulumi.getter(name="buildStatus")
+    def build_status(self) -> Optional[_builtins.str]:
+        """
+        Include only events for completed builds that have a specific completion status. Valid values: `Succeeded`, `PartiallySucceeded`, `Failed`, `Stopped`.
+        """
+        return pulumi.get(self, "build_status")
+
+    @_builtins.property
+    @pulumi.getter(name="definitionName")
+    def definition_name(self) -> Optional[_builtins.str]:
+        """
+        Include only events for completed builds for a specific pipeline.
+        """
+        return pulumi.get(self, "definition_name")
+
+
+@pulumi.output_type
+class ServicehookWebhookTfsGitPullRequestCommented(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repositoryId":
+            suggest = "repository_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServicehookWebhookTfsGitPullRequestCommented. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServicehookWebhookTfsGitPullRequestCommented.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServicehookWebhookTfsGitPullRequestCommented.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 branch: Optional[_builtins.str] = None,
+                 repository_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str branch: Include only events for pull requests in a specific branch.
+        :param _builtins.str repository_id: Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+        """
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def branch(self) -> Optional[_builtins.str]:
+        """
+        Include only events for pull requests in a specific branch.
+        """
+        return pulumi.get(self, "branch")
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[_builtins.str]:
+        """
+        Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+        """
+        return pulumi.get(self, "repository_id")
+
+
+@pulumi.output_type
+class ServicehookWebhookTfsGitPullRequestCreated(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pullRequestCreatedBy":
+            suggest = "pull_request_created_by"
+        elif key == "pullRequestReviewersContains":
+            suggest = "pull_request_reviewers_contains"
+        elif key == "repositoryId":
+            suggest = "repository_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServicehookWebhookTfsGitPullRequestCreated. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServicehookWebhookTfsGitPullRequestCreated.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServicehookWebhookTfsGitPullRequestCreated.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 branch: Optional[_builtins.str] = None,
+                 pull_request_created_by: Optional[_builtins.str] = None,
+                 pull_request_reviewers_contains: Optional[_builtins.str] = None,
+                 repository_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str branch: Include only events for pull requests in a specific branch.
+        :param _builtins.str pull_request_created_by: Include only events for pull requests created by users in a specific group.
+        :param _builtins.str pull_request_reviewers_contains: Include only events for pull requests with reviewers in a specific group.
+        :param _builtins.str repository_id: Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+        """
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if pull_request_created_by is not None:
+            pulumi.set(__self__, "pull_request_created_by", pull_request_created_by)
+        if pull_request_reviewers_contains is not None:
+            pulumi.set(__self__, "pull_request_reviewers_contains", pull_request_reviewers_contains)
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def branch(self) -> Optional[_builtins.str]:
+        """
+        Include only events for pull requests in a specific branch.
+        """
+        return pulumi.get(self, "branch")
+
+    @_builtins.property
+    @pulumi.getter(name="pullRequestCreatedBy")
+    def pull_request_created_by(self) -> Optional[_builtins.str]:
+        """
+        Include only events for pull requests created by users in a specific group.
+        """
+        return pulumi.get(self, "pull_request_created_by")
+
+    @_builtins.property
+    @pulumi.getter(name="pullRequestReviewersContains")
+    def pull_request_reviewers_contains(self) -> Optional[_builtins.str]:
+        """
+        Include only events for pull requests with reviewers in a specific group.
+        """
+        return pulumi.get(self, "pull_request_reviewers_contains")
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[_builtins.str]:
+        """
+        Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+        """
+        return pulumi.get(self, "repository_id")
+
+
+@pulumi.output_type
+class ServicehookWebhookTfsGitPullRequestMergeAttempted(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mergeResult":
+            suggest = "merge_result"
+        elif key == "pullRequestCreatedBy":
+            suggest = "pull_request_created_by"
+        elif key == "pullRequestReviewersContains":
+            suggest = "pull_request_reviewers_contains"
+        elif key == "repositoryId":
+            suggest = "repository_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServicehookWebhookTfsGitPullRequestMergeAttempted. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServicehookWebhookTfsGitPullRequestMergeAttempted.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServicehookWebhookTfsGitPullRequestMergeAttempted.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 branch: Optional[_builtins.str] = None,
+                 merge_result: Optional[_builtins.str] = None,
+                 pull_request_created_by: Optional[_builtins.str] = None,
+                 pull_request_reviewers_contains: Optional[_builtins.str] = None,
+                 repository_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str branch: Include only events for pull requests in a specific branch.
+        :param _builtins.str merge_result: Include only events for pull requests with a specific merge result. Valid values: `Succeeded`, `Unsuccessful`, `Conflicts`, `Failure`, `RejectedByPolicy`.
+        :param _builtins.str pull_request_created_by: Include only events for pull requests created by users in a specific group.
+        :param _builtins.str pull_request_reviewers_contains: Include only events for pull requests with reviewers in a specific group.
+        :param _builtins.str repository_id: Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+        """
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if merge_result is not None:
+            pulumi.set(__self__, "merge_result", merge_result)
+        if pull_request_created_by is not None:
+            pulumi.set(__self__, "pull_request_created_by", pull_request_created_by)
+        if pull_request_reviewers_contains is not None:
+            pulumi.set(__self__, "pull_request_reviewers_contains", pull_request_reviewers_contains)
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def branch(self) -> Optional[_builtins.str]:
+        """
+        Include only events for pull requests in a specific branch.
+        """
+        return pulumi.get(self, "branch")
+
+    @_builtins.property
+    @pulumi.getter(name="mergeResult")
+    def merge_result(self) -> Optional[_builtins.str]:
+        """
+        Include only events for pull requests with a specific merge result. Valid values: `Succeeded`, `Unsuccessful`, `Conflicts`, `Failure`, `RejectedByPolicy`.
+        """
+        return pulumi.get(self, "merge_result")
+
+    @_builtins.property
+    @pulumi.getter(name="pullRequestCreatedBy")
+    def pull_request_created_by(self) -> Optional[_builtins.str]:
+        """
+        Include only events for pull requests created by users in a specific group.
+        """
+        return pulumi.get(self, "pull_request_created_by")
+
+    @_builtins.property
+    @pulumi.getter(name="pullRequestReviewersContains")
+    def pull_request_reviewers_contains(self) -> Optional[_builtins.str]:
+        """
+        Include only events for pull requests with reviewers in a specific group.
+        """
+        return pulumi.get(self, "pull_request_reviewers_contains")
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[_builtins.str]:
+        """
+        Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+        """
+        return pulumi.get(self, "repository_id")
+
+
+@pulumi.output_type
+class ServicehookWebhookTfsGitPullRequestUpdated(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "notificationType":
+            suggest = "notification_type"
+        elif key == "pullRequestCreatedBy":
+            suggest = "pull_request_created_by"
+        elif key == "pullRequestReviewersContains":
+            suggest = "pull_request_reviewers_contains"
+        elif key == "repositoryId":
+            suggest = "repository_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServicehookWebhookTfsGitPullRequestUpdated. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServicehookWebhookTfsGitPullRequestUpdated.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServicehookWebhookTfsGitPullRequestUpdated.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 branch: Optional[_builtins.str] = None,
+                 notification_type: Optional[_builtins.str] = None,
+                 pull_request_created_by: Optional[_builtins.str] = None,
+                 pull_request_reviewers_contains: Optional[_builtins.str] = None,
+                 repository_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str branch: Include only events for pull requests in a specific branch.
+        :param _builtins.str notification_type: Include only events for pull requests with a specific change. Valid values: `PushNotification`, `ReviewersUpdateNotification`, `StatusUpdateNotification`, `ReviewerVoteNotification`.
+        :param _builtins.str pull_request_created_by: Include only events for pull requests created by users in a specific group.
+        :param _builtins.str pull_request_reviewers_contains: Include only events for pull requests with reviewers in a specific group.
+        :param _builtins.str repository_id: Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+        """
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if notification_type is not None:
+            pulumi.set(__self__, "notification_type", notification_type)
+        if pull_request_created_by is not None:
+            pulumi.set(__self__, "pull_request_created_by", pull_request_created_by)
+        if pull_request_reviewers_contains is not None:
+            pulumi.set(__self__, "pull_request_reviewers_contains", pull_request_reviewers_contains)
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def branch(self) -> Optional[_builtins.str]:
+        """
+        Include only events for pull requests in a specific branch.
+        """
+        return pulumi.get(self, "branch")
+
+    @_builtins.property
+    @pulumi.getter(name="notificationType")
+    def notification_type(self) -> Optional[_builtins.str]:
+        """
+        Include only events for pull requests with a specific change. Valid values: `PushNotification`, `ReviewersUpdateNotification`, `StatusUpdateNotification`, `ReviewerVoteNotification`.
+        """
+        return pulumi.get(self, "notification_type")
+
+    @_builtins.property
+    @pulumi.getter(name="pullRequestCreatedBy")
+    def pull_request_created_by(self) -> Optional[_builtins.str]:
+        """
+        Include only events for pull requests created by users in a specific group.
+        """
+        return pulumi.get(self, "pull_request_created_by")
+
+    @_builtins.property
+    @pulumi.getter(name="pullRequestReviewersContains")
+    def pull_request_reviewers_contains(self) -> Optional[_builtins.str]:
+        """
+        Include only events for pull requests with reviewers in a specific group.
+        """
+        return pulumi.get(self, "pull_request_reviewers_contains")
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[_builtins.str]:
+        """
+        Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+        """
+        return pulumi.get(self, "repository_id")
+
+
+@pulumi.output_type
+class ServicehookWebhookTfsGitPush(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pushedBy":
+            suggest = "pushed_by"
+        elif key == "repositoryId":
+            suggest = "repository_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServicehookWebhookTfsGitPush. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServicehookWebhookTfsGitPush.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServicehookWebhookTfsGitPush.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 branch: Optional[_builtins.str] = None,
+                 pushed_by: Optional[_builtins.str] = None,
+                 repository_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str branch: Include only events for code pushes to a specific branch.
+        :param _builtins.str pushed_by: Include only events for code pushes by users in a specific group.
+        :param _builtins.str repository_id: Include only events for code pushes to a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+        """
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if pushed_by is not None:
+            pulumi.set(__self__, "pushed_by", pushed_by)
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def branch(self) -> Optional[_builtins.str]:
+        """
+        Include only events for code pushes to a specific branch.
+        """
+        return pulumi.get(self, "branch")
+
+    @_builtins.property
+    @pulumi.getter(name="pushedBy")
+    def pushed_by(self) -> Optional[_builtins.str]:
+        """
+        Include only events for code pushes by users in a specific group.
+        """
+        return pulumi.get(self, "pushed_by")
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[_builtins.str]:
+        """
+        Include only events for code pushes to a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+        """
+        return pulumi.get(self, "repository_id")
+
+
+@pulumi.output_type
+class ServicehookWebhookTfsRepositoryCreated(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "projectId":
+            suggest = "project_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServicehookWebhookTfsRepositoryCreated. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServicehookWebhookTfsRepositoryCreated.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServicehookWebhookTfsRepositoryCreated.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 project_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str project_id: Include only events for repositories created in a specific project.
+        """
+        if project_id is not None:
+            pulumi.set(__self__, "project_id", project_id)
+
+    @_builtins.property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> Optional[_builtins.str]:
+        """
+        Include only events for repositories created in a specific project.
+        """
+        return pulumi.get(self, "project_id")
+
+
+@pulumi.output_type
+class ServicehookWebhookTfsRepositoryDeleted(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repositoryId":
+            suggest = "repository_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServicehookWebhookTfsRepositoryDeleted. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServicehookWebhookTfsRepositoryDeleted.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServicehookWebhookTfsRepositoryDeleted.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 repository_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str repository_id: Include only events for repositories with a specific repository ID.
+        """
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[_builtins.str]:
+        """
+        Include only events for repositories with a specific repository ID.
+        """
+        return pulumi.get(self, "repository_id")
+
+
+@pulumi.output_type
+class ServicehookWebhookTfsRepositoryForked(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repositoryId":
+            suggest = "repository_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServicehookWebhookTfsRepositoryForked. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServicehookWebhookTfsRepositoryForked.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServicehookWebhookTfsRepositoryForked.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 repository_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str repository_id: Include only events for repositories with a specific repository ID.
+        """
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[_builtins.str]:
+        """
+        Include only events for repositories with a specific repository ID.
+        """
+        return pulumi.get(self, "repository_id")
+
+
+@pulumi.output_type
+class ServicehookWebhookTfsRepositoryRenamed(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repositoryId":
+            suggest = "repository_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServicehookWebhookTfsRepositoryRenamed. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServicehookWebhookTfsRepositoryRenamed.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServicehookWebhookTfsRepositoryRenamed.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 repository_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str repository_id: Include only events for repositories with a specific repository ID.
+        """
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[_builtins.str]:
+        """
+        Include only events for repositories with a specific repository ID.
+        """
+        return pulumi.get(self, "repository_id")
+
+
+@pulumi.output_type
+class ServicehookWebhookTfsRepositoryStatusChanged(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repositoryId":
+            suggest = "repository_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServicehookWebhookTfsRepositoryStatusChanged. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServicehookWebhookTfsRepositoryStatusChanged.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServicehookWebhookTfsRepositoryStatusChanged.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 repository_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str repository_id: Include only events for repositories with a specific repository ID.
+        """
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[_builtins.str]:
+        """
+        Include only events for repositories with a specific repository ID.
+        """
+        return pulumi.get(self, "repository_id")
+
+
+@pulumi.output_type
+class ServicehookWebhookTfsServiceConnectionCreated(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "projectId":
+            suggest = "project_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServicehookWebhookTfsServiceConnectionCreated. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServicehookWebhookTfsServiceConnectionCreated.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServicehookWebhookTfsServiceConnectionCreated.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 project_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str project_id: Include only events for service connections created in a specific project.
+        """
+        if project_id is not None:
+            pulumi.set(__self__, "project_id", project_id)
+
+    @_builtins.property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> Optional[_builtins.str]:
+        """
+        Include only events for service connections created in a specific project.
+        """
+        return pulumi.get(self, "project_id")
+
+
+@pulumi.output_type
+class ServicehookWebhookTfsServiceConnectionUpdated(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "projectId":
+            suggest = "project_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServicehookWebhookTfsServiceConnectionUpdated. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServicehookWebhookTfsServiceConnectionUpdated.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServicehookWebhookTfsServiceConnectionUpdated.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 project_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str project_id: Include only events for service connections updated in a specific project.
+        """
+        if project_id is not None:
+            pulumi.set(__self__, "project_id", project_id)
+
+    @_builtins.property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> Optional[_builtins.str]:
+        """
+        Include only events for service connections updated in a specific project.
+        """
+        return pulumi.get(self, "project_id")
+
+
+@pulumi.output_type
+class ServicehookWebhookTfsTfvcCheckin(dict):
+    def __init__(__self__, *,
+                 path: _builtins.str):
+        """
+        :param _builtins.str path: Include only events for check-ins that change files under a specific path.
+        """
+        pulumi.set(__self__, "path", path)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> _builtins.str:
+        """
+        Include only events for check-ins that change files under a specific path.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class ServicehookWebhookTfsWorkItemCommented(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "areaPath":
+            suggest = "area_path"
+        elif key == "commentPattern":
+            suggest = "comment_pattern"
+        elif key == "workItemType":
+            suggest = "work_item_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServicehookWebhookTfsWorkItemCommented. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServicehookWebhookTfsWorkItemCommented.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServicehookWebhookTfsWorkItemCommented.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 area_path: Optional[_builtins.str] = None,
+                 comment_pattern: Optional[_builtins.str] = None,
+                 tag: Optional[_builtins.str] = None,
+                 work_item_type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str area_path: Include only events for work items under a specific area path.
+        :param _builtins.str comment_pattern: Include only events for work items with a comment that contains a specific string.
+        :param _builtins.str tag: Include only events for work items that contain a specific tag.
+        :param _builtins.str work_item_type: Include only events for work items of a specific type.
+        """
+        if area_path is not None:
+            pulumi.set(__self__, "area_path", area_path)
+        if comment_pattern is not None:
+            pulumi.set(__self__, "comment_pattern", comment_pattern)
+        if tag is not None:
+            pulumi.set(__self__, "tag", tag)
+        if work_item_type is not None:
+            pulumi.set(__self__, "work_item_type", work_item_type)
+
+    @_builtins.property
+    @pulumi.getter(name="areaPath")
+    def area_path(self) -> Optional[_builtins.str]:
+        """
+        Include only events for work items under a specific area path.
+        """
+        return pulumi.get(self, "area_path")
+
+    @_builtins.property
+    @pulumi.getter(name="commentPattern")
+    def comment_pattern(self) -> Optional[_builtins.str]:
+        """
+        Include only events for work items with a comment that contains a specific string.
+        """
+        return pulumi.get(self, "comment_pattern")
+
+    @_builtins.property
+    @pulumi.getter
+    def tag(self) -> Optional[_builtins.str]:
+        """
+        Include only events for work items that contain a specific tag.
+        """
+        return pulumi.get(self, "tag")
+
+    @_builtins.property
+    @pulumi.getter(name="workItemType")
+    def work_item_type(self) -> Optional[_builtins.str]:
+        """
+        Include only events for work items of a specific type.
+        """
+        return pulumi.get(self, "work_item_type")
+
+
+@pulumi.output_type
+class ServicehookWebhookTfsWorkItemCreated(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "areaPath":
+            suggest = "area_path"
+        elif key == "linksChanged":
+            suggest = "links_changed"
+        elif key == "workItemType":
+            suggest = "work_item_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServicehookWebhookTfsWorkItemCreated. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServicehookWebhookTfsWorkItemCreated.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServicehookWebhookTfsWorkItemCreated.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 area_path: Optional[_builtins.str] = None,
+                 links_changed: Optional[_builtins.bool] = None,
+                 tag: Optional[_builtins.str] = None,
+                 work_item_type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str area_path: Include only events for work items under a specific area path.
+        :param _builtins.bool links_changed: Include only events for work items with one or more links added or removed.
+        :param _builtins.str tag: Include only events for work items that contain a specific tag.
+        :param _builtins.str work_item_type: Include only events for work items of a specific type.
+        """
+        if area_path is not None:
+            pulumi.set(__self__, "area_path", area_path)
+        if links_changed is not None:
+            pulumi.set(__self__, "links_changed", links_changed)
+        if tag is not None:
+            pulumi.set(__self__, "tag", tag)
+        if work_item_type is not None:
+            pulumi.set(__self__, "work_item_type", work_item_type)
+
+    @_builtins.property
+    @pulumi.getter(name="areaPath")
+    def area_path(self) -> Optional[_builtins.str]:
+        """
+        Include only events for work items under a specific area path.
+        """
+        return pulumi.get(self, "area_path")
+
+    @_builtins.property
+    @pulumi.getter(name="linksChanged")
+    def links_changed(self) -> Optional[_builtins.bool]:
+        """
+        Include only events for work items with one or more links added or removed.
+        """
+        return pulumi.get(self, "links_changed")
+
+    @_builtins.property
+    @pulumi.getter
+    def tag(self) -> Optional[_builtins.str]:
+        """
+        Include only events for work items that contain a specific tag.
+        """
+        return pulumi.get(self, "tag")
+
+    @_builtins.property
+    @pulumi.getter(name="workItemType")
+    def work_item_type(self) -> Optional[_builtins.str]:
+        """
+        Include only events for work items of a specific type.
+        """
+        return pulumi.get(self, "work_item_type")
+
+
+@pulumi.output_type
+class ServicehookWebhookTfsWorkItemDeleted(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "areaPath":
+            suggest = "area_path"
+        elif key == "workItemType":
+            suggest = "work_item_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServicehookWebhookTfsWorkItemDeleted. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServicehookWebhookTfsWorkItemDeleted.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServicehookWebhookTfsWorkItemDeleted.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 area_path: Optional[_builtins.str] = None,
+                 tag: Optional[_builtins.str] = None,
+                 work_item_type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str area_path: Include only events for work items under a specific area path.
+        :param _builtins.str tag: Include only events for work items that contain a specific tag.
+        :param _builtins.str work_item_type: Include only events for work items of a specific type.
+        """
+        if area_path is not None:
+            pulumi.set(__self__, "area_path", area_path)
+        if tag is not None:
+            pulumi.set(__self__, "tag", tag)
+        if work_item_type is not None:
+            pulumi.set(__self__, "work_item_type", work_item_type)
+
+    @_builtins.property
+    @pulumi.getter(name="areaPath")
+    def area_path(self) -> Optional[_builtins.str]:
+        """
+        Include only events for work items under a specific area path.
+        """
+        return pulumi.get(self, "area_path")
+
+    @_builtins.property
+    @pulumi.getter
+    def tag(self) -> Optional[_builtins.str]:
+        """
+        Include only events for work items that contain a specific tag.
+        """
+        return pulumi.get(self, "tag")
+
+    @_builtins.property
+    @pulumi.getter(name="workItemType")
+    def work_item_type(self) -> Optional[_builtins.str]:
+        """
+        Include only events for work items of a specific type.
+        """
+        return pulumi.get(self, "work_item_type")
+
+
+@pulumi.output_type
+class ServicehookWebhookTfsWorkItemRestored(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "areaPath":
+            suggest = "area_path"
+        elif key == "workItemType":
+            suggest = "work_item_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServicehookWebhookTfsWorkItemRestored. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServicehookWebhookTfsWorkItemRestored.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServicehookWebhookTfsWorkItemRestored.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 area_path: Optional[_builtins.str] = None,
+                 tag: Optional[_builtins.str] = None,
+                 work_item_type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str area_path: Include only events for work items under a specific area path.
+        :param _builtins.str tag: Include only events for work items that contain a specific tag.
+        :param _builtins.str work_item_type: Include only events for work items of a specific type.
+        """
+        if area_path is not None:
+            pulumi.set(__self__, "area_path", area_path)
+        if tag is not None:
+            pulumi.set(__self__, "tag", tag)
+        if work_item_type is not None:
+            pulumi.set(__self__, "work_item_type", work_item_type)
+
+    @_builtins.property
+    @pulumi.getter(name="areaPath")
+    def area_path(self) -> Optional[_builtins.str]:
+        """
+        Include only events for work items under a specific area path.
+        """
+        return pulumi.get(self, "area_path")
+
+    @_builtins.property
+    @pulumi.getter
+    def tag(self) -> Optional[_builtins.str]:
+        """
+        Include only events for work items that contain a specific tag.
+        """
+        return pulumi.get(self, "tag")
+
+    @_builtins.property
+    @pulumi.getter(name="workItemType")
+    def work_item_type(self) -> Optional[_builtins.str]:
+        """
+        Include only events for work items of a specific type.
+        """
+        return pulumi.get(self, "work_item_type")
+
+
+@pulumi.output_type
+class ServicehookWebhookTfsWorkItemUpdated(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "areaPath":
+            suggest = "area_path"
+        elif key == "changedFields":
+            suggest = "changed_fields"
+        elif key == "linksChanged":
+            suggest = "links_changed"
+        elif key == "workItemType":
+            suggest = "work_item_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServicehookWebhookTfsWorkItemUpdated. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServicehookWebhookTfsWorkItemUpdated.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServicehookWebhookTfsWorkItemUpdated.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 area_path: Optional[_builtins.str] = None,
+                 changed_fields: Optional[_builtins.str] = None,
+                 links_changed: Optional[_builtins.bool] = None,
+                 tag: Optional[_builtins.str] = None,
+                 work_item_type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str area_path: Include only events for work items under a specific area path.
+        :param _builtins.str changed_fields: Include only events for work items with a change in a specific field.
+        :param _builtins.bool links_changed: Include only events for work items with one or more links added or removed.
+        :param _builtins.str tag: Include only events for work items that contain a specific tag.
+        :param _builtins.str work_item_type: Include only events for work items of a specific type.
+        """
+        if area_path is not None:
+            pulumi.set(__self__, "area_path", area_path)
+        if changed_fields is not None:
+            pulumi.set(__self__, "changed_fields", changed_fields)
+        if links_changed is not None:
+            pulumi.set(__self__, "links_changed", links_changed)
+        if tag is not None:
+            pulumi.set(__self__, "tag", tag)
+        if work_item_type is not None:
+            pulumi.set(__self__, "work_item_type", work_item_type)
+
+    @_builtins.property
+    @pulumi.getter(name="areaPath")
+    def area_path(self) -> Optional[_builtins.str]:
+        """
+        Include only events for work items under a specific area path.
+        """
+        return pulumi.get(self, "area_path")
+
+    @_builtins.property
+    @pulumi.getter(name="changedFields")
+    def changed_fields(self) -> Optional[_builtins.str]:
+        """
+        Include only events for work items with a change in a specific field.
+        """
+        return pulumi.get(self, "changed_fields")
+
+    @_builtins.property
+    @pulumi.getter(name="linksChanged")
+    def links_changed(self) -> Optional[_builtins.bool]:
+        """
+        Include only events for work items with one or more links added or removed.
+        """
+        return pulumi.get(self, "links_changed")
+
+    @_builtins.property
+    @pulumi.getter
+    def tag(self) -> Optional[_builtins.str]:
+        """
+        Include only events for work items that contain a specific tag.
+        """
+        return pulumi.get(self, "tag")
+
+    @_builtins.property
+    @pulumi.getter(name="workItemType")
+    def work_item_type(self) -> Optional[_builtins.str]:
+        """
+        Include only events for work items of a specific type.
+        """
+        return pulumi.get(self, "work_item_type")
+
+
+@pulumi.output_type
 class VariableGroupKeyVault(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -6234,5 +7308,213 @@ class GetVariableGroupVariableResult(dict):
         The value of the variable.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetWorkitemtrackingprocessProcessProjectResult(dict):
+    def __init__(__self__, *,
+                 description: _builtins.str,
+                 id: _builtins.str,
+                 name: _builtins.str,
+                 url: _builtins.str):
+        """
+        :param _builtins.str description: Description of the project.
+        :param _builtins.str id: The ID of the process.
+        :param _builtins.str name: Name of the project.
+        :param _builtins.str url: Url of the project.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "url", url)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        """
+        Description of the project.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the process.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the project.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> _builtins.str:
+        """
+        Url of the project.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetWorkitemtrackingprocessProcessesProcessResult(dict):
+    def __init__(__self__, *,
+                 customization_type: _builtins.str,
+                 description: _builtins.str,
+                 id: _builtins.str,
+                 is_default: _builtins.bool,
+                 is_enabled: _builtins.bool,
+                 name: _builtins.str,
+                 parent_process_type_id: _builtins.str,
+                 projects: Sequence['outputs.GetWorkitemtrackingprocessProcessesProcessProjectResult'],
+                 reference_name: _builtins.str):
+        """
+        :param _builtins.str customization_type: Indicates the type of customization on this process. System Process is default process. Inherited Process is modified process that was System process before.
+        :param _builtins.str description: Description of the project.
+        :param _builtins.str id: The ID of the project.
+        :param _builtins.bool is_default: Is the process default?
+        :param _builtins.bool is_enabled: Is the process enabled?
+        :param _builtins.str name: Name of the project.
+        :param _builtins.str parent_process_type_id: ID of the parent process.
+        :param Sequence['GetWorkitemtrackingprocessProcessesProcessProjectArgs'] projects: A `projects` block as defined below. Returns associated projects when using the 'projects' expand option.
+        :param _builtins.str reference_name: Reference name of process being created. If not specified, server will assign a unique reference name.
+        """
+        pulumi.set(__self__, "customization_type", customization_type)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "is_default", is_default)
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "parent_process_type_id", parent_process_type_id)
+        pulumi.set(__self__, "projects", projects)
+        pulumi.set(__self__, "reference_name", reference_name)
+
+    @_builtins.property
+    @pulumi.getter(name="customizationType")
+    def customization_type(self) -> _builtins.str:
+        """
+        Indicates the type of customization on this process. System Process is default process. Inherited Process is modified process that was System process before.
+        """
+        return pulumi.get(self, "customization_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        """
+        Description of the project.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the project.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> _builtins.bool:
+        """
+        Is the process default?
+        """
+        return pulumi.get(self, "is_default")
+
+    @_builtins.property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> _builtins.bool:
+        """
+        Is the process enabled?
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the project.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="parentProcessTypeId")
+    def parent_process_type_id(self) -> _builtins.str:
+        """
+        ID of the parent process.
+        """
+        return pulumi.get(self, "parent_process_type_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def projects(self) -> Sequence['outputs.GetWorkitemtrackingprocessProcessesProcessProjectResult']:
+        """
+        A `projects` block as defined below. Returns associated projects when using the 'projects' expand option.
+        """
+        return pulumi.get(self, "projects")
+
+    @_builtins.property
+    @pulumi.getter(name="referenceName")
+    def reference_name(self) -> _builtins.str:
+        """
+        Reference name of process being created. If not specified, server will assign a unique reference name.
+        """
+        return pulumi.get(self, "reference_name")
+
+
+@pulumi.output_type
+class GetWorkitemtrackingprocessProcessesProcessProjectResult(dict):
+    def __init__(__self__, *,
+                 description: _builtins.str,
+                 id: _builtins.str,
+                 name: _builtins.str,
+                 url: _builtins.str):
+        """
+        :param _builtins.str description: Description of the project.
+        :param _builtins.str id: The ID of the project.
+        :param _builtins.str name: Name of the project.
+        :param _builtins.str url: Url of the project.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "url", url)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        """
+        Description of the project.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the project.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the project.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> _builtins.str:
+        """
+        Url of the project.
+        """
+        return pulumi.get(self, "url")
 
 

@@ -1237,6 +1237,255 @@ export interface ServicehookStorageQueuePipelinesStageStateChangedEvent {
     stageStateFilter?: pulumi.Input<string>;
 }
 
+export interface ServicehookWebhookTfsBuildCompleted {
+    /**
+     * Include only events for completed builds that have a specific completion status. Valid values: `Succeeded`, `PartiallySucceeded`, `Failed`, `Stopped`.
+     */
+    buildStatus?: pulumi.Input<string>;
+    /**
+     * Include only events for completed builds for a specific pipeline.
+     */
+    definitionName?: pulumi.Input<string>;
+}
+
+export interface ServicehookWebhookTfsGitPullRequestCommented {
+    /**
+     * Include only events for pull requests in a specific branch.
+     */
+    branch?: pulumi.Input<string>;
+    /**
+     * Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+     */
+    repositoryId?: pulumi.Input<string>;
+}
+
+export interface ServicehookWebhookTfsGitPullRequestCreated {
+    /**
+     * Include only events for pull requests in a specific branch.
+     */
+    branch?: pulumi.Input<string>;
+    /**
+     * Include only events for pull requests created by users in a specific group.
+     */
+    pullRequestCreatedBy?: pulumi.Input<string>;
+    /**
+     * Include only events for pull requests with reviewers in a specific group.
+     */
+    pullRequestReviewersContains?: pulumi.Input<string>;
+    /**
+     * Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+     */
+    repositoryId?: pulumi.Input<string>;
+}
+
+export interface ServicehookWebhookTfsGitPullRequestMergeAttempted {
+    /**
+     * Include only events for pull requests in a specific branch.
+     */
+    branch?: pulumi.Input<string>;
+    /**
+     * Include only events for pull requests with a specific merge result. Valid values: `Succeeded`, `Unsuccessful`, `Conflicts`, `Failure`, `RejectedByPolicy`.
+     */
+    mergeResult?: pulumi.Input<string>;
+    /**
+     * Include only events for pull requests created by users in a specific group.
+     */
+    pullRequestCreatedBy?: pulumi.Input<string>;
+    /**
+     * Include only events for pull requests with reviewers in a specific group.
+     */
+    pullRequestReviewersContains?: pulumi.Input<string>;
+    /**
+     * Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+     */
+    repositoryId?: pulumi.Input<string>;
+}
+
+export interface ServicehookWebhookTfsGitPullRequestUpdated {
+    /**
+     * Include only events for pull requests in a specific branch.
+     */
+    branch?: pulumi.Input<string>;
+    /**
+     * Include only events for pull requests with a specific change. Valid values: `PushNotification`, `ReviewersUpdateNotification`, `StatusUpdateNotification`, `ReviewerVoteNotification`.
+     */
+    notificationType?: pulumi.Input<string>;
+    /**
+     * Include only events for pull requests created by users in a specific group.
+     */
+    pullRequestCreatedBy?: pulumi.Input<string>;
+    /**
+     * Include only events for pull requests with reviewers in a specific group.
+     */
+    pullRequestReviewersContains?: pulumi.Input<string>;
+    /**
+     * Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+     */
+    repositoryId?: pulumi.Input<string>;
+}
+
+export interface ServicehookWebhookTfsGitPush {
+    /**
+     * Include only events for code pushes to a specific branch.
+     */
+    branch?: pulumi.Input<string>;
+    /**
+     * Include only events for code pushes by users in a specific group.
+     */
+    pushedBy?: pulumi.Input<string>;
+    /**
+     * Include only events for code pushes to a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+     */
+    repositoryId?: pulumi.Input<string>;
+}
+
+export interface ServicehookWebhookTfsRepositoryCreated {
+    /**
+     * Include only events for repositories created in a specific project.
+     */
+    projectId?: pulumi.Input<string>;
+}
+
+export interface ServicehookWebhookTfsRepositoryDeleted {
+    /**
+     * Include only events for repositories with a specific repository ID.
+     */
+    repositoryId?: pulumi.Input<string>;
+}
+
+export interface ServicehookWebhookTfsRepositoryForked {
+    /**
+     * Include only events for repositories with a specific repository ID.
+     */
+    repositoryId?: pulumi.Input<string>;
+}
+
+export interface ServicehookWebhookTfsRepositoryRenamed {
+    /**
+     * Include only events for repositories with a specific repository ID.
+     */
+    repositoryId?: pulumi.Input<string>;
+}
+
+export interface ServicehookWebhookTfsRepositoryStatusChanged {
+    /**
+     * Include only events for repositories with a specific repository ID.
+     */
+    repositoryId?: pulumi.Input<string>;
+}
+
+export interface ServicehookWebhookTfsServiceConnectionCreated {
+    /**
+     * Include only events for service connections created in a specific project.
+     */
+    projectId?: pulumi.Input<string>;
+}
+
+export interface ServicehookWebhookTfsServiceConnectionUpdated {
+    /**
+     * Include only events for service connections updated in a specific project.
+     */
+    projectId?: pulumi.Input<string>;
+}
+
+export interface ServicehookWebhookTfsTfvcCheckin {
+    /**
+     * Include only events for check-ins that change files under a specific path.
+     */
+    path: pulumi.Input<string>;
+}
+
+export interface ServicehookWebhookTfsWorkItemCommented {
+    /**
+     * Include only events for work items under a specific area path.
+     */
+    areaPath?: pulumi.Input<string>;
+    /**
+     * Include only events for work items with a comment that contains a specific string.
+     */
+    commentPattern?: pulumi.Input<string>;
+    /**
+     * Include only events for work items that contain a specific tag.
+     */
+    tag?: pulumi.Input<string>;
+    /**
+     * Include only events for work items of a specific type.
+     */
+    workItemType?: pulumi.Input<string>;
+}
+
+export interface ServicehookWebhookTfsWorkItemCreated {
+    /**
+     * Include only events for work items under a specific area path.
+     */
+    areaPath?: pulumi.Input<string>;
+    /**
+     * Include only events for work items with one or more links added or removed.
+     */
+    linksChanged?: pulumi.Input<boolean>;
+    /**
+     * Include only events for work items that contain a specific tag.
+     */
+    tag?: pulumi.Input<string>;
+    /**
+     * Include only events for work items of a specific type.
+     */
+    workItemType?: pulumi.Input<string>;
+}
+
+export interface ServicehookWebhookTfsWorkItemDeleted {
+    /**
+     * Include only events for work items under a specific area path.
+     */
+    areaPath?: pulumi.Input<string>;
+    /**
+     * Include only events for work items that contain a specific tag.
+     */
+    tag?: pulumi.Input<string>;
+    /**
+     * Include only events for work items of a specific type.
+     */
+    workItemType?: pulumi.Input<string>;
+}
+
+export interface ServicehookWebhookTfsWorkItemRestored {
+    /**
+     * Include only events for work items under a specific area path.
+     */
+    areaPath?: pulumi.Input<string>;
+    /**
+     * Include only events for work items that contain a specific tag.
+     */
+    tag?: pulumi.Input<string>;
+    /**
+     * Include only events for work items of a specific type.
+     */
+    workItemType?: pulumi.Input<string>;
+}
+
+export interface ServicehookWebhookTfsWorkItemUpdated {
+    /**
+     * Include only events for work items under a specific area path.
+     */
+    areaPath?: pulumi.Input<string>;
+    /**
+     * Include only events for work items with a change in a specific field.
+     */
+    changedFields?: pulumi.Input<string>;
+    /**
+     * Include only events for work items with one or more links added or removed.
+     */
+    linksChanged?: pulumi.Input<boolean>;
+    /**
+     * Include only events for work items that contain a specific tag.
+     */
+    tag?: pulumi.Input<string>;
+    /**
+     * Include only events for work items of a specific type.
+     */
+    workItemType?: pulumi.Input<string>;
+}
+
 export interface VariableGroupKeyVault {
     /**
      * The name of the Azure key vault to link secrets from as variables.

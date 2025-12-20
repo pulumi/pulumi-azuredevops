@@ -183,6 +183,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServiceendpointExternaltfs{}
 	case "azuredevops:index/serviceendpointGcpTerraform:ServiceendpointGcpTerraform":
 		r = &ServiceendpointGcpTerraform{}
+	case "azuredevops:index/serviceendpointGenericV2:ServiceendpointGenericV2":
+		r = &ServiceendpointGenericV2{}
 	case "azuredevops:index/serviceendpointIncomingwebhook:ServiceendpointIncomingwebhook":
 		r = &ServiceendpointIncomingwebhook{}
 	case "azuredevops:index/serviceendpointJenkins:ServiceendpointJenkins":
@@ -215,6 +217,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServicehookPermissions{}
 	case "azuredevops:index/servicehookStorageQueuePipelines:ServicehookStorageQueuePipelines":
 		r = &ServicehookStorageQueuePipelines{}
+	case "azuredevops:index/servicehookWebhookTfs:ServicehookWebhookTfs":
+		r = &ServicehookWebhookTfs{}
 	case "azuredevops:index/taggingPermissions:TaggingPermissions":
 		r = &TaggingPermissions{}
 	case "azuredevops:index/team:Team":
@@ -237,6 +241,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &WorkItemQueryPermissions{}
 	case "azuredevops:index/workitem:Workitem":
 		r = &Workitem{}
+	case "azuredevops:index/workitemquery:Workitemquery":
+		r = &Workitemquery{}
+	case "azuredevops:index/workitemqueryFolder:WorkitemqueryFolder":
+		r = &WorkitemqueryFolder{}
+	case "azuredevops:index/workitemtrackingprocessProcess:WorkitemtrackingprocessProcess":
+		r = &WorkitemtrackingprocessProcess{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -675,6 +685,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azuredevops",
+		"index/serviceendpointGenericV2",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
 		"index/serviceendpointIncomingwebhook",
 		&module{version},
 	)
@@ -755,6 +770,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azuredevops",
+		"index/servicehookWebhookTfs",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
 		"index/taggingPermissions",
 		&module{version},
 	)
@@ -806,6 +826,21 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/workitem",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/workitemquery",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/workitemqueryFolder",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/workitemtrackingprocessProcess",
 		&module{version},
 	)
 	pulumi.RegisterResourcePackage(

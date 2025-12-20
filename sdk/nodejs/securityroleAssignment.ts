@@ -40,14 +40,14 @@ import * as utilities from "./utilities";
  *             exampleEnvironment.id,
  *         ],
  *     }).result,
- *     identityId: exampleGroup.originId,
+ *     identityId: exampleGroup.groupId,
  *     roleName: "Administrator",
  * });
  * ```
  *
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-7.0)
+ * - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roleassignments/set-role-assignments?view=azure-devops-rest-7.0&tabs=HTTP)
  */
 export class SecurityroleAssignment extends pulumi.CustomResource {
     /**
