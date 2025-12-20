@@ -678,6 +678,15 @@
                 "current": "azuredevops:index/serviceEndpointGenericGit:ServiceEndpointGenericGit",
                 "majorVersion": 3
             },
+            "azuredevops_serviceendpoint_generic_v2": {
+                "current": "azuredevops:index/serviceendpointGenericV2:ServiceendpointGenericV2",
+                "majorVersion": 3,
+                "fields": {
+                    "shared_project_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azuredevops_serviceendpoint_github": {
                 "current": "azuredevops:index/serviceEndpointGitHub:ServiceEndpointGitHub",
                 "majorVersion": 3,
@@ -892,6 +901,69 @@
                     }
                 }
             },
+            "azuredevops_servicehook_webhook_tfs": {
+                "current": "azuredevops:index/servicehookWebhookTfs:ServicehookWebhookTfs",
+                "majorVersion": 3,
+                "fields": {
+                    "build_completed": {
+                        "maxItemsOne": true
+                    },
+                    "git_pull_request_commented": {
+                        "maxItemsOne": true
+                    },
+                    "git_pull_request_created": {
+                        "maxItemsOne": true
+                    },
+                    "git_pull_request_merge_attempted": {
+                        "maxItemsOne": true
+                    },
+                    "git_pull_request_updated": {
+                        "maxItemsOne": true
+                    },
+                    "git_push": {
+                        "maxItemsOne": true
+                    },
+                    "repository_created": {
+                        "maxItemsOne": true
+                    },
+                    "repository_deleted": {
+                        "maxItemsOne": true
+                    },
+                    "repository_forked": {
+                        "maxItemsOne": true
+                    },
+                    "repository_renamed": {
+                        "maxItemsOne": true
+                    },
+                    "repository_status_changed": {
+                        "maxItemsOne": true
+                    },
+                    "service_connection_created": {
+                        "maxItemsOne": true
+                    },
+                    "service_connection_updated": {
+                        "maxItemsOne": true
+                    },
+                    "tfvc_checkin": {
+                        "maxItemsOne": true
+                    },
+                    "work_item_commented": {
+                        "maxItemsOne": true
+                    },
+                    "work_item_created": {
+                        "maxItemsOne": true
+                    },
+                    "work_item_deleted": {
+                        "maxItemsOne": true
+                    },
+                    "work_item_restored": {
+                        "maxItemsOne": true
+                    },
+                    "work_item_updated": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "azuredevops_tagging_permissions": {
                 "current": "azuredevops:index/taggingPermissions:TaggingPermissions",
                 "majorVersion": 3
@@ -966,8 +1038,20 @@
                     }
                 }
             },
+            "azuredevops_workitemquery": {
+                "current": "azuredevops:index/workitemquery:Workitemquery",
+                "majorVersion": 3
+            },
+            "azuredevops_workitemquery_folder": {
+                "current": "azuredevops:index/workitemqueryFolder:WorkitemqueryFolder",
+                "majorVersion": 3
+            },
             "azuredevops_workitemquery_permissions": {
                 "current": "azuredevops:index/workItemQueryPermissions:WorkItemQueryPermissions",
+                "majorVersion": 3
+            },
+            "azuredevops_workitemtrackingprocess_process": {
+                "current": "azuredevops:index/workitemtrackingprocessProcess:WorkitemtrackingprocessProcess",
                 "majorVersion": 3
             }
         },
@@ -1265,6 +1349,15 @@
                 "current": "azuredevops:index/getServiceendpointDockerregistry:getServiceendpointDockerregistry",
                 "majorVersion": 3
             },
+            "azuredevops_serviceendpoint_generic_v2": {
+                "current": "azuredevops:index/getServiceendpointGenericV2:getServiceendpointGenericV2",
+                "majorVersion": 3,
+                "fields": {
+                    "shared_project_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azuredevops_serviceendpoint_github": {
                 "current": "azuredevops:index/getServiceEndpointGithub:getServiceEndpointGithub",
                 "majorVersion": 3
@@ -1340,6 +1433,31 @@
                     },
                     "variable": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "azuredevops_workitemtrackingprocess_process": {
+                "current": "azuredevops:index/getWorkitemtrackingprocessProcess:getWorkitemtrackingprocessProcess",
+                "majorVersion": 3,
+                "fields": {
+                    "projects": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azuredevops_workitemtrackingprocess_processes": {
+                "current": "azuredevops:index/getWorkitemtrackingprocessProcesses:getWorkitemtrackingprocessProcesses",
+                "majorVersion": 3,
+                "fields": {
+                    "processes": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "projects": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             }

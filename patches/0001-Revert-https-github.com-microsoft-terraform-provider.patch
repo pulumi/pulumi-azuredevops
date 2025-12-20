@@ -11,7 +11,7 @@ This can be removed once https://github.com/pulumi/pulumi-terraform-bridge/issue
 Original customer issue: https://github.com/pulumi/pulumi-azuredevops/issues/514
 
 diff --git a/azuredevops/internal/service/taskagent/resource_variable_group.go b/azuredevops/internal/service/taskagent/resource_variable_group.go
-index dd0674e5..421bd968 100644
+index dd0674e51..421bd968c 100644
 --- a/azuredevops/internal/service/taskagent/resource_variable_group.go
 +++ b/azuredevops/internal/service/taskagent/resource_variable_group.go
 @@ -358,21 +358,6 @@ func expandVariableGroupParameters(clients *client.AggregatedClient, d *schema.R
