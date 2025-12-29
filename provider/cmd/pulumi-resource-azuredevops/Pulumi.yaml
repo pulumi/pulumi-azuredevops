@@ -1,0 +1,3 @@
+name: azuredevops
+description: A Pulumi resource provider for azuredevops.
+language: schema
