@@ -1018,6 +1018,10 @@
                 "current": "azuredevops:index/variableGroupPermissions:VariableGroupPermissions",
                 "majorVersion": 3
             },
+            "azuredevops_variable_group_variable": {
+                "current": "azuredevops:index/variableGroupVariable:VariableGroupVariable",
+                "majorVersion": 3
+            },
             "azuredevops_wiki": {
                 "current": "azuredevops:index/wiki:Wiki",
                 "majorVersion": 3
@@ -1050,9 +1054,68 @@
                 "current": "azuredevops:index/workItemQueryPermissions:WorkItemQueryPermissions",
                 "majorVersion": 3
             },
+            "azuredevops_workitemtrackingprocess_control": {
+                "current": "azuredevops:index/workitemtrackingprocessControl:WorkitemtrackingprocessControl",
+                "majorVersion": 3,
+                "fields": {
+                    "contribution": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
+            "azuredevops_workitemtrackingprocess_group": {
+                "current": "azuredevops:index/workitemtrackingprocessGroup:WorkitemtrackingprocessGroup",
+                "majorVersion": 3,
+                "fields": {
+                    "control": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "contribution": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "azuredevops_workitemtrackingprocess_process": {
                 "current": "azuredevops:index/workitemtrackingprocessProcess:WorkitemtrackingprocessProcess",
                 "majorVersion": 3
+            },
+            "azuredevops_workitemtrackingprocess_process_permissions": {
+                "current": "azuredevops:index/workitemtrackingprocessProcessPermissions:WorkitemtrackingprocessProcessPermissions",
+                "majorVersion": 3
+            },
+            "azuredevops_workitemtrackingprocess_workitemtype": {
+                "current": "azuredevops:index/workitemtrackingprocessWorkitemtype:WorkitemtrackingprocessWorkitemtype",
+                "majorVersion": 3,
+                "fields": {
+                    "pages": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "sections": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "groups": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "controls": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         },
         "datasources": {
@@ -1458,6 +1521,19 @@
                                 }
                             }
                         }
+                    }
+                }
+            },
+            "azuredevops_workitemtrackingprocess_workitemtype": {
+                "current": "azuredevops:index/getWorkitemtrackingprocessWorkitemtype:getWorkitemtrackingprocessWorkitemtype",
+                "majorVersion": 3
+            },
+            "azuredevops_workitemtrackingprocess_workitemtypes": {
+                "current": "azuredevops:index/getWorkitemtrackingprocessWorkitemtypes:getWorkitemtrackingprocessWorkitemtypes",
+                "majorVersion": 3,
+                "fields": {
+                    "work_item_types": {
+                        "maxItemsOne": false
                     }
                 }
             }
