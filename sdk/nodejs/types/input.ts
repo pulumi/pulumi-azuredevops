@@ -1533,3 +1533,136 @@ export interface WorkitemRelation {
      */
     url?: pulumi.Input<string>;
 }
+
+export interface WorkitemtrackingprocessControlContribution {
+    /**
+     * The ID of the contribution (extension).
+     */
+    contributionId: pulumi.Input<string>;
+    /**
+     * The height for the contribution.
+     */
+    height?: pulumi.Input<number>;
+    /**
+     * A dictionary holding key value pairs for contribution inputs.
+     */
+    inputs?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A value indicating if the contribution should be shown on deleted work items. Default: `false`
+     */
+    showOnDeletedWorkItem?: pulumi.Input<boolean>;
+}
+
+export interface WorkitemtrackingprocessGroupControl {
+    /**
+     * Contribution configuration for extension controls. A `contribution` block as defined below.
+     */
+    contribution?: pulumi.Input<inputs.WorkitemtrackingprocessGroupControlContribution>;
+    /**
+     * Type of the control (e.g., HtmlFieldControl, FieldControl).
+     */
+    controlType?: pulumi.Input<string>;
+    /**
+     * The ID of the control. This is the field reference name (e.g., System.Description) or the contribution ID for extension controls.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * A value indicating whether this control has been inherited from a parent layout.
+     */
+    inherited?: pulumi.Input<boolean>;
+    /**
+     * A value indicating if the control is a contribution (extension) control. Default: `false`
+     */
+    isContribution?: pulumi.Input<boolean>;
+    /**
+     * Label for the control.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * Inner text of the control.
+     */
+    metadata?: pulumi.Input<string>;
+    /**
+     * Order in which the group should appear in the section.
+     */
+    order?: pulumi.Input<number>;
+    /**
+     * A value indicating whether this control has been overridden by a child layout.
+     */
+    overridden?: pulumi.Input<boolean>;
+    /**
+     * A value indicating if the control is read only. Default: `false`
+     */
+    readOnly?: pulumi.Input<boolean>;
+    /**
+     * A value indicating if the control should be visible or not. Default: `true`
+     */
+    visible?: pulumi.Input<boolean>;
+    /**
+     * Watermark text for the textbox.
+     */
+    watermark?: pulumi.Input<string>;
+}
+
+export interface WorkitemtrackingprocessGroupControlContribution {
+    /**
+     * The ID of the contribution (extension).
+     */
+    contributionId: pulumi.Input<string>;
+    /**
+     * The height for the contribution.
+     */
+    height?: pulumi.Input<number>;
+    /**
+     * A dictionary holding key value pairs for contribution inputs.
+     */
+    inputs?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A value indicating if the contribution should be shown on deleted work items. Default: `false`
+     */
+    showOnDeletedWorkItem?: pulumi.Input<boolean>;
+}
+
+export interface WorkitemtrackingprocessWorkitemtypePage {
+    /**
+     * The ID of the section.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The type of the page.
+     */
+    pageType?: pulumi.Input<string>;
+    /**
+     * A `sections` block as defined below.
+     */
+    sections?: pulumi.Input<pulumi.Input<inputs.WorkitemtrackingprocessWorkitemtypePageSection>[]>;
+}
+
+export interface WorkitemtrackingprocessWorkitemtypePageSection {
+    /**
+     * A `groups` block as defined above.
+     */
+    groups?: pulumi.Input<pulumi.Input<inputs.WorkitemtrackingprocessWorkitemtypePageSectionGroup>[]>;
+    /**
+     * The ID of the section.
+     */
+    id?: pulumi.Input<string>;
+}
+
+export interface WorkitemtrackingprocessWorkitemtypePageSectionGroup {
+    /**
+     * A `controls` block as defined above.
+     */
+    controls?: pulumi.Input<pulumi.Input<inputs.WorkitemtrackingprocessWorkitemtypePageSectionGroupControl>[]>;
+    /**
+     * The ID of the section.
+     */
+    id?: pulumi.Input<string>;
+}
+
+export interface WorkitemtrackingprocessWorkitemtypePageSectionGroupControl {
+    /**
+     * The ID of the section.
+     */
+    id?: pulumi.Input<string>;
+}

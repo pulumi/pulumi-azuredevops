@@ -111,6 +111,13 @@ __all__ = [
     'VariableGroupKeyVault',
     'VariableGroupVariable',
     'WorkitemRelation',
+    'WorkitemtrackingprocessControlContribution',
+    'WorkitemtrackingprocessGroupControl',
+    'WorkitemtrackingprocessGroupControlContribution',
+    'WorkitemtrackingprocessWorkitemtypePage',
+    'WorkitemtrackingprocessWorkitemtypePageSection',
+    'WorkitemtrackingprocessWorkitemtypePageSectionGroup',
+    'WorkitemtrackingprocessWorkitemtypePageSectionGroupControl',
     'GetAreaChildrenResult',
     'GetBuildDefinitionCiTriggerResult',
     'GetBuildDefinitionCiTriggerOverrideResult',
@@ -144,6 +151,7 @@ __all__ = [
     'GetWorkitemtrackingprocessProcessProjectResult',
     'GetWorkitemtrackingprocessProcessesProcessResult',
     'GetWorkitemtrackingprocessProcessesProcessProjectResult',
+    'GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeResult',
 ]
 
 @pulumi.output_type
@@ -5562,6 +5570,464 @@ class WorkitemRelation(dict):
 
 
 @pulumi.output_type
+class WorkitemtrackingprocessControlContribution(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contributionId":
+            suggest = "contribution_id"
+        elif key == "showOnDeletedWorkItem":
+            suggest = "show_on_deleted_work_item"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkitemtrackingprocessControlContribution. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkitemtrackingprocessControlContribution.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkitemtrackingprocessControlContribution.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 contribution_id: _builtins.str,
+                 height: Optional[_builtins.int] = None,
+                 inputs: Optional[Mapping[str, _builtins.str]] = None,
+                 show_on_deleted_work_item: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.str contribution_id: The ID of the contribution (extension).
+        :param _builtins.int height: The height for the contribution.
+        :param Mapping[str, _builtins.str] inputs: A dictionary holding key value pairs for contribution inputs.
+        :param _builtins.bool show_on_deleted_work_item: A value indicating if the contribution should be shown on deleted work items. Default: `false`
+        """
+        pulumi.set(__self__, "contribution_id", contribution_id)
+        if height is not None:
+            pulumi.set(__self__, "height", height)
+        if inputs is not None:
+            pulumi.set(__self__, "inputs", inputs)
+        if show_on_deleted_work_item is not None:
+            pulumi.set(__self__, "show_on_deleted_work_item", show_on_deleted_work_item)
+
+    @_builtins.property
+    @pulumi.getter(name="contributionId")
+    def contribution_id(self) -> _builtins.str:
+        """
+        The ID of the contribution (extension).
+        """
+        return pulumi.get(self, "contribution_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def height(self) -> Optional[_builtins.int]:
+        """
+        The height for the contribution.
+        """
+        return pulumi.get(self, "height")
+
+    @_builtins.property
+    @pulumi.getter
+    def inputs(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        A dictionary holding key value pairs for contribution inputs.
+        """
+        return pulumi.get(self, "inputs")
+
+    @_builtins.property
+    @pulumi.getter(name="showOnDeletedWorkItem")
+    def show_on_deleted_work_item(self) -> Optional[_builtins.bool]:
+        """
+        A value indicating if the contribution should be shown on deleted work items. Default: `false`
+        """
+        return pulumi.get(self, "show_on_deleted_work_item")
+
+
+@pulumi.output_type
+class WorkitemtrackingprocessGroupControl(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "controlType":
+            suggest = "control_type"
+        elif key == "isContribution":
+            suggest = "is_contribution"
+        elif key == "readOnly":
+            suggest = "read_only"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkitemtrackingprocessGroupControl. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkitemtrackingprocessGroupControl.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkitemtrackingprocessGroupControl.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 contribution: Optional['outputs.WorkitemtrackingprocessGroupControlContribution'] = None,
+                 control_type: Optional[_builtins.str] = None,
+                 inherited: Optional[_builtins.bool] = None,
+                 is_contribution: Optional[_builtins.bool] = None,
+                 label: Optional[_builtins.str] = None,
+                 metadata: Optional[_builtins.str] = None,
+                 order: Optional[_builtins.int] = None,
+                 overridden: Optional[_builtins.bool] = None,
+                 read_only: Optional[_builtins.bool] = None,
+                 visible: Optional[_builtins.bool] = None,
+                 watermark: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str id: The ID of the control. This is the field reference name (e.g., System.Description) or the contribution ID for extension controls.
+        :param 'WorkitemtrackingprocessGroupControlContributionArgs' contribution: Contribution configuration for extension controls. A `contribution` block as defined below.
+        :param _builtins.str control_type: Type of the control (e.g., HtmlFieldControl, FieldControl).
+        :param _builtins.bool inherited: A value indicating whether this control has been inherited from a parent layout.
+        :param _builtins.bool is_contribution: A value indicating if the control is a contribution (extension) control. Default: `false`
+        :param _builtins.str label: Label for the control.
+        :param _builtins.str metadata: Inner text of the control.
+        :param _builtins.int order: Order in which the group should appear in the section.
+        :param _builtins.bool overridden: A value indicating whether this control has been overridden by a child layout.
+        :param _builtins.bool read_only: A value indicating if the control is read only. Default: `false`
+        :param _builtins.bool visible: A value indicating if the control should be visible or not. Default: `true`
+        :param _builtins.str watermark: Watermark text for the textbox.
+        """
+        pulumi.set(__self__, "id", id)
+        if contribution is not None:
+            pulumi.set(__self__, "contribution", contribution)
+        if control_type is not None:
+            pulumi.set(__self__, "control_type", control_type)
+        if inherited is not None:
+            pulumi.set(__self__, "inherited", inherited)
+        if is_contribution is not None:
+            pulumi.set(__self__, "is_contribution", is_contribution)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+        if overridden is not None:
+            pulumi.set(__self__, "overridden", overridden)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+        if visible is not None:
+            pulumi.set(__self__, "visible", visible)
+        if watermark is not None:
+            pulumi.set(__self__, "watermark", watermark)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the control. This is the field reference name (e.g., System.Description) or the contribution ID for extension controls.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def contribution(self) -> Optional['outputs.WorkitemtrackingprocessGroupControlContribution']:
+        """
+        Contribution configuration for extension controls. A `contribution` block as defined below.
+        """
+        return pulumi.get(self, "contribution")
+
+    @_builtins.property
+    @pulumi.getter(name="controlType")
+    def control_type(self) -> Optional[_builtins.str]:
+        """
+        Type of the control (e.g., HtmlFieldControl, FieldControl).
+        """
+        return pulumi.get(self, "control_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def inherited(self) -> Optional[_builtins.bool]:
+        """
+        A value indicating whether this control has been inherited from a parent layout.
+        """
+        return pulumi.get(self, "inherited")
+
+    @_builtins.property
+    @pulumi.getter(name="isContribution")
+    def is_contribution(self) -> Optional[_builtins.bool]:
+        """
+        A value indicating if the control is a contribution (extension) control. Default: `false`
+        """
+        return pulumi.get(self, "is_contribution")
+
+    @_builtins.property
+    @pulumi.getter
+    def label(self) -> Optional[_builtins.str]:
+        """
+        Label for the control.
+        """
+        return pulumi.get(self, "label")
+
+    @_builtins.property
+    @pulumi.getter
+    def metadata(self) -> Optional[_builtins.str]:
+        """
+        Inner text of the control.
+        """
+        return pulumi.get(self, "metadata")
+
+    @_builtins.property
+    @pulumi.getter
+    def order(self) -> Optional[_builtins.int]:
+        """
+        Order in which the group should appear in the section.
+        """
+        return pulumi.get(self, "order")
+
+    @_builtins.property
+    @pulumi.getter
+    def overridden(self) -> Optional[_builtins.bool]:
+        """
+        A value indicating whether this control has been overridden by a child layout.
+        """
+        return pulumi.get(self, "overridden")
+
+    @_builtins.property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[_builtins.bool]:
+        """
+        A value indicating if the control is read only. Default: `false`
+        """
+        return pulumi.get(self, "read_only")
+
+    @_builtins.property
+    @pulumi.getter
+    def visible(self) -> Optional[_builtins.bool]:
+        """
+        A value indicating if the control should be visible or not. Default: `true`
+        """
+        return pulumi.get(self, "visible")
+
+    @_builtins.property
+    @pulumi.getter
+    def watermark(self) -> Optional[_builtins.str]:
+        """
+        Watermark text for the textbox.
+        """
+        return pulumi.get(self, "watermark")
+
+
+@pulumi.output_type
+class WorkitemtrackingprocessGroupControlContribution(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contributionId":
+            suggest = "contribution_id"
+        elif key == "showOnDeletedWorkItem":
+            suggest = "show_on_deleted_work_item"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkitemtrackingprocessGroupControlContribution. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkitemtrackingprocessGroupControlContribution.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkitemtrackingprocessGroupControlContribution.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 contribution_id: _builtins.str,
+                 height: Optional[_builtins.int] = None,
+                 inputs: Optional[Mapping[str, _builtins.str]] = None,
+                 show_on_deleted_work_item: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.str contribution_id: The ID of the contribution (extension).
+        :param _builtins.int height: The height for the contribution.
+        :param Mapping[str, _builtins.str] inputs: A dictionary holding key value pairs for contribution inputs.
+        :param _builtins.bool show_on_deleted_work_item: A value indicating if the contribution should be shown on deleted work items. Default: `false`
+        """
+        pulumi.set(__self__, "contribution_id", contribution_id)
+        if height is not None:
+            pulumi.set(__self__, "height", height)
+        if inputs is not None:
+            pulumi.set(__self__, "inputs", inputs)
+        if show_on_deleted_work_item is not None:
+            pulumi.set(__self__, "show_on_deleted_work_item", show_on_deleted_work_item)
+
+    @_builtins.property
+    @pulumi.getter(name="contributionId")
+    def contribution_id(self) -> _builtins.str:
+        """
+        The ID of the contribution (extension).
+        """
+        return pulumi.get(self, "contribution_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def height(self) -> Optional[_builtins.int]:
+        """
+        The height for the contribution.
+        """
+        return pulumi.get(self, "height")
+
+    @_builtins.property
+    @pulumi.getter
+    def inputs(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        A dictionary holding key value pairs for contribution inputs.
+        """
+        return pulumi.get(self, "inputs")
+
+    @_builtins.property
+    @pulumi.getter(name="showOnDeletedWorkItem")
+    def show_on_deleted_work_item(self) -> Optional[_builtins.bool]:
+        """
+        A value indicating if the contribution should be shown on deleted work items. Default: `false`
+        """
+        return pulumi.get(self, "show_on_deleted_work_item")
+
+
+@pulumi.output_type
+class WorkitemtrackingprocessWorkitemtypePage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pageType":
+            suggest = "page_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkitemtrackingprocessWorkitemtypePage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkitemtrackingprocessWorkitemtypePage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkitemtrackingprocessWorkitemtypePage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: Optional[_builtins.str] = None,
+                 page_type: Optional[_builtins.str] = None,
+                 sections: Optional[Sequence['outputs.WorkitemtrackingprocessWorkitemtypePageSection']] = None):
+        """
+        :param _builtins.str id: The ID of the section.
+        :param _builtins.str page_type: The type of the page.
+        :param Sequence['WorkitemtrackingprocessWorkitemtypePageSectionArgs'] sections: A `sections` block as defined below.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if page_type is not None:
+            pulumi.set(__self__, "page_type", page_type)
+        if sections is not None:
+            pulumi.set(__self__, "sections", sections)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the section.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="pageType")
+    def page_type(self) -> Optional[_builtins.str]:
+        """
+        The type of the page.
+        """
+        return pulumi.get(self, "page_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def sections(self) -> Optional[Sequence['outputs.WorkitemtrackingprocessWorkitemtypePageSection']]:
+        """
+        A `sections` block as defined below.
+        """
+        return pulumi.get(self, "sections")
+
+
+@pulumi.output_type
+class WorkitemtrackingprocessWorkitemtypePageSection(dict):
+    def __init__(__self__, *,
+                 groups: Optional[Sequence['outputs.WorkitemtrackingprocessWorkitemtypePageSectionGroup']] = None,
+                 id: Optional[_builtins.str] = None):
+        """
+        :param Sequence['WorkitemtrackingprocessWorkitemtypePageSectionGroupArgs'] groups: A `groups` block as defined above.
+        :param _builtins.str id: The ID of the section.
+        """
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def groups(self) -> Optional[Sequence['outputs.WorkitemtrackingprocessWorkitemtypePageSectionGroup']]:
+        """
+        A `groups` block as defined above.
+        """
+        return pulumi.get(self, "groups")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the section.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class WorkitemtrackingprocessWorkitemtypePageSectionGroup(dict):
+    def __init__(__self__, *,
+                 controls: Optional[Sequence['outputs.WorkitemtrackingprocessWorkitemtypePageSectionGroupControl']] = None,
+                 id: Optional[_builtins.str] = None):
+        """
+        :param Sequence['WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgs'] controls: A `controls` block as defined above.
+        :param _builtins.str id: The ID of the section.
+        """
+        if controls is not None:
+            pulumi.set(__self__, "controls", controls)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def controls(self) -> Optional[Sequence['outputs.WorkitemtrackingprocessWorkitemtypePageSectionGroupControl']]:
+        """
+        A `controls` block as defined above.
+        """
+        return pulumi.get(self, "controls")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the section.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class WorkitemtrackingprocessWorkitemtypePageSectionGroupControl(dict):
+    def __init__(__self__, *,
+                 id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str id: The ID of the section.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the section.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class GetAreaChildrenResult(dict):
     def __init__(__self__, *,
                  has_children: _builtins.bool,
@@ -7514,6 +7980,112 @@ class GetWorkitemtrackingprocessProcessesProcessProjectResult(dict):
     def url(self) -> _builtins.str:
         """
         Url of the project.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeResult(dict):
+    def __init__(__self__, *,
+                 color: _builtins.str,
+                 customization: _builtins.str,
+                 description: _builtins.str,
+                 icon: _builtins.str,
+                 is_enabled: _builtins.bool,
+                 name: _builtins.str,
+                 parent_work_item_reference_name: _builtins.str,
+                 reference_name: _builtins.str,
+                 url: _builtins.str):
+        """
+        :param _builtins.str color: Color hexadecimal code to represent the work item type.
+        :param _builtins.str customization: Indicates the type of customization on this work item type.
+        :param _builtins.str description: Description of the work item type.
+        :param _builtins.str icon: Icon to represent the work item type.
+        :param _builtins.bool is_enabled: Indicates if the work item type is enabled.
+        :param _builtins.str name: Name of the work item type.
+        :param _builtins.str parent_work_item_reference_name: Reference name of the parent work item type.
+        :param _builtins.str reference_name: Reference name of the work item type.
+        :param _builtins.str url: URL of the work item type.
+        """
+        pulumi.set(__self__, "color", color)
+        pulumi.set(__self__, "customization", customization)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "icon", icon)
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "parent_work_item_reference_name", parent_work_item_reference_name)
+        pulumi.set(__self__, "reference_name", reference_name)
+        pulumi.set(__self__, "url", url)
+
+    @_builtins.property
+    @pulumi.getter
+    def color(self) -> _builtins.str:
+        """
+        Color hexadecimal code to represent the work item type.
+        """
+        return pulumi.get(self, "color")
+
+    @_builtins.property
+    @pulumi.getter
+    def customization(self) -> _builtins.str:
+        """
+        Indicates the type of customization on this work item type.
+        """
+        return pulumi.get(self, "customization")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        """
+        Description of the work item type.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def icon(self) -> _builtins.str:
+        """
+        Icon to represent the work item type.
+        """
+        return pulumi.get(self, "icon")
+
+    @_builtins.property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> _builtins.bool:
+        """
+        Indicates if the work item type is enabled.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the work item type.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="parentWorkItemReferenceName")
+    def parent_work_item_reference_name(self) -> _builtins.str:
+        """
+        Reference name of the parent work item type.
+        """
+        return pulumi.get(self, "parent_work_item_reference_name")
+
+    @_builtins.property
+    @pulumi.getter(name="referenceName")
+    def reference_name(self) -> _builtins.str:
+        """
+        Reference name of the work item type.
+        """
+        return pulumi.get(self, "reference_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> _builtins.str:
+        """
+        URL of the work item type.
         """
         return pulumi.get(self, "url")
 

@@ -43,8 +43,8 @@ import (
 //				Name:        pulumi.String("test"),
 //				Description: pulumi.String("Test Description"),
 //				AllowAccess: pulumi.Bool(true),
-//				Variables: azuredevops.VariableGroupVariableArray{
-//					&azuredevops.VariableGroupVariableArgs{
+//				Variables: azuredevops.VariableGroupVariableTypeArray{
+//					&azuredevops.VariableGroupVariableTypeArgs{
 //						Name:  pulumi.String("key1"),
 //						Value: pulumi.String("val1"),
 //					},

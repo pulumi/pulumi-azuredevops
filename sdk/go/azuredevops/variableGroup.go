@@ -42,12 +42,12 @@ import (
 //				Name:        pulumi.String("Example Variable Group"),
 //				Description: pulumi.String("Example Variable Group Description"),
 //				AllowAccess: pulumi.Bool(true),
-//				Variables: azuredevops.VariableGroupVariableArray{
-//					&azuredevops.VariableGroupVariableArgs{
+//				Variables: azuredevops.VariableGroupVariableTypeArray{
+//					&azuredevops.VariableGroupVariableTypeArgs{
 //						Name:  pulumi.String("key1"),
 //						Value: pulumi.String("val1"),
 //					},
-//					&azuredevops.VariableGroupVariableArgs{
+//					&azuredevops.VariableGroupVariableTypeArgs{
 //						Name:        pulumi.String("key2"),
 //						SecretValue: pulumi.String("val2"),
 //						IsSecret:    pulumi.Bool(true),
@@ -111,11 +111,11 @@ import (
 //					Name:              pulumi.String("example-kv"),
 //					ServiceEndpointId: exampleServiceEndpointAzureRM.ID(),
 //				},
-//				Variables: azuredevops.VariableGroupVariableArray{
-//					&azuredevops.VariableGroupVariableArgs{
+//				Variables: azuredevops.VariableGroupVariableTypeArray{
+//					&azuredevops.VariableGroupVariableTypeArgs{
 //						Name: pulumi.String("key1"),
 //					},
-//					&azuredevops.VariableGroupVariableArgs{
+//					&azuredevops.VariableGroupVariableTypeArgs{
 //						Name: pulumi.String("key2"),
 //					},
 //				},
@@ -174,7 +174,7 @@ type VariableGroup struct {
 	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// One or more `variable` blocks as documented below.
-	Variables VariableGroupVariableArrayOutput `pulumi:"variables"`
+	Variables VariableGroupVariableTypeArrayOutput `pulumi:"variables"`
 }
 
 // NewVariableGroup registers a new resource with the given unique name, arguments, and options.
@@ -224,7 +224,7 @@ type variableGroupState struct {
 	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// One or more `variable` blocks as documented below.
-	Variables []VariableGroupVariable `pulumi:"variables"`
+	Variables []VariableGroupVariableType `pulumi:"variables"`
 }
 
 type VariableGroupState struct {
@@ -239,7 +239,7 @@ type VariableGroupState struct {
 	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// One or more `variable` blocks as documented below.
-	Variables VariableGroupVariableArrayInput
+	Variables VariableGroupVariableTypeArrayInput
 }
 
 func (VariableGroupState) ElementType() reflect.Type {
@@ -258,7 +258,7 @@ type variableGroupArgs struct {
 	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// One or more `variable` blocks as documented below.
-	Variables []VariableGroupVariable `pulumi:"variables"`
+	Variables []VariableGroupVariableType `pulumi:"variables"`
 }
 
 // The set of arguments for constructing a VariableGroup resource.
@@ -274,7 +274,7 @@ type VariableGroupArgs struct {
 	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// One or more `variable` blocks as documented below.
-	Variables VariableGroupVariableArrayInput
+	Variables VariableGroupVariableTypeArrayInput
 }
 
 func (VariableGroupArgs) ElementType() reflect.Type {
@@ -390,8 +390,8 @@ func (o VariableGroupOutput) ProjectId() pulumi.StringOutput {
 }
 
 // One or more `variable` blocks as documented below.
-func (o VariableGroupOutput) Variables() VariableGroupVariableArrayOutput {
-	return o.ApplyT(func(v *VariableGroup) VariableGroupVariableArrayOutput { return v.Variables }).(VariableGroupVariableArrayOutput)
+func (o VariableGroupOutput) Variables() VariableGroupVariableTypeArrayOutput {
+	return o.ApplyT(func(v *VariableGroup) VariableGroupVariableTypeArrayOutput { return v.Variables }).(VariableGroupVariableTypeArrayOutput)
 }
 
 type VariableGroupArrayOutput struct{ *pulumi.OutputState }
