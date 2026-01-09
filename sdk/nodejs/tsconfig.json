@@ -80,6 +80,8 @@
         "getVariableGroup.ts",
         "getWorkitemtrackingprocessProcess.ts",
         "getWorkitemtrackingprocessProcesses.ts",
+        "getWorkitemtrackingprocessWorkitemtype.ts",
+        "getWorkitemtrackingprocessWorkitemtypes.ts",
         "git.ts",
         "gitPermissions.ts",
         "gitRepositoryBranch.ts",
@@ -166,12 +168,17 @@
         "utilities.ts",
         "variableGroup.ts",
         "variableGroupPermissions.ts",
+        "variableGroupVariable.ts",
         "wiki.ts",
         "wikiPage.ts",
         "workItemQueryPermissions.ts",
         "workitem.ts",
         "workitemquery.ts",
         "workitemqueryFolder.ts",
-        "workitemtrackingprocessProcess.ts"
+        "workitemtrackingprocessControl.ts",
+        "workitemtrackingprocessGroup.ts",
+        "workitemtrackingprocessProcess.ts",
+        "workitemtrackingprocessProcessPermissions.ts",
+        "workitemtrackingprocessWorkitemtype.ts"
     ]
 }

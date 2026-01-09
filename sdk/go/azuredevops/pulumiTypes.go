@@ -14870,7 +14870,7 @@ func (o VariableGroupKeyVaultPtrOutput) ServiceEndpointId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-type VariableGroupVariable struct {
+type VariableGroupVariableType struct {
 	ContentType *string `pulumi:"contentType"`
 	Enabled     *bool   `pulumi:"enabled"`
 	Expires     *string `pulumi:"expires"`
@@ -14884,18 +14884,18 @@ type VariableGroupVariable struct {
 	Value *string `pulumi:"value"`
 }
 
-// VariableGroupVariableInput is an input type that accepts VariableGroupVariableArgs and VariableGroupVariableOutput values.
-// You can construct a concrete instance of `VariableGroupVariableInput` via:
+// VariableGroupVariableTypeInput is an input type that accepts VariableGroupVariableTypeArgs and VariableGroupVariableTypeOutput values.
+// You can construct a concrete instance of `VariableGroupVariableTypeInput` via:
 //
-//	VariableGroupVariableArgs{...}
-type VariableGroupVariableInput interface {
+//	VariableGroupVariableTypeArgs{...}
+type VariableGroupVariableTypeInput interface {
 	pulumi.Input
 
-	ToVariableGroupVariableOutput() VariableGroupVariableOutput
-	ToVariableGroupVariableOutputWithContext(context.Context) VariableGroupVariableOutput
+	ToVariableGroupVariableTypeOutput() VariableGroupVariableTypeOutput
+	ToVariableGroupVariableTypeOutputWithContext(context.Context) VariableGroupVariableTypeOutput
 }
 
-type VariableGroupVariableArgs struct {
+type VariableGroupVariableTypeArgs struct {
 	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
 	Enabled     pulumi.BoolPtrInput   `pulumi:"enabled"`
 	Expires     pulumi.StringPtrInput `pulumi:"expires"`
@@ -14909,107 +14909,107 @@ type VariableGroupVariableArgs struct {
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
-func (VariableGroupVariableArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VariableGroupVariable)(nil)).Elem()
+func (VariableGroupVariableTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VariableGroupVariableType)(nil)).Elem()
 }
 
-func (i VariableGroupVariableArgs) ToVariableGroupVariableOutput() VariableGroupVariableOutput {
-	return i.ToVariableGroupVariableOutputWithContext(context.Background())
+func (i VariableGroupVariableTypeArgs) ToVariableGroupVariableTypeOutput() VariableGroupVariableTypeOutput {
+	return i.ToVariableGroupVariableTypeOutputWithContext(context.Background())
 }
 
-func (i VariableGroupVariableArgs) ToVariableGroupVariableOutputWithContext(ctx context.Context) VariableGroupVariableOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VariableGroupVariableOutput)
+func (i VariableGroupVariableTypeArgs) ToVariableGroupVariableTypeOutputWithContext(ctx context.Context) VariableGroupVariableTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VariableGroupVariableTypeOutput)
 }
 
-// VariableGroupVariableArrayInput is an input type that accepts VariableGroupVariableArray and VariableGroupVariableArrayOutput values.
-// You can construct a concrete instance of `VariableGroupVariableArrayInput` via:
+// VariableGroupVariableTypeArrayInput is an input type that accepts VariableGroupVariableTypeArray and VariableGroupVariableTypeArrayOutput values.
+// You can construct a concrete instance of `VariableGroupVariableTypeArrayInput` via:
 //
-//	VariableGroupVariableArray{ VariableGroupVariableArgs{...} }
-type VariableGroupVariableArrayInput interface {
+//	VariableGroupVariableTypeArray{ VariableGroupVariableTypeArgs{...} }
+type VariableGroupVariableTypeArrayInput interface {
 	pulumi.Input
 
-	ToVariableGroupVariableArrayOutput() VariableGroupVariableArrayOutput
-	ToVariableGroupVariableArrayOutputWithContext(context.Context) VariableGroupVariableArrayOutput
+	ToVariableGroupVariableTypeArrayOutput() VariableGroupVariableTypeArrayOutput
+	ToVariableGroupVariableTypeArrayOutputWithContext(context.Context) VariableGroupVariableTypeArrayOutput
 }
 
-type VariableGroupVariableArray []VariableGroupVariableInput
+type VariableGroupVariableTypeArray []VariableGroupVariableTypeInput
 
-func (VariableGroupVariableArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VariableGroupVariable)(nil)).Elem()
+func (VariableGroupVariableTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VariableGroupVariableType)(nil)).Elem()
 }
 
-func (i VariableGroupVariableArray) ToVariableGroupVariableArrayOutput() VariableGroupVariableArrayOutput {
-	return i.ToVariableGroupVariableArrayOutputWithContext(context.Background())
+func (i VariableGroupVariableTypeArray) ToVariableGroupVariableTypeArrayOutput() VariableGroupVariableTypeArrayOutput {
+	return i.ToVariableGroupVariableTypeArrayOutputWithContext(context.Background())
 }
 
-func (i VariableGroupVariableArray) ToVariableGroupVariableArrayOutputWithContext(ctx context.Context) VariableGroupVariableArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VariableGroupVariableArrayOutput)
+func (i VariableGroupVariableTypeArray) ToVariableGroupVariableTypeArrayOutputWithContext(ctx context.Context) VariableGroupVariableTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VariableGroupVariableTypeArrayOutput)
 }
 
-type VariableGroupVariableOutput struct{ *pulumi.OutputState }
+type VariableGroupVariableTypeOutput struct{ *pulumi.OutputState }
 
-func (VariableGroupVariableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VariableGroupVariable)(nil)).Elem()
+func (VariableGroupVariableTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VariableGroupVariableType)(nil)).Elem()
 }
 
-func (o VariableGroupVariableOutput) ToVariableGroupVariableOutput() VariableGroupVariableOutput {
+func (o VariableGroupVariableTypeOutput) ToVariableGroupVariableTypeOutput() VariableGroupVariableTypeOutput {
 	return o
 }
 
-func (o VariableGroupVariableOutput) ToVariableGroupVariableOutputWithContext(ctx context.Context) VariableGroupVariableOutput {
+func (o VariableGroupVariableTypeOutput) ToVariableGroupVariableTypeOutputWithContext(ctx context.Context) VariableGroupVariableTypeOutput {
 	return o
 }
 
-func (o VariableGroupVariableOutput) ContentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VariableGroupVariable) *string { return v.ContentType }).(pulumi.StringPtrOutput)
+func (o VariableGroupVariableTypeOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VariableGroupVariableType) *string { return v.ContentType }).(pulumi.StringPtrOutput)
 }
 
-func (o VariableGroupVariableOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VariableGroupVariable) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+func (o VariableGroupVariableTypeOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VariableGroupVariableType) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-func (o VariableGroupVariableOutput) Expires() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VariableGroupVariable) *string { return v.Expires }).(pulumi.StringPtrOutput)
+func (o VariableGroupVariableTypeOutput) Expires() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VariableGroupVariableType) *string { return v.Expires }).(pulumi.StringPtrOutput)
 }
 
 // A boolean flag describing if the variable value is sensitive. Defaults to `false`.
-func (o VariableGroupVariableOutput) GetIsSecret() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VariableGroupVariable) *bool { return v.IsSecret }).(pulumi.BoolPtrOutput)
+func (o VariableGroupVariableTypeOutput) GetIsSecret() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VariableGroupVariableType) *bool { return v.IsSecret }).(pulumi.BoolPtrOutput)
 }
 
 // The key value used for the variable. Must be unique within the Variable Group.
-func (o VariableGroupVariableOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v VariableGroupVariable) string { return v.Name }).(pulumi.StringOutput)
+func (o VariableGroupVariableTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VariableGroupVariableType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The secret value of the variable. If omitted, it will default to empty string. Used when `isSecret` set to `true`.
-func (o VariableGroupVariableOutput) SecretValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VariableGroupVariable) *string { return v.SecretValue }).(pulumi.StringPtrOutput)
+func (o VariableGroupVariableTypeOutput) SecretValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VariableGroupVariableType) *string { return v.SecretValue }).(pulumi.StringPtrOutput)
 }
 
 // The value of the variable. If omitted, it will default to empty string.
-func (o VariableGroupVariableOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VariableGroupVariable) *string { return v.Value }).(pulumi.StringPtrOutput)
+func (o VariableGroupVariableTypeOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VariableGroupVariableType) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-type VariableGroupVariableArrayOutput struct{ *pulumi.OutputState }
+type VariableGroupVariableTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (VariableGroupVariableArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VariableGroupVariable)(nil)).Elem()
+func (VariableGroupVariableTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VariableGroupVariableType)(nil)).Elem()
 }
 
-func (o VariableGroupVariableArrayOutput) ToVariableGroupVariableArrayOutput() VariableGroupVariableArrayOutput {
+func (o VariableGroupVariableTypeArrayOutput) ToVariableGroupVariableTypeArrayOutput() VariableGroupVariableTypeArrayOutput {
 	return o
 }
 
-func (o VariableGroupVariableArrayOutput) ToVariableGroupVariableArrayOutputWithContext(ctx context.Context) VariableGroupVariableArrayOutput {
+func (o VariableGroupVariableTypeArrayOutput) ToVariableGroupVariableTypeArrayOutputWithContext(ctx context.Context) VariableGroupVariableTypeArrayOutput {
 	return o
 }
 
-func (o VariableGroupVariableArrayOutput) Index(i pulumi.IntInput) VariableGroupVariableOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VariableGroupVariable {
-		return vs[0].([]VariableGroupVariable)[vs[1].(int)]
-	}).(VariableGroupVariableOutput)
+func (o VariableGroupVariableTypeArrayOutput) Index(i pulumi.IntInput) VariableGroupVariableTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VariableGroupVariableType {
+		return vs[0].([]VariableGroupVariableType)[vs[1].(int)]
+	}).(VariableGroupVariableTypeOutput)
 }
 
 type WorkitemRelation struct {
@@ -15116,6 +15116,1022 @@ func (o WorkitemRelationArrayOutput) Index(i pulumi.IntInput) WorkitemRelationOu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkitemRelation {
 		return vs[0].([]WorkitemRelation)[vs[1].(int)]
 	}).(WorkitemRelationOutput)
+}
+
+type WorkitemtrackingprocessControlContribution struct {
+	// The ID of the contribution (extension).
+	ContributionId string `pulumi:"contributionId"`
+	// The height for the contribution.
+	Height *int `pulumi:"height"`
+	// A dictionary holding key value pairs for contribution inputs.
+	Inputs map[string]string `pulumi:"inputs"`
+	// A value indicating if the contribution should be shown on deleted work items. Default: `false`
+	ShowOnDeletedWorkItem *bool `pulumi:"showOnDeletedWorkItem"`
+}
+
+// WorkitemtrackingprocessControlContributionInput is an input type that accepts WorkitemtrackingprocessControlContributionArgs and WorkitemtrackingprocessControlContributionOutput values.
+// You can construct a concrete instance of `WorkitemtrackingprocessControlContributionInput` via:
+//
+//	WorkitemtrackingprocessControlContributionArgs{...}
+type WorkitemtrackingprocessControlContributionInput interface {
+	pulumi.Input
+
+	ToWorkitemtrackingprocessControlContributionOutput() WorkitemtrackingprocessControlContributionOutput
+	ToWorkitemtrackingprocessControlContributionOutputWithContext(context.Context) WorkitemtrackingprocessControlContributionOutput
+}
+
+type WorkitemtrackingprocessControlContributionArgs struct {
+	// The ID of the contribution (extension).
+	ContributionId pulumi.StringInput `pulumi:"contributionId"`
+	// The height for the contribution.
+	Height pulumi.IntPtrInput `pulumi:"height"`
+	// A dictionary holding key value pairs for contribution inputs.
+	Inputs pulumi.StringMapInput `pulumi:"inputs"`
+	// A value indicating if the contribution should be shown on deleted work items. Default: `false`
+	ShowOnDeletedWorkItem pulumi.BoolPtrInput `pulumi:"showOnDeletedWorkItem"`
+}
+
+func (WorkitemtrackingprocessControlContributionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkitemtrackingprocessControlContribution)(nil)).Elem()
+}
+
+func (i WorkitemtrackingprocessControlContributionArgs) ToWorkitemtrackingprocessControlContributionOutput() WorkitemtrackingprocessControlContributionOutput {
+	return i.ToWorkitemtrackingprocessControlContributionOutputWithContext(context.Background())
+}
+
+func (i WorkitemtrackingprocessControlContributionArgs) ToWorkitemtrackingprocessControlContributionOutputWithContext(ctx context.Context) WorkitemtrackingprocessControlContributionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkitemtrackingprocessControlContributionOutput)
+}
+
+func (i WorkitemtrackingprocessControlContributionArgs) ToWorkitemtrackingprocessControlContributionPtrOutput() WorkitemtrackingprocessControlContributionPtrOutput {
+	return i.ToWorkitemtrackingprocessControlContributionPtrOutputWithContext(context.Background())
+}
+
+func (i WorkitemtrackingprocessControlContributionArgs) ToWorkitemtrackingprocessControlContributionPtrOutputWithContext(ctx context.Context) WorkitemtrackingprocessControlContributionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkitemtrackingprocessControlContributionOutput).ToWorkitemtrackingprocessControlContributionPtrOutputWithContext(ctx)
+}
+
+// WorkitemtrackingprocessControlContributionPtrInput is an input type that accepts WorkitemtrackingprocessControlContributionArgs, WorkitemtrackingprocessControlContributionPtr and WorkitemtrackingprocessControlContributionPtrOutput values.
+// You can construct a concrete instance of `WorkitemtrackingprocessControlContributionPtrInput` via:
+//
+//	        WorkitemtrackingprocessControlContributionArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkitemtrackingprocessControlContributionPtrInput interface {
+	pulumi.Input
+
+	ToWorkitemtrackingprocessControlContributionPtrOutput() WorkitemtrackingprocessControlContributionPtrOutput
+	ToWorkitemtrackingprocessControlContributionPtrOutputWithContext(context.Context) WorkitemtrackingprocessControlContributionPtrOutput
+}
+
+type workitemtrackingprocessControlContributionPtrType WorkitemtrackingprocessControlContributionArgs
+
+func WorkitemtrackingprocessControlContributionPtr(v *WorkitemtrackingprocessControlContributionArgs) WorkitemtrackingprocessControlContributionPtrInput {
+	return (*workitemtrackingprocessControlContributionPtrType)(v)
+}
+
+func (*workitemtrackingprocessControlContributionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkitemtrackingprocessControlContribution)(nil)).Elem()
+}
+
+func (i *workitemtrackingprocessControlContributionPtrType) ToWorkitemtrackingprocessControlContributionPtrOutput() WorkitemtrackingprocessControlContributionPtrOutput {
+	return i.ToWorkitemtrackingprocessControlContributionPtrOutputWithContext(context.Background())
+}
+
+func (i *workitemtrackingprocessControlContributionPtrType) ToWorkitemtrackingprocessControlContributionPtrOutputWithContext(ctx context.Context) WorkitemtrackingprocessControlContributionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkitemtrackingprocessControlContributionPtrOutput)
+}
+
+type WorkitemtrackingprocessControlContributionOutput struct{ *pulumi.OutputState }
+
+func (WorkitemtrackingprocessControlContributionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkitemtrackingprocessControlContribution)(nil)).Elem()
+}
+
+func (o WorkitemtrackingprocessControlContributionOutput) ToWorkitemtrackingprocessControlContributionOutput() WorkitemtrackingprocessControlContributionOutput {
+	return o
+}
+
+func (o WorkitemtrackingprocessControlContributionOutput) ToWorkitemtrackingprocessControlContributionOutputWithContext(ctx context.Context) WorkitemtrackingprocessControlContributionOutput {
+	return o
+}
+
+func (o WorkitemtrackingprocessControlContributionOutput) ToWorkitemtrackingprocessControlContributionPtrOutput() WorkitemtrackingprocessControlContributionPtrOutput {
+	return o.ToWorkitemtrackingprocessControlContributionPtrOutputWithContext(context.Background())
+}
+
+func (o WorkitemtrackingprocessControlContributionOutput) ToWorkitemtrackingprocessControlContributionPtrOutputWithContext(ctx context.Context) WorkitemtrackingprocessControlContributionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkitemtrackingprocessControlContribution) *WorkitemtrackingprocessControlContribution {
+		return &v
+	}).(WorkitemtrackingprocessControlContributionPtrOutput)
+}
+
+// The ID of the contribution (extension).
+func (o WorkitemtrackingprocessControlContributionOutput) ContributionId() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessControlContribution) string { return v.ContributionId }).(pulumi.StringOutput)
+}
+
+// The height for the contribution.
+func (o WorkitemtrackingprocessControlContributionOutput) Height() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessControlContribution) *int { return v.Height }).(pulumi.IntPtrOutput)
+}
+
+// A dictionary holding key value pairs for contribution inputs.
+func (o WorkitemtrackingprocessControlContributionOutput) Inputs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessControlContribution) map[string]string { return v.Inputs }).(pulumi.StringMapOutput)
+}
+
+// A value indicating if the contribution should be shown on deleted work items. Default: `false`
+func (o WorkitemtrackingprocessControlContributionOutput) ShowOnDeletedWorkItem() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessControlContribution) *bool { return v.ShowOnDeletedWorkItem }).(pulumi.BoolPtrOutput)
+}
+
+type WorkitemtrackingprocessControlContributionPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkitemtrackingprocessControlContributionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkitemtrackingprocessControlContribution)(nil)).Elem()
+}
+
+func (o WorkitemtrackingprocessControlContributionPtrOutput) ToWorkitemtrackingprocessControlContributionPtrOutput() WorkitemtrackingprocessControlContributionPtrOutput {
+	return o
+}
+
+func (o WorkitemtrackingprocessControlContributionPtrOutput) ToWorkitemtrackingprocessControlContributionPtrOutputWithContext(ctx context.Context) WorkitemtrackingprocessControlContributionPtrOutput {
+	return o
+}
+
+func (o WorkitemtrackingprocessControlContributionPtrOutput) Elem() WorkitemtrackingprocessControlContributionOutput {
+	return o.ApplyT(func(v *WorkitemtrackingprocessControlContribution) WorkitemtrackingprocessControlContribution {
+		if v != nil {
+			return *v
+		}
+		var ret WorkitemtrackingprocessControlContribution
+		return ret
+	}).(WorkitemtrackingprocessControlContributionOutput)
+}
+
+// The ID of the contribution (extension).
+func (o WorkitemtrackingprocessControlContributionPtrOutput) ContributionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkitemtrackingprocessControlContribution) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ContributionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The height for the contribution.
+func (o WorkitemtrackingprocessControlContributionPtrOutput) Height() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkitemtrackingprocessControlContribution) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Height
+	}).(pulumi.IntPtrOutput)
+}
+
+// A dictionary holding key value pairs for contribution inputs.
+func (o WorkitemtrackingprocessControlContributionPtrOutput) Inputs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *WorkitemtrackingprocessControlContribution) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Inputs
+	}).(pulumi.StringMapOutput)
+}
+
+// A value indicating if the contribution should be shown on deleted work items. Default: `false`
+func (o WorkitemtrackingprocessControlContributionPtrOutput) ShowOnDeletedWorkItem() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkitemtrackingprocessControlContribution) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ShowOnDeletedWorkItem
+	}).(pulumi.BoolPtrOutput)
+}
+
+type WorkitemtrackingprocessGroupControl struct {
+	// Contribution configuration for extension controls. A `contribution` block as defined below.
+	Contribution *WorkitemtrackingprocessGroupControlContribution `pulumi:"contribution"`
+	// Type of the control (e.g., HtmlFieldControl, FieldControl).
+	ControlType *string `pulumi:"controlType"`
+	// The ID of the control. This is the field reference name (e.g., System.Description) or the contribution ID for extension controls.
+	Id string `pulumi:"id"`
+	// A value indicating whether this control has been inherited from a parent layout.
+	Inherited *bool `pulumi:"inherited"`
+	// A value indicating if the control is a contribution (extension) control. Default: `false`
+	IsContribution *bool `pulumi:"isContribution"`
+	// Label for the control.
+	Label *string `pulumi:"label"`
+	// Inner text of the control.
+	Metadata *string `pulumi:"metadata"`
+	// Order in which the group should appear in the section.
+	Order *int `pulumi:"order"`
+	// A value indicating whether this control has been overridden by a child layout.
+	Overridden *bool `pulumi:"overridden"`
+	// A value indicating if the control is read only. Default: `false`
+	ReadOnly *bool `pulumi:"readOnly"`
+	// A value indicating if the control should be visible or not. Default: `true`
+	Visible *bool `pulumi:"visible"`
+	// Watermark text for the textbox.
+	Watermark *string `pulumi:"watermark"`
+}
+
+// WorkitemtrackingprocessGroupControlInput is an input type that accepts WorkitemtrackingprocessGroupControlArgs and WorkitemtrackingprocessGroupControlOutput values.
+// You can construct a concrete instance of `WorkitemtrackingprocessGroupControlInput` via:
+//
+//	WorkitemtrackingprocessGroupControlArgs{...}
+type WorkitemtrackingprocessGroupControlInput interface {
+	pulumi.Input
+
+	ToWorkitemtrackingprocessGroupControlOutput() WorkitemtrackingprocessGroupControlOutput
+	ToWorkitemtrackingprocessGroupControlOutputWithContext(context.Context) WorkitemtrackingprocessGroupControlOutput
+}
+
+type WorkitemtrackingprocessGroupControlArgs struct {
+	// Contribution configuration for extension controls. A `contribution` block as defined below.
+	Contribution WorkitemtrackingprocessGroupControlContributionPtrInput `pulumi:"contribution"`
+	// Type of the control (e.g., HtmlFieldControl, FieldControl).
+	ControlType pulumi.StringPtrInput `pulumi:"controlType"`
+	// The ID of the control. This is the field reference name (e.g., System.Description) or the contribution ID for extension controls.
+	Id pulumi.StringInput `pulumi:"id"`
+	// A value indicating whether this control has been inherited from a parent layout.
+	Inherited pulumi.BoolPtrInput `pulumi:"inherited"`
+	// A value indicating if the control is a contribution (extension) control. Default: `false`
+	IsContribution pulumi.BoolPtrInput `pulumi:"isContribution"`
+	// Label for the control.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// Inner text of the control.
+	Metadata pulumi.StringPtrInput `pulumi:"metadata"`
+	// Order in which the group should appear in the section.
+	Order pulumi.IntPtrInput `pulumi:"order"`
+	// A value indicating whether this control has been overridden by a child layout.
+	Overridden pulumi.BoolPtrInput `pulumi:"overridden"`
+	// A value indicating if the control is read only. Default: `false`
+	ReadOnly pulumi.BoolPtrInput `pulumi:"readOnly"`
+	// A value indicating if the control should be visible or not. Default: `true`
+	Visible pulumi.BoolPtrInput `pulumi:"visible"`
+	// Watermark text for the textbox.
+	Watermark pulumi.StringPtrInput `pulumi:"watermark"`
+}
+
+func (WorkitemtrackingprocessGroupControlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkitemtrackingprocessGroupControl)(nil)).Elem()
+}
+
+func (i WorkitemtrackingprocessGroupControlArgs) ToWorkitemtrackingprocessGroupControlOutput() WorkitemtrackingprocessGroupControlOutput {
+	return i.ToWorkitemtrackingprocessGroupControlOutputWithContext(context.Background())
+}
+
+func (i WorkitemtrackingprocessGroupControlArgs) ToWorkitemtrackingprocessGroupControlOutputWithContext(ctx context.Context) WorkitemtrackingprocessGroupControlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkitemtrackingprocessGroupControlOutput)
+}
+
+// WorkitemtrackingprocessGroupControlArrayInput is an input type that accepts WorkitemtrackingprocessGroupControlArray and WorkitemtrackingprocessGroupControlArrayOutput values.
+// You can construct a concrete instance of `WorkitemtrackingprocessGroupControlArrayInput` via:
+//
+//	WorkitemtrackingprocessGroupControlArray{ WorkitemtrackingprocessGroupControlArgs{...} }
+type WorkitemtrackingprocessGroupControlArrayInput interface {
+	pulumi.Input
+
+	ToWorkitemtrackingprocessGroupControlArrayOutput() WorkitemtrackingprocessGroupControlArrayOutput
+	ToWorkitemtrackingprocessGroupControlArrayOutputWithContext(context.Context) WorkitemtrackingprocessGroupControlArrayOutput
+}
+
+type WorkitemtrackingprocessGroupControlArray []WorkitemtrackingprocessGroupControlInput
+
+func (WorkitemtrackingprocessGroupControlArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkitemtrackingprocessGroupControl)(nil)).Elem()
+}
+
+func (i WorkitemtrackingprocessGroupControlArray) ToWorkitemtrackingprocessGroupControlArrayOutput() WorkitemtrackingprocessGroupControlArrayOutput {
+	return i.ToWorkitemtrackingprocessGroupControlArrayOutputWithContext(context.Background())
+}
+
+func (i WorkitemtrackingprocessGroupControlArray) ToWorkitemtrackingprocessGroupControlArrayOutputWithContext(ctx context.Context) WorkitemtrackingprocessGroupControlArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkitemtrackingprocessGroupControlArrayOutput)
+}
+
+type WorkitemtrackingprocessGroupControlOutput struct{ *pulumi.OutputState }
+
+func (WorkitemtrackingprocessGroupControlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkitemtrackingprocessGroupControl)(nil)).Elem()
+}
+
+func (o WorkitemtrackingprocessGroupControlOutput) ToWorkitemtrackingprocessGroupControlOutput() WorkitemtrackingprocessGroupControlOutput {
+	return o
+}
+
+func (o WorkitemtrackingprocessGroupControlOutput) ToWorkitemtrackingprocessGroupControlOutputWithContext(ctx context.Context) WorkitemtrackingprocessGroupControlOutput {
+	return o
+}
+
+// Contribution configuration for extension controls. A `contribution` block as defined below.
+func (o WorkitemtrackingprocessGroupControlOutput) Contribution() WorkitemtrackingprocessGroupControlContributionPtrOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessGroupControl) *WorkitemtrackingprocessGroupControlContribution {
+		return v.Contribution
+	}).(WorkitemtrackingprocessGroupControlContributionPtrOutput)
+}
+
+// Type of the control (e.g., HtmlFieldControl, FieldControl).
+func (o WorkitemtrackingprocessGroupControlOutput) ControlType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessGroupControl) *string { return v.ControlType }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the control. This is the field reference name (e.g., System.Description) or the contribution ID for extension controls.
+func (o WorkitemtrackingprocessGroupControlOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessGroupControl) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A value indicating whether this control has been inherited from a parent layout.
+func (o WorkitemtrackingprocessGroupControlOutput) Inherited() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessGroupControl) *bool { return v.Inherited }).(pulumi.BoolPtrOutput)
+}
+
+// A value indicating if the control is a contribution (extension) control. Default: `false`
+func (o WorkitemtrackingprocessGroupControlOutput) IsContribution() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessGroupControl) *bool { return v.IsContribution }).(pulumi.BoolPtrOutput)
+}
+
+// Label for the control.
+func (o WorkitemtrackingprocessGroupControlOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessGroupControl) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// Inner text of the control.
+func (o WorkitemtrackingprocessGroupControlOutput) Metadata() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessGroupControl) *string { return v.Metadata }).(pulumi.StringPtrOutput)
+}
+
+// Order in which the group should appear in the section.
+func (o WorkitemtrackingprocessGroupControlOutput) Order() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessGroupControl) *int { return v.Order }).(pulumi.IntPtrOutput)
+}
+
+// A value indicating whether this control has been overridden by a child layout.
+func (o WorkitemtrackingprocessGroupControlOutput) Overridden() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessGroupControl) *bool { return v.Overridden }).(pulumi.BoolPtrOutput)
+}
+
+// A value indicating if the control is read only. Default: `false`
+func (o WorkitemtrackingprocessGroupControlOutput) ReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessGroupControl) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
+}
+
+// A value indicating if the control should be visible or not. Default: `true`
+func (o WorkitemtrackingprocessGroupControlOutput) Visible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessGroupControl) *bool { return v.Visible }).(pulumi.BoolPtrOutput)
+}
+
+// Watermark text for the textbox.
+func (o WorkitemtrackingprocessGroupControlOutput) Watermark() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessGroupControl) *string { return v.Watermark }).(pulumi.StringPtrOutput)
+}
+
+type WorkitemtrackingprocessGroupControlArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkitemtrackingprocessGroupControlArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkitemtrackingprocessGroupControl)(nil)).Elem()
+}
+
+func (o WorkitemtrackingprocessGroupControlArrayOutput) ToWorkitemtrackingprocessGroupControlArrayOutput() WorkitemtrackingprocessGroupControlArrayOutput {
+	return o
+}
+
+func (o WorkitemtrackingprocessGroupControlArrayOutput) ToWorkitemtrackingprocessGroupControlArrayOutputWithContext(ctx context.Context) WorkitemtrackingprocessGroupControlArrayOutput {
+	return o
+}
+
+func (o WorkitemtrackingprocessGroupControlArrayOutput) Index(i pulumi.IntInput) WorkitemtrackingprocessGroupControlOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkitemtrackingprocessGroupControl {
+		return vs[0].([]WorkitemtrackingprocessGroupControl)[vs[1].(int)]
+	}).(WorkitemtrackingprocessGroupControlOutput)
+}
+
+type WorkitemtrackingprocessGroupControlContribution struct {
+	// The ID of the contribution (extension).
+	ContributionId string `pulumi:"contributionId"`
+	// The height for the contribution.
+	Height *int `pulumi:"height"`
+	// A dictionary holding key value pairs for contribution inputs.
+	Inputs map[string]string `pulumi:"inputs"`
+	// A value indicating if the contribution should be shown on deleted work items. Default: `false`
+	ShowOnDeletedWorkItem *bool `pulumi:"showOnDeletedWorkItem"`
+}
+
+// WorkitemtrackingprocessGroupControlContributionInput is an input type that accepts WorkitemtrackingprocessGroupControlContributionArgs and WorkitemtrackingprocessGroupControlContributionOutput values.
+// You can construct a concrete instance of `WorkitemtrackingprocessGroupControlContributionInput` via:
+//
+//	WorkitemtrackingprocessGroupControlContributionArgs{...}
+type WorkitemtrackingprocessGroupControlContributionInput interface {
+	pulumi.Input
+
+	ToWorkitemtrackingprocessGroupControlContributionOutput() WorkitemtrackingprocessGroupControlContributionOutput
+	ToWorkitemtrackingprocessGroupControlContributionOutputWithContext(context.Context) WorkitemtrackingprocessGroupControlContributionOutput
+}
+
+type WorkitemtrackingprocessGroupControlContributionArgs struct {
+	// The ID of the contribution (extension).
+	ContributionId pulumi.StringInput `pulumi:"contributionId"`
+	// The height for the contribution.
+	Height pulumi.IntPtrInput `pulumi:"height"`
+	// A dictionary holding key value pairs for contribution inputs.
+	Inputs pulumi.StringMapInput `pulumi:"inputs"`
+	// A value indicating if the contribution should be shown on deleted work items. Default: `false`
+	ShowOnDeletedWorkItem pulumi.BoolPtrInput `pulumi:"showOnDeletedWorkItem"`
+}
+
+func (WorkitemtrackingprocessGroupControlContributionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkitemtrackingprocessGroupControlContribution)(nil)).Elem()
+}
+
+func (i WorkitemtrackingprocessGroupControlContributionArgs) ToWorkitemtrackingprocessGroupControlContributionOutput() WorkitemtrackingprocessGroupControlContributionOutput {
+	return i.ToWorkitemtrackingprocessGroupControlContributionOutputWithContext(context.Background())
+}
+
+func (i WorkitemtrackingprocessGroupControlContributionArgs) ToWorkitemtrackingprocessGroupControlContributionOutputWithContext(ctx context.Context) WorkitemtrackingprocessGroupControlContributionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkitemtrackingprocessGroupControlContributionOutput)
+}
+
+func (i WorkitemtrackingprocessGroupControlContributionArgs) ToWorkitemtrackingprocessGroupControlContributionPtrOutput() WorkitemtrackingprocessGroupControlContributionPtrOutput {
+	return i.ToWorkitemtrackingprocessGroupControlContributionPtrOutputWithContext(context.Background())
+}
+
+func (i WorkitemtrackingprocessGroupControlContributionArgs) ToWorkitemtrackingprocessGroupControlContributionPtrOutputWithContext(ctx context.Context) WorkitemtrackingprocessGroupControlContributionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkitemtrackingprocessGroupControlContributionOutput).ToWorkitemtrackingprocessGroupControlContributionPtrOutputWithContext(ctx)
+}
+
+// WorkitemtrackingprocessGroupControlContributionPtrInput is an input type that accepts WorkitemtrackingprocessGroupControlContributionArgs, WorkitemtrackingprocessGroupControlContributionPtr and WorkitemtrackingprocessGroupControlContributionPtrOutput values.
+// You can construct a concrete instance of `WorkitemtrackingprocessGroupControlContributionPtrInput` via:
+//
+//	        WorkitemtrackingprocessGroupControlContributionArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkitemtrackingprocessGroupControlContributionPtrInput interface {
+	pulumi.Input
+
+	ToWorkitemtrackingprocessGroupControlContributionPtrOutput() WorkitemtrackingprocessGroupControlContributionPtrOutput
+	ToWorkitemtrackingprocessGroupControlContributionPtrOutputWithContext(context.Context) WorkitemtrackingprocessGroupControlContributionPtrOutput
+}
+
+type workitemtrackingprocessGroupControlContributionPtrType WorkitemtrackingprocessGroupControlContributionArgs
+
+func WorkitemtrackingprocessGroupControlContributionPtr(v *WorkitemtrackingprocessGroupControlContributionArgs) WorkitemtrackingprocessGroupControlContributionPtrInput {
+	return (*workitemtrackingprocessGroupControlContributionPtrType)(v)
+}
+
+func (*workitemtrackingprocessGroupControlContributionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkitemtrackingprocessGroupControlContribution)(nil)).Elem()
+}
+
+func (i *workitemtrackingprocessGroupControlContributionPtrType) ToWorkitemtrackingprocessGroupControlContributionPtrOutput() WorkitemtrackingprocessGroupControlContributionPtrOutput {
+	return i.ToWorkitemtrackingprocessGroupControlContributionPtrOutputWithContext(context.Background())
+}
+
+func (i *workitemtrackingprocessGroupControlContributionPtrType) ToWorkitemtrackingprocessGroupControlContributionPtrOutputWithContext(ctx context.Context) WorkitemtrackingprocessGroupControlContributionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkitemtrackingprocessGroupControlContributionPtrOutput)
+}
+
+type WorkitemtrackingprocessGroupControlContributionOutput struct{ *pulumi.OutputState }
+
+func (WorkitemtrackingprocessGroupControlContributionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkitemtrackingprocessGroupControlContribution)(nil)).Elem()
+}
+
+func (o WorkitemtrackingprocessGroupControlContributionOutput) ToWorkitemtrackingprocessGroupControlContributionOutput() WorkitemtrackingprocessGroupControlContributionOutput {
+	return o
+}
+
+func (o WorkitemtrackingprocessGroupControlContributionOutput) ToWorkitemtrackingprocessGroupControlContributionOutputWithContext(ctx context.Context) WorkitemtrackingprocessGroupControlContributionOutput {
+	return o
+}
+
+func (o WorkitemtrackingprocessGroupControlContributionOutput) ToWorkitemtrackingprocessGroupControlContributionPtrOutput() WorkitemtrackingprocessGroupControlContributionPtrOutput {
+	return o.ToWorkitemtrackingprocessGroupControlContributionPtrOutputWithContext(context.Background())
+}
+
+func (o WorkitemtrackingprocessGroupControlContributionOutput) ToWorkitemtrackingprocessGroupControlContributionPtrOutputWithContext(ctx context.Context) WorkitemtrackingprocessGroupControlContributionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkitemtrackingprocessGroupControlContribution) *WorkitemtrackingprocessGroupControlContribution {
+		return &v
+	}).(WorkitemtrackingprocessGroupControlContributionPtrOutput)
+}
+
+// The ID of the contribution (extension).
+func (o WorkitemtrackingprocessGroupControlContributionOutput) ContributionId() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessGroupControlContribution) string { return v.ContributionId }).(pulumi.StringOutput)
+}
+
+// The height for the contribution.
+func (o WorkitemtrackingprocessGroupControlContributionOutput) Height() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessGroupControlContribution) *int { return v.Height }).(pulumi.IntPtrOutput)
+}
+
+// A dictionary holding key value pairs for contribution inputs.
+func (o WorkitemtrackingprocessGroupControlContributionOutput) Inputs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessGroupControlContribution) map[string]string { return v.Inputs }).(pulumi.StringMapOutput)
+}
+
+// A value indicating if the contribution should be shown on deleted work items. Default: `false`
+func (o WorkitemtrackingprocessGroupControlContributionOutput) ShowOnDeletedWorkItem() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessGroupControlContribution) *bool { return v.ShowOnDeletedWorkItem }).(pulumi.BoolPtrOutput)
+}
+
+type WorkitemtrackingprocessGroupControlContributionPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkitemtrackingprocessGroupControlContributionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkitemtrackingprocessGroupControlContribution)(nil)).Elem()
+}
+
+func (o WorkitemtrackingprocessGroupControlContributionPtrOutput) ToWorkitemtrackingprocessGroupControlContributionPtrOutput() WorkitemtrackingprocessGroupControlContributionPtrOutput {
+	return o
+}
+
+func (o WorkitemtrackingprocessGroupControlContributionPtrOutput) ToWorkitemtrackingprocessGroupControlContributionPtrOutputWithContext(ctx context.Context) WorkitemtrackingprocessGroupControlContributionPtrOutput {
+	return o
+}
+
+func (o WorkitemtrackingprocessGroupControlContributionPtrOutput) Elem() WorkitemtrackingprocessGroupControlContributionOutput {
+	return o.ApplyT(func(v *WorkitemtrackingprocessGroupControlContribution) WorkitemtrackingprocessGroupControlContribution {
+		if v != nil {
+			return *v
+		}
+		var ret WorkitemtrackingprocessGroupControlContribution
+		return ret
+	}).(WorkitemtrackingprocessGroupControlContributionOutput)
+}
+
+// The ID of the contribution (extension).
+func (o WorkitemtrackingprocessGroupControlContributionPtrOutput) ContributionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkitemtrackingprocessGroupControlContribution) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ContributionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The height for the contribution.
+func (o WorkitemtrackingprocessGroupControlContributionPtrOutput) Height() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkitemtrackingprocessGroupControlContribution) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Height
+	}).(pulumi.IntPtrOutput)
+}
+
+// A dictionary holding key value pairs for contribution inputs.
+func (o WorkitemtrackingprocessGroupControlContributionPtrOutput) Inputs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *WorkitemtrackingprocessGroupControlContribution) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Inputs
+	}).(pulumi.StringMapOutput)
+}
+
+// A value indicating if the contribution should be shown on deleted work items. Default: `false`
+func (o WorkitemtrackingprocessGroupControlContributionPtrOutput) ShowOnDeletedWorkItem() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkitemtrackingprocessGroupControlContribution) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ShowOnDeletedWorkItem
+	}).(pulumi.BoolPtrOutput)
+}
+
+type WorkitemtrackingprocessWorkitemtypePage struct {
+	// The ID of the section.
+	Id *string `pulumi:"id"`
+	// The type of the page.
+	PageType *string `pulumi:"pageType"`
+	// A `sections` block as defined below.
+	Sections []WorkitemtrackingprocessWorkitemtypePageSection `pulumi:"sections"`
+}
+
+// WorkitemtrackingprocessWorkitemtypePageInput is an input type that accepts WorkitemtrackingprocessWorkitemtypePageArgs and WorkitemtrackingprocessWorkitemtypePageOutput values.
+// You can construct a concrete instance of `WorkitemtrackingprocessWorkitemtypePageInput` via:
+//
+//	WorkitemtrackingprocessWorkitemtypePageArgs{...}
+type WorkitemtrackingprocessWorkitemtypePageInput interface {
+	pulumi.Input
+
+	ToWorkitemtrackingprocessWorkitemtypePageOutput() WorkitemtrackingprocessWorkitemtypePageOutput
+	ToWorkitemtrackingprocessWorkitemtypePageOutputWithContext(context.Context) WorkitemtrackingprocessWorkitemtypePageOutput
+}
+
+type WorkitemtrackingprocessWorkitemtypePageArgs struct {
+	// The ID of the section.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The type of the page.
+	PageType pulumi.StringPtrInput `pulumi:"pageType"`
+	// A `sections` block as defined below.
+	Sections WorkitemtrackingprocessWorkitemtypePageSectionArrayInput `pulumi:"sections"`
+}
+
+func (WorkitemtrackingprocessWorkitemtypePageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkitemtrackingprocessWorkitemtypePage)(nil)).Elem()
+}
+
+func (i WorkitemtrackingprocessWorkitemtypePageArgs) ToWorkitemtrackingprocessWorkitemtypePageOutput() WorkitemtrackingprocessWorkitemtypePageOutput {
+	return i.ToWorkitemtrackingprocessWorkitemtypePageOutputWithContext(context.Background())
+}
+
+func (i WorkitemtrackingprocessWorkitemtypePageArgs) ToWorkitemtrackingprocessWorkitemtypePageOutputWithContext(ctx context.Context) WorkitemtrackingprocessWorkitemtypePageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkitemtrackingprocessWorkitemtypePageOutput)
+}
+
+// WorkitemtrackingprocessWorkitemtypePageArrayInput is an input type that accepts WorkitemtrackingprocessWorkitemtypePageArray and WorkitemtrackingprocessWorkitemtypePageArrayOutput values.
+// You can construct a concrete instance of `WorkitemtrackingprocessWorkitemtypePageArrayInput` via:
+//
+//	WorkitemtrackingprocessWorkitemtypePageArray{ WorkitemtrackingprocessWorkitemtypePageArgs{...} }
+type WorkitemtrackingprocessWorkitemtypePageArrayInput interface {
+	pulumi.Input
+
+	ToWorkitemtrackingprocessWorkitemtypePageArrayOutput() WorkitemtrackingprocessWorkitemtypePageArrayOutput
+	ToWorkitemtrackingprocessWorkitemtypePageArrayOutputWithContext(context.Context) WorkitemtrackingprocessWorkitemtypePageArrayOutput
+}
+
+type WorkitemtrackingprocessWorkitemtypePageArray []WorkitemtrackingprocessWorkitemtypePageInput
+
+func (WorkitemtrackingprocessWorkitemtypePageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkitemtrackingprocessWorkitemtypePage)(nil)).Elem()
+}
+
+func (i WorkitemtrackingprocessWorkitemtypePageArray) ToWorkitemtrackingprocessWorkitemtypePageArrayOutput() WorkitemtrackingprocessWorkitemtypePageArrayOutput {
+	return i.ToWorkitemtrackingprocessWorkitemtypePageArrayOutputWithContext(context.Background())
+}
+
+func (i WorkitemtrackingprocessWorkitemtypePageArray) ToWorkitemtrackingprocessWorkitemtypePageArrayOutputWithContext(ctx context.Context) WorkitemtrackingprocessWorkitemtypePageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkitemtrackingprocessWorkitemtypePageArrayOutput)
+}
+
+type WorkitemtrackingprocessWorkitemtypePageOutput struct{ *pulumi.OutputState }
+
+func (WorkitemtrackingprocessWorkitemtypePageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkitemtrackingprocessWorkitemtypePage)(nil)).Elem()
+}
+
+func (o WorkitemtrackingprocessWorkitemtypePageOutput) ToWorkitemtrackingprocessWorkitemtypePageOutput() WorkitemtrackingprocessWorkitemtypePageOutput {
+	return o
+}
+
+func (o WorkitemtrackingprocessWorkitemtypePageOutput) ToWorkitemtrackingprocessWorkitemtypePageOutputWithContext(ctx context.Context) WorkitemtrackingprocessWorkitemtypePageOutput {
+	return o
+}
+
+// The ID of the section.
+func (o WorkitemtrackingprocessWorkitemtypePageOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessWorkitemtypePage) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The type of the page.
+func (o WorkitemtrackingprocessWorkitemtypePageOutput) PageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessWorkitemtypePage) *string { return v.PageType }).(pulumi.StringPtrOutput)
+}
+
+// A `sections` block as defined below.
+func (o WorkitemtrackingprocessWorkitemtypePageOutput) Sections() WorkitemtrackingprocessWorkitemtypePageSectionArrayOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessWorkitemtypePage) []WorkitemtrackingprocessWorkitemtypePageSection {
+		return v.Sections
+	}).(WorkitemtrackingprocessWorkitemtypePageSectionArrayOutput)
+}
+
+type WorkitemtrackingprocessWorkitemtypePageArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkitemtrackingprocessWorkitemtypePageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkitemtrackingprocessWorkitemtypePage)(nil)).Elem()
+}
+
+func (o WorkitemtrackingprocessWorkitemtypePageArrayOutput) ToWorkitemtrackingprocessWorkitemtypePageArrayOutput() WorkitemtrackingprocessWorkitemtypePageArrayOutput {
+	return o
+}
+
+func (o WorkitemtrackingprocessWorkitemtypePageArrayOutput) ToWorkitemtrackingprocessWorkitemtypePageArrayOutputWithContext(ctx context.Context) WorkitemtrackingprocessWorkitemtypePageArrayOutput {
+	return o
+}
+
+func (o WorkitemtrackingprocessWorkitemtypePageArrayOutput) Index(i pulumi.IntInput) WorkitemtrackingprocessWorkitemtypePageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkitemtrackingprocessWorkitemtypePage {
+		return vs[0].([]WorkitemtrackingprocessWorkitemtypePage)[vs[1].(int)]
+	}).(WorkitemtrackingprocessWorkitemtypePageOutput)
+}
+
+type WorkitemtrackingprocessWorkitemtypePageSection struct {
+	// A `groups` block as defined above.
+	Groups []WorkitemtrackingprocessWorkitemtypePageSectionGroup `pulumi:"groups"`
+	// The ID of the section.
+	Id *string `pulumi:"id"`
+}
+
+// WorkitemtrackingprocessWorkitemtypePageSectionInput is an input type that accepts WorkitemtrackingprocessWorkitemtypePageSectionArgs and WorkitemtrackingprocessWorkitemtypePageSectionOutput values.
+// You can construct a concrete instance of `WorkitemtrackingprocessWorkitemtypePageSectionInput` via:
+//
+//	WorkitemtrackingprocessWorkitemtypePageSectionArgs{...}
+type WorkitemtrackingprocessWorkitemtypePageSectionInput interface {
+	pulumi.Input
+
+	ToWorkitemtrackingprocessWorkitemtypePageSectionOutput() WorkitemtrackingprocessWorkitemtypePageSectionOutput
+	ToWorkitemtrackingprocessWorkitemtypePageSectionOutputWithContext(context.Context) WorkitemtrackingprocessWorkitemtypePageSectionOutput
+}
+
+type WorkitemtrackingprocessWorkitemtypePageSectionArgs struct {
+	// A `groups` block as defined above.
+	Groups WorkitemtrackingprocessWorkitemtypePageSectionGroupArrayInput `pulumi:"groups"`
+	// The ID of the section.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (WorkitemtrackingprocessWorkitemtypePageSectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkitemtrackingprocessWorkitemtypePageSection)(nil)).Elem()
+}
+
+func (i WorkitemtrackingprocessWorkitemtypePageSectionArgs) ToWorkitemtrackingprocessWorkitemtypePageSectionOutput() WorkitemtrackingprocessWorkitemtypePageSectionOutput {
+	return i.ToWorkitemtrackingprocessWorkitemtypePageSectionOutputWithContext(context.Background())
+}
+
+func (i WorkitemtrackingprocessWorkitemtypePageSectionArgs) ToWorkitemtrackingprocessWorkitemtypePageSectionOutputWithContext(ctx context.Context) WorkitemtrackingprocessWorkitemtypePageSectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkitemtrackingprocessWorkitemtypePageSectionOutput)
+}
+
+// WorkitemtrackingprocessWorkitemtypePageSectionArrayInput is an input type that accepts WorkitemtrackingprocessWorkitemtypePageSectionArray and WorkitemtrackingprocessWorkitemtypePageSectionArrayOutput values.
+// You can construct a concrete instance of `WorkitemtrackingprocessWorkitemtypePageSectionArrayInput` via:
+//
+//	WorkitemtrackingprocessWorkitemtypePageSectionArray{ WorkitemtrackingprocessWorkitemtypePageSectionArgs{...} }
+type WorkitemtrackingprocessWorkitemtypePageSectionArrayInput interface {
+	pulumi.Input
+
+	ToWorkitemtrackingprocessWorkitemtypePageSectionArrayOutput() WorkitemtrackingprocessWorkitemtypePageSectionArrayOutput
+	ToWorkitemtrackingprocessWorkitemtypePageSectionArrayOutputWithContext(context.Context) WorkitemtrackingprocessWorkitemtypePageSectionArrayOutput
+}
+
+type WorkitemtrackingprocessWorkitemtypePageSectionArray []WorkitemtrackingprocessWorkitemtypePageSectionInput
+
+func (WorkitemtrackingprocessWorkitemtypePageSectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkitemtrackingprocessWorkitemtypePageSection)(nil)).Elem()
+}
+
+func (i WorkitemtrackingprocessWorkitemtypePageSectionArray) ToWorkitemtrackingprocessWorkitemtypePageSectionArrayOutput() WorkitemtrackingprocessWorkitemtypePageSectionArrayOutput {
+	return i.ToWorkitemtrackingprocessWorkitemtypePageSectionArrayOutputWithContext(context.Background())
+}
+
+func (i WorkitemtrackingprocessWorkitemtypePageSectionArray) ToWorkitemtrackingprocessWorkitemtypePageSectionArrayOutputWithContext(ctx context.Context) WorkitemtrackingprocessWorkitemtypePageSectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkitemtrackingprocessWorkitemtypePageSectionArrayOutput)
+}
+
+type WorkitemtrackingprocessWorkitemtypePageSectionOutput struct{ *pulumi.OutputState }
+
+func (WorkitemtrackingprocessWorkitemtypePageSectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkitemtrackingprocessWorkitemtypePageSection)(nil)).Elem()
+}
+
+func (o WorkitemtrackingprocessWorkitemtypePageSectionOutput) ToWorkitemtrackingprocessWorkitemtypePageSectionOutput() WorkitemtrackingprocessWorkitemtypePageSectionOutput {
+	return o
+}
+
+func (o WorkitemtrackingprocessWorkitemtypePageSectionOutput) ToWorkitemtrackingprocessWorkitemtypePageSectionOutputWithContext(ctx context.Context) WorkitemtrackingprocessWorkitemtypePageSectionOutput {
+	return o
+}
+
+// A `groups` block as defined above.
+func (o WorkitemtrackingprocessWorkitemtypePageSectionOutput) Groups() WorkitemtrackingprocessWorkitemtypePageSectionGroupArrayOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessWorkitemtypePageSection) []WorkitemtrackingprocessWorkitemtypePageSectionGroup {
+		return v.Groups
+	}).(WorkitemtrackingprocessWorkitemtypePageSectionGroupArrayOutput)
+}
+
+// The ID of the section.
+func (o WorkitemtrackingprocessWorkitemtypePageSectionOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessWorkitemtypePageSection) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type WorkitemtrackingprocessWorkitemtypePageSectionArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkitemtrackingprocessWorkitemtypePageSectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkitemtrackingprocessWorkitemtypePageSection)(nil)).Elem()
+}
+
+func (o WorkitemtrackingprocessWorkitemtypePageSectionArrayOutput) ToWorkitemtrackingprocessWorkitemtypePageSectionArrayOutput() WorkitemtrackingprocessWorkitemtypePageSectionArrayOutput {
+	return o
+}
+
+func (o WorkitemtrackingprocessWorkitemtypePageSectionArrayOutput) ToWorkitemtrackingprocessWorkitemtypePageSectionArrayOutputWithContext(ctx context.Context) WorkitemtrackingprocessWorkitemtypePageSectionArrayOutput {
+	return o
+}
+
+func (o WorkitemtrackingprocessWorkitemtypePageSectionArrayOutput) Index(i pulumi.IntInput) WorkitemtrackingprocessWorkitemtypePageSectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkitemtrackingprocessWorkitemtypePageSection {
+		return vs[0].([]WorkitemtrackingprocessWorkitemtypePageSection)[vs[1].(int)]
+	}).(WorkitemtrackingprocessWorkitemtypePageSectionOutput)
+}
+
+type WorkitemtrackingprocessWorkitemtypePageSectionGroup struct {
+	// A `controls` block as defined above.
+	Controls []WorkitemtrackingprocessWorkitemtypePageSectionGroupControl `pulumi:"controls"`
+	// The ID of the section.
+	Id *string `pulumi:"id"`
+}
+
+// WorkitemtrackingprocessWorkitemtypePageSectionGroupInput is an input type that accepts WorkitemtrackingprocessWorkitemtypePageSectionGroupArgs and WorkitemtrackingprocessWorkitemtypePageSectionGroupOutput values.
+// You can construct a concrete instance of `WorkitemtrackingprocessWorkitemtypePageSectionGroupInput` via:
+//
+//	WorkitemtrackingprocessWorkitemtypePageSectionGroupArgs{...}
+type WorkitemtrackingprocessWorkitemtypePageSectionGroupInput interface {
+	pulumi.Input
+
+	ToWorkitemtrackingprocessWorkitemtypePageSectionGroupOutput() WorkitemtrackingprocessWorkitemtypePageSectionGroupOutput
+	ToWorkitemtrackingprocessWorkitemtypePageSectionGroupOutputWithContext(context.Context) WorkitemtrackingprocessWorkitemtypePageSectionGroupOutput
+}
+
+type WorkitemtrackingprocessWorkitemtypePageSectionGroupArgs struct {
+	// A `controls` block as defined above.
+	Controls WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArrayInput `pulumi:"controls"`
+	// The ID of the section.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (WorkitemtrackingprocessWorkitemtypePageSectionGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkitemtrackingprocessWorkitemtypePageSectionGroup)(nil)).Elem()
+}
+
+func (i WorkitemtrackingprocessWorkitemtypePageSectionGroupArgs) ToWorkitemtrackingprocessWorkitemtypePageSectionGroupOutput() WorkitemtrackingprocessWorkitemtypePageSectionGroupOutput {
+	return i.ToWorkitemtrackingprocessWorkitemtypePageSectionGroupOutputWithContext(context.Background())
+}
+
+func (i WorkitemtrackingprocessWorkitemtypePageSectionGroupArgs) ToWorkitemtrackingprocessWorkitemtypePageSectionGroupOutputWithContext(ctx context.Context) WorkitemtrackingprocessWorkitemtypePageSectionGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkitemtrackingprocessWorkitemtypePageSectionGroupOutput)
+}
+
+// WorkitemtrackingprocessWorkitemtypePageSectionGroupArrayInput is an input type that accepts WorkitemtrackingprocessWorkitemtypePageSectionGroupArray and WorkitemtrackingprocessWorkitemtypePageSectionGroupArrayOutput values.
+// You can construct a concrete instance of `WorkitemtrackingprocessWorkitemtypePageSectionGroupArrayInput` via:
+//
+//	WorkitemtrackingprocessWorkitemtypePageSectionGroupArray{ WorkitemtrackingprocessWorkitemtypePageSectionGroupArgs{...} }
+type WorkitemtrackingprocessWorkitemtypePageSectionGroupArrayInput interface {
+	pulumi.Input
+
+	ToWorkitemtrackingprocessWorkitemtypePageSectionGroupArrayOutput() WorkitemtrackingprocessWorkitemtypePageSectionGroupArrayOutput
+	ToWorkitemtrackingprocessWorkitemtypePageSectionGroupArrayOutputWithContext(context.Context) WorkitemtrackingprocessWorkitemtypePageSectionGroupArrayOutput
+}
+
+type WorkitemtrackingprocessWorkitemtypePageSectionGroupArray []WorkitemtrackingprocessWorkitemtypePageSectionGroupInput
+
+func (WorkitemtrackingprocessWorkitemtypePageSectionGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkitemtrackingprocessWorkitemtypePageSectionGroup)(nil)).Elem()
+}
+
+func (i WorkitemtrackingprocessWorkitemtypePageSectionGroupArray) ToWorkitemtrackingprocessWorkitemtypePageSectionGroupArrayOutput() WorkitemtrackingprocessWorkitemtypePageSectionGroupArrayOutput {
+	return i.ToWorkitemtrackingprocessWorkitemtypePageSectionGroupArrayOutputWithContext(context.Background())
+}
+
+func (i WorkitemtrackingprocessWorkitemtypePageSectionGroupArray) ToWorkitemtrackingprocessWorkitemtypePageSectionGroupArrayOutputWithContext(ctx context.Context) WorkitemtrackingprocessWorkitemtypePageSectionGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkitemtrackingprocessWorkitemtypePageSectionGroupArrayOutput)
+}
+
+type WorkitemtrackingprocessWorkitemtypePageSectionGroupOutput struct{ *pulumi.OutputState }
+
+func (WorkitemtrackingprocessWorkitemtypePageSectionGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkitemtrackingprocessWorkitemtypePageSectionGroup)(nil)).Elem()
+}
+
+func (o WorkitemtrackingprocessWorkitemtypePageSectionGroupOutput) ToWorkitemtrackingprocessWorkitemtypePageSectionGroupOutput() WorkitemtrackingprocessWorkitemtypePageSectionGroupOutput {
+	return o
+}
+
+func (o WorkitemtrackingprocessWorkitemtypePageSectionGroupOutput) ToWorkitemtrackingprocessWorkitemtypePageSectionGroupOutputWithContext(ctx context.Context) WorkitemtrackingprocessWorkitemtypePageSectionGroupOutput {
+	return o
+}
+
+// A `controls` block as defined above.
+func (o WorkitemtrackingprocessWorkitemtypePageSectionGroupOutput) Controls() WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArrayOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessWorkitemtypePageSectionGroup) []WorkitemtrackingprocessWorkitemtypePageSectionGroupControl {
+		return v.Controls
+	}).(WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArrayOutput)
+}
+
+// The ID of the section.
+func (o WorkitemtrackingprocessWorkitemtypePageSectionGroupOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessWorkitemtypePageSectionGroup) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type WorkitemtrackingprocessWorkitemtypePageSectionGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkitemtrackingprocessWorkitemtypePageSectionGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkitemtrackingprocessWorkitemtypePageSectionGroup)(nil)).Elem()
+}
+
+func (o WorkitemtrackingprocessWorkitemtypePageSectionGroupArrayOutput) ToWorkitemtrackingprocessWorkitemtypePageSectionGroupArrayOutput() WorkitemtrackingprocessWorkitemtypePageSectionGroupArrayOutput {
+	return o
+}
+
+func (o WorkitemtrackingprocessWorkitemtypePageSectionGroupArrayOutput) ToWorkitemtrackingprocessWorkitemtypePageSectionGroupArrayOutputWithContext(ctx context.Context) WorkitemtrackingprocessWorkitemtypePageSectionGroupArrayOutput {
+	return o
+}
+
+func (o WorkitemtrackingprocessWorkitemtypePageSectionGroupArrayOutput) Index(i pulumi.IntInput) WorkitemtrackingprocessWorkitemtypePageSectionGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkitemtrackingprocessWorkitemtypePageSectionGroup {
+		return vs[0].([]WorkitemtrackingprocessWorkitemtypePageSectionGroup)[vs[1].(int)]
+	}).(WorkitemtrackingprocessWorkitemtypePageSectionGroupOutput)
+}
+
+type WorkitemtrackingprocessWorkitemtypePageSectionGroupControl struct {
+	// The ID of the section.
+	Id *string `pulumi:"id"`
+}
+
+// WorkitemtrackingprocessWorkitemtypePageSectionGroupControlInput is an input type that accepts WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgs and WorkitemtrackingprocessWorkitemtypePageSectionGroupControlOutput values.
+// You can construct a concrete instance of `WorkitemtrackingprocessWorkitemtypePageSectionGroupControlInput` via:
+//
+//	WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgs{...}
+type WorkitemtrackingprocessWorkitemtypePageSectionGroupControlInput interface {
+	pulumi.Input
+
+	ToWorkitemtrackingprocessWorkitemtypePageSectionGroupControlOutput() WorkitemtrackingprocessWorkitemtypePageSectionGroupControlOutput
+	ToWorkitemtrackingprocessWorkitemtypePageSectionGroupControlOutputWithContext(context.Context) WorkitemtrackingprocessWorkitemtypePageSectionGroupControlOutput
+}
+
+type WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgs struct {
+	// The ID of the section.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkitemtrackingprocessWorkitemtypePageSectionGroupControl)(nil)).Elem()
+}
+
+func (i WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgs) ToWorkitemtrackingprocessWorkitemtypePageSectionGroupControlOutput() WorkitemtrackingprocessWorkitemtypePageSectionGroupControlOutput {
+	return i.ToWorkitemtrackingprocessWorkitemtypePageSectionGroupControlOutputWithContext(context.Background())
+}
+
+func (i WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgs) ToWorkitemtrackingprocessWorkitemtypePageSectionGroupControlOutputWithContext(ctx context.Context) WorkitemtrackingprocessWorkitemtypePageSectionGroupControlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkitemtrackingprocessWorkitemtypePageSectionGroupControlOutput)
+}
+
+// WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArrayInput is an input type that accepts WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArray and WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArrayOutput values.
+// You can construct a concrete instance of `WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArrayInput` via:
+//
+//	WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArray{ WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgs{...} }
+type WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArrayInput interface {
+	pulumi.Input
+
+	ToWorkitemtrackingprocessWorkitemtypePageSectionGroupControlArrayOutput() WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArrayOutput
+	ToWorkitemtrackingprocessWorkitemtypePageSectionGroupControlArrayOutputWithContext(context.Context) WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArrayOutput
+}
+
+type WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArray []WorkitemtrackingprocessWorkitemtypePageSectionGroupControlInput
+
+func (WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkitemtrackingprocessWorkitemtypePageSectionGroupControl)(nil)).Elem()
+}
+
+func (i WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArray) ToWorkitemtrackingprocessWorkitemtypePageSectionGroupControlArrayOutput() WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArrayOutput {
+	return i.ToWorkitemtrackingprocessWorkitemtypePageSectionGroupControlArrayOutputWithContext(context.Background())
+}
+
+func (i WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArray) ToWorkitemtrackingprocessWorkitemtypePageSectionGroupControlArrayOutputWithContext(ctx context.Context) WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArrayOutput)
+}
+
+type WorkitemtrackingprocessWorkitemtypePageSectionGroupControlOutput struct{ *pulumi.OutputState }
+
+func (WorkitemtrackingprocessWorkitemtypePageSectionGroupControlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkitemtrackingprocessWorkitemtypePageSectionGroupControl)(nil)).Elem()
+}
+
+func (o WorkitemtrackingprocessWorkitemtypePageSectionGroupControlOutput) ToWorkitemtrackingprocessWorkitemtypePageSectionGroupControlOutput() WorkitemtrackingprocessWorkitemtypePageSectionGroupControlOutput {
+	return o
+}
+
+func (o WorkitemtrackingprocessWorkitemtypePageSectionGroupControlOutput) ToWorkitemtrackingprocessWorkitemtypePageSectionGroupControlOutputWithContext(ctx context.Context) WorkitemtrackingprocessWorkitemtypePageSectionGroupControlOutput {
+	return o
+}
+
+// The ID of the section.
+func (o WorkitemtrackingprocessWorkitemtypePageSectionGroupControlOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessWorkitemtypePageSectionGroupControl) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkitemtrackingprocessWorkitemtypePageSectionGroupControl)(nil)).Elem()
+}
+
+func (o WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArrayOutput) ToWorkitemtrackingprocessWorkitemtypePageSectionGroupControlArrayOutput() WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArrayOutput {
+	return o
+}
+
+func (o WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArrayOutput) ToWorkitemtrackingprocessWorkitemtypePageSectionGroupControlArrayOutputWithContext(ctx context.Context) WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArrayOutput {
+	return o
+}
+
+func (o WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArrayOutput) Index(i pulumi.IntInput) WorkitemtrackingprocessWorkitemtypePageSectionGroupControlOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkitemtrackingprocessWorkitemtypePageSectionGroupControl {
+		return vs[0].([]WorkitemtrackingprocessWorkitemtypePageSectionGroupControl)[vs[1].(int)]
+	}).(WorkitemtrackingprocessWorkitemtypePageSectionGroupControlOutput)
 }
 
 type GetAreaChildren struct {
@@ -18947,7 +19963,7 @@ func (o GetVariableGroupKeyVaultArrayOutput) Index(i pulumi.IntInput) GetVariabl
 	}).(GetVariableGroupKeyVaultOutput)
 }
 
-type GetVariableGroupVariable struct {
+type GetVariableGroupVariableType struct {
 	ContentType string `pulumi:"contentType"`
 	Enabled     bool   `pulumi:"enabled"`
 	Expires     string `pulumi:"expires"`
@@ -18961,18 +19977,18 @@ type GetVariableGroupVariable struct {
 	Value string `pulumi:"value"`
 }
 
-// GetVariableGroupVariableInput is an input type that accepts GetVariableGroupVariableArgs and GetVariableGroupVariableOutput values.
-// You can construct a concrete instance of `GetVariableGroupVariableInput` via:
+// GetVariableGroupVariableTypeInput is an input type that accepts GetVariableGroupVariableTypeArgs and GetVariableGroupVariableTypeOutput values.
+// You can construct a concrete instance of `GetVariableGroupVariableTypeInput` via:
 //
-//	GetVariableGroupVariableArgs{...}
-type GetVariableGroupVariableInput interface {
+//	GetVariableGroupVariableTypeArgs{...}
+type GetVariableGroupVariableTypeInput interface {
 	pulumi.Input
 
-	ToGetVariableGroupVariableOutput() GetVariableGroupVariableOutput
-	ToGetVariableGroupVariableOutputWithContext(context.Context) GetVariableGroupVariableOutput
+	ToGetVariableGroupVariableTypeOutput() GetVariableGroupVariableTypeOutput
+	ToGetVariableGroupVariableTypeOutputWithContext(context.Context) GetVariableGroupVariableTypeOutput
 }
 
-type GetVariableGroupVariableArgs struct {
+type GetVariableGroupVariableTypeArgs struct {
 	ContentType pulumi.StringInput `pulumi:"contentType"`
 	Enabled     pulumi.BoolInput   `pulumi:"enabled"`
 	Expires     pulumi.StringInput `pulumi:"expires"`
@@ -18986,107 +20002,107 @@ type GetVariableGroupVariableArgs struct {
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
-func (GetVariableGroupVariableArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetVariableGroupVariable)(nil)).Elem()
+func (GetVariableGroupVariableTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVariableGroupVariableType)(nil)).Elem()
 }
 
-func (i GetVariableGroupVariableArgs) ToGetVariableGroupVariableOutput() GetVariableGroupVariableOutput {
-	return i.ToGetVariableGroupVariableOutputWithContext(context.Background())
+func (i GetVariableGroupVariableTypeArgs) ToGetVariableGroupVariableTypeOutput() GetVariableGroupVariableTypeOutput {
+	return i.ToGetVariableGroupVariableTypeOutputWithContext(context.Background())
 }
 
-func (i GetVariableGroupVariableArgs) ToGetVariableGroupVariableOutputWithContext(ctx context.Context) GetVariableGroupVariableOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetVariableGroupVariableOutput)
+func (i GetVariableGroupVariableTypeArgs) ToGetVariableGroupVariableTypeOutputWithContext(ctx context.Context) GetVariableGroupVariableTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVariableGroupVariableTypeOutput)
 }
 
-// GetVariableGroupVariableArrayInput is an input type that accepts GetVariableGroupVariableArray and GetVariableGroupVariableArrayOutput values.
-// You can construct a concrete instance of `GetVariableGroupVariableArrayInput` via:
+// GetVariableGroupVariableTypeArrayInput is an input type that accepts GetVariableGroupVariableTypeArray and GetVariableGroupVariableTypeArrayOutput values.
+// You can construct a concrete instance of `GetVariableGroupVariableTypeArrayInput` via:
 //
-//	GetVariableGroupVariableArray{ GetVariableGroupVariableArgs{...} }
-type GetVariableGroupVariableArrayInput interface {
+//	GetVariableGroupVariableTypeArray{ GetVariableGroupVariableTypeArgs{...} }
+type GetVariableGroupVariableTypeArrayInput interface {
 	pulumi.Input
 
-	ToGetVariableGroupVariableArrayOutput() GetVariableGroupVariableArrayOutput
-	ToGetVariableGroupVariableArrayOutputWithContext(context.Context) GetVariableGroupVariableArrayOutput
+	ToGetVariableGroupVariableTypeArrayOutput() GetVariableGroupVariableTypeArrayOutput
+	ToGetVariableGroupVariableTypeArrayOutputWithContext(context.Context) GetVariableGroupVariableTypeArrayOutput
 }
 
-type GetVariableGroupVariableArray []GetVariableGroupVariableInput
+type GetVariableGroupVariableTypeArray []GetVariableGroupVariableTypeInput
 
-func (GetVariableGroupVariableArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetVariableGroupVariable)(nil)).Elem()
+func (GetVariableGroupVariableTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVariableGroupVariableType)(nil)).Elem()
 }
 
-func (i GetVariableGroupVariableArray) ToGetVariableGroupVariableArrayOutput() GetVariableGroupVariableArrayOutput {
-	return i.ToGetVariableGroupVariableArrayOutputWithContext(context.Background())
+func (i GetVariableGroupVariableTypeArray) ToGetVariableGroupVariableTypeArrayOutput() GetVariableGroupVariableTypeArrayOutput {
+	return i.ToGetVariableGroupVariableTypeArrayOutputWithContext(context.Background())
 }
 
-func (i GetVariableGroupVariableArray) ToGetVariableGroupVariableArrayOutputWithContext(ctx context.Context) GetVariableGroupVariableArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetVariableGroupVariableArrayOutput)
+func (i GetVariableGroupVariableTypeArray) ToGetVariableGroupVariableTypeArrayOutputWithContext(ctx context.Context) GetVariableGroupVariableTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVariableGroupVariableTypeArrayOutput)
 }
 
-type GetVariableGroupVariableOutput struct{ *pulumi.OutputState }
+type GetVariableGroupVariableTypeOutput struct{ *pulumi.OutputState }
 
-func (GetVariableGroupVariableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetVariableGroupVariable)(nil)).Elem()
+func (GetVariableGroupVariableTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVariableGroupVariableType)(nil)).Elem()
 }
 
-func (o GetVariableGroupVariableOutput) ToGetVariableGroupVariableOutput() GetVariableGroupVariableOutput {
+func (o GetVariableGroupVariableTypeOutput) ToGetVariableGroupVariableTypeOutput() GetVariableGroupVariableTypeOutput {
 	return o
 }
 
-func (o GetVariableGroupVariableOutput) ToGetVariableGroupVariableOutputWithContext(ctx context.Context) GetVariableGroupVariableOutput {
+func (o GetVariableGroupVariableTypeOutput) ToGetVariableGroupVariableTypeOutputWithContext(ctx context.Context) GetVariableGroupVariableTypeOutput {
 	return o
 }
 
-func (o GetVariableGroupVariableOutput) ContentType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVariableGroupVariable) string { return v.ContentType }).(pulumi.StringOutput)
+func (o GetVariableGroupVariableTypeOutput) ContentType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVariableGroupVariableType) string { return v.ContentType }).(pulumi.StringOutput)
 }
 
-func (o GetVariableGroupVariableOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetVariableGroupVariable) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o GetVariableGroupVariableTypeOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVariableGroupVariableType) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-func (o GetVariableGroupVariableOutput) Expires() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVariableGroupVariable) string { return v.Expires }).(pulumi.StringOutput)
+func (o GetVariableGroupVariableTypeOutput) Expires() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVariableGroupVariableType) string { return v.Expires }).(pulumi.StringOutput)
 }
 
 // A boolean flag describing if the variable value is sensitive.
-func (o GetVariableGroupVariableOutput) GetIsSecret() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetVariableGroupVariable) bool { return v.IsSecret }).(pulumi.BoolOutput)
+func (o GetVariableGroupVariableTypeOutput) GetIsSecret() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVariableGroupVariableType) bool { return v.IsSecret }).(pulumi.BoolOutput)
 }
 
 // The name of the Variable Group to retrieve.
-func (o GetVariableGroupVariableOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVariableGroupVariable) string { return v.Name }).(pulumi.StringOutput)
+func (o GetVariableGroupVariableTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVariableGroupVariableType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The secret value of the variable.
-func (o GetVariableGroupVariableOutput) SecretValue() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVariableGroupVariable) string { return v.SecretValue }).(pulumi.StringOutput)
+func (o GetVariableGroupVariableTypeOutput) SecretValue() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVariableGroupVariableType) string { return v.SecretValue }).(pulumi.StringOutput)
 }
 
 // The value of the variable.
-func (o GetVariableGroupVariableOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVariableGroupVariable) string { return v.Value }).(pulumi.StringOutput)
+func (o GetVariableGroupVariableTypeOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVariableGroupVariableType) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type GetVariableGroupVariableArrayOutput struct{ *pulumi.OutputState }
+type GetVariableGroupVariableTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (GetVariableGroupVariableArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetVariableGroupVariable)(nil)).Elem()
+func (GetVariableGroupVariableTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVariableGroupVariableType)(nil)).Elem()
 }
 
-func (o GetVariableGroupVariableArrayOutput) ToGetVariableGroupVariableArrayOutput() GetVariableGroupVariableArrayOutput {
+func (o GetVariableGroupVariableTypeArrayOutput) ToGetVariableGroupVariableTypeArrayOutput() GetVariableGroupVariableTypeArrayOutput {
 	return o
 }
 
-func (o GetVariableGroupVariableArrayOutput) ToGetVariableGroupVariableArrayOutputWithContext(ctx context.Context) GetVariableGroupVariableArrayOutput {
+func (o GetVariableGroupVariableTypeArrayOutput) ToGetVariableGroupVariableTypeArrayOutputWithContext(ctx context.Context) GetVariableGroupVariableTypeArrayOutput {
 	return o
 }
 
-func (o GetVariableGroupVariableArrayOutput) Index(i pulumi.IntInput) GetVariableGroupVariableOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVariableGroupVariable {
-		return vs[0].([]GetVariableGroupVariable)[vs[1].(int)]
-	}).(GetVariableGroupVariableOutput)
+func (o GetVariableGroupVariableTypeArrayOutput) Index(i pulumi.IntInput) GetVariableGroupVariableTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVariableGroupVariableType {
+		return vs[0].([]GetVariableGroupVariableType)[vs[1].(int)]
+	}).(GetVariableGroupVariableTypeOutput)
 }
 
 type GetWorkitemtrackingprocessProcessProject struct {
@@ -19508,6 +20524,177 @@ func (o GetWorkitemtrackingprocessProcessesProcessProjectArrayOutput) Index(i pu
 	}).(GetWorkitemtrackingprocessProcessesProcessProjectOutput)
 }
 
+type GetWorkitemtrackingprocessWorkitemtypesWorkItemType struct {
+	// Color hexadecimal code to represent the work item type.
+	Color string `pulumi:"color"`
+	// Indicates the type of customization on this work item type.
+	Customization string `pulumi:"customization"`
+	// Description of the work item type.
+	Description string `pulumi:"description"`
+	// Icon to represent the work item type.
+	Icon string `pulumi:"icon"`
+	// Indicates if the work item type is enabled.
+	IsEnabled bool `pulumi:"isEnabled"`
+	// Name of the work item type.
+	Name string `pulumi:"name"`
+	// Reference name of the parent work item type.
+	ParentWorkItemReferenceName string `pulumi:"parentWorkItemReferenceName"`
+	// Reference name of the work item type.
+	ReferenceName string `pulumi:"referenceName"`
+	// URL of the work item type.
+	Url string `pulumi:"url"`
+}
+
+// GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeInput is an input type that accepts GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArgs and GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeOutput values.
+// You can construct a concrete instance of `GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeInput` via:
+//
+//	GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArgs{...}
+type GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeInput interface {
+	pulumi.Input
+
+	ToGetWorkitemtrackingprocessWorkitemtypesWorkItemTypeOutput() GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeOutput
+	ToGetWorkitemtrackingprocessWorkitemtypesWorkItemTypeOutputWithContext(context.Context) GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeOutput
+}
+
+type GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArgs struct {
+	// Color hexadecimal code to represent the work item type.
+	Color pulumi.StringInput `pulumi:"color"`
+	// Indicates the type of customization on this work item type.
+	Customization pulumi.StringInput `pulumi:"customization"`
+	// Description of the work item type.
+	Description pulumi.StringInput `pulumi:"description"`
+	// Icon to represent the work item type.
+	Icon pulumi.StringInput `pulumi:"icon"`
+	// Indicates if the work item type is enabled.
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+	// Name of the work item type.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Reference name of the parent work item type.
+	ParentWorkItemReferenceName pulumi.StringInput `pulumi:"parentWorkItemReferenceName"`
+	// Reference name of the work item type.
+	ReferenceName pulumi.StringInput `pulumi:"referenceName"`
+	// URL of the work item type.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWorkitemtrackingprocessWorkitemtypesWorkItemType)(nil)).Elem()
+}
+
+func (i GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArgs) ToGetWorkitemtrackingprocessWorkitemtypesWorkItemTypeOutput() GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeOutput {
+	return i.ToGetWorkitemtrackingprocessWorkitemtypesWorkItemTypeOutputWithContext(context.Background())
+}
+
+func (i GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArgs) ToGetWorkitemtrackingprocessWorkitemtypesWorkItemTypeOutputWithContext(ctx context.Context) GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeOutput)
+}
+
+// GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArrayInput is an input type that accepts GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArray and GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArrayOutput values.
+// You can construct a concrete instance of `GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArrayInput` via:
+//
+//	GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArray{ GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArgs{...} }
+type GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArrayInput interface {
+	pulumi.Input
+
+	ToGetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArrayOutput() GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArrayOutput
+	ToGetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArrayOutputWithContext(context.Context) GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArrayOutput
+}
+
+type GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArray []GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeInput
+
+func (GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWorkitemtrackingprocessWorkitemtypesWorkItemType)(nil)).Elem()
+}
+
+func (i GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArray) ToGetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArrayOutput() GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArrayOutput {
+	return i.ToGetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArrayOutputWithContext(context.Background())
+}
+
+func (i GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArray) ToGetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArrayOutputWithContext(ctx context.Context) GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArrayOutput)
+}
+
+type GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeOutput struct{ *pulumi.OutputState }
+
+func (GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWorkitemtrackingprocessWorkitemtypesWorkItemType)(nil)).Elem()
+}
+
+func (o GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeOutput) ToGetWorkitemtrackingprocessWorkitemtypesWorkItemTypeOutput() GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeOutput {
+	return o
+}
+
+func (o GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeOutput) ToGetWorkitemtrackingprocessWorkitemtypesWorkItemTypeOutputWithContext(ctx context.Context) GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeOutput {
+	return o
+}
+
+// Color hexadecimal code to represent the work item type.
+func (o GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeOutput) Color() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkitemtrackingprocessWorkitemtypesWorkItemType) string { return v.Color }).(pulumi.StringOutput)
+}
+
+// Indicates the type of customization on this work item type.
+func (o GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeOutput) Customization() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkitemtrackingprocessWorkitemtypesWorkItemType) string { return v.Customization }).(pulumi.StringOutput)
+}
+
+// Description of the work item type.
+func (o GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkitemtrackingprocessWorkitemtypesWorkItemType) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Icon to represent the work item type.
+func (o GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeOutput) Icon() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkitemtrackingprocessWorkitemtypesWorkItemType) string { return v.Icon }).(pulumi.StringOutput)
+}
+
+// Indicates if the work item type is enabled.
+func (o GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWorkitemtrackingprocessWorkitemtypesWorkItemType) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// Name of the work item type.
+func (o GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkitemtrackingprocessWorkitemtypesWorkItemType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Reference name of the parent work item type.
+func (o GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeOutput) ParentWorkItemReferenceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkitemtrackingprocessWorkitemtypesWorkItemType) string {
+		return v.ParentWorkItemReferenceName
+	}).(pulumi.StringOutput)
+}
+
+// Reference name of the work item type.
+func (o GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeOutput) ReferenceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkitemtrackingprocessWorkitemtypesWorkItemType) string { return v.ReferenceName }).(pulumi.StringOutput)
+}
+
+// URL of the work item type.
+func (o GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkitemtrackingprocessWorkitemtypesWorkItemType) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWorkitemtrackingprocessWorkitemtypesWorkItemType)(nil)).Elem()
+}
+
+func (o GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArrayOutput) ToGetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArrayOutput() GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArrayOutput {
+	return o
+}
+
+func (o GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArrayOutput) ToGetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArrayOutputWithContext(ctx context.Context) GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArrayOutput {
+	return o
+}
+
+func (o GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArrayOutput) Index(i pulumi.IntInput) GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWorkitemtrackingprocessWorkitemtypesWorkItemType {
+		return vs[0].([]GetWorkitemtrackingprocessWorkitemtypesWorkItemType)[vs[1].(int)]
+	}).(GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyAutoReviewersSettingsInput)(nil)).Elem(), BranchPolicyAutoReviewersSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyAutoReviewersSettingsPtrInput)(nil)).Elem(), BranchPolicyAutoReviewersSettingsArgs{})
@@ -19693,10 +20880,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsWorkItemUpdatedPtrInput)(nil)).Elem(), ServicehookWebhookTfsWorkItemUpdatedArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupKeyVaultInput)(nil)).Elem(), VariableGroupKeyVaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupKeyVaultPtrInput)(nil)).Elem(), VariableGroupKeyVaultArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupVariableInput)(nil)).Elem(), VariableGroupVariableArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupVariableArrayInput)(nil)).Elem(), VariableGroupVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupVariableTypeInput)(nil)).Elem(), VariableGroupVariableTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupVariableTypeArrayInput)(nil)).Elem(), VariableGroupVariableTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemRelationInput)(nil)).Elem(), WorkitemRelationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemRelationArrayInput)(nil)).Elem(), WorkitemRelationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemtrackingprocessControlContributionInput)(nil)).Elem(), WorkitemtrackingprocessControlContributionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemtrackingprocessControlContributionPtrInput)(nil)).Elem(), WorkitemtrackingprocessControlContributionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemtrackingprocessGroupControlInput)(nil)).Elem(), WorkitemtrackingprocessGroupControlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemtrackingprocessGroupControlArrayInput)(nil)).Elem(), WorkitemtrackingprocessGroupControlArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemtrackingprocessGroupControlContributionInput)(nil)).Elem(), WorkitemtrackingprocessGroupControlContributionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemtrackingprocessGroupControlContributionPtrInput)(nil)).Elem(), WorkitemtrackingprocessGroupControlContributionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemtrackingprocessWorkitemtypePageInput)(nil)).Elem(), WorkitemtrackingprocessWorkitemtypePageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemtrackingprocessWorkitemtypePageArrayInput)(nil)).Elem(), WorkitemtrackingprocessWorkitemtypePageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemtrackingprocessWorkitemtypePageSectionInput)(nil)).Elem(), WorkitemtrackingprocessWorkitemtypePageSectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemtrackingprocessWorkitemtypePageSectionArrayInput)(nil)).Elem(), WorkitemtrackingprocessWorkitemtypePageSectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemtrackingprocessWorkitemtypePageSectionGroupInput)(nil)).Elem(), WorkitemtrackingprocessWorkitemtypePageSectionGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemtrackingprocessWorkitemtypePageSectionGroupArrayInput)(nil)).Elem(), WorkitemtrackingprocessWorkitemtypePageSectionGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemtrackingprocessWorkitemtypePageSectionGroupControlInput)(nil)).Elem(), WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArrayInput)(nil)).Elem(), WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAreaChildrenInput)(nil)).Elem(), GetAreaChildrenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAreaChildrenArrayInput)(nil)).Elem(), GetAreaChildrenArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBuildDefinitionCiTriggerInput)(nil)).Elem(), GetBuildDefinitionCiTriggerArgs{})
@@ -19755,14 +20956,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVariableGroupKeyVaultInput)(nil)).Elem(), GetVariableGroupKeyVaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVariableGroupKeyVaultArrayInput)(nil)).Elem(), GetVariableGroupKeyVaultArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetVariableGroupVariableInput)(nil)).Elem(), GetVariableGroupVariableArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetVariableGroupVariableArrayInput)(nil)).Elem(), GetVariableGroupVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVariableGroupVariableTypeInput)(nil)).Elem(), GetVariableGroupVariableTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVariableGroupVariableTypeArrayInput)(nil)).Elem(), GetVariableGroupVariableTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkitemtrackingprocessProcessProjectInput)(nil)).Elem(), GetWorkitemtrackingprocessProcessProjectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkitemtrackingprocessProcessProjectArrayInput)(nil)).Elem(), GetWorkitemtrackingprocessProcessProjectArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkitemtrackingprocessProcessesProcessInput)(nil)).Elem(), GetWorkitemtrackingprocessProcessesProcessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkitemtrackingprocessProcessesProcessArrayInput)(nil)).Elem(), GetWorkitemtrackingprocessProcessesProcessArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkitemtrackingprocessProcessesProcessProjectInput)(nil)).Elem(), GetWorkitemtrackingprocessProcessesProcessProjectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkitemtrackingprocessProcessesProcessProjectArrayInput)(nil)).Elem(), GetWorkitemtrackingprocessProcessesProcessProjectArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeInput)(nil)).Elem(), GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArrayInput)(nil)).Elem(), GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArray{})
 	pulumi.RegisterOutputType(BranchPolicyAutoReviewersSettingsOutput{})
 	pulumi.RegisterOutputType(BranchPolicyAutoReviewersSettingsPtrOutput{})
 	pulumi.RegisterOutputType(BranchPolicyAutoReviewersSettingsScopeOutput{})
@@ -19947,10 +21150,24 @@ func init() {
 	pulumi.RegisterOutputType(ServicehookWebhookTfsWorkItemUpdatedPtrOutput{})
 	pulumi.RegisterOutputType(VariableGroupKeyVaultOutput{})
 	pulumi.RegisterOutputType(VariableGroupKeyVaultPtrOutput{})
-	pulumi.RegisterOutputType(VariableGroupVariableOutput{})
-	pulumi.RegisterOutputType(VariableGroupVariableArrayOutput{})
+	pulumi.RegisterOutputType(VariableGroupVariableTypeOutput{})
+	pulumi.RegisterOutputType(VariableGroupVariableTypeArrayOutput{})
 	pulumi.RegisterOutputType(WorkitemRelationOutput{})
 	pulumi.RegisterOutputType(WorkitemRelationArrayOutput{})
+	pulumi.RegisterOutputType(WorkitemtrackingprocessControlContributionOutput{})
+	pulumi.RegisterOutputType(WorkitemtrackingprocessControlContributionPtrOutput{})
+	pulumi.RegisterOutputType(WorkitemtrackingprocessGroupControlOutput{})
+	pulumi.RegisterOutputType(WorkitemtrackingprocessGroupControlArrayOutput{})
+	pulumi.RegisterOutputType(WorkitemtrackingprocessGroupControlContributionOutput{})
+	pulumi.RegisterOutputType(WorkitemtrackingprocessGroupControlContributionPtrOutput{})
+	pulumi.RegisterOutputType(WorkitemtrackingprocessWorkitemtypePageOutput{})
+	pulumi.RegisterOutputType(WorkitemtrackingprocessWorkitemtypePageArrayOutput{})
+	pulumi.RegisterOutputType(WorkitemtrackingprocessWorkitemtypePageSectionOutput{})
+	pulumi.RegisterOutputType(WorkitemtrackingprocessWorkitemtypePageSectionArrayOutput{})
+	pulumi.RegisterOutputType(WorkitemtrackingprocessWorkitemtypePageSectionGroupOutput{})
+	pulumi.RegisterOutputType(WorkitemtrackingprocessWorkitemtypePageSectionGroupArrayOutput{})
+	pulumi.RegisterOutputType(WorkitemtrackingprocessWorkitemtypePageSectionGroupControlOutput{})
+	pulumi.RegisterOutputType(WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArrayOutput{})
 	pulumi.RegisterOutputType(GetAreaChildrenOutput{})
 	pulumi.RegisterOutputType(GetAreaChildrenArrayOutput{})
 	pulumi.RegisterOutputType(GetBuildDefinitionCiTriggerOutput{})
@@ -20009,12 +21226,14 @@ func init() {
 	pulumi.RegisterOutputType(GetUsersUserArrayOutput{})
 	pulumi.RegisterOutputType(GetVariableGroupKeyVaultOutput{})
 	pulumi.RegisterOutputType(GetVariableGroupKeyVaultArrayOutput{})
-	pulumi.RegisterOutputType(GetVariableGroupVariableOutput{})
-	pulumi.RegisterOutputType(GetVariableGroupVariableArrayOutput{})
+	pulumi.RegisterOutputType(GetVariableGroupVariableTypeOutput{})
+	pulumi.RegisterOutputType(GetVariableGroupVariableTypeArrayOutput{})
 	pulumi.RegisterOutputType(GetWorkitemtrackingprocessProcessProjectOutput{})
 	pulumi.RegisterOutputType(GetWorkitemtrackingprocessProcessProjectArrayOutput{})
 	pulumi.RegisterOutputType(GetWorkitemtrackingprocessProcessesProcessOutput{})
 	pulumi.RegisterOutputType(GetWorkitemtrackingprocessProcessesProcessArrayOutput{})
 	pulumi.RegisterOutputType(GetWorkitemtrackingprocessProcessesProcessProjectOutput{})
 	pulumi.RegisterOutputType(GetWorkitemtrackingprocessProcessesProcessProjectArrayOutput{})
+	pulumi.RegisterOutputType(GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeOutput{})
+	pulumi.RegisterOutputType(GetWorkitemtrackingprocessWorkitemtypesWorkItemTypeArrayOutput{})
 }

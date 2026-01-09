@@ -59,8 +59,8 @@ import (
 //				ProjectId:   example.ID(),
 //				Name:        pulumi.String("Example Variable Group"),
 //				AllowAccess: pulumi.Bool(true),
-//				Variables: azuredevops.VariableGroupVariableArray{
-//					&azuredevops.VariableGroupVariableArgs{
+//				Variables: azuredevops.VariableGroupVariableTypeArray{
+//					&azuredevops.VariableGroupVariableTypeArgs{
 //						Name:  pulumi.String("FOO"),
 //						Value: pulumi.String("BAR"),
 //					},

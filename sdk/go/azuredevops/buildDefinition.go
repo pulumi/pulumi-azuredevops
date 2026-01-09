@@ -53,8 +53,8 @@ import (
 //				Name:        pulumi.String("Example Pipeline Variables"),
 //				Description: pulumi.String("Managed by Pulumi"),
 //				AllowAccess: pulumi.Bool(true),
-//				Variables: azuredevops.VariableGroupVariableArray{
-//					&azuredevops.VariableGroupVariableArgs{
+//				Variables: azuredevops.VariableGroupVariableTypeArray{
+//					&azuredevops.VariableGroupVariableTypeArgs{
 //						Name:  pulumi.String("FOO"),
 //						Value: pulumi.String("BAR"),
 //					},

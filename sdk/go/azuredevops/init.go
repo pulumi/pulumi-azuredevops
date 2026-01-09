@@ -233,6 +233,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VariableGroup{}
 	case "azuredevops:index/variableGroupPermissions:VariableGroupPermissions":
 		r = &VariableGroupPermissions{}
+	case "azuredevops:index/variableGroupVariable:VariableGroupVariable":
+		r = &VariableGroupVariable{}
 	case "azuredevops:index/wiki:Wiki":
 		r = &Wiki{}
 	case "azuredevops:index/wikiPage:WikiPage":
@@ -245,8 +247,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Workitemquery{}
 	case "azuredevops:index/workitemqueryFolder:WorkitemqueryFolder":
 		r = &WorkitemqueryFolder{}
+	case "azuredevops:index/workitemtrackingprocessControl:WorkitemtrackingprocessControl":
+		r = &WorkitemtrackingprocessControl{}
+	case "azuredevops:index/workitemtrackingprocessGroup:WorkitemtrackingprocessGroup":
+		r = &WorkitemtrackingprocessGroup{}
 	case "azuredevops:index/workitemtrackingprocessProcess:WorkitemtrackingprocessProcess":
 		r = &WorkitemtrackingprocessProcess{}
+	case "azuredevops:index/workitemtrackingprocessProcessPermissions:WorkitemtrackingprocessProcessPermissions":
+		r = &WorkitemtrackingprocessProcessPermissions{}
+	case "azuredevops:index/workitemtrackingprocessWorkitemtype:WorkitemtrackingprocessWorkitemtype":
+		r = &WorkitemtrackingprocessWorkitemtype{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -810,6 +820,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azuredevops",
+		"index/variableGroupVariable",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
 		"index/wiki",
 		&module{version},
 	)
@@ -840,7 +855,27 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azuredevops",
+		"index/workitemtrackingprocessControl",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/workitemtrackingprocessGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
 		"index/workitemtrackingprocessProcess",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/workitemtrackingprocessProcessPermissions",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/workitemtrackingprocessWorkitemtype",
 		&module{version},
 	)
 	pulumi.RegisterResourcePackage(

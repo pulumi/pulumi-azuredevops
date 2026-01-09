@@ -205,6 +205,20 @@ __all__ = [
     'VariableGroupVariableArgsDict',
     'WorkitemRelationArgs',
     'WorkitemRelationArgsDict',
+    'WorkitemtrackingprocessControlContributionArgs',
+    'WorkitemtrackingprocessControlContributionArgsDict',
+    'WorkitemtrackingprocessGroupControlArgs',
+    'WorkitemtrackingprocessGroupControlArgsDict',
+    'WorkitemtrackingprocessGroupControlContributionArgs',
+    'WorkitemtrackingprocessGroupControlContributionArgsDict',
+    'WorkitemtrackingprocessWorkitemtypePageArgs',
+    'WorkitemtrackingprocessWorkitemtypePageArgsDict',
+    'WorkitemtrackingprocessWorkitemtypePageSectionArgs',
+    'WorkitemtrackingprocessWorkitemtypePageSectionArgsDict',
+    'WorkitemtrackingprocessWorkitemtypePageSectionGroupArgs',
+    'WorkitemtrackingprocessWorkitemtypePageSectionGroupArgsDict',
+    'WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgs',
+    'WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgsDict',
     'GetUsersFeaturesArgs',
     'GetUsersFeaturesArgsDict',
 ]
@@ -7118,6 +7132,647 @@ class WorkitemRelationArgs:
     @url.setter
     def url(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "url", value)
+
+
+if not MYPY:
+    class WorkitemtrackingprocessControlContributionArgsDict(TypedDict):
+        contribution_id: pulumi.Input[_builtins.str]
+        """
+        The ID of the contribution (extension).
+        """
+        height: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        The height for the contribution.
+        """
+        inputs: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+        """
+        A dictionary holding key value pairs for contribution inputs.
+        """
+        show_on_deleted_work_item: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        A value indicating if the contribution should be shown on deleted work items. Default: `false`
+        """
+elif False:
+    WorkitemtrackingprocessControlContributionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkitemtrackingprocessControlContributionArgs:
+    def __init__(__self__, *,
+                 contribution_id: pulumi.Input[_builtins.str],
+                 height: Optional[pulumi.Input[_builtins.int]] = None,
+                 inputs: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 show_on_deleted_work_item: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.str] contribution_id: The ID of the contribution (extension).
+        :param pulumi.Input[_builtins.int] height: The height for the contribution.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] inputs: A dictionary holding key value pairs for contribution inputs.
+        :param pulumi.Input[_builtins.bool] show_on_deleted_work_item: A value indicating if the contribution should be shown on deleted work items. Default: `false`
+        """
+        pulumi.set(__self__, "contribution_id", contribution_id)
+        if height is not None:
+            pulumi.set(__self__, "height", height)
+        if inputs is not None:
+            pulumi.set(__self__, "inputs", inputs)
+        if show_on_deleted_work_item is not None:
+            pulumi.set(__self__, "show_on_deleted_work_item", show_on_deleted_work_item)
+
+    @_builtins.property
+    @pulumi.getter(name="contributionId")
+    def contribution_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the contribution (extension).
+        """
+        return pulumi.get(self, "contribution_id")
+
+    @contribution_id.setter
+    def contribution_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "contribution_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def height(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The height for the contribution.
+        """
+        return pulumi.get(self, "height")
+
+    @height.setter
+    def height(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "height", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def inputs(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        A dictionary holding key value pairs for contribution inputs.
+        """
+        return pulumi.get(self, "inputs")
+
+    @inputs.setter
+    def inputs(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "inputs", value)
+
+    @_builtins.property
+    @pulumi.getter(name="showOnDeletedWorkItem")
+    def show_on_deleted_work_item(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        A value indicating if the contribution should be shown on deleted work items. Default: `false`
+        """
+        return pulumi.get(self, "show_on_deleted_work_item")
+
+    @show_on_deleted_work_item.setter
+    def show_on_deleted_work_item(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "show_on_deleted_work_item", value)
+
+
+if not MYPY:
+    class WorkitemtrackingprocessGroupControlArgsDict(TypedDict):
+        id: pulumi.Input[_builtins.str]
+        """
+        The ID of the control. This is the field reference name (e.g., System.Description) or the contribution ID for extension controls.
+        """
+        contribution: NotRequired[pulumi.Input['WorkitemtrackingprocessGroupControlContributionArgsDict']]
+        """
+        Contribution configuration for extension controls. A `contribution` block as defined below.
+        """
+        control_type: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Type of the control (e.g., HtmlFieldControl, FieldControl).
+        """
+        inherited: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        A value indicating whether this control has been inherited from a parent layout.
+        """
+        is_contribution: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        A value indicating if the control is a contribution (extension) control. Default: `false`
+        """
+        label: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Label for the control.
+        """
+        metadata: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Inner text of the control.
+        """
+        order: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Order in which the group should appear in the section.
+        """
+        overridden: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        A value indicating whether this control has been overridden by a child layout.
+        """
+        read_only: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        A value indicating if the control is read only. Default: `false`
+        """
+        visible: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        A value indicating if the control should be visible or not. Default: `true`
+        """
+        watermark: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Watermark text for the textbox.
+        """
+elif False:
+    WorkitemtrackingprocessGroupControlArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkitemtrackingprocessGroupControlArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[_builtins.str],
+                 contribution: Optional[pulumi.Input['WorkitemtrackingprocessGroupControlContributionArgs']] = None,
+                 control_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 inherited: Optional[pulumi.Input[_builtins.bool]] = None,
+                 is_contribution: Optional[pulumi.Input[_builtins.bool]] = None,
+                 label: Optional[pulumi.Input[_builtins.str]] = None,
+                 metadata: Optional[pulumi.Input[_builtins.str]] = None,
+                 order: Optional[pulumi.Input[_builtins.int]] = None,
+                 overridden: Optional[pulumi.Input[_builtins.bool]] = None,
+                 read_only: Optional[pulumi.Input[_builtins.bool]] = None,
+                 visible: Optional[pulumi.Input[_builtins.bool]] = None,
+                 watermark: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] id: The ID of the control. This is the field reference name (e.g., System.Description) or the contribution ID for extension controls.
+        :param pulumi.Input['WorkitemtrackingprocessGroupControlContributionArgs'] contribution: Contribution configuration for extension controls. A `contribution` block as defined below.
+        :param pulumi.Input[_builtins.str] control_type: Type of the control (e.g., HtmlFieldControl, FieldControl).
+        :param pulumi.Input[_builtins.bool] inherited: A value indicating whether this control has been inherited from a parent layout.
+        :param pulumi.Input[_builtins.bool] is_contribution: A value indicating if the control is a contribution (extension) control. Default: `false`
+        :param pulumi.Input[_builtins.str] label: Label for the control.
+        :param pulumi.Input[_builtins.str] metadata: Inner text of the control.
+        :param pulumi.Input[_builtins.int] order: Order in which the group should appear in the section.
+        :param pulumi.Input[_builtins.bool] overridden: A value indicating whether this control has been overridden by a child layout.
+        :param pulumi.Input[_builtins.bool] read_only: A value indicating if the control is read only. Default: `false`
+        :param pulumi.Input[_builtins.bool] visible: A value indicating if the control should be visible or not. Default: `true`
+        :param pulumi.Input[_builtins.str] watermark: Watermark text for the textbox.
+        """
+        pulumi.set(__self__, "id", id)
+        if contribution is not None:
+            pulumi.set(__self__, "contribution", contribution)
+        if control_type is not None:
+            pulumi.set(__self__, "control_type", control_type)
+        if inherited is not None:
+            pulumi.set(__self__, "inherited", inherited)
+        if is_contribution is not None:
+            pulumi.set(__self__, "is_contribution", is_contribution)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+        if overridden is not None:
+            pulumi.set(__self__, "overridden", overridden)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+        if visible is not None:
+            pulumi.set(__self__, "visible", visible)
+        if watermark is not None:
+            pulumi.set(__self__, "watermark", watermark)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the control. This is the field reference name (e.g., System.Description) or the contribution ID for extension controls.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def contribution(self) -> Optional[pulumi.Input['WorkitemtrackingprocessGroupControlContributionArgs']]:
+        """
+        Contribution configuration for extension controls. A `contribution` block as defined below.
+        """
+        return pulumi.get(self, "contribution")
+
+    @contribution.setter
+    def contribution(self, value: Optional[pulumi.Input['WorkitemtrackingprocessGroupControlContributionArgs']]):
+        pulumi.set(self, "contribution", value)
+
+    @_builtins.property
+    @pulumi.getter(name="controlType")
+    def control_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Type of the control (e.g., HtmlFieldControl, FieldControl).
+        """
+        return pulumi.get(self, "control_type")
+
+    @control_type.setter
+    def control_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "control_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def inherited(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        A value indicating whether this control has been inherited from a parent layout.
+        """
+        return pulumi.get(self, "inherited")
+
+    @inherited.setter
+    def inherited(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "inherited", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isContribution")
+    def is_contribution(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        A value indicating if the control is a contribution (extension) control. Default: `false`
+        """
+        return pulumi.get(self, "is_contribution")
+
+    @is_contribution.setter
+    def is_contribution(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "is_contribution", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Label for the control.
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "label", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Inner text of the control.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "metadata", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Order in which the group should appear in the section.
+        """
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "order", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def overridden(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        A value indicating whether this control has been overridden by a child layout.
+        """
+        return pulumi.get(self, "overridden")
+
+    @overridden.setter
+    def overridden(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "overridden", value)
+
+    @_builtins.property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        A value indicating if the control is read only. Default: `false`
+        """
+        return pulumi.get(self, "read_only")
+
+    @read_only.setter
+    def read_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "read_only", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def visible(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        A value indicating if the control should be visible or not. Default: `true`
+        """
+        return pulumi.get(self, "visible")
+
+    @visible.setter
+    def visible(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "visible", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def watermark(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Watermark text for the textbox.
+        """
+        return pulumi.get(self, "watermark")
+
+    @watermark.setter
+    def watermark(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "watermark", value)
+
+
+if not MYPY:
+    class WorkitemtrackingprocessGroupControlContributionArgsDict(TypedDict):
+        contribution_id: pulumi.Input[_builtins.str]
+        """
+        The ID of the contribution (extension).
+        """
+        height: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        The height for the contribution.
+        """
+        inputs: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+        """
+        A dictionary holding key value pairs for contribution inputs.
+        """
+        show_on_deleted_work_item: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        A value indicating if the contribution should be shown on deleted work items. Default: `false`
+        """
+elif False:
+    WorkitemtrackingprocessGroupControlContributionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkitemtrackingprocessGroupControlContributionArgs:
+    def __init__(__self__, *,
+                 contribution_id: pulumi.Input[_builtins.str],
+                 height: Optional[pulumi.Input[_builtins.int]] = None,
+                 inputs: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 show_on_deleted_work_item: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.str] contribution_id: The ID of the contribution (extension).
+        :param pulumi.Input[_builtins.int] height: The height for the contribution.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] inputs: A dictionary holding key value pairs for contribution inputs.
+        :param pulumi.Input[_builtins.bool] show_on_deleted_work_item: A value indicating if the contribution should be shown on deleted work items. Default: `false`
+        """
+        pulumi.set(__self__, "contribution_id", contribution_id)
+        if height is not None:
+            pulumi.set(__self__, "height", height)
+        if inputs is not None:
+            pulumi.set(__self__, "inputs", inputs)
+        if show_on_deleted_work_item is not None:
+            pulumi.set(__self__, "show_on_deleted_work_item", show_on_deleted_work_item)
+
+    @_builtins.property
+    @pulumi.getter(name="contributionId")
+    def contribution_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the contribution (extension).
+        """
+        return pulumi.get(self, "contribution_id")
+
+    @contribution_id.setter
+    def contribution_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "contribution_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def height(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The height for the contribution.
+        """
+        return pulumi.get(self, "height")
+
+    @height.setter
+    def height(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "height", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def inputs(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        A dictionary holding key value pairs for contribution inputs.
+        """
+        return pulumi.get(self, "inputs")
+
+    @inputs.setter
+    def inputs(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "inputs", value)
+
+    @_builtins.property
+    @pulumi.getter(name="showOnDeletedWorkItem")
+    def show_on_deleted_work_item(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        A value indicating if the contribution should be shown on deleted work items. Default: `false`
+        """
+        return pulumi.get(self, "show_on_deleted_work_item")
+
+    @show_on_deleted_work_item.setter
+    def show_on_deleted_work_item(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "show_on_deleted_work_item", value)
+
+
+if not MYPY:
+    class WorkitemtrackingprocessWorkitemtypePageArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The ID of the section.
+        """
+        page_type: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The type of the page.
+        """
+        sections: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionArgsDict']]]]
+        """
+        A `sections` block as defined below.
+        """
+elif False:
+    WorkitemtrackingprocessWorkitemtypePageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkitemtrackingprocessWorkitemtypePageArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 page_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 sections: Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] id: The ID of the section.
+        :param pulumi.Input[_builtins.str] page_type: The type of the page.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionArgs']]] sections: A `sections` block as defined below.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if page_type is not None:
+            pulumi.set(__self__, "page_type", page_type)
+        if sections is not None:
+            pulumi.set(__self__, "sections", sections)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the section.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pageType")
+    def page_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The type of the page.
+        """
+        return pulumi.get(self, "page_type")
+
+    @page_type.setter
+    def page_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "page_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def sections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionArgs']]]]:
+        """
+        A `sections` block as defined below.
+        """
+        return pulumi.get(self, "sections")
+
+    @sections.setter
+    def sections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionArgs']]]]):
+        pulumi.set(self, "sections", value)
+
+
+if not MYPY:
+    class WorkitemtrackingprocessWorkitemtypePageSectionArgsDict(TypedDict):
+        groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupArgsDict']]]]
+        """
+        A `groups` block as defined above.
+        """
+        id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The ID of the section.
+        """
+elif False:
+    WorkitemtrackingprocessWorkitemtypePageSectionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkitemtrackingprocessWorkitemtypePageSectionArgs:
+    def __init__(__self__, *,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupArgs']]]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupArgs']]] groups: A `groups` block as defined above.
+        :param pulumi.Input[_builtins.str] id: The ID of the section.
+        """
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupArgs']]]]:
+        """
+        A `groups` block as defined above.
+        """
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupArgs']]]]):
+        pulumi.set(self, "groups", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the section.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class WorkitemtrackingprocessWorkitemtypePageSectionGroupArgsDict(TypedDict):
+        controls: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgsDict']]]]
+        """
+        A `controls` block as defined above.
+        """
+        id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The ID of the section.
+        """
+elif False:
+    WorkitemtrackingprocessWorkitemtypePageSectionGroupArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkitemtrackingprocessWorkitemtypePageSectionGroupArgs:
+    def __init__(__self__, *,
+                 controls: Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgs']]]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgs']]] controls: A `controls` block as defined above.
+        :param pulumi.Input[_builtins.str] id: The ID of the section.
+        """
+        if controls is not None:
+            pulumi.set(__self__, "controls", controls)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def controls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgs']]]]:
+        """
+        A `controls` block as defined above.
+        """
+        return pulumi.get(self, "controls")
+
+    @controls.setter
+    def controls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgs']]]]):
+        pulumi.set(self, "controls", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the section.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The ID of the section.
+        """
+elif False:
+    WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] id: The ID of the section.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the section.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
 
 
 if not MYPY:

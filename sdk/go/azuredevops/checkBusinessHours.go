@@ -249,12 +249,12 @@ import (
 //				Name:        pulumi.String("Example Variable Group"),
 //				Description: pulumi.String("Example Variable Group Description"),
 //				AllowAccess: pulumi.Bool(true),
-//				Variables: azuredevops.VariableGroupVariableArray{
-//					&azuredevops.VariableGroupVariableArgs{
+//				Variables: azuredevops.VariableGroupVariableTypeArray{
+//					&azuredevops.VariableGroupVariableTypeArgs{
 //						Name:  pulumi.String("key1"),
 //						Value: pulumi.String("val1"),
 //					},
-//					&azuredevops.VariableGroupVariableArgs{
+//					&azuredevops.VariableGroupVariableTypeArgs{
 //						Name:        pulumi.String("key2"),
 //						SecretValue: pulumi.String("val2"),
 //						IsSecret:    pulumi.Bool(true),

@@ -71,6 +71,8 @@ from .get_users import *
 from .get_variable_group import *
 from .get_workitemtrackingprocess_process import *
 from .get_workitemtrackingprocess_processes import *
+from .get_workitemtrackingprocess_workitemtype import *
+from .get_workitemtrackingprocess_workitemtypes import *
 from .git import *
 from .git_permissions import *
 from .git_repository_branch import *
@@ -152,13 +154,18 @@ from .team_members import *
 from .user import *
 from .variable_group import *
 from .variable_group_permissions import *
+from .variable_group_variable import *
 from .wiki import *
 from .wiki_page import *
 from .work_item_query_permissions import *
 from .workitem import *
 from .workitemquery import *
 from .workitemquery_folder import *
+from .workitemtrackingprocess_control import *
+from .workitemtrackingprocess_group import *
 from .workitemtrackingprocess_process import *
+from .workitemtrackingprocess_process_permissions import *
+from .workitemtrackingprocess_workitemtype import *
 from ._inputs import *
 from . import outputs
 
@@ -1022,6 +1029,14 @@ _utilities.register(
  },
  {
   "pkg": "azuredevops",
+  "mod": "index/variableGroupVariable",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/variableGroupVariable:VariableGroupVariable": "VariableGroupVariable"
+  }
+ },
+ {
+  "pkg": "azuredevops",
   "mod": "index/wiki",
   "fqn": "pulumi_azuredevops",
   "classes": {
@@ -1070,10 +1085,42 @@ _utilities.register(
  },
  {
   "pkg": "azuredevops",
+  "mod": "index/workitemtrackingprocessControl",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/workitemtrackingprocessControl:WorkitemtrackingprocessControl": "WorkitemtrackingprocessControl"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/workitemtrackingprocessGroup",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/workitemtrackingprocessGroup:WorkitemtrackingprocessGroup": "WorkitemtrackingprocessGroup"
+  }
+ },
+ {
+  "pkg": "azuredevops",
   "mod": "index/workitemtrackingprocessProcess",
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/workitemtrackingprocessProcess:WorkitemtrackingprocessProcess": "WorkitemtrackingprocessProcess"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/workitemtrackingprocessProcessPermissions",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/workitemtrackingprocessProcessPermissions:WorkitemtrackingprocessProcessPermissions": "WorkitemtrackingprocessProcessPermissions"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/workitemtrackingprocessWorkitemtype",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/workitemtrackingprocessWorkitemtype:WorkitemtrackingprocessWorkitemtype": "WorkitemtrackingprocessWorkitemtype"
   }
  }
 ]

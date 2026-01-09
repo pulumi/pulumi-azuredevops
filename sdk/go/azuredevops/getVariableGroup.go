@@ -84,7 +84,7 @@ type LookupVariableGroupResult struct {
 	Name      string `pulumi:"name"`
 	ProjectId string `pulumi:"projectId"`
 	// One or more `variable` blocks as documented below.
-	Variables []GetVariableGroupVariable `pulumi:"variables"`
+	Variables []GetVariableGroupVariableType `pulumi:"variables"`
 }
 
 func LookupVariableGroupOutput(ctx *pulumi.Context, args LookupVariableGroupOutputArgs, opts ...pulumi.InvokeOption) LookupVariableGroupResultOutput {
@@ -153,8 +153,8 @@ func (o LookupVariableGroupResultOutput) ProjectId() pulumi.StringOutput {
 }
 
 // One or more `variable` blocks as documented below.
-func (o LookupVariableGroupResultOutput) Variables() GetVariableGroupVariableArrayOutput {
-	return o.ApplyT(func(v LookupVariableGroupResult) []GetVariableGroupVariable { return v.Variables }).(GetVariableGroupVariableArrayOutput)
+func (o LookupVariableGroupResultOutput) Variables() GetVariableGroupVariableTypeArrayOutput {
+	return o.ApplyT(func(v LookupVariableGroupResult) []GetVariableGroupVariableType { return v.Variables }).(GetVariableGroupVariableTypeArrayOutput)
 }
 
 func init() {

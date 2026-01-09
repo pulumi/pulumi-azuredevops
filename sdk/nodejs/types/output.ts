@@ -1518,6 +1518,45 @@ export interface GetWorkitemtrackingprocessProcessesProcessProject {
     url: string;
 }
 
+export interface GetWorkitemtrackingprocessWorkitemtypesWorkItemType {
+    /**
+     * Color hexadecimal code to represent the work item type.
+     */
+    color: string;
+    /**
+     * Indicates the type of customization on this work item type.
+     */
+    customization: string;
+    /**
+     * Description of the work item type.
+     */
+    description: string;
+    /**
+     * Icon to represent the work item type.
+     */
+    icon: string;
+    /**
+     * Indicates if the work item type is enabled.
+     */
+    isEnabled: boolean;
+    /**
+     * Name of the work item type.
+     */
+    name: string;
+    /**
+     * Reference name of the parent work item type.
+     */
+    parentWorkItemReferenceName: string;
+    /**
+     * Reference name of the work item type.
+     */
+    referenceName: string;
+    /**
+     * URL of the work item type.
+     */
+    url: string;
+}
+
 export interface GitInitialization {
     /**
      * The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
@@ -2236,5 +2275,138 @@ export interface WorkitemRelation {
      * The URL of the Work Item.
      */
     url: string;
+}
+
+export interface WorkitemtrackingprocessControlContribution {
+    /**
+     * The ID of the contribution (extension).
+     */
+    contributionId: string;
+    /**
+     * The height for the contribution.
+     */
+    height: number;
+    /**
+     * A dictionary holding key value pairs for contribution inputs.
+     */
+    inputs?: {[key: string]: string};
+    /**
+     * A value indicating if the contribution should be shown on deleted work items. Default: `false`
+     */
+    showOnDeletedWorkItem?: boolean;
+}
+
+export interface WorkitemtrackingprocessGroupControl {
+    /**
+     * Contribution configuration for extension controls. A `contribution` block as defined below.
+     */
+    contribution?: outputs.WorkitemtrackingprocessGroupControlContribution;
+    /**
+     * Type of the control (e.g., HtmlFieldControl, FieldControl).
+     */
+    controlType: string;
+    /**
+     * The ID of the control. This is the field reference name (e.g., System.Description) or the contribution ID for extension controls.
+     */
+    id: string;
+    /**
+     * A value indicating whether this control has been inherited from a parent layout.
+     */
+    inherited: boolean;
+    /**
+     * A value indicating if the control is a contribution (extension) control. Default: `false`
+     */
+    isContribution?: boolean;
+    /**
+     * Label for the control.
+     */
+    label?: string;
+    /**
+     * Inner text of the control.
+     */
+    metadata?: string;
+    /**
+     * Order in which the group should appear in the section.
+     */
+    order: number;
+    /**
+     * A value indicating whether this control has been overridden by a child layout.
+     */
+    overridden: boolean;
+    /**
+     * A value indicating if the control is read only. Default: `false`
+     */
+    readOnly?: boolean;
+    /**
+     * A value indicating if the control should be visible or not. Default: `true`
+     */
+    visible?: boolean;
+    /**
+     * Watermark text for the textbox.
+     */
+    watermark?: string;
+}
+
+export interface WorkitemtrackingprocessGroupControlContribution {
+    /**
+     * The ID of the contribution (extension).
+     */
+    contributionId: string;
+    /**
+     * The height for the contribution.
+     */
+    height: number;
+    /**
+     * A dictionary holding key value pairs for contribution inputs.
+     */
+    inputs?: {[key: string]: string};
+    /**
+     * A value indicating if the contribution should be shown on deleted work items. Default: `false`
+     */
+    showOnDeletedWorkItem?: boolean;
+}
+
+export interface WorkitemtrackingprocessWorkitemtypePage {
+    /**
+     * The ID of the section.
+     */
+    id: string;
+    /**
+     * The type of the page.
+     */
+    pageType: string;
+    /**
+     * A `sections` block as defined below.
+     */
+    sections: outputs.WorkitemtrackingprocessWorkitemtypePageSection[];
+}
+
+export interface WorkitemtrackingprocessWorkitemtypePageSection {
+    /**
+     * A `groups` block as defined above.
+     */
+    groups: outputs.WorkitemtrackingprocessWorkitemtypePageSectionGroup[];
+    /**
+     * The ID of the section.
+     */
+    id: string;
+}
+
+export interface WorkitemtrackingprocessWorkitemtypePageSectionGroup {
+    /**
+     * A `controls` block as defined above.
+     */
+    controls: outputs.WorkitemtrackingprocessWorkitemtypePageSectionGroupControl[];
+    /**
+     * The ID of the section.
+     */
+    id: string;
+}
+
+export interface WorkitemtrackingprocessWorkitemtypePageSectionGroupControl {
+    /**
+     * The ID of the section.
+     */
+    id: string;
 }
 

@@ -78,6 +78,10 @@ import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessArgs;
 import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessPlainArgs;
 import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessesArgs;
 import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessesPlainArgs;
+import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessWorkitemtypeArgs;
+import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessWorkitemtypePlainArgs;
+import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessWorkitemtypesArgs;
+import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessWorkitemtypesPlainArgs;
 import com.pulumi.azuredevops.outputs.GetAgentQueueResult;
 import com.pulumi.azuredevops.outputs.GetAreaResult;
 import com.pulumi.azuredevops.outputs.GetBuildDefinitionResult;
@@ -117,6 +121,8 @@ import com.pulumi.azuredevops.outputs.GetUsersResult;
 import com.pulumi.azuredevops.outputs.GetVariableGroupResult;
 import com.pulumi.azuredevops.outputs.GetWorkitemtrackingprocessProcessResult;
 import com.pulumi.azuredevops.outputs.GetWorkitemtrackingprocessProcessesResult;
+import com.pulumi.azuredevops.outputs.GetWorkitemtrackingprocessWorkitemtypeResult;
+import com.pulumi.azuredevops.outputs.GetWorkitemtrackingprocessWorkitemtypesResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -11285,5 +11291,460 @@ public final class AzuredevopsFunctions {
      */
     public static CompletableFuture<GetWorkitemtrackingprocessProcessesResult> getWorkitemtrackingprocessProcessesPlain(GetWorkitemtrackingprocessProcessesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azuredevops:index/getWorkitemtrackingprocessProcesses:getWorkitemtrackingprocessProcesses", TypeShape.of(GetWorkitemtrackingprocessProcessesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing work item type for a process.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessWorkitemtypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getWorkitemtrackingprocessWorkitemtype(GetWorkitemtrackingprocessWorkitemtypeArgs.builder()
+     *             .processId("f22ab9cc-acad-47ab-b31d-e43ef8d72b89")
+     *             .referenceName("MyProcess.Example")
+     *             .build());
+     * 
+     *         ctx.export("name", example.name());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Work Item Types - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/processes/work-item-types/get?view=azure-devops-rest-7.1&amp;tabs=HTTP)
+     * 
+     */
+    public static Output<GetWorkitemtrackingprocessWorkitemtypeResult> getWorkitemtrackingprocessWorkitemtype(GetWorkitemtrackingprocessWorkitemtypeArgs args) {
+        return getWorkitemtrackingprocessWorkitemtype(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing work item type for a process.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessWorkitemtypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getWorkitemtrackingprocessWorkitemtype(GetWorkitemtrackingprocessWorkitemtypeArgs.builder()
+     *             .processId("f22ab9cc-acad-47ab-b31d-e43ef8d72b89")
+     *             .referenceName("MyProcess.Example")
+     *             .build());
+     * 
+     *         ctx.export("name", example.name());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Work Item Types - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/processes/work-item-types/get?view=azure-devops-rest-7.1&amp;tabs=HTTP)
+     * 
+     */
+    public static CompletableFuture<GetWorkitemtrackingprocessWorkitemtypeResult> getWorkitemtrackingprocessWorkitemtypePlain(GetWorkitemtrackingprocessWorkitemtypePlainArgs args) {
+        return getWorkitemtrackingprocessWorkitemtypePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing work item type for a process.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessWorkitemtypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getWorkitemtrackingprocessWorkitemtype(GetWorkitemtrackingprocessWorkitemtypeArgs.builder()
+     *             .processId("f22ab9cc-acad-47ab-b31d-e43ef8d72b89")
+     *             .referenceName("MyProcess.Example")
+     *             .build());
+     * 
+     *         ctx.export("name", example.name());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Work Item Types - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/processes/work-item-types/get?view=azure-devops-rest-7.1&amp;tabs=HTTP)
+     * 
+     */
+    public static Output<GetWorkitemtrackingprocessWorkitemtypeResult> getWorkitemtrackingprocessWorkitemtype(GetWorkitemtrackingprocessWorkitemtypeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getWorkitemtrackingprocessWorkitemtype:getWorkitemtrackingprocessWorkitemtype", TypeShape.of(GetWorkitemtrackingprocessWorkitemtypeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing work item type for a process.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessWorkitemtypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getWorkitemtrackingprocessWorkitemtype(GetWorkitemtrackingprocessWorkitemtypeArgs.builder()
+     *             .processId("f22ab9cc-acad-47ab-b31d-e43ef8d72b89")
+     *             .referenceName("MyProcess.Example")
+     *             .build());
+     * 
+     *         ctx.export("name", example.name());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Work Item Types - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/processes/work-item-types/get?view=azure-devops-rest-7.1&amp;tabs=HTTP)
+     * 
+     */
+    public static Output<GetWorkitemtrackingprocessWorkitemtypeResult> getWorkitemtrackingprocessWorkitemtype(GetWorkitemtrackingprocessWorkitemtypeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getWorkitemtrackingprocessWorkitemtype:getWorkitemtrackingprocessWorkitemtype", TypeShape.of(GetWorkitemtrackingprocessWorkitemtypeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing work item type for a process.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessWorkitemtypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getWorkitemtrackingprocessWorkitemtype(GetWorkitemtrackingprocessWorkitemtypeArgs.builder()
+     *             .processId("f22ab9cc-acad-47ab-b31d-e43ef8d72b89")
+     *             .referenceName("MyProcess.Example")
+     *             .build());
+     * 
+     *         ctx.export("name", example.name());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Work Item Types - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/processes/work-item-types/get?view=azure-devops-rest-7.1&amp;tabs=HTTP)
+     * 
+     */
+    public static CompletableFuture<GetWorkitemtrackingprocessWorkitemtypeResult> getWorkitemtrackingprocessWorkitemtypePlain(GetWorkitemtrackingprocessWorkitemtypePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azuredevops:index/getWorkitemtrackingprocessWorkitemtype:getWorkitemtrackingprocessWorkitemtype", TypeShape.of(GetWorkitemtrackingprocessWorkitemtypeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about all work item types in a process.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessWorkitemtypesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var customProcess = AzuredevopsFunctions.getWorkitemtrackingprocessWorkitemtypes(GetWorkitemtrackingprocessWorkitemtypesArgs.builder()
+     *             .processId("f22ab9cc-acad-47ab-b31d-e43ef8d72b89")
+     *             .build());
+     * 
+     *         ctx.export("workItemTypes", customProcess.workItemTypes());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Work Item Types - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/processes/work-item-types/list?view=azure-devops-rest-7.1&amp;tabs=HTTP)
+     * 
+     */
+    public static Output<GetWorkitemtrackingprocessWorkitemtypesResult> getWorkitemtrackingprocessWorkitemtypes(GetWorkitemtrackingprocessWorkitemtypesArgs args) {
+        return getWorkitemtrackingprocessWorkitemtypes(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about all work item types in a process.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessWorkitemtypesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var customProcess = AzuredevopsFunctions.getWorkitemtrackingprocessWorkitemtypes(GetWorkitemtrackingprocessWorkitemtypesArgs.builder()
+     *             .processId("f22ab9cc-acad-47ab-b31d-e43ef8d72b89")
+     *             .build());
+     * 
+     *         ctx.export("workItemTypes", customProcess.workItemTypes());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Work Item Types - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/processes/work-item-types/list?view=azure-devops-rest-7.1&amp;tabs=HTTP)
+     * 
+     */
+    public static CompletableFuture<GetWorkitemtrackingprocessWorkitemtypesResult> getWorkitemtrackingprocessWorkitemtypesPlain(GetWorkitemtrackingprocessWorkitemtypesPlainArgs args) {
+        return getWorkitemtrackingprocessWorkitemtypesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about all work item types in a process.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessWorkitemtypesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var customProcess = AzuredevopsFunctions.getWorkitemtrackingprocessWorkitemtypes(GetWorkitemtrackingprocessWorkitemtypesArgs.builder()
+     *             .processId("f22ab9cc-acad-47ab-b31d-e43ef8d72b89")
+     *             .build());
+     * 
+     *         ctx.export("workItemTypes", customProcess.workItemTypes());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Work Item Types - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/processes/work-item-types/list?view=azure-devops-rest-7.1&amp;tabs=HTTP)
+     * 
+     */
+    public static Output<GetWorkitemtrackingprocessWorkitemtypesResult> getWorkitemtrackingprocessWorkitemtypes(GetWorkitemtrackingprocessWorkitemtypesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getWorkitemtrackingprocessWorkitemtypes:getWorkitemtrackingprocessWorkitemtypes", TypeShape.of(GetWorkitemtrackingprocessWorkitemtypesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about all work item types in a process.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessWorkitemtypesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var customProcess = AzuredevopsFunctions.getWorkitemtrackingprocessWorkitemtypes(GetWorkitemtrackingprocessWorkitemtypesArgs.builder()
+     *             .processId("f22ab9cc-acad-47ab-b31d-e43ef8d72b89")
+     *             .build());
+     * 
+     *         ctx.export("workItemTypes", customProcess.workItemTypes());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Work Item Types - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/processes/work-item-types/list?view=azure-devops-rest-7.1&amp;tabs=HTTP)
+     * 
+     */
+    public static Output<GetWorkitemtrackingprocessWorkitemtypesResult> getWorkitemtrackingprocessWorkitemtypes(GetWorkitemtrackingprocessWorkitemtypesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getWorkitemtrackingprocessWorkitemtypes:getWorkitemtrackingprocessWorkitemtypes", TypeShape.of(GetWorkitemtrackingprocessWorkitemtypesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about all work item types in a process.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessWorkitemtypesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var customProcess = AzuredevopsFunctions.getWorkitemtrackingprocessWorkitemtypes(GetWorkitemtrackingprocessWorkitemtypesArgs.builder()
+     *             .processId("f22ab9cc-acad-47ab-b31d-e43ef8d72b89")
+     *             .build());
+     * 
+     *         ctx.export("workItemTypes", customProcess.workItemTypes());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.1 - Work Item Types - List](https://learn.microsoft.com/en-us/rest/api/azure/devops/processes/work-item-types/list?view=azure-devops-rest-7.1&amp;tabs=HTTP)
+     * 
+     */
+    public static CompletableFuture<GetWorkitemtrackingprocessWorkitemtypesResult> getWorkitemtrackingprocessWorkitemtypesPlain(GetWorkitemtrackingprocessWorkitemtypesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azuredevops:index/getWorkitemtrackingprocessWorkitemtypes:getWorkitemtrackingprocessWorkitemtypes", TypeShape.of(GetWorkitemtrackingprocessWorkitemtypesResult.class), args, Utilities.withVersion(options));
     }
 }
