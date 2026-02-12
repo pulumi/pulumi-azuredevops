@@ -139,6 +139,9 @@ export class ServiceendpointOpenshift extends pulumi.CustomResource {
      * The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `authBasic` or `authToken` authorization.
      */
     declare public readonly certificateAuthorityFile: pulumi.Output<string | undefined>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the project.
@@ -225,6 +228,9 @@ export interface ServiceendpointOpenshiftState {
      * The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `authBasic` or `authToken` authorization.
      */
     certificateAuthorityFile?: pulumi.Input<string>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * The ID of the project.
@@ -264,6 +270,9 @@ export interface ServiceendpointOpenshiftArgs {
      * The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `authBasic` or `authToken` authorization.
      */
     certificateAuthorityFile?: pulumi.Input<string>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * The ID of the project.

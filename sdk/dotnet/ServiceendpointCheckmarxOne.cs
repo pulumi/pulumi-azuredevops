@@ -120,6 +120,9 @@ namespace Pulumi.AzureDevOps
         [Output("clientSecret")]
         public Output<string?> ClientSecret { get; private set; } = null!;
 
+        /// <summary>
+        /// The Service Endpoint description. Defaults to `Managed by Terraform`.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -238,6 +241,9 @@ namespace Pulumi.AzureDevOps
             }
         }
 
+        /// <summary>
+        /// The Service Endpoint description. Defaults to `Managed by Terraform`.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -321,6 +327,9 @@ namespace Pulumi.AzureDevOps
             }
         }
 
+        /// <summary>
+        /// The Service Endpoint description. Defaults to `Managed by Terraform`.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

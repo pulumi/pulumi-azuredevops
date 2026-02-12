@@ -73,6 +73,9 @@ export class ServiceendpointNuget extends pulumi.CustomResource {
      */
     declare public readonly apiKey: pulumi.Output<string | undefined>;
     declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The URL for the feed. This will generally end with `index.json`.
@@ -160,6 +163,9 @@ export interface ServiceendpointNugetState {
      */
     apiKey?: pulumi.Input<string>;
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * The URL for the feed. This will generally end with `index.json`.
@@ -197,6 +203,9 @@ export interface ServiceendpointNugetArgs {
      * The API Key used to connect to the endpoint.
      */
     apiKey?: pulumi.Input<string>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * The URL for the feed. This will generally end with `index.json`.

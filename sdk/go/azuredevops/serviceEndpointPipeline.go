@@ -73,7 +73,8 @@ type ServiceEndpointPipeline struct {
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal  ServiceEndpointPipelineAuthPersonalOutput `pulumi:"authPersonal"`
 	Authorization pulumi.StringMapOutput                    `pulumi:"authorization"`
-	Description   pulumi.StringPtrOutput                    `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The organization name used for `Organization Url` and `Release API Url` fields.
 	OrganizationName pulumi.StringOutput `pulumi:"organizationName"`
 	// The ID of the project.
@@ -127,7 +128,8 @@ type serviceEndpointPipelineState struct {
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal  *ServiceEndpointPipelineAuthPersonal `pulumi:"authPersonal"`
 	Authorization map[string]string                    `pulumi:"authorization"`
-	Description   *string                              `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description *string `pulumi:"description"`
 	// The organization name used for `Organization Url` and `Release API Url` fields.
 	OrganizationName *string `pulumi:"organizationName"`
 	// The ID of the project.
@@ -140,7 +142,8 @@ type ServiceEndpointPipelineState struct {
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal  ServiceEndpointPipelineAuthPersonalPtrInput
 	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrInput
 	// The organization name used for `Organization Url` and `Release API Url` fields.
 	OrganizationName pulumi.StringPtrInput
 	// The ID of the project.
@@ -156,7 +159,8 @@ func (ServiceEndpointPipelineState) ElementType() reflect.Type {
 type serviceEndpointPipelineArgs struct {
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal ServiceEndpointPipelineAuthPersonal `pulumi:"authPersonal"`
-	Description  *string                             `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description *string `pulumi:"description"`
 	// The organization name used for `Organization Url` and `Release API Url` fields.
 	OrganizationName string `pulumi:"organizationName"`
 	// The ID of the project.
@@ -169,7 +173,8 @@ type serviceEndpointPipelineArgs struct {
 type ServiceEndpointPipelineArgs struct {
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal ServiceEndpointPipelineAuthPersonalInput
-	Description  pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrInput
 	// The organization name used for `Organization Url` and `Release API Url` fields.
 	OrganizationName pulumi.StringInput
 	// The ID of the project.
@@ -274,6 +279,7 @@ func (o ServiceEndpointPipelineOutput) Authorization() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceEndpointPipeline) pulumi.StringMapOutput { return v.Authorization }).(pulumi.StringMapOutput)
 }
 
+// The Service Endpoint description. Defaults to `Managed by Terraform`.
 func (o ServiceEndpointPipelineOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointPipeline) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

@@ -39,6 +39,7 @@ class ServiceendpointCheckmarxScaArgs:
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[_builtins.str] username: The username of the Checkmarx SCA.
         :param pulumi.Input[_builtins.str] web_app_url: The Web App URL of the Checkmarx SCA.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] team: The full team name of the Checkmarx.
         """
         pulumi.set(__self__, "access_control_url", access_control_url)
@@ -153,6 +154,9 @@ class ServiceendpointCheckmarxScaArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -190,6 +194,7 @@ class _ServiceendpointCheckmarxScaState:
         Input properties used for looking up and filtering ServiceendpointCheckmarxSca resources.
         :param pulumi.Input[_builtins.str] access_control_url: The Access Control URL of the Checkmarx SCA.
         :param pulumi.Input[_builtins.str] account: The account of the Checkmarx SCA.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] password: The password of the Checkmarx SCA.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] server_url: The Server URL of the Checkmarx SCA.
@@ -257,6 +262,9 @@ class _ServiceendpointCheckmarxScaState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -407,6 +415,7 @@ class ServiceendpointCheckmarxSca(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_control_url: The Access Control URL of the Checkmarx SCA.
         :param pulumi.Input[_builtins.str] account: The account of the Checkmarx SCA.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] password: The password of the Checkmarx SCA.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] server_url: The Server URL of the Checkmarx SCA.
@@ -552,6 +561,7 @@ class ServiceendpointCheckmarxSca(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_control_url: The Access Control URL of the Checkmarx SCA.
         :param pulumi.Input[_builtins.str] account: The account of the Checkmarx SCA.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] password: The password of the Checkmarx SCA.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] server_url: The Server URL of the Checkmarx SCA.
@@ -601,6 +611,9 @@ class ServiceendpointCheckmarxSca(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property

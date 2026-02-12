@@ -36,6 +36,7 @@ class ServiceendpointMavenArgs:
         :param pulumi.Input[_builtins.str] url: The URL of the Maven Repository.
         :param pulumi.Input['ServiceendpointMavenAuthenticationBasicArgs'] authentication_basic: A `authentication_basic` block as documented below.
         :param pulumi.Input['ServiceendpointMavenAuthenticationTokenArgs'] authentication_token: A `authentication_token` block as documented below.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to Managed by Terraform.
         """
         pulumi.set(__self__, "project_id", project_id)
         pulumi.set(__self__, "repository_id", repository_id)
@@ -123,6 +124,9 @@ class ServiceendpointMavenArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to Managed by Terraform.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -145,6 +149,7 @@ class _ServiceendpointMavenState:
         Input properties used for looking up and filtering ServiceendpointMaven resources.
         :param pulumi.Input['ServiceendpointMavenAuthenticationBasicArgs'] authentication_basic: A `authentication_basic` block as documented below.
         :param pulumi.Input['ServiceendpointMavenAuthenticationTokenArgs'] authentication_token: A `authentication_token` block as documented below.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to Managed by Terraform.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project. Changing this forces a new Service Connection Maven to be created.
         :param pulumi.Input[_builtins.str] repository_id: The ID of the server that matches the id element of the `repository/mirror` that Maven tries to connect to.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The name of the service endpoint. Changing this forces a new Service Connection Maven to be created.
@@ -203,6 +208,9 @@ class _ServiceendpointMavenState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to Managed by Terraform.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -334,6 +342,7 @@ class ServiceendpointMaven(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServiceendpointMavenAuthenticationBasicArgs', 'ServiceendpointMavenAuthenticationBasicArgsDict']] authentication_basic: A `authentication_basic` block as documented below.
         :param pulumi.Input[Union['ServiceendpointMavenAuthenticationTokenArgs', 'ServiceendpointMavenAuthenticationTokenArgsDict']] authentication_token: A `authentication_token` block as documented below.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to Managed by Terraform.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project. Changing this forces a new Service Connection Maven to be created.
         :param pulumi.Input[_builtins.str] repository_id: The ID of the server that matches the id element of the `repository/mirror` that Maven tries to connect to.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The name of the service endpoint. Changing this forces a new Service Connection Maven to be created.
@@ -477,6 +486,7 @@ class ServiceendpointMaven(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServiceendpointMavenAuthenticationBasicArgs', 'ServiceendpointMavenAuthenticationBasicArgsDict']] authentication_basic: A `authentication_basic` block as documented below.
         :param pulumi.Input[Union['ServiceendpointMavenAuthenticationTokenArgs', 'ServiceendpointMavenAuthenticationTokenArgsDict']] authentication_token: A `authentication_token` block as documented below.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to Managed by Terraform.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project. Changing this forces a new Service Connection Maven to be created.
         :param pulumi.Input[_builtins.str] repository_id: The ID of the server that matches the id element of the `repository/mirror` that Maven tries to connect to.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The name of the service endpoint. Changing this forces a new Service Connection Maven to be created.
@@ -520,6 +530,9 @@ class ServiceendpointMaven(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to Managed by Terraform.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property

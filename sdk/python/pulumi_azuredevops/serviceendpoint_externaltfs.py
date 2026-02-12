@@ -32,6 +32,7 @@ class ServiceendpointExternaltfsArgs:
         :param pulumi.Input[_builtins.str] connection_url: Azure DevOps Organization or TFS Project Collection Url.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         """
         pulumi.set(__self__, "auth_personal", auth_personal)
         pulumi.set(__self__, "connection_url", connection_url)
@@ -91,6 +92,9 @@ class ServiceendpointExternaltfsArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -111,6 +115,7 @@ class _ServiceendpointExternaltfsState:
         Input properties used for looking up and filtering ServiceendpointExternaltfs resources.
         :param pulumi.Input['ServiceendpointExternaltfsAuthPersonalArgs'] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[_builtins.str] connection_url: Azure DevOps Organization or TFS Project Collection Url.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
         """
@@ -163,6 +168,9 @@ class _ServiceendpointExternaltfsState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -247,6 +255,7 @@ class ServiceendpointExternaltfs(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServiceendpointExternaltfsAuthPersonalArgs', 'ServiceendpointExternaltfsAuthPersonalArgsDict']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[_builtins.str] connection_url: Azure DevOps Organization or TFS Project Collection Url.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
         """
@@ -361,6 +370,7 @@ class ServiceendpointExternaltfs(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServiceendpointExternaltfsAuthPersonalArgs', 'ServiceendpointExternaltfsAuthPersonalArgsDict']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[_builtins.str] connection_url: Azure DevOps Organization or TFS Project Collection Url.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
         """
@@ -400,6 +410,9 @@ class ServiceendpointExternaltfs(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property

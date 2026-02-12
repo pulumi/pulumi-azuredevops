@@ -84,7 +84,8 @@ type ServiceEndpointDockerRegistry struct {
 	pulumi.CustomResourceState
 
 	Authorization pulumi.StringMapOutput `pulumi:"authorization"`
-	Description   pulumi.StringPtrOutput `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The email for Docker account user.
 	DockerEmail pulumi.StringPtrOutput `pulumi:"dockerEmail"`
 	// The password for the account user identified above.
@@ -145,7 +146,8 @@ func GetServiceEndpointDockerRegistry(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ServiceEndpointDockerRegistry resources.
 type serviceEndpointDockerRegistryState struct {
 	Authorization map[string]string `pulumi:"authorization"`
-	Description   *string           `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description *string `pulumi:"description"`
 	// The email for Docker account user.
 	DockerEmail *string `pulumi:"dockerEmail"`
 	// The password for the account user identified above.
@@ -164,7 +166,8 @@ type serviceEndpointDockerRegistryState struct {
 
 type ServiceEndpointDockerRegistryState struct {
 	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrInput
 	// The email for Docker account user.
 	DockerEmail pulumi.StringPtrInput
 	// The password for the account user identified above.
@@ -186,6 +189,7 @@ func (ServiceEndpointDockerRegistryState) ElementType() reflect.Type {
 }
 
 type serviceEndpointDockerRegistryArgs struct {
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description *string `pulumi:"description"`
 	// The email for Docker account user.
 	DockerEmail *string `pulumi:"dockerEmail"`
@@ -205,6 +209,7 @@ type serviceEndpointDockerRegistryArgs struct {
 
 // The set of arguments for constructing a ServiceEndpointDockerRegistry resource.
 type ServiceEndpointDockerRegistryArgs struct {
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description pulumi.StringPtrInput
 	// The email for Docker account user.
 	DockerEmail pulumi.StringPtrInput
@@ -313,6 +318,7 @@ func (o ServiceEndpointDockerRegistryOutput) Authorization() pulumi.StringMapOut
 	return o.ApplyT(func(v *ServiceEndpointDockerRegistry) pulumi.StringMapOutput { return v.Authorization }).(pulumi.StringMapOutput)
 }
 
+// The Service Endpoint description. Defaults to `Managed by Terraform`.
 func (o ServiceEndpointDockerRegistryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointDockerRegistry) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

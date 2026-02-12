@@ -64,7 +64,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ## Import
     /// 
-    /// Azure DevOps Wiki can be imported using the `id`
+    /// Azure DevOps Wiki can be imported using the `Id`
     /// 
     /// ```sh
     /// $ pulumi import azuredevops:index/wiki:Wiki wiki 00000000-0000-0000-0000-000000000000

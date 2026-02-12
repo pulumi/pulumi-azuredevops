@@ -67,6 +67,9 @@ export class ServiceendpointIncomingwebhook extends pulumi.CustomResource {
     }
 
     declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The Service Endpoint description. Defaults to Managed by Terraform.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Http header name on which checksum will be sent.
@@ -137,6 +140,9 @@ export class ServiceendpointIncomingwebhook extends pulumi.CustomResource {
  */
 export interface ServiceendpointIncomingwebhookState {
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Service Endpoint description. Defaults to Managed by Terraform.
+     */
     description?: pulumi.Input<string>;
     /**
      * Http header name on which checksum will be sent.
@@ -164,6 +170,9 @@ export interface ServiceendpointIncomingwebhookState {
  * The set of arguments for constructing a ServiceendpointIncomingwebhook resource.
  */
 export interface ServiceendpointIncomingwebhookArgs {
+    /**
+     * The Service Endpoint description. Defaults to Managed by Terraform.
+     */
     description?: pulumi.Input<string>;
     /**
      * Http header name on which checksum will be sent.

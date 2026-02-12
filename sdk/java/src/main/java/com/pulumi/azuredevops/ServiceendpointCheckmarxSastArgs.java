@@ -16,9 +16,17 @@ public final class ServiceendpointCheckmarxSastArgs extends com.pulumi.resources
 
     public static final ServiceendpointCheckmarxSastArgs Empty = new ServiceendpointCheckmarxSastArgs();
 
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return The Service Endpoint description. Defaults to `Managed by Terraform`.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
@@ -159,11 +167,23 @@ public final class ServiceendpointCheckmarxSastArgs extends com.pulumi.resources
             $ = new ServiceendpointCheckmarxSastArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param description The Service Endpoint description. Defaults to `Managed by Terraform`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description The Service Endpoint description. Defaults to `Managed by Terraform`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }

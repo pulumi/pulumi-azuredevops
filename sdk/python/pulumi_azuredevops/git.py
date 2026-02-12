@@ -334,6 +334,204 @@ class Git(pulumi.CustomResource):
                  project_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Manages a git repository within Azure DevOps.
+
+        ~>**NOTE** Importing an existing repository and running `pulumi preview` will detect a difference on the `initialization` block. The `plan` and `apply` will then attempt to update the repository based on the `initialization` configurations. It may be necessary to ignore the `initialization` block from `plan` and `apply` to support configuring existing repositories imported into Terraform state.<br>
+
+        ~>**NOTE** 1. `initialization.init_type` is `Uninitialized`: Changing `source_type` or `source_url` will not recreate the repository, but initialize the repository.   <br>2. `initialization.init_type` is not `Uninitialized`:
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;1) Updating `init_type` will recreate the repository
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;2) Updating `source_type` or `source_url` will recreate the repository
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            name="Example Project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Example Git Repository",
+            default_branch="refs/heads/main",
+            initialization={
+                "init_type": "Clean",
+            })
+        ```
+
+        ## Example Usage
+
+        ### Create Git repository
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            name="Example Project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Example Empty Git Repository",
+            initialization={
+                "init_type": "Clean",
+            })
+        ```
+
+        ### Configure existing Git repository imported into Terraform state
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            name="Example Project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Example Git Repository",
+            default_branch="refs/heads/main",
+            initialization={
+                "init_type": "Clean",
+            })
+        ```
+
+        ### Create Fork of another Azure DevOps Git repository
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            name="Example Project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Example Git Repository",
+            default_branch="refs/heads/main",
+            initialization={
+                "init_type": "Clean",
+            })
+        example_fork = azuredevops.Git("example-fork",
+            project_id=example.id,
+            name="Example Fork Repository",
+            parent_repository_id=example_git.id,
+            initialization={
+                "init_type": "Fork",
+            })
+        ```
+
+        ### Create Import from another Git repository
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            name="Example Project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Example Git Repository",
+            default_branch="refs/heads/main",
+            initialization={
+                "init_type": "Clean",
+            })
+        example_import = azuredevops.Git("example-import",
+            project_id=example.id,
+            name="Example Import Repository",
+            initialization={
+                "init_type": "Import",
+                "source_type": "Git",
+                "source_url": "https://github.com/microsoft/terraform-provider-azuredevops.git",
+            })
+        ```
+
+        ### Import from a Private Repository
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            name="Example Project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Example Git Repository",
+            default_branch="refs/heads/main",
+            initialization={
+                "init_type": "Clean",
+            })
+        example_serviceendpoint = azuredevops.ServiceEndpointGenericGit("example-serviceendpoint",
+            project_id=example.id,
+            repository_url="https://dev.azure.com/org/project/_git/repository",
+            username="username",
+            password="<password>/<PAT>",
+            service_endpoint_name="Example Generic Git",
+            description="Managed by Pulumi")
+        # with service connection
+        example_import = azuredevops.Git("example-import",
+            project_id=example.id,
+            name="Example Import Existing Repository",
+            initialization={
+                "init_type": "Import",
+                "source_type": "Git",
+                "source_url": "https://dev.azure.com/example-org/private-repository.git",
+                "service_connection_id": example_serviceendpoint.id,
+            })
+        # with username/password
+        example_import2 = azuredevops.Git("example-import2",
+            project_id=example.id,
+            name="Example Import Existing Repository",
+            initialization={
+                "init_type": "Import",
+                "source_type": "Git",
+                "source_url": "https://dev.azure.com/example-org/private-repository.git",
+                "username": "username",
+                "password": "password",
+            })
+        ```
+
+        ### Disable a Git repository
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            name="Example Project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Example Empty Git Repository",
+            disabled=True,
+            initialization={
+                "init_type": "Clean",
+            })
+        ```
+
+        ## Relevant Links
+
+        - [Azure DevOps Service REST API 7.0 - Git Repositories](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-7.0)
+
+        ## PAT Permissions Required
+
+        - **Code**: Read, Create, & Manage.
+
         ## Import
 
         Azure DevOps Repositories can be imported using the repo name or by the repo Guid e.g.
@@ -364,6 +562,204 @@ class Git(pulumi.CustomResource):
                  args: GitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages a git repository within Azure DevOps.
+
+        ~>**NOTE** Importing an existing repository and running `pulumi preview` will detect a difference on the `initialization` block. The `plan` and `apply` will then attempt to update the repository based on the `initialization` configurations. It may be necessary to ignore the `initialization` block from `plan` and `apply` to support configuring existing repositories imported into Terraform state.<br>
+
+        ~>**NOTE** 1. `initialization.init_type` is `Uninitialized`: Changing `source_type` or `source_url` will not recreate the repository, but initialize the repository.   <br>2. `initialization.init_type` is not `Uninitialized`:
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;1) Updating `init_type` will recreate the repository
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;2) Updating `source_type` or `source_url` will recreate the repository
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            name="Example Project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Example Git Repository",
+            default_branch="refs/heads/main",
+            initialization={
+                "init_type": "Clean",
+            })
+        ```
+
+        ## Example Usage
+
+        ### Create Git repository
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            name="Example Project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Example Empty Git Repository",
+            initialization={
+                "init_type": "Clean",
+            })
+        ```
+
+        ### Configure existing Git repository imported into Terraform state
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            name="Example Project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Example Git Repository",
+            default_branch="refs/heads/main",
+            initialization={
+                "init_type": "Clean",
+            })
+        ```
+
+        ### Create Fork of another Azure DevOps Git repository
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            name="Example Project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Example Git Repository",
+            default_branch="refs/heads/main",
+            initialization={
+                "init_type": "Clean",
+            })
+        example_fork = azuredevops.Git("example-fork",
+            project_id=example.id,
+            name="Example Fork Repository",
+            parent_repository_id=example_git.id,
+            initialization={
+                "init_type": "Fork",
+            })
+        ```
+
+        ### Create Import from another Git repository
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            name="Example Project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Example Git Repository",
+            default_branch="refs/heads/main",
+            initialization={
+                "init_type": "Clean",
+            })
+        example_import = azuredevops.Git("example-import",
+            project_id=example.id,
+            name="Example Import Repository",
+            initialization={
+                "init_type": "Import",
+                "source_type": "Git",
+                "source_url": "https://github.com/microsoft/terraform-provider-azuredevops.git",
+            })
+        ```
+
+        ### Import from a Private Repository
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            name="Example Project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Example Git Repository",
+            default_branch="refs/heads/main",
+            initialization={
+                "init_type": "Clean",
+            })
+        example_serviceendpoint = azuredevops.ServiceEndpointGenericGit("example-serviceendpoint",
+            project_id=example.id,
+            repository_url="https://dev.azure.com/org/project/_git/repository",
+            username="username",
+            password="<password>/<PAT>",
+            service_endpoint_name="Example Generic Git",
+            description="Managed by Pulumi")
+        # with service connection
+        example_import = azuredevops.Git("example-import",
+            project_id=example.id,
+            name="Example Import Existing Repository",
+            initialization={
+                "init_type": "Import",
+                "source_type": "Git",
+                "source_url": "https://dev.azure.com/example-org/private-repository.git",
+                "service_connection_id": example_serviceendpoint.id,
+            })
+        # with username/password
+        example_import2 = azuredevops.Git("example-import2",
+            project_id=example.id,
+            name="Example Import Existing Repository",
+            initialization={
+                "init_type": "Import",
+                "source_type": "Git",
+                "source_url": "https://dev.azure.com/example-org/private-repository.git",
+                "username": "username",
+                "password": "password",
+            })
+        ```
+
+        ### Disable a Git repository
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            name="Example Project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        example_git = azuredevops.Git("example",
+            project_id=example.id,
+            name="Example Empty Git Repository",
+            disabled=True,
+            initialization={
+                "init_type": "Clean",
+            })
+        ```
+
+        ## Relevant Links
+
+        - [Azure DevOps Service REST API 7.0 - Git Repositories](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-7.0)
+
+        ## PAT Permissions Required
+
+        - **Code**: Read, Create, & Manage.
+
         ## Import
 
         Azure DevOps Repositories can be imported using the repo name or by the repo Guid e.g.

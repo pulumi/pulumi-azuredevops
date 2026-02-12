@@ -72,6 +72,9 @@ export class ServiceEndpointGenericGit extends pulumi.CustomResource {
     }
 
     declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
@@ -153,6 +156,9 @@ export class ServiceEndpointGenericGit extends pulumi.CustomResource {
  */
 export interface ServiceEndpointGenericGitState {
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
@@ -186,6 +192,9 @@ export interface ServiceEndpointGenericGitState {
  * The set of arguments for constructing a ServiceEndpointGenericGit resource.
  */
 export interface ServiceEndpointGenericGitArgs {
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * A value indicating whether or not to attempt accessing this git server from Azure Pipelines.

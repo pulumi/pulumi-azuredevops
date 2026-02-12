@@ -34,6 +34,7 @@ class ServiceEndpointAwsArgs:
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[_builtins.str] access_key_id: The AWS access key ID for signing programmatic requests.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] external_id: A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
         :param pulumi.Input[_builtins.str] role_session_name: Optional identifier for the assumed role session.
         :param pulumi.Input[_builtins.str] role_to_assume: The Amazon Resource Name (ARN) of the role to assume.
@@ -99,6 +100,9 @@ class ServiceEndpointAwsArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -195,6 +199,7 @@ class _ServiceEndpointAwsState:
         """
         Input properties used for looking up and filtering ServiceEndpointAws resources.
         :param pulumi.Input[_builtins.str] access_key_id: The AWS access key ID for signing programmatic requests.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] external_id: A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] role_session_name: Optional identifier for the assumed role session.
@@ -251,6 +256,9 @@ class _ServiceEndpointAwsState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -404,12 +412,13 @@ class ServiceEndpointAws(pulumi.CustomResource):
         Azure DevOps AWS Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
-        $ pulumi import azuredevops:index/serviceEndpointAws:ServiceEndpointAws  azuredevops_serviceendpoint_aws.example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:index/serviceEndpointAws:ServiceEndpointAws example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_key_id: The AWS access key ID for signing programmatic requests.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] external_id: A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] role_session_name: Optional identifier for the assumed role session.
@@ -458,7 +467,7 @@ class ServiceEndpointAws(pulumi.CustomResource):
         Azure DevOps AWS Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
-        $ pulumi import azuredevops:index/serviceEndpointAws:ServiceEndpointAws  azuredevops_serviceendpoint_aws.example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:index/serviceEndpointAws:ServiceEndpointAws example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
@@ -541,6 +550,7 @@ class ServiceEndpointAws(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_key_id: The AWS access key ID for signing programmatic requests.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] external_id: A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] role_session_name: Optional identifier for the assumed role session.
@@ -583,6 +593,9 @@ class ServiceEndpointAws(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property

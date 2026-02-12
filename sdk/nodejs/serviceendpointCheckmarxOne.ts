@@ -112,6 +112,9 @@ export class ServiceendpointCheckmarxOne extends pulumi.CustomResource {
      * > **Note** At least one of `apiKey` and `clientId`, `clientSecret` must be set
      */
     declare public readonly clientSecret: pulumi.Output<string | undefined>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the project.
@@ -199,6 +202,9 @@ export interface ServiceendpointCheckmarxOneState {
      * > **Note** At least one of `apiKey` and `clientId`, `clientSecret` must be set
      */
     clientSecret?: pulumi.Input<string>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * The ID of the project.
@@ -236,6 +242,9 @@ export interface ServiceendpointCheckmarxOneArgs {
      * > **Note** At least one of `apiKey` and `clientId`, `clientSecret` must be set
      */
     clientSecret?: pulumi.Input<string>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * The ID of the project.

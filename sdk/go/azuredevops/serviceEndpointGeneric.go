@@ -71,7 +71,8 @@ type ServiceEndpointGeneric struct {
 	pulumi.CustomResourceState
 
 	Authorization pulumi.StringMapOutput `pulumi:"authorization"`
-	Description   pulumi.StringPtrOutput `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The password or token key used to authenticate to the server url using basic authentication.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// The ID of the project.
@@ -131,7 +132,8 @@ func GetServiceEndpointGeneric(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ServiceEndpointGeneric resources.
 type serviceEndpointGenericState struct {
 	Authorization map[string]string `pulumi:"authorization"`
-	Description   *string           `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description *string `pulumi:"description"`
 	// The password or token key used to authenticate to the server url using basic authentication.
 	Password *string `pulumi:"password"`
 	// The ID of the project.
@@ -146,7 +148,8 @@ type serviceEndpointGenericState struct {
 
 type ServiceEndpointGenericState struct {
 	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrInput
 	// The password or token key used to authenticate to the server url using basic authentication.
 	Password pulumi.StringPtrInput
 	// The ID of the project.
@@ -164,6 +167,7 @@ func (ServiceEndpointGenericState) ElementType() reflect.Type {
 }
 
 type serviceEndpointGenericArgs struct {
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description *string `pulumi:"description"`
 	// The password or token key used to authenticate to the server url using basic authentication.
 	Password *string `pulumi:"password"`
@@ -179,6 +183,7 @@ type serviceEndpointGenericArgs struct {
 
 // The set of arguments for constructing a ServiceEndpointGeneric resource.
 type ServiceEndpointGenericArgs struct {
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description pulumi.StringPtrInput
 	// The password or token key used to authenticate to the server url using basic authentication.
 	Password pulumi.StringPtrInput
@@ -283,6 +288,7 @@ func (o ServiceEndpointGenericOutput) Authorization() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceEndpointGeneric) pulumi.StringMapOutput { return v.Authorization }).(pulumi.StringMapOutput)
 }
 
+// The Service Endpoint description. Defaults to `Managed by Terraform`.
 func (o ServiceEndpointGenericOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointGeneric) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

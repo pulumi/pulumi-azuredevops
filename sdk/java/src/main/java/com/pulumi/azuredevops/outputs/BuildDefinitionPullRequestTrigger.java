@@ -21,6 +21,10 @@ public final class BuildDefinitionPullRequestTrigger {
      * 
      */
     private BuildDefinitionPullRequestTriggerForks forks;
+    /**
+     * @return When useYaml is true set this to the name of the branch that the azure-pipelines.yml exists on. Defaults to `Managed by Terraform`.
+     * 
+     */
     private @Nullable String initialBranch;
     /**
      * @return Override the azure-pipeline file and use this configuration for all builds.
@@ -44,6 +48,10 @@ public final class BuildDefinitionPullRequestTrigger {
     public BuildDefinitionPullRequestTriggerForks forks() {
         return this.forks;
     }
+    /**
+     * @return When useYaml is true set this to the name of the branch that the azure-pipelines.yml exists on. Defaults to `Managed by Terraform`.
+     * 
+     */
     public Optional<String> initialBranch() {
         return Optional.ofNullable(this.initialBranch);
     }

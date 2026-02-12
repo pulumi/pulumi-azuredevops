@@ -55,9 +55,21 @@ public final class ServiceEndpointGitHubState extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.authorization);
     }
 
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     * 
+     * ~&gt;**NOTE:** GitHub Apps can not be created or updated via terraform. You must install and configure the app on GitHub and then import it. You must also set the `description` to &#34;&#34; explicitly.&#34;
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return The Service Endpoint description. Defaults to `Managed by Terraform`.
+     * 
+     * ~&gt;**NOTE:** GitHub Apps can not be created or updated via terraform. You must install and configure the app on GitHub and then import it. You must also set the `description` to &#34;&#34; explicitly.&#34;
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
@@ -172,11 +184,27 @@ public final class ServiceEndpointGitHubState extends com.pulumi.resources.Resou
             return authorization(Output.of(authorization));
         }
 
+        /**
+         * @param description The Service Endpoint description. Defaults to `Managed by Terraform`.
+         * 
+         * ~&gt;**NOTE:** GitHub Apps can not be created or updated via terraform. You must install and configure the app on GitHub and then import it. You must also set the `description` to &#34;&#34; explicitly.&#34;
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description The Service Endpoint description. Defaults to `Managed by Terraform`.
+         * 
+         * ~&gt;**NOTE:** GitHub Apps can not be created or updated via terraform. You must install and configure the app on GitHub and then import it. You must also set the `description` to &#34;&#34; explicitly.&#34;
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }

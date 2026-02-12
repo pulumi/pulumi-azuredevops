@@ -31,6 +31,7 @@ class ServiceEndpointDockerRegistryArgs:
         The set of arguments for constructing a ServiceEndpointDockerRegistry resource.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The name you will use to refer to this service connection in task inputs.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] docker_email: The email for Docker account user.
         :param pulumi.Input[_builtins.str] docker_password: The password for the account user identified above.
         :param pulumi.Input[_builtins.str] docker_registry: The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
@@ -79,6 +80,9 @@ class ServiceEndpointDockerRegistryArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -160,6 +164,7 @@ class _ServiceEndpointDockerRegistryState:
                  service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceEndpointDockerRegistry resources.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] docker_email: The email for Docker account user.
         :param pulumi.Input[_builtins.str] docker_password: The password for the account user identified above.
         :param pulumi.Input[_builtins.str] docker_registry: The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
@@ -199,6 +204,9 @@ class _ServiceEndpointDockerRegistryState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -353,6 +361,7 @@ class ServiceEndpointDockerRegistry(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] docker_email: The email for Docker account user.
         :param pulumi.Input[_builtins.str] docker_password: The password for the account user identified above.
         :param pulumi.Input[_builtins.str] docker_registry: The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
@@ -486,6 +495,7 @@ class ServiceEndpointDockerRegistry(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] docker_email: The email for Docker account user.
         :param pulumi.Input[_builtins.str] docker_password: The password for the account user identified above.
         :param pulumi.Input[_builtins.str] docker_registry: The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
@@ -517,6 +527,9 @@ class ServiceEndpointDockerRegistry(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property

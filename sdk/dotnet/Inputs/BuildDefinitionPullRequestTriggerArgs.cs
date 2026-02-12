@@ -21,6 +21,9 @@ namespace Pulumi.AzureDevOps.Inputs
         [Input("forks", required: true)]
         public Input<Inputs.BuildDefinitionPullRequestTriggerForksArgs> Forks { get; set; } = null!;
 
+        /// <summary>
+        /// When UseYaml is true set this to the name of the branch that the azure-pipelines.yml exists on. Defaults to `Managed by Terraform`.
+        /// </summary>
         [Input("initialBranch")]
         public Input<string>? InitialBranch { get; set; }
 

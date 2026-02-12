@@ -107,6 +107,11 @@ export class ServiceEndpointGitHubEnterprise extends pulumi.CustomResource {
      */
     declare public readonly authPersonal: pulumi.Output<outputs.ServiceEndpointGitHubEnterpriseAuthPersonal | undefined>;
     declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     *
+     * > **NOTE:** GitHub Apps can not be created or updated via terraform. You must install and configure the app on GitHub and then import it. You must also set the `description` to "" explicitly.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the project.
@@ -175,6 +180,11 @@ export interface ServiceEndpointGitHubEnterpriseState {
      */
     authPersonal?: pulumi.Input<inputs.ServiceEndpointGitHubEnterpriseAuthPersonal>;
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     *
+     * > **NOTE:** GitHub Apps can not be created or updated via terraform. You must install and configure the app on GitHub and then import it. You must also set the `description` to "" explicitly.
+     */
     description?: pulumi.Input<string>;
     /**
      * The ID of the project.
@@ -202,6 +212,11 @@ export interface ServiceEndpointGitHubEnterpriseArgs {
      * An `authPersonal` block as documented below. Allows connecting using a personal access token.
      */
     authPersonal?: pulumi.Input<inputs.ServiceEndpointGitHubEnterpriseAuthPersonal>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     *
+     * > **NOTE:** GitHub Apps can not be created or updated via terraform. You must install and configure the app on GitHub and then import it. You must also set the `description` to "" explicitly.
+     */
     description?: pulumi.Input<string>;
     /**
      * The ID of the project.

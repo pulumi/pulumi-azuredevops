@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  * Azure DevOps Projects can be imported using the project name or by the project Guid, e.g.
  * 
  * ```sh
- * $ pulumi import azuredevops:index/project:Project example &#34;Example Project&#34;
+ * terraform import azuredevops_project.example &#34;Example Project&#34;
  * ```
  * 
  * or

@@ -70,6 +70,9 @@ export class ServiceEndpointBitBucket extends pulumi.CustomResource {
     }
 
     declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Bitbucket account password.
@@ -134,6 +137,9 @@ export class ServiceEndpointBitBucket extends pulumi.CustomResource {
  */
 export interface ServiceEndpointBitBucketState {
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * Bitbucket account password.
@@ -157,6 +163,9 @@ export interface ServiceEndpointBitBucketState {
  * The set of arguments for constructing a ServiceEndpointBitBucket resource.
  */
 export interface ServiceEndpointBitBucketArgs {
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * Bitbucket account password.

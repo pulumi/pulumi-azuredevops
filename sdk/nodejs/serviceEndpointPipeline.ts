@@ -78,6 +78,9 @@ export class ServiceEndpointPipeline extends pulumi.CustomResource {
      */
     declare public readonly authPersonal: pulumi.Output<outputs.ServiceEndpointPipelineAuthPersonal>;
     declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The organization name used for `Organization Url` and `Release API Url` fields.
@@ -146,6 +149,9 @@ export interface ServiceEndpointPipelineState {
      */
     authPersonal?: pulumi.Input<inputs.ServiceEndpointPipelineAuthPersonal>;
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * The organization name used for `Organization Url` and `Release API Url` fields.
@@ -169,6 +175,9 @@ export interface ServiceEndpointPipelineArgs {
      * An `authPersonal` block as documented below. Allows connecting using a personal access token.
      */
     authPersonal: pulumi.Input<inputs.ServiceEndpointPipelineAuthPersonal>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * The organization name used for `Organization Url` and `Release API Url` fields.

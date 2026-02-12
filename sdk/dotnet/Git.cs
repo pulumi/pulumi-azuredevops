@@ -10,6 +10,307 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps
 {
     /// <summary>
+    /// Manages a git repository within Azure DevOps.
+    /// 
+    /// ~&gt;**NOTE** Importing an existing repository and running `pulumi preview` will detect a difference on the `Initialization` block. The `Plan` and `Apply` will then attempt to update the repository based on the `Initialization` configurations. It may be necessary to ignore the `Initialization` block from `Plan` and `Apply` to support configuring existing repositories imported into Terraform state.&lt;br&gt;
+    /// 
+    /// ~&gt;**NOTE** 1. `initialization.init_type` is `Uninitialized`: Changing `SourceType` or `SourceUrl` will not recreate the repository, but initialize the repository.   &lt;br&gt;2. `initialization.init_type` is not `Uninitialized`:
+    /// &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1) Updating `InitType` will recreate the repository
+    /// &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2) Updating `SourceType` or `SourceUrl` will recreate the repository
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new AzureDevOps.Project("example", new()
+    ///     {
+    ///         Name = "Example Project",
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///     });
+    /// 
+    ///     var exampleGit = new AzureDevOps.Git("example", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Example Git Repository",
+    ///         DefaultBranch = "refs/heads/main",
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///         {
+    ///             InitType = "Clean",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Create Git repository
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new AzureDevOps.Project("example", new()
+    ///     {
+    ///         Name = "Example Project",
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///     });
+    /// 
+    ///     var exampleGit = new AzureDevOps.Git("example", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Example Empty Git Repository",
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///         {
+    ///             InitType = "Clean",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Configure existing Git repository imported into Terraform state
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new AzureDevOps.Project("example", new()
+    ///     {
+    ///         Name = "Example Project",
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///     });
+    /// 
+    ///     var exampleGit = new AzureDevOps.Git("example", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Example Git Repository",
+    ///         DefaultBranch = "refs/heads/main",
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///         {
+    ///             InitType = "Clean",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Create Fork of another Azure DevOps Git repository
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new AzureDevOps.Project("example", new()
+    ///     {
+    ///         Name = "Example Project",
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///     });
+    /// 
+    ///     var exampleGit = new AzureDevOps.Git("example", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Example Git Repository",
+    ///         DefaultBranch = "refs/heads/main",
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///         {
+    ///             InitType = "Clean",
+    ///         },
+    ///     });
+    /// 
+    ///     var example_fork = new AzureDevOps.Git("example-fork", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Example Fork Repository",
+    ///         ParentRepositoryId = exampleGit.Id,
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///         {
+    ///             InitType = "Fork",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Create Import from another Git repository
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new AzureDevOps.Project("example", new()
+    ///     {
+    ///         Name = "Example Project",
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///     });
+    /// 
+    ///     var exampleGit = new AzureDevOps.Git("example", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Example Git Repository",
+    ///         DefaultBranch = "refs/heads/main",
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///         {
+    ///             InitType = "Clean",
+    ///         },
+    ///     });
+    /// 
+    ///     var example_import = new AzureDevOps.Git("example-import", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Example Import Repository",
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///         {
+    ///             InitType = "Import",
+    ///             SourceType = "Git",
+    ///             SourceUrl = "https://github.com/microsoft/terraform-provider-azuredevops.git",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Import from a Private Repository
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new AzureDevOps.Project("example", new()
+    ///     {
+    ///         Name = "Example Project",
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///     });
+    /// 
+    ///     var exampleGit = new AzureDevOps.Git("example", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Example Git Repository",
+    ///         DefaultBranch = "refs/heads/main",
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///         {
+    ///             InitType = "Clean",
+    ///         },
+    ///     });
+    /// 
+    ///     var example_serviceendpoint = new AzureDevOps.ServiceEndpointGenericGit("example-serviceendpoint", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         RepositoryUrl = "https://dev.azure.com/org/project/_git/repository",
+    ///         Username = "username",
+    ///         Password = "&lt;password&gt;/&lt;PAT&gt;",
+    ///         ServiceEndpointName = "Example Generic Git",
+    ///         Description = "Managed by Pulumi",
+    ///     });
+    /// 
+    ///     // with service connection
+    ///     var example_import = new AzureDevOps.Git("example-import", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Example Import Existing Repository",
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///         {
+    ///             InitType = "Import",
+    ///             SourceType = "Git",
+    ///             SourceUrl = "https://dev.azure.com/example-org/private-repository.git",
+    ///             ServiceConnectionId = example_serviceendpoint.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     // with username/password
+    ///     var example_import2 = new AzureDevOps.Git("example-import2", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Example Import Existing Repository",
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///         {
+    ///             InitType = "Import",
+    ///             SourceType = "Git",
+    ///             SourceUrl = "https://dev.azure.com/example-org/private-repository.git",
+    ///             Username = "username",
+    ///             Password = "password",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Disable a Git repository
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new AzureDevOps.Project("example", new()
+    ///     {
+    ///         Name = "Example Project",
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///     });
+    /// 
+    ///     var exampleGit = new AzureDevOps.Git("example", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Example Empty Git Repository",
+    ///         Disabled = true,
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///         {
+    ///             InitType = "Clean",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Relevant Links
+    /// 
+    /// - [Azure DevOps Service REST API 7.0 - Git Repositories](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-7.0)
+    /// 
+    /// ## PAT Permissions Required
+    /// 
+    /// - **Code**: Read, Create, &amp; Manage.
+    /// 
     /// ## Import
     /// 
     /// Azure DevOps Repositories can be imported using the repo name or by the repo Guid e.g.

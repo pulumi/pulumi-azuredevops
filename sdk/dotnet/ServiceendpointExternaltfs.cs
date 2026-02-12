@@ -76,6 +76,9 @@ namespace Pulumi.AzureDevOps
         [Output("connectionUrl")]
         public Output<string> ConnectionUrl { get; private set; } = null!;
 
+        /// <summary>
+        /// The Service Endpoint description. Defaults to `Managed by Terraform`.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -149,6 +152,9 @@ namespace Pulumi.AzureDevOps
         [Input("connectionUrl", required: true)]
         public Input<string> ConnectionUrl { get; set; } = null!;
 
+        /// <summary>
+        /// The Service Endpoint description. Defaults to `Managed by Terraform`.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -192,6 +198,9 @@ namespace Pulumi.AzureDevOps
         [Input("connectionUrl")]
         public Input<string>? ConnectionUrl { get; set; }
 
+        /// <summary>
+        /// The Service Endpoint description. Defaults to `Managed by Terraform`.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

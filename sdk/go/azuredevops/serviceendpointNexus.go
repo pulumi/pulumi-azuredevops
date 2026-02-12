@@ -67,7 +67,8 @@ type ServiceendpointNexus struct {
 	pulumi.CustomResourceState
 
 	Authorization pulumi.StringMapOutput `pulumi:"authorization"`
-	Description   pulumi.StringPtrOutput `pulumi:"description"`
+	// The Service Endpoint description. Defaults to Managed by Terraform.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The Service Endpoint password to authenticate at the Nexus IQ Instance.
 	Password pulumi.StringOutput `pulumi:"password"`
 	// The ID of the project. Changing this forces a new Service Connection Nexus to be created.
@@ -133,7 +134,8 @@ func GetServiceendpointNexus(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ServiceendpointNexus resources.
 type serviceendpointNexusState struct {
 	Authorization map[string]string `pulumi:"authorization"`
-	Description   *string           `pulumi:"description"`
+	// The Service Endpoint description. Defaults to Managed by Terraform.
+	Description *string `pulumi:"description"`
 	// The Service Endpoint password to authenticate at the Nexus IQ Instance.
 	Password *string `pulumi:"password"`
 	// The ID of the project. Changing this forces a new Service Connection Nexus to be created.
@@ -148,7 +150,8 @@ type serviceendpointNexusState struct {
 
 type ServiceendpointNexusState struct {
 	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to Managed by Terraform.
+	Description pulumi.StringPtrInput
 	// The Service Endpoint password to authenticate at the Nexus IQ Instance.
 	Password pulumi.StringPtrInput
 	// The ID of the project. Changing this forces a new Service Connection Nexus to be created.
@@ -166,6 +169,7 @@ func (ServiceendpointNexusState) ElementType() reflect.Type {
 }
 
 type serviceendpointNexusArgs struct {
+	// The Service Endpoint description. Defaults to Managed by Terraform.
 	Description *string `pulumi:"description"`
 	// The Service Endpoint password to authenticate at the Nexus IQ Instance.
 	Password string `pulumi:"password"`
@@ -181,6 +185,7 @@ type serviceendpointNexusArgs struct {
 
 // The set of arguments for constructing a ServiceendpointNexus resource.
 type ServiceendpointNexusArgs struct {
+	// The Service Endpoint description. Defaults to Managed by Terraform.
 	Description pulumi.StringPtrInput
 	// The Service Endpoint password to authenticate at the Nexus IQ Instance.
 	Password pulumi.StringInput
@@ -285,6 +290,7 @@ func (o ServiceendpointNexusOutput) Authorization() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceendpointNexus) pulumi.StringMapOutput { return v.Authorization }).(pulumi.StringMapOutput)
 }
 
+// The Service Endpoint description. Defaults to Managed by Terraform.
 func (o ServiceendpointNexusOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointNexus) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

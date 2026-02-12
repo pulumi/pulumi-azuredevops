@@ -18,6 +18,412 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages a git repository within Azure DevOps.
+ * 
+ * ~&gt;**NOTE** Importing an existing repository and running `pulumi preview` will detect a difference on the `initialization` block. The `plan` and `apply` will then attempt to update the repository based on the `initialization` configurations. It may be necessary to ignore the `initialization` block from `plan` and `apply` to support configuring existing repositories imported into Terraform state.&lt;br&gt;
+ * 
+ * ~&gt;**NOTE** 1. `initialization.init_type` is `Uninitialized`: Changing `sourceType` or `sourceUrl` will not recreate the repository, but initialize the repository.   &lt;br&gt;2. `initialization.init_type` is not `Uninitialized`:
+ * &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1) Updating `initType` will recreate the repository
+ * &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2) Updating `sourceType` or `sourceUrl` will recreate the repository
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
+ * import com.pulumi.azuredevops.Git;
+ * import com.pulumi.azuredevops.GitArgs;
+ * import com.pulumi.azuredevops.inputs.GitInitializationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Project("example", ProjectArgs.builder()
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .build());
+ * 
+ *         var exampleGit = new Git("exampleGit", GitArgs.builder()
+ *             .projectId(example.id())
+ *             .name("Example Git Repository")
+ *             .defaultBranch("refs/heads/main")
+ *             .initialization(GitInitializationArgs.builder()
+ *                 .initType("Clean")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Example Usage
+ * 
+ * ### Create Git repository
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
+ * import com.pulumi.azuredevops.Git;
+ * import com.pulumi.azuredevops.GitArgs;
+ * import com.pulumi.azuredevops.inputs.GitInitializationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Project("example", ProjectArgs.builder()
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .build());
+ * 
+ *         var exampleGit = new Git("exampleGit", GitArgs.builder()
+ *             .projectId(example.id())
+ *             .name("Example Empty Git Repository")
+ *             .initialization(GitInitializationArgs.builder()
+ *                 .initType("Clean")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Configure existing Git repository imported into Terraform state
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
+ * import com.pulumi.azuredevops.Git;
+ * import com.pulumi.azuredevops.GitArgs;
+ * import com.pulumi.azuredevops.inputs.GitInitializationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Project("example", ProjectArgs.builder()
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .build());
+ * 
+ *         var exampleGit = new Git("exampleGit", GitArgs.builder()
+ *             .projectId(example.id())
+ *             .name("Example Git Repository")
+ *             .defaultBranch("refs/heads/main")
+ *             .initialization(GitInitializationArgs.builder()
+ *                 .initType("Clean")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Create Fork of another Azure DevOps Git repository
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
+ * import com.pulumi.azuredevops.Git;
+ * import com.pulumi.azuredevops.GitArgs;
+ * import com.pulumi.azuredevops.inputs.GitInitializationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Project("example", ProjectArgs.builder()
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .build());
+ * 
+ *         var exampleGit = new Git("exampleGit", GitArgs.builder()
+ *             .projectId(example.id())
+ *             .name("Example Git Repository")
+ *             .defaultBranch("refs/heads/main")
+ *             .initialization(GitInitializationArgs.builder()
+ *                 .initType("Clean")
+ *                 .build())
+ *             .build());
+ * 
+ *         var example_fork = new Git("example-fork", GitArgs.builder()
+ *             .projectId(example.id())
+ *             .name("Example Fork Repository")
+ *             .parentRepositoryId(exampleGit.id())
+ *             .initialization(GitInitializationArgs.builder()
+ *                 .initType("Fork")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Create Import from another Git repository
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
+ * import com.pulumi.azuredevops.Git;
+ * import com.pulumi.azuredevops.GitArgs;
+ * import com.pulumi.azuredevops.inputs.GitInitializationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Project("example", ProjectArgs.builder()
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .build());
+ * 
+ *         var exampleGit = new Git("exampleGit", GitArgs.builder()
+ *             .projectId(example.id())
+ *             .name("Example Git Repository")
+ *             .defaultBranch("refs/heads/main")
+ *             .initialization(GitInitializationArgs.builder()
+ *                 .initType("Clean")
+ *                 .build())
+ *             .build());
+ * 
+ *         var example_import = new Git("example-import", GitArgs.builder()
+ *             .projectId(example.id())
+ *             .name("Example Import Repository")
+ *             .initialization(GitInitializationArgs.builder()
+ *                 .initType("Import")
+ *                 .sourceType("Git")
+ *                 .sourceUrl("https://github.com/microsoft/terraform-provider-azuredevops.git")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Import from a Private Repository
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
+ * import com.pulumi.azuredevops.Git;
+ * import com.pulumi.azuredevops.GitArgs;
+ * import com.pulumi.azuredevops.inputs.GitInitializationArgs;
+ * import com.pulumi.azuredevops.ServiceEndpointGenericGit;
+ * import com.pulumi.azuredevops.ServiceEndpointGenericGitArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Project("example", ProjectArgs.builder()
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .build());
+ * 
+ *         var exampleGit = new Git("exampleGit", GitArgs.builder()
+ *             .projectId(example.id())
+ *             .name("Example Git Repository")
+ *             .defaultBranch("refs/heads/main")
+ *             .initialization(GitInitializationArgs.builder()
+ *                 .initType("Clean")
+ *                 .build())
+ *             .build());
+ * 
+ *         var example_serviceendpoint = new ServiceEndpointGenericGit("example-serviceendpoint", ServiceEndpointGenericGitArgs.builder()
+ *             .projectId(example.id())
+ *             .repositoryUrl("https://dev.azure.com/org/project/_git/repository")
+ *             .username("username")
+ *             .password("<password>/<PAT>")
+ *             .serviceEndpointName("Example Generic Git")
+ *             .description("Managed by Pulumi")
+ *             .build());
+ * 
+ *         // with service connection
+ *         var example_import = new Git("example-import", GitArgs.builder()
+ *             .projectId(example.id())
+ *             .name("Example Import Existing Repository")
+ *             .initialization(GitInitializationArgs.builder()
+ *                 .initType("Import")
+ *                 .sourceType("Git")
+ *                 .sourceUrl("https://dev.azure.com/example-org/private-repository.git")
+ *                 .serviceConnectionId(example_serviceendpoint.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         // with username/password
+ *         var example_import2 = new Git("example-import2", GitArgs.builder()
+ *             .projectId(example.id())
+ *             .name("Example Import Existing Repository")
+ *             .initialization(GitInitializationArgs.builder()
+ *                 .initType("Import")
+ *                 .sourceType("Git")
+ *                 .sourceUrl("https://dev.azure.com/example-org/private-repository.git")
+ *                 .username("username")
+ *                 .password("password")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Disable a Git repository
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
+ * import com.pulumi.azuredevops.Git;
+ * import com.pulumi.azuredevops.GitArgs;
+ * import com.pulumi.azuredevops.inputs.GitInitializationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Project("example", ProjectArgs.builder()
+ *             .name("Example Project")
+ *             .visibility("private")
+ *             .versionControl("Git")
+ *             .workItemTemplate("Agile")
+ *             .build());
+ * 
+ *         var exampleGit = new Git("exampleGit", GitArgs.builder()
+ *             .projectId(example.id())
+ *             .name("Example Empty Git Repository")
+ *             .disabled(true)
+ *             .initialization(GitInitializationArgs.builder()
+ *                 .initType("Clean")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Relevant Links
+ * 
+ * - [Azure DevOps Service REST API 7.0 - Git Repositories](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-7.0)
+ * 
+ * ## PAT Permissions Required
+ * 
+ * - **Code**: Read, Create, &amp; Manage.
+ * 
  * ## Import
  * 
  * Azure DevOps Repositories can be imported using the repo name or by the repo Guid e.g.

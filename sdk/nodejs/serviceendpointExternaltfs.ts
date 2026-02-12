@@ -82,6 +82,9 @@ export class ServiceendpointExternaltfs extends pulumi.CustomResource {
      * Azure DevOps Organization or TFS Project Collection Url.
      */
     declare public readonly connectionUrl: pulumi.Output<string>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the project.
@@ -150,6 +153,9 @@ export interface ServiceendpointExternaltfsState {
      * Azure DevOps Organization or TFS Project Collection Url.
      */
     connectionUrl?: pulumi.Input<string>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * The ID of the project.
@@ -173,6 +179,9 @@ export interface ServiceendpointExternaltfsArgs {
      * Azure DevOps Organization or TFS Project Collection Url.
      */
     connectionUrl: pulumi.Input<string>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * The ID of the project.

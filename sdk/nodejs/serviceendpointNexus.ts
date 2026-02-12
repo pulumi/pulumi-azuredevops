@@ -68,6 +68,9 @@ export class ServiceendpointNexus extends pulumi.CustomResource {
     }
 
     declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The Service Endpoint description. Defaults to Managed by Terraform.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The Service Endpoint password to authenticate at the Nexus IQ Instance.
@@ -147,6 +150,9 @@ export class ServiceendpointNexus extends pulumi.CustomResource {
  */
 export interface ServiceendpointNexusState {
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Service Endpoint description. Defaults to Managed by Terraform.
+     */
     description?: pulumi.Input<string>;
     /**
      * The Service Endpoint password to authenticate at the Nexus IQ Instance.
@@ -174,6 +180,9 @@ export interface ServiceendpointNexusState {
  * The set of arguments for constructing a ServiceendpointNexus resource.
  */
 export interface ServiceendpointNexusArgs {
+    /**
+     * The Service Endpoint description. Defaults to Managed by Terraform.
+     */
     description?: pulumi.Input<string>;
     /**
      * The Service Endpoint password to authenticate at the Nexus IQ Instance.

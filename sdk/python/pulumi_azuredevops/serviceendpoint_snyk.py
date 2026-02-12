@@ -30,6 +30,7 @@ class ServiceendpointSnykArgs:
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] server_url: The server URL of the Snyk Security Scan.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         """
         pulumi.set(__self__, "api_token", api_token)
         pulumi.set(__self__, "project_id", project_id)
@@ -89,6 +90,9 @@ class ServiceendpointSnykArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -108,6 +112,7 @@ class _ServiceendpointSnykState:
         """
         Input properties used for looking up and filtering ServiceendpointSnyk resources.
         :param pulumi.Input[_builtins.str] api_token: The API token of the Snyk Security Scan.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] server_url: The server URL of the Snyk Security Scan.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
@@ -149,6 +154,9 @@ class _ServiceendpointSnykState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -242,6 +250,7 @@ class ServiceendpointSnyk(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_token: The API token of the Snyk Security Scan.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] server_url: The server URL of the Snyk Security Scan.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
@@ -356,6 +365,7 @@ class ServiceendpointSnyk(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_token: The API token of the Snyk Security Scan.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] server_url: The server URL of the Snyk Security Scan.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
@@ -388,6 +398,9 @@ class ServiceendpointSnyk(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property

@@ -121,7 +121,8 @@ type ServiceendpointVisualstudiomarketplace struct {
 	// An `authenticationToken` block as documented below.
 	AuthenticationToken ServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrOutput `pulumi:"authenticationToken"`
 	Authorization       pulumi.StringMapOutput                                             `pulumi:"authorization"`
-	Description         pulumi.StringPtrOutput                                             `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The Service Endpoint name.
@@ -176,7 +177,8 @@ type serviceendpointVisualstudiomarketplaceState struct {
 	// An `authenticationToken` block as documented below.
 	AuthenticationToken *ServiceendpointVisualstudiomarketplaceAuthenticationToken `pulumi:"authenticationToken"`
 	Authorization       map[string]string                                          `pulumi:"authorization"`
-	Description         *string                                                    `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description *string `pulumi:"description"`
 	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// The Service Endpoint name.
@@ -193,7 +195,8 @@ type ServiceendpointVisualstudiomarketplaceState struct {
 	// An `authenticationToken` block as documented below.
 	AuthenticationToken ServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrInput
 	Authorization       pulumi.StringMapInput
-	Description         pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// The Service Endpoint name.
@@ -213,7 +216,8 @@ type serviceendpointVisualstudiomarketplaceArgs struct {
 	AuthenticationBasic *ServiceendpointVisualstudiomarketplaceAuthenticationBasic `pulumi:"authenticationBasic"`
 	// An `authenticationToken` block as documented below.
 	AuthenticationToken *ServiceendpointVisualstudiomarketplaceAuthenticationToken `pulumi:"authenticationToken"`
-	Description         *string                                                    `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description *string `pulumi:"description"`
 	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// The Service Endpoint name.
@@ -230,7 +234,8 @@ type ServiceendpointVisualstudiomarketplaceArgs struct {
 	AuthenticationBasic ServiceendpointVisualstudiomarketplaceAuthenticationBasicPtrInput
 	// An `authenticationToken` block as documented below.
 	AuthenticationToken ServiceendpointVisualstudiomarketplaceAuthenticationTokenPtrInput
-	Description         pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// The Service Endpoint name.
@@ -346,6 +351,7 @@ func (o ServiceendpointVisualstudiomarketplaceOutput) Authorization() pulumi.Str
 	return o.ApplyT(func(v *ServiceendpointVisualstudiomarketplace) pulumi.StringMapOutput { return v.Authorization }).(pulumi.StringMapOutput)
 }
 
+// The Service Endpoint description. Defaults to `Managed by Terraform`.
 func (o ServiceendpointVisualstudiomarketplaceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointVisualstudiomarketplace) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

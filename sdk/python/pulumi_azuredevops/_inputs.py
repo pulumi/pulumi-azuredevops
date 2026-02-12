@@ -223,38 +223,33 @@ __all__ = [
     'GetUsersFeaturesArgsDict',
 ]
 
-MYPY = False
+class BranchPolicyAutoReviewersSettingsArgsDict(TypedDict):
+    auto_reviewer_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Required reviewers ids. Supports multiples user Ids.
+    """
+    scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyAutoReviewersSettingsScopeArgsDict']]]
+    """
+    A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+    """
+    message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Activity feed message, Message will appear in the activity feed of pull requests with automatically added reviewers.
+    """
+    minimum_number_of_reviewers: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Minimum number of required reviewers. Defaults to `1`.
 
-if not MYPY:
-    class BranchPolicyAutoReviewersSettingsArgsDict(TypedDict):
-        auto_reviewer_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Required reviewers ids. Supports multiples user Ids.
-        """
-        scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyAutoReviewersSettingsScopeArgsDict']]]
-        """
-        A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
-        """
-        message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Activity feed message, Message will appear in the activity feed of pull requests with automatically added reviewers.
-        """
-        minimum_number_of_reviewers: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Minimum number of required reviewers. Defaults to `1`.
-
-        > **Note** Has to be greater than `0`. Can only be greater than `1` when attribute `auto_reviewer_ids` contains exactly one group! Only has an effect when attribute `blocking` is set to `true`.
-        """
-        path_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Filter path(s) on which the policy is applied. Supports absolute paths, wildcards and multiple paths. Example: /WebApp/Models/Data.cs, /WebApp/* or *.cs,/WebApp/Models/Data.cs;ClientApp/Models/Data.cs.
-        """
-        submitter_can_vote: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Controls whether or not the submitter's vote counts. Defaults to `false`.
-        """
-elif False:
-    BranchPolicyAutoReviewersSettingsArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note** Has to be greater than `0`. Can only be greater than `1` when attribute `auto_reviewer_ids` contains exactly one group! Only has an effect when attribute `blocking` is set to `true`.
+    """
+    path_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Filter path(s) on which the policy is applied. Supports absolute paths, wildcards and multiple paths. Example: /WebApp/Models/Data.cs, /WebApp/* or *.cs,/WebApp/Models/Data.cs;ClientApp/Models/Data.cs.
+    """
+    submitter_can_vote: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Controls whether or not the submitter's vote counts. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class BranchPolicyAutoReviewersSettingsArgs:
@@ -361,22 +356,19 @@ class BranchPolicyAutoReviewersSettingsArgs:
         pulumi.set(self, "submitter_can_vote", value)
 
 
-if not MYPY:
-    class BranchPolicyAutoReviewersSettingsScopeArgsDict(TypedDict):
-        match_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
-        """
-        repository_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
-        """
-        repository_ref: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
-        """
-elif False:
-    BranchPolicyAutoReviewersSettingsScopeArgsDict: TypeAlias = Mapping[str, Any]
+class BranchPolicyAutoReviewersSettingsScopeArgsDict(TypedDict):
+    match_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
+    """
+    repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
+    """
+    repository_ref: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+    """
 
 @pulumi.input_type
 class BranchPolicyAutoReviewersSettingsScopeArgs:
@@ -433,43 +425,40 @@ class BranchPolicyAutoReviewersSettingsScopeArgs:
         pulumi.set(self, "repository_ref", value)
 
 
-if not MYPY:
-    class BranchPolicyBuildValidationSettingsArgsDict(TypedDict):
-        build_definition_id: pulumi.Input[_builtins.int]
-        """
-        The ID of the build to monitor for the policy.
-        """
-        display_name: pulumi.Input[_builtins.str]
-        """
-        The display name for the policy.
-        """
-        scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyBuildValidationSettingsScopeArgsDict']]]
-        """
-        A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
-        """
-        filename_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
-        """
-        manual_queue_only: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If set to true, the build will need to be manually queued. Defaults to `false`
-        """
-        queue_on_source_update_only: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        True if the build should queue on source updates only. Defaults to `true`.
-        """
-        valid_duration: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
+class BranchPolicyBuildValidationSettingsArgsDict(TypedDict):
+    build_definition_id: pulumi.Input[_builtins.int]
+    """
+    The ID of the build to monitor for the policy.
+    """
+    display_name: pulumi.Input[_builtins.str]
+    """
+    The display name for the policy.
+    """
+    scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyBuildValidationSettingsScopeArgsDict']]]
+    """
+    A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+    """
+    filename_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+    """
+    manual_queue_only: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If set to true, the build will need to be manually queued. Defaults to `false`
+    """
+    queue_on_source_update_only: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    True if the build should queue on source updates only. Defaults to `true`.
+    """
+    valid_duration: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
 
-        > **Note** Combine `valid_duration` and `queue_on_source_update_only` to set the build expiration.
-        1.  Expire immediately when branch is updated: `valid_duration=0` and `queue_on_source_update_only=false`
-        2.  Expire after a period of time : `valid_duration=360` and `queue_on_source_update_only=true`
-        3.  Never expire: `valid_duration=0` and `queue_on_source_update_only=true`
-        """
-elif False:
-    BranchPolicyBuildValidationSettingsArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note** Combine `valid_duration` and `queue_on_source_update_only` to set the build expiration.
+    1.  Expire immediately when branch is updated: `valid_duration=0` and `queue_on_source_update_only=false`
+    2.  Expire after a period of time : `valid_duration=360` and `queue_on_source_update_only=true`
+    3.  Never expire: `valid_duration=0` and `queue_on_source_update_only=true`
+    """
 
 @pulumi.input_type
 class BranchPolicyBuildValidationSettingsArgs:
@@ -597,22 +586,19 @@ class BranchPolicyBuildValidationSettingsArgs:
         pulumi.set(self, "valid_duration", value)
 
 
-if not MYPY:
-    class BranchPolicyBuildValidationSettingsScopeArgsDict(TypedDict):
-        match_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
-        """
-        repository_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
-        """
-        repository_ref: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
-        """
-elif False:
-    BranchPolicyBuildValidationSettingsScopeArgsDict: TypeAlias = Mapping[str, Any]
+class BranchPolicyBuildValidationSettingsScopeArgsDict(TypedDict):
+    match_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
+    """
+    repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
+    """
+    repository_ref: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+    """
 
 @pulumi.input_type
 class BranchPolicyBuildValidationSettingsScopeArgs:
@@ -669,14 +655,11 @@ class BranchPolicyBuildValidationSettingsScopeArgs:
         pulumi.set(self, "repository_ref", value)
 
 
-if not MYPY:
-    class BranchPolicyCommentResolutionSettingsArgsDict(TypedDict):
-        scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyCommentResolutionSettingsScopeArgsDict']]]
-        """
-        A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
-        """
-elif False:
-    BranchPolicyCommentResolutionSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class BranchPolicyCommentResolutionSettingsArgsDict(TypedDict):
+    scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyCommentResolutionSettingsScopeArgsDict']]]
+    """
+    A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+    """
 
 @pulumi.input_type
 class BranchPolicyCommentResolutionSettingsArgs:
@@ -700,22 +683,19 @@ class BranchPolicyCommentResolutionSettingsArgs:
         pulumi.set(self, "scopes", value)
 
 
-if not MYPY:
-    class BranchPolicyCommentResolutionSettingsScopeArgsDict(TypedDict):
-        match_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
-        """
-        repository_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
-        """
-        repository_ref: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
-        """
-elif False:
-    BranchPolicyCommentResolutionSettingsScopeArgsDict: TypeAlias = Mapping[str, Any]
+class BranchPolicyCommentResolutionSettingsScopeArgsDict(TypedDict):
+    match_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
+    """
+    repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
+    """
+    repository_ref: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+    """
 
 @pulumi.input_type
 class BranchPolicyCommentResolutionSettingsScopeArgs:
@@ -772,30 +752,27 @@ class BranchPolicyCommentResolutionSettingsScopeArgs:
         pulumi.set(self, "repository_ref", value)
 
 
-if not MYPY:
-    class BranchPolicyMergeTypesSettingsArgsDict(TypedDict):
-        scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyMergeTypesSettingsScopeArgsDict']]]
-        """
-        A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
-        """
-        allow_basic_no_fast_forward: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Allow basic merge with no fast forward. Defaults to `false`.
-        """
-        allow_rebase_and_fast_forward: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Allow rebase with fast forward. Defaults to `false`.
-        """
-        allow_rebase_with_merge: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Allow rebase with merge commit. Defaults to `false`.
-        """
-        allow_squash: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Allow squash merge. Defaults to `false`
-        """
-elif False:
-    BranchPolicyMergeTypesSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class BranchPolicyMergeTypesSettingsArgsDict(TypedDict):
+    scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyMergeTypesSettingsScopeArgsDict']]]
+    """
+    A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+    """
+    allow_basic_no_fast_forward: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Allow basic merge with no fast forward. Defaults to `false`.
+    """
+    allow_rebase_and_fast_forward: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Allow rebase with fast forward. Defaults to `false`.
+    """
+    allow_rebase_with_merge: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Allow rebase with merge commit. Defaults to `false`.
+    """
+    allow_squash: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Allow squash merge. Defaults to `false`
+    """
 
 @pulumi.input_type
 class BranchPolicyMergeTypesSettingsArgs:
@@ -883,22 +860,19 @@ class BranchPolicyMergeTypesSettingsArgs:
         pulumi.set(self, "allow_squash", value)
 
 
-if not MYPY:
-    class BranchPolicyMergeTypesSettingsScopeArgsDict(TypedDict):
-        match_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
-        """
-        repository_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
-        """
-        repository_ref: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
-        """
-elif False:
-    BranchPolicyMergeTypesSettingsScopeArgsDict: TypeAlias = Mapping[str, Any]
+class BranchPolicyMergeTypesSettingsScopeArgsDict(TypedDict):
+    match_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
+    """
+    repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
+    """
+    repository_ref: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+    """
 
 @pulumi.input_type
 class BranchPolicyMergeTypesSettingsScopeArgs:
@@ -955,44 +929,41 @@ class BranchPolicyMergeTypesSettingsScopeArgs:
         pulumi.set(self, "repository_ref", value)
 
 
-if not MYPY:
-    class BranchPolicyMinReviewersSettingsArgsDict(TypedDict):
-        scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyMinReviewersSettingsScopeArgsDict']]]
-        """
-        A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
-        """
-        allow_completion_with_rejects_or_waits: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
-        """
-        last_pusher_cannot_approve: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Prohibit the most recent pusher from approving their own changes. Defaults to `false`.
-        """
-        on_last_iteration_require_vote: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        On last iteration require vote. Defaults to `false`.
-        """
-        on_push_reset_all_votes: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+class BranchPolicyMinReviewersSettingsArgsDict(TypedDict):
+    scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyMinReviewersSettingsScopeArgsDict']]]
+    """
+    A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+    """
+    allow_completion_with_rejects_or_waits: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
+    """
+    last_pusher_cannot_approve: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Prohibit the most recent pusher from approving their own changes. Defaults to `false`.
+    """
+    on_last_iteration_require_vote: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    On last iteration require vote. Defaults to `false`.
+    """
+    on_push_reset_all_votes: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When new changes are pushed reset all code reviewer votes. Defaults to `false`.
 
-        > **Note:** If `on_push_reset_all_votes` is `true` then `on_push_reset_approved_votes` will be set to `true`. To enable `on_push_reset_approved_votes`, you need explicitly set `on_push_reset_all_votes` `false` or not configure.
-        """
-        on_push_reset_approved_votes: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
-        """
-        reviewer_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of reviewers needed to approve.
-        """
-        submitter_can_vote: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Allow requesters to approve their own changes. Defaults to `false`.
-        """
-elif False:
-    BranchPolicyMinReviewersSettingsArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** If `on_push_reset_all_votes` is `true` then `on_push_reset_approved_votes` will be set to `true`. To enable `on_push_reset_approved_votes`, you need explicitly set `on_push_reset_all_votes` `false` or not configure.
+    """
+    on_push_reset_approved_votes: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
+    """
+    reviewer_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of reviewers needed to approve.
+    """
+    submitter_can_vote: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Allow requesters to approve their own changes. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class BranchPolicyMinReviewersSettingsArgs:
@@ -1132,22 +1103,19 @@ class BranchPolicyMinReviewersSettingsArgs:
         pulumi.set(self, "submitter_can_vote", value)
 
 
-if not MYPY:
-    class BranchPolicyMinReviewersSettingsScopeArgsDict(TypedDict):
-        match_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
-        """
-        repository_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
-        """
-        repository_ref: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
-        """
-elif False:
-    BranchPolicyMinReviewersSettingsScopeArgsDict: TypeAlias = Mapping[str, Any]
+class BranchPolicyMinReviewersSettingsScopeArgsDict(TypedDict):
+    match_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
+    """
+    repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
+    """
+    repository_ref: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+    """
 
 @pulumi.input_type
 class BranchPolicyMinReviewersSettingsScopeArgs:
@@ -1204,47 +1172,44 @@ class BranchPolicyMinReviewersSettingsScopeArgs:
         pulumi.set(self, "repository_ref", value)
 
 
-if not MYPY:
-    class BranchPolicyStatusCheckSettingsArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The status name to check.
-        """
-        scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyStatusCheckSettingsScopeArgsDict']]]
-        """
-        A `scope` block as defined below.
-        """
-        applicability: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Policy applicability. If policy `applicability=default`, apply unless "Not Applicable"
-        status is posted to the pull request. If policy `applicability=conditional`, policy is applied only after a status
-        is posted to the pull request. Possible values `default`, `conditional`. Defaults to `default`.
-        """
-        author_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The authorized user can post the status.
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The display name.
-        """
-        filename_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        If a path filter is set, the policy will only apply when files which match the filter are changed. Not setting this field means that the policy is always applied.
+class BranchPolicyStatusCheckSettingsArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The status name to check.
+    """
+    scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyStatusCheckSettingsScopeArgsDict']]]
+    """
+    A `scope` block as defined below.
+    """
+    applicability: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Policy applicability. If policy `applicability=default`, apply unless "Not Applicable"
+    status is posted to the pull request. If policy `applicability=conditional`, policy is applied only after a status
+    is posted to the pull request. Possible values `default`, `conditional`. Defaults to `default`.
+    """
+    author_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The authorized user can post the status.
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The display name.
+    """
+    filename_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    If a path filter is set, the policy will only apply when files which match the filter are changed. Not setting this field means that the policy is always applied.
 
-        ~>**NOTE** 1. Specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`.
-        <br> 2. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
-        """
-        genre: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The genre of the status to check (see [Microsoft Documentation](https://docs.microsoft.com/en-us/azure/devops/repos/git/pull-request-status?view=azure-devops#status-policy))
-        """
-        invalidate_on_update: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Reset status whenever there are new changes.
-        """
-elif False:
-    BranchPolicyStatusCheckSettingsArgsDict: TypeAlias = Mapping[str, Any]
+    ~>**NOTE** 1. Specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`.
+    <br> 2. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+    """
+    genre: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The genre of the status to check (see [Microsoft Documentation](https://docs.microsoft.com/en-us/azure/devops/repos/git/pull-request-status?view=azure-devops#status-policy))
+    """
+    invalidate_on_update: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Reset status whenever there are new changes.
+    """
 
 @pulumi.input_type
 class BranchPolicyStatusCheckSettingsArgs:
@@ -1389,22 +1354,19 @@ class BranchPolicyStatusCheckSettingsArgs:
         pulumi.set(self, "invalidate_on_update", value)
 
 
-if not MYPY:
-    class BranchPolicyStatusCheckSettingsScopeArgsDict(TypedDict):
-        match_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
-        """
-        repository_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type=DefaultBranch`, this should not be defined.
-        """
-        repository_ref: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type=Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type=Prefix`, this should be a ref path such as `refs/heads/releases`.
-        """
-elif False:
-    BranchPolicyStatusCheckSettingsScopeArgsDict: TypeAlias = Mapping[str, Any]
+class BranchPolicyStatusCheckSettingsScopeArgsDict(TypedDict):
+    match_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
+    """
+    repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type=DefaultBranch`, this should not be defined.
+    """
+    repository_ref: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type=Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type=Prefix`, this should be a ref path such as `refs/heads/releases`.
+    """
 
 @pulumi.input_type
 class BranchPolicyStatusCheckSettingsScopeArgs:
@@ -1461,14 +1423,11 @@ class BranchPolicyStatusCheckSettingsScopeArgs:
         pulumi.set(self, "repository_ref", value)
 
 
-if not MYPY:
-    class BranchPolicyWorkItemLinkingSettingsArgsDict(TypedDict):
-        scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyWorkItemLinkingSettingsScopeArgsDict']]]
-        """
-        A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
-        """
-elif False:
-    BranchPolicyWorkItemLinkingSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class BranchPolicyWorkItemLinkingSettingsArgsDict(TypedDict):
+    scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyWorkItemLinkingSettingsScopeArgsDict']]]
+    """
+    A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+    """
 
 @pulumi.input_type
 class BranchPolicyWorkItemLinkingSettingsArgs:
@@ -1492,22 +1451,19 @@ class BranchPolicyWorkItemLinkingSettingsArgs:
         pulumi.set(self, "scopes", value)
 
 
-if not MYPY:
-    class BranchPolicyWorkItemLinkingSettingsScopeArgsDict(TypedDict):
-        match_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
-        """
-        repository_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
-        """
-        repository_ref: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
-        """
-elif False:
-    BranchPolicyWorkItemLinkingSettingsScopeArgsDict: TypeAlias = Mapping[str, Any]
+class BranchPolicyWorkItemLinkingSettingsScopeArgsDict(TypedDict):
+    match_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
+    """
+    repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
+    """
+    repository_ref: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+    """
 
 @pulumi.input_type
 class BranchPolicyWorkItemLinkingSettingsScopeArgs:
@@ -1564,18 +1520,15 @@ class BranchPolicyWorkItemLinkingSettingsScopeArgs:
         pulumi.set(self, "repository_ref", value)
 
 
-if not MYPY:
-    class BuildDefinitionBuildCompletionTriggerArgsDict(TypedDict):
-        branch_filters: pulumi.Input[Sequence[pulumi.Input['BuildDefinitionBuildCompletionTriggerBranchFilterArgsDict']]]
-        """
-        The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
-        """
-        build_definition_id: pulumi.Input[_builtins.int]
-        """
-        The ID of the build pipeline will be triggered.
-        """
-elif False:
-    BuildDefinitionBuildCompletionTriggerArgsDict: TypeAlias = Mapping[str, Any]
+class BuildDefinitionBuildCompletionTriggerArgsDict(TypedDict):
+    branch_filters: pulumi.Input[Sequence[pulumi.Input['BuildDefinitionBuildCompletionTriggerBranchFilterArgsDict']]]
+    """
+    The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
+    """
+    build_definition_id: pulumi.Input[_builtins.int]
+    """
+    The ID of the build pipeline will be triggered.
+    """
 
 @pulumi.input_type
 class BuildDefinitionBuildCompletionTriggerArgs:
@@ -1614,18 +1567,15 @@ class BuildDefinitionBuildCompletionTriggerArgs:
         pulumi.set(self, "build_definition_id", value)
 
 
-if not MYPY:
-    class BuildDefinitionBuildCompletionTriggerBranchFilterArgsDict(TypedDict):
-        excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of branch patterns to exclude.
-        """
-        includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of branch patterns to include.
-        """
-elif False:
-    BuildDefinitionBuildCompletionTriggerBranchFilterArgsDict: TypeAlias = Mapping[str, Any]
+class BuildDefinitionBuildCompletionTriggerBranchFilterArgsDict(TypedDict):
+    excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of branch patterns to exclude.
+    """
+    includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of branch patterns to include.
+    """
 
 @pulumi.input_type
 class BuildDefinitionBuildCompletionTriggerBranchFilterArgs:
@@ -1666,18 +1616,15 @@ class BuildDefinitionBuildCompletionTriggerBranchFilterArgs:
         pulumi.set(self, "includes", value)
 
 
-if not MYPY:
-    class BuildDefinitionCiTriggerArgsDict(TypedDict):
-        override: NotRequired[pulumi.Input['BuildDefinitionCiTriggerOverrideArgsDict']]
-        """
-        Override the azure-pipeline file and use a this configuration for all builds.
-        """
-        use_yaml: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Use the azure-pipeline file for the build configuration. Defaults to `false`.
-        """
-elif False:
-    BuildDefinitionCiTriggerArgsDict: TypeAlias = Mapping[str, Any]
+class BuildDefinitionCiTriggerArgsDict(TypedDict):
+    override: NotRequired[pulumi.Input['BuildDefinitionCiTriggerOverrideArgsDict']]
+    """
+    Override the azure-pipeline file and use a this configuration for all builds.
+    """
+    use_yaml: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Use the azure-pipeline file for the build configuration. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class BuildDefinitionCiTriggerArgs:
@@ -1718,34 +1665,31 @@ class BuildDefinitionCiTriggerArgs:
         pulumi.set(self, "use_yaml", value)
 
 
-if not MYPY:
-    class BuildDefinitionCiTriggerOverrideArgsDict(TypedDict):
-        branch_filters: pulumi.Input[Sequence[pulumi.Input['BuildDefinitionCiTriggerOverrideBranchFilterArgsDict']]]
-        """
-        The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
-        """
-        batch: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.
-        """
-        max_concurrent_builds_per_branch: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of max builds per branch. Defaults to `1`.
-        """
-        path_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionCiTriggerOverridePathFilterArgsDict']]]]
-        """
-        Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
-        """
-        polling_interval: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        How often the external repository is polled. Defaults to `0`.
-        """
-        polling_job_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This is the ID of the polling job that polls the external repository. Once the build definition is saved/updated, this value is set.
-        """
-elif False:
-    BuildDefinitionCiTriggerOverrideArgsDict: TypeAlias = Mapping[str, Any]
+class BuildDefinitionCiTriggerOverrideArgsDict(TypedDict):
+    branch_filters: pulumi.Input[Sequence[pulumi.Input['BuildDefinitionCiTriggerOverrideBranchFilterArgsDict']]]
+    """
+    The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
+    """
+    batch: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.
+    """
+    max_concurrent_builds_per_branch: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of max builds per branch. Defaults to `1`.
+    """
+    path_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionCiTriggerOverridePathFilterArgsDict']]]]
+    """
+    Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+    """
+    polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    How often the external repository is polled. Defaults to `0`.
+    """
+    polling_job_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This is the ID of the polling job that polls the external repository. Once the build definition is saved/updated, this value is set.
+    """
 
 @pulumi.input_type
 class BuildDefinitionCiTriggerOverrideArgs:
@@ -1849,18 +1793,15 @@ class BuildDefinitionCiTriggerOverrideArgs:
         pulumi.set(self, "polling_job_id", value)
 
 
-if not MYPY:
-    class BuildDefinitionCiTriggerOverrideBranchFilterArgsDict(TypedDict):
-        excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of branch patterns to exclude.
-        """
-        includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of branch patterns to include.
-        """
-elif False:
-    BuildDefinitionCiTriggerOverrideBranchFilterArgsDict: TypeAlias = Mapping[str, Any]
+class BuildDefinitionCiTriggerOverrideBranchFilterArgsDict(TypedDict):
+    excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of branch patterns to exclude.
+    """
+    includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of branch patterns to include.
+    """
 
 @pulumi.input_type
 class BuildDefinitionCiTriggerOverrideBranchFilterArgs:
@@ -1901,18 +1842,15 @@ class BuildDefinitionCiTriggerOverrideBranchFilterArgs:
         pulumi.set(self, "includes", value)
 
 
-if not MYPY:
-    class BuildDefinitionCiTriggerOverridePathFilterArgsDict(TypedDict):
-        excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of path patterns to exclude.
-        """
-        includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of path patterns to include.
-        """
-elif False:
-    BuildDefinitionCiTriggerOverridePathFilterArgsDict: TypeAlias = Mapping[str, Any]
+class BuildDefinitionCiTriggerOverridePathFilterArgsDict(TypedDict):
+    excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of path patterns to exclude.
+    """
+    includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of path patterns to include.
+    """
 
 @pulumi.input_type
 class BuildDefinitionCiTriggerOverridePathFilterArgs:
@@ -1953,16 +1891,13 @@ class BuildDefinitionCiTriggerOverridePathFilterArgs:
         pulumi.set(self, "includes", value)
 
 
-if not MYPY:
-    class BuildDefinitionFeatureArgsDict(TypedDict):
-        skip_first_run: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Trigger the pipeline to run after the creation. Defaults to `true`.
+class BuildDefinitionFeatureArgsDict(TypedDict):
+    skip_first_run: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Trigger the pipeline to run after the creation. Defaults to `true`.
 
-        > **Note** The first run(`skip_first_run = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
-        """
-elif False:
-    BuildDefinitionFeatureArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note** The first run(`skip_first_run = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
+    """
 
 @pulumi.input_type
 class BuildDefinitionFeatureArgs:
@@ -1991,46 +1926,43 @@ class BuildDefinitionFeatureArgs:
         pulumi.set(self, "skip_first_run", value)
 
 
-if not MYPY:
-    class BuildDefinitionJobArgsDict(TypedDict):
-        condition: pulumi.Input[_builtins.str]
-        """
-        Specifies when this job should run. Can **Custom conditions** to specify more complex conditions. Possible values: `succeeded()`, `succeededOrFailed()`, `always()`, `failed()` etc. More details: [Pipeline conditions](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/conditions?view=azure-devops)
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the job.
-        """
-        ref_name: pulumi.Input[_builtins.str]
-        """
-        The reference name of the job, can be used to define the job dependencies.
-        """
-        target: pulumi.Input['BuildDefinitionJobTargetArgsDict']
-        """
-        A `target` blocks as documented below.
-        """
-        allow_scripts_auth_access_option: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enables scripts and other processes launched by tasks to access the OAuth token through the `System.AccessToken` variable. Possible values: `true`, `false`. Defaults to `false`. Available when Job type is `AgentJob`
-        """
-        dependencies: NotRequired[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionJobDependencyArgsDict']]]]
-        """
-        A `dependencies` blocks as documented below. Define the job dependencies.
-        """
-        job_authorization_scope: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
-        """
-        job_cancel_timeout_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The job cancel timeout (in minutes) for builds cancelled by user for this definition. Possible values are between `0` and `60`. Defaults to `0`.
-        """
-        job_timeout_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The job execution timeout (in minutes) for builds queued against this definition. Possible values are between `0` and `1000000000`. Defaults to `0`.
-        """
-elif False:
-    BuildDefinitionJobArgsDict: TypeAlias = Mapping[str, Any]
+class BuildDefinitionJobArgsDict(TypedDict):
+    condition: pulumi.Input[_builtins.str]
+    """
+    Specifies when this job should run. Can **Custom conditions** to specify more complex conditions. Possible values: `succeeded()`, `succeededOrFailed()`, `always()`, `failed()` etc. More details: [Pipeline conditions](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/conditions?view=azure-devops)
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the job.
+    """
+    ref_name: pulumi.Input[_builtins.str]
+    """
+    The reference name of the job, can be used to define the job dependencies.
+    """
+    target: pulumi.Input['BuildDefinitionJobTargetArgsDict']
+    """
+    A `target` blocks as documented below.
+    """
+    allow_scripts_auth_access_option: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables scripts and other processes launched by tasks to access the OAuth token through the `System.AccessToken` variable. Possible values: `true`, `false`. Defaults to `false`. Available when Job type is `AgentJob`
+    """
+    dependencies: NotRequired[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionJobDependencyArgsDict']]]]
+    """
+    A `dependencies` blocks as documented below. Define the job dependencies.
+    """
+    job_authorization_scope: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
+    """
+    job_cancel_timeout_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The job cancel timeout (in minutes) for builds cancelled by user for this definition. Possible values are between `0` and `60`. Defaults to `0`.
+    """
+    job_timeout_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The job execution timeout (in minutes) for builds queued against this definition. Possible values are between `0` and `1000000000`. Defaults to `0`.
+    """
 
 @pulumi.input_type
 class BuildDefinitionJobArgs:
@@ -2179,14 +2111,11 @@ class BuildDefinitionJobArgs:
         pulumi.set(self, "job_timeout_in_minutes", value)
 
 
-if not MYPY:
-    class BuildDefinitionJobDependencyArgsDict(TypedDict):
-        scope: pulumi.Input[_builtins.str]
-        """
-        The job reference name that depends on. Reference to `jobs.ref_name`
-        """
-elif False:
-    BuildDefinitionJobDependencyArgsDict: TypeAlias = Mapping[str, Any]
+class BuildDefinitionJobDependencyArgsDict(TypedDict):
+    scope: pulumi.Input[_builtins.str]
+    """
+    The job reference name that depends on. Reference to `jobs.ref_name`
+    """
 
 @pulumi.input_type
 class BuildDefinitionJobDependencyArgs:
@@ -2210,22 +2139,19 @@ class BuildDefinitionJobDependencyArgs:
         pulumi.set(self, "scope", value)
 
 
-if not MYPY:
-    class BuildDefinitionJobTargetArgsDict(TypedDict):
-        execution_options: pulumi.Input['BuildDefinitionJobTargetExecutionOptionsArgsDict']
-        """
-        A `execution_options` blocks as documented below.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The job type. Possible values: `AgentJob`, `AgentlessJob`
-        """
-        demands: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of demands that represents the agent capabilities required by this build. Example: `git`
-        """
-elif False:
-    BuildDefinitionJobTargetArgsDict: TypeAlias = Mapping[str, Any]
+class BuildDefinitionJobTargetArgsDict(TypedDict):
+    execution_options: pulumi.Input['BuildDefinitionJobTargetExecutionOptionsArgsDict']
+    """
+    A `execution_options` blocks as documented below.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The job type. Possible values: `AgentJob`, `AgentlessJob`
+    """
+    demands: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of demands that represents the agent capabilities required by this build. Example: `git`
+    """
 
 @pulumi.input_type
 class BuildDefinitionJobTargetArgs:
@@ -2280,26 +2206,23 @@ class BuildDefinitionJobTargetArgs:
         pulumi.set(self, "demands", value)
 
 
-if not MYPY:
-    class BuildDefinitionJobTargetExecutionOptionsArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        The execution type of the Job. Possible values are: `None`, `Multi-Configuration`, `Multi-Agent`.
-        """
-        continue_on_error: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to continue the job when an error occurs. Possible values are: `true`, `false`.
-        """
-        max_concurrency: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Limit the number of agents to be used. If job type is `AgentlessJob`, the concurrency is not configurable and is fixed to 50.
-        """
-        multipliers: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A list of comma separated configuration variables to use. These are defined on the Variables tab. For example, OperatingSystem, Browser will run the tasks for both variables. Available when `execution_options.type` is `Multi-Configuration`.
-        """
-elif False:
-    BuildDefinitionJobTargetExecutionOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class BuildDefinitionJobTargetExecutionOptionsArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The execution type of the Job. Possible values are: `None`, `Multi-Configuration`, `Multi-Agent`.
+    """
+    continue_on_error: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to continue the job when an error occurs. Possible values are: `true`, `false`.
+    """
+    max_concurrency: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Limit the number of agents to be used. If job type is `AgentlessJob`, the concurrency is not configurable and is fixed to 50.
+    """
+    multipliers: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A list of comma separated configuration variables to use. These are defined on the Variables tab. For example, OperatingSystem, Browser will run the tasks for both variables. Available when `execution_options.type` is `Multi-Configuration`.
+    """
 
 @pulumi.input_type
 class BuildDefinitionJobTargetExecutionOptionsArgs:
@@ -2371,24 +2294,24 @@ class BuildDefinitionJobTargetExecutionOptionsArgs:
         pulumi.set(self, "multipliers", value)
 
 
-if not MYPY:
-    class BuildDefinitionPullRequestTriggerArgsDict(TypedDict):
-        forks: pulumi.Input['BuildDefinitionPullRequestTriggerForksArgsDict']
-        """
-        Set permissions for Forked repositories.
-        """
-        comment_required: NotRequired[pulumi.Input[_builtins.str]]
-        initial_branch: NotRequired[pulumi.Input[_builtins.str]]
-        override: NotRequired[pulumi.Input['BuildDefinitionPullRequestTriggerOverrideArgsDict']]
-        """
-        Override the azure-pipeline file and use this configuration for all builds.
-        """
-        use_yaml: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Use the azure-pipeline file for the build configuration. Defaults to `false`.
-        """
-elif False:
-    BuildDefinitionPullRequestTriggerArgsDict: TypeAlias = Mapping[str, Any]
+class BuildDefinitionPullRequestTriggerArgsDict(TypedDict):
+    forks: pulumi.Input['BuildDefinitionPullRequestTriggerForksArgsDict']
+    """
+    Set permissions for Forked repositories.
+    """
+    comment_required: NotRequired[pulumi.Input[_builtins.str]]
+    initial_branch: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    When use_yaml is true set this to the name of the branch that the azure-pipelines.yml exists on. Defaults to `Managed by Terraform`.
+    """
+    override: NotRequired[pulumi.Input['BuildDefinitionPullRequestTriggerOverrideArgsDict']]
+    """
+    Override the azure-pipeline file and use this configuration for all builds.
+    """
+    use_yaml: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Use the azure-pipeline file for the build configuration. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class BuildDefinitionPullRequestTriggerArgs:
@@ -2400,6 +2323,7 @@ class BuildDefinitionPullRequestTriggerArgs:
                  use_yaml: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         :param pulumi.Input['BuildDefinitionPullRequestTriggerForksArgs'] forks: Set permissions for Forked repositories.
+        :param pulumi.Input[_builtins.str] initial_branch: When use_yaml is true set this to the name of the branch that the azure-pipelines.yml exists on. Defaults to `Managed by Terraform`.
         :param pulumi.Input['BuildDefinitionPullRequestTriggerOverrideArgs'] override: Override the azure-pipeline file and use this configuration for all builds.
         :param pulumi.Input[_builtins.bool] use_yaml: Use the azure-pipeline file for the build configuration. Defaults to `false`.
         """
@@ -2437,6 +2361,9 @@ class BuildDefinitionPullRequestTriggerArgs:
     @_builtins.property
     @pulumi.getter(name="initialBranch")
     def initial_branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        When use_yaml is true set this to the name of the branch that the azure-pipelines.yml exists on. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "initial_branch")
 
     @initial_branch.setter
@@ -2468,18 +2395,15 @@ class BuildDefinitionPullRequestTriggerArgs:
         pulumi.set(self, "use_yaml", value)
 
 
-if not MYPY:
-    class BuildDefinitionPullRequestTriggerForksArgsDict(TypedDict):
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Build pull requests from forks of this repository.
-        """
-        share_secrets: pulumi.Input[_builtins.bool]
-        """
-        Make secrets available to builds of forks.
-        """
-elif False:
-    BuildDefinitionPullRequestTriggerForksArgsDict: TypeAlias = Mapping[str, Any]
+class BuildDefinitionPullRequestTriggerForksArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Build pull requests from forks of this repository.
+    """
+    share_secrets: pulumi.Input[_builtins.bool]
+    """
+    Make secrets available to builds of forks.
+    """
 
 @pulumi.input_type
 class BuildDefinitionPullRequestTriggerForksArgs:
@@ -2518,22 +2442,19 @@ class BuildDefinitionPullRequestTriggerForksArgs:
         pulumi.set(self, "share_secrets", value)
 
 
-if not MYPY:
-    class BuildDefinitionPullRequestTriggerOverrideArgsDict(TypedDict):
-        branch_filters: pulumi.Input[Sequence[pulumi.Input['BuildDefinitionPullRequestTriggerOverrideBranchFilterArgsDict']]]
-        """
-        The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
-        """
-        auto_cancel: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        . Defaults to `true`.
-        """
-        path_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionPullRequestTriggerOverridePathFilterArgsDict']]]]
-        """
-        Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
-        """
-elif False:
-    BuildDefinitionPullRequestTriggerOverrideArgsDict: TypeAlias = Mapping[str, Any]
+class BuildDefinitionPullRequestTriggerOverrideArgsDict(TypedDict):
+    branch_filters: pulumi.Input[Sequence[pulumi.Input['BuildDefinitionPullRequestTriggerOverrideBranchFilterArgsDict']]]
+    """
+    The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
+    """
+    auto_cancel: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    . Defaults to `true`.
+    """
+    path_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionPullRequestTriggerOverridePathFilterArgsDict']]]]
+    """
+    Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+    """
 
 @pulumi.input_type
 class BuildDefinitionPullRequestTriggerOverrideArgs:
@@ -2589,18 +2510,15 @@ class BuildDefinitionPullRequestTriggerOverrideArgs:
         pulumi.set(self, "path_filters", value)
 
 
-if not MYPY:
-    class BuildDefinitionPullRequestTriggerOverrideBranchFilterArgsDict(TypedDict):
-        excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of branch patterns to exclude.
-        """
-        includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of branch patterns to include.
-        """
-elif False:
-    BuildDefinitionPullRequestTriggerOverrideBranchFilterArgsDict: TypeAlias = Mapping[str, Any]
+class BuildDefinitionPullRequestTriggerOverrideBranchFilterArgsDict(TypedDict):
+    excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of branch patterns to exclude.
+    """
+    includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of branch patterns to include.
+    """
 
 @pulumi.input_type
 class BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs:
@@ -2641,18 +2559,15 @@ class BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs:
         pulumi.set(self, "includes", value)
 
 
-if not MYPY:
-    class BuildDefinitionPullRequestTriggerOverridePathFilterArgsDict(TypedDict):
-        excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of path patterns to exclude.
-        """
-        includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of path patterns to include.
-        """
-elif False:
-    BuildDefinitionPullRequestTriggerOverridePathFilterArgsDict: TypeAlias = Mapping[str, Any]
+class BuildDefinitionPullRequestTriggerOverridePathFilterArgsDict(TypedDict):
+    excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of path patterns to exclude.
+    """
+    includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of path patterns to include.
+    """
 
 @pulumi.input_type
 class BuildDefinitionPullRequestTriggerOverridePathFilterArgs:
@@ -2693,42 +2608,39 @@ class BuildDefinitionPullRequestTriggerOverridePathFilterArgs:
         pulumi.set(self, "includes", value)
 
 
-if not MYPY:
-    class BuildDefinitionRepositoryArgsDict(TypedDict):
-        repo_id: pulumi.Input[_builtins.str]
-        """
-        The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
-        """
-        repo_type: pulumi.Input[_builtins.str]
-        """
-        The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise` or `Git`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
-        """
-        branch_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The branch name for which builds are triggered. Defaults to `master`.
-        """
-        github_enterprise_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`. Conflict with `url`
-        """
-        report_build_status: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Report build status. Default is true.
-        """
-        service_connection_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The service connection ID. Used if the `repo_type` is `GitHub` or `GitHubEnterprise`.
-        """
-        url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL of the Git repository. Used if `repo_type` is `Git`. Conflict with `github_enterprise_url`
-        """
-        yml_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The path of the Yaml file describing the build definition.
-        """
-elif False:
-    BuildDefinitionRepositoryArgsDict: TypeAlias = Mapping[str, Any]
+class BuildDefinitionRepositoryArgsDict(TypedDict):
+    repo_id: pulumi.Input[_builtins.str]
+    """
+    The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
+    """
+    repo_type: pulumi.Input[_builtins.str]
+    """
+    The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise` or `Git`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+    """
+    branch_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The branch name for which builds are triggered. Defaults to `master`.
+    """
+    github_enterprise_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`. Conflict with `url`
+    """
+    report_build_status: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Report build status. Default is true.
+    """
+    service_connection_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The service connection ID. Used if the `repo_type` is `GitHub` or `GitHubEnterprise`.
+    """
+    url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL of the Git repository. Used if `repo_type` is `Git`. Conflict with `github_enterprise_url`
+    """
+    yml_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The path of the Yaml file describing the build definition.
+    """
 
 @pulumi.input_type
 class BuildDefinitionRepositoryArgs:
@@ -2863,179 +2775,176 @@ class BuildDefinitionRepositoryArgs:
         pulumi.set(self, "yml_path", value)
 
 
-if not MYPY:
-    class BuildDefinitionScheduleArgsDict(TypedDict):
-        branch_filters: pulumi.Input[Sequence[pulumi.Input['BuildDefinitionScheduleBranchFilterArgsDict']]]
-        """
-        A `branch_filter` block as defined below.
-        """
-        days_to_builds: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        When to build. Possible values are: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
-        """
-        schedule_job_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the schedule job
-        """
-        schedule_only_with_changes: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Schedule builds if the source or pipeline has changed. Defaults to `true`.
-        """
-        start_hours: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Build start hour. Possible values are: `0 ~ 23`. Defaults to `0`.
-        """
-        start_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Build start minute. Possible values are: `0 ~ 59`. Defaults to `0`.
-        """
-        time_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Possible values are:
-        `(UTC-12:00) International Date Line West`,
-        `(UTC-11:00) Coordinated Universal Time-11`,
-        `(UTC-10:00) Aleutian Islands`,
-        `(UTC-10:00) Hawaii`,
-        `(UTC-09:30) Marquesas Islands`,
-        `(UTC-09:00) Alaska`,
-        `(UTC-09:00) Coordinated Universal Time-09`,
-        `(UTC-08:00) Baja California`,
-        `(UTC-08:00) Coordinated Universal Time-08`,
-        `(UTC-08:00) Pacific Time (US &Canada)`,
-        `(UTC-07:00) Arizona`,
-        `(UTC-07:00) Chihuahua, La Paz, Mazatlan`,
-        `(UTC-07:00) Mountain Time (US &Canada)`,
-        `(UTC-07:00) Yukon`,
-        `(UTC-06:00) Central America`,
-        `(UTC-06:00) Central Time (US &Canada)`,
-        `(UTC-06:00) Easter Island`,
-        `(UTC-06:00) Guadalajara, Mexico City, Monterrey`,
-        `(UTC-06:00) Saskatchewan`,
-        `(UTC-05:00) Bogota, Lima, Quito, Rio Branco`,
-        `(UTC-05:00) Chetumal`,
-        `(UTC-05:00) Eastern Time (US &Canada)`,
-        `(UTC-05:00) Haiti`,
-        `(UTC-05:00) Havana`,
-        `(UTC-05:00) Indiana (East)`,
-        `(UTC-05:00) Turks and Caicos`,
-        `(UTC-04:00) Asuncion`,
-        `(UTC-04:00) Atlantic Time (Canada)`,
-        `(UTC-04:00) Caracas`,
-        `(UTC-04:00) Cuiaba`,
-        `(UTC-04:00) Georgetown, La Paz, Manaus, San Juan`,
-        `(UTC-04:00) Santiago`,
-        `(UTC-03:30) Newfoundland`,
-        `(UTC-03:00) Araguaina`,
-        `(UTC-03:00) Brasilia`,
-        `(UTC-03:00) Cayenne, Fortaleza`,
-        `(UTC-03:00) City of Buenos Aires`,
-        `(UTC-03:00) Greenland`,
-        `(UTC-03:00) Montevideo`,
-        `(UTC-03:00) Punta Arenas`,
-        `(UTC-03:00) Saint Pierre and Miquelon`,
-        `(UTC-03:00) Salvador`,
-        `(UTC-02:00) Coordinated Universal Time-02`,
-        `(UTC-02:00) Mid-Atlantic - Old`,
-        `(UTC-01:00) Azores`,
-        `(UTC-01:00) Cabo Verde Is.`,
-        `(UTC) Coordinated Universal Time`,
-        `(UTC+00:00) Dublin, Edinburgh, Lisbon, London`,
-        `(UTC+00:00) Monrovia, Reykjavik`,
-        `(UTC+00:00) Sao Tome`,
-        `(UTC+01:00) Casablanca`,
-        `(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna`,
-        `(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague`,
-        `(UTC+01:00) Brussels, Copenhagen, Madrid, Paris`,
-        `(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb`,
-        `(UTC+01:00) West Central Africa`,
-        `(UTC+02:00) Amman`,
-        `(UTC+02:00) Athens, Bucharest`,
-        `(UTC+02:00) Beirut`,
-        `(UTC+02:00) Cairo`,
-        `(UTC+02:00) Chisinau`,
-        `(UTC+02:00) Damascus`,
-        `(UTC+02:00) Gaza, Hebron`,
-        `(UTC+02:00) Harare, Pretoria`,
-        `(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius`,
-        `(UTC+02:00) Jerusalem`,
-        `(UTC+02:00) Juba`,
-        `(UTC+02:00) Kaliningrad`,
-        `(UTC+02:00) Khartoum`,
-        `(UTC+02:00) Tripoli`,
-        `(UTC+02:00) Windhoek`,
-        `(UTC+03:00) Baghdad`,
-        `(UTC+03:00) Istanbul`,
-        `(UTC+03:00) Kuwait, Riyadh`,
-        `(UTC+03:00) Minsk`,
-        `(UTC+03:00) Moscow, St. Petersburg`,
-        `(UTC+03:00) Nairobi`,
-        `(UTC+03:00) Volgograd`,
-        `(UTC+03:30) Tehran`,
-        `(UTC+04:00) Abu Dhabi, Muscat`,
-        `(UTC+04:00) Astrakhan, Ulyanovsk`,
-        `(UTC+04:00) Baku`,
-        `(UTC+04:00) Izhevsk, Samara`,
-        `(UTC+04:00) Port Louis`,
-        `(UTC+04:00) Saratov`,
-        `(UTC+04:00) Tbilisi`,
-        `(UTC+04:00) Yerevan`,
-        `(UTC+04:30) Kabul`,
-        `(UTC+05:00) Ashgabat, Tashkent`,
-        `(UTC+05:00) Ekaterinburg`,
-        `(UTC+05:00) Islamabad, Karachi`,
-        `(UTC+05:00) Qyzylorda`,
-        `(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi`,
-        `(UTC+05:30) Sri Jayawardenepura`,
-        `(UTC+05:45) Kathmandu`,
-        `(UTC+06:00) Astana`,
-        `(UTC+06:00) Dhaka`,
-        `(UTC+06:00) Omsk`,
-        `(UTC+06:30) Yangon (Rangoon)`,
-        `(UTC+07:00) Bangkok, Hanoi, Jakarta`,
-        `(UTC+07:00) Barnaul, Gorno-Altaysk`,
-        `(UTC+07:00) Hovd`,
-        `(UTC+07:00) Krasnoyarsk`,
-        `(UTC+07:00) Novosibirsk`,
-        `(UTC+07:00) Tomsk`,
-        `(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi`,
-        `(UTC+08:00) Irkutsk`,
-        `(UTC+08:00) Kuala Lumpur, Singapore`,
-        `(UTC+08:00) Perth`,
-        `(UTC+08:00) Taipei`,
-        `(UTC+08:00) Ulaanbaatar`,
-        `(UTC+08:45) Eucla`,
-        `(UTC+09:00) Chita`,
-        `(UTC+09:00) Osaka, Sapporo, Tokyo`,
-        `(UTC+09:00) Pyongyang`,
-        `(UTC+09:00) Seoul`,
-        `(UTC+09:00) Yakutsk`,
-        `(UTC+09:30) Adelaide`,
-        `(UTC+09:30) Darwin`,
-        `(UTC+10:00) Brisbane`,
-        `(UTC+10:00) Canberra, Melbourne, Sydney`,
-        `(UTC+10:00) Guam, Port Moresby`,
-        `(UTC+10:00) Hobart`,
-        `(UTC+10:00) Vladivostok`,
-        `(UTC+10:30) Lord Howe Island`,
-        `(UTC+11:00) Bougainville Island`,
-        `(UTC+11:00) Chokurdakh`,
-        `(UTC+11:00) Magadan`,
-        `(UTC+11:00) Norfolk Island`,
-        `(UTC+11:00) Sakhalin`,
-        `(UTC+11:00) Solomon Is., New Caledonia`,
-        `(UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky`,
-        `(UTC+12:00) Auckland, Wellington`,
-        `(UTC+12:00) Coordinated Universal Time+12`,
-        `(UTC+12:00) Fiji`,
-        `(UTC+12:00) Petropavlovsk-Kamchatsky - Old`,
-        `(UTC+12:45) Chatham Islands`,
-        `(UTC+13:00) Coordinated Universal Time+13`,
-        `(UTC+13:00) Nuku'alofa`,
-        `(UTC+13:00) Samoa`,
-        `(UTC+14:00) Kiritimati Island`.
-        """
-elif False:
-    BuildDefinitionScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class BuildDefinitionScheduleArgsDict(TypedDict):
+    branch_filters: pulumi.Input[Sequence[pulumi.Input['BuildDefinitionScheduleBranchFilterArgsDict']]]
+    """
+    A `branch_filter` block as defined below.
+    """
+    days_to_builds: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    When to build. Possible values are: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
+    """
+    schedule_job_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the schedule job
+    """
+    schedule_only_with_changes: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Schedule builds if the source or pipeline has changed. Defaults to `true`.
+    """
+    start_hours: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Build start hour. Possible values are: `0 ~ 23`. Defaults to `0`.
+    """
+    start_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Build start minute. Possible values are: `0 ~ 59`. Defaults to `0`.
+    """
+    time_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Possible values are:
+    `(UTC-12:00) International Date Line West`,
+    `(UTC-11:00) Coordinated Universal Time-11`,
+    `(UTC-10:00) Aleutian Islands`,
+    `(UTC-10:00) Hawaii`,
+    `(UTC-09:30) Marquesas Islands`,
+    `(UTC-09:00) Alaska`,
+    `(UTC-09:00) Coordinated Universal Time-09`,
+    `(UTC-08:00) Baja California`,
+    `(UTC-08:00) Coordinated Universal Time-08`,
+    `(UTC-08:00) Pacific Time (US &Canada)`,
+    `(UTC-07:00) Arizona`,
+    `(UTC-07:00) Chihuahua, La Paz, Mazatlan`,
+    `(UTC-07:00) Mountain Time (US &Canada)`,
+    `(UTC-07:00) Yukon`,
+    `(UTC-06:00) Central America`,
+    `(UTC-06:00) Central Time (US &Canada)`,
+    `(UTC-06:00) Easter Island`,
+    `(UTC-06:00) Guadalajara, Mexico City, Monterrey`,
+    `(UTC-06:00) Saskatchewan`,
+    `(UTC-05:00) Bogota, Lima, Quito, Rio Branco`,
+    `(UTC-05:00) Chetumal`,
+    `(UTC-05:00) Eastern Time (US &Canada)`,
+    `(UTC-05:00) Haiti`,
+    `(UTC-05:00) Havana`,
+    `(UTC-05:00) Indiana (East)`,
+    `(UTC-05:00) Turks and Caicos`,
+    `(UTC-04:00) Asuncion`,
+    `(UTC-04:00) Atlantic Time (Canada)`,
+    `(UTC-04:00) Caracas`,
+    `(UTC-04:00) Cuiaba`,
+    `(UTC-04:00) Georgetown, La Paz, Manaus, San Juan`,
+    `(UTC-04:00) Santiago`,
+    `(UTC-03:30) Newfoundland`,
+    `(UTC-03:00) Araguaina`,
+    `(UTC-03:00) Brasilia`,
+    `(UTC-03:00) Cayenne, Fortaleza`,
+    `(UTC-03:00) City of Buenos Aires`,
+    `(UTC-03:00) Greenland`,
+    `(UTC-03:00) Montevideo`,
+    `(UTC-03:00) Punta Arenas`,
+    `(UTC-03:00) Saint Pierre and Miquelon`,
+    `(UTC-03:00) Salvador`,
+    `(UTC-02:00) Coordinated Universal Time-02`,
+    `(UTC-02:00) Mid-Atlantic - Old`,
+    `(UTC-01:00) Azores`,
+    `(UTC-01:00) Cabo Verde Is.`,
+    `(UTC) Coordinated Universal Time`,
+    `(UTC+00:00) Dublin, Edinburgh, Lisbon, London`,
+    `(UTC+00:00) Monrovia, Reykjavik`,
+    `(UTC+00:00) Sao Tome`,
+    `(UTC+01:00) Casablanca`,
+    `(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna`,
+    `(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague`,
+    `(UTC+01:00) Brussels, Copenhagen, Madrid, Paris`,
+    `(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb`,
+    `(UTC+01:00) West Central Africa`,
+    `(UTC+02:00) Amman`,
+    `(UTC+02:00) Athens, Bucharest`,
+    `(UTC+02:00) Beirut`,
+    `(UTC+02:00) Cairo`,
+    `(UTC+02:00) Chisinau`,
+    `(UTC+02:00) Damascus`,
+    `(UTC+02:00) Gaza, Hebron`,
+    `(UTC+02:00) Harare, Pretoria`,
+    `(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius`,
+    `(UTC+02:00) Jerusalem`,
+    `(UTC+02:00) Juba`,
+    `(UTC+02:00) Kaliningrad`,
+    `(UTC+02:00) Khartoum`,
+    `(UTC+02:00) Tripoli`,
+    `(UTC+02:00) Windhoek`,
+    `(UTC+03:00) Baghdad`,
+    `(UTC+03:00) Istanbul`,
+    `(UTC+03:00) Kuwait, Riyadh`,
+    `(UTC+03:00) Minsk`,
+    `(UTC+03:00) Moscow, St. Petersburg`,
+    `(UTC+03:00) Nairobi`,
+    `(UTC+03:00) Volgograd`,
+    `(UTC+03:30) Tehran`,
+    `(UTC+04:00) Abu Dhabi, Muscat`,
+    `(UTC+04:00) Astrakhan, Ulyanovsk`,
+    `(UTC+04:00) Baku`,
+    `(UTC+04:00) Izhevsk, Samara`,
+    `(UTC+04:00) Port Louis`,
+    `(UTC+04:00) Saratov`,
+    `(UTC+04:00) Tbilisi`,
+    `(UTC+04:00) Yerevan`,
+    `(UTC+04:30) Kabul`,
+    `(UTC+05:00) Ashgabat, Tashkent`,
+    `(UTC+05:00) Ekaterinburg`,
+    `(UTC+05:00) Islamabad, Karachi`,
+    `(UTC+05:00) Qyzylorda`,
+    `(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi`,
+    `(UTC+05:30) Sri Jayawardenepura`,
+    `(UTC+05:45) Kathmandu`,
+    `(UTC+06:00) Astana`,
+    `(UTC+06:00) Dhaka`,
+    `(UTC+06:00) Omsk`,
+    `(UTC+06:30) Yangon (Rangoon)`,
+    `(UTC+07:00) Bangkok, Hanoi, Jakarta`,
+    `(UTC+07:00) Barnaul, Gorno-Altaysk`,
+    `(UTC+07:00) Hovd`,
+    `(UTC+07:00) Krasnoyarsk`,
+    `(UTC+07:00) Novosibirsk`,
+    `(UTC+07:00) Tomsk`,
+    `(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi`,
+    `(UTC+08:00) Irkutsk`,
+    `(UTC+08:00) Kuala Lumpur, Singapore`,
+    `(UTC+08:00) Perth`,
+    `(UTC+08:00) Taipei`,
+    `(UTC+08:00) Ulaanbaatar`,
+    `(UTC+08:45) Eucla`,
+    `(UTC+09:00) Chita`,
+    `(UTC+09:00) Osaka, Sapporo, Tokyo`,
+    `(UTC+09:00) Pyongyang`,
+    `(UTC+09:00) Seoul`,
+    `(UTC+09:00) Yakutsk`,
+    `(UTC+09:30) Adelaide`,
+    `(UTC+09:30) Darwin`,
+    `(UTC+10:00) Brisbane`,
+    `(UTC+10:00) Canberra, Melbourne, Sydney`,
+    `(UTC+10:00) Guam, Port Moresby`,
+    `(UTC+10:00) Hobart`,
+    `(UTC+10:00) Vladivostok`,
+    `(UTC+10:30) Lord Howe Island`,
+    `(UTC+11:00) Bougainville Island`,
+    `(UTC+11:00) Chokurdakh`,
+    `(UTC+11:00) Magadan`,
+    `(UTC+11:00) Norfolk Island`,
+    `(UTC+11:00) Sakhalin`,
+    `(UTC+11:00) Solomon Is., New Caledonia`,
+    `(UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky`,
+    `(UTC+12:00) Auckland, Wellington`,
+    `(UTC+12:00) Coordinated Universal Time+12`,
+    `(UTC+12:00) Fiji`,
+    `(UTC+12:00) Petropavlovsk-Kamchatsky - Old`,
+    `(UTC+12:45) Chatham Islands`,
+    `(UTC+13:00) Coordinated Universal Time+13`,
+    `(UTC+13:00) Nuku'alofa`,
+    `(UTC+13:00) Samoa`,
+    `(UTC+14:00) Kiritimati Island`.
+    """
 
 @pulumi.input_type
 class BuildDefinitionScheduleArgs:
@@ -3436,18 +3345,15 @@ class BuildDefinitionScheduleArgs:
         pulumi.set(self, "time_zone", value)
 
 
-if not MYPY:
-    class BuildDefinitionScheduleBranchFilterArgsDict(TypedDict):
-        excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of branch patterns to exclude.
-        """
-        includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of branch patterns to include.
-        """
-elif False:
-    BuildDefinitionScheduleBranchFilterArgsDict: TypeAlias = Mapping[str, Any]
+class BuildDefinitionScheduleBranchFilterArgsDict(TypedDict):
+    excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of branch patterns to exclude.
+    """
+    includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of branch patterns to include.
+    """
 
 @pulumi.input_type
 class BuildDefinitionScheduleBranchFilterArgs:
@@ -3488,30 +3394,27 @@ class BuildDefinitionScheduleBranchFilterArgs:
         pulumi.set(self, "includes", value)
 
 
-if not MYPY:
-    class BuildDefinitionVariableArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the variable.
-        """
-        allow_override: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        True if the variable can be overridden. Defaults to `true`.
-        """
-        is_secret: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        True if the variable is a secret. Defaults to `false`.
-        """
-        secret_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The secret value of the variable. Used when `is_secret` set to `true`.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the variable.
-        """
-elif False:
-    BuildDefinitionVariableArgsDict: TypeAlias = Mapping[str, Any]
+class BuildDefinitionVariableArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the variable.
+    """
+    allow_override: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    True if the variable can be overridden. Defaults to `true`.
+    """
+    is_secret: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    True if the variable is a secret. Defaults to `false`.
+    """
+    secret_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The secret value of the variable. Used when `is_secret` set to `true`.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the variable.
+    """
 
 @pulumi.input_type
 class BuildDefinitionVariableArgs:
@@ -3599,26 +3502,23 @@ class BuildDefinitionVariableArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class CheckRequiredTemplateRequiredTemplateArgsDict(TypedDict):
-        repository_name: pulumi.Input[_builtins.str]
-        """
-        The name of the repository storing the template.
-        """
-        repository_ref: pulumi.Input[_builtins.str]
-        """
-        The branch in which the template will be referenced.
-        """
-        template_path: pulumi.Input[_builtins.str]
-        """
-        The path to the template yaml.
-        """
-        repository_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of the repository storing the template. Possible values are: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
-        """
-elif False:
-    CheckRequiredTemplateRequiredTemplateArgsDict: TypeAlias = Mapping[str, Any]
+class CheckRequiredTemplateRequiredTemplateArgsDict(TypedDict):
+    repository_name: pulumi.Input[_builtins.str]
+    """
+    The name of the repository storing the template.
+    """
+    repository_ref: pulumi.Input[_builtins.str]
+    """
+    The branch in which the template will be referenced.
+    """
+    template_path: pulumi.Input[_builtins.str]
+    """
+    The path to the template yaml.
+    """
+    repository_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of the repository storing the template. Possible values are: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
+    """
 
 @pulumi.input_type
 class CheckRequiredTemplateRequiredTemplateArgs:
@@ -3688,18 +3588,15 @@ class CheckRequiredTemplateRequiredTemplateArgs:
         pulumi.set(self, "repository_type", value)
 
 
-if not MYPY:
-    class FeedFeatureArgsDict(TypedDict):
-        permanent_delete: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Determines if Feed should be Permanently removed, Defaults to `false`
-        """
-        restore: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Determines if Feed should be Restored during creation (if possible), Defaults to `false`
-        """
-elif False:
-    FeedFeatureArgsDict: TypeAlias = Mapping[str, Any]
+class FeedFeatureArgsDict(TypedDict):
+    permanent_delete: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Determines if Feed should be Permanently removed, Defaults to `false`
+    """
+    restore: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Determines if Feed should be Restored during creation (if possible), Defaults to `false`
+    """
 
 @pulumi.input_type
 class FeedFeatureArgs:
@@ -3740,37 +3637,34 @@ class FeedFeatureArgs:
         pulumi.set(self, "restore", value)
 
 
-if not MYPY:
-    class GitInitializationArgsDict(TypedDict):
-        init_type: pulumi.Input[_builtins.str]
-        """
-        The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
-        """
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`. Note: This is a write-only attribute, which allows ephemeral resources to be used.
+class GitInitializationArgsDict(TypedDict):
+    init_type: pulumi.Input[_builtins.str]
+    """
+    The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
+    """
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+    The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`. Note: This is a write-only attribute, which allows ephemeral resources to be used.
 
-        ~>**Note** At least `service_connection_id` or `username/password` needs to be set to import private repository.
-        """
-        service_connection_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
-        """
-        source_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`.
-        """
-        source_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL of the source repository. Used if the `init_type` is `Import`.
-        """
-        username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The username used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
-        """
-elif False:
-    GitInitializationArgsDict: TypeAlias = Mapping[str, Any]
+    ~>**Note** At least `service_connection_id` or `username/password` needs to be set to import private repository.
+    """
+    service_connection_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
+    """
+    source_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`.
+    """
+    source_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL of the source repository. Used if the `init_type` is `Import`.
+    """
+    username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The username used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
+    """
 
 @pulumi.input_type
 class GitInitializationArgs:
@@ -3880,18 +3774,15 @@ class GitInitializationArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class ServiceEndpointArtifactoryAuthenticationBasicArgsDict(TypedDict):
-        password: pulumi.Input[_builtins.str]
-        """
-        The Password of the Artifactory.
-        """
-        username: pulumi.Input[_builtins.str]
-        """
-        The Username of the Artifactory.
-        """
-elif False:
-    ServiceEndpointArtifactoryAuthenticationBasicArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceEndpointArtifactoryAuthenticationBasicArgsDict(TypedDict):
+    password: pulumi.Input[_builtins.str]
+    """
+    The Password of the Artifactory.
+    """
+    username: pulumi.Input[_builtins.str]
+    """
+    The Username of the Artifactory.
+    """
 
 @pulumi.input_type
 class ServiceEndpointArtifactoryAuthenticationBasicArgs:
@@ -3930,14 +3821,11 @@ class ServiceEndpointArtifactoryAuthenticationBasicArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class ServiceEndpointArtifactoryAuthenticationTokenArgsDict(TypedDict):
-        token: pulumi.Input[_builtins.str]
-        """
-        Authentication Token generated through Artifactory.
-        """
-elif False:
-    ServiceEndpointArtifactoryAuthenticationTokenArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceEndpointArtifactoryAuthenticationTokenArgsDict(TypedDict):
+    token: pulumi.Input[_builtins.str]
+    """
+    Authentication Token generated through Artifactory.
+    """
 
 @pulumi.input_type
 class ServiceEndpointArtifactoryAuthenticationTokenArgs:
@@ -3961,14 +3849,11 @@ class ServiceEndpointArtifactoryAuthenticationTokenArgs:
         pulumi.set(self, "token", value)
 
 
-if not MYPY:
-    class ServiceEndpointAzureEcrCredentialsArgsDict(TypedDict):
-        serviceprincipalid: pulumi.Input[_builtins.str]
-        """
-        The ID of the Service Principal Application.
-        """
-elif False:
-    ServiceEndpointAzureEcrCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceEndpointAzureEcrCredentialsArgsDict(TypedDict):
+    serviceprincipalid: pulumi.Input[_builtins.str]
+    """
+    The ID of the Service Principal Application.
+    """
 
 @pulumi.input_type
 class ServiceEndpointAzureEcrCredentialsArgs:
@@ -3992,22 +3877,19 @@ class ServiceEndpointAzureEcrCredentialsArgs:
         pulumi.set(self, "serviceprincipalid", value)
 
 
-if not MYPY:
-    class ServiceEndpointAzureRMCredentialsArgsDict(TypedDict):
-        serviceprincipalid: pulumi.Input[_builtins.str]
-        """
-        The service principal application ID
-        """
-        serviceprincipalcertificate: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The service principal certificate. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
-        """
-        serviceprincipalkey: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The service principal secret. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
-        """
-elif False:
-    ServiceEndpointAzureRMCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceEndpointAzureRMCredentialsArgsDict(TypedDict):
+    serviceprincipalid: pulumi.Input[_builtins.str]
+    """
+    The service principal application ID
+    """
+    serviceprincipalcertificate: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The service principal certificate. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
+    """
+    serviceprincipalkey: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The service principal secret. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
+    """
 
 @pulumi.input_type
 class ServiceEndpointAzureRMCredentialsArgs:
@@ -4063,14 +3945,11 @@ class ServiceEndpointAzureRMCredentialsArgs:
         pulumi.set(self, "serviceprincipalkey", value)
 
 
-if not MYPY:
-    class ServiceEndpointAzureRMFeaturesArgsDict(TypedDict):
-        validate: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether or not to validate connection with Azure after create or update operations. Defaults to `false`
-        """
-elif False:
-    ServiceEndpointAzureRMFeaturesArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceEndpointAzureRMFeaturesArgsDict(TypedDict):
+    validate: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether or not to validate connection with Azure after create or update operations. Defaults to `false`
+    """
 
 @pulumi.input_type
 class ServiceEndpointAzureRMFeaturesArgs:
@@ -4095,21 +3974,33 @@ class ServiceEndpointAzureRMFeaturesArgs:
         pulumi.set(self, "validate", value)
 
 
-if not MYPY:
-    class ServiceEndpointGitHubAuthOauthArgsDict(TypedDict):
-        oauth_configuration_id: pulumi.Input[_builtins.str]
-elif False:
-    ServiceEndpointGitHubAuthOauthArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceEndpointGitHubAuthOauthArgsDict(TypedDict):
+    oauth_configuration_id: pulumi.Input[_builtins.str]
+    """
+    The OAuth Configuration ID.
+
+    ~>**NOTE:** GitHub OAuth flow can not be performed via terraform. You must create this on Azure DevOps and then import it.
+    """
 
 @pulumi.input_type
 class ServiceEndpointGitHubAuthOauthArgs:
     def __init__(__self__, *,
                  oauth_configuration_id: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] oauth_configuration_id: The OAuth Configuration ID.
+               
+               ~>**NOTE:** GitHub OAuth flow can not be performed via terraform. You must create this on Azure DevOps and then import it.
+        """
         pulumi.set(__self__, "oauth_configuration_id", oauth_configuration_id)
 
     @_builtins.property
     @pulumi.getter(name="oauthConfigurationId")
     def oauth_configuration_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The OAuth Configuration ID.
+
+        ~>**NOTE:** GitHub OAuth flow can not be performed via terraform. You must create this on Azure DevOps and then import it.
+        """
         return pulumi.get(self, "oauth_configuration_id")
 
     @oauth_configuration_id.setter
@@ -4117,14 +4008,11 @@ class ServiceEndpointGitHubAuthOauthArgs:
         pulumi.set(self, "oauth_configuration_id", value)
 
 
-if not MYPY:
-    class ServiceEndpointGitHubAuthPersonalArgsDict(TypedDict):
-        personal_access_token: pulumi.Input[_builtins.str]
-        """
-        The Personal Access Token for GitHub.
-        """
-elif False:
-    ServiceEndpointGitHubAuthPersonalArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceEndpointGitHubAuthPersonalArgsDict(TypedDict):
+    personal_access_token: pulumi.Input[_builtins.str]
+    """
+    The Personal Access Token for GitHub.
+    """
 
 @pulumi.input_type
 class ServiceEndpointGitHubAuthPersonalArgs:
@@ -4148,14 +4036,11 @@ class ServiceEndpointGitHubAuthPersonalArgs:
         pulumi.set(self, "personal_access_token", value)
 
 
-if not MYPY:
-    class ServiceEndpointGitHubEnterpriseAuthOauthArgsDict(TypedDict):
-        oauth_configuration_id: pulumi.Input[_builtins.str]
-        """
-        The OAuth Configuration ID.
-        """
-elif False:
-    ServiceEndpointGitHubEnterpriseAuthOauthArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceEndpointGitHubEnterpriseAuthOauthArgsDict(TypedDict):
+    oauth_configuration_id: pulumi.Input[_builtins.str]
+    """
+    The OAuth Configuration ID.
+    """
 
 @pulumi.input_type
 class ServiceEndpointGitHubEnterpriseAuthOauthArgs:
@@ -4179,14 +4064,11 @@ class ServiceEndpointGitHubEnterpriseAuthOauthArgs:
         pulumi.set(self, "oauth_configuration_id", value)
 
 
-if not MYPY:
-    class ServiceEndpointGitHubEnterpriseAuthPersonalArgsDict(TypedDict):
-        personal_access_token: pulumi.Input[_builtins.str]
-        """
-        The Personal Access Token for GitHub.
-        """
-elif False:
-    ServiceEndpointGitHubEnterpriseAuthPersonalArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceEndpointGitHubEnterpriseAuthPersonalArgsDict(TypedDict):
+    personal_access_token: pulumi.Input[_builtins.str]
+    """
+    The Personal Access Token for GitHub.
+    """
 
 @pulumi.input_type
 class ServiceEndpointGitHubEnterpriseAuthPersonalArgs:
@@ -4210,42 +4092,39 @@ class ServiceEndpointGitHubEnterpriseAuthPersonalArgs:
         pulumi.set(self, "personal_access_token", value)
 
 
-if not MYPY:
-    class ServiceEndpointKubernetesAzureSubscriptionArgsDict(TypedDict):
-        cluster_name: pulumi.Input[_builtins.str]
-        """
-        The name of the Kubernetes cluster.
-        """
-        resourcegroup_id: pulumi.Input[_builtins.str]
-        """
-        The resource group name, to which the Kubernetes cluster is deployed.
-        """
-        subscription_id: pulumi.Input[_builtins.str]
-        """
-        The id of the Azure subscription.
-        """
-        subscription_name: pulumi.Input[_builtins.str]
-        """
-        The name of the Azure subscription.
-        """
-        tenant_id: pulumi.Input[_builtins.str]
-        """
-        The id of the tenant used by the subscription.
-        """
-        azure_environment: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure environment refers to whether the public cloud offering or domestic (government) clouds are being used. Currently, only the public cloud is supported. The value must be AzureCloud. This is also the default-value.
-        """
-        cluster_admin: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Set this option to allow use cluster admin credentials.
-        """
-        namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Kubernetes namespace. Default value is "default".
-        """
-elif False:
-    ServiceEndpointKubernetesAzureSubscriptionArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceEndpointKubernetesAzureSubscriptionArgsDict(TypedDict):
+    cluster_name: pulumi.Input[_builtins.str]
+    """
+    The name of the Kubernetes cluster.
+    """
+    resourcegroup_id: pulumi.Input[_builtins.str]
+    """
+    The resource group name, to which the Kubernetes cluster is deployed.
+    """
+    subscription_id: pulumi.Input[_builtins.str]
+    """
+    The id of the Azure subscription.
+    """
+    subscription_name: pulumi.Input[_builtins.str]
+    """
+    The name of the Azure subscription.
+    """
+    tenant_id: pulumi.Input[_builtins.str]
+    """
+    The id of the tenant used by the subscription.
+    """
+    azure_environment: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure environment refers to whether the public cloud offering or domestic (government) clouds are being used. Currently, only the public cloud is supported. The value must be AzureCloud. This is also the default-value.
+    """
+    cluster_admin: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set this option to allow use cluster admin credentials.
+    """
+    namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Kubernetes namespace. Default value is "default".
+    """
 
 @pulumi.input_type
 class ServiceEndpointKubernetesAzureSubscriptionArgs:
@@ -4377,22 +4256,19 @@ class ServiceEndpointKubernetesAzureSubscriptionArgs:
         pulumi.set(self, "namespace", value)
 
 
-if not MYPY:
-    class ServiceEndpointKubernetesKubeconfigArgsDict(TypedDict):
-        kube_config: pulumi.Input[_builtins.str]
-        """
-        The content of the kubeconfig in yaml notation to be used to communicate with the API-Server of Kubernetes.
-        """
-        accept_untrusted_certs: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Set this option to allow clients to accept a self-signed certificate.
-        """
-        cluster_context: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Context within the kubeconfig file that is to be used for identifying the cluster. Default value is the current-context set in kubeconfig.
-        """
-elif False:
-    ServiceEndpointKubernetesKubeconfigArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceEndpointKubernetesKubeconfigArgsDict(TypedDict):
+    kube_config: pulumi.Input[_builtins.str]
+    """
+    The content of the kubeconfig in yaml notation to be used to communicate with the API-Server of Kubernetes.
+    """
+    accept_untrusted_certs: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set this option to allow clients to accept a self-signed certificate.
+    """
+    cluster_context: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Context within the kubeconfig file that is to be used for identifying the cluster. Default value is the current-context set in kubeconfig.
+    """
 
 @pulumi.input_type
 class ServiceEndpointKubernetesKubeconfigArgs:
@@ -4448,22 +4324,19 @@ class ServiceEndpointKubernetesKubeconfigArgs:
         pulumi.set(self, "cluster_context", value)
 
 
-if not MYPY:
-    class ServiceEndpointKubernetesServiceAccountArgsDict(TypedDict):
-        ca_cert: pulumi.Input[_builtins.str]
-        """
-        The certificate from a Kubernetes secret object.
-        """
-        token: pulumi.Input[_builtins.str]
-        """
-        The token from a Kubernetes secret object.
-        """
-        accept_untrusted_certs: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Set this option to allow clients to accept a self-signed certificate. Defaults to `false`.
-        """
-elif False:
-    ServiceEndpointKubernetesServiceAccountArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceEndpointKubernetesServiceAccountArgsDict(TypedDict):
+    ca_cert: pulumi.Input[_builtins.str]
+    """
+    The certificate from a Kubernetes secret object.
+    """
+    token: pulumi.Input[_builtins.str]
+    """
+    The token from a Kubernetes secret object.
+    """
+    accept_untrusted_certs: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set this option to allow clients to accept a self-signed certificate. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class ServiceEndpointKubernetesServiceAccountArgs:
@@ -4518,14 +4391,11 @@ class ServiceEndpointKubernetesServiceAccountArgs:
         pulumi.set(self, "accept_untrusted_certs", value)
 
 
-if not MYPY:
-    class ServiceEndpointPipelineAuthPersonalArgsDict(TypedDict):
-        personal_access_token: pulumi.Input[_builtins.str]
-        """
-        The Personal Access Token for Azure DevOps Pipeline. It also can be set with AZDO_PERSONAL_ACCESS_TOKEN environment variable.
-        """
-elif False:
-    ServiceEndpointPipelineAuthPersonalArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceEndpointPipelineAuthPersonalArgsDict(TypedDict):
+    personal_access_token: pulumi.Input[_builtins.str]
+    """
+    The Personal Access Token for Azure DevOps Pipeline. It also can be set with AZDO_PERSONAL_ACCESS_TOKEN environment variable.
+    """
 
 @pulumi.input_type
 class ServiceEndpointPipelineAuthPersonalArgs:
@@ -4549,30 +4419,27 @@ class ServiceEndpointPipelineAuthPersonalArgs:
         pulumi.set(self, "personal_access_token", value)
 
 
-if not MYPY:
-    class ServiceEndpointServiceFabricAzureActiveDirectoryArgsDict(TypedDict):
-        password: pulumi.Input[_builtins.str]
-        """
-        Password for the Azure Active Directory account.
-        """
-        server_certificate_lookup: pulumi.Input[_builtins.str]
-        """
-        Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
-        """
-        username: pulumi.Input[_builtins.str]
-        """
-        Specify an Azure Active Directory account.
-        """
-        server_certificate_common_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
-        """
-        server_certificate_thumbprint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
-        """
-elif False:
-    ServiceEndpointServiceFabricAzureActiveDirectoryArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceEndpointServiceFabricAzureActiveDirectoryArgsDict(TypedDict):
+    password: pulumi.Input[_builtins.str]
+    """
+    Password for the Azure Active Directory account.
+    """
+    server_certificate_lookup: pulumi.Input[_builtins.str]
+    """
+    Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
+    """
+    username: pulumi.Input[_builtins.str]
+    """
+    Specify an Azure Active Directory account.
+    """
+    server_certificate_common_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
+    """
+    server_certificate_thumbprint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
+    """
 
 @pulumi.input_type
 class ServiceEndpointServiceFabricAzureActiveDirectoryArgs:
@@ -4658,30 +4525,27 @@ class ServiceEndpointServiceFabricAzureActiveDirectoryArgs:
         pulumi.set(self, "server_certificate_thumbprint", value)
 
 
-if not MYPY:
-    class ServiceEndpointServiceFabricCertificateArgsDict(TypedDict):
-        client_certificate: pulumi.Input[_builtins.str]
-        """
-        Base64 encoding of the cluster's client certificate file.
-        """
-        server_certificate_lookup: pulumi.Input[_builtins.str]
-        """
-        Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
-        """
-        client_certificate_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Password for the certificate.
-        """
-        server_certificate_common_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
-        """
-        server_certificate_thumbprint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
-        """
-elif False:
-    ServiceEndpointServiceFabricCertificateArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceEndpointServiceFabricCertificateArgsDict(TypedDict):
+    client_certificate: pulumi.Input[_builtins.str]
+    """
+    Base64 encoding of the cluster's client certificate file.
+    """
+    server_certificate_lookup: pulumi.Input[_builtins.str]
+    """
+    Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
+    """
+    client_certificate_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Password for the certificate.
+    """
+    server_certificate_common_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
+    """
+    server_certificate_thumbprint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
+    """
 
 @pulumi.input_type
 class ServiceEndpointServiceFabricCertificateArgs:
@@ -4768,18 +4632,15 @@ class ServiceEndpointServiceFabricCertificateArgs:
         pulumi.set(self, "server_certificate_thumbprint", value)
 
 
-if not MYPY:
-    class ServiceEndpointServiceFabricNoneArgsDict(TypedDict):
-        cluster_spn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Fully qualified domain SPN for gMSA account. This is applicable only if `unsecured` option is disabled.
-        """
-        unsecured: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Skip using windows security for authentication.
-        """
-elif False:
-    ServiceEndpointServiceFabricNoneArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceEndpointServiceFabricNoneArgsDict(TypedDict):
+    cluster_spn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Fully qualified domain SPN for gMSA account. This is applicable only if `unsecured` option is disabled.
+    """
+    unsecured: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Skip using windows security for authentication.
+    """
 
 @pulumi.input_type
 class ServiceEndpointServiceFabricNoneArgs:
@@ -4820,18 +4681,15 @@ class ServiceEndpointServiceFabricNoneArgs:
         pulumi.set(self, "unsecured", value)
 
 
-if not MYPY:
-    class ServiceendpointArgocdAuthenticationBasicArgsDict(TypedDict):
-        password: pulumi.Input[_builtins.str]
-        """
-        The Password of the ArgoCD.
-        """
-        username: pulumi.Input[_builtins.str]
-        """
-        The Username of the ArgoCD.
-        """
-elif False:
-    ServiceendpointArgocdAuthenticationBasicArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceendpointArgocdAuthenticationBasicArgsDict(TypedDict):
+    password: pulumi.Input[_builtins.str]
+    """
+    The Password of the ArgoCD.
+    """
+    username: pulumi.Input[_builtins.str]
+    """
+    The Username of the ArgoCD.
+    """
 
 @pulumi.input_type
 class ServiceendpointArgocdAuthenticationBasicArgs:
@@ -4870,14 +4728,11 @@ class ServiceendpointArgocdAuthenticationBasicArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class ServiceendpointArgocdAuthenticationTokenArgsDict(TypedDict):
-        token: pulumi.Input[_builtins.str]
-        """
-        Authentication Token generated through ArgoCD.
-        """
-elif False:
-    ServiceendpointArgocdAuthenticationTokenArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceendpointArgocdAuthenticationTokenArgsDict(TypedDict):
+    token: pulumi.Input[_builtins.str]
+    """
+    Authentication Token generated through ArgoCD.
+    """
 
 @pulumi.input_type
 class ServiceendpointArgocdAuthenticationTokenArgs:
@@ -4901,14 +4756,11 @@ class ServiceendpointArgocdAuthenticationTokenArgs:
         pulumi.set(self, "token", value)
 
 
-if not MYPY:
-    class ServiceendpointExternaltfsAuthPersonalArgsDict(TypedDict):
-        personal_access_token: pulumi.Input[_builtins.str]
-        """
-        The Personal Access Token for Azure DevOps Organization.
-        """
-elif False:
-    ServiceendpointExternaltfsAuthPersonalArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceendpointExternaltfsAuthPersonalArgsDict(TypedDict):
+    personal_access_token: pulumi.Input[_builtins.str]
+    """
+    The Personal Access Token for Azure DevOps Organization.
+    """
 
 @pulumi.input_type
 class ServiceendpointExternaltfsAuthPersonalArgs:
@@ -4932,18 +4784,15 @@ class ServiceendpointExternaltfsAuthPersonalArgs:
         pulumi.set(self, "personal_access_token", value)
 
 
-if not MYPY:
-    class ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgsDict(TypedDict):
-        password: pulumi.Input[_builtins.str]
-        """
-        The Password of the Artifactory.
-        """
-        username: pulumi.Input[_builtins.str]
-        """
-        The Username of the Artifactory.
-        """
-elif False:
-    ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgsDict(TypedDict):
+    password: pulumi.Input[_builtins.str]
+    """
+    The Password of the Artifactory.
+    """
+    username: pulumi.Input[_builtins.str]
+    """
+    The Username of the Artifactory.
+    """
 
 @pulumi.input_type
 class ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs:
@@ -4982,14 +4831,11 @@ class ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgsDict(TypedDict):
-        token: pulumi.Input[_builtins.str]
-        """
-        Authentication Token generated through Artifactory.
-        """
-elif False:
-    ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgsDict(TypedDict):
+    token: pulumi.Input[_builtins.str]
+    """
+    Authentication Token generated through Artifactory.
+    """
 
 @pulumi.input_type
 class ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs:
@@ -5013,18 +4859,15 @@ class ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs:
         pulumi.set(self, "token", value)
 
 
-if not MYPY:
-    class ServiceendpointJfrogDistributionV2AuthenticationBasicArgsDict(TypedDict):
-        password: pulumi.Input[_builtins.str]
-        """
-        The Password of the Artifactory.
-        """
-        username: pulumi.Input[_builtins.str]
-        """
-        The Username of the Artifactory.
-        """
-elif False:
-    ServiceendpointJfrogDistributionV2AuthenticationBasicArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceendpointJfrogDistributionV2AuthenticationBasicArgsDict(TypedDict):
+    password: pulumi.Input[_builtins.str]
+    """
+    The Password of the Artifactory.
+    """
+    username: pulumi.Input[_builtins.str]
+    """
+    The Username of the Artifactory.
+    """
 
 @pulumi.input_type
 class ServiceendpointJfrogDistributionV2AuthenticationBasicArgs:
@@ -5063,14 +4906,11 @@ class ServiceendpointJfrogDistributionV2AuthenticationBasicArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class ServiceendpointJfrogDistributionV2AuthenticationTokenArgsDict(TypedDict):
-        token: pulumi.Input[_builtins.str]
-        """
-        The Authentication Token generated through Artifactory.
-        """
-elif False:
-    ServiceendpointJfrogDistributionV2AuthenticationTokenArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceendpointJfrogDistributionV2AuthenticationTokenArgsDict(TypedDict):
+    token: pulumi.Input[_builtins.str]
+    """
+    The Authentication Token generated through Artifactory.
+    """
 
 @pulumi.input_type
 class ServiceendpointJfrogDistributionV2AuthenticationTokenArgs:
@@ -5094,18 +4934,15 @@ class ServiceendpointJfrogDistributionV2AuthenticationTokenArgs:
         pulumi.set(self, "token", value)
 
 
-if not MYPY:
-    class ServiceendpointJfrogPlatformV2AuthenticationBasicArgsDict(TypedDict):
-        password: pulumi.Input[_builtins.str]
-        """
-        The Password of the Artifactory.
-        """
-        username: pulumi.Input[_builtins.str]
-        """
-        The Username of the  Artifactory.
-        """
-elif False:
-    ServiceendpointJfrogPlatformV2AuthenticationBasicArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceendpointJfrogPlatformV2AuthenticationBasicArgsDict(TypedDict):
+    password: pulumi.Input[_builtins.str]
+    """
+    The Password of the Artifactory.
+    """
+    username: pulumi.Input[_builtins.str]
+    """
+    The Username of the  Artifactory.
+    """
 
 @pulumi.input_type
 class ServiceendpointJfrogPlatformV2AuthenticationBasicArgs:
@@ -5144,14 +4981,11 @@ class ServiceendpointJfrogPlatformV2AuthenticationBasicArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class ServiceendpointJfrogPlatformV2AuthenticationTokenArgsDict(TypedDict):
-        token: pulumi.Input[_builtins.str]
-        """
-        Authentication Token generated through Artifactory.
-        """
-elif False:
-    ServiceendpointJfrogPlatformV2AuthenticationTokenArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceendpointJfrogPlatformV2AuthenticationTokenArgsDict(TypedDict):
+    token: pulumi.Input[_builtins.str]
+    """
+    Authentication Token generated through Artifactory.
+    """
 
 @pulumi.input_type
 class ServiceendpointJfrogPlatformV2AuthenticationTokenArgs:
@@ -5175,18 +5009,15 @@ class ServiceendpointJfrogPlatformV2AuthenticationTokenArgs:
         pulumi.set(self, "token", value)
 
 
-if not MYPY:
-    class ServiceendpointJfrogXrayV2AuthenticationBasicArgsDict(TypedDict):
-        password: pulumi.Input[_builtins.str]
-        """
-        The Password of the Artifactory.
-        """
-        username: pulumi.Input[_builtins.str]
-        """
-        The Username of the  Artifactory.
-        """
-elif False:
-    ServiceendpointJfrogXrayV2AuthenticationBasicArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceendpointJfrogXrayV2AuthenticationBasicArgsDict(TypedDict):
+    password: pulumi.Input[_builtins.str]
+    """
+    The Password of the Artifactory.
+    """
+    username: pulumi.Input[_builtins.str]
+    """
+    The Username of the  Artifactory.
+    """
 
 @pulumi.input_type
 class ServiceendpointJfrogXrayV2AuthenticationBasicArgs:
@@ -5225,14 +5056,11 @@ class ServiceendpointJfrogXrayV2AuthenticationBasicArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class ServiceendpointJfrogXrayV2AuthenticationTokenArgsDict(TypedDict):
-        token: pulumi.Input[_builtins.str]
-        """
-        Authentication Token generated through Artifactory.
-        """
-elif False:
-    ServiceendpointJfrogXrayV2AuthenticationTokenArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceendpointJfrogXrayV2AuthenticationTokenArgsDict(TypedDict):
+    token: pulumi.Input[_builtins.str]
+    """
+    Authentication Token generated through Artifactory.
+    """
 
 @pulumi.input_type
 class ServiceendpointJfrogXrayV2AuthenticationTokenArgs:
@@ -5256,18 +5084,15 @@ class ServiceendpointJfrogXrayV2AuthenticationTokenArgs:
         pulumi.set(self, "token", value)
 
 
-if not MYPY:
-    class ServiceendpointMavenAuthenticationBasicArgsDict(TypedDict):
-        password: pulumi.Input[_builtins.str]
-        """
-        The password Maven Repository.
-        """
-        username: pulumi.Input[_builtins.str]
-        """
-        The Username of the Maven Repository.
-        """
-elif False:
-    ServiceendpointMavenAuthenticationBasicArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceendpointMavenAuthenticationBasicArgsDict(TypedDict):
+    password: pulumi.Input[_builtins.str]
+    """
+    The password Maven Repository.
+    """
+    username: pulumi.Input[_builtins.str]
+    """
+    The Username of the Maven Repository.
+    """
 
 @pulumi.input_type
 class ServiceendpointMavenAuthenticationBasicArgs:
@@ -5306,14 +5131,11 @@ class ServiceendpointMavenAuthenticationBasicArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class ServiceendpointMavenAuthenticationTokenArgsDict(TypedDict):
-        token: pulumi.Input[_builtins.str]
-        """
-        Authentication Token generated through maven repository.
-        """
-elif False:
-    ServiceendpointMavenAuthenticationTokenArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceendpointMavenAuthenticationTokenArgsDict(TypedDict):
+    token: pulumi.Input[_builtins.str]
+    """
+    Authentication Token generated through maven repository.
+    """
 
 @pulumi.input_type
 class ServiceendpointMavenAuthenticationTokenArgs:
@@ -5337,18 +5159,15 @@ class ServiceendpointMavenAuthenticationTokenArgs:
         pulumi.set(self, "token", value)
 
 
-if not MYPY:
-    class ServiceendpointOpenshiftAuthBasicArgsDict(TypedDict):
-        password: pulumi.Input[_builtins.str]
-        """
-        The password of the user.
-        """
-        username: pulumi.Input[_builtins.str]
-        """
-        The name of the user.
-        """
-elif False:
-    ServiceendpointOpenshiftAuthBasicArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceendpointOpenshiftAuthBasicArgsDict(TypedDict):
+    password: pulumi.Input[_builtins.str]
+    """
+    The password of the user.
+    """
+    username: pulumi.Input[_builtins.str]
+    """
+    The name of the user.
+    """
 
 @pulumi.input_type
 class ServiceendpointOpenshiftAuthBasicArgs:
@@ -5387,14 +5206,11 @@ class ServiceendpointOpenshiftAuthBasicArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class ServiceendpointOpenshiftAuthNoneArgsDict(TypedDict):
-        kube_config: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The kubectl config
-        """
-elif False:
-    ServiceendpointOpenshiftAuthNoneArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceendpointOpenshiftAuthNoneArgsDict(TypedDict):
+    kube_config: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The kubectl config
+    """
 
 @pulumi.input_type
 class ServiceendpointOpenshiftAuthNoneArgs:
@@ -5419,14 +5235,11 @@ class ServiceendpointOpenshiftAuthNoneArgs:
         pulumi.set(self, "kube_config", value)
 
 
-if not MYPY:
-    class ServiceendpointOpenshiftAuthTokenArgsDict(TypedDict):
-        token: pulumi.Input[_builtins.str]
-        """
-        The API token.
-        """
-elif False:
-    ServiceendpointOpenshiftAuthTokenArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceendpointOpenshiftAuthTokenArgsDict(TypedDict):
+    token: pulumi.Input[_builtins.str]
+    """
+    The API token.
+    """
 
 @pulumi.input_type
 class ServiceendpointOpenshiftAuthTokenArgs:
@@ -5450,18 +5263,15 @@ class ServiceendpointOpenshiftAuthTokenArgs:
         pulumi.set(self, "token", value)
 
 
-if not MYPY:
-    class ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgsDict(TypedDict):
-        password: pulumi.Input[_builtins.str]
-        """
-        The password of the marketplace.
-        """
-        username: pulumi.Input[_builtins.str]
-        """
-        The username of the marketplace.
-        """
-elif False:
-    ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgsDict(TypedDict):
+    password: pulumi.Input[_builtins.str]
+    """
+    The password of the marketplace.
+    """
+    username: pulumi.Input[_builtins.str]
+    """
+    The username of the marketplace.
+    """
 
 @pulumi.input_type
 class ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs:
@@ -5500,14 +5310,11 @@ class ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgsDict(TypedDict):
-        token: pulumi.Input[_builtins.str]
-        """
-        The Personal Access Token.
-        """
-elif False:
-    ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgsDict(TypedDict):
+    token: pulumi.Input[_builtins.str]
+    """
+    The Personal Access Token.
+    """
 
 @pulumi.input_type
 class ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs:
@@ -5531,22 +5338,19 @@ class ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs:
         pulumi.set(self, "token", value)
 
 
-if not MYPY:
-    class ServicehookStorageQueuePipelinesRunStateChangedEventArgsDict(TypedDict):
-        pipeline_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The pipeline ID that will generate an event. If not specified, all pipelines in the project will trigger the event.
-        """
-        run_result_filter: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Which run result should generate an event. Only valid if published_event is `RunStateChanged`. If not specified, all results will trigger the event.
-        """
-        run_state_filter: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Which run state should generate an event. Only valid if published_event is `RunStateChanged`. If not specified, all states will trigger the event.
-        """
-elif False:
-    ServicehookStorageQueuePipelinesRunStateChangedEventArgsDict: TypeAlias = Mapping[str, Any]
+class ServicehookStorageQueuePipelinesRunStateChangedEventArgsDict(TypedDict):
+    pipeline_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The pipeline ID that will generate an event. If not specified, all pipelines in the project will trigger the event.
+    """
+    run_result_filter: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Which run result should generate an event. Only valid if published_event is `RunStateChanged`. If not specified, all results will trigger the event.
+    """
+    run_state_filter: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Which run state should generate an event. Only valid if published_event is `RunStateChanged`. If not specified, all states will trigger the event.
+    """
 
 @pulumi.input_type
 class ServicehookStorageQueuePipelinesRunStateChangedEventArgs:
@@ -5603,26 +5407,23 @@ class ServicehookStorageQueuePipelinesRunStateChangedEventArgs:
         pulumi.set(self, "run_state_filter", value)
 
 
-if not MYPY:
-    class ServicehookStorageQueuePipelinesStageStateChangedEventArgsDict(TypedDict):
-        pipeline_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The pipeline ID that will generate an event.
-        """
-        stage_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Which stage should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all stages will trigger the event.
-        """
-        stage_result_filter: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Which stage result should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all results will trigger the event.
-        """
-        stage_state_filter: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Which stage state should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all states will trigger the event.
-        """
-elif False:
-    ServicehookStorageQueuePipelinesStageStateChangedEventArgsDict: TypeAlias = Mapping[str, Any]
+class ServicehookStorageQueuePipelinesStageStateChangedEventArgsDict(TypedDict):
+    pipeline_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The pipeline ID that will generate an event.
+    """
+    stage_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Which stage should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all stages will trigger the event.
+    """
+    stage_result_filter: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Which stage result should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all results will trigger the event.
+    """
+    stage_state_filter: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Which stage state should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all states will trigger the event.
+    """
 
 @pulumi.input_type
 class ServicehookStorageQueuePipelinesStageStateChangedEventArgs:
@@ -5695,18 +5496,15 @@ class ServicehookStorageQueuePipelinesStageStateChangedEventArgs:
         pulumi.set(self, "stage_state_filter", value)
 
 
-if not MYPY:
-    class ServicehookWebhookTfsBuildCompletedArgsDict(TypedDict):
-        build_status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for completed builds that have a specific completion status. Valid values: `Succeeded`, `PartiallySucceeded`, `Failed`, `Stopped`.
-        """
-        definition_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for completed builds for a specific pipeline.
-        """
-elif False:
-    ServicehookWebhookTfsBuildCompletedArgsDict: TypeAlias = Mapping[str, Any]
+class ServicehookWebhookTfsBuildCompletedArgsDict(TypedDict):
+    build_status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for completed builds that have a specific completion status. Valid values: `Succeeded`, `PartiallySucceeded`, `Failed`, `Stopped`.
+    """
+    definition_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for completed builds for a specific pipeline.
+    """
 
 @pulumi.input_type
 class ServicehookWebhookTfsBuildCompletedArgs:
@@ -5747,18 +5545,15 @@ class ServicehookWebhookTfsBuildCompletedArgs:
         pulumi.set(self, "definition_name", value)
 
 
-if not MYPY:
-    class ServicehookWebhookTfsGitPullRequestCommentedArgsDict(TypedDict):
-        branch: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for pull requests in a specific branch.
-        """
-        repository_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
-        """
-elif False:
-    ServicehookWebhookTfsGitPullRequestCommentedArgsDict: TypeAlias = Mapping[str, Any]
+class ServicehookWebhookTfsGitPullRequestCommentedArgsDict(TypedDict):
+    branch: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for pull requests in a specific branch.
+    """
+    repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+    """
 
 @pulumi.input_type
 class ServicehookWebhookTfsGitPullRequestCommentedArgs:
@@ -5799,26 +5594,23 @@ class ServicehookWebhookTfsGitPullRequestCommentedArgs:
         pulumi.set(self, "repository_id", value)
 
 
-if not MYPY:
-    class ServicehookWebhookTfsGitPullRequestCreatedArgsDict(TypedDict):
-        branch: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for pull requests in a specific branch.
-        """
-        pull_request_created_by: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for pull requests created by users in a specific group.
-        """
-        pull_request_reviewers_contains: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for pull requests with reviewers in a specific group.
-        """
-        repository_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
-        """
-elif False:
-    ServicehookWebhookTfsGitPullRequestCreatedArgsDict: TypeAlias = Mapping[str, Any]
+class ServicehookWebhookTfsGitPullRequestCreatedArgsDict(TypedDict):
+    branch: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for pull requests in a specific branch.
+    """
+    pull_request_created_by: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for pull requests created by users in a specific group.
+    """
+    pull_request_reviewers_contains: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for pull requests with reviewers in a specific group.
+    """
+    repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+    """
 
 @pulumi.input_type
 class ServicehookWebhookTfsGitPullRequestCreatedArgs:
@@ -5891,30 +5683,27 @@ class ServicehookWebhookTfsGitPullRequestCreatedArgs:
         pulumi.set(self, "repository_id", value)
 
 
-if not MYPY:
-    class ServicehookWebhookTfsGitPullRequestMergeAttemptedArgsDict(TypedDict):
-        branch: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for pull requests in a specific branch.
-        """
-        merge_result: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for pull requests with a specific merge result. Valid values: `Succeeded`, `Unsuccessful`, `Conflicts`, `Failure`, `RejectedByPolicy`.
-        """
-        pull_request_created_by: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for pull requests created by users in a specific group.
-        """
-        pull_request_reviewers_contains: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for pull requests with reviewers in a specific group.
-        """
-        repository_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
-        """
-elif False:
-    ServicehookWebhookTfsGitPullRequestMergeAttemptedArgsDict: TypeAlias = Mapping[str, Any]
+class ServicehookWebhookTfsGitPullRequestMergeAttemptedArgsDict(TypedDict):
+    branch: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for pull requests in a specific branch.
+    """
+    merge_result: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for pull requests with a specific merge result. Valid values: `Succeeded`, `Unsuccessful`, `Conflicts`, `Failure`, `RejectedByPolicy`.
+    """
+    pull_request_created_by: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for pull requests created by users in a specific group.
+    """
+    pull_request_reviewers_contains: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for pull requests with reviewers in a specific group.
+    """
+    repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+    """
 
 @pulumi.input_type
 class ServicehookWebhookTfsGitPullRequestMergeAttemptedArgs:
@@ -6003,30 +5792,27 @@ class ServicehookWebhookTfsGitPullRequestMergeAttemptedArgs:
         pulumi.set(self, "repository_id", value)
 
 
-if not MYPY:
-    class ServicehookWebhookTfsGitPullRequestUpdatedArgsDict(TypedDict):
-        branch: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for pull requests in a specific branch.
-        """
-        notification_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for pull requests with a specific change. Valid values: `PushNotification`, `ReviewersUpdateNotification`, `StatusUpdateNotification`, `ReviewerVoteNotification`.
-        """
-        pull_request_created_by: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for pull requests created by users in a specific group.
-        """
-        pull_request_reviewers_contains: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for pull requests with reviewers in a specific group.
-        """
-        repository_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
-        """
-elif False:
-    ServicehookWebhookTfsGitPullRequestUpdatedArgsDict: TypeAlias = Mapping[str, Any]
+class ServicehookWebhookTfsGitPullRequestUpdatedArgsDict(TypedDict):
+    branch: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for pull requests in a specific branch.
+    """
+    notification_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for pull requests with a specific change. Valid values: `PushNotification`, `ReviewersUpdateNotification`, `StatusUpdateNotification`, `ReviewerVoteNotification`.
+    """
+    pull_request_created_by: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for pull requests created by users in a specific group.
+    """
+    pull_request_reviewers_contains: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for pull requests with reviewers in a specific group.
+    """
+    repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+    """
 
 @pulumi.input_type
 class ServicehookWebhookTfsGitPullRequestUpdatedArgs:
@@ -6115,22 +5901,19 @@ class ServicehookWebhookTfsGitPullRequestUpdatedArgs:
         pulumi.set(self, "repository_id", value)
 
 
-if not MYPY:
-    class ServicehookWebhookTfsGitPushArgsDict(TypedDict):
-        branch: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for code pushes to a specific branch.
-        """
-        pushed_by: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for code pushes by users in a specific group.
-        """
-        repository_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for code pushes to a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
-        """
-elif False:
-    ServicehookWebhookTfsGitPushArgsDict: TypeAlias = Mapping[str, Any]
+class ServicehookWebhookTfsGitPushArgsDict(TypedDict):
+    branch: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for code pushes to a specific branch.
+    """
+    pushed_by: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for code pushes by users in a specific group.
+    """
+    repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for code pushes to a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
+    """
 
 @pulumi.input_type
 class ServicehookWebhookTfsGitPushArgs:
@@ -6187,14 +5970,11 @@ class ServicehookWebhookTfsGitPushArgs:
         pulumi.set(self, "repository_id", value)
 
 
-if not MYPY:
-    class ServicehookWebhookTfsRepositoryCreatedArgsDict(TypedDict):
-        project_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for repositories created in a specific project.
-        """
-elif False:
-    ServicehookWebhookTfsRepositoryCreatedArgsDict: TypeAlias = Mapping[str, Any]
+class ServicehookWebhookTfsRepositoryCreatedArgsDict(TypedDict):
+    project_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for repositories created in a specific project.
+    """
 
 @pulumi.input_type
 class ServicehookWebhookTfsRepositoryCreatedArgs:
@@ -6219,14 +5999,11 @@ class ServicehookWebhookTfsRepositoryCreatedArgs:
         pulumi.set(self, "project_id", value)
 
 
-if not MYPY:
-    class ServicehookWebhookTfsRepositoryDeletedArgsDict(TypedDict):
-        repository_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for repositories with a specific repository ID.
-        """
-elif False:
-    ServicehookWebhookTfsRepositoryDeletedArgsDict: TypeAlias = Mapping[str, Any]
+class ServicehookWebhookTfsRepositoryDeletedArgsDict(TypedDict):
+    repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for repositories with a specific repository ID.
+    """
 
 @pulumi.input_type
 class ServicehookWebhookTfsRepositoryDeletedArgs:
@@ -6251,14 +6028,11 @@ class ServicehookWebhookTfsRepositoryDeletedArgs:
         pulumi.set(self, "repository_id", value)
 
 
-if not MYPY:
-    class ServicehookWebhookTfsRepositoryForkedArgsDict(TypedDict):
-        repository_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for repositories with a specific repository ID.
-        """
-elif False:
-    ServicehookWebhookTfsRepositoryForkedArgsDict: TypeAlias = Mapping[str, Any]
+class ServicehookWebhookTfsRepositoryForkedArgsDict(TypedDict):
+    repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for repositories with a specific repository ID.
+    """
 
 @pulumi.input_type
 class ServicehookWebhookTfsRepositoryForkedArgs:
@@ -6283,14 +6057,11 @@ class ServicehookWebhookTfsRepositoryForkedArgs:
         pulumi.set(self, "repository_id", value)
 
 
-if not MYPY:
-    class ServicehookWebhookTfsRepositoryRenamedArgsDict(TypedDict):
-        repository_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for repositories with a specific repository ID.
-        """
-elif False:
-    ServicehookWebhookTfsRepositoryRenamedArgsDict: TypeAlias = Mapping[str, Any]
+class ServicehookWebhookTfsRepositoryRenamedArgsDict(TypedDict):
+    repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for repositories with a specific repository ID.
+    """
 
 @pulumi.input_type
 class ServicehookWebhookTfsRepositoryRenamedArgs:
@@ -6315,14 +6086,11 @@ class ServicehookWebhookTfsRepositoryRenamedArgs:
         pulumi.set(self, "repository_id", value)
 
 
-if not MYPY:
-    class ServicehookWebhookTfsRepositoryStatusChangedArgsDict(TypedDict):
-        repository_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for repositories with a specific repository ID.
-        """
-elif False:
-    ServicehookWebhookTfsRepositoryStatusChangedArgsDict: TypeAlias = Mapping[str, Any]
+class ServicehookWebhookTfsRepositoryStatusChangedArgsDict(TypedDict):
+    repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for repositories with a specific repository ID.
+    """
 
 @pulumi.input_type
 class ServicehookWebhookTfsRepositoryStatusChangedArgs:
@@ -6347,14 +6115,11 @@ class ServicehookWebhookTfsRepositoryStatusChangedArgs:
         pulumi.set(self, "repository_id", value)
 
 
-if not MYPY:
-    class ServicehookWebhookTfsServiceConnectionCreatedArgsDict(TypedDict):
-        project_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for service connections created in a specific project.
-        """
-elif False:
-    ServicehookWebhookTfsServiceConnectionCreatedArgsDict: TypeAlias = Mapping[str, Any]
+class ServicehookWebhookTfsServiceConnectionCreatedArgsDict(TypedDict):
+    project_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for service connections created in a specific project.
+    """
 
 @pulumi.input_type
 class ServicehookWebhookTfsServiceConnectionCreatedArgs:
@@ -6379,14 +6144,11 @@ class ServicehookWebhookTfsServiceConnectionCreatedArgs:
         pulumi.set(self, "project_id", value)
 
 
-if not MYPY:
-    class ServicehookWebhookTfsServiceConnectionUpdatedArgsDict(TypedDict):
-        project_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for service connections updated in a specific project.
-        """
-elif False:
-    ServicehookWebhookTfsServiceConnectionUpdatedArgsDict: TypeAlias = Mapping[str, Any]
+class ServicehookWebhookTfsServiceConnectionUpdatedArgsDict(TypedDict):
+    project_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for service connections updated in a specific project.
+    """
 
 @pulumi.input_type
 class ServicehookWebhookTfsServiceConnectionUpdatedArgs:
@@ -6411,14 +6173,11 @@ class ServicehookWebhookTfsServiceConnectionUpdatedArgs:
         pulumi.set(self, "project_id", value)
 
 
-if not MYPY:
-    class ServicehookWebhookTfsTfvcCheckinArgsDict(TypedDict):
-        path: pulumi.Input[_builtins.str]
-        """
-        Include only events for check-ins that change files under a specific path.
-        """
-elif False:
-    ServicehookWebhookTfsTfvcCheckinArgsDict: TypeAlias = Mapping[str, Any]
+class ServicehookWebhookTfsTfvcCheckinArgsDict(TypedDict):
+    path: pulumi.Input[_builtins.str]
+    """
+    Include only events for check-ins that change files under a specific path.
+    """
 
 @pulumi.input_type
 class ServicehookWebhookTfsTfvcCheckinArgs:
@@ -6442,26 +6201,23 @@ class ServicehookWebhookTfsTfvcCheckinArgs:
         pulumi.set(self, "path", value)
 
 
-if not MYPY:
-    class ServicehookWebhookTfsWorkItemCommentedArgsDict(TypedDict):
-        area_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for work items under a specific area path.
-        """
-        comment_pattern: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for work items with a comment that contains a specific string.
-        """
-        tag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for work items that contain a specific tag.
-        """
-        work_item_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for work items of a specific type.
-        """
-elif False:
-    ServicehookWebhookTfsWorkItemCommentedArgsDict: TypeAlias = Mapping[str, Any]
+class ServicehookWebhookTfsWorkItemCommentedArgsDict(TypedDict):
+    area_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for work items under a specific area path.
+    """
+    comment_pattern: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for work items with a comment that contains a specific string.
+    """
+    tag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for work items that contain a specific tag.
+    """
+    work_item_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for work items of a specific type.
+    """
 
 @pulumi.input_type
 class ServicehookWebhookTfsWorkItemCommentedArgs:
@@ -6534,26 +6290,23 @@ class ServicehookWebhookTfsWorkItemCommentedArgs:
         pulumi.set(self, "work_item_type", value)
 
 
-if not MYPY:
-    class ServicehookWebhookTfsWorkItemCreatedArgsDict(TypedDict):
-        area_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for work items under a specific area path.
-        """
-        links_changed: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Include only events for work items with one or more links added or removed.
-        """
-        tag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for work items that contain a specific tag.
-        """
-        work_item_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for work items of a specific type.
-        """
-elif False:
-    ServicehookWebhookTfsWorkItemCreatedArgsDict: TypeAlias = Mapping[str, Any]
+class ServicehookWebhookTfsWorkItemCreatedArgsDict(TypedDict):
+    area_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for work items under a specific area path.
+    """
+    links_changed: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Include only events for work items with one or more links added or removed.
+    """
+    tag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for work items that contain a specific tag.
+    """
+    work_item_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for work items of a specific type.
+    """
 
 @pulumi.input_type
 class ServicehookWebhookTfsWorkItemCreatedArgs:
@@ -6626,22 +6379,19 @@ class ServicehookWebhookTfsWorkItemCreatedArgs:
         pulumi.set(self, "work_item_type", value)
 
 
-if not MYPY:
-    class ServicehookWebhookTfsWorkItemDeletedArgsDict(TypedDict):
-        area_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for work items under a specific area path.
-        """
-        tag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for work items that contain a specific tag.
-        """
-        work_item_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for work items of a specific type.
-        """
-elif False:
-    ServicehookWebhookTfsWorkItemDeletedArgsDict: TypeAlias = Mapping[str, Any]
+class ServicehookWebhookTfsWorkItemDeletedArgsDict(TypedDict):
+    area_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for work items under a specific area path.
+    """
+    tag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for work items that contain a specific tag.
+    """
+    work_item_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for work items of a specific type.
+    """
 
 @pulumi.input_type
 class ServicehookWebhookTfsWorkItemDeletedArgs:
@@ -6698,22 +6448,19 @@ class ServicehookWebhookTfsWorkItemDeletedArgs:
         pulumi.set(self, "work_item_type", value)
 
 
-if not MYPY:
-    class ServicehookWebhookTfsWorkItemRestoredArgsDict(TypedDict):
-        area_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for work items under a specific area path.
-        """
-        tag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for work items that contain a specific tag.
-        """
-        work_item_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for work items of a specific type.
-        """
-elif False:
-    ServicehookWebhookTfsWorkItemRestoredArgsDict: TypeAlias = Mapping[str, Any]
+class ServicehookWebhookTfsWorkItemRestoredArgsDict(TypedDict):
+    area_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for work items under a specific area path.
+    """
+    tag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for work items that contain a specific tag.
+    """
+    work_item_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for work items of a specific type.
+    """
 
 @pulumi.input_type
 class ServicehookWebhookTfsWorkItemRestoredArgs:
@@ -6770,30 +6517,27 @@ class ServicehookWebhookTfsWorkItemRestoredArgs:
         pulumi.set(self, "work_item_type", value)
 
 
-if not MYPY:
-    class ServicehookWebhookTfsWorkItemUpdatedArgsDict(TypedDict):
-        area_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for work items under a specific area path.
-        """
-        changed_fields: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for work items with a change in a specific field.
-        """
-        links_changed: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Include only events for work items with one or more links added or removed.
-        """
-        tag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for work items that contain a specific tag.
-        """
-        work_item_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Include only events for work items of a specific type.
-        """
-elif False:
-    ServicehookWebhookTfsWorkItemUpdatedArgsDict: TypeAlias = Mapping[str, Any]
+class ServicehookWebhookTfsWorkItemUpdatedArgsDict(TypedDict):
+    area_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for work items under a specific area path.
+    """
+    changed_fields: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for work items with a change in a specific field.
+    """
+    links_changed: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Include only events for work items with one or more links added or removed.
+    """
+    tag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for work items that contain a specific tag.
+    """
+    work_item_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Include only events for work items of a specific type.
+    """
 
 @pulumi.input_type
 class ServicehookWebhookTfsWorkItemUpdatedArgs:
@@ -6882,22 +6626,19 @@ class ServicehookWebhookTfsWorkItemUpdatedArgs:
         pulumi.set(self, "work_item_type", value)
 
 
-if not MYPY:
-    class VariableGroupKeyVaultArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Azure key vault to link secrets from as variables.
-        """
-        service_endpoint_id: pulumi.Input[_builtins.str]
-        """
-        The id of the Azure subscription endpoint to access the key vault.
-        """
-        search_depth: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Set the Azure Key Vault Secret search depth. Defaults to `20`.
-        """
-elif False:
-    VariableGroupKeyVaultArgsDict: TypeAlias = Mapping[str, Any]
+class VariableGroupKeyVaultArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Azure key vault to link secrets from as variables.
+    """
+    service_endpoint_id: pulumi.Input[_builtins.str]
+    """
+    The id of the Azure subscription endpoint to access the key vault.
+    """
+    search_depth: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Set the Azure Key Vault Secret search depth. Defaults to `20`.
+    """
 
 @pulumi.input_type
 class VariableGroupKeyVaultArgs:
@@ -6952,29 +6693,26 @@ class VariableGroupKeyVaultArgs:
         pulumi.set(self, "search_depth", value)
 
 
-if not MYPY:
-    class VariableGroupVariableArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The key value used for the variable. Must be unique within the Variable Group.
-        """
-        content_type: NotRequired[pulumi.Input[_builtins.str]]
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        expires: NotRequired[pulumi.Input[_builtins.str]]
-        is_secret: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A boolean flag describing if the variable value is sensitive. Defaults to `false`.
-        """
-        secret_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The secret value of the variable. If omitted, it will default to empty string. Used when `is_secret` set to `true`.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the variable. If omitted, it will default to empty string.
-        """
-elif False:
-    VariableGroupVariableArgsDict: TypeAlias = Mapping[str, Any]
+class VariableGroupVariableArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The key value used for the variable. Must be unique within the Variable Group.
+    """
+    content_type: NotRequired[pulumi.Input[_builtins.str]]
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    expires: NotRequired[pulumi.Input[_builtins.str]]
+    is_secret: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A boolean flag describing if the variable value is sensitive. Defaults to `false`.
+    """
+    secret_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The secret value of the variable. If omitted, it will default to empty string. Used when `is_secret` set to `true`.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the variable. If omitted, it will default to empty string.
+    """
 
 @pulumi.input_type
 class VariableGroupVariableArgs:
@@ -7082,18 +6820,15 @@ class VariableGroupVariableArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class WorkitemRelationArgsDict(TypedDict):
-        rel: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of relationship. For example: `System.LinkTypes.Hierarchy-Reverse` is a parent relationship. More details [item link type](https://learn.microsoft.com/en-us/azure/devops/boards/queries/link-type-reference?view=azure-devops#example).
-        """
-        url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL of the Work Item.
-        """
-elif False:
-    WorkitemRelationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkitemRelationArgsDict(TypedDict):
+    rel: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of relationship. For example: `System.LinkTypes.Hierarchy-Reverse` is a parent relationship. More details [item link type](https://learn.microsoft.com/en-us/azure/devops/boards/queries/link-type-reference?view=azure-devops#example).
+    """
+    url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL of the Work Item.
+    """
 
 @pulumi.input_type
 class WorkitemRelationArgs:
@@ -7134,26 +6869,23 @@ class WorkitemRelationArgs:
         pulumi.set(self, "url", value)
 
 
-if not MYPY:
-    class WorkitemtrackingprocessControlContributionArgsDict(TypedDict):
-        contribution_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the contribution (extension).
-        """
-        height: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The height for the contribution.
-        """
-        inputs: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        A dictionary holding key value pairs for contribution inputs.
-        """
-        show_on_deleted_work_item: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A value indicating if the contribution should be shown on deleted work items. Default: `false`
-        """
-elif False:
-    WorkitemtrackingprocessControlContributionArgsDict: TypeAlias = Mapping[str, Any]
+class WorkitemtrackingprocessControlContributionArgsDict(TypedDict):
+    contribution_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the contribution (extension).
+    """
+    height: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The height for the contribution.
+    """
+    inputs: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    A dictionary holding key value pairs for contribution inputs.
+    """
+    show_on_deleted_work_item: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A value indicating if the contribution should be shown on deleted work items. Default: `false`
+    """
 
 @pulumi.input_type
 class WorkitemtrackingprocessControlContributionArgs:
@@ -7225,58 +6957,55 @@ class WorkitemtrackingprocessControlContributionArgs:
         pulumi.set(self, "show_on_deleted_work_item", value)
 
 
-if not MYPY:
-    class WorkitemtrackingprocessGroupControlArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the control. This is the field reference name (e.g., System.Description) or the contribution ID for extension controls.
-        """
-        contribution: NotRequired[pulumi.Input['WorkitemtrackingprocessGroupControlContributionArgsDict']]
-        """
-        Contribution configuration for extension controls. A `contribution` block as defined below.
-        """
-        control_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of the control (e.g., HtmlFieldControl, FieldControl).
-        """
-        inherited: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A value indicating whether this control has been inherited from a parent layout.
-        """
-        is_contribution: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A value indicating if the control is a contribution (extension) control. Default: `false`
-        """
-        label: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Label for the control.
-        """
-        metadata: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Inner text of the control.
-        """
-        order: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Order in which the group should appear in the section.
-        """
-        overridden: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A value indicating whether this control has been overridden by a child layout.
-        """
-        read_only: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A value indicating if the control is read only. Default: `false`
-        """
-        visible: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A value indicating if the control should be visible or not. Default: `true`
-        """
-        watermark: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Watermark text for the textbox.
-        """
-elif False:
-    WorkitemtrackingprocessGroupControlArgsDict: TypeAlias = Mapping[str, Any]
+class WorkitemtrackingprocessGroupControlArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the control. This is the field reference name (e.g., System.Description) or the contribution ID for extension controls.
+    """
+    contribution: NotRequired[pulumi.Input['WorkitemtrackingprocessGroupControlContributionArgsDict']]
+    """
+    Contribution configuration for extension controls. A `contribution` block as defined below.
+    """
+    control_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type of the control (e.g., HtmlFieldControl, FieldControl).
+    """
+    inherited: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A value indicating whether this control has been inherited from a parent layout.
+    """
+    is_contribution: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A value indicating if the control is a contribution (extension) control. Default: `false`
+    """
+    label: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Label for the control.
+    """
+    metadata: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Inner text of the control.
+    """
+    order: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Order in which the group should appear in the section.
+    """
+    overridden: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A value indicating whether this control has been overridden by a child layout.
+    """
+    read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A value indicating if the control is read only. Default: `false`
+    """
+    visible: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A value indicating if the control should be visible or not. Default: `true`
+    """
+    watermark: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Watermark text for the textbox.
+    """
 
 @pulumi.input_type
 class WorkitemtrackingprocessGroupControlArgs:
@@ -7476,26 +7205,23 @@ class WorkitemtrackingprocessGroupControlArgs:
         pulumi.set(self, "watermark", value)
 
 
-if not MYPY:
-    class WorkitemtrackingprocessGroupControlContributionArgsDict(TypedDict):
-        contribution_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the contribution (extension).
-        """
-        height: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The height for the contribution.
-        """
-        inputs: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        A dictionary holding key value pairs for contribution inputs.
-        """
-        show_on_deleted_work_item: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A value indicating if the contribution should be shown on deleted work items. Default: `false`
-        """
-elif False:
-    WorkitemtrackingprocessGroupControlContributionArgsDict: TypeAlias = Mapping[str, Any]
+class WorkitemtrackingprocessGroupControlContributionArgsDict(TypedDict):
+    contribution_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the contribution (extension).
+    """
+    height: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The height for the contribution.
+    """
+    inputs: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    A dictionary holding key value pairs for contribution inputs.
+    """
+    show_on_deleted_work_item: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A value indicating if the contribution should be shown on deleted work items. Default: `false`
+    """
 
 @pulumi.input_type
 class WorkitemtrackingprocessGroupControlContributionArgs:
@@ -7567,22 +7293,19 @@ class WorkitemtrackingprocessGroupControlContributionArgs:
         pulumi.set(self, "show_on_deleted_work_item", value)
 
 
-if not MYPY:
-    class WorkitemtrackingprocessWorkitemtypePageArgsDict(TypedDict):
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the section.
-        """
-        page_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of the page.
-        """
-        sections: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionArgsDict']]]]
-        """
-        A `sections` block as defined below.
-        """
-elif False:
-    WorkitemtrackingprocessWorkitemtypePageArgsDict: TypeAlias = Mapping[str, Any]
+class WorkitemtrackingprocessWorkitemtypePageArgsDict(TypedDict):
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the section.
+    """
+    page_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of the page.
+    """
+    sections: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionArgsDict']]]]
+    """
+    A `sections` block as defined below.
+    """
 
 @pulumi.input_type
 class WorkitemtrackingprocessWorkitemtypePageArgs:
@@ -7639,18 +7362,15 @@ class WorkitemtrackingprocessWorkitemtypePageArgs:
         pulumi.set(self, "sections", value)
 
 
-if not MYPY:
-    class WorkitemtrackingprocessWorkitemtypePageSectionArgsDict(TypedDict):
-        groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupArgsDict']]]]
-        """
-        A `groups` block as defined above.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the section.
-        """
-elif False:
-    WorkitemtrackingprocessWorkitemtypePageSectionArgsDict: TypeAlias = Mapping[str, Any]
+class WorkitemtrackingprocessWorkitemtypePageSectionArgsDict(TypedDict):
+    groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupArgsDict']]]]
+    """
+    A `groups` block as defined above.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the section.
+    """
 
 @pulumi.input_type
 class WorkitemtrackingprocessWorkitemtypePageSectionArgs:
@@ -7691,18 +7411,15 @@ class WorkitemtrackingprocessWorkitemtypePageSectionArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class WorkitemtrackingprocessWorkitemtypePageSectionGroupArgsDict(TypedDict):
-        controls: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgsDict']]]]
-        """
-        A `controls` block as defined above.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the section.
-        """
-elif False:
-    WorkitemtrackingprocessWorkitemtypePageSectionGroupArgsDict: TypeAlias = Mapping[str, Any]
+class WorkitemtrackingprocessWorkitemtypePageSectionGroupArgsDict(TypedDict):
+    controls: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgsDict']]]]
+    """
+    A `controls` block as defined above.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the section.
+    """
 
 @pulumi.input_type
 class WorkitemtrackingprocessWorkitemtypePageSectionGroupArgs:
@@ -7743,14 +7460,11 @@ class WorkitemtrackingprocessWorkitemtypePageSectionGroupArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgsDict(TypedDict):
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the section.
-        """
-elif False:
-    WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgsDict: TypeAlias = Mapping[str, Any]
+class WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgsDict(TypedDict):
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the section.
+    """
 
 @pulumi.input_type
 class WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgs:
@@ -7775,16 +7489,13 @@ class WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetUsersFeaturesArgsDict(TypedDict):
-        concurrent_workers: NotRequired[_builtins.int]
-        """
-        Number of workers to process user data concurrently.
+class GetUsersFeaturesArgsDict(TypedDict):
+    concurrent_workers: NotRequired[_builtins.int]
+    """
+    Number of workers to process user data concurrently.
 
-        > **Note** Setting `concurrent_workers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
-        """
-elif False:
-    GetUsersFeaturesArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note** Setting `concurrent_workers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
+    """
 
 @pulumi.input_type
 class GetUsersFeaturesArgs:

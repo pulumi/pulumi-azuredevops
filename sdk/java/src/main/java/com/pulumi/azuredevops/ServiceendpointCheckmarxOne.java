@@ -196,9 +196,17 @@ public class ServiceendpointCheckmarxOne extends com.pulumi.resources.CustomReso
     public Output<Optional<String>> clientSecret() {
         return Codegen.optional(this.clientSecret);
     }
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return The Service Endpoint description. Defaults to `Managed by Terraform`.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }

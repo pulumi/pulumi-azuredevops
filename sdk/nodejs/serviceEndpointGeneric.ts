@@ -72,6 +72,9 @@ export class ServiceEndpointGeneric extends pulumi.CustomResource {
     }
 
     declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The password or token key used to authenticate to the server url using basic authentication.
@@ -145,6 +148,9 @@ export class ServiceEndpointGeneric extends pulumi.CustomResource {
  */
 export interface ServiceEndpointGenericState {
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * The password or token key used to authenticate to the server url using basic authentication.
@@ -172,6 +178,9 @@ export interface ServiceEndpointGenericState {
  * The set of arguments for constructing a ServiceEndpointGeneric resource.
  */
 export interface ServiceEndpointGenericArgs {
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * The password or token key used to authenticate to the server url using basic authentication.

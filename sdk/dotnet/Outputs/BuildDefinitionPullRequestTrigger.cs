@@ -18,6 +18,9 @@ namespace Pulumi.AzureDevOps.Outputs
         /// Set permissions for Forked repositories.
         /// </summary>
         public readonly Outputs.BuildDefinitionPullRequestTriggerForks Forks;
+        /// <summary>
+        /// When UseYaml is true set this to the name of the branch that the azure-pipelines.yml exists on. Defaults to `Managed by Terraform`.
+        /// </summary>
         public readonly string? InitialBranch;
         /// <summary>
         /// Override the azure-pipeline file and use this configuration for all builds.

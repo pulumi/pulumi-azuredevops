@@ -121,7 +121,8 @@ type ServiceendpointCheckmarxOne struct {
 	//
 	// > **Note** At least one of `apiKey` and `clientId`, `clientSecret` must be set
 	ClientSecret pulumi.StringPtrOutput `pulumi:"clientSecret"`
-	Description  pulumi.StringPtrOutput `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The Server URL of the Checkmarx One Service.
@@ -191,7 +192,8 @@ type serviceendpointCheckmarxOneState struct {
 	//
 	// > **Note** At least one of `apiKey` and `clientId`, `clientSecret` must be set
 	ClientSecret *string `pulumi:"clientSecret"`
-	Description  *string `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description *string `pulumi:"description"`
 	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// The Server URL of the Checkmarx One Service.
@@ -212,7 +214,8 @@ type ServiceendpointCheckmarxOneState struct {
 	//
 	// > **Note** At least one of `apiKey` and `clientId`, `clientSecret` must be set
 	ClientSecret pulumi.StringPtrInput
-	Description  pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// The Server URL of the Checkmarx One Service.
@@ -236,7 +239,8 @@ type serviceendpointCheckmarxOneArgs struct {
 	//
 	// > **Note** At least one of `apiKey` and `clientId`, `clientSecret` must be set
 	ClientSecret *string `pulumi:"clientSecret"`
-	Description  *string `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description *string `pulumi:"description"`
 	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// The Server URL of the Checkmarx One Service.
@@ -257,7 +261,8 @@ type ServiceendpointCheckmarxOneArgs struct {
 	//
 	// > **Note** At least one of `apiKey` and `clientId`, `clientSecret` must be set
 	ClientSecret pulumi.StringPtrInput
-	Description  pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// The Server URL of the Checkmarx One Service.
@@ -379,6 +384,7 @@ func (o ServiceendpointCheckmarxOneOutput) ClientSecret() pulumi.StringPtrOutput
 	return o.ApplyT(func(v *ServiceendpointCheckmarxOne) pulumi.StringPtrOutput { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
 
+// The Service Endpoint description. Defaults to `Managed by Terraform`.
 func (o ServiceendpointCheckmarxOneOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointCheckmarxOne) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

@@ -163,7 +163,8 @@ type ServiceEndpointAzureEcr struct {
 	AzurecrSubscriptionName pulumi.StringOutput `pulumi:"azurecrSubscriptionName"`
 	// A `credentials` block as defined below.
 	Credentials ServiceEndpointAzureEcrCredentialsPtrOutput `pulumi:"credentials"`
-	Description pulumi.StringPtrOutput                      `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The resource group to which the container registry belongs.
@@ -231,7 +232,8 @@ type serviceEndpointAzureEcrState struct {
 	AzurecrSubscriptionName *string `pulumi:"azurecrSubscriptionName"`
 	// A `credentials` block as defined below.
 	Credentials *ServiceEndpointAzureEcrCredentials `pulumi:"credentials"`
-	Description *string                             `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description *string `pulumi:"description"`
 	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// The resource group to which the container registry belongs.
@@ -264,6 +266,7 @@ type ServiceEndpointAzureEcrState struct {
 	AzurecrSubscriptionName pulumi.StringPtrInput
 	// A `credentials` block as defined below.
 	Credentials ServiceEndpointAzureEcrCredentialsPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
@@ -297,7 +300,8 @@ type serviceEndpointAzureEcrArgs struct {
 	AzurecrSubscriptionName *string `pulumi:"azurecrSubscriptionName"`
 	// A `credentials` block as defined below.
 	Credentials *ServiceEndpointAzureEcrCredentials `pulumi:"credentials"`
-	Description *string                             `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description *string `pulumi:"description"`
 	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// The resource group to which the container registry belongs.
@@ -320,6 +324,7 @@ type ServiceEndpointAzureEcrArgs struct {
 	AzurecrSubscriptionName pulumi.StringPtrInput
 	// A `credentials` block as defined below.
 	Credentials ServiceEndpointAzureEcrCredentialsPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringInput
@@ -459,6 +464,7 @@ func (o ServiceEndpointAzureEcrOutput) Credentials() ServiceEndpointAzureEcrCred
 	return o.ApplyT(func(v *ServiceEndpointAzureEcr) ServiceEndpointAzureEcrCredentialsPtrOutput { return v.Credentials }).(ServiceEndpointAzureEcrCredentialsPtrOutput)
 }
 
+// The Service Endpoint description. Defaults to `Managed by Terraform`.
 func (o ServiceEndpointAzureEcrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointAzureEcr) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

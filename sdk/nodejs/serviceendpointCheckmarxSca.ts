@@ -81,6 +81,9 @@ export class ServiceendpointCheckmarxSca extends pulumi.CustomResource {
      */
     declare public readonly account: pulumi.Output<string>;
     declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The password of the Checkmarx SCA.
@@ -193,6 +196,9 @@ export interface ServiceendpointCheckmarxScaState {
      */
     account?: pulumi.Input<string>;
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * The password of the Checkmarx SCA.
@@ -236,6 +242,9 @@ export interface ServiceendpointCheckmarxScaArgs {
      * The account of the Checkmarx SCA.
      */
     account: pulumi.Input<string>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * The password of the Checkmarx SCA.

@@ -242,9 +242,17 @@ public class ServiceEndpointServiceFabric extends com.pulumi.resources.CustomRes
     public Output<String> clusterEndpoint() {
         return this.clusterEndpoint;
     }
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return The Service Endpoint description. Defaults to `Managed by Terraform`.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }

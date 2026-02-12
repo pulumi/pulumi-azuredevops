@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps
 {
     /// <summary>
+    /// Manages a GCP for Terraform service endpoint for Terraform within Azure DevOps. Using this service endpoint requires you to first install the Azure Terraform Extension for Azure DevOps from Microsoft DevLabs.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -52,7 +54,7 @@ namespace Pulumi.AzureDevOps
     /// Azure DevOps GCP for Terraform Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
     /// 
     /// ```sh
-    /// $ pulumi import azuredevops:index/serviceendpointGcpTerraform:ServiceendpointGcpTerraform  azuredevops_serviceendpoint_gcp_terraform.example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+    ///  $ pulumi import azuredevops:index/serviceendpointGcpTerraform:ServiceendpointGcpTerraform example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/serviceendpointGcpTerraform:ServiceendpointGcpTerraform")]
@@ -67,6 +69,9 @@ namespace Pulumi.AzureDevOps
         [Output("clientEmail")]
         public Output<string?> ClientEmail { get; private set; } = null!;
 
+        /// <summary>
+        /// The Service Endpoint description. Defaults to `Managed by Terraform`.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -162,6 +167,9 @@ namespace Pulumi.AzureDevOps
         [Input("clientEmail")]
         public Input<string>? ClientEmail { get; set; }
 
+        /// <summary>
+        /// The Service Endpoint description. Defaults to `Managed by Terraform`.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -233,6 +241,9 @@ namespace Pulumi.AzureDevOps
         [Input("clientEmail")]
         public Input<string>? ClientEmail { get; set; }
 
+        /// <summary>
+        /// The Service Endpoint description. Defaults to `Managed by Terraform`.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

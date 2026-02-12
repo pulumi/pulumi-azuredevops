@@ -10,9 +10,21 @@ import java.util.Objects;
 
 @CustomType
 public final class ServiceEndpointGitHubAuthOauth {
+    /**
+     * @return The OAuth Configuration ID.
+     * 
+     * ~&gt;**NOTE:** GitHub OAuth flow can not be performed via terraform. You must create this on Azure DevOps and then import it.
+     * 
+     */
     private String oauthConfigurationId;
 
     private ServiceEndpointGitHubAuthOauth() {}
+    /**
+     * @return The OAuth Configuration ID.
+     * 
+     * ~&gt;**NOTE:** GitHub OAuth flow can not be performed via terraform. You must create this on Azure DevOps and then import it.
+     * 
+     */
     public String oauthConfigurationId() {
         return this.oauthConfigurationId;
     }

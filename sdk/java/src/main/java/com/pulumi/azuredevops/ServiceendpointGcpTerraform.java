@@ -17,6 +17,8 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages a GCP for Terraform service endpoint for Terraform within Azure DevOps. Using this service endpoint requires you to first install the Azure Terraform Extension for Azure DevOps from Microsoft DevLabs.
+ * 
  * ## Example Usage
  * 
  * <pre>
@@ -75,7 +77,7 @@ import javax.annotation.Nullable;
  * Azure DevOps GCP for Terraform Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
  * 
  * ```sh
- * $ pulumi import azuredevops:index/serviceendpointGcpTerraform:ServiceendpointGcpTerraform  azuredevops_serviceendpoint_gcp_terraform.example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+ *  $ pulumi import azuredevops:index/serviceendpointGcpTerraform:ServiceendpointGcpTerraform example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
  * ```
  * 
  */
@@ -101,9 +103,17 @@ public class ServiceendpointGcpTerraform extends com.pulumi.resources.CustomReso
     public Output<Optional<String>> clientEmail() {
         return Codegen.optional(this.clientEmail);
     }
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return The Service Endpoint description. Defaults to `Managed by Terraform`.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }

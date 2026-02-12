@@ -34,6 +34,7 @@ class ServiceendpointJenkinsArgs:
         :param pulumi.Input[_builtins.str] url: The Service Endpoint url.
         :param pulumi.Input[_builtins.str] username: The Service Endpoint username to authenticate at the Jenkins Instance.
         :param pulumi.Input[_builtins.bool] accept_untrusted_certs: Allows the Jenkins clients to accept self-signed SSL server certificates. Defaults to `false.`
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to Managed by Terraform.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "project_id", project_id)
@@ -120,6 +121,9 @@ class ServiceendpointJenkinsArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to Managed by Terraform.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -141,6 +145,7 @@ class _ServiceendpointJenkinsState:
         """
         Input properties used for looking up and filtering ServiceendpointJenkins resources.
         :param pulumi.Input[_builtins.bool] accept_untrusted_certs: Allows the Jenkins clients to accept self-signed SSL server certificates. Defaults to `false.`
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to Managed by Terraform.
         :param pulumi.Input[_builtins.str] password: The Service Endpoint password to authenticate at the Jenkins Instance.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project. Changing this forces a new Service Connection Jenkins to be created.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The name of the service endpoint. Changing this forces a new Service Connection Jenkins to be created.
@@ -188,6 +193,9 @@ class _ServiceendpointJenkinsState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to Managed by Terraform.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -305,6 +313,7 @@ class ServiceendpointJenkins(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] accept_untrusted_certs: Allows the Jenkins clients to accept self-signed SSL server certificates. Defaults to `false.`
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to Managed by Terraform.
         :param pulumi.Input[_builtins.str] password: The Service Endpoint password to authenticate at the Jenkins Instance.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project. Changing this forces a new Service Connection Jenkins to be created.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The name of the service endpoint. Changing this forces a new Service Connection Jenkins to be created.
@@ -427,6 +436,7 @@ class ServiceendpointJenkins(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] accept_untrusted_certs: Allows the Jenkins clients to accept self-signed SSL server certificates. Defaults to `false.`
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to Managed by Terraform.
         :param pulumi.Input[_builtins.str] password: The Service Endpoint password to authenticate at the Jenkins Instance.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project. Changing this forces a new Service Connection Jenkins to be created.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The name of the service endpoint. Changing this forces a new Service Connection Jenkins to be created.
@@ -463,6 +473,9 @@ class ServiceendpointJenkins(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to Managed by Terraform.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property

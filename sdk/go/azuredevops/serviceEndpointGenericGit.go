@@ -71,7 +71,8 @@ type ServiceEndpointGenericGit struct {
 	pulumi.CustomResourceState
 
 	Authorization pulumi.StringMapOutput `pulumi:"authorization"`
-	Description   pulumi.StringPtrOutput `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
 	EnablePipelinesAccess pulumi.BoolPtrOutput `pulumi:"enablePipelinesAccess"`
 	// The PAT or password used to authenticate to the git repository.
@@ -135,7 +136,8 @@ func GetServiceEndpointGenericGit(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ServiceEndpointGenericGit resources.
 type serviceEndpointGenericGitState struct {
 	Authorization map[string]string `pulumi:"authorization"`
-	Description   *string           `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description *string `pulumi:"description"`
 	// A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
 	EnablePipelinesAccess *bool `pulumi:"enablePipelinesAccess"`
 	// The PAT or password used to authenticate to the git repository.
@@ -154,7 +156,8 @@ type serviceEndpointGenericGitState struct {
 
 type ServiceEndpointGenericGitState struct {
 	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrInput
 	// A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
 	EnablePipelinesAccess pulumi.BoolPtrInput
 	// The PAT or password used to authenticate to the git repository.
@@ -176,6 +179,7 @@ func (ServiceEndpointGenericGitState) ElementType() reflect.Type {
 }
 
 type serviceEndpointGenericGitArgs struct {
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description *string `pulumi:"description"`
 	// A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
 	EnablePipelinesAccess *bool `pulumi:"enablePipelinesAccess"`
@@ -195,6 +199,7 @@ type serviceEndpointGenericGitArgs struct {
 
 // The set of arguments for constructing a ServiceEndpointGenericGit resource.
 type ServiceEndpointGenericGitArgs struct {
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description pulumi.StringPtrInput
 	// A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
 	EnablePipelinesAccess pulumi.BoolPtrInput
@@ -303,6 +308,7 @@ func (o ServiceEndpointGenericGitOutput) Authorization() pulumi.StringMapOutput 
 	return o.ApplyT(func(v *ServiceEndpointGenericGit) pulumi.StringMapOutput { return v.Authorization }).(pulumi.StringMapOutput)
 }
 
+// The Service Endpoint description. Defaults to `Managed by Terraform`.
 func (o ServiceEndpointGenericGitOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointGenericGit) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

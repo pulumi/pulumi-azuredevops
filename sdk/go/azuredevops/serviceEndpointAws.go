@@ -64,7 +64,9 @@ import (
 // Azure DevOps AWS Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
-// $ pulumi import azuredevops:index/serviceEndpointAws:ServiceEndpointAws  azuredevops_serviceendpoint_aws.example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azuredevops:index/serviceEndpointAws:ServiceEndpointAws example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
 // ```
 type ServiceEndpointAws struct {
 	pulumi.CustomResourceState
@@ -72,7 +74,8 @@ type ServiceEndpointAws struct {
 	// The AWS access key ID for signing programmatic requests.
 	AccessKeyId   pulumi.StringPtrOutput `pulumi:"accessKeyId"`
 	Authorization pulumi.StringMapOutput `pulumi:"authorization"`
-	Description   pulumi.StringPtrOutput `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
 	ExternalId pulumi.StringPtrOutput `pulumi:"externalId"`
 	// The ID of the project.
@@ -141,7 +144,8 @@ type serviceEndpointAwsState struct {
 	// The AWS access key ID for signing programmatic requests.
 	AccessKeyId   *string           `pulumi:"accessKeyId"`
 	Authorization map[string]string `pulumi:"authorization"`
-	Description   *string           `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description *string `pulumi:"description"`
 	// A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
 	ExternalId *string `pulumi:"externalId"`
 	// The ID of the project.
@@ -164,7 +168,8 @@ type ServiceEndpointAwsState struct {
 	// The AWS access key ID for signing programmatic requests.
 	AccessKeyId   pulumi.StringPtrInput
 	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrInput
 	// A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
 	ExternalId pulumi.StringPtrInput
 	// The ID of the project.
@@ -190,6 +195,7 @@ func (ServiceEndpointAwsState) ElementType() reflect.Type {
 type serviceEndpointAwsArgs struct {
 	// The AWS access key ID for signing programmatic requests.
 	AccessKeyId *string `pulumi:"accessKeyId"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description *string `pulumi:"description"`
 	// A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
 	ExternalId *string `pulumi:"externalId"`
@@ -213,6 +219,7 @@ type serviceEndpointAwsArgs struct {
 type ServiceEndpointAwsArgs struct {
 	// The AWS access key ID for signing programmatic requests.
 	AccessKeyId pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description pulumi.StringPtrInput
 	// A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
 	ExternalId pulumi.StringPtrInput
@@ -328,6 +335,7 @@ func (o ServiceEndpointAwsOutput) Authorization() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceEndpointAws) pulumi.StringMapOutput { return v.Authorization }).(pulumi.StringMapOutput)
 }
 
+// The Service Endpoint description. Defaults to `Managed by Terraform`.
 func (o ServiceEndpointAwsOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointAws) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

@@ -39,7 +39,7 @@ import * as utilities from "./utilities";
  * Azure DevOps AWS Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
  *
  * ```sh
- * $ pulumi import azuredevops:index/serviceEndpointAws:ServiceEndpointAws  azuredevops_serviceendpoint_aws.example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+ *  $ pulumi import azuredevops:index/serviceEndpointAws:ServiceEndpointAws example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
  * ```
  */
 export class ServiceEndpointAws extends pulumi.CustomResource {
@@ -75,6 +75,9 @@ export class ServiceEndpointAws extends pulumi.CustomResource {
      */
     declare public readonly accessKeyId: pulumi.Output<string | undefined>;
     declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
@@ -169,6 +172,9 @@ export interface ServiceEndpointAwsState {
      */
     accessKeyId?: pulumi.Input<string>;
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
@@ -212,6 +218,9 @@ export interface ServiceEndpointAwsArgs {
      * The AWS access key ID for signing programmatic requests.
      */
     accessKeyId?: pulumi.Input<string>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.

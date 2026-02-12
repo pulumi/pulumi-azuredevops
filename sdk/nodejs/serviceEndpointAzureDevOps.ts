@@ -75,6 +75,9 @@ export class ServiceEndpointAzureDevOps extends pulumi.CustomResource {
     }
 
     declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The organization URL.
@@ -145,6 +148,9 @@ export class ServiceEndpointAzureDevOps extends pulumi.CustomResource {
  */
 export interface ServiceEndpointAzureDevOpsState {
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * The organization URL.
@@ -172,6 +178,9 @@ export interface ServiceEndpointAzureDevOpsState {
  * The set of arguments for constructing a ServiceEndpointAzureDevOps resource.
  */
 export interface ServiceEndpointAzureDevOpsArgs {
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * The organization URL.

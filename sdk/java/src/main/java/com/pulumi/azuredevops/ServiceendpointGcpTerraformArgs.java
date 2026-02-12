@@ -31,9 +31,17 @@ public final class ServiceendpointGcpTerraformArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.clientEmail);
     }
 
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return The Service Endpoint description. Defaults to `Managed by Terraform`.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
@@ -180,11 +188,23 @@ public final class ServiceendpointGcpTerraformArgs extends com.pulumi.resources.
             return clientEmail(Output.of(clientEmail));
         }
 
+        /**
+         * @param description The Service Endpoint description. Defaults to `Managed by Terraform`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description The Service Endpoint description. Defaults to `Managed by Terraform`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }

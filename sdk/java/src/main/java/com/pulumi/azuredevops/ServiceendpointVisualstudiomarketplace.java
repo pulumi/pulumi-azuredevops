@@ -175,9 +175,17 @@ public class ServiceendpointVisualstudiomarketplace extends com.pulumi.resources
     public Output<Map<String,String>> authorization() {
         return this.authorization;
     }
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return The Service Endpoint description. Defaults to `Managed by Terraform`.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }

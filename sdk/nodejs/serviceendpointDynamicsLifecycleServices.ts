@@ -81,6 +81,9 @@ export class ServiceendpointDynamicsLifecycleServices extends pulumi.CustomResou
      * The client ID for a native application registration in Azure Active Directory with API permissions for Dynamics Lifecycle Services.
      */
     declare public readonly clientId: pulumi.Output<string>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The URL of the Lifecycle Services API Endpoint.
@@ -178,6 +181,9 @@ export interface ServiceendpointDynamicsLifecycleServicesState {
      * The client ID for a native application registration in Azure Active Directory with API permissions for Dynamics Lifecycle Services.
      */
     clientId?: pulumi.Input<string>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * The URL of the Lifecycle Services API Endpoint.
@@ -213,6 +219,9 @@ export interface ServiceendpointDynamicsLifecycleServicesArgs {
      * The client ID for a native application registration in Azure Active Directory with API permissions for Dynamics Lifecycle Services.
      */
     clientId: pulumi.Input<string>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * The URL of the Lifecycle Services API Endpoint.

@@ -61,7 +61,7 @@ import (
 // Azure DevOps Projects can be imported using the project name or by the project Guid, e.g.
 //
 // ```sh
-// $ pulumi import azuredevops:index/project:Project example "Example Project"
+// terraform import azuredevops_project.example "Example Project"
 // ```
 //
 // or

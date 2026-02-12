@@ -32,6 +32,7 @@ class ServiceendpointGcpTerraformArgs:
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[_builtins.str] client_email: The client email field in the JSON key file for creating the JSON Web Token.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] gcp_project_id: GCP project associated with the Service Connection.
         :param pulumi.Input[_builtins.str] private_key: The Private Key for connecting to the endpoint.
         :param pulumi.Input[_builtins.str] scope: Scope to be provided.
@@ -91,6 +92,9 @@ class ServiceendpointGcpTerraformArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -161,6 +165,7 @@ class _ServiceendpointGcpTerraformState:
         """
         Input properties used for looking up and filtering ServiceendpointGcpTerraform resources.
         :param pulumi.Input[_builtins.str] client_email: The client email field in the JSON key file for creating the JSON Web Token.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] gcp_project_id: GCP project associated with the Service Connection.
         :param pulumi.Input[_builtins.str] private_key: The Private Key for connecting to the endpoint.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
@@ -211,6 +216,9 @@ class _ServiceendpointGcpTerraformState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -306,6 +314,8 @@ class ServiceendpointGcpTerraform(pulumi.CustomResource):
                  token_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Manages a GCP for Terraform service endpoint for Terraform within Azure DevOps. Using this service endpoint requires you to first install the Azure Terraform Extension for Azure DevOps from Microsoft DevLabs.
+
         ## Example Usage
 
         ```python
@@ -337,12 +347,13 @@ class ServiceendpointGcpTerraform(pulumi.CustomResource):
         Azure DevOps GCP for Terraform Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
-        $ pulumi import azuredevops:index/serviceendpointGcpTerraform:ServiceendpointGcpTerraform  azuredevops_serviceendpoint_gcp_terraform.example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:index/serviceendpointGcpTerraform:ServiceendpointGcpTerraform example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] client_email: The client email field in the JSON key file for creating the JSON Web Token.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] gcp_project_id: GCP project associated with the Service Connection.
         :param pulumi.Input[_builtins.str] private_key: The Private Key for connecting to the endpoint.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
@@ -357,6 +368,8 @@ class ServiceendpointGcpTerraform(pulumi.CustomResource):
                  args: ServiceendpointGcpTerraformArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages a GCP for Terraform service endpoint for Terraform within Azure DevOps. Using this service endpoint requires you to first install the Azure Terraform Extension for Azure DevOps from Microsoft DevLabs.
+
         ## Example Usage
 
         ```python
@@ -388,7 +401,7 @@ class ServiceendpointGcpTerraform(pulumi.CustomResource):
         Azure DevOps GCP for Terraform Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
-        $ pulumi import azuredevops:index/serviceendpointGcpTerraform:ServiceendpointGcpTerraform  azuredevops_serviceendpoint_gcp_terraform.example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:index/serviceendpointGcpTerraform:ServiceendpointGcpTerraform example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
@@ -465,6 +478,7 @@ class ServiceendpointGcpTerraform(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] client_email: The client email field in the JSON key file for creating the JSON Web Token.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] gcp_project_id: GCP project associated with the Service Connection.
         :param pulumi.Input[_builtins.str] private_key: The Private Key for connecting to the endpoint.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
@@ -503,6 +517,9 @@ class ServiceendpointGcpTerraform(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property

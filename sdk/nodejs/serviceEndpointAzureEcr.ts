@@ -147,6 +147,9 @@ export class ServiceEndpointAzureEcr extends pulumi.CustomResource {
      * A `credentials` block as defined below.
      */
     declare public readonly credentials: pulumi.Output<outputs.ServiceEndpointAzureEcrCredentials | undefined>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the project.
@@ -269,6 +272,9 @@ export interface ServiceEndpointAzureEcrState {
      * A `credentials` block as defined below.
      */
     credentials?: pulumi.Input<inputs.ServiceEndpointAzureEcrCredentials>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * The ID of the project.
@@ -325,6 +331,9 @@ export interface ServiceEndpointAzureEcrArgs {
      * A `credentials` block as defined below.
      */
     credentials?: pulumi.Input<inputs.ServiceEndpointAzureEcrCredentials>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * The ID of the project.

@@ -111,6 +111,11 @@ namespace Pulumi.AzureDevOps
         [Output("authorization")]
         public Output<ImmutableDictionary<string, string>> Authorization { get; private set; } = null!;
 
+        /// <summary>
+        /// The Service Endpoint description. Defaults to `Managed by Terraform`.
+        /// 
+        /// &gt; **NOTE:** GitHub Apps can not be created or updated via terraform. You must install and configure the app on GitHub and then import it. You must also set the `Description` to "" explicitly.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -190,6 +195,11 @@ namespace Pulumi.AzureDevOps
         [Input("authPersonal")]
         public Input<Inputs.ServiceEndpointGitHubEnterpriseAuthPersonalArgs>? AuthPersonal { get; set; }
 
+        /// <summary>
+        /// The Service Endpoint description. Defaults to `Managed by Terraform`.
+        /// 
+        /// &gt; **NOTE:** GitHub Apps can not be created or updated via terraform. You must install and configure the app on GitHub and then import it. You must also set the `Description` to "" explicitly.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -239,6 +249,11 @@ namespace Pulumi.AzureDevOps
             set => _authorization = value;
         }
 
+        /// <summary>
+        /// The Service Endpoint description. Defaults to `Managed by Terraform`.
+        /// 
+        /// &gt; **NOTE:** GitHub Apps can not be created or updated via terraform. You must install and configure the app on GitHub and then import it. You must also set the `Description` to "" explicitly.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

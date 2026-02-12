@@ -74,8 +74,9 @@ type ServiceendpointExternaltfs struct {
 	AuthPersonal  ServiceendpointExternaltfsAuthPersonalOutput `pulumi:"authPersonal"`
 	Authorization pulumi.StringMapOutput                       `pulumi:"authorization"`
 	// Azure DevOps Organization or TFS Project Collection Url.
-	ConnectionUrl pulumi.StringOutput    `pulumi:"connectionUrl"`
-	Description   pulumi.StringPtrOutput `pulumi:"description"`
+	ConnectionUrl pulumi.StringOutput `pulumi:"connectionUrl"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The Service Endpoint name.
@@ -129,7 +130,8 @@ type serviceendpointExternaltfsState struct {
 	Authorization map[string]string                       `pulumi:"authorization"`
 	// Azure DevOps Organization or TFS Project Collection Url.
 	ConnectionUrl *string `pulumi:"connectionUrl"`
-	Description   *string `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description *string `pulumi:"description"`
 	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// The Service Endpoint name.
@@ -142,7 +144,8 @@ type ServiceendpointExternaltfsState struct {
 	Authorization pulumi.StringMapInput
 	// Azure DevOps Organization or TFS Project Collection Url.
 	ConnectionUrl pulumi.StringPtrInput
-	Description   pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// The Service Endpoint name.
@@ -157,8 +160,9 @@ type serviceendpointExternaltfsArgs struct {
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal ServiceendpointExternaltfsAuthPersonal `pulumi:"authPersonal"`
 	// Azure DevOps Organization or TFS Project Collection Url.
-	ConnectionUrl string  `pulumi:"connectionUrl"`
-	Description   *string `pulumi:"description"`
+	ConnectionUrl string `pulumi:"connectionUrl"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description *string `pulumi:"description"`
 	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// The Service Endpoint name.
@@ -171,7 +175,8 @@ type ServiceendpointExternaltfsArgs struct {
 	AuthPersonal ServiceendpointExternaltfsAuthPersonalInput
 	// Azure DevOps Organization or TFS Project Collection Url.
 	ConnectionUrl pulumi.StringInput
-	Description   pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// The Service Endpoint name.
@@ -281,6 +286,7 @@ func (o ServiceendpointExternaltfsOutput) ConnectionUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceendpointExternaltfs) pulumi.StringOutput { return v.ConnectionUrl }).(pulumi.StringOutput)
 }
 
+// The Service Endpoint description. Defaults to `Managed by Terraform`.
 func (o ServiceendpointExternaltfsOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointExternaltfs) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

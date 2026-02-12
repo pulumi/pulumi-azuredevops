@@ -29,6 +29,7 @@ class ServiceendpointIncomingwebhookArgs:
         The set of arguments for constructing a ServiceendpointIncomingwebhook resource.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project. Changing this forces a new Service Connection Incoming WebHook to be created.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The name of the service endpoint. Changing this forces a new Service Connection Incoming WebHook to be created.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to Managed by Terraform.
         :param pulumi.Input[_builtins.str] http_header: Http header name on which checksum will be sent.
         :param pulumi.Input[_builtins.str] secret: Secret for the WebHook. WebHook service will use this secret to calculate the payload checksum.
         :param pulumi.Input[_builtins.str] webhook_name: The name of the WebHook.
@@ -71,6 +72,9 @@ class ServiceendpointIncomingwebhookArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to Managed by Terraform.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -126,6 +130,7 @@ class _ServiceendpointIncomingwebhookState:
                  webhook_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceendpointIncomingwebhook resources.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to Managed by Terraform.
         :param pulumi.Input[_builtins.str] http_header: Http header name on which checksum will be sent.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project. Changing this forces a new Service Connection Incoming WebHook to be created.
         :param pulumi.Input[_builtins.str] secret: Secret for the WebHook. WebHook service will use this secret to calculate the payload checksum.
@@ -159,6 +164,9 @@ class _ServiceendpointIncomingwebhookState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to Managed by Terraform.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -273,6 +281,7 @@ class ServiceendpointIncomingwebhook(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to Managed by Terraform.
         :param pulumi.Input[_builtins.str] http_header: Http header name on which checksum will be sent.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project. Changing this forces a new Service Connection Incoming WebHook to be created.
         :param pulumi.Input[_builtins.str] secret: Secret for the WebHook. WebHook service will use this secret to calculate the payload checksum.
@@ -384,6 +393,7 @@ class ServiceendpointIncomingwebhook(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to Managed by Terraform.
         :param pulumi.Input[_builtins.str] http_header: Http header name on which checksum will be sent.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project. Changing this forces a new Service Connection Incoming WebHook to be created.
         :param pulumi.Input[_builtins.str] secret: Secret for the WebHook. WebHook service will use this secret to calculate the payload checksum.
@@ -411,6 +421,9 @@ class ServiceendpointIncomingwebhook(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to Managed by Terraform.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property

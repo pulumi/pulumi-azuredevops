@@ -40,6 +40,7 @@ class ServiceEndpointAzureEcrArgs:
         :param pulumi.Input[_builtins.str] azurecr_subscription_id: The subscription id of the Azure targets.
         :param pulumi.Input[_builtins.str] azurecr_subscription_name: The subscription name of the Azure targets.
         :param pulumi.Input['ServiceEndpointAzureEcrCredentialsArgs'] credentials: A `credentials` block as defined below.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] resource_group: The resource group to which the container registry belongs.
         :param pulumi.Input[_builtins.str] service_endpoint_authentication_scheme: Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
         """
@@ -149,6 +150,9 @@ class ServiceEndpointAzureEcrArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -208,6 +212,7 @@ class _ServiceEndpointAzureEcrState:
         :param pulumi.Input[_builtins.str] azurecr_subscription_id: The subscription id of the Azure targets.
         :param pulumi.Input[_builtins.str] azurecr_subscription_name: The subscription name of the Azure targets.
         :param pulumi.Input['ServiceEndpointAzureEcrCredentialsArgs'] credentials: A `credentials` block as defined below.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] resource_group: The resource group to which the container registry belongs.
         :param pulumi.Input[_builtins.str] service_endpoint_authentication_scheme: Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
@@ -352,6 +357,9 @@ class _ServiceEndpointAzureEcrState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -558,6 +566,7 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] azurecr_subscription_id: The subscription id of the Azure targets.
         :param pulumi.Input[_builtins.str] azurecr_subscription_name: The subscription name of the Azure targets.
         :param pulumi.Input[Union['ServiceEndpointAzureEcrCredentialsArgs', 'ServiceEndpointAzureEcrCredentialsArgsDict']] credentials: A `credentials` block as defined below.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] resource_group: The resource group to which the container registry belongs.
         :param pulumi.Input[_builtins.str] service_endpoint_authentication_scheme: Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
@@ -747,6 +756,7 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] azurecr_subscription_id: The subscription id of the Azure targets.
         :param pulumi.Input[_builtins.str] azurecr_subscription_name: The subscription name of the Azure targets.
         :param pulumi.Input[Union['ServiceEndpointAzureEcrCredentialsArgs', 'ServiceEndpointAzureEcrCredentialsArgsDict']] credentials: A `credentials` block as defined below.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] resource_group: The resource group to which the container registry belongs.
         :param pulumi.Input[_builtins.str] service_endpoint_authentication_scheme: Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
@@ -842,6 +852,9 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property

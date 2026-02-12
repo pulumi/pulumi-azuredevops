@@ -260,9 +260,17 @@ public class ServiceendpointOpenshift extends com.pulumi.resources.CustomResourc
     public Output<Optional<String>> certificateAuthorityFile() {
         return Codegen.optional(this.certificateAuthorityFile);
     }
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return The Service Endpoint description. Defaults to `Managed by Terraform`.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }

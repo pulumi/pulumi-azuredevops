@@ -69,7 +69,8 @@ type ServiceEndpointBitBucket struct {
 	pulumi.CustomResourceState
 
 	Authorization pulumi.StringMapOutput `pulumi:"authorization"`
-	Description   pulumi.StringPtrOutput `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Bitbucket account password.
 	Password pulumi.StringOutput `pulumi:"password"`
 	// The ID of the project.
@@ -124,7 +125,8 @@ func GetServiceEndpointBitBucket(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ServiceEndpointBitBucket resources.
 type serviceEndpointBitBucketState struct {
 	Authorization map[string]string `pulumi:"authorization"`
-	Description   *string           `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description *string `pulumi:"description"`
 	// Bitbucket account password.
 	Password *string `pulumi:"password"`
 	// The ID of the project.
@@ -137,7 +139,8 @@ type serviceEndpointBitBucketState struct {
 
 type ServiceEndpointBitBucketState struct {
 	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrInput
 	// Bitbucket account password.
 	Password pulumi.StringPtrInput
 	// The ID of the project.
@@ -153,6 +156,7 @@ func (ServiceEndpointBitBucketState) ElementType() reflect.Type {
 }
 
 type serviceEndpointBitBucketArgs struct {
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description *string `pulumi:"description"`
 	// Bitbucket account password.
 	Password *string `pulumi:"password"`
@@ -166,6 +170,7 @@ type serviceEndpointBitBucketArgs struct {
 
 // The set of arguments for constructing a ServiceEndpointBitBucket resource.
 type ServiceEndpointBitBucketArgs struct {
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description pulumi.StringPtrInput
 	// Bitbucket account password.
 	Password pulumi.StringPtrInput
@@ -268,6 +273,7 @@ func (o ServiceEndpointBitBucketOutput) Authorization() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceEndpointBitBucket) pulumi.StringMapOutput { return v.Authorization }).(pulumi.StringMapOutput)
 }
 
+// The Service Endpoint description. Defaults to `Managed by Terraform`.
 func (o ServiceEndpointBitBucketOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointBitBucket) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

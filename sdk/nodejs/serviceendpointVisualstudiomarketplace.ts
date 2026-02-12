@@ -110,6 +110,9 @@ export class ServiceendpointVisualstudiomarketplace extends pulumi.CustomResourc
      */
     declare public readonly authenticationToken: pulumi.Output<outputs.ServiceendpointVisualstudiomarketplaceAuthenticationToken | undefined>;
     declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the project.
@@ -183,6 +186,9 @@ export interface ServiceendpointVisualstudiomarketplaceState {
      */
     authenticationToken?: pulumi.Input<inputs.ServiceendpointVisualstudiomarketplaceAuthenticationToken>;
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * The ID of the project.
@@ -212,6 +218,9 @@ export interface ServiceendpointVisualstudiomarketplaceArgs {
      * An `authenticationToken` block as documented below.
      */
     authenticationToken?: pulumi.Input<inputs.ServiceendpointVisualstudiomarketplaceAuthenticationToken>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * The ID of the project.
