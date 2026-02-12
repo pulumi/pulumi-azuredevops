@@ -70,6 +70,9 @@ export class ServiceEndpointSsh extends pulumi.CustomResource {
     }
 
     declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The Host name or IP address of the remote machine.
@@ -158,6 +161,9 @@ export class ServiceEndpointSsh extends pulumi.CustomResource {
  */
 export interface ServiceEndpointSshState {
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * The Host name or IP address of the remote machine.
@@ -193,6 +199,9 @@ export interface ServiceEndpointSshState {
  * The set of arguments for constructing a ServiceEndpointSsh resource.
  */
 export interface ServiceEndpointSshArgs {
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * The Host name or IP address of the remote machine.

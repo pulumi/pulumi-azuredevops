@@ -39,6 +39,7 @@ class ServiceendpointOpenshiftArgs:
         :param pulumi.Input['ServiceendpointOpenshiftAuthNoneArgs'] auth_none: An `auth_none` block as documented below.
         :param pulumi.Input['ServiceendpointOpenshiftAuthTokenArgs'] auth_token: An `auth_token` block as documented below.
         :param pulumi.Input[_builtins.str] certificate_authority_file: The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `auth_basic` or `auth_token` authorization.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] server_url: The URL for the OpenShift cluster to connect to.
         """
         pulumi.set(__self__, "project_id", project_id)
@@ -145,6 +146,9 @@ class ServiceendpointOpenshiftArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -184,6 +188,7 @@ class _ServiceendpointOpenshiftState:
         :param pulumi.Input['ServiceendpointOpenshiftAuthNoneArgs'] auth_none: An `auth_none` block as documented below.
         :param pulumi.Input['ServiceendpointOpenshiftAuthTokenArgs'] auth_token: An `auth_token` block as documented below.
         :param pulumi.Input[_builtins.str] certificate_authority_file: The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `auth_basic` or `auth_token` authorization.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] server_url: The URL for the OpenShift cluster to connect to.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
@@ -281,6 +286,9 @@ class _ServiceendpointOpenshiftState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -425,6 +433,7 @@ class ServiceendpointOpenshift(pulumi.CustomResource):
         :param pulumi.Input[Union['ServiceendpointOpenshiftAuthNoneArgs', 'ServiceendpointOpenshiftAuthNoneArgsDict']] auth_none: An `auth_none` block as documented below.
         :param pulumi.Input[Union['ServiceendpointOpenshiftAuthTokenArgs', 'ServiceendpointOpenshiftAuthTokenArgsDict']] auth_token: An `auth_token` block as documented below.
         :param pulumi.Input[_builtins.str] certificate_authority_file: The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `auth_basic` or `auth_token` authorization.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] server_url: The URL for the OpenShift cluster to connect to.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
@@ -592,6 +601,7 @@ class ServiceendpointOpenshift(pulumi.CustomResource):
         :param pulumi.Input[Union['ServiceendpointOpenshiftAuthNoneArgs', 'ServiceendpointOpenshiftAuthNoneArgsDict']] auth_none: An `auth_none` block as documented below.
         :param pulumi.Input[Union['ServiceendpointOpenshiftAuthTokenArgs', 'ServiceendpointOpenshiftAuthTokenArgsDict']] auth_token: An `auth_token` block as documented below.
         :param pulumi.Input[_builtins.str] certificate_authority_file: The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `auth_basic` or `auth_token` authorization.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] server_url: The URL for the OpenShift cluster to connect to.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
@@ -660,6 +670,9 @@ class ServiceendpointOpenshift(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property

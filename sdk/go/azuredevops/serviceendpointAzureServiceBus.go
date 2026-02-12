@@ -70,8 +70,9 @@ type ServiceendpointAzureServiceBus struct {
 
 	Authorization pulumi.StringMapOutput `pulumi:"authorization"`
 	// The  Azure Service Bus Connection string.
-	ConnectionString pulumi.StringOutput    `pulumi:"connectionString"`
-	Description      pulumi.StringPtrOutput `pulumi:"description"`
+	ConnectionString pulumi.StringOutput `pulumi:"connectionString"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The Azure Service Bus Queue Name.
@@ -132,7 +133,8 @@ type serviceendpointAzureServiceBusState struct {
 	Authorization map[string]string `pulumi:"authorization"`
 	// The  Azure Service Bus Connection string.
 	ConnectionString *string `pulumi:"connectionString"`
-	Description      *string `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description *string `pulumi:"description"`
 	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// The Azure Service Bus Queue Name.
@@ -145,7 +147,8 @@ type ServiceendpointAzureServiceBusState struct {
 	Authorization pulumi.StringMapInput
 	// The  Azure Service Bus Connection string.
 	ConnectionString pulumi.StringPtrInput
-	Description      pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// The Azure Service Bus Queue Name.
@@ -160,8 +163,9 @@ func (ServiceendpointAzureServiceBusState) ElementType() reflect.Type {
 
 type serviceendpointAzureServiceBusArgs struct {
 	// The  Azure Service Bus Connection string.
-	ConnectionString string  `pulumi:"connectionString"`
-	Description      *string `pulumi:"description"`
+	ConnectionString string `pulumi:"connectionString"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description *string `pulumi:"description"`
 	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// The Azure Service Bus Queue Name.
@@ -174,7 +178,8 @@ type serviceendpointAzureServiceBusArgs struct {
 type ServiceendpointAzureServiceBusArgs struct {
 	// The  Azure Service Bus Connection string.
 	ConnectionString pulumi.StringInput
-	Description      pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// The Azure Service Bus Queue Name.
@@ -279,6 +284,7 @@ func (o ServiceendpointAzureServiceBusOutput) ConnectionString() pulumi.StringOu
 	return o.ApplyT(func(v *ServiceendpointAzureServiceBus) pulumi.StringOutput { return v.ConnectionString }).(pulumi.StringOutput)
 }
 
+// The Service Endpoint description. Defaults to `Managed by Terraform`.
 func (o ServiceendpointAzureServiceBusOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointAzureServiceBus) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

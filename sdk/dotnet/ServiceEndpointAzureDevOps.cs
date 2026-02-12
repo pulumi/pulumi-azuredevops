@@ -66,6 +66,9 @@ namespace Pulumi.AzureDevOps
         [Output("authorization")]
         public Output<ImmutableDictionary<string, string>> Authorization { get; private set; } = null!;
 
+        /// <summary>
+        /// The Service Endpoint description. Defaults to `Managed by Terraform`.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -149,6 +152,9 @@ namespace Pulumi.AzureDevOps
 
     public sealed class ServiceEndpointAzureDevOpsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Service Endpoint description. Defaults to `Managed by Terraform`.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -208,6 +214,9 @@ namespace Pulumi.AzureDevOps
             set => _authorization = value;
         }
 
+        /// <summary>
+        /// The Service Endpoint description. Defaults to `Managed by Terraform`.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

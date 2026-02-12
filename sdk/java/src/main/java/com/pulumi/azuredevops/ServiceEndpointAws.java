@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  * Azure DevOps AWS Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
  * 
  * ```sh
- * $ pulumi import azuredevops:index/serviceEndpointAws:ServiceEndpointAws  azuredevops_serviceendpoint_aws.example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+ *  $ pulumi import azuredevops:index/serviceEndpointAws:ServiceEndpointAws example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
  * ```
  * 
  */
@@ -103,9 +103,17 @@ public class ServiceEndpointAws extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> authorization() {
         return this.authorization;
     }
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return The Service Endpoint description. Defaults to `Managed by Terraform`.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }

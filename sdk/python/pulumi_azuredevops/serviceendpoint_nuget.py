@@ -33,6 +33,7 @@ class ServiceendpointNugetArgs:
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[_builtins.str] api_key: The API Key used to connect to the endpoint.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] password: The account password used to connect to the endpoint
                
                > **Note** Only one of `api_key` or `personal_access_token` or  `username`, `password` can be set at the same time.
@@ -104,6 +105,9 @@ class ServiceendpointNugetArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -164,6 +168,7 @@ class _ServiceendpointNugetState:
         """
         Input properties used for looking up and filtering ServiceendpointNuget resources.
         :param pulumi.Input[_builtins.str] api_key: The API Key used to connect to the endpoint.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] feed_url: The URL for the feed. This will generally end with `index.json`.
         :param pulumi.Input[_builtins.str] password: The account password used to connect to the endpoint
                
@@ -216,6 +221,9 @@ class _ServiceendpointNugetState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -349,6 +357,7 @@ class ServiceendpointNuget(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_key: The API Key used to connect to the endpoint.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] feed_url: The URL for the feed. This will generally end with `index.json`.
         :param pulumi.Input[_builtins.str] password: The account password used to connect to the endpoint
                
@@ -474,6 +483,7 @@ class ServiceendpointNuget(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_key: The API Key used to connect to the endpoint.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] feed_url: The URL for the feed. This will generally end with `index.json`.
         :param pulumi.Input[_builtins.str] password: The account password used to connect to the endpoint
                
@@ -514,6 +524,9 @@ class ServiceendpointNuget(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property

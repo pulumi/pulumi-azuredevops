@@ -105,6 +105,9 @@ export class ServiceendpointMaven extends pulumi.CustomResource {
      */
     declare public readonly authenticationToken: pulumi.Output<outputs.ServiceendpointMavenAuthenticationToken | undefined>;
     declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The Service Endpoint description. Defaults to Managed by Terraform.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the project. Changing this forces a new Service Connection Maven to be created.
@@ -185,6 +188,9 @@ export interface ServiceendpointMavenState {
      */
     authenticationToken?: pulumi.Input<inputs.ServiceendpointMavenAuthenticationToken>;
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Service Endpoint description. Defaults to Managed by Terraform.
+     */
     description?: pulumi.Input<string>;
     /**
      * The ID of the project. Changing this forces a new Service Connection Maven to be created.
@@ -216,6 +222,9 @@ export interface ServiceendpointMavenArgs {
      * A `authenticationToken` block as documented below.
      */
     authenticationToken?: pulumi.Input<inputs.ServiceendpointMavenAuthenticationToken>;
+    /**
+     * The Service Endpoint description. Defaults to Managed by Terraform.
+     */
     description?: pulumi.Input<string>;
     /**
      * The ID of the project. Changing this forces a new Service Connection Maven to be created.

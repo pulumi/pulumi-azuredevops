@@ -35,6 +35,7 @@ class ServiceEndpointServiceFabricArgs:
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input['ServiceEndpointServiceFabricAzureActiveDirectoryArgs'] azure_active_directory: An `azure_active_directory` block as documented below.
         :param pulumi.Input['ServiceEndpointServiceFabricCertificateArgs'] certificate: A `certificate` block as documented below.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input['ServiceEndpointServiceFabricNoneArgs'] none: A `none` block as documented below.
         """
         pulumi.set(__self__, "cluster_endpoint", cluster_endpoint)
@@ -112,6 +113,9 @@ class ServiceEndpointServiceFabricArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -147,6 +151,7 @@ class _ServiceEndpointServiceFabricState:
         :param pulumi.Input['ServiceEndpointServiceFabricAzureActiveDirectoryArgs'] azure_active_directory: An `azure_active_directory` block as documented below.
         :param pulumi.Input['ServiceEndpointServiceFabricCertificateArgs'] certificate: A `certificate` block as documented below.
         :param pulumi.Input[_builtins.str] cluster_endpoint: Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input['ServiceEndpointServiceFabricNoneArgs'] none: A `none` block as documented below.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
@@ -216,6 +221,9 @@ class _ServiceEndpointServiceFabricState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -367,6 +375,7 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
         :param pulumi.Input[Union['ServiceEndpointServiceFabricAzureActiveDirectoryArgs', 'ServiceEndpointServiceFabricAzureActiveDirectoryArgsDict']] azure_active_directory: An `azure_active_directory` block as documented below.
         :param pulumi.Input[Union['ServiceEndpointServiceFabricCertificateArgs', 'ServiceEndpointServiceFabricCertificateArgsDict']] certificate: A `certificate` block as documented below.
         :param pulumi.Input[_builtins.str] cluster_endpoint: Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[Union['ServiceEndpointServiceFabricNoneArgs', 'ServiceEndpointServiceFabricNoneArgsDict']] none: A `none` block as documented below.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
@@ -539,6 +548,7 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
         :param pulumi.Input[Union['ServiceEndpointServiceFabricAzureActiveDirectoryArgs', 'ServiceEndpointServiceFabricAzureActiveDirectoryArgsDict']] azure_active_directory: An `azure_active_directory` block as documented below.
         :param pulumi.Input[Union['ServiceEndpointServiceFabricCertificateArgs', 'ServiceEndpointServiceFabricCertificateArgsDict']] certificate: A `certificate` block as documented below.
         :param pulumi.Input[_builtins.str] cluster_endpoint: Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[Union['ServiceEndpointServiceFabricNoneArgs', 'ServiceEndpointServiceFabricNoneArgsDict']] none: A `none` block as documented below.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
@@ -589,6 +599,9 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property

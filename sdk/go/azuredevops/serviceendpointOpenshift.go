@@ -162,7 +162,8 @@ type ServiceendpointOpenshift struct {
 	Authorization pulumi.StringMapOutput                     `pulumi:"authorization"`
 	// The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `authBasic` or `authToken` authorization.
 	CertificateAuthorityFile pulumi.StringPtrOutput `pulumi:"certificateAuthorityFile"`
-	Description              pulumi.StringPtrOutput `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The URL for the OpenShift cluster to connect to.
@@ -218,7 +219,8 @@ type serviceendpointOpenshiftState struct {
 	Authorization map[string]string                  `pulumi:"authorization"`
 	// The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `authBasic` or `authToken` authorization.
 	CertificateAuthorityFile *string `pulumi:"certificateAuthorityFile"`
-	Description              *string `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description *string `pulumi:"description"`
 	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// The URL for the OpenShift cluster to connect to.
@@ -239,7 +241,8 @@ type ServiceendpointOpenshiftState struct {
 	Authorization pulumi.StringMapInput
 	// The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `authBasic` or `authToken` authorization.
 	CertificateAuthorityFile pulumi.StringPtrInput
-	Description              pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// The URL for the OpenShift cluster to connect to.
@@ -263,7 +266,8 @@ type serviceendpointOpenshiftArgs struct {
 	AuthToken *ServiceendpointOpenshiftAuthToken `pulumi:"authToken"`
 	// The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `authBasic` or `authToken` authorization.
 	CertificateAuthorityFile *string `pulumi:"certificateAuthorityFile"`
-	Description              *string `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description *string `pulumi:"description"`
 	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// The URL for the OpenShift cluster to connect to.
@@ -284,7 +288,8 @@ type ServiceendpointOpenshiftArgs struct {
 	AuthToken ServiceendpointOpenshiftAuthTokenPtrInput
 	// The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `authBasic` or `authToken` authorization.
 	CertificateAuthorityFile pulumi.StringPtrInput
-	Description              pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// The URL for the OpenShift cluster to connect to.
@@ -409,6 +414,7 @@ func (o ServiceendpointOpenshiftOutput) CertificateAuthorityFile() pulumi.String
 	return o.ApplyT(func(v *ServiceendpointOpenshift) pulumi.StringPtrOutput { return v.CertificateAuthorityFile }).(pulumi.StringPtrOutput)
 }
 
+// The Service Endpoint description. Defaults to `Managed by Terraform`.
 func (o ServiceendpointOpenshiftOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointOpenshift) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

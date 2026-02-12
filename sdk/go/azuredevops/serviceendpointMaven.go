@@ -116,7 +116,8 @@ type ServiceendpointMaven struct {
 	// A `authenticationToken` block as documented below.
 	AuthenticationToken ServiceendpointMavenAuthenticationTokenPtrOutput `pulumi:"authenticationToken"`
 	Authorization       pulumi.StringMapOutput                           `pulumi:"authorization"`
-	Description         pulumi.StringPtrOutput                           `pulumi:"description"`
+	// The Service Endpoint description. Defaults to Managed by Terraform.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ID of the project. Changing this forces a new Service Connection Maven to be created.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The ID of the server that matches the id element of the `repository/mirror` that Maven tries to connect to.
@@ -174,7 +175,8 @@ type serviceendpointMavenState struct {
 	// A `authenticationToken` block as documented below.
 	AuthenticationToken *ServiceendpointMavenAuthenticationToken `pulumi:"authenticationToken"`
 	Authorization       map[string]string                        `pulumi:"authorization"`
-	Description         *string                                  `pulumi:"description"`
+	// The Service Endpoint description. Defaults to Managed by Terraform.
+	Description *string `pulumi:"description"`
 	// The ID of the project. Changing this forces a new Service Connection Maven to be created.
 	ProjectId *string `pulumi:"projectId"`
 	// The ID of the server that matches the id element of the `repository/mirror` that Maven tries to connect to.
@@ -191,7 +193,8 @@ type ServiceendpointMavenState struct {
 	// A `authenticationToken` block as documented below.
 	AuthenticationToken ServiceendpointMavenAuthenticationTokenPtrInput
 	Authorization       pulumi.StringMapInput
-	Description         pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to Managed by Terraform.
+	Description pulumi.StringPtrInput
 	// The ID of the project. Changing this forces a new Service Connection Maven to be created.
 	ProjectId pulumi.StringPtrInput
 	// The ID of the server that matches the id element of the `repository/mirror` that Maven tries to connect to.
@@ -211,7 +214,8 @@ type serviceendpointMavenArgs struct {
 	AuthenticationBasic *ServiceendpointMavenAuthenticationBasic `pulumi:"authenticationBasic"`
 	// A `authenticationToken` block as documented below.
 	AuthenticationToken *ServiceendpointMavenAuthenticationToken `pulumi:"authenticationToken"`
-	Description         *string                                  `pulumi:"description"`
+	// The Service Endpoint description. Defaults to Managed by Terraform.
+	Description *string `pulumi:"description"`
 	// The ID of the project. Changing this forces a new Service Connection Maven to be created.
 	ProjectId string `pulumi:"projectId"`
 	// The ID of the server that matches the id element of the `repository/mirror` that Maven tries to connect to.
@@ -228,7 +232,8 @@ type ServiceendpointMavenArgs struct {
 	AuthenticationBasic ServiceendpointMavenAuthenticationBasicPtrInput
 	// A `authenticationToken` block as documented below.
 	AuthenticationToken ServiceendpointMavenAuthenticationTokenPtrInput
-	Description         pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to Managed by Terraform.
+	Description pulumi.StringPtrInput
 	// The ID of the project. Changing this forces a new Service Connection Maven to be created.
 	ProjectId pulumi.StringInput
 	// The ID of the server that matches the id element of the `repository/mirror` that Maven tries to connect to.
@@ -344,6 +349,7 @@ func (o ServiceendpointMavenOutput) Authorization() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceendpointMaven) pulumi.StringMapOutput { return v.Authorization }).(pulumi.StringMapOutput)
 }
 
+// The Service Endpoint description. Defaults to Managed by Terraform.
 func (o ServiceendpointMavenOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointMaven) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

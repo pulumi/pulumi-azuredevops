@@ -12,6 +12,364 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a git repository within Azure DevOps.
+//
+// ~>**NOTE** Importing an existing repository and running `pulumi preview` will detect a difference on the `initialization` block. The `plan` and `apply` will then attempt to update the repository based on the `initialization` configurations. It may be necessary to ignore the `initialization` block from `plan` and `apply` to support configuring existing repositories imported into Terraform state.<br>
+//
+// ~>**NOTE** 1. `initialization.init_type` is `Uninitialized`: Changing `sourceType` or `sourceUrl` will not recreate the repository, but initialize the repository.   <br>2. `initialization.init_type` is not `Uninitialized`:
+// <br>&nbsp;&nbsp;&nbsp;&nbsp;1) Updating `initType` will recreate the repository
+// <br>&nbsp;&nbsp;&nbsp;&nbsp;2) Updating `sourceType` or `sourceUrl` will recreate the repository
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
+//				ProjectId:     example.ID(),
+//				Name:          pulumi.String("Example Git Repository"),
+//				DefaultBranch: pulumi.String("refs/heads/main"),
+//				Initialization: &azuredevops.GitInitializationArgs{
+//					InitType: pulumi.String("Clean"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Example Usage
+//
+// ### Create Git repository
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
+//				ProjectId: example.ID(),
+//				Name:      pulumi.String("Example Empty Git Repository"),
+//				Initialization: &azuredevops.GitInitializationArgs{
+//					InitType: pulumi.String("Clean"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Configure existing Git repository imported into Terraform state
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
+//				ProjectId:     example.ID(),
+//				Name:          pulumi.String("Example Git Repository"),
+//				DefaultBranch: pulumi.String("refs/heads/main"),
+//				Initialization: &azuredevops.GitInitializationArgs{
+//					InitType: pulumi.String("Clean"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Create Fork of another Azure DevOps Git repository
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleGit, err := azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
+//				ProjectId:     example.ID(),
+//				Name:          pulumi.String("Example Git Repository"),
+//				DefaultBranch: pulumi.String("refs/heads/main"),
+//				Initialization: &azuredevops.GitInitializationArgs{
+//					InitType: pulumi.String("Clean"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewGit(ctx, "example-fork", &azuredevops.GitArgs{
+//				ProjectId:          example.ID(),
+//				Name:               pulumi.String("Example Fork Repository"),
+//				ParentRepositoryId: exampleGit.ID(),
+//				Initialization: &azuredevops.GitInitializationArgs{
+//					InitType: pulumi.String("Fork"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Create Import from another Git repository
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
+//				ProjectId:     example.ID(),
+//				Name:          pulumi.String("Example Git Repository"),
+//				DefaultBranch: pulumi.String("refs/heads/main"),
+//				Initialization: &azuredevops.GitInitializationArgs{
+//					InitType: pulumi.String("Clean"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewGit(ctx, "example-import", &azuredevops.GitArgs{
+//				ProjectId: example.ID(),
+//				Name:      pulumi.String("Example Import Repository"),
+//				Initialization: &azuredevops.GitInitializationArgs{
+//					InitType:   pulumi.String("Import"),
+//					SourceType: pulumi.String("Git"),
+//					SourceUrl:  pulumi.String("https://github.com/microsoft/terraform-provider-azuredevops.git"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Import from a Private Repository
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
+//				ProjectId:     example.ID(),
+//				Name:          pulumi.String("Example Git Repository"),
+//				DefaultBranch: pulumi.String("refs/heads/main"),
+//				Initialization: &azuredevops.GitInitializationArgs{
+//					InitType: pulumi.String("Clean"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example_serviceendpoint, err := azuredevops.NewServiceEndpointGenericGit(ctx, "example-serviceendpoint", &azuredevops.ServiceEndpointGenericGitArgs{
+//				ProjectId:           example.ID(),
+//				RepositoryUrl:       pulumi.String("https://dev.azure.com/org/project/_git/repository"),
+//				Username:            pulumi.String("username"),
+//				Password:            pulumi.String("<password>/<PAT>"),
+//				ServiceEndpointName: pulumi.String("Example Generic Git"),
+//				Description:         pulumi.String("Managed by Pulumi"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// with service connection
+//			_, err = azuredevops.NewGit(ctx, "example-import", &azuredevops.GitArgs{
+//				ProjectId: example.ID(),
+//				Name:      pulumi.String("Example Import Existing Repository"),
+//				Initialization: &azuredevops.GitInitializationArgs{
+//					InitType:            pulumi.String("Import"),
+//					SourceType:          pulumi.String("Git"),
+//					SourceUrl:           pulumi.String("https://dev.azure.com/example-org/private-repository.git"),
+//					ServiceConnectionId: example_serviceendpoint.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// with username/password
+//			_, err = azuredevops.NewGit(ctx, "example-import2", &azuredevops.GitArgs{
+//				ProjectId: example.ID(),
+//				Name:      pulumi.String("Example Import Existing Repository"),
+//				Initialization: &azuredevops.GitInitializationArgs{
+//					InitType:   pulumi.String("Import"),
+//					SourceType: pulumi.String("Git"),
+//					SourceUrl:  pulumi.String("https://dev.azure.com/example-org/private-repository.git"),
+//					Username:   pulumi.String("username"),
+//					Password:   pulumi.String("password"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Disable a Git repository
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
+//				ProjectId: example.ID(),
+//				Name:      pulumi.String("Example Empty Git Repository"),
+//				Disabled:  pulumi.Bool(true),
+//				Initialization: &azuredevops.GitInitializationArgs{
+//					InitType: pulumi.String("Clean"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Relevant Links
+//
+// - [Azure DevOps Service REST API 7.0 - Git Repositories](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-7.0)
+//
+// ## PAT Permissions Required
+//
+// - **Code**: Read, Create, & Manage.
+//
 // ## Import
 //
 // Azure DevOps Repositories can be imported using the repo name or by the repo Guid e.g.

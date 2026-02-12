@@ -171,6 +171,9 @@ namespace Pulumi.AzureDevOps
         [Output("credentials")]
         public Output<Outputs.ServiceEndpointAzureEcrCredentials?> Credentials { get; private set; } = null!;
 
+        /// <summary>
+        /// The Service Endpoint description. Defaults to `Managed by Terraform`.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -295,6 +298,9 @@ namespace Pulumi.AzureDevOps
         [Input("credentials")]
         public Input<Inputs.ServiceEndpointAzureEcrCredentialsArgs>? Credentials { get; set; }
 
+        /// <summary>
+        /// The Service Endpoint description. Defaults to `Managed by Terraform`.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -377,6 +383,9 @@ namespace Pulumi.AzureDevOps
         [Input("credentials")]
         public Input<Inputs.ServiceEndpointAzureEcrCredentialsGetArgs>? Credentials { get; set; }
 
+        /// <summary>
+        /// The Service Endpoint description. Defaults to `Managed by Terraform`.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

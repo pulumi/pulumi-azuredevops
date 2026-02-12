@@ -159,6 +159,9 @@ namespace Pulumi.AzureDevOps
         [Output("certificateAuthorityFile")]
         public Output<string?> CertificateAuthorityFile { get; private set; } = null!;
 
+        /// <summary>
+        /// The Service Endpoint description. Defaults to `Managed by Terraform`.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -256,6 +259,9 @@ namespace Pulumi.AzureDevOps
         [Input("certificateAuthorityFile")]
         public Input<string>? CertificateAuthorityFile { get; set; }
 
+        /// <summary>
+        /// The Service Endpoint description. Defaults to `Managed by Terraform`.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -323,6 +329,9 @@ namespace Pulumi.AzureDevOps
         [Input("certificateAuthorityFile")]
         public Input<string>? CertificateAuthorityFile { get; set; }
 
+        /// <summary>
+        /// The Service Endpoint description. Defaults to `Managed by Terraform`.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

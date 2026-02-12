@@ -466,6 +466,9 @@ export interface BuildDefinitionPullRequestTrigger {
      * Set permissions for Forked repositories.
      */
     forks: outputs.BuildDefinitionPullRequestTriggerForks;
+    /**
+     * When useYaml is true set this to the name of the branch that the azure-pipelines.yml exists on. Defaults to `Managed by Terraform`.
+     */
     initialBranch?: string;
     /**
      * Override the azure-pipeline file and use this configuration for all builds.
@@ -1635,6 +1638,11 @@ export interface ServiceEndpointAzureRMFeatures {
 }
 
 export interface ServiceEndpointGitHubAuthOauth {
+    /**
+     * The OAuth Configuration ID.
+     *
+     * ~>**NOTE:** GitHub OAuth flow can not be performed via terraform. You must create this on Azure DevOps and then import it.
+     */
     oauthConfigurationId: string;
 }
 

@@ -261,9 +261,17 @@ public class ServiceEndpointAzureEcr extends com.pulumi.resources.CustomResource
     public Output<Optional<ServiceEndpointAzureEcrCredentials>> credentials() {
         return Codegen.optional(this.credentials);
     }
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return The Service Endpoint description. Defaults to `Managed by Terraform`.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }

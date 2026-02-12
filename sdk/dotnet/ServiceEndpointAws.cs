@@ -53,7 +53,7 @@ namespace Pulumi.AzureDevOps
     /// Azure DevOps AWS Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
     /// 
     /// ```sh
-    /// $ pulumi import azuredevops:index/serviceEndpointAws:ServiceEndpointAws  azuredevops_serviceendpoint_aws.example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+    ///  $ pulumi import azuredevops:index/serviceEndpointAws:ServiceEndpointAws example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/serviceEndpointAws:ServiceEndpointAws")]
@@ -68,6 +68,9 @@ namespace Pulumi.AzureDevOps
         [Output("authorization")]
         public Output<ImmutableDictionary<string, string>> Authorization { get; private set; } = null!;
 
+        /// <summary>
+        /// The Service Endpoint description. Defaults to `Managed by Terraform`.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -176,6 +179,9 @@ namespace Pulumi.AzureDevOps
         [Input("accessKeyId")]
         public Input<string>? AccessKeyId { get; set; }
 
+        /// <summary>
+        /// The Service Endpoint description. Defaults to `Managed by Terraform`.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -269,6 +275,9 @@ namespace Pulumi.AzureDevOps
             set => _authorization = value;
         }
 
+        /// <summary>
+        /// The Service Endpoint description. Defaults to `Managed by Terraform`.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

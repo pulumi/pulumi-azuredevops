@@ -71,7 +71,8 @@ type ServiceendpointCheckmarxSast struct {
 	pulumi.CustomResourceState
 
 	Authorization pulumi.StringMapOutput `pulumi:"authorization"`
-	Description   pulumi.StringPtrOutput `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The password of the Checkmarx SAST.
 	Password pulumi.StringOutput `pulumi:"password"`
 	// Predefined sets of queries that you can select when Creating, Configuring and Branching Projects. Predefined presets are provided by Checkmarx and you can configure your own. You can also import and export presets (on the server).In Service Connection if preset(optional) value is added, then it will igonres Preset available in pipeline and uses preset available in service connection only.If Preset is blank in service connection then it will use pipelines preset.
@@ -141,7 +142,8 @@ func GetServiceendpointCheckmarxSast(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ServiceendpointCheckmarxSast resources.
 type serviceendpointCheckmarxSastState struct {
 	Authorization map[string]string `pulumi:"authorization"`
-	Description   *string           `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description *string `pulumi:"description"`
 	// The password of the Checkmarx SAST.
 	Password *string `pulumi:"password"`
 	// Predefined sets of queries that you can select when Creating, Configuring and Branching Projects. Predefined presets are provided by Checkmarx and you can configure your own. You can also import and export presets (on the server).In Service Connection if preset(optional) value is added, then it will igonres Preset available in pipeline and uses preset available in service connection only.If Preset is blank in service connection then it will use pipelines preset.
@@ -160,7 +162,8 @@ type serviceendpointCheckmarxSastState struct {
 
 type ServiceendpointCheckmarxSastState struct {
 	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrInput
 	// The password of the Checkmarx SAST.
 	Password pulumi.StringPtrInput
 	// Predefined sets of queries that you can select when Creating, Configuring and Branching Projects. Predefined presets are provided by Checkmarx and you can configure your own. You can also import and export presets (on the server).In Service Connection if preset(optional) value is added, then it will igonres Preset available in pipeline and uses preset available in service connection only.If Preset is blank in service connection then it will use pipelines preset.
@@ -182,6 +185,7 @@ func (ServiceendpointCheckmarxSastState) ElementType() reflect.Type {
 }
 
 type serviceendpointCheckmarxSastArgs struct {
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description *string `pulumi:"description"`
 	// The password of the Checkmarx SAST.
 	Password string `pulumi:"password"`
@@ -201,6 +205,7 @@ type serviceendpointCheckmarxSastArgs struct {
 
 // The set of arguments for constructing a ServiceendpointCheckmarxSast resource.
 type ServiceendpointCheckmarxSastArgs struct {
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description pulumi.StringPtrInput
 	// The password of the Checkmarx SAST.
 	Password pulumi.StringInput
@@ -309,6 +314,7 @@ func (o ServiceendpointCheckmarxSastOutput) Authorization() pulumi.StringMapOutp
 	return o.ApplyT(func(v *ServiceendpointCheckmarxSast) pulumi.StringMapOutput { return v.Authorization }).(pulumi.StringMapOutput)
 }
 
+// The Service Endpoint description. Defaults to `Managed by Terraform`.
 func (o ServiceendpointCheckmarxSastOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointCheckmarxSast) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

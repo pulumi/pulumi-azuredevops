@@ -75,7 +75,8 @@ type ServiceendpointDynamicsLifecycleServices struct {
 	// The URL of the Authentication Endpoint.
 	AuthorizationEndpoint pulumi.StringOutput `pulumi:"authorizationEndpoint"`
 	// The client ID for a native application registration in Azure Active Directory with API permissions for Dynamics Lifecycle Services.
-	ClientId    pulumi.StringOutput    `pulumi:"clientId"`
+	ClientId pulumi.StringOutput `pulumi:"clientId"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The URL of the Lifecycle Services API Endpoint.
 	LifecycleServicesApiEndpoint pulumi.StringOutput `pulumi:"lifecycleServicesApiEndpoint"`
@@ -151,7 +152,8 @@ type serviceendpointDynamicsLifecycleServicesState struct {
 	// The URL of the Authentication Endpoint.
 	AuthorizationEndpoint *string `pulumi:"authorizationEndpoint"`
 	// The client ID for a native application registration in Azure Active Directory with API permissions for Dynamics Lifecycle Services.
-	ClientId    *string `pulumi:"clientId"`
+	ClientId *string `pulumi:"clientId"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description *string `pulumi:"description"`
 	// The URL of the Lifecycle Services API Endpoint.
 	LifecycleServicesApiEndpoint *string `pulumi:"lifecycleServicesApiEndpoint"`
@@ -170,7 +172,8 @@ type ServiceendpointDynamicsLifecycleServicesState struct {
 	// The URL of the Authentication Endpoint.
 	AuthorizationEndpoint pulumi.StringPtrInput
 	// The client ID for a native application registration in Azure Active Directory with API permissions for Dynamics Lifecycle Services.
-	ClientId    pulumi.StringPtrInput
+	ClientId pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description pulumi.StringPtrInput
 	// The URL of the Lifecycle Services API Endpoint.
 	LifecycleServicesApiEndpoint pulumi.StringPtrInput
@@ -192,7 +195,8 @@ type serviceendpointDynamicsLifecycleServicesArgs struct {
 	// The URL of the Authentication Endpoint.
 	AuthorizationEndpoint string `pulumi:"authorizationEndpoint"`
 	// The client ID for a native application registration in Azure Active Directory with API permissions for Dynamics Lifecycle Services.
-	ClientId    string  `pulumi:"clientId"`
+	ClientId string `pulumi:"clientId"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description *string `pulumi:"description"`
 	// The URL of the Lifecycle Services API Endpoint.
 	LifecycleServicesApiEndpoint string `pulumi:"lifecycleServicesApiEndpoint"`
@@ -211,7 +215,8 @@ type ServiceendpointDynamicsLifecycleServicesArgs struct {
 	// The URL of the Authentication Endpoint.
 	AuthorizationEndpoint pulumi.StringInput
 	// The client ID for a native application registration in Azure Active Directory with API permissions for Dynamics Lifecycle Services.
-	ClientId    pulumi.StringInput
+	ClientId pulumi.StringInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description pulumi.StringPtrInput
 	// The URL of the Lifecycle Services API Endpoint.
 	LifecycleServicesApiEndpoint pulumi.StringInput
@@ -326,6 +331,7 @@ func (o ServiceendpointDynamicsLifecycleServicesOutput) ClientId() pulumi.String
 	return o.ApplyT(func(v *ServiceendpointDynamicsLifecycleServices) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// The Service Endpoint description. Defaults to `Managed by Terraform`.
 func (o ServiceendpointDynamicsLifecycleServicesOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointDynamicsLifecycleServices) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

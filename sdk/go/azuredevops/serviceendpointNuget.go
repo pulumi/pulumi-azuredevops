@@ -70,7 +70,8 @@ type ServiceendpointNuget struct {
 	// The API Key used to connect to the endpoint.
 	ApiKey        pulumi.StringPtrOutput `pulumi:"apiKey"`
 	Authorization pulumi.StringMapOutput `pulumi:"authorization"`
-	Description   pulumi.StringPtrOutput `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The URL for the feed. This will generally end with `index.json`.
 	FeedUrl pulumi.StringOutput `pulumi:"feedUrl"`
 	// The account password used to connect to the endpoint
@@ -144,7 +145,8 @@ type serviceendpointNugetState struct {
 	// The API Key used to connect to the endpoint.
 	ApiKey        *string           `pulumi:"apiKey"`
 	Authorization map[string]string `pulumi:"authorization"`
-	Description   *string           `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description *string `pulumi:"description"`
 	// The URL for the feed. This will generally end with `index.json`.
 	FeedUrl *string `pulumi:"feedUrl"`
 	// The account password used to connect to the endpoint
@@ -165,7 +167,8 @@ type ServiceendpointNugetState struct {
 	// The API Key used to connect to the endpoint.
 	ApiKey        pulumi.StringPtrInput
 	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrInput
 	// The URL for the feed. This will generally end with `index.json`.
 	FeedUrl pulumi.StringPtrInput
 	// The account password used to connect to the endpoint
@@ -188,7 +191,8 @@ func (ServiceendpointNugetState) ElementType() reflect.Type {
 
 type serviceendpointNugetArgs struct {
 	// The API Key used to connect to the endpoint.
-	ApiKey      *string `pulumi:"apiKey"`
+	ApiKey *string `pulumi:"apiKey"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description *string `pulumi:"description"`
 	// The URL for the feed. This will generally end with `index.json`.
 	FeedUrl string `pulumi:"feedUrl"`
@@ -209,7 +213,8 @@ type serviceendpointNugetArgs struct {
 // The set of arguments for constructing a ServiceendpointNuget resource.
 type ServiceendpointNugetArgs struct {
 	// The API Key used to connect to the endpoint.
-	ApiKey      pulumi.StringPtrInput
+	ApiKey pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description pulumi.StringPtrInput
 	// The URL for the feed. This will generally end with `index.json`.
 	FeedUrl pulumi.StringInput
@@ -323,6 +328,7 @@ func (o ServiceendpointNugetOutput) Authorization() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceendpointNuget) pulumi.StringMapOutput { return v.Authorization }).(pulumi.StringMapOutput)
 }
 
+// The Service Endpoint description. Defaults to `Managed by Terraform`.
 func (o ServiceendpointNugetOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointNuget) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

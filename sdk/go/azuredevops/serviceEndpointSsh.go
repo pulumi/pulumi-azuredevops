@@ -69,7 +69,8 @@ type ServiceEndpointSsh struct {
 	pulumi.CustomResourceState
 
 	Authorization pulumi.StringMapOutput `pulumi:"authorization"`
-	Description   pulumi.StringPtrOutput `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The Host name or IP address of the remote machine.
 	Host pulumi.StringOutput `pulumi:"host"`
 	// Password for connecting to the endpoint.
@@ -140,7 +141,8 @@ func GetServiceEndpointSsh(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ServiceEndpointSsh resources.
 type serviceEndpointSshState struct {
 	Authorization map[string]string `pulumi:"authorization"`
-	Description   *string           `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description *string `pulumi:"description"`
 	// The Host name or IP address of the remote machine.
 	Host *string `pulumi:"host"`
 	// Password for connecting to the endpoint.
@@ -159,7 +161,8 @@ type serviceEndpointSshState struct {
 
 type ServiceEndpointSshState struct {
 	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrInput
 	// The Host name or IP address of the remote machine.
 	Host pulumi.StringPtrInput
 	// Password for connecting to the endpoint.
@@ -181,6 +184,7 @@ func (ServiceEndpointSshState) ElementType() reflect.Type {
 }
 
 type serviceEndpointSshArgs struct {
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description *string `pulumi:"description"`
 	// The Host name or IP address of the remote machine.
 	Host string `pulumi:"host"`
@@ -200,6 +204,7 @@ type serviceEndpointSshArgs struct {
 
 // The set of arguments for constructing a ServiceEndpointSsh resource.
 type ServiceEndpointSshArgs struct {
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description pulumi.StringPtrInput
 	// The Host name or IP address of the remote machine.
 	Host pulumi.StringInput
@@ -308,6 +313,7 @@ func (o ServiceEndpointSshOutput) Authorization() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceEndpointSsh) pulumi.StringMapOutput { return v.Authorization }).(pulumi.StringMapOutput)
 }
 
+// The Service Endpoint description. Defaults to `Managed by Terraform`.
 func (o ServiceEndpointSshOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointSsh) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

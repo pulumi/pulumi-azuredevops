@@ -36,6 +36,7 @@ class ServiceendpointVisualstudiomarketplaceArgs:
                
                > **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
         :param pulumi.Input['ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs'] authentication_token: An `authentication_token` block as documented below.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         """
         pulumi.set(__self__, "project_id", project_id)
         pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
@@ -112,6 +113,9 @@ class ServiceendpointVisualstudiomarketplaceArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -135,6 +139,7 @@ class _ServiceendpointVisualstudiomarketplaceState:
                
                > **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
         :param pulumi.Input['ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs'] authentication_token: An `authentication_token` block as documented below.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[_builtins.str] url: The server URL for Visual Studio Marketplace.
@@ -192,6 +197,9 @@ class _ServiceendpointVisualstudiomarketplaceState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -315,6 +323,7 @@ class ServiceendpointVisualstudiomarketplace(pulumi.CustomResource):
                
                > **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
         :param pulumi.Input[Union['ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs', 'ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgsDict']] authentication_token: An `authentication_token` block as documented below.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[_builtins.str] url: The server URL for Visual Studio Marketplace.
@@ -457,6 +466,7 @@ class ServiceendpointVisualstudiomarketplace(pulumi.CustomResource):
                
                > **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
         :param pulumi.Input[Union['ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs', 'ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgsDict']] authentication_token: An `authentication_token` block as documented below.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[_builtins.str] url: The server URL for Visual Studio Marketplace.
@@ -500,6 +510,9 @@ class ServiceendpointVisualstudiomarketplace(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property

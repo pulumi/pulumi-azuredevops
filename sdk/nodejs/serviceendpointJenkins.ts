@@ -72,6 +72,9 @@ export class ServiceendpointJenkins extends pulumi.CustomResource {
      */
     declare public readonly acceptUntrustedCerts: pulumi.Output<boolean | undefined>;
     declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The Service Endpoint description. Defaults to Managed by Terraform.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The Service Endpoint password to authenticate at the Jenkins Instance.
@@ -157,6 +160,9 @@ export interface ServiceendpointJenkinsState {
      */
     acceptUntrustedCerts?: pulumi.Input<boolean>;
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Service Endpoint description. Defaults to Managed by Terraform.
+     */
     description?: pulumi.Input<string>;
     /**
      * The Service Endpoint password to authenticate at the Jenkins Instance.
@@ -188,6 +194,9 @@ export interface ServiceendpointJenkinsArgs {
      * Allows the Jenkins clients to accept self-signed SSL server certificates. Defaults to `false.`
      */
     acceptUntrustedCerts?: pulumi.Input<boolean>;
+    /**
+     * The Service Endpoint description. Defaults to Managed by Terraform.
+     */
     description?: pulumi.Input<string>;
     /**
      * The Service Endpoint password to authenticate at the Jenkins Instance.

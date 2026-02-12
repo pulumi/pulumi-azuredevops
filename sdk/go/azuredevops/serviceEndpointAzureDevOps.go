@@ -74,7 +74,8 @@ type ServiceEndpointAzureDevOps struct {
 	pulumi.CustomResourceState
 
 	Authorization pulumi.StringMapOutput `pulumi:"authorization"`
-	Description   pulumi.StringPtrOutput `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The organization URL.
 	OrgUrl pulumi.StringOutput `pulumi:"orgUrl"`
 	// The Azure DevOps personal access token.
@@ -131,7 +132,8 @@ func GetServiceEndpointAzureDevOps(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ServiceEndpointAzureDevOps resources.
 type serviceEndpointAzureDevOpsState struct {
 	Authorization map[string]string `pulumi:"authorization"`
-	Description   *string           `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description *string `pulumi:"description"`
 	// The organization URL.
 	OrgUrl *string `pulumi:"orgUrl"`
 	// The Azure DevOps personal access token.
@@ -146,7 +148,8 @@ type serviceEndpointAzureDevOpsState struct {
 
 type ServiceEndpointAzureDevOpsState struct {
 	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrInput
 	// The organization URL.
 	OrgUrl pulumi.StringPtrInput
 	// The Azure DevOps personal access token.
@@ -164,6 +167,7 @@ func (ServiceEndpointAzureDevOpsState) ElementType() reflect.Type {
 }
 
 type serviceEndpointAzureDevOpsArgs struct {
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description *string `pulumi:"description"`
 	// The organization URL.
 	OrgUrl *string `pulumi:"orgUrl"`
@@ -179,6 +183,7 @@ type serviceEndpointAzureDevOpsArgs struct {
 
 // The set of arguments for constructing a ServiceEndpointAzureDevOps resource.
 type ServiceEndpointAzureDevOpsArgs struct {
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description pulumi.StringPtrInput
 	// The organization URL.
 	OrgUrl pulumi.StringPtrInput
@@ -283,6 +288,7 @@ func (o ServiceEndpointAzureDevOpsOutput) Authorization() pulumi.StringMapOutput
 	return o.ApplyT(func(v *ServiceEndpointAzureDevOps) pulumi.StringMapOutput { return v.Authorization }).(pulumi.StringMapOutput)
 }
 
+// The Service Endpoint description. Defaults to `Managed by Terraform`.
 func (o ServiceEndpointAzureDevOpsOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointAzureDevOps) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

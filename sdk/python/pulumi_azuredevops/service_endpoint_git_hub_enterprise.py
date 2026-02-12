@@ -33,6 +33,9 @@ class ServiceEndpointGitHubEnterpriseArgs:
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input['ServiceEndpointGitHubEnterpriseAuthOauthArgs'] auth_oauth: An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
         :param pulumi.Input['ServiceEndpointGitHubEnterpriseAuthPersonalArgs'] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
+               
+               > **NOTE:** GitHub Apps can not be created or updated via terraform. You must install and configure the app on GitHub and then import it. You must also set the `description` to "" explicitly.
         :param pulumi.Input[_builtins.str] url: GitHub Enterprise Server Url.
         """
         pulumi.set(__self__, "project_id", project_id)
@@ -97,6 +100,11 @@ class ServiceEndpointGitHubEnterpriseArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+
+        > **NOTE:** GitHub Apps can not be created or updated via terraform. You must install and configure the app on GitHub and then import it. You must also set the `description` to "" explicitly.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -130,6 +138,9 @@ class _ServiceEndpointGitHubEnterpriseState:
         Input properties used for looking up and filtering ServiceEndpointGitHubEnterprise resources.
         :param pulumi.Input['ServiceEndpointGitHubEnterpriseAuthOauthArgs'] auth_oauth: An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
         :param pulumi.Input['ServiceEndpointGitHubEnterpriseAuthPersonalArgs'] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
+               
+               > **NOTE:** GitHub Apps can not be created or updated via terraform. You must install and configure the app on GitHub and then import it. You must also set the `description` to "" explicitly.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[_builtins.str] url: GitHub Enterprise Server Url.
@@ -185,6 +196,11 @@ class _ServiceEndpointGitHubEnterpriseState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+
+        > **NOTE:** GitHub Apps can not be created or updated via terraform. You must install and configure the app on GitHub and then import it. You must also set the `description` to "" explicitly.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -305,6 +321,9 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServiceEndpointGitHubEnterpriseAuthOauthArgs', 'ServiceEndpointGitHubEnterpriseAuthOauthArgsDict']] auth_oauth: An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
         :param pulumi.Input[Union['ServiceEndpointGitHubEnterpriseAuthPersonalArgs', 'ServiceEndpointGitHubEnterpriseAuthPersonalArgsDict']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
+               
+               > **NOTE:** GitHub Apps can not be created or updated via terraform. You must install and configure the app on GitHub and then import it. You must also set the `description` to "" explicitly.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[_builtins.str] url: GitHub Enterprise Server Url.
@@ -442,6 +461,9 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServiceEndpointGitHubEnterpriseAuthOauthArgs', 'ServiceEndpointGitHubEnterpriseAuthOauthArgsDict']] auth_oauth: An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
         :param pulumi.Input[Union['ServiceEndpointGitHubEnterpriseAuthPersonalArgs', 'ServiceEndpointGitHubEnterpriseAuthPersonalArgsDict']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
+               
+               > **NOTE:** GitHub Apps can not be created or updated via terraform. You must install and configure the app on GitHub and then import it. You must also set the `description` to "" explicitly.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[_builtins.str] url: GitHub Enterprise Server Url.
@@ -483,6 +505,11 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+
+        > **NOTE:** GitHub Apps can not be created or updated via terraform. You must install and configure the app on GitHub and then import it. You must also set the `description` to "" explicitly.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property

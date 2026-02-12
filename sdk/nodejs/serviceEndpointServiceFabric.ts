@@ -144,6 +144,9 @@ export class ServiceEndpointServiceFabric extends pulumi.CustomResource {
      * Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
      */
     declare public readonly clusterEndpoint: pulumi.Output<string>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A `none` block as documented below.
@@ -221,6 +224,9 @@ export interface ServiceEndpointServiceFabricState {
      * Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
      */
     clusterEndpoint?: pulumi.Input<string>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * A `none` block as documented below.
@@ -252,6 +258,9 @@ export interface ServiceEndpointServiceFabricArgs {
      * Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
      */
     clusterEndpoint: pulumi.Input<string>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * A `none` block as documented below.

@@ -71,7 +71,8 @@ type ServiceendpointOctopusdeploy struct {
 	// API key to connect to Octopus Deploy.
 	ApiKey        pulumi.StringOutput    `pulumi:"apiKey"`
 	Authorization pulumi.StringMapOutput `pulumi:"authorization"`
-	Description   pulumi.StringPtrOutput `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Whether to ignore SSL errors when connecting to the Octopus server from the agent. Default to `false`.
 	IgnoreSslError pulumi.BoolPtrOutput `pulumi:"ignoreSslError"`
 	// The ID of the project.
@@ -127,7 +128,8 @@ type serviceendpointOctopusdeployState struct {
 	// API key to connect to Octopus Deploy.
 	ApiKey        *string           `pulumi:"apiKey"`
 	Authorization map[string]string `pulumi:"authorization"`
-	Description   *string           `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description *string `pulumi:"description"`
 	// Whether to ignore SSL errors when connecting to the Octopus server from the agent. Default to `false`.
 	IgnoreSslError *bool `pulumi:"ignoreSslError"`
 	// The ID of the project.
@@ -142,7 +144,8 @@ type ServiceendpointOctopusdeployState struct {
 	// API key to connect to Octopus Deploy.
 	ApiKey        pulumi.StringPtrInput
 	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrInput
 	// Whether to ignore SSL errors when connecting to the Octopus server from the agent. Default to `false`.
 	IgnoreSslError pulumi.BoolPtrInput
 	// The ID of the project.
@@ -159,7 +162,8 @@ func (ServiceendpointOctopusdeployState) ElementType() reflect.Type {
 
 type serviceendpointOctopusdeployArgs struct {
 	// API key to connect to Octopus Deploy.
-	ApiKey      string  `pulumi:"apiKey"`
+	ApiKey string `pulumi:"apiKey"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description *string `pulumi:"description"`
 	// Whether to ignore SSL errors when connecting to the Octopus server from the agent. Default to `false`.
 	IgnoreSslError *bool `pulumi:"ignoreSslError"`
@@ -174,7 +178,8 @@ type serviceendpointOctopusdeployArgs struct {
 // The set of arguments for constructing a ServiceendpointOctopusdeploy resource.
 type ServiceendpointOctopusdeployArgs struct {
 	// API key to connect to Octopus Deploy.
-	ApiKey      pulumi.StringInput
+	ApiKey pulumi.StringInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description pulumi.StringPtrInput
 	// Whether to ignore SSL errors when connecting to the Octopus server from the agent. Default to `false`.
 	IgnoreSslError pulumi.BoolPtrInput
@@ -282,6 +287,7 @@ func (o ServiceendpointOctopusdeployOutput) Authorization() pulumi.StringMapOutp
 	return o.ApplyT(func(v *ServiceendpointOctopusdeploy) pulumi.StringMapOutput { return v.Authorization }).(pulumi.StringMapOutput)
 }
 
+// The Service Endpoint description. Defaults to `Managed by Terraform`.
 func (o ServiceendpointOctopusdeployOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointOctopusdeploy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

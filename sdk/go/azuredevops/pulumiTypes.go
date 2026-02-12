@@ -3729,8 +3729,9 @@ func (o BuildDefinitionJobTargetExecutionOptionsOutput) Type() pulumi.StringOutp
 type BuildDefinitionPullRequestTrigger struct {
 	CommentRequired *string `pulumi:"commentRequired"`
 	// Set permissions for Forked repositories.
-	Forks         BuildDefinitionPullRequestTriggerForks `pulumi:"forks"`
-	InitialBranch *string                                `pulumi:"initialBranch"`
+	Forks BuildDefinitionPullRequestTriggerForks `pulumi:"forks"`
+	// When useYaml is true set this to the name of the branch that the azure-pipelines.yml exists on. Defaults to `Managed by Terraform`.
+	InitialBranch *string `pulumi:"initialBranch"`
 	// Override the azure-pipeline file and use this configuration for all builds.
 	Override *BuildDefinitionPullRequestTriggerOverride `pulumi:"override"`
 	// Use the azure-pipeline file for the build configuration. Defaults to `false`.
@@ -3751,8 +3752,9 @@ type BuildDefinitionPullRequestTriggerInput interface {
 type BuildDefinitionPullRequestTriggerArgs struct {
 	CommentRequired pulumi.StringPtrInput `pulumi:"commentRequired"`
 	// Set permissions for Forked repositories.
-	Forks         BuildDefinitionPullRequestTriggerForksInput `pulumi:"forks"`
-	InitialBranch pulumi.StringPtrInput                       `pulumi:"initialBranch"`
+	Forks BuildDefinitionPullRequestTriggerForksInput `pulumi:"forks"`
+	// When useYaml is true set this to the name of the branch that the azure-pipelines.yml exists on. Defaults to `Managed by Terraform`.
+	InitialBranch pulumi.StringPtrInput `pulumi:"initialBranch"`
 	// Override the azure-pipeline file and use this configuration for all builds.
 	Override BuildDefinitionPullRequestTriggerOverridePtrInput `pulumi:"override"`
 	// Use the azure-pipeline file for the build configuration. Defaults to `false`.
@@ -3845,6 +3847,7 @@ func (o BuildDefinitionPullRequestTriggerOutput) Forks() BuildDefinitionPullRequ
 	return o.ApplyT(func(v BuildDefinitionPullRequestTrigger) BuildDefinitionPullRequestTriggerForks { return v.Forks }).(BuildDefinitionPullRequestTriggerForksOutput)
 }
 
+// When useYaml is true set this to the name of the branch that the azure-pipelines.yml exists on. Defaults to `Managed by Terraform`.
 func (o BuildDefinitionPullRequestTriggerOutput) InitialBranch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionPullRequestTrigger) *string { return v.InitialBranch }).(pulumi.StringPtrOutput)
 }
@@ -3904,6 +3907,7 @@ func (o BuildDefinitionPullRequestTriggerPtrOutput) Forks() BuildDefinitionPullR
 	}).(BuildDefinitionPullRequestTriggerForksPtrOutput)
 }
 
+// When useYaml is true set this to the name of the branch that the azure-pipelines.yml exists on. Defaults to `Managed by Terraform`.
 func (o BuildDefinitionPullRequestTriggerPtrOutput) InitialBranch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionPullRequestTrigger) *string {
 		if v == nil {
@@ -6780,6 +6784,9 @@ func (o ServiceEndpointAzureRMFeaturesPtrOutput) Validate() pulumi.BoolPtrOutput
 }
 
 type ServiceEndpointGitHubAuthOauth struct {
+	// The OAuth Configuration ID.
+	//
+	// ~>**NOTE:** GitHub OAuth flow can not be performed via terraform. You must create this on Azure DevOps and then import it.
 	OauthConfigurationId string `pulumi:"oauthConfigurationId"`
 }
 
@@ -6795,6 +6802,9 @@ type ServiceEndpointGitHubAuthOauthInput interface {
 }
 
 type ServiceEndpointGitHubAuthOauthArgs struct {
+	// The OAuth Configuration ID.
+	//
+	// ~>**NOTE:** GitHub OAuth flow can not be performed via terraform. You must create this on Azure DevOps and then import it.
 	OauthConfigurationId pulumi.StringInput `pulumi:"oauthConfigurationId"`
 }
 
@@ -6875,6 +6885,9 @@ func (o ServiceEndpointGitHubAuthOauthOutput) ToServiceEndpointGitHubAuthOauthPt
 	}).(ServiceEndpointGitHubAuthOauthPtrOutput)
 }
 
+// The OAuth Configuration ID.
+//
+// ~>**NOTE:** GitHub OAuth flow can not be performed via terraform. You must create this on Azure DevOps and then import it.
 func (o ServiceEndpointGitHubAuthOauthOutput) OauthConfigurationId() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceEndpointGitHubAuthOauth) string { return v.OauthConfigurationId }).(pulumi.StringOutput)
 }
@@ -6903,6 +6916,9 @@ func (o ServiceEndpointGitHubAuthOauthPtrOutput) Elem() ServiceEndpointGitHubAut
 	}).(ServiceEndpointGitHubAuthOauthOutput)
 }
 
+// The OAuth Configuration ID.
+//
+// ~>**NOTE:** GitHub OAuth flow can not be performed via terraform. You must create this on Azure DevOps and then import it.
 func (o ServiceEndpointGitHubAuthOauthPtrOutput) OauthConfigurationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointGitHubAuthOauth) *string {
 		if v == nil {

@@ -174,8 +174,9 @@ type ServiceEndpointServiceFabric struct {
 	// A `certificate` block as documented below.
 	Certificate ServiceEndpointServiceFabricCertificatePtrOutput `pulumi:"certificate"`
 	// Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
-	ClusterEndpoint pulumi.StringOutput    `pulumi:"clusterEndpoint"`
-	Description     pulumi.StringPtrOutput `pulumi:"description"`
+	ClusterEndpoint pulumi.StringOutput `pulumi:"clusterEndpoint"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A `none` block as documented below.
 	None ServiceEndpointServiceFabricNonePtrOutput `pulumi:"none"`
 	// The ID of the project.
@@ -230,7 +231,8 @@ type serviceEndpointServiceFabricState struct {
 	Certificate *ServiceEndpointServiceFabricCertificate `pulumi:"certificate"`
 	// Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
 	ClusterEndpoint *string `pulumi:"clusterEndpoint"`
-	Description     *string `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description *string `pulumi:"description"`
 	// A `none` block as documented below.
 	None *ServiceEndpointServiceFabricNone `pulumi:"none"`
 	// The ID of the project.
@@ -247,7 +249,8 @@ type ServiceEndpointServiceFabricState struct {
 	Certificate ServiceEndpointServiceFabricCertificatePtrInput
 	// Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
 	ClusterEndpoint pulumi.StringPtrInput
-	Description     pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrInput
 	// A `none` block as documented below.
 	None ServiceEndpointServiceFabricNonePtrInput
 	// The ID of the project.
@@ -266,8 +269,9 @@ type serviceEndpointServiceFabricArgs struct {
 	// A `certificate` block as documented below.
 	Certificate *ServiceEndpointServiceFabricCertificate `pulumi:"certificate"`
 	// Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
-	ClusterEndpoint string  `pulumi:"clusterEndpoint"`
-	Description     *string `pulumi:"description"`
+	ClusterEndpoint string `pulumi:"clusterEndpoint"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description *string `pulumi:"description"`
 	// A `none` block as documented below.
 	None *ServiceEndpointServiceFabricNone `pulumi:"none"`
 	// The ID of the project.
@@ -284,7 +288,8 @@ type ServiceEndpointServiceFabricArgs struct {
 	Certificate ServiceEndpointServiceFabricCertificatePtrInput
 	// Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
 	ClusterEndpoint pulumi.StringInput
-	Description     pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrInput
 	// A `none` block as documented below.
 	None ServiceEndpointServiceFabricNonePtrInput
 	// The ID of the project.
@@ -403,6 +408,7 @@ func (o ServiceEndpointServiceFabricOutput) ClusterEndpoint() pulumi.StringOutpu
 	return o.ApplyT(func(v *ServiceEndpointServiceFabric) pulumi.StringOutput { return v.ClusterEndpoint }).(pulumi.StringOutput)
 }
 
+// The Service Endpoint description. Defaults to `Managed by Terraform`.
 func (o ServiceEndpointServiceFabricOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointServiceFabric) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

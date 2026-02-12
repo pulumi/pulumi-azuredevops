@@ -12,6 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages variable groups within Azure DevOps.
+//
+// > **Note**
+// If Variable Group is linked to a Key Vault, only top 500 secrets will be read by default. Key Vault does not support filter the secret by name,
+// we can only read the secrets and do filter in Terraform.
+//
 // ## Example Usage
 //
 // ### Basic usage
@@ -150,7 +156,7 @@ import (
 // Azure DevOps Variable groups can be imported using the project name/variable group ID or by the project Guid/variable group ID, e.g.
 //
 // ```sh
-// $ pulumi import azuredevops:index/variableGroup:VariableGroup example "Example Project/10"
+// terraform import azuredevops_variable_group.example "Example Project/10"
 // ```
 //
 // or

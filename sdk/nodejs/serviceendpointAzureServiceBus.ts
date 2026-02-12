@@ -74,6 +74,9 @@ export class ServiceendpointAzureServiceBus extends pulumi.CustomResource {
      * The  Azure Service Bus Connection string.
      */
     declare public readonly connectionString: pulumi.Output<string>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the project.
@@ -144,6 +147,9 @@ export interface ServiceendpointAzureServiceBusState {
      * The  Azure Service Bus Connection string.
      */
     connectionString?: pulumi.Input<string>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * The ID of the project.
@@ -167,6 +173,9 @@ export interface ServiceendpointAzureServiceBusArgs {
      * The  Azure Service Bus Connection string.
      */
     connectionString: pulumi.Input<string>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * The ID of the project.

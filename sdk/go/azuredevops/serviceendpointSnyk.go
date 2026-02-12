@@ -71,7 +71,8 @@ type ServiceendpointSnyk struct {
 	// The API token of the Snyk Security Scan.
 	ApiToken      pulumi.StringOutput    `pulumi:"apiToken"`
 	Authorization pulumi.StringMapOutput `pulumi:"authorization"`
-	Description   pulumi.StringPtrOutput `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The server URL of the Snyk Security Scan.
@@ -132,7 +133,8 @@ type serviceendpointSnykState struct {
 	// The API token of the Snyk Security Scan.
 	ApiToken      *string           `pulumi:"apiToken"`
 	Authorization map[string]string `pulumi:"authorization"`
-	Description   *string           `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description *string `pulumi:"description"`
 	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// The server URL of the Snyk Security Scan.
@@ -145,7 +147,8 @@ type ServiceendpointSnykState struct {
 	// The API token of the Snyk Security Scan.
 	ApiToken      pulumi.StringPtrInput
 	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// The server URL of the Snyk Security Scan.
@@ -160,7 +163,8 @@ func (ServiceendpointSnykState) ElementType() reflect.Type {
 
 type serviceendpointSnykArgs struct {
 	// The API token of the Snyk Security Scan.
-	ApiToken    string  `pulumi:"apiToken"`
+	ApiToken string `pulumi:"apiToken"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description *string `pulumi:"description"`
 	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
@@ -173,7 +177,8 @@ type serviceendpointSnykArgs struct {
 // The set of arguments for constructing a ServiceendpointSnyk resource.
 type ServiceendpointSnykArgs struct {
 	// The API token of the Snyk Security Scan.
-	ApiToken    pulumi.StringInput
+	ApiToken pulumi.StringInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringInput
@@ -279,6 +284,7 @@ func (o ServiceendpointSnykOutput) Authorization() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceendpointSnyk) pulumi.StringMapOutput { return v.Authorization }).(pulumi.StringMapOutput)
 }
 
+// The Service Endpoint description. Defaults to `Managed by Terraform`.
 func (o ServiceendpointSnykOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointSnyk) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

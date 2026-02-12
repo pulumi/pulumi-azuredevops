@@ -12,6 +12,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a GCP for Terraform service endpoint for Terraform within Azure DevOps. Using this service endpoint requires you to first install the Azure Terraform Extension for Azure DevOps from Microsoft DevLabs.
+//
 // ## Example Usage
 //
 // ```go
@@ -63,7 +65,9 @@ import (
 // Azure DevOps GCP for Terraform Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
-// $ pulumi import azuredevops:index/serviceendpointGcpTerraform:ServiceendpointGcpTerraform  azuredevops_serviceendpoint_gcp_terraform.example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azuredevops:index/serviceendpointGcpTerraform:ServiceendpointGcpTerraform example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
 // ```
 type ServiceendpointGcpTerraform struct {
 	pulumi.CustomResourceState
@@ -71,6 +75,7 @@ type ServiceendpointGcpTerraform struct {
 	Authorization pulumi.StringMapOutput `pulumi:"authorization"`
 	// The client email field in the JSON key file for creating the JSON Web Token.
 	ClientEmail pulumi.StringPtrOutput `pulumi:"clientEmail"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// GCP project associated with the Service Connection.
 	GcpProjectId pulumi.StringOutput `pulumi:"gcpProjectId"`
@@ -132,6 +137,7 @@ type serviceendpointGcpTerraformState struct {
 	Authorization map[string]string `pulumi:"authorization"`
 	// The client email field in the JSON key file for creating the JSON Web Token.
 	ClientEmail *string `pulumi:"clientEmail"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description *string `pulumi:"description"`
 	// GCP project associated with the Service Connection.
 	GcpProjectId *string `pulumi:"gcpProjectId"`
@@ -151,6 +157,7 @@ type ServiceendpointGcpTerraformState struct {
 	Authorization pulumi.StringMapInput
 	// The client email field in the JSON key file for creating the JSON Web Token.
 	ClientEmail pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description pulumi.StringPtrInput
 	// GCP project associated with the Service Connection.
 	GcpProjectId pulumi.StringPtrInput
@@ -173,6 +180,7 @@ func (ServiceendpointGcpTerraformState) ElementType() reflect.Type {
 type serviceendpointGcpTerraformArgs struct {
 	// The client email field in the JSON key file for creating the JSON Web Token.
 	ClientEmail *string `pulumi:"clientEmail"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description *string `pulumi:"description"`
 	// GCP project associated with the Service Connection.
 	GcpProjectId *string `pulumi:"gcpProjectId"`
@@ -192,6 +200,7 @@ type serviceendpointGcpTerraformArgs struct {
 type ServiceendpointGcpTerraformArgs struct {
 	// The client email field in the JSON key file for creating the JSON Web Token.
 	ClientEmail pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description pulumi.StringPtrInput
 	// GCP project associated with the Service Connection.
 	GcpProjectId pulumi.StringPtrInput
@@ -303,6 +312,7 @@ func (o ServiceendpointGcpTerraformOutput) ClientEmail() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v *ServiceendpointGcpTerraform) pulumi.StringPtrOutput { return v.ClientEmail }).(pulumi.StringPtrOutput)
 }
 
+// The Service Endpoint description. Defaults to `Managed by Terraform`.
 func (o ServiceendpointGcpTerraformOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointGcpTerraform) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

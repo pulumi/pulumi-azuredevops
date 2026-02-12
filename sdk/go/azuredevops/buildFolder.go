@@ -56,7 +56,7 @@ import (
 // Build Folders can be imported using the `project name/path` or `project id/path`, e.g.
 //
 // ```sh
-// $ pulumi import azuredevops:index/buildFolder:BuildFolder example "Example Project/\\ExampleFolder"
+// terraform import azuredevops_build_folder.example "Example Project/\\ExampleFolder"
 // ```
 //
 // or

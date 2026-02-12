@@ -12,6 +12,11 @@ namespace Pulumi.AzureDevOps.Inputs
 
     public sealed class ServiceEndpointGitHubAuthOauthArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The OAuth Configuration ID.
+        /// 
+        /// ~&gt;**NOTE:** GitHub OAuth flow can not be performed via terraform. You must create this on Azure DevOps and then import it.
+        /// </summary>
         [Input("oauthConfigurationId", required: true)]
         public Input<string> OauthConfigurationId { get; set; } = null!;
 

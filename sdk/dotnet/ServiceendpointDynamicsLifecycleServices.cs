@@ -76,6 +76,9 @@ namespace Pulumi.AzureDevOps
         [Output("clientId")]
         public Output<string> ClientId { get; private set; } = null!;
 
+        /// <summary>
+        /// The Service Endpoint description. Defaults to `Managed by Terraform`.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -171,6 +174,9 @@ namespace Pulumi.AzureDevOps
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
+        /// <summary>
+        /// The Service Endpoint description. Defaults to `Managed by Terraform`.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -242,6 +248,9 @@ namespace Pulumi.AzureDevOps
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
+        /// <summary>
+        /// The Service Endpoint description. Defaults to `Managed by Terraform`.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

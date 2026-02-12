@@ -69,7 +69,8 @@ type ServiceendpointJenkins struct {
 	// Allows the Jenkins clients to accept self-signed SSL server certificates. Defaults to `false.`
 	AcceptUntrustedCerts pulumi.BoolPtrOutput   `pulumi:"acceptUntrustedCerts"`
 	Authorization        pulumi.StringMapOutput `pulumi:"authorization"`
-	Description          pulumi.StringPtrOutput `pulumi:"description"`
+	// The Service Endpoint description. Defaults to Managed by Terraform.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The Service Endpoint password to authenticate at the Jenkins Instance.
 	Password pulumi.StringOutput `pulumi:"password"`
 	// The ID of the project. Changing this forces a new Service Connection Jenkins to be created.
@@ -137,7 +138,8 @@ type serviceendpointJenkinsState struct {
 	// Allows the Jenkins clients to accept self-signed SSL server certificates. Defaults to `false.`
 	AcceptUntrustedCerts *bool             `pulumi:"acceptUntrustedCerts"`
 	Authorization        map[string]string `pulumi:"authorization"`
-	Description          *string           `pulumi:"description"`
+	// The Service Endpoint description. Defaults to Managed by Terraform.
+	Description *string `pulumi:"description"`
 	// The Service Endpoint password to authenticate at the Jenkins Instance.
 	Password *string `pulumi:"password"`
 	// The ID of the project. Changing this forces a new Service Connection Jenkins to be created.
@@ -154,7 +156,8 @@ type ServiceendpointJenkinsState struct {
 	// Allows the Jenkins clients to accept self-signed SSL server certificates. Defaults to `false.`
 	AcceptUntrustedCerts pulumi.BoolPtrInput
 	Authorization        pulumi.StringMapInput
-	Description          pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to Managed by Terraform.
+	Description pulumi.StringPtrInput
 	// The Service Endpoint password to authenticate at the Jenkins Instance.
 	Password pulumi.StringPtrInput
 	// The ID of the project. Changing this forces a new Service Connection Jenkins to be created.
@@ -173,8 +176,9 @@ func (ServiceendpointJenkinsState) ElementType() reflect.Type {
 
 type serviceendpointJenkinsArgs struct {
 	// Allows the Jenkins clients to accept self-signed SSL server certificates. Defaults to `false.`
-	AcceptUntrustedCerts *bool   `pulumi:"acceptUntrustedCerts"`
-	Description          *string `pulumi:"description"`
+	AcceptUntrustedCerts *bool `pulumi:"acceptUntrustedCerts"`
+	// The Service Endpoint description. Defaults to Managed by Terraform.
+	Description *string `pulumi:"description"`
 	// The Service Endpoint password to authenticate at the Jenkins Instance.
 	Password string `pulumi:"password"`
 	// The ID of the project. Changing this forces a new Service Connection Jenkins to be created.
@@ -191,7 +195,8 @@ type serviceendpointJenkinsArgs struct {
 type ServiceendpointJenkinsArgs struct {
 	// Allows the Jenkins clients to accept self-signed SSL server certificates. Defaults to `false.`
 	AcceptUntrustedCerts pulumi.BoolPtrInput
-	Description          pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to Managed by Terraform.
+	Description pulumi.StringPtrInput
 	// The Service Endpoint password to authenticate at the Jenkins Instance.
 	Password pulumi.StringInput
 	// The ID of the project. Changing this forces a new Service Connection Jenkins to be created.
@@ -300,6 +305,7 @@ func (o ServiceendpointJenkinsOutput) Authorization() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceendpointJenkins) pulumi.StringMapOutput { return v.Authorization }).(pulumi.StringMapOutput)
 }
 
+// The Service Endpoint description. Defaults to Managed by Terraform.
 func (o ServiceendpointJenkinsOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointJenkins) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

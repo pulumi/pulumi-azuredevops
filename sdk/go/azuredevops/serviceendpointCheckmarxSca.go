@@ -76,7 +76,8 @@ type ServiceendpointCheckmarxSca struct {
 	// The account of the Checkmarx SCA.
 	Account       pulumi.StringOutput    `pulumi:"account"`
 	Authorization pulumi.StringMapOutput `pulumi:"authorization"`
-	Description   pulumi.StringPtrOutput `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The password of the Checkmarx SCA.
 	Password pulumi.StringOutput `pulumi:"password"`
 	// The ID of the project.
@@ -159,7 +160,8 @@ type serviceendpointCheckmarxScaState struct {
 	// The account of the Checkmarx SCA.
 	Account       *string           `pulumi:"account"`
 	Authorization map[string]string `pulumi:"authorization"`
-	Description   *string           `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description *string `pulumi:"description"`
 	// The password of the Checkmarx SCA.
 	Password *string `pulumi:"password"`
 	// The ID of the project.
@@ -182,7 +184,8 @@ type ServiceendpointCheckmarxScaState struct {
 	// The account of the Checkmarx SCA.
 	Account       pulumi.StringPtrInput
 	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrInput
 	// The password of the Checkmarx SCA.
 	Password pulumi.StringPtrInput
 	// The ID of the project.
@@ -207,7 +210,8 @@ type serviceendpointCheckmarxScaArgs struct {
 	// The Access Control URL of the Checkmarx SCA.
 	AccessControlUrl string `pulumi:"accessControlUrl"`
 	// The account of the Checkmarx SCA.
-	Account     string  `pulumi:"account"`
+	Account string `pulumi:"account"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description *string `pulumi:"description"`
 	// The password of the Checkmarx SCA.
 	Password string `pulumi:"password"`
@@ -230,7 +234,8 @@ type ServiceendpointCheckmarxScaArgs struct {
 	// The Access Control URL of the Checkmarx SCA.
 	AccessControlUrl pulumi.StringInput
 	// The account of the Checkmarx SCA.
-	Account     pulumi.StringInput
+	Account pulumi.StringInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description pulumi.StringPtrInput
 	// The password of the Checkmarx SCA.
 	Password pulumi.StringInput
@@ -349,6 +354,7 @@ func (o ServiceendpointCheckmarxScaOutput) Authorization() pulumi.StringMapOutpu
 	return o.ApplyT(func(v *ServiceendpointCheckmarxSca) pulumi.StringMapOutput { return v.Authorization }).(pulumi.StringMapOutput)
 }
 
+// The Service Endpoint description. Defaults to `Managed by Terraform`.
 func (o ServiceendpointCheckmarxScaOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointCheckmarxSca) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

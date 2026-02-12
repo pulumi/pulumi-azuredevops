@@ -36,6 +36,7 @@ class ServiceendpointDynamicsLifecycleServicesArgs:
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[_builtins.str] username: The E-mail address of user with sufficient permissions to interact with LCS asset library and environments.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "client_id", client_id)
@@ -134,6 +135,9 @@ class ServiceendpointDynamicsLifecycleServicesArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -157,6 +161,7 @@ class _ServiceendpointDynamicsLifecycleServicesState:
         Input properties used for looking up and filtering ServiceendpointDynamicsLifecycleServices resources.
         :param pulumi.Input[_builtins.str] authorization_endpoint: The URL of the Authentication Endpoint.
         :param pulumi.Input[_builtins.str] client_id: The client ID for a native application registration in Azure Active Directory with API permissions for Dynamics Lifecycle Services.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] lifecycle_services_api_endpoint: The URL of the Lifecycle Services API Endpoint.
         :param pulumi.Input[_builtins.str] password: The Password for the Azure Active Directory account.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
@@ -218,6 +223,9 @@ class _ServiceendpointDynamicsLifecycleServicesState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -342,6 +350,7 @@ class ServiceendpointDynamicsLifecycleServices(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authorization_endpoint: The URL of the Authentication Endpoint.
         :param pulumi.Input[_builtins.str] client_id: The client ID for a native application registration in Azure Active Directory with API permissions for Dynamics Lifecycle Services.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] lifecycle_services_api_endpoint: The URL of the Lifecycle Services API Endpoint.
         :param pulumi.Input[_builtins.str] password: The Password for the Azure Active Directory account.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
@@ -477,6 +486,7 @@ class ServiceendpointDynamicsLifecycleServices(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authorization_endpoint: The URL of the Authentication Endpoint.
         :param pulumi.Input[_builtins.str] client_id: The client ID for a native application registration in Azure Active Directory with API permissions for Dynamics Lifecycle Services.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] lifecycle_services_api_endpoint: The URL of the Lifecycle Services API Endpoint.
         :param pulumi.Input[_builtins.str] password: The Password for the Azure Active Directory account.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
@@ -522,6 +532,9 @@ class ServiceendpointDynamicsLifecycleServices(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property

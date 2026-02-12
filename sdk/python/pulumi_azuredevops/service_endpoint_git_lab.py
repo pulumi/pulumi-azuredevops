@@ -32,6 +32,7 @@ class ServiceEndpointGitLabArgs:
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[_builtins.str] url: The server URL for GitLab. Example: `https://gitlab.com`.
         :param pulumi.Input[_builtins.str] username: The username used to login to GitLab.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         """
         pulumi.set(__self__, "api_token", api_token)
         pulumi.set(__self__, "project_id", project_id)
@@ -104,6 +105,9 @@ class ServiceEndpointGitLabArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -124,6 +128,7 @@ class _ServiceEndpointGitLabState:
         """
         Input properties used for looking up and filtering ServiceEndpointGitLab resources.
         :param pulumi.Input[_builtins.str] api_token: The API token of the GitLab.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[_builtins.str] url: The server URL for GitLab. Example: `https://gitlab.com`.
@@ -168,6 +173,9 @@ class _ServiceEndpointGitLabState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -275,6 +283,7 @@ class ServiceEndpointGitLab(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_token: The API token of the GitLab.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[_builtins.str] url: The server URL for GitLab. Example: `https://gitlab.com`.
@@ -396,6 +405,7 @@ class ServiceEndpointGitLab(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_token: The API token of the GitLab.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[_builtins.str] url: The server URL for GitLab. Example: `https://gitlab.com`.
@@ -430,6 +440,9 @@ class ServiceEndpointGitLab(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property

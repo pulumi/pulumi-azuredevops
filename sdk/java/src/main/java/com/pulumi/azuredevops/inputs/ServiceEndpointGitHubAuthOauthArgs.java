@@ -14,9 +14,21 @@ public final class ServiceEndpointGitHubAuthOauthArgs extends com.pulumi.resourc
 
     public static final ServiceEndpointGitHubAuthOauthArgs Empty = new ServiceEndpointGitHubAuthOauthArgs();
 
+    /**
+     * The OAuth Configuration ID.
+     * 
+     * ~&gt;**NOTE:** GitHub OAuth flow can not be performed via terraform. You must create this on Azure DevOps and then import it.
+     * 
+     */
     @Import(name="oauthConfigurationId", required=true)
     private Output<String> oauthConfigurationId;
 
+    /**
+     * @return The OAuth Configuration ID.
+     * 
+     * ~&gt;**NOTE:** GitHub OAuth flow can not be performed via terraform. You must create this on Azure DevOps and then import it.
+     * 
+     */
     public Output<String> oauthConfigurationId() {
         return this.oauthConfigurationId;
     }
@@ -45,11 +57,27 @@ public final class ServiceEndpointGitHubAuthOauthArgs extends com.pulumi.resourc
             $ = new ServiceEndpointGitHubAuthOauthArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param oauthConfigurationId The OAuth Configuration ID.
+         * 
+         * ~&gt;**NOTE:** GitHub OAuth flow can not be performed via terraform. You must create this on Azure DevOps and then import it.
+         * 
+         * @return builder
+         * 
+         */
         public Builder oauthConfigurationId(Output<String> oauthConfigurationId) {
             $.oauthConfigurationId = oauthConfigurationId;
             return this;
         }
 
+        /**
+         * @param oauthConfigurationId The OAuth Configuration ID.
+         * 
+         * ~&gt;**NOTE:** GitHub OAuth flow can not be performed via terraform. You must create this on Azure DevOps and then import it.
+         * 
+         * @return builder
+         * 
+         */
         public Builder oauthConfigurationId(String oauthConfigurationId) {
             return oauthConfigurationId(Output.of(oauthConfigurationId));
         }

@@ -72,6 +72,9 @@ export class ServiceendpointCheckmarxSast extends pulumi.CustomResource {
     }
 
     declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The password of the Checkmarx SAST.
@@ -163,6 +166,9 @@ export class ServiceendpointCheckmarxSast extends pulumi.CustomResource {
  */
 export interface ServiceendpointCheckmarxSastState {
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * The password of the Checkmarx SAST.
@@ -198,6 +204,9 @@ export interface ServiceendpointCheckmarxSastState {
  * The set of arguments for constructing a ServiceendpointCheckmarxSast resource.
  */
 export interface ServiceendpointCheckmarxSastArgs {
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * The password of the Checkmarx SAST.

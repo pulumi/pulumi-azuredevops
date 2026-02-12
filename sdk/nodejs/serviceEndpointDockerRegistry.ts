@@ -82,6 +82,9 @@ export class ServiceEndpointDockerRegistry extends pulumi.CustomResource {
     }
 
     declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The email for Docker account user.
@@ -164,6 +167,9 @@ export class ServiceEndpointDockerRegistry extends pulumi.CustomResource {
  */
 export interface ServiceEndpointDockerRegistryState {
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * The email for Docker account user.
@@ -199,6 +205,9 @@ export interface ServiceEndpointDockerRegistryState {
  * The set of arguments for constructing a ServiceEndpointDockerRegistry resource.
  */
 export interface ServiceEndpointDockerRegistryArgs {
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * The email for Docker account user.

@@ -451,7 +451,7 @@ import (
 // Azure DevOps Build Definitions can be imported using the project name/definitions Id or by the project Guid/definitions Id, e.g.
 //
 // ```sh
-// $ pulumi import azuredevops:index/buildDefinition:BuildDefinition example "Example Project"/10
+// terraform import azuredevops_build_definition.example "Example Project"/10
 // ```
 //
 // or

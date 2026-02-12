@@ -71,7 +71,8 @@ type ServiceendpointBlackDuck struct {
 	// The API token of the Black Duck Detect.
 	ApiToken      pulumi.StringOutput    `pulumi:"apiToken"`
 	Authorization pulumi.StringMapOutput `pulumi:"authorization"`
-	Description   pulumi.StringPtrOutput `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The server URL of the Black Duck Detect.
@@ -132,7 +133,8 @@ type serviceendpointBlackDuckState struct {
 	// The API token of the Black Duck Detect.
 	ApiToken      *string           `pulumi:"apiToken"`
 	Authorization map[string]string `pulumi:"authorization"`
-	Description   *string           `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description *string `pulumi:"description"`
 	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// The server URL of the Black Duck Detect.
@@ -145,7 +147,8 @@ type ServiceendpointBlackDuckState struct {
 	// The API token of the Black Duck Detect.
 	ApiToken      pulumi.StringPtrInput
 	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	Description pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// The server URL of the Black Duck Detect.
@@ -160,7 +163,8 @@ func (ServiceendpointBlackDuckState) ElementType() reflect.Type {
 
 type serviceendpointBlackDuckArgs struct {
 	// The API token of the Black Duck Detect.
-	ApiToken    string  `pulumi:"apiToken"`
+	ApiToken string `pulumi:"apiToken"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description *string `pulumi:"description"`
 	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
@@ -173,7 +177,8 @@ type serviceendpointBlackDuckArgs struct {
 // The set of arguments for constructing a ServiceendpointBlackDuck resource.
 type ServiceendpointBlackDuckArgs struct {
 	// The API token of the Black Duck Detect.
-	ApiToken    pulumi.StringInput
+	ApiToken pulumi.StringInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringInput
@@ -279,6 +284,7 @@ func (o ServiceendpointBlackDuckOutput) Authorization() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceendpointBlackDuck) pulumi.StringMapOutput { return v.Authorization }).(pulumi.StringMapOutput)
 }
 
+// The Service Endpoint description. Defaults to `Managed by Terraform`.
 func (o ServiceendpointBlackDuckOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointBlackDuck) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

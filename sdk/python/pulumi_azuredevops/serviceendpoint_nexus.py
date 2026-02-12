@@ -32,6 +32,7 @@ class ServiceendpointNexusArgs:
         :param pulumi.Input[_builtins.str] service_endpoint_name: The name of the service endpoint. Changing this forces a new Service Connection Nexus to be created.
         :param pulumi.Input[_builtins.str] url: The Service Endpoint url.
         :param pulumi.Input[_builtins.str] username: The Service Endpoint username to authenticate at the Nexus IQ Instance.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to Managed by Terraform.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "project_id", project_id)
@@ -104,6 +105,9 @@ class ServiceendpointNexusArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to Managed by Terraform.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -123,6 +127,7 @@ class _ServiceendpointNexusState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceendpointNexus resources.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to Managed by Terraform.
         :param pulumi.Input[_builtins.str] password: The Service Endpoint password to authenticate at the Nexus IQ Instance.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project. Changing this forces a new Service Connection Nexus to be created.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The name of the service endpoint. Changing this forces a new Service Connection Nexus to be created.
@@ -156,6 +161,9 @@ class _ServiceendpointNexusState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to Managed by Terraform.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -271,6 +279,7 @@ class ServiceendpointNexus(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to Managed by Terraform.
         :param pulumi.Input[_builtins.str] password: The Service Endpoint password to authenticate at the Nexus IQ Instance.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project. Changing this forces a new Service Connection Nexus to be created.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The name of the service endpoint. Changing this forces a new Service Connection Nexus to be created.
@@ -389,6 +398,7 @@ class ServiceendpointNexus(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to Managed by Terraform.
         :param pulumi.Input[_builtins.str] password: The Service Endpoint password to authenticate at the Nexus IQ Instance.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project. Changing this forces a new Service Connection Nexus to be created.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The name of the service endpoint. Changing this forces a new Service Connection Nexus to be created.
@@ -416,6 +426,9 @@ class ServiceendpointNexus(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to Managed by Terraform.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property

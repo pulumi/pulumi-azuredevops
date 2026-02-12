@@ -41,9 +41,17 @@ public final class BuildDefinitionPullRequestTriggerArgs extends com.pulumi.reso
         return this.forks;
     }
 
+    /**
+     * When useYaml is true set this to the name of the branch that the azure-pipelines.yml exists on. Defaults to `Managed by Terraform`.
+     * 
+     */
     @Import(name="initialBranch")
     private @Nullable Output<String> initialBranch;
 
+    /**
+     * @return When useYaml is true set this to the name of the branch that the azure-pipelines.yml exists on. Defaults to `Managed by Terraform`.
+     * 
+     */
     public Optional<Output<String>> initialBranch() {
         return Optional.ofNullable(this.initialBranch);
     }
@@ -136,11 +144,23 @@ public final class BuildDefinitionPullRequestTriggerArgs extends com.pulumi.reso
             return forks(Output.of(forks));
         }
 
+        /**
+         * @param initialBranch When useYaml is true set this to the name of the branch that the azure-pipelines.yml exists on. Defaults to `Managed by Terraform`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder initialBranch(@Nullable Output<String> initialBranch) {
             $.initialBranch = initialBranch;
             return this;
         }
 
+        /**
+         * @param initialBranch When useYaml is true set this to the name of the branch that the azure-pipelines.yml exists on. Defaults to `Managed by Terraform`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder initialBranch(String initialBranch) {
             return initialBranch(Output.of(initialBranch));
         }

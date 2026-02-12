@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * Manages a GCP for Terraform service endpoint for Terraform within Azure DevOps. Using this service endpoint requires you to first install the Azure Terraform Extension for Azure DevOps from Microsoft DevLabs.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -38,7 +40,7 @@ import * as utilities from "./utilities";
  * Azure DevOps GCP for Terraform Service Endpoint can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
  *
  * ```sh
- * $ pulumi import azuredevops:index/serviceendpointGcpTerraform:ServiceendpointGcpTerraform  azuredevops_serviceendpoint_gcp_terraform.example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+ *  $ pulumi import azuredevops:index/serviceendpointGcpTerraform:ServiceendpointGcpTerraform example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
  * ```
  */
 export class ServiceendpointGcpTerraform extends pulumi.CustomResource {
@@ -74,6 +76,9 @@ export class ServiceendpointGcpTerraform extends pulumi.CustomResource {
      * The client email field in the JSON key file for creating the JSON Web Token.
      */
     declare public readonly clientEmail: pulumi.Output<string | undefined>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * GCP project associated with the Service Connection.
@@ -156,6 +161,9 @@ export interface ServiceendpointGcpTerraformState {
      * The client email field in the JSON key file for creating the JSON Web Token.
      */
     clientEmail?: pulumi.Input<string>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * GCP project associated with the Service Connection.
@@ -191,6 +199,9 @@ export interface ServiceendpointGcpTerraformArgs {
      * The client email field in the JSON key file for creating the JSON Web Token.
      */
     clientEmail?: pulumi.Input<string>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * GCP project associated with the Service Connection.

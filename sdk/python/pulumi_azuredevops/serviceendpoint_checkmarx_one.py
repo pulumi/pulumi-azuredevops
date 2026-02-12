@@ -38,6 +38,7 @@ class ServiceendpointCheckmarxOneArgs:
         :param pulumi.Input[_builtins.str] client_secret: The Client Secret of the Checkmarx One. Conflict with `api_key`
                
                > **Note** At least one of `api_key` and `client_id`, `client_secret` must be set
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         """
         pulumi.set(__self__, "project_id", project_id)
         pulumi.set(__self__, "server_url", server_url)
@@ -142,6 +143,9 @@ class ServiceendpointCheckmarxOneArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -169,6 +173,7 @@ class _ServiceendpointCheckmarxOneState:
         :param pulumi.Input[_builtins.str] client_secret: The Client Secret of the Checkmarx One. Conflict with `api_key`
                
                > **Note** At least one of `api_key` and `client_id`, `client_secret` must be set
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] server_url: The Server URL of the Checkmarx One Service.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
@@ -254,6 +259,9 @@ class _ServiceendpointCheckmarxOneState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -377,6 +385,7 @@ class ServiceendpointCheckmarxOne(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] client_secret: The Client Secret of the Checkmarx One. Conflict with `api_key`
                
                > **Note** At least one of `api_key` and `client_id`, `client_secret` must be set
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] server_url: The Server URL of the Checkmarx One Service.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
@@ -525,6 +534,7 @@ class ServiceendpointCheckmarxOne(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] client_secret: The Client Secret of the Checkmarx One. Conflict with `api_key`
                
                > **Note** At least one of `api_key` and `client_id`, `client_secret` must be set
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] server_url: The Server URL of the Checkmarx One Service.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
@@ -586,6 +596,9 @@ class ServiceendpointCheckmarxOne(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property

@@ -66,7 +66,8 @@ type ServiceendpointIncomingwebhook struct {
 	pulumi.CustomResourceState
 
 	Authorization pulumi.StringMapOutput `pulumi:"authorization"`
-	Description   pulumi.StringPtrOutput `pulumi:"description"`
+	// The Service Endpoint description. Defaults to Managed by Terraform.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Http header name on which checksum will be sent.
 	HttpHeader pulumi.StringPtrOutput `pulumi:"httpHeader"`
 	// The ID of the project. Changing this forces a new Service Connection Incoming WebHook to be created.
@@ -123,7 +124,8 @@ func GetServiceendpointIncomingwebhook(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ServiceendpointIncomingwebhook resources.
 type serviceendpointIncomingwebhookState struct {
 	Authorization map[string]string `pulumi:"authorization"`
-	Description   *string           `pulumi:"description"`
+	// The Service Endpoint description. Defaults to Managed by Terraform.
+	Description *string `pulumi:"description"`
 	// Http header name on which checksum will be sent.
 	HttpHeader *string `pulumi:"httpHeader"`
 	// The ID of the project. Changing this forces a new Service Connection Incoming WebHook to be created.
@@ -138,7 +140,8 @@ type serviceendpointIncomingwebhookState struct {
 
 type ServiceendpointIncomingwebhookState struct {
 	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to Managed by Terraform.
+	Description pulumi.StringPtrInput
 	// Http header name on which checksum will be sent.
 	HttpHeader pulumi.StringPtrInput
 	// The ID of the project. Changing this forces a new Service Connection Incoming WebHook to be created.
@@ -156,6 +159,7 @@ func (ServiceendpointIncomingwebhookState) ElementType() reflect.Type {
 }
 
 type serviceendpointIncomingwebhookArgs struct {
+	// The Service Endpoint description. Defaults to Managed by Terraform.
 	Description *string `pulumi:"description"`
 	// Http header name on which checksum will be sent.
 	HttpHeader *string `pulumi:"httpHeader"`
@@ -171,6 +175,7 @@ type serviceendpointIncomingwebhookArgs struct {
 
 // The set of arguments for constructing a ServiceendpointIncomingwebhook resource.
 type ServiceendpointIncomingwebhookArgs struct {
+	// The Service Endpoint description. Defaults to Managed by Terraform.
 	Description pulumi.StringPtrInput
 	// Http header name on which checksum will be sent.
 	HttpHeader pulumi.StringPtrInput
@@ -275,6 +280,7 @@ func (o ServiceendpointIncomingwebhookOutput) Authorization() pulumi.StringMapOu
 	return o.ApplyT(func(v *ServiceendpointIncomingwebhook) pulumi.StringMapOutput { return v.Authorization }).(pulumi.StringMapOutput)
 }
 
+// The Service Endpoint description. Defaults to Managed by Terraform.
 func (o ServiceendpointIncomingwebhookOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointIncomingwebhook) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

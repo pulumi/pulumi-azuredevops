@@ -32,6 +32,7 @@ class ServiceEndpointPipelineArgs:
         :param pulumi.Input[_builtins.str] organization_name: The organization name used for `Organization Url` and `Release API Url` fields.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         """
         pulumi.set(__self__, "auth_personal", auth_personal)
         pulumi.set(__self__, "organization_name", organization_name)
@@ -91,6 +92,9 @@ class ServiceEndpointPipelineArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -110,6 +114,7 @@ class _ServiceEndpointPipelineState:
         """
         Input properties used for looking up and filtering ServiceEndpointPipeline resources.
         :param pulumi.Input['ServiceEndpointPipelineAuthPersonalArgs'] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] organization_name: The organization name used for `Organization Url` and `Release API Url` fields.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
@@ -151,6 +156,9 @@ class _ServiceEndpointPipelineState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -246,6 +254,7 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServiceEndpointPipelineAuthPersonalArgs', 'ServiceEndpointPipelineAuthPersonalArgsDict']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] organization_name: The organization name used for `Organization Url` and `Release API Url` fields.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
@@ -360,6 +369,7 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServiceEndpointPipelineAuthPersonalArgs', 'ServiceEndpointPipelineAuthPersonalArgsDict']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] organization_name: The organization name used for `Organization Url` and `Release API Url` fields.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
@@ -392,6 +402,9 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property

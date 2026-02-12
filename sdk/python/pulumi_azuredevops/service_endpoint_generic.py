@@ -30,6 +30,7 @@ class ServiceEndpointGenericArgs:
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] server_url: The URL of the server associated with the service endpoint.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The service endpoint name.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] password: The password or token key used to authenticate to the server url using basic authentication.
         :param pulumi.Input[_builtins.str] username: The username used to authenticate to the server url using basic authentication.
         """
@@ -82,6 +83,9 @@ class ServiceEndpointGenericArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -125,6 +129,7 @@ class _ServiceEndpointGenericState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceEndpointGeneric resources.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] password: The password or token key used to authenticate to the server url using basic authentication.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] server_url: The URL of the server associated with the service endpoint.
@@ -158,6 +163,9 @@ class _ServiceEndpointGenericState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -277,6 +285,7 @@ class ServiceEndpointGeneric(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] password: The password or token key used to authenticate to the server url using basic authentication.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] server_url: The URL of the server associated with the service endpoint.
@@ -395,6 +404,7 @@ class ServiceEndpointGeneric(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] password: The password or token key used to authenticate to the server url using basic authentication.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] server_url: The URL of the server associated with the service endpoint.
@@ -422,6 +432,9 @@ class ServiceEndpointGeneric(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Service Endpoint description. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property

@@ -206,9 +206,21 @@ public class ServiceEndpointGitHub extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> authorization() {
         return this.authorization;
     }
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     * 
+     * ~&gt;**NOTE:** GitHub Apps can not be created or updated via terraform. You must install and configure the app on GitHub and then import it. You must also set the `description` to &#34;&#34; explicitly.&#34;
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return The Service Endpoint description. Defaults to `Managed by Terraform`.
+     * 
+     * ~&gt;**NOTE:** GitHub Apps can not be created or updated via terraform. You must install and configure the app on GitHub and then import it. You must also set the `description` to &#34;&#34; explicitly.&#34;
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }

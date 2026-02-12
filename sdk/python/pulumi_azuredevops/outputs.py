@@ -1873,6 +1873,7 @@ class BuildDefinitionPullRequestTrigger(dict):
                  use_yaml: Optional[_builtins.bool] = None):
         """
         :param 'BuildDefinitionPullRequestTriggerForksArgs' forks: Set permissions for Forked repositories.
+        :param _builtins.str initial_branch: When use_yaml is true set this to the name of the branch that the azure-pipelines.yml exists on. Defaults to `Managed by Terraform`.
         :param 'BuildDefinitionPullRequestTriggerOverrideArgs' override: Override the azure-pipeline file and use this configuration for all builds.
         :param _builtins.bool use_yaml: Use the azure-pipeline file for the build configuration. Defaults to `false`.
         """
@@ -1902,6 +1903,9 @@ class BuildDefinitionPullRequestTrigger(dict):
     @_builtins.property
     @pulumi.getter(name="initialBranch")
     def initial_branch(self) -> Optional[_builtins.str]:
+        """
+        When use_yaml is true set this to the name of the branch that the azure-pipelines.yml exists on. Defaults to `Managed by Terraform`.
+        """
         return pulumi.get(self, "initial_branch")
 
     @_builtins.property
@@ -3117,11 +3121,21 @@ class ServiceEndpointGitHubAuthOauth(dict):
 
     def __init__(__self__, *,
                  oauth_configuration_id: _builtins.str):
+        """
+        :param _builtins.str oauth_configuration_id: The OAuth Configuration ID.
+               
+               ~>**NOTE:** GitHub OAuth flow can not be performed via terraform. You must create this on Azure DevOps and then import it.
+        """
         pulumi.set(__self__, "oauth_configuration_id", oauth_configuration_id)
 
     @_builtins.property
     @pulumi.getter(name="oauthConfigurationId")
     def oauth_configuration_id(self) -> _builtins.str:
+        """
+        The OAuth Configuration ID.
+
+        ~>**NOTE:** GitHub OAuth flow can not be performed via terraform. You must create this on Azure DevOps and then import it.
+        """
         return pulumi.get(self, "oauth_configuration_id")
 
 

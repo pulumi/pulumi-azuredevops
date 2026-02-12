@@ -74,6 +74,9 @@ export class ServiceendpointOctopusdeploy extends pulumi.CustomResource {
      */
     declare public readonly apiKey: pulumi.Output<string>;
     declare public /*out*/ readonly authorization: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Whether to ignore SSL errors when connecting to the Octopus server from the agent. Default to `false`.
@@ -148,6 +151,9 @@ export interface ServiceendpointOctopusdeployState {
      */
     apiKey?: pulumi.Input<string>;
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * Whether to ignore SSL errors when connecting to the Octopus server from the agent. Default to `false`.
@@ -175,6 +181,9 @@ export interface ServiceendpointOctopusdeployArgs {
      * API key to connect to Octopus Deploy.
      */
     apiKey: pulumi.Input<string>;
+    /**
+     * The Service Endpoint description. Defaults to `Managed by Terraform`.
+     */
     description?: pulumi.Input<string>;
     /**
      * Whether to ignore SSL errors when connecting to the Octopus server from the agent. Default to `false`.

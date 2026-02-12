@@ -43,7 +43,6 @@ import (
 // ## Import
 //
 // Service Principal Entitlements can be imported using the `resource id`.
-//
 // The `resource id` can be found using DEV Tools in the `Users` section of the ADO organization.
 //
 // ```sh

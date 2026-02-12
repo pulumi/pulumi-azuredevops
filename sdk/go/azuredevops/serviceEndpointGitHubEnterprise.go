@@ -118,7 +118,10 @@ type ServiceEndpointGitHubEnterprise struct {
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal  ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput `pulumi:"authPersonal"`
 	Authorization pulumi.StringMapOutput                               `pulumi:"authorization"`
-	Description   pulumi.StringPtrOutput                               `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	//
+	// > **NOTE:** GitHub Apps can not be created or updated via terraform. You must install and configure the app on GitHub and then import it. You must also set the `description` to "" explicitly.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The Service Endpoint name.
@@ -168,7 +171,10 @@ type serviceEndpointGitHubEnterpriseState struct {
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal  *ServiceEndpointGitHubEnterpriseAuthPersonal `pulumi:"authPersonal"`
 	Authorization map[string]string                            `pulumi:"authorization"`
-	Description   *string                                      `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	//
+	// > **NOTE:** GitHub Apps can not be created or updated via terraform. You must install and configure the app on GitHub and then import it. You must also set the `description` to "" explicitly.
+	Description *string `pulumi:"description"`
 	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// The Service Endpoint name.
@@ -183,7 +189,10 @@ type ServiceEndpointGitHubEnterpriseState struct {
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal  ServiceEndpointGitHubEnterpriseAuthPersonalPtrInput
 	Authorization pulumi.StringMapInput
-	Description   pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	//
+	// > **NOTE:** GitHub Apps can not be created or updated via terraform. You must install and configure the app on GitHub and then import it. You must also set the `description` to "" explicitly.
+	Description pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// The Service Endpoint name.
@@ -201,7 +210,10 @@ type serviceEndpointGitHubEnterpriseArgs struct {
 	AuthOauth *ServiceEndpointGitHubEnterpriseAuthOauth `pulumi:"authOauth"`
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal *ServiceEndpointGitHubEnterpriseAuthPersonal `pulumi:"authPersonal"`
-	Description  *string                                      `pulumi:"description"`
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	//
+	// > **NOTE:** GitHub Apps can not be created or updated via terraform. You must install and configure the app on GitHub and then import it. You must also set the `description` to "" explicitly.
+	Description *string `pulumi:"description"`
 	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// The Service Endpoint name.
@@ -216,7 +228,10 @@ type ServiceEndpointGitHubEnterpriseArgs struct {
 	AuthOauth ServiceEndpointGitHubEnterpriseAuthOauthPtrInput
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal ServiceEndpointGitHubEnterpriseAuthPersonalPtrInput
-	Description  pulumi.StringPtrInput
+	// The Service Endpoint description. Defaults to `Managed by Terraform`.
+	//
+	// > **NOTE:** GitHub Apps can not be created or updated via terraform. You must install and configure the app on GitHub and then import it. You must also set the `description` to "" explicitly.
+	Description pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// The Service Endpoint name.
@@ -330,6 +345,9 @@ func (o ServiceEndpointGitHubEnterpriseOutput) Authorization() pulumi.StringMapO
 	return o.ApplyT(func(v *ServiceEndpointGitHubEnterprise) pulumi.StringMapOutput { return v.Authorization }).(pulumi.StringMapOutput)
 }
 
+// The Service Endpoint description. Defaults to `Managed by Terraform`.
+//
+// > **NOTE:** GitHub Apps can not be created or updated via terraform. You must install and configure the app on GitHub and then import it. You must also set the `description` to "" explicitly.
 func (o ServiceEndpointGitHubEnterpriseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointGitHubEnterprise) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * Build Folders can be imported using the `project name/path` or `project id/path`, e.g.
  * 
  * ```sh
- * $ pulumi import azuredevops:index/buildFolder:BuildFolder example &#34;Example Project/\\ExampleFolder&#34;
+ * terraform import azuredevops_build_folder.example &#34;Example Project/\\ExampleFolder&#34;
  * ```
  * 
  * or
