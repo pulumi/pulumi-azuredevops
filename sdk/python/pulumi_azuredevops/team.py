@@ -26,6 +26,7 @@ class TeamArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Team resource.
+
         :param pulumi.Input[_builtins.str] project_id: The Project ID.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] administrators: List of subject descriptors to define administrators of the team.
                
@@ -134,6 +135,7 @@ class _TeamState:
                  project_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Team resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] administrators: List of subject descriptors to define administrators of the team.
                
                > **NOTE:** It's possible to define team administrators both within the
@@ -311,6 +313,7 @@ class Team(pulumi.CustomResource):
         $ pulumi import azuredevops:index/team:Team example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] administrators: List of subject descriptors to define administrators of the team.
@@ -386,6 +389,7 @@ class Team(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/team:Team example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TeamArgs args: The arguments to use to populate this resource's properties.

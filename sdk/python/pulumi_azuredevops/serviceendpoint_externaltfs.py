@@ -28,6 +28,7 @@ class ServiceendpointExternaltfsArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceendpointExternaltfs resource.
+
         :param pulumi.Input['ServiceendpointExternaltfsAuthPersonalArgs'] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[_builtins.str] connection_url: Azure DevOps Organization or TFS Project Collection Url.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
@@ -113,6 +114,7 @@ class _ServiceendpointExternaltfsState:
                  service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceendpointExternaltfs resources.
+
         :param pulumi.Input['ServiceendpointExternaltfsAuthPersonalArgs'] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[_builtins.str] connection_url: Azure DevOps Organization or TFS Project Collection Url.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
@@ -251,6 +253,7 @@ class ServiceendpointExternaltfs(pulumi.CustomResource):
         $ pulumi import azuredevops:index/serviceendpointExternaltfs:ServiceendpointExternaltfs example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServiceendpointExternaltfsAuthPersonalArgs', 'ServiceendpointExternaltfsAuthPersonalArgsDict']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
@@ -301,6 +304,7 @@ class ServiceendpointExternaltfs(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/serviceendpointExternaltfs:ServiceendpointExternaltfs example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceendpointExternaltfsArgs args: The arguments to use to populate this resource's properties.

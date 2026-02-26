@@ -25,6 +25,7 @@ class ExtensionArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Extension resource.
+
         :param pulumi.Input[_builtins.str] extension_id: The publisher ID of the extension.
         :param pulumi.Input[_builtins.str] publisher_id: The extension ID of the extension.
         :param pulumi.Input[_builtins.bool] disabled: Whether to disable the extension.
@@ -98,6 +99,7 @@ class _ExtensionState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Extension resources.
+
         :param pulumi.Input[_builtins.bool] disabled: Whether to disable the extension.
         :param pulumi.Input[_builtins.str] extension_id: The publisher ID of the extension.
         :param pulumi.Input[_builtins.str] extension_name: The name of the extension.
@@ -244,6 +246,7 @@ class Extension(pulumi.CustomResource):
         $ pulumi import azuredevops:index/extension:Extension example publisherId/extensionId
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] disabled: Whether to disable the extension.
@@ -283,6 +286,7 @@ class Extension(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/extension:Extension example publisherId/extensionId
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ExtensionArgs args: The arguments to use to populate this resource's properties.

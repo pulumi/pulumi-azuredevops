@@ -28,6 +28,7 @@ class ServiceEndpointGitHubArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceEndpointGitHub resource.
+
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input['ServiceEndpointGitHubAuthOauthArgs'] auth_oauth: An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
@@ -119,6 +120,7 @@ class _ServiceEndpointGitHubState:
                  service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceEndpointGitHub resources.
+
         :param pulumi.Input['ServiceEndpointGitHubAuthOauthArgs'] auth_oauth: An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
         :param pulumi.Input['ServiceEndpointGitHubAuthPersonalArgs'] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
@@ -293,6 +295,7 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
         $ pulumi import azuredevops:index/serviceEndpointGitHub:ServiceEndpointGitHub example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServiceEndpointGitHubAuthOauthArgs', 'ServiceEndpointGitHubAuthOauthArgsDict']] auth_oauth: An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
@@ -377,6 +380,7 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/serviceEndpointGitHub:ServiceEndpointGitHub example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceEndpointGitHubArgs args: The arguments to use to populate this resource's properties.

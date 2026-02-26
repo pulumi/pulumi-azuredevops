@@ -27,6 +27,7 @@ class WikiArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Wiki resource.
+
         :param pulumi.Input[_builtins.str] type: The type of the wiki. Possible values are `codeWiki`, `projectWiki`.
         :param pulumi.Input[_builtins.str] mapped_path: Folder path inside repository which is shown as Wiki.
         :param pulumi.Input[_builtins.str] name: The name of the Wiki.
@@ -132,6 +133,7 @@ class _WikiState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Wiki resources.
+
         :param pulumi.Input[_builtins.str] mapped_path: Folder path inside repository which is shown as Wiki.
         :param pulumi.Input[_builtins.str] name: The name of the Wiki.
         :param pulumi.Input[_builtins.str] project_id: The ID of the Project.
@@ -311,6 +313,7 @@ class Wiki(pulumi.CustomResource):
         $ pulumi import azuredevops:index/wiki:Wiki wiki 00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] mapped_path: Folder path inside repository which is shown as Wiki.
@@ -368,6 +371,7 @@ class Wiki(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/wiki:Wiki wiki 00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WikiArgs args: The arguments to use to populate this resource's properties.

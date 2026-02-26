@@ -30,6 +30,7 @@ class ServiceendpointMavenArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceendpointMaven resource.
+
         :param pulumi.Input[_builtins.str] project_id: The ID of the project. Changing this forces a new Service Connection Maven to be created.
         :param pulumi.Input[_builtins.str] repository_id: The ID of the server that matches the id element of the `repository/mirror` that Maven tries to connect to.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The name of the service endpoint. Changing this forces a new Service Connection Maven to be created.
@@ -147,6 +148,7 @@ class _ServiceendpointMavenState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceendpointMaven resources.
+
         :param pulumi.Input['ServiceendpointMavenAuthenticationBasicArgs'] authentication_basic: A `authentication_basic` block as documented below.
         :param pulumi.Input['ServiceendpointMavenAuthenticationTokenArgs'] authentication_token: A `authentication_token` block as documented below.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to Managed by Terraform.
@@ -338,6 +340,7 @@ class ServiceendpointMaven(pulumi.CustomResource):
         $ pulumi import azuredevops:index/serviceendpointMaven:ServiceendpointMaven example projectName/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServiceendpointMavenAuthenticationBasicArgs', 'ServiceendpointMavenAuthenticationBasicArgsDict']] authentication_basic: A `authentication_basic` block as documented below.
@@ -411,6 +414,7 @@ class ServiceendpointMaven(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/serviceendpointMaven:ServiceendpointMaven example projectName/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceendpointMavenArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class FeedPermissionArgs:
                  project_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FeedPermission resource.
+
         :param pulumi.Input[_builtins.str] feed_id: The ID of the Feed.
         :param pulumi.Input[_builtins.str] identity_descriptor: The Descriptor of identity you want to assign a role.
         :param pulumi.Input[_builtins.str] role: The role to be assigned. Possible values are: `reader`, `contributor`, `collaborator`, `administrator`
@@ -112,6 +113,7 @@ class _FeedPermissionState:
                  role: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FeedPermission resources.
+
         :param pulumi.Input[_builtins.str] display_name: The display name of the assignment
         :param pulumi.Input[_builtins.str] feed_id: The ID of the Feed.
         :param pulumi.Input[_builtins.str] identity_descriptor: The Descriptor of identity you want to assign a role.
@@ -257,6 +259,7 @@ class FeedPermission(pulumi.CustomResource):
         $ pulumi import azuredevops:index/feedPermission:FeedPermission permission 00000000-0000-0000-0000-000000000000/vssgp.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] display_name: The display name of the assignment
@@ -310,6 +313,7 @@ class FeedPermission(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/feedPermission:FeedPermission permission 00000000-0000-0000-0000-000000000000/vssgp.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FeedPermissionArgs args: The arguments to use to populate this resource's properties.

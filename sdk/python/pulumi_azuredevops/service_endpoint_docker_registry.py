@@ -29,6 +29,7 @@ class ServiceEndpointDockerRegistryArgs:
                  registry_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceEndpointDockerRegistry resource.
+
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The name you will use to refer to this service connection in task inputs.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
@@ -164,6 +165,7 @@ class _ServiceEndpointDockerRegistryState:
                  service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceEndpointDockerRegistry resources.
+
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] docker_email: The email for Docker account user.
         :param pulumi.Input[_builtins.str] docker_password: The password for the account user identified above.
@@ -359,6 +361,7 @@ class ServiceEndpointDockerRegistry(pulumi.CustomResource):
         $ pulumi import azuredevops:index/serviceEndpointDockerRegistry:ServiceEndpointDockerRegistry example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
@@ -421,6 +424,7 @@ class ServiceEndpointDockerRegistry(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/serviceEndpointDockerRegistry:ServiceEndpointDockerRegistry example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceEndpointDockerRegistryArgs args: The arguments to use to populate this resource's properties.

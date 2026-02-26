@@ -28,6 +28,7 @@ class EnvironmentResourceKubernetesArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EnvironmentResourceKubernetes resource.
+
         :param pulumi.Input[_builtins.int] environment_id: The ID of the environment under which to create the Kubernetes Resource.
         :param pulumi.Input[_builtins.str] namespace: The namespace for the Kubernetes Resource.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
@@ -144,6 +145,7 @@ class _EnvironmentResourceKubernetesState:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering EnvironmentResourceKubernetes resources.
+
         :param pulumi.Input[_builtins.str] cluster_name: A cluster name for the Kubernetes Resource.
         :param pulumi.Input[_builtins.int] environment_id: The ID of the environment under which to create the Kubernetes Resource.
         :param pulumi.Input[_builtins.str] name: The name for the Kubernetes Resource.
@@ -318,6 +320,7 @@ class EnvironmentResourceKubernetes(pulumi.CustomResource):
 
         The resource does not support import.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_name: A cluster name for the Kubernetes Resource.
@@ -385,6 +388,7 @@ class EnvironmentResourceKubernetes(pulumi.CustomResource):
         ## Import
 
         The resource does not support import.
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentResourceKubernetesArgs args: The arguments to use to populate this resource's properties.

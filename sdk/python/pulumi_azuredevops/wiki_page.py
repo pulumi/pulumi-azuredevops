@@ -26,6 +26,7 @@ class WikiPageArgs:
                  etag: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WikiPage resource.
+
         :param pulumi.Input[_builtins.str] content: The content of the wiki page.
         :param pulumi.Input[_builtins.str] path: The path of the wiki page.
         :param pulumi.Input[_builtins.str] project_id: The ID of the Project.
@@ -106,6 +107,7 @@ class _WikiPageState:
                  wiki_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WikiPage resources.
+
         :param pulumi.Input[_builtins.str] content: The content of the wiki page.
         :param pulumi.Input[_builtins.str] path: The path of the wiki page.
         :param pulumi.Input[_builtins.str] project_id: The ID of the Project.
@@ -219,6 +221,7 @@ class WikiPage(pulumi.CustomResource):
 
         - [Azure DevOps Service REST API 7.1 - Wiki Page](https://learn.microsoft.com/en-us/rest/api/azure/devops/wiki/pages?view=azure-devops-rest-7.1)
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] content: The content of the wiki page.
@@ -258,6 +261,7 @@ class WikiPage(pulumi.CustomResource):
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.1 - Wiki Page](https://learn.microsoft.com/en-us/rest/api/azure/devops/wiki/pages?view=azure-devops-rest-7.1)
+
 
         :param str resource_name: The name of the resource.
         :param WikiPageArgs args: The arguments to use to populate this resource's properties.

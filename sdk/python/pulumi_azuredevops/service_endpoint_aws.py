@@ -31,6 +31,7 @@ class ServiceEndpointAwsArgs:
                  use_oidc: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ServiceEndpointAws resource.
+
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[_builtins.str] access_key_id: The AWS access key ID for signing programmatic requests.
@@ -198,6 +199,7 @@ class _ServiceEndpointAwsState:
                  use_oidc: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ServiceEndpointAws resources.
+
         :param pulumi.Input[_builtins.str] access_key_id: The AWS access key ID for signing programmatic requests.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] external_id: A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
@@ -415,6 +417,7 @@ class ServiceEndpointAws(pulumi.CustomResource):
          $ pulumi import azuredevops:index/serviceEndpointAws:ServiceEndpointAws example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_key_id: The AWS access key ID for signing programmatic requests.
@@ -469,6 +472,7 @@ class ServiceEndpointAws(pulumi.CustomResource):
         ```sh
          $ pulumi import azuredevops:index/serviceEndpointAws:ServiceEndpointAws example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceEndpointAwsArgs args: The arguments to use to populate this resource's properties.

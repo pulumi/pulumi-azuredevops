@@ -24,6 +24,7 @@ class EnvironmentArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Environment resource.
+
         :param pulumi.Input[_builtins.str] project_id: The ID of the project. Changing this forces a new Environment to be created.
         :param pulumi.Input[_builtins.str] description: A description for the Environment.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Environment.
@@ -79,6 +80,7 @@ class _EnvironmentState:
                  project_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Environment resources.
+
         :param pulumi.Input[_builtins.str] description: A description for the Environment.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Environment.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project. Changing this forces a new Environment to be created.
@@ -169,6 +171,7 @@ class Environment(pulumi.CustomResource):
         $ pulumi import azuredevops:index/environment:Environment example 00000000-0000-0000-0000-000000000000/0
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the Environment.
@@ -212,6 +215,7 @@ class Environment(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/environment:Environment example 00000000-0000-0000-0000-000000000000/0
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.

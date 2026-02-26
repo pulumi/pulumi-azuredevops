@@ -29,6 +29,7 @@ class CheckBranchControlArgs:
                  verify_branch_protection: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a CheckBranchControl resource.
+
         :param pulumi.Input[_builtins.str] project_id: The project ID.
         :param pulumi.Input[_builtins.str] target_resource_id: The ID of the resource being protected by the check.
         :param pulumi.Input[_builtins.str] target_resource_type: The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
@@ -163,6 +164,7 @@ class _CheckBranchControlState:
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering CheckBranchControl resources.
+
         :param pulumi.Input[_builtins.str] allowed_branches: The branches allowed to use the resource. Specify a comma separated list of allowed branches in `refs/heads/branch_name` format. To allow deployments from all branches, specify ` * ` . `refs/heads/features/* , refs/heads/releases/*` restricts deployments to all branches under features/ or releases/ . Defaults to `*`.
         :param pulumi.Input[_builtins.str] display_name: The name of the branch control check displayed in the web UI.
         :param pulumi.Input[_builtins.bool] ignore_unknown_protection_status: Allow deployment from branches for which protection status could not be obtained. Only relevant when verify_branch_protection is `true`. Defaults to `false`.
@@ -445,6 +447,7 @@ class CheckBranchControl(pulumi.CustomResource):
 
         Importing this resource is not supported.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] allowed_branches: The branches allowed to use the resource. Specify a comma separated list of allowed branches in `refs/heads/branch_name` format. To allow deployments from all branches, specify ` * ` . `refs/heads/features/* , refs/heads/releases/*` restricts deployments to all branches under features/ or releases/ . Defaults to `*`.
@@ -590,6 +593,7 @@ class CheckBranchControl(pulumi.CustomResource):
         ## Import
 
         Importing this resource is not supported.
+
 
         :param str resource_name: The name of the resource.
         :param CheckBranchControlArgs args: The arguments to use to populate this resource's properties.

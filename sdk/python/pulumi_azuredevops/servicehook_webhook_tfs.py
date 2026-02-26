@@ -51,6 +51,7 @@ class ServicehookWebhookTfsArgs:
                  work_item_updated: Optional[pulumi.Input['ServicehookWebhookTfsWorkItemUpdatedArgs']] = None):
         """
         The set of arguments for constructing a ServicehookWebhookTfs resource.
+
         :param pulumi.Input[_builtins.str] project_id: The ID of the project. Changing this forces a new Service Hook Webhook TFS to be created.
         :param pulumi.Input[_builtins.str] url: The URL to send HTTP POST to.
         :param pulumi.Input[_builtins.bool] accept_untrusted_certs: Accept untrusted SSL certificates. Defaults to `false`.
@@ -429,6 +430,7 @@ class _ServicehookWebhookTfsState:
                  work_item_updated: Optional[pulumi.Input['ServicehookWebhookTfsWorkItemUpdatedArgs']] = None):
         """
         Input properties used for looking up and filtering ServicehookWebhookTfs resources.
+
         :param pulumi.Input[_builtins.bool] accept_untrusted_certs: Accept untrusted SSL certificates. Defaults to `false`.
         :param pulumi.Input[_builtins.str] basic_auth_password: Basic authentication password.
         :param pulumi.Input[_builtins.str] basic_auth_username: Basic authentication username.
@@ -908,6 +910,7 @@ class ServicehookWebhookTfs(pulumi.CustomResource):
         $ pulumi import azuredevops:index/servicehookWebhookTfs:ServicehookWebhookTfs example 00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] accept_untrusted_certs: Accept untrusted SSL certificates. Defaults to `false`.
@@ -1022,6 +1025,7 @@ class ServicehookWebhookTfs(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/servicehookWebhookTfs:ServicehookWebhookTfs example 00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServicehookWebhookTfsArgs args: The arguments to use to populate this resource's properties.

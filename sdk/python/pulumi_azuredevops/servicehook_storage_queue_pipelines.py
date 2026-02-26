@@ -31,6 +31,7 @@ class ServicehookStorageQueuePipelinesArgs:
                  visi_timeout: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a ServicehookStorageQueuePipelines resource.
+
         :param pulumi.Input[_builtins.str] account_key: A valid account key from the queue's storage account.
         :param pulumi.Input[_builtins.str] account_name: The queue's storage account name.
         :param pulumi.Input[_builtins.str] project_id: The ID of the associated project. Changing this forces a new Service Hook Storage Queue Pipelines to be created.
@@ -167,6 +168,7 @@ class _ServicehookStorageQueuePipelinesState:
                  visi_timeout: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering ServicehookStorageQueuePipelines resources.
+
         :param pulumi.Input[_builtins.str] account_key: A valid account key from the queue's storage account.
         :param pulumi.Input[_builtins.str] account_name: The queue's storage account name.
         :param pulumi.Input[_builtins.str] project_id: The ID of the associated project. Changing this forces a new Service Hook Storage Queue Pipelines to be created.
@@ -367,6 +369,7 @@ class ServicehookStorageQueuePipelines(pulumi.CustomResource):
         $ pulumi import azuredevops:index/servicehookStorageQueuePipelines:ServicehookStorageQueuePipelines example 00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_key: A valid account key from the queue's storage account.
@@ -443,6 +446,7 @@ class ServicehookStorageQueuePipelines(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/servicehookStorageQueuePipelines:ServicehookStorageQueuePipelines example 00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServicehookStorageQueuePipelinesArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class PipelineAuthorizationArgs:
                  pipeline_project_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PipelineAuthorization resource.
+
         :param pulumi.Input[_builtins.str] project_id: The  ID of the project. Changing this forces a new resource to be created
         :param pulumi.Input[_builtins.str] resource_id: The ID of the resource to authorize. Changing this forces a new resource to be created
         :param pulumi.Input[_builtins.str] type: The type of the resource to authorize. Possible values are: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
@@ -121,6 +122,7 @@ class _PipelineAuthorizationState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PipelineAuthorization resources.
+
         :param pulumi.Input[_builtins.int] pipeline_id: The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] pipeline_project_id: The ID of the project where the pipeline exists. Defaults to `project_id` if not specified. Changing this forces a new resource to be created
         :param pulumi.Input[_builtins.str] project_id: The  ID of the project. Changing this forces a new resource to be created
@@ -295,6 +297,7 @@ class PipelineAuthorization(pulumi.CustomResource):
 
         - [Azure DevOps Service REST API 7.1 - Pipeline Permissions](https://learn.microsoft.com/en-us/rest/api/azure/devops/approvalsandchecks/pipeline-permissions?view=azure-devops-rest-7.1)
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] pipeline_id: The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
@@ -387,6 +390,7 @@ class PipelineAuthorization(pulumi.CustomResource):
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.1 - Pipeline Permissions](https://learn.microsoft.com/en-us/rest/api/azure/devops/approvalsandchecks/pipeline-permissions?view=azure-devops-rest-7.1)
+
 
         :param str resource_name: The name of the resource.
         :param PipelineAuthorizationArgs args: The arguments to use to populate this resource's properties.

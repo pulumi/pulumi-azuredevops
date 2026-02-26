@@ -23,6 +23,7 @@ class ProjectTagsArgs:
                  tags: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         The set of arguments for constructing a ProjectTags resource.
+
         :param pulumi.Input[_builtins.str] project_id: The ID of the Project. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A mapping of tags assigned to the Project.
         """
@@ -61,6 +62,7 @@ class _ProjectTagsState:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ProjectTags resources.
+
         :param pulumi.Input[_builtins.str] project_id: The ID of the Project. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A mapping of tags assigned to the Project.
         """
@@ -138,6 +140,7 @@ class ProjectTags(pulumi.CustomResource):
         $ pulumi import azuredevops:index/projectTags:ProjectTags example 00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] project_id: The ID of the Project. Changing this forces a new resource to be created.
@@ -183,6 +186,7 @@ class ProjectTags(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/projectTags:ProjectTags example 00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProjectTagsArgs args: The arguments to use to populate this resource's properties.

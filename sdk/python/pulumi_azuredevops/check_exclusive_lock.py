@@ -25,6 +25,7 @@ class CheckExclusiveLockArgs:
                  timeout: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a CheckExclusiveLock resource.
+
         :param pulumi.Input[_builtins.str] project_id: The project ID. Changing this forces a new Exclusive Lock Check to be created.
         :param pulumi.Input[_builtins.str] target_resource_id: The ID of the resource being protected by the check. Changing this forces a new Exclusive Lock to be created.
         :param pulumi.Input[_builtins.str] target_resource_type: The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
@@ -95,6 +96,7 @@ class _CheckExclusiveLockState:
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering CheckExclusiveLock resources.
+
         :param pulumi.Input[_builtins.str] project_id: The project ID. Changing this forces a new Exclusive Lock Check to be created.
         :param pulumi.Input[_builtins.str] target_resource_id: The ID of the resource being protected by the check. Changing this forces a new Exclusive Lock to be created.
         :param pulumi.Input[_builtins.str] target_resource_type: The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
@@ -257,6 +259,7 @@ class CheckExclusiveLock(pulumi.CustomResource):
 
         Importing this resource is not supported.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] project_id: The project ID. Changing this forces a new Exclusive Lock Check to be created.
@@ -342,6 +345,7 @@ class CheckExclusiveLock(pulumi.CustomResource):
         ## Import
 
         Importing this resource is not supported.
+
 
         :param str resource_name: The name of the resource.
         :param CheckExclusiveLockArgs args: The arguments to use to populate this resource's properties.

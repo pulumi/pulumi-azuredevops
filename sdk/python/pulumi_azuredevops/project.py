@@ -27,6 +27,7 @@ class ProjectArgs:
                  work_item_template: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Project resource.
+
         :param pulumi.Input[_builtins.str] description: The Description of the Project.
                *
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] features: Defines the status (`enabled`, `disabled`) of the project features. Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
@@ -158,6 +159,7 @@ class _ProjectState:
                  work_item_template: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Project resources.
+
         :param pulumi.Input[_builtins.str] description: The Description of the Project.
                *
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] features: Defines the status (`enabled`, `disabled`) of the project features. Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
@@ -349,6 +351,7 @@ class Project(pulumi.CustomResource):
         $ pulumi import azuredevops:index/project:Project example 00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The Description of the Project.
@@ -420,6 +423,7 @@ class Project(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/project:Project example 00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.

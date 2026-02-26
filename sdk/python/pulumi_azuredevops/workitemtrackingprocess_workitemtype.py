@@ -30,6 +30,7 @@ class WorkitemtrackingprocessWorkitemtypeArgs:
                  parent_work_item_reference_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkitemtrackingprocessWorkitemtype resource.
+
         :param pulumi.Input[_builtins.str] process_id: The ID of the process the work item type belongs to. Changing this forces a new work item type to be created.
         :param pulumi.Input[_builtins.str] color: Color hexadecimal code to represent the work item type. Default: "#009ccc"
         :param pulumi.Input[_builtins.str] description: Description of the work item type.
@@ -152,6 +153,7 @@ class _WorkitemtrackingprocessWorkitemtypeState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkitemtrackingprocessWorkitemtype resources.
+
         :param pulumi.Input[_builtins.str] color: Color hexadecimal code to represent the work item type. Default: "#009ccc"
         :param pulumi.Input[_builtins.str] description: Description of the work item type.
         :param pulumi.Input[_builtins.str] icon: Icon to represent the work item type. Default: "icon_clipboard"
@@ -351,6 +353,7 @@ class WorkitemtrackingprocessWorkitemtype(pulumi.CustomResource):
         $ pulumi import azuredevops:index/workitemtrackingprocessWorkitemtype:WorkitemtrackingprocessWorkitemtype example 00000000-0000-0000-0000-000000000000/MyProcess.CustomWorkItemType
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] color: Color hexadecimal code to represent the work item type. Default: "#009ccc"
@@ -398,6 +401,7 @@ class WorkitemtrackingprocessWorkitemtype(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/workitemtrackingprocessWorkitemtype:WorkitemtrackingprocessWorkitemtype example 00000000-0000-0000-0000-000000000000/MyProcess.CustomWorkItemType
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkitemtrackingprocessWorkitemtypeArgs args: The arguments to use to populate this resource's properties.

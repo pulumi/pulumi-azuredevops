@@ -31,6 +31,7 @@ class ServiceEndpointKubernetesArgs:
                  service_account: Optional[pulumi.Input['ServiceEndpointKubernetesServiceAccountArgs']] = None):
         """
         The set of arguments for constructing a ServiceEndpointKubernetes resource.
+
         :param pulumi.Input[_builtins.str] apiserver_url: The hostname (in form of URI) of the Kubernetes API.
         :param pulumi.Input[_builtins.str] authorization_type: The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
@@ -160,6 +161,7 @@ class _ServiceEndpointKubernetesState:
                  service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceEndpointKubernetes resources.
+
         :param pulumi.Input[_builtins.str] apiserver_url: The hostname (in form of URI) of the Kubernetes API.
         :param pulumi.Input[_builtins.str] authorization_type: The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceEndpointKubernetesAzureSubscriptionArgs']]] azure_subscriptions: An `azure_subscription` block as defined below.
@@ -386,6 +388,7 @@ class ServiceEndpointKubernetes(pulumi.CustomResource):
         $ pulumi import azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] apiserver_url: The hostname (in form of URI) of the Kubernetes API.
@@ -482,6 +485,7 @@ class ServiceEndpointKubernetes(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceEndpointKubernetesArgs args: The arguments to use to populate this resource's properties.

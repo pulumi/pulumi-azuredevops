@@ -24,6 +24,7 @@ class BuildFolderArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BuildFolder resource.
+
         :param pulumi.Input[_builtins.str] path: The folder path.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project in which the folder will be created.
         :param pulumi.Input[_builtins.str] description: Folder Description.
@@ -78,6 +79,7 @@ class _BuildFolderState:
                  project_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BuildFolder resources.
+
         :param pulumi.Input[_builtins.str] description: Folder Description.
         :param pulumi.Input[_builtins.str] path: The folder path.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project in which the folder will be created.
@@ -170,6 +172,7 @@ class BuildFolder(pulumi.CustomResource):
         $ pulumi import azuredevops:index/buildFolder:BuildFolder example 00000000-0000-0000-0000-000000000000/\\\\ExampleFolder
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Folder Description.
@@ -215,6 +218,7 @@ class BuildFolder(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/buildFolder:BuildFolder example 00000000-0000-0000-0000-000000000000/\\\\ExampleFolder
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BuildFolderArgs args: The arguments to use to populate this resource's properties.

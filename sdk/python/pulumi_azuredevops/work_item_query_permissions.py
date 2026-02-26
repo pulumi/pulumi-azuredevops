@@ -26,6 +26,7 @@ class WorkItemQueryPermissionsArgs:
                  replace: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a WorkItemQueryPermissions resource.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] permissions: the permissions to assign. The following permissions are available
                
                | Permissions              | Description                        |
@@ -125,6 +126,7 @@ class _WorkItemQueryPermissionsState:
                  replace: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering WorkItemQueryPermissions resources.
+
         :param pulumi.Input[_builtins.str] path: Path to a query or folder beneath `Shared Queries`
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] permissions: the permissions to assign. The following permissions are available
                
@@ -345,6 +347,7 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
 
         The resource does not support import.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] path: Path to a query or folder beneath `Shared Queries`
@@ -481,6 +484,7 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
         ## Import
 
         The resource does not support import.
+
 
         :param str resource_name: The name of the resource.
         :param WorkItemQueryPermissionsArgs args: The arguments to use to populate this resource's properties.

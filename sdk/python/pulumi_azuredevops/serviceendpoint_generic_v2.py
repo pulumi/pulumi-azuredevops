@@ -30,6 +30,7 @@ class ServiceendpointGenericV2Args:
                  shared_project_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServiceendpointGenericV2 resource.
+
         :param pulumi.Input[_builtins.str] authorization_scheme: The authorization scheme to use. Common values include "UsernamePassword", "Token", "OAuth", etc.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project to which the service endpoint belongs.
         :param pulumi.Input[_builtins.str] server_url: The URL of the server associated with the service endpoint.
@@ -178,6 +179,7 @@ class _ServiceendpointGenericV2State:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceendpointGenericV2 resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] authorization_parameters: Map of key/value pairs for the specific authorization scheme. These often include sensitive data like tokens, usernames, and passwords.
         :param pulumi.Input[_builtins.str] authorization_scheme: The authorization scheme to use. Common values include "UsernamePassword", "Token", "OAuth", etc.
         :param pulumi.Input[_builtins.str] description: The description of the service endpoint. Defaults to "Managed by Pulumi".
@@ -382,6 +384,7 @@ class ServiceendpointGenericV2(pulumi.CustomResource):
         $ pulumi import azuredevops:index/serviceendpointGenericV2:ServiceendpointGenericV2 example <project_id>/<id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] authorization_parameters: Map of key/value pairs for the specific authorization scheme. These often include sensitive data like tokens, usernames, and passwords.
@@ -449,6 +452,7 @@ class ServiceendpointGenericV2(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/serviceendpointGenericV2:ServiceendpointGenericV2 example <project_id>/<id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceendpointGenericV2Args args: The arguments to use to populate this resource's properties.

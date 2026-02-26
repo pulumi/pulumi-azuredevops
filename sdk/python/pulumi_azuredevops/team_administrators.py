@@ -25,6 +25,7 @@ class TeamAdministratorsArgs:
                  mode: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TeamAdministrators resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] administrators: List of subject descriptors to define administrators of the team.
                
                > **NOTE** It's possible to define team administrators both within the
@@ -110,6 +111,7 @@ class _TeamAdministratorsState:
                  team_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TeamAdministrators resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] administrators: List of subject descriptors to define administrators of the team.
                
                > **NOTE** It's possible to define team administrators both within the
@@ -249,6 +251,7 @@ class TeamAdministrators(pulumi.CustomResource):
 
         The resource does not support import.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] administrators: List of subject descriptors to define administrators of the team.
@@ -318,6 +321,7 @@ class TeamAdministrators(pulumi.CustomResource):
         ## Import
 
         The resource does not support import.
+
 
         :param str resource_name: The name of the resource.
         :param TeamAdministratorsArgs args: The arguments to use to populate this resource's properties.

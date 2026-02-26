@@ -40,6 +40,7 @@ class ProviderArgs:
                  use_oidc: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Provider resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] auxiliary_tenant_ids: List of auxiliary Tenant IDs required for multi-tenancy and cross-tenant scenarios.
         :param pulumi.Input[_builtins.str] client_certificate: Base64 encoded certificate to use to authenticate to the service principal.
         :param pulumi.Input[_builtins.str] client_certificate_password: Password for a client certificate password.
@@ -362,6 +363,7 @@ class Provider(pulumi.ProviderResource):
         construction to achieve fine-grained programmatic control over provider settings. See the
         [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] auxiliary_tenant_ids: List of auxiliary Tenant IDs required for multi-tenancy and cross-tenant scenarios.
@@ -395,6 +397,7 @@ class Provider(pulumi.ProviderResource):
         settings, however an explicit `Provider` instance may be created and passed during resource
         construction to achieve fine-grained programmatic control over provider settings. See the
         [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
+
 
         :param str resource_name: The name of the resource.
         :param ProviderArgs args: The arguments to use to populate this resource's properties.

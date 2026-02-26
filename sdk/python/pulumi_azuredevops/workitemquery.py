@@ -26,6 +26,7 @@ class WorkitemqueryArgs:
                  parent_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Workitemquery resource.
+
         :param pulumi.Input[_builtins.str] project_id: The ID of the Project containing the query.
         :param pulumi.Input[_builtins.str] wiql: The WIQL (Work Item Query Language) statement. Length 1–32000 characters.
         :param pulumi.Input[_builtins.str] area: Root folder for the query. Must be one of `Shared Queries` or `My Queries`.
@@ -112,6 +113,7 @@ class _WorkitemqueryState:
                  wiql: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Workitemquery resources.
+
         :param pulumi.Input[_builtins.str] area: Root folder for the query. Must be one of `Shared Queries` or `My Queries`.
         :param pulumi.Input[_builtins.str] name: The display name of the query.
         :param pulumi.Input[_builtins.str] parent_id: The ID of the parent query folder under which to create the query.
@@ -318,6 +320,7 @@ class Workitemquery(pulumi.CustomResource):
 
         The resource does not support import.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] area: Root folder for the query. Must be one of `Shared Queries` or `My Queries`.
@@ -447,6 +450,7 @@ class Workitemquery(pulumi.CustomResource):
         ## Import
 
         The resource does not support import.
+
 
         :param str resource_name: The name of the resource.
         :param WorkitemqueryArgs args: The arguments to use to populate this resource's properties.

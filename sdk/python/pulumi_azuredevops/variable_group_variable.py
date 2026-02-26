@@ -26,6 +26,7 @@ class VariableGroupVariableInitArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VariableGroupVariable resource.
+
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] variable_group_id: The ID of the variable group.
         :param pulumi.Input[_builtins.str] name: The name of the variable. Must be unique within the Variable Group.
@@ -116,6 +117,7 @@ class _VariableGroupVariableState:
                  variable_group_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VariableGroupVariable resources.
+
         :param pulumi.Input[_builtins.str] name: The name of the variable. Must be unique within the Variable Group.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] secret_value: The value of the secret variable.
@@ -263,6 +265,7 @@ class VariableGroupVariable(pulumi.CustomResource):
         $ pulumi import azuredevops:index/variableGroupVariable:VariableGroupVariable example 00000000-0000-0000-0000-000000000000/0/key1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the variable. Must be unique within the Variable Group.
@@ -331,6 +334,7 @@ class VariableGroupVariable(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/variableGroupVariable:VariableGroupVariable example 00000000-0000-0000-0000-000000000000/0/key1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VariableGroupVariableInitArgs args: The arguments to use to populate this resource's properties.
