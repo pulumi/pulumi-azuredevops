@@ -102,6 +102,7 @@ jobs:
         AZDO_ORG_SERVICE_URL: ${{ steps.esc-secrets.outputs.AZDO_ORG_SERVICE_URL }}
         AZDO_PERSONAL_ACCESS_TOKEN: ${{ steps.esc-secrets.outputs.AZDO_PERSONAL_ACCESS_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GO_TEST_EXEC: "gotestsum --format github-actions --"
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@5a1091511ad55cbe89839c7260b706298ca349f7 # v5.5.1
       env:
