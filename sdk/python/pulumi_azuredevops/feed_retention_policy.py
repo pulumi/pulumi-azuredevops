@@ -25,6 +25,7 @@ class FeedRetentionPolicyArgs:
                  project_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FeedRetentionPolicy resource.
+
         :param pulumi.Input[_builtins.int] count_limit: The maximum number of versions per package.
         :param pulumi.Input[_builtins.int] days_to_keep_recently_downloaded_packages: The days to keep recently downloaded packages.
         :param pulumi.Input[_builtins.str] feed_id: The ID of the Feed. Changing this forces a new resource to be created.
@@ -94,6 +95,7 @@ class _FeedRetentionPolicyState:
                  project_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FeedRetentionPolicy resources.
+
         :param pulumi.Input[_builtins.int] count_limit: The maximum number of versions per package.
         :param pulumi.Input[_builtins.int] days_to_keep_recently_downloaded_packages: The days to keep recently downloaded packages.
         :param pulumi.Input[_builtins.str] feed_id: The ID of the Feed. Changing this forces a new resource to be created.
@@ -224,6 +226,7 @@ class FeedRetentionPolicy(pulumi.CustomResource):
         $ pulumi import azuredevops:index/feedRetentionPolicy:FeedRetentionPolicy example 00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] count_limit: The maximum number of versions per package.
@@ -292,6 +295,7 @@ class FeedRetentionPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/feedRetentionPolicy:FeedRetentionPolicy example 00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FeedRetentionPolicyArgs args: The arguments to use to populate this resource's properties.

@@ -35,6 +35,7 @@ class WorkitemtrackingprocessControlArgs:
                  watermark: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkitemtrackingprocessControl resource.
+
         :param pulumi.Input[_builtins.str] control_id: The ID for the control. For field controls, this is the field reference name. Changing this forces a new control to be created.
         :param pulumi.Input[_builtins.str] group_id: The ID of the group to add the control to. Changing this moves the control to the new group.
         :param pulumi.Input[_builtins.str] process_id: The ID of the process. Changing this forces a new control to be created.
@@ -234,6 +235,7 @@ class _WorkitemtrackingprocessControlState:
                  work_item_type_reference_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkitemtrackingprocessControl resources.
+
         :param pulumi.Input['WorkitemtrackingprocessControlContributionArgs'] contribution: Contribution configuration for extension controls. A `contribution` block as defined below.
         :param pulumi.Input[_builtins.str] control_id: The ID for the control. For field controls, this is the field reference name. Changing this forces a new control to be created.
         :param pulumi.Input[_builtins.str] control_type: The type of the control (e.g., FieldControl, HtmlFieldControl, DateTimeControl).
@@ -558,6 +560,7 @@ class WorkitemtrackingprocessControl(pulumi.CustomResource):
         $ pulumi import azuredevops:index/workitemtrackingprocessControl:WorkitemtrackingprocessControl example 00000000-0000-0000-0000-000000000000/MyProcess.CustomWorkItemType/group-id/System.Title
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['WorkitemtrackingprocessControlContributionArgs', 'WorkitemtrackingprocessControlContributionArgsDict']] contribution: Contribution configuration for extension controls. A `contribution` block as defined below.
@@ -655,6 +658,7 @@ class WorkitemtrackingprocessControl(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/workitemtrackingprocessControl:WorkitemtrackingprocessControl example 00000000-0000-0000-0000-000000000000/MyProcess.CustomWorkItemType/group-id/System.Title
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkitemtrackingprocessControlArgs args: The arguments to use to populate this resource's properties.

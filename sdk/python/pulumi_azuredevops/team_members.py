@@ -25,6 +25,7 @@ class TeamMembersArgs:
                  mode: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TeamMembers resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] members: List of subject descriptors to define members of the team.
                
                > **NOTE:** It's possible to define team members both within the
@@ -110,6 +111,7 @@ class _TeamMembersState:
                  team_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TeamMembers resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] members: List of subject descriptors to define members of the team.
                
                > **NOTE:** It's possible to define team members both within the
@@ -239,6 +241,7 @@ class TeamMembers(pulumi.CustomResource):
 
         The resource does not support import.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] members: List of subject descriptors to define members of the team.
@@ -298,6 +301,7 @@ class TeamMembers(pulumi.CustomResource):
         ## Import
 
         The resource does not support import.
+
 
         :param str resource_name: The name of the resource.
         :param TeamMembersArgs args: The arguments to use to populate this resource's properties.

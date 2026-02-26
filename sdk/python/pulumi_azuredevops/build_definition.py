@@ -39,6 +39,7 @@ class BuildDefinitionArgs:
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionVariableArgs']]]] = None):
         """
         The set of arguments for constructing a BuildDefinition resource.
+
         :param pulumi.Input[_builtins.str] project_id: The project ID or project name.
         :param pulumi.Input['BuildDefinitionRepositoryArgs'] repository: A `repository` block as documented below.
         :param pulumi.Input[_builtins.str] agent_pool_name: The agent pool that should execute the build. Defaults to `Azure Pipelines`.
@@ -302,6 +303,7 @@ class _BuildDefinitionState:
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionVariableArgs']]]] = None):
         """
         Input properties used for looking up and filtering BuildDefinition resources.
+
         :param pulumi.Input[_builtins.str] agent_pool_name: The agent pool that should execute the build. Defaults to `Azure Pipelines`.
         :param pulumi.Input[_builtins.str] agent_specification: The Agent Specification to run the pipelines. Required when `repo_type` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
         :param pulumi.Input[Sequence[pulumi.Input['BuildDefinitionBuildCompletionTriggerArgs']]] build_completion_triggers: A `build_completion_trigger` block as documented below.
@@ -891,6 +893,7 @@ class BuildDefinition(pulumi.CustomResource):
         $ pulumi import azuredevops:index/buildDefinition:BuildDefinition example 00000000-0000-0000-0000-000000000000/0
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] agent_pool_name: The agent pool that should execute the build. Defaults to `Azure Pipelines`.
@@ -1224,6 +1227,7 @@ class BuildDefinition(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/buildDefinition:BuildDefinition example 00000000-0000-0000-0000-000000000000/0
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BuildDefinitionArgs args: The arguments to use to populate this resource's properties.

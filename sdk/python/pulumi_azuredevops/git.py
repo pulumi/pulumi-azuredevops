@@ -29,6 +29,7 @@ class GitArgs:
                  parent_repository_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Git resource.
+
         :param pulumi.Input['GitInitializationArgs'] initialization: A `initialization` block as documented below.
         :param pulumi.Input[_builtins.str] project_id: The project ID or project name.
         :param pulumi.Input[_builtins.str] default_branch: The ref of the default branch. Will be used as the branch name for initialized repositories.
@@ -137,6 +138,7 @@ class _GitState:
                  web_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Git resources.
+
         :param pulumi.Input[_builtins.str] default_branch: The ref of the default branch. Will be used as the branch name for initialized repositories.
         :param pulumi.Input[_builtins.bool] disabled: The ability to disable or enable the repository. Defaults to `false`.
         :param pulumi.Input['GitInitializationArgs'] initialization: A `initialization` block as documented below.
@@ -546,6 +548,7 @@ class Git(pulumi.CustomResource):
         $ pulumi import azuredevops:index/git:Git example projectName/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] default_branch: The ref of the default branch. Will be used as the branch name for initialized repositories.
@@ -773,6 +776,7 @@ class Git(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/git:Git example projectName/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GitArgs args: The arguments to use to populate this resource's properties.

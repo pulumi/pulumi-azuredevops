@@ -24,6 +24,7 @@ class GroupMembershipArgs:
                  mode: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GroupMembership resource.
+
         :param pulumi.Input[_builtins.str] group: The descriptor of the group being managed.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] members: A list of user or group descriptors that will become members of the group.
                
@@ -92,6 +93,7 @@ class _GroupMembershipState:
                  mode: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GroupMembership resources.
+
         :param pulumi.Input[_builtins.str] group: The descriptor of the group being managed.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] members: A list of user or group descriptors that will become members of the group.
                
@@ -190,6 +192,7 @@ class GroupMembership(pulumi.CustomResource):
 
         - **Deployment Groups**: Read & Manage
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] group: The descriptor of the group being managed.
@@ -234,6 +237,7 @@ class GroupMembership(pulumi.CustomResource):
         ## PAT Permissions Required
 
         - **Deployment Groups**: Read & Manage
+
 
         :param str resource_name: The name of the resource.
         :param GroupMembershipArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class ServiceendpointSnykArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceendpointSnyk resource.
+
         :param pulumi.Input[_builtins.str] api_token: The API token of the Snyk Security Scan.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] server_url: The server URL of the Snyk Security Scan.
@@ -111,6 +112,7 @@ class _ServiceendpointSnykState:
                  service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceendpointSnyk resources.
+
         :param pulumi.Input[_builtins.str] api_token: The API token of the Snyk Security Scan.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
@@ -247,6 +249,7 @@ class ServiceendpointSnyk(pulumi.CustomResource):
         $ pulumi import azuredevops:index/serviceendpointSnyk:ServiceendpointSnyk example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_token: The API token of the Snyk Security Scan.
@@ -295,6 +298,7 @@ class ServiceendpointSnyk(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/serviceendpointSnyk:ServiceendpointSnyk example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceendpointSnykArgs args: The arguments to use to populate this resource's properties.

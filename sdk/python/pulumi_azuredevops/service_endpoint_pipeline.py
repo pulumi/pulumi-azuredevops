@@ -28,6 +28,7 @@ class ServiceEndpointPipelineArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceEndpointPipeline resource.
+
         :param pulumi.Input['ServiceEndpointPipelineAuthPersonalArgs'] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[_builtins.str] organization_name: The organization name used for `Organization Url` and `Release API Url` fields.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
@@ -113,6 +114,7 @@ class _ServiceEndpointPipelineState:
                  service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceEndpointPipeline resources.
+
         :param pulumi.Input['ServiceEndpointPipelineAuthPersonalArgs'] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] organization_name: The organization name used for `Organization Url` and `Release API Url` fields.
@@ -251,6 +253,7 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
         $ pulumi import azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline example projectID/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServiceEndpointPipelineAuthPersonalArgs', 'ServiceEndpointPipelineAuthPersonalArgsDict']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
@@ -301,6 +304,7 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline example projectID/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceEndpointPipelineArgs args: The arguments to use to populate this resource's properties.

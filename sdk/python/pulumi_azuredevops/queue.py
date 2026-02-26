@@ -24,6 +24,7 @@ class QueueArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Queue resource.
+
         :param pulumi.Input[_builtins.str] project_id: The ID of the project in which to create the resource.
         :param pulumi.Input[_builtins.int] agent_pool_id: The ID of the organization agent pool. Conflicts with `name`.
                
@@ -85,6 +86,7 @@ class _QueueState:
                  project_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Queue resources.
+
         :param pulumi.Input[_builtins.int] agent_pool_id: The ID of the organization agent pool. Conflicts with `name`.
                
                > **NOTE:** One of `name` or `agent_pool_id` must be specified, but not both.
@@ -201,6 +203,7 @@ class Queue(pulumi.CustomResource):
         $ pulumi import azuredevops:index/queue:Queue example 00000000-0000-0000-0000-000000000000/0
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] agent_pool_id: The ID of the organization agent pool. Conflicts with `name`.
@@ -267,6 +270,7 @@ class Queue(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/queue:Queue example 00000000-0000-0000-0000-000000000000/0
         ```
+
 
         :param str resource_name: The name of the resource.
         :param QueueArgs args: The arguments to use to populate this resource's properties.

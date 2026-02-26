@@ -31,6 +31,7 @@ class GitRepositoryFileArgs:
                  overwrite_on_create: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a GitRepositoryFile resource.
+
         :param pulumi.Input[_builtins.str] content: The file content.
         :param pulumi.Input[_builtins.str] file: The path of the file to manage.
         :param pulumi.Input[_builtins.str] repository_id: The ID of the Git repository.
@@ -196,6 +197,7 @@ class _GitRepositoryFileState:
                  repository_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GitRepositoryFile resources.
+
         :param pulumi.Input[_builtins.str] author_email: The email of the author.
         :param pulumi.Input[_builtins.str] author_name: The name of the author.
         :param pulumi.Input[_builtins.str] branch: Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
@@ -447,6 +449,7 @@ class GitRepositoryFile(pulumi.CustomResource):
         $ pulumi import azuredevops:index/gitRepositoryFile:GitRepositoryFile example 00000000-0000-0000-0000-000000000000/.gitignore:refs/heads/master
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] author_email: The email of the author.
@@ -546,6 +549,7 @@ class GitRepositoryFile(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/gitRepositoryFile:GitRepositoryFile example 00000000-0000-0000-0000-000000000000/.gitignore:refs/heads/master
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GitRepositoryFileArgs args: The arguments to use to populate this resource's properties.

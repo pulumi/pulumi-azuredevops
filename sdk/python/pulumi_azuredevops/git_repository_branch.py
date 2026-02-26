@@ -26,6 +26,7 @@ class GitRepositoryBranchArgs:
                  ref_tag: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GitRepositoryBranch resource.
+
         :param pulumi.Input[_builtins.str] repository_id: The ID of the repository the branch is created against.
         :param pulumi.Input[_builtins.str] name: The name of the branch in short format not prefixed with `refs/heads/`.
         :param pulumi.Input[_builtins.str] ref_branch: The reference to the source branch to create the branch from, in `<name>` or `refs/heads/<name>` format. Conflict with `ref_tag`, `ref_commit_id`.
@@ -114,6 +115,7 @@ class _GitRepositoryBranchState:
                  repository_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GitRepositoryBranch resources.
+
         :param pulumi.Input[_builtins.str] last_commit_id: The commit object ID of last commit on the branch.
         :param pulumi.Input[_builtins.str] name: The name of the branch in short format not prefixed with `refs/heads/`.
         :param pulumi.Input[_builtins.str] ref_branch: The reference to the source branch to create the branch from, in `<name>` or `refs/heads/<name>` format. Conflict with `ref_tag`, `ref_commit_id`.
@@ -257,6 +259,7 @@ class GitRepositoryBranch(pulumi.CustomResource):
         $ pulumi import azuredevops:index/gitRepositoryBranch:GitRepositoryBranch example "00000000-0000-0000-0000-000000000000:main"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the branch in short format not prefixed with `refs/heads/`.
@@ -308,6 +311,7 @@ class GitRepositoryBranch(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/gitRepositoryBranch:GitRepositoryBranch example "00000000-0000-0000-0000-000000000000:main"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GitRepositoryBranchArgs args: The arguments to use to populate this resource's properties.

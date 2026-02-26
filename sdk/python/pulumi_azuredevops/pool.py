@@ -25,6 +25,7 @@ class PoolArgs:
                  pool_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Pool resource.
+
         :param pulumi.Input[_builtins.bool] auto_provision: Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] auto_update: Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
         :param pulumi.Input[_builtins.str] name: The name of the agent pool.
@@ -97,6 +98,7 @@ class _PoolState:
                  pool_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Pool resources.
+
         :param pulumi.Input[_builtins.bool] auto_provision: Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] auto_update: Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
         :param pulumi.Input[_builtins.str] name: The name of the agent pool.
@@ -198,6 +200,7 @@ class Pool(pulumi.CustomResource):
         terraform import azuredevops_agent_pool.example 0
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_provision: Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
@@ -237,6 +240,7 @@ class Pool(pulumi.CustomResource):
         ```sh
         terraform import azuredevops_agent_pool.example 0
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PoolArgs args: The arguments to use to populate this resource's properties.

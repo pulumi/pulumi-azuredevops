@@ -26,6 +26,7 @@ class BuildFolderPermissionsArgs:
                  replace: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a BuildFolderPermissions resource.
+
         :param pulumi.Input[_builtins.str] path: The folder path to assign the permissions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] permissions: the permissions to assign. The following permissions are available.
                
@@ -148,6 +149,7 @@ class _BuildFolderPermissionsState:
                  replace: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering BuildFolderPermissions resources.
+
         :param pulumi.Input[_builtins.str] path: The folder path to assign the permissions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] permissions: the permissions to assign. The following permissions are available.
                
@@ -356,6 +358,7 @@ class BuildFolderPermissions(pulumi.CustomResource):
 
         The resource does not support import.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] path: The folder path to assign the permissions.
@@ -468,6 +471,7 @@ class BuildFolderPermissions(pulumi.CustomResource):
         ## Import
 
         The resource does not support import.
+
 
         :param str resource_name: The name of the resource.
         :param BuildFolderPermissionsArgs args: The arguments to use to populate this resource's properties.

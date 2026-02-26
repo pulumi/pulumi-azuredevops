@@ -26,6 +26,7 @@ class FeedArgs:
                  project_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Feed resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['FeedFeatureArgs']]] features: A `features` blocks as documented below.
                
                > **Note** *Because of ADO limitations feed name can be **reserved** for up to 15 minutes after permanent delete of the feed*
@@ -86,6 +87,7 @@ class _FeedState:
                  project_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Feed resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['FeedFeatureArgs']]] features: A `features` blocks as documented below.
                
                > **Note** *Because of ADO limitations feed name can be **reserved** for up to 15 minutes after permanent delete of the feed*
@@ -207,6 +209,7 @@ class Feed(pulumi.CustomResource):
         $ pulumi import azuredevops:index/feed:Feed example 00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FeedFeatureArgs', 'FeedFeatureArgsDict']]]] features: A `features` blocks as documented below.
@@ -279,6 +282,7 @@ class Feed(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/feed:Feed example 00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FeedArgs args: The arguments to use to populate this resource's properties.

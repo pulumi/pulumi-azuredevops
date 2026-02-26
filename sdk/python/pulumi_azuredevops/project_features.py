@@ -23,6 +23,7 @@ class ProjectFeaturesArgs:
                  project_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ProjectFeatures resource.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] features: Defines the status (`enabled`, `disabled`) of the project features.  Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
                
                | Features     | Possible Values   |
@@ -81,6 +82,7 @@ class _ProjectFeaturesState:
                  project_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProjectFeatures resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] features: Defines the status (`enabled`, `disabled`) of the project features.  Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
                
                | Features     | Possible Values   |
@@ -182,6 +184,7 @@ class ProjectFeatures(pulumi.CustomResource):
         $ pulumi import azuredevops:index/projectFeatures:ProjectFeatures example 00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] features: Defines the status (`enabled`, `disabled`) of the project features.  Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
@@ -242,6 +245,7 @@ class ProjectFeatures(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/projectFeatures:ProjectFeatures example 00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProjectFeaturesArgs args: The arguments to use to populate this resource's properties.

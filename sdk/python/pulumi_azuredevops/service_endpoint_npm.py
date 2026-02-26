@@ -26,6 +26,7 @@ class ServiceEndpointNpmArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceEndpointNpm resource.
+
         :param pulumi.Input[_builtins.str] access_token: The access token for npm registry.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
@@ -111,6 +112,7 @@ class _ServiceEndpointNpmState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceEndpointNpm resources.
+
         :param pulumi.Input[_builtins.str] access_token: The access token for npm registry.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
@@ -249,6 +251,7 @@ class ServiceEndpointNpm(pulumi.CustomResource):
         $ pulumi import azuredevops:index/serviceEndpointNpm:ServiceEndpointNpm example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_token: The access token for npm registry.
@@ -299,6 +302,7 @@ class ServiceEndpointNpm(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/serviceEndpointNpm:ServiceEndpointNpm example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceEndpointNpmArgs args: The arguments to use to populate this resource's properties.

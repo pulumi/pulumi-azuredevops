@@ -27,6 +27,7 @@ class WorkitemtrackingprocessProcessArgs:
                  reference_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkitemtrackingprocessProcess resource.
+
         :param pulumi.Input[_builtins.str] parent_process_type_id: ID of the parent process. Changing this forces a new process to be created.
         :param pulumi.Input[_builtins.str] description: Description of the process. Default: ""
         :param pulumi.Input[_builtins.bool] is_default: Is the process default? Default: false
@@ -131,6 +132,7 @@ class _WorkitemtrackingprocessProcessState:
                  reference_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkitemtrackingprocessProcess resources.
+
         :param pulumi.Input[_builtins.str] customization_type: Indicates the type of customization on this process. System Process is default process. Inherited Process is modified process that was System process before.
         :param pulumi.Input[_builtins.str] description: Description of the process. Default: ""
         :param pulumi.Input[_builtins.bool] is_default: Is the process default? Default: false
@@ -278,6 +280,7 @@ class WorkitemtrackingprocessProcess(pulumi.CustomResource):
         $ pulumi import azuredevops:index/workitemtrackingprocessProcess:WorkitemtrackingprocessProcess example 00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the process. Default: ""
@@ -318,6 +321,7 @@ class WorkitemtrackingprocessProcess(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/workitemtrackingprocessProcess:WorkitemtrackingprocessProcess example 00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkitemtrackingprocessProcessArgs args: The arguments to use to populate this resource's properties.

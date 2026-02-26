@@ -27,6 +27,7 @@ class CheckRequiredTemplateArgs:
                  target_resource_type: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a CheckRequiredTemplate resource.
+
         :param pulumi.Input[_builtins.str] project_id: The project ID. Changing this forces a new Required Template Check to be created.
         :param pulumi.Input[Sequence[pulumi.Input['CheckRequiredTemplateRequiredTemplateArgs']]] required_templates: One or more `required_template` blocks documented below.
         :param pulumi.Input[_builtins.str] target_resource_id: The ID of the resource being protected by the check. Changing this forces a new Required Template Check to be created.
@@ -96,6 +97,7 @@ class _CheckRequiredTemplateState:
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering CheckRequiredTemplate resources.
+
         :param pulumi.Input[_builtins.str] project_id: The project ID. Changing this forces a new Required Template Check to be created.
         :param pulumi.Input[Sequence[pulumi.Input['CheckRequiredTemplateRequiredTemplateArgs']]] required_templates: One or more `required_template` blocks documented below.
         :param pulumi.Input[_builtins.str] target_resource_id: The ID of the resource being protected by the check. Changing this forces a new Required Template Check to be created.
@@ -248,6 +250,7 @@ class CheckRequiredTemplate(pulumi.CustomResource):
 
         Importing this resource is not supported.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] project_id: The project ID. Changing this forces a new Required Template Check to be created.
@@ -323,6 +326,7 @@ class CheckRequiredTemplate(pulumi.CustomResource):
         ## Import
 
         Importing this resource is not supported.
+
 
         :param str resource_name: The name of the resource.
         :param CheckRequiredTemplateArgs args: The arguments to use to populate this resource's properties.

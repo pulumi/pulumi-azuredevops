@@ -37,6 +37,7 @@ class ServiceEndpointAzureRMArgs:
                  service_endpoint_authentication_scheme: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceEndpointAzureRM resource.
+
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint Name.
         :param pulumi.Input[_builtins.str] azurerm_management_group_id: The Management group ID of the Azure targets.
@@ -279,6 +280,7 @@ class _ServiceEndpointAzureRMState:
                  workload_identity_federation_subject: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceEndpointAzureRM resources.
+
         :param pulumi.Input[_builtins.str] azurerm_management_group_id: The Management group ID of the Azure targets.
         :param pulumi.Input[_builtins.str] azurerm_management_group_name: The Management group Name of the targets.
         :param pulumi.Input[_builtins.str] azurerm_spn_tenantid: The Tenant ID of the service principal.
@@ -757,6 +759,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         $ pulumi import azuredevops:index/serviceEndpointAzureRM:ServiceEndpointAzureRM example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] azurerm_management_group_id: The Management group ID of the Azure targets.
@@ -963,6 +966,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/serviceEndpointAzureRM:ServiceEndpointAzureRM example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceEndpointAzureRMArgs args: The arguments to use to populate this resource's properties.

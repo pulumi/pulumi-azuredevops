@@ -26,6 +26,7 @@ class RepositoryPolicyFilePathPatternArgs:
                  repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RepositoryPolicyFilePathPattern resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] filepath_patterns: Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project in which the policy will be created.
         :param pulumi.Input[_builtins.bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -112,6 +113,7 @@ class _RepositoryPolicyFilePathPatternState:
                  repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RepositoryPolicyFilePathPattern resources.
+
         :param pulumi.Input[_builtins.bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] filepath_patterns: Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
@@ -267,6 +269,7 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
         $ pulumi import azuredevops:index/repositoryPolicyFilePathPattern:RepositoryPolicyFilePathPattern example 00000000-0000-0000-0000-000000000000/0
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -345,6 +348,7 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/repositoryPolicyFilePathPattern:RepositoryPolicyFilePathPattern example 00000000-0000-0000-0000-000000000000/0
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RepositoryPolicyFilePathPatternArgs args: The arguments to use to populate this resource's properties.

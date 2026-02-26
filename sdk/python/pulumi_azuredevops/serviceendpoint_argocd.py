@@ -29,6 +29,7 @@ class ServiceendpointArgocdArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceendpointArgocd resource.
+
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[_builtins.str] url: URL of the ArgoCD server to connect with.
@@ -135,6 +136,7 @@ class _ServiceendpointArgocdState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceendpointArgocd resources.
+
         :param pulumi.Input['ServiceendpointArgocdAuthenticationBasicArgs'] authentication_basic: An `authentication_basic` block for the ArgoCD as documented below.
                
                > **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
@@ -315,6 +317,7 @@ class ServiceendpointArgocd(pulumi.CustomResource):
         $ pulumi import azuredevops:index/serviceendpointArgocd:ServiceendpointArgocd example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServiceendpointArgocdAuthenticationBasicArgs', 'ServiceendpointArgocdAuthenticationBasicArgsDict']] authentication_basic: An `authentication_basic` block for the ArgoCD as documented below.
@@ -390,6 +393,7 @@ class ServiceendpointArgocd(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/serviceendpointArgocd:ServiceendpointArgocd example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceendpointArgocdArgs args: The arguments to use to populate this resource's properties.

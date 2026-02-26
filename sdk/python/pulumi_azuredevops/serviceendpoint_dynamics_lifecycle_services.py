@@ -29,6 +29,7 @@ class ServiceendpointDynamicsLifecycleServicesArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceendpointDynamicsLifecycleServices resource.
+
         :param pulumi.Input[_builtins.str] authorization_endpoint: The URL of the Authentication Endpoint.
         :param pulumi.Input[_builtins.str] client_id: The client ID for a native application registration in Azure Active Directory with API permissions for Dynamics Lifecycle Services.
         :param pulumi.Input[_builtins.str] lifecycle_services_api_endpoint: The URL of the Lifecycle Services API Endpoint.
@@ -159,6 +160,7 @@ class _ServiceendpointDynamicsLifecycleServicesState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceendpointDynamicsLifecycleServices resources.
+
         :param pulumi.Input[_builtins.str] authorization_endpoint: The URL of the Authentication Endpoint.
         :param pulumi.Input[_builtins.str] client_id: The client ID for a native application registration in Azure Active Directory with API permissions for Dynamics Lifecycle Services.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
@@ -346,6 +348,7 @@ class ServiceendpointDynamicsLifecycleServices(pulumi.CustomResource):
         $ pulumi import azuredevops:index/serviceendpointDynamicsLifecycleServices:ServiceendpointDynamicsLifecycleServices example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authorization_endpoint: The URL of the Authentication Endpoint.
@@ -400,6 +403,7 @@ class ServiceendpointDynamicsLifecycleServices(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/serviceendpointDynamicsLifecycleServices:ServiceendpointDynamicsLifecycleServices example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceendpointDynamicsLifecycleServicesArgs args: The arguments to use to populate this resource's properties.
