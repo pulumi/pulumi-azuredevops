@@ -170,13 +170,17 @@ export interface BranchPolicyMinReviewersSettings {
      */
     lastPusherCannotApprove?: boolean;
     /**
+     * Require at least one approval on every iteration. Defaults to `false`.
+     *
+     * > **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
+     */
+    onEachIterationRequireVote?: boolean;
+    /**
      * On last iteration require vote. Defaults to `false`.
      */
     onLastIterationRequireVote?: boolean;
     /**
      * When new changes are pushed reset all code reviewer votes. Defaults to `false`.
-     *
-     * > **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
      */
     onPushResetAllVotes?: boolean;
     /**
@@ -1302,6 +1306,55 @@ export interface GetRepositoriesRepository {
     webUrl: string;
 }
 
+export interface GetSecurityNamespaceAction {
+    /**
+     * The bit value for this permission (used in permission calculations).
+     */
+    bit: number;
+    /**
+     * The display name of the action/permission.
+     */
+    displayName: string;
+    /**
+     * The name of the security namespace.
+     */
+    name: string;
+}
+
+export interface GetSecurityNamespacesNamespace {
+    /**
+     * A set of available actions (permissions) in this namespace. Each `action` block exports the following:
+     */
+    actions: outputs.GetSecurityNamespacesNamespaceAction[];
+    /**
+     * The display name of the action/permission.
+     */
+    displayName: string;
+    /**
+     * The unique identifier (UUID) of the security namespace.
+     */
+    id: string;
+    /**
+     * The name of the action/permission.
+     */
+    name: string;
+}
+
+export interface GetSecurityNamespacesNamespaceAction {
+    /**
+     * The bit value for this permission (used in permission calculations).
+     */
+    bit: number;
+    /**
+     * The display name of the action/permission.
+     */
+    displayName: string;
+    /**
+     * The name of the action/permission.
+     */
+    name: string;
+}
+
 export interface GetSecurityroleDefinitionsDefinition {
     /**
      * The mask of allowed permissions of the Security Role Definition.
@@ -2285,6 +2338,17 @@ export interface WorkitemRelation {
     url: string;
 }
 
+export interface WorkitemtrackingFieldSupportedOperation {
+    /**
+     * The friendly name of the field. Changing this forces a new field to be created.
+     */
+    name: string;
+    /**
+     * The reference name of the field (e.g., `Custom.MyField`). Changing this forces a new field to be created.
+     */
+    referenceName: string;
+}
+
 export interface WorkitemtrackingprocessControlContribution {
     /**
      * The ID of the contribution (extension).
@@ -2372,6 +2436,43 @@ export interface WorkitemtrackingprocessGroupControlContribution {
      * A value indicating if the contribution should be shown on deleted work items. Default: `false`
      */
     showOnDeletedWorkItem?: boolean;
+}
+
+export interface WorkitemtrackingprocessPageSection {
+    /**
+     * The ID of the section.
+     */
+    id: string;
+}
+
+export interface WorkitemtrackingprocessRuleAction {
+    /**
+     * Type of action. Valid values: `makeRequired`, `makeReadOnly`, `setDefaultValue`, `setDefaultFromClock`, `setDefaultFromField`, `copyValue`, `copyFromClock`, `copyFromCurrentUser`, `copyFromField`, `setValueToEmpty`, `copyFromServerClock`, `copyFromServerCurrentUser`, `hideTargetField`, `disallowValue`.
+     */
+    actionType: string;
+    /**
+     * Field (reference name) to act on.
+     */
+    targetField: string;
+    /**
+     * Value to set on the target field.
+     */
+    value?: string;
+}
+
+export interface WorkitemtrackingprocessRuleCondition {
+    /**
+     * Type of condition. Valid values: `when`, `whenNot`, `whenChanged`, `whenNotChanged`, `whenWas`, `whenCurrentUserIsMemberOfGroup`, `whenCurrentUserIsNotMemberOfGroup`.
+     */
+    conditionType: string;
+    /**
+     * Field reference name for the condition. Required for most condition types.
+     */
+    field?: string;
+    /**
+     * Value to match for the condition.
+     */
+    value?: string;
 }
 
 export interface WorkitemtrackingprocessWorkitemtypePage {

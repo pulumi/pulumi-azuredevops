@@ -26,14 +26,19 @@ public final class BranchPolicyMinReviewersSettings {
      */
     private @Nullable Boolean lastPusherCannotApprove;
     /**
+     * @return Require at least one approval on every iteration. Defaults to `false`.
+     * 
+     * &gt; **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
+     * 
+     */
+    private @Nullable Boolean onEachIterationRequireVote;
+    /**
      * @return On last iteration require vote. Defaults to `false`.
      * 
      */
     private @Nullable Boolean onLastIterationRequireVote;
     /**
      * @return When new changes are pushed reset all code reviewer votes. Defaults to `false`.
-     * 
-     * &gt; **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
      * 
      */
     private @Nullable Boolean onPushResetAllVotes;
@@ -74,6 +79,15 @@ public final class BranchPolicyMinReviewersSettings {
         return Optional.ofNullable(this.lastPusherCannotApprove);
     }
     /**
+     * @return Require at least one approval on every iteration. Defaults to `false`.
+     * 
+     * &gt; **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
+     * 
+     */
+    public Optional<Boolean> onEachIterationRequireVote() {
+        return Optional.ofNullable(this.onEachIterationRequireVote);
+    }
+    /**
      * @return On last iteration require vote. Defaults to `false`.
      * 
      */
@@ -82,8 +96,6 @@ public final class BranchPolicyMinReviewersSettings {
     }
     /**
      * @return When new changes are pushed reset all code reviewer votes. Defaults to `false`.
-     * 
-     * &gt; **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
      * 
      */
     public Optional<Boolean> onPushResetAllVotes() {
@@ -129,6 +141,7 @@ public final class BranchPolicyMinReviewersSettings {
     public static final class Builder {
         private @Nullable Boolean allowCompletionWithRejectsOrWaits;
         private @Nullable Boolean lastPusherCannotApprove;
+        private @Nullable Boolean onEachIterationRequireVote;
         private @Nullable Boolean onLastIterationRequireVote;
         private @Nullable Boolean onPushResetAllVotes;
         private @Nullable Boolean onPushResetApprovedVotes;
@@ -140,6 +153,7 @@ public final class BranchPolicyMinReviewersSettings {
     	      Objects.requireNonNull(defaults);
     	      this.allowCompletionWithRejectsOrWaits = defaults.allowCompletionWithRejectsOrWaits;
     	      this.lastPusherCannotApprove = defaults.lastPusherCannotApprove;
+    	      this.onEachIterationRequireVote = defaults.onEachIterationRequireVote;
     	      this.onLastIterationRequireVote = defaults.onLastIterationRequireVote;
     	      this.onPushResetAllVotes = defaults.onPushResetAllVotes;
     	      this.onPushResetApprovedVotes = defaults.onPushResetApprovedVotes;
@@ -158,6 +172,12 @@ public final class BranchPolicyMinReviewersSettings {
         public Builder lastPusherCannotApprove(@Nullable Boolean lastPusherCannotApprove) {
 
             this.lastPusherCannotApprove = lastPusherCannotApprove;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder onEachIterationRequireVote(@Nullable Boolean onEachIterationRequireVote) {
+
+            this.onEachIterationRequireVote = onEachIterationRequireVote;
             return this;
         }
         @CustomType.Setter
@@ -205,6 +225,7 @@ public final class BranchPolicyMinReviewersSettings {
             final var _resultValue = new BranchPolicyMinReviewersSettings();
             _resultValue.allowCompletionWithRejectsOrWaits = allowCompletionWithRejectsOrWaits;
             _resultValue.lastPusherCannotApprove = lastPusherCannotApprove;
+            _resultValue.onEachIterationRequireVote = onEachIterationRequireVote;
             _resultValue.onLastIterationRequireVote = onLastIterationRequireVote;
             _resultValue.onPushResetAllVotes = onPushResetAllVotes;
             _resultValue.onPushResetApprovedVotes = onPushResetApprovedVotes;

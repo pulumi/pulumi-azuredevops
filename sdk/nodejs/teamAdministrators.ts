@@ -5,16 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## *---
- *
- * layout: "azuredevops"
- * page_title: "AzureDevops: azuredevops.TeamAdministrators"
- * description: |-
- *   Manages administrators of a team within a project in a Azure DevOps organization.
- * ---
- *
- * # azuredevops.TeamAdministrators
- *
  * Manages administrators of a team within a project in a Azure DevOps organization.
  *
  * ## Example Usage

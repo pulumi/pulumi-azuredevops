@@ -170,13 +170,17 @@ export interface BranchPolicyMinReviewersSettings {
      */
     lastPusherCannotApprove?: pulumi.Input<boolean>;
     /**
+     * Require at least one approval on every iteration. Defaults to `false`.
+     *
+     * > **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
+     */
+    onEachIterationRequireVote?: pulumi.Input<boolean>;
+    /**
      * On last iteration require vote. Defaults to `false`.
      */
     onLastIterationRequireVote?: pulumi.Input<boolean>;
     /**
      * When new changes are pushed reset all code reviewer votes. Defaults to `false`.
-     *
-     * > **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
      */
     onPushResetAllVotes?: pulumi.Input<boolean>;
     /**
@@ -1542,6 +1546,17 @@ export interface WorkitemRelation {
     url?: pulumi.Input<string>;
 }
 
+export interface WorkitemtrackingFieldSupportedOperation {
+    /**
+     * The friendly name of the field. Changing this forces a new field to be created.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * The reference name of the field (e.g., `Custom.MyField`). Changing this forces a new field to be created.
+     */
+    referenceName?: pulumi.Input<string>;
+}
+
 export interface WorkitemtrackingprocessControlContribution {
     /**
      * The ID of the contribution (extension).
@@ -1629,6 +1644,43 @@ export interface WorkitemtrackingprocessGroupControlContribution {
      * A value indicating if the contribution should be shown on deleted work items. Default: `false`
      */
     showOnDeletedWorkItem?: pulumi.Input<boolean>;
+}
+
+export interface WorkitemtrackingprocessPageSection {
+    /**
+     * The ID of the section.
+     */
+    id?: pulumi.Input<string>;
+}
+
+export interface WorkitemtrackingprocessRuleAction {
+    /**
+     * Type of action. Valid values: `makeRequired`, `makeReadOnly`, `setDefaultValue`, `setDefaultFromClock`, `setDefaultFromField`, `copyValue`, `copyFromClock`, `copyFromCurrentUser`, `copyFromField`, `setValueToEmpty`, `copyFromServerClock`, `copyFromServerCurrentUser`, `hideTargetField`, `disallowValue`.
+     */
+    actionType: pulumi.Input<string>;
+    /**
+     * Field (reference name) to act on.
+     */
+    targetField: pulumi.Input<string>;
+    /**
+     * Value to set on the target field.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface WorkitemtrackingprocessRuleCondition {
+    /**
+     * Type of condition. Valid values: `when`, `whenNot`, `whenChanged`, `whenNotChanged`, `whenWas`, `whenCurrentUserIsMemberOfGroup`, `whenCurrentUserIsNotMemberOfGroup`.
+     */
+    conditionType: pulumi.Input<string>;
+    /**
+     * Field reference name for the condition. Required for most condition types.
+     */
+    field?: pulumi.Input<string>;
+    /**
+     * Value to match for the condition.
+     */
+    value?: pulumi.Input<string>;
 }
 
 export interface WorkitemtrackingprocessWorkitemtypePage {

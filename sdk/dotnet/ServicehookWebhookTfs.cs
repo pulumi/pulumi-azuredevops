@@ -239,6 +239,12 @@ namespace Pulumi.AzureDevOps
         [Output("resourceDetailsToSend")]
         public Output<string?> ResourceDetailsToSend { get; private set; } = null!;
 
+        /// <summary>
+        /// The resource version for the webhook subscription. Defaults to `Latest`.
+        /// </summary>
+        [Output("resourceVersion")]
+        public Output<string?> ResourceVersion { get; private set; } = null!;
+
         [Output("serviceConnectionCreated")]
         public Output<Outputs.ServicehookWebhookTfsServiceConnectionCreated?> ServiceConnectionCreated { get; private set; } = null!;
 
@@ -416,6 +422,12 @@ namespace Pulumi.AzureDevOps
         [Input("resourceDetailsToSend")]
         public Input<string>? ResourceDetailsToSend { get; set; }
 
+        /// <summary>
+        /// The resource version for the webhook subscription. Defaults to `Latest`.
+        /// </summary>
+        [Input("resourceVersion")]
+        public Input<string>? ResourceVersion { get; set; }
+
         [Input("serviceConnectionCreated")]
         public Input<Inputs.ServicehookWebhookTfsServiceConnectionCreatedArgs>? ServiceConnectionCreated { get; set; }
 
@@ -550,6 +562,12 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Input("resourceDetailsToSend")]
         public Input<string>? ResourceDetailsToSend { get; set; }
+
+        /// <summary>
+        /// The resource version for the webhook subscription. Defaults to `Latest`.
+        /// </summary>
+        [Input("resourceVersion")]
+        public Input<string>? ResourceVersion { get; set; }
 
         [Input("serviceConnectionCreated")]
         public Input<Inputs.ServicehookWebhookTfsServiceConnectionCreatedGetArgs>? ServiceConnectionCreated { get; set; }

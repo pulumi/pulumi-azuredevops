@@ -50,6 +50,25 @@ public final class BranchPolicyMinReviewersSettingsArgs extends com.pulumi.resou
     }
 
     /**
+     * Require at least one approval on every iteration. Defaults to `false`.
+     * 
+     * &gt; **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
+     * 
+     */
+    @Import(name="onEachIterationRequireVote")
+    private @Nullable Output<Boolean> onEachIterationRequireVote;
+
+    /**
+     * @return Require at least one approval on every iteration. Defaults to `false`.
+     * 
+     * &gt; **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
+     * 
+     */
+    public Optional<Output<Boolean>> onEachIterationRequireVote() {
+        return Optional.ofNullable(this.onEachIterationRequireVote);
+    }
+
+    /**
      * On last iteration require vote. Defaults to `false`.
      * 
      */
@@ -67,16 +86,12 @@ public final class BranchPolicyMinReviewersSettingsArgs extends com.pulumi.resou
     /**
      * When new changes are pushed reset all code reviewer votes. Defaults to `false`.
      * 
-     * &gt; **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
-     * 
      */
     @Import(name="onPushResetAllVotes")
     private @Nullable Output<Boolean> onPushResetAllVotes;
 
     /**
      * @return When new changes are pushed reset all code reviewer votes. Defaults to `false`.
-     * 
-     * &gt; **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
      * 
      */
     public Optional<Output<Boolean>> onPushResetAllVotes() {
@@ -148,6 +163,7 @@ public final class BranchPolicyMinReviewersSettingsArgs extends com.pulumi.resou
     private BranchPolicyMinReviewersSettingsArgs(BranchPolicyMinReviewersSettingsArgs $) {
         this.allowCompletionWithRejectsOrWaits = $.allowCompletionWithRejectsOrWaits;
         this.lastPusherCannotApprove = $.lastPusherCannotApprove;
+        this.onEachIterationRequireVote = $.onEachIterationRequireVote;
         this.onLastIterationRequireVote = $.onLastIterationRequireVote;
         this.onPushResetAllVotes = $.onPushResetAllVotes;
         this.onPushResetApprovedVotes = $.onPushResetApprovedVotes;
@@ -217,6 +233,31 @@ public final class BranchPolicyMinReviewersSettingsArgs extends com.pulumi.resou
         }
 
         /**
+         * @param onEachIterationRequireVote Require at least one approval on every iteration. Defaults to `false`.
+         * 
+         * &gt; **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onEachIterationRequireVote(@Nullable Output<Boolean> onEachIterationRequireVote) {
+            $.onEachIterationRequireVote = onEachIterationRequireVote;
+            return this;
+        }
+
+        /**
+         * @param onEachIterationRequireVote Require at least one approval on every iteration. Defaults to `false`.
+         * 
+         * &gt; **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onEachIterationRequireVote(Boolean onEachIterationRequireVote) {
+            return onEachIterationRequireVote(Output.of(onEachIterationRequireVote));
+        }
+
+        /**
          * @param onLastIterationRequireVote On last iteration require vote. Defaults to `false`.
          * 
          * @return builder
@@ -240,8 +281,6 @@ public final class BranchPolicyMinReviewersSettingsArgs extends com.pulumi.resou
         /**
          * @param onPushResetAllVotes When new changes are pushed reset all code reviewer votes. Defaults to `false`.
          * 
-         * &gt; **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
-         * 
          * @return builder
          * 
          */
@@ -252,8 +291,6 @@ public final class BranchPolicyMinReviewersSettingsArgs extends com.pulumi.resou
 
         /**
          * @param onPushResetAllVotes When new changes are pushed reset all code reviewer votes. Defaults to `false`.
-         * 
-         * &gt; **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
          * 
          * @return builder
          * 

@@ -201,16 +201,6 @@ class TeamAdministrators(pulumi.CustomResource):
                  team_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        ## *---
-
-        layout: "azuredevops"
-        page_title: "AzureDevops: TeamAdministrators"
-        description: |-
-          Manages administrators of a team within a project in a Azure DevOps organization.
-        ---
-
-        # TeamAdministrators
-
         Manages administrators of a team within a project in a Azure DevOps organization.
 
         ## Example Usage
@@ -271,16 +261,6 @@ class TeamAdministrators(pulumi.CustomResource):
                  args: TeamAdministratorsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## *---
-
-        layout: "azuredevops"
-        page_title: "AzureDevops: TeamAdministrators"
-        description: |-
-          Manages administrators of a team within a project in a Azure DevOps organization.
-        ---
-
-        # TeamAdministrators
-
         Manages administrators of a team within a project in a Azure DevOps organization.
 
         ## Example Usage

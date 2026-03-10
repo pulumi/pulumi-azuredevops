@@ -233,6 +233,21 @@ public final class ServicehookWebhookTfsState extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.resourceDetailsToSend);
     }
 
+    /**
+     * The resource version for the webhook subscription. Defaults to `latest`.
+     * 
+     */
+    @Import(name="resourceVersion")
+    private @Nullable Output<String> resourceVersion;
+
+    /**
+     * @return The resource version for the webhook subscription. Defaults to `latest`.
+     * 
+     */
+    public Optional<Output<String>> resourceVersion() {
+        return Optional.ofNullable(this.resourceVersion);
+    }
+
     @Import(name="serviceConnectionCreated")
     private @Nullable Output<ServicehookWebhookTfsServiceConnectionCreatedArgs> serviceConnectionCreated;
 
@@ -326,6 +341,7 @@ public final class ServicehookWebhookTfsState extends com.pulumi.resources.Resou
         this.repositoryRenamed = $.repositoryRenamed;
         this.repositoryStatusChanged = $.repositoryStatusChanged;
         this.resourceDetailsToSend = $.resourceDetailsToSend;
+        this.resourceVersion = $.resourceVersion;
         this.serviceConnectionCreated = $.serviceConnectionCreated;
         this.serviceConnectionUpdated = $.serviceConnectionUpdated;
         this.tfvcCheckin = $.tfvcCheckin;
@@ -620,6 +636,27 @@ public final class ServicehookWebhookTfsState extends com.pulumi.resources.Resou
          */
         public Builder resourceDetailsToSend(String resourceDetailsToSend) {
             return resourceDetailsToSend(Output.of(resourceDetailsToSend));
+        }
+
+        /**
+         * @param resourceVersion The resource version for the webhook subscription. Defaults to `latest`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceVersion(@Nullable Output<String> resourceVersion) {
+            $.resourceVersion = resourceVersion;
+            return this;
+        }
+
+        /**
+         * @param resourceVersion The resource version for the webhook subscription. Defaults to `latest`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceVersion(String resourceVersion) {
+            return resourceVersion(Output.of(resourceVersion));
         }
 
         public Builder serviceConnectionCreated(@Nullable Output<ServicehookWebhookTfsServiceConnectionCreatedArgs> serviceConnectionCreated) {

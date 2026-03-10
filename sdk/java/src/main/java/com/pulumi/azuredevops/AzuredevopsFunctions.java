@@ -42,6 +42,10 @@ import com.pulumi.azuredevops.inputs.GetProjectsArgs;
 import com.pulumi.azuredevops.inputs.GetProjectsPlainArgs;
 import com.pulumi.azuredevops.inputs.GetRepositoriesArgs;
 import com.pulumi.azuredevops.inputs.GetRepositoriesPlainArgs;
+import com.pulumi.azuredevops.inputs.GetSecurityNamespaceArgs;
+import com.pulumi.azuredevops.inputs.GetSecurityNamespacePlainArgs;
+import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenPlainArgs;
 import com.pulumi.azuredevops.inputs.GetSecurityroleDefinitionsArgs;
 import com.pulumi.azuredevops.inputs.GetSecurityroleDefinitionsPlainArgs;
 import com.pulumi.azuredevops.inputs.GetServiceEndpointAzureRMArgs;
@@ -103,6 +107,9 @@ import com.pulumi.azuredevops.outputs.GetPoolsResult;
 import com.pulumi.azuredevops.outputs.GetProjectResult;
 import com.pulumi.azuredevops.outputs.GetProjectsResult;
 import com.pulumi.azuredevops.outputs.GetRepositoriesResult;
+import com.pulumi.azuredevops.outputs.GetSecurityNamespaceResult;
+import com.pulumi.azuredevops.outputs.GetSecurityNamespaceTokenResult;
+import com.pulumi.azuredevops.outputs.GetSecurityNamespacesResult;
 import com.pulumi.azuredevops.outputs.GetSecurityroleDefinitionsResult;
 import com.pulumi.azuredevops.outputs.GetServiceEndpointAzureRMResult;
 import com.pulumi.azuredevops.outputs.GetServiceEndpointGithubResult;
@@ -6428,6 +6435,3331 @@ public final class AzuredevopsFunctions {
      */
     public static CompletableFuture<GetRepositoriesResult> getRepositoriesPlain(GetRepositoriesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azuredevops:index/getRepositories:getRepositories", TypeShape.of(GetRepositoriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about a specific security namespace within Azure DevOps. Security namespaces define the security model for different resources and operations in Azure DevOps.
+     * 
+     * ## Example Usage
+     * 
+     * ### Find a Specific Namespace by Name
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var git = AzuredevopsFunctions.getSecurityNamespace(GetSecurityNamespaceArgs.builder()
+     *             .name("Git Repositories")
+     *             .build());
+     * 
+     *         ctx.export("gitId", git.id());
+     *         ctx.export("gitPermissions", git.actions());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Find a Specific Namespace by ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var project = AzuredevopsFunctions.getSecurityNamespace(GetSecurityNamespaceArgs.builder()
+     *             .id("52d39943-cb85-4d7f-8fa8-c6baac873819")
+     *             .build());
+     * 
+     *         ctx.export("projectNamespaceName", project.name());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Security Namespaces - Query](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/security-namespaces/query?view=azure-devops-rest-7.0)
+     * - [Security Namespaces Documentation](https://docs.microsoft.com/en-us/azure/devops/organizations/security/security-glossary?view=azure-devops)
+     * 
+     */
+    public static Output<GetSecurityNamespaceResult> getSecurityNamespace() {
+        return getSecurityNamespace(GetSecurityNamespaceArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about a specific security namespace within Azure DevOps. Security namespaces define the security model for different resources and operations in Azure DevOps.
+     * 
+     * ## Example Usage
+     * 
+     * ### Find a Specific Namespace by Name
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var git = AzuredevopsFunctions.getSecurityNamespace(GetSecurityNamespaceArgs.builder()
+     *             .name("Git Repositories")
+     *             .build());
+     * 
+     *         ctx.export("gitId", git.id());
+     *         ctx.export("gitPermissions", git.actions());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Find a Specific Namespace by ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var project = AzuredevopsFunctions.getSecurityNamespace(GetSecurityNamespaceArgs.builder()
+     *             .id("52d39943-cb85-4d7f-8fa8-c6baac873819")
+     *             .build());
+     * 
+     *         ctx.export("projectNamespaceName", project.name());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Security Namespaces - Query](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/security-namespaces/query?view=azure-devops-rest-7.0)
+     * - [Security Namespaces Documentation](https://docs.microsoft.com/en-us/azure/devops/organizations/security/security-glossary?view=azure-devops)
+     * 
+     */
+    public static CompletableFuture<GetSecurityNamespaceResult> getSecurityNamespacePlain() {
+        return getSecurityNamespacePlain(GetSecurityNamespacePlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about a specific security namespace within Azure DevOps. Security namespaces define the security model for different resources and operations in Azure DevOps.
+     * 
+     * ## Example Usage
+     * 
+     * ### Find a Specific Namespace by Name
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var git = AzuredevopsFunctions.getSecurityNamespace(GetSecurityNamespaceArgs.builder()
+     *             .name("Git Repositories")
+     *             .build());
+     * 
+     *         ctx.export("gitId", git.id());
+     *         ctx.export("gitPermissions", git.actions());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Find a Specific Namespace by ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var project = AzuredevopsFunctions.getSecurityNamespace(GetSecurityNamespaceArgs.builder()
+     *             .id("52d39943-cb85-4d7f-8fa8-c6baac873819")
+     *             .build());
+     * 
+     *         ctx.export("projectNamespaceName", project.name());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Security Namespaces - Query](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/security-namespaces/query?view=azure-devops-rest-7.0)
+     * - [Security Namespaces Documentation](https://docs.microsoft.com/en-us/azure/devops/organizations/security/security-glossary?view=azure-devops)
+     * 
+     */
+    public static Output<GetSecurityNamespaceResult> getSecurityNamespace(GetSecurityNamespaceArgs args) {
+        return getSecurityNamespace(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about a specific security namespace within Azure DevOps. Security namespaces define the security model for different resources and operations in Azure DevOps.
+     * 
+     * ## Example Usage
+     * 
+     * ### Find a Specific Namespace by Name
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var git = AzuredevopsFunctions.getSecurityNamespace(GetSecurityNamespaceArgs.builder()
+     *             .name("Git Repositories")
+     *             .build());
+     * 
+     *         ctx.export("gitId", git.id());
+     *         ctx.export("gitPermissions", git.actions());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Find a Specific Namespace by ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var project = AzuredevopsFunctions.getSecurityNamespace(GetSecurityNamespaceArgs.builder()
+     *             .id("52d39943-cb85-4d7f-8fa8-c6baac873819")
+     *             .build());
+     * 
+     *         ctx.export("projectNamespaceName", project.name());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Security Namespaces - Query](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/security-namespaces/query?view=azure-devops-rest-7.0)
+     * - [Security Namespaces Documentation](https://docs.microsoft.com/en-us/azure/devops/organizations/security/security-glossary?view=azure-devops)
+     * 
+     */
+    public static CompletableFuture<GetSecurityNamespaceResult> getSecurityNamespacePlain(GetSecurityNamespacePlainArgs args) {
+        return getSecurityNamespacePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about a specific security namespace within Azure DevOps. Security namespaces define the security model for different resources and operations in Azure DevOps.
+     * 
+     * ## Example Usage
+     * 
+     * ### Find a Specific Namespace by Name
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var git = AzuredevopsFunctions.getSecurityNamespace(GetSecurityNamespaceArgs.builder()
+     *             .name("Git Repositories")
+     *             .build());
+     * 
+     *         ctx.export("gitId", git.id());
+     *         ctx.export("gitPermissions", git.actions());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Find a Specific Namespace by ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var project = AzuredevopsFunctions.getSecurityNamespace(GetSecurityNamespaceArgs.builder()
+     *             .id("52d39943-cb85-4d7f-8fa8-c6baac873819")
+     *             .build());
+     * 
+     *         ctx.export("projectNamespaceName", project.name());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Security Namespaces - Query](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/security-namespaces/query?view=azure-devops-rest-7.0)
+     * - [Security Namespaces Documentation](https://docs.microsoft.com/en-us/azure/devops/organizations/security/security-glossary?view=azure-devops)
+     * 
+     */
+    public static Output<GetSecurityNamespaceResult> getSecurityNamespace(GetSecurityNamespaceArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getSecurityNamespace:getSecurityNamespace", TypeShape.of(GetSecurityNamespaceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about a specific security namespace within Azure DevOps. Security namespaces define the security model for different resources and operations in Azure DevOps.
+     * 
+     * ## Example Usage
+     * 
+     * ### Find a Specific Namespace by Name
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var git = AzuredevopsFunctions.getSecurityNamespace(GetSecurityNamespaceArgs.builder()
+     *             .name("Git Repositories")
+     *             .build());
+     * 
+     *         ctx.export("gitId", git.id());
+     *         ctx.export("gitPermissions", git.actions());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Find a Specific Namespace by ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var project = AzuredevopsFunctions.getSecurityNamespace(GetSecurityNamespaceArgs.builder()
+     *             .id("52d39943-cb85-4d7f-8fa8-c6baac873819")
+     *             .build());
+     * 
+     *         ctx.export("projectNamespaceName", project.name());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Security Namespaces - Query](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/security-namespaces/query?view=azure-devops-rest-7.0)
+     * - [Security Namespaces Documentation](https://docs.microsoft.com/en-us/azure/devops/organizations/security/security-glossary?view=azure-devops)
+     * 
+     */
+    public static Output<GetSecurityNamespaceResult> getSecurityNamespace(GetSecurityNamespaceArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getSecurityNamespace:getSecurityNamespace", TypeShape.of(GetSecurityNamespaceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about a specific security namespace within Azure DevOps. Security namespaces define the security model for different resources and operations in Azure DevOps.
+     * 
+     * ## Example Usage
+     * 
+     * ### Find a Specific Namespace by Name
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var git = AzuredevopsFunctions.getSecurityNamespace(GetSecurityNamespaceArgs.builder()
+     *             .name("Git Repositories")
+     *             .build());
+     * 
+     *         ctx.export("gitId", git.id());
+     *         ctx.export("gitPermissions", git.actions());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Find a Specific Namespace by ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var project = AzuredevopsFunctions.getSecurityNamespace(GetSecurityNamespaceArgs.builder()
+     *             .id("52d39943-cb85-4d7f-8fa8-c6baac873819")
+     *             .build());
+     * 
+     *         ctx.export("projectNamespaceName", project.name());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Security Namespaces - Query](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/security-namespaces/query?view=azure-devops-rest-7.0)
+     * - [Security Namespaces Documentation](https://docs.microsoft.com/en-us/azure/devops/organizations/security/security-glossary?view=azure-devops)
+     * 
+     */
+    public static CompletableFuture<GetSecurityNamespaceResult> getSecurityNamespacePlain(GetSecurityNamespacePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azuredevops:index/getSecurityNamespace:getSecurityNamespace", TypeShape.of(GetSecurityNamespaceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to generate security tokens for Azure DevOps security namespaces. Security tokens are required when managing permissions with the `azuredevops.SecurityPermissions` resource.
+     * 
+     * ## Example Usage
+     * 
+     * ### Discovering Required Identifiers for a Namespace
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var gitInfo = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Git Repositories")
+     *             .returnIdentifierInfo(true)
+     *             .build());
+     * 
+     *         ctx.export("gitRequiredIdentifiers", gitInfo.requiredIdentifiers());
+     *         ctx.export("gitOptionalIdentifiers", gitInfo.optionalIdentifiers());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Collection-level Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var collection = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Collection")
+     *             .build());
+     * 
+     *         ctx.export("collectionToken", collection.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Project-level Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var project = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Project")
+     *             .identifiers(Map.of("project_id", example.id()))
+     *             .build());
+     * 
+     *         ctx.export("projectToken", project.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Git Repository Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetGitRepository = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
+     *             .projectId(example.id())
+     *             .name("Example Repository")
+     *             .build());
+     * 
+     *         final var gitRepo = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Git Repositories")
+     *             .identifiers(Map.ofEntries(
+     *                 Map.entry("project_id", example.id()),
+     *                 Map.entry("repository_id", exampleGetGitRepository.id())
+     *             ))
+     *             .build());
+     * 
+     *         ctx.export("gitRepoToken", gitRepo.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Git Repository Branch Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetGitRepository = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
+     *             .projectId(example.id())
+     *             .name("Example Repository")
+     *             .build());
+     * 
+     *         final var gitBranch = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Git Repositories")
+     *             .identifiers(Map.ofEntries(
+     *                 Map.entry("project_id", example.id()),
+     *                 Map.entry("repository_id", exampleGetGitRepository.id()),
+     *                 Map.entry("ref_name", "refs/heads/main")
+     *             ))
+     *             .build());
+     * 
+     *         ctx.export("gitBranchToken", gitBranch.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Build Definition Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetBuildDefinitionArgs;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetBuildDefinition = AzuredevopsFunctions.getBuildDefinition(GetBuildDefinitionArgs.builder()
+     *             .projectId(example.id())
+     *             .name("Example Build Pipeline")
+     *             .build());
+     * 
+     *         final var buildDef = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Build")
+     *             .identifiers(Map.ofEntries(
+     *                 Map.entry("project_id", example.id()),
+     *                 Map.entry("definition_id", exampleGetBuildDefinition.id())
+     *             ))
+     *             .build());
+     * 
+     *         ctx.export("buildDefToken", buildDef.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Using Namespace ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var analytics = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceId("58450c49-b02d-465a-ab12-59ae512d6531")
+     *             .identifiers(Map.of("project_id", example.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
+     * - [Security Namespaces Documentation](https://docs.microsoft.com/en-us/azure/devops/organizations/security/security-glossary?view=azure-devops)
+     * 
+     * ## Notes
+     * 
+     * - Security tokens are namespace-specific string identifiers that represent resources within Azure DevOps
+     * - Tokens are used in conjunction with security permissions to control access to various resources
+     * - The format of the token varies depending on the namespace and the resource being targeted
+     * - For Git repositories, you can specify tokens at the repository level or branch level by providing the `refName` identifier
+     * - Branch reference names must follow the Git reference format (e.g., `refs/heads/main`, `refs/tags/v1.0.0`)
+     * 
+     */
+    public static Output<GetSecurityNamespaceTokenResult> getSecurityNamespaceToken() {
+        return getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to generate security tokens for Azure DevOps security namespaces. Security tokens are required when managing permissions with the `azuredevops.SecurityPermissions` resource.
+     * 
+     * ## Example Usage
+     * 
+     * ### Discovering Required Identifiers for a Namespace
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var gitInfo = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Git Repositories")
+     *             .returnIdentifierInfo(true)
+     *             .build());
+     * 
+     *         ctx.export("gitRequiredIdentifiers", gitInfo.requiredIdentifiers());
+     *         ctx.export("gitOptionalIdentifiers", gitInfo.optionalIdentifiers());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Collection-level Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var collection = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Collection")
+     *             .build());
+     * 
+     *         ctx.export("collectionToken", collection.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Project-level Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var project = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Project")
+     *             .identifiers(Map.of("project_id", example.id()))
+     *             .build());
+     * 
+     *         ctx.export("projectToken", project.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Git Repository Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetGitRepository = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
+     *             .projectId(example.id())
+     *             .name("Example Repository")
+     *             .build());
+     * 
+     *         final var gitRepo = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Git Repositories")
+     *             .identifiers(Map.ofEntries(
+     *                 Map.entry("project_id", example.id()),
+     *                 Map.entry("repository_id", exampleGetGitRepository.id())
+     *             ))
+     *             .build());
+     * 
+     *         ctx.export("gitRepoToken", gitRepo.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Git Repository Branch Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetGitRepository = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
+     *             .projectId(example.id())
+     *             .name("Example Repository")
+     *             .build());
+     * 
+     *         final var gitBranch = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Git Repositories")
+     *             .identifiers(Map.ofEntries(
+     *                 Map.entry("project_id", example.id()),
+     *                 Map.entry("repository_id", exampleGetGitRepository.id()),
+     *                 Map.entry("ref_name", "refs/heads/main")
+     *             ))
+     *             .build());
+     * 
+     *         ctx.export("gitBranchToken", gitBranch.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Build Definition Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetBuildDefinitionArgs;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetBuildDefinition = AzuredevopsFunctions.getBuildDefinition(GetBuildDefinitionArgs.builder()
+     *             .projectId(example.id())
+     *             .name("Example Build Pipeline")
+     *             .build());
+     * 
+     *         final var buildDef = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Build")
+     *             .identifiers(Map.ofEntries(
+     *                 Map.entry("project_id", example.id()),
+     *                 Map.entry("definition_id", exampleGetBuildDefinition.id())
+     *             ))
+     *             .build());
+     * 
+     *         ctx.export("buildDefToken", buildDef.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Using Namespace ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var analytics = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceId("58450c49-b02d-465a-ab12-59ae512d6531")
+     *             .identifiers(Map.of("project_id", example.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
+     * - [Security Namespaces Documentation](https://docs.microsoft.com/en-us/azure/devops/organizations/security/security-glossary?view=azure-devops)
+     * 
+     * ## Notes
+     * 
+     * - Security tokens are namespace-specific string identifiers that represent resources within Azure DevOps
+     * - Tokens are used in conjunction with security permissions to control access to various resources
+     * - The format of the token varies depending on the namespace and the resource being targeted
+     * - For Git repositories, you can specify tokens at the repository level or branch level by providing the `refName` identifier
+     * - Branch reference names must follow the Git reference format (e.g., `refs/heads/main`, `refs/tags/v1.0.0`)
+     * 
+     */
+    public static CompletableFuture<GetSecurityNamespaceTokenResult> getSecurityNamespaceTokenPlain() {
+        return getSecurityNamespaceTokenPlain(GetSecurityNamespaceTokenPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to generate security tokens for Azure DevOps security namespaces. Security tokens are required when managing permissions with the `azuredevops.SecurityPermissions` resource.
+     * 
+     * ## Example Usage
+     * 
+     * ### Discovering Required Identifiers for a Namespace
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var gitInfo = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Git Repositories")
+     *             .returnIdentifierInfo(true)
+     *             .build());
+     * 
+     *         ctx.export("gitRequiredIdentifiers", gitInfo.requiredIdentifiers());
+     *         ctx.export("gitOptionalIdentifiers", gitInfo.optionalIdentifiers());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Collection-level Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var collection = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Collection")
+     *             .build());
+     * 
+     *         ctx.export("collectionToken", collection.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Project-level Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var project = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Project")
+     *             .identifiers(Map.of("project_id", example.id()))
+     *             .build());
+     * 
+     *         ctx.export("projectToken", project.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Git Repository Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetGitRepository = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
+     *             .projectId(example.id())
+     *             .name("Example Repository")
+     *             .build());
+     * 
+     *         final var gitRepo = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Git Repositories")
+     *             .identifiers(Map.ofEntries(
+     *                 Map.entry("project_id", example.id()),
+     *                 Map.entry("repository_id", exampleGetGitRepository.id())
+     *             ))
+     *             .build());
+     * 
+     *         ctx.export("gitRepoToken", gitRepo.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Git Repository Branch Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetGitRepository = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
+     *             .projectId(example.id())
+     *             .name("Example Repository")
+     *             .build());
+     * 
+     *         final var gitBranch = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Git Repositories")
+     *             .identifiers(Map.ofEntries(
+     *                 Map.entry("project_id", example.id()),
+     *                 Map.entry("repository_id", exampleGetGitRepository.id()),
+     *                 Map.entry("ref_name", "refs/heads/main")
+     *             ))
+     *             .build());
+     * 
+     *         ctx.export("gitBranchToken", gitBranch.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Build Definition Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetBuildDefinitionArgs;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetBuildDefinition = AzuredevopsFunctions.getBuildDefinition(GetBuildDefinitionArgs.builder()
+     *             .projectId(example.id())
+     *             .name("Example Build Pipeline")
+     *             .build());
+     * 
+     *         final var buildDef = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Build")
+     *             .identifiers(Map.ofEntries(
+     *                 Map.entry("project_id", example.id()),
+     *                 Map.entry("definition_id", exampleGetBuildDefinition.id())
+     *             ))
+     *             .build());
+     * 
+     *         ctx.export("buildDefToken", buildDef.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Using Namespace ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var analytics = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceId("58450c49-b02d-465a-ab12-59ae512d6531")
+     *             .identifiers(Map.of("project_id", example.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
+     * - [Security Namespaces Documentation](https://docs.microsoft.com/en-us/azure/devops/organizations/security/security-glossary?view=azure-devops)
+     * 
+     * ## Notes
+     * 
+     * - Security tokens are namespace-specific string identifiers that represent resources within Azure DevOps
+     * - Tokens are used in conjunction with security permissions to control access to various resources
+     * - The format of the token varies depending on the namespace and the resource being targeted
+     * - For Git repositories, you can specify tokens at the repository level or branch level by providing the `refName` identifier
+     * - Branch reference names must follow the Git reference format (e.g., `refs/heads/main`, `refs/tags/v1.0.0`)
+     * 
+     */
+    public static Output<GetSecurityNamespaceTokenResult> getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs args) {
+        return getSecurityNamespaceToken(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to generate security tokens for Azure DevOps security namespaces. Security tokens are required when managing permissions with the `azuredevops.SecurityPermissions` resource.
+     * 
+     * ## Example Usage
+     * 
+     * ### Discovering Required Identifiers for a Namespace
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var gitInfo = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Git Repositories")
+     *             .returnIdentifierInfo(true)
+     *             .build());
+     * 
+     *         ctx.export("gitRequiredIdentifiers", gitInfo.requiredIdentifiers());
+     *         ctx.export("gitOptionalIdentifiers", gitInfo.optionalIdentifiers());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Collection-level Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var collection = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Collection")
+     *             .build());
+     * 
+     *         ctx.export("collectionToken", collection.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Project-level Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var project = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Project")
+     *             .identifiers(Map.of("project_id", example.id()))
+     *             .build());
+     * 
+     *         ctx.export("projectToken", project.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Git Repository Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetGitRepository = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
+     *             .projectId(example.id())
+     *             .name("Example Repository")
+     *             .build());
+     * 
+     *         final var gitRepo = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Git Repositories")
+     *             .identifiers(Map.ofEntries(
+     *                 Map.entry("project_id", example.id()),
+     *                 Map.entry("repository_id", exampleGetGitRepository.id())
+     *             ))
+     *             .build());
+     * 
+     *         ctx.export("gitRepoToken", gitRepo.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Git Repository Branch Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetGitRepository = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
+     *             .projectId(example.id())
+     *             .name("Example Repository")
+     *             .build());
+     * 
+     *         final var gitBranch = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Git Repositories")
+     *             .identifiers(Map.ofEntries(
+     *                 Map.entry("project_id", example.id()),
+     *                 Map.entry("repository_id", exampleGetGitRepository.id()),
+     *                 Map.entry("ref_name", "refs/heads/main")
+     *             ))
+     *             .build());
+     * 
+     *         ctx.export("gitBranchToken", gitBranch.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Build Definition Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetBuildDefinitionArgs;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetBuildDefinition = AzuredevopsFunctions.getBuildDefinition(GetBuildDefinitionArgs.builder()
+     *             .projectId(example.id())
+     *             .name("Example Build Pipeline")
+     *             .build());
+     * 
+     *         final var buildDef = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Build")
+     *             .identifiers(Map.ofEntries(
+     *                 Map.entry("project_id", example.id()),
+     *                 Map.entry("definition_id", exampleGetBuildDefinition.id())
+     *             ))
+     *             .build());
+     * 
+     *         ctx.export("buildDefToken", buildDef.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Using Namespace ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var analytics = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceId("58450c49-b02d-465a-ab12-59ae512d6531")
+     *             .identifiers(Map.of("project_id", example.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
+     * - [Security Namespaces Documentation](https://docs.microsoft.com/en-us/azure/devops/organizations/security/security-glossary?view=azure-devops)
+     * 
+     * ## Notes
+     * 
+     * - Security tokens are namespace-specific string identifiers that represent resources within Azure DevOps
+     * - Tokens are used in conjunction with security permissions to control access to various resources
+     * - The format of the token varies depending on the namespace and the resource being targeted
+     * - For Git repositories, you can specify tokens at the repository level or branch level by providing the `refName` identifier
+     * - Branch reference names must follow the Git reference format (e.g., `refs/heads/main`, `refs/tags/v1.0.0`)
+     * 
+     */
+    public static CompletableFuture<GetSecurityNamespaceTokenResult> getSecurityNamespaceTokenPlain(GetSecurityNamespaceTokenPlainArgs args) {
+        return getSecurityNamespaceTokenPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to generate security tokens for Azure DevOps security namespaces. Security tokens are required when managing permissions with the `azuredevops.SecurityPermissions` resource.
+     * 
+     * ## Example Usage
+     * 
+     * ### Discovering Required Identifiers for a Namespace
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var gitInfo = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Git Repositories")
+     *             .returnIdentifierInfo(true)
+     *             .build());
+     * 
+     *         ctx.export("gitRequiredIdentifiers", gitInfo.requiredIdentifiers());
+     *         ctx.export("gitOptionalIdentifiers", gitInfo.optionalIdentifiers());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Collection-level Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var collection = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Collection")
+     *             .build());
+     * 
+     *         ctx.export("collectionToken", collection.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Project-level Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var project = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Project")
+     *             .identifiers(Map.of("project_id", example.id()))
+     *             .build());
+     * 
+     *         ctx.export("projectToken", project.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Git Repository Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetGitRepository = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
+     *             .projectId(example.id())
+     *             .name("Example Repository")
+     *             .build());
+     * 
+     *         final var gitRepo = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Git Repositories")
+     *             .identifiers(Map.ofEntries(
+     *                 Map.entry("project_id", example.id()),
+     *                 Map.entry("repository_id", exampleGetGitRepository.id())
+     *             ))
+     *             .build());
+     * 
+     *         ctx.export("gitRepoToken", gitRepo.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Git Repository Branch Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetGitRepository = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
+     *             .projectId(example.id())
+     *             .name("Example Repository")
+     *             .build());
+     * 
+     *         final var gitBranch = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Git Repositories")
+     *             .identifiers(Map.ofEntries(
+     *                 Map.entry("project_id", example.id()),
+     *                 Map.entry("repository_id", exampleGetGitRepository.id()),
+     *                 Map.entry("ref_name", "refs/heads/main")
+     *             ))
+     *             .build());
+     * 
+     *         ctx.export("gitBranchToken", gitBranch.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Build Definition Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetBuildDefinitionArgs;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetBuildDefinition = AzuredevopsFunctions.getBuildDefinition(GetBuildDefinitionArgs.builder()
+     *             .projectId(example.id())
+     *             .name("Example Build Pipeline")
+     *             .build());
+     * 
+     *         final var buildDef = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Build")
+     *             .identifiers(Map.ofEntries(
+     *                 Map.entry("project_id", example.id()),
+     *                 Map.entry("definition_id", exampleGetBuildDefinition.id())
+     *             ))
+     *             .build());
+     * 
+     *         ctx.export("buildDefToken", buildDef.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Using Namespace ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var analytics = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceId("58450c49-b02d-465a-ab12-59ae512d6531")
+     *             .identifiers(Map.of("project_id", example.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
+     * - [Security Namespaces Documentation](https://docs.microsoft.com/en-us/azure/devops/organizations/security/security-glossary?view=azure-devops)
+     * 
+     * ## Notes
+     * 
+     * - Security tokens are namespace-specific string identifiers that represent resources within Azure DevOps
+     * - Tokens are used in conjunction with security permissions to control access to various resources
+     * - The format of the token varies depending on the namespace and the resource being targeted
+     * - For Git repositories, you can specify tokens at the repository level or branch level by providing the `refName` identifier
+     * - Branch reference names must follow the Git reference format (e.g., `refs/heads/main`, `refs/tags/v1.0.0`)
+     * 
+     */
+    public static Output<GetSecurityNamespaceTokenResult> getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getSecurityNamespaceToken:getSecurityNamespaceToken", TypeShape.of(GetSecurityNamespaceTokenResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to generate security tokens for Azure DevOps security namespaces. Security tokens are required when managing permissions with the `azuredevops.SecurityPermissions` resource.
+     * 
+     * ## Example Usage
+     * 
+     * ### Discovering Required Identifiers for a Namespace
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var gitInfo = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Git Repositories")
+     *             .returnIdentifierInfo(true)
+     *             .build());
+     * 
+     *         ctx.export("gitRequiredIdentifiers", gitInfo.requiredIdentifiers());
+     *         ctx.export("gitOptionalIdentifiers", gitInfo.optionalIdentifiers());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Collection-level Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var collection = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Collection")
+     *             .build());
+     * 
+     *         ctx.export("collectionToken", collection.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Project-level Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var project = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Project")
+     *             .identifiers(Map.of("project_id", example.id()))
+     *             .build());
+     * 
+     *         ctx.export("projectToken", project.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Git Repository Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetGitRepository = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
+     *             .projectId(example.id())
+     *             .name("Example Repository")
+     *             .build());
+     * 
+     *         final var gitRepo = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Git Repositories")
+     *             .identifiers(Map.ofEntries(
+     *                 Map.entry("project_id", example.id()),
+     *                 Map.entry("repository_id", exampleGetGitRepository.id())
+     *             ))
+     *             .build());
+     * 
+     *         ctx.export("gitRepoToken", gitRepo.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Git Repository Branch Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetGitRepository = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
+     *             .projectId(example.id())
+     *             .name("Example Repository")
+     *             .build());
+     * 
+     *         final var gitBranch = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Git Repositories")
+     *             .identifiers(Map.ofEntries(
+     *                 Map.entry("project_id", example.id()),
+     *                 Map.entry("repository_id", exampleGetGitRepository.id()),
+     *                 Map.entry("ref_name", "refs/heads/main")
+     *             ))
+     *             .build());
+     * 
+     *         ctx.export("gitBranchToken", gitBranch.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Build Definition Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetBuildDefinitionArgs;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetBuildDefinition = AzuredevopsFunctions.getBuildDefinition(GetBuildDefinitionArgs.builder()
+     *             .projectId(example.id())
+     *             .name("Example Build Pipeline")
+     *             .build());
+     * 
+     *         final var buildDef = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Build")
+     *             .identifiers(Map.ofEntries(
+     *                 Map.entry("project_id", example.id()),
+     *                 Map.entry("definition_id", exampleGetBuildDefinition.id())
+     *             ))
+     *             .build());
+     * 
+     *         ctx.export("buildDefToken", buildDef.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Using Namespace ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var analytics = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceId("58450c49-b02d-465a-ab12-59ae512d6531")
+     *             .identifiers(Map.of("project_id", example.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
+     * - [Security Namespaces Documentation](https://docs.microsoft.com/en-us/azure/devops/organizations/security/security-glossary?view=azure-devops)
+     * 
+     * ## Notes
+     * 
+     * - Security tokens are namespace-specific string identifiers that represent resources within Azure DevOps
+     * - Tokens are used in conjunction with security permissions to control access to various resources
+     * - The format of the token varies depending on the namespace and the resource being targeted
+     * - For Git repositories, you can specify tokens at the repository level or branch level by providing the `refName` identifier
+     * - Branch reference names must follow the Git reference format (e.g., `refs/heads/main`, `refs/tags/v1.0.0`)
+     * 
+     */
+    public static Output<GetSecurityNamespaceTokenResult> getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getSecurityNamespaceToken:getSecurityNamespaceToken", TypeShape.of(GetSecurityNamespaceTokenResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to generate security tokens for Azure DevOps security namespaces. Security tokens are required when managing permissions with the `azuredevops.SecurityPermissions` resource.
+     * 
+     * ## Example Usage
+     * 
+     * ### Discovering Required Identifiers for a Namespace
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var gitInfo = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Git Repositories")
+     *             .returnIdentifierInfo(true)
+     *             .build());
+     * 
+     *         ctx.export("gitRequiredIdentifiers", gitInfo.requiredIdentifiers());
+     *         ctx.export("gitOptionalIdentifiers", gitInfo.optionalIdentifiers());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Collection-level Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var collection = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Collection")
+     *             .build());
+     * 
+     *         ctx.export("collectionToken", collection.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Project-level Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var project = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Project")
+     *             .identifiers(Map.of("project_id", example.id()))
+     *             .build());
+     * 
+     *         ctx.export("projectToken", project.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Git Repository Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetGitRepository = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
+     *             .projectId(example.id())
+     *             .name("Example Repository")
+     *             .build());
+     * 
+     *         final var gitRepo = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Git Repositories")
+     *             .identifiers(Map.ofEntries(
+     *                 Map.entry("project_id", example.id()),
+     *                 Map.entry("repository_id", exampleGetGitRepository.id())
+     *             ))
+     *             .build());
+     * 
+     *         ctx.export("gitRepoToken", gitRepo.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Git Repository Branch Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetGitRepository = AzuredevopsFunctions.getGitRepository(GetGitRepositoryArgs.builder()
+     *             .projectId(example.id())
+     *             .name("Example Repository")
+     *             .build());
+     * 
+     *         final var gitBranch = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Git Repositories")
+     *             .identifiers(Map.ofEntries(
+     *                 Map.entry("project_id", example.id()),
+     *                 Map.entry("repository_id", exampleGetGitRepository.id()),
+     *                 Map.entry("ref_name", "refs/heads/main")
+     *             ))
+     *             .build());
+     * 
+     *         ctx.export("gitBranchToken", gitBranch.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Build Definition Token
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetBuildDefinitionArgs;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getProject(GetProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         final var exampleGetBuildDefinition = AzuredevopsFunctions.getBuildDefinition(GetBuildDefinitionArgs.builder()
+     *             .projectId(example.id())
+     *             .name("Example Build Pipeline")
+     *             .build());
+     * 
+     *         final var buildDef = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceName("Build")
+     *             .identifiers(Map.ofEntries(
+     *                 Map.entry("project_id", example.id()),
+     *                 Map.entry("definition_id", exampleGetBuildDefinition.id())
+     *             ))
+     *             .build());
+     * 
+     *         ctx.export("buildDefToken", buildDef.token());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Using Namespace ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var analytics = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
+     *             .namespaceId("58450c49-b02d-465a-ab12-59ae512d6531")
+     *             .identifiers(Map.of("project_id", example.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
+     * - [Security Namespaces Documentation](https://docs.microsoft.com/en-us/azure/devops/organizations/security/security-glossary?view=azure-devops)
+     * 
+     * ## Notes
+     * 
+     * - Security tokens are namespace-specific string identifiers that represent resources within Azure DevOps
+     * - Tokens are used in conjunction with security permissions to control access to various resources
+     * - The format of the token varies depending on the namespace and the resource being targeted
+     * - For Git repositories, you can specify tokens at the repository level or branch level by providing the `refName` identifier
+     * - Branch reference names must follow the Git reference format (e.g., `refs/heads/main`, `refs/tags/v1.0.0`)
+     * 
+     */
+    public static CompletableFuture<GetSecurityNamespaceTokenResult> getSecurityNamespaceTokenPlain(GetSecurityNamespaceTokenPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azuredevops:index/getSecurityNamespaceToken:getSecurityNamespaceToken", TypeShape.of(GetSecurityNamespaceTokenResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about security namespaces within Azure DevOps. Security namespaces define the security model for different resources and operations in Azure DevOps.
+     * 
+     * &gt; **NOTE:** If you need to find a specific security namespace by name or ID, consider using the azuredevops.getSecurityNamespace data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### List All Security Namespaces
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = AzuredevopsFunctions.getSecurityNamespaces(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         ctx.export("namespaces", all.namespaces());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Discover Available Permissions for a Namespace
+     * 
+     * ## Common Security Namespaces
+     * 
+     * The following are common security namespaces available in Azure DevOps:
+     * 
+     * | Namespace Name | Namespace ID | Description |
+     * |---------------|--------------|-------------|
+     * | **Collection** | `3e65f728-f8bc-4ecd-8764-7e378b19bfa7` | Organization/collection-level security |
+     * | **Project** | `52d39943-cb85-4d7f-8fa8-c6baac873819` | Project-level security |
+     * | **Git Repositories** | `2e9eb7ed-3c0a-47d4-87c1-0ffdd275fd87` | Git repository security |
+     * | **Analytics** | `58450c49-b02d-465a-ab12-59ae512d6531` | Analytics security |
+     * | **AnalyticsViews** | `d34d3680-dfe5-4cc6-a949-7d9c68f73cba` | Analytics Views security |
+     * | **Process** | `2dab47f9-bd70-49ed-9bd5-8eb051e59c02` | Process template security |
+     * | **AuditLog** | `a6cc6381-a1ca-4b36-b3c1-4e65211e82b6` | Audit log security |
+     * | **BuildAdministration** | `302acaca-b667-436d-a946-87133492041c` | Build administration security |
+     * | **Server** | `1f4179b3-6bac-4d01-b421-71ea09171400` | Server-level security |
+     * | **VersionControlPrivileges** | `66312704-deb5-43f9-b51c-ab4ff5e351c3` | Version control privileges |
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Security Namespaces - Query](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/security-namespaces/query?view=azure-devops-rest-7.0)
+     * - [Security Namespaces Documentation](https://docs.microsoft.com/en-us/azure/devops/organizations/security/security-glossary?view=azure-devops)
+     * 
+     * ## PAT Permissions Required
+     * 
+     * - **Project &amp; Team**: Read
+     * 
+     * ## Notes
+     * 
+     * - Security namespaces define the security model for different resources and operations in Azure DevOps
+     * - Each namespace has a unique identifier (UUID) that doesn&#39;t change across organizations
+     * - Namespaces contain actions (permissions) that can be granted or denied to users and groups
+     * - Permission bits are used to calculate effective permissions when multiple permissions are set
+     * - This data source is useful for discovering available permissions and namespace IDs for use with `azuredevops.SecurityPermissions` resources
+     * 
+     */
+    public static Output<GetSecurityNamespacesResult> getSecurityNamespaces() {
+        return getSecurityNamespaces(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about security namespaces within Azure DevOps. Security namespaces define the security model for different resources and operations in Azure DevOps.
+     * 
+     * &gt; **NOTE:** If you need to find a specific security namespace by name or ID, consider using the azuredevops.getSecurityNamespace data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### List All Security Namespaces
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = AzuredevopsFunctions.getSecurityNamespaces(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         ctx.export("namespaces", all.namespaces());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Discover Available Permissions for a Namespace
+     * 
+     * ## Common Security Namespaces
+     * 
+     * The following are common security namespaces available in Azure DevOps:
+     * 
+     * | Namespace Name | Namespace ID | Description |
+     * |---------------|--------------|-------------|
+     * | **Collection** | `3e65f728-f8bc-4ecd-8764-7e378b19bfa7` | Organization/collection-level security |
+     * | **Project** | `52d39943-cb85-4d7f-8fa8-c6baac873819` | Project-level security |
+     * | **Git Repositories** | `2e9eb7ed-3c0a-47d4-87c1-0ffdd275fd87` | Git repository security |
+     * | **Analytics** | `58450c49-b02d-465a-ab12-59ae512d6531` | Analytics security |
+     * | **AnalyticsViews** | `d34d3680-dfe5-4cc6-a949-7d9c68f73cba` | Analytics Views security |
+     * | **Process** | `2dab47f9-bd70-49ed-9bd5-8eb051e59c02` | Process template security |
+     * | **AuditLog** | `a6cc6381-a1ca-4b36-b3c1-4e65211e82b6` | Audit log security |
+     * | **BuildAdministration** | `302acaca-b667-436d-a946-87133492041c` | Build administration security |
+     * | **Server** | `1f4179b3-6bac-4d01-b421-71ea09171400` | Server-level security |
+     * | **VersionControlPrivileges** | `66312704-deb5-43f9-b51c-ab4ff5e351c3` | Version control privileges |
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Security Namespaces - Query](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/security-namespaces/query?view=azure-devops-rest-7.0)
+     * - [Security Namespaces Documentation](https://docs.microsoft.com/en-us/azure/devops/organizations/security/security-glossary?view=azure-devops)
+     * 
+     * ## PAT Permissions Required
+     * 
+     * - **Project &amp; Team**: Read
+     * 
+     * ## Notes
+     * 
+     * - Security namespaces define the security model for different resources and operations in Azure DevOps
+     * - Each namespace has a unique identifier (UUID) that doesn&#39;t change across organizations
+     * - Namespaces contain actions (permissions) that can be granted or denied to users and groups
+     * - Permission bits are used to calculate effective permissions when multiple permissions are set
+     * - This data source is useful for discovering available permissions and namespace IDs for use with `azuredevops.SecurityPermissions` resources
+     * 
+     */
+    public static CompletableFuture<GetSecurityNamespacesResult> getSecurityNamespacesPlain() {
+        return getSecurityNamespacesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about security namespaces within Azure DevOps. Security namespaces define the security model for different resources and operations in Azure DevOps.
+     * 
+     * &gt; **NOTE:** If you need to find a specific security namespace by name or ID, consider using the azuredevops.getSecurityNamespace data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### List All Security Namespaces
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = AzuredevopsFunctions.getSecurityNamespaces(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         ctx.export("namespaces", all.namespaces());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Discover Available Permissions for a Namespace
+     * 
+     * ## Common Security Namespaces
+     * 
+     * The following are common security namespaces available in Azure DevOps:
+     * 
+     * | Namespace Name | Namespace ID | Description |
+     * |---------------|--------------|-------------|
+     * | **Collection** | `3e65f728-f8bc-4ecd-8764-7e378b19bfa7` | Organization/collection-level security |
+     * | **Project** | `52d39943-cb85-4d7f-8fa8-c6baac873819` | Project-level security |
+     * | **Git Repositories** | `2e9eb7ed-3c0a-47d4-87c1-0ffdd275fd87` | Git repository security |
+     * | **Analytics** | `58450c49-b02d-465a-ab12-59ae512d6531` | Analytics security |
+     * | **AnalyticsViews** | `d34d3680-dfe5-4cc6-a949-7d9c68f73cba` | Analytics Views security |
+     * | **Process** | `2dab47f9-bd70-49ed-9bd5-8eb051e59c02` | Process template security |
+     * | **AuditLog** | `a6cc6381-a1ca-4b36-b3c1-4e65211e82b6` | Audit log security |
+     * | **BuildAdministration** | `302acaca-b667-436d-a946-87133492041c` | Build administration security |
+     * | **Server** | `1f4179b3-6bac-4d01-b421-71ea09171400` | Server-level security |
+     * | **VersionControlPrivileges** | `66312704-deb5-43f9-b51c-ab4ff5e351c3` | Version control privileges |
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Security Namespaces - Query](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/security-namespaces/query?view=azure-devops-rest-7.0)
+     * - [Security Namespaces Documentation](https://docs.microsoft.com/en-us/azure/devops/organizations/security/security-glossary?view=azure-devops)
+     * 
+     * ## PAT Permissions Required
+     * 
+     * - **Project &amp; Team**: Read
+     * 
+     * ## Notes
+     * 
+     * - Security namespaces define the security model for different resources and operations in Azure DevOps
+     * - Each namespace has a unique identifier (UUID) that doesn&#39;t change across organizations
+     * - Namespaces contain actions (permissions) that can be granted or denied to users and groups
+     * - Permission bits are used to calculate effective permissions when multiple permissions are set
+     * - This data source is useful for discovering available permissions and namespace IDs for use with `azuredevops.SecurityPermissions` resources
+     * 
+     */
+    public static Output<GetSecurityNamespacesResult> getSecurityNamespaces(InvokeArgs args) {
+        return getSecurityNamespaces(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about security namespaces within Azure DevOps. Security namespaces define the security model for different resources and operations in Azure DevOps.
+     * 
+     * &gt; **NOTE:** If you need to find a specific security namespace by name or ID, consider using the azuredevops.getSecurityNamespace data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### List All Security Namespaces
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = AzuredevopsFunctions.getSecurityNamespaces(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         ctx.export("namespaces", all.namespaces());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Discover Available Permissions for a Namespace
+     * 
+     * ## Common Security Namespaces
+     * 
+     * The following are common security namespaces available in Azure DevOps:
+     * 
+     * | Namespace Name | Namespace ID | Description |
+     * |---------------|--------------|-------------|
+     * | **Collection** | `3e65f728-f8bc-4ecd-8764-7e378b19bfa7` | Organization/collection-level security |
+     * | **Project** | `52d39943-cb85-4d7f-8fa8-c6baac873819` | Project-level security |
+     * | **Git Repositories** | `2e9eb7ed-3c0a-47d4-87c1-0ffdd275fd87` | Git repository security |
+     * | **Analytics** | `58450c49-b02d-465a-ab12-59ae512d6531` | Analytics security |
+     * | **AnalyticsViews** | `d34d3680-dfe5-4cc6-a949-7d9c68f73cba` | Analytics Views security |
+     * | **Process** | `2dab47f9-bd70-49ed-9bd5-8eb051e59c02` | Process template security |
+     * | **AuditLog** | `a6cc6381-a1ca-4b36-b3c1-4e65211e82b6` | Audit log security |
+     * | **BuildAdministration** | `302acaca-b667-436d-a946-87133492041c` | Build administration security |
+     * | **Server** | `1f4179b3-6bac-4d01-b421-71ea09171400` | Server-level security |
+     * | **VersionControlPrivileges** | `66312704-deb5-43f9-b51c-ab4ff5e351c3` | Version control privileges |
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Security Namespaces - Query](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/security-namespaces/query?view=azure-devops-rest-7.0)
+     * - [Security Namespaces Documentation](https://docs.microsoft.com/en-us/azure/devops/organizations/security/security-glossary?view=azure-devops)
+     * 
+     * ## PAT Permissions Required
+     * 
+     * - **Project &amp; Team**: Read
+     * 
+     * ## Notes
+     * 
+     * - Security namespaces define the security model for different resources and operations in Azure DevOps
+     * - Each namespace has a unique identifier (UUID) that doesn&#39;t change across organizations
+     * - Namespaces contain actions (permissions) that can be granted or denied to users and groups
+     * - Permission bits are used to calculate effective permissions when multiple permissions are set
+     * - This data source is useful for discovering available permissions and namespace IDs for use with `azuredevops.SecurityPermissions` resources
+     * 
+     */
+    public static CompletableFuture<GetSecurityNamespacesResult> getSecurityNamespacesPlain(InvokeArgs args) {
+        return getSecurityNamespacesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about security namespaces within Azure DevOps. Security namespaces define the security model for different resources and operations in Azure DevOps.
+     * 
+     * &gt; **NOTE:** If you need to find a specific security namespace by name or ID, consider using the azuredevops.getSecurityNamespace data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### List All Security Namespaces
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = AzuredevopsFunctions.getSecurityNamespaces(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         ctx.export("namespaces", all.namespaces());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Discover Available Permissions for a Namespace
+     * 
+     * ## Common Security Namespaces
+     * 
+     * The following are common security namespaces available in Azure DevOps:
+     * 
+     * | Namespace Name | Namespace ID | Description |
+     * |---------------|--------------|-------------|
+     * | **Collection** | `3e65f728-f8bc-4ecd-8764-7e378b19bfa7` | Organization/collection-level security |
+     * | **Project** | `52d39943-cb85-4d7f-8fa8-c6baac873819` | Project-level security |
+     * | **Git Repositories** | `2e9eb7ed-3c0a-47d4-87c1-0ffdd275fd87` | Git repository security |
+     * | **Analytics** | `58450c49-b02d-465a-ab12-59ae512d6531` | Analytics security |
+     * | **AnalyticsViews** | `d34d3680-dfe5-4cc6-a949-7d9c68f73cba` | Analytics Views security |
+     * | **Process** | `2dab47f9-bd70-49ed-9bd5-8eb051e59c02` | Process template security |
+     * | **AuditLog** | `a6cc6381-a1ca-4b36-b3c1-4e65211e82b6` | Audit log security |
+     * | **BuildAdministration** | `302acaca-b667-436d-a946-87133492041c` | Build administration security |
+     * | **Server** | `1f4179b3-6bac-4d01-b421-71ea09171400` | Server-level security |
+     * | **VersionControlPrivileges** | `66312704-deb5-43f9-b51c-ab4ff5e351c3` | Version control privileges |
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Security Namespaces - Query](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/security-namespaces/query?view=azure-devops-rest-7.0)
+     * - [Security Namespaces Documentation](https://docs.microsoft.com/en-us/azure/devops/organizations/security/security-glossary?view=azure-devops)
+     * 
+     * ## PAT Permissions Required
+     * 
+     * - **Project &amp; Team**: Read
+     * 
+     * ## Notes
+     * 
+     * - Security namespaces define the security model for different resources and operations in Azure DevOps
+     * - Each namespace has a unique identifier (UUID) that doesn&#39;t change across organizations
+     * - Namespaces contain actions (permissions) that can be granted or denied to users and groups
+     * - Permission bits are used to calculate effective permissions when multiple permissions are set
+     * - This data source is useful for discovering available permissions and namespace IDs for use with `azuredevops.SecurityPermissions` resources
+     * 
+     */
+    public static Output<GetSecurityNamespacesResult> getSecurityNamespaces(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getSecurityNamespaces:getSecurityNamespaces", TypeShape.of(GetSecurityNamespacesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about security namespaces within Azure DevOps. Security namespaces define the security model for different resources and operations in Azure DevOps.
+     * 
+     * &gt; **NOTE:** If you need to find a specific security namespace by name or ID, consider using the azuredevops.getSecurityNamespace data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### List All Security Namespaces
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = AzuredevopsFunctions.getSecurityNamespaces(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         ctx.export("namespaces", all.namespaces());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Discover Available Permissions for a Namespace
+     * 
+     * ## Common Security Namespaces
+     * 
+     * The following are common security namespaces available in Azure DevOps:
+     * 
+     * | Namespace Name | Namespace ID | Description |
+     * |---------------|--------------|-------------|
+     * | **Collection** | `3e65f728-f8bc-4ecd-8764-7e378b19bfa7` | Organization/collection-level security |
+     * | **Project** | `52d39943-cb85-4d7f-8fa8-c6baac873819` | Project-level security |
+     * | **Git Repositories** | `2e9eb7ed-3c0a-47d4-87c1-0ffdd275fd87` | Git repository security |
+     * | **Analytics** | `58450c49-b02d-465a-ab12-59ae512d6531` | Analytics security |
+     * | **AnalyticsViews** | `d34d3680-dfe5-4cc6-a949-7d9c68f73cba` | Analytics Views security |
+     * | **Process** | `2dab47f9-bd70-49ed-9bd5-8eb051e59c02` | Process template security |
+     * | **AuditLog** | `a6cc6381-a1ca-4b36-b3c1-4e65211e82b6` | Audit log security |
+     * | **BuildAdministration** | `302acaca-b667-436d-a946-87133492041c` | Build administration security |
+     * | **Server** | `1f4179b3-6bac-4d01-b421-71ea09171400` | Server-level security |
+     * | **VersionControlPrivileges** | `66312704-deb5-43f9-b51c-ab4ff5e351c3` | Version control privileges |
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Security Namespaces - Query](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/security-namespaces/query?view=azure-devops-rest-7.0)
+     * - [Security Namespaces Documentation](https://docs.microsoft.com/en-us/azure/devops/organizations/security/security-glossary?view=azure-devops)
+     * 
+     * ## PAT Permissions Required
+     * 
+     * - **Project &amp; Team**: Read
+     * 
+     * ## Notes
+     * 
+     * - Security namespaces define the security model for different resources and operations in Azure DevOps
+     * - Each namespace has a unique identifier (UUID) that doesn&#39;t change across organizations
+     * - Namespaces contain actions (permissions) that can be granted or denied to users and groups
+     * - Permission bits are used to calculate effective permissions when multiple permissions are set
+     * - This data source is useful for discovering available permissions and namespace IDs for use with `azuredevops.SecurityPermissions` resources
+     * 
+     */
+    public static Output<GetSecurityNamespacesResult> getSecurityNamespaces(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getSecurityNamespaces:getSecurityNamespaces", TypeShape.of(GetSecurityNamespacesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about security namespaces within Azure DevOps. Security namespaces define the security model for different resources and operations in Azure DevOps.
+     * 
+     * &gt; **NOTE:** If you need to find a specific security namespace by name or ID, consider using the azuredevops.getSecurityNamespace data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### List All Security Namespaces
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = AzuredevopsFunctions.getSecurityNamespaces(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         ctx.export("namespaces", all.namespaces());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Discover Available Permissions for a Namespace
+     * 
+     * ## Common Security Namespaces
+     * 
+     * The following are common security namespaces available in Azure DevOps:
+     * 
+     * | Namespace Name | Namespace ID | Description |
+     * |---------------|--------------|-------------|
+     * | **Collection** | `3e65f728-f8bc-4ecd-8764-7e378b19bfa7` | Organization/collection-level security |
+     * | **Project** | `52d39943-cb85-4d7f-8fa8-c6baac873819` | Project-level security |
+     * | **Git Repositories** | `2e9eb7ed-3c0a-47d4-87c1-0ffdd275fd87` | Git repository security |
+     * | **Analytics** | `58450c49-b02d-465a-ab12-59ae512d6531` | Analytics security |
+     * | **AnalyticsViews** | `d34d3680-dfe5-4cc6-a949-7d9c68f73cba` | Analytics Views security |
+     * | **Process** | `2dab47f9-bd70-49ed-9bd5-8eb051e59c02` | Process template security |
+     * | **AuditLog** | `a6cc6381-a1ca-4b36-b3c1-4e65211e82b6` | Audit log security |
+     * | **BuildAdministration** | `302acaca-b667-436d-a946-87133492041c` | Build administration security |
+     * | **Server** | `1f4179b3-6bac-4d01-b421-71ea09171400` | Server-level security |
+     * | **VersionControlPrivileges** | `66312704-deb5-43f9-b51c-ab4ff5e351c3` | Version control privileges |
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Security Namespaces - Query](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/security-namespaces/query?view=azure-devops-rest-7.0)
+     * - [Security Namespaces Documentation](https://docs.microsoft.com/en-us/azure/devops/organizations/security/security-glossary?view=azure-devops)
+     * 
+     * ## PAT Permissions Required
+     * 
+     * - **Project &amp; Team**: Read
+     * 
+     * ## Notes
+     * 
+     * - Security namespaces define the security model for different resources and operations in Azure DevOps
+     * - Each namespace has a unique identifier (UUID) that doesn&#39;t change across organizations
+     * - Namespaces contain actions (permissions) that can be granted or denied to users and groups
+     * - Permission bits are used to calculate effective permissions when multiple permissions are set
+     * - This data source is useful for discovering available permissions and namespace IDs for use with `azuredevops.SecurityPermissions` resources
+     * 
+     */
+    public static CompletableFuture<GetSecurityNamespacesResult> getSecurityNamespacesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azuredevops:index/getSecurityNamespaces:getSecurityNamespaces", TypeShape.of(GetSecurityNamespacesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about existing Security Role Definitions within a given scope in Azure DevOps.

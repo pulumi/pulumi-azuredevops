@@ -22,13 +22,17 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly bool? LastPusherCannotApprove;
         /// <summary>
+        /// Require at least one approval on every iteration. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** If `OnPushResetAllVotes` is `True` then `OnPushResetApprovedVotes` will be set to `True`. To enable `OnPushResetApprovedVotes`, you need explicitly set `OnPushResetAllVotes` `False` or not configure.
+        /// </summary>
+        public readonly bool? OnEachIterationRequireVote;
+        /// <summary>
         /// On last iteration require vote. Defaults to `False`.
         /// </summary>
         public readonly bool? OnLastIterationRequireVote;
         /// <summary>
         /// When new changes are pushed reset all code reviewer votes. Defaults to `False`.
-        /// 
-        /// &gt; **Note:** If `OnPushResetAllVotes` is `True` then `OnPushResetApprovedVotes` will be set to `True`. To enable `OnPushResetApprovedVotes`, you need explicitly set `OnPushResetAllVotes` `False` or not configure.
         /// </summary>
         public readonly bool? OnPushResetAllVotes;
         /// <summary>
@@ -54,6 +58,8 @@ namespace Pulumi.AzureDevOps.Outputs
 
             bool? lastPusherCannotApprove,
 
+            bool? onEachIterationRequireVote,
+
             bool? onLastIterationRequireVote,
 
             bool? onPushResetAllVotes,
@@ -68,6 +74,7 @@ namespace Pulumi.AzureDevOps.Outputs
         {
             AllowCompletionWithRejectsOrWaits = allowCompletionWithRejectsOrWaits;
             LastPusherCannotApprove = lastPusherCannotApprove;
+            OnEachIterationRequireVote = onEachIterationRequireVote;
             OnLastIterationRequireVote = onLastIterationRequireVote;
             OnPushResetAllVotes = onPushResetAllVotes;
             OnPushResetApprovedVotes = onPushResetApprovedVotes;

@@ -1343,11 +1343,13 @@ type BranchPolicyMinReviewersSettings struct {
 	AllowCompletionWithRejectsOrWaits *bool `pulumi:"allowCompletionWithRejectsOrWaits"`
 	// Prohibit the most recent pusher from approving their own changes. Defaults to `false`.
 	LastPusherCannotApprove *bool `pulumi:"lastPusherCannotApprove"`
+	// Require at least one approval on every iteration. Defaults to `false`.
+	//
+	// > **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
+	OnEachIterationRequireVote *bool `pulumi:"onEachIterationRequireVote"`
 	// On last iteration require vote. Defaults to `false`.
 	OnLastIterationRequireVote *bool `pulumi:"onLastIterationRequireVote"`
 	// When new changes are pushed reset all code reviewer votes. Defaults to `false`.
-	//
-	// > **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
 	OnPushResetAllVotes *bool `pulumi:"onPushResetAllVotes"`
 	// When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
 	OnPushResetApprovedVotes *bool `pulumi:"onPushResetApprovedVotes"`
@@ -1375,11 +1377,13 @@ type BranchPolicyMinReviewersSettingsArgs struct {
 	AllowCompletionWithRejectsOrWaits pulumi.BoolPtrInput `pulumi:"allowCompletionWithRejectsOrWaits"`
 	// Prohibit the most recent pusher from approving their own changes. Defaults to `false`.
 	LastPusherCannotApprove pulumi.BoolPtrInput `pulumi:"lastPusherCannotApprove"`
+	// Require at least one approval on every iteration. Defaults to `false`.
+	//
+	// > **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
+	OnEachIterationRequireVote pulumi.BoolPtrInput `pulumi:"onEachIterationRequireVote"`
 	// On last iteration require vote. Defaults to `false`.
 	OnLastIterationRequireVote pulumi.BoolPtrInput `pulumi:"onLastIterationRequireVote"`
 	// When new changes are pushed reset all code reviewer votes. Defaults to `false`.
-	//
-	// > **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
 	OnPushResetAllVotes pulumi.BoolPtrInput `pulumi:"onPushResetAllVotes"`
 	// When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
 	OnPushResetApprovedVotes pulumi.BoolPtrInput `pulumi:"onPushResetApprovedVotes"`
@@ -1478,14 +1482,19 @@ func (o BranchPolicyMinReviewersSettingsOutput) LastPusherCannotApprove() pulumi
 	return o.ApplyT(func(v BranchPolicyMinReviewersSettings) *bool { return v.LastPusherCannotApprove }).(pulumi.BoolPtrOutput)
 }
 
+// Require at least one approval on every iteration. Defaults to `false`.
+//
+// > **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
+func (o BranchPolicyMinReviewersSettingsOutput) OnEachIterationRequireVote() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BranchPolicyMinReviewersSettings) *bool { return v.OnEachIterationRequireVote }).(pulumi.BoolPtrOutput)
+}
+
 // On last iteration require vote. Defaults to `false`.
 func (o BranchPolicyMinReviewersSettingsOutput) OnLastIterationRequireVote() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BranchPolicyMinReviewersSettings) *bool { return v.OnLastIterationRequireVote }).(pulumi.BoolPtrOutput)
 }
 
 // When new changes are pushed reset all code reviewer votes. Defaults to `false`.
-//
-// > **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
 func (o BranchPolicyMinReviewersSettingsOutput) OnPushResetAllVotes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BranchPolicyMinReviewersSettings) *bool { return v.OnPushResetAllVotes }).(pulumi.BoolPtrOutput)
 }
@@ -1554,6 +1563,18 @@ func (o BranchPolicyMinReviewersSettingsPtrOutput) LastPusherCannotApprove() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Require at least one approval on every iteration. Defaults to `false`.
+//
+// > **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
+func (o BranchPolicyMinReviewersSettingsPtrOutput) OnEachIterationRequireVote() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchPolicyMinReviewersSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.OnEachIterationRequireVote
+	}).(pulumi.BoolPtrOutput)
+}
+
 // On last iteration require vote. Defaults to `false`.
 func (o BranchPolicyMinReviewersSettingsPtrOutput) OnLastIterationRequireVote() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BranchPolicyMinReviewersSettings) *bool {
@@ -1565,8 +1586,6 @@ func (o BranchPolicyMinReviewersSettingsPtrOutput) OnLastIterationRequireVote() 
 }
 
 // When new changes are pushed reset all code reviewer votes. Defaults to `false`.
-//
-// > **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
 func (o BranchPolicyMinReviewersSettingsPtrOutput) OnPushResetAllVotes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BranchPolicyMinReviewersSettings) *bool {
 		if v == nil {
@@ -15134,6 +15153,112 @@ func (o WorkitemRelationArrayOutput) Index(i pulumi.IntInput) WorkitemRelationOu
 	}).(WorkitemRelationOutput)
 }
 
+type WorkitemtrackingFieldSupportedOperation struct {
+	// The friendly name of the field. Changing this forces a new field to be created.
+	Name *string `pulumi:"name"`
+	// The reference name of the field (e.g., `Custom.MyField`). Changing this forces a new field to be created.
+	ReferenceName *string `pulumi:"referenceName"`
+}
+
+// WorkitemtrackingFieldSupportedOperationInput is an input type that accepts WorkitemtrackingFieldSupportedOperationArgs and WorkitemtrackingFieldSupportedOperationOutput values.
+// You can construct a concrete instance of `WorkitemtrackingFieldSupportedOperationInput` via:
+//
+//	WorkitemtrackingFieldSupportedOperationArgs{...}
+type WorkitemtrackingFieldSupportedOperationInput interface {
+	pulumi.Input
+
+	ToWorkitemtrackingFieldSupportedOperationOutput() WorkitemtrackingFieldSupportedOperationOutput
+	ToWorkitemtrackingFieldSupportedOperationOutputWithContext(context.Context) WorkitemtrackingFieldSupportedOperationOutput
+}
+
+type WorkitemtrackingFieldSupportedOperationArgs struct {
+	// The friendly name of the field. Changing this forces a new field to be created.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The reference name of the field (e.g., `Custom.MyField`). Changing this forces a new field to be created.
+	ReferenceName pulumi.StringPtrInput `pulumi:"referenceName"`
+}
+
+func (WorkitemtrackingFieldSupportedOperationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkitemtrackingFieldSupportedOperation)(nil)).Elem()
+}
+
+func (i WorkitemtrackingFieldSupportedOperationArgs) ToWorkitemtrackingFieldSupportedOperationOutput() WorkitemtrackingFieldSupportedOperationOutput {
+	return i.ToWorkitemtrackingFieldSupportedOperationOutputWithContext(context.Background())
+}
+
+func (i WorkitemtrackingFieldSupportedOperationArgs) ToWorkitemtrackingFieldSupportedOperationOutputWithContext(ctx context.Context) WorkitemtrackingFieldSupportedOperationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkitemtrackingFieldSupportedOperationOutput)
+}
+
+// WorkitemtrackingFieldSupportedOperationArrayInput is an input type that accepts WorkitemtrackingFieldSupportedOperationArray and WorkitemtrackingFieldSupportedOperationArrayOutput values.
+// You can construct a concrete instance of `WorkitemtrackingFieldSupportedOperationArrayInput` via:
+//
+//	WorkitemtrackingFieldSupportedOperationArray{ WorkitemtrackingFieldSupportedOperationArgs{...} }
+type WorkitemtrackingFieldSupportedOperationArrayInput interface {
+	pulumi.Input
+
+	ToWorkitemtrackingFieldSupportedOperationArrayOutput() WorkitemtrackingFieldSupportedOperationArrayOutput
+	ToWorkitemtrackingFieldSupportedOperationArrayOutputWithContext(context.Context) WorkitemtrackingFieldSupportedOperationArrayOutput
+}
+
+type WorkitemtrackingFieldSupportedOperationArray []WorkitemtrackingFieldSupportedOperationInput
+
+func (WorkitemtrackingFieldSupportedOperationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkitemtrackingFieldSupportedOperation)(nil)).Elem()
+}
+
+func (i WorkitemtrackingFieldSupportedOperationArray) ToWorkitemtrackingFieldSupportedOperationArrayOutput() WorkitemtrackingFieldSupportedOperationArrayOutput {
+	return i.ToWorkitemtrackingFieldSupportedOperationArrayOutputWithContext(context.Background())
+}
+
+func (i WorkitemtrackingFieldSupportedOperationArray) ToWorkitemtrackingFieldSupportedOperationArrayOutputWithContext(ctx context.Context) WorkitemtrackingFieldSupportedOperationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkitemtrackingFieldSupportedOperationArrayOutput)
+}
+
+type WorkitemtrackingFieldSupportedOperationOutput struct{ *pulumi.OutputState }
+
+func (WorkitemtrackingFieldSupportedOperationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkitemtrackingFieldSupportedOperation)(nil)).Elem()
+}
+
+func (o WorkitemtrackingFieldSupportedOperationOutput) ToWorkitemtrackingFieldSupportedOperationOutput() WorkitemtrackingFieldSupportedOperationOutput {
+	return o
+}
+
+func (o WorkitemtrackingFieldSupportedOperationOutput) ToWorkitemtrackingFieldSupportedOperationOutputWithContext(ctx context.Context) WorkitemtrackingFieldSupportedOperationOutput {
+	return o
+}
+
+// The friendly name of the field. Changing this forces a new field to be created.
+func (o WorkitemtrackingFieldSupportedOperationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkitemtrackingFieldSupportedOperation) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The reference name of the field (e.g., `Custom.MyField`). Changing this forces a new field to be created.
+func (o WorkitemtrackingFieldSupportedOperationOutput) ReferenceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkitemtrackingFieldSupportedOperation) *string { return v.ReferenceName }).(pulumi.StringPtrOutput)
+}
+
+type WorkitemtrackingFieldSupportedOperationArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkitemtrackingFieldSupportedOperationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkitemtrackingFieldSupportedOperation)(nil)).Elem()
+}
+
+func (o WorkitemtrackingFieldSupportedOperationArrayOutput) ToWorkitemtrackingFieldSupportedOperationArrayOutput() WorkitemtrackingFieldSupportedOperationArrayOutput {
+	return o
+}
+
+func (o WorkitemtrackingFieldSupportedOperationArrayOutput) ToWorkitemtrackingFieldSupportedOperationArrayOutputWithContext(ctx context.Context) WorkitemtrackingFieldSupportedOperationArrayOutput {
+	return o
+}
+
+func (o WorkitemtrackingFieldSupportedOperationArrayOutput) Index(i pulumi.IntInput) WorkitemtrackingFieldSupportedOperationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkitemtrackingFieldSupportedOperation {
+		return vs[0].([]WorkitemtrackingFieldSupportedOperation)[vs[1].(int)]
+	}).(WorkitemtrackingFieldSupportedOperationOutput)
+}
+
 type WorkitemtrackingprocessControlContribution struct {
 	// The ID of the contribution (extension).
 	ContributionId string `pulumi:"contributionId"`
@@ -15718,6 +15843,333 @@ func (o WorkitemtrackingprocessGroupControlContributionPtrOutput) ShowOnDeletedW
 		}
 		return v.ShowOnDeletedWorkItem
 	}).(pulumi.BoolPtrOutput)
+}
+
+type WorkitemtrackingprocessPageSection struct {
+	// The ID of the section.
+	Id *string `pulumi:"id"`
+}
+
+// WorkitemtrackingprocessPageSectionInput is an input type that accepts WorkitemtrackingprocessPageSectionArgs and WorkitemtrackingprocessPageSectionOutput values.
+// You can construct a concrete instance of `WorkitemtrackingprocessPageSectionInput` via:
+//
+//	WorkitemtrackingprocessPageSectionArgs{...}
+type WorkitemtrackingprocessPageSectionInput interface {
+	pulumi.Input
+
+	ToWorkitemtrackingprocessPageSectionOutput() WorkitemtrackingprocessPageSectionOutput
+	ToWorkitemtrackingprocessPageSectionOutputWithContext(context.Context) WorkitemtrackingprocessPageSectionOutput
+}
+
+type WorkitemtrackingprocessPageSectionArgs struct {
+	// The ID of the section.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (WorkitemtrackingprocessPageSectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkitemtrackingprocessPageSection)(nil)).Elem()
+}
+
+func (i WorkitemtrackingprocessPageSectionArgs) ToWorkitemtrackingprocessPageSectionOutput() WorkitemtrackingprocessPageSectionOutput {
+	return i.ToWorkitemtrackingprocessPageSectionOutputWithContext(context.Background())
+}
+
+func (i WorkitemtrackingprocessPageSectionArgs) ToWorkitemtrackingprocessPageSectionOutputWithContext(ctx context.Context) WorkitemtrackingprocessPageSectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkitemtrackingprocessPageSectionOutput)
+}
+
+// WorkitemtrackingprocessPageSectionArrayInput is an input type that accepts WorkitemtrackingprocessPageSectionArray and WorkitemtrackingprocessPageSectionArrayOutput values.
+// You can construct a concrete instance of `WorkitemtrackingprocessPageSectionArrayInput` via:
+//
+//	WorkitemtrackingprocessPageSectionArray{ WorkitemtrackingprocessPageSectionArgs{...} }
+type WorkitemtrackingprocessPageSectionArrayInput interface {
+	pulumi.Input
+
+	ToWorkitemtrackingprocessPageSectionArrayOutput() WorkitemtrackingprocessPageSectionArrayOutput
+	ToWorkitemtrackingprocessPageSectionArrayOutputWithContext(context.Context) WorkitemtrackingprocessPageSectionArrayOutput
+}
+
+type WorkitemtrackingprocessPageSectionArray []WorkitemtrackingprocessPageSectionInput
+
+func (WorkitemtrackingprocessPageSectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkitemtrackingprocessPageSection)(nil)).Elem()
+}
+
+func (i WorkitemtrackingprocessPageSectionArray) ToWorkitemtrackingprocessPageSectionArrayOutput() WorkitemtrackingprocessPageSectionArrayOutput {
+	return i.ToWorkitemtrackingprocessPageSectionArrayOutputWithContext(context.Background())
+}
+
+func (i WorkitemtrackingprocessPageSectionArray) ToWorkitemtrackingprocessPageSectionArrayOutputWithContext(ctx context.Context) WorkitemtrackingprocessPageSectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkitemtrackingprocessPageSectionArrayOutput)
+}
+
+type WorkitemtrackingprocessPageSectionOutput struct{ *pulumi.OutputState }
+
+func (WorkitemtrackingprocessPageSectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkitemtrackingprocessPageSection)(nil)).Elem()
+}
+
+func (o WorkitemtrackingprocessPageSectionOutput) ToWorkitemtrackingprocessPageSectionOutput() WorkitemtrackingprocessPageSectionOutput {
+	return o
+}
+
+func (o WorkitemtrackingprocessPageSectionOutput) ToWorkitemtrackingprocessPageSectionOutputWithContext(ctx context.Context) WorkitemtrackingprocessPageSectionOutput {
+	return o
+}
+
+// The ID of the section.
+func (o WorkitemtrackingprocessPageSectionOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessPageSection) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type WorkitemtrackingprocessPageSectionArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkitemtrackingprocessPageSectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkitemtrackingprocessPageSection)(nil)).Elem()
+}
+
+func (o WorkitemtrackingprocessPageSectionArrayOutput) ToWorkitemtrackingprocessPageSectionArrayOutput() WorkitemtrackingprocessPageSectionArrayOutput {
+	return o
+}
+
+func (o WorkitemtrackingprocessPageSectionArrayOutput) ToWorkitemtrackingprocessPageSectionArrayOutputWithContext(ctx context.Context) WorkitemtrackingprocessPageSectionArrayOutput {
+	return o
+}
+
+func (o WorkitemtrackingprocessPageSectionArrayOutput) Index(i pulumi.IntInput) WorkitemtrackingprocessPageSectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkitemtrackingprocessPageSection {
+		return vs[0].([]WorkitemtrackingprocessPageSection)[vs[1].(int)]
+	}).(WorkitemtrackingprocessPageSectionOutput)
+}
+
+type WorkitemtrackingprocessRuleAction struct {
+	// Type of action. Valid values: `makeRequired`, `makeReadOnly`, `setDefaultValue`, `setDefaultFromClock`, `setDefaultFromField`, `copyValue`, `copyFromClock`, `copyFromCurrentUser`, `copyFromField`, `setValueToEmpty`, `copyFromServerClock`, `copyFromServerCurrentUser`, `hideTargetField`, `disallowValue`.
+	ActionType string `pulumi:"actionType"`
+	// Field (reference name) to act on.
+	TargetField string `pulumi:"targetField"`
+	// Value to set on the target field.
+	Value *string `pulumi:"value"`
+}
+
+// WorkitemtrackingprocessRuleActionInput is an input type that accepts WorkitemtrackingprocessRuleActionArgs and WorkitemtrackingprocessRuleActionOutput values.
+// You can construct a concrete instance of `WorkitemtrackingprocessRuleActionInput` via:
+//
+//	WorkitemtrackingprocessRuleActionArgs{...}
+type WorkitemtrackingprocessRuleActionInput interface {
+	pulumi.Input
+
+	ToWorkitemtrackingprocessRuleActionOutput() WorkitemtrackingprocessRuleActionOutput
+	ToWorkitemtrackingprocessRuleActionOutputWithContext(context.Context) WorkitemtrackingprocessRuleActionOutput
+}
+
+type WorkitemtrackingprocessRuleActionArgs struct {
+	// Type of action. Valid values: `makeRequired`, `makeReadOnly`, `setDefaultValue`, `setDefaultFromClock`, `setDefaultFromField`, `copyValue`, `copyFromClock`, `copyFromCurrentUser`, `copyFromField`, `setValueToEmpty`, `copyFromServerClock`, `copyFromServerCurrentUser`, `hideTargetField`, `disallowValue`.
+	ActionType pulumi.StringInput `pulumi:"actionType"`
+	// Field (reference name) to act on.
+	TargetField pulumi.StringInput `pulumi:"targetField"`
+	// Value to set on the target field.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (WorkitemtrackingprocessRuleActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkitemtrackingprocessRuleAction)(nil)).Elem()
+}
+
+func (i WorkitemtrackingprocessRuleActionArgs) ToWorkitemtrackingprocessRuleActionOutput() WorkitemtrackingprocessRuleActionOutput {
+	return i.ToWorkitemtrackingprocessRuleActionOutputWithContext(context.Background())
+}
+
+func (i WorkitemtrackingprocessRuleActionArgs) ToWorkitemtrackingprocessRuleActionOutputWithContext(ctx context.Context) WorkitemtrackingprocessRuleActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkitemtrackingprocessRuleActionOutput)
+}
+
+// WorkitemtrackingprocessRuleActionArrayInput is an input type that accepts WorkitemtrackingprocessRuleActionArray and WorkitemtrackingprocessRuleActionArrayOutput values.
+// You can construct a concrete instance of `WorkitemtrackingprocessRuleActionArrayInput` via:
+//
+//	WorkitemtrackingprocessRuleActionArray{ WorkitemtrackingprocessRuleActionArgs{...} }
+type WorkitemtrackingprocessRuleActionArrayInput interface {
+	pulumi.Input
+
+	ToWorkitemtrackingprocessRuleActionArrayOutput() WorkitemtrackingprocessRuleActionArrayOutput
+	ToWorkitemtrackingprocessRuleActionArrayOutputWithContext(context.Context) WorkitemtrackingprocessRuleActionArrayOutput
+}
+
+type WorkitemtrackingprocessRuleActionArray []WorkitemtrackingprocessRuleActionInput
+
+func (WorkitemtrackingprocessRuleActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkitemtrackingprocessRuleAction)(nil)).Elem()
+}
+
+func (i WorkitemtrackingprocessRuleActionArray) ToWorkitemtrackingprocessRuleActionArrayOutput() WorkitemtrackingprocessRuleActionArrayOutput {
+	return i.ToWorkitemtrackingprocessRuleActionArrayOutputWithContext(context.Background())
+}
+
+func (i WorkitemtrackingprocessRuleActionArray) ToWorkitemtrackingprocessRuleActionArrayOutputWithContext(ctx context.Context) WorkitemtrackingprocessRuleActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkitemtrackingprocessRuleActionArrayOutput)
+}
+
+type WorkitemtrackingprocessRuleActionOutput struct{ *pulumi.OutputState }
+
+func (WorkitemtrackingprocessRuleActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkitemtrackingprocessRuleAction)(nil)).Elem()
+}
+
+func (o WorkitemtrackingprocessRuleActionOutput) ToWorkitemtrackingprocessRuleActionOutput() WorkitemtrackingprocessRuleActionOutput {
+	return o
+}
+
+func (o WorkitemtrackingprocessRuleActionOutput) ToWorkitemtrackingprocessRuleActionOutputWithContext(ctx context.Context) WorkitemtrackingprocessRuleActionOutput {
+	return o
+}
+
+// Type of action. Valid values: `makeRequired`, `makeReadOnly`, `setDefaultValue`, `setDefaultFromClock`, `setDefaultFromField`, `copyValue`, `copyFromClock`, `copyFromCurrentUser`, `copyFromField`, `setValueToEmpty`, `copyFromServerClock`, `copyFromServerCurrentUser`, `hideTargetField`, `disallowValue`.
+func (o WorkitemtrackingprocessRuleActionOutput) ActionType() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessRuleAction) string { return v.ActionType }).(pulumi.StringOutput)
+}
+
+// Field (reference name) to act on.
+func (o WorkitemtrackingprocessRuleActionOutput) TargetField() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessRuleAction) string { return v.TargetField }).(pulumi.StringOutput)
+}
+
+// Value to set on the target field.
+func (o WorkitemtrackingprocessRuleActionOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessRuleAction) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type WorkitemtrackingprocessRuleActionArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkitemtrackingprocessRuleActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkitemtrackingprocessRuleAction)(nil)).Elem()
+}
+
+func (o WorkitemtrackingprocessRuleActionArrayOutput) ToWorkitemtrackingprocessRuleActionArrayOutput() WorkitemtrackingprocessRuleActionArrayOutput {
+	return o
+}
+
+func (o WorkitemtrackingprocessRuleActionArrayOutput) ToWorkitemtrackingprocessRuleActionArrayOutputWithContext(ctx context.Context) WorkitemtrackingprocessRuleActionArrayOutput {
+	return o
+}
+
+func (o WorkitemtrackingprocessRuleActionArrayOutput) Index(i pulumi.IntInput) WorkitemtrackingprocessRuleActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkitemtrackingprocessRuleAction {
+		return vs[0].([]WorkitemtrackingprocessRuleAction)[vs[1].(int)]
+	}).(WorkitemtrackingprocessRuleActionOutput)
+}
+
+type WorkitemtrackingprocessRuleCondition struct {
+	// Type of condition. Valid values: `when`, `whenNot`, `whenChanged`, `whenNotChanged`, `whenWas`, `whenCurrentUserIsMemberOfGroup`, `whenCurrentUserIsNotMemberOfGroup`.
+	ConditionType string `pulumi:"conditionType"`
+	// Field reference name for the condition. Required for most condition types.
+	Field *string `pulumi:"field"`
+	// Value to match for the condition.
+	Value *string `pulumi:"value"`
+}
+
+// WorkitemtrackingprocessRuleConditionInput is an input type that accepts WorkitemtrackingprocessRuleConditionArgs and WorkitemtrackingprocessRuleConditionOutput values.
+// You can construct a concrete instance of `WorkitemtrackingprocessRuleConditionInput` via:
+//
+//	WorkitemtrackingprocessRuleConditionArgs{...}
+type WorkitemtrackingprocessRuleConditionInput interface {
+	pulumi.Input
+
+	ToWorkitemtrackingprocessRuleConditionOutput() WorkitemtrackingprocessRuleConditionOutput
+	ToWorkitemtrackingprocessRuleConditionOutputWithContext(context.Context) WorkitemtrackingprocessRuleConditionOutput
+}
+
+type WorkitemtrackingprocessRuleConditionArgs struct {
+	// Type of condition. Valid values: `when`, `whenNot`, `whenChanged`, `whenNotChanged`, `whenWas`, `whenCurrentUserIsMemberOfGroup`, `whenCurrentUserIsNotMemberOfGroup`.
+	ConditionType pulumi.StringInput `pulumi:"conditionType"`
+	// Field reference name for the condition. Required for most condition types.
+	Field pulumi.StringPtrInput `pulumi:"field"`
+	// Value to match for the condition.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (WorkitemtrackingprocessRuleConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkitemtrackingprocessRuleCondition)(nil)).Elem()
+}
+
+func (i WorkitemtrackingprocessRuleConditionArgs) ToWorkitemtrackingprocessRuleConditionOutput() WorkitemtrackingprocessRuleConditionOutput {
+	return i.ToWorkitemtrackingprocessRuleConditionOutputWithContext(context.Background())
+}
+
+func (i WorkitemtrackingprocessRuleConditionArgs) ToWorkitemtrackingprocessRuleConditionOutputWithContext(ctx context.Context) WorkitemtrackingprocessRuleConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkitemtrackingprocessRuleConditionOutput)
+}
+
+// WorkitemtrackingprocessRuleConditionArrayInput is an input type that accepts WorkitemtrackingprocessRuleConditionArray and WorkitemtrackingprocessRuleConditionArrayOutput values.
+// You can construct a concrete instance of `WorkitemtrackingprocessRuleConditionArrayInput` via:
+//
+//	WorkitemtrackingprocessRuleConditionArray{ WorkitemtrackingprocessRuleConditionArgs{...} }
+type WorkitemtrackingprocessRuleConditionArrayInput interface {
+	pulumi.Input
+
+	ToWorkitemtrackingprocessRuleConditionArrayOutput() WorkitemtrackingprocessRuleConditionArrayOutput
+	ToWorkitemtrackingprocessRuleConditionArrayOutputWithContext(context.Context) WorkitemtrackingprocessRuleConditionArrayOutput
+}
+
+type WorkitemtrackingprocessRuleConditionArray []WorkitemtrackingprocessRuleConditionInput
+
+func (WorkitemtrackingprocessRuleConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkitemtrackingprocessRuleCondition)(nil)).Elem()
+}
+
+func (i WorkitemtrackingprocessRuleConditionArray) ToWorkitemtrackingprocessRuleConditionArrayOutput() WorkitemtrackingprocessRuleConditionArrayOutput {
+	return i.ToWorkitemtrackingprocessRuleConditionArrayOutputWithContext(context.Background())
+}
+
+func (i WorkitemtrackingprocessRuleConditionArray) ToWorkitemtrackingprocessRuleConditionArrayOutputWithContext(ctx context.Context) WorkitemtrackingprocessRuleConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkitemtrackingprocessRuleConditionArrayOutput)
+}
+
+type WorkitemtrackingprocessRuleConditionOutput struct{ *pulumi.OutputState }
+
+func (WorkitemtrackingprocessRuleConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkitemtrackingprocessRuleCondition)(nil)).Elem()
+}
+
+func (o WorkitemtrackingprocessRuleConditionOutput) ToWorkitemtrackingprocessRuleConditionOutput() WorkitemtrackingprocessRuleConditionOutput {
+	return o
+}
+
+func (o WorkitemtrackingprocessRuleConditionOutput) ToWorkitemtrackingprocessRuleConditionOutputWithContext(ctx context.Context) WorkitemtrackingprocessRuleConditionOutput {
+	return o
+}
+
+// Type of condition. Valid values: `when`, `whenNot`, `whenChanged`, `whenNotChanged`, `whenWas`, `whenCurrentUserIsMemberOfGroup`, `whenCurrentUserIsNotMemberOfGroup`.
+func (o WorkitemtrackingprocessRuleConditionOutput) ConditionType() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessRuleCondition) string { return v.ConditionType }).(pulumi.StringOutput)
+}
+
+// Field reference name for the condition. Required for most condition types.
+func (o WorkitemtrackingprocessRuleConditionOutput) Field() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessRuleCondition) *string { return v.Field }).(pulumi.StringPtrOutput)
+}
+
+// Value to match for the condition.
+func (o WorkitemtrackingprocessRuleConditionOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkitemtrackingprocessRuleCondition) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type WorkitemtrackingprocessRuleConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkitemtrackingprocessRuleConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkitemtrackingprocessRuleCondition)(nil)).Elem()
+}
+
+func (o WorkitemtrackingprocessRuleConditionArrayOutput) ToWorkitemtrackingprocessRuleConditionArrayOutput() WorkitemtrackingprocessRuleConditionArrayOutput {
+	return o
+}
+
+func (o WorkitemtrackingprocessRuleConditionArrayOutput) ToWorkitemtrackingprocessRuleConditionArrayOutputWithContext(ctx context.Context) WorkitemtrackingprocessRuleConditionArrayOutput {
+	return o
+}
+
+func (o WorkitemtrackingprocessRuleConditionArrayOutput) Index(i pulumi.IntInput) WorkitemtrackingprocessRuleConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkitemtrackingprocessRuleCondition {
+		return vs[0].([]WorkitemtrackingprocessRuleCondition)[vs[1].(int)]
+	}).(WorkitemtrackingprocessRuleConditionOutput)
 }
 
 type WorkitemtrackingprocessWorkitemtypePage struct {
@@ -19251,6 +19703,360 @@ func (o GetRepositoriesRepositoryArrayOutput) Index(i pulumi.IntInput) GetReposi
 	}).(GetRepositoriesRepositoryOutput)
 }
 
+type GetSecurityNamespaceAction struct {
+	// The bit value for this permission (used in permission calculations).
+	Bit int `pulumi:"bit"`
+	// The display name of the action/permission.
+	DisplayName string `pulumi:"displayName"`
+	// The name of the security namespace.
+	Name string `pulumi:"name"`
+}
+
+// GetSecurityNamespaceActionInput is an input type that accepts GetSecurityNamespaceActionArgs and GetSecurityNamespaceActionOutput values.
+// You can construct a concrete instance of `GetSecurityNamespaceActionInput` via:
+//
+//	GetSecurityNamespaceActionArgs{...}
+type GetSecurityNamespaceActionInput interface {
+	pulumi.Input
+
+	ToGetSecurityNamespaceActionOutput() GetSecurityNamespaceActionOutput
+	ToGetSecurityNamespaceActionOutputWithContext(context.Context) GetSecurityNamespaceActionOutput
+}
+
+type GetSecurityNamespaceActionArgs struct {
+	// The bit value for this permission (used in permission calculations).
+	Bit pulumi.IntInput `pulumi:"bit"`
+	// The display name of the action/permission.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// The name of the security namespace.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetSecurityNamespaceActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityNamespaceAction)(nil)).Elem()
+}
+
+func (i GetSecurityNamespaceActionArgs) ToGetSecurityNamespaceActionOutput() GetSecurityNamespaceActionOutput {
+	return i.ToGetSecurityNamespaceActionOutputWithContext(context.Background())
+}
+
+func (i GetSecurityNamespaceActionArgs) ToGetSecurityNamespaceActionOutputWithContext(ctx context.Context) GetSecurityNamespaceActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityNamespaceActionOutput)
+}
+
+// GetSecurityNamespaceActionArrayInput is an input type that accepts GetSecurityNamespaceActionArray and GetSecurityNamespaceActionArrayOutput values.
+// You can construct a concrete instance of `GetSecurityNamespaceActionArrayInput` via:
+//
+//	GetSecurityNamespaceActionArray{ GetSecurityNamespaceActionArgs{...} }
+type GetSecurityNamespaceActionArrayInput interface {
+	pulumi.Input
+
+	ToGetSecurityNamespaceActionArrayOutput() GetSecurityNamespaceActionArrayOutput
+	ToGetSecurityNamespaceActionArrayOutputWithContext(context.Context) GetSecurityNamespaceActionArrayOutput
+}
+
+type GetSecurityNamespaceActionArray []GetSecurityNamespaceActionInput
+
+func (GetSecurityNamespaceActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecurityNamespaceAction)(nil)).Elem()
+}
+
+func (i GetSecurityNamespaceActionArray) ToGetSecurityNamespaceActionArrayOutput() GetSecurityNamespaceActionArrayOutput {
+	return i.ToGetSecurityNamespaceActionArrayOutputWithContext(context.Background())
+}
+
+func (i GetSecurityNamespaceActionArray) ToGetSecurityNamespaceActionArrayOutputWithContext(ctx context.Context) GetSecurityNamespaceActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityNamespaceActionArrayOutput)
+}
+
+type GetSecurityNamespaceActionOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityNamespaceActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityNamespaceAction)(nil)).Elem()
+}
+
+func (o GetSecurityNamespaceActionOutput) ToGetSecurityNamespaceActionOutput() GetSecurityNamespaceActionOutput {
+	return o
+}
+
+func (o GetSecurityNamespaceActionOutput) ToGetSecurityNamespaceActionOutputWithContext(ctx context.Context) GetSecurityNamespaceActionOutput {
+	return o
+}
+
+// The bit value for this permission (used in permission calculations).
+func (o GetSecurityNamespaceActionOutput) Bit() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSecurityNamespaceAction) int { return v.Bit }).(pulumi.IntOutput)
+}
+
+// The display name of the action/permission.
+func (o GetSecurityNamespaceActionOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityNamespaceAction) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The name of the security namespace.
+func (o GetSecurityNamespaceActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityNamespaceAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetSecurityNamespaceActionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityNamespaceActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecurityNamespaceAction)(nil)).Elem()
+}
+
+func (o GetSecurityNamespaceActionArrayOutput) ToGetSecurityNamespaceActionArrayOutput() GetSecurityNamespaceActionArrayOutput {
+	return o
+}
+
+func (o GetSecurityNamespaceActionArrayOutput) ToGetSecurityNamespaceActionArrayOutputWithContext(ctx context.Context) GetSecurityNamespaceActionArrayOutput {
+	return o
+}
+
+func (o GetSecurityNamespaceActionArrayOutput) Index(i pulumi.IntInput) GetSecurityNamespaceActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSecurityNamespaceAction {
+		return vs[0].([]GetSecurityNamespaceAction)[vs[1].(int)]
+	}).(GetSecurityNamespaceActionOutput)
+}
+
+type GetSecurityNamespacesNamespace struct {
+	// A set of available actions (permissions) in this namespace. Each `action` block exports the following:
+	Actions []GetSecurityNamespacesNamespaceAction `pulumi:"actions"`
+	// The display name of the action/permission.
+	DisplayName string `pulumi:"displayName"`
+	// The unique identifier (UUID) of the security namespace.
+	Id string `pulumi:"id"`
+	// The name of the action/permission.
+	Name string `pulumi:"name"`
+}
+
+// GetSecurityNamespacesNamespaceInput is an input type that accepts GetSecurityNamespacesNamespaceArgs and GetSecurityNamespacesNamespaceOutput values.
+// You can construct a concrete instance of `GetSecurityNamespacesNamespaceInput` via:
+//
+//	GetSecurityNamespacesNamespaceArgs{...}
+type GetSecurityNamespacesNamespaceInput interface {
+	pulumi.Input
+
+	ToGetSecurityNamespacesNamespaceOutput() GetSecurityNamespacesNamespaceOutput
+	ToGetSecurityNamespacesNamespaceOutputWithContext(context.Context) GetSecurityNamespacesNamespaceOutput
+}
+
+type GetSecurityNamespacesNamespaceArgs struct {
+	// A set of available actions (permissions) in this namespace. Each `action` block exports the following:
+	Actions GetSecurityNamespacesNamespaceActionArrayInput `pulumi:"actions"`
+	// The display name of the action/permission.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// The unique identifier (UUID) of the security namespace.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the action/permission.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetSecurityNamespacesNamespaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityNamespacesNamespace)(nil)).Elem()
+}
+
+func (i GetSecurityNamespacesNamespaceArgs) ToGetSecurityNamespacesNamespaceOutput() GetSecurityNamespacesNamespaceOutput {
+	return i.ToGetSecurityNamespacesNamespaceOutputWithContext(context.Background())
+}
+
+func (i GetSecurityNamespacesNamespaceArgs) ToGetSecurityNamespacesNamespaceOutputWithContext(ctx context.Context) GetSecurityNamespacesNamespaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityNamespacesNamespaceOutput)
+}
+
+// GetSecurityNamespacesNamespaceArrayInput is an input type that accepts GetSecurityNamespacesNamespaceArray and GetSecurityNamespacesNamespaceArrayOutput values.
+// You can construct a concrete instance of `GetSecurityNamespacesNamespaceArrayInput` via:
+//
+//	GetSecurityNamespacesNamespaceArray{ GetSecurityNamespacesNamespaceArgs{...} }
+type GetSecurityNamespacesNamespaceArrayInput interface {
+	pulumi.Input
+
+	ToGetSecurityNamespacesNamespaceArrayOutput() GetSecurityNamespacesNamespaceArrayOutput
+	ToGetSecurityNamespacesNamespaceArrayOutputWithContext(context.Context) GetSecurityNamespacesNamespaceArrayOutput
+}
+
+type GetSecurityNamespacesNamespaceArray []GetSecurityNamespacesNamespaceInput
+
+func (GetSecurityNamespacesNamespaceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecurityNamespacesNamespace)(nil)).Elem()
+}
+
+func (i GetSecurityNamespacesNamespaceArray) ToGetSecurityNamespacesNamespaceArrayOutput() GetSecurityNamespacesNamespaceArrayOutput {
+	return i.ToGetSecurityNamespacesNamespaceArrayOutputWithContext(context.Background())
+}
+
+func (i GetSecurityNamespacesNamespaceArray) ToGetSecurityNamespacesNamespaceArrayOutputWithContext(ctx context.Context) GetSecurityNamespacesNamespaceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityNamespacesNamespaceArrayOutput)
+}
+
+type GetSecurityNamespacesNamespaceOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityNamespacesNamespaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityNamespacesNamespace)(nil)).Elem()
+}
+
+func (o GetSecurityNamespacesNamespaceOutput) ToGetSecurityNamespacesNamespaceOutput() GetSecurityNamespacesNamespaceOutput {
+	return o
+}
+
+func (o GetSecurityNamespacesNamespaceOutput) ToGetSecurityNamespacesNamespaceOutputWithContext(ctx context.Context) GetSecurityNamespacesNamespaceOutput {
+	return o
+}
+
+// A set of available actions (permissions) in this namespace. Each `action` block exports the following:
+func (o GetSecurityNamespacesNamespaceOutput) Actions() GetSecurityNamespacesNamespaceActionArrayOutput {
+	return o.ApplyT(func(v GetSecurityNamespacesNamespace) []GetSecurityNamespacesNamespaceAction { return v.Actions }).(GetSecurityNamespacesNamespaceActionArrayOutput)
+}
+
+// The display name of the action/permission.
+func (o GetSecurityNamespacesNamespaceOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityNamespacesNamespace) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The unique identifier (UUID) of the security namespace.
+func (o GetSecurityNamespacesNamespaceOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityNamespacesNamespace) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the action/permission.
+func (o GetSecurityNamespacesNamespaceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityNamespacesNamespace) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetSecurityNamespacesNamespaceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityNamespacesNamespaceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecurityNamespacesNamespace)(nil)).Elem()
+}
+
+func (o GetSecurityNamespacesNamespaceArrayOutput) ToGetSecurityNamespacesNamespaceArrayOutput() GetSecurityNamespacesNamespaceArrayOutput {
+	return o
+}
+
+func (o GetSecurityNamespacesNamespaceArrayOutput) ToGetSecurityNamespacesNamespaceArrayOutputWithContext(ctx context.Context) GetSecurityNamespacesNamespaceArrayOutput {
+	return o
+}
+
+func (o GetSecurityNamespacesNamespaceArrayOutput) Index(i pulumi.IntInput) GetSecurityNamespacesNamespaceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSecurityNamespacesNamespace {
+		return vs[0].([]GetSecurityNamespacesNamespace)[vs[1].(int)]
+	}).(GetSecurityNamespacesNamespaceOutput)
+}
+
+type GetSecurityNamespacesNamespaceAction struct {
+	// The bit value for this permission (used in permission calculations).
+	Bit int `pulumi:"bit"`
+	// The display name of the action/permission.
+	DisplayName string `pulumi:"displayName"`
+	// The name of the action/permission.
+	Name string `pulumi:"name"`
+}
+
+// GetSecurityNamespacesNamespaceActionInput is an input type that accepts GetSecurityNamespacesNamespaceActionArgs and GetSecurityNamespacesNamespaceActionOutput values.
+// You can construct a concrete instance of `GetSecurityNamespacesNamespaceActionInput` via:
+//
+//	GetSecurityNamespacesNamespaceActionArgs{...}
+type GetSecurityNamespacesNamespaceActionInput interface {
+	pulumi.Input
+
+	ToGetSecurityNamespacesNamespaceActionOutput() GetSecurityNamespacesNamespaceActionOutput
+	ToGetSecurityNamespacesNamespaceActionOutputWithContext(context.Context) GetSecurityNamespacesNamespaceActionOutput
+}
+
+type GetSecurityNamespacesNamespaceActionArgs struct {
+	// The bit value for this permission (used in permission calculations).
+	Bit pulumi.IntInput `pulumi:"bit"`
+	// The display name of the action/permission.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// The name of the action/permission.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetSecurityNamespacesNamespaceActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityNamespacesNamespaceAction)(nil)).Elem()
+}
+
+func (i GetSecurityNamespacesNamespaceActionArgs) ToGetSecurityNamespacesNamespaceActionOutput() GetSecurityNamespacesNamespaceActionOutput {
+	return i.ToGetSecurityNamespacesNamespaceActionOutputWithContext(context.Background())
+}
+
+func (i GetSecurityNamespacesNamespaceActionArgs) ToGetSecurityNamespacesNamespaceActionOutputWithContext(ctx context.Context) GetSecurityNamespacesNamespaceActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityNamespacesNamespaceActionOutput)
+}
+
+// GetSecurityNamespacesNamespaceActionArrayInput is an input type that accepts GetSecurityNamespacesNamespaceActionArray and GetSecurityNamespacesNamespaceActionArrayOutput values.
+// You can construct a concrete instance of `GetSecurityNamespacesNamespaceActionArrayInput` via:
+//
+//	GetSecurityNamespacesNamespaceActionArray{ GetSecurityNamespacesNamespaceActionArgs{...} }
+type GetSecurityNamespacesNamespaceActionArrayInput interface {
+	pulumi.Input
+
+	ToGetSecurityNamespacesNamespaceActionArrayOutput() GetSecurityNamespacesNamespaceActionArrayOutput
+	ToGetSecurityNamespacesNamespaceActionArrayOutputWithContext(context.Context) GetSecurityNamespacesNamespaceActionArrayOutput
+}
+
+type GetSecurityNamespacesNamespaceActionArray []GetSecurityNamespacesNamespaceActionInput
+
+func (GetSecurityNamespacesNamespaceActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecurityNamespacesNamespaceAction)(nil)).Elem()
+}
+
+func (i GetSecurityNamespacesNamespaceActionArray) ToGetSecurityNamespacesNamespaceActionArrayOutput() GetSecurityNamespacesNamespaceActionArrayOutput {
+	return i.ToGetSecurityNamespacesNamespaceActionArrayOutputWithContext(context.Background())
+}
+
+func (i GetSecurityNamespacesNamespaceActionArray) ToGetSecurityNamespacesNamespaceActionArrayOutputWithContext(ctx context.Context) GetSecurityNamespacesNamespaceActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityNamespacesNamespaceActionArrayOutput)
+}
+
+type GetSecurityNamespacesNamespaceActionOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityNamespacesNamespaceActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityNamespacesNamespaceAction)(nil)).Elem()
+}
+
+func (o GetSecurityNamespacesNamespaceActionOutput) ToGetSecurityNamespacesNamespaceActionOutput() GetSecurityNamespacesNamespaceActionOutput {
+	return o
+}
+
+func (o GetSecurityNamespacesNamespaceActionOutput) ToGetSecurityNamespacesNamespaceActionOutputWithContext(ctx context.Context) GetSecurityNamespacesNamespaceActionOutput {
+	return o
+}
+
+// The bit value for this permission (used in permission calculations).
+func (o GetSecurityNamespacesNamespaceActionOutput) Bit() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSecurityNamespacesNamespaceAction) int { return v.Bit }).(pulumi.IntOutput)
+}
+
+// The display name of the action/permission.
+func (o GetSecurityNamespacesNamespaceActionOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityNamespacesNamespaceAction) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The name of the action/permission.
+func (o GetSecurityNamespacesNamespaceActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityNamespacesNamespaceAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetSecurityNamespacesNamespaceActionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityNamespacesNamespaceActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecurityNamespacesNamespaceAction)(nil)).Elem()
+}
+
+func (o GetSecurityNamespacesNamespaceActionArrayOutput) ToGetSecurityNamespacesNamespaceActionArrayOutput() GetSecurityNamespacesNamespaceActionArrayOutput {
+	return o
+}
+
+func (o GetSecurityNamespacesNamespaceActionArrayOutput) ToGetSecurityNamespacesNamespaceActionArrayOutputWithContext(ctx context.Context) GetSecurityNamespacesNamespaceActionArrayOutput {
+	return o
+}
+
+func (o GetSecurityNamespacesNamespaceActionArrayOutput) Index(i pulumi.IntInput) GetSecurityNamespacesNamespaceActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSecurityNamespacesNamespaceAction {
+		return vs[0].([]GetSecurityNamespacesNamespaceAction)[vs[1].(int)]
+	}).(GetSecurityNamespacesNamespaceActionOutput)
+}
+
 type GetSecurityroleDefinitionsDefinition struct {
 	// The mask of allowed permissions of the Security Role Definition.
 	AllowPermissions int `pulumi:"allowPermissions"`
@@ -20900,12 +21706,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupVariableTypeArrayInput)(nil)).Elem(), VariableGroupVariableTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemRelationInput)(nil)).Elem(), WorkitemRelationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemRelationArrayInput)(nil)).Elem(), WorkitemRelationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemtrackingFieldSupportedOperationInput)(nil)).Elem(), WorkitemtrackingFieldSupportedOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemtrackingFieldSupportedOperationArrayInput)(nil)).Elem(), WorkitemtrackingFieldSupportedOperationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemtrackingprocessControlContributionInput)(nil)).Elem(), WorkitemtrackingprocessControlContributionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemtrackingprocessControlContributionPtrInput)(nil)).Elem(), WorkitemtrackingprocessControlContributionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemtrackingprocessGroupControlInput)(nil)).Elem(), WorkitemtrackingprocessGroupControlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemtrackingprocessGroupControlArrayInput)(nil)).Elem(), WorkitemtrackingprocessGroupControlArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemtrackingprocessGroupControlContributionInput)(nil)).Elem(), WorkitemtrackingprocessGroupControlContributionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemtrackingprocessGroupControlContributionPtrInput)(nil)).Elem(), WorkitemtrackingprocessGroupControlContributionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemtrackingprocessPageSectionInput)(nil)).Elem(), WorkitemtrackingprocessPageSectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemtrackingprocessPageSectionArrayInput)(nil)).Elem(), WorkitemtrackingprocessPageSectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemtrackingprocessRuleActionInput)(nil)).Elem(), WorkitemtrackingprocessRuleActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemtrackingprocessRuleActionArrayInput)(nil)).Elem(), WorkitemtrackingprocessRuleActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemtrackingprocessRuleConditionInput)(nil)).Elem(), WorkitemtrackingprocessRuleConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemtrackingprocessRuleConditionArrayInput)(nil)).Elem(), WorkitemtrackingprocessRuleConditionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemtrackingprocessWorkitemtypePageInput)(nil)).Elem(), WorkitemtrackingprocessWorkitemtypePageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemtrackingprocessWorkitemtypePageArrayInput)(nil)).Elem(), WorkitemtrackingprocessWorkitemtypePageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkitemtrackingprocessWorkitemtypePageSectionInput)(nil)).Elem(), WorkitemtrackingprocessWorkitemtypePageSectionArgs{})
@@ -20962,6 +21776,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetProjectsProjectArrayInput)(nil)).Elem(), GetProjectsProjectArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoriesRepositoryInput)(nil)).Elem(), GetRepositoriesRepositoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoriesRepositoryArrayInput)(nil)).Elem(), GetRepositoriesRepositoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityNamespaceActionInput)(nil)).Elem(), GetSecurityNamespaceActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityNamespaceActionArrayInput)(nil)).Elem(), GetSecurityNamespaceActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityNamespacesNamespaceInput)(nil)).Elem(), GetSecurityNamespacesNamespaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityNamespacesNamespaceArrayInput)(nil)).Elem(), GetSecurityNamespacesNamespaceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityNamespacesNamespaceActionInput)(nil)).Elem(), GetSecurityNamespacesNamespaceActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityNamespacesNamespaceActionArrayInput)(nil)).Elem(), GetSecurityNamespacesNamespaceActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityroleDefinitionsDefinitionInput)(nil)).Elem(), GetSecurityroleDefinitionsDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityroleDefinitionsDefinitionArrayInput)(nil)).Elem(), GetSecurityroleDefinitionsDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamsTeamInput)(nil)).Elem(), GetTeamsTeamArgs{})
@@ -21170,12 +21990,20 @@ func init() {
 	pulumi.RegisterOutputType(VariableGroupVariableTypeArrayOutput{})
 	pulumi.RegisterOutputType(WorkitemRelationOutput{})
 	pulumi.RegisterOutputType(WorkitemRelationArrayOutput{})
+	pulumi.RegisterOutputType(WorkitemtrackingFieldSupportedOperationOutput{})
+	pulumi.RegisterOutputType(WorkitemtrackingFieldSupportedOperationArrayOutput{})
 	pulumi.RegisterOutputType(WorkitemtrackingprocessControlContributionOutput{})
 	pulumi.RegisterOutputType(WorkitemtrackingprocessControlContributionPtrOutput{})
 	pulumi.RegisterOutputType(WorkitemtrackingprocessGroupControlOutput{})
 	pulumi.RegisterOutputType(WorkitemtrackingprocessGroupControlArrayOutput{})
 	pulumi.RegisterOutputType(WorkitemtrackingprocessGroupControlContributionOutput{})
 	pulumi.RegisterOutputType(WorkitemtrackingprocessGroupControlContributionPtrOutput{})
+	pulumi.RegisterOutputType(WorkitemtrackingprocessPageSectionOutput{})
+	pulumi.RegisterOutputType(WorkitemtrackingprocessPageSectionArrayOutput{})
+	pulumi.RegisterOutputType(WorkitemtrackingprocessRuleActionOutput{})
+	pulumi.RegisterOutputType(WorkitemtrackingprocessRuleActionArrayOutput{})
+	pulumi.RegisterOutputType(WorkitemtrackingprocessRuleConditionOutput{})
+	pulumi.RegisterOutputType(WorkitemtrackingprocessRuleConditionArrayOutput{})
 	pulumi.RegisterOutputType(WorkitemtrackingprocessWorkitemtypePageOutput{})
 	pulumi.RegisterOutputType(WorkitemtrackingprocessWorkitemtypePageArrayOutput{})
 	pulumi.RegisterOutputType(WorkitemtrackingprocessWorkitemtypePageSectionOutput{})
@@ -21232,6 +22060,12 @@ func init() {
 	pulumi.RegisterOutputType(GetProjectsProjectArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoriesRepositoryOutput{})
 	pulumi.RegisterOutputType(GetRepositoriesRepositoryArrayOutput{})
+	pulumi.RegisterOutputType(GetSecurityNamespaceActionOutput{})
+	pulumi.RegisterOutputType(GetSecurityNamespaceActionArrayOutput{})
+	pulumi.RegisterOutputType(GetSecurityNamespacesNamespaceOutput{})
+	pulumi.RegisterOutputType(GetSecurityNamespacesNamespaceArrayOutput{})
+	pulumi.RegisterOutputType(GetSecurityNamespacesNamespaceActionOutput{})
+	pulumi.RegisterOutputType(GetSecurityNamespacesNamespaceActionArrayOutput{})
 	pulumi.RegisterOutputType(GetSecurityroleDefinitionsDefinitionOutput{})
 	pulumi.RegisterOutputType(GetSecurityroleDefinitionsDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(GetTeamsTeamOutput{})
