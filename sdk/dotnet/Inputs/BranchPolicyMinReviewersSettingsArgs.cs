@@ -25,6 +25,14 @@ namespace Pulumi.AzureDevOps.Inputs
         public Input<bool>? LastPusherCannotApprove { get; set; }
 
         /// <summary>
+        /// Require at least one approval on every iteration. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** If `OnPushResetAllVotes` is `True` then `OnPushResetApprovedVotes` will be set to `True`. To enable `OnPushResetApprovedVotes`, you need explicitly set `OnPushResetAllVotes` `False` or not configure.
+        /// </summary>
+        [Input("onEachIterationRequireVote")]
+        public Input<bool>? OnEachIterationRequireVote { get; set; }
+
+        /// <summary>
         /// On last iteration require vote. Defaults to `False`.
         /// </summary>
         [Input("onLastIterationRequireVote")]
@@ -32,8 +40,6 @@ namespace Pulumi.AzureDevOps.Inputs
 
         /// <summary>
         /// When new changes are pushed reset all code reviewer votes. Defaults to `False`.
-        /// 
-        /// &gt; **Note:** If `OnPushResetAllVotes` is `True` then `OnPushResetApprovedVotes` will be set to `True`. To enable `OnPushResetApprovedVotes`, you need explicitly set `OnPushResetAllVotes` `False` or not configure.
         /// </summary>
         [Input("onPushResetAllVotes")]
         public Input<bool>? OnPushResetAllVotes { get; set; }

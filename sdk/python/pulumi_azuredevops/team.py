@@ -260,16 +260,6 @@ class Team(pulumi.CustomResource):
                  project_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        ## *---
-
-        layout: "azuredevops"
-        page_title: "AzureDevops: Team"
-        description: |-
-          Manages a team within a project in a Azure DevOps organization.
-        ---
-
-        # Team
-
         Manages a team within a project in a Azure DevOps organization.
 
         ## Example Usage
@@ -336,16 +326,6 @@ class Team(pulumi.CustomResource):
                  args: TeamArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## *---
-
-        layout: "azuredevops"
-        page_title: "AzureDevops: Team"
-        description: |-
-          Manages a team within a project in a Azure DevOps organization.
-        ---
-
-        # Team
-
         Manages a team within a project in a Azure DevOps organization.
 
         ## Example Usage

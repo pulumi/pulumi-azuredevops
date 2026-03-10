@@ -205,12 +205,20 @@ __all__ = [
     'VariableGroupVariableArgsDict',
     'WorkitemRelationArgs',
     'WorkitemRelationArgsDict',
+    'WorkitemtrackingFieldSupportedOperationArgs',
+    'WorkitemtrackingFieldSupportedOperationArgsDict',
     'WorkitemtrackingprocessControlContributionArgs',
     'WorkitemtrackingprocessControlContributionArgsDict',
     'WorkitemtrackingprocessGroupControlArgs',
     'WorkitemtrackingprocessGroupControlArgsDict',
     'WorkitemtrackingprocessGroupControlContributionArgs',
     'WorkitemtrackingprocessGroupControlContributionArgsDict',
+    'WorkitemtrackingprocessPageSectionArgs',
+    'WorkitemtrackingprocessPageSectionArgsDict',
+    'WorkitemtrackingprocessRuleActionArgs',
+    'WorkitemtrackingprocessRuleActionArgsDict',
+    'WorkitemtrackingprocessRuleConditionArgs',
+    'WorkitemtrackingprocessRuleConditionArgsDict',
     'WorkitemtrackingprocessWorkitemtypePageArgs',
     'WorkitemtrackingprocessWorkitemtypePageArgsDict',
     'WorkitemtrackingprocessWorkitemtypePageSectionArgs',
@@ -942,6 +950,12 @@ class BranchPolicyMinReviewersSettingsArgsDict(TypedDict):
     """
     Prohibit the most recent pusher from approving their own changes. Defaults to `false`.
     """
+    on_each_iteration_require_vote: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Require at least one approval on every iteration. Defaults to `false`.
+
+    > **Note:** If `on_push_reset_all_votes` is `true` then `on_push_reset_approved_votes` will be set to `true`. To enable `on_push_reset_approved_votes`, you need explicitly set `on_push_reset_all_votes` `false` or not configure.
+    """
     on_last_iteration_require_vote: NotRequired[pulumi.Input[_builtins.bool]]
     """
     On last iteration require vote. Defaults to `false`.
@@ -949,8 +963,6 @@ class BranchPolicyMinReviewersSettingsArgsDict(TypedDict):
     on_push_reset_all_votes: NotRequired[pulumi.Input[_builtins.bool]]
     """
     When new changes are pushed reset all code reviewer votes. Defaults to `false`.
-
-    > **Note:** If `on_push_reset_all_votes` is `true` then `on_push_reset_approved_votes` will be set to `true`. To enable `on_push_reset_approved_votes`, you need explicitly set `on_push_reset_all_votes` `false` or not configure.
     """
     on_push_reset_approved_votes: NotRequired[pulumi.Input[_builtins.bool]]
     """
@@ -971,6 +983,7 @@ class BranchPolicyMinReviewersSettingsArgs:
                  scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyMinReviewersSettingsScopeArgs']]],
                  allow_completion_with_rejects_or_waits: Optional[pulumi.Input[_builtins.bool]] = None,
                  last_pusher_cannot_approve: Optional[pulumi.Input[_builtins.bool]] = None,
+                 on_each_iteration_require_vote: Optional[pulumi.Input[_builtins.bool]] = None,
                  on_last_iteration_require_vote: Optional[pulumi.Input[_builtins.bool]] = None,
                  on_push_reset_all_votes: Optional[pulumi.Input[_builtins.bool]] = None,
                  on_push_reset_approved_votes: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -980,10 +993,11 @@ class BranchPolicyMinReviewersSettingsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['BranchPolicyMinReviewersSettingsScopeArgs']]] scopes: A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         :param pulumi.Input[_builtins.bool] allow_completion_with_rejects_or_waits: Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] last_pusher_cannot_approve: Prohibit the most recent pusher from approving their own changes. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] on_last_iteration_require_vote: On last iteration require vote. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] on_push_reset_all_votes: When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] on_each_iteration_require_vote: Require at least one approval on every iteration. Defaults to `false`.
                
                > **Note:** If `on_push_reset_all_votes` is `true` then `on_push_reset_approved_votes` will be set to `true`. To enable `on_push_reset_approved_votes`, you need explicitly set `on_push_reset_all_votes` `false` or not configure.
+        :param pulumi.Input[_builtins.bool] on_last_iteration_require_vote: On last iteration require vote. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] on_push_reset_all_votes: When new changes are pushed reset all code reviewer votes. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] on_push_reset_approved_votes: When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
         :param pulumi.Input[_builtins.int] reviewer_count: The number of reviewers needed to approve.
         :param pulumi.Input[_builtins.bool] submitter_can_vote: Allow requesters to approve their own changes. Defaults to `false`.
@@ -993,6 +1007,8 @@ class BranchPolicyMinReviewersSettingsArgs:
             pulumi.set(__self__, "allow_completion_with_rejects_or_waits", allow_completion_with_rejects_or_waits)
         if last_pusher_cannot_approve is not None:
             pulumi.set(__self__, "last_pusher_cannot_approve", last_pusher_cannot_approve)
+        if on_each_iteration_require_vote is not None:
+            pulumi.set(__self__, "on_each_iteration_require_vote", on_each_iteration_require_vote)
         if on_last_iteration_require_vote is not None:
             pulumi.set(__self__, "on_last_iteration_require_vote", on_last_iteration_require_vote)
         if on_push_reset_all_votes is not None:
@@ -1041,6 +1057,20 @@ class BranchPolicyMinReviewersSettingsArgs:
         pulumi.set(self, "last_pusher_cannot_approve", value)
 
     @_builtins.property
+    @pulumi.getter(name="onEachIterationRequireVote")
+    def on_each_iteration_require_vote(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Require at least one approval on every iteration. Defaults to `false`.
+
+        > **Note:** If `on_push_reset_all_votes` is `true` then `on_push_reset_approved_votes` will be set to `true`. To enable `on_push_reset_approved_votes`, you need explicitly set `on_push_reset_all_votes` `false` or not configure.
+        """
+        return pulumi.get(self, "on_each_iteration_require_vote")
+
+    @on_each_iteration_require_vote.setter
+    def on_each_iteration_require_vote(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "on_each_iteration_require_vote", value)
+
+    @_builtins.property
     @pulumi.getter(name="onLastIterationRequireVote")
     def on_last_iteration_require_vote(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -1057,8 +1087,6 @@ class BranchPolicyMinReviewersSettingsArgs:
     def on_push_reset_all_votes(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         When new changes are pushed reset all code reviewer votes. Defaults to `false`.
-
-        > **Note:** If `on_push_reset_all_votes` is `true` then `on_push_reset_approved_votes` will be set to `true`. To enable `on_push_reset_approved_votes`, you need explicitly set `on_push_reset_all_votes` `false` or not configure.
         """
         return pulumi.get(self, "on_push_reset_all_votes")
 
@@ -6869,6 +6897,55 @@ class WorkitemRelationArgs:
         pulumi.set(self, "url", value)
 
 
+class WorkitemtrackingFieldSupportedOperationArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The friendly name of the field. Changing this forces a new field to be created.
+    """
+    reference_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reference name of the field (e.g., `Custom.MyField`). Changing this forces a new field to be created.
+    """
+
+@pulumi.input_type
+class WorkitemtrackingFieldSupportedOperationArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 reference_name: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: The friendly name of the field. Changing this forces a new field to be created.
+        :param pulumi.Input[_builtins.str] reference_name: The reference name of the field (e.g., `Custom.MyField`). Changing this forces a new field to be created.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if reference_name is not None:
+            pulumi.set(__self__, "reference_name", reference_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The friendly name of the field. Changing this forces a new field to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="referenceName")
+    def reference_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The reference name of the field (e.g., `Custom.MyField`). Changing this forces a new field to be created.
+        """
+        return pulumi.get(self, "reference_name")
+
+    @reference_name.setter
+    def reference_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "reference_name", value)
+
+
 class WorkitemtrackingprocessControlContributionArgsDict(TypedDict):
     contribution_id: pulumi.Input[_builtins.str]
     """
@@ -7291,6 +7368,170 @@ class WorkitemtrackingprocessGroupControlContributionArgs:
     @show_on_deleted_work_item.setter
     def show_on_deleted_work_item(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "show_on_deleted_work_item", value)
+
+
+class WorkitemtrackingprocessPageSectionArgsDict(TypedDict):
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the section.
+    """
+
+@pulumi.input_type
+class WorkitemtrackingprocessPageSectionArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] id: The ID of the section.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the section.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+
+class WorkitemtrackingprocessRuleActionArgsDict(TypedDict):
+    action_type: pulumi.Input[_builtins.str]
+    """
+    Type of action. Valid values: `makeRequired`, `makeReadOnly`, `setDefaultValue`, `setDefaultFromClock`, `setDefaultFromField`, `copyValue`, `copyFromClock`, `copyFromCurrentUser`, `copyFromField`, `setValueToEmpty`, `copyFromServerClock`, `copyFromServerCurrentUser`, `hideTargetField`, `disallowValue`.
+    """
+    target_field: pulumi.Input[_builtins.str]
+    """
+    Field (reference name) to act on.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Value to set on the target field.
+    """
+
+@pulumi.input_type
+class WorkitemtrackingprocessRuleActionArgs:
+    def __init__(__self__, *,
+                 action_type: pulumi.Input[_builtins.str],
+                 target_field: pulumi.Input[_builtins.str],
+                 value: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] action_type: Type of action. Valid values: `makeRequired`, `makeReadOnly`, `setDefaultValue`, `setDefaultFromClock`, `setDefaultFromField`, `copyValue`, `copyFromClock`, `copyFromCurrentUser`, `copyFromField`, `setValueToEmpty`, `copyFromServerClock`, `copyFromServerCurrentUser`, `hideTargetField`, `disallowValue`.
+        :param pulumi.Input[_builtins.str] target_field: Field (reference name) to act on.
+        :param pulumi.Input[_builtins.str] value: Value to set on the target field.
+        """
+        pulumi.set(__self__, "action_type", action_type)
+        pulumi.set(__self__, "target_field", target_field)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Type of action. Valid values: `makeRequired`, `makeReadOnly`, `setDefaultValue`, `setDefaultFromClock`, `setDefaultFromField`, `copyValue`, `copyFromClock`, `copyFromCurrentUser`, `copyFromField`, `setValueToEmpty`, `copyFromServerClock`, `copyFromServerCurrentUser`, `hideTargetField`, `disallowValue`.
+        """
+        return pulumi.get(self, "action_type")
+
+    @action_type.setter
+    def action_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "action_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetField")
+    def target_field(self) -> pulumi.Input[_builtins.str]:
+        """
+        Field (reference name) to act on.
+        """
+        return pulumi.get(self, "target_field")
+
+    @target_field.setter
+    def target_field(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "target_field", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Value to set on the target field.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class WorkitemtrackingprocessRuleConditionArgsDict(TypedDict):
+    condition_type: pulumi.Input[_builtins.str]
+    """
+    Type of condition. Valid values: `when`, `whenNot`, `whenChanged`, `whenNotChanged`, `whenWas`, `whenCurrentUserIsMemberOfGroup`, `whenCurrentUserIsNotMemberOfGroup`.
+    """
+    field: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Field reference name for the condition. Required for most condition types.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Value to match for the condition.
+    """
+
+@pulumi.input_type
+class WorkitemtrackingprocessRuleConditionArgs:
+    def __init__(__self__, *,
+                 condition_type: pulumi.Input[_builtins.str],
+                 field: Optional[pulumi.Input[_builtins.str]] = None,
+                 value: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] condition_type: Type of condition. Valid values: `when`, `whenNot`, `whenChanged`, `whenNotChanged`, `whenWas`, `whenCurrentUserIsMemberOfGroup`, `whenCurrentUserIsNotMemberOfGroup`.
+        :param pulumi.Input[_builtins.str] field: Field reference name for the condition. Required for most condition types.
+        :param pulumi.Input[_builtins.str] value: Value to match for the condition.
+        """
+        pulumi.set(__self__, "condition_type", condition_type)
+        if field is not None:
+            pulumi.set(__self__, "field", field)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="conditionType")
+    def condition_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Type of condition. Valid values: `when`, `whenNot`, `whenChanged`, `whenNotChanged`, `whenWas`, `whenCurrentUserIsMemberOfGroup`, `whenCurrentUserIsNotMemberOfGroup`.
+        """
+        return pulumi.get(self, "condition_type")
+
+    @condition_type.setter
+    def condition_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "condition_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def field(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Field reference name for the condition. Required for most condition types.
+        """
+        return pulumi.get(self, "field")
+
+    @field.setter
+    def field(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "field", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Value to match for the condition.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value", value)
 
 
 class WorkitemtrackingprocessWorkitemtypePageArgsDict(TypedDict):

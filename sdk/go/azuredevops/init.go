@@ -59,6 +59,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CheckRestApi{}
 	case "azuredevops:index/dashboard:Dashboard":
 		r = &Dashboard{}
+	case "azuredevops:index/deploymentGroup:DeploymentGroup":
+		r = &DeploymentGroup{}
 	case "azuredevops:index/elasticPool:ElasticPool":
 		r = &ElasticPool{}
 	case "azuredevops:index/environment:Environment":
@@ -123,6 +125,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RepositoryPolicyReservedNames{}
 	case "azuredevops:index/resourceAuthorization:ResourceAuthorization":
 		r = &ResourceAuthorization{}
+	case "azuredevops:index/securityPermissions:SecurityPermissions":
+		r = &SecurityPermissions{}
 	case "azuredevops:index/securityroleAssignment:SecurityroleAssignment":
 		r = &SecurityroleAssignment{}
 	case "azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory":
@@ -247,14 +251,34 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Workitemquery{}
 	case "azuredevops:index/workitemqueryFolder:WorkitemqueryFolder":
 		r = &WorkitemqueryFolder{}
+	case "azuredevops:index/workitemtrackingField:WorkitemtrackingField":
+		r = &WorkitemtrackingField{}
 	case "azuredevops:index/workitemtrackingprocessControl:WorkitemtrackingprocessControl":
 		r = &WorkitemtrackingprocessControl{}
+	case "azuredevops:index/workitemtrackingprocessField:WorkitemtrackingprocessField":
+		r = &WorkitemtrackingprocessField{}
 	case "azuredevops:index/workitemtrackingprocessGroup:WorkitemtrackingprocessGroup":
 		r = &WorkitemtrackingprocessGroup{}
+	case "azuredevops:index/workitemtrackingprocessInheritedControl:WorkitemtrackingprocessInheritedControl":
+		r = &WorkitemtrackingprocessInheritedControl{}
+	case "azuredevops:index/workitemtrackingprocessInheritedPage:WorkitemtrackingprocessInheritedPage":
+		r = &WorkitemtrackingprocessInheritedPage{}
+	case "azuredevops:index/workitemtrackingprocessInheritedState:WorkitemtrackingprocessInheritedState":
+		r = &WorkitemtrackingprocessInheritedState{}
+	case "azuredevops:index/workitemtrackingprocessList:WorkitemtrackingprocessList":
+		r = &WorkitemtrackingprocessList{}
+	case "azuredevops:index/workitemtrackingprocessPage:WorkitemtrackingprocessPage":
+		r = &WorkitemtrackingprocessPage{}
 	case "azuredevops:index/workitemtrackingprocessProcess:WorkitemtrackingprocessProcess":
 		r = &WorkitemtrackingprocessProcess{}
 	case "azuredevops:index/workitemtrackingprocessProcessPermissions:WorkitemtrackingprocessProcessPermissions":
 		r = &WorkitemtrackingprocessProcessPermissions{}
+	case "azuredevops:index/workitemtrackingprocessRule:WorkitemtrackingprocessRule":
+		r = &WorkitemtrackingprocessRule{}
+	case "azuredevops:index/workitemtrackingprocessState:WorkitemtrackingprocessState":
+		r = &WorkitemtrackingprocessState{}
+	case "azuredevops:index/workitemtrackingprocessSystemControl:WorkitemtrackingprocessSystemControl":
+		r = &WorkitemtrackingprocessSystemControl{}
 	case "azuredevops:index/workitemtrackingprocessWorkitemtype:WorkitemtrackingprocessWorkitemtype":
 		r = &WorkitemtrackingprocessWorkitemtype{}
 	default:
@@ -381,6 +405,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/dashboard",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/deploymentGroup",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -541,6 +570,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/resourceAuthorization",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/securityPermissions",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -855,12 +889,47 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azuredevops",
+		"index/workitemtrackingField",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
 		"index/workitemtrackingprocessControl",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"azuredevops",
+		"index/workitemtrackingprocessField",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
 		"index/workitemtrackingprocessGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/workitemtrackingprocessInheritedControl",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/workitemtrackingprocessInheritedPage",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/workitemtrackingprocessInheritedState",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/workitemtrackingprocessList",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/workitemtrackingprocessPage",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -871,6 +940,21 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/workitemtrackingprocessProcessPermissions",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/workitemtrackingprocessRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/workitemtrackingprocessState",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/workitemtrackingprocessSystemControl",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

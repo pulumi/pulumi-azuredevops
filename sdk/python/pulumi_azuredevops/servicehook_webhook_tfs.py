@@ -41,6 +41,7 @@ class ServicehookWebhookTfsArgs:
                  repository_renamed: Optional[pulumi.Input['ServicehookWebhookTfsRepositoryRenamedArgs']] = None,
                  repository_status_changed: Optional[pulumi.Input['ServicehookWebhookTfsRepositoryStatusChangedArgs']] = None,
                  resource_details_to_send: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_version: Optional[pulumi.Input[_builtins.str]] = None,
                  service_connection_created: Optional[pulumi.Input['ServicehookWebhookTfsServiceConnectionCreatedArgs']] = None,
                  service_connection_updated: Optional[pulumi.Input['ServicehookWebhookTfsServiceConnectionUpdatedArgs']] = None,
                  tfvc_checkin: Optional[pulumi.Input['ServicehookWebhookTfsTfvcCheckinArgs']] = None,
@@ -60,6 +61,7 @@ class ServicehookWebhookTfsArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] http_headers: HTTP headers as key-value pairs to include in the webhook request.
         :param pulumi.Input[_builtins.str] messages_to_send: Messages to send - `all`, `text`, `html`, `markdown`, or `none`. Defaults to `all`.
         :param pulumi.Input[_builtins.str] resource_details_to_send: Resource details to send - `all`, `minimal`, or `none`. Defaults to `all`.
+        :param pulumi.Input[_builtins.str] resource_version: The resource version for the webhook subscription. Defaults to `latest`.
         """
         pulumi.set(__self__, "project_id", project_id)
         pulumi.set(__self__, "url", url)
@@ -99,6 +101,8 @@ class ServicehookWebhookTfsArgs:
             pulumi.set(__self__, "repository_status_changed", repository_status_changed)
         if resource_details_to_send is not None:
             pulumi.set(__self__, "resource_details_to_send", resource_details_to_send)
+        if resource_version is not None:
+            pulumi.set(__self__, "resource_version", resource_version)
         if service_connection_created is not None:
             pulumi.set(__self__, "service_connection_created", service_connection_created)
         if service_connection_updated is not None:
@@ -324,6 +328,18 @@ class ServicehookWebhookTfsArgs:
         pulumi.set(self, "resource_details_to_send", value)
 
     @_builtins.property
+    @pulumi.getter(name="resourceVersion")
+    def resource_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The resource version for the webhook subscription. Defaults to `latest`.
+        """
+        return pulumi.get(self, "resource_version")
+
+    @resource_version.setter
+    def resource_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "resource_version", value)
+
+    @_builtins.property
     @pulumi.getter(name="serviceConnectionCreated")
     def service_connection_created(self) -> Optional[pulumi.Input['ServicehookWebhookTfsServiceConnectionCreatedArgs']]:
         return pulumi.get(self, "service_connection_created")
@@ -418,6 +434,7 @@ class _ServicehookWebhookTfsState:
                  repository_renamed: Optional[pulumi.Input['ServicehookWebhookTfsRepositoryRenamedArgs']] = None,
                  repository_status_changed: Optional[pulumi.Input['ServicehookWebhookTfsRepositoryStatusChangedArgs']] = None,
                  resource_details_to_send: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_version: Optional[pulumi.Input[_builtins.str]] = None,
                  service_connection_created: Optional[pulumi.Input['ServicehookWebhookTfsServiceConnectionCreatedArgs']] = None,
                  service_connection_updated: Optional[pulumi.Input['ServicehookWebhookTfsServiceConnectionUpdatedArgs']] = None,
                  tfvc_checkin: Optional[pulumi.Input['ServicehookWebhookTfsTfvcCheckinArgs']] = None,
@@ -437,6 +454,7 @@ class _ServicehookWebhookTfsState:
         :param pulumi.Input[_builtins.str] messages_to_send: Messages to send - `all`, `text`, `html`, `markdown`, or `none`. Defaults to `all`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project. Changing this forces a new Service Hook Webhook TFS to be created.
         :param pulumi.Input[_builtins.str] resource_details_to_send: Resource details to send - `all`, `minimal`, or `none`. Defaults to `all`.
+        :param pulumi.Input[_builtins.str] resource_version: The resource version for the webhook subscription. Defaults to `latest`.
         :param pulumi.Input[_builtins.str] url: The URL to send HTTP POST to.
         """
         if accept_untrusted_certs is not None:
@@ -477,6 +495,8 @@ class _ServicehookWebhookTfsState:
             pulumi.set(__self__, "repository_status_changed", repository_status_changed)
         if resource_details_to_send is not None:
             pulumi.set(__self__, "resource_details_to_send", resource_details_to_send)
+        if resource_version is not None:
+            pulumi.set(__self__, "resource_version", resource_version)
         if service_connection_created is not None:
             pulumi.set(__self__, "service_connection_created", service_connection_created)
         if service_connection_updated is not None:
@@ -692,6 +712,18 @@ class _ServicehookWebhookTfsState:
         pulumi.set(self, "resource_details_to_send", value)
 
     @_builtins.property
+    @pulumi.getter(name="resourceVersion")
+    def resource_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The resource version for the webhook subscription. Defaults to `latest`.
+        """
+        return pulumi.get(self, "resource_version")
+
+    @resource_version.setter
+    def resource_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "resource_version", value)
+
+    @_builtins.property
     @pulumi.getter(name="serviceConnectionCreated")
     def service_connection_created(self) -> Optional[pulumi.Input['ServicehookWebhookTfsServiceConnectionCreatedArgs']]:
         return pulumi.get(self, "service_connection_created")
@@ -801,6 +833,7 @@ class ServicehookWebhookTfs(pulumi.CustomResource):
                  repository_renamed: Optional[pulumi.Input[Union['ServicehookWebhookTfsRepositoryRenamedArgs', 'ServicehookWebhookTfsRepositoryRenamedArgsDict']]] = None,
                  repository_status_changed: Optional[pulumi.Input[Union['ServicehookWebhookTfsRepositoryStatusChangedArgs', 'ServicehookWebhookTfsRepositoryStatusChangedArgsDict']]] = None,
                  resource_details_to_send: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_version: Optional[pulumi.Input[_builtins.str]] = None,
                  service_connection_created: Optional[pulumi.Input[Union['ServicehookWebhookTfsServiceConnectionCreatedArgs', 'ServicehookWebhookTfsServiceConnectionCreatedArgsDict']]] = None,
                  service_connection_updated: Optional[pulumi.Input[Union['ServicehookWebhookTfsServiceConnectionUpdatedArgs', 'ServicehookWebhookTfsServiceConnectionUpdatedArgsDict']]] = None,
                  tfvc_checkin: Optional[pulumi.Input[Union['ServicehookWebhookTfsTfvcCheckinArgs', 'ServicehookWebhookTfsTfvcCheckinArgsDict']]] = None,
@@ -918,6 +951,7 @@ class ServicehookWebhookTfs(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] messages_to_send: Messages to send - `all`, `text`, `html`, `markdown`, or `none`. Defaults to `all`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project. Changing this forces a new Service Hook Webhook TFS to be created.
         :param pulumi.Input[_builtins.str] resource_details_to_send: Resource details to send - `all`, `minimal`, or `none`. Defaults to `all`.
+        :param pulumi.Input[_builtins.str] resource_version: The resource version for the webhook subscription. Defaults to `latest`.
         :param pulumi.Input[_builtins.str] url: The URL to send HTTP POST to.
         """
         ...
@@ -1057,6 +1091,7 @@ class ServicehookWebhookTfs(pulumi.CustomResource):
                  repository_renamed: Optional[pulumi.Input[Union['ServicehookWebhookTfsRepositoryRenamedArgs', 'ServicehookWebhookTfsRepositoryRenamedArgsDict']]] = None,
                  repository_status_changed: Optional[pulumi.Input[Union['ServicehookWebhookTfsRepositoryStatusChangedArgs', 'ServicehookWebhookTfsRepositoryStatusChangedArgsDict']]] = None,
                  resource_details_to_send: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_version: Optional[pulumi.Input[_builtins.str]] = None,
                  service_connection_created: Optional[pulumi.Input[Union['ServicehookWebhookTfsServiceConnectionCreatedArgs', 'ServicehookWebhookTfsServiceConnectionCreatedArgsDict']]] = None,
                  service_connection_updated: Optional[pulumi.Input[Union['ServicehookWebhookTfsServiceConnectionUpdatedArgs', 'ServicehookWebhookTfsServiceConnectionUpdatedArgsDict']]] = None,
                  tfvc_checkin: Optional[pulumi.Input[Union['ServicehookWebhookTfsTfvcCheckinArgs', 'ServicehookWebhookTfsTfvcCheckinArgsDict']]] = None,
@@ -1096,6 +1131,7 @@ class ServicehookWebhookTfs(pulumi.CustomResource):
             __props__.__dict__["repository_renamed"] = repository_renamed
             __props__.__dict__["repository_status_changed"] = repository_status_changed
             __props__.__dict__["resource_details_to_send"] = resource_details_to_send
+            __props__.__dict__["resource_version"] = resource_version
             __props__.__dict__["service_connection_created"] = service_connection_created
             __props__.__dict__["service_connection_updated"] = service_connection_updated
             __props__.__dict__["tfvc_checkin"] = tfvc_checkin
@@ -1138,6 +1174,7 @@ class ServicehookWebhookTfs(pulumi.CustomResource):
             repository_renamed: Optional[pulumi.Input[Union['ServicehookWebhookTfsRepositoryRenamedArgs', 'ServicehookWebhookTfsRepositoryRenamedArgsDict']]] = None,
             repository_status_changed: Optional[pulumi.Input[Union['ServicehookWebhookTfsRepositoryStatusChangedArgs', 'ServicehookWebhookTfsRepositoryStatusChangedArgsDict']]] = None,
             resource_details_to_send: Optional[pulumi.Input[_builtins.str]] = None,
+            resource_version: Optional[pulumi.Input[_builtins.str]] = None,
             service_connection_created: Optional[pulumi.Input[Union['ServicehookWebhookTfsServiceConnectionCreatedArgs', 'ServicehookWebhookTfsServiceConnectionCreatedArgsDict']]] = None,
             service_connection_updated: Optional[pulumi.Input[Union['ServicehookWebhookTfsServiceConnectionUpdatedArgs', 'ServicehookWebhookTfsServiceConnectionUpdatedArgsDict']]] = None,
             tfvc_checkin: Optional[pulumi.Input[Union['ServicehookWebhookTfsTfvcCheckinArgs', 'ServicehookWebhookTfsTfvcCheckinArgsDict']]] = None,
@@ -1162,6 +1199,7 @@ class ServicehookWebhookTfs(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] messages_to_send: Messages to send - `all`, `text`, `html`, `markdown`, or `none`. Defaults to `all`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project. Changing this forces a new Service Hook Webhook TFS to be created.
         :param pulumi.Input[_builtins.str] resource_details_to_send: Resource details to send - `all`, `minimal`, or `none`. Defaults to `all`.
+        :param pulumi.Input[_builtins.str] resource_version: The resource version for the webhook subscription. Defaults to `latest`.
         :param pulumi.Input[_builtins.str] url: The URL to send HTTP POST to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1187,6 +1225,7 @@ class ServicehookWebhookTfs(pulumi.CustomResource):
         __props__.__dict__["repository_renamed"] = repository_renamed
         __props__.__dict__["repository_status_changed"] = repository_status_changed
         __props__.__dict__["resource_details_to_send"] = resource_details_to_send
+        __props__.__dict__["resource_version"] = resource_version
         __props__.__dict__["service_connection_created"] = service_connection_created
         __props__.__dict__["service_connection_updated"] = service_connection_updated
         __props__.__dict__["tfvc_checkin"] = tfvc_checkin
@@ -1316,6 +1355,14 @@ class ServicehookWebhookTfs(pulumi.CustomResource):
         Resource details to send - `all`, `minimal`, or `none`. Defaults to `all`.
         """
         return pulumi.get(self, "resource_details_to_send")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceVersion")
+    def resource_version(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The resource version for the webhook subscription. Defaults to `latest`.
+        """
+        return pulumi.get(self, "resource_version")
 
     @_builtins.property
     @pulumi.getter(name="serviceConnectionCreated")

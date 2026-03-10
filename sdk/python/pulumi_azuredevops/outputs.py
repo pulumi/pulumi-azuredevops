@@ -111,9 +111,13 @@ __all__ = [
     'VariableGroupKeyVault',
     'VariableGroupVariable',
     'WorkitemRelation',
+    'WorkitemtrackingFieldSupportedOperation',
     'WorkitemtrackingprocessControlContribution',
     'WorkitemtrackingprocessGroupControl',
     'WorkitemtrackingprocessGroupControlContribution',
+    'WorkitemtrackingprocessPageSection',
+    'WorkitemtrackingprocessRuleAction',
+    'WorkitemtrackingprocessRuleCondition',
     'WorkitemtrackingprocessWorkitemtypePage',
     'WorkitemtrackingprocessWorkitemtypePageSection',
     'WorkitemtrackingprocessWorkitemtypePageSectionGroup',
@@ -142,6 +146,9 @@ __all__ = [
     'GetPoolsAgentPoolResult',
     'GetProjectsProjectResult',
     'GetRepositoriesRepositoryResult',
+    'GetSecurityNamespaceActionResult',
+    'GetSecurityNamespacesNamespaceResult',
+    'GetSecurityNamespacesNamespaceActionResult',
     'GetSecurityroleDefinitionsDefinitionResult',
     'GetTeamsTeamResult',
     'GetUsersFeaturesResult',
@@ -755,6 +762,8 @@ class BranchPolicyMinReviewersSettings(dict):
             suggest = "allow_completion_with_rejects_or_waits"
         elif key == "lastPusherCannotApprove":
             suggest = "last_pusher_cannot_approve"
+        elif key == "onEachIterationRequireVote":
+            suggest = "on_each_iteration_require_vote"
         elif key == "onLastIterationRequireVote":
             suggest = "on_last_iteration_require_vote"
         elif key == "onPushResetAllVotes":
@@ -781,6 +790,7 @@ class BranchPolicyMinReviewersSettings(dict):
                  scopes: Sequence['outputs.BranchPolicyMinReviewersSettingsScope'],
                  allow_completion_with_rejects_or_waits: Optional[_builtins.bool] = None,
                  last_pusher_cannot_approve: Optional[_builtins.bool] = None,
+                 on_each_iteration_require_vote: Optional[_builtins.bool] = None,
                  on_last_iteration_require_vote: Optional[_builtins.bool] = None,
                  on_push_reset_all_votes: Optional[_builtins.bool] = None,
                  on_push_reset_approved_votes: Optional[_builtins.bool] = None,
@@ -790,10 +800,11 @@ class BranchPolicyMinReviewersSettings(dict):
         :param Sequence['BranchPolicyMinReviewersSettingsScopeArgs'] scopes: A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         :param _builtins.bool allow_completion_with_rejects_or_waits: Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
         :param _builtins.bool last_pusher_cannot_approve: Prohibit the most recent pusher from approving their own changes. Defaults to `false`.
-        :param _builtins.bool on_last_iteration_require_vote: On last iteration require vote. Defaults to `false`.
-        :param _builtins.bool on_push_reset_all_votes: When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+        :param _builtins.bool on_each_iteration_require_vote: Require at least one approval on every iteration. Defaults to `false`.
                
                > **Note:** If `on_push_reset_all_votes` is `true` then `on_push_reset_approved_votes` will be set to `true`. To enable `on_push_reset_approved_votes`, you need explicitly set `on_push_reset_all_votes` `false` or not configure.
+        :param _builtins.bool on_last_iteration_require_vote: On last iteration require vote. Defaults to `false`.
+        :param _builtins.bool on_push_reset_all_votes: When new changes are pushed reset all code reviewer votes. Defaults to `false`.
         :param _builtins.bool on_push_reset_approved_votes: When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
         :param _builtins.int reviewer_count: The number of reviewers needed to approve.
         :param _builtins.bool submitter_can_vote: Allow requesters to approve their own changes. Defaults to `false`.
@@ -803,6 +814,8 @@ class BranchPolicyMinReviewersSettings(dict):
             pulumi.set(__self__, "allow_completion_with_rejects_or_waits", allow_completion_with_rejects_or_waits)
         if last_pusher_cannot_approve is not None:
             pulumi.set(__self__, "last_pusher_cannot_approve", last_pusher_cannot_approve)
+        if on_each_iteration_require_vote is not None:
+            pulumi.set(__self__, "on_each_iteration_require_vote", on_each_iteration_require_vote)
         if on_last_iteration_require_vote is not None:
             pulumi.set(__self__, "on_last_iteration_require_vote", on_last_iteration_require_vote)
         if on_push_reset_all_votes is not None:
@@ -839,6 +852,16 @@ class BranchPolicyMinReviewersSettings(dict):
         return pulumi.get(self, "last_pusher_cannot_approve")
 
     @_builtins.property
+    @pulumi.getter(name="onEachIterationRequireVote")
+    def on_each_iteration_require_vote(self) -> Optional[_builtins.bool]:
+        """
+        Require at least one approval on every iteration. Defaults to `false`.
+
+        > **Note:** If `on_push_reset_all_votes` is `true` then `on_push_reset_approved_votes` will be set to `true`. To enable `on_push_reset_approved_votes`, you need explicitly set `on_push_reset_all_votes` `false` or not configure.
+        """
+        return pulumi.get(self, "on_each_iteration_require_vote")
+
+    @_builtins.property
     @pulumi.getter(name="onLastIterationRequireVote")
     def on_last_iteration_require_vote(self) -> Optional[_builtins.bool]:
         """
@@ -851,8 +874,6 @@ class BranchPolicyMinReviewersSettings(dict):
     def on_push_reset_all_votes(self) -> Optional[_builtins.bool]:
         """
         When new changes are pushed reset all code reviewer votes. Defaults to `false`.
-
-        > **Note:** If `on_push_reset_all_votes` is `true` then `on_push_reset_approved_votes` will be set to `true`. To enable `on_push_reset_approved_votes`, you need explicitly set `on_push_reset_all_votes` `false` or not configure.
         """
         return pulumi.get(self, "on_push_reset_all_votes")
 
@@ -5584,6 +5605,54 @@ class WorkitemRelation(dict):
 
 
 @pulumi.output_type
+class WorkitemtrackingFieldSupportedOperation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "referenceName":
+            suggest = "reference_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkitemtrackingFieldSupportedOperation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkitemtrackingFieldSupportedOperation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkitemtrackingFieldSupportedOperation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: Optional[_builtins.str] = None,
+                 reference_name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str name: The friendly name of the field. Changing this forces a new field to be created.
+        :param _builtins.str reference_name: The reference name of the field (e.g., `Custom.MyField`). Changing this forces a new field to be created.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if reference_name is not None:
+            pulumi.set(__self__, "reference_name", reference_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The friendly name of the field. Changing this forces a new field to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="referenceName")
+    def reference_name(self) -> Optional[_builtins.str]:
+        """
+        The reference name of the field (e.g., `Custom.MyField`). Changing this forces a new field to be created.
+        """
+        return pulumi.get(self, "reference_name")
+
+
+@pulumi.output_type
 class WorkitemtrackingprocessControlContribution(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -5898,6 +5967,144 @@ class WorkitemtrackingprocessGroupControlContribution(dict):
         A value indicating if the contribution should be shown on deleted work items. Default: `false`
         """
         return pulumi.get(self, "show_on_deleted_work_item")
+
+
+@pulumi.output_type
+class WorkitemtrackingprocessPageSection(dict):
+    def __init__(__self__, *,
+                 id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str id: The ID of the section.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the section.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class WorkitemtrackingprocessRuleAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionType":
+            suggest = "action_type"
+        elif key == "targetField":
+            suggest = "target_field"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkitemtrackingprocessRuleAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkitemtrackingprocessRuleAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkitemtrackingprocessRuleAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action_type: _builtins.str,
+                 target_field: _builtins.str,
+                 value: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str action_type: Type of action. Valid values: `makeRequired`, `makeReadOnly`, `setDefaultValue`, `setDefaultFromClock`, `setDefaultFromField`, `copyValue`, `copyFromClock`, `copyFromCurrentUser`, `copyFromField`, `setValueToEmpty`, `copyFromServerClock`, `copyFromServerCurrentUser`, `hideTargetField`, `disallowValue`.
+        :param _builtins.str target_field: Field (reference name) to act on.
+        :param _builtins.str value: Value to set on the target field.
+        """
+        pulumi.set(__self__, "action_type", action_type)
+        pulumi.set(__self__, "target_field", target_field)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> _builtins.str:
+        """
+        Type of action. Valid values: `makeRequired`, `makeReadOnly`, `setDefaultValue`, `setDefaultFromClock`, `setDefaultFromField`, `copyValue`, `copyFromClock`, `copyFromCurrentUser`, `copyFromField`, `setValueToEmpty`, `copyFromServerClock`, `copyFromServerCurrentUser`, `hideTargetField`, `disallowValue`.
+        """
+        return pulumi.get(self, "action_type")
+
+    @_builtins.property
+    @pulumi.getter(name="targetField")
+    def target_field(self) -> _builtins.str:
+        """
+        Field (reference name) to act on.
+        """
+        return pulumi.get(self, "target_field")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        """
+        Value to set on the target field.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class WorkitemtrackingprocessRuleCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "conditionType":
+            suggest = "condition_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkitemtrackingprocessRuleCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkitemtrackingprocessRuleCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkitemtrackingprocessRuleCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 condition_type: _builtins.str,
+                 field: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str condition_type: Type of condition. Valid values: `when`, `whenNot`, `whenChanged`, `whenNotChanged`, `whenWas`, `whenCurrentUserIsMemberOfGroup`, `whenCurrentUserIsNotMemberOfGroup`.
+        :param _builtins.str field: Field reference name for the condition. Required for most condition types.
+        :param _builtins.str value: Value to match for the condition.
+        """
+        pulumi.set(__self__, "condition_type", condition_type)
+        if field is not None:
+            pulumi.set(__self__, "field", field)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="conditionType")
+    def condition_type(self) -> _builtins.str:
+        """
+        Type of condition. Valid values: `when`, `whenNot`, `whenChanged`, `whenNotChanged`, `whenWas`, `whenCurrentUserIsMemberOfGroup`, `whenCurrentUserIsNotMemberOfGroup`.
+        """
+        return pulumi.get(self, "condition_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def field(self) -> Optional[_builtins.str]:
+        """
+        Field reference name for the condition. Required for most condition types.
+        """
+        return pulumi.get(self, "field")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        """
+        Value to match for the condition.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -7399,6 +7606,137 @@ class GetRepositoriesRepositoryResult(dict):
         Url of the Git repository web view
         """
         return pulumi.get(self, "web_url")
+
+
+@pulumi.output_type
+class GetSecurityNamespaceActionResult(dict):
+    def __init__(__self__, *,
+                 bit: _builtins.int,
+                 display_name: _builtins.str,
+                 name: _builtins.str):
+        """
+        :param _builtins.int bit: The bit value for this permission (used in permission calculations).
+        :param _builtins.str display_name: The display name of the action/permission.
+        :param _builtins.str name: The name of the security namespace.
+        """
+        pulumi.set(__self__, "bit", bit)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def bit(self) -> _builtins.int:
+        """
+        The bit value for this permission (used in permission calculations).
+        """
+        return pulumi.get(self, "bit")
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> _builtins.str:
+        """
+        The display name of the action/permission.
+        """
+        return pulumi.get(self, "display_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the security namespace.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetSecurityNamespacesNamespaceResult(dict):
+    def __init__(__self__, *,
+                 actions: Sequence['outputs.GetSecurityNamespacesNamespaceActionResult'],
+                 display_name: _builtins.str,
+                 id: _builtins.str,
+                 name: _builtins.str):
+        """
+        :param Sequence['GetSecurityNamespacesNamespaceActionArgs'] actions: A set of available actions (permissions) in this namespace. Each `action` block exports the following:
+        :param _builtins.str display_name: The display name of the action/permission.
+        :param _builtins.str id: The unique identifier (UUID) of the security namespace.
+        :param _builtins.str name: The name of the action/permission.
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def actions(self) -> Sequence['outputs.GetSecurityNamespacesNamespaceActionResult']:
+        """
+        A set of available actions (permissions) in this namespace. Each `action` block exports the following:
+        """
+        return pulumi.get(self, "actions")
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> _builtins.str:
+        """
+        The display name of the action/permission.
+        """
+        return pulumi.get(self, "display_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The unique identifier (UUID) of the security namespace.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the action/permission.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetSecurityNamespacesNamespaceActionResult(dict):
+    def __init__(__self__, *,
+                 bit: _builtins.int,
+                 display_name: _builtins.str,
+                 name: _builtins.str):
+        """
+        :param _builtins.int bit: The bit value for this permission (used in permission calculations).
+        :param _builtins.str display_name: The display name of the action/permission.
+        :param _builtins.str name: The name of the action/permission.
+        """
+        pulumi.set(__self__, "bit", bit)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def bit(self) -> _builtins.int:
+        """
+        The bit value for this permission (used in permission calculations).
+        """
+        return pulumi.get(self, "bit")
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> _builtins.str:
+        """
+        The display name of the action/permission.
+        """
+        return pulumi.get(self, "display_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the action/permission.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

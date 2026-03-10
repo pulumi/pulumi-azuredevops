@@ -12,18 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## *---
-//
-// layout: "azuredevops"
-// page_title: "AzureDevops: Team"
-// description: |-
-//
-//	Manages a team within a project in a Azure DevOps organization.
-//
-// ---
-//
-// # Team
-//
 // Manages a team within a project in a Azure DevOps organization.
 //
 // ## Example Usage

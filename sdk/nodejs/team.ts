@@ -5,16 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## *---
- *
- * layout: "azuredevops"
- * page_title: "AzureDevops: azuredevops.Team"
- * description: |-
- *   Manages a team within a project in a Azure DevOps organization.
- * ---
- *
- * # azuredevops.Team
- *
  * Manages a team within a project in a Azure DevOps organization.
  *
  * ## Example Usage

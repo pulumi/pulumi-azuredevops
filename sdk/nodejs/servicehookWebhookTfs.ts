@@ -179,6 +179,10 @@ export class ServicehookWebhookTfs extends pulumi.CustomResource {
      * Resource details to send - `all`, `minimal`, or `none`. Defaults to `all`.
      */
     declare public readonly resourceDetailsToSend: pulumi.Output<string | undefined>;
+    /**
+     * The resource version for the webhook subscription. Defaults to `latest`.
+     */
+    declare public readonly resourceVersion: pulumi.Output<string | undefined>;
     declare public readonly serviceConnectionCreated: pulumi.Output<outputs.ServicehookWebhookTfsServiceConnectionCreated | undefined>;
     declare public readonly serviceConnectionUpdated: pulumi.Output<outputs.ServicehookWebhookTfsServiceConnectionUpdated | undefined>;
     declare public readonly tfvcCheckin: pulumi.Output<outputs.ServicehookWebhookTfsTfvcCheckin | undefined>;
@@ -224,6 +228,7 @@ export class ServicehookWebhookTfs extends pulumi.CustomResource {
             resourceInputs["repositoryRenamed"] = state?.repositoryRenamed;
             resourceInputs["repositoryStatusChanged"] = state?.repositoryStatusChanged;
             resourceInputs["resourceDetailsToSend"] = state?.resourceDetailsToSend;
+            resourceInputs["resourceVersion"] = state?.resourceVersion;
             resourceInputs["serviceConnectionCreated"] = state?.serviceConnectionCreated;
             resourceInputs["serviceConnectionUpdated"] = state?.serviceConnectionUpdated;
             resourceInputs["tfvcCheckin"] = state?.tfvcCheckin;
@@ -260,6 +265,7 @@ export class ServicehookWebhookTfs extends pulumi.CustomResource {
             resourceInputs["repositoryRenamed"] = args?.repositoryRenamed;
             resourceInputs["repositoryStatusChanged"] = args?.repositoryStatusChanged;
             resourceInputs["resourceDetailsToSend"] = args?.resourceDetailsToSend;
+            resourceInputs["resourceVersion"] = args?.resourceVersion;
             resourceInputs["serviceConnectionCreated"] = args?.serviceConnectionCreated;
             resourceInputs["serviceConnectionUpdated"] = args?.serviceConnectionUpdated;
             resourceInputs["tfvcCheckin"] = args?.tfvcCheckin;
@@ -324,6 +330,10 @@ export interface ServicehookWebhookTfsState {
      * Resource details to send - `all`, `minimal`, or `none`. Defaults to `all`.
      */
     resourceDetailsToSend?: pulumi.Input<string>;
+    /**
+     * The resource version for the webhook subscription. Defaults to `latest`.
+     */
+    resourceVersion?: pulumi.Input<string>;
     serviceConnectionCreated?: pulumi.Input<inputs.ServicehookWebhookTfsServiceConnectionCreated>;
     serviceConnectionUpdated?: pulumi.Input<inputs.ServicehookWebhookTfsServiceConnectionUpdated>;
     tfvcCheckin?: pulumi.Input<inputs.ServicehookWebhookTfsTfvcCheckin>;
@@ -385,6 +395,10 @@ export interface ServicehookWebhookTfsArgs {
      * Resource details to send - `all`, `minimal`, or `none`. Defaults to `all`.
      */
     resourceDetailsToSend?: pulumi.Input<string>;
+    /**
+     * The resource version for the webhook subscription. Defaults to `latest`.
+     */
+    resourceVersion?: pulumi.Input<string>;
     serviceConnectionCreated?: pulumi.Input<inputs.ServicehookWebhookTfsServiceConnectionCreated>;
     serviceConnectionUpdated?: pulumi.Input<inputs.ServicehookWebhookTfsServiceConnectionUpdated>;
     tfvcCheckin?: pulumi.Input<inputs.ServicehookWebhookTfsTfvcCheckin>;

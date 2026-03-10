@@ -16,16 +16,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * ## *---
- * 
- * layout: &#34;azuredevops&#34;
- * page_title: &#34;AzureDevops: azuredevops.TeamAdministrators&#34;
- * description: |-
- *   Manages administrators of a team within a project in a Azure DevOps organization.
- * ---
- * 
- * # azuredevops.TeamAdministrators
- * 
  * Manages administrators of a team within a project in a Azure DevOps organization.
  * 
  * ## Example Usage

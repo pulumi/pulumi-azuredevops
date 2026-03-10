@@ -221,7 +221,9 @@ type ServicehookWebhookTfs struct {
 	RepositoryRenamed       ServicehookWebhookTfsRepositoryRenamedPtrOutput       `pulumi:"repositoryRenamed"`
 	RepositoryStatusChanged ServicehookWebhookTfsRepositoryStatusChangedPtrOutput `pulumi:"repositoryStatusChanged"`
 	// Resource details to send - `all`, `minimal`, or `none`. Defaults to `all`.
-	ResourceDetailsToSend    pulumi.StringPtrOutput                                 `pulumi:"resourceDetailsToSend"`
+	ResourceDetailsToSend pulumi.StringPtrOutput `pulumi:"resourceDetailsToSend"`
+	// The resource version for the webhook subscription. Defaults to `latest`.
+	ResourceVersion          pulumi.StringPtrOutput                                 `pulumi:"resourceVersion"`
 	ServiceConnectionCreated ServicehookWebhookTfsServiceConnectionCreatedPtrOutput `pulumi:"serviceConnectionCreated"`
 	ServiceConnectionUpdated ServicehookWebhookTfsServiceConnectionUpdatedPtrOutput `pulumi:"serviceConnectionUpdated"`
 	TfvcCheckin              ServicehookWebhookTfsTfvcCheckinPtrOutput              `pulumi:"tfvcCheckin"`
@@ -303,7 +305,9 @@ type servicehookWebhookTfsState struct {
 	RepositoryRenamed       *ServicehookWebhookTfsRepositoryRenamed       `pulumi:"repositoryRenamed"`
 	RepositoryStatusChanged *ServicehookWebhookTfsRepositoryStatusChanged `pulumi:"repositoryStatusChanged"`
 	// Resource details to send - `all`, `minimal`, or `none`. Defaults to `all`.
-	ResourceDetailsToSend    *string                                        `pulumi:"resourceDetailsToSend"`
+	ResourceDetailsToSend *string `pulumi:"resourceDetailsToSend"`
+	// The resource version for the webhook subscription. Defaults to `latest`.
+	ResourceVersion          *string                                        `pulumi:"resourceVersion"`
 	ServiceConnectionCreated *ServicehookWebhookTfsServiceConnectionCreated `pulumi:"serviceConnectionCreated"`
 	ServiceConnectionUpdated *ServicehookWebhookTfsServiceConnectionUpdated `pulumi:"serviceConnectionUpdated"`
 	TfvcCheckin              *ServicehookWebhookTfsTfvcCheckin              `pulumi:"tfvcCheckin"`
@@ -343,7 +347,9 @@ type ServicehookWebhookTfsState struct {
 	RepositoryRenamed       ServicehookWebhookTfsRepositoryRenamedPtrInput
 	RepositoryStatusChanged ServicehookWebhookTfsRepositoryStatusChangedPtrInput
 	// Resource details to send - `all`, `minimal`, or `none`. Defaults to `all`.
-	ResourceDetailsToSend    pulumi.StringPtrInput
+	ResourceDetailsToSend pulumi.StringPtrInput
+	// The resource version for the webhook subscription. Defaults to `latest`.
+	ResourceVersion          pulumi.StringPtrInput
 	ServiceConnectionCreated ServicehookWebhookTfsServiceConnectionCreatedPtrInput
 	ServiceConnectionUpdated ServicehookWebhookTfsServiceConnectionUpdatedPtrInput
 	TfvcCheckin              ServicehookWebhookTfsTfvcCheckinPtrInput
@@ -387,7 +393,9 @@ type servicehookWebhookTfsArgs struct {
 	RepositoryRenamed       *ServicehookWebhookTfsRepositoryRenamed       `pulumi:"repositoryRenamed"`
 	RepositoryStatusChanged *ServicehookWebhookTfsRepositoryStatusChanged `pulumi:"repositoryStatusChanged"`
 	// Resource details to send - `all`, `minimal`, or `none`. Defaults to `all`.
-	ResourceDetailsToSend    *string                                        `pulumi:"resourceDetailsToSend"`
+	ResourceDetailsToSend *string `pulumi:"resourceDetailsToSend"`
+	// The resource version for the webhook subscription. Defaults to `latest`.
+	ResourceVersion          *string                                        `pulumi:"resourceVersion"`
 	ServiceConnectionCreated *ServicehookWebhookTfsServiceConnectionCreated `pulumi:"serviceConnectionCreated"`
 	ServiceConnectionUpdated *ServicehookWebhookTfsServiceConnectionUpdated `pulumi:"serviceConnectionUpdated"`
 	TfvcCheckin              *ServicehookWebhookTfsTfvcCheckin              `pulumi:"tfvcCheckin"`
@@ -428,7 +436,9 @@ type ServicehookWebhookTfsArgs struct {
 	RepositoryRenamed       ServicehookWebhookTfsRepositoryRenamedPtrInput
 	RepositoryStatusChanged ServicehookWebhookTfsRepositoryStatusChangedPtrInput
 	// Resource details to send - `all`, `minimal`, or `none`. Defaults to `all`.
-	ResourceDetailsToSend    pulumi.StringPtrInput
+	ResourceDetailsToSend pulumi.StringPtrInput
+	// The resource version for the webhook subscription. Defaults to `latest`.
+	ResourceVersion          pulumi.StringPtrInput
 	ServiceConnectionCreated ServicehookWebhookTfsServiceConnectionCreatedPtrInput
 	ServiceConnectionUpdated ServicehookWebhookTfsServiceConnectionUpdatedPtrInput
 	TfvcCheckin              ServicehookWebhookTfsTfvcCheckinPtrInput
@@ -628,6 +638,11 @@ func (o ServicehookWebhookTfsOutput) RepositoryStatusChanged() ServicehookWebhoo
 // Resource details to send - `all`, `minimal`, or `none`. Defaults to `all`.
 func (o ServicehookWebhookTfsOutput) ResourceDetailsToSend() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServicehookWebhookTfs) pulumi.StringPtrOutput { return v.ResourceDetailsToSend }).(pulumi.StringPtrOutput)
+}
+
+// The resource version for the webhook subscription. Defaults to `latest`.
+func (o ServicehookWebhookTfsOutput) ResourceVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicehookWebhookTfs) pulumi.StringPtrOutput { return v.ResourceVersion }).(pulumi.StringPtrOutput)
 }
 
 func (o ServicehookWebhookTfsOutput) ServiceConnectionCreated() ServicehookWebhookTfsServiceConnectionCreatedPtrOutput {

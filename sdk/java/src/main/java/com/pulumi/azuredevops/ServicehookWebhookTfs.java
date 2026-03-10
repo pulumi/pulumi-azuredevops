@@ -440,6 +440,20 @@ public class ServicehookWebhookTfs extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> resourceDetailsToSend() {
         return Codegen.optional(this.resourceDetailsToSend);
     }
+    /**
+     * The resource version for the webhook subscription. Defaults to `latest`.
+     * 
+     */
+    @Export(name="resourceVersion", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> resourceVersion;
+
+    /**
+     * @return The resource version for the webhook subscription. Defaults to `latest`.
+     * 
+     */
+    public Output<Optional<String>> resourceVersion() {
+        return Codegen.optional(this.resourceVersion);
+    }
     @Export(name="serviceConnectionCreated", refs={ServicehookWebhookTfsServiceConnectionCreated.class}, tree="[0]")
     private Output</* @Nullable */ ServicehookWebhookTfsServiceConnectionCreated> serviceConnectionCreated;
 

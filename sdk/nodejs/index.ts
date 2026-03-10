@@ -100,6 +100,11 @@ export type Dashboard = import("./dashboard").Dashboard;
 export const Dashboard: typeof import("./dashboard").Dashboard = null as any;
 utilities.lazyLoad(exports, ["Dashboard"], () => require("./dashboard"));
 
+export { DeploymentGroupArgs, DeploymentGroupState } from "./deploymentGroup";
+export type DeploymentGroup = import("./deploymentGroup").DeploymentGroup;
+export const DeploymentGroup: typeof import("./deploymentGroup").DeploymentGroup = null as any;
+utilities.lazyLoad(exports, ["DeploymentGroup"], () => require("./deploymentGroup"));
+
 export { ElasticPoolArgs, ElasticPoolState } from "./elasticPool";
 export type ElasticPool = import("./elasticPool").ElasticPool;
 export const ElasticPool: typeof import("./elasticPool").ElasticPool = null as any;
@@ -239,6 +244,21 @@ export { GetRepositoriesArgs, GetRepositoriesResult, GetRepositoriesOutputArgs }
 export const getRepositories: typeof import("./getRepositories").getRepositories = null as any;
 export const getRepositoriesOutput: typeof import("./getRepositories").getRepositoriesOutput = null as any;
 utilities.lazyLoad(exports, ["getRepositories","getRepositoriesOutput"], () => require("./getRepositories"));
+
+export { GetSecurityNamespaceArgs, GetSecurityNamespaceResult, GetSecurityNamespaceOutputArgs } from "./getSecurityNamespace";
+export const getSecurityNamespace: typeof import("./getSecurityNamespace").getSecurityNamespace = null as any;
+export const getSecurityNamespaceOutput: typeof import("./getSecurityNamespace").getSecurityNamespaceOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityNamespace","getSecurityNamespaceOutput"], () => require("./getSecurityNamespace"));
+
+export { GetSecurityNamespaceTokenArgs, GetSecurityNamespaceTokenResult, GetSecurityNamespaceTokenOutputArgs } from "./getSecurityNamespaceToken";
+export const getSecurityNamespaceToken: typeof import("./getSecurityNamespaceToken").getSecurityNamespaceToken = null as any;
+export const getSecurityNamespaceTokenOutput: typeof import("./getSecurityNamespaceToken").getSecurityNamespaceTokenOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityNamespaceToken","getSecurityNamespaceTokenOutput"], () => require("./getSecurityNamespaceToken"));
+
+export { GetSecurityNamespacesResult } from "./getSecurityNamespaces";
+export const getSecurityNamespaces: typeof import("./getSecurityNamespaces").getSecurityNamespaces = null as any;
+export const getSecurityNamespacesOutput: typeof import("./getSecurityNamespaces").getSecurityNamespacesOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityNamespaces","getSecurityNamespacesOutput"], () => require("./getSecurityNamespaces"));
 
 export { GetSecurityroleDefinitionsArgs, GetSecurityroleDefinitionsResult, GetSecurityroleDefinitionsOutputArgs } from "./getSecurityroleDefinitions";
 export const getSecurityroleDefinitions: typeof import("./getSecurityroleDefinitions").getSecurityroleDefinitions = null as any;
@@ -467,6 +487,11 @@ export { ResourceAuthorizationArgs, ResourceAuthorizationState } from "./resourc
 export type ResourceAuthorization = import("./resourceAuthorization").ResourceAuthorization;
 export const ResourceAuthorization: typeof import("./resourceAuthorization").ResourceAuthorization = null as any;
 utilities.lazyLoad(exports, ["ResourceAuthorization"], () => require("./resourceAuthorization"));
+
+export { SecurityPermissionsArgs, SecurityPermissionsState } from "./securityPermissions";
+export type SecurityPermissions = import("./securityPermissions").SecurityPermissions;
+export const SecurityPermissions: typeof import("./securityPermissions").SecurityPermissions = null as any;
+utilities.lazyLoad(exports, ["SecurityPermissions"], () => require("./securityPermissions"));
 
 export { SecurityroleAssignmentArgs, SecurityroleAssignmentState } from "./securityroleAssignment";
 export type SecurityroleAssignment = import("./securityroleAssignment").SecurityroleAssignment;
@@ -778,15 +803,50 @@ export type WorkitemqueryFolder = import("./workitemqueryFolder").WorkitemqueryF
 export const WorkitemqueryFolder: typeof import("./workitemqueryFolder").WorkitemqueryFolder = null as any;
 utilities.lazyLoad(exports, ["WorkitemqueryFolder"], () => require("./workitemqueryFolder"));
 
+export { WorkitemtrackingFieldArgs, WorkitemtrackingFieldState } from "./workitemtrackingField";
+export type WorkitemtrackingField = import("./workitemtrackingField").WorkitemtrackingField;
+export const WorkitemtrackingField: typeof import("./workitemtrackingField").WorkitemtrackingField = null as any;
+utilities.lazyLoad(exports, ["WorkitemtrackingField"], () => require("./workitemtrackingField"));
+
 export { WorkitemtrackingprocessControlArgs, WorkitemtrackingprocessControlState } from "./workitemtrackingprocessControl";
 export type WorkitemtrackingprocessControl = import("./workitemtrackingprocessControl").WorkitemtrackingprocessControl;
 export const WorkitemtrackingprocessControl: typeof import("./workitemtrackingprocessControl").WorkitemtrackingprocessControl = null as any;
 utilities.lazyLoad(exports, ["WorkitemtrackingprocessControl"], () => require("./workitemtrackingprocessControl"));
 
+export { WorkitemtrackingprocessFieldArgs, WorkitemtrackingprocessFieldState } from "./workitemtrackingprocessField";
+export type WorkitemtrackingprocessField = import("./workitemtrackingprocessField").WorkitemtrackingprocessField;
+export const WorkitemtrackingprocessField: typeof import("./workitemtrackingprocessField").WorkitemtrackingprocessField = null as any;
+utilities.lazyLoad(exports, ["WorkitemtrackingprocessField"], () => require("./workitemtrackingprocessField"));
+
 export { WorkitemtrackingprocessGroupArgs, WorkitemtrackingprocessGroupState } from "./workitemtrackingprocessGroup";
 export type WorkitemtrackingprocessGroup = import("./workitemtrackingprocessGroup").WorkitemtrackingprocessGroup;
 export const WorkitemtrackingprocessGroup: typeof import("./workitemtrackingprocessGroup").WorkitemtrackingprocessGroup = null as any;
 utilities.lazyLoad(exports, ["WorkitemtrackingprocessGroup"], () => require("./workitemtrackingprocessGroup"));
+
+export { WorkitemtrackingprocessInheritedControlArgs, WorkitemtrackingprocessInheritedControlState } from "./workitemtrackingprocessInheritedControl";
+export type WorkitemtrackingprocessInheritedControl = import("./workitemtrackingprocessInheritedControl").WorkitemtrackingprocessInheritedControl;
+export const WorkitemtrackingprocessInheritedControl: typeof import("./workitemtrackingprocessInheritedControl").WorkitemtrackingprocessInheritedControl = null as any;
+utilities.lazyLoad(exports, ["WorkitemtrackingprocessInheritedControl"], () => require("./workitemtrackingprocessInheritedControl"));
+
+export { WorkitemtrackingprocessInheritedPageArgs, WorkitemtrackingprocessInheritedPageState } from "./workitemtrackingprocessInheritedPage";
+export type WorkitemtrackingprocessInheritedPage = import("./workitemtrackingprocessInheritedPage").WorkitemtrackingprocessInheritedPage;
+export const WorkitemtrackingprocessInheritedPage: typeof import("./workitemtrackingprocessInheritedPage").WorkitemtrackingprocessInheritedPage = null as any;
+utilities.lazyLoad(exports, ["WorkitemtrackingprocessInheritedPage"], () => require("./workitemtrackingprocessInheritedPage"));
+
+export { WorkitemtrackingprocessInheritedStateArgs, WorkitemtrackingprocessInheritedStateState } from "./workitemtrackingprocessInheritedState";
+export type WorkitemtrackingprocessInheritedState = import("./workitemtrackingprocessInheritedState").WorkitemtrackingprocessInheritedState;
+export const WorkitemtrackingprocessInheritedState: typeof import("./workitemtrackingprocessInheritedState").WorkitemtrackingprocessInheritedState = null as any;
+utilities.lazyLoad(exports, ["WorkitemtrackingprocessInheritedState"], () => require("./workitemtrackingprocessInheritedState"));
+
+export { WorkitemtrackingprocessListArgs, WorkitemtrackingprocessListState } from "./workitemtrackingprocessList";
+export type WorkitemtrackingprocessList = import("./workitemtrackingprocessList").WorkitemtrackingprocessList;
+export const WorkitemtrackingprocessList: typeof import("./workitemtrackingprocessList").WorkitemtrackingprocessList = null as any;
+utilities.lazyLoad(exports, ["WorkitemtrackingprocessList"], () => require("./workitemtrackingprocessList"));
+
+export { WorkitemtrackingprocessPageArgs, WorkitemtrackingprocessPageState } from "./workitemtrackingprocessPage";
+export type WorkitemtrackingprocessPage = import("./workitemtrackingprocessPage").WorkitemtrackingprocessPage;
+export const WorkitemtrackingprocessPage: typeof import("./workitemtrackingprocessPage").WorkitemtrackingprocessPage = null as any;
+utilities.lazyLoad(exports, ["WorkitemtrackingprocessPage"], () => require("./workitemtrackingprocessPage"));
 
 export { WorkitemtrackingprocessProcessArgs, WorkitemtrackingprocessProcessState } from "./workitemtrackingprocessProcess";
 export type WorkitemtrackingprocessProcess = import("./workitemtrackingprocessProcess").WorkitemtrackingprocessProcess;
@@ -797,6 +857,21 @@ export { WorkitemtrackingprocessProcessPermissionsArgs, WorkitemtrackingprocessP
 export type WorkitemtrackingprocessProcessPermissions = import("./workitemtrackingprocessProcessPermissions").WorkitemtrackingprocessProcessPermissions;
 export const WorkitemtrackingprocessProcessPermissions: typeof import("./workitemtrackingprocessProcessPermissions").WorkitemtrackingprocessProcessPermissions = null as any;
 utilities.lazyLoad(exports, ["WorkitemtrackingprocessProcessPermissions"], () => require("./workitemtrackingprocessProcessPermissions"));
+
+export { WorkitemtrackingprocessRuleArgs, WorkitemtrackingprocessRuleState } from "./workitemtrackingprocessRule";
+export type WorkitemtrackingprocessRule = import("./workitemtrackingprocessRule").WorkitemtrackingprocessRule;
+export const WorkitemtrackingprocessRule: typeof import("./workitemtrackingprocessRule").WorkitemtrackingprocessRule = null as any;
+utilities.lazyLoad(exports, ["WorkitemtrackingprocessRule"], () => require("./workitemtrackingprocessRule"));
+
+export { WorkitemtrackingprocessStateArgs, WorkitemtrackingprocessStateState } from "./workitemtrackingprocessState";
+export type WorkitemtrackingprocessState = import("./workitemtrackingprocessState").WorkitemtrackingprocessState;
+export const WorkitemtrackingprocessState: typeof import("./workitemtrackingprocessState").WorkitemtrackingprocessState = null as any;
+utilities.lazyLoad(exports, ["WorkitemtrackingprocessState"], () => require("./workitemtrackingprocessState"));
+
+export { WorkitemtrackingprocessSystemControlArgs, WorkitemtrackingprocessSystemControlState } from "./workitemtrackingprocessSystemControl";
+export type WorkitemtrackingprocessSystemControl = import("./workitemtrackingprocessSystemControl").WorkitemtrackingprocessSystemControl;
+export const WorkitemtrackingprocessSystemControl: typeof import("./workitemtrackingprocessSystemControl").WorkitemtrackingprocessSystemControl = null as any;
+utilities.lazyLoad(exports, ["WorkitemtrackingprocessSystemControl"], () => require("./workitemtrackingprocessSystemControl"));
 
 export { WorkitemtrackingprocessWorkitemtypeArgs, WorkitemtrackingprocessWorkitemtypeState } from "./workitemtrackingprocessWorkitemtype";
 export type WorkitemtrackingprocessWorkitemtype = import("./workitemtrackingprocessWorkitemtype").WorkitemtrackingprocessWorkitemtype;
@@ -855,6 +930,8 @@ const _module = {
                 return new CheckRestApi(name, <any>undefined, { urn })
             case "azuredevops:index/dashboard:Dashboard":
                 return new Dashboard(name, <any>undefined, { urn })
+            case "azuredevops:index/deploymentGroup:DeploymentGroup":
+                return new DeploymentGroup(name, <any>undefined, { urn })
             case "azuredevops:index/elasticPool:ElasticPool":
                 return new ElasticPool(name, <any>undefined, { urn })
             case "azuredevops:index/environment:Environment":
@@ -919,6 +996,8 @@ const _module = {
                 return new RepositoryPolicyReservedNames(name, <any>undefined, { urn })
             case "azuredevops:index/resourceAuthorization:ResourceAuthorization":
                 return new ResourceAuthorization(name, <any>undefined, { urn })
+            case "azuredevops:index/securityPermissions:SecurityPermissions":
+                return new SecurityPermissions(name, <any>undefined, { urn })
             case "azuredevops:index/securityroleAssignment:SecurityroleAssignment":
                 return new SecurityroleAssignment(name, <any>undefined, { urn })
             case "azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory":
@@ -1043,14 +1122,34 @@ const _module = {
                 return new Workitemquery(name, <any>undefined, { urn })
             case "azuredevops:index/workitemqueryFolder:WorkitemqueryFolder":
                 return new WorkitemqueryFolder(name, <any>undefined, { urn })
+            case "azuredevops:index/workitemtrackingField:WorkitemtrackingField":
+                return new WorkitemtrackingField(name, <any>undefined, { urn })
             case "azuredevops:index/workitemtrackingprocessControl:WorkitemtrackingprocessControl":
                 return new WorkitemtrackingprocessControl(name, <any>undefined, { urn })
+            case "azuredevops:index/workitemtrackingprocessField:WorkitemtrackingprocessField":
+                return new WorkitemtrackingprocessField(name, <any>undefined, { urn })
             case "azuredevops:index/workitemtrackingprocessGroup:WorkitemtrackingprocessGroup":
                 return new WorkitemtrackingprocessGroup(name, <any>undefined, { urn })
+            case "azuredevops:index/workitemtrackingprocessInheritedControl:WorkitemtrackingprocessInheritedControl":
+                return new WorkitemtrackingprocessInheritedControl(name, <any>undefined, { urn })
+            case "azuredevops:index/workitemtrackingprocessInheritedPage:WorkitemtrackingprocessInheritedPage":
+                return new WorkitemtrackingprocessInheritedPage(name, <any>undefined, { urn })
+            case "azuredevops:index/workitemtrackingprocessInheritedState:WorkitemtrackingprocessInheritedState":
+                return new WorkitemtrackingprocessInheritedState(name, <any>undefined, { urn })
+            case "azuredevops:index/workitemtrackingprocessList:WorkitemtrackingprocessList":
+                return new WorkitemtrackingprocessList(name, <any>undefined, { urn })
+            case "azuredevops:index/workitemtrackingprocessPage:WorkitemtrackingprocessPage":
+                return new WorkitemtrackingprocessPage(name, <any>undefined, { urn })
             case "azuredevops:index/workitemtrackingprocessProcess:WorkitemtrackingprocessProcess":
                 return new WorkitemtrackingprocessProcess(name, <any>undefined, { urn })
             case "azuredevops:index/workitemtrackingprocessProcessPermissions:WorkitemtrackingprocessProcessPermissions":
                 return new WorkitemtrackingprocessProcessPermissions(name, <any>undefined, { urn })
+            case "azuredevops:index/workitemtrackingprocessRule:WorkitemtrackingprocessRule":
+                return new WorkitemtrackingprocessRule(name, <any>undefined, { urn })
+            case "azuredevops:index/workitemtrackingprocessState:WorkitemtrackingprocessState":
+                return new WorkitemtrackingprocessState(name, <any>undefined, { urn })
+            case "azuredevops:index/workitemtrackingprocessSystemControl:WorkitemtrackingprocessSystemControl":
+                return new WorkitemtrackingprocessSystemControl(name, <any>undefined, { urn })
             case "azuredevops:index/workitemtrackingprocessWorkitemtype:WorkitemtrackingprocessWorkitemtype":
                 return new WorkitemtrackingprocessWorkitemtype(name, <any>undefined, { urn })
             default:
@@ -1077,6 +1176,7 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/checkExclusiveLock",
 pulumi.runtime.registerResourceModule("azuredevops", "index/checkRequiredTemplate", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/checkRestApi", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/dashboard", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/deploymentGroup", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/elasticPool", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/environment", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/environmentResourceKubernetes", _module)
@@ -1109,6 +1209,7 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/repositoryPolicyMaxF
 pulumi.runtime.registerResourceModule("azuredevops", "index/repositoryPolicyMaxPathLength", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/repositoryPolicyReservedNames", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/resourceAuthorization", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/securityPermissions", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/securityroleAssignment", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointArtifactory", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointAws", _module)
@@ -1171,10 +1272,20 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/workItemQueryPermiss
 pulumi.runtime.registerResourceModule("azuredevops", "index/workitem", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/workitemquery", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/workitemqueryFolder", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/workitemtrackingField", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/workitemtrackingprocessControl", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/workitemtrackingprocessField", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/workitemtrackingprocessGroup", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/workitemtrackingprocessInheritedControl", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/workitemtrackingprocessInheritedPage", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/workitemtrackingprocessInheritedState", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/workitemtrackingprocessList", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/workitemtrackingprocessPage", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/workitemtrackingprocessProcess", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/workitemtrackingprocessProcessPermissions", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/workitemtrackingprocessRule", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/workitemtrackingprocessState", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/workitemtrackingprocessSystemControl", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/workitemtrackingprocessWorkitemtype", _module)
 pulumi.runtime.registerResourcePackage("azuredevops", {
     version: utilities.getVersion(),

@@ -10,16 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps
 {
     /// <summary>
-    /// ## *---
-    /// 
-    /// layout: "azuredevops"
-    /// page_title: "AzureDevops: azuredevops.TeamAdministrators"
-    /// description: |-
-    ///   Manages administrators of a team within a project in a Azure DevOps organization.
-    /// ---
-    /// 
-    /// # azuredevops.TeamAdministrators
-    /// 
     /// Manages administrators of a team within a project in a Azure DevOps organization.
     /// 
     /// ## Example Usage

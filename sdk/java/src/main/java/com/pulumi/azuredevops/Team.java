@@ -16,16 +16,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * ## *---
- * 
- * layout: &#34;azuredevops&#34;
- * page_title: &#34;AzureDevops: azuredevops.Team&#34;
- * description: |-
- *   Manages a team within a project in a Azure DevOps organization.
- * ---
- * 
- * # azuredevops.Team
- * 
  * Manages a team within a project in a Azure DevOps organization.
  * 
  * ## Example Usage

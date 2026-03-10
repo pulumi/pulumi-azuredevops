@@ -25,6 +25,7 @@ from .check_exclusive_lock import *
 from .check_required_template import *
 from .check_rest_api import *
 from .dashboard import *
+from .deployment_group import *
 from .elastic_pool import *
 from .environment import *
 from .environment_resource_kubernetes import *
@@ -53,6 +54,9 @@ from .get_pools import *
 from .get_project import *
 from .get_projects import *
 from .get_repositories import *
+from .get_security_namespace import *
+from .get_security_namespace_token import *
+from .get_security_namespaces import *
 from .get_securityrole_definitions import *
 from .get_service_endpoint_azure_rm import *
 from .get_service_endpoint_github import *
@@ -99,6 +103,7 @@ from .repository_policy_max_file_size import *
 from .repository_policy_max_path_length import *
 from .repository_policy_reserved_names import *
 from .resource_authorization import *
+from .security_permissions import *
 from .securityrole_assignment import *
 from .service_endpoint_artifactory import *
 from .service_endpoint_aws import *
@@ -161,10 +166,20 @@ from .work_item_query_permissions import *
 from .workitem import *
 from .workitemquery import *
 from .workitemquery_folder import *
+from .workitemtracking_field import *
 from .workitemtrackingprocess_control import *
+from .workitemtrackingprocess_field import *
 from .workitemtrackingprocess_group import *
+from .workitemtrackingprocess_inherited_control import *
+from .workitemtrackingprocess_inherited_page import *
+from .workitemtrackingprocess_inherited_state import *
+from .workitemtrackingprocess_list import *
+from .workitemtrackingprocess_page import *
 from .workitemtrackingprocess_process import *
 from .workitemtrackingprocess_process_permissions import *
+from .workitemtrackingprocess_rule import *
+from .workitemtrackingprocess_state import *
+from .workitemtrackingprocess_system_control import *
 from .workitemtrackingprocess_workitemtype import *
 from ._inputs import *
 from . import outputs
@@ -329,6 +344,14 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/dashboard:Dashboard": "Dashboard"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/deploymentGroup",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/deploymentGroup:DeploymentGroup": "DeploymentGroup"
   }
  },
  {
@@ -585,6 +608,14 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/resourceAuthorization:ResourceAuthorization": "ResourceAuthorization"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/securityPermissions",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/securityPermissions:SecurityPermissions": "SecurityPermissions"
   }
  },
  {
@@ -1085,6 +1116,14 @@ _utilities.register(
  },
  {
   "pkg": "azuredevops",
+  "mod": "index/workitemtrackingField",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/workitemtrackingField:WorkitemtrackingField": "WorkitemtrackingField"
+  }
+ },
+ {
+  "pkg": "azuredevops",
   "mod": "index/workitemtrackingprocessControl",
   "fqn": "pulumi_azuredevops",
   "classes": {
@@ -1093,10 +1132,58 @@ _utilities.register(
  },
  {
   "pkg": "azuredevops",
+  "mod": "index/workitemtrackingprocessField",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/workitemtrackingprocessField:WorkitemtrackingprocessField": "WorkitemtrackingprocessField"
+  }
+ },
+ {
+  "pkg": "azuredevops",
   "mod": "index/workitemtrackingprocessGroup",
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/workitemtrackingprocessGroup:WorkitemtrackingprocessGroup": "WorkitemtrackingprocessGroup"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/workitemtrackingprocessInheritedControl",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/workitemtrackingprocessInheritedControl:WorkitemtrackingprocessInheritedControl": "WorkitemtrackingprocessInheritedControl"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/workitemtrackingprocessInheritedPage",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/workitemtrackingprocessInheritedPage:WorkitemtrackingprocessInheritedPage": "WorkitemtrackingprocessInheritedPage"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/workitemtrackingprocessInheritedState",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/workitemtrackingprocessInheritedState:WorkitemtrackingprocessInheritedState": "WorkitemtrackingprocessInheritedState"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/workitemtrackingprocessList",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/workitemtrackingprocessList:WorkitemtrackingprocessList": "WorkitemtrackingprocessList"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/workitemtrackingprocessPage",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/workitemtrackingprocessPage:WorkitemtrackingprocessPage": "WorkitemtrackingprocessPage"
   }
  },
  {
@@ -1113,6 +1200,30 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/workitemtrackingprocessProcessPermissions:WorkitemtrackingprocessProcessPermissions": "WorkitemtrackingprocessProcessPermissions"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/workitemtrackingprocessRule",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/workitemtrackingprocessRule:WorkitemtrackingprocessRule": "WorkitemtrackingprocessRule"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/workitemtrackingprocessState",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/workitemtrackingprocessState:WorkitemtrackingprocessState": "WorkitemtrackingprocessState"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/workitemtrackingprocessSystemControl",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/workitemtrackingprocessSystemControl:WorkitemtrackingprocessSystemControl": "WorkitemtrackingprocessSystemControl"
   }
  },
  {
